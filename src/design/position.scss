@@ -1,0 +1,44 @@
+@mixin position-abs($position: "center center", $add-space: false) {
+  $space: 0%;
+
+  @if $add-space {
+    $space: 1rem;
+  }
+
+  position: absolute;
+
+  @if $position == "top left" {
+    left: calc(0% + $space);
+    top: calc(0% + $space);
+  } @else if $position == "top right" {
+    right: calc(0% + $space);
+    top: calc(0% + $space);
+  } @else if $position == "bottom left" {
+    bottom: calc(0% + $space);
+    left: calc(0% + $space);
+  } @else if $position == "bottom right" {
+    bottom: calc(0% + $space);
+    right: calc(0% + $space);
+  } @else if $position == "center left" {
+    left: calc(0% + $space);
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $position == "center center" {
+    left: 50%;
+    right: calc(0% + $space);
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  } @else if $position == "center right" {
+    right: calc(0% + $space);
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $position == "top center" {
+    left: 50%;
+    top: calc(0% + $space);
+    transform: translateX(-50%);
+  } @else if $position == "bottom center" {
+    bottom: calc(0% + $space);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,38 @@
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/icon.scss';
+@use '../../design/button.scss';
+
+.input-wrapper {
+  @extend %center;
+  @extend %border;
+  height: 30px;
+  width: 100%;
+
+  &.focus {
+    background: colors.$light-gray;
+  }
+
+  input {
+    background: transparent;
+    border: 0;
+    color: colors.$black;
+    height: 28px;
+    outline: 0;
+    padding-left: 0.25rem;
+    width: calc(var(--width));
+  }
+}
+
+.input-icon {
+  @extend %icon-sm;
+}
+
+.input-clear {
+  @extend %icon-sm;
+  cursor: pointer;
+
+  &.hidden {
+    visibility: hidden;
+  }
+}

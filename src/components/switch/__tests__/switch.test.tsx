@@ -1,0 +1,27 @@
+import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import React from "react";
+import { Switch } from "../switch";
+
+const handler = jest.fn();
+
+describe("Switch", () => {
+  it("should render default", () => {
+    const { container } = render(<Switch />);
+    expect(container.firstChild).toBeInTheDocument();
+  });
+
+  it("should display toggle states", () => {
+    const { getByRole } = render(<Switch onChange={handler} />);
+
+    const switchItem = getByRole("switch");
+
+    userEvent.click(switchItem);
+    expect(handler).toBeCalledWith(true);
+    expect(switchItem.firstChild).toHaveClass("switch-on");
+
+    userEvent.click(switchItem);
+    expect(handler).toBeCalledWith(false);
+    expect(switchItem.firstChild).toHaveClass("switch-off");
+  });
+});

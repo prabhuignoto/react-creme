@@ -1,0 +1,135 @@
+@use "../../design/layout.scss";
+@use "../../design/position.scss";
+@use "../../design/button.scss";
+@use "../../design/animate.scss";
+@use "../../design/util.scss";
+
+.notification-wrapper {
+  $min-width: var(--min-width);
+  $min-height: var(--min-height);
+  $positions: (
+    "top-left": "top left",
+    "top-right": "top right",
+    "bottom-left": "bottom left",
+    "bottom-right": "bottom right",
+    "bottom-center": "bottom center",
+    "top-center": "top center",
+  );
+  $slide-pos-horizontal: util.negative($min-width);
+  $slide-pos-vertical: util.negative($min-height);
+
+  $slide-left-settings: (
+    from: (
+      left: $slide-pos-horizontal,
+      opacity: 0,
+    ),
+    to: (
+      left: 1rem,
+      opacity: 1,
+    ),
+  );
+
+  $slide-right-settings: (
+    from: (
+      right: $slide-pos-horizontal,
+      opacity: 0,
+    ),
+    to: (
+      right: 1rem,
+      opacity: 1,
+    ),
+  );
+
+  $slide-top-settings: (
+    from: (
+      top: $slide-pos-vertical,
+      opacity: 0,
+    ),
+    to: (
+      top: 1rem,
+      opacity: 1,
+    ),
+  );
+
+  $slide-bottom-settings: (
+    from: (
+      bottom: $slide-pos-vertical,
+      opacity: 0,
+    ),
+    to: (
+      bottom: 1rem,
+      opacity: 1,
+    ),
+  );
+
+  @extend %shadow-medium;
+  @extend %border-radius;
+  @extend %col;
+  @include animate.set-animation(0.25s);
+  min-height: $min-height;
+  min-width: $min-width;
+
+  @each $position, $position-val in $positions {
+    $new-position: left;
+    $slide-settings: ();
+
+    @if $position == "top-left" or $position == "bottom-left" {
+      $slide-settings: $slide-left-settings;
+    } @else if $position == "top-right" or $position == "bottom-right" {
+      $slide-settings: $slide-right-settings;
+      $new-position: right;
+    } @else if $position == "top-center" {
+      $slide-settings: $slide-top-settings;
+      $new-position: top;
+    } @else if $position == "bottom-center" {
+      $slide-settings: $slide-bottom-settings;
+      $new-position: bottom;
+    }
+
+    @include animate.keyframes-motion-multi(
+      notification-slide-#{$position}-enter,
+      $slide-settings
+    );
+    @include animate.keyframes-motion-multi(
+      notification-slide-#{$position}-exit,
+      $slide-settings,
+      true
+    );
+
+    &.notification-#{$position}-enter {
+      @include position.position-abs($position-val, true);
+      animation-name: notification-slide-#{$position}-enter;
+      #{$new-position}: 1rem;
+    }
+
+    &.notification-#{$position}-exit {
+      @include position.position-abs($position-val, true);
+      animation-name: notification-slide-#{$position}-exit;
+      #{$new-position}: $slide-pos-horizontal;
+    }
+  }
+}
+
+.notification-header {
+  @extend %center;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+.notification-title {
+  align-self: flex-start;
+  margin-right: auto;
+  padding-left: 1rem;
+}
+
+.notification-close-btn {
+  @extend %button-lg-no-border;
+  align-self: flex-end;
+  height: 1.5rem;
+  padding-right: 0.5rem;
+  width: 2rem;
+}
+
+.notification-content {
+  @extend %center;
+}

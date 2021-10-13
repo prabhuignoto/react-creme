@@ -1,0 +1,39 @@
+@use "../../design/layout.scss";
+@use "../../design/position.scss";
+@use "../../design/colors.scss";
+
+.image-comparer-wrapper {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.image-comparer-drag-handle {
+  @include position.position-abs("center center");
+  background: rgba(colors.$black, 0.75);
+  cursor: ew-resize;
+  height: 100%;
+  width: 4px;
+  z-index: 1;
+}
+
+.image-comparer-panel {
+  @include position.position-abs("center left");
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  img {
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+.image-comparer-panel-1 {
+  z-index: 0;
+}
+
+.image-comparer-panel-2 {
+  filter: grayscale(100%);
+  z-index: -1;
+}

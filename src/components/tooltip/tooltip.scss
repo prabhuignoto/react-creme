@@ -1,0 +1,81 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/animate.scss";
+
+.tooltip-wrapper {
+  @extend %center;
+  @extend %border;
+  position: relative;
+}
+
+.tooltip-message {
+  $animation: (
+    from: (
+      opacity: 0,
+      visibility: hidden,
+    ),
+    to: (
+      opacity: 1,
+      visibility: visible,
+    ),
+  );
+  $arrow-dim: 12px;
+
+  @extend %center;
+  @extend %border-radius;
+  @extend %shadow-medium;
+  @include animate.set-animation(0.25s);
+
+  @include animate.keyframes-motion-multi(animate-tooltip-show, $animation);
+  @include animate.keyframes-motion-multi(
+    animate-tooltip-close,
+    $animation,
+    true
+  );
+
+  min-width: var(--width);
+  padding: 1rem 0.5rem;
+  position: absolute;
+  visibility: hidden;
+  z-index: 999;
+
+  &.show-tooltip {
+    animation-name: animate-tooltip-show;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.hide-tooltip {
+    animation-name: animate-tooltip-close;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &::after {
+    background: colors.$white;
+    content: "";
+    display: block;
+    height: $arrow-dim;
+    position: absolute;
+    transform: rotate(45deg);
+    width: $arrow-dim;
+  }
+
+  &.tooltip-top::after {
+    bottom: calc($arrow-dim * -1 / 2);
+  }
+  &.tooltip-bottom::after {
+    top: calc($arrow-dim * -1 / 2);
+  }
+  &.tooltip-left::after {
+    right: calc($arrow-dim * -1 / 2);
+  }
+  &.tooltip-right::after {
+    left: calc($arrow-dim * -1 / 2);
+  }
+}
+
+.tooltip-host-content {
+  @extend %center;
+  z-index: -1;
+}

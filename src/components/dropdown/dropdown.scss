@@ -1,0 +1,41 @@
+@use "../../design/colors.scss";
+@use "../../design/layout.scss";
+@use "../../design/icon.scss";
+@use "../../design/list.scss";
+@use "../../design/animate.scss";
+
+.dropdown-wrapper {
+  min-width: 200px;
+  position: relative;
+  user-select: none;
+}
+
+.dropdown-value-container {
+  @extend %border;
+  @extend %shadow-inset;
+  cursor: pointer;
+  display: grid;
+  font-size: 14px;
+  grid-template-columns: 90% 10%;
+  height: 20px;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.dropdown-value {
+  @extend %text-no-wrap;
+  padding-left: 12px;
+  text-align: left;
+}
+
+.dropdown-chevron-icon {
+  @extend %icon-md;
+  margin-left: auto;
+  margin-right: 4px;
+  transition: transform 0.25s ease-in;
+}
+
+.dropdown-chevron-icon-rotate {
+  transform: rotate(180deg);
+  transition: transform 0.25s ease-in;
+}

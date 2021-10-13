@@ -1,0 +1,118 @@
+@use "../../design/layout.scss";
+@use "../../design/button.scss";
+@use "../../design/colors.scss";
+@use "../../design/animate.scss";
+@use "../../design/position.scss";
+@use "../../design/util.scss";
+
+.drawer-wrapper {
+  $min-width: var(--min-width);
+  $min-height: var(--min-height);
+
+  $positions: (
+    left: "center left",
+    right: "center right",
+    top: "top center",
+    bottom: "bottom center",
+  );
+
+  $slide-left-settings: (
+    from: (
+      left: util.negative($min-width),
+    ),
+    to: (
+      left: 0,
+    ),
+  );
+  $slide-top-settings: (
+    from: (
+      top: util.negative($min-height),
+    ),
+    to: (
+      top: 0,
+    ),
+  );
+  $slide-bottom-settings: (
+    from: (
+      bottom: util.negative($min-height),
+    ),
+    to: (
+      bottom: 0,
+    ),
+  );
+  $slide-right-settings: (
+    (
+      from: (
+        right: util.negative($min-width),
+      ),
+      to: (
+        right: 0,
+      ),
+    )
+  );
+
+  @extend %shadow-small;
+  @extend %top-center;
+  @include animate.set-animation(0.25s, ease-in);
+
+  background-color: colors.$white;
+  height: var(--min-height);
+  min-width: $min-width;
+  visibility: hidden;
+
+  @each $position, $val in $positions {
+    $slide-settings: ();
+
+    @if $position == top {
+      $slide-settings: $slide-top-settings;
+    } @else if $position == bottom {
+      $slide-settings: $slide-bottom-settings;
+    } @else if $position == left {
+      $slide-settings: $slide-left-settings;
+    } @else if $position == right {
+      $slide-settings: $slide-right-settings;
+    }
+
+    @include animate.keyframes-motion-multi(
+      slide-#{$position}-enter,
+      $slide-settings
+    );
+
+    @include animate.keyframes-motion-multi(
+      slide-#{$position}-exit,
+      $slide-settings,
+      true
+    );
+
+    &.#{$position} {
+      @include position.position-abs($val);
+
+      @if $position == top or $position == bottom {
+        min-width: 100%;
+      }
+    }
+
+    &.slide-#{$position}-enter {
+      animation-name: slide-#{$position}-enter;
+      #{$position}: 0;
+    }
+
+    &.slide-#{$position}-exit {
+      animation-name: slide-#{$position}-exit;
+
+      @if $position == left or $position == right {
+        #{$position}: util.negative($min-width);
+      } @else {
+        #{$position}: util.negative($min-height);
+      }
+    }
+  }
+
+  &.visible {
+    visibility: visible;
+  }
+}
+
+.drawer-close-btn {
+  @extend %button-lg;
+}

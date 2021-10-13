@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-prettier"
+  ],
+  "plugins": [
+    "stylelint-scss"
+  ]
+}

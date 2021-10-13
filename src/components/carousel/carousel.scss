@@ -1,0 +1,65 @@
+@use "../../design/button.scss";
+@use "../../design/icon.scss";
+@use "../../design/colors.scss";
+@use "../../design/list.scss";
+@use "../../design/layout.scss";
+
+.carousel-container {
+  @extend %border;
+  @extend %shadow-inset;
+  width: 100%;
+
+  &.carousel-container-horizontal {
+    @extend %col;
+  }
+  &.carousel-container-vertical {
+    @extend %center;
+  }
+}
+
+.carousel-wrapper {
+  min-height: var(--min-height);
+  overflow: hidden;
+  position: relative;
+  width: calc(100% - 3rem);
+}
+
+.carousel-track-wrapper {
+  @extend %center;
+  padding: 0.5rem 0;
+
+  &.carousel-track-wrapper-horizontal {
+    width: 100%;
+  }
+}
+
+.carousel {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.carousel-item {
+  @extend %center;
+  position: absolute;
+}
+
+.carousel-btn {
+  @extend %button-lg-no-border;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.carousel-btn-left {
+  left: 1rem;
+  transform: rotate(180deg) translateY(50%);
+}
+
+.carousel-btn-right {
+  right: 1rem;
+}

@@ -1,0 +1,30 @@
+@use "../../design/layout.scss";
+@use "../../design/list.scss";
+@use "../../design/icon.scss";
+@use "../../design/colors.scss";
+
+.bread-crumbs-wrapper {
+  @extend %list-horizontal;
+}
+
+.bread-crumb {
+  @extend %list-item;
+}
+
+.bread-crumb-icon {
+  @extend %icon-md;
+  margin-left: 0.5rem;
+
+  svg {
+    color: colors.$primary;
+  }
+}
+
+.bread-crumb-node {
+  @extend %center;
+  padding-bottom: 0.2rem;
+
+  a {
+    color: colors.$black;
+  }
+}

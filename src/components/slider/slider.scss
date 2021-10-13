@@ -1,0 +1,35 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/position.scss";
+
+.slider-wrapper {
+  @extend %center;
+  height: 5px;
+  min-width: 250px;
+}
+
+.slider-control {
+  @include position.position-abs("center left");
+  background: colors.$primary;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 16px;
+  position: absolute;
+  width: 16px;
+  z-index: 10;
+}
+
+.slider-track {
+  @extend %border-radius;
+  background: colors.$gray;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.slider-track-progress {
+  @extend %border-radius;
+  @include position.position-abs("center left");
+  background: colors.$secondary;
+  height: 100%;
+}

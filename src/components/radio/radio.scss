@@ -1,0 +1,80 @@
+@use "../../design/layout.scss";
+@use "../../design/position.scss";
+@use "../../design/icon.scss";
+@use "../../design/colors.scss";
+@use "../../design/animate.scss";
+@use "../../design/animations.scss";
+
+.radio-wrapper {
+  @extend %center;
+  user-select: none;
+
+  &.radio-disabled {
+    @extend %disabled;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+%pseudo-common {
+  background-color: colors.$primary;
+  border-radius: 50%;
+  content: "";
+  display: block;
+}
+
+.radio-icon {
+  @extend %icon-sm;
+  @extend %border;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+
+  &.radio-icon-checked::after {
+    @extend %shadow-inset;
+    @extend %pseudo-common;
+    @include position.position-abs("center center");
+    @include animate.set-animation(0.1s, ease-in);
+    animation-name: animate-radio-select;
+    background: colors.$primary;
+    height: 0.5rem;
+    width: 0.5rem;
+  }
+
+  &.radio-icon-checked::before {
+    @extend %pseudo-common;
+    @include animate.set-animation(0.2s, ease-in);
+    @include position.position-abs("center center");
+    @include animations.set-animation(halo, to);
+    animation-name: animation-halo;
+    background: rgba(colors.$primary, 0.1);
+  }
+
+  &.radio-icon-un-checked::before {
+    @extend %pseudo-common;
+    @include animate.set-animation(0.2s, ease-in);
+    @include position.position-abs("center center");
+    @include animations.set-animation(halo, from);
+    animation-name: animation-halo-reverse;
+    background: rgba(colors.$primary, 0.1);
+  }
+}
+
+.radio-label {
+  @extend %left;
+  padding-left: 0.5rem;
+}
+
+@include animate.keyframes-motion-multi(
+  animate-radio-select,
+  (
+    from: (
+      background: colors.$white,
+    ),
+    to: (
+      background: colors.$primary,
+    ),
+  )
+);

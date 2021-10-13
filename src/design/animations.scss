@@ -1,0 +1,61 @@
+@use "animate.scss";
+@use "sass:map";
+
+$animation-pop: (
+  from: (
+    opacity: 0,
+    transform: scale(1.1),
+    filter: blur(100px),
+  ),
+  to: (
+    opacity: 1,
+    transform: scale(1),
+    filter: blur(0),
+  ),
+);
+
+$animation-halo: (
+  from: (
+    height: 0,
+    width: 0,
+  ),
+  to: (
+    height: 2rem,
+    width: 2rem,
+  ),
+);
+
+@mixin set-animation($type, $key) {
+  $animation-setting: ();
+
+  @if $type == pop {
+    $animation-setting: $animation-pop;
+    @include setup-pop-animation();
+  } @else if $type == halo {
+    $animation-setting: $animation-halo;
+    @include setup-halo-animation();
+  }
+
+  @each $name, $value in map.get($animation-setting, $key) {
+    #{$name}: #{$value};
+  }
+}
+
+@mixin setup-pop-animation {
+  @include animate.keyframes-motion-multi(animation-pop-open, $animation-pop);
+
+  @include animate.keyframes-motion-multi(
+    animation-pop-close,
+    $animation-pop,
+    true
+  );
+}
+
+@mixin setup-halo-animation {
+  @include animate.keyframes-motion-multi(animation-halo, $animation-halo);
+  @include animate.keyframes-motion-multi(
+    animation-halo-reverse,
+    $animation-halo,
+    true
+  );
+}

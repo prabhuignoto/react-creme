@@ -1,0 +1,43 @@
+@use '../../design/layout.scss';
+@use '../../design/button.scss';
+
+.transfer-wrapper {
+  @extend %center;
+  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+  min-width: 400px;
+  padding: 0.5rem;
+}
+
+.transfer-column1 {
+  @extend %col;
+}
+
+.transfer-column2 {
+  @extend %col;
+}
+
+.transfer-control-column {
+  @extend %col;
+  align-self: center;
+}
+
+.transfer-btn {
+  @extend %button-sm;
+
+  &.left {
+    margin-top: 1rem;
+    transform: rotate(-180deg);
+  }
+
+  &.disabled {
+    @extend %disabled;
+  }
+}
+
+.transfer-search-input {
+  margin-left: auto;
+  margin-right: 0.5rem;
+  width: 80%;
+}

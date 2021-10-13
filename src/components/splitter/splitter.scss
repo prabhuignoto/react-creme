@@ -1,0 +1,46 @@
+@use "../../design/layout.scss";
+@use "../../design/position.scss";
+@use "../../design/colors.scss";
+
+.splitter-wrapper {
+  @extend %border;
+  @extend %shadow-inset;
+  height: 450px;
+  position: relative;
+  width: 950px;
+
+  &.splitter-wrapper-horizontal {
+    display: flex;
+  }
+
+  // &.splitter-wrapper-vertical {
+  // }
+}
+
+.splitter-control {
+  background: colors.$secondary;
+
+  &.splitter-control-horizontal {
+    @include position.position-abs("center left");
+    cursor: ew-resize;
+    height: 100%;
+    width: 4px;
+  }
+
+  &.splitter-control-vertical {
+    @include position.position-abs("top left");
+    cursor: ns-resize;
+    height: 4px;
+    width: 100%;
+  }
+}
+
+.splitter-partition {
+  @extend %center;
+  background: colors.$white;
+  overflow: auto;
+}
+
+.splitter-content {
+  width: 100%;
+}

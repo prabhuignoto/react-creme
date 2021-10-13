@@ -1,0 +1,60 @@
+@use "../../design/layout.scss";
+@use "../../design/icon.scss";
+@use "../../design/animate.scss";
+
+$item-height: 30px;
+
+.tree-item {
+  $max-height: var(--max-height);
+  @extend %left;
+
+  align-items: flex-start;
+  overflow: hidden;
+  width: 100%;
+
+  &.tree-item-exp {
+    max-height: $max-height;
+    transition: max-height 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  &.tree-item-collapsed {
+    max-height: $item-height;
+    transition: max-height 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+}
+
+.tree-item-icon {
+  @extend %icon-md;
+  @extend %left;
+  cursor: pointer;
+  padding-top: calc($item-height/6);
+
+  &.tree-item-icon-exp {
+    transform: rotate(90deg);
+  }
+
+  &.tree-item-icon-hide {
+    visibility: hidden;
+  }
+}
+
+.tree-item-name {
+  @extend %left;
+  font-size: 1rem;
+  height: 30px;
+  padding-left: 0.1rem;
+}
+
+.tree-item-child-container {
+  @extend %left;
+  align-items: flex-start;
+  overflow: hidden;
+  transition: opacity 0.2s ease-in;
+
+  &.tree-item-child-expanded {
+    opacity: 1;
+  }
+  &.tree-item-child-collapsed {
+    opacity: 0;
+  }
+}

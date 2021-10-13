@@ -1,0 +1,63 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/button.scss";
+@use "../../design/animate.scss";
+@use "../../design/position.scss";
+
+.overlay-wrapper {
+  @extend %center;
+  @include position.position-abs("center center");
+
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  &:not(.disable-backdrop) {
+    background-color: rgba(colors.$black, $alpha: 0.45);
+  }
+}
+
+.overlay-content-wrapper {
+  @extend %center;
+  height: 100%;
+  opacity: 0;
+
+  &:not(.disable-anim) {
+    @include animate.set-animation(0.25s, ease-in);
+  }
+
+  &.overlay-content-close {
+    animation-name: overlay-close;
+    opacity: 0;
+  }
+
+  &.overlay-content-open {
+    animation-name: overlay-open;
+    opacity: 1;
+  }
+}
+
+.overlay-close-btn {
+  @extend %button-lg-no-border;
+}
+
+$open-anime-settings: (
+  from: (
+    opacity: 0,
+  ),
+  to: (
+    opacity: 1,
+  ),
+);
+
+$close-anime-settings: (
+  from: (
+    opacity: 1,
+  ),
+  to: (
+    opacity: 0,
+  ),
+);
+
+@include animate.keyframes-motion-multi(overlay-open, $open-anime-settings);
+@include animate.keyframes-motion-multi(overlay-close, $close-anime-settings);

@@ -1,0 +1,85 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/animate.scss";
+@use "../../design/position.scss";
+
+$dimension: 18px;
+$start-left: 4px;
+$end-left: calc(100% - calc($start-left + $dimension));
+$switch-settings: (
+  from: (
+    left: $start-left,
+  ),
+  to: (
+    left: $end-left,
+  ),
+);
+
+@include animate.keyframes-motion-multi(switch-left-right, $switch-settings);
+@include animate.keyframes-motion-multi(
+  switch-right-left,
+  $switch-settings,
+  true
+);
+
+.switch {
+  min-width: var(--min-width);
+  padding: 0.25rem;
+}
+
+.switch-track {
+  @extend %border;
+  @extend %center;
+  border-radius: 20px;
+  cursor: pointer;
+  height: 25px;
+  position: relative;
+
+  &.switch-on {
+    background-color: colors.$primary;
+  }
+
+  &.switch-off {
+    background-color: colors.$gray;
+  }
+}
+
+.switch-highlight {
+  @extend %shadow-small;
+  @include animate.set-animation(0.2s);
+  @include position.position-abs("center left");
+  background-color: colors.$white;
+  border-radius: 50%;
+  display: block;
+  height: $dimension;
+  left: $start-left;
+  transition: background-color 0.1s ease;
+  width: $dimension;
+
+  &.switch-on {
+    @extend %shadow-small;
+    animation-name: switch-left-right;
+    left: $end-left;
+  }
+
+  &.switch-off {
+    animation-name: switch-right-left;
+    background-color: colors.$white;
+    left: $start-left;
+  }
+}
+
+.switch-label {
+  @extend %center;
+  display: block;
+
+  &.switch-label-on {
+    color: colors.$white;
+    margin-left: 6px;
+    margin-right: $dimension + $start-left + 2px;
+  }
+  &.switch-label-off {
+    margin-left: $dimension + $start-left + 2px;
+    margin-right: 6px;
+  }
+}

@@ -1,0 +1,11 @@
+@use "../../design/layout.scss";
+@use "../../design/list.scss";
+
+.radio-group-wrapper {
+  @extend %list-left;
+}
+
+.radio-group-item {
+  @extend %list-item-left;
+  margin: 0.5rem 0;
+}

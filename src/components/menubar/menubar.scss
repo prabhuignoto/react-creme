@@ -1,0 +1,77 @@
+@use "../../design/layout.scss";
+@use "../../design/list.scss";
+@use "../../design/position.scss";
+@use "../../design/animate.scss";
+@use "../../design/colors.scss";
+
+.menu-bar-wrapper {
+  @extend %border;
+  @extend %shadow-inset;
+
+  height: 40px;
+  min-width: var(--min-width);
+  outline: 0;
+
+  &.align-left {
+    @extend %list-horizontal-left;
+  }
+
+  &.align-right {
+    @extend %list-horizontal-right;
+  }
+}
+
+.menu-bar-item-wrapper {
+  @extend %center;
+  border: 1px solid transparent;
+  height: 100%;
+
+  &:hover {
+    background: colors.$light-bg;
+    border: 1px solid colors.$secondary;
+    cursor: pointer;
+  }
+
+  &:hover:last-child {
+    @extend %border-radius-right;
+  }
+
+  &:hover:first-child {
+    @extend %border-radius-left;
+  }
+
+  &.menu-bar-item-active {
+    @extend %border-no-radius;
+    background: colors.$secondary;
+  }
+
+  &.menu-bar-item-active:last-child {
+    @extend %border-radius-right;
+  }
+  &.menu-bar-item-active:first-child {
+    @extend %border-radius-left;
+  }
+}
+
+.menu-bar-menu-wrapper {
+  position: absolute;
+}
+
+.menu-bar-item-name {
+  @extend %center;
+  height: 100%;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.menu-bar-menu {
+  $animation: (
+    from: (
+      opacity: 0,
+    ),
+    to: (
+      opacity: 1,
+    ),
+  );
+  @extend %col;
+}

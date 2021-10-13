@@ -1,0 +1,53 @@
+@use "sass:map";
+
+@mixin keyframes-motion-multi($name, $attrs, $reverse: false) {
+  $from: from;
+  $to: to;
+
+  @if $reverse {
+    $from: to;
+    $to: from;
+  }
+  
+  @keyframes #{$name} {
+    #{$from} {
+      @each $name, $value in map.get($attrs, "from") {
+        #{$name}: #{$value};
+      }
+    }
+
+    #{$to} {
+      @each $name, $value in map.get($attrs, "to") {
+        #{$name}: #{$value};
+      }
+    }
+  }
+}
+
+%animation-default {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+}
+
+@mixin set-animation($dur: 0.5s, $timing-func: ease-in, $infinite: false) {
+  animation-duration: $dur;
+  animation-timing-function: $timing-func;
+
+  @if $infinite {
+    animation-iteration-count: infinite;
+  }
+}
+
+@mixin animate-motion($dur, $motion) {
+  @extend %animation-default;
+
+  @if $motion == "left-right" {
+    animation-name: left-right;
+  } @else if $motion == "right-left" {
+    animation-name: right-left;
+  } @else if $motion == "top-bottom" {
+    animation-name: top-bottom;
+  } @else if $motion == "bottom-top" {
+    animation-name: bottom-top;
+  }
+}

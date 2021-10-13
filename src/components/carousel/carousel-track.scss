@@ -1,0 +1,35 @@
+@use "../../design/layout.scss";
+@use "../../design/list.scss";
+@use "../../design/colors.scss";
+@use "../../design/icon.scss";
+
+.carousel-track {
+  &.carousel-track-horizontal {
+    @extend %center;
+    @extend %list-horizontal;
+  }
+  &.carousel-track-vertical {
+    @extend %list;
+    width: 3rem;
+  }
+}
+
+.carousel-track-item {
+  border: 1px solid colors.$primary;
+  border-radius: 50%;
+  height: 10px;
+  margin: 4px;
+  width: 10px;
+}
+
+.carousel-track-item:hover {
+  cursor: pointer;
+}
+
+.carousel-track-item-selected {
+  background: colors.$primary;
+}
+
+.carousel-icon {
+  @extend %icon-sm;
+}

@@ -1,0 +1,49 @@
+@use 'layout.scss';
+
+%list-common {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+%list {
+  @extend %list-common;
+  @include layout.get-flex(center);
+  flex-direction: column;
+}
+
+%list-left {
+  @extend %list-common;
+  @include layout.get-flex(center);
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+%list-horizontal {
+  @extend %list-common;
+  @include layout.get-flex(center);
+}
+
+%list-horizontal-left {
+  @extend %list-common;
+  @include layout.get-flex(flex-start);
+}
+
+%list-horizontal-right {
+  @extend %list-common;
+  @include layout.get-flex(flex-end);
+}
+
+%list-wrap {
+  @extend %list-common;
+  @include layout.get-flex(left, true);
+}
+
+%list-item {
+  @include layout.get-flex(center);
+  margin: 0.25rem;
+}
+
+%list-item-left {
+  @include layout.get-flex(left);
+}

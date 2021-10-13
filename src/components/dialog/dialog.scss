@@ -1,0 +1,64 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/button.scss";
+@use "../../design/animate.scss";
+@use "../../design/animations.scss";
+
+.dialog-wrapper {
+  @extend %col;
+  @extend %border;
+  @extend %shadow-inset;
+  @include animate.set-animation(0.2s);
+  background-color: colors.$white;
+  min-height: 300px;
+  min-width: 500px;
+
+  &.dialog-close {
+    @include animations.set-animation(pop, from);
+    animation-name: animation-pop-close;
+  }
+
+  &.dialog-open {
+    @include animations.set-animation(pop, to);
+    animation-name: animation-pop-open;
+  }
+}
+
+.header {
+  @extend %left;
+  margin: 0.25rem 0;
+  width: 100%;
+}
+
+.body {
+  @extend %center;
+}
+
+.footer {
+  @extend %right;
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  margin-top: auto;
+  width: 100%;
+
+  button:first-of-type {
+    margin-right: 0.5rem;
+  }
+}
+
+.dialog-btn {
+  @extend %button-sm;
+}
+
+.title {
+  @extend %center;
+  padding-left: 1rem;
+}
+
+.close {
+  @extend %button-lg-no-border;
+}
+
+.button-wrapper {
+  margin-left: auto;
+}
