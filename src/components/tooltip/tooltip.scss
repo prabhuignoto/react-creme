@@ -64,12 +64,15 @@
   &.tooltip-top::after {
     bottom: calc($arrow-dim * -1 / 2);
   }
+
   &.tooltip-bottom::after {
     top: calc($arrow-dim * -1 / 2);
   }
+
   &.tooltip-left::after {
     right: calc($arrow-dim * -1 / 2);
   }
+
   &.tooltip-right::after {
     left: calc($arrow-dim * -1 / 2);
   }

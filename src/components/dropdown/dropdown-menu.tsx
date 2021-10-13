@@ -20,10 +20,39 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
     open,
     onClose,
   }: DropdownMenuModel) => {
+    // STATE
     const [menuOptions, setMenuOptions] = useState(options);
     const firstRender = useRef(true);
+
+    // REF
     const menuRef = useRef<HTMLDivElement>(null);
 
+    // HANDLERS
+    const handleSearch = useCallback((val) => {
+      setMenuOptions((prev) =>
+        prev.map((item) => ({
+          ...item,
+          visible: val ? item.name.includes(val) : !val,
+        }))
+      );
+    }, []);
+
+    // EFFECTS
+    useEffect(() => {
+      if (firstRender.current) {
+        firstRender.current = false;
+      }
+    }, []);
+
+    useEffect(() => {
+      setTimeout(() => {
+        if (menuRef.current) {
+          menuRef.current.focus();
+        }
+      }, 200);
+    }, [open]);
+
+    // STYLES
     const menuStyle = useMemo(() => {
       return {
         "--menu-top": `${top || 0}px`,
@@ -43,29 +72,6 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
         ]),
       [open]
     );
-
-    const handleSearch = useCallback((val) => {
-      setMenuOptions((prev) =>
-        prev.map((item) => ({
-          ...item,
-          visible: val ? item.name.includes(val) : !val,
-        }))
-      );
-    }, []);
-
-    useEffect(() => {
-      if (firstRender.current) {
-        firstRender.current = false;
-      }
-    }, []);
-
-    useEffect(() => {
-      setTimeout(() => {
-        if (menuRef.current) {
-          menuRef.current.focus();
-        }
-      }, 200);
-    }, [open]);
 
     return (
       <div className={menuClass} style={menuStyle} tabIndex={0} ref={menuRef}>

@@ -12,7 +12,15 @@ import { MenuItemModel, MenuModel } from "./menu-model";
 import "./menu.scss";
 
 const Menu: React.FunctionComponent<MenuModel> = React.memo(
-  ({ children, closeManual, id, items, onClose, onOpen, onSelected }) => {
+  ({
+    children,
+    closeManual,
+    id,
+    items,
+    onClose,
+    onOpen,
+    onSelected,
+  }: MenuModel) => {
     const menuItems = useRef<MenuItemModel[]>(
       items.map((item) => ({
         id: nanoid(),

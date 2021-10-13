@@ -1,15 +1,17 @@
 export type MenuOption = Option & { visible: boolean };
 
 export interface DropdownMenuModel {
-  style: {
-    top?: number;
-    width?: number;
-    maxMenuHeight?: number;
-  };
+  style: DropdownMenuStyleModel;
   handleSelection: (val: string, id?: string) => void;
   open: boolean;
   options: MenuOption[];
   onClose?: () => void;
+}
+
+export interface DropdownMenuStyleModel {
+  top?: number;
+  width?: number;
+  maxMenuHeight?: number;
 }
 
 export interface Option {

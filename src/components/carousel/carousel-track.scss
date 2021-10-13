@@ -8,6 +8,7 @@
     @extend %center;
     @extend %list-horizontal;
   }
+
   &.carousel-track-vertical {
     @extend %list;
     width: 3rem;

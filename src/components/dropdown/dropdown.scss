@@ -5,9 +5,9 @@
 @use "../../design/animate.scss";
 
 .dropdown-wrapper {
-  min-width: 200px;
   position: relative;
   user-select: none;
+  width: 100%;
 }
 
 .dropdown-value-container {
@@ -16,7 +16,7 @@
   cursor: pointer;
   display: grid;
   font-size: 14px;
-  grid-template-columns: 90% 10%;
+  grid-template-columns: calc(100% - 2rem) 2rem;
   height: 20px;
   padding: 0.5rem 0;
   width: 100%;

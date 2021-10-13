@@ -12,6 +12,7 @@
   &.carousel-container-horizontal {
     @extend %col;
   }
+
   &.carousel-container-vertical {
     @extend %center;
   }

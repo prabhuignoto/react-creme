@@ -12,6 +12,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
   onSelected,
   maxMenuHeight = 200,
 }) => {
+  // STATES
   const [dropdownOptions, setDropdownOptions] = useState(
     options.map((option) => ({
       id: nanoid(),
@@ -20,13 +21,13 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
       visible: true,
     }))
   );
-
   const [value, setValue] = useState(placeholder);
-
   const [showMenu, setShowMenu] = useState(false);
 
+  // REFS
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // HANDLERS
   const handleSelection = useCallback((val, id) => {
     setValue(val);
     setDropdownOptions((options) =>
@@ -46,6 +47,14 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
     setShowMenu((prev) => !prev);
   }, []);
 
+  const handleBlur = useCallback((ev: React.FocusEvent) => {
+    console.log(ev.relatedTarget);
+    if (!ev.relatedTarget) {
+      setShowMenu(false);
+    }
+  }, []);
+
+  // STYLES
   const menuStyle = useMemo(() => {
     if (containerRef.current) {
       const { clientHeight, clientWidth } = containerRef.current;
@@ -57,12 +66,6 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
     }
     return {};
   }, [showMenu]);
-
-  const handleBlur = useCallback((ev: React.FocusEvent) => {
-    if (!ev.relatedTarget) {
-      setShowMenu(false);
-    }
-  }, []);
 
   return (
     <div className={"dropdown-wrapper"} tabIndex={0} onBlur={handleBlur}>
