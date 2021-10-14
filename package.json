@@ -19,7 +19,8 @@
     "lint:all": "yarn run eslint && yarn run lint:css && yarn run prettier:check",
     "fix:css": "npx stylelint ./src/**/*.scss --fix",
     "test": "jest --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "ci": "yarn lint:all && yarn test -- --runInBand"
   },
   "dependencies": {
     "classnames": "^2.3.1",

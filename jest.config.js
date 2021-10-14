@@ -8,5 +8,9 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: "coverage",
   setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
-  testPathIgnorePatterns: ["<rootDir>/node_modules", "<rootDir>/src/icons"]
+  testPathIgnorePatterns: [
+    "<rootDir>/node_modules",
+    "<rootDir>/src/icons",
+    "dist",
+  ],
 };
