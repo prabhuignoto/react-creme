@@ -59,9 +59,18 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   );
 };
 
-const withOverlay = function <T extends OverlayModel>(
+// type OverlayFunc = <T extends OverlayModel>(Node: React.FunctionComponent<T>,
+//    settings: { disableAnimation?: boolean; disableBackdrop?: boolean }) => React.FunctionComponent;
+
+type Settings = { disableAnimation?: boolean; disableBackdrop?: boolean };
+type OverlayFunc = <U extends OverlayModel>(
+  Node: React.FunctionComponent<U>,
+  settings: Settings
+) => void;
+
+const withOverlay: OverlayFunc = function <T extends OverlayModel>(
   Node: React.FunctionComponent<T>,
-  settings: { disableAnimation?: boolean; disableBackdrop?: boolean }
+  settings: Settings = { disableAnimation: false, disableBackdrop: false }
 ) {
   return (props: T) => {
     const classPrefix = useRef("overlay");

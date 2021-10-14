@@ -4,7 +4,6 @@ import resolve from "@rollup/plugin-node-resolve";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import BemLinter from "postcss-bem-linter";
-import CSSModules from "postcss-modules";
 import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
@@ -70,8 +69,7 @@ export default {
           preset: "default",
         }),
         autoprefixer,
-        BemLinter,
-        CSSModules,
+        BemLinter
       ],
       sourceMap: false,
       extract: true,

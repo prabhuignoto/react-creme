@@ -1,5 +1,5 @@
 {
-  "name": "react-phalladium",
+  "name": "react-creme",
   "version": "0.1.0",
   "author": {
     "name": "Prabhu Murthy",
@@ -62,7 +62,6 @@
     "lint-staged": "^11.2.3",
     "postcss": "^8.3.9",
     "postcss-bem-linter": "^3.3.0",
-    "postcss-modules": "^4.2.2",
     "postcss-prefixer": "^2.1.3",
     "prettier": "^2.4.1",
     "rollup": "^2.58.0",
@@ -92,6 +91,9 @@
       "git add"
     ]
   },
+  "files": [
+    "dist"
+  ],
   "browserslist": [
     "last 3 versions",
     "not ie <= 11",
