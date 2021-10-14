@@ -2,23 +2,39 @@
 @use "../../design/position.scss";
 @use "../../design/colors.scss";
 
-.image-comparer-wrapper {
+.img-comparer-wrapper {
   height: 100%;
   position: relative;
   width: 100%;
 }
 
-.image-comparer-drag-handle {
+.img-comparer-drag-handle {
   @include position.position-abs("center center");
-  background: rgba(colors.$black, 0.75);
+  background: rgba(colors.$secondary, 1);
   cursor: ew-resize;
   height: 100%;
   width: 4px;
-  z-index: 1;
+  z-index: 2;
+
+  &::after {
+    @include position.position-abs("center center");
+    background: colors.$secondary;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 }
 
-.image-comparer-panel {
-  @include position.position-abs("center left");
+.img-comparer-drag-handle-horizontal {
+  cursor: ns-resize;
+  height: 4px;
+  width: 100%;
+}
+
+.img-comparer-panel {
+  @include position.position-abs("left center");
   height: 100%;
   overflow: hidden;
   width: 100%;
@@ -29,11 +45,11 @@
   }
 }
 
-.image-comparer-panel-1 {
-  z-index: 0;
+.img-comparer-panel-1 {
+  z-index: 1;
 }
 
-.image-comparer-panel-2 {
+.img-comparer-panel-2 {
   filter: grayscale(100%);
-  z-index: -1;
+  z-index: 0;
 }

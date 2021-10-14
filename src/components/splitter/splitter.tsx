@@ -9,10 +9,10 @@ const round = Math.round;
 const Splitter: React.FunctionComponent<SplitterModel> = ({
   dir = "horizontal",
   children,
-  minSplitWidth = 150,
-  maxSplitWidth = 600,
-  minSplitHeight = 100,
-  maxSplitHeight = 200,
+  minSplitWidth = 350,
+  maxSplitWidth = 650,
+  minSplitHeight = 200,
+  maxSplitHeight = 300,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const controlRef = useRef<HTMLSpanElement>(null);
@@ -21,6 +21,8 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
     direction: dir,
     maxX: maxSplitWidth,
     maxY: maxSplitHeight,
+    minX: minSplitWidth,
+    minY: minSplitHeight,
   });
 
   const canSplit = useMemo(() => {
@@ -82,6 +84,7 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
   useEffect(() => {
     if (wrapperRef.current) {
       const { clientWidth, clientHeight } = wrapperRef.current;
+
       let percent = 0;
 
       if (dir === "horizontal") {

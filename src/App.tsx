@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { RadioGroup } from "./components";
+import { ImageComparer, Splitter } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -145,10 +145,10 @@ function App() {
 
       {/* <Radio label="check" /> */}
 
-      <RadioGroup
+      {/* <RadioGroup
         items={["one", "two", "three"]}
         onSelected={(val) => console.log(val)}
-      />
+      /> */}
 
       {/* <Tree
         items={[
@@ -262,34 +262,33 @@ function App() {
         <Slider start={1} end={180} onChange={(val) => console.log(val)} />
       </div> */}
 
-      {/* <Splitter dir="horizontal" minSplitWidth={200} maxSplitWidth={1200}>
-        <p>
-          Contrary to popular belief, Lorem Ipsum is not simply random text. It
-          has roots in a piece of classical Latin literature from 45 BC, making
-          it over 2000 years old. Richard McClintock, a Latin professor at
-          Hampden-Sydney College in Virginia, looked up one of the more obscure
-          Latin words, consectetur, from a Lorem Ipsum passage, and going
-          through the cites of the word in classical literature, discovered the
-          undoubtable source.
-        </p>
-        <p>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don't look even slightly believable.
-          If you are going to use a passage of Lorem Ipsum, you need to be sure
-          there isn't anything embarrassing hidden in the middle of text. All
-          the Lorem Ipsum generators on the Internet tend to repeat predefined
-          chunks as necessary, making this the first true generator on the
-          Internet.
-        </p>
-      </Splitter> */}
-
-      {/* <div style={{ width: "980px", height: "700px" }}>
-        <ImageComparer>
+      <div style={{ width: "1280px", height: "950px" }}>
+        {/* <ImageComparer>
           <img src="https://images.unsplash.com/photo-1634053605092-f34639dc76db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" />
           <img src="https://images.unsplash.com/photo-1634053605092-f34639dc76db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" />
-        </ImageComparer>
-      </div> */}
+        </ImageComparer> */}
+        <Splitter dir="horizontal">
+          <p>
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock, a Latin professor
+            at Hampden-Sydney College in Virginia, looked up one of the more
+            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+            going through the cites of the word in classical literature,
+            discovered the undoubtable source.
+          </p>
+          <p>
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority have suffered alteration in some form, by injected
+            humour, or randomised words which don't look even slightly
+            believable. If you are going to use a passage of Lorem Ipsum, you
+            need to be sure there isn't anything embarrassing hidden in the
+            middle of text. All the Lorem Ipsum generators on the Internet tend
+            to repeat predefined chunks as necessary, making this the first true
+            generator on the Internet.
+          </p>
+        </Splitter>
+      </div>
     </div>
   );
 }

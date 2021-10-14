@@ -7,14 +7,11 @@
   @extend %shadow-inset;
   height: 450px;
   position: relative;
-  width: 950px;
+  width: 100%;
 
   &.splitter-wrapper-horizontal {
     display: flex;
   }
-
-  // &.splitter-wrapper-vertical {
-  // }
 }
 
 .splitter-control {

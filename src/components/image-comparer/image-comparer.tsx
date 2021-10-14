@@ -1,7 +1,9 @@
+import classNames from "classnames";
 import React, {
   CSSProperties,
   ReactNode,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -17,6 +19,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
 }) => {
   const panelRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef(null);
+  const isFirstRender = useRef(true);
 
   const [percent] = useDrag(panelRef, dragRef, {
     direction: "horizontal",
@@ -25,29 +28,41 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   const [style, setStyle] = useState<CSSProperties>({});
 
   useEffect(() => {
-    const percentToUse = percent || 0.5;
-
-    if (panelRef.current) {
-      setStyle({
-        width:
-          Math.round(percentToUse * panelRef.current.clientWidth) - 4 ||
-          Math.round(panelRef.current.clientWidth * 0.5),
-      });
+    if (!panelRef.current) {
+      return;
     }
+
+    const { clientWidth } = panelRef.current;
+
+    const percentToUse = !percent && isFirstRender.current ? 0.5 : percent;
+
+    setStyle({
+      width:
+        Math.round(percentToUse * clientWidth) - 4 ||
+        Math.round(clientWidth * 0.5),
+    });
   }, [panelRef, percent]);
 
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+    }
+  }, []);
+
+  const dragHandleClass = useMemo(
+    () => classNames("img-comparer-drag-handle"),
+    []
+  );
+
   return (
-    <div className="image-comparer-wrapper" ref={panelRef}>
-      <div
-        className="image-comparer-panel image-comparer-panel-1"
-        style={style}
-      >
+    <div className="img-comparer-wrapper" ref={panelRef}>
+      <div className="img-comparer-panel img-comparer-panel-1" style={style}>
         {children[0]}
       </div>
-      <div className="image-comparer-panel image-comparer-panel-2">
+      <div className="img-comparer-panel img-comparer-panel-2">
         {children[1]}
       </div>
-      <span className="image-comparer-drag-handle" ref={dragRef}></span>
+      <span className={dragHandleClass} ref={dragRef}></span>
     </div>
   );
 };

@@ -14,20 +14,21 @@ type functionType = (
   settings: {
     direction: "horizontal" | "vertical";
     maxX?: number;
+    minX?: number;
+    minY?: number;
     maxY?: number;
   }
 ) => [number, Dispatch<SetStateAction<number>>];
 
+const { max, min } = Math;
+
 const useDrag: functionType = (
   container,
   target,
-  { direction, maxX, maxY }
+  { direction, maxX, maxY, minX = 0, minY = 0 }
 ) => {
   const dragStarted = useRef(false);
   const [percent, setPercent] = useState(0);
-
-  const leftValue = useRef(0);
-  const topValue = useRef(0);
 
   const maxXValue = useRef<number>(0);
   const maxYValue = useRef<number>(0);
@@ -46,33 +47,37 @@ const useDrag: functionType = (
   const handleDrag = useCallback((ev: MouseEvent) => {
     ev.preventDefault();
     if (dragStarted.current && target.current && container.current) {
-      const { clientWidth: containerWidth, clientHeight: containerHeight } =
+      const { clientWidth: parentWidth, clientHeight: parentHeight } =
         container.current;
-      const { left: containerLeft, top: containerTop } =
+      const { left: parentLeft, top: parentTop } =
         container.current.getBoundingClientRect();
       const { clientWidth: targetWidth, clientHeight: targetHeight } =
         target.current;
 
       if (direction === "horizontal") {
-        const left = Math.max(0, ev.clientX - (containerLeft || 0));
+        const left = max(0, ev.clientX - (parentLeft || 0));
 
         if (left === 0) {
           setPercent(0);
-        } else if (left + targetWidth <= maxXValue.current) {
+        } else if (
+          left + targetWidth <= maxXValue.current &&
+          left + targetWidth >= minX
+        ) {
           target.current.style.left = `${left}px`;
-          leftValue.current = left;
 
-          const percent = (left + targetWidth) / containerWidth;
+          const percent = (left + targetWidth) / parentWidth;
           setPercent(percent);
         }
       } else if (direction === "vertical") {
-        const top = Math.max(0, ev.clientY - (containerTop || 0));
+        const top = max(0, ev.clientY - (parentTop || 0));
 
-        if (top + targetHeight <= maxYValue.current) {
+        if (
+          top + targetHeight <= maxYValue.current &&
+          top + targetHeight >= minY
+        ) {
           target.current.style.top = `${top}px`;
-          topValue.current = top;
 
-          const percent = (top + targetHeight) / containerHeight;
+          const percent = (top + targetHeight) / parentHeight;
           setPercent(percent);
         }
       }
@@ -88,20 +93,21 @@ const useDrag: functionType = (
       return;
     }
 
+    const { clientHeight, clientWidth } = container.current;
     if (!maxX) {
-      maxXValue.current = container.current.clientWidth;
+      maxXValue.current = clientWidth;
     } else {
-      maxXValue.current = maxX;
+      maxXValue.current = min(maxX, clientWidth);
     }
 
     if (!maxY) {
-      maxYValue.current = container.current.clientHeight;
+      maxYValue.current = clientHeight;
     } else {
-      maxYValue.current = maxY;
+      maxYValue.current = min(maxY, clientHeight);
     }
 
     document.addEventListener("mousemove", handleDrag);
-    document.addEventListener("mousedown", handleDragStart, { capture: true });
+    document.addEventListener("mousedown", handleDragStart);
     document.addEventListener("mouseup", handleDragEnd);
 
     return () => {
