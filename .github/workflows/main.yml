@@ -23,3 +23,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn install --frozen-lockfile
     - run: yarn ci
+    
+    - name: Super-Linter
+      uses: github/super-linter@v4.8.1
