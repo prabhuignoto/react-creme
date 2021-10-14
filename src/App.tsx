@@ -218,7 +218,8 @@ function App() {
 
       <MenuBar
         onSelected={(val) => console.log(val)}
-        width={800}        align="right"
+        width={800}
+        align="right"
         items={[
           { name: "File", menu: [{ name: "prabhuy" }, { name: "tester" }] },
           {
