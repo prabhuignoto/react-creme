@@ -1,6 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn eslint
-yarn lint:css
 yarn format
+yarn ci

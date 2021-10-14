@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634237588142" clover="3.2.0">
-  <project timestamp="1634237588142" name="All files">
-    <metrics statements="453" coveredstatements="422" conditionals="209" coveredconditionals="142" methods="153" coveredmethods="135" elements="815" coveredelements="699" complexity="0" loc="453" ncloc="453" packages="15" files="26" classes="26"/>
+<coverage generated="1634242448375" clover="3.2.0">
+  <project timestamp="1634242448376" name="All files">
+    <metrics statements="453" coveredstatements="422" conditionals="205" coveredconditionals="139" methods="153" coveredmethods="135" elements="811" coveredelements="696" complexity="0" loc="453" ncloc="453" packages="15" files="26" classes="26"/>
     <package name="components.breadcrumb">
       <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
       <file name="breadcrumb.tsx" path="D:\Projects\2020\react-phalladium\src\components\breadcrumb\breadcrumb.tsx">
@@ -19,18 +19,18 @@
       </file>
     </package>
     <package name="components.button">
-      <metrics statements="9" coveredstatements="9" conditionals="7" coveredconditionals="5" methods="2" coveredmethods="2"/>
+      <metrics statements="9" coveredstatements="9" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="button.tsx" path="D:\Projects\2020\react-phalladium\src\components\button\button.tsx">
-        <metrics statements="9" coveredstatements="9" conditionals="7" coveredconditionals="5" methods="2" coveredmethods="2"/>
+        <metrics statements="9" coveredstatements="9" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="17" count="4" type="stmt"/>
-        <line num="30" count="4" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.carousel">

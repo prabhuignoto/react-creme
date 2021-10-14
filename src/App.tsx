@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { Button, Dialog } from "./components";
+import { Button } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -68,9 +68,14 @@ function App() {
           <span>1233</span>
         </Carousel>
       </div> */}
-      <Button label="save as new" />
-      <Button label="save as new" type="primary" />
-      <Button label="save as new" type="danger" />
+      <Button label="save as new" disabled onClick={() => alert("rama")} />
+      <Button
+        label="save as new"
+        type="primary"
+        onClick={() => alert("rama")}
+      />
+      <Button label="save as new" type="danger" onClick={() => alert("rama")} />
+      <Button label="save as new" type="danger" onClick={() => alert("rama")} />
       {/* <div
         style={{
           height: "600px",

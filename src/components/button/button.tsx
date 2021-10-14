@@ -17,6 +17,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
       classNames([`button-${type}`], {
         "button-label-icon": type !== "icon",
         "button-comp-no-border": type !== "default",
+        "button-disabled": disabled,
       }),
     []
   );

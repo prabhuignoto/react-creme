@@ -11,12 +11,7 @@ describe("Button", () => {
     const button = container.firstChild;
 
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("button-comp");
-  });
-
-  it("should render border-less", () => {
-    const { container } = render(<Button borderLess />);
-    expect(container.firstChild).toHaveClass("button-comp-no-border");
+    expect(button).toHaveClass("button-default");
   });
 
   it("should render label", () => {
