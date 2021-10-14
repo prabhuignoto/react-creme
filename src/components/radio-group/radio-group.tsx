@@ -1,15 +1,15 @@
 import { nanoid } from "nanoid";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Radio } from "../radio/radio";
 import "./radio-group.scss";
 
-interface RadioGroupModel {
+export interface RadioGroupModel {
   items: string[];
   onSelected?: (selected: string) => void;
   disabled?: boolean;
 }
 
-interface RadioGroupItemModel {
+export interface RadioGroupItemModel {
   id?: string;
   selected: boolean | null;
   value?: string;
@@ -19,6 +19,7 @@ interface RadioGroupItemModel {
 const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   items,
   disabled,
+  onSelected,
 }) => {
   const [_items, setItems] = useState<RadioGroupItemModel[]>(
     Array.isArray(items)
@@ -29,6 +30,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
         }))
       : []
   );
+  const isFirstRender = useRef(true);
 
   const handleChange = useCallback(
     ({ id, selected }: { id?: string; selected?: boolean }) => {
@@ -42,6 +44,22 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
     },
     []
   );
+
+  useEffect(() => {
+    if (!isFirstRender.current) {
+      const foundItem = _items.find((item) => item.selected);
+
+      if (foundItem && foundItem.value && onSelected) {
+        onSelected(foundItem.value);
+      }
+    }
+  }, [JSON.stringify(_items)]);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+    }
+  }, []);
 
   return (
     <ul className={"radio-group-wrapper"} role="radiogroup">

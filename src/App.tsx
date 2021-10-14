@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { Dropdown } from "./components";
+import { RadioGroup } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -32,7 +32,7 @@ function App() {
           onSelected={(val) => console.log(val)}
         />
       </div> */}
-      <div style={{ width: "250px" }}>
+      {/* <div style={{ width: "250px" }}>
         <Dropdown
           placeholder="choose a large country ..."
           options={[
@@ -54,7 +54,7 @@ function App() {
           ]}
           onSelected={(val) => console.log(val)}
         />
-      </div>
+      </div> */}
       {/* <div style={{ width: "800px" }}>
         <Carousel direction="horizontal">
           <span>one</span>
@@ -145,7 +145,10 @@ function App() {
 
       {/* <Radio label="check" /> */}
 
-      {/* <RadioGroup items={["one", "two", "three"]} /> */}
+      <RadioGroup
+        items={["one", "two", "three"]}
+        onSelected={(val) => console.log(val)}
+      />
 
       {/* <Tree
         items={[
@@ -155,7 +158,7 @@ function App() {
               { name: "two" },
               {
                 name: "three",
-                child: [
+                child: [  
                   { name: "pop" },
                   { name: "pop" },
                   { name: "pop" },
@@ -259,7 +262,7 @@ function App() {
         <Slider start={1} end={180} onChange={(val) => console.log(val)} />
       </div> */}
 
-      {/* <Splitter dir="horizontal" minSplitWidth={200} maxSplitWidth={400}>
+      {/* <Splitter dir="horizontal" minSplitWidth={200} maxSplitWidth={1200}>
         <p>
           Contrary to popular belief, Lorem Ipsum is not simply random text. It
           has roots in a piece of classical Latin literature from 45 BC, making
