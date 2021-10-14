@@ -66,7 +66,7 @@ type Settings = { disableAnimation?: boolean; disableBackdrop?: boolean };
 type OverlayFunc = <U extends OverlayModel>(
   Node: React.FunctionComponent<U>,
   settings: Settings
-) => void;
+) => React.FunctionComponent<U>;
 
 const withOverlay: OverlayFunc = function <T extends OverlayModel>(
   Node: React.FunctionComponent<T>,

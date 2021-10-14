@@ -11,7 +11,7 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
   position,
   isClosing,
   onClose,
-  width = 450,
+  width = 350,
   height = 100,
 }) => {
   const wrapperClass = classNames([

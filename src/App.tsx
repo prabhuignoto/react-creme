@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { ImageComparer, Splitter } from "./components";
+import { MenuBar, Notification } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -199,15 +199,11 @@ function App() {
           position: "relative",
         }}
         ref={ref}
-      >
-        <Notification
-          position="top-right"
-          title="Hello World"
-          containedToParent={ref}
-        >
-          <span>test</span>
-        </Notification>
-      </div> */}
+      > */}
+      {/* <Notification position="top-center" title="Hello World">
+        <span>test</span>
+      </Notification> */}
+      {/* </div> */}
 
       {/* <Tooltip message="test tooltip" position="left center" width={250}>
         <div style={{ width: "450px" }}>
@@ -220,7 +216,7 @@ function App() {
         <span>test</span>
       </Menu> */}
 
-      {/* <MenuBar
+      <MenuBar
         onSelected={(val) => console.log(val)}
         width={800}        align="right"
         items={[
@@ -256,7 +252,7 @@ function App() {
             ],
           },
         ]}
-      ></MenuBar> */}
+      ></MenuBar>
 
       {/* <div>
         <Slider start={1} end={180} onChange={(val) => console.log(val)} />
@@ -267,7 +263,7 @@ function App() {
           <img src="https://images.unsplash.com/photo-1634053605092-f34639dc76db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" />
           <img src="https://images.unsplash.com/photo-1634053605092-f34639dc76db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" />
         </ImageComparer> */}
-        <Splitter dir="horizontal">
+        {/* <Splitter dir="horizontal">
           <p>
             Contrary to popular belief, Lorem Ipsum is not simply random text.
             It has roots in a piece of classical Latin literature from 45 BC,
@@ -287,7 +283,7 @@ function App() {
             to repeat predefined chunks as necessary, making this the first true
             generator on the Internet.
           </p>
-        </Splitter>
+        </Splitter> */}
       </div>
     </div>
   );

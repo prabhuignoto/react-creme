@@ -81,6 +81,15 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
     []
   );
 
+  const onCloseMenu = useCallback(() => {
+    setMenuItems((prev) =>
+      prev.map((item) => ({
+        ...item,
+        isMenuOpen: false,
+      }))
+    );
+  }, []);
+
   return (
     <ul
       className={wrapperClass}
@@ -88,6 +97,7 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
       onBlur={handleBlur}
       tabIndex={0}
       style={menuBarStyle}
+      role="menubar"
     >
       {_items.map(({ id, name, menu, isMenuOpen }) => (
         <li
@@ -104,6 +114,7 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
               items={menu}
               closeManual={!isMenuOpen}
               onOpen={onOpenMenu}
+              onClose={onCloseMenu}
               id={id}
               onSelected={(val) => handleSelection(val, name)}
             >
