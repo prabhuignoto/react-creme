@@ -18,7 +18,6 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
     handleSelection,
     style: { top, width, maxMenuHeight },
     open,
-    onClose,
   }: DropdownMenuModel) => {
     // STATE
     const [menuOptions, setMenuOptions] = useState(options);
@@ -80,7 +79,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
             <SearchIcon />
           </Input>
         </div>
-        <ul className={"dropdown-options"}>
+        <ul className={"dropdown-options"} role="listbox">
           {menuOptions
             .filter((item) => item.visible)
             .map((option) => (

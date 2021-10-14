@@ -5,7 +5,6 @@ export interface DropdownMenuModel {
   handleSelection: (val: string, id?: string) => void;
   open: boolean;
   options: MenuOption[];
-  onClose?: () => void;
 }
 
 export interface DropdownMenuStyleModel {

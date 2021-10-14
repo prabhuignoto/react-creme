@@ -80,6 +80,8 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
             "dropdown-chevron-icon",
             showMenu ? "dropdown-chevron-icon-rotate" : "",
           ])}
+          role="img"
+          data-testid="icon"
         >
           <ChevronDownIcon />
         </span>
