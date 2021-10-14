@@ -14,22 +14,16 @@ const Button: React.FunctionComponent<ButtonModel> = ({
 }) => {
   const buttonClass = useMemo(
     () =>
-      classNames(
-        [
-          disabled ? "button-comp-disabled" : "",
-          borderLess ? "button-comp-no-border" : "button-comp",
-          type,
-        ],
-        {
-          "button-label-icon": type !== "icon",
-        }
-      ),
+      classNames([`button-${type}`], {
+        "button-label-icon": type !== "icon",
+        "button-comp-no-border": type !== "default",
+      }),
     []
   );
 
   return (
     <button className={buttonClass} onClick={onClick}>
-      {children && <span className="button-icon">{children}</span>}
+      {children && <span className="button-icon-container">{children}</span>}
       <span className="button-label">{label}</span>
     </button>
   );

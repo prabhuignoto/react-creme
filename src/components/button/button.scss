@@ -1,36 +1,38 @@
-@use '../../design/layout.scss';
-@use '../../design/colors.scss';
-@use '../../design/icon.scss';
-@use '../../design/button.scss';
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/icon.scss";
+@use "../../design/button.scss";
 
 .button-comp {
-  @extend %button-sm;
   @extend %left;
-
-  &.primary {
-    @extend %button-primary;
-  }
 }
 
-.button-comp-no-border {
-  @extend %button-lg-no-border;
+.button-primary {
+  @extend %button-sm;
+  @extend %button-primary;
 }
 
-.button-comp-disabled {
-  @extend %disabled;
+.button-default {
+  @extend %button-sm;
+  @extend %button-default;
+}
+
+.button-danger {
+  @extend %button-sm;
+  @extend %button-danger;
+}
+
+.button-icon {
+  @extend %button-lg;
+  @extend %button-icon;
 }
 
 %button-label {
   @extend %center;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: capitalize;
 }
 
-.button-label-icon {
-  @extend %button-label;
-  padding-right: 0.5rem;
-}
-
-.button-icon {
-  @extend %icon-lg;
+.button-icon-container {
+  @extend %icon-md;
 }

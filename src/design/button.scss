@@ -1,32 +1,19 @@
 @use "colors.scss";
 @use "layout.scss";
 
-%clear-border-n-shadow {
-  border: 0;
-  box-shadow: none;
-
-  &:hover {
-    background: none;
-  }
-}
-
-%button-hover {
-  &:hover {
-    background: colors.$secondary;
-    box-shadow: none;
-    color: colors.$black;
-  }
-}
-
 %button {
   @extend %border;
   @extend %center;
   background: none;
+  border: 0;
   color: colors.$tertiary;
   cursor: pointer;
   font-size: 1rem;
-  padding: 0;
+  height: 35px;
+  margin: 0 0.25rem;
+  padding: 0 0.5rem;
   transition: background-color 50ms ease-in;
+  white-space: nowrap;
 
   svg {
     color: colors.$primary;
@@ -58,6 +45,7 @@
     colors.$white,
     colors.$primary
   );
+  border: 1px solid colors.$primary;
 }
 
 %button-danger {
@@ -65,34 +53,39 @@
     colors.$crimson,
     colors.$white,
     colors.$white,
-    colors.$primary
+    colors.$crimson
   );
+  border: 1px solid colors.$crimson;
+}
+
+%button-default {
+  @extend %shadow-inset;
+  @include get-button-type(
+    colors.$white,
+    colors.$secondary,
+    colors.$black,
+    colors.$black
+  );
+  border: 1px solid colors.$secondary;
+}
+
+%button-icon {
+  @extend %button;
 }
 
 @mixin get-button($size, $border) {
   @extend %button;
 
   @if $size == small {
-    // padding: 0.2rem 0.75rem 0.2rem 0.5rem;
-
     svg {
       height: 70%;
       width: 70%;
     }
   } @else if $size == large {
-    // min-width: 60px;
-    // padding: 0.5rem;
-
     svg {
       height: 100%;
       width: 100%;
     }
-  }
-
-  @if $border {
-    @extend %button-hover;
-  } @else {
-    @extend %clear-border-n-shadow;
   }
 }
 

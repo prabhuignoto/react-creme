@@ -32,7 +32,7 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
       <header className="header">
         <span className="title">{title}</span>
         <div className="button-wrapper">
-          <Button borderLess onClick={onClose}>
+          <Button type="icon" onClick={onClose}>
             <CloseIcon />
           </Button>
         </div>

@@ -100,8 +100,8 @@
     "not dead",
     "> 5%"
   ],
-  "main": "dist/react-phoenix.js",
-  "module": "dist/react-phoenix.esm.js",
-  "umd": "dist/react-phoenix.umd.js",
-  "css": "dist/react-phoenix.css"
+  "main": "dist/react-creme.js",
+  "module": "dist/react-creme.esm.js",
+  "umd": "dist/react-creme.umd.js",
+  "css": "dist/react-creme.css"
 }

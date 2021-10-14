@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { MenuBar, Notification } from "./components";
+import { Button, Dialog } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <button onClick={() => setOpen((prev) => !prev)}>open</button> */}
+      <button onClick={() => setOpen((prev) => !prev)}>open</button>
       {/* <div>
         <button onClick={start}>Start</button>
         <button onClick={pause}>Stop</button>
@@ -68,8 +68,9 @@ function App() {
           <span>1233</span>
         </Carousel>
       </div> */}
-      {/* <Button label="save as new" /> */}
-
+      <Button label="save as new" />
+      <Button label="save as new" type="primary" />
+      <Button label="save as new" type="danger" />
       {/* <div
         style={{
           height: "600px",
@@ -89,17 +90,13 @@ function App() {
           </Dialog>
         )}
       </div> */}
-
       {/* <CheckBox label="select" onChange={(ele) => console.log(ele)} /> */}
-
       {/* <Switch label="this is a huge setting" /> */}
-
       {/* <div style={{ width: "200px" }}>
         <Input>
           <ChevronRightIcon />
         </Input>
       </div> */}
-
       {/* <div style={{ width: "800px" }}>
         <Transfer
           list1={["one", "two", "five", "six"]}
@@ -107,7 +104,6 @@ function App() {
           onChange={(val, val2) => console.log(val, val2)}
         />
       </div> */}
-
       {/* <div
         style={{
           height: "600px",
@@ -127,7 +123,6 @@ function App() {
           </Drawer>
         )}
       </div> */}
-
       {/* <Progress
         type="progressive"
         width={150}
@@ -136,20 +131,16 @@ function App() {
         showProgressValue
         size="small"
       /> */}
-
       {/* <BreadCrumb>
         <Link href="http://www.google.com">one</Link>
         <Link href="http://www.google.com">two</Link>
         <Link href="http://www.google.com">three</Link>
       </BreadCrumb> */}
-
       {/* <Radio label="check" /> */}
-
       {/* <RadioGroup
         items={["one", "two", "three"]}
         onSelected={(val) => console.log(val)}
       /> */}
-
       {/* <Tree
         items={[
           {
@@ -158,7 +149,7 @@ function App() {
               { name: "two" },
               {
                 name: "three",
-                child: [  
+                child: [
                   { name: "pop" },
                   { name: "pop" },
                   { name: "pop" },
@@ -191,7 +182,6 @@ function App() {
           { name: "seven" },
         ]}
       /> */}
-
       {/* <div
         style={{
           height: "600px",
@@ -204,19 +194,16 @@ function App() {
         <span>test</span>
       </Notification> */}
       {/* </div> */}
-
       {/* <Tooltip message="test tooltip" position="left center" width={250}>
         <div style={{ width: "450px" }}>
           this is a content this ia some huge contentthis is a content this ia
           some huge content. this is a content this ia some huge content
         </div>
       </Tooltip> */}
-
       {/* <Menu items={[{ name: "prabhu" }, { name: "testet" }]}>
         <span>test</span>
       </Menu> */}
-
-      <MenuBar
+      {/* <MenuBar
         onSelected={(val) => console.log(val)}
         width={800}
         align="right"
@@ -253,16 +240,14 @@ function App() {
             ],
           },
         ]}
-      ></MenuBar>
-
+      ></MenuBar> */}
       {/* <div>
         <Slider start={1} end={180} onChange={(val) => console.log(val)} />
       </div> */}
-
-      <div style={{ width: "1280px", height: "950px" }}>
+      <div style={{ width: "90vw", height: "950px" }}>
         {/* <ImageComparer>
-          <img src="https://images.unsplash.com/photo-1634053605092-f34639dc76db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" />
-          <img src="https://images.unsplash.com/photo-1634053605092-f34639dc76db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" />
+          <img src="https://images.unsplash.com/photo-1633993365492-0828ece5c0ed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80" />
+          <img src="https://images.unsplash.com/photo-1633993365492-0828ece5c0ed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80" />
         </ImageComparer> */}
         {/* <Splitter dir="horizontal">
           <p>
