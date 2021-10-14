@@ -46,18 +46,12 @@ const useDrag: functionType = (
   const handleDrag = useCallback((ev: MouseEvent) => {
     ev.preventDefault();
     if (dragStarted.current && target.current && container.current) {
-      const {
-        clientWidth: containerWidth,
-        clientHeight: containerHeight,
-      } = container.current;
-      const {
-        left: containerLeft,
-        top: containerTop,
-      } = container.current.getBoundingClientRect();
-      const {
-        clientWidth: targetWidth,
-        clientHeight: targetHeight,
-      } = target.current;
+      const { clientWidth: containerWidth, clientHeight: containerHeight } =
+        container.current;
+      const { left: containerLeft, top: containerTop } =
+        container.current.getBoundingClientRect();
+      const { clientWidth: targetWidth, clientHeight: targetHeight } =
+        target.current;
 
       if (direction === "horizontal") {
         const left = Math.max(0, ev.clientX - (containerLeft || 0));

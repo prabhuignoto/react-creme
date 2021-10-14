@@ -41,10 +41,10 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
       [expanded]
     );
 
-    const canRenderChild = useMemo(() => child && child.length && expanded, [
-      child,
-      expanded,
-    ]);
+    const canRenderChild = useMemo(
+      () => child && child.length && expanded,
+      [child, expanded]
+    );
 
     const childContainerClass = useMemo(
       () =>

@@ -40,13 +40,15 @@ const usePosition: FunctionType = function (
   const positionY = useMemo(() => position.split(" ")[1], []);
   const positionX = useMemo(() => position.split(" ")[0], []);
 
-  const isPositionX = useCallback((match: string) => positionX === match, [
-    positionX,
-  ]);
+  const isPositionX = useCallback(
+    (match: string) => positionX === match,
+    [positionX]
+  );
 
-  const isPositionY = useCallback((match: string) => positionY === match, [
-    positionY,
-  ]);
+  const isPositionY = useCallback(
+    (match: string) => positionY === match,
+    [positionY]
+  );
 
   useEffect(() => {
     if (!element.current && !tooltip.current) {

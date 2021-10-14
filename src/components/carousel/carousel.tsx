@@ -80,9 +80,10 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
     }
   }, [slideWidth, slideHeight]);
 
-  const hideNextButton = useMemo(() => activePage === trackCount.current - 1, [
-    activePage,
-  ]);
+  const hideNextButton = useMemo(
+    () => activePage === trackCount.current - 1,
+    [activePage]
+  );
 
   const hidePreviousButton = useMemo(() => activePage === 0, [activePage]);
 

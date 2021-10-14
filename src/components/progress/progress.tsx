@@ -21,9 +21,10 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
 }) => {
   const progressTrackRef = useRef<HTMLDivElement>(null);
 
-  const progressPercent = useMemo(() => currentValue / maxValue, [
-    currentValue,
-  ]);
+  const progressPercent = useMemo(
+    () => currentValue / maxValue,
+    [currentValue]
+  );
 
   const progressPercentValue = useMemo<string | number>(() => {
     const val = Math.round(progressPercent * 100);
