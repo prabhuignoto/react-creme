@@ -23,7 +23,7 @@ describe("Dropdown", () => {
     fireEvent.click(getByText("select a option"));
 
     expect(getByTestId("icon")).toBeInTheDocument();
-    expect(getByTestId("icon")).toHaveClass("dropdown-chevron-icon-rotate");
+    expect(getByTestId("icon")).toHaveClass("rc-dropdown-chevron-icon-rotate");
   });
 
   it("should handler be called", async () => {
@@ -60,7 +60,9 @@ describe("Dropdown", () => {
 
     await waitFor(
       async () => {
-        expect(getByTestId("icon")).toHaveClass("dropdown-chevron-icon-rotate");
+        expect(getByTestId("icon")).toHaveClass(
+          "rc-dropdown-chevron-icon-rotate"
+        );
       },
       {
         timeout: 1200,
@@ -74,7 +76,7 @@ describe("Dropdown", () => {
     await waitFor(
       async () => {
         expect(getByTestId("icon")).not.toHaveClass(
-          "dropdown-chevron-icon-rotate"
+          "rc-dropdown-chevron-icon-rotate"
         );
       },
       {
