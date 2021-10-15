@@ -63,10 +63,10 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
     const menuClass = useMemo(
       () =>
         classNames([
-          "dropdown-menu-container",
+          "rc-dropdown-menu-container",
           !firstRender.current && {
-            "dropdown-menu-open": open,
-            "dropdown-menu-close": !open,
+            "rc-dropdown-menu-open": open,
+            "rc-dropdown-menu-close": !open,
           },
         ]),
       [open]
@@ -74,18 +74,18 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
 
     return (
       <div className={menuClass} style={menuStyle} tabIndex={0} ref={menuRef}>
-        <div className="dropdown-search-input">
+        <div className="rc-dropdown-search-input">
           <Input onChange={handleSearch} enableClear>
             <SearchIcon />
           </Input>
         </div>
-        <ul className={"dropdown-options"} role="listbox">
+        <ul className={"rc-dropdown-options"} role="listbox">
           {menuOptions
             .filter((item) => item.visible)
             .map((option) => (
               <li
                 className={classNames([
-                  "dropdown-option",
+                  "rc-dropdown-option",
                   option.disabled ? "disabled" : "",
                 ])}
                 key={option.id}
@@ -93,7 +93,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
                 role="option"
                 tabIndex={!option.disabled ? 0 : -1}
               >
-                <span className="dropdown-option-value">{option.name}</span>
+                <span className="rc-dropdown-option-value">{option.name}</span>
               </li>
             ))}
         </ul>

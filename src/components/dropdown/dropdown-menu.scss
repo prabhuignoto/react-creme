@@ -3,7 +3,7 @@
 @use "../../design/colors.scss";
 @use "../../design/list.scss";
 
-.dropdown-menu-container {
+.rc-dropdown-menu-container {
   @extend %border-radius;
   @extend %shadow-medium;
   @include animate.set-animation(0.1s);
@@ -15,19 +15,19 @@
   width: var(--menu-width);
   z-index: 999;
 
-  &.dropdown-menu-open {
+  &.rc-dropdown-menu-open {
     animation-name: dropdown-menu-open;
     opacity: 1;
     visibility: visible;
   }
 
-  &.dropdown-menu-close {
+  &.rc-dropdown-menu-close {
     animation-name: dropdown-menu-close;
-    transform: scale(0.98);
+    transform: scale(0.95);
   }
 }
 
-.dropdown-options {
+.rc-dropdown-options {
   @extend %list;
   justify-content: flex-start;
   margin-bottom: 0.5rem;
@@ -36,7 +36,7 @@
   overflow-y: auto;
 }
 
-.dropdown-option {
+.rc-dropdown-option {
   @extend %list-item-left;
   padding: 0.5rem 0;
   width: 100%;
@@ -50,14 +50,14 @@
   }
 }
 
-.dropdown-option-value {
+.rc-dropdown-option-value {
   @extend %text-no-wrap;
   padding-left: 1rem;
   text-align: left;
   width: 80%;
 }
 
-.dropdown-search-input {
+.rc-dropdown-search-input {
   margin: 1rem auto;
   width: 90%;
 }
@@ -65,7 +65,7 @@
 $hide-anim: (
   opacity: 0,
   visibility: hidden,
-  transform: scale(0.98),
+  transform: scale(0.95),
 );
 $show-anim: (
   opacity: 1,
