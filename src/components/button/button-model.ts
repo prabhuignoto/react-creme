@@ -5,7 +5,6 @@ export interface ButtonModel {
   onClick?: () => void;
   children?: React.ReactNode;
   disabled?: boolean;
-  borderLess?: boolean;
   primary?: boolean;
   type?: "primary" | "default" | "danger" | "icon";
 }

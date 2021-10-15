@@ -23,8 +23,11 @@ $switch-settings: (
 );
 
 .switch {
-  min-width: var(--min-width);
   padding: 0.25rem;
+
+  &.switch-disabled {
+    @extend %disabled;
+  }
 }
 
 .switch-track {
@@ -44,7 +47,7 @@ $switch-settings: (
   }
 }
 
-.switch-highlight {
+.switch-knob {
   @extend %shadow-small;
   @include animate.set-animation(0.2s);
   @include position.position-abs("center left");
@@ -72,6 +75,7 @@ $switch-settings: (
 .switch-label {
   @extend %center;
   display: block;
+  white-space: nowrap;
 
   &.switch-label-on {
     color: colors.$white;

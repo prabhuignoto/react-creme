@@ -3,9 +3,6 @@
 @use "../../design/icon.scss";
 @use "../../design/button.scss";
 
-.button-comp {
-  @extend %left;
-}
 
 .button-primary {
   @extend %button-sm;

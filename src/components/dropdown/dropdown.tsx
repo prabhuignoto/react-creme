@@ -48,7 +48,6 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
   }, []);
 
   const handleBlur = useCallback((ev: React.FocusEvent) => {
-    console.log(ev.relatedTarget);
     if (!ev.relatedTarget) {
       setShowMenu(false);
     }
@@ -68,17 +67,17 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
   }, [showMenu]);
 
   return (
-    <div className={"dropdown-wrapper"} tabIndex={0} onBlur={handleBlur}>
+    <div className={"rc-dropdown-wrapper"} tabIndex={0} onBlur={handleBlur}>
       <div
-        className={"dropdown-value-container"}
+        className={"rc-dropdown-value-container"}
         onClick={handleToggleMenu}
         ref={containerRef}
       >
-        <span className={"dropdown-value"}>{value}</span>
+        <span className={"rc-dropdown-value"}>{value}</span>
         <span
           className={classNames([
-            "dropdown-chevron-icon",
-            showMenu ? "dropdown-chevron-icon-rotate" : "",
+            "rc-dropdown-chevron-icon",
+            showMenu ? "rc-dropdown-chevron-icon-rotate" : "",
           ])}
           role="img"
           data-testid="icon"

@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import React, { useMemo } from "react";
-import "../../design/layout.scss";
 import { ButtonModel } from "./button-model";
 import "./button.scss";
 
@@ -9,14 +8,12 @@ const Button: React.FunctionComponent<ButtonModel> = ({
   onClick,
   children,
   disabled,
-  borderLess,
   type = "default",
 }) => {
   const buttonClass = useMemo(
     () =>
       classNames([`button-${type}`], {
         "button-label-icon": type !== "icon",
-        "button-comp-no-border": type !== "default",
         "button-disabled": disabled,
       }),
     []

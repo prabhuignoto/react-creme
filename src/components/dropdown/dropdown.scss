@@ -4,13 +4,13 @@
 @use "../../design/list.scss";
 @use "../../design/animate.scss";
 
-.dropdown-wrapper {
+.rc-dropdown-wrapper {
   position: relative;
   user-select: none;
   width: 100%;
 }
 
-.dropdown-value-container {
+.rc-dropdown-value-container {
   @extend %border;
   @extend %shadow-inset;
   cursor: pointer;
@@ -22,20 +22,20 @@
   width: 100%;
 }
 
-.dropdown-value {
+.rc-dropdown-value {
   @extend %text-no-wrap;
   padding-left: 12px;
   text-align: left;
 }
 
-.dropdown-chevron-icon {
+.rc-dropdown-chevron-icon {
   @extend %icon-md;
   margin-left: auto;
   margin-right: 4px;
-  transition: transform 0.25s ease-in;
+  transition: transform 0.2s ease-in;
 }
 
-.dropdown-chevron-icon-rotate {
+.rc-dropdown-chevron-icon-rotate {
   transform: rotate(180deg);
-  transition: transform 0.25s ease-in;
+  transition: transform 0.2s ease-in;
 }

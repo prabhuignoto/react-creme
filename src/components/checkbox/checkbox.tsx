@@ -40,7 +40,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
       classNames(["checkbox-wrapper"], {
         "checkbox-disabled": disabled,
       }),
-    [checked]
+    []
   );
 
   useEffect(() => {

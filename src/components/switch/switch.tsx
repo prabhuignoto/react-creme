@@ -13,6 +13,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   onChange,
   label,
   width = 50,
+  disabled = false,
 }) => {
   const [state, setState] = useState(false);
 
@@ -29,13 +30,18 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   }, [state]);
 
   // CSS
-  const switchClass = useMemo(
+  const switchKnobClass = useMemo(
     () =>
-      classNames(["switch-highlight"], {
+      classNames(["switch-knob"], {
         "switch-on": state,
         "switch-off": !state && !isFirstRender.current,
       }),
     [state]
+  );
+
+  const switchClass = useMemo(
+    () => classNames("switch", { "switch-disabled": disabled }),
+    []
   );
 
   const switchTrackClass = useMemo(
@@ -69,14 +75,14 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
 
   return (
     <div
-      className="switch"
+      className={switchClass}
       onClick={handleToggle}
       role="switch"
       aria-checked={state}
       style={switchStyle}
     >
       <span className={switchTrackClass}>
-        <span className={switchClass}></span>
+        <span className={switchKnobClass}></span>
         {label && <span className={switchLabelClass}>{label}</span>}
       </span>
     </div>

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { Button } from "./components";
+import { Dropdown } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -32,13 +32,13 @@ function App() {
           onSelected={(val) => console.log(val)}
         />
       </div> */}
-      {/* <div style={{ width: "250px" }}>
+      <div style={{ width: "200px" }}>
         <Dropdown
           placeholder="choose a large country ..."
           options={[
             {
-              name: "indiaindia isdnidfdf dfjhdfjhdf idfdfifdf",
-              value: "indiaindia isdnidfdf dfjhdfjhdf idfdfifdf",
+              name: "indiaindia",
+              value: "indiaindia",
             },
             { name: "usa", value: "usa" },
             { name: "uk", value: "uk" },
@@ -54,7 +54,7 @@ function App() {
           ]}
           onSelected={(val) => console.log(val)}
         />
-      </div> */}
+      </div>
       {/* <div style={{ width: "800px" }}>
         <Carousel direction="horizontal">
           <span>one</span>
@@ -68,14 +68,14 @@ function App() {
           <span>1233</span>
         </Carousel>
       </div> */}
-      <Button label="save as new" disabled onClick={() => alert("rama")} />
+      {/* <Button label="save as new" disabled onClick={() => alert("rama")} />
       <Button
         label="save as new"
         type="primary"
         onClick={() => alert("rama")}
       />
       <Button label="save as new" type="danger" onClick={() => alert("rama")} />
-      <Button label="save as new" type="danger" onClick={() => alert("rama")} />
+      <Button label="save as new" onClick={() => alert("rama")} /> */}
       {/* <div
         style={{
           height: "600px",
@@ -89,14 +89,13 @@ function App() {
             title="Confirm the action"
             showClose={false}
             onClose={() => setOpen((prev) => !prev)}
-            containedToParent={ref}
           >
             <span>tests</span>
           </Dialog>
         )}
       </div> */}
       {/* <CheckBox label="select" onChange={(ele) => console.log(ele)} /> */}
-      {/* <Switch label="this is a huge setting" /> */}
+      {/* <Switch label="setting" disabled /> */}
       {/* <div style={{ width: "200px" }}>
         <Input>
           <ChevronRightIcon />
@@ -249,12 +248,12 @@ function App() {
       {/* <div>
         <Slider start={1} end={180} onChange={(val) => console.log(val)} />
       </div> */}
-      <div style={{ width: "90vw", height: "950px" }}>
+      <div style={{ width: "70vw", height: "950px" }}>
         {/* <ImageComparer>
           <img src="https://images.unsplash.com/photo-1633993365492-0828ece5c0ed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80" />
           <img src="https://images.unsplash.com/photo-1633993365492-0828ece5c0ed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80" />
         </ImageComparer> */}
-        {/* <Splitter dir="horizontal">
+        {/* <Splitter dir="horizontal" minSplitWidth={250} maxSplitWidth={600}>
           <p>
             Contrary to popular belief, Lorem Ipsum is not simply random text.
             It has roots in a piece of classical Latin literature from 45 BC,
