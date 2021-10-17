@@ -1,11 +1,6 @@
 import classNames from "classnames";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import { usePosition } from "../common/effects/usePosition";
 import { TooltipModel } from "./tooltip-model";
 import "./tooltip.scss";
@@ -20,7 +15,7 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   const tooltipRef = useRef<HTMLDivElement | null>(null);
 
   // flag to check if the component is rendering for the first time
-  const isFirstRender = useRef(true);
+  const isFirstRender = useFirstRender();
 
   // state to show/hide the tooltip
   const [show, setShow] = useState(false);
@@ -34,13 +29,6 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   // handlers for showing/hiding tooltip
   const showTooltip = useCallback(() => setShow(true), []);
   const hideTooltip = useCallback(() => setShow(false), []);
-
-  // effects
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-    }
-  }, []);
 
   // CSS
   const toolTipMessageClass = useMemo(
@@ -70,7 +58,7 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   }, [cssPosition]);
 
   return (
-    <div className="tooltip-wrapper" ref={wrapperRef}>
+    <div className="tooltip-wrapper" ref={wrapperRef} role="tooltip">
       <span
         className={toolTipMessageClass}
         style={tooltipMessageStyle}

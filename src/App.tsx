@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { RadioGroup } from "./components";
+import { Tooltip } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -225,12 +225,12 @@ function App() {
         <span>test</span>
       </Notification> */}
       {/* </div> */}
-      {/* <Tooltip message="test tooltip" position="left center" width={250}>
-        <div style={{ width: "450px" }}>
+      <Tooltip message="test tooltip" position="top center">
+        <div style={{ width: "450px", height: "100px" }}>
           this is a content this ia some huge contentthis is a content this ia
           some huge content. this is a content this ia some huge content
         </div>
-      </Tooltip> */}
+      </Tooltip>
       {/* <Menu items={[{ name: "prabhu" }, { name: "testet" }]}>
         <span>test</span>
       </Menu> */}
