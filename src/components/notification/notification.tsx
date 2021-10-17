@@ -1,6 +1,7 @@
 import classNames from "classnames";
-import React, { CSSProperties, useMemo } from "react";
+import React, { CSSProperties, useMemo, useRef } from "react";
 import { CloseIcon } from "../../icons";
+import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import { withOverlay } from "../common/withOverlay";
 import { NotificationModel } from "./notification-model";
 import "./notification.scss";
@@ -22,6 +23,12 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
     },
   ]);
 
+  const ref = useRef(null);
+
+  useCloseOnEscape(() => {
+    onClose && onClose();
+  }, ref);
+
   const wrapperStyle = useMemo(
     () =>
       ({
@@ -32,7 +39,13 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
   );
 
   return (
-    <div className={wrapperClass} style={wrapperStyle}>
+    <div
+      className={wrapperClass}
+      style={wrapperStyle}
+      role="dialog"
+      aria-modal="true"
+      ref={ref}
+    >
       <header className="notification-header">
         <span className="notification-title">{title}</span>
         <button className="notification-close-btn" onClick={onClose}>

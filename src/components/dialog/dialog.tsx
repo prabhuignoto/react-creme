@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { nanoid } from "nanoid";
 import React, { useMemo, useRef } from "react";
 import { CheckIcon, CloseIcon } from "../../icons";
 import { Button } from "../button/button";
@@ -24,13 +25,22 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
       ]),
     [isClosing]
   );
+  const id = useRef(`dialog-${nanoid()}`);
 
   useCloseOnEscape((ev) => onClose?.(), dialogRef);
 
   return (
-    <div className={dialogClass} ref={dialogRef} tabIndex={0}>
+    <div
+      className={dialogClass}
+      ref={dialogRef}
+      tabIndex={0}
+      role="dialog"
+      aria-labelledby={id.current}
+    >
       <header className="header">
-        <span className="title">{title}</span>
+        <h2 className="title" id={id.current}>
+          {title}
+        </h2>
         <div className="button-wrapper">
           <Button type="icon" onClick={onClose}>
             <CloseIcon />

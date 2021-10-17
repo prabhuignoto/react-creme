@@ -48,7 +48,14 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
   useCloseOnEscape((ev) => onClose?.(), drawerRef);
 
   return (
-    <div className={drawerClass} style={style} ref={drawerRef} tabIndex={0}>
+    <div
+      className={drawerClass}
+      style={style}
+      ref={drawerRef}
+      tabIndex={0}
+      role="dialog"
+      aria-modal="true"
+    >
       {children}
     </div>
   );
