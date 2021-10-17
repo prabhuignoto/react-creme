@@ -18,7 +18,7 @@
     "rollup": "rimraf ./dist && rollup -c",
     "lint:all": "yarn run eslint && yarn run lint:css && yarn run prettier:check",
     "fix:css": "npx stylelint ./src/**/*.scss --fix",
-    "test": "jest --coverage",
+    "test": "jest --coverage --runInBand",
     "prepare": "husky install",
     "ci": "yarn lint:all && yarn test -- --runInBand"
   },

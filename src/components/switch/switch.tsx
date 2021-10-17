@@ -22,12 +22,14 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
 
   // handler
   const handleToggle = useCallback(() => {
-    setState(!state);
+    if (!disabled) {
+      setState(!state);
 
-    if (onChange) {
-      onChange(!state);
+      if (onChange) {
+        onChange(!state);
+      }
     }
-  }, [state]);
+  }, [state, disabled]);
 
   // CSS
   const switchKnobClass = useMemo(

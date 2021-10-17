@@ -91,9 +91,14 @@
 %disabled {
   box-shadow: none;
   cursor: not-allowed;
-  filter: grayscale(20%) opacity(0.65);
-  pointer-events: none;
+  filter: grayscale(20%) opacity(0.85);
   user-select: none;
+  z-index: 0;
+
+  * {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
 
 %text-no-wrap {

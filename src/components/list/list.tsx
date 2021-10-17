@@ -26,7 +26,6 @@ const List: React.FunctionComponent<ListModel> = ({
     options.map((option) => ({
       id: nanoid(),
       ...option,
-      selected: false,
       visible: true,
     }))
   );
@@ -83,7 +82,7 @@ const List: React.FunctionComponent<ListModel> = ({
       <ul className={"rc-list-options"} role="listbox" style={listStyle}>
         {listOptions
           .filter((item) => item.visible)
-          .map(({ disabled, id, name, value }) => (
+          .map(({ disabled, id, name, value, selected }) => (
             <li
               className={classNames([
                 "rc-list-option",
@@ -96,6 +95,7 @@ const List: React.FunctionComponent<ListModel> = ({
               {allowMultipleSelection ? (
                 <CheckBox
                   label={name}
+                  isChecked={selected}
                   onChange={(selected) =>
                     handleSelection({ id, name, value, selected })
                   }

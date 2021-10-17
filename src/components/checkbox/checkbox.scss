@@ -2,9 +2,10 @@
 @use "../../design/icon.scss";
 
 .checkbox-wrapper {
-  @extend %center;
+  @extend %left;
   padding: 0.25rem;
   user-select: none;
+  width: 100%;
 
   &:hover {
     cursor: pointer;

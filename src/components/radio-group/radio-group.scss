@@ -8,4 +8,8 @@
 .radio-group-item {
   @extend %list-item-left;
   margin: 0.5rem 0;
+
+  &.radio-group-item-disabled {
+    @extend %disabled;
+  }
 }

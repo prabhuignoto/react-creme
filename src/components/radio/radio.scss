@@ -9,8 +9,9 @@
   @extend %center;
   user-select: none;
 
-  &.radio-disabled {
+  &.radio-wrapper-disabled {
     @extend %disabled;
+    cursor: not-allowed;
   }
 
   &:hover {
@@ -45,7 +46,7 @@
 
   &.radio-icon-checked::before {
     @extend %pseudo-common;
-    @include animate.set-animation(0.2s, ease-in);
+    @include animate.set-animation(0.1s, ease-in);
     @include position.position-abs("center center");
     @include animations.set-animation(halo, to);
     animation-name: animation-halo;
@@ -54,7 +55,7 @@
 
   &.radio-icon-un-checked::before {
     @extend %pseudo-common;
-    @include animate.set-animation(0.2s, ease-in);
+    @include animate.set-animation(0.1s, ease-in);
     @include position.position-abs("center center");
     @include animations.set-animation(halo, from);
     animation-name: animation-halo-reverse;

@@ -48,13 +48,13 @@ describe("Menubar", () => {
       <MenuBar items={items} onSelected={handler} />
     );
 
-    const copy = getByText("copy");
+    const paste = getByText("paste");
 
-    if (copy && copy.parentElement) {
-      fireEvent.mouseDown(copy.parentElement);
+    if (paste && paste.parentElement) {
+      fireEvent.mouseDown(paste.parentElement);
     }
 
-    expect(handler).toBeCalledWith("Edit>copy");
+    expect(handler).toBeCalledWith("Edit>paste");
   });
 
   it("should close on blur event", () => {

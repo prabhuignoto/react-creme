@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { Dropdown, List, Tags } from "./components";
+import { RadioGroup } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -55,7 +55,7 @@ function App() {
           ]}
         />
       </div> */}
-      <div style={{ width: "450px" }}>
+      {/* <div style={{ width: "450px" }}>
         <List
           allowMultipleSelection
           options={[
@@ -63,8 +63,8 @@ function App() {
               name: "indiaindia",
               value: "indiaindia",
             },
-            { name: "usa", value: "usa" },
-            { name: "uk", value: "uk" },
+            { name: "usa", value: "usa", selected: true },
+            { name: "uk", value: "uk", selected: true },
             { name: "germany", value: "germany", disabled: true },
             { name: "pakistan", value: "pakistan" },
             { name: "srilanka", value: "srilanka" },
@@ -76,7 +76,7 @@ function App() {
             { name: "srilanka", value: "srilanka" },
           ]}
         />
-      </div>
+      </div> */}
       {/* <div style={{ width: "800px" }}>
         <Carousel direction="horizontal">
           <span>one</span>
@@ -164,7 +164,12 @@ function App() {
       </BreadCrumb> */}
       {/* <Radio label="check" /> */}
       {/* <RadioGroup
-        items={["one", "two", "three"]}
+        items={[
+          { label: "prabhu", disabled: true },
+          { label: "tester" },
+          { label: "prabhu", disabled: false },
+          { label: "tester" },
+        ]}
         onSelected={(val) => console.log(val)}
       /> */}
       {/* <Tree

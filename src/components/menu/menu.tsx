@@ -99,7 +99,7 @@ const Menu: React.FunctionComponent<MenuModel> = React.memo(
               className={classNames(["menu-item"], {
                 "menu-item-disabled": disabled,
               })}
-              onMouseDown={() => handleMouseDown(name)}
+              onMouseDown={() => !disabled && handleMouseDown(name)}
               role="menuitem"
             >
               <span className="menu-item-name">{name}</span>

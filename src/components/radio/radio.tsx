@@ -7,21 +7,23 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import { RadioModel } from "./radio-model";
 import "./radio.scss";
 
 const Radio: React.FunctionComponent<RadioModel> = ({
   disabled,
   id,
-  isChecked = null,
+  isChecked = false,
   label,
   onChange,
   value,
 }) => {
-  const isFirstRender = useRef(false);
   const labelID = useRef(`label-${nanoid()}`);
 
   const [checked, setChecked] = useState<boolean | null>(isChecked);
+
+  const isFirstRender = useFirstRender();
 
   const RadioWrapperClass = useMemo(
     () =>
@@ -35,32 +37,29 @@ const Radio: React.FunctionComponent<RadioModel> = ({
   const RadioIconClass = useMemo(() => {
     return classNames(["radio-icon"], {
       "radio-icon-checked": checked,
-      "radio-icon-un-checked": checked !== null && !checked,
+      "radio-icon-un-checked": !isFirstRender.current && !checked,
     });
   }, [checked]);
 
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
+  const canToggle = useMemo(() => !disabled && !checked, [checked, disabled]);
+
+  const toggleCheck = useCallback(() => {
+    if (canToggle) {
+      setChecked((checked) => !checked);
+      onChange &&
+        onChange({
+          id,
+          selected: !checked,
+        });
     }
-  }, []);
+  }, [canToggle]);
 
   useEffect(() => {
     if (isFirstRender.current) {
       return;
     }
-
     setChecked(isChecked);
   }, [isChecked]);
-
-  const toggleCheck = useCallback(() => {
-    setChecked((checked) => !checked);
-    onChange &&
-      onChange({
-        id,
-        selected: !checked,
-      });
-  }, [checked]);
 
   return (
     <div

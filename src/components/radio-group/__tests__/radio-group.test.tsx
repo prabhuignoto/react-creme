@@ -1,8 +1,11 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
 import { RadioGroup } from "../radio-group";
 
-const items = ["one", "two", "three"];
+const items = [
+  { label: "one", id: "23" },
+  { label: "two", id: "45" },
+];
 
 const handler = jest.fn();
 
@@ -11,7 +14,7 @@ describe("Radio Group", () => {
     const { getByRole, getAllByRole } = render(<RadioGroup items={items} />);
 
     expect(getByRole("radiogroup")).toBeInTheDocument();
-    expect(getAllByRole("radio")).toHaveLength(3);
+    expect(getAllByRole("radio")).toHaveLength(2);
   });
 
   it("should call the handler", async () => {
@@ -20,6 +23,8 @@ describe("Radio Group", () => {
     );
     fireEvent.click(getAllByRole("radio")[0]);
 
-    expect(handler).toBeCalledWith("one");
+    await waitFor(async () => {
+      expect(handler).toBeCalledWith("one");
+    });
   });
 });

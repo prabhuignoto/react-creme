@@ -12,6 +12,7 @@ import "../../design/layout.scss";
 import "../../design/list.scss";
 import { CloseIcon } from "../../icons";
 import { DropDownMenu } from "../dropdown/dropdown-menu";
+import { Option } from "../dropdown/dropdown-model";
 import { Input } from "../input/input";
 import { TagItemModel, TagsModel } from "./tags-model";
 import "./tags.scss";
@@ -74,6 +75,8 @@ const Tags: React.FunctionComponent<TagsModel> = ({
     []
   );
 
+  const handleSelection = useCallback((options: Option[]) => {}, []);
+
   // EFFECTS
   useEffect(() => {
     if (onSelected) {
@@ -127,7 +130,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
               options={_restrictToValues.current}
               open={showMenu}
               style={{ width: 200, top: 40 }}
-              handleSelection={(val) => console.log(val)}
+              handleSelection={handleSelection}
               allowMultipleSelection
             />
           </li>

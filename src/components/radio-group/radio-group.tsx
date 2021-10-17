@@ -1,46 +1,38 @@
+import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import { Radio } from "../radio/radio";
+import { RadioGroupItemModel, RadioGroupModel } from "./radio-group-model";
 import "./radio-group.scss";
-
-export interface RadioGroupModel {
-  items: string[];
-  onSelected?: (selected: string) => void;
-  disabled?: boolean;
-}
-
-export interface RadioGroupItemModel {
-  id?: string;
-  selected: boolean | null;
-  value?: string;
-  disabled?: boolean;
-}
 
 const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   items,
-  disabled,
+  disabled = false,
   onSelected,
 }) => {
   const [_items, setItems] = useState<RadioGroupItemModel[]>(
     Array.isArray(items)
       ? items.map((item) => ({
           id: nanoid(),
-          value: item,
-          selected: null,
+          ...item,
+          disabled,
         }))
       : []
   );
-  const isFirstRender = useRef(true);
+  const active = useRef<string>();
 
   const handleChange = useCallback(
-    ({ id, selected }: { id?: string; selected?: boolean }) => {
-      setItems((prev) =>
-        prev.map((item) => ({
-          ...item,
-          selected:
-            item.id === id ? true : item.selected !== null ? false : null,
-        }))
-      );
+    ({ id }: { id?: string; selected?: boolean }) => {
+      if (active.current !== id) {
+        setItems((prev) =>
+          prev.map((item) => ({
+            ...item,
+            selected: item.id === id,
+          }))
+        );
+        active.current = id;
+      }
     },
     []
   );
@@ -49,32 +41,32 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
     if (!isFirstRender.current) {
       const foundItem = _items.find((item) => item.selected);
 
-      if (foundItem && foundItem.value && onSelected) {
-        onSelected(foundItem.value);
+      if (foundItem && onSelected) {
+        onSelected(foundItem.label);
       }
     }
   }, [JSON.stringify(_items)]);
 
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-    }
-  }, []);
+  const isFirstRender = useFirstRender();
 
   return (
     <ul className={"radio-group-wrapper"} role="radiogroup">
-      {_items.map((item) => (
+      {_items.map(({ id, disabled, label, selected }) => (
         <li
-          key={item.id}
-          className={"radio-group-item"}
+          key={id}
+          className={classNames("radio-group-item", {
+            "radio-group-item-disabled": disabled,
+          })}
           role="none"
-          aria-checked={!!item.selected}
+          aria-checked={!!selected}
         >
           <Radio
             onChange={handleChange}
-            label={item.value}
-            id={item.id}
-            isChecked={item.selected}
+            label={label}
+            id={id}
+            isChecked={selected}
+            disabled={disabled}
+            isControlled
           />
         </li>
       ))}
