@@ -7,4 +7,6 @@ export interface TagItemModel {
 export interface TagsModel {
   items: TagItemModel[];
   onSelected?: (selected: string[]) => void;
+  maxTags?: number;
+  restrictToValues?: string[];
 }

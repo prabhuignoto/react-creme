@@ -1,35 +1,31 @@
-@use '../../design/layout.scss';
+@use "../../design/layout.scss";
 @use "../../design/list.scss";
 @use "../../design/icon.scss";
 
-.tags-wrap {
+.rc-tags-wrap {
   @extend %list-wrap;
 }
 
-.tag {
+.rc-tag {
   @extend %shadow-inset;
   @extend %border;
   @extend %list-item;
   margin: 0.25rem;
 
-  padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+  padding: 0.5rem;
   user-select: none;
 
-  .icon-sm {
-    cursor: pointer;
-    margin-left: 8px;
-  }
-
-  &.disabled {
+  &.rc-tag-disabled {
     @extend %disabled;
   }
 }
 
-.tag-icon {
+.rc-tag-icon {
   @extend %icon-sm;
   margin-left: 0.5rem;
 }
 
-.tags-input-wrapper {
+.rc-tags-input-wrapper {
   margin: 0.25rem;
+  position: relative;
 }

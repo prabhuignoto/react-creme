@@ -1,6 +1,5 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
-import { act } from "react-dom/test-utils";
 import { Tags } from "../tags";
 import { TagItemModel } from "../tags-model";
 
@@ -19,42 +18,24 @@ const tagsWithDisabled: TagItemModel[] = [
 
 describe("Tags", () => {
   it("Should render default", () => {
-    const {
-      getByText,
-      container: { firstChild: element },
-    } = render(<Tags items={tags} />);
+    const { getByRole, getAllByRole } = render(<Tags items={tags} />);
 
-    expect(
-      (element as HTMLElement).querySelector(".tags-wrap")
-    ).toBeInTheDocument();
+    expect(getByRole("list")).toBeInTheDocument();
 
-    expect(
-      (element as HTMLElement).querySelectorAll(
-        ".tags-wrap li:not(.tags-input-wrapper)"
-      ).length
-    ).toEqual(3);
-
-    expect(getByText("three")).toBeInTheDocument();
+    expect(getAllByRole("listitem")).toHaveLength(4);
   });
 
   it("Should render disabled", () => {
-    const {
-      getByText,
-      container: { firstChild: element },
-    } = render(<Tags items={tagsWithDisabled} />);
+    const { getAllByRole } = render(<Tags items={tagsWithDisabled} />);
 
-    expect(
-      (element as HTMLElement).querySelectorAll(
-        ".tags-wrap li:not(.tags-input-wrapper"
-      ).length
-    ).toEqual(2);
-
-    expect(getByText("two").parentElement).toHaveClass("disabled");
+    expect(getAllByRole("listitem")[1]).toHaveClass("rc-tag-disabled");
   });
 
   it("Should create new tag", async () => {
-    const { getByPlaceholderText, getByRole } = render(<Tags items={tags} />);
-    const input = getByPlaceholderText("Please enter a value ...");
+    const { getAllByPlaceholderText, getByRole } = render(
+      <Tags items={tags} />
+    );
+    const input = getAllByPlaceholderText("Please enter a value ...")[0];
 
     await act(async () => {
       fireEvent.change(input, {
@@ -87,7 +68,7 @@ describe("Tags", () => {
     const oneParent = one.parentElement;
 
     if (oneParent) {
-      const closeIcon = oneParent.querySelector(".tag-icon");
+      const closeIcon = oneParent.querySelector(".rc-tag-icon");
 
       await act(async () => {
         if (closeIcon) {
@@ -100,11 +81,11 @@ describe("Tags", () => {
   });
 
   it("should call on change", async () => {
-    const { getByPlaceholderText } = render(
+    const { getAllByPlaceholderText } = render(
       <Tags items={tags} onSelected={onSelected} />
     );
 
-    const input = getByPlaceholderText("Please enter a value ...");
+    const input = getAllByPlaceholderText("Please enter a value ...")[0];
 
     await act(async () => {
       fireEvent.change(input, {

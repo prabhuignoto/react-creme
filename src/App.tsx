@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { Dropdown } from "./components";
+import { Dropdown, List, Tags } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={() => setOpen((prev) => !prev)}>open</button>
+      {/* <button onClick={() => setOpen((prev) => !prev)}>open</button> */}
       {/* <div>
         <button onClick={start}>Start</button>
         <button onClick={pause}>Stop</button>
@@ -29,12 +29,13 @@ function App() {
             { name: "ramya" },
             { name: "tester", disabled: true },
           ]}
+          maxTags={5}
+          restrictToValues={["one", "two"]}
           onSelected={(val) => console.log(val)}
         />
       </div> */}
-      <div style={{ width: "200px" }}>
+      {/* <div style={{ width: "350px" }}>
         <Dropdown
-          placeholder="choose a large country ..."
           options={[
             {
               name: "indiaindia",
@@ -52,7 +53,28 @@ function App() {
             { name: "pakistan", value: "pakistan" },
             { name: "srilanka", value: "srilanka" },
           ]}
-          onSelected={(val) => console.log(val)}
+        />
+      </div> */}
+      <div style={{ width: "450px" }}>
+        <List
+          allowMultipleSelection
+          options={[
+            {
+              name: "indiaindia",
+              value: "indiaindia",
+            },
+            { name: "usa", value: "usa" },
+            { name: "uk", value: "uk" },
+            { name: "germany", value: "germany", disabled: true },
+            { name: "pakistan", value: "pakistan" },
+            { name: "srilanka", value: "srilanka" },
+            { name: "india", value: "india" },
+            { name: "usa", value: "usa" },
+            { name: "uk", value: "uk" },
+            { name: "germany", value: "germany", disabled: true },
+            { name: "pakistan", value: "pakistan" },
+            { name: "srilanka", value: "srilanka" },
+          ]}
         />
       </div>
       {/* <div style={{ width: "800px" }}>

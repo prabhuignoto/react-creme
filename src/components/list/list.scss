@@ -1,0 +1,80 @@
+@use "../../design/layout.scss";
+@use "../../design/animate.scss";
+@use "../../design/colors.scss";
+@use "../../design/list.scss";
+@use "../../design/position.scss";
+
+.rc-list {
+  @extend %col;
+  @extend %border;
+  min-height: 300px;
+  width: 100%;
+}
+
+.rc-list-options {
+  @extend %list;
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+  max-height: var(--max-height);
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.rc-list-option {
+  @extend %list-item-left;
+  padding: 0.5rem 0;
+  position: relative;
+  width: 95%;
+  z-index: 1;
+
+  &:hover::after {
+    @include position.position-abs("middle left");
+    background: colors.$light-bg;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &.disabled {
+    @extend %disabled;
+  }
+}
+
+.rc-list-option-value {
+  @extend %text-no-wrap;
+  padding-left: 1rem;
+  text-align: left;
+  width: 80%;
+}
+
+.rc-list-search-input {
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  width: 90%;
+}
+
+$hide-anim: (
+  opacity: 0,
+  visibility: hidden,
+  transform: scale(0.95),
+);
+$show-anim: (
+  opacity: 1,
+  visibility: visible,
+  transform: scale(1),
+);
+
+$list-anim-settings: (
+  from: $hide-anim,
+  to: $show-anim,
+);
+
+@include animate.keyframes-motion-multi(list-menu-open, $list-anim-settings);
+@include animate.keyframes-motion-multi(
+  list-menu-close,
+  $list-anim-settings,
+  true
+);

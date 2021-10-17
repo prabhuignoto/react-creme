@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import { ChevronDownIcon } from "../../icons";
 import { DropDownMenu } from "./dropdown-menu";
-import { DropdownModel } from "./dropdown-model";
+import { DropdownModel, Option } from "./dropdown-model";
 import "./dropdown.scss";
 
 const Dropdown: React.FunctionComponent<DropdownModel> = ({
@@ -28,8 +28,9 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   // HANDLERS
-  const handleSelection = useCallback((val, id) => {
-    setValue(val);
+  const handleSelection = useCallback((selected: Option[]) => {
+    const { id, value } = selected[0];
+    setValue(value);
     setDropdownOptions((options) =>
       options.map((option) => ({
         ...option,
@@ -39,7 +40,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
     setShowMenu(false);
 
     if (onSelected) {
-      onSelected(val);
+      onSelected(value);
     }
   }, []);
 
@@ -85,6 +86,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
           <ChevronDownIcon />
         </span>
       </div>
+
       <DropDownMenu
         style={menuStyle}
         handleSelection={handleSelection}

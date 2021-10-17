@@ -1,14 +1,6 @@
 import classNames from "classnames";
-import React, {
-  CSSProperties,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import { SearchIcon } from "../../icons";
-import { Input } from "../input/input";
+import React, { CSSProperties, useEffect, useMemo, useRef } from "react";
+import { List } from "..";
 import "./dropdown-menu.scss";
 import { DropdownMenuModel } from "./dropdown-model";
 
@@ -18,23 +10,14 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
     handleSelection,
     style: { top, width, maxMenuHeight },
     open,
+    allowMultipleSelection,
   }: DropdownMenuModel) => {
     // STATE
-    const [menuOptions, setMenuOptions] = useState(options);
+    // const [menuOptions, setMenuOptions] = useState(options);
     const firstRender = useRef(true);
 
     // REF
     const menuRef = useRef<HTMLDivElement>(null);
-
-    // HANDLERS
-    const handleSearch = useCallback((val) => {
-      setMenuOptions((prev) =>
-        prev.map((item) => ({
-          ...item,
-          visible: val ? item.name.includes(val) : !val,
-        }))
-      );
-    }, []);
 
     // EFFECTS
     useEffect(() => {
@@ -74,29 +57,11 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
 
     return (
       <div className={menuClass} style={menuStyle} tabIndex={0} ref={menuRef}>
-        <div className="rc-dropdown-search-input">
-          <Input onChange={handleSearch} enableClear>
-            <SearchIcon />
-          </Input>
-        </div>
-        <ul className={"rc-dropdown-options"} role="listbox">
-          {menuOptions
-            .filter((item) => item.visible)
-            .map((option) => (
-              <li
-                className={classNames([
-                  "rc-dropdown-option",
-                  option.disabled ? "disabled" : "",
-                ])}
-                key={option.id}
-                onClick={() => handleSelection(option.value, option.id)}
-                role="option"
-                tabIndex={!option.disabled ? 0 : -1}
-              >
-                <span className="rc-dropdown-option-value">{option.name}</span>
-              </li>
-            ))}
-        </ul>
+        <List
+          options={options}
+          onSelection={handleSelection}
+          allowMultipleSelection={allowMultipleSelection}
+        />
       </div>
     );
   },

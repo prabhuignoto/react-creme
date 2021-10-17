@@ -17,15 +17,11 @@ describe("Dropdown", () => {
     const { getByText, getByTestId } = render(
       <Dropdown options={options} placeholder="select a option" />
     );
-
     expect(getByText("select a option")).toBeInTheDocument();
-
     fireEvent.click(getByText("select a option"));
-
     expect(getByTestId("icon")).toBeInTheDocument();
     expect(getByTestId("icon")).toHaveClass("rc-dropdown-chevron-icon-rotate");
   });
-
   it("should handler be called", async () => {
     const { getAllByRole } = render(
       <Dropdown
@@ -34,12 +30,10 @@ describe("Dropdown", () => {
         onSelected={handler}
       />
     );
-
-    const usa = getAllByRole("option")[0];
+    const usa = getAllByRole("option")[0].firstChild;
 
     if (usa) {
       fireEvent.click(usa);
-
       await waitFor(
         async () => {
           expect(handler).toBeCalledWith("usa");
@@ -48,16 +42,12 @@ describe("Dropdown", () => {
       );
     }
   });
-
   it("should menu auto close", async () => {
     const { getByText, getByTestId } = render(
       <Dropdown options={options} placeholder="select" />
     );
-
     const text = getByText("select");
-
     fireEvent.click(text);
-
     await waitFor(
       async () => {
         expect(getByTestId("icon")).toHaveClass(
@@ -68,11 +58,9 @@ describe("Dropdown", () => {
         timeout: 1200,
       }
     );
-
     if (text?.parentElement?.parentElement) {
       fireEvent.blur(text.parentElement.parentElement);
     }
-
     await waitFor(
       async () => {
         expect(getByTestId("icon")).not.toHaveClass(
