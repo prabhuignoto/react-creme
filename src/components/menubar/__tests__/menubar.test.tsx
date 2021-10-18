@@ -23,7 +23,7 @@ describe("Menubar", () => {
 
     expect(getByRole("menubar")).toBeInTheDocument();
     expect(
-      getByRole("menubar").querySelectorAll(".menu-bar-item-wrapper")
+      getByRole("menubar").querySelectorAll("li.rc-menu-bar-item-wrapper")
     ).toHaveLength(3);
   });
 
@@ -33,13 +33,13 @@ describe("Menubar", () => {
     fireEvent.click(getByText("File"));
 
     expect(getByRole("menubar").querySelectorAll("li")[0]).toHaveClass(
-      "menu-bar-item-active"
+      "rc-menu-bar-item-active"
     );
 
     fireEvent.click(getByText("File"));
 
     expect(getByRole("menubar").querySelectorAll("li")[0]).not.toHaveClass(
-      "menu-bar-item-active"
+      "rc-menu-bar-item-active"
     );
   });
 

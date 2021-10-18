@@ -1,7 +1,7 @@
 @use "../../design/layout.scss";
 @use "../../design/icon.scss";
 
-.checkbox-wrapper {
+.rc-checkbox-wrapper {
   @extend %left;
   padding: 0.25rem;
   user-select: none;
@@ -11,12 +11,12 @@
     cursor: pointer;
   }
 
-  &.checkbox-disabled {
+  &.rc-checkbox-disabled {
     @extend %disabled;
   }
 }
 
-.checkbox-icon {
+.rc-checkbox-icon {
   @extend %border;
   @extend %icon-sm;
 
@@ -24,12 +24,12 @@
     display: none;
   }
 
-  &.checkbox-checked svg {
+  &.rc-checkbox-checked svg {
     display: block;
   }
 }
 
-.checkbox-label {
+.rc-checkbox-label {
   @extend %left;
   padding-left: 0.5rem;
 }

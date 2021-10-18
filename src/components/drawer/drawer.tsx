@@ -36,7 +36,7 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
 
   const drawerClass = useMemo(
     () =>
-      classNames(["drawer-wrapper", position], {
+      classNames(["rc-drawer", position], {
         [`visible slide-${position}-enter`]: activate && !isClosing,
         [`visible slide-${position}-exit`]: isClosing,
       }),

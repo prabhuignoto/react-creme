@@ -1,15 +1,15 @@
 @use "../../design/layout.scss";
 @use "../../design/list.scss";
 
-.radio-group-wrapper {
+.rc-radio-grp {
   @extend %list-left;
 }
 
-.radio-group-item {
+.rc-radio-grp-item {
   @extend %list-item-left;
   margin: 0.5rem 0;
 
-  &.radio-group-item-disabled {
+  &.rc-radio-grp-item-disabled {
     @extend %disabled;
   }
 }

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { Tooltip } from "./components";
+import { Carousel, Dialog, Drawer, MenuBar, Tooltip } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <button onClick={() => setOpen((prev) => !prev)}>open</button> */}
+      <button onClick={() => setOpen((prev) => !prev)}>open</button>
       {/* <div>
         <button onClick={start}>Start</button>
         <button onClick={pause}>Stop</button>
@@ -77,8 +77,8 @@ function App() {
           ]}
         />
       </div> */}
-      {/* <div style={{ width: "800px" }}>
-        <Carousel direction="horizontal">
+      <div style={{ width: "800px" }}>
+        <Carousel direction="vertical">
           <span>one</span>
           <span>two</span>
           <span>three</span>
@@ -89,7 +89,7 @@ function App() {
           <span>two</span>
           <span>1233</span>
         </Carousel>
-      </div> */}
+      </div>
       {/* <Button label="save as new" disabled onClick={() => alert("rama")} />
       <Button
         label="save as new"
@@ -140,7 +140,7 @@ function App() {
       >
         {open && (
           <Drawer
-            position="left"
+            position="top"
             width={300}
             onClose={() => setOpen(false)}
             // containedToParent={ref}
@@ -225,12 +225,12 @@ function App() {
         <span>test</span>
       </Notification> */}
       {/* </div> */}
-      <Tooltip message="test tooltip" position="top center">
+      {/* <Tooltip message="test tooltip" position="top right">
         <div style={{ width: "450px", height: "100px" }}>
           this is a content this ia some huge contentthis is a content this ia
           some huge content. this is a content this ia some huge content
         </div>
-      </Tooltip>
+      </Tooltip> */}
       {/* <Menu items={[{ name: "prabhu" }, { name: "testet" }]}>
         <span>test</span>
       </Menu> */}

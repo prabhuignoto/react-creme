@@ -20,12 +20,12 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
   const dialogClass = useMemo(
     () =>
       classNames([
-        "dialog-wrapper",
-        isClosing ? "dialog-close" : "dialog-open",
+        "rc-dialog",
+        isClosing ? "rc-dialog-close" : "rc-dialog-open",
       ]),
     [isClosing]
   );
-  const id = useRef(`dialog-${nanoid()}`);
+  const id = useRef(`rc-dialog-${nanoid()}`);
 
   useCloseOnEscape((ev) => onClose?.(), dialogRef);
 
@@ -37,18 +37,18 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
       role="dialog"
       aria-labelledby={id.current}
     >
-      <header className="header">
-        <h2 className="title" id={id.current}>
+      <header className="rc-dialog-header">
+        <h2 className="rc-dialog-title" id={id.current}>
           {title}
         </h2>
-        <div className="button-wrapper">
+        <div className="rc-dialog-button-wrapper">
           <Button type="icon" onClick={onClose}>
             <CloseIcon />
           </Button>
         </div>
       </header>
-      <section className="body">{children}</section>
-      <footer className="footer">
+      <section className="rc-dialog-body">{children}</section>
+      <footer className="rc-dialog-footer">
         <Button label="okay" type="primary" onClick={onSuccess}>
           <CheckIcon />
         </Button>

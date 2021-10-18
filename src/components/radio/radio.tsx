@@ -27,17 +27,17 @@ const Radio: React.FunctionComponent<RadioModel> = ({
 
   const RadioWrapperClass = useMemo(
     () =>
-      classNames(["radio-wrapper"], {
-        "radio-wrapper-disabled": disabled,
-        "radio-wrapper-checked": checked,
+      classNames(["rc-radio"], {
+        "rc-radio-disabled": disabled,
+        "rc-radio-checked": checked,
       }),
     [checked]
   );
 
   const RadioIconClass = useMemo(() => {
-    return classNames(["radio-icon"], {
-      "radio-icon-checked": checked,
-      "radio-icon-un-checked": !isFirstRender.current && !checked,
+    return classNames(["rc-radio-icon"], {
+      "rc-radio-ico-checked": checked,
+      "rc-radio-ico-un-checked": !isFirstRender.current && !checked,
     });
   }, [checked]);
 
@@ -71,7 +71,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
     >
       <span className={RadioIconClass}></span>
       <input type="hidden" value={value} aria-labelledby={labelID.current} />
-      <label className="radio-label" id={labelID.current}>
+      <label className="rc-radio-label" id={labelID.current}>
         {label}
       </label>
     </div>

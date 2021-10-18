@@ -74,7 +74,7 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
 
   const wrapperClass = useMemo(
     () =>
-      classNames("menu-bar-wrapper", {
+      classNames("rc-menu-bar-wrapper", {
         "align-left": align === "left",
         "align-right": align === "right",
       }),
@@ -103,9 +103,9 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
         <li
           key={id}
           className={classNames([
-            "menu-bar-item-wrapper",
+            "rc-menu-bar-item-wrapper",
             {
-              "menu-bar-item-active": isMenuOpen,
+              "rc-menu-bar-item-active": isMenuOpen,
             },
           ])}
         >
@@ -118,7 +118,7 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
               id={id}
               onSelected={(val) => handleSelection(val, name)}
             >
-              <span className="menu-bar-item-name">{name}</span>
+              <span className="rc-menu-bar-item-name">{name}</span>
             </Menu>
           )}
         </li>

@@ -38,12 +38,12 @@ describe("Carousel", () => {
 
     if (container) {
       expect(
-        container.querySelector(".carousel-btn-right")
+        container.querySelector(".rc-carousel-btn-right")
       ).toBeInTheDocument();
 
-      const btnRight = container.querySelector(".carousel-btn-right");
-      const btnLeft = container.querySelector(".carousel-btn-left");
-      const carouselItems = container.querySelectorAll(".carousel-item");
+      const btnRight = container.querySelector(".rc-carousel-btn-right");
+      const btnLeft = container.querySelector(".rc-carousel-btn-left");
+      const carouselItems = container.querySelectorAll(".rc-carousel-item");
 
       if (btnRight && carouselItems) {
         await act(async () => {

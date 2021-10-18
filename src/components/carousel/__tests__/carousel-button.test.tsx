@@ -11,7 +11,7 @@ describe("Carousel Button", () => {
     );
 
     expect(container.firstChild).toBeInTheDocument();
-    expect(container.firstChild).toHaveClass("carousel-btn-left");
+    expect(container.firstChild).toHaveClass("rc-carousel-btn-left");
   });
 
   it("should call the onClick handler", () => {

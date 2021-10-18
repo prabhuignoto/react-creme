@@ -34,28 +34,29 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   // CSS
   const switchKnobClass = useMemo(
     () =>
-      classNames(["switch-knob"], {
-        "switch-on": state,
-        "switch-off": !state && !isFirstRender.current,
+      classNames(["rc-switch-knob"], {
+        "rc-switch-on": state,
+        "rc-switch-off": !state && !isFirstRender.current,
       }),
     [state]
   );
 
   const switchClass = useMemo(
-    () => classNames("switch", { "switch-disabled": disabled }),
+    () => classNames("switch", { "rc-switch-disabled": disabled }),
     []
   );
 
   const switchTrackClass = useMemo(
-    () => classNames(["switch-track", state ? "switch-on" : "switch-off"]),
+    () =>
+      classNames(["rc-switch-track", state ? "rc-switch-on" : "rc-switch-off"]),
     [state]
   );
 
   const switchLabelClass = useMemo(
     () =>
-      classNames(["switch-label"], {
-        "switch-label-on": state,
-        "switch-label-off": !state,
+      classNames(["rc-switch-label"], {
+        "rc-switch-label-on": state,
+        "rc-switch-label-off": !state,
       }),
     [state]
   );

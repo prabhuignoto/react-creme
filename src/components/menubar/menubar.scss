@@ -4,7 +4,7 @@
 @use "../../design/animate.scss";
 @use "../../design/colors.scss";
 
-.menu-bar-wrapper {
+.rc-menu-bar-wrapper {
   @extend %border;
   @extend %shadow-inset;
 
@@ -21,7 +21,7 @@
   }
 }
 
-.menu-bar-item-wrapper {
+.rc-menu-bar-item-wrapper {
   @extend %center;
   border: 1px solid transparent;
   height: 100%;
@@ -40,32 +40,32 @@
     @extend %border-radius-left;
   }
 
-  &.menu-bar-item-active {
+  &.rc-menu-bar-item-active {
     @extend %border-no-radius;
     background: colors.$secondary;
   }
 
-  &.menu-bar-item-active:last-child {
+  &.rc-menu-bar-item-active:last-child {
     @extend %border-radius-right;
   }
 
-  &.menu-bar-item-active:first-child {
+  &.rc-menu-bar-item-active:first-child {
     @extend %border-radius-left;
   }
 }
 
-.menu-bar-menu-wrapper {
+.rc-menu-bar-menu-wrapper {
   position: absolute;
 }
 
-.menu-bar-item-name {
+.rc-menu-bar-item-name {
   @extend %center;
   height: 100%;
   padding: 0 1rem;
   position: relative;
 }
 
-.menu-bar-menu {
+.rc-menu-bar-menu {
   $animation: (
     from: (
       opacity: 0,

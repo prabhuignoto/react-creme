@@ -12,8 +12,6 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
     open,
     allowMultipleSelection,
   }: DropdownMenuModel) => {
-    // STATE
-    // const [menuOptions, setMenuOptions] = useState(options);
     const firstRender = useRef(true);
 
     // REF

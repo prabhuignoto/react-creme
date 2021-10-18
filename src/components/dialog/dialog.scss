@@ -4,7 +4,7 @@
 @use "../../design/animate.scss";
 @use "../../design/animations.scss";
 
-.dialog-wrapper {
+.rc-dialog {
   @extend %col;
   @extend %border;
   @extend %shadow-inset;
@@ -13,28 +13,28 @@
   min-height: 300px;
   min-width: 500px;
 
-  &.dialog-close {
+  &.rc-dialog-close {
     @include animations.set-animation(pop, from);
     animation-name: animation-pop-close;
   }
 
-  &.dialog-open {
+  &.rc-dialog-open {
     @include animations.set-animation(pop, to);
     animation-name: animation-pop-open;
   }
 }
 
-.header {
+.rc-dialog-header {
   @extend %left;
   margin: 0.25rem 0;
   width: 100%;
 }
 
-.body {
+.rc-dialog-body {
   @extend %center;
 }
 
-.footer {
+.rc-dialog-footer {
   @extend %right;
   margin-bottom: 1rem;
   margin-right: 2rem;
@@ -46,19 +46,21 @@
   }
 }
 
-.dialog-btn {
-  @extend %button-sm;
+.rc-dialog-btn {
+  @extend %button-lg;
 }
 
-.title {
+.rc-dialog-title {
   @extend %center;
+  font-size: 1rem;
+  margin: 0;
   padding-left: 1rem;
 }
 
-.close {
+.rc-dialog-close {
   @extend %button-lg-no-border;
 }
 
-.button-wrapper {
+.rc-dialog-button-wrapper {
   margin-left: auto;
 }

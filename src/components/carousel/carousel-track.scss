@@ -3,19 +3,19 @@
 @use "../../design/colors.scss";
 @use "../../design/icon.scss";
 
-.carousel-track {
-  &.carousel-track-horizontal {
+.rc-carousel-track {
+  &.rc-carousel-track-horizontal {
     @extend %center;
     @extend %list-horizontal;
   }
 
-  &.carousel-track-vertical {
+  &.rc-carousel-track-vertical {
     @extend %list;
     width: 3rem;
   }
 }
 
-.carousel-track-item {
+.rc-carousel-track-item {
   border: 1px solid colors.$primary;
   border-radius: 50%;
   height: 10px;
@@ -23,14 +23,14 @@
   width: 10px;
 }
 
-.carousel-track-item:hover {
+.rc-carousel-track-item:hover {
   cursor: pointer;
 }
 
-.carousel-track-item-selected {
+.rc-carousel-track-item-selected {
   background: colors.$primary;
 }
 
-.carousel-icon {
+.rc-carousel-icon {
   @extend %icon-sm;
 }

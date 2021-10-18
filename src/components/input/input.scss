@@ -3,7 +3,7 @@
 @use '../../design/icon.scss';
 @use '../../design/button.scss';
 
-.input-wrapper {
+.rc-input {
   @extend %center;
   @extend %border;
   height: 30px;
@@ -24,11 +24,11 @@
   }
 }
 
-.input-icon {
+.rc-input-icon {
   @extend %icon-sm;
 }
 
-.input-clear {
+.rc-input-clear {
   @extend %icon-sm;
   cursor: pointer;
 

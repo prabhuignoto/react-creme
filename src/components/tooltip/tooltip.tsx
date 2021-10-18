@@ -22,7 +22,7 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
 
   // helper to position the tooltip
   const cssPosition = usePosition(wrapperRef, tooltipRef, position, {
-    alignToEdge: false,
+    alignToEdge: true,
     spacing: 15,
   });
 

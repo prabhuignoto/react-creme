@@ -22,18 +22,17 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
   }, [width, height, activePage]);
 
   return (
-    <ul className={"carousel"} style={carouselStyle} role="list">
+    <ul className={"rc-carousel"} style={carouselStyle} role="list">
       {carouselItems.map((item, index) => (
         <li
           key={item.id}
-          className={"carousel-item"}
+          className={"rc-carousel-item"}
           role="listitem"
           style={{
             width: item.width,
             height: item.height,
             top: direction === "horizontal" ? 0 : item.top,
             left: direction === "horizontal" ? item.left : 0,
-            // visibility: item.visible ? "visible" : "hidden",
             visibility: activePage === index ? "visible" : "hidden",
           }}
         >

@@ -89,15 +89,15 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
 
   const carouselTrackClass = useMemo(() => {
     return classNames([
-      "carousel-track-wrapper",
-      `carousel-track-wrapper-${direction}`,
+      "rc-carousel-track-wrapper",
+      `rc-carousel-track-wrapper-${direction}`,
     ]);
   }, []);
 
   const carouselContainerClass = useMemo(() => {
     return classNames([
-      "carousel-container",
-      `carousel-container-${direction}`,
+      "rc-carousel-container",
+      `rc-carousel-container-${direction}`,
     ]);
   }, []);
 
@@ -110,7 +110,7 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   return (
     <div className={carouselContainerClass}>
       <div
-        className={"carousel-wrapper"}
+        className={"rc-carousel-wrapper"}
         ref={carouselRef}
         style={carouselWrapperStyle}
       >

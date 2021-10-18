@@ -12,7 +12,7 @@ interface CarouselTrackModel {
 const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = React.memo(
   ({ length, handleSelection, activeIndex, direction }: CarouselTrackModel) => {
     const carouselTrackWrapper = useMemo(
-      () => classNames(["carousel-track", `carousel-track-${direction}`]),
+      () => classNames(["rc-carousel-track", `rc-carousel-track-${direction}`]),
       []
     );
 
@@ -23,8 +23,8 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = React.memo(
             key={index}
             role="listitem"
             className={classNames([
-              "carousel-track-item",
-              index === activeIndex ? "carousel-track-item-selected" : "",
+              "rc-carousel-track-item",
+              index === activeIndex ? "rc-carousel-track-item-selected" : "",
             ])}
             onClick={() => handleSelection(index)}
           ></li>

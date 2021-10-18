@@ -84,7 +84,6 @@ const usePosition: FunctionType = function (
       }
       case "top left":
       case "top right": {
-        debugger;
         const prop = alignToEdge
           ? positionY
           : isPositionY("left")

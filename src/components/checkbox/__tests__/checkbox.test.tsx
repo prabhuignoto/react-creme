@@ -14,14 +14,14 @@ describe("Checkbox", () => {
   it("should render disabled", () => {
     const { container } = render(<CheckBox label="My Checkbox" disabled />);
 
-    expect(container.firstChild).toHaveClass("checkbox-disabled");
+    expect(container.firstChild).toHaveClass("rc-checkbox-disabled");
   });
 
   it("should render default prop isChecked", () => {
     const { container } = render(<CheckBox label="My Checkbox" isChecked />);
 
-    expect(container.querySelector(".checkbox-icon")).toHaveClass(
-      "checkbox-checked"
+    expect(container.querySelector(".rc-checkbox-icon")).toHaveClass(
+      "rc-checkbox-checked"
     );
   });
 

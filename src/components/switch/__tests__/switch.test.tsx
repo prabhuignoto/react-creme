@@ -18,10 +18,10 @@ describe("Switch", () => {
 
     userEvent.click(switchItem);
     expect(handler).toBeCalledWith(true);
-    expect(switchItem.firstChild).toHaveClass("switch-on");
+    expect(switchItem.firstChild).toHaveClass("rc-switch-on");
 
     userEvent.click(switchItem);
     expect(handler).toBeCalledWith(false);
-    expect(switchItem.firstChild).toHaveClass("switch-off");
+    expect(switchItem.firstChild).toHaveClass("rc-switch-off");
   });
 });

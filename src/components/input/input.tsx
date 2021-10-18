@@ -30,7 +30,7 @@ const Input: React.FunctionComponent<InputModel> = ({
   const handleBlur = useCallback(() => setHasFocus(false), []);
 
   const inputClass = useMemo(
-    () => classNames(["input-wrapper", hasFocus ? "focus" : ""]),
+    () => classNames(["rc-input", hasFocus ? "focus" : ""]),
     [hasFocus]
   );
 
@@ -60,7 +60,7 @@ const Input: React.FunctionComponent<InputModel> = ({
   useEffect(() => setValue(value), [value]);
 
   const clearClass = useMemo(
-    () => classNames(["input-clear", !inputValue ? "hidden" : ""]),
+    () => classNames(["rc-input-clear", !inputValue ? "hidden" : ""]),
     [inputValue]
   );
 
@@ -88,7 +88,7 @@ const Input: React.FunctionComponent<InputModel> = ({
       onClick={handleFocus}
       role="textbox"
     >
-      {children && <span className={"input-icon"}>{children}</span>}
+      {children && <span className={"rc-input-icon"}>{children}</span>}
       <input
         type={type}
         placeholder={placeholder}

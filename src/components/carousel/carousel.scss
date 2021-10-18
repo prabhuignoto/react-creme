@@ -4,37 +4,37 @@
 @use "../../design/list.scss";
 @use "../../design/layout.scss";
 
-.carousel-container {
+.rc-carousel-container {
   @extend %border;
   @extend %shadow-inset;
   width: 100%;
 
-  &.carousel-container-horizontal {
+  &.rc-carousel-container-horizontal {
     @extend %col;
   }
 
-  &.carousel-container-vertical {
+  &.rc-carousel-container-vertical {
     @extend %center;
   }
 }
 
-.carousel-wrapper {
+.rc-carousel-wrapper {
   min-height: var(--min-height);
   overflow: hidden;
   position: relative;
   width: calc(100% - 3rem);
 }
 
-.carousel-track-wrapper {
+.rc-carousel-track-wrapper {
   @extend %center;
   padding: 0.5rem 0;
 
-  &.carousel-track-wrapper-horizontal {
+  &.rc-carousel-track-wrapper-horizontal {
     width: 100%;
   }
 }
 
-.carousel {
+.rc-carousel {
   height: 100%;
   list-style: none;
   margin: 0;
@@ -43,12 +43,12 @@
   transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.carousel-item {
+.rc-carousel-item {
   @extend %center;
   position: absolute;
 }
 
-.carousel-btn {
+.rc-carousel-btn {
   @extend %button-lg-no-border;
   position: absolute;
   top: 50%;
@@ -56,11 +56,11 @@
   z-index: 100;
 }
 
-.carousel-btn-left {
+.rc-carousel-btn-left {
   left: 1rem;
   transform: rotate(180deg) translateY(50%);
 }
 
-.carousel-btn-right {
+.rc-carousel-btn-right {
   right: 1rem;
 }

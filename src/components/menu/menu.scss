@@ -3,18 +3,18 @@
 @use "../../design/animate.scss";
 @use "../../design/colors.scss";
 
-.menu-wrapper {
+.rc-menu-wrapper {
   @extend %center;
   height: 100%;
   position: relative;
 }
 
-.menu-content-wrapper {
+.rc-menu-content-wrapper {
   @extend %center;
   height: 100%;
 }
 
-.menu {
+.rc-menu {
   $animation: (
     from: (
       opacity: 0,
@@ -37,20 +37,20 @@
   position: absolute;
   visibility: hidden;
 
-  &.menu-open {
+  &.rc-menu-open {
     animation-name: animate-menu-open;
     opacity: 1;
     visibility: visible;
   }
 
-  &.menu-close {
+  &.rc-menu-close {
     animation-name: animate-menu-close;
     opacity: 0;
     visibility: hidden;
   }
 }
 
-.menu-item {
+.rc-menu-item {
   @extend %list-item-left;
   height: 35px;
   width: 100%;
@@ -69,11 +69,11 @@
     border-bottom-right-radius: 4px;
   }
 
-  &.menu-item-disabled {
+  &.rc-menu-item-disabled {
     @extend %disabled;
   }
 }
 
-.menu-item-name {
+.rc-menu-item-name {
   padding-left: 0.5rem;
 }

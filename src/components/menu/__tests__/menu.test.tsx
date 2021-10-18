@@ -13,7 +13,7 @@ const items: MenuItemModel[] = [
 
 describe("Menu", () => {
   it("should render the host component", async () => {
-    const { getByText, getByRole, container } = render(
+    const { getByText, container } = render(
       <Menu items={items}>
         <span>icon</span>
       </Menu>
@@ -40,9 +40,9 @@ describe("Menu", () => {
     );
 
     fireEvent.click(getByText("icon"));
-    expect(getByRole("menu")).toHaveClass("menu-open");
+    expect(getByRole("menu")).toHaveClass("rc-menu-open");
 
     fireEvent.click(getByText("icon"));
-    expect(getByRole("menu")).toHaveClass("menu-close");
+    expect(getByRole("menu")).toHaveClass("rc-menu-close");
   });
 });

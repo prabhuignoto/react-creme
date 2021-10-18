@@ -50,12 +50,12 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   const isFirstRender = useFirstRender();
 
   return (
-    <ul className={"radio-group-wrapper"} role="radiogroup">
+    <ul className={"rc-radio-grp"} role="radiogroup">
       {_items.map(({ id, disabled, label, selected }) => (
         <li
           key={id}
-          className={classNames("radio-group-item", {
-            "radio-group-item-disabled": disabled,
+          className={classNames("rc-radio-grp-item", {
+            "rc-radio-grp-item-disabled": disabled,
           })}
           role="none"
           aria-checked={!!selected}

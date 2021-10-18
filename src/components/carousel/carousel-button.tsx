@@ -12,7 +12,10 @@ const CarouselButton: React.FunctionComponent<CarouselButtonModel> = React.memo(
   ({ onClick, position }: CarouselButtonModel) => {
     return (
       <button
-        className={classNames(["carousel-btn", `carousel-btn-${position}`])}
+        className={classNames([
+          "rc-carousel-btn",
+          `rc-carousel-btn-${position}`,
+        ])}
         onClick={onClick}
       >
         <ChevronRightIcon />

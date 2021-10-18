@@ -15,7 +15,7 @@ describe("Carousel Track", () => {
       />
     );
 
-    expect(getByRole("list")).toHaveClass("carousel-track-horizontal");
+    expect(getByRole("list")).toHaveClass("rc-carousel-track-horizontal");
     expect(getAllByRole("listitem")).toHaveLength(3);
   });
 
@@ -45,7 +45,7 @@ describe("Carousel Track", () => {
     );
 
     expect(getAllByRole("listitem")[1]).toHaveClass(
-      "carousel-track-item-selected"
+      "rc-carousel-track-item-selected"
     );
   });
 });

@@ -22,15 +22,15 @@ $switch-settings: (
   true
 );
 
-.switch {
+.rc-switch {
   padding: 0.25rem;
 
-  &.switch-disabled {
+  &.rc-switch-disabled {
     @extend %disabled;
   }
 }
 
-.switch-track {
+.rc-switch-track {
   @extend %border;
   @extend %center;
   border-radius: 20px;
@@ -38,16 +38,16 @@ $switch-settings: (
   height: 25px;
   position: relative;
 
-  &.switch-on {
+  &.rc-switch-on {
     background-color: colors.$primary;
   }
 
-  &.switch-off {
+  &.rc-switch-off {
     background-color: colors.$gray;
   }
 }
 
-.switch-knob {
+.rc-switch-knob {
   @extend %shadow-small;
   @include animate.set-animation(0.2s);
   @include position.position-abs("center left");
@@ -59,31 +59,31 @@ $switch-settings: (
   transition: background-color 0.1s ease;
   width: $dimension;
 
-  &.switch-on {
+  &.rc-switch-on {
     @extend %shadow-small;
     animation-name: switch-left-right;
     left: $end-left;
   }
 
-  &.switch-off {
+  &.rc-switch-off {
     animation-name: switch-right-left;
     background-color: colors.$white;
     left: $start-left;
   }
 }
 
-.switch-label {
+.rc-switch-label {
   @extend %center;
   display: block;
   white-space: nowrap;
 
-  &.switch-label-on {
+  &.rc-switch-label-on {
     color: colors.$white;
     margin-left: 6px;
     margin-right: $dimension + $start-left + 2px;
   }
 
-  &.switch-label-off {
+  &.rc-switch-label-off {
     margin-left: $dimension + $start-left + 2px;
     margin-right: 6px;
   }

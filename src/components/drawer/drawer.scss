@@ -5,7 +5,7 @@
 @use "../../design/position.scss";
 @use "../../design/util.scss";
 
-.drawer-wrapper {
+.rc-drawer {
   $min-width: var(--min-width);
   $min-height: var(--min-height);
 
@@ -113,6 +113,6 @@
   }
 }
 
-.drawer-close-btn {
+.rc-drawer-close-btn {
   @extend %button-lg;
 }

@@ -44,9 +44,9 @@ const Menu: React.FunctionComponent<MenuModel> = React.memo(
 
     const menuClass = useMemo(
       () =>
-        classNames(["menu"], {
-          "menu-open": showMenu,
-          "menu-close": !isFirstRender.current && !showMenu,
+        classNames(["rc-menu"], {
+          "rc-menu-open": showMenu,
+          "rc-menu-close": !isFirstRender.current && !showMenu,
         }),
       [showMenu]
     );
@@ -84,25 +84,25 @@ const Menu: React.FunctionComponent<MenuModel> = React.memo(
 
     return (
       <div
-        className="menu-wrapper"
+        className="rc-menu-wrapper"
         ref={wrapperRef}
         onBlur={closeMenu}
         tabIndex={0}
       >
-        <div className="menu-content-wrapper" onClick={toggleMenu}>
+        <div className="rc-menu-content-wrapper" onClick={toggleMenu}>
           {children}
         </div>
         <ul className={menuClass} ref={menuRef} style={cssPosition} role="menu">
           {menuItems.current.map(({ name, id, disabled }) => (
             <li
               key={id}
-              className={classNames(["menu-item"], {
-                "menu-item-disabled": disabled,
+              className={classNames(["rc-menu-item"], {
+                "rc-menu-item-disabled": disabled,
               })}
               onMouseDown={() => !disabled && handleMouseDown(name)}
               role="menuitem"
             >
-              <span className="menu-item-name">{name}</span>
+              <span className="rc-menu-item-name">{name}</span>
             </li>
           ))}
         </ul>
