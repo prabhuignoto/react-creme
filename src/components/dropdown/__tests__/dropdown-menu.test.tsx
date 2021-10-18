@@ -1,4 +1,4 @@
-import { render, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React from "react";
 import { DropDownMenu } from "../dropdown-menu";
 import { MenuOption } from "../dropdown-model";
@@ -29,27 +29,5 @@ describe("Dropdown menu", () => {
     );
 
     expect(getByRole("listbox")).toBeInTheDocument();
-
-    await waitFor(
-      async () => {
-        expect(container.firstChild).toHaveFocus();
-      },
-      { timeout: 500 }
-    );
   });
-
-  // it("should call the handler", () => {
-  //   const { getAllByRole } = render(
-  //     <DropDownMenu
-  //       options={options}
-  //       handleSelection={handler}
-  //       open
-  //       style={menuStyle}
-  //     />
-  //   );
-
-  //   fireEvent.click(getAllByRole("option")[0]);
-
-  //   expect(handler).toBeCalledWith("option1", "123");
-  // });
 });

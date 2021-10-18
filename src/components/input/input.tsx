@@ -8,104 +8,100 @@ import React, {
   useState,
 } from "react";
 import { useDebouncedCallback } from "use-debounce";
+import "../../design/focus.scss";
 import { CloseIcon } from "../../icons";
+import { useFocus } from "../common/effects/useFocus";
 import { InputModel } from "./input-model";
 import "./input.scss";
 
-const Input: React.FunctionComponent<InputModel> = ({
-  children,
-  enableClear = false,
-  onChange,
-  onKeyUp,
-  placeholder = "Please enter a value ...",
-  type = "text",
-  value = "",
-}) => {
-  const [hasFocus, setHasFocus] = useState(false);
-  const [inputValue, setValue] = useState(value);
-  const inputRef = useRef<HTMLInputElement>(null);
+const Input: React.FunctionComponent<InputModel> = React.memo(
+  ({
+    children,
+    enableClear = false,
+    onChange,
+    onKeyUp,
+    placeholder = "Please enter a value ...",
+    type = "text",
+    value = "",
+  }: InputModel) => {
+    const [inputValue, setValue] = useState(value);
+    const inputRef = useRef<HTMLInputElement>(null);
+    const ref = useRef(null);
 
-  const handleFocus = useCallback(() => setHasFocus(true), []);
+    const debouncedOnChange = onChange
+      ? useDebouncedCallback(onChange, 100)
+      : null;
 
-  const handleBlur = useCallback(() => setHasFocus(false), []);
+    const handleClear = useCallback((ev: React.MouseEvent) => {
+      ev.preventDefault();
+      setValue("");
 
-  const inputClass = useMemo(
-    () => classNames(["rc-input", hasFocus ? "focus" : ""]),
-    [hasFocus]
-  );
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
 
-  const debouncedOnChange = onChange
-    ? useDebouncedCallback(onChange, 100)
-    : null;
+      if (debouncedOnChange) {
+        debouncedOnChange("");
+      }
+    }, []);
 
-  const handleClear = useCallback((ev: React.MouseEvent) => {
-    ev.preventDefault();
-    setValue("");
+    const handleInput = useCallback(
+      (ev: React.ChangeEvent<HTMLInputElement>) => {
+        const val = ev.target.value;
+        setValue(val);
+        debouncedOnChange && debouncedOnChange(val);
+      },
+      []
+    );
 
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
+    useEffect(() => setValue(value), [value]);
 
-    if (debouncedOnChange) {
-      debouncedOnChange("");
-    }
-  }, []);
+    const clearClass = useMemo(
+      () => classNames(["rc-input-clear", !inputValue ? "hidden" : ""]),
+      [inputValue]
+    );
 
-  const handleInput = useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
-    const val = ev.target.value;
-    setValue(val);
-    debouncedOnChange && debouncedOnChange(val);
-  }, []);
+    const inputWidth = useMemo(() => {
+      let width = `100%`;
 
-  useEffect(() => setValue(value), [value]);
+      if (enableClear) {
+        width = `100% - 2rem`;
+      }
 
-  const clearClass = useMemo(
-    () => classNames(["rc-input-clear", !inputValue ? "hidden" : ""]),
-    [inputValue]
-  );
+      if (children) {
+        width = `100% - 3rem`;
+      }
 
-  const inputWidth = useMemo(() => {
-    let width = `100%`;
+      return {
+        "--width": width,
+      } as CSSProperties;
+    }, []);
 
-    if (enableClear) {
-      width = `100% - 2rem`;
-    }
+    useFocus(inputRef, { bgHighlight: true });
 
-    if (children) {
-      width = `100% - 3rem`;
-    }
+    return (
+      <div className="rc-input" style={inputWidth} role="textbox" ref={ref}>
+        {children && <span className={"rc-input-icon"}>{children}</span>}
+        <input
+          type={type}
+          placeholder={placeholder}
+          onChange={handleInput}
+          onKeyUp={onKeyUp}
+          value={inputValue}
+          ref={inputRef}
+          tabIndex={0}
+        />
+        {enableClear && (
+          <span onMouseDown={handleClear} className={clearClass} role="button">
+            <CloseIcon />
+          </span>
+        )}
+      </div>
+    );
+  },
+  (prev, cur) => prev.value === cur.value
+);
 
-    return {
-      "--width": width,
-    } as CSSProperties;
-  }, []);
-
-  return (
-    <div
-      className={inputClass}
-      tabIndex={0}
-      style={inputWidth}
-      onClick={handleFocus}
-      role="textbox"
-    >
-      {children && <span className={"rc-input-icon"}>{children}</span>}
-      <input
-        type={type}
-        placeholder={placeholder}
-        onClick={handleFocus}
-        onChange={handleInput}
-        onKeyUp={onKeyUp}
-        value={inputValue}
-        onBlur={handleBlur}
-        ref={inputRef}
-      />
-      {enableClear && (
-        <span onMouseDown={handleClear} className={clearClass} role="button">
-          <CloseIcon />
-        </span>
-      )}
-    </div>
-  );
-};
+Input.displayName = "Input";
 
 export { Input };

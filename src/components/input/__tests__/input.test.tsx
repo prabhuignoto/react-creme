@@ -11,18 +11,6 @@ describe("Input", () => {
     expect(container.firstChild).toBeInTheDocument();
   });
 
-  it("should receive focus", async () => {
-    const { getByPlaceholderText, container } = render(<Input />);
-
-    const input = getByPlaceholderText("Please enter a value ...");
-
-    await act(async () => {
-      fireEvent.click(input);
-    });
-
-    expect(container.firstChild).toHaveClass("focus");
-  });
-
   it("should call onchange", async () => {
     const { getByPlaceholderText } = render(<Input onChange={handler} />);
     const input = getByPlaceholderText("Please enter a value ...");

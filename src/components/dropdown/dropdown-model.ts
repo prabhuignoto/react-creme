@@ -23,8 +23,9 @@ export interface Option {
 }
 
 export interface DropdownModel {
+  allowMultipleSelection?: boolean;
   maxMenuHeight?: number;
-  onSelected?: (value: string) => void;
+  onSelected?: (value: string | string[]) => void;
   options: Option[];
   placeholder?: string;
 }

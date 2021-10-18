@@ -7,6 +7,7 @@ import React, {
   useState,
 } from "react";
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
+import { useFocus } from "../common/effects/useFocus";
 import { withOverlay } from "../common/withOverlay";
 import { DrawerModel } from "./drawer-model";
 import "./drawer.scss";
@@ -46,6 +47,12 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
   useEffect(() => setActivate(true), []);
 
   useCloseOnEscape((ev) => onClose?.(), drawerRef);
+
+  useFocus(drawerRef);
+
+  useCloseOnEscape(() => {
+    onClose && onClose();
+  }, drawerRef);
 
   return (
     <div

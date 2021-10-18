@@ -7,6 +7,7 @@ import React, {
   useState,
 } from "react";
 import { CheckIcon } from "../../icons";
+import { useFocus } from "../common/effects/useFocus";
 import { CheckboxModel } from "./checkbox-model";
 import "./checkbox.scss";
 
@@ -18,6 +19,9 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
 }: CheckboxModel) => {
   const [checked, setChecked] = useState(isChecked);
   const isFirstRender = useRef(true);
+  const ref = useRef(null);
+
+  useFocus(ref, { bgHighlight: true });
 
   const toggleCheck = useCallback(() => {
     setChecked(!checked);
@@ -59,6 +63,8 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
       onClick={toggleCheck}
       role="checkbox"
       aria-checked={checked}
+      ref={ref}
+      tabIndex={disabled ? -1 : 0}
     >
       <span className={iconClass}>
         <CheckIcon />

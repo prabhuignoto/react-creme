@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
@@ -8,13 +7,17 @@ import React, {
   useRef,
   useState,
 } from "react";
+import "../../design/focus.scss";
 import { SearchIcon } from "../../icons";
-import { CheckBox } from "../checkbox/checkbox";
-import { useFirstRender } from "../common/effects/useFirstRender";
 import { Option } from "../dropdown/dropdown-model";
 import { Input } from "../input/input";
+import { ListItem } from "./list-item";
 import { ListModel } from "./list-model";
 import "./list.scss";
+
+export interface ListOption extends Option {
+  visible?: boolean;
+}
 
 const List: React.FunctionComponent<ListModel> = ({
   options,
@@ -22,23 +25,18 @@ const List: React.FunctionComponent<ListModel> = ({
   maxHeight = 250,
   onSelection,
 }) => {
-  const [listOptions, setListOptions] = useState(
+  const [_listOptions, setListOptions] = useState<ListOption[]>(
     options.map((option) => ({
       id: nanoid(),
       ...option,
+      selected: false,
       visible: true,
     }))
   );
 
   const listRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!isFirstRender.current && onSelection) {
-      onSelection(listOptions.filter((opt) => opt.selected));
-    }
-  }, [JSON.stringify(listOptions)]);
-
-  const isFirstRender = useFirstRender();
+  const [selected, setSelected] = useState<ListOption[]>();
 
   const handleSearch = useCallback((val) => {
     setListOptions((prev) =>
@@ -49,19 +47,26 @@ const List: React.FunctionComponent<ListModel> = ({
     );
   }, []);
 
-  const handleSelection = useCallback(({ id }: Option) => {
-    setListOptions((options) =>
-      options.map((opt) => {
-        if (opt.id === id) {
-          return {
-            ...opt,
-            selected: !opt.selected,
-          };
-        } else {
-          return opt;
-        }
-      })
-    );
+  const handleSelection = useCallback((opt) => {
+    if (allowMultipleSelection) {
+      setListOptions((prev) => {
+        const updated = prev.map((option) => ({
+          ...option,
+          selected: option.id === opt.id ? !option.selected : option.selected,
+        }));
+        setSelected(updated.filter((opt) => opt.selected));
+        return updated;
+      });
+    } else {
+      setListOptions((prev) => {
+        const updated = prev.map((option) => ({
+          ...option,
+          selected: option.id === opt.id,
+        }));
+        setSelected(updated.filter((opt) => opt.selected));
+        return updated;
+      });
+    }
   }, []);
 
   const listStyle = useMemo(
@@ -72,45 +77,32 @@ const List: React.FunctionComponent<ListModel> = ({
     []
   );
 
+  useEffect(() => {
+    if (selected && onSelection) {
+      onSelection(selected);
+    }
+  }, [selected]);
+
   return (
-    <div className={"rc-list"} tabIndex={0} ref={listRef}>
+    <div className={"rc-list"} ref={listRef}>
       <div className="rc-list-search-input">
         <Input onChange={handleSearch} enableClear>
           <SearchIcon />
         </Input>
       </div>
       <ul className={"rc-list-options"} role="listbox" style={listStyle}>
-        {listOptions
+        {_listOptions
           .filter((item) => item.visible)
           .map(({ disabled, id, name, value, selected }) => (
-            <li
-              className={classNames([
-                "rc-list-option",
-                disabled ? "disabled" : "",
-              ])}
+            <ListItem
+              name={name}
+              id={id}
+              value={value}
+              disabled={disabled}
               key={id}
-              role="option"
-              tabIndex={!disabled ? 0 : -1}
-            >
-              {allowMultipleSelection ? (
-                <CheckBox
-                  label={name}
-                  isChecked={selected}
-                  onChange={(selected) =>
-                    handleSelection({ id, name, value, selected })
-                  }
-                />
-              ) : (
-                <span
-                  className="rc-list-option-value"
-                  onClick={() =>
-                    handleSelection({ id, value, name, selected: true })
-                  }
-                >
-                  {name}
-                </span>
-              )}
-            </li>
+              onSelection={handleSelection}
+              allowMultipleSelection={allowMultipleSelection}
+            />
           ))}
       </ul>
     </div>

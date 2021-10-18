@@ -1,36 +1,39 @@
-@use '../../design/layout.scss';
-@use '../../design/colors.scss';
-@use '../../design/icon.scss';
-@use '../../design/button.scss';
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/icon.scss";
+@use "../../design/button.scss";
+@use "../../design/focus.scss";
 
 .rc-input {
-  @extend %center;
+  @extend %left;
   @extend %border;
-  height: 30px;
+  height: 35px;
   width: 100%;
-
-  &.focus {
-    background: colors.$light-gray;
-  }
 
   input {
     background: transparent;
     border: 0;
     color: colors.$black;
-    height: 28px;
+    height: 35px;
     outline: 0;
     padding-left: 0.25rem;
     width: calc(var(--width));
   }
+
+  &:focus-within {
+    @extend %rc-focus-border;
+  }
 }
 
 .rc-input-icon {
-  @extend %icon-sm;
+  @extend %icon-md;
+  padding-left: 0.5rem;
 }
 
 .rc-input-clear {
-  @extend %icon-sm;
+  @extend %icon-md;
   cursor: pointer;
+  padding-right: 0.25rem;
 
   &.hidden {
     visibility: hidden;

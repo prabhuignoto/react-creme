@@ -4,6 +4,7 @@ import React, { useMemo, useRef } from "react";
 import { CheckIcon, CloseIcon } from "../../icons";
 import { Button } from "../button/button";
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
+import { useFocus } from "../common/effects/useFocus";
 import { withOverlay } from "../common/withOverlay";
 import { DialogModel } from "./dialog-model";
 import "./dialog.scss";
@@ -28,6 +29,8 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
   const id = useRef(`rc-dialog-${nanoid()}`);
 
   useCloseOnEscape((ev) => onClose?.(), dialogRef);
+
+  useFocus(dialogRef);
 
   return (
     <div

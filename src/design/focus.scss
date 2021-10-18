@@ -1,0 +1,37 @@
+@use "layout.scss";
+@use "colors.scss";
+@use "position.scss";
+
+%rc-focus-common {
+  outline: 0;
+  position: relative;
+}
+
+%rc-focus-border {
+  @extend %rc-focus-common;
+  outline: 2px solid colors.$primary;
+  outline-offset: 2px;
+}
+
+.rc-focus {
+  position: relative;
+}
+
+.rc-focus-bg:focus {
+  outline: 0 none;
+}
+
+.rc-focus-bg:focus-visible {
+  color: colors.$white;
+
+  &::after {
+    @extend %border-radius;
+    @include position.position-abs("center center");
+    background: rgba(colors.$primary, 0.5);
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+}

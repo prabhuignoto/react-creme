@@ -2,15 +2,17 @@ import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import { ChevronDownIcon } from "../../icons";
+import { useFocus } from "../common/effects/useFocus";
 import { DropDownMenu } from "./dropdown-menu";
 import { DropdownModel, Option } from "./dropdown-model";
 import "./dropdown.scss";
 
 const Dropdown: React.FunctionComponent<DropdownModel> = ({
-  placeholder = "Choose an option...",
-  options = [],
-  onSelected,
+  allowMultipleSelection,
   maxMenuHeight = 200,
+  onSelected,
+  options = [],
+  placeholder = "Choose an option...",
 }) => {
   // STATES
   const [dropdownOptions, setDropdownOptions] = useState(
@@ -26,21 +28,30 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
 
   // REFS
   const containerRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // HANDLERS
   const handleSelection = useCallback((selected: Option[]) => {
-    const { id, value } = selected[0];
-    setValue(value);
-    setDropdownOptions((options) =>
-      options.map((option) => ({
-        ...option,
-        selected: option.id === id,
-      }))
-    );
-    setShowMenu(false);
+    let _value: string | string[];
+
+    if (allowMultipleSelection) {
+      _value = selected.map((opt) => opt.value).join(",");
+      setValue(_value);
+    } else {
+      const { id, value } = selected[0];
+      _value = value;
+      setValue(value);
+      setDropdownOptions((options) =>
+        options.map((option) => ({
+          ...option,
+          selected: option.id === id,
+        }))
+      );
+      setShowMenu(false);
+    }
 
     if (onSelected) {
-      onSelected(value);
+      onSelected(_value);
     }
   }, []);
 
@@ -67,12 +78,22 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
     return {};
   }, [showMenu]);
 
+  useFocus(dropdownRef, { bgHighlight: false });
+
   return (
-    <div className={"rc-dropdown-wrapper"} tabIndex={0} onBlur={handleBlur}>
+    <div
+      className={"rc-dropdown-wrapper"}
+      tabIndex={0}
+      onKeyUp={(ev) => {
+        ev.key === "Enter" && handleToggleMenu();
+      }}
+      onBlur={handleBlur}
+      ref={dropdownRef}
+    >
       <div
         className={"rc-dropdown-value-container"}
-        onClick={handleToggleMenu}
         ref={containerRef}
+        onClick={handleToggleMenu}
       >
         <span className={"rc-dropdown-value"}>{value}</span>
         <span
@@ -92,6 +113,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = ({
         handleSelection={handleSelection}
         options={dropdownOptions}
         open={showMenu}
+        allowMultipleSelection={allowMultipleSelection}
       />
     </div>
   );

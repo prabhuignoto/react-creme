@@ -1,8 +1,8 @@
-import { Option } from "../dropdown/dropdown-model";
+import { ListOption } from "./list";
 
 export interface ListModel {
   allowMultipleSelection?: boolean;
   maxHeight?: number;
-  onSelection?: (selected: Option[]) => void;
-  options: Option[];
+  onSelection?: (selected: ListOption[]) => void;
+  options: ListOption[];
 }

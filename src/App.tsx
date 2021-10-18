@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import "./App.css";
-import { Carousel, MenuBar, Notification } from "./components";
+import { Drawer, Dropdown } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -34,8 +34,10 @@ function App() {
           onSelected={(val) => console.log(val)}
         />
       </div> */}
-      {/* <div style={{ width: "350px" }}>
+      <div style={{ width: "350px" }}>
         <Dropdown
+          onSelected={(val) => console.log(val)}
+          allowMultipleSelection
           options={[
             {
               name: "indiaindia",
@@ -54,8 +56,8 @@ function App() {
             { name: "srilanka", value: "srilanka" },
           ]}
         />
-      </div> */}
-      {/* <div style={{ width: "450px" }}>
+      </div>
+      {/* <div style={{ width: "250px" }}>
         <List
           allowMultipleSelection
           options={[
@@ -115,7 +117,7 @@ function App() {
       {/* <CheckBox label="select" onChange={(ele) => console.log(ele)} /> */}
       {/* <Switch label="setting" disabled /> */}
       {/* <div style={{ width: "200px" }}>
-        <Input>
+        <Input enableClear>
           <ChevronRightIcon />
         </Input>
       </div> */}
@@ -126,11 +128,11 @@ function App() {
           onChange={(val, val2) => console.log(val, val2)}
         />
       </div> */}
-      {/* <div
+      <div
         style={{
           height: "600px",
           width: "900px",
-          position: "relative"
+          position: "relative",
         }}
         ref={ref}
       >
@@ -144,7 +146,7 @@ function App() {
             <span>This is a test</span>
           </Drawer>
         )}
-      </div> */}
+      </div>
       {/* <Progress
         type="progressive"
         width={150}
@@ -230,10 +232,10 @@ function App() {
       {/* <Menu items={[{ name: "prabhu" }, { name: "testet" }]}>
         <span>test</span>
       </Menu> */}
-      <MenuBar
+      {/* <MenuBar
         onSelected={(val) => console.log(val)}
         width={800}
-        align="right"
+        align="left"
         items={[
           { name: "File", menu: [{ name: "prabhuy" }, { name: "tester" }] },
           {
@@ -267,7 +269,7 @@ function App() {
             ],
           },
         ]}
-      ></MenuBar>
+      ></MenuBar> */}
       {/* <div>
         <Slider start={1} end={180} onChange={(val) => console.log(val)} />
       </div> */}

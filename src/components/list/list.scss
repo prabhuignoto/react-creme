@@ -6,29 +6,31 @@
 
 .rc-list {
   @extend %col;
-  @extend %border;
+  @extend %border-radius;
   min-height: 300px;
   width: 100%;
 }
 
 .rc-list-options {
   @extend %list;
+  // max-height: var(--max-height);
   justify-content: flex-start;
   margin-top: 0.5rem;
-  max-height: var(--max-height);
   overflow-x: hidden;
   overflow-y: auto;
+  padding-bottom: 0.5rem;
   width: 100%;
 }
 
 .rc-list-option {
   @extend %list-item-left;
-  padding: 0.5rem 0;
+  height: 40px;
   position: relative;
   width: 95%;
   z-index: 1;
 
   &:hover::after {
+    @extend %border-radius;
     @include position.position-abs("middle left");
     background: colors.$light-bg;
     content: "";
@@ -51,8 +53,7 @@
 }
 
 .rc-list-search-input {
-  margin: 0 auto;
-  margin-top: 0.5rem;
+  margin: 1rem 0 0.25rem;
   width: 90%;
 }
 

@@ -1,5 +1,7 @@
 import classNames from "classnames";
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
+import "../../design/focus.scss";
+import { useFocus } from "../common/effects/useFocus";
 import { ButtonModel } from "./button-model";
 import "./button.scss";
 
@@ -19,8 +21,12 @@ const Button: React.FunctionComponent<ButtonModel> = ({
     []
   );
 
+  const ref = useRef(null);
+
+  useFocus(ref);
+
   return (
-    <button className={buttonClass} onClick={onClick}>
+    <button className={buttonClass} onClick={onClick} ref={ref}>
       {children && <span className="button-icon-container">{children}</span>}
       <span className="button-label">{label}</span>
     </button>

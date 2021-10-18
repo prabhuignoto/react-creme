@@ -1,10 +1,12 @@
 .App {
-  text-align: center;
-  width: 100%;
-  display: flex;
+  /* text-align: center; */
   align-items: center;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   padding-top: 5rem;
+  width: 100%;
 }
 
 .App-logo {
