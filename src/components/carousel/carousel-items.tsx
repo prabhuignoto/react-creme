@@ -33,7 +33,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
             height: item.height,
             top: direction === "horizontal" ? 0 : item.top,
             left: direction === "horizontal" ? item.left : 0,
-            visibility: activePage === index ? "visible" : "hidden",
+            // visibility: activePage === index ? "visible" : "hidden",
           }}
         >
           {(children as ReactNode[])[index]}

@@ -4,7 +4,7 @@
 @use "../../design/animate.scss";
 @use "../../design/util.scss";
 
-.notification-wrapper {
+.rc-notification-wrapper {
   $min-width: var(--min-width);
   $min-height: var(--min-height);
   $positions: (
@@ -96,13 +96,13 @@
       true
     );
 
-    &.notification-#{$position}-enter {
+    &.rc-notification-#{$position}-enter {
       @include position.position-abs($position-val, true);
       animation-name: notification-slide-#{$position}-enter;
       #{$new-position}: 1rem;
     }
 
-    &.notification-#{$position}-exit {
+    &.rc-notification-#{$position}-exit {
       @include position.position-abs($position-val, true);
       animation-name: notification-slide-#{$position}-exit;
       #{$new-position}: $slide-pos-horizontal;
@@ -110,19 +110,19 @@
   }
 }
 
-.notification-header {
+.rc-notification-header {
   @extend %center;
   margin: 0.5rem 0;
   width: 100%;
 }
 
-.notification-title {
+.rc-notification-title {
   align-self: flex-start;
   margin-right: auto;
   padding-left: 1rem;
 }
 
-.notification-close-btn {
+.rc-notification-close-btn {
   @extend %button-lg-no-border;
   align-self: flex-end;
   height: 1.5rem;
@@ -130,6 +130,6 @@
   width: 2rem;
 }
 
-.notification-content {
+.rc-notification-content {
   @extend %center;
 }

@@ -19,7 +19,7 @@
     "lint:all": "yarn run eslint && yarn run lint:css && yarn run prettier:check",
     "fix:css": "npx stylelint ./src/**/*.scss --fix",
     "test": "jest --coverage",
-    "test:dev": "jest --coverage --maxWorkers=8",
+    "test:dev": "jest --runInBand",
     "prepare": "husky install",
     "ci": "yarn lint:all && yarn test -- --runInBand"
   },

@@ -39,10 +39,10 @@ describe("Menu", () => {
       </Menu>
     );
 
-    fireEvent.click(getByText("icon"));
+    fireEvent.mouseDown(getByText("icon"));
     expect(getByRole("menu")).toHaveClass("rc-menu-open");
 
-    fireEvent.click(getByText("icon"));
+    fireEvent.mouseDown(getByText("icon"));
     expect(getByRole("menu")).toHaveClass("rc-menu-close");
   });
 });

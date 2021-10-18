@@ -7,6 +7,7 @@ export interface MenuModel {
   onClose?: (id?: string) => void;
   onSelected?: (val: string) => void;
   id?: string;
+  openOnHover?: boolean;
 }
 
 export interface MenuItemModel {

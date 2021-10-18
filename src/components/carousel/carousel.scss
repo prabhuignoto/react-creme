@@ -22,7 +22,7 @@
   min-height: var(--min-height);
   overflow: hidden;
   position: relative;
-  width: calc(100% - 3rem);
+  width: calc(100% - 2rem);
 }
 
 .rc-carousel-track-wrapper {
@@ -46,6 +46,11 @@
 .rc-carousel-item {
   @extend %center;
   position: absolute;
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
 }
 
 .rc-carousel-btn {
@@ -57,10 +62,10 @@
 }
 
 .rc-carousel-btn-left {
-  left: 1rem;
+  left: 0;
   transform: rotate(180deg) translateY(50%);
 }
 
 .rc-carousel-btn-right {
-  right: 1rem;
+  right: 0;
 }

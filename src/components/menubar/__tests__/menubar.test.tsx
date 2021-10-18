@@ -30,15 +30,9 @@ describe("Menubar", () => {
   it("should open Menu", () => {
     const { getByText, getByRole } = render(<MenuBar items={items} />);
 
-    fireEvent.click(getByText("File"));
+    fireEvent.mouseDown(getByText("File"));
 
     expect(getByRole("menubar").querySelectorAll("li")[0]).toHaveClass(
-      "rc-menu-bar-item-active"
-    );
-
-    fireEvent.click(getByText("File"));
-
-    expect(getByRole("menubar").querySelectorAll("li")[0]).not.toHaveClass(
       "rc-menu-bar-item-active"
     );
   });

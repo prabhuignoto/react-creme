@@ -16,10 +16,10 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
   height = 100,
 }) => {
   const wrapperClass = classNames([
-    "notification-wrapper",
+    "rc-notification-wrapper",
     {
-      [`notification-${position}-enter`]: !isClosing,
-      [`notification-${position}-exit`]: isClosing,
+      [`rc-notification-${position}-enter`]: !isClosing,
+      [`rc-notification-${position}-exit`]: isClosing,
     },
   ]);
 
@@ -46,13 +46,13 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
       aria-modal="true"
       ref={ref}
     >
-      <header className="notification-header">
-        <span className="notification-title">{title}</span>
-        <button className="notification-close-btn" onClick={onClose}>
+      <header className="rc-notification-header">
+        <span className="rc-notification-title">{title}</span>
+        <button className="rc-notification-close-btn" onClick={onClose}>
           <CloseIcon />
         </button>
       </header>
-      <section className="notification-content">{children}</section>
+      <section className="rc-notification-content">{children}</section>
     </div>
   );
 };

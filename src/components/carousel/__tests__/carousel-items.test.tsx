@@ -38,6 +38,6 @@ describe("Carousel items", () => {
       </CarouselItems>
     );
     expect(getByRole("list")).toBeInTheDocument();
-    expect(getAllByRole("listitem")).toHaveLength(1);
+    expect(getAllByRole("listitem")).toHaveLength(2);
   });
 });
