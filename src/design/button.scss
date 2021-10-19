@@ -62,7 +62,7 @@
   @extend %shadow-inset;
   @include get-button-type(
     colors.$white,
-    colors.$secondary,
+    colors.$light-bg,
     colors.$black,
     colors.$black
   );

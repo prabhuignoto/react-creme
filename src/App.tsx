@@ -116,10 +116,7 @@ function App() {
           <Route
             path="/menu"
             element={
-              <div
-                className="section-content"
-                style={{ minWidth: "200px", border: "1px solid #000" }}
-              >
+              <div className="section-content" style={{}}>
                 <Menu />
               </div>
             }

@@ -48,15 +48,13 @@
     border: 2px solid rgba(colors.$primary, 0.75);
     content: "";
     display: block;
-    height: calc(100% + 10px);
-    transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-    width: calc(100% + 10px);
+    height: calc(100% + 2px);
+    width: calc(100% + 2px);
     z-index: -1;
   }
 }
 
 .rc-focus-bg:focus-visible {
-  // color: colors.$white;
   outline: 0;
 
   &::after {

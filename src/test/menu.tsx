@@ -1,13 +1,11 @@
 import React from "react";
-import { Menu } from "../components";
+import { Button, Menu } from "../components";
 
 function menu() {
   return (
-    <div>
-      <Menu items={[{ name: "prabhu" }, { name: "testet" }]}>
-        <span>test</span>
-      </Menu>
-    </div>
+    <Menu items={[{ name: "prabhu" }, { name: "testet" }]}>
+      <Button label="Open Menu" />
+    </Menu>
   );
 }
 

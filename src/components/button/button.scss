@@ -3,20 +3,25 @@
 @use "../../design/icon.scss";
 @use "../../design/button.scss";
 
+%disabled-btn-common {
+  @extend %disabled;
 
-.button-primary {
-  @extend %button-sm;
-  @extend %button-primary;
+  &:hover {
+    background: none;
+  }
 }
 
-.button-default {
-  @extend %button-sm;
-  @extend %button-default;
-}
+$types: (primary, default, danger);
 
-.button-danger {
-  @extend %button-sm;
-  @extend %button-danger;
+@each $value in $types {
+  .button-#{$value} {
+    @extend %button-sm;
+    @extend %button-#{$value};
+
+    &.button-disabled {
+      @extend %disabled-btn-common;
+    }
+  }
 }
 
 .button-icon {
@@ -24,16 +29,11 @@
   @extend %button-icon;
 }
 
-%button-label {
-  @extend %center;
-  font-size: 12px;
-  text-transform: capitalize;
-}
-
 .button-icon-container {
   @extend %icon-md;
 }
 
-.button-disabled {
-  @extend %disabled;
+.button-label {
+  font-size: 14px;
+  font-weight: normal;
 }

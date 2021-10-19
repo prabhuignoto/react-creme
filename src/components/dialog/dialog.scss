@@ -8,19 +8,22 @@
   @extend %col;
   @extend %border;
   @extend %shadow-inset;
-  @include animate.set-animation(0.2s);
+  @include animate.set-animation(0.25s);
+  @include animations.set-animation(pop, from);
+  @include animations.set-animation(pop, to);
+
   background-color: colors.$white;
   min-height: 300px;
   min-width: 500px;
 
   &.rc-dialog-close {
-    @include animations.set-animation(pop, from);
     animation-name: animation-pop-close;
+    opacity: 0;
   }
 
   &.rc-dialog-open {
-    @include animations.set-animation(pop, to);
     animation-name: animation-pop-open;
+    opacity: 1;
   }
 }
 
@@ -57,7 +60,7 @@
   padding-left: 1rem;
 }
 
-.rc-dialog-close {
+.rc-dialog-close-btn {
   @extend %button-lg-no-border;
 }
 

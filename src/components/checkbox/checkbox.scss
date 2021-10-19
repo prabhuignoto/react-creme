@@ -3,15 +3,13 @@
 
 .rc-checkbox-wrapper {
   @extend %left;
+  cursor: pointer;
   display: grid;
   grid-template-columns: 20px calc(100% - 20px);
+  height: 100%;
   padding: 0.2rem;
   user-select: none;
   width: 100%;
-
-  &:hover {
-    cursor: pointer;
-  }
 
   &.rc-checkbox-disabled {
     @extend %disabled;
@@ -33,6 +31,7 @@
 
 .rc-checkbox-label {
   @extend %text-no-wrap;
+  cursor: pointer;
   display: block;
   padding-left: 0.5rem;
   text-align: left;

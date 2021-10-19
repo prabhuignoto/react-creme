@@ -8,7 +8,7 @@ import React, {
   useState,
 } from "react";
 import { useFocus } from "../common/effects/useFocus";
-import { useKey } from "../common/effects/useKey";
+import { useKeyWithDependency } from "../common/effects/useKey";
 import { usePosition } from "../common/effects/usePosition";
 import { MenuItemModel, MenuModel } from "./menu-model";
 import "./menu.scss";
@@ -52,7 +52,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   const toggleViaKeyboard = useCallback(() => setShowMenu((prev) => !prev), []);
 
   useFocus(wrapperRef, { bgHighlight: false });
-  useKey(wrapperRef, toggleViaKeyboard);
+  useKeyWithDependency(wrapperRef, toggleViaKeyboard, showMenu);
 
   const closeMenu = useCallback(() => {
     setShowMenu(false);

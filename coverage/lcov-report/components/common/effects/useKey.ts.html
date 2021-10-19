@@ -114,35 +114,28 @@
 <a name='L55'></a><a href='#L55'>55</a>
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">9x</span>
+<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">101x</span>
+<span class="cline-any cline-yes">52x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">101x</span>
+<span class="cline-any cline-yes">52x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">101x</span>
-<span class="cline-any cline-yes">82x</span>
-<span class="cline-any cline-yes">76x</span>
-<span class="cline-any cline-yes">76x</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">101x</span>
-<span class="cline-any cline-yes">67x</span>
-<span class="cline-any cline-yes">67x</span>
-<span class="cline-any cline-yes">61x</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">46x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,26 +146,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">71x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">71x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-yes">21x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">71x</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">71x</span>
+<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,10 +173,7 @@
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { RefObject, useCallback, useEffect, useRef } from "react";
 &nbsp;
-const useKey = function (
-  ref: RefObject&lt;HTMLElement&gt;,
-  cb: () =&gt; void,
-) {
+const useKey = function (ref: RefObject&lt;HTMLElement&gt;, cb: () =&gt; void) {
   const handler = <span class="fstat-no" title="function not covered" >(e</span>v: KeyboardEvent) =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (ev.key === "" || ev.key === "Enter" || ev.key === "Space") {</span>
 <span class="cstat-no" title="statement not covered" >      cb &amp;&amp; cb();</span>
@@ -206,7 +195,7 @@ const useKey = function (
         ref.current?.removeEventListener("keyup", handler);
       }
     };
-  }, [])
+  }, []);
 };
 &nbsp;
 const useKeyWithDependency = function (
@@ -214,7 +203,6 @@ const useKeyWithDependency = function (
   cb: () =&gt; void,
   dependency: boolean = <span class="branch-0 cbranch-no" title="branch not covered" >false</span>
 ) {
-&nbsp;
   const handler = useCallback(<span class="fstat-no" title="function not covered" >(e</span>v: KeyboardEvent) =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (ev.key === "" || ev.key === "Enter" || ev.key === "Space") {</span>
 <span class="cstat-no" title="statement not covered" >      cb &amp;&amp; cb();</span>
@@ -236,7 +224,7 @@ const useKeyWithDependency = function (
         ref.current?.removeEventListener("keyup", handler);
       }
     };
-  }, [])
+  }, []);
 };
 &nbsp;
 export { useKey, useKeyWithDependency };
@@ -247,7 +235,7 @@ export { useKey, useKeyWithDependency };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Oct 19 2021 21:35:29 GMT+0530 (India Standard Time)
+                at Wed Oct 20 2021 00:49:47 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

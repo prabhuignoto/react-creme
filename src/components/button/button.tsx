@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useMemo, useRef } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import "../../design/focus.scss";
 import { useFocus } from "../common/effects/useFocus";
 import { ButtonModel } from "./button-model";
@@ -23,10 +23,22 @@ const Button: React.FunctionComponent<ButtonModel> = ({
 
   const ref = useRef(null);
 
-  useFocus(ref);
+  useFocus(ref, { bgHighlight: false });
+
+  const handleClick = useCallback(() => {
+    if (!disabled) {
+      onClick && onClick();
+    }
+  }, []);
 
   return (
-    <button className={buttonClass} onClick={onClick} ref={ref}>
+    <button
+      className={buttonClass}
+      onClick={handleClick}
+      ref={ref}
+      role="button"
+      tabIndex={0}
+    >
       {children && <span className="button-icon-container">{children}</span>}
       <span className="button-label">{label}</span>
     </button>
