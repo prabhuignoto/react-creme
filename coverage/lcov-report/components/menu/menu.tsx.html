@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.63% </span>
+                <span class="strong">86.27% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>39/44</span>
+                <span class='fraction'>44/51</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">71.42% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>10/12</span>
+                <span class='fraction'>10/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.63% </span>
+                <span class="strong">89.79% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>39/44</span>
+                <span class='fraction'>44/49</span>
             </div>
         
             
@@ -188,20 +188,26 @@
 <a name='L129'></a><a href='#L129'>129</a>
 <a name='L130'></a><a href='#L130'>130</a>
 <a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -218,13 +224,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">49x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">49x</span>
 <span class="cline-any cline-yes">49x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">49x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">49x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -236,6 +242,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">49x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">49x</span>
+<span class="cline-any cline-yes">49x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">49x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -315,10 +326,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, {
@@ -328,6 +336,8 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { useFocus } from "../common/effects/useFocus";
+import { useKey } from "../common/effects/useKey";
 import { usePosition } from "../common/effects/usePosition";
 import { MenuItemModel, MenuModel } from "./menu-model";
 import "./menu.scss";
@@ -348,18 +358,18 @@ const Menu: React.FunctionComponent&lt;MenuModel&gt; = ({
       ...item,
     }))
   );
-  const [showMenu, setShowMenu] = useState(false);
-&nbsp;
   const menuRef = useRef&lt;HTMLUListElement | null&gt;(null);
   const wrapperRef = useRef&lt;HTMLDivElement | null&gt;(null);
-&nbsp;
   const isFirstRender = useRef(true);
+&nbsp;
+  const [showMenu, setShowMenu] = useState(false);
 &nbsp;
   const cssPosition = usePosition(wrapperRef, menuRef, "bottom left", {
     spacing: 5,
     alignToEdge: true,
   });
 &nbsp;
+  // HANDLERS
   const toggleMenu = useCallback(
     (ev: React.MouseEvent) =&gt; {
       ev.preventDefault();
@@ -367,6 +377,11 @@ const Menu: React.FunctionComponent&lt;MenuModel&gt; = ({
     },
     [showMenu]
   );
+&nbsp;
+  const toggleViaKeyboard = useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >setShowMenu(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt; <span class="cstat-no" title="statement not covered" >!prev)</span>,</span> []);
+&nbsp;
+  useFocus(wrapperRef, { bgHighlight: false });
+  useKey(wrapperRef, toggleViaKeyboard);
 &nbsp;
   const closeMenu = useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {
 <span class="cstat-no" title="statement not covered" >    setShowMenu(false);</span>
@@ -445,9 +460,6 @@ const Menu: React.FunctionComponent&lt;MenuModel&gt; = ({
     &lt;/div&gt;
   );
 };
-// (prev, cur) =&gt;
-//   prev.closeManual === cur.closeManual &amp;&amp; prev.openOnHover === cur.openOnHover
-// );
 &nbsp;
 export { Menu };
 &nbsp;</pre></td></tr></table></pre>
@@ -457,7 +469,7 @@ export { Menu };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Oct 19 2021 13:04:26 GMT+0530 (India Standard Time)
+                at Tue Oct 19 2021 21:35:29 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

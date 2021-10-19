@@ -17,6 +17,10 @@
   &:hover {
     cursor: pointer;
   }
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 %pseudo-common {

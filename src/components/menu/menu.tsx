@@ -7,6 +7,8 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { useFocus } from "../common/effects/useFocus";
+import { useKey } from "../common/effects/useKey";
 import { usePosition } from "../common/effects/usePosition";
 import { MenuItemModel, MenuModel } from "./menu-model";
 import "./menu.scss";
@@ -27,18 +29,18 @@ const Menu: React.FunctionComponent<MenuModel> = ({
       ...item,
     }))
   );
-  const [showMenu, setShowMenu] = useState(false);
-
   const menuRef = useRef<HTMLUListElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-
   const isFirstRender = useRef(true);
+
+  const [showMenu, setShowMenu] = useState(false);
 
   const cssPosition = usePosition(wrapperRef, menuRef, "bottom left", {
     spacing: 5,
     alignToEdge: true,
   });
 
+  // HANDLERS
   const toggleMenu = useCallback(
     (ev: React.MouseEvent) => {
       ev.preventDefault();
@@ -46,6 +48,11 @@ const Menu: React.FunctionComponent<MenuModel> = ({
     },
     [showMenu]
   );
+
+  const toggleViaKeyboard = useCallback(() => setShowMenu((prev) => !prev), []);
+
+  useFocus(wrapperRef, { bgHighlight: false });
+  useKey(wrapperRef, toggleViaKeyboard);
 
   const closeMenu = useCallback(() => {
     setShowMenu(false);
@@ -124,8 +131,5 @@ const Menu: React.FunctionComponent<MenuModel> = ({
     </div>
   );
 };
-// (prev, cur) =>
-//   prev.closeManual === cur.closeManual && prev.openOnHover === cur.openOnHover
-// );
 
 export { Menu };

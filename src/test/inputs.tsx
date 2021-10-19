@@ -33,8 +33,8 @@ function inputs() {
       <div style={style}>
         <CheckBox label="select" onChange={(ele) => console.log(ele)} />
       </div>
-      <div style={style}>
-        <Switch label="setting" />
+      <div style={{ width: "140px" }}>
+        <Switch label="Are you adult" />
       </div>
       <div style={style}>
         <Switch label="setting" disabled />

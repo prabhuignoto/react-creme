@@ -3,7 +3,7 @@ import { useTimer } from "use-timer";
 import { Button, Progress } from "../components";
 
 function progress() {
-  const { time, start, pause } = useTimer({
+  const { time, start, pause, reset } = useTimer({
     endTime: 40,
     interval: 100,
   });
@@ -12,11 +12,12 @@ function progress() {
     <div>
       <div style={{ display: "flex", marginBottom: "1rem" }}>
         <Button onClick={start} label="Start"></Button>
-        <Button onClick={pause} label="Stop"></Button>
+        <Button onClick={pause} label="Pause"></Button>
+        <Button onClick={reset} label="Reset"></Button>
       </div>
       <Progress
         type="progressive"
-        width={150}
+        width={300}
         maxValue={200}
         currentValue={time * 5}
         showProgressValue

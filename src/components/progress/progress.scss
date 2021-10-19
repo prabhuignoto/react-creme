@@ -1,13 +1,13 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
 @use "../../design/animate.scss";
-@use '../../design/position.scss';
+@use "../../design/position.scss";
 
 .progress-wrapper {
   @extend %center;
   height: var(--height);
-  min-width: var(--width);
   overflow: hidden;
+  width: var(--width);
 }
 
 .progress-track {
@@ -24,14 +24,14 @@
   background-color: colors.$primary;
   display: block;
   height: 100%;
+  transition: width 0.2s ease-in;
   width: var(--width);
   z-index: 0;
-  
+
   &.progressive {
     @extend %border-radius-left;
-    transition: width 0.2s ease-in;
   }
-  
+
   &.infinite {
     @include position.position-abs("top left");
     @include animate.set-animation(2s, linear, true);
@@ -42,7 +42,7 @@
   &.bob {
     animation-direction: alternate;
   }
-  
+
   &.complete {
     @extend %border-radius;
   }
@@ -55,18 +55,25 @@
   height: 100%;
   padding: 0 0.5rem;
 
-  &.large {
+  &.progress-percent-value-large {
     font-size: 1.2rem;
   }
 
-  &.small {
-    font-size: 0.9rem;
+  &.progress-percent-value-small {
+    font-size: 0.8rem;
   }
 }
 
 $infinite-anim-settings: (
-  from:(left: -50%),
-  to:(left: 100%)
+  from: (
+    left: -50%,
+  ),
+  to: (
+    left: 100%,
+  ),
 );
 
-@include animate.keyframes-motion-multi(infinite-progress, $infinite-anim-settings);
+@include animate.keyframes-motion-multi(
+  infinite-progress,
+  $infinite-anim-settings
+);

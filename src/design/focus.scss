@@ -9,7 +9,7 @@
 
 %rc-focus-border {
   @extend %rc-focus-common;
-  outline: 2px solid colors.$primary;
+  outline: 2px solid rgba(colors.$primary, 0.75);
   outline-offset: 2px;
 }
 
@@ -18,11 +18,46 @@
 }
 
 .rc-focus-bg:focus {
-  outline: 0 none;
+  outline: 0;
+}
+
+.rc-focus-border:focus {
+  border: 0;
+  outline: 0;
+
+  &::after {
+    @extend %border-radius;
+    @include position.position-abs("center center");
+    border: 10px solid rgba(colors.$tertiary, 1);
+    // filter: blur(1px);
+    content: "";
+    display: none;
+    height: calc(100% + 10px);
+    transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: calc(100% + 10px);
+    z-index: -1;
+  }
+}
+
+.rc-focus-border:focus-visible {
+  outline: 0;
+
+  &::after {
+    @extend %border-radius;
+    @include position.position-abs("center center");
+    border: 2px solid rgba(colors.$primary, 0.75);
+    content: "";
+    display: block;
+    height: calc(100% + 10px);
+    transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: calc(100% + 10px);
+    z-index: -1;
+  }
 }
 
 .rc-focus-bg:focus-visible {
-  color: colors.$white;
+  // color: colors.$white;
+  outline: 0;
 
   &::after {
     @extend %border-radius;

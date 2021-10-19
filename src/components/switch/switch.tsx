@@ -6,6 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { useFocus } from "../common/effects/useFocus";
 import { SwitchModel } from "./switch-model";
 import "./switch.scss";
 
@@ -16,9 +17,12 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   disabled = false,
 }) => {
   const [state, setState] = useState(false);
+  const ref = useRef(null);
 
   // flag to check if the component is rendering the first time
   const isFirstRender = useRef(true);
+
+  useFocus(ref, { bgHighlight: false });
 
   // handler
   const handleToggle = useCallback(() => {
@@ -42,7 +46,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   );
 
   const switchClass = useMemo(
-    () => classNames("switch", { "rc-switch-disabled": disabled }),
+    () => classNames("rc-switch", { "rc-switch-disabled": disabled }),
     []
   );
 
@@ -80,9 +84,12 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
     <div
       className={switchClass}
       onClick={handleToggle}
+      onKeyUp={({ key }) => key === "Enter" && handleToggle()}
       role="switch"
       aria-checked={state}
       style={switchStyle}
+      ref={ref}
+      tabIndex={!disabled ? 0 : -1}
     >
       <span className={switchTrackClass}>
         <span className={switchKnobClass}></span>

@@ -10,6 +10,7 @@ import React, {
 import { CheckIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
+import { useKeyWithDependency } from "../common/effects/useKey";
 import { CheckboxModel } from "./checkbox-model";
 import "./checkbox.scss";
 
@@ -20,19 +21,14 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   disabled,
 }: CheckboxModel) => {
   const [checked, setChecked] = useState(isChecked);
-  const isFirstRender = useFirstRender();
   const ref = useRef(null);
   const id = useRef(`label-${nanoid()}`);
 
-  useFocus(ref, { bgHighlight: true });
+  useFocus(ref, { bgHighlight: false });
 
-  const toggleCheck = useCallback(() => {
-    setChecked(!checked);
+  const toggleCheck = useCallback(() => setChecked((prev) => !prev), []);
 
-    if (onChange) {
-      onChange(!checked);
-    }
-  }, [checked]);
+  useKeyWithDependency(ref, toggleCheck, checked);
 
   const iconClass = useMemo(
     () =>
@@ -51,10 +47,18 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   );
 
   useEffect(() => {
-    if (!isFirstRender.current) {
+    if (!isFirstRender.current && checked !== isChecked) {
       setChecked(isChecked);
     }
   }, [isChecked]);
+
+  useEffect(() => {
+    if (!isFirstRender.current) {
+      onChange && onChange(checked);
+    }
+  }, [checked]);
+
+  const isFirstRender = useFirstRender();
 
   return (
     <div

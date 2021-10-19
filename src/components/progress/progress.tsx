@@ -1,15 +1,7 @@
 import classNames from "classnames";
 import React, { CSSProperties, useMemo, useRef } from "react";
+import { ProgressModel } from "./progress-model";
 import "./progress.scss";
-
-interface ProgressModel {
-  currentValue?: number;
-  maxValue?: number;
-  showProgressValue?: boolean;
-  type: "infinite" | "progressive";
-  width?: number;
-  size?: "big" | "small";
-}
 
 const Progress: React.FunctionComponent<ProgressModel> = ({
   type = "progressive",
@@ -42,7 +34,7 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
       return Math.round(trackWidth * progressPercent);
     }
     return 0;
-  }, [currentValue, progressPercent]);
+  }, [currentValue, progressPercent, progressTrackRef]);
 
   const fillStyle = useMemo(
     () =>
@@ -67,17 +59,32 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
     () =>
       ({
         "--width": `${width}px`,
-        "--height": size === "big" ? `${20}px` : `${15}px`,
+        "--height": size === "big" ? `${40}px` : `${20}px`,
       } as CSSProperties),
     []
   );
 
+  const progressPercentValClass = useMemo(
+    () =>
+      classNames("progress-percent-value", `progress-percent-value-${size}`),
+    []
+  );
+
   return (
-    <div className="progress-wrapper" style={wrapperStyle}>
+    <div
+      aria-valuemin={0}
+      aria-valuemax={maxValue}
+      aria-valuenow={Math.round(progressPercent * maxValue)}
+      className="progress-wrapper"
+      role="progressbar"
+      style={wrapperStyle}
+    >
       <div className="progress-track" ref={progressTrackRef}>
         <span className={fillClass} style={fillStyle}>
           {canShowProgressValue && (
-            <span className="progress-percent-value">{`${progressPercentValue}`}</span>
+            <span
+              className={progressPercentValClass}
+            >{`${progressPercentValue}`}</span>
           )}
         </span>
       </div>

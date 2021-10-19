@@ -1,23 +1,11 @@
 import classNames from "classnames";
-import React, { useMemo, useRef } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import "../../design/focus.scss";
 import { CheckBox } from "../checkbox/checkbox";
 import { useFocus } from "../common/effects/useFocus";
-
-export interface ListItemModel {
-  disabled?: boolean;
-  id?: string;
-  name: string;
-  value: string;
-  selected?: boolean;
-  allowMultipleSelection?: boolean;
-  onSelection?: (t: {
-    id?: string;
-    name: string;
-    value: string;
-    selected?: boolean;
-  }) => void;
-}
+import { useKey } from "../common/effects/useKey";
+import "./list-item.scss";
+import { ListItemModel } from "./list-model";
 
 const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
   ({
@@ -31,6 +19,12 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
   }: ListItemModel) => {
     const ref = useRef(null);
 
+    const handleSelection = useCallback(() => {
+      onSelection && onSelection({ id, name, value, selected });
+    }, []);
+
+    useKey(ref, handleSelection);
+
     if (!allowMultipleSelection) {
       useFocus(ref, { bgHighlight: true });
     }
@@ -41,28 +35,22 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
     );
 
     return (
-      <li
-        className={listItemClass}
-        key={id}
-        role="option"
-        tabIndex={!disabled && !allowMultipleSelection ? 0 : -1}
-        ref={ref}
-      >
+      <li className={listItemClass} key={id} role="option">
         {allowMultipleSelection ? (
-          <CheckBox
-            label={name}
-            isChecked={selected}
-            disabled={disabled}
-            onChange={(selected) =>
-              onSelection && onSelection({ id, name, value, selected })
-            }
-          />
+          <span className="rc-list-item-checkbox-wrapper">
+            <CheckBox
+              label={name}
+              isChecked={selected}
+              disabled={disabled}
+              onChange={handleSelection}
+            />
+          </span>
         ) : (
           <span
             className="rc-list-option-value"
-            onClick={() =>
-              onSelection && onSelection({ id, value, name, selected: true })
-            }
+            ref={ref}
+            tabIndex={!disabled && !allowMultipleSelection ? 0 : -1}
+            onClick={handleSelection}
           >
             {name}
           </span>

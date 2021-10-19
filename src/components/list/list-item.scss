@@ -1,0 +1,51 @@
+@use "../../design/layout.scss";
+@use "../../design/list.scss";
+@use "../../design/position.scss";
+@use "../../design/colors.scss";
+
+.rc-list-options {
+  @extend %list;
+  // max-height: var(--max-height);
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+
+.rc-list-option {
+  @extend %list-item-left;
+  height: 40px;
+  position: relative;
+  width: 95%;
+  z-index: 1;
+
+  &:hover::after {
+    @extend %border-radius;
+    @include position.position-abs("middle left");
+    background: colors.$light-bg;
+    content: "";
+    display: block;
+    height: 100%;
+    left: -5px;
+    width: 102%;
+    z-index: -1;
+  }
+
+  &.disabled {
+    @extend %disabled;
+  }
+}
+
+.rc-list-option-value {
+  @extend %text-no-wrap;
+  padding-left: 1rem;
+  text-align: left;
+  width: 80%;
+}
+
+.rc-list-item-checkbox-wrapper {
+  display: block;
+  width: 100%;
+}

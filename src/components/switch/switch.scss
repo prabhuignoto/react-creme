@@ -23,19 +23,25 @@ $switch-settings: (
 );
 
 .rc-switch {
-  padding: 0.25rem;
+  min-width: 100px;
+  padding: 0.2rem;
 
   &.rc-switch-disabled {
     @extend %disabled;
   }
 }
 
+.rc-switch-disabled {
+  .rc-switch-knob {
+    box-shadow: none;
+  }
+}
+
 .rc-switch-track {
-  @extend %border;
   @extend %center;
   border-radius: 20px;
   cursor: pointer;
-  height: 25px;
+  height: 30px;
   position: relative;
 
   &.rc-switch-on {

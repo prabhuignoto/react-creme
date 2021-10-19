@@ -11,7 +11,7 @@ const Link: React.FunctionComponent<AnchorHTMLAttributes<LinkModel>> = ({
   target,
 }) => {
   return (
-    <a className="link" target="" href={href}>
+    <a className="link" target="" href={href} tabIndex={-1}>
       {children}
     </a>
   );

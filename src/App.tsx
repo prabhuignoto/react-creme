@@ -60,7 +60,7 @@ function App() {
           <Route
             path="/dropdown"
             element={
-              <div className="section-content">
+              <div className="section-content" style={{ minWidth: "350px" }}>
                 <Dropdown />
               </div>
             }

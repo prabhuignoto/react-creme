@@ -1,18 +1,10 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "../../design/icon.scss";
 import "../../design/layout.scss";
 import "../../design/list.scss";
 import { CloseIcon } from "../../icons";
-import { DropDownMenu } from "../dropdown/dropdown-menu";
-import { Option } from "../dropdown/dropdown-model";
 import { Input } from "../input/input";
 import { TagItemModel, TagsModel } from "./tags-model";
 import "./tags.scss";
@@ -34,22 +26,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
       .slice(0, maxTags)
   );
 
-  const _restrictToValues = useRef(
-    Array.isArray(restrictToValues)
-      ? restrictToValues.map((val) => ({
-          id: nanoid(),
-          name: val,
-          value: val,
-          selected: false,
-          visible: true,
-        }))
-      : []
-  );
-
   const [inputValue, setInputValue] = useState("");
-  const [showMenu, setShowMenu] = useState(false);
-
-  const toggleDropdown = useCallback(() => setShowMenu((prev) => !prev), []);
 
   const canAdd = useMemo(
     () => tagItems.length + 1 <= maxTags,
@@ -74,8 +51,6 @@ const Tags: React.FunctionComponent<TagsModel> = ({
     (val) => setTagItems((tags) => tags.filter((tag) => tag.id !== val)),
     []
   );
-
-  const handleSelection = useCallback((options: Option[]) => {}, []);
 
   // EFFECTS
   useEffect(() => {
@@ -110,7 +85,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
         {canAdd && (
           <li className="rc-tags-input-wrapper">
             {restrictToValues.length ? (
-              <div className="rc-tags-input-container" onClick={toggleDropdown}>
+              <div className="rc-tags-input-container">
                 <Input
                   onChange={handleChange}
                   onKeyUp={handleKeyUp}
@@ -126,13 +101,6 @@ const Tags: React.FunctionComponent<TagsModel> = ({
                 enableClear
               />
             )}
-            <DropDownMenu
-              options={_restrictToValues.current}
-              open={showMenu}
-              style={{ width: 200, top: 40 }}
-              handleSelection={handleSelection}
-              allowMultipleSelection
-            />
           </li>
         )}
       </ul>

@@ -3,7 +3,9 @@
 
 .rc-checkbox-wrapper {
   @extend %left;
-  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 20px calc(100% - 20px);
+  padding: 0.2rem;
   user-select: none;
   width: 100%;
 
@@ -30,6 +32,8 @@
 }
 
 .rc-checkbox-label {
-  @extend %left;
+  @extend %text-no-wrap;
+  display: block;
   padding-left: 0.5rem;
+  text-align: left;
 }
