@@ -2,11 +2,11 @@
 @use "../../design/icon.scss";
 @use "../../design/list.scss";
 
-.tree-wrapper {
+.rc-tree-wrapper {
   @extend %list-left;
   @extend %border;
   justify-content: flex-start;
   min-height: var(--min-height);
-  min-width: 300px;
+  min-width: 200px;
   padding: 0.5rem;
 }

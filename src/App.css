@@ -1,12 +1,9 @@
 .App {
-  /* text-align: center; */
-  align-items: center;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 5rem;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  justify-items: flex-start;
   width: 100%;
+  height: 100vh;
 }
 
 .App-logo {
@@ -21,14 +18,14 @@
 }
 
 .App-header {
+  align-items: center;
   background-color: #282c34;
-  min-height: 100vh;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .App-link {
@@ -46,4 +43,30 @@
 
 button {
   font-size: calc(10px + 2vmin);
+}
+
+.aside {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* justify-content: space-between; */
+  height: 100%;
+  width: 100%;
+}
+
+.aside a {
+  margin: 0.5rem 0;
+}
+
+.section {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.section-content {
+  min-width: 450px;
 }

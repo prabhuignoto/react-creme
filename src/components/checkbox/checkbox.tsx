@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { nanoid } from "nanoid";
 import React, {
   useCallback,
   useEffect,
@@ -7,6 +8,7 @@ import React, {
   useState,
 } from "react";
 import { CheckIcon } from "../../icons";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
 import { CheckboxModel } from "./checkbox-model";
 import "./checkbox.scss";
@@ -18,8 +20,9 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   disabled,
 }: CheckboxModel) => {
   const [checked, setChecked] = useState(isChecked);
-  const isFirstRender = useRef(true);
+  const isFirstRender = useFirstRender();
   const ref = useRef(null);
+  const id = useRef(`label-${nanoid()}`);
 
   useFocus(ref, { bgHighlight: true });
 
@@ -53,10 +56,6 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
     }
   }, [isChecked]);
 
-  useEffect(() => {
-    isFirstRender.current = false;
-  }, []);
-
   return (
     <div
       className={wrapperClass}
@@ -65,11 +64,14 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
       aria-checked={checked}
       ref={ref}
       tabIndex={disabled ? -1 : 0}
+      aria-labelledby={id.current}
     >
       <span className={iconClass}>
         <CheckIcon />
       </span>
-      <label className="rc-checkbox-label">{label}</label>
+      <label className="rc-checkbox-label" id={id.current}>
+        {label}
+      </label>
     </div>
   );
 };

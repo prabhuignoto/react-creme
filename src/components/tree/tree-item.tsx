@@ -9,8 +9,8 @@ import React, {
   useState,
 } from "react";
 import { ChevronRightIcon } from "../../icons";
-import { TreeItemModel } from "./tree";
 import "./tree-item.scss";
+import { TreeItemModel } from "./tree-model";
 
 const LazyTree = React.lazy(() =>
   import("./tree").then(({ Tree }) => ({ default: Tree }))
@@ -25,18 +25,18 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
 
     const itemClass = useMemo(
       () =>
-        cls("tree-item", {
-          "tree-item-exp": expanded,
-          "tree-item-collapsed": !expanded,
+        cls("rc-tree-item", {
+          "rc-tree-item-exp": expanded,
+          "rc-tree-item-collapsed": !expanded,
         }),
       [expanded]
     );
 
     const iconClass = useMemo(
       () =>
-        cls("tree-item-icon", {
-          "tree-item-icon-exp": expanded,
-          "tree-item-icon-hide": !child,
+        cls("rc-tree-item-icon", {
+          "rc-tree-item-icon-exp": expanded,
+          "rc-tree-item-icon-hide": !child,
         }),
       [expanded]
     );
@@ -48,9 +48,9 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
 
     const childContainerClass = useMemo(
       () =>
-        cls("tree-item-child-container", {
-          "tree-item-child-expanded": canRenderChild,
-          "tree-item-child-collapsed": !canRenderChild,
+        cls("rc-tree-item-child-container", {
+          "rc-tree-item-child-expanded": canRenderChild,
+          "rc-tree-item-child-collapsed": !canRenderChild,
         }),
       [canRenderChild]
     );
@@ -102,12 +102,12 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     }, [totalItems, expanded]);
 
     return (
-      <div className={itemClass} style={itemStyle}>
+      <div className={itemClass} style={itemStyle} role="treeitem">
         <span className={iconClass} onClick={() => onToggle && onToggle(id)}>
           <ChevronRightIcon />
         </span>
-        <div className="tree-item-wrapper">
-          <span className="tree-item-name">{name}</span>
+        <div className="rc-tree-item-wrapper">
+          <span className="rc-tree-item-name">{name}</span>
           <div className={childContainerClass}>
             <Suspense fallback={<span></span>}>
               <LazyTree

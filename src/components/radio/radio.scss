@@ -6,7 +6,7 @@
 @use "../../design/animations.scss";
 
 .rc-radio {
-  @extend %center;
+  @extend %left;
   user-select: none;
 
   &.rc-radio-disabled {

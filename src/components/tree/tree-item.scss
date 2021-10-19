@@ -4,7 +4,7 @@
 
 $item-height: 30px;
 
-.tree-item {
+.rc-tree-item {
   $max-height: var(--max-height);
   @extend %left;
 
@@ -12,50 +12,50 @@ $item-height: 30px;
   overflow: hidden;
   width: 100%;
 
-  &.tree-item-exp {
+  &.rc-tree-item-exp {
     max-height: $max-height;
     transition: max-height 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
-  &.tree-item-collapsed {
+  &.rc-tree-item-collapsed {
     max-height: $item-height;
     transition: max-height 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 }
 
-.tree-item-icon {
+.rc-tree-item-icon {
   @extend %icon-md;
   @extend %left;
   cursor: pointer;
   padding-top: calc($item-height/6);
 
-  &.tree-item-icon-exp {
+  &.rc-tree-item-icon-exp {
     transform: rotate(90deg);
   }
 
-  &.tree-item-icon-hide {
+  &.rc-tree-item-icon-hide {
     visibility: hidden;
   }
 }
 
-.tree-item-name {
+.rc-tree-item-name {
   @extend %left;
   font-size: 1rem;
   height: 30px;
   padding-left: 0.1rem;
 }
 
-.tree-item-child-container {
+.rc-tree-item-child-container {
   @extend %left;
   align-items: flex-start;
   overflow: hidden;
   transition: opacity 0.2s ease-in;
 
-  &.tree-item-child-expanded {
+  &.rc-tree-item-child-expanded {
     opacity: 1;
   }
 
-  &.tree-item-child-collapsed {
+  &.rc-tree-item-child-collapsed {
     opacity: 0;
   }
 }

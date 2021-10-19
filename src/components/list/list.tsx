@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
@@ -24,6 +25,7 @@ const List: React.FunctionComponent<ListModel> = ({
   allowMultipleSelection,
   maxHeight = 250,
   onSelection,
+  borderLess = false,
 }) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     options.map((option) => ({
@@ -37,6 +39,11 @@ const List: React.FunctionComponent<ListModel> = ({
   const listRef = useRef<HTMLDivElement>(null);
 
   const [selected, setSelected] = useState<ListOption[]>();
+
+  const rcListClass = useMemo(
+    () => classNames("rc-list", { "rc-list-border-less": borderLess }),
+    []
+  );
 
   const handleSearch = useCallback((val) => {
     setListOptions((prev) =>
@@ -84,7 +91,7 @@ const List: React.FunctionComponent<ListModel> = ({
   }, [selected]);
 
   return (
-    <div className={"rc-list"} ref={listRef}>
+    <div className={rcListClass} ref={listRef}>
       <div className="rc-list-search-input">
         <Input onChange={handleSearch} enableClear>
           <SearchIcon />

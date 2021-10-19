@@ -40,12 +40,12 @@
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.4.1",
+    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.30",
     "@types/react-dom": "^17.0.9",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
     "@vitejs/plugin-react-refresh": "^1.3.1",
     "autoprefixer": "^10.3.7",
     "babel-jest": "^27.3.0",
@@ -58,6 +58,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "5.1.0",
     "eslint-plugin-react": "^7.26.0",
+    "history": "5",
     "husky": "^7.0.2",
     "jest": "^27.3.0",
     "lint-staged": "^11.2.3",
@@ -65,6 +66,7 @@
     "postcss-bem-linter": "^3.3.0",
     "postcss-prefixer": "^2.1.3",
     "prettier": "^2.4.1",
+    "react-router-dom": "^6.0.0-beta.7",
     "rollup": "^2.58.0",
     "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-sass": "^1.2.9",
@@ -78,7 +80,7 @@
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4",
     "use-timer": "^2.0.1",
-    "vite": "^2.6.7"
+    "vite": "^2.6.10"
   },
   "lint-staged": {
     "**/*.tsx": [

@@ -9,6 +9,10 @@
   @extend %border-radius;
   min-height: 300px;
   width: 100%;
+
+  &:not(.rc-list-border-less) {
+    @extend %border;
+  }
 }
 
 .rc-list-options {
