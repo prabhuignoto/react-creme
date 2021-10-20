@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel items Should render carousel items snapshot 1`] = `
+<ul
+  class="rc-carousel"
+  role="list"
+  style="width: 600px; transform: translateX(-300px);"
+>
+  <li
+    class="rc-carousel-item"
+    role="listitem"
+    style="width: 300px; height: 300px; top: 0px; left: 0px;"
+  >
+    <span>
+      one
+    </span>
+  </li>
+  <li
+    class="rc-carousel-item"
+    role="listitem"
+    style="width: 300px; height: 300px; top: 0px; left: 300px;"
+  >
+    <span>
+      two
+    </span>
+  </li>
+</ul>
+`;

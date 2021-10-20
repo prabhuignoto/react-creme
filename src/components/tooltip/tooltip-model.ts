@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import React, { RefObject } from "react";
 
 export type ToolTipPosition =
   | "top left"
@@ -15,5 +15,6 @@ export interface TooltipModel {
   message: string;
   position?: ToolTipPosition;
   width?: number;
-  ref?: MutableRefObject<HTMLElement>;
+  ref?: RefObject<HTMLElement>;
+  isStatic?: boolean;
 }

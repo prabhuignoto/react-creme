@@ -7,13 +7,16 @@ const handler = jest.fn();
 
 describe("Breadcrumb", () => {
   it("should render", () => {
-    render(
+    const { getByRole, getAllByRole } = render(
       <BreadCrumb>
         <Link href="http://google.com" />
         <Link href="http://yahoo.com" />
         <Link href="http://amazon.com" />
       </BreadCrumb>
     );
+
+    expect(getByRole("navigation")).toBeInTheDocument();
+    expect(getAllByRole("link")).toHaveLength(3);
   });
 
   it("should onClick is called", () => {
@@ -29,5 +32,17 @@ describe("Breadcrumb", () => {
     fireEvent.click(getByText("google"));
 
     expect(handler).toBeCalled();
+  });
+
+  it("should render snapshot", () => {
+    const { getByRole } = render(
+      <BreadCrumb>
+        <Link href="http://google.com" />
+        <Link href="http://yahoo.com" />
+        <Link href="http://amazon.com" />
+      </BreadCrumb>
+    );
+
+    expect(getByRole("navigation")).toMatchSnapshot();
   });
 });

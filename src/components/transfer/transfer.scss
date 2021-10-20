@@ -1,13 +1,11 @@
-@use '../../design/layout.scss';
-@use '../../design/button.scss';
+@use "../../design/layout.scss";
+@use "../../design/button.scss";
 
 .transfer-wrapper {
   @extend %center;
   align-items: flex-start;
   display: grid;
-  grid-template-columns: 40% 20% 40%;
-  min-width: 400px;
-  padding: 0.5rem;
+  grid-template-columns: minmax(250px, 40%) 20% minmax(250px, 40%);
 }
 
 .transfer-column1 {
@@ -39,5 +37,5 @@
 .transfer-search-input {
   margin-left: auto;
   margin-right: 0.5rem;
-  width: 80%;
+  width: 100%;
 }

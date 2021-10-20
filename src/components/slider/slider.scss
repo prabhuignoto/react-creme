@@ -2,13 +2,17 @@
 @use "../../design/colors.scss";
 @use "../../design/position.scss";
 
-.slider-wrapper {
+.rc-slider-wrapper {
   @extend %center;
   height: 5px;
   min-width: 250px;
+
+  &.rc-slider-wrapper-disabled {
+    @extend %disabled;
+  }
 }
 
-.slider-control {
+.rc-slider-control {
   @include position.position-abs("center left");
   background: colors.$primary;
   border-radius: 50%;
@@ -19,7 +23,7 @@
   z-index: 10;
 }
 
-.slider-track {
+.rc-slider-track {
   @extend %border-radius;
   background: colors.$gray;
   height: 100%;
@@ -27,9 +31,22 @@
   width: 100%;
 }
 
-.slider-track-progress {
+.rc-slider-track-progress {
   @extend %border-radius;
   @include position.position-abs("center left");
   background: colors.$secondary;
   height: 100%;
+}
+
+.rc-slider-fill {
+  @extend %border-radius-left;
+  @include position.position-abs("center left");
+  background-color: rgba($color: colors.$primary, $alpha: 0.75);
+  display: block;
+  height: 100%;
+}
+
+.tooltip-placer {
+  display: block;
+  visibility: hidden;
 }

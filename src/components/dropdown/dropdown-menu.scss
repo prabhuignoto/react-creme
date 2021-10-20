@@ -7,6 +7,7 @@
   @extend %border-radius;
   @extend %shadow-medium;
   @include animate.set-animation(0.1s);
+  background: colors.$white;
   left: 0;
   opacity: 0;
   position: absolute;

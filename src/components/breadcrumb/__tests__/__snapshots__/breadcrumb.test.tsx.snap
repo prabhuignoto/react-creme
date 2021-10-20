@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb should render snapshot 1`] = `
+<ul
+  aria-label="breadcrumbs"
+  class="bread-crumbs-wrapper"
+  role="navigation"
+>
+  <li
+    class="bread-crumb"
+  >
+    <span
+      class="bread-crumb-node"
+      tabindex="0"
+    >
+      <a
+        class="link"
+        href="http://google.com"
+        tabindex="-1"
+        target=""
+      />
+    </span>
+    <span
+      class="bread-crumb-icon"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9 18l6-6-6-6"
+        />
+      </svg>
+    </span>
+  </li>
+  <li
+    class="bread-crumb"
+  >
+    <span
+      class="bread-crumb-node"
+      tabindex="0"
+    >
+      <a
+        class="link"
+        href="http://yahoo.com"
+        tabindex="-1"
+        target=""
+      />
+    </span>
+    <span
+      class="bread-crumb-icon"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9 18l6-6-6-6"
+        />
+      </svg>
+    </span>
+  </li>
+  <li
+    class="bread-crumb"
+  >
+    <span
+      class="bread-crumb-node"
+      tabindex="0"
+    >
+      <a
+        class="link"
+        href="http://amazon.com"
+        tabindex="-1"
+        target=""
+      />
+    </span>
+  </li>
+</ul>
+`;

@@ -19,6 +19,19 @@ describe("Carousel Track", () => {
     expect(getAllByRole("listitem")).toHaveLength(3);
   });
 
+  it("Should render the track snapshot", () => {
+    const { getByRole } = render(
+      <CarouselTrack
+        length={3}
+        direction="horizontal"
+        activeIndex={1}
+        handleSelection={handler}
+      />
+    );
+
+    expect(getByRole("list")).toMatchSnapshot();
+  });
+
   it("Should call the handler", () => {
     const { getAllByRole } = render(
       <CarouselTrack

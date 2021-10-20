@@ -16,6 +16,17 @@ describe("Carousel", () => {
     expect(getByText("two")).toBeInTheDocument();
   });
 
+  it("should render carousel snapshot", () => {
+    const { container } = render(
+      <Carousel direction="horizontal">
+        <span>one</span>
+        <span>two</span>
+      </Carousel>
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it("should render vertical carousel", () => {
     const { getByText } = render(
       <Carousel direction="vertical">

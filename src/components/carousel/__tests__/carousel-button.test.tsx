@@ -14,15 +14,21 @@ describe("Carousel Button", () => {
     expect(container.firstChild).toHaveClass("rc-carousel-btn-left");
   });
 
-  it("should call the onClick handler", () => {
-    const { container } = render(
+  it("should render carousel button snapshot", () => {
+    const { getByRole } = render(
       <CarouselButton position="left" onClick={handler} />
     );
 
-    if (container.firstChild) {
-      fireEvent.click(container.firstChild);
+    expect(getByRole("button")).toMatchSnapshot();
+  });
 
-      expect(handler).toBeCalled();
-    }
+  it("should call the onClick handler", () => {
+    const { getByRole } = render(
+      <CarouselButton position="left" onClick={handler} />
+    );
+
+    fireEvent.click(getByRole("button"));
+
+    expect(handler).toBeCalled();
   });
 });

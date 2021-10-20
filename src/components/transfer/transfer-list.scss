@@ -6,7 +6,7 @@
 .transfer-list {
   @extend %list;
   @extend %border;
-  padding: 0.5rem;
+  padding: 1rem;
   width: calc(100% - 0.5rem);
 
   li:not(:last-child):not(:first-child) {
@@ -15,22 +15,24 @@
 }
 
 .transfer-list-item {
-  @extend %list-item-left;
   cursor: pointer;
   height: 40px;
   user-select: none;
   width: 100%;
-
+  
   &.selected {
     color: colors.$tertiary;
   }
-
+  
   &:hover:not(.header) {
     background-color: colors.$light-bg;
   }
-
+  
   &.header {
+    column-gap: 5px;
+    display: grid;
+    grid-template-columns: 30px calc(100% - 35px);
     height: 30px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 }

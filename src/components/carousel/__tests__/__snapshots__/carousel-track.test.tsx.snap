@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel Track Should render the track snapshot 1`] = `
+<ul
+  class="rc-carousel-track rc-carousel-track-horizontal"
+  role="list"
+>
+  <li
+    class="rc-carousel-track-item"
+    role="listitem"
+  />
+  <li
+    class="rc-carousel-track-item rc-carousel-track-item-selected"
+    role="listitem"
+  />
+  <li
+    class="rc-carousel-track-item"
+    role="listitem"
+  />
+</ul>
+`;

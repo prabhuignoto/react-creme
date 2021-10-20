@@ -7,9 +7,10 @@ import "./tooltip.scss";
 
 const Tooltip: React.FunctionComponent<TooltipModel> = ({
   children,
-  position = "bottom center",
   message,
-  width = 100,
+  position = "bottom center",
+  isStatic = false,
+  width = 50,
 }: TooltipModel) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
@@ -18,7 +19,7 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   const isFirstRender = useFirstRender();
 
   // state to show/hide the tooltip
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(isStatic);
 
   // helper to position the tooltip
   const cssPosition = usePosition(wrapperRef, tooltipRef, position, {
@@ -27,8 +28,11 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   });
 
   // handlers for showing/hiding tooltip
-  const showTooltip = useCallback(() => setShow(true), []);
-  const hideTooltip = useCallback(() => setShow(false), []);
+  const showTooltip = useCallback(() => !isStatic && setShow(true), [isStatic]);
+  const hideTooltip = useCallback(
+    () => !isStatic && setShow(false),
+    [isStatic]
+  );
 
   // CSS
   const toolTipMessageClass = useMemo(

@@ -16,7 +16,11 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbModel> = ({
       : []
   );
   return (
-    <ul className="bread-crumbs-wrapper">
+    <ul
+      className="bread-crumbs-wrapper"
+      role="navigation"
+      aria-label="breadcrumbs"
+    >
       {items.current.map((item, index) => (
         <BreadCrumbItem
           child={Array.isArray(children) && children[index]}

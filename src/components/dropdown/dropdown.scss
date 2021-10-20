@@ -24,8 +24,9 @@
 
 .rc-dropdown-value {
   @extend %text-no-wrap;
-  padding-left: 12px;
-  text-align: left;
+  height: 20px;
+  line-height: 20px;
+  padding-left: 1rem;
 }
 
 .rc-dropdown-chevron-icon {

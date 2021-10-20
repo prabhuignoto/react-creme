@@ -31,7 +31,11 @@ function inputs() {
         </Input>
       </div>
       <div style={style}>
-        <CheckBox label="select" onChange={(ele) => console.log(ele)} />
+        <CheckBox
+          label="select"
+          onChange={(ele) => console.log(ele)}
+          isChecked
+        />
       </div>
       <div style={{ width: "140px" }}>
         <Switch label="Are you adult" />

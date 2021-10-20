@@ -80,4 +80,6 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   );
 };
 
+CheckBox.displayName = "CheckBox";
+
 export { CheckBox };

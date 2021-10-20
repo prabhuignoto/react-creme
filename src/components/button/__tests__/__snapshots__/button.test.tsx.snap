@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render button snapshot 1`] = `
+<button
+  class="button-default button-label-icon"
+  role="button"
+  tabindex="0"
+>
+  <span
+    class="button-label"
+  >
+    My Button
+  </span>
+</button>
+`;

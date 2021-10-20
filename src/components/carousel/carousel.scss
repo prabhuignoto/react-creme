@@ -54,7 +54,7 @@
 }
 
 .rc-carousel-btn {
-  @extend %button-lg-no-border;
+  // @extend %button-lg-no-border;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

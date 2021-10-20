@@ -5,8 +5,6 @@
   @extend %border;
   @extend %center;
   background: none;
-  border: 0;
-  color: colors.$tertiary;
   cursor: pointer;
   font-size: 1rem;
   height: 35px;
@@ -71,6 +69,17 @@
 
 %button-icon {
   @extend %button;
+  border: 0;
+  color: colors.$primary;
+  // padding: 0;
+}
+
+%button-icon:hover {
+  // background: colors.$primary;
+
+  svg {
+    color: colors.$tertiary;
+  }
 }
 
 @mixin get-button($size, $border) {

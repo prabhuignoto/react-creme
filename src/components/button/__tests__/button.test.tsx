@@ -19,6 +19,11 @@ describe("Button", () => {
     expect(getByText("My Button")).toBeInTheDocument();
   });
 
+  it("should render button snapshot", () => {
+    const { getByRole } = render(<Button label="My Button" />);
+    expect(getByRole("button")).toMatchSnapshot();
+  });
+
   it("should call handler", () => {
     const { getByText } = render(
       <Button label="My Button" onClick={handler} />

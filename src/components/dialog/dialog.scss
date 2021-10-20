@@ -60,10 +60,8 @@
   padding-left: 1rem;
 }
 
-.rc-dialog-close-btn {
-  @extend %button-lg-no-border;
-}
-
 .rc-dialog-button-wrapper {
   margin-left: auto;
+  // margin-right: 0.25rem;
+  // margin-top: 0.25rem;
 }

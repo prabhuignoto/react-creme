@@ -8,16 +8,20 @@ import {
   useState,
 } from "react";
 
+interface Settings {
+  direction: "horizontal" | "vertical";
+  maxX?: number;
+  minX?: number;
+  minY?: number;
+  maxY?: number;
+  startValue?: number;
+  endValue?: number;
+}
+
 type functionType = (
   container: RefObject<HTMLElement>,
   dragTarget: RefObject<HTMLElement>,
-  settings: {
-    direction: "horizontal" | "vertical";
-    maxX?: number;
-    minX?: number;
-    minY?: number;
-    maxY?: number;
-  }
+  settings: Settings
 ) => [number, Dispatch<SetStateAction<number>>];
 
 const { max, min } = Math;
@@ -25,7 +29,7 @@ const { max, min } = Math;
 const useDrag: functionType = (
   container,
   target,
-  { direction, maxX, maxY, minX = 0, minY = 0 }
+  { direction, maxX, maxY, minX = 0, minY = 0, startValue, endValue }
 ) => {
   const dragStarted = useRef(false);
   const [percent, setPercent] = useState(0);
@@ -60,12 +64,14 @@ const useDrag: functionType = (
         if (left === 0) {
           setPercent(0);
         } else if (
-          left + targetWidth <= maxXValue.current &&
+          // left + targetWidth <= maxXValue.current &&
+          left <= maxXValue.current &&
           left + targetWidth >= minX
         ) {
           target.current.style.left = `${left}px`;
 
-          const percent = (left + targetWidth) / parentWidth;
+          // const percent = (left + targetWidth) / parentWidth;
+          const percent = left / parentWidth;
           setPercent(percent);
         }
       } else if (direction === "vertical") {
@@ -94,6 +100,7 @@ const useDrag: functionType = (
     }
 
     const { clientHeight, clientWidth } = container.current;
+
     if (!maxX) {
       maxXValue.current = clientWidth;
     } else {
@@ -104,6 +111,12 @@ const useDrag: functionType = (
       maxYValue.current = clientHeight;
     } else {
       maxYValue.current = min(maxY, clientHeight);
+    }
+
+    if (startValue && endValue) {
+      const percent = startValue / endValue;
+      target.current.style.left = `${Math.round(clientWidth * percent)}px`;
+      setPercent(percent);
     }
 
     document.addEventListener("mousemove", handleDrag);

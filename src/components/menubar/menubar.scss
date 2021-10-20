@@ -42,7 +42,7 @@
 
   &.rc-menu-bar-item-active {
     @extend %border-no-radius;
-    background: colors.$secondary;
+    // background: colors.$secondary;
   }
 
   &.rc-menu-bar-item-active:last-child {

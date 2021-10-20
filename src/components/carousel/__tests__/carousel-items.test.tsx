@@ -40,4 +40,21 @@ describe("Carousel items", () => {
     expect(getByRole("list")).toBeInTheDocument();
     expect(getAllByRole("listitem")).toHaveLength(2);
   });
+
+  it("Should render carousel items snapshot", () => {
+    const { getByRole } = render(
+      <CarouselItems
+        carouselItems={items}
+        height={300}
+        width={300}
+        direction="horizontal"
+        totalItems={2}
+        activePage={1}
+      >
+        <span>one</span>
+        <span>two</span>
+      </CarouselItems>
+    );
+    expect(getByRole("list")).toMatchSnapshot();
+  });
 });

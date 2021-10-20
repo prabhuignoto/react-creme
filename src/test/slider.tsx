@@ -3,8 +3,8 @@ import { Slider } from "../components";
 
 function slider() {
   return (
-    <div>
-      <Slider start={1} end={180} onChange={(val) => console.log(val)} />
+    <div style={{ width: "250px" }}>
+      <Slider start={10} end={20} onChange={(val) => console.log(val)} />
     </div>
   );
 }

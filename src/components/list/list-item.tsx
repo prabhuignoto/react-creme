@@ -25,9 +25,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
 
     useKey(ref, handleSelection);
 
-    if (!allowMultipleSelection) {
-      useFocus(ref, { bgHighlight: true });
-    }
+    useFocus(ref, { bgHighlight: false });
 
     const listItemClass = useMemo(
       () => classNames(["rc-list-option", disabled ? "disabled" : ""]),
@@ -46,14 +44,14 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
             />
           </span>
         ) : (
-          <span
+          <label
             className="rc-list-option-value"
             ref={ref}
             tabIndex={!disabled && !allowMultipleSelection ? 0 : -1}
             onClick={handleSelection}
           >
             {name}
-          </span>
+          </label>
         )}
       </li>
     );

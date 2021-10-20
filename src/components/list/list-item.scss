@@ -3,6 +3,8 @@
 @use "../../design/position.scss";
 @use "../../design/colors.scss";
 
+$height: 40px;
+
 .rc-list-options {
   @extend %list;
   // max-height: var(--max-height);
@@ -16,8 +18,8 @@
 
 .rc-list-option {
   @extend %list-item-left;
-  height: 40px;
-  margin: 0.2rem 0;
+  height: $height;
+  margin: 0.1rem 0;
   position: relative;
   width: 90%;
   z-index: 1;
@@ -41,9 +43,10 @@
 
 .rc-list-option-value {
   @extend %text-no-wrap;
+  height: $height;
+  line-height: $height;
   padding-left: 1rem;
-  text-align: left;
-  width: 80%;
+  width: 100%;
 }
 
 .rc-list-item-checkbox-wrapper {

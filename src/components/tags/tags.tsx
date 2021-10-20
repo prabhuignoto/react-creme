@@ -1,11 +1,10 @@
-import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "../../design/icon.scss";
 import "../../design/layout.scss";
 import "../../design/list.scss";
-import { CloseIcon } from "../../icons";
 import { Input } from "../input/input";
+import { TagItem } from "./tag-item";
 import { TagItemModel, TagsModel } from "./tags-model";
 import "./tags.scss";
 
@@ -62,45 +61,23 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   return (
     <>
       <ul className={"rc-tags-wrap"} role="list">
-        {tagItems.map((item) => (
-          <li
-            key={item.id}
-            role="listitem"
-            className={classNames([
-              "rc-tag",
-              item.disabled ? "rc-tag-disabled" : "",
-            ])}
-          >
-            <span className="center">{item.name}</span>
-            {!item.disabled && (
-              <span
-                className="rc-tag-icon"
-                onClick={() => handleRemove(item.id)}
-              >
-                <CloseIcon />
-              </span>
-            )}
-          </li>
+        {tagItems.map(({ id, name, disabled }) => (
+          <TagItem
+            id={id}
+            disabled={disabled}
+            handleRemove={handleRemove}
+            key={id}
+            name={name}
+          />
         ))}
         {canAdd && (
           <li className="rc-tags-input-wrapper">
-            {restrictToValues.length ? (
-              <div className="rc-tags-input-container">
-                <Input
-                  onChange={handleChange}
-                  onKeyUp={handleKeyUp}
-                  value={inputValue}
-                  enableClear
-                />
-              </div>
-            ) : (
-              <Input
-                onChange={handleChange}
-                onKeyUp={handleKeyUp}
-                value={inputValue}
-                enableClear
-              />
-            )}
+            <Input
+              onChange={handleChange}
+              onKeyUp={handleKeyUp}
+              value={inputValue}
+              enableClear
+            />
           </li>
         )}
       </ul>
