@@ -23,12 +23,12 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   const active = useRef<string>();
 
   const handleChange = useCallback(
-    ({ id }: { id?: string; selected?: boolean }) => {
+    ({ id }: { id?: string; checked?: boolean }) => {
       if (active.current !== id) {
         setItems((prev) =>
           prev.map((item) => ({
             ...item,
-            selected: item.id === id,
+            checked: item.id === id,
           }))
         );
         active.current = id;
@@ -39,7 +39,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
 
   useEffect(() => {
     if (!isFirstRender.current) {
-      const foundItem = _items.find((item) => item.selected);
+      const foundItem = _items.find((item) => item.checked);
 
       if (foundItem && onSelected) {
         onSelected(foundItem.label);
@@ -51,20 +51,20 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
 
   return (
     <ul className={"rc-radio-grp"} role="radiogroup">
-      {_items.map(({ id, disabled, label, selected }) => (
+      {_items.map(({ id, disabled, label, checked }) => (
         <li
           key={id}
           className={classNames("rc-radio-grp-item", {
             "rc-radio-grp-item-disabled": disabled,
           })}
           role="none"
-          aria-checked={!!selected}
+          aria-checked={!!checked}
         >
           <Radio
             onChange={handleChange}
             label={label}
             id={id}
-            isChecked={selected}
+            isChecked={checked}
             disabled={disabled}
             isControlled
           />

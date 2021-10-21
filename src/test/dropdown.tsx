@@ -6,6 +6,7 @@ function dropdown() {
     <div>
       <Dropdown
         onSelected={(val) => console.log(val)}
+        placeholder="choose a country"
         allowMultipleSelection
         options={[
           { name: "germany", value: "germany", disabled: true },
@@ -19,6 +20,7 @@ function dropdown() {
       <br></br>
       <br></br>
       <Dropdown
+        placeholder="choose another country"
         onSelected={(val) => console.log(val)}
         options={[
           { name: "germany", value: "germany", disabled: true },

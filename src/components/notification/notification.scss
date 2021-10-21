@@ -3,6 +3,7 @@
 @use "../../design/button.scss";
 @use "../../design/animate.scss";
 @use "../../design/util.scss";
+@use "../../design/icon.scss";
 
 .rc-notification-wrapper {
   $min-width: var(--min-width);
@@ -123,7 +124,7 @@
 }
 
 .rc-notification-close-btn {
-  @extend %button-lg-no-border;
+  @extend %button-icon;
   align-self: flex-end;
   height: 1.5rem;
   padding-right: 0.5rem;

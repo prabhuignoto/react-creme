@@ -8,6 +8,6 @@ export interface RadioGroupItemModel {
   disabled?: boolean;
   id?: string;
   label: string;
-  selected?: boolean | null;
+  checked?: boolean | null;
   value?: string;
 }

@@ -71,12 +71,9 @@
   @extend %button;
   border: 0;
   color: colors.$primary;
-  // padding: 0;
 }
 
 %button-icon:hover {
-  // background: colors.$primary;
-
   svg {
     color: colors.$tertiary;
   }

@@ -3,9 +3,14 @@ import { CheckBox, Input, RadioGroup, Switch } from "../components";
 import { Radio } from "../components/radio/radio";
 import { ChevronRightIcon } from "../icons";
 
+const wrap: CSSProperties = {
+  margin: "0.5rem 0",
+};
+
 const style: CSSProperties = {
-  width: "100px",
+  minWidth: "50px",
   margin: "1rem 0",
+  // ...wrap,
 };
 
 function inputs() {
@@ -25,7 +30,7 @@ function inputs() {
           onSelected={(val) => console.log(val)}
         />
       </div>
-      <div style={{ width: "200px" }}>
+      <div style={{ width: "200px", ...wrap }}>
         <Input enableClear>
           <ChevronRightIcon />
         </Input>
@@ -37,10 +42,31 @@ function inputs() {
           isChecked
         />
       </div>
-      <div style={{ width: "140px" }}>
-        <Switch label="Are you adult" />
+      <div>
+        <CheckBox
+          label="select the value its too large"
+          onChange={(ele) => console.log(ele)}
+          size="medium"
+        />
       </div>
       <div style={style}>
+        <CheckBox
+          label="select"
+          onChange={(ele) => console.log(ele)}
+          isChecked
+          size="large"
+        />
+      </div>
+      <div style={{ width: "100px", ...wrap }}>
+        <Switch label="Settings" />
+      </div>
+      <div style={{ width: "180px", ...wrap }}>
+        <Switch label="Are you authorized" size="medium" />
+      </div>
+      <div style={{ width: "200px", ...wrap }}>
+        <Switch label="Are you authorized" size="large" />
+      </div>
+      <div style={{ width: "100px", ...wrap }}>
         <Switch label="setting" disabled />
       </div>
     </div>

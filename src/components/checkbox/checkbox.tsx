@@ -19,6 +19,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   onChange,
   isChecked = false,
   disabled,
+  size = "small",
 }: CheckboxModel) => {
   const [checked, setChecked] = useState(isChecked);
   const ref = useRef(null);
@@ -32,16 +33,26 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
 
   const iconClass = useMemo(
     () =>
-      classNames(["rc-checkbox-icon"], {
+      classNames("rc-checkbox-icon", {
         "rc-checkbox-checked": checked,
+        [`rc-checkbox-${size}`]: true,
+      }),
+    [checked]
+  );
+
+  const labelClass = useMemo(
+    () =>
+      classNames("rc-checkbox-label", {
+        [`rc-checkbox-label-${size}`]: true,
       }),
     [checked]
   );
 
   const wrapperClass = useMemo(
     () =>
-      classNames(["rc-checkbox-wrapper"], {
+      classNames("rc-checkbox-wrapper", {
         "rc-checkbox-disabled": disabled,
+        [`rc-checkbox-${size}`]: true,
       }),
     []
   );
@@ -73,7 +84,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
       <span className={iconClass}>
         <CheckIcon />
       </span>
-      <label className="rc-checkbox-label" id={id.current}>
+      <label className={labelClass} id={id.current}>
         {label}
       </label>
     </div>

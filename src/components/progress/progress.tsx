@@ -24,7 +24,8 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
   }, [progressPercent]);
 
   const canShowProgressValue = useMemo(
-    () => showProgressValue && progressPercentValue !== 0,
+    () =>
+      showProgressValue && progressPercentValue !== 0 && type !== "infinite",
     [progressPercentValue]
   );
 

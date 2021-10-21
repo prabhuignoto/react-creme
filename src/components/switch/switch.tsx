@@ -15,6 +15,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   label,
   width = 50,
   disabled = false,
+  size = "small",
 }) => {
   const [state, setState] = useState(false);
   const ref = useRef(null);
@@ -41,8 +42,9 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
       classNames(["rc-switch-knob"], {
         "rc-switch-on": state,
         "rc-switch-off": !state && !isFirstRender.current,
+        [`rc-switch-knob-${size}`]: true,
       }),
-    [state]
+    [state, size]
   );
 
   const switchClass = useMemo(
@@ -52,8 +54,12 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
 
   const switchTrackClass = useMemo(
     () =>
-      classNames(["rc-switch-track", state ? "rc-switch-on" : "rc-switch-off"]),
-    [state]
+      classNames("rc-switch-track", {
+        "rc-switch-on": state,
+        "rc-switch-off": !state,
+        [`rc-switch-${size}`]: true,
+      }),
+    [state, size]
   );
 
   const switchLabelClass = useMemo(

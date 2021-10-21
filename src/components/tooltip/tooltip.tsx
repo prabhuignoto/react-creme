@@ -45,7 +45,7 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
           [`tooltip-${position.split(" ")[0]}`]: true,
         },
       ]),
-    [show]
+    [show, position]
   );
 
   const tooltipMessageStyle = useMemo(() => {

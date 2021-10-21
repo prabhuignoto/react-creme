@@ -3,4 +3,5 @@ export interface CheckboxModel {
   onChange?: (selected: boolean) => void;
   isChecked?: boolean;
   disabled?: boolean;
+  size?: "small" | "medium" | "large";
 }

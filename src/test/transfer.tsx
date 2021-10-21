@@ -3,7 +3,7 @@ import { Transfer } from "../components";
 
 function transfer() {
   return (
-    <div style={{ width: "900px" }}>
+    <div style={{ width: "700px" }}>
       <Transfer
         list1={["one", "two", "five", "six"]}
         list2={["three", "four", "seven", "eight"]}

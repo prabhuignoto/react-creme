@@ -92,6 +92,7 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
       tabIndex={0}
       style={menuBarStyle}
       role="menubar"
+      onBlur={onCloseMenu}
     >
       {_items.map(({ id, name, menu, isMenuOpen, openOnHover }) => (
         <li

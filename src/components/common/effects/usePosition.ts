@@ -1,11 +1,4 @@
-import React, {
-  CSSProperties,
-  RefObject,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { CSSProperties, RefObject, useEffect, useState } from "react";
 
 type Position =
   | "top left"
@@ -37,23 +30,18 @@ const usePosition: FunctionType = function (
 ) {
   const [_position, setPosition] = useState<React.CSSProperties>();
   const { spacing, alignToEdge } = settings;
-  const positionY = useMemo(() => position.split(" ")[1], []);
-  const positionX = useMemo(() => position.split(" ")[0], []);
-
-  const isPositionX = useCallback(
-    (match: string) => positionX === match,
-    [positionX]
-  );
-
-  const isPositionY = useCallback(
-    (match: string) => positionY === match,
-    [positionY]
-  );
 
   useEffect(() => {
     if (!element.current && !tooltip.current) {
       return;
     }
+
+    const positionY = position.split(" ")[1];
+    const positionX = position.split(" ")[0];
+
+    const isPositionX = (match: string) => positionX === match;
+
+    const isPositionY = (match: string) => positionY === match;
 
     const eleHeight = element.current?.clientHeight || 0;
     const eleWidth = element.current?.clientWidth || 0;
@@ -124,7 +112,7 @@ const usePosition: FunctionType = function (
     }
 
     setPosition(cssPosition);
-  }, [element, tooltip]);
+  }, [element, tooltip, position]);
 
   return _position;
 };

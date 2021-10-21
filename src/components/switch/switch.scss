@@ -2,29 +2,35 @@
 @use "../../design/colors.scss";
 @use "../../design/animate.scss";
 @use "../../design/position.scss";
+@use "sass:map";
 
-$dimension: 18px;
+$sizes: (
+  small: (
+    height: 30px,
+    border-radius: 20px,
+  ),
+  medium: (
+    height: 35px,
+    border-radius: 30px,
+  ),
+  large: (
+    height: 40px,
+    border-radius: 40px,
+  ),
+);
+
+$knob-sizes: (
+  small: 20px,
+  medium: 25px,
+  large: 30px,
+);
+
 $start-left: 4px;
-$end-left: calc(100% - calc($start-left + $dimension));
-$switch-settings: (
-  from: (
-    left: $start-left,
-  ),
-  to: (
-    left: $end-left,
-  ),
-);
-
-@include animate.keyframes-motion-multi(switch-left-right, $switch-settings);
-@include animate.keyframes-motion-multi(
-  switch-right-left,
-  $switch-settings,
-  true
-);
 
 .rc-switch {
-  min-width: 100px;
+  min-width: 60px;
   padding: 0.2rem;
+  user-select: none;
 
   &.rc-switch-disabled {
     @extend %disabled;
@@ -39,10 +45,24 @@ $switch-settings: (
 
 .rc-switch-track {
   @extend %center;
-  border-radius: 20px;
   cursor: pointer;
-  height: 30px;
   position: relative;
+
+  @each $key, $val in $sizes {
+    &.rc-switch-#{$key} {
+      @each $attr, $value in $val {
+        #{$attr}: #{$value};
+      }
+
+      .rc-switch-label-on {
+        margin-right: map.get($knob-sizes, $key);
+      }
+
+      .rc-switch-label-off {
+        margin-left: map.get($knob-sizes, $key);
+      }
+    }
+  }
 
   &.rc-switch-on {
     background-color: colors.$primary;
@@ -60,21 +80,40 @@ $switch-settings: (
   background-color: colors.$white;
   border-radius: 50%;
   display: block;
-  height: $dimension;
   left: $start-left;
   transition: background-color 0.1s ease;
-  width: $dimension;
 
-  &.rc-switch-on {
-    @extend %shadow-small;
-    animation-name: switch-left-right;
-    left: $end-left;
-  }
+  @each $key, $val in $knob-sizes {
+    &.rc-switch-knob-#{$key} {
+      $settings: (
+        from: (
+          left: $start-left,
+        ),
+        to: (
+          left: calc(100% - $val - 4px),
+        ),
+      );
+      height: $val;
+      width: $val;
 
-  &.rc-switch-off {
-    animation-name: switch-right-left;
-    background-color: colors.$white;
-    left: $start-left;
+      &.rc-switch-on {
+        @extend %shadow-small;
+        @include animate.keyframes-motion-multi(slide-right-#{$key}, $settings);
+        animation-name: slide-right-#{$key};
+        left: calc(100% - $val - 4px);
+      }
+
+      &.rc-switch-off {
+        @include animate.keyframes-motion-multi(
+          slide-left-#{$key},
+          $settings,
+          true
+        );
+        animation-name: slide-left-#{$key};
+        background-color: colors.$white;
+        right: calc(100% - $val - 4px);
+      }
+    }
   }
 }
 
@@ -85,12 +124,5 @@ $switch-settings: (
 
   &.rc-switch-label-on {
     color: colors.$white;
-    margin-left: 6px;
-    margin-right: $dimension + $start-left + 2px;
-  }
-
-  &.rc-switch-label-off {
-    margin-left: $dimension + $start-left + 2px;
-    margin-right: 6px;
   }
 }

@@ -20,6 +20,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
   label,
   onChange,
   value,
+  size = "lg",
 }) => {
   const labelID = useRef(`label-${nanoid()}`);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -52,6 +53,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
         {
           "rc-radio-disabled": disabled,
           "rc-radio-checked": checked,
+          [`rc-radio-${size}`]: true,
         },
         ...(ref.current !== null ? ref.current.classList : [])
       ),

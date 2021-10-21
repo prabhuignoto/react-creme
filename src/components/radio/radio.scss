@@ -5,6 +5,18 @@
 @use "../../design/animate.scss";
 @use "../../design/animations.scss";
 
+$sizes: (
+  sm: 0.5rem,
+  md: 0.75rem,
+  lg: 1rem,
+);
+
+$halo-sizes: (
+  sm: 1.5rem,
+  md: 2rem,
+  lg: 2.5rem,
+);
+
 .rc-radio {
   @extend %left;
   user-select: none;
@@ -21,6 +33,54 @@
   &:focus {
     outline: 0;
   }
+
+  @each $key, $val in $sizes {
+    &.rc-radio-#{$key} {
+      .rc-radio-icon {
+        &.rc-radio-ico-checked::after {
+          height: $val;
+          width: $val;
+        }
+      }
+    }
+  }
+
+  @each $key, $val in $halo-sizes {
+    &.rc-radio-#{$key} {
+      .rc-radio-icon {
+        $settings: (
+          from: (
+            height: 0,
+            width: 0,
+          ),
+          to: (
+            height: calc($val),
+            width: calc($val),
+          ),
+        );
+        @extend %icon-#{$key};
+
+        &.rc-radio-ico-checked::before {
+          @include animate.keyframes-motion-multi(
+            animation-halo-#{$key},
+            $settings
+          );
+          animation-name: animation-halo-#{$key};
+          height: calc($val);
+          width: calc($val);
+        }
+
+        &.rc-radio-ico-un-checked::before {
+          @include animate.keyframes-motion-multi(
+            animation-halo-reverse-#{$key},
+            $settings,
+            true
+          );
+          animation-name: animation-halo-reverse-#{$key};
+        }
+      }
+    }
+  }
 }
 
 %pseudo-common {
@@ -31,7 +91,6 @@
 }
 
 .rc-radio-icon {
-  @extend %icon-sm;
   @extend %border;
   border-radius: 50%;
   display: block;
@@ -44,16 +103,14 @@
     @include animate.set-animation(0.1s, ease-in);
     animation-name: animate-radio-select;
     background: colors.$primary;
-    height: 0.5rem;
-    width: 0.5rem;
   }
 
   &.rc-radio-ico-checked::before {
     @extend %pseudo-common;
     @include animate.set-animation(0.1s, ease-in);
     @include position.position-abs("center center");
-    @include animations.set-animation(halo, to);
-    animation-name: animation-halo;
+    // @include animations.set-animation(halo, to);
+    // animation-name: animation-halo;
     background: rgba(colors.$primary, 0.1);
   }
 
@@ -61,8 +118,8 @@
     @extend %pseudo-common;
     @include animate.set-animation(0.1s, ease-in);
     @include position.position-abs("center center");
-    @include animations.set-animation(halo, from);
-    animation-name: animation-halo-reverse;
+    // @include animations.set-animation(halo, from);
+    // animation-name: animation-halo-reverse;
     background: rgba(colors.$primary, 0.1);
   }
 }

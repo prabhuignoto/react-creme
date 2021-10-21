@@ -68,7 +68,7 @@ const useDrag: functionType = (
           left <= maxXValue.current &&
           left + targetWidth >= minX
         ) {
-          target.current.style.left = `${left}px`;
+          target.current.style.left = `${left - Math.round(targetWidth / 2)}px`;
 
           // const percent = (left + targetWidth) / parentWidth;
           const percent = left / parentWidth;
@@ -81,7 +81,7 @@ const useDrag: functionType = (
           top + targetHeight <= maxYValue.current &&
           top + targetHeight >= minY
         ) {
-          target.current.style.top = `${top}px`;
+          target.current.style.top = `${top - Math.round(targetHeight / 2)}px`;
 
           const percent = (top + targetHeight) / parentHeight;
           setPercent(percent);

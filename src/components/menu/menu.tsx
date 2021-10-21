@@ -54,10 +54,10 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   useFocus(wrapperRef, { bgHighlight: false });
   useKeyWithDependency(wrapperRef, toggleViaKeyboard, showMenu);
 
-  const closeMenu = useCallback(() => {
-    setShowMenu(false);
-    onClose && onClose(id);
-  }, []);
+  // const closeMenu = useCallback(() => {
+  //   setShowMenu(false);
+  //   onClose && onClose(id);
+  // }, []);
 
   const menuClass = useMemo(
     () =>
@@ -107,27 +107,26 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   return (
     <div
       className="rc-menu-wrapper"
-      ref={wrapperRef}
-      onBlur={closeMenu}
-      tabIndex={0}
       onMouseEnter={handleMouseEnter}
       onMouseDown={toggleMenu}
     >
-      <div className="rc-menu-content-wrapper">{children}</div>
-      <ul className={menuClass} ref={menuRef} style={cssPosition} role="menu">
-        {menuItems.current.map(({ name, id, disabled }) => (
-          <li
-            key={id}
-            className={classNames(["rc-menu-item"], {
-              "rc-menu-item-disabled": disabled,
-            })}
-            onMouseDown={() => !disabled && handleSelection(name)}
-            role="menuitem"
-          >
-            <span className="rc-menu-item-name">{name}</span>
-          </li>
-        ))}
-      </ul>
+      <div className="rc-menu-content-wrapper" ref={wrapperRef}>
+        {children}
+        <ul className={menuClass} ref={menuRef} style={cssPosition} role="menu">
+          {menuItems.current.map(({ name, id, disabled }) => (
+            <li
+              key={id}
+              className={classNames(["rc-menu-item"], {
+                "rc-menu-item-disabled": disabled,
+              })}
+              onMouseDown={() => !disabled && handleSelection(name)}
+              role="menuitem"
+            >
+              <span className="rc-menu-item-name">{name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

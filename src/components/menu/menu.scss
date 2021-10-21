@@ -12,6 +12,7 @@
 .rc-menu-content-wrapper {
   @extend %center;
   height: 100%;
+  position: relative;
 }
 
 .rc-menu {

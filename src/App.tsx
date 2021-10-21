@@ -8,6 +8,7 @@ import "./design/list.scss";
 import Breadcrumb from "./test/breadcrumb";
 import Buttons from "./test/buttons";
 import Carousel from "./test/carousel";
+import Comparer from "./test/comparer";
 import Dialog from "./test/dialog";
 import Drawer from "./test/drawer";
 import Dropdown from "./test/dropdown";
@@ -54,6 +55,7 @@ function App() {
         <Link to="/drawer">drawer</Link>
         <Link to="/dialog">dialog</Link>
         <Link to="/slider">slider</Link>
+        <Link to="/comparer">comparer</Link>
       </aside>
       <section className="section">
         <Routes>
@@ -201,15 +203,18 @@ function App() {
               </div>
             }
           />
+          <Route
+            path="/comparer"
+            element={
+              <div className="section-content" style={{ width: "600px" }}>
+                <Comparer />
+              </div>
+            }
+          />
         </Routes>
       </section>
 
-      <div style={{ width: "70vw", height: "950px" }}>
-        {/* <ImageComparer>
-          <img src="https://images.unsplash.com/photo-1633993365492-0828ece5c0ed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80" />
-          <img src="https://images.unsplash.com/photo-1633993365492-0828ece5c0ed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80" />
-        </ImageComparer> */}
-      </div>
+      <div style={{ width: "70vw", height: "950px" }}></div>
     </div>
   );
 }

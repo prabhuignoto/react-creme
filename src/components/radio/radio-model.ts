@@ -6,4 +6,5 @@ export interface RadioModel {
   label?: string;
   onChange?: (state: { id?: string; selected?: boolean }) => void;
   value?: string;
+  size?: "sm" | "md" | "lg";
 }
