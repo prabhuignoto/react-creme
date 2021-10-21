@@ -3,9 +3,14 @@ import { nanoid } from "nanoid";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import { ChevronDownIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
+import { withOverlay } from "../common/withOverlay";
 import { DropDownMenu } from "./dropdown-menu";
-import { DropdownModel, Option } from "./dropdown-model";
+import { DropdownMenuModel, DropdownModel, Option } from "./dropdown-model";
 import "./dropdown.scss";
+
+const DropdownMenuOverlay = withOverlay<DropdownMenuModel>(DropDownMenu, {
+  disableBackdrop: true,
+});
 
 const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
   ({
@@ -26,10 +31,11 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     );
     const [value, setValue] = useState(placeholder);
     const [showMenu, setShowMenu] = useState(false);
+    const [menuClosing, setMenuClosing] = useState(false);
 
     // REFS
-    const containerRef = useRef<HTMLDivElement>(null);
-    const dropdownRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef(null);
+    const dropdownRef = useRef(null);
 
     // HANDLERS
     const handleSelection = useCallback((selected: Option[]) => {
@@ -37,7 +43,15 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
 
       if (allowMultipleSelection) {
         _value = selected.map((opt) => opt.value).join(",");
+        const selectedIds = selected.map((item) => item.id);
+
         setValue(_value);
+        setDropdownOptions((options) =>
+          options.map((option) => ({
+            ...option,
+            selected: selectedIds.indexOf(option.id) > -1,
+          }))
+        );
       } else {
         const { id, value } = selected[0];
         _value = value;
@@ -56,15 +70,17 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
       }
     }, []);
 
-    const handleToggleMenu = useCallback(() => {
-      setShowMenu((prev) => !prev);
+    const handleToggleMenu = useCallback(
+      () => setShowMenu((prev) => !prev),
+      []
+    );
+
+    const handleMenuClose = useCallback(() => {
+      setShowMenu(false);
+      setMenuClosing(false);
     }, []);
 
-    const handleBlur = useCallback((ev: React.FocusEvent) => {
-      if (!ev.relatedTarget) {
-        setShowMenu(false);
-      }
-    }, []);
+    const handleMenuClosing = useCallback(() => setMenuClosing(true), []);
 
     // STYLES
     const menuStyle = useMemo(() => {
@@ -90,7 +106,6 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
         onKeyUp={(ev) => {
           ev.key === "Enter" && handleToggleMenu();
         }}
-        onBlur={handleBlur}
         ref={dropdownRef}
       >
         <div
@@ -102,7 +117,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
           <span
             className={classNames([
               "rc-dropdown-chevron-icon",
-              showMenu ? "rc-dropdown-chevron-icon-rotate" : "",
+              showMenu && !menuClosing ? "rc-dropdown-chevron-icon-rotate" : "",
             ])}
             role="img"
             data-testid="icon"
@@ -111,13 +126,19 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
           </span>
         </div>
 
-        <DropDownMenu
-          style={menuStyle}
-          handleSelection={handleSelection}
-          options={dropdownOptions}
-          open={showMenu}
-          allowMultipleSelection={allowMultipleSelection}
-        />
+        {showMenu && (
+          <DropdownMenuOverlay
+            style={menuStyle}
+            handleSelection={handleSelection}
+            options={dropdownOptions}
+            open={showMenu}
+            allowMultipleSelection={allowMultipleSelection}
+            placementReference={dropdownRef}
+            placement="bottom"
+            onClose={handleMenuClose}
+            onClosing={handleMenuClosing}
+          />
+        )}
       </div>
     );
   }

@@ -24,7 +24,7 @@ $height: 40px;
   width: 90%;
   z-index: 1;
 
-  &:hover::after {
+  &:hover:not(.rc-list-option-disabled)::after {
     @extend %border-radius;
     @include position.position-abs("middle left");
     background: colors.$light-bg;
@@ -36,7 +36,7 @@ $height: 40px;
     z-index: -1;
   }
 
-  &.disabled {
+  &.rc-list-option-disabled {
     @extend %disabled;
   }
 }

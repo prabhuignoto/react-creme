@@ -4,7 +4,7 @@
 @use "../../design/animate.scss";
 @use "../../design/position.scss";
 
-.overlay-wrapper {
+.rc-overlay-wrapper {
   @extend %center;
   @include position.position-abs("center center");
 
@@ -18,7 +18,7 @@
   }
 }
 
-.overlay-content-wrapper {
+.rc-overlay-content-wrapper {
   @extend %center;
   height: 100%;
   opacity: 0;
@@ -27,18 +27,18 @@
     @include animate.set-animation(0.25s, ease-in);
   }
 
-  &.overlay-content-close {
+  &.rc-overlay-content-close {
     animation-name: overlay-close;
     opacity: 0;
   }
 
-  &.overlay-content-open {
+  &.rc-overlay-content-open {
     animation-name: overlay-open;
     opacity: 1;
   }
 }
 
-.overlay-close-btn {
+.rc-overlay-close-btn {
   @extend %button-lg-no-border;
 }
 

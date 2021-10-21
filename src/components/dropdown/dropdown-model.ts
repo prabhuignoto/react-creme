@@ -1,6 +1,8 @@
+import { OverlayModel } from "../common/overlay-model";
+
 export type MenuOption = Option & { visible: boolean };
 
-export interface DropdownMenuModel {
+export interface DropdownMenuModel extends OverlayModel {
   style: DropdownMenuStyleModel;
   handleSelection: (selected: Option[]) => void;
   open: boolean;

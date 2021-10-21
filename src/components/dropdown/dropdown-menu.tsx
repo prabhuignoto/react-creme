@@ -1,61 +1,56 @@
 import classNames from "classnames";
-import React, { CSSProperties, useEffect, useMemo, useRef } from "react";
+import React, { CSSProperties, useEffect, useMemo } from "react";
 import { List } from "..";
 import "./dropdown-menu.scss";
 import { DropdownMenuModel } from "./dropdown-model";
 
-const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = React.memo(
-  ({
-    options,
-    handleSelection,
-    style: { top, width, maxMenuHeight },
-    open,
-    allowMultipleSelection,
-  }: DropdownMenuModel) => {
-    // REF
-    const firstRender = useRef(true);
+const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
+  options,
+  handleSelection,
+  style: { top, width, maxMenuHeight },
+  open,
+  allowMultipleSelection,
+  isClosing,
+  onClosing,
+}: DropdownMenuModel) => {
+  // STYLES
+  const menuStyle = useMemo(() => {
+    return {
+      "--menu-top": `${top || 0}px`,
+      "--menu-width": `${width || 0}px`,
+      "--max-height": `${maxMenuHeight}px`,
+    } as CSSProperties;
+  }, [top, width]);
 
-    // EFFECTS
-    useEffect(() => {
-      if (firstRender.current) {
-        firstRender.current = false;
-      }
-    }, []);
+  const menuClass = useMemo(
+    () =>
+      classNames([
+        "rc-dropdown-menu-container",
+        {
+          "rc-dropdown-menu-open": open && !isClosing,
+          "rc-dropdown-menu-close": !open || isClosing,
+        },
+      ]),
+    [open, isClosing]
+  );
 
-    // STYLES
-    const menuStyle = useMemo(() => {
-      return {
-        "--menu-top": `${top || 0}px`,
-        "--menu-width": `${width || 0}px`,
-        "--max-height": `${maxMenuHeight}px`,
-      } as CSSProperties;
-    }, [top, width]);
+  useEffect(() => {
+    if (isClosing) {
+      onClosing && onClosing();
+    }
+  }, [isClosing]);
 
-    const menuClass = useMemo(
-      () =>
-        classNames([
-          "rc-dropdown-menu-container",
-          !firstRender.current && {
-            "rc-dropdown-menu-open": open,
-            "rc-dropdown-menu-close": !open,
-          },
-        ]),
-      [open]
-    );
-
-    return (
-      <div className={menuClass} style={menuStyle}>
-        <List
-          options={options}
-          onSelection={handleSelection}
-          allowMultipleSelection={allowMultipleSelection}
-          borderLess
-        />
-      </div>
-    );
-  },
-  (prev, cur) => prev.open === cur.open
-);
+  return (
+    <div className={menuClass} style={menuStyle}>
+      <List
+        options={options}
+        onSelection={handleSelection}
+        allowMultipleSelection={allowMultipleSelection}
+        borderLess
+      />
+    </div>
+  );
+};
 
 DropDownMenu.displayName = "DropDownMenu";
 

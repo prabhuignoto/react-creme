@@ -6,6 +6,7 @@ export interface ListModel {
   maxHeight?: number;
   onSelection?: (selected: ListOption[]) => void;
   options: ListOption[];
+  disableSearch?: boolean;
 }
 
 export interface ListItemModel {

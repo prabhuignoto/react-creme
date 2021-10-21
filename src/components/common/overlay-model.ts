@@ -1,17 +1,23 @@
-import React, { MutableRefObject } from "react";
+import React, { RefObject } from "react";
 
-export interface OverlayModel {
+interface OverlayCommon {
   onClose?: () => void;
-  isClosing?: boolean;
-  showClose?: boolean;
-  containedToParent?: MutableRefObject<HTMLElement>;
+  onClosing?: () => void;
+  placement?: "top" | "bottom";
+  placementReference?: RefObject<HTMLElement>;
 }
 
-export interface OverlayProps {
+export interface OverlayModel extends OverlayCommon {
+  isClosing?: boolean;
+  showClose?: boolean;
+  placement?: "top" | "bottom";
+  containedToParent?: RefObject<HTMLElement>;
+}
+
+export interface OverlayProps extends OverlayCommon {
   children: React.ReactNode;
   close?: boolean;
   disableAnimation?: boolean;
   disableBackdrop?: boolean;
-  onClose?: () => void;
   showCloseButton?: boolean;
 }

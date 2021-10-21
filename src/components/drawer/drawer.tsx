@@ -50,10 +50,6 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
 
   useFocus(drawerRef);
 
-  useCloseOnEscape(() => {
-    onClose && onClose();
-  }, drawerRef);
-
   return (
     <div
       className={drawerClass}

@@ -26,12 +26,12 @@ const List: React.FunctionComponent<ListModel> = ({
   maxHeight = 250,
   onSelection,
   borderLess = false,
+  disableSearch,
 }) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     options.map((option) => ({
       id: nanoid(),
       ...option,
-      selected: false,
       visible: true,
     }))
   );
@@ -92,11 +92,13 @@ const List: React.FunctionComponent<ListModel> = ({
 
   return (
     <div className={rcListClass} ref={listRef}>
-      <div className="rc-list-search-input">
-        <Input onChange={handleSearch} enableClear>
-          <SearchIcon />
-        </Input>
-      </div>
+      {!disableSearch && (
+        <div className="rc-list-search-input">
+          <Input onChange={handleSearch} enableClear>
+            <SearchIcon />
+          </Input>
+        </div>
+      )}
       <ul className={"rc-list-options"} role="listbox" style={listStyle}>
         {_listOptions
           .filter((item) => item.visible)
@@ -105,6 +107,7 @@ const List: React.FunctionComponent<ListModel> = ({
               name={name}
               id={id}
               value={value}
+              selected={selected}
               disabled={disabled}
               key={id}
               onSelection={handleSelection}
