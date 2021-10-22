@@ -36,9 +36,5 @@ $list-anim-settings: (
   to: $show-anim,
 );
 
-@include animate.keyframes-motion-multi(list-menu-open, $list-anim-settings);
-@include animate.keyframes-motion-multi(
-  list-menu-close,
-  $list-anim-settings,
-  true
-);
+@include animate.set-keyframes(list-menu-open, $list-anim-settings);
+@include animate.set-keyframes(list-menu-close, $list-anim-settings, true);

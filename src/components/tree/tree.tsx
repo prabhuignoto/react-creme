@@ -1,12 +1,18 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useCallback, useState } from "react";
+import React, { CSSProperties, useCallback, useMemo, useState } from "react";
 import { TreeItem } from "./tree-item";
 import { TreeModel } from "./tree-model";
 import "./tree.scss";
 
 const Tree: React.FunctionComponent<TreeModel> = React.memo(
-  ({ items, isChildTree, width = 300, onChildToggle }: TreeModel) => {
+  ({
+    items,
+    isChildTree,
+    width = 100,
+    height = 200,
+    onChildToggle,
+  }: TreeModel) => {
     const [_items, setItems] = useState(
       items.map((item) => ({
         id: nanoid(),
@@ -26,10 +32,20 @@ const Tree: React.FunctionComponent<TreeModel> = React.memo(
       [_items.length]
     );
 
+    const treeStyle = useMemo(
+      () =>
+        ({
+          "--width": `${width}px`,
+          "--height": `${height}px`,
+        } as CSSProperties),
+      []
+    );
+
     return (
       <div
         className={classNames({ "rc-tree-wrapper": !isChildTree })}
         role="tree"
+        style={treeStyle}
       >
         {_items.map(({ id, name, expanded, child }) => (
           <TreeItem

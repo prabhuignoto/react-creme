@@ -19,7 +19,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   onChange,
   isChecked = false,
   disabled,
-  size = "small",
+  size = "sm",
 }: CheckboxModel) => {
   const [checked, setChecked] = useState(isChecked);
   const ref = useRef(null);

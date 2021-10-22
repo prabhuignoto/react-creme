@@ -9,6 +9,7 @@ import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
 import sass from "sass";
 import pkg from "./package.json";
+import PostCSSPreset from "postcss-preset-env";
 
 const banner = `/*
  * ${pkg.name}
@@ -56,6 +57,12 @@ export default {
       plugins: [
         "@babel/plugin-transform-runtime",
         "@babel/plugin-proposal-optional-chaining",
+        [
+          "react-remove-properties",
+          {
+            "properties": ["data-testid"],
+          },
+        ],
       ],
     }),
     postcss({
@@ -69,7 +76,8 @@ export default {
           preset: "default",
         }),
         autoprefixer,
-        BemLinter
+        BemLinter,
+        PostCSSPreset
       ],
       sourceMap: false,
       extract: true,

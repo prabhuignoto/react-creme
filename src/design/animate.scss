@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@mixin keyframes-motion-multi($name, $attrs, $reverse: false) {
+@mixin set-keyframes($name, $attrs, $reverse: false) {
   $from: from;
   $to: to;
 
@@ -8,7 +8,7 @@
     $from: to;
     $to: from;
   }
-  
+
   @keyframes #{$name} {
     #{$from} {
       @each $name, $value in map.get($attrs, "from") {

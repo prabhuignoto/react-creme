@@ -5,23 +5,12 @@ $animation-pop: (
   from: (
     opacity: 0,
     transform: scale(1.05),
-    filter: blur(50px),
+    filter: blur(5px),
   ),
   to: (
     opacity: 1,
     transform: scale(1),
     filter: blur(0),
-  ),
-);
-
-$animation-halo: (
-  from: (
-    height: 0,
-    width: 0,
-  ),
-  to: (
-    height: 1.5rem,
-    width: 1.5rem,
   ),
 );
 
@@ -31,9 +20,6 @@ $animation-halo: (
   @if $type == pop {
     $animation-setting: $animation-pop;
     @include setup-pop-animation();
-  } @else if $type == halo {
-    $animation-setting: $animation-halo;
-    @include setup-halo-animation();
   }
 
   @each $name, $value in map.get($animation-setting, $key) {
@@ -42,20 +28,7 @@ $animation-halo: (
 }
 
 @mixin setup-pop-animation {
-  @include animate.keyframes-motion-multi(animation-pop-open, $animation-pop);
+  @include animate.set-keyframes(animation-pop-open, $animation-pop);
 
-  @include animate.keyframes-motion-multi(
-    animation-pop-close,
-    $animation-pop,
-    true
-  );
-}
-
-@mixin setup-halo-animation {
-  @include animate.keyframes-motion-multi(animation-halo, $animation-halo);
-  @include animate.keyframes-motion-multi(
-    animation-halo-reverse,
-    $animation-halo,
-    true
-  );
+  @include animate.set-keyframes(animation-pop-close, $animation-pop, true);
 }

@@ -1,0 +1,33 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/animate.scss";
+
+.rc-skeleton-wrapper {
+  min-height: var(--min-height);
+  min-width: var(--min-width);
+}
+
+$settings: (
+  from: (
+    background: colors.$gray,
+  ),
+  to: (
+    background: #f9f9f9,
+  ),
+);
+
+.rc-skeleton-row {
+  @extend %border-radius;
+  background: colors.$gray;
+  display: block;
+  height: var(--height);
+  margin: 0.5rem 0;
+
+  &.rc-skeleton-blink {
+    @include animate.set-animation(2s, linear);
+    @include animate.set-keyframes(blink-skeleton, $settings);
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-name: blink-skeleton;
+  }
+}

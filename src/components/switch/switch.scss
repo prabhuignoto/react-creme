@@ -5,24 +5,24 @@
 @use "sass:map";
 
 $sizes: (
-  small: (
+  sm: (
     height: 30px,
     border-radius: 20px,
   ),
-  medium: (
+  md: (
     height: 35px,
     border-radius: 30px,
   ),
-  large: (
+  lg: (
     height: 40px,
     border-radius: 40px,
   ),
 );
 
 $knob-sizes: (
-  small: 20px,
-  medium: 25px,
-  large: 30px,
+  sm: 20px,
+  md: 25px,
+  lg: 30px,
 );
 
 $start-left: 4px;
@@ -98,17 +98,13 @@ $start-left: 4px;
 
       &.rc-switch-on {
         @extend %shadow-small;
-        @include animate.keyframes-motion-multi(slide-right-#{$key}, $settings);
+        @include animate.set-keyframes(slide-right-#{$key}, $settings);
         animation-name: slide-right-#{$key};
         left: calc(100% - $val - 4px);
       }
 
       &.rc-switch-off {
-        @include animate.keyframes-motion-multi(
-          slide-left-#{$key},
-          $settings,
-          true
-        );
+        @include animate.set-keyframes(slide-left-#{$key}, $settings, true);
         animation-name: slide-left-#{$key};
         background-color: colors.$white;
         right: calc(100% - $val - 4px);

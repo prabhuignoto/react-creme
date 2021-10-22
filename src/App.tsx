@@ -18,6 +18,7 @@ import Menu from "./test/menu";
 import MenuBar from "./test/menubar";
 import Notification from "./test/notification";
 import Progress from "./test/progress";
+import Skeleton from "./test/skeleton";
 import Slider from "./test/slider";
 import Splitter from "./test/splitter";
 import Tags from "./test/tags";
@@ -56,6 +57,7 @@ function App() {
         <Link to="/dialog">dialog</Link>
         <Link to="/slider">slider</Link>
         <Link to="/comparer">comparer</Link>
+        <Link to="/skeleton">skeleton</Link>
       </aside>
       <section className="section">
         <Routes>
@@ -208,6 +210,14 @@ function App() {
             element={
               <div className="section-content" style={{ width: "600px" }}>
                 <Comparer />
+              </div>
+            }
+          />
+          <Route
+            path="/skeleton"
+            element={
+              <div className="section-content" style={{ width: "600px" }}>
+                <Skeleton />
               </div>
             }
           />

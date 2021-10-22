@@ -31,8 +31,8 @@
   @extend %border-radius;
   @extend %col;
   @include animate.set-animation(100ms);
-  @include animate.keyframes-motion-multi(animate-menu-open, $animation);
-  @include animate.keyframes-motion-multi(animate-menu-close, $animation, true);
+  @include animate.set-keyframes(animate-menu-open, $animation);
+  @include animate.set-keyframes(animate-menu-close, $animation, true);
   min-width: 150px;
   opacity: 0;
   position: absolute;

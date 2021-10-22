@@ -13,4 +13,5 @@ export interface NotificationModel extends OverlayModel {
   children: React.ReactNode[] | React.ReactNode;
   width?: number | string;
   height?: number | string;
+  autoClose?: number;
 }

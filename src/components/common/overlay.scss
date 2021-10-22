@@ -60,5 +60,5 @@ $close-anime-settings: (
   ),
 );
 
-@include animate.keyframes-motion-multi(overlay-open, $open-anime-settings);
-@include animate.keyframes-motion-multi(overlay-close, $close-anime-settings);
+@include animate.set-keyframes(overlay-open, $open-anime-settings);
+@include animate.set-keyframes(overlay-close, $close-anime-settings);

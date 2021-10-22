@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { CSSProperties, useMemo, useRef } from "react";
+import React, { CSSProperties, useEffect, useMemo, useRef } from "react";
 import { CloseIcon } from "../../icons";
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import { withOverlay } from "../common/withOverlay";
@@ -14,6 +14,7 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
   onClose,
   width = 350,
   height = 100,
+  autoClose,
 }) => {
   const wrapperClass = classNames([
     "rc-notification-wrapper",
@@ -37,6 +38,12 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
       } as CSSProperties),
     []
   );
+
+  useEffect(() => {
+    if (autoClose) {
+      setTimeout(() => onClose && onClose(), autoClose);
+    }
+  }, []);
 
   return (
     <div

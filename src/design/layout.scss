@@ -65,7 +65,7 @@
 }
 
 %shadow-inset {
-  box-shadow: inset 0 0 4px 2px rgba(colors.$secondary, 0.45);
+  box-shadow: inset 0 0 4px 2px rgba(colors.$secondary, 0.25);
 }
 
 %shadow-small {
@@ -117,3 +117,4 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+

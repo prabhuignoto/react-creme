@@ -20,6 +20,12 @@ function inputs() {
         <Radio label="check" />
       </div>
       <div style={style}>
+        <Radio label="check1" size="md" />
+      </div>
+      <div style={style}>
+        <Radio label="check2" size="lg" />
+      </div>
+      <div style={style}>
         <RadioGroup
           items={[
             { label: "prabhu", disabled: true },
@@ -44,9 +50,9 @@ function inputs() {
       </div>
       <div>
         <CheckBox
-          label="select the value its too large"
+          label="select the value its too lg"
           onChange={(ele) => console.log(ele)}
-          size="medium"
+          size="md"
         />
       </div>
       <div style={style}>
@@ -54,17 +60,17 @@ function inputs() {
           label="select"
           onChange={(ele) => console.log(ele)}
           isChecked
-          size="large"
+          size="lg"
         />
       </div>
       <div style={{ width: "100px", ...wrap }}>
         <Switch label="Settings" />
       </div>
       <div style={{ width: "180px", ...wrap }}>
-        <Switch label="Are you authorized" size="medium" />
+        <Switch label="Are you authorized" size="md" />
       </div>
       <div style={{ width: "200px", ...wrap }}>
-        <Switch label="Are you authorized" size="large" />
+        <Switch label="Are you authorized" size="lg" />
       </div>
       <div style={{ width: "100px", ...wrap }}>
         <Switch label="setting" disabled />

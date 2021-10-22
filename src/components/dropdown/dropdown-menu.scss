@@ -79,11 +79,8 @@ $dropdown-anim-settings: (
   to: $show-anim,
 );
 
-@include animate.keyframes-motion-multi(
-  dropdown-menu-open,
-  $dropdown-anim-settings
-);
-@include animate.keyframes-motion-multi(
+@include animate.set-keyframes(dropdown-menu-open, $dropdown-anim-settings);
+@include animate.set-keyframes(
   dropdown-menu-close,
   $dropdown-anim-settings,
   true

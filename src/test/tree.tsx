@@ -3,8 +3,9 @@ import { Tree } from "../components";
 
 function tree() {
   return (
-    <div>
+    <div style={{ width: "300px", height: "500px" }}>
       <Tree
+        height={400}
         items={[
           {
             name: "one",

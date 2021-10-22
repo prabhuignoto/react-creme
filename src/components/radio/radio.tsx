@@ -20,7 +20,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
   label,
   onChange,
   value,
-  size = "lg",
+  size = "sm",
 }) => {
   const labelID = useRef(`label-${nanoid()}`);
   const ref = useRef<HTMLDivElement | null>(null);

@@ -61,17 +61,14 @@ $halo-sizes: (
         @extend %icon-#{$key};
 
         &.rc-radio-ico-checked::before {
-          @include animate.keyframes-motion-multi(
-            animation-halo-#{$key},
-            $settings
-          );
+          @include animate.set-keyframes(animation-halo-#{$key}, $settings);
           animation-name: animation-halo-#{$key};
           height: calc($val);
           width: calc($val);
         }
 
         &.rc-radio-ico-un-checked::before {
-          @include animate.keyframes-motion-multi(
+          @include animate.set-keyframes(
             animation-halo-reverse-#{$key},
             $settings,
             true
@@ -129,7 +126,7 @@ $halo-sizes: (
   padding-left: 0.5rem;
 }
 
-@include animate.keyframes-motion-multi(
+@include animate.set-keyframes(
   animate-radio-select,
   (
     from: (

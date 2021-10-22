@@ -2,16 +2,12 @@
 @use "../../design/icon.scss";
 @use "../../design/font.scss";
 
-$sizes: (
-  sm: small,
-  md: medium,
-  lg: large,
-);
+$sizes: (sm, md, lg);
 
 $grid: (
-  small: 1rem,
-  medium: 1.5rem,
-  large: 2rem,
+  sm: 1rem,
+  md: 1.5rem,
+  lg: 2rem,
 );
 
 .rc-checkbox-wrapper {
@@ -22,6 +18,10 @@ $grid: (
   padding: 0.2rem;
   user-select: none;
   width: 100%;
+
+  * {
+    cursor: pointer;
+  }
 
   &.rc-checkbox-disabled {
     @extend %disabled;
@@ -41,6 +41,10 @@ $grid: (
     display: none;
   }
 
+  &.rc-checkbox-checked {
+    @extend %shadow-inset;
+  }
+
   &.rc-checkbox-checked svg {
     display: block;
   }
@@ -48,20 +52,19 @@ $grid: (
 
 .rc-checkbox-label {
   @extend %text-no-wrap;
-  cursor: pointer;
   display: block;
   padding-left: 0.5rem;
   text-align: left;
 
-  @each $key, $val in $sizes {
-    &.rc-checkbox-label-#{$val} {
+  @each $key in $sizes {
+    &.rc-checkbox-label-#{$key} {
       @extend %font-#{$key};
     }
   }
 }
 
-@each $key, $val in $sizes {
-  .rc-checkbox-#{$val} {
+@each $key in $sizes {
+  .rc-checkbox-#{$key} {
     @extend %icon-#{$key};
   }
 }

@@ -1,12 +1,24 @@
 @use "../../design/layout.scss";
 @use "../../design/icon.scss";
 @use "../../design/list.scss";
+@use "../../design/position.scss";
 
 .rc-tree-wrapper {
   @extend %list-left;
-  @extend %border;
   justify-content: flex-start;
   min-height: var(--min-height);
-  min-width: 200px;
+  min-width: var(--min-width);
   padding: 0.5rem;
+  position: relative;
+  z-index: 0;
+
+  &::after {
+    @extend %border;
+    @include position.position-abs("center center");
+    content: "";
+    display: block;
+    height: calc(100% + 5px);
+    width: calc(100% + 10px);
+    z-index: -1;
+  }
 }

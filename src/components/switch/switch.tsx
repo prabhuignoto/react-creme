@@ -15,7 +15,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   label,
   width = 50,
   disabled = false,
-  size = "small",
+  size = "sm",
 }) => {
   const [state, setState] = useState(false);
   const ref = useRef(null);

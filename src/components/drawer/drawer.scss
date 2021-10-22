@@ -73,12 +73,9 @@
       $slide-settings: $slide-right-settings;
     }
 
-    @include animate.keyframes-motion-multi(
-      slide-#{$position}-enter,
-      $slide-settings
-    );
+    @include animate.set-keyframes(slide-#{$position}-enter, $slide-settings);
 
-    @include animate.keyframes-motion-multi(
+    @include animate.set-keyframes(
       slide-#{$position}-exit,
       $slide-settings,
       true

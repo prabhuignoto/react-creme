@@ -25,12 +25,8 @@
   @extend %shadow-medium;
   @include animate.set-animation(0.25s);
 
-  @include animate.keyframes-motion-multi(animate-tooltip-show, $animation);
-  @include animate.keyframes-motion-multi(
-    animate-tooltip-close,
-    $animation,
-    true
-  );
+  @include animate.set-keyframes(animate-tooltip-show, $animation);
+  @include animate.set-keyframes(animate-tooltip-close, $animation, true);
 
   min-width: var(--width);
   padding: 0.75rem 0.5rem;

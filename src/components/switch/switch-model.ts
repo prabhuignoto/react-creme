@@ -3,5 +3,5 @@ export interface SwitchModel {
   label?: string;
   width?: number;
   disabled?: boolean;
-  size?: "small" | "medium" | "large";
+  size?: "sm" | "md" | "lg";
 }

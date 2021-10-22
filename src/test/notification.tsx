@@ -20,9 +20,9 @@ function notification() {
     >
       {show && (
         <Notification
-          position="bottom-center"
-          title="Hello World"
-          containedToParent={ref}
+          position="top-right"
+          title="Hello Little World"
+          // containedToParent={ref}
           onClose={() => {
             setShow(false);
           }}

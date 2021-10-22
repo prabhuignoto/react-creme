@@ -2,6 +2,7 @@
 @use "../../design/list.scss";
 @use "../../design/colors.scss";
 @use "../../design/icon.scss";
+@use "../../design/position.scss";
 
 .transfer-list {
   @extend %list;
@@ -9,8 +10,18 @@
   padding: 1rem;
   width: calc(100% - 0.5rem);
 
-  li:not(:last-child):not(:first-child) {
-    border-bottom: 1px solid colors.$secondary;
+  li {
+    position: relative;
+  }
+
+  li:not(:last-child):not(:first-child)::after {
+    @include position.position-abs("bottom center");
+    background: colors.$mercury;
+    bottom: -2px;
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
   }
 }
 
@@ -19,15 +30,15 @@
   height: 40px;
   user-select: none;
   width: 100%;
-  
+
   &.selected {
     color: colors.$tertiary;
   }
-  
+
   &:hover:not(.header) {
     background-color: colors.$light-bg;
   }
-  
+
   &.header {
     column-gap: 5px;
     display: grid;

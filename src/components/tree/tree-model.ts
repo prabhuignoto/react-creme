@@ -11,5 +11,6 @@ export interface TreeModel {
   items: TreeItemModel[];
   isChildTree?: boolean;
   width?: number;
+  height?: number;
   onChildToggle?: (expanded: boolean, childrenCount: number) => void;
 }
