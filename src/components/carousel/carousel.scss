@@ -3,10 +3,13 @@
 @use "../../design/colors.scss";
 @use "../../design/list.scss";
 @use "../../design/layout.scss";
+@use "../../design/position.scss";
 
 .rc-carousel-container {
-  @extend %border;
+  @extend %shadow-medium;
+  @extend %border-radius;
   @extend %shadow-inset;
+  height: 100%;
   width: 100%;
 
   &.rc-carousel-container-horizontal {
@@ -19,33 +22,53 @@
 }
 
 .rc-carousel-wrapper {
-  min-height: var(--min-height);
   overflow: hidden;
   position: relative;
-  width: calc(100% - 2rem);
+
+  &.rc-carousel-wrapper-horizontal {
+    height: calc(100% - 3rem);
+    margin-top: 1rem;
+    width: 95%;
+  }
+
+  &.rc-carousel-wrapper-vertical {
+    height: calc(100% - 2rem);
+    margin-left: 1rem;
+    width: calc(100% - 3rem);
+  }
 }
 
 .rc-carousel-track-wrapper {
   @extend %center;
-  padding: 0.5rem 0;
 
   &.rc-carousel-track-wrapper-horizontal {
+    height: 2rem;
     width: 100%;
+  }
+
+  &.rc-carousel-track-wrapper-horizontal {
+    width: 2rem;
   }
 }
 
 .rc-carousel {
   height: 100%;
+  left: 0;
   list-style: none;
   margin: 0;
   padding: 0;
   position: absolute;
-  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  top: 0;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .rc-carousel-item {
   @extend %center;
+  @extend %border-radius;
+  background: colors.$light-bg;
+  height: 100%;
   position: absolute;
+  top: 50%;
 
   img {
     max-height: 100%;
@@ -53,8 +76,14 @@
   }
 }
 
+.rc-carousel-item-container {
+  @extend %center;
+  height: 95%;
+  width: 95%;
+}
+
 .rc-carousel-btn {
-  // @extend %button-lg-no-border;
+  border-radius: 50%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import React, {
-  CSSProperties,
   useCallback,
   useEffect,
   useMemo,
@@ -23,6 +22,7 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
     placeholder = "Please enter a value ...",
     type = "text",
     value = "",
+    state = "default",
   }: InputModel) => {
     const [inputValue, setValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -61,27 +61,20 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
       [inputValue]
     );
 
-    const inputWidth = useMemo(() => {
-      let width = `100%`;
-
-      if (enableClear) {
-        width = `100% - 2rem`;
-      }
-
-      if (children) {
-        width = `100% - 3rem`;
-      }
-
-      return {
-        "--width": width,
-      } as CSSProperties;
-    }, []);
-
     useFocus(inputRef, { bgHighlight: true });
 
+    const inputClass = useMemo(
+      () =>
+        classNames("rc-input", {
+          [`rc-input-${state}`]: true,
+          "rc-input-no-icon": !children,
+        }),
+      []
+    );
+
     return (
-      <div className="rc-input" style={inputWidth} role="textbox" ref={ref}>
-        {children && <span className={"rc-input-icon"}>{children}</span>}
+      <div className={inputClass} role="textbox" ref={ref}>
+        <span className={"rc-input-icon"}>{children}</span>
         <input
           type={type}
           placeholder={placeholder}
@@ -91,11 +84,9 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
           ref={inputRef}
           tabIndex={0}
         />
-        {enableClear && (
-          <span onMouseDown={handleClear} className={clearClass} role="button">
-            <CloseIcon />
-          </span>
-        )}
+        <span onMouseDown={handleClear} className={clearClass} role="button">
+          {enableClear && <CloseIcon />}
+        </span>
       </div>
     );
   },

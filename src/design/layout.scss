@@ -51,6 +51,16 @@
   border: 1px solid colors.$secondary;
 }
 
+%border-error {
+  @extend %border-radius;
+  border: 1px solid colors.$crimson;
+}
+
+%border-success {
+  @extend %border-radius;
+  border: 1px solid colors.$success-green;
+}
+
 %border-no-radius {
   border: 1px solid colors.$secondary;
 }
@@ -117,4 +127,3 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-

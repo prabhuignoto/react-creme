@@ -24,6 +24,8 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
       ? children.map((_, index) => ({
           id: nanoid(),
           visible: false,
+          height: 0,
+          width: 0,
         }))
       : []
   );
@@ -107,13 +109,22 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
     } as CSSProperties;
   }, []);
 
+  const wrapperClass = useMemo(
+    () =>
+      classNames(["rc-carousel-wrapper", `rc-carousel-wrapper-${direction}`]),
+    []
+  );
+
   return (
     <div className={carouselContainerClass}>
       <div
-        className={"rc-carousel-wrapper"}
+        className={wrapperClass}
         ref={carouselRef}
         style={carouselWrapperStyle}
       >
+        {!hidePreviousButton && (
+          <CarouselButton onClick={handlePrevious} position="left" />
+        )}
         <CarouselItems
           carouselItems={carouselItems}
           direction={direction}
@@ -124,9 +135,6 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
         >
           {children}
         </CarouselItems>
-        {!hidePreviousButton && (
-          <CarouselButton onClick={handlePrevious} position="left" />
-        )}
         {!hideNextButton && (
           <CarouselButton onClick={handleNext} position="right" />
         )}

@@ -7,52 +7,16 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import {
+  SkeletonBlockModel,
+  SkeletonModel,
+  SkeletonRowModel,
+} from "./skeleton-model";
 import "./skeleton.scss";
 
-export interface SkeletonModel {
-  rows?: number;
-  width?: number;
-  blink?: boolean;
-  rowHeight?: number;
-}
-
-export interface SkeletonRowModel {
-  id: string;
-  visible?: boolean;
-  width?: number;
-}
-
-const Skeleton: FunctionComponent<SkeletonModel> = ({
-  rows = 4,
-  blink = false,
-  rowHeight = 10,
-}) => {
-  const [skeletons, setSkeletons] = useState<SkeletonRowModel[]>(
-    Array.from({ length: rows }).map(() => ({
-      id: nanoid(),
-      visible: false,
-      width: 0,
-    }))
-  );
-
-  const onInit = useCallback((node) => {
-    if (node) {
-      const width = node.clientWidth;
-      const width2 = Math.round(node.clientWidth / 2);
-
-      setSkeletons((skeletons) =>
-        skeletons.map((item) => ({
-          ...item,
-          width: Math.max(
-            Math.round(width * Math.random()),
-            Math.round(width2 * Math.random())
-          ),
-          visible: true,
-        }))
-      );
-    }
-  }, []);
-
+const SkeletonRow: FunctionComponent<
+  SkeletonRowModel & { blink?: boolean; rowHeight?: number }
+> = ({ id, visible, width, blink, rowHeight }) => {
   const skeletonRowClass = useMemo(
     () =>
       classNames("rc-skeleton-row", {
@@ -66,21 +30,74 @@ const Skeleton: FunctionComponent<SkeletonModel> = ({
       ({
         "--height": `${rowHeight}px`,
       } as CSSProperties),
-    []
+    [rowHeight]
   );
 
   return (
+    <span
+      className={skeletonRowClass}
+      key={id}
+      style={{ width: `${width}px`, ...rowStyle }}
+    ></span>
+  );
+};
+
+const Skeleton: FunctionComponent<SkeletonModel> = ({
+  rows = 4,
+  blink = false,
+  rowHeight = 30,
+  blocks = 1,
+}) => {
+  const [skeletonBlocks, setSkeletonBlocks] = useState<SkeletonBlockModel[]>(
+    Array.from({ length: blocks }).map(() => ({
+      id: nanoid(),
+      rows: Array.from({ length: rows }).map(() => ({
+        id: nanoid(),
+        visible: false,
+        width: 0,
+      })),
+    }))
+  );
+
+  const onInit = useCallback((node) => {
+    if (node) {
+      const width = node.clientWidth - 32;
+      const width2 = Math.round(width / 2);
+
+      setSkeletonBlocks((blocks) =>
+        blocks.map((item) => ({
+          ...item,
+          rows: item.rows.map((row) => ({
+            ...row,
+            width: Math.max(
+              Math.round(width * Math.random()),
+              Math.round(width2 * Math.random())
+            ),
+            visible: true,
+          })),
+        }))
+      );
+    }
+  }, []);
+
+  return (
     <div className="rc-skeleton-wrapper" ref={onInit} data-testid="rc-skeleton">
-      {skeletons.map(
-        ({ id, visible, width }) =>
-          visible && (
-            <span
-              className={skeletonRowClass}
-              key={id}
-              style={{ width: `${width}px`, ...rowStyle }}
-            ></span>
-          )
-      )}
+      {skeletonBlocks.map(({ id, rows }) => (
+        <div className="rc-skeleton-block" key={id}>
+          {rows.map(
+            (row) =>
+              row.visible && (
+                <SkeletonRow
+                  {...row}
+                  key={row.id}
+                  rowHeight={rowHeight}
+                  blink={blink}
+                />
+              )
+          )}
+        </div>
+      ))}
+      {}
     </div>
   );
 };

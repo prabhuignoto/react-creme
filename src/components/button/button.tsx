@@ -18,7 +18,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
         "button-label-icon": type !== "icon",
         "button-disabled": disabled,
       }),
-    []
+    [disabled]
   );
 
   const ref = useRef(null);

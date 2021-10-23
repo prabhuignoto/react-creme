@@ -6,9 +6,17 @@ const handler = jest.fn();
 
 describe("Input", () => {
   it("should render default", () => {
-    const { container } = render(<Input />);
+    const { getAllByRole } = render(<Input />);
 
-    expect(container.firstChild).toBeInTheDocument();
+    expect(getAllByRole("textbox")[0]).toBeInTheDocument();
+    expect(getAllByRole("textbox")[0]).toHaveClass("rc-input-default");
+  });
+
+  it("should render state", () => {
+    const { getAllByRole } = render(<Input state="error" />);
+
+    expect(getAllByRole("textbox")[0]).toBeInTheDocument();
+    expect(getAllByRole("textbox")[0]).toHaveClass("rc-input-error");
   });
 
   it("should call onchange", async () => {

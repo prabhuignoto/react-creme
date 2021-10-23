@@ -5,7 +5,7 @@ exports[`Carousel should render carousel snapshot 1`] = `
   class="rc-carousel-container rc-carousel-container-horizontal"
 >
   <div
-    class="rc-carousel-wrapper"
+    class="rc-carousel-wrapper rc-carousel-wrapper-horizontal"
     style="--min-height: 400px;"
   >
     <ul
@@ -16,20 +16,28 @@ exports[`Carousel should render carousel snapshot 1`] = `
       <li
         class="rc-carousel-item"
         role="listitem"
-        style="top: 0px;"
+        style="width: 0px; height: 100%; top: 0px;"
       >
-        <span>
-          one
-        </span>
+        <div
+          class="rc-carousel-item-container"
+        >
+          <span>
+            one
+          </span>
+        </div>
       </li>
       <li
         class="rc-carousel-item"
         role="listitem"
-        style="top: 0px;"
+        style="width: 0px; height: 100%; top: 0px;"
       >
-        <span>
-          two
-        </span>
+        <div
+          class="rc-carousel-item-container"
+        >
+          <span>
+            two
+          </span>
+        </div>
       </li>
     </ul>
     <span

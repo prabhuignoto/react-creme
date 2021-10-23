@@ -31,15 +31,6 @@
     cursor: pointer;
   }
 
-  &:not(:last-child)::after {
-    @include position.position-abs("center right");
-    background: colors.$mercury;
-    content: "";
-    display: block;
-    height: 70%;
-    width: 1px;
-  }
-
   &:hover:last-child {
     @extend %border-radius-right;
   }
@@ -48,10 +39,8 @@
     @extend %border-radius-left;
   }
 
-  &.rc-menu-bar-item-active {
-    // @extend %border-no-radius;
-    // background: colors.$secondary;
-  }
+  // &.rc-menu-bar-item-active {
+  // }
 
   &.rc-menu-bar-item-active:last-child {
     @extend %border-radius-right;

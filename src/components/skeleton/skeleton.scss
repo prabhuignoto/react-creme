@@ -1,20 +1,24 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
 @use "../../design/animate.scss";
-
-.rc-skeleton-wrapper {
-  min-height: var(--min-height);
-  min-width: var(--min-width);
-}
+@use "../../design/list.scss";
 
 $settings: (
   from: (
     background: colors.$gray,
   ),
   to: (
-    background: #f9f9f9,
+    background: colors.$chinese-gray,
   ),
 );
+
+.rc-skeleton-wrapper {
+  @extend %border-radius;
+  background: colors.$light-bg;
+  min-height: var(--min-height);
+  min-width: var(--min-width);
+  padding: 1rem;
+}
 
 .rc-skeleton-row {
   @extend %border-radius;
@@ -24,10 +28,14 @@ $settings: (
   margin: 0.5rem 0;
 
   &.rc-skeleton-blink {
-    @include animate.set-animation(2s, linear);
+    @include animate.set-animation(s, linear);
     @include animate.set-keyframes(blink-skeleton, $settings);
     animation-direction: alternate;
     animation-iteration-count: infinite;
     animation-name: blink-skeleton;
   }
+}
+
+.rc-skeleton-block:not(:first-child) {
+  margin: 1rem 0;
 }

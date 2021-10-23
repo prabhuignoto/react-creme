@@ -5,10 +5,27 @@
 @use "../../design/focus.scss";
 
 .rc-input {
-  @extend %left;
-  @extend %border;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 2rem calc(100% - 4rem) 2rem;
   height: 35px;
-  width: 100%;
+  justify-items: center;
+
+  &.rc-input-default {
+    @extend %border;
+  }
+
+  &.rc-input-error {
+    @extend %border-error;
+  }
+
+  &.rc-input-success {
+    @extend %border-success;
+  }
+
+  &.rc-input-no-icon {
+    grid-template-columns: 0.5rem calc(100% - 2.5rem) 2rem;
+  }
 
   input {
     background: transparent;
@@ -16,24 +33,24 @@
     color: colors.$black;
     height: 35px;
     outline: 0;
-    padding-left: 0.25rem;
-    width: calc(var(--width));
+    padding: 0;
+    width: 100%;
   }
 
-  &:focus-within {
+  &:focus-within:not(.error):not(.success) {
     @extend %rc-focus-border;
   }
 }
 
 .rc-input-icon {
   @extend %icon-sm;
-  padding-left: 0.5rem;
 }
 
 .rc-input-clear {
-  @extend %icon-md;
+  @extend %icon-sm;
   cursor: pointer;
-  padding-right: 0.25rem;
+  display: block;
+  width: 100%;
 
   &.hidden {
     visibility: hidden;

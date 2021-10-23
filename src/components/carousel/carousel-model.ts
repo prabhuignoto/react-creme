@@ -7,12 +7,12 @@ export interface CarouselModel {
 }
 
 export interface CarouselItemModel {
-  height?: number;
+  height: number;
   id: string;
   left?: string;
   top?: string;
   visible?: boolean;
-  width?: number;
+  width: number;
 }
 
 export interface CarouselItemsModel {

@@ -10,7 +10,6 @@ function dropdown() {
         allowMultipleSelection
         options={[
           { name: "germany", value: "germany", disabled: true },
-          { name: "pakistan", value: "pakistan" },
           { name: "india", value: "india" },
           { name: "usa", value: "usa" },
           { name: "uk", value: "uk" },
@@ -24,7 +23,6 @@ function dropdown() {
         onSelected={(val) => console.log(val)}
         options={[
           { name: "germany", value: "germany", disabled: true },
-          { name: "pakistan", value: "pakistan" },
           { name: "india", value: "india" },
           { name: "usa", value: "usa" },
           { name: "uk", value: "uk" },
