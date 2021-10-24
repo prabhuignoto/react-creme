@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -106,21 +106,20 @@
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -128,6 +127,9 @@
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -152,31 +154,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from "classnames";
-import React, { FunctionComponent, useCallback, useRef } from "react";
+import React, { FunctionComponent, useCallback, useMemo, useRef } from "react";
 import { CloseIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
 import { useKey } from "../common/effects/useKey";
+import { TagItemModel } from "./tags-model";
 import "./tags.scss";
 &nbsp;
-export interface TagItemModel {
-  id?: string;
-  name: string;
+type TagItemViewModel = TagItemModel &amp; {
   handleRemove: (id: string) =&gt; void;
-  disabled?: boolean;
-}
+};
 &nbsp;
-const TagItem: FunctionComponent&lt;TagItemModel&gt; = React.memo(
-  ({ id, name, disabled, handleRemove }: TagItemModel) =&gt; {
+const TagItem: FunctionComponent&lt;TagItemViewModel&gt; = React.memo(
+  ({ id, name, disabled, handleRemove, readonly }: TagItemViewModel) =&gt; {
     const handleClick = useCallback(() =&gt; {
       id &amp;&amp; handleRemove(id);
     }, []);
     const ref = useRef(null);
     useFocus(ref);
     useKey(ref, handleClick);
+&nbsp;
+    const editable = useMemo(() =&gt; !disabled &amp;&amp; !readonly, []);
+&nbsp;
     return (
       &lt;&gt;
         &lt;li
@@ -185,7 +188,7 @@ const TagItem: FunctionComponent&lt;TagItemModel&gt; = React.memo(
           className={classNames(["rc-tag", disabled ? "rc-tag-disabled" : ""])}
         &gt;
           &lt;span className="center"&gt;{name}&lt;/span&gt;
-          {!disabled &amp;&amp; (
+          {editable &amp;&amp; (
             &lt;span
               className="rc-tag-icon"
               onClick={handleClick}
@@ -211,7 +214,7 @@ export { TagItem };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Oct 23 2021 10:19:20 GMT+0530 (India Standard Time)
+                at Sun Oct 24 2021 23:19:06 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

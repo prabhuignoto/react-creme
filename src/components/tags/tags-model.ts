@@ -1,6 +1,7 @@
 export interface TagItemModel {
   name: string;
   disabled?: boolean;
+  readonly?: boolean;
   id?: string;
 }
 
@@ -9,4 +10,5 @@ export interface TagsModel {
   onSelected?: (selected: string[]) => void;
   maxTags?: number;
   restrictToValues?: string[];
+  readonly?: boolean;
 }

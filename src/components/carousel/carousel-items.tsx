@@ -30,7 +30,6 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
           role="listitem"
           style={{
             width: item.width,
-            height: direction === "horizontal" ? "100%" : item.height - 32,
             top: direction === "horizontal" ? 0 : item.top,
             left: direction === "horizontal" ? item.left : 0,
           }}

@@ -11,12 +11,17 @@
   @extend %border;
   @extend %list-item;
   margin: 0.25rem;
-
   padding: 0.5rem;
+
   user-select: none;
 
   &.rc-tag-disabled {
     @extend %disabled;
+    padding: 0.5rem 1rem;
+  }
+
+  &.rc-tag-readonly {
+    padding: 0.5rem 1rem;
   }
 }
 

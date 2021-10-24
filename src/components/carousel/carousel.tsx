@@ -8,7 +8,6 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { CarouselButton } from "./carousel-button";
 import { CarouselItems } from "./carousel-items";
 import { CarouselItemModel, CarouselModel } from "./carousel-model";
 import { CarouselTrack } from "./carousel-track";
@@ -18,10 +17,11 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   children,
   direction = "horizontal",
   height = 400,
+  autoPlay = 0,
 }) => {
   const [carouselItems, setCarouselItems] = useState<CarouselItemModel[]>(
     Array.isArray(children)
-      ? children.map((_, index) => ({
+      ? children.map(() => ({
           id: nanoid(),
           visible: false,
           height: 0,
@@ -31,33 +31,30 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   );
 
   const trackCount = useRef(Array.isArray(children) ? children.length : 0);
+  const autoPlayRef = useRef<number>();
 
   const [activePage, setActivePage] = useState(0);
-
-  const carouselRef = useRef<HTMLDivElement>(null);
-
   const [slideWidth, setSlideWidth] = useState(0);
-
   const [slideHeight, setSlideHeight] = useState(0);
+  const [isAutoPlaying, setAutoPlaying] = useState(!!autoPlay);
 
   const handleNext = useCallback(() => {
     setActivePage((prev) => prev + 1);
   }, []);
 
-  const handlePrevious = useCallback(() => {
-    if (activePage > 0) {
-      setActivePage((prev) => prev - 1);
-    }
-  }, [activePage]);
+  const handlePrevious = useCallback(
+    () => setActivePage((prev) => prev - 1),
+    []
+  );
 
   const handleActivatePage = useCallback(
     (pageIndex) => setActivePage(pageIndex),
     []
   );
 
-  useEffect(() => {
-    if (carouselRef.current) {
-      const { clientHeight, clientWidth } = carouselRef.current;
+  const onInitRef = useCallback((node) => {
+    if (node) {
+      const { clientHeight, clientWidth } = node;
       setSlideWidth(clientWidth);
       setSlideHeight(clientHeight);
     }
@@ -86,6 +83,27 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
     () => activePage === trackCount.current - 1,
     [activePage]
   );
+
+  useEffect(() => {
+    if (
+      !autoPlayRef.current &&
+      autoPlay &&
+      activePage < carouselItems.length - 1
+    ) {
+      setAutoPlaying(true);
+      autoPlayRef.current = setInterval(() => {
+        setActivePage((page) => {
+          if (page === carouselItems.length - 1) {
+            clearInterval(autoPlayRef.current);
+            setAutoPlaying(false);
+            return page;
+          }
+
+          return page + 1;
+        });
+      }, autoPlay);
+    }
+  }, [autoPlay, carouselItems.length]);
 
   const hidePreviousButton = useMemo(() => activePage === 0, [activePage]);
 
@@ -119,12 +137,9 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
     <div className={carouselContainerClass}>
       <div
         className={wrapperClass}
-        ref={carouselRef}
+        ref={onInitRef}
         style={carouselWrapperStyle}
       >
-        {!hidePreviousButton && (
-          <CarouselButton onClick={handlePrevious} position="left" />
-        )}
         <CarouselItems
           carouselItems={carouselItems}
           direction={direction}
@@ -135,17 +150,20 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
         >
           {children}
         </CarouselItems>
-        {!hideNextButton && (
-          <CarouselButton onClick={handleNext} position="right" />
-        )}
       </div>
       <div className={carouselTrackClass}>
-        <CarouselTrack
-          activeIndex={activePage}
-          handleSelection={handleActivatePage}
-          length={trackCount.current}
-          direction={direction}
-        />
+        {!isAutoPlaying && (
+          <CarouselTrack
+            activeIndex={activePage}
+            handleSelection={handleActivatePage}
+            length={trackCount.current}
+            direction={direction}
+            onNext={handleNext}
+            onPrevious={handlePrevious}
+            hideNext={hideNextButton}
+            hidePrevious={hidePreviousButton}
+          />
+        )}
       </div>
     </div>
   );

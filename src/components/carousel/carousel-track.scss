@@ -34,3 +34,11 @@
 .rc-carousel-icon {
   @extend %icon-sm;
 }
+
+.rc-carousel-track-wrapper-horizontal {
+  @extend %center;
+}
+
+.rc-carousel-track-wrapper-vertical {
+  @extend %list;
+}

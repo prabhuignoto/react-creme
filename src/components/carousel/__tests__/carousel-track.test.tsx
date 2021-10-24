@@ -12,6 +12,8 @@ describe("Carousel Track", () => {
         direction="horizontal"
         activeIndex={1}
         handleSelection={handler}
+        onNext={() => {}}
+        onPrevious={() => {}}
       />
     );
 
@@ -26,6 +28,8 @@ describe("Carousel Track", () => {
         direction="horizontal"
         activeIndex={1}
         handleSelection={handler}
+        onNext={() => {}}
+        onPrevious={() => {}}
       />
     );
 
@@ -39,6 +43,8 @@ describe("Carousel Track", () => {
         direction="horizontal"
         activeIndex={1}
         handleSelection={handler}
+        onNext={() => {}}
+        onPrevious={() => {}}
       />
     );
 
@@ -54,6 +60,8 @@ describe("Carousel Track", () => {
         direction="horizontal"
         activeIndex={1}
         handleSelection={handler}
+        onNext={() => {}}
+        onPrevious={() => {}}
       />
     );
 

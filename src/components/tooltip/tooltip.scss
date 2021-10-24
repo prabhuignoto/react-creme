@@ -2,12 +2,12 @@
 @use "../../design/colors.scss";
 @use "../../design/animate.scss";
 
-.tooltip-wrapper {
+.rc-tooltip-wrapper {
   @extend %center;
   position: relative;
 }
 
-.tooltip-message {
+.rc-tooltip-message {
   $animation: (
     from: (
       opacity: 0,
@@ -46,6 +46,22 @@
     visibility: hidden;
   }
 
+  &.rc-tooltip-left:not(.rc-tooltip-center)::after {
+    left: 1rem;
+  }
+
+  &.rc-tooltip-right:not(.rc-tooltip-center)::after {
+    right: 1rem;
+  }
+
+  &.rc-tooltip-left.rc-tooltip-center::after {
+    right: -5px;
+  }
+
+  &.rc-tooltip-right.rc-tooltip-center::after {
+    left: -5px;
+  }
+
   &::after {
     background: colors.$white;
     border-radius: 1px;
@@ -57,23 +73,15 @@
     width: $arrow-dim;
   }
 
-  &.tooltip-top::after {
+  &.rc-tooltip-top::after {
     bottom: calc($arrow-dim * -1 / 2);
   }
 
-  &.tooltip-bottom::after {
+  &.rc-tooltip-bottom::after {
     top: calc($arrow-dim * -1 / 2);
-  }
-
-  &.tooltip-left::after {
-    right: calc($arrow-dim * -1 / 2);
-  }
-
-  &.tooltip-right::after {
-    left: calc($arrow-dim * -1 / 2);
   }
 }
 
-.tooltip-host-content {
+.rc-tooltip-host-content {
   @extend %center;
 }

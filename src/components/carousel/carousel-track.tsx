@@ -1,22 +1,39 @@
 import classNames from "classnames";
 import React, { useMemo } from "react";
+import { CarouselButton } from "./carousel-button";
+import { CarouselTrackModel } from "./carousel-model";
 import "./carousel-track.scss";
 
-interface CarouselTrackModel {
-  activeIndex: number;
-  direction: "horizontal" | "vertical";
-  handleSelection: (index: number) => void;
-  length: number;
-}
+const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
+  length,
+  handleSelection,
+  activeIndex,
+  direction,
+  onNext,
+  onPrevious,
+  hidePrevious,
+  hideNext,
+}: CarouselTrackModel) => {
+  const carouselTrackWrapper = useMemo(
+    () => classNames(["rc-carousel-track", `rc-carousel-track-${direction}`]),
+    []
+  );
 
-const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = React.memo(
-  ({ length, handleSelection, activeIndex, direction }: CarouselTrackModel) => {
-    const carouselTrackWrapper = useMemo(
-      () => classNames(["rc-carousel-track", `rc-carousel-track-${direction}`]),
-      []
-    );
+  const carouselContainerClass = useMemo(
+    () =>
+      classNames("rc-carousel-track-wrapper", {
+        [`rc-carousel-track-wrapper-${direction}`]: true,
+      }),
+    [direction]
+  );
 
-    return (
+  return (
+    <div className={carouselContainerClass}>
+      <CarouselButton
+        onClick={onPrevious}
+        position="left"
+        hide={hidePrevious}
+      />
       <ul className={carouselTrackWrapper} role="list">
         {Array.from({ length }).map((_, index) => (
           <li
@@ -30,11 +47,9 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = React.memo(
           ></li>
         ))}
       </ul>
-    );
-  },
-  (prev, cur) => prev.activeIndex === cur.activeIndex
-);
-
-CarouselTrack.displayName = "CarouselTrack";
+      <CarouselButton onClick={onNext} position="right" hide={hideNext} />
+    </div>
+  );
+};
 
 export { CarouselTrack };

@@ -4,6 +4,7 @@ export interface CarouselModel {
   children: React.ReactNode | React.ReactNode;
   direction?: "horizontal" | "vertical";
   height?: number;
+  autoPlay?: number;
 }
 
 export interface CarouselItemModel {
@@ -23,4 +24,15 @@ export interface CarouselItemsModel {
   height: number;
   totalItems: number;
   width: number;
+}
+
+export interface CarouselTrackModel {
+  activeIndex: number;
+  direction: "horizontal" | "vertical";
+  handleSelection: (index: number) => void;
+  length: number;
+  onNext: () => void;
+  onPrevious: () => void;
+  hideNext?: boolean;
+  hidePrevious?: boolean;
 }

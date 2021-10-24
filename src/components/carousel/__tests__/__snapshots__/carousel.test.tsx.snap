@@ -16,7 +16,7 @@ exports[`Carousel should render carousel snapshot 1`] = `
       <li
         class="rc-carousel-item"
         role="listitem"
-        style="width: 0px; height: 100%; top: 0px;"
+        style="width: 0px; top: 0px;"
       >
         <div
           class="rc-carousel-item-container"
@@ -29,7 +29,7 @@ exports[`Carousel should render carousel snapshot 1`] = `
       <li
         class="rc-carousel-item"
         role="listitem"
-        style="width: 0px; height: 100%; top: 0px;"
+        style="width: 0px; top: 0px;"
       >
         <div
           class="rc-carousel-item-container"
@@ -40,55 +40,91 @@ exports[`Carousel should render carousel snapshot 1`] = `
         </div>
       </li>
     </ul>
-    <span
-      class="rc-carousel-btn rc-carousel-btn-right"
-    >
-      <button
-        class="button-icon"
-        role="button"
-        tabindex="0"
-      >
-        <span
-          class="button-icon-container"
-        >
-          <svg
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9 18l6-6-6-6"
-            />
-          </svg>
-        </span>
-        <span
-          class="button-label"
-        />
-      </button>
-    </span>
   </div>
   <div
     class="rc-carousel-track-wrapper rc-carousel-track-wrapper-horizontal"
   >
-    <ul
-      class="rc-carousel-track rc-carousel-track-horizontal"
-      role="list"
+    <div
+      class="rc-carousel-track-wrapper rc-carousel-track-wrapper-horizontal"
     >
-      <li
-        class="rc-carousel-track-item rc-carousel-track-item-selected"
-        role="listitem"
-      />
-      <li
-        class="rc-carousel-track-item"
-        role="listitem"
-      />
-    </ul>
+      <span
+        class="rc-carousel-btn rc-carousel-btn-left rc-carousel-btn-hide"
+      >
+        <button
+          class="button-icon"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            class="button-icon-container"
+          >
+            <svg
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </span>
+          <span
+            class="button-label"
+          />
+        </button>
+      </span>
+      <ul
+        class="rc-carousel-track rc-carousel-track-horizontal"
+        role="list"
+      >
+        <li
+          class="rc-carousel-track-item rc-carousel-track-item-selected"
+          role="listitem"
+        />
+        <li
+          class="rc-carousel-track-item"
+          role="listitem"
+        />
+      </ul>
+      <span
+        class="rc-carousel-btn rc-carousel-btn-right"
+      >
+        <button
+          class="button-icon"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            class="button-icon-container"
+          >
+            <svg
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </span>
+          <span
+            class="button-label"
+          />
+        </button>
+      </span>
+    </div>
   </div>
 </div>
 `;

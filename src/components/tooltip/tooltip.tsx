@@ -38,11 +38,12 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   const toolTipMessageClass = useMemo(
     () =>
       classNames([
-        "tooltip-message",
+        "rc-tooltip-message",
         {
           "show-tooltip": show,
           "hide-tooltip": !isFirstRender.current && !show,
-          [`tooltip-${position.split(" ")[0]}`]: true,
+          [`rc-tooltip-${position.split(" ")[0]}`]: true,
+          [`rc-tooltip-${position.split(" ")[1]}`]: true,
         },
       ]),
     [show, position]
@@ -62,7 +63,7 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   }, [cssPosition]);
 
   return (
-    <div className="tooltip-wrapper" ref={wrapperRef} role="tooltip">
+    <div className="rc-tooltip-wrapper" ref={wrapperRef} role="tooltip">
       <span
         className={toolTipMessageClass}
         style={tooltipMessageStyle}
@@ -71,7 +72,7 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
         {message}
       </span>
       <section
-        className="tooltip-host-content"
+        className="rc-tooltip-host-content"
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
       >

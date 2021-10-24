@@ -6,8 +6,8 @@
 @use "../../design/position.scss";
 
 .rc-carousel-container {
-  @extend %shadow-medium;
-  @extend %border-radius;
+  // @extend %shadow-medium;
+  @extend %border;
   @extend %shadow-inset;
   height: 100%;
   width: 100%;
@@ -26,13 +26,13 @@
   position: relative;
 
   &.rc-carousel-wrapper-horizontal {
-    height: calc(100% - 3rem);
+    height: calc(100% - 4rem);
     margin-top: 1rem;
     width: 95%;
   }
 
   &.rc-carousel-wrapper-vertical {
-    height: calc(100% - 2rem);
+    height: calc(100% - 3rem);
     margin-left: 1rem;
     width: calc(100% - 3rem);
   }
@@ -42,12 +42,12 @@
   @extend %center;
 
   &.rc-carousel-track-wrapper-horizontal {
-    height: 2rem;
+    height: 3rem;
     width: 100%;
   }
 
   &.rc-carousel-track-wrapper-horizontal {
-    width: 2rem;
+    width: 3rem;
   }
 }
 
@@ -65,7 +65,7 @@
 .rc-carousel-item {
   @extend %center;
   @extend %border-radius;
-  background: colors.$light-bg;
+  // background: colors.$light-bg;
   height: 100%;
   position: absolute;
   top: 50%;
@@ -84,17 +84,12 @@
 
 .rc-carousel-btn {
   border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
+
+  &.rc-carousel-btn-hide {
+    visibility: hidden;
+  }
 }
 
 .rc-carousel-btn-left {
-  left: 0;
-  transform: rotate(180deg) translateY(50%);
-}
-
-.rc-carousel-btn-right {
-  right: 0;
+  transform: rotate(180deg);
 }

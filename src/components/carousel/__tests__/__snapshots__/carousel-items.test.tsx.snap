@@ -9,7 +9,7 @@ exports[`Carousel items Should render carousel items snapshot 1`] = `
   <li
     class="rc-carousel-item"
     role="listitem"
-    style="width: 300px; height: 100%; top: 0px; left: 0px;"
+    style="width: 300px; top: 0px; left: 0px;"
   >
     <div
       class="rc-carousel-item-container"
@@ -22,7 +22,7 @@ exports[`Carousel items Should render carousel items snapshot 1`] = `
   <li
     class="rc-carousel-item"
     role="listitem"
-    style="width: 300px; height: 100%; top: 0px; left: 300px;"
+    style="width: 300px; top: 0px; left: 300px;"
   >
     <div
       class="rc-carousel-item-container"

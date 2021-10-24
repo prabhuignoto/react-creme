@@ -1,25 +1,26 @@
 import classNames from "classnames";
-import React, { FunctionComponent, useCallback, useRef } from "react";
+import React, { FunctionComponent, useCallback, useMemo, useRef } from "react";
 import { CloseIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
 import { useKey } from "../common/effects/useKey";
+import { TagItemModel } from "./tags-model";
 import "./tags.scss";
 
-export interface TagItemModel {
-  id?: string;
-  name: string;
+type TagItemViewModel = TagItemModel & {
   handleRemove: (id: string) => void;
-  disabled?: boolean;
-}
+};
 
-const TagItem: FunctionComponent<TagItemModel> = React.memo(
-  ({ id, name, disabled, handleRemove }: TagItemModel) => {
+const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
+  ({ id, name, disabled, handleRemove, readonly }: TagItemViewModel) => {
     const handleClick = useCallback(() => {
       id && handleRemove(id);
     }, []);
     const ref = useRef(null);
     useFocus(ref);
     useKey(ref, handleClick);
+
+    const editable = useMemo(() => !disabled && !readonly, []);
+
     return (
       <>
         <li
@@ -28,7 +29,7 @@ const TagItem: FunctionComponent<TagItemModel> = React.memo(
           className={classNames(["rc-tag", disabled ? "rc-tag-disabled" : ""])}
         >
           <span className="center">{name}</span>
-          {!disabled && (
+          {editable && (
             <span
               className="rc-tag-icon"
               onClick={handleClick}

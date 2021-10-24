@@ -10,8 +10,9 @@ import "./tags.scss";
 
 const Tags: React.FunctionComponent<TagsModel> = ({
   items,
-  onSelected,
   maxTags = Number.MAX_VALUE,
+  onSelected,
+  readonly = false,
   restrictToValues = [],
 }) => {
   // STATES
@@ -21,6 +22,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
         name: item.name,
         id: nanoid(),
         disabled: item.disabled,
+        readonly: readonly,
       }))
       .slice(0, maxTags)
   );
@@ -28,7 +30,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   const [inputValue, setInputValue] = useState("");
 
   const canAdd = useMemo(
-    () => tagItems.length + 1 <= maxTags,
+    () => tagItems.length + 1 <= maxTags && !readonly,
     [tagItems.length]
   );
 
@@ -61,10 +63,11 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   return (
     <>
       <ul className={"rc-tags-wrap"} role="list">
-        {tagItems.map(({ id, name, disabled }) => (
+        {tagItems.map(({ id, name, disabled, readonly }) => (
           <TagItem
             id={id}
             disabled={disabled}
+            readonly={readonly}
             handleRemove={handleRemove}
             key={id}
             name={name}

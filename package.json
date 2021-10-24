@@ -66,7 +66,7 @@
     "history": "5",
     "husky": "^7.0.4",
     "jest": "^27.3.1",
-    "lint-staged": "^11.2.3",
+    "lint-staged": "^11.2.4",
     "postcss": "^8.3.11",
     "postcss-bem-linter": "^3.3.0",
     "postcss-prefixer": "^2.1.3",
