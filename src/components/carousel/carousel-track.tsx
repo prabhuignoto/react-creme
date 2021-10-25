@@ -14,7 +14,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
   hidePrevious,
   hideNext,
 }: CarouselTrackModel) => {
-  const carouselTrackWrapper = useMemo(
+  const carouselTrackClass = useMemo(
     () => classNames(["rc-carousel-track", `rc-carousel-track-${direction}`]),
     []
   );
@@ -35,7 +35,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
         hide={hidePrevious}
         direction={direction}
       />
-      <ul className={carouselTrackWrapper} role="list">
+      <ul className={carouselTrackClass} role="list">
         {Array.from({ length }).map((_, index) => (
           <li
             key={index}

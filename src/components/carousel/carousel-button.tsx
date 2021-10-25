@@ -2,14 +2,8 @@ import classNames from "classnames";
 import React from "react";
 import { Button } from "..";
 import { ChevronRightIcon } from "../../icons";
+import { CarouselButtonModel } from "./carousel-model";
 import "./carousel.scss";
-
-interface CarouselButtonModel {
-  onClick: () => void;
-  position: "left" | "right";
-  direction: "horizontal" | "vertical";
-  hide?: boolean;
-}
 
 const CarouselButton: React.FunctionComponent<CarouselButtonModel> = React.memo(
   ({ onClick, position, hide, direction }: CarouselButtonModel) => {

@@ -106,8 +106,6 @@ $halo-sizes: (
     @extend %pseudo-common;
     @include animate.set-animation(0.1s, ease-in);
     @include position.position-abs("center center");
-    // @include animations.set-animation(halo, to);
-    // animation-name: animation-halo;
     background: rgba(colors.$primary, 0.1);
   }
 
@@ -115,14 +113,13 @@ $halo-sizes: (
     @extend %pseudo-common;
     @include animate.set-animation(0.1s, ease-in);
     @include position.position-abs("center center");
-    // @include animations.set-animation(halo, from);
-    // animation-name: animation-halo-reverse;
     background: rgba(colors.$primary, 0.1);
   }
 }
 
 .rc-radio-label {
   @extend %left;
+  cursor: pointer;
   padding-left: 0.5rem;
 }
 

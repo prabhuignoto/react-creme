@@ -41,25 +41,6 @@ const TransferControlColumn: React.FunctionComponent<TransferControlModel> =
           >
             <ChevronRightIcon />
           </Button>
-          {/* <button
-            className={classNames([
-              "transfer-btn",
-              "right",
-              disableTransferRight ? "disabled" : "",
-            ])}
-            onClick={() => onTransfer("right")}
-          >
-          </button> */}
-          {/* <button
-            className={classNames([
-              "transfer-btn",
-              "left",
-              disableTransferLeft ? "disabled" : "",
-            ])}
-            onClick={() => onTransfer("left")}
-          >
-            <ChevronRightIcon />
-          </button> */}
         </section>
       );
     },

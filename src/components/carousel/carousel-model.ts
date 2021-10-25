@@ -36,3 +36,10 @@ export interface CarouselTrackModel {
   hideNext?: boolean;
   hidePrevious?: boolean;
 }
+
+export interface CarouselButtonModel {
+  onClick: () => void;
+  position: "left" | "right";
+  direction: "horizontal" | "vertical";
+  hide?: boolean;
+}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635155240411" clover="3.2.0">
-  <project timestamp="1635155240411" name="All files">
-    <metrics statements="1229" coveredstatements="996" conditionals="617" coveredconditionals="343" methods="387" coveredmethods="281" elements="2233" coveredelements="1620" complexity="0" loc="1229" ncloc="1229" packages="29" files="53" classes="53"/>
+<coverage generated="1635167248821" clover="3.2.0">
+  <project timestamp="1635167248821" name="All files">
+    <metrics statements="1251" coveredstatements="1005" conditionals="625" coveredconditionals="351" methods="389" coveredmethods="284" elements="2265" coveredelements="1640" complexity="0" loc="1251" ncloc="1251" packages="29" files="53" classes="53"/>
     <package name="components">
       <metrics statements="25" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="25" coveredmethods="2"/>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\components\index.ts">
@@ -93,11 +93,11 @@
         <line num="2" count="8" type="stmt"/>
         <line num="3" count="8" type="stmt"/>
         <line num="4" count="8" type="stmt"/>
-        <line num="5" count="8" type="stmt"/>
-        <line num="14" count="8" type="stmt"/>
-        <line num="16" count="19" type="stmt"/>
-        <line num="37" count="8" type="stmt"/>
-        <line num="39" count="8" type="stmt"/>
+        <line num="6" count="8" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="10" count="19" type="stmt"/>
+        <line num="31" count="8" type="stmt"/>
+        <line num="33" count="8" type="stmt"/>
       </file>
       <file name="carousel-items.tsx" path="D:\Projects\2020\react-phalladium\src\components\carousel\carousel-items.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="7" coveredconditionals="6" methods="3" coveredmethods="3"/>
@@ -284,9 +284,9 @@
       </file>
     </package>
     <package name="components.common.effects">
-      <metrics statements="163" coveredstatements="95" conditionals="116" coveredconditionals="36" methods="33" coveredmethods="22"/>
+      <metrics statements="177" coveredstatements="96" conditionals="120" coveredconditionals="41" methods="33" coveredmethods="23"/>
       <file name="useCloseOnEsc.ts" path="D:\Projects\2020\react-phalladium\src\components\common\effects\useCloseOnEsc.ts">
-        <metrics statements="17" coveredstatements="15" conditionals="10" coveredconditionals="6" methods="5" coveredmethods="5"/>
+        <metrics statements="17" coveredstatements="15" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="5"/>
         <line num="1" count="9" type="stmt"/>
         <line num="8" count="9" type="stmt"/>
         <line num="9" count="18" type="stmt"/>
@@ -302,11 +302,11 @@
         <line num="27" count="0" type="stmt"/>
         <line num="31" count="10" type="stmt"/>
         <line num="34" count="10" type="stmt"/>
-        <line num="35" count="10" type="cond" truecount="1" falsecount="1"/>
+        <line num="35" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="41" count="9" type="stmt"/>
       </file>
       <file name="useDrag.ts" path="D:\Projects\2020\react-phalladium\src\components\common\effects\useDrag.ts">
-        <metrics statements="56" coveredstatements="4" conditionals="39" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <metrics statements="70" coveredstatements="4" conditionals="43" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="1" count="8" type="stmt"/>
         <line num="27" count="8" type="stmt"/>
         <line num="29" count="8" type="stmt"/>
@@ -320,49 +320,63 @@
         <line num="45" count="0" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="cond" truecount="0" falsecount="5"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="61" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="77" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="73" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="74" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="77" count="0" type="stmt"/>
         <line num="78" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="80" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="84" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
         <line num="87" count="0" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="94" count="0" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="98" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="89" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="92" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
         <line num="99" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="104" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="105" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
-        <line num="110" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="110" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="111" count="0" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="116" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="116" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="117" count="0" type="stmt"/>
-        <line num="118" count="0" type="stmt"/>
         <line num="119" count="0" type="stmt"/>
-        <line num="122" count="0" type="stmt"/>
+        <line num="122" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="123" count="0" type="stmt"/>
-        <line num="124" count="0" type="stmt"/>
-        <line num="126" count="0" type="stmt"/>
-        <line num="127" count="0" type="stmt"/>
-        <line num="128" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="128" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="129" count="0" type="stmt"/>
-        <line num="133" count="0" type="stmt"/>
-        <line num="136" count="8" type="stmt"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
+        <line num="147" count="0" type="stmt"/>
+        <line num="148" count="0" type="stmt"/>
+        <line num="150" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="155" count="0" type="stmt"/>
+        <line num="158" count="8" type="stmt"/>
       </file>
       <file name="useFirstRender.ts" path="D:\Projects\2020\react-phalladium\src\components\common\effects\useFirstRender.ts">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
@@ -381,7 +395,7 @@
         <line num="9" count="378" type="cond" truecount="2" falsecount="0"/>
         <line num="11" count="378" type="stmt"/>
         <line num="16" count="378" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
         <line num="20" count="378" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="24" count="378" type="stmt"/>
@@ -395,21 +409,21 @@
         <line num="39" count="20" type="stmt"/>
       </file>
       <file name="useKey.ts" path="D:\Projects\2020\react-phalladium\src\components\common\effects\useKey.ts">
-        <metrics statements="28" coveredstatements="24" conditionals="25" coveredconditionals="10" methods="10" coveredmethods="8"/>
+        <metrics statements="28" coveredstatements="25" conditionals="25" coveredconditionals="14" methods="10" coveredmethods="9"/>
         <line num="1" count="16" type="stmt"/>
         <line num="3" count="16" type="stmt"/>
-        <line num="4" count="79" type="stmt"/>
-        <line num="5" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="4" count="90" type="stmt"/>
+        <line num="5" count="2" type="cond" truecount="4" falsecount="1"/>
         <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="10" count="79" type="stmt"/>
-        <line num="12" count="79" type="stmt"/>
-        <line num="13" count="78" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="71" type="stmt"/>
-        <line num="15" count="71" type="stmt"/>
-        <line num="19" count="79" type="stmt"/>
-        <line num="20" count="71" type="stmt"/>
-        <line num="21" count="71" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="64" type="stmt"/>
+        <line num="10" count="90" type="stmt"/>
+        <line num="12" count="90" type="stmt"/>
+        <line num="13" count="88" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="81" type="stmt"/>
+        <line num="15" count="81" type="stmt"/>
+        <line num="19" count="90" type="stmt"/>
+        <line num="20" count="76" type="stmt"/>
+        <line num="21" count="76" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="69" type="stmt"/>
         <line num="28" count="16" type="stmt"/>
         <line num="33" count="160" type="stmt"/>
         <line num="34" count="0" type="cond" truecount="0" falsecount="5"/>
@@ -493,33 +507,41 @@
       </file>
     </package>
     <package name="components.drawer">
-      <metrics statements="24" coveredstatements="24" conditionals="13" coveredconditionals="10" methods="5" coveredmethods="5"/>
+      <metrics statements="32" coveredstatements="32" conditionals="17" coveredconditionals="13" methods="7" coveredmethods="7"/>
       <file name="drawer.tsx" path="D:\Projects\2020\react-phalladium\src\components\drawer\drawer.tsx">
-        <metrics statements="24" coveredstatements="24" conditionals="13" coveredconditionals="10" methods="5" coveredmethods="5"/>
+        <metrics statements="32" coveredstatements="32" conditionals="17" coveredconditionals="13" methods="7" coveredmethods="7"/>
         <line num="1" count="8" type="stmt"/>
         <line num="2" count="8" type="stmt"/>
-        <line num="9" count="8" type="stmt"/>
         <line num="10" count="8" type="stmt"/>
         <line num="11" count="8" type="stmt"/>
         <line num="12" count="8" type="stmt"/>
         <line num="13" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
         <line num="15" count="8" type="stmt"/>
         <line num="17" count="8" type="stmt"/>
-        <line num="25" count="11" type="stmt"/>
-        <line num="26" count="5" type="stmt"/>
-        <line num="28" count="5" type="cond" truecount="4" falsecount="0"/>
-        <line num="29" count="2" type="cond" truecount="1" falsecount="3"/>
-        <line num="32" count="5" type="stmt"/>
-        <line num="37" count="11" type="stmt"/>
-        <line num="38" count="11" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="27" count="11" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="30" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="31" count="2" type="cond" truecount="1" falsecount="3"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="39" count="11" type="stmt"/>
         <line num="40" count="11" type="stmt"/>
         <line num="42" count="11" type="stmt"/>
-        <line num="49" count="11" type="stmt"/>
+        <line num="44" count="11" type="stmt"/>
         <line num="51" count="11" type="stmt"/>
-        <line num="53" count="11" type="stmt"/>
+        <line num="52" count="5" type="stmt"/>
         <line num="55" count="11" type="stmt"/>
-        <line num="74" count="8" type="stmt"/>
-        <line num="78" count="8" type="stmt"/>
+        <line num="57" count="11" type="stmt"/>
+        <line num="59" count="11" type="cond" truecount="1" falsecount="1"/>
+        <line num="60" count="11" type="stmt"/>
+        <line num="63" count="11" type="stmt"/>
+        <line num="64" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="65" count="5" type="stmt"/>
+        <line num="67" count="5" type="stmt"/>
+        <line num="71" count="11" type="stmt"/>
+        <line num="90" count="8" type="stmt"/>
+        <line num="94" count="8" type="stmt"/>
       </file>
     </package>
     <package name="components.dropdown">
@@ -1205,8 +1227,8 @@
         <line num="25" count="10" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="69" count="8" type="stmt"/>
-        <line num="71" count="8" type="stmt"/>
+        <line num="50" count="8" type="stmt"/>
+        <line num="52" count="8" type="stmt"/>
       </file>
       <file name="transfer-list-header.tsx" path="D:\Projects\2020\react-phalladium\src\components\transfer\transfer-list-header.tsx">
         <metrics statements="20" coveredstatements="15" conditionals="14" coveredconditionals="5" methods="5" coveredmethods="3"/>

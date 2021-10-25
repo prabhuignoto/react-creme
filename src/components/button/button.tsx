@@ -33,7 +33,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
     if (!disabled) {
       onClick && onClick();
     }
-  }, []);
+  }, [disabled]);
 
   return (
     <button

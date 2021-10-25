@@ -15,9 +15,15 @@ function progress() {
   return (
     <div>
       <div style={{ display: "flex", marginBottom: "1rem" }}>
-        <Button onClick={start} label="Start"></Button>
-        <Button onClick={pause} label="Pause"></Button>
-        <Button onClick={reset} label="Reset"></Button>
+        <div style={{ margin: "0 1rem" }}>
+          <Button onClick={start} label="Start"></Button>
+        </div>
+        <div style={{ margin: "0 1rem" }}>
+          <Button onClick={pause} label="Pause"></Button>
+        </div>
+        <div style={{ margin: "0 1rem" }}>
+          <Button onClick={reset} label="Reset"></Button>
+        </div>
       </div>
       <div style={wrap}>
         <Progress
@@ -41,12 +47,23 @@ function progress() {
       <div style={wrap}>
         <Progress
           type="infinite"
-          width={300}
+          width={400}
           maxValue={200}
           currentValue={time * 5}
           showProgressValue
           size="small"
           infiniteStyle="bob"
+        />
+      </div>
+
+      <div style={wrap}>
+        <Progress
+          type="infinite"
+          width={500}
+          maxValue={200}
+          currentValue={time * 5}
+          showProgressValue
+          size="small"
         />
       </div>
     </div>

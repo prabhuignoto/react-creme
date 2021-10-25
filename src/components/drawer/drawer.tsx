@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, {
   CSSProperties,
+  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -10,6 +11,7 @@ import { Button } from "..";
 import { CloseIcon } from "../../icons";
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import { useFocus } from "../common/effects/useFocus";
+import { useKey } from "../common/effects/useKey";
 import { withOverlay } from "../common/withOverlay";
 import { DrawerModel } from "./drawer-model";
 import "./drawer.scss";
@@ -46,17 +48,31 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
     [activate, isClosing]
   );
 
-  useEffect(() => setActivate(true), []);
+  useEffect(() => {
+    setActivate(true);
+  }, []);
 
   useCloseOnEscape((ev) => onClose?.(), drawerRef);
 
   useFocus(drawerRef);
 
+  if (onClose) {
+    useKey(drawerRef, onClose);
+  }
+
+  const onInitRef = useCallback((node) => {
+    if (node) {
+      drawerRef.current = node;
+
+      setTimeout(() => node.focus(), 500);
+    }
+  }, []);
+
   return (
     <div
       className={drawerClass}
       style={style}
-      ref={drawerRef}
+      ref={onInitRef}
       tabIndex={0}
       role="dialog"
       aria-modal="true"

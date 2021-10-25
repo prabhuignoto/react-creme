@@ -82,7 +82,14 @@
 
 .rc-carousel-btn {
   border-radius: 50%;
-  margin: 0 1rem;
+
+  &.rc-carousel-btn-horizontal {
+    margin: 0 1rem;
+  }
+
+  &.rc-carousel-btn-vertical {
+    margin: 1rem 0;
+  }
 
   &.rc-carousel-btn-hide {
     visibility: hidden;
