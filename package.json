@@ -22,7 +22,7 @@
     "test:dev": "jest --runInBand",
     "prepare": "husky install",
     "playwright": "playwright test",
-    "ci": "yarn lint:all && yarn test -- --runInBand"
+    "ci": "yarn lint:all && yarn test -- --runInBand --updateSnapshot"
   },
   "dependencies": {
     "classnames": "^2.3.1",
