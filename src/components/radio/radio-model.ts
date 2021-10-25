@@ -1,3 +1,5 @@
+import { CSSProperties } from "react";
+
 export interface RadioModel {
   disabled?: boolean;
   id?: string;
@@ -7,4 +9,5 @@ export interface RadioModel {
   onChange?: (state: { id?: string; selected?: boolean }) => void;
   value?: string;
   size?: "sm" | "md" | "lg";
+  style?: CSSProperties;
 }

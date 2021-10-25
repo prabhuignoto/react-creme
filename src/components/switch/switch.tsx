@@ -16,6 +16,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   width = 50,
   disabled = false,
   size = "sm",
+  style,
 }) => {
   const [state, setState] = useState(false);
   const ref = useRef(null);
@@ -75,6 +76,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
     () =>
       ({
         "--min-width": `${width}px`,
+        ...style,
       } as React.CSSProperties),
     []
   );

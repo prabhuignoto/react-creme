@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 
 export interface ButtonModel {
   label?: string;
@@ -8,4 +8,5 @@ export interface ButtonModel {
   primary?: boolean;
   type?: "primary" | "default" | "danger" | "icon";
   size?: "sm" | "md" | "lg";
+  style?: CSSProperties;
 }

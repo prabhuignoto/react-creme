@@ -58,7 +58,12 @@
   background-color: colors.$white;
   height: var(--min-height);
   min-width: $min-width;
+  position: relative;
   visibility: hidden;
+
+  &.visible {
+    visibility: visible;
+  }
 
   @each $position, $val in $positions {
     $slide-settings: ();
@@ -104,12 +109,10 @@
       }
     }
   }
-
-  &.visible {
-    visibility: visible;
-  }
 }
 
-.rc-drawer-close-btn {
-  @extend %button-lg;
+.rc-drawer-close-btn-wrapper {
+  @include position.position-abs("top right");
+  right: 0.5rem;
+  top: 0.5rem;
 }

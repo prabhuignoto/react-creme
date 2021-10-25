@@ -20,6 +20,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   isChecked = false,
   disabled,
   size = "sm",
+  style,
 }: CheckboxModel) => {
   const [checked, setChecked] = useState(isChecked);
   const ref = useRef(null);
@@ -80,6 +81,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
       ref={ref}
       tabIndex={disabled ? -1 : 0}
       aria-labelledby={id.current}
+      style={style}
     >
       <span className={iconClass} role="img">
         <CheckIcon />

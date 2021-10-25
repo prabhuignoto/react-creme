@@ -115,22 +115,19 @@
 
 .rc-notification-header {
   @extend %center;
-  margin: 0.5rem 0;
   width: 100%;
 }
 
 .rc-notification-title {
   align-self: flex-start;
   margin-right: auto;
-  padding-left: 1rem;
+  padding-left: 0.75rem;
+  padding-top: 0.5rem;
 }
 
 .rc-notification-close-btn {
-  @extend %button-icon;
-  align-self: flex-end;
-  height: 1.5rem;
   padding-right: 0.5rem;
-  width: 2rem;
+  padding-top: 0.5rem;
 }
 
 .rc-notification-content {

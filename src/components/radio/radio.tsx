@@ -21,6 +21,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
   onChange,
   value,
   size = "sm",
+  style,
 }) => {
   const labelID = useRef(`label-${nanoid()}`);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -82,6 +83,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
       tabIndex={0}
       role="radio"
       ref={ref}
+      style={style}
     >
       <span className={RadioIconClass}></span>
       {/* <input type="hidden" value={value} aria-labelledby={labelID.current} /> */}

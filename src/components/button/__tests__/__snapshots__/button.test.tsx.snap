@@ -2,7 +2,7 @@
 
 exports[`Button should render button snapshot 1`] = `
 <button
-  class="rc-btn-default rc-btn-sm rc-btn-label-icon"
+  class="rc-btn-sm rc-btn-default"
   role="button"
   tabindex="0"
 >

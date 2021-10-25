@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React, { CSSProperties, useEffect, useMemo, useRef } from "react";
+import { Button } from "..";
 import { CloseIcon } from "../../icons";
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import { withOverlay } from "../common/withOverlay";
@@ -55,9 +56,11 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
     >
       <header className="rc-notification-header">
         <span className="rc-notification-title">{title}</span>
-        <button className="rc-notification-close-btn" onClick={onClose}>
-          <CloseIcon />
-        </button>
+        <span className="rc-notification-close-btn">
+          <Button type="icon" size="sm" onClick={onClose}>
+            <CloseIcon />
+          </Button>
+        </span>
       </header>
       <section className="rc-notification-content">{children}</section>
     </div>

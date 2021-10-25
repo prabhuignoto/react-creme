@@ -6,7 +6,7 @@
   @extend %center;
   background: none;
   cursor: pointer;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem;
   transition: background-color 50ms ease-in;
   white-space: nowrap;
 
@@ -23,7 +23,7 @@
     color: $color;
   }
 
-  &:hover {
+  &:hover:not(.rc-btn-disabled) {
     background-color: $bg-hover;
     color: $color-hover;
 
@@ -41,6 +41,10 @@
     colors.$primary
   );
   border: 1px solid colors.$primary;
+
+  svg {
+    color: colors.$white !important;
+  }
 }
 
 %button-danger {
@@ -79,21 +83,18 @@
 @mixin get-button($size, $border) {
   @extend %button;
 
-  @if $size == small {
-    svg {
-      height: 50%;
-      width: 50%;
+  &:not(.rc-btn-icon) {
+    @if $size == small {
+      height: 35px;
+    } @else if $size == large {
+      height: 50px;
+    } @else if $size == medium {
+      height: 40px;
     }
-  } @else if $size == large {
-    svg {
-      height: 100%;
-      width: 100%;
-    }
-  } @else if $size == medium {
-    svg {
-      height: 75%;
-      width: 75%;
-    }
+  }
+
+  &.rc-btn-icon {
+    border: 0;
   }
 }
 

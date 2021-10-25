@@ -6,7 +6,6 @@
 @use "../../design/position.scss";
 
 .rc-carousel-container {
-  // @extend %shadow-medium;
   @extend %border;
   @extend %shadow-inset;
   height: 100%;
@@ -65,7 +64,6 @@
 .rc-carousel-item {
   @extend %center;
   @extend %border-radius;
-  // background: colors.$light-bg;
   height: 100%;
   position: absolute;
   top: 50%;
@@ -84,6 +82,7 @@
 
 .rc-carousel-btn {
   border-radius: 50%;
+  margin: 0 1rem;
 
   &.rc-carousel-btn-hide {
     visibility: hidden;

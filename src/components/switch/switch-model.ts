@@ -1,7 +1,10 @@
+import { CSSProperties } from "react";
+
 export interface SwitchModel {
-  onChange?: (val: boolean) => void;
-  label?: string;
-  width?: number;
   disabled?: boolean;
+  label?: string;
+  onChange?: (val: boolean) => void;
   size?: "sm" | "md" | "lg";
+  style?: CSSProperties;
+  width?: number;
 }

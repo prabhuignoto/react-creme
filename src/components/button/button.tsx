@@ -12,13 +12,16 @@ const Button: React.FunctionComponent<ButtonModel> = ({
   disabled,
   type = "default",
   size = "sm",
+  style = {},
 }) => {
   const buttonClass = useMemo(
     () =>
-      classNames([`rc-btn-${type}`, `rc-btn-${size}`], {
-        "rc-btn-label-icon": type !== "icon",
-        "rc-btn-disabled": disabled,
-      }),
+      classNames(
+        {
+          "rc-btn-disabled": disabled,
+        },
+        [`rc-btn-${size}`, `rc-btn-${type}`]
+      ),
     [disabled]
   );
 
@@ -39,9 +42,10 @@ const Button: React.FunctionComponent<ButtonModel> = ({
       ref={ref}
       role="button"
       tabIndex={0}
+      style={style}
     >
       {children && <span className="rc-btn-icon-container">{children}</span>}
-      <span className="rc-btn-label">{label}</span>
+      {label && <span className="rc-btn-label">{label}</span>}
     </button>
   );
 };

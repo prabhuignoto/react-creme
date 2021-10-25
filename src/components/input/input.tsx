@@ -23,6 +23,7 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
     type = "text",
     value = "",
     state = "default",
+    style,
   }: InputModel) => {
     const [inputValue, setValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -73,7 +74,7 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
     );
 
     return (
-      <div className={inputClass} role="textbox" ref={ref}>
+      <div className={inputClass} role="textbox" ref={ref} style={style}>
         <span className={"rc-input-icon"}>{children}</span>
         <input
           type={type}

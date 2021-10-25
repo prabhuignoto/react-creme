@@ -16,6 +16,7 @@
 }
 
 .rc-carousel-track-item {
+  @extend %shadow-inset;
   border: 1px solid colors.$secondary;
   border-radius: 50%;
   height: 10px;

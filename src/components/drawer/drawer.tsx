@@ -6,6 +6,8 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { Button } from "..";
+import { CloseIcon } from "../../icons";
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import { useFocus } from "../common/effects/useFocus";
 import { withOverlay } from "../common/withOverlay";
@@ -59,6 +61,11 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
       role="dialog"
       aria-modal="true"
     >
+      <div className="rc-drawer-close-btn-wrapper">
+        <Button type="icon" size="lg" onClick={onClose}>
+          <CloseIcon />
+        </Button>
+      </div>
       {children}
     </div>
   );

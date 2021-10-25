@@ -11,14 +11,14 @@ function drawer() {
       <div
         style={{
           height: "600px",
-          width: "900px",
+          width: "1200px",
           position: "relative",
         }}
       >
         {open && (
           <Drawer
-            position="top"
-            width={300}
+            position="right"
+            width={800}
             onClose={() => setOpen(false)}
             containedToParent={ref}
           >

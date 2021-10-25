@@ -4,53 +4,52 @@
 @use "../../design/button.scss";
 @use "../../design/font.scss";
 
-%disabled-btn-common {
-  @extend %disabled;
-
-  &:hover {
-    background: none;
-  }
-}
-
 $types: (primary, default, danger);
-$sizes: (
-  sm: 35,
-  md: 45,
-  lg: 50,
-);
+$sizes: (sm, md, lg);
 
 @each $value in $types {
   .rc-btn-#{$value} {
-    @extend %button-sm;
+    // @extend %button-sm;
     @extend %button-#{$value};
 
     &.rc-btn-disabled {
-      @extend %disabled-btn-common;
+      @extend %disabled;
     }
   }
 }
 
-@each $key, $val in $sizes {
-  .rc-btn-#{$key} {
-    @extend %font-#{$key};
-    height: #{$val}px;
+@each $size in $sizes {
+  .rc-btn-#{$size} {
+    @extend %font-#{$size};
+    @extend %button-#{$size};
 
     .rc-btn-icon-container {
-      @extend %icon-#{$key};
-      margin-right: 0.2rem;
+      @extend %icon-#{$size};
+    }
+
+    .rc-btn-label {
+      @extend %font-#{$size};
     }
   }
 }
 
 .rc-btn-icon {
-  @extend %button-lg;
-  @extend %button-icon;
+  border-radius: 50%;
+  padding: 0.25rem;
+
+  &.rc-btn-disabled {
+    @extend %disabled;
+  }
+
+  &:not(.rc-btn-disabled) {
+    background: colors.$light-bg;
+  }
+
+  &:hover:not(.rc-btn-disabled) {
+    background: colors.$secondary;
+  }
 }
 
-// .rc-btn-icon-container {
-//   @extend %icon-md;
-// }
-
-.rc-btn-label {
-  font-weight: normal;
+.rc-btn-icon-container + .rc-btn-label {
+  margin-left: 0.25rem;
 }
