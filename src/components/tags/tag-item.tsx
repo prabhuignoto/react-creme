@@ -20,14 +20,18 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
     useKey(ref, handleClick);
 
     const editable = useMemo(() => !disabled && !readonly, []);
+    const tagItemClass = useMemo(
+      () =>
+        classNames("rc-tag", {
+          "rc-tag-disabled": disabled,
+          "rc-tag-readonly": readonly,
+        }),
+      []
+    );
 
     return (
       <>
-        <li
-          key={id}
-          role="listitem"
-          className={classNames(["rc-tag", disabled ? "rc-tag-disabled" : ""])}
-        >
+        <li key={id} role="listitem" className={tagItemClass}>
           <span className="center">{name}</span>
           {editable && (
             <span

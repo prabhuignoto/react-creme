@@ -73,4 +73,14 @@ $infinite-anim-settings: (
   ),
 );
 
+$bob-anim-settings: (
+  from: (
+    left: -50%,
+  ),
+  to: (
+    left: 100%,
+  ),
+);
+
 @include animate.set-keyframes(infinite-progress, $infinite-anim-settings);
+@include animate.set-keyframes(infinite-bob, $bob-anim-settings);

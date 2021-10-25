@@ -4,12 +4,13 @@ import { ProgressModel } from "./progress-model";
 import "./progress.scss";
 
 const Progress: React.FunctionComponent<ProgressModel> = ({
-  type = "progressive",
-  maxValue = 100,
   currentValue = 0,
-  width = 250,
-  showProgressValue,
+  maxValue = 100,
+  showProgressValue = false,
   size = "big",
+  type = "progressive",
+  width = 250,
+  infiniteStyle = "disappear",
 }) => {
   const progressTrackRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +53,12 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
 
   const fillClass = useMemo(
     () =>
-      classNames(["progress-fill", type, progressComplete ? "complete" : ""]),
+      classNames([
+        "progress-fill",
+        type,
+        infiniteStyle,
+        progressComplete ? "complete" : "",
+      ]),
     [progressComplete]
   );
 

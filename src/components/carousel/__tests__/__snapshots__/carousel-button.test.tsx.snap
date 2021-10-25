@@ -2,12 +2,12 @@
 
 exports[`Carousel Button should render carousel button snapshot 1`] = `
 <button
-  class="button-icon"
+  class="rc-btn-icon rc-btn-sm"
   role="button"
   tabindex="0"
 >
   <span
-    class="button-icon-container"
+    class="rc-btn-icon-container"
   >
     <svg
       fill="none"
@@ -26,7 +26,7 @@ exports[`Carousel Button should render carousel button snapshot 1`] = `
     </svg>
   </span>
   <span
-    class="button-label"
+    class="rc-btn-label"
   />
 </button>
 `;

@@ -2,6 +2,7 @@
 @use "../../design/colors.scss";
 @use "../../design/icon.scss";
 @use "../../design/button.scss";
+@use "../../design/font.scss";
 
 %disabled-btn-common {
   @extend %disabled;
@@ -12,28 +13,44 @@
 }
 
 $types: (primary, default, danger);
+$sizes: (
+  sm: 35,
+  md: 45,
+  lg: 50,
+);
 
 @each $value in $types {
-  .button-#{$value} {
+  .rc-btn-#{$value} {
     @extend %button-sm;
     @extend %button-#{$value};
 
-    &.button-disabled {
+    &.rc-btn-disabled {
       @extend %disabled-btn-common;
     }
   }
 }
 
-.button-icon {
+@each $key, $val in $sizes {
+  .rc-btn-#{$key} {
+    @extend %font-#{$key};
+    height: #{$val}px;
+
+    .rc-btn-icon-container {
+      @extend %icon-#{$key};
+      margin-right: 0.2rem;
+    }
+  }
+}
+
+.rc-btn-icon {
   @extend %button-lg;
   @extend %button-icon;
 }
 
-.button-icon-container {
-  @extend %icon-md;
-}
+// .rc-btn-icon-container {
+//   @extend %icon-md;
+// }
 
-.button-label {
-  font-size: 14px;
+.rc-btn-label {
   font-weight: normal;
 }

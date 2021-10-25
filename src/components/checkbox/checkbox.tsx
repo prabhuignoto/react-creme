@@ -81,7 +81,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
       tabIndex={disabled ? -1 : 0}
       aria-labelledby={id.current}
     >
-      <span className={iconClass}>
+      <span className={iconClass} role="img">
         <CheckIcon />
       </span>
       <label className={labelClass} id={id.current}>

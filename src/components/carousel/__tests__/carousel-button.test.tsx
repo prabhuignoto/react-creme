@@ -7,7 +7,11 @@ const handler = jest.fn();
 describe("Carousel Button", () => {
   it("should render with position", () => {
     const { container } = render(
-      <CarouselButton position="left" onClick={handler} />
+      <CarouselButton
+        position="left"
+        onClick={handler}
+        direction="horizontal"
+      />
     );
 
     expect(container.firstChild).toBeInTheDocument();
@@ -16,7 +20,7 @@ describe("Carousel Button", () => {
 
   it("should render carousel button snapshot", () => {
     const { getByRole } = render(
-      <CarouselButton position="left" onClick={handler} />
+      <CarouselButton position="left" onClick={handler} direction="vertical" />
     );
 
     expect(getByRole("button")).toMatchSnapshot();
@@ -24,7 +28,11 @@ describe("Carousel Button", () => {
 
   it("should call the onClick handler", () => {
     const { getByRole } = render(
-      <CarouselButton position="left" onClick={handler} />
+      <CarouselButton
+        position="left"
+        onClick={handler}
+        direction="horizontal"
+      />
     );
 
     fireEvent.click(getByRole("button"));

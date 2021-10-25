@@ -53,7 +53,7 @@ $grid: (
 .rc-checkbox-label {
   @extend %text-no-wrap;
   display: block;
-  padding-left: 0.5rem;
+  padding-left: 0.75rem;
   text-align: left;
 
   @each $key in $sizes {

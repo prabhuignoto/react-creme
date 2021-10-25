@@ -7,15 +7,20 @@ import "./carousel.scss";
 interface CarouselButtonModel {
   onClick: () => void;
   position: "left" | "right";
+  direction: "horizontal" | "vertical";
   hide?: boolean;
 }
 
 const CarouselButton: React.FunctionComponent<CarouselButtonModel> = React.memo(
-  ({ onClick, position, hide }: CarouselButtonModel) => {
+  ({ onClick, position, hide, direction }: CarouselButtonModel) => {
     return (
       <span
         className={classNames(
-          ["rc-carousel-btn", `rc-carousel-btn-${position}`],
+          [
+            "rc-carousel-btn",
+            `rc-carousel-btn-${position}`,
+            `rc-carousel-btn-${direction}`,
+          ],
           {
             "rc-carousel-btn-hide": hide,
           }

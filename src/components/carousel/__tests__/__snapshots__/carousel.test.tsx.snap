@@ -48,15 +48,15 @@ exports[`Carousel should render carousel snapshot 1`] = `
       class="rc-carousel-track-wrapper rc-carousel-track-wrapper-horizontal"
     >
       <span
-        class="rc-carousel-btn rc-carousel-btn-left rc-carousel-btn-hide"
+        class="rc-carousel-btn rc-carousel-btn-left rc-carousel-btn-horizontal rc-carousel-btn-hide"
       >
         <button
-          class="button-icon"
+          class="rc-btn-icon rc-btn-sm"
           role="button"
           tabindex="0"
         >
           <span
-            class="button-icon-container"
+            class="rc-btn-icon-container"
           >
             <svg
               fill="none"
@@ -75,7 +75,7 @@ exports[`Carousel should render carousel snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="button-label"
+            class="rc-btn-label"
           />
         </button>
       </span>
@@ -93,15 +93,15 @@ exports[`Carousel should render carousel snapshot 1`] = `
         />
       </ul>
       <span
-        class="rc-carousel-btn rc-carousel-btn-right"
+        class="rc-carousel-btn rc-carousel-btn-right rc-carousel-btn-horizontal"
       >
         <button
-          class="button-icon"
+          class="rc-btn-icon rc-btn-sm"
           role="button"
           tabindex="0"
         >
           <span
-            class="button-icon-container"
+            class="rc-btn-icon-container"
           >
             <svg
               fill="none"
@@ -120,7 +120,7 @@ exports[`Carousel should render carousel snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="button-label"
+            class="rc-btn-label"
           />
         </button>
       </span>

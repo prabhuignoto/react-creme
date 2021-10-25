@@ -11,12 +11,18 @@ describe("Button", () => {
     const button = container.firstChild;
 
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("button-default");
+    expect(button).toHaveClass("rc-btn-default");
   });
 
   it("should render label", () => {
     const { getByText } = render(<Button label="My Button" />);
     expect(getByText("My Button")).toBeInTheDocument();
+  });
+
+  it("should render size", () => {
+    const { getByRole } = render(<Button label="My Button" size="lg" />);
+    expect(getByRole("button")).toBeInTheDocument();
+    expect(getByRole("button")).toHaveClass("rc-btn-lg");
   });
 
   it("should render button snapshot", () => {

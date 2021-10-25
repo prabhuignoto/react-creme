@@ -91,5 +91,13 @@
 }
 
 .rc-carousel-btn-left {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
+}
+
+.rc-carousel-btn-left:not(.rc-carousel-btn-horizontal) {
+  transform: rotate(-90deg);
+}
+
+.rc-carousel-btn-right:not(.rc-carousel-btn-horizontal) {
+  transform: rotate(90deg);
 }

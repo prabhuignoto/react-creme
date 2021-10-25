@@ -45,6 +45,7 @@ const TransferListItemHeader: React.FunctionComponent<TransferListItemHeaderMode
             "header",
             selected ? "selected" : "",
           ])}
+          role="listitem"
         >
           <CheckBox
             onChange={() => {

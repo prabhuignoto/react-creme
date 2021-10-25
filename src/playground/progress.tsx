@@ -35,7 +35,6 @@ function progress() {
           width={300}
           maxValue={200}
           currentValue={time * 5}
-          showProgressValue
           size="big"
         />
       </div>
@@ -47,6 +46,7 @@ function progress() {
           currentValue={time * 5}
           showProgressValue
           size="small"
+          infiniteStyle="bob"
         />
       </div>
     </div>

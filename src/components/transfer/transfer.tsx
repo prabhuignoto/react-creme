@@ -208,7 +208,7 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
     <div className="transfer-wrapper">
       <section className="transfer-column1">
         {_list1.length ? (
-          <ul className="transfer-list">
+          <ul className="transfer-list" role="list">
             <TransferListItemHeader
               handleSelectAll={handleSelectionAll}
               allSelected={list1AllSelected}
@@ -237,7 +237,7 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
       />
       <section className="transfer-column2">
         {_list2.length ? (
-          <ul className="transfer-list">
+          <ul className="transfer-list" role="list">
             <TransferListItemHeader
               handleSelectAll={handleSelectionAll}
               allSelected={list2AllSelected}

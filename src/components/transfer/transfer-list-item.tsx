@@ -22,6 +22,7 @@ const TransferListItem: React.FunctionComponent<TransferListItemModel> =
             selected ? "selected" : "",
           ])}
           key={id}
+          role="listitem"
         >
           <CheckBox
             label={name}

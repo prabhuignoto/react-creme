@@ -7,4 +7,5 @@ export interface ButtonModel {
   disabled?: boolean;
   primary?: boolean;
   type?: "primary" | "default" | "danger" | "icon";
+  size?: "sm" | "md" | "lg";
 }

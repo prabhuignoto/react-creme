@@ -22,7 +22,8 @@
 }
 
 .transfer-btn {
-  @extend %button-sm;
+  @extend %button-md;
+  padding: 0.25rem;
 
   &.left {
     margin-top: 1rem;

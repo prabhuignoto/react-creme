@@ -16,11 +16,11 @@
 }
 
 .rc-carousel-track-item {
-  border: 1px solid colors.$primary;
+  border: 1px solid colors.$secondary;
   border-radius: 50%;
-  height: 8px;
+  height: 10px;
   margin: 4px;
-  width: 8px;
+  width: 10px;
 }
 
 .rc-carousel-track-item:hover {
@@ -29,6 +29,7 @@
 
 .rc-carousel-track-item-selected {
   background: colors.$primary;
+  border: 1px solid colors.$primary;
 }
 
 .rc-carousel-icon {

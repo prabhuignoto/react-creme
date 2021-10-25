@@ -45,7 +45,7 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
           {title}
         </h2>
         <div className="rc-dialog-button-wrapper">
-          <Button type="icon" onClick={onClose}>
+          <Button type="icon" onClick={onClose} size="md">
             <CloseIcon />
           </Button>
         </div>

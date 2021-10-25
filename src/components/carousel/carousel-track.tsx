@@ -33,6 +33,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
         onClick={onPrevious}
         position="left"
         hide={hidePrevious}
+        direction={direction}
       />
       <ul className={carouselTrackWrapper} role="list">
         {Array.from({ length }).map((_, index) => (
@@ -47,7 +48,12 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
           ></li>
         ))}
       </ul>
-      <CarouselButton onClick={onNext} position="right" hide={hideNext} />
+      <CarouselButton
+        onClick={onNext}
+        position="right"
+        hide={hideNext}
+        direction={direction}
+      />
     </div>
   );
 };
