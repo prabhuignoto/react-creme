@@ -27,7 +27,6 @@ $item-height: 30px;
   @extend %icon-md;
   @extend %left;
   cursor: pointer;
-  padding-top: calc($item-height/6);
 
   &.rc-tree-item-icon-exp {
     transform: rotate(90deg);
@@ -40,9 +39,11 @@ $item-height: 30px;
 
 .rc-tree-item-name {
   @extend %left;
+  align-items: flex-start;
   font-size: 1rem;
   height: 30px;
   padding-left: 0.1rem;
+  padding-top: 0.1rem;
 }
 
 .rc-tree-item-child-container {
@@ -58,4 +59,8 @@ $item-height: 30px;
   &.rc-tree-item-child-collapsed {
     opacity: 0;
   }
+}
+
+.rc-tree-item-checkbox-wrapper {
+  @extend %left;
 }

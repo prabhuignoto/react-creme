@@ -9,6 +9,4 @@ export interface MenuBarModel {
 
 export interface MenuBarItemModel extends MenuItemModel {
   menu?: MenuBarItemModel[];
-  isMenuOpen?: boolean;
-  openOnHover?: boolean;
 }

@@ -30,7 +30,7 @@ describe("Menubar", () => {
   it("should open Menu", () => {
     const { getByText, getByRole } = render(<MenuBar items={items} />);
 
-    fireEvent.mouseDown(getByText("File"));
+    fireEvent.click(getByText("File"));
 
     expect(getByRole("menubar").querySelectorAll("li")[0]).toHaveClass(
       "rc-menu-bar-item-active"
@@ -45,19 +45,9 @@ describe("Menubar", () => {
     const paste = getByText("paste");
 
     if (paste && paste.parentElement) {
-      fireEvent.mouseDown(paste.parentElement);
+      fireEvent.click(paste.parentElement);
     }
 
     expect(handler).toBeCalledWith("Edit>paste");
-  });
-
-  it("should close on blur event", () => {
-    const { getByRole, getByText, baseElement } = render(
-      <MenuBar items={items} onSelected={handler} />
-    );
-
-    fireEvent.click(getByText("File"));
-
-    expect(getByRole("menubar")).toHaveFocus();
   });
 });

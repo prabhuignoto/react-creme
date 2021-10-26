@@ -73,7 +73,7 @@ const useDrag: functionType = (
       if (direction === "horizontal") {
         const left = max(0, clientX - (parentLeft || 0));
 
-        if (left === 0) {
+        if (left <= 0) {
           setPercent(0);
         } else if (
           // left + targetWidth <= maxXValue.current &&

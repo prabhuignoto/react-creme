@@ -17,7 +17,7 @@ function dialog() {
       >
         {open && (
           <Dialog onClose={() => setOpen(false)} containedToParent={ref}>
-            <span>This is a test</span>
+            <span>sinthanai, suvai, vetri mani ADICHU</span>
           </Dialog>
         )}
       </div>

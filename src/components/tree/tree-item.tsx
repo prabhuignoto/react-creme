@@ -8,6 +8,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { CheckBox } from "..";
 import { ChevronRightIcon } from "../../icons";
 import "./tree-item.scss";
 import { TreeItemModel } from "./tree-model";
@@ -17,7 +18,15 @@ const LazyTree = React.lazy(() =>
 );
 
 const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
-  ({ child, expanded, id, name, onToggle, onChildToggle }: TreeItemModel) => {
+  ({
+    child,
+    expanded,
+    id,
+    name,
+    onToggle,
+    onChildToggle,
+    allowSelection,
+  }: TreeItemModel) => {
     const isFirstRender = useRef(true);
     const [totalItems, setTotalItems] = useState(
       Array.isArray(child) ? child.length + 1 : 0
@@ -107,13 +116,20 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
           <ChevronRightIcon />
         </span>
         <div className="rc-tree-item-wrapper">
-          <span className="rc-tree-item-name">{name}</span>
+          {allowSelection ? (
+            <span className="rc-tree-item-checkbox-wrapper">
+              <CheckBox label={name || ""} />
+            </span>
+          ) : (
+            <span className="rc-tree-item-name">{name}</span>
+          )}
           <div className={childContainerClass}>
             <Suspense fallback={<span></span>}>
               <LazyTree
                 items={child || []}
                 isChildTree
                 onChildToggle={handler}
+                allowSelection={allowSelection}
               />
             </Suspense>
           </div>

@@ -1,16 +1,18 @@
 export interface TreeItemModel {
-  name?: string;
-  expanded?: boolean;
+  allowSelection?: boolean;
   child?: TreeItemModel[];
+  expanded?: boolean;
   id?: string;
-  onToggle?: (id?: string) => void;
+  name?: string;
   onChildToggle?: (expanded: boolean, childrenCount: number) => void;
+  onToggle?: (id?: string) => void;
 }
 
 export interface TreeModel {
-  items: TreeItemModel[];
-  isChildTree?: boolean;
-  width?: number;
+  allowSelection?: boolean;
   height?: number;
+  isChildTree?: boolean;
+  items: TreeItemModel[];
   onChildToggle?: (expanded: boolean, childrenCount: number) => void;
+  width?: number;
 }

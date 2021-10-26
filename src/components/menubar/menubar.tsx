@@ -18,7 +18,7 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
   width = 300,
   align = "left",
 }) => {
-  const [_items, setMenuItems] = useState<MenuBarItemModel[]>(
+  const _items = useRef<MenuBarItemModel[]>(
     items.map((item) => ({
       id: nanoid(),
       ...item,
@@ -27,37 +27,47 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
     }))
   );
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const ref = useRef<HTMLUListElement>(null);
 
-  const onOpenMenu = useCallback(
-    (id?: string) => {
-      setMenuItems((prev) =>
-        prev.map((item) => ({
-          ...item,
-          isMenuOpen: item.id === id,
-          openOnHover: true,
-        }))
-      );
-    },
-    [_items.length]
-  );
+  const onCloseMenu = useCallback(() => {
+    setIsMenuOpen(false);
+  }, []);
+
+  const onOpenMenu = useCallback(() => {
+    if (!isMenuOpen) {
+      setIsMenuOpen(true);
+    }
+  }, [isMenuOpen]);
+
+  const closeWhenClickedOutside = useCallback((ev: MouseEvent | TouchEvent) => {
+    const whiteList = [
+      "rc-menu-bar-item-name",
+      "rc-menu-item-name",
+      "rc-menu-item",
+    ];
+    const classes = Array.from((ev.target as HTMLElement).classList);
+
+    if (classes.some((cls) => whiteList.indexOf(cls) < 0)) {
+      onCloseMenu();
+    }
+  }, []);
 
   useEffect(() => {
-    if (ref.current) {
-      ref.current.focus();
-    }
+    // if (ref.current) {
+    //   ref.current.focus();
+    // }
+    document.addEventListener("click", closeWhenClickedOutside);
+
+    return () => {
+      document.removeEventListener("click", closeWhenClickedOutside);
+    };
   }, []);
 
   const handleSelection = useCallback((val, name) => {
     onSelected && onSelected(`${name}>${val}`);
-
-    setMenuItems((prev) =>
-      prev.map((item) => ({
-        ...item,
-        openOnHover: false,
-        isMenuOpen: false,
-      }))
-    );
+    onCloseMenu();
   }, []);
 
   const menuBarStyle = useMemo(() => {
@@ -75,26 +85,33 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
     []
   );
 
-  const onCloseMenu = useCallback((id) => {
-    setMenuItems((prev) =>
-      prev.map((item) => ({
-        ...item,
-        isMenuOpen: false,
-        openOnHover: false,
-      }))
-    );
-  }, []);
+  const handleMouseEnter = useCallback(
+    (ev: React.MouseEvent) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      const target = ev.target as HTMLElement;
+
+      if (isMenuOpen && target.classList.contains("rc-menu-bar-item-name")) {
+        const menu = target.parentElement?.parentElement;
+        if (menu) {
+          console.log("jumbo");
+
+          menu.click();
+        }
+      }
+    },
+    [isMenuOpen]
+  );
 
   return (
     <ul
       className={wrapperClass}
       ref={ref}
-      tabIndex={0}
+      // tabIndex={0}
       style={menuBarStyle}
       role="menubar"
-      onBlur={onCloseMenu}
     >
-      {_items.map(({ id, name, menu, isMenuOpen, openOnHover }) => (
+      {_items.current.map(({ id, name, menu }) => (
         <li
           key={id}
           className={classNames([
@@ -103,16 +120,16 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
               "rc-menu-bar-item-active": isMenuOpen,
             },
           ])}
+          onMouseOver={handleMouseEnter}
         >
           {menu && (
             <Menu
               items={menu}
-              closeManual={!isMenuOpen}
               onOpen={onOpenMenu}
               onClose={onCloseMenu}
-              openOnHover={openOnHover}
               id={id}
               onSelected={(val) => handleSelection(val, name)}
+              closeManual={isMenuOpen}
             >
               <span className="rc-menu-bar-item-name">{name}</span>
             </Menu>

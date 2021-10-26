@@ -6,6 +6,7 @@ function tree() {
     <div style={{ width: "300px", height: "500px" }}>
       <Tree
         height={400}
+        allowSelection
         items={[
           {
             name: "one",

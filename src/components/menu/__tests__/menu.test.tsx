@@ -28,7 +28,7 @@ describe("Menu", () => {
         <span>icon</span>
       </Menu>
     );
-    fireEvent.mouseDown(getByText("one"));
+    fireEvent.click(getByText("one"));
     expect(onSelected).toBeCalledWith("one");
   });
 
@@ -39,10 +39,10 @@ describe("Menu", () => {
       </Menu>
     );
 
-    fireEvent.mouseDown(getByText("icon"));
+    fireEvent.click(getByText("icon"));
     expect(getByRole("menu")).toHaveClass("rc-menu-open");
 
-    fireEvent.mouseDown(getByText("icon"));
+    fireEvent.click(getByText("icon"));
     expect(getByRole("menu")).toHaveClass("rc-menu-close");
   });
 });

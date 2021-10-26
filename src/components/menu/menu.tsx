@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
 import { useKeyWithDependency } from "../common/effects/useKey";
 import { usePosition } from "../common/effects/usePosition";
@@ -15,15 +16,14 @@ import "./menu.scss";
 
 const Menu: React.FunctionComponent<MenuModel> = ({
   children,
-  closeManual,
   id,
   items,
   onClose,
   onOpen,
   onSelected,
-  openOnHover,
+  closeManual,
 }: MenuModel) => {
-  const menuItems = useRef<MenuItemModel[]>(
+  const [menuItems] = useState<MenuItemModel[]>(
     items.map((item) => ({
       id: nanoid(),
       ...item,
@@ -31,7 +31,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   );
   const menuRef = useRef<HTMLUListElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const isFirstRender = useRef(true);
+  const isFirstRender = useFirstRender();
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -41,23 +41,19 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   });
 
   // HANDLERS
-  const toggleMenu = useCallback(
-    (ev: React.MouseEvent) => {
-      ev.preventDefault();
-      setShowMenu(!showMenu);
-    },
-    [showMenu]
-  );
+  const toggleMenu = useCallback((ev: React.MouseEvent) => {
+    setShowMenu((prev) => {
+      if (prev) {
+        onClose?.();
+      }
+      return !prev;
+    });
+  }, []);
 
   const toggleViaKeyboard = useCallback(() => setShowMenu((prev) => !prev), []);
 
   useFocus(wrapperRef, { bgHighlight: false });
   useKeyWithDependency(wrapperRef, toggleViaKeyboard, showMenu);
-
-  // const closeMenu = useCallback(() => {
-  //   setShowMenu(false);
-  //   onClose && onClose(id);
-  // }, []);
 
   const menuClass = useMemo(
     () =>
@@ -70,18 +66,6 @@ const Menu: React.FunctionComponent<MenuModel> = ({
 
   useEffect(() => {
     if (isFirstRender.current) {
-      isFirstRender.current = false;
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!isFirstRender.current && closeManual) {
-      setShowMenu(false);
-    }
-  }, [closeManual]);
-
-  useEffect(() => {
-    if (isFirstRender.current) {
       return;
     }
 
@@ -89,37 +73,64 @@ const Menu: React.FunctionComponent<MenuModel> = ({
       wrapperRef.current.focus();
       onOpen && onOpen(id);
     }
-  }, [showMenu, openOnHover]);
+  }, [showMenu]);
 
   const handleSelection = useCallback((name) => {
     if (onSelected) {
       onSelected(name);
     }
     setShowMenu(false);
+    onClose?.();
   }, []);
 
-  const handleMouseEnter = useCallback(() => {
-    if (openOnHover) {
-      setShowMenu(true);
+  const onInitRef = useCallback((node) => {
+    if (node) {
+      wrapperRef.current = node;
     }
-  }, [openOnHover]);
+  }, []);
+
+  const closeMenu = useCallback((ev: MouseEvent) => {
+    const target = ev.target as HTMLElement;
+    if (wrapperRef.current) {
+      const isChild = wrapperRef.current?.contains(target);
+
+      if (!isChild) {
+        setShowMenu(false);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    document.body.addEventListener("click", closeMenu);
+
+    return () => {
+      document.body.removeEventListener("click", closeMenu);
+    };
+  }, []);
 
   return (
     <div
       className="rc-menu-wrapper"
-      onMouseEnter={handleMouseEnter}
-      onMouseDown={toggleMenu}
+      onClick={toggleMenu}
+      ref={onInitRef}
+      tabIndex={0}
     >
-      <div className="rc-menu-content-wrapper" ref={wrapperRef}>
+      <div className="rc-menu-content-wrapper">
         {children}
         <ul className={menuClass} ref={menuRef} style={cssPosition} role="menu">
-          {menuItems.current.map(({ name, id, disabled }) => (
+          {menuItems.map(({ name, id, disabled }) => (
             <li
               key={id}
               className={classNames(["rc-menu-item"], {
                 "rc-menu-item-disabled": disabled,
               })}
-              onMouseDown={() => !disabled && handleSelection(name)}
+              onClick={(ev) => {
+                ev.preventDefault();
+                ev.stopPropagation();
+                if (!disabled) {
+                  handleSelection(name);
+                }
+              }}
               role="menuitem"
             >
               <span className="rc-menu-item-name">{name}</span>

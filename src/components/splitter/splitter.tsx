@@ -60,7 +60,7 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
       const height = round(clientHeight * percent);
 
       return {
-        width: isHorizontal ? width : "100%",
+        width: isHorizontal ? (width !== 0 ? width : minSplitWidth) : "100%",
         height: isHorizontal ? "100%" : height,
       } as CSSProperties;
     }
@@ -70,13 +70,20 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
     if (ref.current && canSplit) {
       const { clientWidth, clientHeight } = ref.current;
 
-      const width = round(clientWidth * (1 - percent));
-      const height = round(clientHeight * (1 - percent));
+      if (percent) {
+        const width = round(clientWidth * (1 - percent));
+        const height = round(clientHeight * (1 - percent));
 
-      return {
-        width: isHorizontal ? width : "100%",
-        height: isHorizontal ? "100%" : height,
-      } as CSSProperties;
+        return {
+          width: isHorizontal ? width : "100%",
+          height: isHorizontal ? "100%" : height,
+        } as CSSProperties;
+      } else {
+        return {
+          width: isHorizontal ? clientWidth - minSplitWidth : "100%",
+          height: isHorizontal ? "100%" : clientHeight - minSplitHeight,
+        } as CSSProperties;
+      }
     }
   }, [percent, dir, canSplit, isHorizontal]);
 
