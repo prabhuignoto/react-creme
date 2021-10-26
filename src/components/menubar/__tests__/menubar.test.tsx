@@ -32,9 +32,7 @@ describe("Menubar", () => {
 
     fireEvent.click(getByText("File"));
 
-    expect(getByRole("menubar").querySelectorAll("li")[0]).toHaveClass(
-      "rc-menu-bar-item-active"
-    );
+    expect(getByText("File").nextSibling).toHaveClass("rc-menu-open");
   });
 
   it("should call the handler", () => {

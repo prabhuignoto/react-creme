@@ -89,15 +89,10 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
     (ev: React.MouseEvent) => {
       ev.preventDefault();
       ev.stopPropagation();
-      const target = ev.target as HTMLElement;
+      const target = (ev.target as HTMLElement).nextSibling as HTMLElement;
 
-      if (isMenuOpen && target.classList.contains("rc-menu-bar-item-name")) {
-        const menu = target.parentElement?.parentElement;
-        if (menu) {
-          console.log("jumbo");
-
-          menu.click();
-        }
+      if (target && !target.classList.contains("rc-menu-open") && isMenuOpen) {
+        (target.parentElement as HTMLElement).click();
       }
     },
     [isMenuOpen]
@@ -112,16 +107,7 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
       role="menubar"
     >
       {_items.current.map(({ id, name, menu }) => (
-        <li
-          key={id}
-          className={classNames([
-            "rc-menu-bar-item-wrapper",
-            {
-              "rc-menu-bar-item-active": isMenuOpen,
-            },
-          ])}
-          onMouseOver={handleMouseEnter}
-        >
+        <li key={id} className={classNames(["rc-menu-bar-item-wrapper"])}>
           {menu && (
             <Menu
               items={menu}
@@ -131,7 +117,12 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
               onSelected={(val) => handleSelection(val, name)}
               closeManual={isMenuOpen}
             >
-              <span className="rc-menu-bar-item-name">{name}</span>
+              <span
+                className="rc-menu-bar-item-name"
+                onMouseEnter={handleMouseEnter}
+              >
+                {name}
+              </span>
             </Menu>
           )}
         </li>

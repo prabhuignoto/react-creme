@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs should render snapshot 1`] = `
+<div
+  class="rc-tabs"
+  role="tab"
+  style="--min-width: 300px;"
+>
+  <ul
+    class="rc-tab-headers"
+  >
+    <li>
+      <span
+        class="rc-tab-header-label rc-tab-header-selected"
+      >
+        one
+      </span>
+    </li>
+    <li>
+      <span
+        class="rc-tab-header-label"
+      >
+        two
+      </span>
+    </li>
+    <li>
+      <span
+        class="rc-tab-header-label"
+      >
+        three
+      </span>
+    </li>
+  </ul>
+  <ul
+    class="rc-tab-panels"
+  >
+    <li
+      class="rc-tab-panel"
+      role="tabpanel"
+    >
+      <span>
+        one content
+      </span>
+    </li>
+  </ul>
+</div>
+`;

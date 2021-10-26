@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>36/45</span>
+                <span class='fraction'>36/42</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.05% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/17</span>
+                <span class='fraction'>8/16</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">79.54% </span>
+                <span class="strong">85.36% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>35/44</span>
+                <span class='fraction'>35/41</span>
             </div>
         
             
@@ -191,16 +191,7 @@
 <a name='L132'></a><a href='#L132'>132</a>
 <a name='L133'></a><a href='#L133'>133</a>
 <a name='L134'></a><a href='#L134'>134</a>
-<a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a>
-<a name='L138'></a><a href='#L138'>138</a>
-<a name='L139'></a><a href='#L139'>139</a>
-<a name='L140'></a><a href='#L140'>140</a>
-<a name='L141'></a><a href='#L141'>141</a>
-<a name='L142'></a><a href='#L142'>142</a>
-<a name='L143'></a><a href='#L143'>143</a>
-<a name='L144'></a><a href='#L144'>144</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">10x</span>
+<a name='L135'></a><a href='#L135'>135</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -295,11 +286,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -321,16 +307,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -434,15 +416,10 @@ const MenuBar: React.FunctionComponent&lt;MenuBarModel&gt; = ({
 <span class="fstat-no" title="function not covered" >    (e</span>v: React.MouseEvent) =&gt; {
 <span class="cstat-no" title="statement not covered" >      ev.preventDefault();</span>
 <span class="cstat-no" title="statement not covered" >      ev.stopPropagation();</span>
-      const target = <span class="cstat-no" title="statement not covered" >ev.target as HTMLElement;</span>
+      const target = (<span class="cstat-no" title="statement not covered" >ev.target as HTMLElement).nextSibling as HTMLElement;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      if (isMenuOpen &amp;&amp; target.classList.contains("rc-menu-bar-item-name")) {</span>
-        const menu = <span class="cstat-no" title="statement not covered" >target.parentElement?.parentElement;</span>
-<span class="cstat-no" title="statement not covered" >        if (menu) {</span>
-<span class="cstat-no" title="statement not covered" >          console.log("jumbo");</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >          menu.click();</span>
-        }
+<span class="cstat-no" title="statement not covered" >      if (target &amp;&amp; !target.classList.contains("rc-menu-open") &amp;&amp; isMenuOpen) {</span>
+        (<span class="cstat-no" title="statement not covered" >target.parentElement as HTMLElement).click();</span>
       }
     },
     [isMenuOpen]
@@ -457,16 +434,7 @@ const MenuBar: React.FunctionComponent&lt;MenuBarModel&gt; = ({
       role="menubar"
     &gt;
       {_items.current.map(({ id, name, menu }) =&gt; (
-        &lt;li
-          key={id}
-          className={classNames([
-            "rc-menu-bar-item-wrapper",
-            {
-              "rc-menu-bar-item-active": isMenuOpen,
-            },
-          ])}
-          onMouseOver={handleMouseEnter}
-        &gt;
+        &lt;li key={id} className={classNames(["rc-menu-bar-item-wrapper"])}&gt;
           {menu &amp;&amp; (
             &lt;Menu
               items={menu}
@@ -476,7 +444,12 @@ const MenuBar: React.FunctionComponent&lt;MenuBarModel&gt; = ({
               onSelected={(val) =&gt; handleSelection(val, name)}
               closeManual={isMenuOpen}
             &gt;
-              &lt;span className="rc-menu-bar-item-name"&gt;{name}&lt;/span&gt;
+              &lt;span
+                className="rc-menu-bar-item-name"
+                onMouseEnter={handleMouseEnter}
+              &gt;
+                {name}
+              &lt;/span&gt;
             &lt;/Menu&gt;
           )}
         &lt;/li&gt;
@@ -493,7 +466,7 @@ export { MenuBar };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Oct 26 2021 12:08:36 GMT+0530 (India Standard Time)
+                at Wed Oct 27 2021 00:37:17 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

@@ -52,30 +52,4 @@
   }
 }
 
-.rc-menu-item {
-  @extend %list-item-left;
-  height: 35px;
-  width: 100%;
 
-  &:hover {
-    background: colors.$secondary;
-  }
-
-  &:first-child {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-
-  &:last-child {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
-
-  &.rc-menu-item-disabled {
-    @extend %disabled;
-  }
-}
-
-.rc-menu-item-name {
-  padding-left: 0.5rem;
-}

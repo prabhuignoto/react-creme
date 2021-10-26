@@ -21,6 +21,7 @@ import Progress from "./playground/progress";
 import Skeleton from "./playground/skeleton";
 import Slider from "./playground/slider";
 import Splitter from "./playground/splitter";
+import Tabs from "./playground/tabs";
 import Tags from "./playground/tags";
 import Tooltip from "./playground/tooltip";
 import Transfer from "./playground/transfer";
@@ -58,6 +59,7 @@ function App() {
         <Link to="/slider">slider</Link>
         <Link to="/comparer">comparer</Link>
         <Link to="/skeleton">skeleton</Link>
+        <Link to="/tabs">tabs</Link>
       </aside>
       <section className="section">
         <Routes>
@@ -218,6 +220,14 @@ function App() {
             element={
               <div className="section-content" style={{ width: "600px" }}>
                 <Skeleton />
+              </div>
+            }
+          />
+          <Route
+            path="/tabs"
+            element={
+              <div className="section-content" style={{ width: "600px" }}>
+                <Tabs />
               </div>
             }
           />

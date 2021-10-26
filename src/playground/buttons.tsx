@@ -32,7 +32,11 @@ function buttons() {
         <Button label="save" onClick={() => alert("test")} />
       </div>
       <div style={style}>
-        <Button label="Edit" onClick={() => alert("test")} size="sm">
+        <Button
+          label="Search this page"
+          onClick={() => alert("test")}
+          size="sm"
+        >
           <SearchIcon />
         </Button>
       </div>

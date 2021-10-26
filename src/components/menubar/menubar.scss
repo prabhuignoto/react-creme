@@ -26,6 +26,7 @@
   border: 1px solid transparent;
   height: 100%;
   position: relative;
+  user-select: none;
 
   &:hover {
     cursor: pointer;
@@ -38,9 +39,6 @@
   &:hover:first-child {
     @extend %border-radius-left;
   }
-
-  // &.rc-menu-bar-item-active {
-  // }
 
   &.rc-menu-bar-item-active:last-child {
     @extend %border-radius-right;

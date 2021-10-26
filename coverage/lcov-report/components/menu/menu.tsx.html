@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.91% </span>
+                <span class="strong">94.64% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>56/59</span>
+                <span class='fraction'>53/56</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.81% </span>
+                <span class="strong">85% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>18/22</span>
+                <span class='fraction'>17/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.66% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>13/15</span>
+                <span class='fraction'>12/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.24% </span>
+                <span class="strong">98.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>56/57</span>
+                <span class='fraction'>53/54</span>
             </div>
         
             
@@ -193,16 +193,7 @@
 <a name='L134'></a><a href='#L134'>134</a>
 <a name='L135'></a><a href='#L135'>135</a>
 <a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a>
-<a name='L138'></a><a href='#L138'>138</a>
-<a name='L139'></a><a href='#L139'>139</a>
-<a name='L140'></a><a href='#L140'>140</a>
-<a name='L141'></a><a href='#L141'>141</a>
-<a name='L142'></a><a href='#L142'>142</a>
-<a name='L143'></a><a href='#L143'>143</a>
-<a name='L144'></a><a href='#L144'>144</a>
-<a name='L145'></a><a href='#L145'>145</a>
-<a name='L146'></a><a href='#L146'>146</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">11x</span>
+<a name='L137'></a><a href='#L137'>137</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,6 +202,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
@@ -329,16 +321,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -360,6 +342,7 @@ import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
 import { useKeyWithDependency } from "../common/effects/useKey";
 import { usePosition } from "../common/effects/usePosition";
+import { MenuItem } from "./menu-item";
 import { MenuItemModel, MenuModel } from "./menu-model";
 import "./menu.scss";
 &nbsp;
@@ -468,22 +451,12 @@ const Menu: React.FunctionComponent&lt;MenuModel&gt; = ({
         {children}
         &lt;ul className={menuClass} ref={menuRef} style={cssPosition} role="menu"&gt;
           {menuItems.map(({ name, id, disabled }) =&gt; (
-            &lt;li
+            &lt;MenuItem
+              name={name}
+              disabled={disabled}
+              handleSelection={handleSelection}
               key={id}
-              className={classNames(["rc-menu-item"], {
-                "rc-menu-item-disabled": disabled,
-              })}
-              onClick={(ev) =&gt; {
-                ev.preventDefault();
-                ev.stopPropagation();
-                <span class="missing-if-branch" title="else path not taken" >E</span>if (!disabled) {
-                  handleSelection(name);
-                }
-              }}
-              role="menuitem"
-            &gt;
-              &lt;span className="rc-menu-item-name"&gt;{name}&lt;/span&gt;
-            &lt;/li&gt;
+            /&gt;
           ))}
         &lt;/ul&gt;
       &lt;/div&gt;
@@ -499,7 +472,7 @@ export { Menu };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Oct 26 2021 12:08:36 GMT+0530 (India Standard Time)
+                at Wed Oct 27 2021 00:37:17 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

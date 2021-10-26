@@ -1,7 +1,10 @@
+import { CSSProperties } from "react";
+
 export interface RadioGroupModel {
   items: RadioGroupItemModel[];
   onSelected?: (selected: string) => void;
   disabled?: boolean;
+  style?: CSSProperties;
 }
 
 export interface RadioGroupItemModel {

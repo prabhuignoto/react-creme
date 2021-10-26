@@ -11,6 +11,7 @@ import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
 import { useKeyWithDependency } from "../common/effects/useKey";
 import { usePosition } from "../common/effects/usePosition";
+import { MenuItem } from "./menu-item";
 import { MenuItemModel, MenuModel } from "./menu-model";
 import "./menu.scss";
 
@@ -119,22 +120,12 @@ const Menu: React.FunctionComponent<MenuModel> = ({
         {children}
         <ul className={menuClass} ref={menuRef} style={cssPosition} role="menu">
           {menuItems.map(({ name, id, disabled }) => (
-            <li
+            <MenuItem
+              name={name}
+              disabled={disabled}
+              handleSelection={handleSelection}
               key={id}
-              className={classNames(["rc-menu-item"], {
-                "rc-menu-item-disabled": disabled,
-              })}
-              onClick={(ev) => {
-                ev.preventDefault();
-                ev.stopPropagation();
-                if (!disabled) {
-                  handleSelection(name);
-                }
-              }}
-              role="menuitem"
-            >
-              <span className="rc-menu-item-name">{name}</span>
-            </li>
+            />
           ))}
         </ul>
       </div>

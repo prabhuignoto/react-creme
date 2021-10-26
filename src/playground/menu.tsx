@@ -25,7 +25,7 @@ function menu() {
           { name: "tester 3" },
         ]}
       >
-        <Button type="icon">
+        <Button type="icon" size="lg">
           <CheckCircleIcon />
         </Button>
       </Menu>

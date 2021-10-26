@@ -10,6 +10,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   items,
   disabled = false,
   onSelected,
+  style,
 }) => {
   const [_items, setItems] = useState<RadioGroupItemModel[]>(
     Array.isArray(items)
@@ -50,7 +51,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   const isFirstRender = useFirstRender();
 
   return (
-    <ul className={"rc-radio-grp"} role="radiogroup">
+    <ul className={"rc-radio-grp"} role="radiogroup" style={style}>
       {_items.map(({ id, disabled, label, checked }) => (
         <li
           key={id}

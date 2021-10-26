@@ -8,7 +8,7 @@ const wrap: CSSProperties = {
 
 function progress() {
   const { time, start, pause, reset } = useTimer({
-    endTime: 40,
+    endTime: 100,
     interval: 100,
   });
 
@@ -29,8 +29,8 @@ function progress() {
         <Progress
           type="progressive"
           width={300}
-          maxValue={200}
-          currentValue={time * 5}
+          maxValue={1000}
+          currentValue={time * 10}
           showProgressValue
           size="small"
         />
@@ -60,7 +60,7 @@ function progress() {
         <Progress
           type="infinite"
           width={500}
-          maxValue={200}
+          maxValue={1000}
           currentValue={time * 5}
           showProgressValue
           size="small"

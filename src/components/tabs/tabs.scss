@@ -1,0 +1,58 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/list.scss";
+@use "../../design/position.scss";
+
+.rc-tab-panel {
+  @extend %center;
+}
+
+.rc-tabs {
+  @extend %col;
+}
+
+.rc-tab-headers {
+  @extend %list-horizontal-left;
+  height: 35px;
+  width: 100%;
+
+  li {
+    @extend %center;
+    height: 100%;
+  }
+}
+
+.rc-tab-header-label {
+  @extend %center;
+  cursor: pointer;
+  height: 100%;
+  min-width: 100px;
+  position: relative;
+
+  &.rc-tab-header-selected {
+    background: colors.$light-bg;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color: colors.$primary;
+  }
+
+  &:hover::after {
+    @include position.position-abs("center center");
+    background: colors.$secondary;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    content: "";
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+.rc-tab-panels {
+  @extend %list;
+  @extend %border-radius;
+  background: colors.$light-bg;
+  min-height: 200px;
+  width: 100%;
+  // box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+}
