@@ -17,6 +17,7 @@ function tags() {
           restrictToValues={["one", "two"]}
           onSelected={(val) => console.log(val)}
           readonly
+          tagWidth={50}
         />
       </div>
       <br></br>
@@ -24,7 +25,7 @@ function tags() {
       <div style={{ width: "500px" }}>
         <Tags
           items={[
-            { name: "prabhu", disabled: false },
+            { name: "prabhu murthy", disabled: false },
             { name: "blue" },
             { name: "red" },
             { name: "orange" },
@@ -32,6 +33,7 @@ function tags() {
           ]}
           maxTags={15}
           onSelected={(val) => console.log(val)}
+          tagWidth={150}
         />
       </div>
     </>

@@ -1,5 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
+import { act } from "react-dom/test-utils";
 import { Menu } from "../menu";
 import { MenuItemModel } from "../menu-model";
 
@@ -8,7 +9,7 @@ const onSelected = jest.fn();
 const items: MenuItemModel[] = [
   { name: "one" },
   { name: "two" },
-  { name: "three" },
+  { name: "three", disabled: true },
 ];
 
 describe("Menu", () => {
@@ -44,5 +45,20 @@ describe("Menu", () => {
 
     fireEvent.click(getByText("icon"));
     expect(getByRole("menu")).toHaveClass("rc-menu-close");
+  });
+
+  it("should not select the disabled item", async () => {
+    const handler = jest.fn();
+
+    const { getByText, getByRole } = render(
+      <Menu items={items} onSelected={handler}>
+        <span>icon</span>
+      </Menu>
+    );
+
+    await act(async () => {
+      fireEvent.click(getByText("three"));
+      expect(handler).not.toBeCalled();
+    });
   });
 });

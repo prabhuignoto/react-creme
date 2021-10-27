@@ -23,18 +23,6 @@
 
 .rc-focus-border:focus {
   outline: 0;
-
-  // &::after {
-  // @extend %border-radius;
-  // @include position.position-abs("center center");
-  // border: 10px solid rgba(colors.$tertiary, 1);
-  // content: "";
-  // display: none;
-  // height: calc(100% + 10px);
-  // transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-  // width: calc(100% + 10px);
-  // z-index: -1;
-  // }
 }
 
 .rc-focus-border:focus-visible {
@@ -47,11 +35,12 @@
     border: 2px solid rgba(colors.$primary, 0.5);
     content: "";
     display: block;
-    height: calc(100% + 6px);
+    height: calc(100%);
     transition: border-color 0.5s ease;
     transition: box-shadow 0.2s ease;
-    width: calc(100% + 6px);
-    z-index: -1;
+    width: calc(100%);
+    z-index: 10;
+    // z-index: -1;
   }
 }
 

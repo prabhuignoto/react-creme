@@ -28,7 +28,9 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
 
   useFocus(ref, { bgHighlight: false });
 
-  const toggleCheck = useCallback(() => setChecked((prev) => !prev), []);
+  const toggleCheck = useCallback(() => {
+    setChecked((prev) => !prev);
+  }, []);
 
   useKeyWithDependency(ref, toggleCheck, checked);
 
@@ -59,10 +61,10 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   );
 
   useEffect(() => {
-    if (!isFirstRender.current && checked !== isChecked) {
+    if (!isFirstRender.current && !disabled) {
       setChecked(isChecked);
     }
-  }, [isChecked]);
+  }, [isChecked && disabled]);
 
   useEffect(() => {
     if (!isFirstRender.current) {

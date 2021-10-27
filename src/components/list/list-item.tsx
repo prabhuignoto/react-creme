@@ -14,8 +14,9 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
     name,
     value,
     selected,
-    allowMultipleSelection,
+    allowMultiSelection,
     onSelection,
+    onClick,
   }: ListItemModel) => {
     const ref = useRef(null);
 
@@ -29,13 +30,19 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
 
     const listItemClass = useMemo(
       () =>
-        classNames(["rc-list-option", { "rc-list-option-disabled": disabled }]),
-      []
+        classNames([
+          "rc-list-option",
+          {
+            "rc-list-option-disabled": disabled,
+            "rc-list-option-selected": selected,
+          },
+        ]),
+      [selected]
     );
 
     return (
-      <li className={listItemClass} key={id} role="option">
-        {allowMultipleSelection ? (
+      <li className={listItemClass} key={id} role="option" onClick={onClick}>
+        {allowMultiSelection ? (
           <span className="rc-list-item-checkbox-wrapper">
             <CheckBox
               label={name}
@@ -48,7 +55,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
           <span
             className="rc-list-option-value"
             ref={ref}
-            tabIndex={!disabled && !allowMultipleSelection ? 0 : -1}
+            tabIndex={!disabled && !allowMultiSelection ? 0 : -1}
             onClick={handleSelection}
           >
             {name}
@@ -59,7 +66,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
   },
   (prev, cur) =>
     prev.selected === cur.selected &&
-    prev.allowMultipleSelection === cur.allowMultipleSelection
+    prev.allowMultiSelection === cur.allowMultiSelection
 );
 
 ListItem.displayName = "ListItem";

@@ -7,12 +7,13 @@ import "./tree.scss";
 
 const Tree: React.FunctionComponent<TreeModel> = React.memo(
   ({
-    items,
-    isChildTree,
-    width = 100,
-    height = 200,
-    onChildToggle,
     allowSelection,
+    childrenSelected,
+    height = 200,
+    isChildTree,
+    items,
+    onChildToggle,
+    width = 100,
   }: TreeModel) => {
     const [_items, setItems] = useState(
       items.map((item) => ({
@@ -58,6 +59,7 @@ const Tree: React.FunctionComponent<TreeModel> = React.memo(
             onToggle={toggleItem}
             onChildToggle={onChildToggle}
             allowSelection={allowSelection}
+            selected={childrenSelected}
           />
         ))}
       </div>

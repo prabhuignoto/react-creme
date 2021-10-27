@@ -11,4 +11,5 @@ export interface TagsModel {
   maxTags?: number;
   restrictToValues?: string[];
   readonly?: boolean;
+  tagWidth?: number;
 }

@@ -26,11 +26,14 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     onToggle,
     onChildToggle,
     allowSelection,
+    selected,
   }: TreeItemModel) => {
     const isFirstRender = useRef(true);
     const [totalItems, setTotalItems] = useState(
       Array.isArray(child) ? child.length + 1 : 0
     );
+
+    const [checked, setChecked] = useState(selected);
 
     const itemClass = useMemo(
       () =>
@@ -70,6 +73,12 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
       }
     }, []);
 
+    useEffect(() => {
+      if (typeof selected !== "undefined") {
+        setChecked(selected);
+      }
+    }, [selected]);
+
     const itemStyle = useMemo(
       () =>
         ({
@@ -103,6 +112,10 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
       [totalItems]
     );
 
+    const handleSelection = (val: boolean) => {
+      setChecked(val);
+    };
+
     useEffect(() => {
       if (typeof expanded === "undefined") {
         return;
@@ -118,7 +131,11 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
         <div className="rc-tree-item-wrapper">
           {allowSelection ? (
             <span className="rc-tree-item-checkbox-wrapper">
-              <CheckBox label={name || ""} />
+              <CheckBox
+                label={name || ""}
+                onChange={handleSelection}
+                isChecked={checked}
+              />
             </span>
           ) : (
             <span className="rc-tree-item-name">{name}</span>
@@ -130,6 +147,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
                 isChildTree
                 onChildToggle={handler}
                 allowSelection={allowSelection}
+                childrenSelected={checked}
               />
             </Suspense>
           </div>
@@ -137,7 +155,8 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
       </div>
     );
   },
-  (prev, cur) => prev.expanded === cur.expanded
+  (prev, cur) =>
+    prev.expanded === cur.expanded && prev.selected === cur.selected
 );
 
 TreeItem.displayName = "TreeItem";

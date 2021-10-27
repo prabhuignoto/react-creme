@@ -8,7 +8,7 @@ function menu() {
       <Menu
         items={[
           { name: "prabhu" },
-          { name: "tester" },
+          { name: "tester", disabled: true },
           { name: "tester 2" },
           { name: "tester 3" },
         ]}

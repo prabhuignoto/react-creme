@@ -6,6 +6,7 @@ export interface TreeItemModel {
   name?: string;
   onChildToggle?: (expanded: boolean, childrenCount: number) => void;
   onToggle?: (id?: string) => void;
+  selected?: boolean;
 }
 
 export interface TreeModel {
@@ -15,4 +16,5 @@ export interface TreeModel {
   items: TreeItemModel[];
   onChildToggle?: (expanded: boolean, childrenCount: number) => void;
   width?: number;
+  childrenSelected?: boolean;
 }

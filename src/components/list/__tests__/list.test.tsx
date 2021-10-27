@@ -85,7 +85,7 @@ describe("List", () => {
 
   it("should render multi selection", async () => {
     const { getByRole, getAllByRole } = render(
-      <List options={options} allowMultipleSelection onSelection={handler} />
+      <List options={options} allowMultiSelection onSelection={handler} />
     );
 
     expect(getByRole("listbox")).toBeInTheDocument();

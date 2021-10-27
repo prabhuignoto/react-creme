@@ -9,6 +9,7 @@
 
 .rc-tabs {
   @extend %col;
+  padding: 1rem;
 }
 
 .rc-tab-headers {
@@ -54,5 +55,4 @@
   background: colors.$light-bg;
   min-height: 200px;
   width: 100%;
-  // box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
 }

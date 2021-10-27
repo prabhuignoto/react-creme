@@ -18,13 +18,15 @@ $height: 40px;
 
 .rc-list-option {
   @extend %list-item-left;
+  @extend %border-radius;
   height: $height;
-  margin: 0.1rem 0;
+  margin: 0.25rem 0;
   position: relative;
   width: 90%;
   z-index: 1;
 
-  &:hover:not(.rc-list-option-disabled)::after {
+  &:hover:not(.rc-list-option-disabled):not(.rc-list-option-selected)::after,
+  &.rc-list-option-selected::after {
     @extend %border-radius;
     @include position.position-abs("middle left");
     background: colors.$light-bg;
@@ -52,5 +54,6 @@ $height: 40px;
 .rc-list-item-checkbox-wrapper {
   @extend %center;
   height: 100%;
+  margin-left: 0.5rem;
   width: 100%;
 }

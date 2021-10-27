@@ -22,7 +22,7 @@ export interface ListOption extends Option {
 
 const List: React.FunctionComponent<ListModel> = ({
   options,
-  allowMultipleSelection,
+  allowMultiSelection,
   maxHeight = 250,
   onSelection,
   borderLess = false,
@@ -55,7 +55,7 @@ const List: React.FunctionComponent<ListModel> = ({
   }, []);
 
   const handleSelection = useCallback((opt) => {
-    if (allowMultipleSelection) {
+    if (allowMultiSelection) {
       setListOptions((prev) => {
         const updated = prev.map((option) => ({
           ...option,
@@ -111,7 +111,7 @@ const List: React.FunctionComponent<ListModel> = ({
               disabled={disabled}
               key={id}
               onSelection={handleSelection}
-              allowMultipleSelection={allowMultipleSelection}
+              allowMultiSelection={allowMultiSelection}
             />
           ))}
       </ul>

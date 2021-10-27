@@ -7,7 +7,7 @@ export interface DropdownMenuModel extends OverlayModel {
   handleSelection: (selected: Option[]) => void;
   open: boolean;
   options: MenuOption[];
-  allowMultipleSelection?: boolean;
+  allowMultiSelection?: boolean;
 }
 
 export interface DropdownMenuStyleModel {
@@ -25,7 +25,7 @@ export interface Option {
 }
 
 export interface DropdownModel {
-  allowMultipleSelection?: boolean;
+  allowMultiSelection?: boolean;
   maxMenuHeight?: number;
   onSelected?: (value: string | string[]) => void;
   options: Option[];

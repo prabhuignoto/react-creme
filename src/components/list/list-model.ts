@@ -1,25 +1,21 @@
 import { ListOption } from "./list";
 
 export interface ListModel {
-  allowMultipleSelection?: boolean;
+  allowMultiSelection?: boolean;
   borderLess?: boolean;
+  disableSearch?: boolean;
   maxHeight?: number;
   onSelection?: (selected: ListOption[]) => void;
   options: ListOption[];
-  disableSearch?: boolean;
 }
 
 export interface ListItemModel {
   disabled?: boolean;
+  allowMultiSelection?: boolean;
   id?: string;
   name: string;
-  value: string;
+  onSelection?: (opt: ListOption) => void;
+  onClick?: () => void;
   selected?: boolean;
-  allowMultipleSelection?: boolean;
-  onSelection?: (t: {
-    id?: string;
-    name: string;
-    value: string;
-    selected?: boolean;
-  }) => void;
+  value: string;
 }

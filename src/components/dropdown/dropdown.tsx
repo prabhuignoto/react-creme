@@ -1,6 +1,12 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { ChevronDownIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
 import { withOverlay } from "../common/withOverlay";
@@ -14,7 +20,7 @@ const DropdownMenuOverlay = withOverlay<DropdownMenuModel>(DropDownMenu, {
 
 const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
   ({
-    allowMultipleSelection,
+    allowMultiSelection,
     maxMenuHeight = 200,
     onSelected,
     options = [],
@@ -25,12 +31,17 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
       options.map((option) => ({
         id: nanoid(),
         ...option,
-        selected: false,
         visible: true,
       }))
     );
-    const [value, setValue] = useState(placeholder);
+    const [value, setValue] = useState(
+      !options.some((opt) => opt.selected) ? placeholder : ""
+    );
+
+    // state for showing and hiding the menu
     const [showMenu, setShowMenu] = useState(false);
+
+    // state for tracking when the menu is closing
     const [menuClosing, setMenuClosing] = useState(false);
 
     // REFS
@@ -41,7 +52,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     const handleSelection = useCallback((selected: Option[]) => {
       let _value: string | string[];
 
-      if (allowMultipleSelection) {
+      if (allowMultiSelection) {
         _value = selected.map((opt) => opt.value).join(",");
         const selectedIds = selected.map((item) => item.id);
 
@@ -97,7 +108,20 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
 
     useFocus(dropdownRef, { bgHighlight: false });
 
-    const selectedValue = useMemo(() => value || placeholder, [value]);
+    useEffect(() => {
+      // populate selected value on load
+      if (allowMultiSelection) {
+        setValue(
+          options
+            .filter((op) => op.selected)
+            .map((option) => option.name)
+            .join(",")
+        );
+      } else {
+        const selected = options.find((op) => op.selected);
+        setValue(selected ? selected.name : placeholder);
+      }
+    }, []);
 
     return (
       <div
@@ -113,7 +137,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
           ref={containerRef}
           onClick={handleToggleMenu}
         >
-          <span className={"rc-dropdown-value"}>{selectedValue}</span>
+          <span className={"rc-dropdown-value"}>{value}</span>
           <span
             className={classNames([
               "rc-dropdown-chevron-icon",
@@ -132,7 +156,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
             handleSelection={handleSelection}
             options={dropdownOptions}
             open={showMenu}
-            allowMultipleSelection={allowMultipleSelection}
+            allowMultiSelection={allowMultiSelection}
             placementReference={dropdownRef}
             placement="bottom"
             onClose={handleMenuClose}

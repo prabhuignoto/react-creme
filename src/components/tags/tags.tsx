@@ -14,6 +14,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   onSelected,
   readonly = false,
   restrictToValues = [],
+  tagWidth = 50,
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemModel[]>(
@@ -71,6 +72,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
             handleRemove={handleRemove}
             key={id}
             name={name}
+            width={tagWidth}
           />
         ))}
         {canAdd && (

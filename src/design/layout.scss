@@ -79,7 +79,7 @@
 }
 
 %shadow-small {
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 %shadow-medium {
@@ -107,7 +107,7 @@
   color: #9d9d9d;
   cursor: not-allowed;
   filter: grayscale(80%);
-  opacity: 0.5;
+  opacity: 0.75;
   user-select: none;
   z-index: 0;
 

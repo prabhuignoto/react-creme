@@ -6,7 +6,7 @@ function list() {
     <div style={{ minHeight: "400px", width: "350px" }}>
       <br />
       <List
-        allowMultipleSelection
+        allowMultiSelection
         onSelection={(val) => console.log(val)}
         options={[
           {

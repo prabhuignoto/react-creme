@@ -24,6 +24,9 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
   position = "left",
   width = 300,
 }) => {
+  const [activate, setActivate] = useState(false);
+  const drawerRef = useRef<HTMLDivElement | null>(null);
+
   const style = useMemo<CSSProperties>(() => {
     let newHeight: string | number = "100%";
 
@@ -36,8 +39,6 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
       "--min-height": `${newHeight}`,
     } as CSSProperties;
   }, []);
-  const [activate, setActivate] = useState(false);
-  const drawerRef = useRef<HTMLDivElement | null>(null);
 
   const drawerClass = useMemo(
     () =>

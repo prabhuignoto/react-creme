@@ -9,7 +9,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
   handleSelection,
   style: { top, width, maxMenuHeight },
   open,
-  allowMultipleSelection,
+  allowMultiSelection,
   isClosing,
   onClosing,
 }: DropdownMenuModel) => {
@@ -45,7 +45,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
       <List
         options={options}
         onSelection={handleSelection}
-        allowMultipleSelection={allowMultipleSelection}
+        allowMultiSelection={allowMultiSelection}
         borderLess
       />
     </div>
