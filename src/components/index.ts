@@ -1,3 +1,4 @@
+export { Accordion } from "./accordion/accordion";
 export { BreadCrumb } from "./breadcrumb/breadcrumb";
 export { Button } from "./button/button";
 export { Carousel } from "./carousel/carousel";
@@ -19,8 +20,8 @@ export { Skeleton } from "./skeleton/skeleton";
 export { Slider } from "./slider/slider";
 export { Splitter } from "./splitter/splitter";
 export { Switch } from "./switch/switch";
+export { Tabs } from "./tabs/tabs";
 export { Tags } from "./tags/tags";
 export { Tooltip } from "./tooltip/tooltip";
 export { Transfer } from "./transfer/transfer";
 export { Tree } from "./tree/tree";
-export {} from "./tabs/tabs";

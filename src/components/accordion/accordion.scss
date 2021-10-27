@@ -1,0 +1,51 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/icon.scss";
+
+$header-height: 32px;
+
+.rc-accordion {
+  @extend %col;
+  @extend %border;
+  @extend %shadow-inset;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0.5rem;
+}
+
+.rc-accordion-header {
+  @extend %left;
+  height: $header-height;
+  width: 100%;
+}
+
+.rc-accordion-body {
+  margin: 0 auto;
+  overflow: hidden;
+  transition: max-height 0.25s ease-in, opacity 0.25s ease-in;
+  width: 95%;
+
+  &.rc-accordion-open {
+    max-height: var(--max-height);
+    opacity: 1;
+  }
+
+  &.rc-accordion-close {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+.rc-accordion-title {
+  @extend %center;
+}
+
+.rc-accordion-icon {
+  @extend %icon-md;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+
+  &.rc-accordion-icon-open {
+    transform: rotate(90deg);
+  }
+}
