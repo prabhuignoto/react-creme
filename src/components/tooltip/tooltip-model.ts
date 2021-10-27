@@ -8,6 +8,8 @@ export type ToolTipPosition =
   | "bottom left"
   | "bottom right"
   | "left center"
+  | "left top"
+  | "left bottom"
   | "right center";
 
 export interface TooltipModel {

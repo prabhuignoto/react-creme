@@ -1,6 +1,7 @@
 @use "../../design/layout.scss";
 @use "../../design/list.scss";
 @use "../../design/icon.scss";
+@use "../../design/colors.scss";
 
 .rc-tags-wrap {
   @extend %list-wrap;
@@ -33,6 +34,12 @@
 
 .rc-tag-icon {
   @extend %icon-sm;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background: colors.$light-bg;
+  }
 }
 
 .rc-tags-input-wrapper {

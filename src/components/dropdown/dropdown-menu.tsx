@@ -5,13 +5,14 @@ import "./dropdown-menu.scss";
 import { DropdownMenuModel } from "./dropdown-model";
 
 const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
-  options,
-  handleSelection,
-  style: { top, width, maxMenuHeight },
-  open,
   allowMultiSelection,
+  enableSearch,
+  handleSelection,
   isClosing,
   onClosing,
+  open,
+  options,
+  style: { top, width, maxMenuHeight },
 }: DropdownMenuModel) => {
   // STYLES
   const menuStyle = useMemo(() => {
@@ -47,6 +48,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
         onSelection={handleSelection}
         allowMultiSelection={allowMultiSelection}
         borderLess
+        disableSearch={!enableSearch}
       />
     </div>
   );

@@ -46,7 +46,11 @@ function tooltip() {
             { label: "bottom left", value: "bottom left" },
             { label: "bottom right", value: "bottom right" },
             { label: "left center", value: "left center" },
+            { label: "left top", value: "left top" },
+            { label: "left bottom", value: "left bottom" },
             { label: "right center", value: "right center" },
+            { label: "right top", value: "right top" },
+            { label: "right bottom", value: "right bottom" },
           ]}
         ></RadioGroup>
       </div>

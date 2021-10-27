@@ -56,8 +56,9 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
           <span
             className="rc-tag-icon"
             onClick={handleClick}
-            tabIndex={0}
             ref={ref}
+            role="button"
+            tabIndex={0}
           >
             <CloseIcon />
           </span>

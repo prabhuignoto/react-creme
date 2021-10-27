@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.95% </span>
+                <span class="strong">81.53% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>51/63</span>
+                <span class='fraction'>53/65</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60.86% </span>
+                <span class="strong">62.96% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/23</span>
+                <span class='fraction'>17/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">65% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>13/20</span>
+                <span class='fraction'>14/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.92% </span>
+                <span class="strong">84.21% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>47/56</span>
+                <span class='fraction'>48/57</span>
             </div>
         
             
@@ -230,7 +230,14 @@
 <a name='L171'></a><a href='#L171'>171</a>
 <a name='L172'></a><a href='#L172'>172</a>
 <a name='L173'></a><a href='#L173'>173</a>
-<a name='L174'></a><a href='#L174'>174</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">9x</span>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -251,6 +258,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -342,6 +351,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -360,7 +371,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -426,6 +440,8 @@ const DropdownMenuOverlay = withOverlay&lt;DropdownMenuModel&gt;(DropDownMenu, {
 const Dropdown: React.FunctionComponent&lt;DropdownModel&gt; = React.memo(
   ({
     allowMultiSelection,
+    disabled = false,
+    enableSearch = false,
     maxMenuHeight = 200,
     onSelected,
     options = <span class="branch-0 cbranch-no" title="branch not covered" >[],</span>
@@ -513,6 +529,8 @@ const Dropdown: React.FunctionComponent&lt;DropdownModel&gt; = React.memo(
 &nbsp;
     useFocus(dropdownRef, { bgHighlight: false });
 &nbsp;
+    const selectedValue = useMemo(() =&gt; value || <span class="branch-1 cbranch-no" title="branch not covered" >placeholder,</span> [value]);
+&nbsp;
     useEffect(() =&gt; {
       // populate selected value on load
       <span class="missing-if-branch" title="if path not taken" >I</span>if (allowMultiSelection) {
@@ -530,7 +548,9 @@ const Dropdown: React.FunctionComponent&lt;DropdownModel&gt; = React.memo(
 &nbsp;
     return (
       &lt;div
-        className={"rc-dropdown-wrapper"}
+        className={classNames("rc-dropdown", {
+          "rc-dropdown-disabled": disabled,
+        })}
         tabIndex={0}
         onKeyUp={<span class="fstat-no" title="function not covered" >(e</span>v) =&gt; {
 <span class="cstat-no" title="statement not covered" >          ev.key === "Enter" &amp;&amp; handleToggleMenu();</span>
@@ -542,7 +562,7 @@ const Dropdown: React.FunctionComponent&lt;DropdownModel&gt; = React.memo(
           ref={containerRef}
           onClick={handleToggleMenu}
         &gt;
-          &lt;span className={"rc-dropdown-value"}&gt;{value}&lt;/span&gt;
+          &lt;span className={"rc-dropdown-value"}&gt;{selectedValue}&lt;/span&gt;
           &lt;span
             className={classNames([
               "rc-dropdown-chevron-icon",
@@ -566,6 +586,7 @@ const Dropdown: React.FunctionComponent&lt;DropdownModel&gt; = React.memo(
             placement="bottom"
             onClose={handleMenuClose}
             onClosing={handleMenuClosing}
+            enableSearch={enableSearch}
           /&gt;
         )}
       &lt;/div&gt;
@@ -583,7 +604,7 @@ export { Dropdown };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Oct 27 2021 21:55:45 GMT+0530 (India Standard Time)
+                at Thu Oct 28 2021 00:26:37 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

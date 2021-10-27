@@ -3,11 +3,12 @@ import { OverlayModel } from "../common/overlay-model";
 export type MenuOption = Option & { visible: boolean };
 
 export interface DropdownMenuModel extends OverlayModel {
-  style: DropdownMenuStyleModel;
+  allowMultiSelection?: boolean;
+  enableSearch?: boolean;
   handleSelection: (selected: Option[]) => void;
   open: boolean;
   options: MenuOption[];
-  allowMultiSelection?: boolean;
+  style: DropdownMenuStyleModel;
 }
 
 export interface DropdownMenuStyleModel {
@@ -20,12 +21,14 @@ export interface Option {
   disabled?: boolean;
   id?: string;
   name: string;
-  value: string;
   selected?: boolean;
+  value: string;
 }
 
 export interface DropdownModel {
   allowMultiSelection?: boolean;
+  disabled?: boolean;
+  enableSearch?: boolean;
   maxMenuHeight?: number;
   onSelected?: (value: string | string[]) => void;
   options: Option[];

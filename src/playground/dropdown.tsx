@@ -8,6 +8,7 @@ function dropdown() {
         onSelected={(val) => console.log(val)}
         placeholder="choose a country"
         allowMultiSelection
+        enableSearch
         options={[
           { name: "germany", value: "germany", disabled: true },
           { name: "india", value: "india" },

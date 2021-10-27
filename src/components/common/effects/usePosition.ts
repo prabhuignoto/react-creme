@@ -8,6 +8,10 @@ type Position =
   | "bottom left"
   | "bottom right"
   | "left center"
+  | "left top"
+  | "left bottom"
+  | "right top"
+  | "right bottom"
   | "right center";
 
 interface Settings {
@@ -36,8 +40,8 @@ const usePosition: FunctionType = function (
       return;
     }
 
-    const positionY = position.split(" ")[1];
     const positionX = position.split(" ")[0];
+    const positionY = position.split(" ")[1];
 
     const isPositionX = (match: string) => positionX === match;
 
@@ -103,6 +107,24 @@ const usePosition: FunctionType = function (
         const prop = isPositionX("left") ? "right" : "left";
         cssPosition = {
           ...verticalCenter,
+          [prop]: eleWidth + spacing,
+        };
+        break;
+      }
+      case "left top":
+      case "right top": {
+        const prop = isPositionX("left") ? "right" : "left";
+        cssPosition = {
+          top: 0,
+          [prop]: eleWidth + spacing,
+        };
+        break;
+      }
+      case "right bottom":
+      case "left bottom": {
+        const prop = isPositionX("left") ? "right" : "left";
+        cssPosition = {
+          bottom: 0,
           [prop]: eleWidth + spacing,
         };
         break;

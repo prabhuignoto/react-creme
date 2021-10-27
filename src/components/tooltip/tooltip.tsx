@@ -42,8 +42,8 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
         {
           "show-tooltip": show,
           "hide-tooltip": !isFirstRender.current && !show,
-          [`rc-tooltip-${position.split(" ")[0]}`]: true,
-          [`rc-tooltip-${position.split(" ")[1]}`]: true,
+          [`rc-tooltip-${position.split(" ")[0]}-${position.split(" ")[1]}`]:
+            true,
         },
       ]),
     [show, position]

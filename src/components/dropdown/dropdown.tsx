@@ -21,6 +21,8 @@ const DropdownMenuOverlay = withOverlay<DropdownMenuModel>(DropDownMenu, {
 const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
   ({
     allowMultiSelection,
+    disabled = false,
+    enableSearch = false,
     maxMenuHeight = 200,
     onSelected,
     options = [],
@@ -108,6 +110,8 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
 
     useFocus(dropdownRef, { bgHighlight: false });
 
+    const selectedValue = useMemo(() => value || placeholder, [value]);
+
     useEffect(() => {
       // populate selected value on load
       if (allowMultiSelection) {
@@ -125,7 +129,9 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
 
     return (
       <div
-        className={"rc-dropdown-wrapper"}
+        className={classNames("rc-dropdown", {
+          "rc-dropdown-disabled": disabled,
+        })}
         tabIndex={0}
         onKeyUp={(ev) => {
           ev.key === "Enter" && handleToggleMenu();
@@ -137,7 +143,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
           ref={containerRef}
           onClick={handleToggleMenu}
         >
-          <span className={"rc-dropdown-value"}>{value}</span>
+          <span className={"rc-dropdown-value"}>{selectedValue}</span>
           <span
             className={classNames([
               "rc-dropdown-chevron-icon",
@@ -161,6 +167,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
             placement="bottom"
             onClose={handleMenuClose}
             onClosing={handleMenuClosing}
+            enableSearch={enableSearch}
           />
         )}
       </div>

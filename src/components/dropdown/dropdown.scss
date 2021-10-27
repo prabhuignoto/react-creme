@@ -4,10 +4,14 @@
 @use "../../design/list.scss";
 @use "../../design/animate.scss";
 
-.rc-dropdown-wrapper {
+.rc-dropdown {
   position: relative;
   user-select: none;
   width: 100%;
+
+  &.rc-dropdown-disabled {
+    @extend %disabled;
+  }
 }
 
 .rc-dropdown-value-container {
