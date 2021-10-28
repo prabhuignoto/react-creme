@@ -4,7 +4,7 @@ import { Accordion } from "../components";
 function accordion() {
   return (
     <div style={{ height: "500px", width: "500px" }}>
-      <Accordion title="accordion title">
+      <Accordion title="accordion title" noBorder>
         <p>
           Sed laoreet neque eget sem varius, et interdum dui venenatis.
           Suspendisse in faucibus tortor, nec aliquet arcu. Quisque at lorem sed

@@ -6,11 +6,14 @@ $header-height: 32px;
 
 .rc-accordion {
   @extend %col;
-  @extend %border;
-  @extend %shadow-inset;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0.5rem;
+
+  &:not(.rc-accordion-no-border) {
+    @extend %border;
+    @extend %shadow-inset;
+  }
 }
 
 .rc-accordion-header {

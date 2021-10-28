@@ -5,10 +5,26 @@
 @use "../../design/colors.scss";
 
 $sizes: (sm, md, lg);
+$grid: (
+  sm: 1.25rem,
+  md: 1.75rem,
+  lg: 2rem,
+);
 
 .rc-checkbox-wrapper {
   @extend %left;
+  align-items: center;
+  column-gap: 0.5rem;
+  display: grid;
+  height: 100%;
+  justify-items: center;
   width: 100%;
+
+  @each $key, $val in $grid {
+    &.rc-checkbox-#{$key} {
+      grid-template-columns: $val calc(100% - calc($val + 0.5rem));
+    }
+  }
 }
 
 .rc-checkbox {
@@ -45,9 +61,10 @@ $sizes: (sm, md, lg);
 
 .rc-checkbox-label {
   @extend %text-no-wrap;
-  display: block;
-  padding-left: 0.75rem;
-  text-align: left;
+  @extend %left;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
 
   @each $key in $sizes {
     &.rc-checkbox-label-#{$key} {

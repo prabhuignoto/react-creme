@@ -51,7 +51,7 @@ exports[`Carousel should render carousel snapshot 1`] = `
         class="rc-carousel-btn rc-carousel-btn-left rc-carousel-btn-horizontal rc-carousel-btn-hide"
       >
         <button
-          class="rc-btn-sm rc-btn-icon"
+          class="rc-btn-sm rc-btn-icon rc-btn"
           role="button"
           tabindex="0"
         >
@@ -93,7 +93,7 @@ exports[`Carousel should render carousel snapshot 1`] = `
         class="rc-carousel-btn rc-carousel-btn-right rc-carousel-btn-horizontal"
       >
         <button
-          class="rc-btn-sm rc-btn-icon"
+          class="rc-btn-sm rc-btn-icon rc-btn"
           role="button"
           tabindex="0"
         >

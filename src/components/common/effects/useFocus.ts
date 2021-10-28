@@ -10,7 +10,6 @@ function useFocus(element: RefObject<HTMLElement>, setting?: FocusSetting) {
   const { bgHighlight }: FocusSetting = setting || { bgHighlight: false };
 
   const cls = classNames("rc-focus", {
-    // "rc-focus-bg": bgHighlight,
     "rc-focus-border": !bgHighlight,
     "rc-halo": true,
   }).split(" ");
@@ -22,6 +21,7 @@ function useFocus(element: RefObject<HTMLElement>, setting?: FocusSetting) {
   const removeClass = (ev: FocusEvent) => {
     const ele = ev.target as HTMLElement;
     cls.forEach((cl) => ele.classList.remove(cl));
+    ele.classList.remove("rc-halo");
   };
 
   const unHalo = useCallback(
@@ -34,7 +34,7 @@ function useFocus(element: RefObject<HTMLElement>, setting?: FocusSetting) {
     target.classList.add("rc-halo");
     target.classList.remove("rc-un-halo");
 
-    setTimeout(() => unHalo(target), 500);
+    setTimeout(() => unHalo(target), 300);
   }, []);
 
   const haloDebounced = useDebouncedCallback(haloCreator, 10);

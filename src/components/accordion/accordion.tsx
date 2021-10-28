@@ -15,11 +15,13 @@ import "./accordion.scss";
 export interface AccordionModel {
   title?: string;
   children?: ReactNode;
+  noBorder?: boolean;
 }
 
 const Accordion: React.FunctionComponent<AccordionModel> = ({
   title,
   children,
+  noBorder = false,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -67,13 +69,19 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
     }
   }, []);
 
+  const accordionClass = useMemo(
+    () => classNames("rc-accordion", { "rc-accordion-no-border": noBorder }),
+    [noBorder]
+  );
+
   useKey(chevronRef, () => {
     setOpen((prev) => !prev);
   });
+
   useFocus(chevronRef);
 
   return (
-    <div className={"rc-accordion"} aria-expanded={open}>
+    <div className={accordionClass} aria-expanded={open}>
       <div className="rc-accordion-header">
         <span
           className={iconClass}

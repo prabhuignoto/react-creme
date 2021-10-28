@@ -60,6 +60,11 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
     []
   );
 
+  const wrapperClass = useMemo(
+    () => classNames("rc-checkbox-wrapper", { [`rc-checkbox-${size}`]: true }),
+    [size]
+  );
+
   useEffect(() => {
     if (!isFirstRender.current && !disabled) {
       setChecked(isChecked);
@@ -75,7 +80,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   const isFirstRender = useFirstRender();
 
   return (
-    <div className="rc-checkbox-wrapper">
+    <div className={wrapperClass}>
       <div
         className={checkBoxClass}
         onClick={toggleCheck}

@@ -3,9 +3,14 @@
 @use "../../design/icon.scss";
 @use "../../design/button.scss";
 @use "../../design/font.scss";
+@use "../../design/animate.scss";
 
 $types: (primary, default, danger);
 $sizes: (sm, md, lg);
+
+.rc-btn {
+  @include animate.halo();
+}
 
 @each $value in $types {
   .rc-btn-#{$value} {

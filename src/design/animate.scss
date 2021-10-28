@@ -62,18 +62,20 @@
 
   &.rc-halo::after {
     @include position.position-abs("center center");
-    border: 2px solid rgba(colors.$primary, 0.95);
+    // border: 1px solid rgba(colors.$primary, 0.95);
     border-radius: $border-radius;
-    box-shadow: 0 0 1px 5px rgba(colors.$primary, 0.4);
+    box-shadow: 0 0 1px 10px rgba(colors.$primary, 0.3);
     content: "";
     display: block;
     height: 100%;
+    outline: 2px solid rgba(colors.$primary, 0.8);
+    outline-offset: 3px;
     transition: border 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
     width: 100%;
   }
 
   &.rc-un-halo::after {
-    border: 1px solid rgba(colors.$primary, 0.95);
-    box-shadow: 0 0 0 1px rgba(colors.$primary, 0.6);
+    // border: 2px solid rgba(colors.$primary, 0.75);
+    box-shadow: 0 0 0 6px rgba(colors.$white, 0);
   }
 }

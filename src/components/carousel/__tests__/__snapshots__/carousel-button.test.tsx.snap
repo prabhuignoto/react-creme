@@ -2,7 +2,7 @@
 
 exports[`Carousel Button should render carousel button snapshot 1`] = `
 <button
-  class="rc-btn-sm rc-btn-icon"
+  class="rc-btn-sm rc-btn-icon rc-btn"
   role="button"
   tabindex="0"
 >

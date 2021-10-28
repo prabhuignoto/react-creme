@@ -20,7 +20,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
         {
           "rc-btn-disabled": disabled,
         },
-        [`rc-btn-${size}`, `rc-btn-${type}`]
+        [`rc-btn-${size}`, `rc-btn-${type}`, "rc-btn"]
       ),
     [disabled]
   );
