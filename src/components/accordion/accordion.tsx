@@ -67,7 +67,9 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
     }
   }, []);
 
-  useKey(chevronRef, toggleAccordion);
+  useKey(chevronRef, () => {
+    setOpen((prev) => !prev);
+  });
   useFocus(chevronRef);
 
   return (

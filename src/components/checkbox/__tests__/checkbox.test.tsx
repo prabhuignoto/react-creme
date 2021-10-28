@@ -12,9 +12,9 @@ describe("Checkbox", () => {
   });
 
   it("should render disabled", () => {
-    const { container } = render(<CheckBox label="My Checkbox" disabled />);
+    const { getByRole } = render(<CheckBox label="My Checkbox" disabled />);
 
-    expect(container.firstChild).toHaveClass("rc-checkbox-disabled");
+    expect(getByRole("checkbox")).toHaveClass("rc-checkbox-disabled");
   });
 
   it("should render default prop isChecked", () => {
@@ -26,11 +26,11 @@ describe("Checkbox", () => {
   });
 
   it("should call the handler", () => {
-    const { getByText } = render(
+    const { getByRole } = render(
       <CheckBox label="My Checkbox" onChange={handler} />
     );
 
-    fireEvent.click(getByText("My Checkbox"));
+    fireEvent.click(getByRole("checkbox"));
 
     expect(handler).toBeCalled();
     expect(handler).toHaveBeenCalledWith(true);

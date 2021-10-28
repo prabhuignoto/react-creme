@@ -6,6 +6,7 @@ function menu() {
   return (
     <>
       <Menu
+        position="right"
         items={[
           { name: "prabhu" },
           { name: "tester", disabled: true },
@@ -24,6 +25,7 @@ function menu() {
           { name: "tester 2" },
           { name: "tester 3" },
         ]}
+        position="center"
       >
         <Button type="icon" size="lg">
           <CheckCircleIcon />

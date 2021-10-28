@@ -23,6 +23,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   onOpen,
   onSelected,
   closeManual,
+  position = "left",
 }: MenuModel) => {
   const [menuItems] = useState<MenuItemModel[]>(
     items.map((item) => ({
@@ -36,7 +37,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
 
   const [showMenu, setShowMenu] = useState(false);
 
-  const cssPosition = usePosition(wrapperRef, menuRef, "bottom left", {
+  const cssPosition = usePosition(wrapperRef, menuRef, `bottom ${position}`, {
     spacing: 5,
     alignToEdge: true,
   });
@@ -110,13 +111,13 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   }, []);
 
   return (
-    <div
-      className="rc-menu-wrapper"
-      onClick={toggleMenu}
-      ref={onInitRef}
-      tabIndex={0}
-    >
-      <div className="rc-menu-content-wrapper">
+    <div className="rc-menu-wrapper">
+      <div
+        className="rc-menu-content-wrapper"
+        onClick={toggleMenu}
+        ref={onInitRef}
+        tabIndex={0}
+      >
         {children}
         <ul className={menuClass} ref={menuRef} style={cssPosition} role="menu">
           {menuItems.map(({ name, id, disabled }) => (

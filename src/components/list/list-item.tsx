@@ -49,6 +49,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
               isChecked={selected}
               disabled={disabled}
               onChange={handleSelection}
+              size="sm"
             />
           </span>
         ) : (

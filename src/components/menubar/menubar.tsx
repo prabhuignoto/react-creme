@@ -29,8 +29,6 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const ref = useRef<HTMLUListElement>(null);
-
   const onCloseMenu = useCallback(() => {
     setIsMenuOpen(false);
   }, []);
@@ -55,9 +53,6 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
   }, []);
 
   useEffect(() => {
-    // if (ref.current) {
-    //   ref.current.focus();
-    // }
     document.addEventListener("click", closeWhenClickedOutside);
 
     return () => {
@@ -99,13 +94,7 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
   );
 
   return (
-    <ul
-      className={wrapperClass}
-      ref={ref}
-      // tabIndex={0}
-      style={menuBarStyle}
-      role="menubar"
-    >
+    <ul className={wrapperClass} style={menuBarStyle} role="menubar">
       {_items.current.map(({ id, name, menu }) => (
         <li key={id} className={classNames(["rc-menu-bar-item-wrapper"])}>
           {menu && (
@@ -116,6 +105,7 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
               id={id}
               onSelected={(val) => handleSelection(val, name)}
               closeManual={isMenuOpen}
+              position="left"
             >
               <span
                 className="rc-menu-bar-item-name"

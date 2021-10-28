@@ -49,8 +49,12 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   );
 
   const switchClass = useMemo(
-    () => classNames("rc-switch", { "rc-switch-disabled": disabled }),
-    []
+    () =>
+      classNames("rc-switch", {
+        "rc-switch-disabled": disabled,
+        [`rc-switch-${size}`]: true,
+      }),
+    [size]
   );
 
   const switchTrackClass = useMemo(
@@ -58,9 +62,10 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
       classNames("rc-switch-track", {
         "rc-switch-on": state,
         "rc-switch-off": !state,
+        "rc-switch-track-disabled": disabled,
         [`rc-switch-${size}`]: true,
       }),
-    [state, size]
+    [state, size, disabled]
   );
 
   const switchLabelClass = useMemo(

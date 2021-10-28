@@ -30,6 +30,20 @@ describe("Button", () => {
     expect(getByRole("button")).toMatchSnapshot();
   });
 
+  it("should render disabled button", () => {
+    const handler = jest.fn();
+
+    const { getByRole } = render(
+      <Button label="My Button" disabled onClick={handler} />
+    );
+
+    expect(getByRole("button")).toHaveClass("rc-btn-disabled");
+
+    fireEvent.click(getByRole("button"));
+
+    expect(handler).not.toBeCalled();
+  });
+
   it("should call handler", () => {
     const { getByText } = render(
       <Button label="My Button" onClick={handler} />

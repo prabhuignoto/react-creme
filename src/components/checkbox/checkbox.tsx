@@ -51,9 +51,9 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
     [checked]
   );
 
-  const wrapperClass = useMemo(
+  const checkBoxClass = useMemo(
     () =>
-      classNames("rc-checkbox-wrapper", {
+      classNames("rc-checkbox", {
         "rc-checkbox-disabled": disabled,
         [`rc-checkbox-${size}`]: true,
       }),
@@ -75,20 +75,22 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   const isFirstRender = useFirstRender();
 
   return (
-    <div
-      className={wrapperClass}
-      onClick={toggleCheck}
-      role="checkbox"
-      aria-checked={checked}
-      ref={ref}
-      tabIndex={disabled ? -1 : 0}
-      aria-labelledby={id.current}
-      style={style}
-    >
-      <span className={iconClass} role="img">
-        <CheckIcon />
-      </span>
-      <label className={labelClass} id={id.current}>
+    <div className="rc-checkbox-wrapper">
+      <div
+        className={checkBoxClass}
+        onClick={toggleCheck}
+        role="checkbox"
+        aria-checked={checked}
+        ref={ref}
+        tabIndex={disabled ? -1 : 0}
+        aria-labelledby={id.current}
+        style={style}
+      >
+        <span className={iconClass} role="img">
+          <CheckIcon />
+        </span>
+      </div>
+      <label className={labelClass} id={id.current} onClick={toggleCheck}>
         {label}
       </label>
     </div>

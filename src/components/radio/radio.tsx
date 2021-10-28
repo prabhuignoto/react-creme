@@ -76,18 +76,24 @@ const Radio: React.FunctionComponent<RadioModel> = ({
   }, [isChecked]);
 
   return (
-    <div
-      className={RadioWrapperClass}
-      onClick={toggleCheck}
-      aria-checked={!!checked}
-      tabIndex={0}
-      role="radio"
-      ref={ref}
-      style={style}
-    >
-      <span className={RadioIconClass}></span>
-      {/* <input type="hidden" value={value} aria-labelledby={labelID.current} /> */}
-      <label className="rc-radio-label" id={labelID.current}>
+    <div className="rc-radio-wrapper">
+      <div
+        className={RadioWrapperClass}
+        onClick={toggleCheck}
+        aria-checked={!!checked}
+        aria-labelledby={labelID.current}
+        tabIndex={0}
+        role="radio"
+        ref={ref}
+        style={style}
+      >
+        <span className={RadioIconClass}></span>
+      </div>
+      <label
+        className="rc-radio-label"
+        id={labelID.current}
+        onClick={toggleCheck}
+      >
         {label}
       </label>
     </div>

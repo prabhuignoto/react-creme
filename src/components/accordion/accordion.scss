@@ -38,6 +38,7 @@ $header-height: 32px;
 
 .rc-accordion-title {
   @extend %center;
+  padding-left: 6px;
 }
 
 .rc-accordion-icon {

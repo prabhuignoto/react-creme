@@ -17,8 +17,13 @@ $halo-sizes: (
   lg: 2.5rem,
 );
 
+.rc-radio-wrapper {
+  @extend %left;
+}
+
 .rc-radio {
   @extend %left;
+  @include animate.halo(50%);
   user-select: none;
 
   &.rc-radio-disabled {
@@ -48,33 +53,7 @@ $halo-sizes: (
   @each $key, $val in $halo-sizes {
     &.rc-radio-#{$key} {
       .rc-radio-icon {
-        $settings: (
-          from: (
-            height: 0,
-            width: 0,
-          ),
-          to: (
-            height: calc($val),
-            width: calc($val),
-          ),
-        );
         @extend %icon-#{$key};
-
-        &.rc-radio-ico-checked::before {
-          @include animate.set-keyframes(animation-halo-#{$key}, $settings);
-          animation-name: animation-halo-#{$key};
-          height: calc($val);
-          width: calc($val);
-        }
-
-        &.rc-radio-ico-un-checked::before {
-          @include animate.set-keyframes(
-            animation-halo-reverse-#{$key},
-            $settings,
-            true
-          );
-          animation-name: animation-halo-reverse-#{$key};
-        }
       }
     }
   }
@@ -96,30 +75,22 @@ $halo-sizes: (
   &.rc-radio-ico-checked::after {
     @extend %shadow-inset;
     @extend %pseudo-common;
-    @include position.position-abs("center center");
-    @include animate.set-animation(0.1s, ease-in);
-    animation-name: animate-radio-select;
     background: colors.$primary;
   }
 
   &.rc-radio-ico-checked::before {
     @extend %pseudo-common;
-    @include animate.set-animation(0.1s, ease-in);
-    @include position.position-abs("center center");
     background: rgba(colors.$primary, 0.1);
   }
 
   &.rc-radio-ico-un-checked::before {
     @extend %pseudo-common;
-    @include animate.set-animation(0.1s, ease-in);
-    @include position.position-abs("center center");
     background: rgba(colors.$primary, 0.1);
   }
 }
 
 .rc-radio-label {
   @extend %left;
-  cursor: pointer;
   padding-left: 0.5rem;
 }
 

@@ -7,6 +7,7 @@ export interface MenuModel {
   onClose?: (id?: string) => void;
   onOpen?: (id?: string) => void;
   onSelected?: (val: string) => void;
+  position?: "left" | "center" | "right";
 }
 
 export interface MenuItemModel {

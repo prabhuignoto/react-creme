@@ -1,4 +1,6 @@
 @use "sass:map";
+@use "position.scss";
+@use "colors.scss";
 
 @mixin set-keyframes($name, $attrs, $reverse: false) {
   $from: from;
@@ -49,5 +51,29 @@
     animation-name: top-bottom;
   } @else if $motion == "bottom-top" {
     animation-name: bottom-top;
+  }
+}
+
+@mixin halo($border-radius: 4px) {
+  &.rc-halo,
+  &.rc-un-halo {
+    position: relative;
+  }
+
+  &.rc-halo::after {
+    @include position.position-abs("center center");
+    border: 2px solid rgba(colors.$primary, 0.95);
+    border-radius: $border-radius;
+    box-shadow: 0 0 1px 5px rgba(colors.$primary, 0.4);
+    content: "";
+    display: block;
+    height: 100%;
+    transition: border 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+    width: 100%;
+  }
+
+  &.rc-un-halo::after {
+    border: 1px solid rgba(colors.$primary, 0.95);
+    box-shadow: 0 0 0 1px rgba(colors.$primary, 0.6);
   }
 }

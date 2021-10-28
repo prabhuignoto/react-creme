@@ -1,8 +1,8 @@
+@use "../../design/animate.scss";
+@use "../../design/colors.scss";
 @use "../../design/layout.scss";
 @use "../../design/list.scss";
 @use "../../design/position.scss";
-@use "../../design/animate.scss";
-@use "../../design/colors.scss";
 
 .rc-menu-bar-wrapper {
   @extend %border;
@@ -29,6 +29,7 @@
   user-select: none;
 
   &:hover {
+    background: colors.$secondary;
     cursor: pointer;
   }
 

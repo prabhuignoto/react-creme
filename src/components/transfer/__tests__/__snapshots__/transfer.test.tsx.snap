@@ -16,34 +16,38 @@ exports[`Transfer should render transfer snapshot 1`] = `
         role="listitem"
       >
         <div
-          aria-checked="false"
-          aria-labelledby="label-HwGzzMtmljOPflNVTbOZZ"
-          class="rc-checkbox-wrapper rc-checkbox-sm"
-          role="checkbox"
-          tabindex="0"
+          class="rc-checkbox-wrapper"
         >
-          <span
-            class="rc-checkbox-icon rc-checkbox-sm"
-            role="img"
+          <div
+            aria-checked="false"
+            aria-labelledby="label-Zfusp9BBrHQiUcwnPze44"
+            class="rc-checkbox rc-checkbox-sm"
+            role="checkbox"
+            tabindex="0"
           >
-            <svg
-              class="prefix__feather prefix__feather-check"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="rc-checkbox-icon rc-checkbox-sm"
+              role="img"
             >
-              <path
-                d="M20 6L9 17l-5-5"
-              />
-            </svg>
-          </span>
+              <svg
+                class="prefix__feather prefix__feather-check"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                />
+              </svg>
+            </span>
+          </div>
           <label
             class="rc-checkbox-label rc-checkbox-label-sm"
-            id="label-HwGzzMtmljOPflNVTbOZZ"
+            id="label-Zfusp9BBrHQiUcwnPze44"
           />
         </div>
         <div
@@ -106,34 +110,38 @@ exports[`Transfer should render transfer snapshot 1`] = `
         role="listitem"
       >
         <div
-          aria-checked="false"
-          aria-labelledby="label-RkYsfd4ypzoz9FWysTsZW"
-          class="rc-checkbox-wrapper rc-checkbox-sm"
-          role="checkbox"
-          tabindex="0"
+          class="rc-checkbox-wrapper"
         >
-          <span
-            class="rc-checkbox-icon rc-checkbox-sm"
-            role="img"
+          <div
+            aria-checked="false"
+            aria-labelledby="label-SYXTSsfblR8UoZJ1y5M2s"
+            class="rc-checkbox rc-checkbox-sm"
+            role="checkbox"
+            tabindex="0"
           >
-            <svg
-              class="prefix__feather prefix__feather-check"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="rc-checkbox-icon rc-checkbox-sm"
+              role="img"
             >
-              <path
-                d="M20 6L9 17l-5-5"
-              />
-            </svg>
-          </span>
+              <svg
+                class="prefix__feather prefix__feather-check"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                />
+              </svg>
+            </span>
+          </div>
           <label
             class="rc-checkbox-label rc-checkbox-label-sm"
-            id="label-RkYsfd4ypzoz9FWysTsZW"
+            id="label-SYXTSsfblR8UoZJ1y5M2s"
           >
             one
           </label>
@@ -144,34 +152,38 @@ exports[`Transfer should render transfer snapshot 1`] = `
         role="listitem"
       >
         <div
-          aria-checked="false"
-          aria-labelledby="label-weS1WFl_3TQDQ-CV8cCtw"
-          class="rc-checkbox-wrapper rc-checkbox-sm"
-          role="checkbox"
-          tabindex="0"
+          class="rc-checkbox-wrapper"
         >
-          <span
-            class="rc-checkbox-icon rc-checkbox-sm"
-            role="img"
+          <div
+            aria-checked="false"
+            aria-labelledby="label-cbX1BH7Mjt3BSj1Fz8SSZ"
+            class="rc-checkbox rc-checkbox-sm"
+            role="checkbox"
+            tabindex="0"
           >
-            <svg
-              class="prefix__feather prefix__feather-check"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="rc-checkbox-icon rc-checkbox-sm"
+              role="img"
             >
-              <path
-                d="M20 6L9 17l-5-5"
-              />
-            </svg>
-          </span>
+              <svg
+                class="prefix__feather prefix__feather-check"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                />
+              </svg>
+            </span>
+          </div>
           <label
             class="rc-checkbox-label rc-checkbox-label-sm"
-            id="label-weS1WFl_3TQDQ-CV8cCtw"
+            id="label-cbX1BH7Mjt3BSj1Fz8SSZ"
           >
             two
           </label>
@@ -182,34 +194,38 @@ exports[`Transfer should render transfer snapshot 1`] = `
         role="listitem"
       >
         <div
-          aria-checked="false"
-          aria-labelledby="label-B21XpF-YjW00pnpcSdQUg"
-          class="rc-checkbox-wrapper rc-checkbox-sm"
-          role="checkbox"
-          tabindex="0"
+          class="rc-checkbox-wrapper"
         >
-          <span
-            class="rc-checkbox-icon rc-checkbox-sm"
-            role="img"
+          <div
+            aria-checked="false"
+            aria-labelledby="label-H5sVSNa9AYTM-wC6l5663"
+            class="rc-checkbox rc-checkbox-sm"
+            role="checkbox"
+            tabindex="0"
           >
-            <svg
-              class="prefix__feather prefix__feather-check"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="rc-checkbox-icon rc-checkbox-sm"
+              role="img"
             >
-              <path
-                d="M20 6L9 17l-5-5"
-              />
-            </svg>
-          </span>
+              <svg
+                class="prefix__feather prefix__feather-check"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                />
+              </svg>
+            </span>
+          </div>
           <label
             class="rc-checkbox-label rc-checkbox-label-sm"
-            id="label-B21XpF-YjW00pnpcSdQUg"
+            id="label-H5sVSNa9AYTM-wC6l5663"
           >
             five
           </label>
@@ -220,34 +236,38 @@ exports[`Transfer should render transfer snapshot 1`] = `
         role="listitem"
       >
         <div
-          aria-checked="false"
-          aria-labelledby="label-t02N31jYFYu2Am9_urtYH"
-          class="rc-checkbox-wrapper rc-checkbox-sm"
-          role="checkbox"
-          tabindex="0"
+          class="rc-checkbox-wrapper"
         >
-          <span
-            class="rc-checkbox-icon rc-checkbox-sm"
-            role="img"
+          <div
+            aria-checked="false"
+            aria-labelledby="label-bGN7iR4KnSK50tb_Lujy5"
+            class="rc-checkbox rc-checkbox-sm"
+            role="checkbox"
+            tabindex="0"
           >
-            <svg
-              class="prefix__feather prefix__feather-check"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="rc-checkbox-icon rc-checkbox-sm"
+              role="img"
             >
-              <path
-                d="M20 6L9 17l-5-5"
-              />
-            </svg>
-          </span>
+              <svg
+                class="prefix__feather prefix__feather-check"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                />
+              </svg>
+            </span>
+          </div>
           <label
             class="rc-checkbox-label rc-checkbox-label-sm"
-            id="label-t02N31jYFYu2Am9_urtYH"
+            id="label-bGN7iR4KnSK50tb_Lujy5"
           >
             six
           </label>
@@ -322,34 +342,38 @@ exports[`Transfer should render transfer snapshot 1`] = `
         role="listitem"
       >
         <div
-          aria-checked="false"
-          aria-labelledby="label-3V-d-GAx_Gxbwj23p97qy"
-          class="rc-checkbox-wrapper rc-checkbox-sm"
-          role="checkbox"
-          tabindex="0"
+          class="rc-checkbox-wrapper"
         >
-          <span
-            class="rc-checkbox-icon rc-checkbox-sm"
-            role="img"
+          <div
+            aria-checked="false"
+            aria-labelledby="label-5PDLQ_IE7mEFtREHhsbmv"
+            class="rc-checkbox rc-checkbox-sm"
+            role="checkbox"
+            tabindex="0"
           >
-            <svg
-              class="prefix__feather prefix__feather-check"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="rc-checkbox-icon rc-checkbox-sm"
+              role="img"
             >
-              <path
-                d="M20 6L9 17l-5-5"
-              />
-            </svg>
-          </span>
+              <svg
+                class="prefix__feather prefix__feather-check"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                />
+              </svg>
+            </span>
+          </div>
           <label
             class="rc-checkbox-label rc-checkbox-label-sm"
-            id="label-3V-d-GAx_Gxbwj23p97qy"
+            id="label-5PDLQ_IE7mEFtREHhsbmv"
           />
         </div>
         <div
@@ -412,34 +436,38 @@ exports[`Transfer should render transfer snapshot 1`] = `
         role="listitem"
       >
         <div
-          aria-checked="false"
-          aria-labelledby="label-31rgBS7jShJ8JfJ2-fSnB"
-          class="rc-checkbox-wrapper rc-checkbox-sm"
-          role="checkbox"
-          tabindex="0"
+          class="rc-checkbox-wrapper"
         >
-          <span
-            class="rc-checkbox-icon rc-checkbox-sm"
-            role="img"
+          <div
+            aria-checked="false"
+            aria-labelledby="label-ct2pq1df_Ap7D52hqCbKu"
+            class="rc-checkbox rc-checkbox-sm"
+            role="checkbox"
+            tabindex="0"
           >
-            <svg
-              class="prefix__feather prefix__feather-check"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="rc-checkbox-icon rc-checkbox-sm"
+              role="img"
             >
-              <path
-                d="M20 6L9 17l-5-5"
-              />
-            </svg>
-          </span>
+              <svg
+                class="prefix__feather prefix__feather-check"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                />
+              </svg>
+            </span>
+          </div>
           <label
             class="rc-checkbox-label rc-checkbox-label-sm"
-            id="label-31rgBS7jShJ8JfJ2-fSnB"
+            id="label-ct2pq1df_Ap7D52hqCbKu"
           >
             three
           </label>
@@ -450,34 +478,38 @@ exports[`Transfer should render transfer snapshot 1`] = `
         role="listitem"
       >
         <div
-          aria-checked="false"
-          aria-labelledby="label-qQe5tuITgZS-ESDyVUjUN"
-          class="rc-checkbox-wrapper rc-checkbox-sm"
-          role="checkbox"
-          tabindex="0"
+          class="rc-checkbox-wrapper"
         >
-          <span
-            class="rc-checkbox-icon rc-checkbox-sm"
-            role="img"
+          <div
+            aria-checked="false"
+            aria-labelledby="label-b6YD2FGPnqN8tNlYCEwFd"
+            class="rc-checkbox rc-checkbox-sm"
+            role="checkbox"
+            tabindex="0"
           >
-            <svg
-              class="prefix__feather prefix__feather-check"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="rc-checkbox-icon rc-checkbox-sm"
+              role="img"
             >
-              <path
-                d="M20 6L9 17l-5-5"
-              />
-            </svg>
-          </span>
+              <svg
+                class="prefix__feather prefix__feather-check"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                />
+              </svg>
+            </span>
+          </div>
           <label
             class="rc-checkbox-label rc-checkbox-label-sm"
-            id="label-qQe5tuITgZS-ESDyVUjUN"
+            id="label-b6YD2FGPnqN8tNlYCEwFd"
           >
             four
           </label>
@@ -488,34 +520,38 @@ exports[`Transfer should render transfer snapshot 1`] = `
         role="listitem"
       >
         <div
-          aria-checked="false"
-          aria-labelledby="label-rTfSBUk_Tsh8Q5Z0dukSo"
-          class="rc-checkbox-wrapper rc-checkbox-sm"
-          role="checkbox"
-          tabindex="0"
+          class="rc-checkbox-wrapper"
         >
-          <span
-            class="rc-checkbox-icon rc-checkbox-sm"
-            role="img"
+          <div
+            aria-checked="false"
+            aria-labelledby="label--Ap2v8D82FwZLCpbwE7rb"
+            class="rc-checkbox rc-checkbox-sm"
+            role="checkbox"
+            tabindex="0"
           >
-            <svg
-              class="prefix__feather prefix__feather-check"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="rc-checkbox-icon rc-checkbox-sm"
+              role="img"
             >
-              <path
-                d="M20 6L9 17l-5-5"
-              />
-            </svg>
-          </span>
+              <svg
+                class="prefix__feather prefix__feather-check"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                />
+              </svg>
+            </span>
+          </div>
           <label
             class="rc-checkbox-label rc-checkbox-label-sm"
-            id="label-rTfSBUk_Tsh8Q5Z0dukSo"
+            id="label--Ap2v8D82FwZLCpbwE7rb"
           >
             seven
           </label>
@@ -526,34 +562,38 @@ exports[`Transfer should render transfer snapshot 1`] = `
         role="listitem"
       >
         <div
-          aria-checked="false"
-          aria-labelledby="label-9oF9KzRKbtaXyDpbiZgMB"
-          class="rc-checkbox-wrapper rc-checkbox-sm"
-          role="checkbox"
-          tabindex="0"
+          class="rc-checkbox-wrapper"
         >
-          <span
-            class="rc-checkbox-icon rc-checkbox-sm"
-            role="img"
+          <div
+            aria-checked="false"
+            aria-labelledby="label-uIpY3kO_sJEdrXduVSXUp"
+            class="rc-checkbox rc-checkbox-sm"
+            role="checkbox"
+            tabindex="0"
           >
-            <svg
-              class="prefix__feather prefix__feather-check"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="rc-checkbox-icon rc-checkbox-sm"
+              role="img"
             >
-              <path
-                d="M20 6L9 17l-5-5"
-              />
-            </svg>
-          </span>
+              <svg
+                class="prefix__feather prefix__feather-check"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                />
+              </svg>
+            </span>
+          </div>
           <label
             class="rc-checkbox-label rc-checkbox-label-sm"
-            id="label-9oF9KzRKbtaXyDpbiZgMB"
+            id="label-uIpY3kO_sJEdrXduVSXUp"
           >
             eight
           </label>

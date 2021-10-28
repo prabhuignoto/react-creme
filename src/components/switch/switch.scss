@@ -28,8 +28,10 @@ $knob-sizes: (
 $start-left: 4px;
 
 .rc-switch {
+  @include animate.halo(40px);
+
   min-width: 60px;
-  padding: 0.2rem;
+  padding: 0.1rem;
   user-select: none;
 
   &.rc-switch-disabled {
@@ -47,6 +49,10 @@ $start-left: 4px;
   @extend %center;
   cursor: pointer;
   position: relative;
+
+  &:not(.rc-switch-track-disabled):focus-within::after {
+    border: 10px solid rgba(colors.$secondary, 0.75);
+  }
 
   @each $key, $val in $sizes {
     &.rc-switch-#{$key} {

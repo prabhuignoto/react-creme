@@ -111,8 +111,11 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
     return classNames([
       "rc-carousel-track-wrapper",
       `rc-carousel-track-wrapper-${direction}`,
+      {
+        "rc-carousel-track-auto-play": isAutoPlaying,
+      },
     ]);
-  }, []);
+  }, [isAutoPlaying]);
 
   const carouselContainerClass = useMemo(() => {
     return classNames([

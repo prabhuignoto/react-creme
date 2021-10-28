@@ -26,8 +26,10 @@
 }
 
 .transfer-list-item {
+  @extend %left;
   cursor: pointer;
   height: 40px;
+  padding-left: 0.5rem;
   user-select: none;
   width: 100%;
 
