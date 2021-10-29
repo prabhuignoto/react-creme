@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
-import { useKeyWithDependency } from "../common/effects/useKey";
+import { useKey } from "../common/effects/useKey";
 import { usePosition } from "../common/effects/usePosition";
 import { MenuItem } from "./menu-item";
 import { MenuItemModel, MenuModel } from "./menu-model";
@@ -55,7 +55,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   const toggleViaKeyboard = useCallback(() => setShowMenu((prev) => !prev), []);
 
   useFocus(wrapperRef, { bgHighlight: false });
-  useKeyWithDependency(wrapperRef, toggleViaKeyboard, showMenu);
+  useKey(wrapperRef, toggleViaKeyboard);
 
   const menuClass = useMemo(
     () =>

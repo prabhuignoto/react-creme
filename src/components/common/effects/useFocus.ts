@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { RefObject, useCallback, useEffect } from "react";
+import { RefObject, useCallback, useEffect, useRef } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 interface FocusSetting {
@@ -9,19 +9,21 @@ interface FocusSetting {
 function useFocus(element: RefObject<HTMLElement>, setting?: FocusSetting) {
   const { bgHighlight }: FocusSetting = setting || { bgHighlight: false };
 
+  const targetRef = useRef<HTMLElement | null>(null);
+
   const cls = classNames("rc-focus", {
     "rc-focus-border": !bgHighlight,
     "rc-halo": true,
   }).split(" ");
 
   const addClass = (ev: FocusEvent) => {
-    (ev.target as HTMLElement).classList.add(...cls);
+    (targetRef.current as HTMLElement).classList.add(...cls);
   };
 
-  const removeClass = (ev: FocusEvent) => {
-    const ele = ev.target as HTMLElement;
+  const removeClass = () => {
+    const ele = targetRef.current as HTMLElement;
     cls.forEach((cl) => ele.classList.remove(cl));
-    ele.classList.remove("rc-halo");
+    ele.classList.remove("rc-un-halo");
   };
 
   const unHalo = useCallback(
@@ -30,17 +32,19 @@ function useFocus(element: RefObject<HTMLElement>, setting?: FocusSetting) {
   );
 
   const haloCreator = useCallback((ev: MouseEvent) => {
-    const target = ev.target as HTMLElement;
+    const target = targetRef.current as HTMLElement;
     target.classList.add("rc-halo");
     target.classList.remove("rc-un-halo");
 
-    setTimeout(() => unHalo(target), 300);
+    setTimeout(() => unHalo(target), 350);
   }, []);
 
   const haloDebounced = useDebouncedCallback(haloCreator, 10);
 
   useEffect(() => {
     const target = element.current;
+
+    targetRef.current = target;
 
     if (target) {
       target.addEventListener("focus", addClass);

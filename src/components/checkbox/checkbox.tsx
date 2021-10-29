@@ -10,7 +10,7 @@ import React, {
 import { CheckIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
-import { useKeyWithDependency } from "../common/effects/useKey";
+import { useKey } from "../common/effects/useKey";
 import { CheckboxModel } from "./checkbox-model";
 import "./checkbox.scss";
 
@@ -32,7 +32,11 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
     setChecked((prev) => !prev);
   }, []);
 
-  useKeyWithDependency(ref, toggleCheck, checked);
+  useKey(ref, () => {
+    setChecked((prev) => {
+      return !prev;
+    });
+  });
 
   const iconClass = useMemo(
     () =>

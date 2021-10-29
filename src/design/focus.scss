@@ -31,7 +31,7 @@
   &::after {
     @extend %border-radius;
     @include position.position-abs("center center");
-    background-color: rgba(colors.$secondary, 0.2);
+    // background-color: rgba(colors.$secondary, 0.2);
     content: "";
     display: block;
     height: calc(100%);

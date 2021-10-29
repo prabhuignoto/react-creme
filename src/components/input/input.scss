@@ -3,8 +3,10 @@
 @use "../../design/icon.scss";
 @use "../../design/button.scss";
 @use "../../design/focus.scss";
+@use "../../design/animate.scss";
 
 .rc-input {
+  @include animate.halo();
   align-items: center;
   display: grid;
   grid-template-columns: 2rem calc(100% - 4rem) 2rem;
@@ -38,7 +40,7 @@
   }
 
   &:focus-within:not(.error):not(.success) {
-    @extend %rc-focus-border;
+    // @extend %rc-focus-border;
   }
 }
 

@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
-import { useKeyWithDependency } from "../common/effects/useKey";
+import { useKey } from "../common/effects/useKey";
 import { RadioModel } from "./radio-model";
 import "./radio.scss";
 
@@ -45,7 +45,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
 
   useFocus(ref, { bgHighlight: false });
 
-  useKeyWithDependency(ref, toggleCheck, canToggle);
+  useKey(ref, toggleCheck);
 
   const RadioWrapperClass = useMemo(
     () =>

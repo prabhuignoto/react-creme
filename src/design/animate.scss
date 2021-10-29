@@ -40,20 +40,6 @@
   }
 }
 
-@mixin animate-motion($dur, $motion) {
-  @extend %animation-default;
-
-  @if $motion == "left-right" {
-    animation-name: left-right;
-  } @else if $motion == "right-left" {
-    animation-name: right-left;
-  } @else if $motion == "top-bottom" {
-    animation-name: top-bottom;
-  } @else if $motion == "bottom-top" {
-    animation-name: bottom-top;
-  }
-}
-
 @mixin halo($border-radius: 4px) {
   &.rc-halo,
   &.rc-un-halo {
@@ -62,20 +48,19 @@
 
   &.rc-halo::after {
     @include position.position-abs("center center");
-    // border: 1px solid rgba(colors.$primary, 0.95);
     border-radius: $border-radius;
-    box-shadow: 0 0 1px 10px rgba(colors.$primary, 0.3);
+    box-shadow: 0 0 1px 15px rgba(colors.$primary, 0.1);
     content: "";
     display: block;
     height: 100%;
     outline: 2px solid rgba(colors.$primary, 0.8);
     outline-offset: 3px;
-    transition: border 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+    transition: border 0.1s ease-in, box-shadow 0.1s ease-in;
     width: 100%;
+    z-index: -1;
   }
 
   &.rc-un-halo::after {
-    // border: 2px solid rgba(colors.$primary, 0.75);
-    box-shadow: 0 0 0 6px rgba(colors.$white, 0);
+    box-shadow: 0 0 1px 7px rgba(colors.$primary, 0.3);
   }
 }

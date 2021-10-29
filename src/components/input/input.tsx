@@ -62,7 +62,7 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
       [inputValue]
     );
 
-    useFocus(inputRef, { bgHighlight: true });
+    useFocus(ref, { bgHighlight: true });
 
     const inputClass = useMemo(
       () =>
@@ -74,7 +74,13 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
     );
 
     return (
-      <div className={inputClass} role="textbox" ref={ref} style={style}>
+      <div
+        className={inputClass}
+        role="textbox"
+        ref={ref}
+        style={style}
+        tabIndex={0}
+      >
         <span className={"rc-input-icon"}>{children}</span>
         <input
           type={type}
@@ -83,7 +89,6 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
           onKeyUp={onKeyUp}
           value={inputValue}
           ref={inputRef}
-          tabIndex={0}
         />
         <span onMouseDown={handleClear} className={clearClass} role="button">
           {enableClear && <CloseIcon />}

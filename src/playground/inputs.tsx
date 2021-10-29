@@ -42,11 +42,7 @@ function inputs() {
         </Input>
       </div>
       <div style={style}>
-        <CheckBox
-          label="select"
-          onChange={(ele) => console.log(ele)}
-          isChecked
-        />
+        <CheckBox label="select" onChange={(ele) => console.log(ele)} />
       </div>
       <div>
         <CheckBox
