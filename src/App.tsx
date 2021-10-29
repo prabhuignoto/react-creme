@@ -6,6 +6,7 @@ import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
 import Accordion from "./playground/accordion";
+import AccordionGroup from "./playground/accordion-group";
 import Breadcrumb from "./playground/breadcrumb";
 import Buttons from "./playground/buttons";
 import Carousel from "./playground/carousel";
@@ -62,6 +63,7 @@ function App() {
         <Link to="/skeleton">skeleton</Link>
         <Link to="/tabs">tabs</Link>
         <Link to="/accordion">accordion</Link>
+        <Link to="/accordion-group">accordion group</Link>
       </aside>
       <section className="section">
         <Routes>
@@ -238,6 +240,14 @@ function App() {
             element={
               <div className="section-content" style={{ width: "600px" }}>
                 <Accordion />
+              </div>
+            }
+          />
+          <Route
+            path="/accordion-group"
+            element={
+              <div className="section-content" style={{ width: "600px" }}>
+                <AccordionGroup />
               </div>
             }
           />

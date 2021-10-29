@@ -2,6 +2,7 @@
 @use "../../design/colors.scss";
 @use "../../design/list.scss";
 @use "../../design/position.scss";
+@use "../../design/animate.scss";
 
 .rc-tab-panel {
   @extend %center;
@@ -21,6 +22,12 @@
     @extend %center;
     height: 100%;
   }
+}
+
+.rc-tab-head {
+  @include animate.halo(2px);
+  margin: 0 0.5rem;
+  z-index: 0;
 }
 
 .rc-tab-header-label {

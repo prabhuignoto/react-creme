@@ -9,21 +9,30 @@ exports[`Tabs should render snapshot 1`] = `
   <ul
     class="rc-tab-headers"
   >
-    <li>
+    <li
+      class="rc-tab-head"
+      tabindex="0"
+    >
       <span
         class="rc-tab-header-label rc-tab-header-selected"
       >
         one
       </span>
     </li>
-    <li>
+    <li
+      class="rc-tab-head"
+      tabindex="0"
+    >
       <span
         class="rc-tab-header-label"
       >
         two
       </span>
     </li>
-    <li>
+    <li
+      class="rc-tab-head"
+      tabindex="0"
+    >
       <span
         class="rc-tab-header-label"
       >

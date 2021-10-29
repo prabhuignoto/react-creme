@@ -1,0 +1,17 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+
+.rc-accordion-group {
+  @extend %col;
+  @extend %border;
+  width: 100%;
+}
+
+.rc-accordion-group-item {
+  @extend %left;
+  width: 100%;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid colors.$secondary;
+  }
+}

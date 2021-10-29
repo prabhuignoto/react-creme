@@ -1,3 +1,4 @@
+export { AccordionGroup } from "./accordion-group/accordion-group";
 export { Accordion } from "./accordion/accordion";
 export { BreadCrumb } from "./breadcrumb/breadcrumb";
 export { Button } from "./button/button";

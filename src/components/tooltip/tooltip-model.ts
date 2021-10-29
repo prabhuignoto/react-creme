@@ -14,9 +14,12 @@ export type ToolTipPosition =
 
 export interface TooltipModel {
   children: React.ReactNode[] | React.ReactNode;
-  message: string;
-  position?: ToolTipPosition;
-  width?: number;
-  ref?: RefObject<HTMLElement>;
   isStatic?: boolean;
+  message: string;
+  onTooltipRendered?: () => void;
+  position?: ToolTipPosition;
+  ref?: RefObject<HTMLElement>;
+  show?: boolean;
+  width?: number;
+  fixedAtCenter?: boolean;
 }

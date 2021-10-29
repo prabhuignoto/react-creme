@@ -1,10 +1,18 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
 @use "../../design/animate.scss";
+@use "../../design/position.scss";
 
 .rc-tooltip-wrapper {
   @extend %center;
-  position: relative;
+
+  &:not(.rc-tooltip-fixed) {
+    position: relative;
+  }
+
+  &.rc-tooltip-fixed {
+    @include position.position-abs("center center");
+  }
 }
 
 .rc-tooltip-message {

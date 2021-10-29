@@ -2,7 +2,6 @@
 
 exports[`Accordion should render snapshot 1`] = `
 <div
-  aria-expanded="false"
   class="rc-accordion"
 >
   <div

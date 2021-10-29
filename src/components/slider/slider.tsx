@@ -9,6 +9,7 @@ import React, {
 import { useDebouncedCallback } from "use-debounce";
 import { Tooltip } from "..";
 import { useDrag } from "../common/effects/useDrag";
+import { useFocus } from "../common/effects/useFocus";
 import { SliderModel } from "./slider-model";
 import "./slider.scss";
 
@@ -18,13 +19,15 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   onChange,
   disabled = false,
   disableTooltip = false,
+  position = "top",
 }) => {
   const trackerRef = useRef<HTMLElement | null>(null);
   const controlRef = useRef<HTMLElement | null>(null);
   const sliderFillRef = useRef(null);
+  const placerRef = useRef<HTMLElement | null>(null);
 
   const onChangeDebounced = onChange
-    ? useDebouncedCallback(onChange, 500)
+    ? useDebouncedCallback(onChange, 10)
     : null;
 
   const [percent] = useDrag(trackerRef, controlRef, {
@@ -42,6 +45,19 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   const onControlInit = useCallback((node) => {
     if (node) {
       controlRef.current = node;
+    }
+  }, []);
+
+  const onPlacerRef = useCallback((node) => {
+    if (node) {
+      placerRef.current = node;
+      node.style.height = "10px";
+    }
+  }, []);
+
+  const onTooltipRender = useCallback(() => {
+    if (placerRef.current) {
+      placerRef.current.style.display = "none";
     }
   }, []);
 
@@ -65,6 +81,8 @@ const Slider: React.FunctionComponent<SliderModel> = ({
 
   const canShowTooltip = useMemo(() => !disabled && !disableTooltip, []);
 
+  useFocus(controlRef);
+
   useEffect(() => {
     onChangeDebounced && onChangeDebounced(value);
   }, [value]);
@@ -83,14 +101,21 @@ const Slider: React.FunctionComponent<SliderModel> = ({
           style={sliderFillStyle}
           className="rc-slider-fill"
         ></span>
-        <span className="rc-slider-control" ref={onControlInit}>
+        <span
+          className="rc-slider-control"
+          ref={onControlInit}
+          role="slider"
+          tabIndex={0}
+        >
           {canShowTooltip && (
             <Tooltip
               isStatic
-              position="top center"
+              position={`${position} center`}
               message={Math.round(end * percent) + ""}
+              onTooltipRendered={onTooltipRender}
+              fixedAtCenter
             >
-              <span className="tooltip-placer"></span>
+              <span className="tooltip-placer" ref={onPlacerRef}></span>
             </Tooltip>
           )}
         </span>

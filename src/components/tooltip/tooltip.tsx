@@ -1,5 +1,11 @@
 import classNames from "classnames";
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { usePosition } from "../common/effects/usePosition";
 import { TooltipModel } from "./tooltip-model";
@@ -7,9 +13,11 @@ import "./tooltip.scss";
 
 const Tooltip: React.FunctionComponent<TooltipModel> = ({
   children,
-  message,
-  position = "bottom center",
+  fixedAtCenter = false,
   isStatic = false,
+  message,
+  onTooltipRendered,
+  position = "bottom center",
   width = 50,
 }: TooltipModel) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -19,7 +27,7 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   const isFirstRender = useFirstRender();
 
   // state to show/hide the tooltip
-  const [show, setShow] = useState(isStatic);
+  const [showTooltip, setShowTooltip] = useState(isStatic);
 
   // helper to position the tooltip
   const cssPosition = usePosition(wrapperRef, tooltipRef, position, {
@@ -28,9 +36,12 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   });
 
   // handlers for showing/hiding tooltip
-  const showTooltip = useCallback(() => !isStatic && setShow(true), [isStatic]);
-  const hideTooltip = useCallback(
-    () => !isStatic && setShow(false),
+  const onShow = useCallback(
+    () => !isStatic && setShowTooltip(true),
+    [isStatic]
+  );
+  const onHide = useCallback(
+    () => !isStatic && setShowTooltip(false),
     [isStatic]
   );
 
@@ -40,13 +51,24 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
       classNames([
         "rc-tooltip-message",
         {
-          "show-tooltip": show,
-          "hide-tooltip": !isFirstRender.current && !show,
+          "show-tooltip": showTooltip,
+          "hide-tooltip": !isFirstRender.current && !showTooltip,
           [`rc-tooltip-${position.split(" ")[0]}-${position.split(" ")[1]}`]:
             true,
         },
       ]),
-    [show, position]
+    [showTooltip, position]
+  );
+
+  const tooltipWrapperClass = useMemo(
+    () =>
+      classNames([
+        "rc-tooltip-wrapper",
+        {
+          "rc-tooltip-fixed": fixedAtCenter,
+        },
+      ]),
+    [fixedAtCenter]
   );
 
   const tooltipMessageStyle = useMemo(() => {
@@ -62,8 +84,20 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
     }
   }, [cssPosition]);
 
+  const onRef = useCallback((node) => {
+    if (node) {
+      wrapperRef.current = node;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (cssPosition) {
+      onTooltipRendered && onTooltipRendered();
+    }
+  }, [cssPosition]);
+
   return (
-    <div className="rc-tooltip-wrapper" ref={wrapperRef} role="tooltip">
+    <div className={tooltipWrapperClass} ref={onRef} role="tooltip">
       <span
         className={toolTipMessageClass}
         style={tooltipMessageStyle}
@@ -73,8 +107,8 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
       </span>
       <section
         className="rc-tooltip-host-content"
-        onMouseEnter={showTooltip}
-        onMouseLeave={hideTooltip}
+        onMouseEnter={onShow}
+        onMouseLeave={onHide}
       >
         {children}
       </section>

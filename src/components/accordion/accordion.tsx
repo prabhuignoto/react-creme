@@ -1,40 +1,46 @@
-import classNames from "classnames";
+import cls from "classnames";
+import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
-  ReactNode,
   useCallback,
+  useEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
 import { ChevronRightIcon } from "../../icons";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
 import { useKey } from "../common/effects/useKey";
+import { AccordionModel } from "./accordion-model";
 import "./accordion.scss";
 
-export interface AccordionModel {
-  title?: string;
-  children?: ReactNode;
-  noBorder?: boolean;
-}
-
 const Accordion: React.FunctionComponent<AccordionModel> = ({
-  title,
   children,
+  id,
   noBorder = false,
+  onCollapsed,
+  onExpanded,
+  title,
+  controlledState = null,
 }) => {
-  const [open, setOpen] = useState(false);
-
-  const toggleAccordion = useCallback(() => setOpen((prev) => !prev), []);
-
+  const accordionID = useRef(id || `accordion-${nanoid()}`);
   const ref = useRef(null);
   const chevronRef = useRef(null);
 
+  const [open, setOpen] = useState(controlledState);
   const [bodyHeight, setBodyHeight] = useState(0);
+
+  const toggleAccordion = useCallback(() => {
+    enableCallback.current = true;
+    setOpen((prev) => !prev);
+  }, []);
+
+  const enableCallback = useRef(false);
 
   const accordionBodyClass = useMemo(
     () =>
-      classNames("rc-accordion-body", {
+      cls("rc-accordion-body", {
         "rc-accordion-open": open,
         "rc-accordion-close": !open,
       }),
@@ -55,7 +61,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
 
   const iconClass = useMemo(
     () =>
-      classNames("rc-accordion-icon", {
+      cls("rc-accordion-icon", {
         "rc-accordion-icon-open": open,
       }),
     [open]
@@ -70,18 +76,45 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
   }, []);
 
   const accordionClass = useMemo(
-    () => classNames("rc-accordion", { "rc-accordion-no-border": noBorder }),
-    [noBorder]
+    () =>
+      cls("rc-accordion", {
+        "rc-accordion-no-border": noBorder,
+        "rc-accordion-open": open,
+      }),
+    [noBorder, open]
   );
 
-  useKey(chevronRef, () => {
-    setOpen((prev) => !prev);
-  });
+  useEffect(() => {
+    if (isFistRender.current || !enableCallback.current) {
+      return;
+    }
 
+    if (open) {
+      onExpanded && onExpanded(accordionID.current);
+    } else {
+      onCollapsed && onCollapsed(accordionID.current);
+    }
+  }, [open]);
+
+  useKey(chevronRef, toggleAccordion);
   useFocus(chevronRef);
 
+  const isFistRender = useFirstRender();
+
+  useEffect(() => {
+    if (isFistRender.current || controlledState === null) {
+      return;
+    }
+
+    enableCallback.current = false;
+
+    if (open !== controlledState) {
+      setOpen(controlledState);
+    }
+  }, [controlledState, open]);
+
   return (
-    <div className={accordionClass} aria-expanded={open}>
+    <div className={accordionClass}>
       <div className="rc-accordion-header">
         <span
           className={iconClass}

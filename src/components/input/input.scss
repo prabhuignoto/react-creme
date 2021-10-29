@@ -38,10 +38,6 @@
     padding: 0;
     width: 100%;
   }
-
-  &:focus-within:not(.error):not(.success) {
-    // @extend %rc-focus-border;
-  }
 }
 
 .rc-input-icon {

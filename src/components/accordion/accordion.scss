@@ -9,6 +9,7 @@ $header-height: 32px;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0.5rem;
+  width: 100%;
 
   &:not(.rc-accordion-no-border) {
     @extend %border;

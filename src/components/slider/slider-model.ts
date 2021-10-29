@@ -12,4 +12,6 @@ export interface SliderModel {
   disabled?: boolean;
 
   disableTooltip?: boolean;
+
+  position?: "top" | "bottom";
 }

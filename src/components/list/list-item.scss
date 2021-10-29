@@ -7,7 +7,6 @@ $height: 40px;
 
 .rc-list-options {
   @extend %list;
-  // max-height: var(--max-height);
   justify-content: flex-start;
   margin-top: 0.5rem;
   overflow-x: hidden;
@@ -23,7 +22,7 @@ $height: 40px;
   margin: 0.25rem 0;
   position: relative;
   width: 90%;
-  z-index: 1;
+  z-index: 0;
 
   &:hover:not(.rc-list-option-disabled):not(.rc-list-option-selected)::after,
   &.rc-list-option-selected::after {
@@ -35,7 +34,7 @@ $height: 40px;
     height: 105%;
     left: -5px;
     width: 102%;
-    z-index: -1;
+    z-index: -2;
   }
 
   &.rc-list-option-disabled {

@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cls from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
@@ -41,7 +41,7 @@ const List: React.FunctionComponent<ListModel> = ({
   const [selected, setSelected] = useState<ListOption[]>();
 
   const rcListClass = useMemo(
-    () => classNames("rc-list", { "rc-list-border-less": borderLess }),
+    () => cls("rc-list", { "rc-list-border-less": borderLess }),
     []
   );
 

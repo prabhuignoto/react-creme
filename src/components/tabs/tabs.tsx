@@ -1,25 +1,8 @@
-import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, {
-  CSSProperties,
-  ReactNode,
-  useCallback,
-  useMemo,
-  useState,
-} from "react";
+import React, { CSSProperties, useCallback, useMemo, useState } from "react";
+import { TabHead } from "./tab-head";
+import { TabItemModel, TabsModel } from "./tabs-model";
 import "./tabs.scss";
-
-export interface TabsModel {
-  children: ReactNode[];
-  labels: string[];
-  width?: number;
-}
-
-export interface TabItemModel {
-  name: string;
-  id?: string;
-  selected?: boolean;
-}
 
 const Tabs: React.FunctionComponent<TabsModel> = ({
   children,
@@ -57,15 +40,13 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
     <div className="rc-tabs" style={tabsStyle} role="tab">
       <ul className="rc-tab-headers">
         {items.map(({ id, name, selected }) => (
-          <li key={id} onClick={() => handleTabSelection(id)}>
-            <span
-              className={classNames("rc-tab-header-label", {
-                "rc-tab-header-selected": selected,
-              })}
-            >
-              {name}
-            </span>
-          </li>
+          <TabHead
+            key={id}
+            id={id}
+            name={name}
+            selected={selected}
+            handleTabSelection={handleTabSelection}
+          />
         ))}
       </ul>
       <ul className="rc-tab-panels">

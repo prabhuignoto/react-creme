@@ -10,6 +10,7 @@ $item-height: 30px;
 
   align-items: flex-start;
   overflow: hidden;
+  padding: 0.2rem 0;
   width: 100%;
 
   &.rc-tree-item-exp {
@@ -63,4 +64,5 @@ $item-height: 30px;
 
 .rc-tree-item-checkbox-wrapper {
   @extend %left;
+  padding-top: 0.2rem;
 }

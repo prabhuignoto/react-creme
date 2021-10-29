@@ -37,7 +37,7 @@ describe("Accordion", () => {
     });
 
     await waitFor(async () => {
-      expect(container.firstChild).toHaveAttribute("aria-expanded", "true");
+      expect(container.firstChild).toHaveClass("rc-accordion-open");
     });
   });
 });

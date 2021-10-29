@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cls from "classnames";
 import React, { useCallback, useMemo, useRef } from "react";
 import "../../design/focus.scss";
 import { CheckBox } from "../checkbox/checkbox";
@@ -30,7 +30,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
 
     const listItemClass = useMemo(
       () =>
-        classNames([
+        cls([
           "rc-list-option",
           {
             "rc-list-option-disabled": disabled,
