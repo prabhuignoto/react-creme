@@ -34,7 +34,7 @@ exports[`Accordion should render snapshot 1`] = `
   </div>
   <div
     class="rc-accordion-body rc-accordion-close"
-    style="--max-height: 0px;"
+    style="--max-height: 0px; --transition: cubic-bezier(0.19, 1, 0.22, 1);"
   >
     <p>
       this is a test

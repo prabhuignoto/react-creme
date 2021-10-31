@@ -58,7 +58,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   const checkBoxClass = useMemo(
     () =>
       classNames("rc-checkbox", {
-        "rc-checkbox-disabled": disabled,
+        "rc-disabled": disabled,
         [`rc-checkbox-${size}`]: true,
       }),
     []

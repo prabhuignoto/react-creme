@@ -52,7 +52,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
       classNames(
         ["rc-radio"],
         {
-          "rc-radio-disabled": disabled,
+          "rc-disabled": disabled,
           "rc-radio-checked": checked,
           [`rc-radio-${size}`]: true,
         },

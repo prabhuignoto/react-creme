@@ -61,7 +61,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
         setPortalWrapperCreated(false);
         setClose(true);
         onClose && onClose();
-      }, 500);
+      }, 300);
     }, []);
 
     return portalWrapperCreated

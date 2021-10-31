@@ -37,7 +37,7 @@ describe("Button", () => {
       <Button label="My Button" disabled onClick={handler} />
     );
 
-    expect(getByRole("button")).toHaveClass("rc-btn-disabled");
+    expect(getByRole("button")).toHaveClass("rc-disabled");
 
     fireEvent.click(getByRole("button"));
 

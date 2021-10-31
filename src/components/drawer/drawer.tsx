@@ -23,6 +23,7 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
   onClose,
   position = "left",
   width = 300,
+  transition = "cubic-bezier(0.79, 0.14, 0.15, 0.86)",
 }) => {
   const [activate, setActivate] = useState(false);
   const drawerRef = useRef<HTMLDivElement | null>(null);
@@ -37,6 +38,7 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
     return {
       "--min-width": `${width}px`,
       "--min-height": `${newHeight}`,
+      "--transition": transition,
     } as CSSProperties;
   }, []);
 

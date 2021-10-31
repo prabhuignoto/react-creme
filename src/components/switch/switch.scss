@@ -34,12 +34,12 @@ $start-left: 4px;
   padding: 0.1rem;
   user-select: none;
 
-  &.rc-switch-disabled {
+  &.rc-disabled {
     @extend %disabled;
   }
 }
 
-.rc-switch-disabled {
+.rc-disabled {
   .rc-switch-knob {
     box-shadow: none;
   }

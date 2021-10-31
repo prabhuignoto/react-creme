@@ -14,10 +14,9 @@ $sizes: (sm, md, lg);
 
 @each $value in $types {
   .rc-btn-#{$value} {
-    // @extend %button-sm;
     @extend %button-#{$value};
 
-    &.rc-btn-disabled {
+    &.rc-disabled {
       @extend %disabled;
     }
   }
@@ -42,15 +41,15 @@ $sizes: (sm, md, lg);
   border-radius: 50%;
   padding: 0.25rem;
 
-  &.rc-btn-disabled {
+  &.rc-disabled {
     @extend %disabled;
   }
 
-  &:not(.rc-btn-disabled) {
+  &:not(.rc-disabled) {
     background: colors.$light-bg;
   }
 
-  &:hover:not(.rc-btn-disabled) {
+  &:hover:not(.rc-disabled) {
     background: colors.$secondary;
   }
 }

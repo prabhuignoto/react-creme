@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.83% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>45/49</span>
+                <span class='fraction'>48/52</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.23% </span>
+                <span class="strong">72.41% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>18/26</span>
+                <span class='fraction'>21/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.66% </span>
+                <span class="strong">92.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>44/48</span>
+                <span class='fraction'>47/51</span>
             </div>
         
             
@@ -194,7 +194,15 @@
 <a name='L135'></a><a href='#L135'>135</a>
 <a name='L136'></a><a href='#L136'>136</a>
 <a name='L137'></a><a href='#L137'>137</a>
-<a name='L138'></a><a href='#L138'>138</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">10x</span>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -207,11 +215,11 @@
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -255,10 +263,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -292,7 +308,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -344,7 +360,6 @@ import React, {
 import { ChevronRightIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
-import { useKey } from "../common/effects/useKey";
 import { AccordionModel } from "./accordion-model";
 import "./accordion.scss";
 &nbsp;
@@ -356,6 +371,7 @@ const Accordion: React.FunctionComponent&lt;AccordionModel&gt; = ({
   onExpanded,
   title,
   controlledState = null,
+  transition = "cubic-bezier(0.19, 1, 0.22, 1)",
 }) =&gt; {
   const accordionID = useRef(id || `accordion-${nanoid()}`);
   const ref = useRef(null);
@@ -388,17 +404,25 @@ const Accordion: React.FunctionComponent&lt;AccordionModel&gt; = ({
             ? <span class="branch-0 cbranch-no" title="branch not covered" >`${bodyHeight}px`</span>
             : `${100}px`
           : "0px",
+        "--transition": transition,
       } as CSSProperties),
     [open, bodyHeight]
   );
 &nbsp;
-  const iconClass = useMemo(
-    () =&gt;
-      cls("rc-accordion-icon", {
-        "rc-accordion-icon-open": open,
-      }),
-    [open]
-  );
+  const iconClass = useMemo(() =&gt; {
+    let classes: string[] = [];
+&nbsp;
+    if (chevronRef.current) {
+      const icon = chevronRef.current as HTMLDivElement;
+      classes = Array.from(icon.classList).filter(
+        (c) =&gt; c !== "rc-accordion-icon-open"
+      );
+    }
+&nbsp;
+    return cls([...classes, "rc-accordion-icon"], {
+      "rc-accordion-icon-open": open,
+    });
+  }, [open]);
 &nbsp;
   const onInitRef = useCallback((node) =&gt; {
     if (node) {
@@ -429,8 +453,8 @@ const Accordion: React.FunctionComponent&lt;AccordionModel&gt; = ({
     }
   }, [open]);
 &nbsp;
-  useKey(chevronRef, toggleAccordion);
-  useFocus(chevronRef);
+  // useKey(chevronRef, toggleAccordion);
+  useFocus(chevronRef, { bgHighlight: false }, toggleAccordion);
 &nbsp;
   const isFistRender = useFirstRender();
 &nbsp;
@@ -475,7 +499,7 @@ export { Accordion };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Oct 29 2021 18:32:28 GMT+0530 (India Standard Time)
+                at Mon Nov 01 2021 00:06:33 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

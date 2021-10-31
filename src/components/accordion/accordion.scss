@@ -1,6 +1,7 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
 @use "../../design/icon.scss";
+@use "../../design/animate.scss";
 
 $header-height: 32px;
 
@@ -26,7 +27,7 @@ $header-height: 32px;
 .rc-accordion-body {
   margin: 0 auto;
   overflow: hidden;
-  transition: max-height 0.25s ease-in, opacity 0.25s ease-in;
+  transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   width: 95%;
 
   &.rc-accordion-open {
@@ -47,6 +48,7 @@ $header-height: 32px;
 
 .rc-accordion-icon {
   @extend %icon-md;
+  @include animate.halo();
   cursor: pointer;
   transition: transform 0.2s ease-in;
 

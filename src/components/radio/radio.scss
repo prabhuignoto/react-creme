@@ -26,7 +26,7 @@ $halo-sizes: (
   @include animate.halo(50%);
   user-select: none;
 
-  &.rc-radio-disabled {
+  &.rc-disabled {
     @extend %disabled;
     cursor: not-allowed;
   }

@@ -5,6 +5,7 @@ export interface CarouselModel {
   direction?: "horizontal" | "vertical";
   height?: number;
   autoPlay?: number;
+  transition?: string;
 }
 
 export interface CarouselItemModel {

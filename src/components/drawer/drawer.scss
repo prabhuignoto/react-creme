@@ -53,7 +53,7 @@
 
   @extend %shadow-small;
   @extend %top-center;
-  @include animate.set-animation(0.25s, ease-in);
+  @include animate.set-animation(0.25s, var(--transition));
 
   background-color: colors.$white;
   height: var(--min-height);

@@ -8,6 +8,7 @@ export interface AccordionModel {
   onCollapsed?: (id: string) => void;
   id?: string;
   controlledState?: boolean | null;
+  transition?: string;
 }
 
 export interface AccordionGroupProps {

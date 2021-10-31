@@ -7,7 +7,7 @@
 
 .rc-carousel-container {
   @extend %border;
-  @extend %shadow-inset;
+  // @extend %shadow-inset;
   height: 100%;
   width: 100%;
 
@@ -58,7 +58,7 @@
   padding: 0;
   position: absolute;
   top: 0;
-  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 0.5s var(--transition);
 }
 
 .rc-carousel-item {
@@ -69,6 +69,7 @@
   top: 50%;
 
   img {
+    @extend %border-radius;
     max-height: 100%;
     max-width: 100%;
   }

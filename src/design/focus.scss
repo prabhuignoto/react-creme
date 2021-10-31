@@ -2,59 +2,56 @@
 @use "colors.scss";
 @use "position.scss";
 
-%rc-focus-common {
-  outline: 0;
-  position: relative;
-}
+// %rc-focus-common {
+//   outline: 0;
+//   position: relative;
+// }
 
-%rc-focus-border {
-  @extend %rc-focus-common;
-  // outline: 1px solid rgba(colors.$primary, 0.5);
-  // outline-offset: 2px;
-}
+// %rc-focus-border {
+//   @extend %rc-focus-common;
+// }
 
-.rc-focus {
-  position: relative;
-}
+// .rc-focus {
+//   position: relative;
+// }
 
-.rc-focus-bg:focus {
-  outline: 0;
-}
+// .rc-focus-bg:focus {
+//   outline: 0;
+// }
 
-.rc-focus-border:focus {
-  outline: 0;
-}
+// .rc-focus-border:focus {
+//   outline: 0;
+// }
 
 .rc-focus-border:focus-visible {
   outline: 0;
 
   &::after {
-    @extend %border-radius;
-    @include position.position-abs("center center");
-    // background-color: rgba(colors.$secondary, 0.2);
-    content: "";
-    display: block;
-    height: calc(100%);
-    outline: 2px solid rgba(colors.$primary, 0.75);
-    outline-offset: 4px;
-    transition: border-color 0.5s ease;
-    transition: box-shadow 0.2s ease;
-    width: calc(100%);
-    z-index: 10;
+    // @extend %border-radius;
+    // @include position.position-abs("center center");
+    // content: "";
+    // display: block;
+    // height: calc(100%);
+    // // outline: 2px solid rgba(colors.$primary, 0.75);
+    // // outline-offset: 4px;
+    // transition: border-color 0.5s ease;
+    // transition: box-shadow 0.2s ease;
+    // width: calc(100%);
+    // z-index: 10;
   }
 }
 
-.rc-focus-bg:focus-visible {
-  outline: 0;
+// .rc-focus-bg:focus-visible {
+//   outline: 0;
 
-  &::after {
-    @extend %border-radius;
-    @include position.position-abs("center center");
-    background: rgba(colors.$primary, 0.5);
-    content: "";
-    display: block;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-  }
-}
+//   &::after {
+//     @extend %border-radius;
+//     @include position.position-abs("center center");
+//     background: rgba(colors.$primary, 0.5);
+//     content: "";
+//     display: block;
+//     height: 100%;
+//     width: 100%;
+//     z-index: -1;
+//   }
+// }

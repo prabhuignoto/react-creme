@@ -18,6 +18,7 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   direction = "horizontal",
   height = 400,
   autoPlay = 0,
+  transition = "cubic-bezier(0.55, 0.08, 0.68, 0.53)",
 }) => {
   const [carouselItems, setCarouselItems] = useState<CarouselItemModel[]>(
     Array.isArray(children)
@@ -127,6 +128,7 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   const carouselWrapperStyle = useMemo(() => {
     return {
       "--min-height": `${height}px`,
+      "--transition": transition,
     } as CSSProperties;
   }, []);
 

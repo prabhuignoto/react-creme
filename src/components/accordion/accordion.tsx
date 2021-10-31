@@ -11,7 +11,6 @@ import React, {
 import { ChevronRightIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
-import { useKey } from "../common/effects/useKey";
 import { AccordionModel } from "./accordion-model";
 import "./accordion.scss";
 
@@ -23,6 +22,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
   onExpanded,
   title,
   controlledState = null,
+  transition = "cubic-bezier(0.19, 1, 0.22, 1)",
 }) => {
   const accordionID = useRef(id || `accordion-${nanoid()}`);
   const ref = useRef(null);
@@ -55,17 +55,25 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
             ? `${bodyHeight}px`
             : `${100}px`
           : "0px",
+        "--transition": transition,
       } as CSSProperties),
     [open, bodyHeight]
   );
 
-  const iconClass = useMemo(
-    () =>
-      cls("rc-accordion-icon", {
-        "rc-accordion-icon-open": open,
-      }),
-    [open]
-  );
+  const iconClass = useMemo(() => {
+    let classes: string[] = [];
+
+    if (chevronRef.current) {
+      const icon = chevronRef.current as HTMLDivElement;
+      classes = Array.from(icon.classList).filter(
+        (c) => c !== "rc-accordion-icon-open"
+      );
+    }
+
+    return cls([...classes, "rc-accordion-icon"], {
+      "rc-accordion-icon-open": open,
+    });
+  }, [open]);
 
   const onInitRef = useCallback((node) => {
     if (node) {
@@ -96,8 +104,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
     }
   }, [open]);
 
-  useKey(chevronRef, toggleAccordion);
-  useFocus(chevronRef);
+  // useKey(chevronRef, toggleAccordion);
+  useFocus(chevronRef, { bgHighlight: false }, toggleAccordion);
 
   const isFistRender = useFirstRender();
 

@@ -6,4 +6,5 @@ export interface DrawerModel extends OverlayModel {
   height?: number | string;
   position?: "left" | "right" | "top" | "bottom";
   width?: number | string;
+  transition?: string;
 }

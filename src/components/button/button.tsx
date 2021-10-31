@@ -18,7 +18,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
     () =>
       classNames(
         {
-          "rc-btn-disabled": disabled,
+          "rc-disabled": disabled,
         },
         [`rc-btn-${size}`, `rc-btn-${type}`, "rc-btn"]
       ),
@@ -41,8 +41,8 @@ const Button: React.FunctionComponent<ButtonModel> = ({
       onClick={handleClick}
       ref={ref}
       role="button"
-      tabIndex={0}
       style={style}
+      tabIndex={0}
     >
       {children && <span className="rc-btn-icon-container">{children}</span>}
       {label && <span className="rc-btn-label">{label}</span>}

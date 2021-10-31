@@ -6,7 +6,7 @@ exports[`Carousel should render carousel snapshot 1`] = `
 >
   <div
     class="rc-carousel-wrapper rc-carousel-wrapper-horizontal"
-    style="--min-height: 400px;"
+    style="--min-height: 400px; --transition: cubic-bezier(0.55, 0.08, 0.68, 0.53);"
   >
     <ul
       class="rc-carousel"

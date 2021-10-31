@@ -23,7 +23,7 @@
     color: $color;
   }
 
-  &:hover:not(.rc-btn-disabled) {
+  &:hover:not(.rc-disabled) {
     background-color: $bg-hover;
     color: $color-hover;
 

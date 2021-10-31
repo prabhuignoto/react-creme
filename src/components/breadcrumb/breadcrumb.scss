@@ -2,6 +2,7 @@
 @use "../../design/list.scss";
 @use "../../design/icon.scss";
 @use "../../design/colors.scss";
+@use "../../design/animate.scss";
 
 .bread-crumbs-wrapper {
   @extend %list-horizontal;
@@ -22,6 +23,7 @@
 
 .bread-crumb-node {
   @extend %center;
+  @include animate.halo();
   padding-bottom: 0.2rem;
 
   a {

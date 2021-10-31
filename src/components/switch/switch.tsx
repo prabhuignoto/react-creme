@@ -51,7 +51,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   const switchClass = useMemo(
     () =>
       classNames("rc-switch", {
-        "rc-switch-disabled": disabled,
+        "rc-disabled": disabled,
         [`rc-switch-${size}`]: true,
       }),
     [size]
