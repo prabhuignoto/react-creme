@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cls from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   useCallback,
@@ -16,7 +16,7 @@ import { DropdownMenuModel, DropdownModel, Option } from "./dropdown-model";
 import "./dropdown.scss";
 
 const DropdownMenuOverlay = withOverlay<DropdownMenuModel>(DropDownMenu, {
-  disableBackdrop: true,
+  backdropColor: "transparent",
 });
 
 const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
@@ -29,7 +29,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     options = [],
     placeholder = "Choose an option...",
   }: DropdownModel) => {
-    // STATES
+    // options states
     const [dropdownOptions, setDropdownOptions] = useState(
       options.map((option) => ({
         id: nanoid(),
@@ -37,6 +37,8 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
         visible: true,
       }))
     );
+
+    // state for the selected value
     const [value, setValue] = useState(
       !options.some((opt) => opt.selected) ? placeholder : ""
     );
@@ -84,16 +86,19 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
       }
     }, []);
 
+    // toggles the dropdown menu
     const handleToggleMenu = useCallback(
       () => setShowMenu((prev) => !prev),
       []
     );
 
+    // handles the menu closure
     const handleMenuClose = useCallback(() => {
       setShowMenu(false);
       setMenuClosing(false);
     }, []);
 
+    // handles the menu closing
     const handleMenuClosing = useCallback(() => setMenuClosing(true), []);
 
     // STYLES
@@ -109,7 +114,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     }, [showMenu]);
 
     // setup focus
-    useFocus(dropdownRef, { bgHighlight: false });
+    useFocus(containerRef, { bgHighlight: false }, handleToggleMenu);
 
     // memoize the selected value
     const selectedValue = useMemo(() => value || placeholder, [value]);
@@ -131,43 +136,54 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
       }
     }, []);
 
+    // memoized classnames
+    const rcDropdownClass = useMemo(
+      () =>
+        cls("rc-dropdown", {
+          "rc-dropdown--disabled": disabled,
+        }),
+      []
+    );
+
+    const rcDropdownValueClass = useMemo(
+      () =>
+        cls("rc-dropdown-value-container", {
+          "rc-dropdown-multi": allowMultiSelection,
+        }),
+      []
+    );
+
+    const rcDropdownIconClass = useMemo(
+      () =>
+        cls(
+          "rc-dropdown-chevron-icon",
+          showMenu && !menuClosing ? "rc-dropdown-chevron-icon-rotate" : ""
+        ),
+      [showMenu]
+    );
+
     return (
-      <div
-        className={classNames("rc-dropdown", {
-          "rc-dropdown-disabled": disabled,
-        })}
-        tabIndex={0}
-        onKeyUp={(ev) => {
-          ev.key === "Enter" && handleToggleMenu();
-        }}
-        ref={dropdownRef}
-      >
+      <div className={rcDropdownClass} ref={dropdownRef}>
         <div
-          className={classNames("rc-dropdown-value-container", {
-            "rc-dropdown-multi": allowMultiSelection,
-          })}
+          className={rcDropdownValueClass}
           ref={containerRef}
           onClick={handleToggleMenu}
+          tabIndex={0}
         >
           {allowMultiSelection ? (
-            <Tags
-              items={selectedValue.split(",").map((n) => ({ name: n }))}
-              readonly
-              tagStyle="fill"
-              tagSize={"small"}
-              tagWidth={100}
-            />
+            <div className="rc-dropdown-tags-wrapper">
+              <Tags
+                items={selectedValue.split(",").map((n) => ({ name: n }))}
+                readonly
+                tagStyle="fill"
+                tagSize={"small"}
+                tagWidth={100}
+              />
+            </div>
           ) : (
             <span className={"rc-dropdown-value"}>{selectedValue}</span>
           )}
-          <span
-            className={classNames([
-              "rc-dropdown-chevron-icon",
-              showMenu && !menuClosing ? "rc-dropdown-chevron-icon-rotate" : "",
-            ])}
-            role="img"
-            data-testid="icon"
-          >
+          <span className={rcDropdownIconClass} role="img" data-testid="icon">
             <ChevronDownIcon />
           </span>
         </div>

@@ -68,7 +68,7 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
 };
 
 const Notification = withOverlay<NotificationModel>(NotificationComponent, {
-  disableBackdrop: true,
+  backdropColor: "transparent",
 });
 
 export { Notification };

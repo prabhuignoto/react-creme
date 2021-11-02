@@ -31,7 +31,7 @@ function dropdown() {
         options={[
           { name: "germany", value: "germany", disabled: true },
           { name: "india", value: "india" },
-          { name: "usa", value: "usa", selected: true },
+          { name: "usa", value: "usa", selected: false },
           { name: "uk", value: "uk" },
           { name: "srilanka", value: "srilanka" },
         ]}

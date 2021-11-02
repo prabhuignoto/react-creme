@@ -17,21 +17,23 @@
 .rc-dropdown-value-container {
   @extend %border;
   @extend %shadow-inset;
+  @include animate.halo(4px, 4px);
   align-items: center;
   cursor: pointer;
   display: grid;
   font-size: 14px;
   grid-template-columns: calc(100% - 2rem) 2rem;
+  height: 100%;
   width: 100%;
 
   &.rc-dropdown-multi {
-    padding: 0.5rem 0 0.5rem 0.25rem;
-    // @extend %center;
+    min-height: 40px;
+    padding: 0.5rem 0;
   }
 
   &:not(.rc-dropdown-multi) {
-    height: 20px;
-    padding: 0.5rem 0;
+    @extend %center;
+    height: 40px;
   }
 }
 
@@ -52,4 +54,8 @@
 .rc-dropdown-chevron-icon-rotate {
   transform: rotate(180deg);
   transition: transform 0.2s ease-in;
+}
+
+.rc-dropdown-tags-wrapper {
+  padding-left: 0.25rem;
 }

@@ -9,8 +9,6 @@ function useFocus(
   setting?: FocusSetting,
   cb?: () => void
 ) {
-  // const { bgHighlight }: FocusSetting = setting || { bgHighlight: false };
-
   const targetRef = useRef<HTMLElement | null>(null);
 
   const addClass = (ev: FocusEvent | KeyboardEvent) => {

@@ -13,19 +13,17 @@ import "./overlay.scss";
 
 const Overlay: React.FunctionComponent<OverlayProps> = ({
   children,
-  close,
   onClose,
   showCloseButton = false,
-  disableAnimation = false,
-  disableBackdrop,
   placement,
   placementReference,
+  backdropColor = "rgba(0, 0, 0, 0.5)",
+  containedToParent = false,
 }) => {
   const overlayWrapperClass = useMemo(() => {
-    return classNames([
-      `rc-overlay-wrapper`,
-      disableBackdrop ? "disable-backdrop" : "",
-    ]);
+    return classNames(["rc-overlay-wrapper"], {
+      "rc-overlay-contained": containedToParent,
+    });
   }, []);
 
   const [contentHeight, setContentHeight] = React.useState<number>(0);
@@ -33,12 +31,14 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
   const observer = useRef<ResizeObserver>();
 
-  observer.current = new ResizeObserver((entries) => {
-    const contentHeight = entries[0].contentRect.height;
-    setContentHeight(contentHeight);
-  });
+  if (placementReference?.current) {
+    observer.current = new ResizeObserver((entries) => {
+      const contentHeight = entries[0].contentRect.height;
+      setContentHeight(contentHeight);
+    });
 
-  observer.current.observe(placementReference?.current as HTMLElement);
+    observer.current.observe(placementReference?.current as HTMLElement);
+  }
 
   const placementStyle = useMemo(() => {
     if (placementReference?.current && placement) {
@@ -47,29 +47,45 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         [placement === "top" ? "bottom" : "top"]: `${top + contentHeight}px`,
         left: `${left}px`,
         position: "absolute",
+        pointerEvents: "all",
       } as CSSProperties;
     }
   }, [placementReference, placement, contentHeight, scrollPosition]);
 
-  const handleClose = (ev: React.MouseEvent) => {
-    const classes = Array.from((ev.target as HTMLElement).classList);
+  const handleClose = (ev: React.MouseEvent | KeyboardEvent) => {
+    if (ev instanceof KeyboardEvent) {
+      if (ev.key === "Escape") {
+        onClose && onClose();
+      }
+    } else {
+      const classes = Array.from((ev.target as HTMLElement).classList);
 
-    if (classes.some((cls) => cls === `rc-overlay-wrapper`)) {
-      onClose && onClose();
+      if (classes.some((cls) => cls === `rc-overlay-wrapper`)) {
+        onClose && onClose();
+      }
     }
   };
 
-  const handleWindowScroll = useCallback(() => {
-    setScrollPosition(window.scrollY);
-  }, []);
+  const handleWindowScroll = useCallback(
+    () => setScrollPosition(window.scrollY),
+    []
+  );
 
   useEffect(() => {
     window.addEventListener("scroll", handleWindowScroll);
+    window.addEventListener("keyup", handleClose);
 
     return () => {
       window.removeEventListener("scroll", handleWindowScroll);
+      window.removeEventListener("keyup", handleClose);
       observer?.current?.disconnect();
     };
+  }, []);
+
+  const onRef = useCallback((node) => {
+    if (node) {
+      (node as HTMLElement).focus();
+    }
   }, []);
 
   return (
@@ -77,8 +93,17 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       className={overlayWrapperClass}
       onClick={handleClose}
       data-testid="rc-overlay"
+      ref={onRef}
+      tabIndex={0}
+      style={{ backgroundColor: backdropColor }}
     >
-      {placement ? <div style={placementStyle}>{children}</div> : children}
+      {placement ? (
+        <div style={placementStyle} className="rc-overlay-content-wrapper">
+          {children}
+        </div>
+      ) : (
+        children
+      )}
       {showCloseButton && (
         <button className={`rc-overlay-close-btn`}>
           <CloseIcon />

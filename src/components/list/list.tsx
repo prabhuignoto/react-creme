@@ -85,7 +85,7 @@ const List: React.FunctionComponent<ListModel> = ({
   const listStyle = useMemo(
     () =>
       ({
-        "--height": `${visibleOptions * (itemHeight + 10)}px`,
+        "--height": `${visibleOptions * (itemHeight + 5)}px`,
       } as CSSProperties),
     [visibleOptions]
   );
@@ -123,7 +123,7 @@ const List: React.FunctionComponent<ListModel> = ({
               onSelection={handleSelection}
               allowMultiSelection={allowMultiSelection}
               style={{
-                top: `${index * (itemHeight + 10)}px`,
+                top: `${index * (itemHeight + 5)}px`,
                 height: `${itemHeight}px`,
               }}
             />

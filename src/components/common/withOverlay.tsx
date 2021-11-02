@@ -6,7 +6,7 @@ import "./overlay.scss";
 
 type Settings = {
   disableAnimation?: boolean;
-  disableBackdrop?: boolean;
+  backdropColor?: string;
   placement?: "bottom" | "top";
 };
 
@@ -17,7 +17,10 @@ type OverlayFunc = <U extends OverlayModel>(
 
 const withOverlay: OverlayFunc = function <T extends OverlayModel>(
   Node: React.FunctionComponent<T>,
-  settings: Settings = { disableAnimation: false, disableBackdrop: false }
+  settings: Settings = {
+    disableAnimation: false,
+    backdropColor: "rgba(0,0,0,0.5)",
+  }
 ) {
   return (props: T) => {
     const classPrefix = useRef("overlay");
@@ -29,10 +32,8 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
       placementReference,
       placement,
     } = props;
-    const { disableAnimation = false, disableBackdrop = false } = settings;
-
+    const { backdropColor } = settings;
     const [portalWrapperCreated, setPortalWrapperCreated] = useState(false);
-    const [close, setClose] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const portalContainer = useRef<HTMLElement | null>(null);
 
@@ -59,21 +60,19 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
 
       setTimeout(() => {
         setPortalWrapperCreated(false);
-        setClose(true);
         onClose && onClose();
-      }, 300);
+      }, 250);
     }, []);
 
     return portalWrapperCreated
       ? ReactDOM.createPortal(
           <Overlay
-            close={close}
             showCloseButton={showClose}
-            disableAnimation={disableAnimation}
-            disableBackdrop={disableBackdrop}
             onClose={handleClose}
             placement={placement}
             placementReference={placementReference}
+            backdropColor={backdropColor}
+            containedToParent={!!containedToParent}
           >
             <Node {...props} onClose={handleClose} isClosing={isClosing} />
           </Overlay>,

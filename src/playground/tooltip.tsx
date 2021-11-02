@@ -15,7 +15,7 @@ function tooltip() {
         justifyContent: "center",
       }}
     >
-      <Tooltip message="test tooltip" position={position} width={100} isStatic>
+      <Tooltip message="test tooltip" position={position} width={100}>
         <div
           style={{
             width: "450px",

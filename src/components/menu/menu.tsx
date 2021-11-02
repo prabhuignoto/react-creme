@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
 import { useKey } from "../common/effects/useKey";
@@ -43,7 +44,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   });
 
   // HANDLERS
-  const toggleMenu = useCallback((ev: React.MouseEvent) => {
+  const toggleMenu = useCallback((ev: React.MouseEvent | KeyboardEvent) => {
     setShowMenu((prev) => {
       if (prev) {
         onClose?.();
@@ -56,6 +57,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
 
   useFocus(wrapperRef, { bgHighlight: false });
   useKey(wrapperRef, toggleViaKeyboard);
+  useCloseOnEscape(toggleMenu, wrapperRef);
 
   const menuClass = useMemo(
     () =>

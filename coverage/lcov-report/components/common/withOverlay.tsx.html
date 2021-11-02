@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.17% </span>
+                <span class="strong">90.62% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>31/34</span>
+                <span class='fraction'>29/32</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.77% </span>
+                <span class="strong">71.42% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/9</span>
+                <span class='fraction'>5/7</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.17% </span>
+                <span class="strong">90.62% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>31/34</span>
+                <span class='fraction'>29/32</span>
             </div>
         
             
@@ -142,8 +142,7 @@
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
 <a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">10x</span>
+<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,27 +160,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">37x</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -199,18 +199,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -237,7 +235,7 @@ import "./overlay.scss";
 &nbsp;
 type Settings = {
   disableAnimation?: boolean;
-  disableBackdrop?: boolean;
+  backdropColor?: string;
   placement?: "bottom" | "top";
 };
 &nbsp;
@@ -248,7 +246,10 @@ type OverlayFunc = &lt;U extends OverlayModel&gt;(
 &nbsp;
 const withOverlay: OverlayFunc = function &lt;T extends OverlayModel&gt;(
   Node: React.FunctionComponent&lt;T&gt;,
-  settings: Settings = <span class="branch-0 cbranch-no" title="branch not covered" >{ disableAnimation: false, disableBackdrop: false }</span>
+  settings: Settings = <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+    disableAnimation: false,
+    backdropColor: "rgba(0,0,0,0.5)",
+  }
 ) {
   return (props: T) =&gt; {
     const classPrefix = useRef("overlay");
@@ -260,10 +261,8 @@ const withOverlay: OverlayFunc = function &lt;T extends OverlayModel&gt;(
       placementReference,
       placement,
     } = props;
-    const { disableAnimation = false, disableBackdrop = false } = settings;
-&nbsp;
+    const { backdropColor } = settings;
     const [portalWrapperCreated, setPortalWrapperCreated] = useState(false);
-    const [close, setClose] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const portalContainer = useRef&lt;HTMLElement | null&gt;(null);
 &nbsp;
@@ -290,21 +289,19 @@ const withOverlay: OverlayFunc = function &lt;T extends OverlayModel&gt;(
 &nbsp;
       setTimeout(() =&gt; {
         setPortalWrapperCreated(false);
-        setClose(true);
         onClose &amp;&amp; onClose();
-      }, 300);
+      }, 250);
     }, []);
 &nbsp;
     return portalWrapperCreated
       ? ReactDOM.createPortal(
           &lt;Overlay
-            close={close}
             showCloseButton={showClose}
-            disableAnimation={disableAnimation}
-            disableBackdrop={disableBackdrop}
             onClose={handleClose}
             placement={placement}
             placementReference={placementReference}
+            backdropColor={backdropColor}
+            containedToParent={!!containedToParent}
           &gt;
             &lt;Node {...props} onClose={handleClose} isClosing={isClosing} /&gt;
           &lt;/Overlay&gt;,
@@ -322,7 +319,7 @@ export { withOverlay };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Nov 02 2021 12:12:09 GMT+0530 (India Standard Time)
+                at Tue Nov 02 2021 21:55:40 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

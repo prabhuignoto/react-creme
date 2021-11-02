@@ -14,29 +14,16 @@ function buttons() {
         <Button label="I am disabled" disabled onClick={() => alert("test")} />
       </div>
       <div style={style}>
-        <Button
-          label="save as new"
-          type="primary"
-          onClick={() => alert("test")}
-        />
+        <Button label="save as new" type="primary" />
       </div>
       <div style={style}>
-        <Button
-          label="save as new"
-          type="danger"
-          size="lg"
-          onClick={() => alert("test")}
-        />
+        <Button label="save as new" type="danger" size="lg" />
       </div>
       <div style={style}>
         <Button label="save" onClick={() => alert("test")} />
       </div>
       <div style={style}>
-        <Button
-          label="Search this page"
-          onClick={() => alert("test")}
-          size="sm"
-        >
+        <Button label="Search this page" size="sm">
           <SearchIcon />
         </Button>
       </div>

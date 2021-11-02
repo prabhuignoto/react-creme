@@ -7,16 +7,22 @@
 .rc-overlay-wrapper {
   @extend %center;
 
-  height: 100vh;
   left: 0;
+  outline: 0;
   overflow: hidden;
-  position: fixed;
   top: 0;
-  width: 100vw;
-  z-index: 999999;
+  z-index: 999;
 
-  &:not(.disable-backdrop) {
-    background-color: rgba(colors.$black, $alpha: 0.45);
+  &.rc-overlay-contained {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  &:not(.rc-overlay-contained) {
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
   }
 }
 

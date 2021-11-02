@@ -3,16 +3,23 @@ import React from "react";
 import { Notification } from "../notification";
 
 describe("Drawer", () => {
-  it("should render the notification", () => {
-    const { getByRole, getByText } = render(
+  it("should render the notification", async () => {
+    const { getByRole, getByText, container } = render(
       <Notification width={400} position="top-left" title="test notification">
         <span>content</span>
       </Notification>
     );
 
-    expect(getByRole("dialog")).toBeInTheDocument();
-    expect(getByRole("dialog")).toHaveStyle("--min-width: 400px");
-    expect(getByText("content")).toBeInTheDocument();
+    await waitFor(
+      () => {
+        expect(getByRole("dialog")).toBeInTheDocument();
+        expect(getByText("content")).toBeInTheDocument();
+        expect(getByRole("dialog")).toHaveStyle("--min-width: 400px");
+      },
+      {
+        timeout: 1500,
+      }
+    );
   });
 
   it("should close the notification", async () => {

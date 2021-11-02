@@ -15,9 +15,8 @@ export interface OverlayModel extends OverlayCommon {
 }
 
 export interface OverlayProps extends OverlayCommon {
+  backdropColor?: string;
   children: React.ReactNode;
-  close?: boolean;
-  disableAnimation?: boolean;
-  disableBackdrop?: boolean;
   showCloseButton?: boolean;
+  containedToParent?: boolean;
 }
