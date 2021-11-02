@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635870340841" clover="3.2.0">
-  <project timestamp="1635870340842" name="All files">
-    <metrics statements="1480" coveredstatements="1173" conditionals="738" coveredconditionals="408" methods="451" coveredmethods="321" elements="2669" coveredelements="1902" complexity="0" loc="1480" ncloc="1480" packages="32" files="58" classes="58"/>
+<coverage generated="1635878365343" clover="3.2.0">
+  <project timestamp="1635878365343" name="All files">
+    <metrics statements="1484" coveredstatements="1175" conditionals="745" coveredconditionals="412" methods="452" coveredmethods="321" elements="2681" coveredelements="1908" complexity="0" loc="1484" ncloc="1484" packages="32" files="58" classes="58"/>
     <package name="components">
       <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="28" coveredmethods="2"/>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\components\index.ts">
@@ -363,14 +363,14 @@
         <line num="5" count="10" type="stmt"/>
         <line num="18" count="10" type="stmt"/>
         <line num="25" count="37" type="stmt"/>
-        <line num="26" count="36" type="stmt"/>
-        <line num="27" count="36" type="stmt"/>
-        <line num="34" count="36" type="stmt"/>
-        <line num="35" count="36" type="stmt"/>
-        <line num="36" count="36" type="stmt"/>
-        <line num="37" count="36" type="stmt"/>
-        <line num="38" count="36" type="stmt"/>
-        <line num="40" count="36" type="stmt"/>
+        <line num="26" count="37" type="stmt"/>
+        <line num="27" count="37" type="stmt"/>
+        <line num="34" count="37" type="stmt"/>
+        <line num="35" count="37" type="stmt"/>
+        <line num="36" count="37" type="stmt"/>
+        <line num="37" count="37" type="stmt"/>
+        <line num="38" count="37" type="stmt"/>
+        <line num="40" count="37" type="stmt"/>
         <line num="41" count="13" type="cond" truecount="1" falsecount="1"/>
         <line num="42" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
@@ -382,12 +382,12 @@
         <line num="50" count="13" type="stmt"/>
         <line num="52" count="13" type="stmt"/>
         <line num="53" count="13" type="stmt"/>
-        <line num="58" count="36" type="stmt"/>
+        <line num="58" count="37" type="stmt"/>
         <line num="59" count="6" type="stmt"/>
         <line num="61" count="6" type="stmt"/>
-        <line num="62" count="5" type="stmt"/>
-        <line num="63" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="67" count="36" type="cond" truecount="2" falsecount="0"/>
+        <line num="62" count="6" type="stmt"/>
+        <line num="63" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="67" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="85" count="10" type="stmt"/>
       </file>
     </package>
@@ -511,8 +511,8 @@
         <line num="26" count="19" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="0" type="stmt"/>
         <line num="31" count="19" type="stmt"/>
-        <line num="32" count="5" type="stmt"/>
-        <line num="33" count="5" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
         <line num="37" count="394" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
@@ -676,7 +676,7 @@
       </file>
     </package>
     <package name="components.dropdown">
-      <metrics statements="79" coveredstatements="70" conditionals="37" coveredconditionals="28" methods="28" coveredmethods="21"/>
+      <metrics statements="83" coveredstatements="72" conditionals="44" coveredconditionals="32" methods="29" coveredmethods="21"/>
       <file name="dropdown-menu.tsx" path="D:\Projects\2020\react-phalladium\src\components\dropdown\dropdown-menu.tsx">
         <metrics statements="15" coveredstatements="15" conditionals="10" coveredconditionals="10" methods="4" coveredmethods="4"/>
         <line num="1" count="9" type="stmt"/>
@@ -696,7 +696,7 @@
         <line num="58" count="9" type="stmt"/>
       </file>
       <file name="dropdown.tsx" path="D:\Projects\2020\react-phalladium\src\components\dropdown\dropdown.tsx">
-        <metrics statements="64" coveredstatements="55" conditionals="27" coveredconditionals="18" methods="24" coveredmethods="17"/>
+        <metrics statements="68" coveredstatements="57" conditionals="34" coveredconditionals="22" methods="25" coveredmethods="17"/>
         <line num="1" count="9" type="stmt"/>
         <line num="2" count="9" type="stmt"/>
         <line num="3" count="9" type="stmt"/>
@@ -743,24 +743,28 @@
         <line num="108" count="5" type="stmt"/>
         <line num="113" count="3" type="stmt"/>
         <line num="117" count="10" type="stmt"/>
-        <line num="120" count="10" type="cond" truecount="1" falsecount="1"/>
-        <line num="124" count="10" type="stmt"/>
-        <line num="126" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="127" count="0" type="stmt"/>
-        <line num="129" count="0" type="stmt"/>
-        <line num="130" count="0" type="stmt"/>
-        <line num="134" count="15" type="stmt"/>
-        <line num="135" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="140" count="10" type="stmt"/>
-        <line num="142" count="3" type="stmt"/>
-        <line num="148" count="10" type="stmt"/>
-        <line num="150" count="3" type="stmt"/>
-        <line num="156" count="10" type="stmt"/>
-        <line num="158" count="8" type="stmt"/>
-        <line num="165" count="10" type="stmt"/>
-        <line num="176" count="0" type="stmt"/>
-        <line num="210" count="9" type="stmt"/>
-        <line num="212" count="9" type="stmt"/>
+        <line num="120" count="10" type="stmt"/>
+        <line num="121" count="4" type="cond" truecount="4" falsecount="1"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="129" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="135" count="10" type="stmt"/>
+        <line num="137" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="145" count="15" type="stmt"/>
+        <line num="146" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="151" count="10" type="stmt"/>
+        <line num="153" count="3" type="stmt"/>
+        <line num="159" count="10" type="stmt"/>
+        <line num="161" count="3" type="stmt"/>
+        <line num="167" count="10" type="stmt"/>
+        <line num="169" count="8" type="stmt"/>
+        <line num="176" count="10" type="stmt"/>
+        <line num="225" count="9" type="stmt"/>
+        <line num="227" count="9" type="stmt"/>
       </file>
     </package>
     <package name="components.image-comparer">

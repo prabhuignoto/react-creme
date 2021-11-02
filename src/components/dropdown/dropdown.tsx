@@ -7,10 +7,10 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Tags } from "..";
 import { ChevronDownIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
 import { withOverlay } from "../common/withOverlay";
+import { Tags } from "../tags/tags";
 import { DropDownMenu } from "./dropdown-menu";
 import { DropdownMenuModel, DropdownModel, Option } from "./dropdown-model";
 import "./dropdown.scss";
@@ -101,7 +101,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     // handles the menu closing
     const handleMenuClosing = useCallback(() => setMenuClosing(true), []);
 
-    // STYLES
+    // styles
     const menuStyle = useMemo(() => {
       if (containerRef.current) {
         const { clientWidth } = containerRef.current;
@@ -117,7 +117,18 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     useFocus(containerRef, { bgHighlight: false }, handleToggleMenu);
 
     // memoize the selected value
-    const selectedValue = useMemo(() => value || placeholder, [value]);
+    const selectedValue = useMemo(() => {
+      if (value !== placeholder && value && allowMultiSelection) {
+        return value
+          .split(",")
+          .filter((f) => !!f)
+          .map((t) => ({
+            name: t,
+          }));
+      } else {
+        return value || placeholder;
+      }
+    }, [value, allowMultiSelection]);
 
     // side effects
 
@@ -171,15 +182,19 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
           tabIndex={0}
         >
           {allowMultiSelection ? (
-            <div className="rc-dropdown-tags-wrapper">
-              <Tags
-                items={selectedValue.split(",").map((n) => ({ name: n }))}
-                readonly
-                tagStyle="fill"
-                tagSize={"small"}
-                tagWidth={100}
-              />
-            </div>
+            Array.isArray(selectedValue) ? (
+              <div className="rc-dropdown-tags-wrapper">
+                <Tags
+                  items={selectedValue}
+                  readonly
+                  tagStyle="fill"
+                  tagSize={"small"}
+                  tagWidth={100}
+                />
+              </div>
+            ) : (
+              <span className={"rc-dropdown-value"}>{selectedValue}</span>
+            )
           ) : (
             <span className={"rc-dropdown-value"}>{selectedValue}</span>
           )}

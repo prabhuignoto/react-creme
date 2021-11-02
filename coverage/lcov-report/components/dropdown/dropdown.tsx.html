@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">81.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>60/72</span>
+                <span class='fraction'>61/75</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">64.7% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>18/27</span>
+                <span class='fraction'>22/34</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70.83% </span>
+                <span class="strong">68% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>17/24</span>
+                <span class='fraction'>17/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.93% </span>
+                <span class="strong">83.82% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>55/64</span>
+                <span class='fraction'>57/68</span>
             </div>
         
             
@@ -269,7 +269,22 @@
 <a name='L210'></a><a href='#L210'>210</a>
 <a name='L211'></a><a href='#L211'>211</a>
 <a name='L212'></a><a href='#L212'>212</a>
-<a name='L213'></a><a href='#L213'>213</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">9x</span>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -389,6 +404,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -444,7 +470,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -490,10 +520,10 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Tags } from "..";
 import { ChevronDownIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
 import { withOverlay } from "../common/withOverlay";
+import { Tags } from "../tags/tags";
 import { DropDownMenu } from "./dropdown-menu";
 import { DropdownMenuModel, DropdownModel, Option } from "./dropdown-model";
 import "./dropdown.scss";
@@ -584,7 +614,7 @@ const Dropdown: React.FunctionComponent&lt;DropdownModel&gt; = React.memo(
     // handles the menu closing
     const handleMenuClosing = useCallback(() =&gt; setMenuClosing(true), []);
 &nbsp;
-    // STYLES
+    // styles
     const menuStyle = useMemo(() =&gt; {
       if (containerRef.current) {
         const { clientWidth } = containerRef.current;
@@ -600,7 +630,18 @@ const Dropdown: React.FunctionComponent&lt;DropdownModel&gt; = React.memo(
     useFocus(containerRef, { bgHighlight: false }, handleToggleMenu);
 &nbsp;
     // memoize the selected value
-    const selectedValue = useMemo(() =&gt; value || <span class="branch-1 cbranch-no" title="branch not covered" >placeholder,</span> [value]);
+    const selectedValue = useMemo(() =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (value !== placeholder &amp;&amp; value &amp;&amp; allowMultiSelection) {
+<span class="cstat-no" title="statement not covered" >        return value</span>
+          .split(",")
+          .filter(<span class="fstat-no" title="function not covered" >(f</span>) =&gt; <span class="cstat-no" title="statement not covered" >!!f)</span>
+          .map(<span class="fstat-no" title="function not covered" >(t</span>) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+            name: t,
+          }));
+      } else {
+        return value || <span class="branch-1 cbranch-no" title="branch not covered" >placeholder;</span>
+      }
+    }, [value, allowMultiSelection]);
 &nbsp;
     // side effects
 &nbsp;
@@ -654,15 +695,19 @@ const Dropdown: React.FunctionComponent&lt;DropdownModel&gt; = React.memo(
           tabIndex={0}
         &gt;
           {allowMultiSelection ? (
-<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;div className="rc-dropdown-tags-wrapper"&gt;</span>
-              &lt;Tags
-                items={selectedValue.split(",").map(<span class="fstat-no" title="function not covered" >(n</span>) =&gt; (<span class="cstat-no" title="statement not covered" >{ name: n })</span>)}
-                readonly
-                tagStyle="fill"
-                tagSize={"small"}
-                tagWidth={100}
-              /&gt;
-            &lt;/div&gt;
+<span class="branch-0 cbranch-no" title="branch not covered" >            Array.isArray(selectedValue) ? (</span>
+              &lt;div className="rc-dropdown-tags-wrapper"&gt;
+                &lt;Tags
+                  items={selectedValue}
+                  readonly
+                  tagStyle="fill"
+                  tagSize={"small"}
+                  tagWidth={100}
+                /&gt;
+              &lt;/div&gt;
+            ) : (
+              &lt;span className={"rc-dropdown-value"}&gt;{selectedValue}&lt;/span&gt;
+            )
           ) : (
             &lt;span className={"rc-dropdown-value"}&gt;{selectedValue}&lt;/span&gt;
           )}
@@ -700,7 +745,7 @@ export { Dropdown };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Nov 02 2021 21:55:40 GMT+0530 (India Standard Time)
+                at Wed Nov 03 2021 00:09:25 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
