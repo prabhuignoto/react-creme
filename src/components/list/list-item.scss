@@ -2,25 +2,32 @@
 @use "../../design/list.scss";
 @use "../../design/position.scss";
 @use "../../design/colors.scss";
+@use "../../design/icon.scss";
 
 $height: 40px;
 
 .rc-list-options {
   @extend %list;
+  height: var(--height);
   justify-content: flex-start;
   margin-top: 0.5rem;
   overflow-x: hidden;
   overflow-y: auto;
   padding-bottom: 0.5rem;
+  position: relative;
   width: 100%;
 }
 
 .rc-list-option {
   @extend %list-item-left;
   @extend %border-radius;
+  cursor: pointer;
   height: $height;
-  margin: 0.25rem 0;
-  position: relative;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  right: 0;
   width: 90%;
   z-index: 0;
 
@@ -42,12 +49,28 @@ $height: 40px;
   }
 }
 
+.rc-list-option-value-wrapper {
+  @extend %left;
+  display: grid;
+  grid-template-columns: 20px calc(100% - 20px);
+  height: $height;
+  width: 100%;
+}
+
 .rc-list-option-value {
   @extend %text-no-wrap;
-  height: $height;
   line-height: $height;
-  padding-left: 1rem;
-  width: 100%;
+  padding-left: 0.25rem;
+}
+
+.rc-list-option-icon {
+  @extend %icon-sm;
+  justify-self: center;
+  visibility: hidden;
+
+  &.rc-list-option-selected {
+    visibility: visible;
+  }
 }
 
 .rc-list-item-checkbox-wrapper {

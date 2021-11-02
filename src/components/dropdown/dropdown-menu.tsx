@@ -12,14 +12,12 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
   onClosing,
   open,
   options,
-  style: { top, width, maxMenuHeight },
+  style: { width, maxMenuHeight },
 }: DropdownMenuModel) => {
   // STYLES
   const menuStyle = useMemo(() => {
     return {
-      "--menu-top": `${top || 0}px`,
       "--menu-width": `${width || 0}px`,
-      "--max-height": `${maxMenuHeight}px`,
     } as CSSProperties;
   }, [top, width]);
 
@@ -49,6 +47,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
         allowMultiSelection={allowMultiSelection}
         borderLess
         disableSearch={!enableSearch}
+        maxHeight={maxMenuHeight}
       />
     </div>
   );

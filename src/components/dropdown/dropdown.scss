@@ -17,13 +17,22 @@
 .rc-dropdown-value-container {
   @extend %border;
   @extend %shadow-inset;
+  align-items: center;
   cursor: pointer;
   display: grid;
   font-size: 14px;
   grid-template-columns: calc(100% - 2rem) 2rem;
-  height: 20px;
-  padding: 0.5rem 0;
   width: 100%;
+
+  &.rc-dropdown-multi {
+    padding: 0.5rem 0 0.5rem 0.25rem;
+    // @extend %center;
+  }
+
+  &:not(.rc-dropdown-multi) {
+    height: 20px;
+    padding: 0.5rem 0;
+  }
 }
 
 .rc-dropdown-value {

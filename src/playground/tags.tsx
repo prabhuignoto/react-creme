@@ -36,6 +36,23 @@ function tags() {
           tagWidth={150}
         />
       </div>
+      <br></br>
+      <br></br>
+      <div style={{ width: "500px" }}>
+        <Tags
+          items={[
+            { name: "prabhu murthy", disabled: false },
+            { name: "blue" },
+            { name: "red" },
+            { name: "orange" },
+            { name: "tester", disabled: false },
+          ]}
+          maxTags={15}
+          onSelected={(val) => console.log(val)}
+          tagWidth={150}
+          tagStyle="fill"
+        />
+      </div>
     </>
   );
 }

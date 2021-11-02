@@ -14,7 +14,7 @@ function menu() {
           { name: "tester 3" },
         ]}
       >
-        <Button label="Open Menu" />
+        <button>open menu</button>
       </Menu>
       <br></br>
       <br></br>

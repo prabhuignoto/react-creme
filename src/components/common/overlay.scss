@@ -20,26 +20,6 @@
   }
 }
 
-.rc-overlay-content-wrapper {
-  @extend %center;
-  height: 100%;
-  opacity: 0;
-
-  &:not(.disable-anim) {
-    @include animate.set-animation(0.5s, cubic-bezier(0.17, 0.84, 0.44, 1));
-  }
-
-  &.rc-overlay-content-close {
-    animation-name: overlay-close;
-    opacity: 0;
-  }
-
-  &.rc-overlay-content-open {
-    animation-name: overlay-open;
-    opacity: 1;
-  }
-}
-
 .rc-overlay-close-btn {
   @extend %button-lg-no-border;
 }

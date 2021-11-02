@@ -8,37 +8,71 @@
 }
 
 .rc-tag {
-  @extend %shadow-inset;
   @extend %border;
-  align-items: center;
-  column-gap: 0.2rem;
-  display: grid;
-  justify-items: center;
-  margin: 0.25rem;
+  font-size: 1rem;
   max-width: var(--width);
-  padding: 0.5rem;
 
   user-select: none;
 
   &.rc-tag:not(.rc-tag-disabled):not(.rc-tag-readonly) {
+    align-items: center;
+    column-gap: 0.2rem;
+    display: grid;
     grid-template-columns: calc(100% - 1rem) 1rem;
+    justify-items: center;
   }
 
   &.rc-tag-disabled {
     @extend %disabled;
   }
 
-  // &.rc-tag-readonly {
-  // }
+  &.rc-tag-default {
+    @extend %shadow-inset;
+  }
+
+  &.rc-tag-style-fill {
+    background: colors.$primary;
+    color: colors.$white;
+  }
+
+  &.rc-tag-readonly {
+    @extend %center;
+  }
+
+  &.rc-tag-small {
+    margin: 0.2rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  &.rc-tag-large {
+    margin: 0.25rem;
+    padding: 0.5rem;
+  }
 }
 
 .rc-tag-icon {
   @extend %icon-sm;
   border-radius: 50%;
   cursor: pointer;
+}
 
+.rc-tag-icon-default {
   &:hover {
     background: colors.$light-bg;
+  }
+}
+
+.rc-tag-icon-fill {
+  svg {
+    color: colors.$white;
+  }
+}
+
+.rc-tag-icon-fill:hover {
+  background: colors.$light-bg;
+
+  svg {
+    color: colors.$primary;
   }
 }
 

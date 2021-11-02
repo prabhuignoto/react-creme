@@ -3,7 +3,7 @@ export interface ProgressModel {
   infiniteStyle?: "disappear" | "bob";
   maxValue?: number;
   showProgressValue?: boolean;
-  size?: "big" | "small";
+  size?: "lg" | "md" | "sm";
   type: "infinite" | "progressive";
   width?: number;
 }

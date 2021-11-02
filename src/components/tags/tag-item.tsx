@@ -15,10 +15,21 @@ import "./tags.scss";
 type TagItemViewModel = TagItemModel & {
   handleRemove: (id: string) => void;
   width?: number;
+  tagStyle?: "default" | "fill";
+  tagSize?: "small" | "large";
 };
 
 const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
-  ({ id, name, disabled, handleRemove, readonly, width }: TagItemViewModel) => {
+  ({
+    id,
+    name,
+    disabled,
+    handleRemove,
+    readonly,
+    width,
+    tagStyle,
+    tagSize,
+  }: TagItemViewModel) => {
     const ref = useRef(null);
 
     useFocus(ref);
@@ -35,6 +46,16 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
         classNames("rc-tag", {
           "rc-tag-disabled": disabled,
           "rc-tag-readonly": readonly,
+          [`rc-tag-style-${tagStyle}`]: true,
+          [`rc-tag-${tagSize}`]: true,
+        }),
+      []
+    );
+
+    const tagIconClass = useMemo(
+      () =>
+        classNames("rc-tag-icon", {
+          [`rc-tag-icon-${tagStyle}`]: true,
         }),
       []
     );
@@ -54,7 +75,7 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
         </span>
         {editable && (
           <span
-            className="rc-tag-icon"
+            className={tagIconClass}
             onClick={handleClick}
             ref={ref}
             role="button"

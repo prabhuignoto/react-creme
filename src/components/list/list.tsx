@@ -21,12 +21,13 @@ export interface ListOption extends Option {
 }
 
 const List: React.FunctionComponent<ListModel> = ({
-  options,
   allowMultiSelection,
-  maxHeight = 250,
-  onSelection,
   borderLess = false,
   disableSearch,
+  maxHeight = 450,
+  onSelection,
+  options,
+  itemHeight = 45,
 }) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     options.map((option) => ({
@@ -76,12 +77,17 @@ const List: React.FunctionComponent<ListModel> = ({
     }
   }, []);
 
+  const visibleOptions = useMemo(
+    () => _listOptions.filter((opt) => opt.visible).length,
+    []
+  );
+
   const listStyle = useMemo(
     () =>
       ({
-        "--max-height": `${maxHeight}px`,
+        "--height": `${visibleOptions * (itemHeight + 10)}px`,
       } as CSSProperties),
-    []
+    [visibleOptions]
   );
 
   useEffect(() => {
@@ -91,7 +97,11 @@ const List: React.FunctionComponent<ListModel> = ({
   }, [selected]);
 
   return (
-    <div className={rcListClass} ref={listRef}>
+    <div
+      className={rcListClass}
+      ref={listRef}
+      style={{ height: `${maxHeight}px` }}
+    >
       {!disableSearch && (
         <div className="rc-list-search-input">
           <Input onChange={handleSearch} enableClear>
@@ -102,7 +112,7 @@ const List: React.FunctionComponent<ListModel> = ({
       <ul className={"rc-list-options"} role="listbox" style={listStyle}>
         {_listOptions
           .filter((item) => item.visible)
-          .map(({ disabled, id, name, value, selected }) => (
+          .map(({ disabled, id, name, value, selected }, index) => (
             <ListItem
               name={name}
               id={id}
@@ -112,6 +122,10 @@ const List: React.FunctionComponent<ListModel> = ({
               key={id}
               onSelection={handleSelection}
               allowMultiSelection={allowMultiSelection}
+              style={{
+                top: `${index * (itemHeight + 10)}px`,
+                height: `${itemHeight}px`,
+              }}
             />
           ))}
       </ul>

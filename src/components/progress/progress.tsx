@@ -5,12 +5,12 @@ import "./progress.scss";
 
 const Progress: React.FunctionComponent<ProgressModel> = ({
   currentValue = 0,
+  infiniteStyle = "disappear",
   maxValue = 100,
   showProgressValue = false,
-  size = "big",
+  size = "md",
   type = "progressive",
   width = 250,
-  infiniteStyle = "disappear",
 }) => {
   const progressTrackRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +26,10 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
 
   const canShowProgressValue = useMemo(
     () =>
-      showProgressValue && progressPercentValue !== 0 && type !== "infinite",
+      showProgressValue &&
+      progressPercentValue !== 0 &&
+      type !== "infinite" &&
+      size !== "sm",
     [progressPercentValue]
   );
 
@@ -66,7 +69,8 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
     () =>
       ({
         "--width": `${width}px`,
-        "--height": size === "big" ? `${40}px` : `${20}px`,
+        "--height":
+          size === "lg" ? `${40}px` : size === "md" ? `${20}px` : `${10}px`,
       } as CSSProperties),
     []
   );

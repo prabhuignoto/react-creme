@@ -3,7 +3,7 @@ import { List } from "../components";
 
 function list() {
   return (
-    <div style={{ minHeight: "400px", width: "350px" }}>
+    <div style={{ minHeight: "400px", width: "450px" }}>
       <br />
       <List
         allowMultiSelection

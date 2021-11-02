@@ -3,8 +3,11 @@ import { Tabs } from "../components/tabs/tabs";
 
 function tabs() {
   return (
-    <div>
+    <div style={{ width: "500px" }}>
       <Tabs labels={["one", "two", "three"]}>
+        <span>one</span>
+        <span>two</span>
+        <span>three</span>
         <span>one</span>
         <span>two</span>
         <span>three</span>

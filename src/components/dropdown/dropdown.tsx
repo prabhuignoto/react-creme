@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { Tags } from "..";
 import { ChevronDownIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
 import { withOverlay } from "../common/withOverlay";
@@ -98,9 +99,8 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     // STYLES
     const menuStyle = useMemo(() => {
       if (containerRef.current) {
-        const { clientHeight, clientWidth } = containerRef.current;
+        const { clientWidth } = containerRef.current;
         return {
-          top: clientHeight + 10,
           width: clientWidth,
           maxMenuHeight,
         };
@@ -108,9 +108,13 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
       return {};
     }, [showMenu]);
 
+    // setup focus
     useFocus(dropdownRef, { bgHighlight: false });
 
+    // memoize the selected value
     const selectedValue = useMemo(() => value || placeholder, [value]);
+
+    // side effects
 
     useEffect(() => {
       // populate selected value on load
@@ -139,11 +143,23 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
         ref={dropdownRef}
       >
         <div
-          className={"rc-dropdown-value-container"}
+          className={classNames("rc-dropdown-value-container", {
+            "rc-dropdown-multi": allowMultiSelection,
+          })}
           ref={containerRef}
           onClick={handleToggleMenu}
         >
-          <span className={"rc-dropdown-value"}>{selectedValue}</span>
+          {allowMultiSelection ? (
+            <Tags
+              items={selectedValue.split(",").map((n) => ({ name: n }))}
+              readonly
+              tagStyle="fill"
+              tagSize={"small"}
+              tagWidth={100}
+            />
+          ) : (
+            <span className={"rc-dropdown-value"}>{selectedValue}</span>
+          )}
           <span
             className={classNames([
               "rc-dropdown-chevron-icon",

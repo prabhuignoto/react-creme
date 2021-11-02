@@ -10,8 +10,9 @@
   background: colors.$white;
   left: 0;
   opacity: 0;
+  overflow: hidden;
   position: absolute;
-  top: var(--menu-top);
+  top: 6px;
   visibility: hidden;
   width: var(--menu-width);
   z-index: 999;

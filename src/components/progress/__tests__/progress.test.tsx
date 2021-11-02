@@ -8,7 +8,7 @@ describe("Progress", () => {
       <Progress
         type="progressive"
         maxValue={200}
-        size="small"
+        size="sm"
         width={300}
         currentValue={120}
       />

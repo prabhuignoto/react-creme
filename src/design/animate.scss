@@ -59,7 +59,7 @@
   );
   $halo-settings: (
     from: (
-      box-shadow: 0 0 1px 1px rgba(colors.$primary, 0.1),
+      box-shadow: 0 0 1px 1px rgba(colors.$white, 0.1),
     ),
     to: (
       box-shadow: 0 0 1px 10px rgba(colors.$primary, 0.25),
@@ -91,7 +91,7 @@
     @extend %halo-common;
     @include set-keyframes(outline-de-focus, $focus-settings, true);
     animation-name: outline-de-focus;
-    outline: 1px solid rgba(colors.$primary, 0.1);
+    outline: 1px solid rgba(colors.$white, 0.1);
   }
 
   &.rc-halo:not(.rc-disabled)::after {
@@ -106,6 +106,6 @@
     @extend %halo-common;
     @include set-keyframes(halo-de-focus, $halo-settings, true);
     animation-name: halo-de-focus;
-    box-shadow: 0 0 1px 1px rgba(colors.$primary, 0.1);
+    box-shadow: 0 0 1px 1px rgba(colors.$white, 0.1);
   }
 }

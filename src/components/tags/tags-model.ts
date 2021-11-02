@@ -12,4 +12,6 @@ export interface TagsModel {
   restrictToValues?: string[];
   readonly?: boolean;
   tagWidth?: number;
+  tagStyle?: "default" | "fill";
+  tagSize?: "small" | "large";
 }

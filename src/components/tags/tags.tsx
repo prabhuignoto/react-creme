@@ -15,6 +15,8 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   readonly = false,
   restrictToValues = [],
   tagWidth = 50,
+  tagStyle = "default",
+  tagSize = "large",
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemModel[]>(
@@ -61,6 +63,17 @@ const Tags: React.FunctionComponent<TagsModel> = ({
     }
   }, [tagItems.length]);
 
+  useEffect(() => {
+    setTagItems(
+      items.map((item) => ({
+        name: item.name,
+        id: nanoid(),
+        disabled: item.disabled,
+        readonly: readonly,
+      }))
+    );
+  }, [JSON.stringify(items)]);
+
   return (
     <>
       <ul className={"rc-tags-wrap"} role="list">
@@ -73,6 +86,8 @@ const Tags: React.FunctionComponent<TagsModel> = ({
             key={id}
             name={name}
             width={tagWidth}
+            tagStyle={tagStyle}
+            tagSize={tagSize}
           />
         ))}
         {canAdd && (

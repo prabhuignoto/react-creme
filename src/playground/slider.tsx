@@ -16,7 +16,7 @@ function slider() {
       <br></br>
       <br></br>
       <br></br>
-      <div style={{ width: "250px" }}>
+      <div style={{ width: "450px" }}>
         <Slider
           start={4}
           end={50}

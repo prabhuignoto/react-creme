@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import { ListOption } from "./list";
 
 export interface ListModel {
@@ -7,6 +8,7 @@ export interface ListModel {
   maxHeight?: number;
   onSelection?: (selected: ListOption[]) => void;
   options: ListOption[];
+  itemHeight?: number;
 }
 
 export interface ListItemModel {
@@ -18,4 +20,5 @@ export interface ListItemModel {
   onClick?: () => void;
   selected?: boolean;
   value: string;
+  style?: CSSProperties;
 }
