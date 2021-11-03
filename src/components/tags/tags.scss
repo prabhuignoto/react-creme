@@ -26,7 +26,7 @@
     @extend %disabled;
   }
 
-  &.rc-tag-style-default:not(.rc-tag-disabled):not(.rc-tag-readonly) {
+  &.rc-tag-style-default:not(.rc-tag-disabled) {
     @extend %shadow-inset;
   }
 

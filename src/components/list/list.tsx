@@ -34,6 +34,7 @@ const List: React.FunctionComponent<ListModel> = ({
       id: nanoid(),
       ...option,
       visible: true,
+      selected: option.selected || false,
     }))
   );
 

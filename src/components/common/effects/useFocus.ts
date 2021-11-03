@@ -1,7 +1,7 @@
 import { RefObject, useCallback, useEffect, useRef } from "react";
 
 interface FocusSetting {
-  bgHighlight: boolean;
+  bgHighlight?: boolean;
 }
 
 function useFocus(

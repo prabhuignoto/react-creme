@@ -3,6 +3,7 @@
 @use "../../design/position.scss";
 @use "../../design/colors.scss";
 @use "../../design/icon.scss";
+@use "../../design/animate.scss";
 
 $height: 40px;
 
@@ -35,7 +36,7 @@ $height: 40px;
   &.rc-list-option-selected::after {
     @extend %border-radius;
     @include position.position-abs("middle left");
-    background: colors.$light-bg;
+    background: rgba(colors.$secondary, 0.5);
     content: "";
     display: block;
     height: 105%;
@@ -51,6 +52,7 @@ $height: 40px;
 
 .rc-list-option-value-wrapper {
   @extend %left;
+  @include animate.halo();
   display: grid;
   grid-template-columns: 20px calc(100% - 20px);
   height: $height;
