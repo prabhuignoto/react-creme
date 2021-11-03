@@ -26,11 +26,11 @@
     @extend %disabled;
   }
 
-  &.rc-tag-style-default {
+  &.rc-tag-style-default:not(.rc-tag-disabled):not(.rc-tag-readonly) {
     @extend %shadow-inset;
   }
 
-  &.rc-tag-style-fill {
+  &.rc-tag-style-fill:not(.rc-tag-disabled):not(.rc-tag-readonly) {
     background: colors.$primary;
     color: colors.$white;
   }
@@ -73,6 +73,14 @@
 
   svg {
     color: colors.$primary;
+  }
+}
+
+.rc-tag-icon-default:hover {
+  background: colors.$primary;
+
+  svg {
+    color: colors.$white;
   }
 }
 

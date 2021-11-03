@@ -17,6 +17,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   tagWidth = 50,
   tagStyle = "default",
   tagSize = "large",
+  disabled = false,
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemModel[]>(

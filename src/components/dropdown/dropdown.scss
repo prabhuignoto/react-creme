@@ -16,8 +16,8 @@
 
 .rc-dropdown-value-container {
   @extend %border;
-  @extend %shadow-inset;
-  @include animate.halo(4px, 4px);
+  @extend %shadow-inset; 
+
   align-items: center;
   cursor: pointer;
   display: grid;
@@ -25,6 +25,14 @@
   grid-template-columns: calc(100% - 2rem) 2rem;
   height: 100%;
   width: 100%;
+
+  &:not(.rc-dropdown-disabled) {
+    @include animate.halo(4px, 4px);
+  }
+
+  &.rc-dropdown-disabled {
+    @extend %disabled;
+  }
 
   &.rc-dropdown-multi {
     max-height: 400px;

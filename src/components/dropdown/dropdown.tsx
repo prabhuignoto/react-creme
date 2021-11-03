@@ -1,12 +1,6 @@
 import cls from "classnames";
 import { nanoid } from "nanoid";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import { ChevronDownIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
 import { withOverlay } from "../common/withOverlay";
@@ -40,7 +34,12 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
 
     // state for the selected value
     const [value, setValue] = useState(
-      !options.some((opt) => opt.selected) ? placeholder : ""
+      options.length
+        ? options
+            .filter((opt) => opt.selected)
+            .map((t) => t.name)
+            .join(",")
+        : ""
     );
 
     // state for showing and hiding the menu
@@ -130,38 +129,22 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
       }
     }, [value, allowMultiSelection]);
 
-    // side effects
-
-    useEffect(() => {
-      // populate selected value on load
-      if (allowMultiSelection) {
-        setValue(
-          options
-            .filter((op) => op.selected)
-            .map((option) => option.name)
-            .join(",")
-        );
-      } else {
-        const selected = options.find((op) => op.selected);
-        setValue(selected ? selected.name : placeholder);
-      }
-    }, []);
-
     // memoized classnames
     const rcDropdownClass = useMemo(
       () =>
         cls("rc-dropdown", {
-          "rc-dropdown--disabled": disabled,
+          "rc-dropdown-disabled": disabled,
         }),
-      []
+      [disabled]
     );
 
     const rcDropdownValueClass = useMemo(
       () =>
         cls("rc-dropdown-value-container", {
           "rc-dropdown-multi": allowMultiSelection,
+          "rc-dropdown-disabled": disabled,
         }),
-      []
+      [disabled]
     );
 
     const rcDropdownIconClass = useMemo(
@@ -170,7 +153,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
           "rc-dropdown-chevron-icon",
           showMenu && !menuClosing ? "rc-dropdown-chevron-icon-rotate" : ""
         ),
-      [showMenu]
+      [showMenu, menuClosing]
     );
 
     return (
@@ -179,7 +162,8 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
           className={rcDropdownValueClass}
           ref={containerRef}
           onClick={handleToggleMenu}
-          tabIndex={0}
+          tabIndex={!disabled ? 0 : -1}
+          aria-disabled={disabled}
         >
           {allowMultiSelection ? (
             Array.isArray(selectedValue) ? (

@@ -8,7 +8,6 @@ function dropdown() {
         onSelected={(val) => console.log(val)}
         placeholder="choose a country"
         allowMultiSelection
-        enableSearch
         maxMenuHeight={500}
         options={[
           { name: "germany", value: "germany", disabled: true },
@@ -18,7 +17,7 @@ function dropdown() {
           { name: "srilanka", value: "srilanka", selected: false },
           { name: "brazil", value: "brazil", selected: false },
           { name: "france", value: "france", selected: false },
-          { name: "japan", value: "japan", selected: false },
+          { name: "japan", value: "japan", selected: true },
           { name: "singapore", value: "singapore", selected: false },
         ]}
       />
@@ -31,7 +30,7 @@ function dropdown() {
         options={[
           { name: "germany", value: "germany", disabled: true },
           { name: "india", value: "india" },
-          { name: "usa", value: "usa", selected: false },
+          { name: "usa", value: "usa", selected: true },
           { name: "uk", value: "uk" },
           { name: "srilanka", value: "srilanka" },
         ]}

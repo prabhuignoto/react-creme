@@ -14,4 +14,5 @@ export interface TagsModel {
   tagWidth?: number;
   tagStyle?: "default" | "fill";
   tagSize?: "small" | "large";
+  disabled?: boolean;
 }

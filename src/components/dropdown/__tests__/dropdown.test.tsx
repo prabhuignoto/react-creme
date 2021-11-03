@@ -1,4 +1,10 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import React from "react";
 import { Dropdown } from "../dropdown";
 
@@ -6,8 +12,16 @@ const options = [
   { name: "usa", value: "usa" },
   { name: "uk", value: "uk" },
   { name: "germany", value: "germany", disabled: true },
-  { name: "india", value: "india" },
-  { name: "srilanka", value: "srilanka" },
+  { name: "india", value: "india", selected: false },
+  { name: "srilanka", value: "srilanka", selected: false },
+];
+
+const options_selected = [
+  { name: "usa", value: "usa" },
+  { name: "uk", value: "uk" },
+  { name: "germany", value: "germany", disabled: true },
+  { name: "india", value: "india", selected: true },
+  { name: "srilanka", value: "srilanka", selected: true },
 ];
 
 const handler = jest.fn();
@@ -85,5 +99,34 @@ describe("Dropdown", () => {
         expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
       });
     }
+  });
+
+  it("should render disabled", () => {
+    const { getByText, container } = render(
+      <Dropdown options={options} placeholder="select a option" disabled />
+    );
+    expect(getByText("select a option")).toBeInTheDocument();
+    expect(container?.firstChild).toHaveClass("rc-dropdown-disabled");
+    expect(container?.firstChild?.firstChild).toHaveAttribute(
+      "aria-disabled",
+      "true"
+    );
+    expect(container?.firstChild?.firstChild).toHaveAttribute("tabindex", "-1");
+  });
+
+  it("should render allowMultiSelection mode", async () => {
+    const { getByText, getByRole } = render(
+      <Dropdown
+        options={options_selected}
+        placeholder="select a option"
+        allowMultiSelection
+      />
+    );
+    expect(getByText("srilanka")).toBeInTheDocument();
+    fireEvent.click(getByText("srilanka"));
+
+    await waitFor(() => {
+      expect(getByRole("listbox")).toBeInTheDocument();
+    });
   });
 });

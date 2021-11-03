@@ -12,9 +12,9 @@ export interface DropdownMenuModel extends OverlayModel {
 }
 
 export interface DropdownMenuStyleModel {
+  maxMenuHeight?: number;
   top?: number;
   width?: number;
-  maxMenuHeight?: number;
 }
 
 export interface Option {

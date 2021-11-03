@@ -45,7 +45,7 @@ function tags() {
             { name: "blue" },
             { name: "red" },
             { name: "orange" },
-            { name: "tester", disabled: false },
+            { name: "tester", disabled: true },
           ]}
           maxTags={15}
           onSelected={(val) => console.log(val)}
