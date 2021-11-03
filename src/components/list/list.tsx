@@ -10,6 +10,7 @@ import React, {
 } from "react";
 import "../../design/focus.scss";
 import { SearchIcon } from "../../icons";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import { Option } from "../dropdown/dropdown-model";
 import { Input } from "../input/input";
 import { ListItem } from "./list-item";
@@ -28,10 +29,12 @@ const List: React.FunctionComponent<ListModel> = ({
   onSelection,
   options,
   itemHeight = 45,
+  rowGap = 10,
+  noUniqueIds = false,
 }) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     options.map((option) => ({
-      id: nanoid(),
+      id: !noUniqueIds ? nanoid() : option.id,
       ...option,
       visible: true,
       selected: option.selected || false,
@@ -56,7 +59,7 @@ const List: React.FunctionComponent<ListModel> = ({
     );
   }, []);
 
-  const handleSelection = useCallback((opt) => {
+  const handleSelection = (opt: Option) => {
     if (allowMultiSelection) {
       setListOptions((prev) => {
         const updated = prev.map((option) => ({
@@ -76,17 +79,17 @@ const List: React.FunctionComponent<ListModel> = ({
         return updated;
       });
     }
-  }, []);
+  };
 
   const visibleOptions = useMemo(
     () => _listOptions.filter((opt) => opt.visible).length,
-    []
+    [_listOptions.length]
   );
 
   const listStyle = useMemo(
     () =>
       ({
-        "--height": `${visibleOptions * (itemHeight + 5)}px`,
+        "--height": `${visibleOptions * (itemHeight + rowGap)}px`,
       } as CSSProperties),
     [visibleOptions]
   );
@@ -96,6 +99,21 @@ const List: React.FunctionComponent<ListModel> = ({
       onSelection(selected);
     }
   }, [selected]);
+
+  useEffect(() => {
+    if (!isFirstRender.current) {
+      setListOptions(
+        options.map((option) => ({
+          id: !noUniqueIds ? nanoid() : option.id,
+          ...option,
+          visible: true,
+          selected: option.selected || false,
+        }))
+      );
+    }
+  }, [JSON.stringify(options)]);
+
+  const isFirstRender = useFirstRender();
 
   return (
     <div
@@ -124,7 +142,7 @@ const List: React.FunctionComponent<ListModel> = ({
               onSelection={handleSelection}
               allowMultiSelection={allowMultiSelection}
               style={{
-                top: `${index * (itemHeight + 5)}px`,
+                top: `${index * (itemHeight + rowGap)}px`,
                 height: `${itemHeight}px`,
               }}
             />

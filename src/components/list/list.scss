@@ -7,7 +7,7 @@
 .rc-list {
   @extend %col;
   @extend %border-radius;
-  height: var(--height);
+  min-height: var(--height);
   width: 100%;
 
   &:not(.rc-list-border-less) {

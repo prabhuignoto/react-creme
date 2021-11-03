@@ -70,10 +70,10 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   );
 
   useEffect(() => {
-    if (!isFirstRender.current && !disabled) {
+    if (!isFirstRender.current && !disabled && isChecked !== checked) {
       setChecked(isChecked);
     }
-  }, [isChecked && disabled]);
+  }, [isChecked, disabled]);
 
   useEffect(() => {
     if (!isFirstRender.current) {

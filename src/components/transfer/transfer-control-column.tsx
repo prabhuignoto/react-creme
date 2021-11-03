@@ -8,44 +8,33 @@ interface TransferControlModel {
   disableTransferLeft?: boolean;
 }
 
-const check = (prev: TransferControlModel, cur: TransferControlModel) => {
+const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
+  onTransfer,
+  disableTransferLeft,
+  disableTransferRight,
+}: TransferControlModel) => {
   return (
-    prev.disableTransferLeft === cur.disableTransferLeft &&
-    prev.disableTransferRight === cur.disableTransferRight
+    <section className="transfer-control-column">
+      <Button
+        type="icon"
+        size="md"
+        onClick={() => onTransfer("right")}
+        disabled={disableTransferRight}
+      >
+        <ChevronRightIcon />
+      </Button>
+      <Button
+        type="icon"
+        size="md"
+        onClick={() => onTransfer("left")}
+        disabled={disableTransferLeft}
+        style={{ transform: "rotate(180deg)" }}
+      >
+        <ChevronRightIcon />
+      </Button>
+    </section>
   );
 };
-
-const TransferControlColumn: React.FunctionComponent<TransferControlModel> =
-  React.memo(
-    ({
-      onTransfer,
-      disableTransferLeft,
-      disableTransferRight,
-    }: TransferControlModel) => {
-      return (
-        <section className="transfer-control-column">
-          <Button
-            type="icon"
-            size="md"
-            onClick={() => onTransfer("right")}
-            disabled={disableTransferRight}
-          >
-            <ChevronRightIcon />
-          </Button>
-          <Button
-            type="icon"
-            size="md"
-            onClick={() => onTransfer("left")}
-            disabled={disableTransferLeft}
-            style={{ transform: "rotate(180deg)" }}
-          >
-            <ChevronRightIcon />
-          </Button>
-        </section>
-      );
-    },
-    check
-  );
 
 TransferControlColumn.displayName = "TransferControlColumn";
 

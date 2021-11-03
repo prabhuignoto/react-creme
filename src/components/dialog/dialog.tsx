@@ -15,6 +15,8 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
   onSuccess,
   showClose,
   title,
+  width,
+  height,
 }: DialogModel) => {
   const dialogRef = useRef<HTMLDivElement>(null);
   const dialogClass = useMemo(
@@ -27,6 +29,14 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
   );
   const id = useRef(`rc-dialog-${nanoid()}`);
 
+  const style = useMemo(
+    () => ({
+      width: width ? `${width}px` : "auto",
+      height: height ? `${height}px` : "auto",
+    }),
+    [width, height]
+  );
+
   useFocus(dialogRef);
 
   return (
@@ -35,6 +45,7 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
       ref={dialogRef}
       role="dialog"
       aria-labelledby={id.current}
+      style={style}
     >
       <header className="rc-dialog-header">
         <h2 className="rc-dialog-title" id={id.current}>

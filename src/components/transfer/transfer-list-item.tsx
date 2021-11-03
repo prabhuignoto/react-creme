@@ -12,32 +12,31 @@ interface TransferListItemModel {
   list: TransferList;
 }
 
-const TransferListItem: React.FunctionComponent<TransferListItemModel> =
-  React.memo(
-    ({ selected, id, name, handleSelection, list }: TransferListItemModel) => {
-      return (
-        <li
-          className={classNames([
-            "transfer-list-item",
-            selected ? "selected" : "",
-          ])}
-          key={id}
-          role="listitem"
-        >
-          <CheckBox
-            label={name}
-            isChecked={selected}
-            onChange={(checked) => {
-              if (checked !== selected) {
-                handleSelection(list, id);
-              }
-            }}
-          />
-        </li>
-      );
-    },
-    (prev, cur) => prev.selected === cur.selected
+const TransferListItem: React.FunctionComponent<TransferListItemModel> = ({
+  selected,
+  id,
+  name,
+  handleSelection,
+  list,
+}: TransferListItemModel) => {
+  return (
+    <li
+      className={classNames(["transfer-list-item", selected ? "selected" : ""])}
+      key={id}
+      role="listitem"
+    >
+      <CheckBox
+        label={name}
+        isChecked={selected}
+        onChange={(checked) => {
+          if (checked !== selected) {
+            handleSelection(list, id);
+          }
+        }}
+      />
+    </li>
   );
+};
 
 TransferListItem.displayName = "TransferListItem";
 

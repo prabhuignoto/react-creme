@@ -5,10 +5,12 @@ export interface ListModel {
   allowMultiSelection?: boolean;
   borderLess?: boolean;
   disableSearch?: boolean;
+  itemHeight?: number;
+  rowGap?: number;
   maxHeight?: number;
   onSelection?: (selected: ListOption[]) => void;
   options: ListOption[];
-  itemHeight?: number;
+  noUniqueIds?: boolean;
 }
 
 export interface ListItemModel {

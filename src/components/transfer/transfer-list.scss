@@ -8,27 +8,13 @@
   @extend %list;
   @extend %border;
   padding: 1rem;
-  width: calc(100% - 0.5rem);
-
-  li {
-    position: relative;
-  }
-
-  li:not(:last-child):not(:first-child)::after {
-    @include position.position-abs("bottom center");
-    background: colors.$mercury;
-    bottom: -2px;
-    content: "";
-    display: block;
-    height: 1px;
-    width: 100%;
-  }
+  width: calc(100%);
 }
 
 .transfer-list-item {
   @extend %left;
   cursor: pointer;
-  height: 40px;
+  height: 45px;
   padding-left: 0.5rem;
   user-select: none;
   width: 100%;

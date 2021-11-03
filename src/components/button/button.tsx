@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useCallback, useMemo, useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import "../../design/focus.scss";
 import { useFocus } from "../common/effects/useFocus";
 import { ButtonModel } from "./button-model";
@@ -29,11 +29,11 @@ const Button: React.FunctionComponent<ButtonModel> = ({
 
   useFocus(ref, { bgHighlight: false });
 
-  const handleClick = useCallback(() => {
+  const handleClick = () => {
     if (!disabled) {
       onClick && onClick();
     }
-  }, [disabled]);
+  };
 
   return (
     <button
