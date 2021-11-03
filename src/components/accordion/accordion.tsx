@@ -61,13 +61,13 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
   );
 
   const iconClass = useMemo(() => {
-    let classes: string[] = [];
+    const classes: string[] = [];
 
     if (chevronRef.current) {
-      const icon = chevronRef.current as HTMLDivElement;
-      classes = Array.from(icon.classList).filter(
-        (c) => c !== "rc-accordion-icon-open"
-      );
+      // const icon = chevronRef.current as HTMLDivElement;
+      // classes = Array.from(icon.classList).filter(
+      //   (c) => c !== "rc-accordion-icon-open"
+      // );
     }
 
     return cls([...classes, "rc-accordion-icon"], {
@@ -123,13 +123,19 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
 
   return (
     <div className={accordionClass}>
-      <div className="rc-accordion-header">
+      <div
+        className="rc-accordion-header"
+        role="button"
+        tabIndex={0}
+        onClick={toggleAccordion}
+        ref={chevronRef}
+      >
         <span
           className={iconClass}
-          role="button"
-          tabIndex={0}
-          ref={chevronRef}
-          onClick={toggleAccordion}
+          // role="button"
+          // tabIndex={0}
+          // ref={chevronRef}
+          // onClick={toggleAccordion}
         >
           <ChevronRightIcon />
         </span>

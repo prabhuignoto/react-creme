@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635946132736" clover="3.2.0">
-  <project timestamp="1635946132736" name="All files">
-    <metrics statements="1404" coveredstatements="1139" conditionals="695" coveredconditionals="401" methods="427" coveredmethods="316" elements="2526" coveredelements="1856" complexity="0" loc="1404" ncloc="1404" packages="32" files="58" classes="58"/>
+<coverage generated="1635966629531" clover="3.2.0">
+  <project timestamp="1635966629531" name="All files">
+    <metrics statements="1401" coveredstatements="1136" conditionals="695" coveredconditionals="401" methods="426" coveredmethods="314" elements="2522" coveredelements="1851" complexity="0" loc="1401" ncloc="1401" packages="32" files="58" classes="58"/>
     <package name="components">
       <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="28" coveredmethods="2"/>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\components\index.ts">
@@ -37,9 +37,9 @@
       </file>
     </package>
     <package name="components.accordion">
-      <metrics statements="51" coveredstatements="47" conditionals="29" coveredconditionals="21" methods="11" coveredmethods="11"/>
+      <metrics statements="48" coveredstatements="44" conditionals="29" coveredconditionals="21" methods="10" coveredmethods="10"/>
       <file name="accordion.tsx" path="D:\Projects\2020\react-phalladium\src\components\accordion\accordion.tsx">
-        <metrics statements="51" coveredstatements="47" conditionals="29" coveredconditionals="21" methods="11" coveredmethods="11"/>
+        <metrics statements="48" coveredstatements="44" conditionals="29" coveredconditionals="21" methods="10" coveredmethods="10"/>
         <line num="1" count="10" type="stmt"/>
         <line num="2" count="10" type="stmt"/>
         <line num="3" count="10" type="stmt"/>
@@ -64,9 +64,6 @@
         <line num="63" count="4" type="stmt"/>
         <line num="64" count="4" type="stmt"/>
         <line num="66" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="69" count="3" type="stmt"/>
         <line num="73" count="4" type="stmt"/>
         <line num="78" count="4" type="stmt"/>
         <line num="79" count="6" type="cond" truecount="2" falsecount="0"/>
@@ -90,7 +87,7 @@
         <line num="119" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="120" count="0" type="stmt"/>
         <line num="124" count="4" type="stmt"/>
-        <line num="145" count="10" type="stmt"/>
+        <line num="151" count="10" type="stmt"/>
       </file>
     </package>
     <package name="components.accordion-group">
@@ -511,8 +508,8 @@
         <line num="26" count="19" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="0" type="stmt"/>
         <line num="31" count="19" type="stmt"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
         <line num="37" count="401" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
@@ -640,9 +637,9 @@
       </file>
     </package>
     <package name="components.drawer">
-      <metrics statements="32" coveredstatements="32" conditionals="18" coveredconditionals="14" methods="7" coveredmethods="7"/>
+      <metrics statements="32" coveredstatements="32" conditionals="18" coveredconditionals="14" methods="7" coveredmethods="6"/>
       <file name="drawer.tsx" path="D:\Projects\2020\react-phalladium\src\components\drawer\drawer.tsx">
-        <metrics statements="32" coveredstatements="32" conditionals="18" coveredconditionals="14" methods="7" coveredmethods="7"/>
+        <metrics statements="32" coveredstatements="32" conditionals="18" coveredconditionals="14" methods="7" coveredmethods="6"/>
         <line num="1" count="9" type="stmt"/>
         <line num="2" count="9" type="stmt"/>
         <line num="10" count="9" type="stmt"/>

@@ -6,11 +6,11 @@ exports[`Accordion should render snapshot 1`] = `
 >
   <div
     class="rc-accordion-header"
+    role="button"
+    tabindex="0"
   >
     <span
       class="rc-accordion-icon"
-      role="button"
-      tabindex="0"
     >
       <svg
         fill="none"

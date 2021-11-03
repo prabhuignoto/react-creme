@@ -20,6 +20,8 @@ $header-height: 32px;
 
 .rc-accordion-header {
   @extend %left;
+  @include animate.halo();
+  cursor: pointer;
   height: $header-height;
   width: 100%;
 }
@@ -48,7 +50,6 @@ $header-height: 32px;
 
 .rc-accordion-icon {
   @extend %icon-md;
-  @include animate.halo();
   cursor: pointer;
   transition: transform 0.2s ease-in;
 

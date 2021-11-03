@@ -4,7 +4,7 @@ import { Splitter } from "../components";
 function splitter() {
   return (
     <div>
-      <Splitter dir="horizontal" minSplitWidth={250} maxSplitWidth={600}>
+      <Splitter dir="horizontal" maxSplitWidth={300} minSplitWidth={200}>
         <p>
           Contrary to popular belief, Lorem Ipsum is not simply random text. It
           has roots in a piece of classical Latin literature from 45 BC, making
