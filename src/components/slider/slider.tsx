@@ -14,12 +14,12 @@ import { SliderModel } from "./slider-model";
 import "./slider.scss";
 
 const Slider: React.FunctionComponent<SliderModel> = ({
-  start = 1,
+  disableTooltip = false,
+  disabled = false,
   end = 10,
   onChange,
-  disabled = false,
-  disableTooltip = false,
   position = "top",
+  start = 1,
 }) => {
   const trackerRef = useRef<HTMLElement | null>(null);
   const controlRef = useRef<HTMLElement | null>(null);

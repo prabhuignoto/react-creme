@@ -4,6 +4,7 @@
 @use "../../design/colors.scss";
 @use "../../design/animate.scss";
 @use "../../design/animations.scss";
+@use "../../design/font.scss";
 
 $sizes: (
   sm: 0.5rem,
@@ -24,15 +25,12 @@ $halo-sizes: (
 .rc-radio {
   @extend %left;
   @include animate.halo(50%);
+  cursor: pointer;
   user-select: none;
 
   &.rc-disabled {
     @extend %disabled;
     cursor: not-allowed;
-  }
-
-  &:hover {
-    cursor: pointer;
   }
 
   &:focus {
@@ -91,7 +89,14 @@ $halo-sizes: (
 
 .rc-radio-label {
   @extend %left;
+  cursor: pointer;
   padding-left: 0.5rem;
+
+  @each $key, $val in $sizes {
+    &.rc-radio-label-#{$key} {
+      @extend %font-#{$key};
+    }
+  }
 }
 
 @include animate.set-keyframes(

@@ -9,7 +9,6 @@ import React, {
 } from "react";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
-import { useKey } from "../common/effects/useKey";
 import { RadioModel } from "./radio-model";
 import "./radio.scss";
 
@@ -24,6 +23,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
   style,
 }) => {
   const labelID = useRef(`label-${nanoid()}`);
+
   const ref = useRef<HTMLDivElement | null>(null);
 
   const [checked, setChecked] = useState<boolean | null>(isChecked);
@@ -45,9 +45,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
 
   useFocus(ref, { bgHighlight: false });
 
-  useKey(ref, toggleCheck);
-
-  const RadioWrapperClass = useMemo(
+  const radioWrapperClass = useMemo(
     () =>
       classNames(
         ["rc-radio"],
@@ -61,12 +59,16 @@ const Radio: React.FunctionComponent<RadioModel> = ({
     [checked]
   );
 
-  const RadioIconClass = useMemo(() => {
+  const radioIconClass = useMemo(() => {
     return classNames(["rc-radio-icon"], {
       "rc-radio-ico-checked": checked,
       "rc-radio-ico-un-checked": !isFirstRender.current && !checked,
     });
   }, [checked]);
+
+  const radioLabelClass = useMemo(() => {
+    return classNames(["rc-radio-label", `rc-radio-label-${size}`]);
+  }, [size]);
 
   useEffect(() => {
     if (isFirstRender.current) {
@@ -78,7 +80,7 @@ const Radio: React.FunctionComponent<RadioModel> = ({
   return (
     <div className="rc-radio-wrapper">
       <div
-        className={RadioWrapperClass}
+        className={radioWrapperClass}
         onClick={toggleCheck}
         aria-checked={!!checked}
         aria-labelledby={labelID.current}
@@ -87,10 +89,10 @@ const Radio: React.FunctionComponent<RadioModel> = ({
         ref={ref}
         style={style}
       >
-        <span className={RadioIconClass}></span>
+        <span className={radioIconClass}></span>
       </div>
       <label
-        className="rc-radio-label"
+        className={radioLabelClass}
         id={labelID.current}
         onClick={toggleCheck}
       >

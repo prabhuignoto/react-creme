@@ -1,0 +1,47 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/position.scss";
+
+.scroll-pane-wrapper {
+  // scrollbar-width: 0;
+  height: 100%;
+  overflow: auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+  &:first-child {
+    z-index: 0;
+  }
+
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
+}
+
+.scrollbar-handle {
+  @extend %shadow-small;
+  @extend %shadow-inset;
+  background: colors.$primary;
+  border-radius: 10px;
+  display: block;
+  height: 100px;
+  width: var(--width);
+
+  &.scrollbar-handle-vertical {
+    @include position.position-abs("top right");
+    width: var(--width);
+  }
+
+  &.scrollbar-handle-horizontal {
+    @include position.position-abs("bottom left");
+    height: var(--width);
+  }
+}
+
+.scroll-pane-content {
+  left: 0;
+  position: absolute;
+  top: 0;
+  // transition: top 0.2s ease-in-out;
+}

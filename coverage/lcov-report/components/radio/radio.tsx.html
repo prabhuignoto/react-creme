@@ -39,7 +39,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -160,7 +160,9 @@
 <a name='L101'></a><a href='#L101'>101</a>
 <a name='L102'></a><a href='#L102'>102</a>
 <a name='L103'></a><a href='#L103'>103</a>
-<a name='L104'></a><a href='#L104'>104</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">11x</span>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,7 +171,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,6 +187,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
@@ -204,8 +206,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -228,6 +228,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
@@ -274,7 +278,6 @@ import React, {
 } from "react";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
-import { useKey } from "../common/effects/useKey";
 import { RadioModel } from "./radio-model";
 import "./radio.scss";
 &nbsp;
@@ -289,6 +292,7 @@ const Radio: React.FunctionComponent&lt;RadioModel&gt; = ({
   style,
 }) =&gt; {
   const labelID = useRef(`label-${nanoid()}`);
+&nbsp;
   const ref = useRef&lt;HTMLDivElement | null&gt;(null);
 &nbsp;
   const [checked, setChecked] = useState&lt;boolean | null&gt;(isChecked);
@@ -310,9 +314,7 @@ const Radio: React.FunctionComponent&lt;RadioModel&gt; = ({
 &nbsp;
   useFocus(ref, { bgHighlight: false });
 &nbsp;
-  useKey(ref, toggleCheck);
-&nbsp;
-  const RadioWrapperClass = useMemo(
+  const radioWrapperClass = useMemo(
     () =&gt;
       classNames(
         ["rc-radio"],
@@ -326,12 +328,16 @@ const Radio: React.FunctionComponent&lt;RadioModel&gt; = ({
     [checked]
   );
 &nbsp;
-  const RadioIconClass = useMemo(() =&gt; {
+  const radioIconClass = useMemo(() =&gt; {
     return classNames(["rc-radio-icon"], {
       "rc-radio-ico-checked": checked,
       "rc-radio-ico-un-checked": !isFirstRender.current &amp;&amp; !checked,
     });
   }, [checked]);
+&nbsp;
+  const radioLabelClass = useMemo(() =&gt; {
+    return classNames(["rc-radio-label", `rc-radio-label-${size}`]);
+  }, [size]);
 &nbsp;
   useEffect(() =&gt; {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (isFirstRender.current) {
@@ -343,7 +349,7 @@ const Radio: React.FunctionComponent&lt;RadioModel&gt; = ({
   return (
     &lt;div className="rc-radio-wrapper"&gt;
       &lt;div
-        className={RadioWrapperClass}
+        className={radioWrapperClass}
         onClick={toggleCheck}
         aria-checked={!!checked}
         aria-labelledby={labelID.current}
@@ -352,10 +358,10 @@ const Radio: React.FunctionComponent&lt;RadioModel&gt; = ({
         ref={ref}
         style={style}
       &gt;
-        &lt;span className={RadioIconClass}&gt;&lt;/span&gt;
+        &lt;span className={radioIconClass}&gt;&lt;/span&gt;
       &lt;/div&gt;
       &lt;label
-        className="rc-radio-label"
+        className={radioLabelClass}
         id={labelID.current}
         onClick={toggleCheck}
       &gt;
@@ -373,7 +379,7 @@ export { Radio };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Nov 04 2021 00:40:29 GMT+0530 (India Standard Time)
+                at Fri Nov 05 2021 01:26:29 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

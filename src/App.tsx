@@ -28,6 +28,7 @@ import Tags from "./playground/tags";
 import Tooltip from "./playground/tooltip";
 import Transfer from "./playground/transfer";
 import Tree from "./playground/tree";
+import ScrollPane from "./playground/ScrollPane";
 
 function App() {
   const { time, start, pause, reset, status } = useTimer({
@@ -63,6 +64,7 @@ function App() {
         <Link to="/skeleton">skeleton</Link>
         <Link to="/tabs">tabs</Link>
         <Link to="/accordion">accordion</Link>
+        <Link to="/scroll-pane">scroll-pane</Link>
         <Link to="/accordion-group">accordion group</Link>
       </aside>
       <section className="section">
@@ -248,6 +250,14 @@ function App() {
             element={
               <div className="section-content" style={{ width: "600px" }}>
                 <AccordionGroup />
+              </div>
+            }
+          />
+          <Route
+            path="/scroll-pane"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <ScrollPane />
               </div>
             }
           />

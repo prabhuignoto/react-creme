@@ -3,13 +3,12 @@
 @use "../../design/icon.scss";
 @use "../../design/animate.scss";
 
-$header-height: 32px;
+$header-height: 40px;
 
 .rc-accordion {
   @extend %col;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0.5rem;
   width: 100%;
 
   &:not(.rc-accordion-no-border) {
@@ -20,10 +19,18 @@ $header-height: 32px;
 
 .rc-accordion-header {
   @extend %left;
-  @include animate.halo();
+  @include animate.halo(1px);
   cursor: pointer;
+  display: grid;
+  grid-template-columns: 2rem auto;
   height: $header-height;
+  justify-items: center;
   width: 100%;
+
+  &:hover {
+    @extend %border-radius;
+    background: colors.$light-bg;
+  }
 }
 
 .rc-accordion-body {
@@ -33,6 +40,7 @@ $header-height: 32px;
   width: 95%;
 
   &.rc-accordion-open {
+    margin-top: 0.5rem;
     max-height: var(--max-height);
     opacity: 1;
   }
