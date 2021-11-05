@@ -4,7 +4,7 @@ import { ScrollPane } from "../components/scroll-pane/scroll-pane";
 function scrollpane() {
   return (
     <div>
-      <ScrollPane width={400} height={500}>
+      <ScrollPane width={350} height={600} scrollBarWidth={5}>
         <div
         // style={{ width: "200px", height: "500px", border: "1px solid blue" }}
         >

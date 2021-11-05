@@ -6,7 +6,11 @@ export interface RadioModel {
   isChecked?: boolean | null;
   isControlled?: boolean;
   label?: string;
-  onChange?: (state: { id?: string; selected?: boolean }) => void;
+  onChange?: (state: {
+    id?: string;
+    selected?: boolean;
+    value?: string;
+  }) => void;
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
   value?: string;

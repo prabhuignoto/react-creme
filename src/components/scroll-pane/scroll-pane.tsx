@@ -1,5 +1,4 @@
 import React, {
-  CSSProperties,
   useCallback,
   useEffect,
   useMemo,
@@ -13,11 +12,14 @@ const ScrollPane: React.FunctionComponent<ScrollPaneModel> = ({
   children,
   width = 300,
   height = 500,
-  scrollBarWidth = 15,
+  scrollBarWidth = 10,
 }) => {
   const [enableScrollY, setEnableScrollY] = useState(false);
 
-  const [scrolledY, setScrolledY] = useState(0);
+  const scrollY = useRef(0);
+  // const scrollX = useRef(0);
+
+  const scrollBarHeight = useRef<number | null>(0);
 
   const paneRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -26,7 +28,7 @@ const ScrollPane: React.FunctionComponent<ScrollPaneModel> = ({
 
   const haltWindowScroll = useRef(false);
 
-  const [scrollbarHeight, setScrollbarHeight] = useState(0);
+  // const [scrollbarHeight, setScrollbarHeight] = useState(0);
 
   const onRefInit = useCallback((node: HTMLDivElement) => {
     if (node) {
@@ -43,32 +45,33 @@ const ScrollPane: React.FunctionComponent<ScrollPaneModel> = ({
     }
   }, []);
 
-  const handleScroll = useCallback(
-    (ev: React.WheelEvent) => {
-      const pane = paneRef?.current;
-      const content = contentRef?.current;
+  const handleScroll = useCallback((ev: React.WheelEvent) => {
+    const pane = paneRef?.current;
+    const content = contentRef?.current;
+    const handle = verticalScrollbar?.current;
 
-      if (!pane || !content) {
-        return;
-      }
+    if (!pane || !content || !handle) {
+      return;
+    }
 
-      if (ev.deltaY < 0 && scrolledY > 0) {
-        setScrolledY((prev) => prev - 30);
-      } else if (
-        ev.deltaY > 0 &&
-        scrolledY + pane.offsetHeight <= content.offsetHeight
-      ) {
-        setScrolledY((prev) => prev + 30);
-      }
-    },
-    [scrolledY]
-  );
+    if (ev.deltaY < 0 && scrollY.current > 0) {
+      scrollY.current -= Math.round(0.2 * pane.clientHeight);
+    } else if (
+      ev.deltaY > 0 &&
+      scrollY.current +
+        Math.round(0.2 * pane.clientHeight) +
+        pane.clientHeight <=
+        content.clientHeight
+    ) {
+      scrollY.current += Math.round(0.2 * pane.clientHeight);
+    }
 
-  const contentStyle = useMemo(() => {
-    return {
-      top: `${-scrolledY}px`,
-    };
-  }, [scrolledY]);
+    content.style.top = `-${scrollY.current}px`;
+    handle.style.top = `${
+      (scrollY.current / (content.clientHeight - pane.clientHeight)) *
+      (pane.clientHeight - handle.clientHeight)
+    }px`;
+  }, []);
 
   const paneStyle = useMemo(() => {
     return {
@@ -79,26 +82,26 @@ const ScrollPane: React.FunctionComponent<ScrollPaneModel> = ({
 
   const onVerticalScrollbarInit = useCallback(
     (node: HTMLDivElement) => {
-      if (node && paneRef.current && contentRef.current) {
-        // debugger;
+      const pane = paneRef?.current;
+      const content = contentRef?.current;
+
+      if (node && pane && content) {
         verticalScrollbar.current = node;
 
         const handle = node as HTMLElement;
 
-        const diff =
-          contentRef.current.clientHeight - paneRef.current.clientHeight;
-        const percent = 1 - diff / contentRef.current.clientHeight;
+        const diff = content.clientHeight - pane.clientHeight;
+        const percent = 1 - diff / content.clientHeight;
 
-        const scrollBarHeight = Math.round(
-          percent * paneRef.current.clientHeight
-        );
+        const scrollHeight = Math.floor(percent * pane.clientHeight);
 
-        handle.style.height = `${scrollbarHeight}px`;
+        handle.style.height = `${scrollHeight}px`;
+        handle.style.width = `${scrollBarWidth}px`;
 
-        setScrollbarHeight(scrollBarHeight);
+        scrollBarHeight.current = scrollHeight;
       }
     },
-    [paneRef.current, contentRef]
+    [paneRef, contentRef]
   );
 
   const onContentRef = useCallback((node: HTMLDivElement) => {
@@ -106,20 +109,6 @@ const ScrollPane: React.FunctionComponent<ScrollPaneModel> = ({
       contentRef.current = node;
     }
   }, []);
-
-  const scrollbarStyle = useMemo(() => {
-    let top = 0;
-
-    if (paneRef.current && contentRef.current) {
-      const percent = scrolledY / contentRef.current.clientHeight;
-      top = Math.round(percent * 100);
-    }
-
-    return {
-      "--width": `${scrollBarWidth}px`,
-      top: `${top}px`,
-    } as CSSProperties;
-  }, [scrolledY, paneRef.current, contentRef.current, scrollbarHeight]);
 
   const handleWindowScroll = useCallback((ev) => {
     if (haltWindowScroll.current) {
@@ -153,15 +142,10 @@ const ScrollPane: React.FunctionComponent<ScrollPaneModel> = ({
       {enableScrollY && (
         <span
           className="scrollbar-handle scrollbar-handle-vertical"
-          style={scrollbarStyle}
           ref={onVerticalScrollbarInit}
         ></span>
       )}
-      <div
-        className="scroll-pane-content"
-        style={contentStyle}
-        ref={onContentRef}
-      >
+      <div className="scroll-pane-content" ref={onContentRef}>
         {children}
       </div>
     </div>

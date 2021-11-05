@@ -48,7 +48,7 @@
   width: 100%;
 }
 
-@mixin halo($border-radius: 4px, $outline-offset: 3px, $halo-effect: true) {
+@mixin halo($border-radius: 4px, $outline-offset: 1px, $halo-effect: true) {
   // z-index: 1;
   $focus-settings: (
     from: (

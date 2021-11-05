@@ -20,7 +20,7 @@ function inputs() {
         <Radio label="check" />
       </div>
       <div style={style}>
-        <Radio label="check1" size="md" />
+        <Radio label="check1" size="md" disabled />
       </div>
       <div style={style}>
         <Radio label="check2" size="lg" />

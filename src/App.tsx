@@ -64,7 +64,7 @@ function App() {
         <Link to="/skeleton">skeleton</Link>
         <Link to="/tabs">tabs</Link>
         <Link to="/accordion">accordion</Link>
-        <Link to="/scroll-pane">scroll-pane</Link>
+        <Link to="/scrollpane">scroll-pane</Link>
         <Link to="/accordion-group">accordion group</Link>
       </aside>
       <section className="section">
@@ -254,7 +254,7 @@ function App() {
             }
           />
           <Route
-            path="/scroll-pane"
+            path="/scrollpane"
             element={
               <div className="section-content" style={{ width: "900px" }}>
                 <ScrollPane />

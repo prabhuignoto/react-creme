@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cls from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   useCallback,
@@ -22,9 +22,11 @@ const Radio: React.FunctionComponent<RadioModel> = ({
   size = "sm",
   style,
 }) => {
-  const labelID = useRef(`label-${nanoid()}`);
+  const idRef = useRef<string>(id || nanoid());
 
-  const ref = useRef<HTMLDivElement | null>(null);
+  const labelID = useRef(`label-${idRef.current}`);
+
+  const radioRef = useRef<HTMLDivElement | null>(null);
 
   const [checked, setChecked] = useState<boolean | null>(isChecked);
 
@@ -39,35 +41,36 @@ const Radio: React.FunctionComponent<RadioModel> = ({
         onChange({
           id,
           selected: !checked,
+          value,
         });
     }
   }, [canToggle]);
 
-  useFocus(ref, { bgHighlight: false });
+  useFocus(radioRef, { bgHighlight: false }, toggleCheck);
 
   const radioWrapperClass = useMemo(
     () =>
-      classNames(
+      cls(
         ["rc-radio"],
         {
           "rc-disabled": disabled,
           "rc-radio-checked": checked,
           [`rc-radio-${size}`]: true,
         },
-        ...(ref.current !== null ? ref.current.classList : [])
+        ...(radioRef.current !== null ? radioRef.current.classList : [])
       ),
     [checked]
   );
 
   const radioIconClass = useMemo(() => {
-    return classNames(["rc-radio-icon"], {
+    return cls(["rc-radio-icon"], {
       "rc-radio-ico-checked": checked,
       "rc-radio-ico-un-checked": !isFirstRender.current && !checked,
     });
   }, [checked]);
 
   const radioLabelClass = useMemo(() => {
-    return classNames(["rc-radio-label", `rc-radio-label-${size}`]);
+    return cls(["rc-radio-label", `rc-radio-label-${size}`]);
   }, [size]);
 
   useEffect(() => {
@@ -84,10 +87,11 @@ const Radio: React.FunctionComponent<RadioModel> = ({
         onClick={toggleCheck}
         aria-checked={!!checked}
         aria-labelledby={labelID.current}
-        tabIndex={0}
+        tabIndex={!disabled ? 0 : -1}
         role="radio"
-        ref={ref}
+        ref={radioRef}
         style={style}
+        id={idRef.current}
       >
         <span className={radioIconClass}></span>
       </div>

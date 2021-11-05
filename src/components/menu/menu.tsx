@@ -105,10 +105,10 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   }, []);
 
   useEffect(() => {
-    document.body.addEventListener("click", closeMenu);
+    document.addEventListener("click", closeMenu);
 
     return () => {
-      document.body.removeEventListener("click", closeMenu);
+      document.removeEventListener("click", closeMenu);
     };
   }, []);
 

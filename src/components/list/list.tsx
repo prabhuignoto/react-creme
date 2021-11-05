@@ -25,12 +25,12 @@ const List: React.FunctionComponent<ListModel> = ({
   allowMultiSelection,
   borderLess = false,
   disableSearch,
+  itemHeight = 45,
   maxHeight = 450,
+  noUniqueIds = false,
   onSelection,
   options,
-  itemHeight = 45,
   rowGap = 10,
-  noUniqueIds = false,
 }) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     options.map((option) => ({
