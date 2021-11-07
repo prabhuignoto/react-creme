@@ -13,3 +13,12 @@ export interface RateItemModel {
   active: boolean;
   hovered: boolean;
 }
+
+export interface RateItemViewModel extends RateItemModel {
+  onMouseOver: (idx: number) => void;
+  // onMouseLeave: () => void;
+  size?: "sm" | "md" | "lg";
+  index: number;
+  icon: ReactNode;
+  onSelect: (idx: number) => void;
+}

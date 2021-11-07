@@ -1,9 +1,9 @@
-import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { useCallback, useEffect } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import RateIcon from "../../icons/star";
 import { useFirstRender } from "../common/effects/useFirstRender";
+import { RateItem } from "./rate-item";
 import { RateItemModel, RateProps } from "./rate-model";
 import "./rate.scss";
 
@@ -35,23 +35,15 @@ const Rate: React.FunctionComponent<RateProps> = ({
     onChange && onChange(idx + 1);
   }, []);
 
-  const handleHover = useCallback(
-    (idx: number) => {
-      setHoverIndex(idx);
-      lastSelectedIndex.current = selectedIndex;
-      setSelectedIndex(-1);
-    },
-    [selectedIndex]
-  );
+  const handleHover = useDebouncedCallback((idx: number) => {
+    setHoverIndex(idx);
+    setSelectedIndex(-1);
+  }, 50);
 
-  const handleLeave = useCallback(() => {
+  const handleLeave = useDebouncedCallback(() => {
     setHoverIndex(-1);
-    if (lastSelectedIndex.current !== -1) {
-      setSelectedIndex(lastSelectedIndex.current);
-    }
-  }, []);
-
-  const debouncedHover = useDebouncedCallback(handleHover, 10);
+    setSelectedIndex(lastSelectedIndex.current);
+  }, 50);
 
   useEffect(() => {
     if (!isFirstRender.current) {
@@ -75,24 +67,24 @@ const Rate: React.FunctionComponent<RateProps> = ({
   const isFirstRender = useFirstRender();
 
   return (
-    <ul className="rc-rate-wrapper" role="radiogroup">
+    <ul
+      className="rc-rate-wrapper"
+      role="radiogroup"
+      onMouseLeave={handleLeave}
+    >
       {items.map(({ id, active, hovered }, index) => {
         return (
-          <li
+          <RateItem
             key={id}
-            className={classNames("rc-rate-item", {
-              "rc-rate-item-active": active,
-              [`rc-rate-item-${size}`]: true,
-              "rc-rate-item-hovered": hovered,
-            })}
-            onClick={() => handleSelection(index)}
-            onMouseEnter={() => debouncedHover(index)}
-            onMouseLeave={handleLeave}
-            aria-checked={active}
-            role="radio"
-          >
-            <span role="img">{icon || <RateIcon />}</span>
-          </li>
+            active={active}
+            hovered={hovered}
+            icon={icon || <RateIcon />}
+            id={id}
+            index={index}
+            onSelect={handleSelection}
+            onMouseOver={handleHover}
+            size={size}
+          />
         );
       })}
     </ul>

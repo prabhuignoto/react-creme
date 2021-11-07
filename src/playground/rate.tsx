@@ -1,6 +1,6 @@
 import React from "react";
 import { Rate } from "../components/rate/rate";
-import { CircleIcon } from "../icons";
+import { SearchIcon } from "../icons";
 
 function rate() {
   return (
@@ -15,7 +15,7 @@ function rate() {
         <Rate size="lg" iconCount={3} />
       </div>
       <div style={{ margin: "1rem 0" }}>
-        <Rate size="md" icon={<CircleIcon />} iconCount={7} />
+        <Rate size="md" icon={<SearchIcon />} iconCount={7} />
       </div>
     </>
   );

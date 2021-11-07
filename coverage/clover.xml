@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636267755050" clover="3.2.0">
-  <project timestamp="1636267755050" name="All files">
-    <metrics statements="1508" coveredstatements="1185" conditionals="755" coveredconditionals="422" methods="458" coveredmethods="331" elements="2721" coveredelements="1938" complexity="0" loc="1508" ncloc="1508" packages="34" files="61" classes="61"/>
+<coverage generated="1636285328250" clover="3.2.0">
+  <project timestamp="1636285328250" name="All files">
+    <metrics statements="1513" coveredstatements="1191" conditionals="757" coveredconditionals="425" methods="460" coveredmethods="333" elements="2730" coveredelements="1949" complexity="0" loc="1513" ncloc="1513" packages="34" files="62" classes="62"/>
     <package name="components">
       <metrics statements="29" coveredstatements="29" conditionals="0" coveredconditionals="0" methods="29" coveredmethods="2"/>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\components\index.ts">
@@ -1170,9 +1170,22 @@
       </file>
     </package>
     <package name="components.rate">
-      <metrics statements="40" coveredstatements="36" conditionals="15" coveredconditionals="12" methods="14" coveredmethods="11"/>
+      <metrics statements="45" coveredstatements="42" conditionals="17" coveredconditionals="15" methods="16" coveredmethods="13"/>
+      <file name="rate-item.tsx" path="D:\Projects\2020\react-phalladium\src\components\rate\rate-item.tsx">
+        <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="17" count="30" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="36" count="15" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+      </file>
       <file name="rate.tsx" path="D:\Projects\2020\react-phalladium\src\components\rate\rate.tsx">
-        <metrics statements="40" coveredstatements="36" conditionals="15" coveredconditionals="12" methods="14" coveredmethods="11"/>
+        <metrics statements="35" coveredstatements="32" conditionals="13" coveredconditionals="12" methods="12" coveredmethods="9"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -1191,28 +1204,23 @@
         <line num="34" count="1" type="stmt"/>
         <line num="35" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="38" count="8" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="47" count="8" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="54" count="8" type="stmt"/>
+        <line num="43" count="8" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="48" count="8" type="stmt"/>
+        <line num="49" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
         <line num="56" count="8" type="stmt"/>
         <line num="57" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="58" count="1" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="64" count="8" type="stmt"/>
-        <line num="65" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="67" count="5" type="stmt"/>
-        <line num="75" count="8" type="stmt"/>
-        <line num="77" count="8" type="stmt"/>
-        <line num="80" count="42" type="stmt"/>
-        <line num="88" count="1" type="stmt"/>
-        <line num="89" count="1" type="stmt"/>
-        <line num="102" count="1" type="stmt"/>
+        <line num="59" count="5" type="stmt"/>
+        <line num="67" count="8" type="stmt"/>
+        <line num="69" count="8" type="stmt"/>
+        <line num="76" count="42" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.scroll-pane">
@@ -1791,7 +1799,7 @@
       <file name="star.tsx" path="D:\Projects\2020\react-phalladium\src\icons\star.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="4" count="37" type="stmt"/>
+        <line num="4" count="25" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
       </file>
     </package>

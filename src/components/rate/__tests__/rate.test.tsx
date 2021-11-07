@@ -38,7 +38,7 @@ describe("Rate", () => {
     const { getAllByRole } = render(<Rate onChange={onChange} />);
 
     await act(async () => {
-      fireEvent.mouseEnter(getAllByRole("radio")[2]);
+      fireEvent.mouseOver(getAllByRole("radio")[2]);
     });
 
     await waitFor(() => {

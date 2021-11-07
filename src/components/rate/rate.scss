@@ -1,6 +1,7 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
 @use "../../design/list.scss";
+@use "../../design/animate.scss";
 
 $sizes: (
   sm: 1rem,
@@ -13,15 +14,10 @@ $sizes: (
 }
 
 .rc-rate-item {
+  @include animate.set-animation();
+  @include animate.halo();
   cursor: pointer;
   padding: 0 0.5rem;
-
-  @each $key, $val in $sizes {
-    &.rc-rate-item-#{$key} {
-      height: #{$val};
-      width: #{$val};
-    }
-  }
 
   svg {
     fill: colors.$chinese-gray;
@@ -29,6 +25,13 @@ $sizes: (
     stroke-width: 0;
     transition: fill 0.1s ease-in;
     width: 100%;
+  }
+
+  @each $key, $val in $sizes {
+    &.rc-rate-item-#{$key} {
+      height: #{$val};
+      width: #{$val};
+    }
   }
 }
 
