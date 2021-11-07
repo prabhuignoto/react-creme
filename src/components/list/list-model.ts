@@ -11,6 +11,7 @@ export interface ListModel {
   onSelection?: (selected: ListOption[]) => void;
   options: ListOption[];
   noUniqueIds?: boolean;
+  group?: boolean;
 }
 
 export interface ListItemModel {

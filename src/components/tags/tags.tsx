@@ -5,7 +5,7 @@ import "../../design/layout.scss";
 import "../../design/list.scss";
 import { Input } from "../input/input";
 import { TagItem } from "./tag-item";
-import { TagItemModel, TagsModel } from "./tags-model";
+import { TagItemInternalModel, TagsModel } from "./tags-model";
 import "./tags.scss";
 
 const Tags: React.FunctionComponent<TagsModel> = ({
@@ -20,13 +20,14 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   disabled = false,
 }) => {
   // STATES
-  const [tagItems, setTagItems] = useState<TagItemModel[]>(
+  const [tagItems, setTagItems] = useState<TagItemInternalModel[]>(
     items
       .map((item) => ({
         name: item.name,
         id: nanoid(),
         disabled: item.disabled,
         readonly: readonly,
+        markedForRemoval: false,
       }))
       .slice(0, maxTags)
   );
@@ -52,10 +53,16 @@ const Tags: React.FunctionComponent<TagsModel> = ({
     [inputValue, canAdd]
   );
 
-  const handleRemove = useCallback(
-    (val) => setTagItems((tags) => tags.filter((tag) => tag.id !== val)),
-    []
-  );
+  const handleRemove = useCallback((val) => {
+    setTagItems((tags) =>
+      tags.map((tag) =>
+        tag.id === val ? { ...tag, markedForRemoval: true } : tag
+      )
+    );
+    setTimeout(() => {
+      setTagItems((tags) => tags.filter((tag) => tag.id !== val));
+    }, 280);
+  }, []);
 
   // EFFECTS
   useEffect(() => {
@@ -78,7 +85,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   return (
     <>
       <ul className={"rc-tags-wrap"} role="list">
-        {tagItems.map(({ id, name, disabled, readonly }) => (
+        {tagItems.map(({ id, name, disabled, readonly, markedForRemoval }) => (
           <TagItem
             id={id}
             disabled={disabled}
@@ -89,6 +96,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
             width={tagWidth}
             tagStyle={tagStyle}
             tagSize={tagSize}
+            markedForRemoval={markedForRemoval}
           />
         ))}
         {canAdd && (

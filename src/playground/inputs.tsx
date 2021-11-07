@@ -37,7 +37,7 @@ function inputs() {
         />
       </div>
       <div style={{ width: "200px", ...wrap }}>
-        <Input enableClear state="default">
+        <Input enableClear state="success">
           <ChevronRightIcon />
         </Input>
       </div>

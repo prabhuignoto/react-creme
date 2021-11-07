@@ -16,12 +16,12 @@ import "./accordion.scss";
 
 const Accordion: React.FunctionComponent<AccordionModel> = ({
   children,
+  controlledState = null,
   id,
   noBorder = false,
   onCollapsed,
   onExpanded,
   title,
-  controlledState = null,
   transition = "cubic-bezier(0.19, 1, 0.22, 1)",
 }) => {
   const accordionID = useRef(id || `accordion-${nanoid()}`);
@@ -37,11 +37,12 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
   }, []);
 
   const enableCallback = useRef(false);
+  const isFirstRender = useFirstRender();
 
   const accordionBodyClass = useMemo(
     () =>
       cls("rc-accordion-body", {
-        "rc-accordion-open": open,
+        "rc-accordion-open": open && !isFirstRender.current,
         "rc-accordion-close": !open,
       }),
     [open]
@@ -62,13 +63,6 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
 
   const iconClass = useMemo(() => {
     const classes: string[] = [];
-
-    if (chevronRef.current) {
-      // const icon = chevronRef.current as HTMLDivElement;
-      // classes = Array.from(icon.classList).filter(
-      //   (c) => c !== "rc-accordion-icon-open"
-      // );
-    }
 
     return cls([...classes, "rc-accordion-icon"], {
       "rc-accordion-icon-open": open,
@@ -93,7 +87,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
   );
 
   useEffect(() => {
-    if (isFistRender.current || !enableCallback.current) {
+    if (isFirstRender.current || !enableCallback.current) {
       return;
     }
 
@@ -104,13 +98,10 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
     }
   }, [open]);
 
-  // useKey(chevronRef, toggleAccordion);
   useFocus(chevronRef, { bgHighlight: false }, toggleAccordion);
 
-  const isFistRender = useFirstRender();
-
   useEffect(() => {
-    if (isFistRender.current || controlledState === null) {
+    if (isFirstRender.current || controlledState === null) {
       return;
     }
 
@@ -130,13 +121,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
         onClick={toggleAccordion}
         ref={chevronRef}
       >
-        <span
-          className={iconClass}
-          // role="button"
-          // tabIndex={0}
-          // ref={chevronRef}
-          // onClick={toggleAccordion}
-        >
+        <span className={iconClass}>
           <ChevronRightIcon />
         </span>
         <span className="rc-accordion-title">{title}</span>

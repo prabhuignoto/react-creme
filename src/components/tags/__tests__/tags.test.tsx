@@ -76,7 +76,9 @@ describe("Tags", () => {
         }
       });
 
-      expect(getByRole("list").querySelectorAll("li").length).toEqual(3);
+      await waitFor(async () => {
+        expect(getByRole("list").querySelectorAll("li").length).toEqual(3);
+      });
     }
   });
 

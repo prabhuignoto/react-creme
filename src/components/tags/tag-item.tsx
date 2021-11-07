@@ -7,12 +7,13 @@ import React, {
   useRef,
 } from "react";
 import { CloseIcon } from "../../icons";
-import { useFocus } from "../common/effects/useFocus";
+import { useFirstRender } from "../common/effects/useFirstRender";
+// import { useFocus } from "../common/effects/useFocus";
 import { useKey } from "../common/effects/useKey";
-import { TagItemModel } from "./tags-model";
+import { TagItemInternalModel } from "./tags-model";
 import "./tags.scss";
 
-type TagItemViewModel = TagItemModel & {
+type TagItemViewModel = TagItemInternalModel & {
   handleRemove: (id: string) => void;
   width?: number;
   tagStyle?: "default" | "fill";
@@ -29,10 +30,12 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
     width,
     tagStyle,
     tagSize,
+    markedForRemoval,
   }: TagItemViewModel) => {
     const ref = useRef(null);
 
-    useFocus(ref);
+    const isFirstRender = useFirstRender();
+    // useFocus(ref);
 
     const handleClick = useCallback(() => {
       id && handleRemove(id);
@@ -48,8 +51,10 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
           "rc-tag-readonly": readonly,
           [`rc-tag-style-${tagStyle}`]: true,
           [`rc-tag-${tagSize}`]: true,
+          "rc-tag-marked-for-removal":
+            markedForRemoval && !isFirstRender.current,
         }),
-      []
+      [markedForRemoval]
     );
 
     const tagIconClass = useMemo(
@@ -85,6 +90,12 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
           </span>
         )}
       </li>
+    );
+  },
+  (prevProps, nextProps) => {
+    return (
+      prevProps.disabled === nextProps.disabled &&
+      prevProps.markedForRemoval === nextProps.markedForRemoval
     );
   }
 );

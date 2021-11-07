@@ -4,6 +4,7 @@
 @use "../../design/animate.scss";
 
 $header-height: 40px;
+$transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
 .rc-accordion {
   @extend %col;
@@ -35,19 +36,20 @@ $header-height: 40px;
 
 .rc-accordion-body {
   margin: 0 auto;
+  max-height: var(--max-height);
   overflow: hidden;
-  transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   width: 95%;
 
   &.rc-accordion-open {
     margin-top: 0.5rem;
-    max-height: var(--max-height);
     opacity: 1;
+    transition: $transition;
   }
 
   &.rc-accordion-close {
     max-height: 0;
     opacity: 0;
+    transition: $transition;
   }
 }
 

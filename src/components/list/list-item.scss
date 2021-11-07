@@ -36,7 +36,7 @@ $height: 40px;
   &.rc-list-option-selected::after {
     @extend %border-radius;
     @include position.position-abs("middle left");
-    background: rgba(colors.$secondary, 0.5);
+    background: rgba(colors.$primary, 0.1);
     content: "";
     display: block;
     height: 105%;

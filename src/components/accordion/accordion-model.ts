@@ -15,6 +15,7 @@ export interface AccordionGroupProps {
   children: ReactNode[];
   titles?: string[];
   autoClose?: boolean;
+  initialState?: "open" | "close";
 }
 
 export interface AccordionItemProps {

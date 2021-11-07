@@ -62,6 +62,7 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
       return {
         width: isHorizontal ? (width !== 0 ? width : minSplitWidth) : "100%",
         height: isHorizontal ? "100%" : height,
+        marginRight: "2px",
       } as CSSProperties;
     }
   }, [percent, canSplit, isHorizontal]);
@@ -77,6 +78,7 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
         return {
           width: isHorizontal ? width : "100%",
           height: isHorizontal ? "100%" : height,
+          marginLeft: "2px",
         } as CSSProperties;
       } else {
         return {

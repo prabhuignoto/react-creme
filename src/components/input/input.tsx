@@ -24,6 +24,7 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
     value = "",
     state = "default",
     style,
+    disabled = false,
   }: InputModel) => {
     const [inputValue, setValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -69,8 +70,9 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
         classNames("rc-input", {
           [`rc-input-${state}`]: true,
           "rc-input-no-icon": !children,
+          "rc-input-disabled": disabled,
         }),
-      []
+      [disabled]
     );
 
     return (

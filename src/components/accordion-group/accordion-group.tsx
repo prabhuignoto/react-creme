@@ -11,10 +11,14 @@ const AccordionGroup = ({
   children,
   titles = [],
   autoClose = true,
+  initialState = "close",
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
-      ? children.map(() => ({ id: nanoid(), expanded: false }))
+      ? children.map(() => ({
+          id: nanoid(),
+          expanded: initialState === "open",
+        }))
       : []
   );
 

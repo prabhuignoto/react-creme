@@ -20,6 +20,8 @@ import Menu from "./playground/menu";
 import MenuBar from "./playground/menubar";
 import Notification from "./playground/notification";
 import Progress from "./playground/progress";
+import Rate from "./playground/rate";
+import ScrollPane from "./playground/ScrollPane";
 import Skeleton from "./playground/skeleton";
 import Slider from "./playground/slider";
 import Splitter from "./playground/splitter";
@@ -28,7 +30,6 @@ import Tags from "./playground/tags";
 import Tooltip from "./playground/tooltip";
 import Transfer from "./playground/transfer";
 import Tree from "./playground/tree";
-import ScrollPane from "./playground/ScrollPane";
 
 function App() {
   const { time, start, pause, reset, status } = useTimer({
@@ -66,6 +67,7 @@ function App() {
         <Link to="/accordion">accordion</Link>
         <Link to="/scrollpane">scroll-pane</Link>
         <Link to="/accordion-group">accordion group</Link>
+        <Link to="/rate">rate</Link>
       </aside>
       <section className="section">
         <Routes>
@@ -258,6 +260,14 @@ function App() {
             element={
               <div className="section-content" style={{ width: "900px" }}>
                 <ScrollPane />
+              </div>
+            }
+          />
+          <Route
+            path="/rate"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <Rate />
               </div>
             }
           />

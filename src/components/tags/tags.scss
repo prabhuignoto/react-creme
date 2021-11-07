@@ -2,17 +2,32 @@
 @use "../../design/list.scss";
 @use "../../design/icon.scss";
 @use "../../design/colors.scss";
+@use "../../design/animate.scss";
 
 .rc-tags-wrap {
   @extend %list-wrap;
 }
 
 .rc-tag {
+  $settings: (
+    from: (
+      max-width: 0,
+      visibility: hidden,
+    ),
+    to: (
+      max-width: var(--width),
+      visibility: visible,
+    ),
+  );
   @extend %border;
+  @include animate.set-animation(0.25s, linear);
+  @include animate.set-keyframes("tag-fade-in", $settings);
+  @include animate.set-keyframes("tag-fade-out", $settings, true);
   font-size: 1rem;
   max-width: var(--width);
 
   user-select: none;
+  visibility: visible;
 
   &.rc-tag:not(.rc-tag-disabled):not(.rc-tag-readonly) {
     align-items: center;
@@ -47,6 +62,12 @@
   &.rc-tag-large {
     margin: 0.25rem;
     padding: 0.5rem;
+  }
+
+  &.rc-tag-marked-for-removal {
+    animation-name: tag-fade-out;
+    max-width: var(--width);
+    visibility: hidden;
   }
 }
 

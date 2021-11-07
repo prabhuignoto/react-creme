@@ -6,12 +6,17 @@
 @use "../../design/animate.scss";
 
 .rc-input {
-  @include animate.halo();
+
   align-items: center;
   display: grid;
   grid-template-columns: 2rem calc(100% - 4rem) 2rem;
   height: 35px;
   justify-items: center;
+  z-index: 2;
+
+  &:not(.rc-input-disabled) {
+    @include animate.halo();
+  }
 
   &.rc-input-default {
     @extend %border;
@@ -27,6 +32,10 @@
 
   &.rc-input-no-icon {
     grid-template-columns: 0.5rem calc(100% - 2.5rem) 2rem;
+  }
+
+  &.rc-input-disabled {
+    @extend %disabled;
   }
 
   input {

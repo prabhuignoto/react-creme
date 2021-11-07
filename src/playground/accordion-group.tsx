@@ -4,7 +4,11 @@ import { AccordionGroup } from "../components";
 function accordionGroup() {
   return (
     <div style={{ height: "600px", width: "600px" }}>
-      <AccordionGroup titles={["one", "two", "three", "image"]}>
+      <AccordionGroup
+        titles={["one", "two", "three", "image"]}
+        autoClose={false}
+        initialState="open"
+      >
         <p>
           Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit amet
           justo vel, convallis volutpat neque. Morbi semper odio sed diam

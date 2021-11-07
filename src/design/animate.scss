@@ -32,6 +32,7 @@
 }
 
 @mixin set-animation($dur: 0.5s, $timing-func: ease-in, $infinite: false) {
+  animation-delay: 0;
   animation-duration: $dur;
   animation-timing-function: $timing-func;
 

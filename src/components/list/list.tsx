@@ -19,6 +19,7 @@ import "./list.scss";
 
 export interface ListOption extends Option {
   visible?: boolean;
+  group?: string;
 }
 
 const List: React.FunctionComponent<ListModel> = ({
