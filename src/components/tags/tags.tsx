@@ -36,16 +36,19 @@ const Tags: React.FunctionComponent<TagsModel> = ({
 
   const canAdd = useMemo(
     () => tagItems.length + 1 <= maxTags && !readonly,
-    [tagItems.length]
+    [tagItems.length, inputValue]
   );
 
   // HANDLERS
 
-  const handleChange = useCallback((val: string) => setInputValue(val), []);
+  const handleChange = useCallback(
+    (val: string) => setInputValue(val.trim()),
+    []
+  );
 
   const handleKeyUp = useCallback(
     (ev: React.KeyboardEvent) => {
-      if (ev.key === "Enter" && inputValue && canAdd) {
+      if (ev.key === "Enter" && canAdd && inputValue) {
         setTagItems((prev) => prev.concat({ id: nanoid(), name: inputValue }));
         setInputValue("");
       }
@@ -61,7 +64,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
     );
     setTimeout(() => {
       setTagItems((tags) => tags.filter((tag) => tag.id !== val));
-    }, 280);
+    }, 250);
   }, []);
 
   // EFFECTS

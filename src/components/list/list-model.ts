@@ -7,6 +7,7 @@ export interface ListModel {
   disableSearch?: boolean;
   itemHeight?: number;
   rowGap?: number;
+  minHeight?: number;
   maxHeight?: number;
   onSelection?: (selected: ListOption[]) => void;
   options: ListOption[];

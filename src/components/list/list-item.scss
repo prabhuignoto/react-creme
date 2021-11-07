@@ -54,7 +54,7 @@ $height: 40px;
   @extend %left;
   @include animate.halo();
   display: grid;
-  grid-template-columns: 20px calc(100% - 20px);
+  grid-template-columns: 2rem calc(100% - 2rem);
   height: $height;
   width: 100%;
 }

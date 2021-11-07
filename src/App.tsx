@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useTimer } from "use-timer";
 import "./App.css";
+import { Sidebar } from "./demo/sidebar/sidebar";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -43,7 +44,8 @@ function App() {
   return (
     <div className="App">
       <aside className="aside">
-        <Link to="/dropdown">Dropdown</Link>
+        <Sidebar />
+        {/* <Link to="/dropdown">Dropdown</Link>
         <Link to="/list">List</Link>
         <Link to="/tags">Tags</Link>
         <Link to="/tooltip">Tooltip</Link>
@@ -67,7 +69,7 @@ function App() {
         <Link to="/accordion">accordion</Link>
         <Link to="/scrollpane">scroll-pane</Link>
         <Link to="/accordion-group">accordion group</Link>
-        <Link to="/rate">rate</Link>
+        <Link to="/rate">rate</Link> */}
       </aside>
       <section className="section">
         <Routes>
@@ -273,8 +275,6 @@ function App() {
           />
         </Routes>
       </section>
-
-      <div style={{ width: "70vw", height: "950px" }}></div>
     </div>
   );
 }

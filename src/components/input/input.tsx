@@ -16,15 +16,15 @@ import "./input.scss";
 const Input: React.FunctionComponent<InputModel> = React.memo(
   ({
     children,
+    disabled = false,
     enableClear = false,
     onChange,
     onKeyUp,
     placeholder = "Please enter a value ...",
-    type = "text",
-    value = "",
     state = "default",
     style,
-    disabled = false,
+    type = "text",
+    value = "",
   }: InputModel) => {
     const [inputValue, setValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -82,6 +82,7 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
         ref={ref}
         style={style}
         tabIndex={0}
+        onClick={() => inputRef.current && inputRef.current.focus()}
       >
         <span className={"rc-input-icon"}>{children}</span>
         <input

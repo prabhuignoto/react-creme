@@ -11,20 +11,23 @@
 .rc-tag {
   $settings: (
     from: (
-      max-width: 0,
+      transform: scale(0.98),
       visibility: hidden,
+      opacity: 0,
     ),
     to: (
-      max-width: var(--width),
+      transform: scale(1),
       visibility: visible,
+      opacity: 1,
     ),
   );
   @extend %border;
-  @include animate.set-animation(0.25s, linear);
+  @include animate.set-animation(0.1s, linear);
   @include animate.set-keyframes("tag-fade-in", $settings);
   @include animate.set-keyframes("tag-fade-out", $settings, true);
   font-size: 1rem;
   max-width: var(--width);
+  transform: scale(1);
 
   user-select: none;
   visibility: visible;
@@ -67,6 +70,7 @@
   &.rc-tag-marked-for-removal {
     animation-name: tag-fade-out;
     max-width: var(--width);
+    transform: scale(0.98);
     visibility: hidden;
   }
 }

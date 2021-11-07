@@ -87,9 +87,9 @@
     @if $size == small {
       height: 35px;
     } @else if $size == large {
-      height: 50px;
+      height: 60px;
     } @else if $size == medium {
-      height: 40px;
+      height: 50px;
     }
   }
 

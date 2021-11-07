@@ -27,7 +27,8 @@ const List: React.FunctionComponent<ListModel> = ({
   borderLess = false,
   disableSearch,
   itemHeight = 45,
-  maxHeight = 450,
+  minHeight = 100,
+  maxHeight = 500,
   noUniqueIds = false,
   onSelection,
   options,
@@ -120,7 +121,7 @@ const List: React.FunctionComponent<ListModel> = ({
     <div
       className={rcListClass}
       ref={listRef}
-      style={{ height: `${maxHeight}px` }}
+      style={{ minHeight: `${minHeight}px`, maxHeight: `${maxHeight}px` }}
     >
       {!disableSearch && (
         <div className="rc-list-search-input">
