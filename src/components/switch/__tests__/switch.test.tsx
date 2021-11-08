@@ -11,6 +11,12 @@ describe("Switch", () => {
     expect(container.firstChild).toBeInTheDocument();
   });
 
+  it("should be checked", () => {
+    const { getByRole } = render(<Switch checked />);
+
+    expect(getByRole("switch")).toHaveAttribute("aria-checked", "true");
+  });
+
   it("should display toggle states", () => {
     const { getByRole } = render(<Switch onChange={handler} />);
 

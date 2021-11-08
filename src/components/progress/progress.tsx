@@ -1,5 +1,11 @@
 import classNames from "classnames";
-import React, { CSSProperties, useMemo, useRef } from "react";
+import React, {
+  CSSProperties,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { ProgressModel } from "./progress-model";
 import "./progress.scss";
 
@@ -11,8 +17,10 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
   size = "md",
   type = "progressive",
   width = 250,
+  status = "default",
 }) => {
-  const progressTrackRef = useRef<HTMLDivElement>(null);
+  const progressTrackRef = useRef<HTMLDivElement | null>(null);
+  const [loaded, setLoaded] = useState(false);
 
   const progressPercent = useMemo(
     () => currentValue / maxValue,
@@ -39,7 +47,7 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
       return Math.round(trackWidth * progressPercent);
     }
     return 0;
-  }, [currentValue, progressPercent, progressTrackRef]);
+  }, [currentValue, progressPercent, loaded]);
 
   const fillStyle = useMemo(
     () =>
@@ -56,13 +64,18 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
 
   const fillClass = useMemo(
     () =>
-      classNames([
-        "progress-fill",
-        type,
-        infiniteStyle,
-        progressComplete ? "complete" : "",
-      ]),
-    [progressComplete]
+      classNames(
+        [
+          "rc-progress-fill",
+          type,
+          infiniteStyle,
+          progressComplete ? "complete" : "",
+        ],
+        {
+          [`rc-progress-fill-${status}`]: true,
+        }
+      ),
+    [progressComplete, status]
   );
 
   const wrapperStyle = useMemo(
@@ -75,22 +88,46 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
     []
   );
 
+  const wrapperClass = useMemo(
+    () =>
+      classNames("rc-progress-wrapper", {
+        [`rc-progress-${status}`]: true,
+      }),
+    [status]
+  );
+
+  const progressTrackClass = useMemo(
+    () =>
+      classNames("rc-progress-track", {
+        [`rc-progress-track-${status}`]: true,
+      }),
+    [status]
+  );
+
   const progressPercentValClass = useMemo(
     () =>
-      classNames("progress-percent-value", `progress-percent-value-${size}`),
+      classNames(
+        "rc-progress-percent-value",
+        `rc-progress-percent-value-${size}`
+      ),
     []
   );
+
+  const onRef = useCallback((ref: HTMLDivElement) => {
+    progressTrackRef.current = ref;
+    setLoaded(true);
+  }, []);
 
   return (
     <div
       aria-valuemin={0}
       aria-valuemax={maxValue}
       aria-valuenow={Math.round(progressPercent * maxValue)}
-      className="progress-wrapper"
+      className={wrapperClass}
       role="progressbar"
       style={wrapperStyle}
     >
-      <div className="progress-track" ref={progressTrackRef}>
+      <div className={progressTrackClass} ref={onRef}>
         <span className={fillClass} style={fillStyle}>
           {canShowProgressValue && (
             <span

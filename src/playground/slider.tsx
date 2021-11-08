@@ -3,7 +3,7 @@ import { Slider } from "../components";
 
 function slider() {
   return (
-    <div>
+    <div style={{ marginTop: "3rem" }}>
       <div style={{ width: "250px" }}>
         <Slider
           start={4}

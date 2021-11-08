@@ -46,7 +46,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
         onSelection={handleSelection}
         allowMultiSelection={allowMultiSelection}
         borderLess
-        disableSearch={!enableSearch}
+        enableSearch={enableSearch}
         maxHeight={maxMenuHeight}
       />
     </div>

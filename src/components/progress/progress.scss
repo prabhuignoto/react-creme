@@ -3,40 +3,67 @@
 @use "../../design/animate.scss";
 @use "../../design/position.scss";
 
-.progress-wrapper {
+.rc-progress-wrapper {
   @extend %center;
   height: var(--height);
   overflow: hidden;
   width: var(--width);
 }
 
-.progress-track {
+.rc-progress-track {
   @extend %border-radius;
-  background: colors.$secondary;
   display: block;
   height: 100%;
   position: relative;
   width: 100%;
   z-index: 1;
+
+  &.rc-progress-track-default {
+    background: colors.$secondary;
+  }
+
+  &.rc-progress-track-success {
+    background: rgba(colors.$success-green, 0.25);
+  }
+
+  &.rc-progress-track-error {
+    background: rgba(colors.$crimson, 0.25);
+  }
 }
 
-.progress-fill {
-  background-color: colors.$primary;
+.rc-progress-fill {
   display: block;
-  height: 100%;
   transition: width 0.2s ease-in;
   width: var(--width);
   z-index: 0;
+
+  &.rc-progress-fill-default {
+    background: colors.$primary;
+  }
+
+  &.rc-progress-fill-success {
+    background: colors.$success-green;
+  }
+
+  &.rc-progress-fill-error {
+    background: colors.$crimson;
+  }
 
   &.progressive {
     @extend %border-radius-left;
   }
 
+  &:not(.infinite) {
+    height: 100%;
+  }
+
   &.infinite {
+    @extend %border-radius;
     @include position.position-abs("top left");
     @include animate.set-animation(2s, linear, true);
     animation-name: infinite-progress;
-    border: 1px solid colors.$white;
+    border: 1px solid colors.$primary;
+    height: calc(var(--height) - 2px);
   }
 
   &.bob {
@@ -48,18 +75,18 @@
   }
 }
 
-.progress-percent-value {
+.rc-progress-percent-value {
   @extend %right;
   color: colors.$white;
   font-size: 1rem;
   height: 100%;
   padding: 0 0.5rem;
 
-  &.progress-percent-value-large {
+  &.rc-progress-percent-value-large {
     font-size: 1.2rem;
   }
 
-  &.progress-percent-value-small {
+  &.rc-progress-percent-value-small {
     font-size: 0.8rem;
   }
 }

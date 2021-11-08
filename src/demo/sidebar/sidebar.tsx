@@ -22,26 +22,32 @@ const Sidebar = () => {
       >
         <List
           options={[
-            { name: "accordion", value: "accordion" },
-            { name: "accordion group", value: "accordion-group" },
+            { name: "Accordion", value: "accordion" },
+            { name: "Accordion Group", value: "accordion-group" },
           ]}
-          disableSearch
           borderLess
+          showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
+          rowGap={10}
+          itemHeight={35}
         ></List>
         <List
           options={[
             { name: "Input Text", value: "inputs" },
-            { name: "Radio", value: "inputs" },
-            { name: "Radio Group", value: "inputs" },
-            { name: "Checkbox", value: "inputs" },
-            { name: "Switch", value: "inputs" },
+            { name: "Radio", value: "radio" },
+            { name: "Radio Group", value: "radio-group" },
+            { name: "Checkbox", value: "checkbox" },
+            { name: "Switch", value: "switch" },
             { name: "Dropdown", value: "dropdown" },
             { name: "Rate", value: "rate" },
+            { name: "Button", value: "buttons" },
+            { name: "Slider", value: "slider" },
           ]}
-          disableSearch
           borderLess
+          showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
+          rowGap={10}
+          itemHeight={35}
         ></List>
         <List
           options={[
@@ -49,9 +55,11 @@ const Sidebar = () => {
             { name: "Skeleton", value: "skeleton" },
             { name: "Notification", value: "notification" },
           ]}
-          disableSearch
           borderLess
+          showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
+          rowGap={10}
+          itemHeight={35}
         ></List>
         <List
           options={[
@@ -60,15 +68,22 @@ const Sidebar = () => {
             { name: "Tags", value: "tags" },
             { name: "Tabs", value: "tabs" },
           ]}
-          disableSearch
           borderLess
+          showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
+          rowGap={10}
+          itemHeight={35}
         ></List>
         <List
-          options={[{ name: "Breadcrumb", value: "breadcrumb" }]}
-          disableSearch
+          options={[
+            { name: "Breadcrumb", value: "breadcrumb" },
+            { name: "Carousel", value: "carousel" },
+          ]}
           borderLess
+          showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
+          rowGap={10}
+          itemHeight={35}
         ></List>
         <List
           options={[
@@ -76,9 +91,11 @@ const Sidebar = () => {
             { name: "Drawer", value: "drawer" },
             { name: "Tooltip", value: "tooltip" },
           ]}
-          disableSearch
           borderLess
+          showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
+          rowGap={10}
+          itemHeight={35}
         ></List>
       </AccordionGroup>
     </div>

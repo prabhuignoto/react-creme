@@ -70,8 +70,10 @@ const Radio: React.FunctionComponent<RadioModel> = ({
   }, [checked]);
 
   const radioLabelClass = useMemo(() => {
-    return cls(["rc-radio-label", `rc-radio-label-${size}`]);
-  }, [size]);
+    return cls(["rc-radio-label", `rc-radio-label-${size}`], {
+      "rc-radio-disabled": disabled,
+    });
+  }, [size, disabled]);
 
   useEffect(() => {
     if (isFirstRender.current) {

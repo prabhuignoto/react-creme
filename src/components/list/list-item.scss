@@ -39,9 +39,9 @@ $height: 40px;
     background: rgba(colors.$primary, 0.1);
     content: "";
     display: block;
-    height: 105%;
-    left: -5px;
-    width: 102%;
+    height: 100%;
+    left: 0;
+    width: 100%;
     z-index: -2;
   }
 
@@ -53,16 +53,19 @@ $height: 40px;
 .rc-list-option-value-wrapper {
   @extend %left;
   @include animate.halo();
-  display: grid;
-  grid-template-columns: 2rem calc(100% - 2rem);
-  height: $height;
+  height: 100%;
   width: 100%;
+
+  &:not(.rc-list-option-no-icon) {
+    display: grid;
+    grid-template-columns: 2rem calc(100% - 2rem);
+  }
 }
 
 .rc-list-option-value {
   @extend %text-no-wrap;
   line-height: $height;
-  padding-left: 0.25rem;
+  padding-left: 0.5rem;
 }
 
 .rc-list-option-icon {

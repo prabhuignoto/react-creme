@@ -21,7 +21,7 @@ $grid: (
 
   @each $key, $val in $grid {
     &.rc-checkbox-#{$key} {
-      grid-template-columns: $val calc(100% - calc($val + 0.5rem));
+      grid-template-columns: 2rem calc(100% - calc($val));
     }
   }
 }
@@ -46,6 +46,10 @@ $grid: (
   @extend %border;
   background: colors.$white;
 
+  &:hover {
+    @extend %shadow-inset;
+  }
+
   svg {
     display: none;
   }
@@ -64,7 +68,7 @@ $grid: (
   @extend %left;
   cursor: pointer;
   height: 100%;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   width: 100%;
 
   @each $key in $sizes {

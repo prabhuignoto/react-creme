@@ -38,12 +38,12 @@ const Rate: React.FunctionComponent<RateProps> = ({
   const handleHover = useDebouncedCallback((idx: number) => {
     setHoverIndex(idx);
     setSelectedIndex(-1);
-  }, 50);
+  }, 10);
 
   const handleLeave = useDebouncedCallback(() => {
     setHoverIndex(-1);
     setSelectedIndex(lastSelectedIndex.current);
-  }, 50);
+  }, 10);
 
   useEffect(() => {
     if (!isFirstRender.current) {

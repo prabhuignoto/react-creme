@@ -25,14 +25,15 @@ export interface ListOption extends Option {
 const List: React.FunctionComponent<ListModel> = ({
   allowMultiSelection,
   borderLess = false,
-  disableSearch,
+  enableSearch = false,
   itemHeight = 45,
   minHeight = 100,
-  maxHeight = 500,
+  maxHeight = 600,
   noUniqueIds = false,
   onSelection,
   options,
   rowGap = 10,
+  showCheckIcon = true,
 }) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     options.map((option) => ({
@@ -91,7 +92,7 @@ const List: React.FunctionComponent<ListModel> = ({
   const listStyle = useMemo(
     () =>
       ({
-        "--height": `${visibleOptions * (itemHeight + rowGap)}px`,
+        "--height": `${visibleOptions * (itemHeight + rowGap) + rowGap}px`,
       } as CSSProperties),
     [visibleOptions]
   );
@@ -123,7 +124,7 @@ const List: React.FunctionComponent<ListModel> = ({
       ref={listRef}
       style={{ minHeight: `${minHeight}px`, maxHeight: `${maxHeight}px` }}
     >
-      {!disableSearch && (
+      {enableSearch && (
         <div className="rc-list-search-input">
           <Input onChange={handleSearch} enableClear>
             <SearchIcon />
@@ -140,11 +141,14 @@ const List: React.FunctionComponent<ListModel> = ({
               value={value}
               selected={selected}
               disabled={disabled}
+              showCheckIcon={showCheckIcon}
               key={id}
               onSelection={handleSelection}
               allowMultiSelection={allowMultiSelection}
               style={{
-                top: `${index * (itemHeight + rowGap)}px`,
+                top: `${
+                  index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap
+                }px`,
                 height: `${itemHeight}px`,
               }}
             />

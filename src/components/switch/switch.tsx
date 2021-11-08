@@ -17,14 +17,14 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   disabled = false,
   size = "sm",
   style,
+  labelOutside = false,
+  checked = false,
 }) => {
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(checked);
   const ref = useRef(null);
 
   // flag to check if the component is rendering the first time
   const isFirstRender = useRef(true);
-
-  useFocus(ref, { bgHighlight: false });
 
   // handler
   const handleToggle = useCallback(() => {
@@ -37,11 +37,16 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
     }
   }, [state, disabled]);
 
+  useFocus(ref, {}, () => {
+    setState((prev) => !prev);
+  });
+
   // CSS
   const switchKnobClass = useMemo(
     () =>
       classNames(["rc-switch-knob"], {
-        "rc-switch-on": state,
+        "rc-switch-on": state && !isFirstRender.current,
+        "rc-switch-on-load": state && isFirstRender.current,
         "rc-switch-off": !state && !isFirstRender.current,
         [`rc-switch-knob-${size}`]: true,
       }),
@@ -53,8 +58,9 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
       classNames("rc-switch", {
         "rc-disabled": disabled,
         [`rc-switch-${size}`]: true,
+        "rc-switch-label-outside": labelOutside,
       }),
-    [size]
+    [size, labelOutside, disabled]
   );
 
   const switchTrackClass = useMemo(
@@ -64,8 +70,9 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
         "rc-switch-off": !state,
         "rc-switch-track-disabled": disabled,
         [`rc-switch-${size}`]: true,
+        "rc-switch-label-outside": labelOutside,
       }),
-    [state, size, disabled]
+    [state, size, disabled, labelOutside]
   );
 
   const switchLabelClass = useMemo(
@@ -73,8 +80,10 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
       classNames(["rc-switch-label"], {
         "rc-switch-label-on": state,
         "rc-switch-label-off": !state,
+        [`rc-switch-label-${size}`]: true,
+        "rc-switch-label-outside": labelOutside,
       }),
-    [state]
+    [state, labelOutside]
   );
 
   const switchStyle = useMemo(
@@ -93,21 +102,28 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
     }
   }, []);
 
+  const switchTabIndex = useMemo(
+    () => !disabled && { tabIndex: 0 },
+    [disabled]
+  );
+
   return (
     <div
       className={switchClass}
       onClick={handleToggle}
-      onKeyUp={({ key }) => key === "Enter" && handleToggle()}
       role="switch"
       aria-checked={state}
       style={switchStyle}
       ref={ref}
-      tabIndex={!disabled ? 0 : -1}
+      {...switchTabIndex}
     >
       <span className={switchTrackClass}>
         <span className={switchKnobClass}></span>
-        {label && <span className={switchLabelClass}>{label}</span>}
+        {label && !labelOutside && (
+          <span className={switchLabelClass}>{label}</span>
+        )}
       </span>
+      {labelOutside && <span className={switchLabelClass}>{label}</span>}
     </div>
   );
 };

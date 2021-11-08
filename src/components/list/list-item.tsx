@@ -16,6 +16,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = ({
   onSelection,
   onClick,
   style,
+  showCheckIcon,
 }: ListItemModel) => {
   const handleSelection = useCallback(() => {
     onSelection && onSelection({ id, name, value, selected });
@@ -44,20 +45,21 @@ const ListItem: React.FunctionComponent<ListItemModel> = ({
       {allowMultiSelection ? (
         <span className="rc-list-item-checkbox-wrapper">
           <CheckBox
-            label={name}
-            isChecked={selected}
             disabled={disabled}
+            isChecked={selected}
+            label={name}
             onChange={handleSelection}
             size="sm"
           />
         </span>
       ) : (
         <ListItemOption
-          name={name}
-          selected={selected}
-          tabIndex={!disabled ? 0 : -1}
           handleSelection={handleSelection}
           key={id}
+          name={name}
+          selected={selected}
+          showCheck={showCheckIcon}
+          tabIndex={!disabled ? 0 : -1}
         />
       )}
     </li>

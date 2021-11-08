@@ -70,6 +70,10 @@ $halo-sizes: (
   display: block;
   position: relative;
 
+  &:hover {
+    @extend %shadow-inset;
+  }
+
   &.rc-radio-ico-checked::after {
     @extend %shadow-inset;
     @extend %pseudo-common;
@@ -91,6 +95,10 @@ $halo-sizes: (
   @extend %left;
   cursor: pointer;
   padding-left: 0.5rem;
+
+  &.rc-radio-disabled {
+    @extend %disabled;
+  }
 
   @each $key, $val in $sizes {
     &.rc-radio-label-#{$key} {

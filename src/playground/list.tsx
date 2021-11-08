@@ -7,6 +7,7 @@ function list() {
       <br />
       <List
         allowMultiSelection
+        enableSearch
         onSelection={(val) => console.log(val)}
         options={[
           {

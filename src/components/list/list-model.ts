@@ -4,15 +4,16 @@ import { ListOption } from "./list";
 export interface ListModel {
   allowMultiSelection?: boolean;
   borderLess?: boolean;
-  disableSearch?: boolean;
+  enableSearch?: boolean;
+  group?: boolean;
   itemHeight?: number;
-  rowGap?: number;
-  minHeight?: number;
   maxHeight?: number;
+  minHeight?: number;
+  noUniqueIds?: boolean;
   onSelection?: (selected: ListOption[]) => void;
   options: ListOption[];
-  noUniqueIds?: boolean;
-  group?: boolean;
+  rowGap?: number;
+  showCheckIcon?: boolean;
 }
 
 export interface ListItemModel {
@@ -25,4 +26,5 @@ export interface ListItemModel {
   selected?: boolean;
   value: string;
   style?: CSSProperties;
+  showCheckIcon?: boolean;
 }

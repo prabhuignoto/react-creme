@@ -31,7 +31,8 @@ function progress() {
           width={300}
           maxValue={50}
           currentValue={time * 1}
-          size="sm"
+          size="md"
+          showProgressValue
         />
       </div>
       <div style={wrap}>
@@ -40,8 +41,28 @@ function progress() {
           width={300}
           maxValue={50}
           currentValue={time * 1}
+          size="sm"
+        />
+      </div>
+      <div style={wrap}>
+        <Progress
+          type="progressive"
+          width={300}
+          maxValue={32}
+          currentValue={31}
+          size="sm"
+          status="success"
+        />
+      </div>
+      <div style={wrap}>
+        <Progress
+          type="progressive"
+          width={300}
+          maxValue={50}
+          currentValue={25}
           showProgressValue
           size="lg"
+          status="error"
         />
       </div>
       <div style={wrap}>
@@ -59,7 +80,7 @@ function progress() {
       <div style={wrap}>
         <Progress
           type="infinite"
-          width={150}
+          width={350}
           maxValue={50}
           currentValue={time * 1}
           showProgressValue

@@ -7,4 +7,6 @@ export interface SwitchModel {
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
   width?: number;
+  labelOutside?: boolean;
+  checked?: boolean;
 }

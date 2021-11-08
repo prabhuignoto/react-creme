@@ -11,6 +11,7 @@ import AccordionGroup from "./playground/accordion-group";
 import Breadcrumb from "./playground/breadcrumb";
 import Buttons from "./playground/buttons";
 import Carousel from "./playground/carousel";
+import Checkbox from "./playground/checkbox";
 import Comparer from "./playground/comparer";
 import Dialog from "./playground/dialog";
 import Drawer from "./playground/drawer";
@@ -21,11 +22,14 @@ import Menu from "./playground/menu";
 import MenuBar from "./playground/menubar";
 import Notification from "./playground/notification";
 import Progress from "./playground/progress";
+import Radio from "./playground/radio";
+import RadioGroup from "./playground/radio-group";
 import Rate from "./playground/rate";
 import ScrollPane from "./playground/ScrollPane";
 import Skeleton from "./playground/skeleton";
 import Slider from "./playground/slider";
 import Splitter from "./playground/splitter";
+import Switch from "./playground/switch";
 import Tabs from "./playground/tabs";
 import Tags from "./playground/tags";
 import Tooltip from "./playground/tooltip";
@@ -45,31 +49,6 @@ function App() {
     <div className="App">
       <aside className="aside">
         <Sidebar />
-        {/* <Link to="/dropdown">Dropdown</Link>
-        <Link to="/list">List</Link>
-        <Link to="/tags">Tags</Link>
-        <Link to="/tooltip">Tooltip</Link>
-        <Link to="/transfer">Transfer</Link>
-        <Link to="/menubar">MenuBar</Link>
-        <Link to="/carousel">Carousel</Link>
-        <Link to="/splitter">Splitter</Link>
-        <Link to="/tree">tree</Link>
-        <Link to="/buttons">buttons</Link>
-        <Link to="/menu">menu</Link>
-        <Link to="/inputs">inputs</Link>
-        <Link to="/notification">notification</Link>
-        <Link to="/breadcrumb">breadcrumb</Link>
-        <Link to="/progress">progress</Link>
-        <Link to="/drawer">drawer</Link>
-        <Link to="/dialog">dialog</Link>
-        <Link to="/slider">slider</Link>
-        <Link to="/comparer">comparer</Link>
-        <Link to="/skeleton">skeleton</Link>
-        <Link to="/tabs">tabs</Link>
-        <Link to="/accordion">accordion</Link>
-        <Link to="/scrollpane">scroll-pane</Link>
-        <Link to="/accordion-group">accordion group</Link>
-        <Link to="/rate">rate</Link> */}
       </aside>
       <section className="section">
         <Routes>
@@ -270,6 +249,38 @@ function App() {
             element={
               <div className="section-content" style={{ width: "900px" }}>
                 <Rate />
+              </div>
+            }
+          />
+          <Route
+            path="/radio"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <Radio />
+              </div>
+            }
+          />
+          <Route
+            path="/switch"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <Switch />
+              </div>
+            }
+          />
+          <Route
+            path="/checkbox"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <Checkbox />
+              </div>
+            }
+          />
+          <Route
+            path="/radio-group"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <RadioGroup />
               </div>
             }
           />
