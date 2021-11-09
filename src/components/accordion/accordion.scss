@@ -22,8 +22,6 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   @extend %left;
   @include animate.halo(1px);
   cursor: pointer;
-  display: grid;
-  grid-template-columns: 2rem auto;
   height: $header-height;
   justify-items: center;
   width: 100%;
@@ -31,6 +29,25 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   &:hover {
     @extend %border-radius;
     background: colors.$light-bg;
+  }
+
+  &:not(.rc-accordion-align-icon-rt) {
+    display: grid;
+    grid-template-columns: 2rem calc(100% - 2rem);
+  }
+}
+
+.rc-accordion-align-icon-rt {
+  display: grid;
+  grid-template-columns: calc(100% - 2rem) 2rem;
+  justify-items: center;
+
+  > :nth-of-type(1) {
+    order: 2;
+  }
+
+  > :nth-of-type(2) {
+    order: 1;
   }
 }
 
@@ -53,14 +70,15 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 }
 
 .rc-accordion-title {
-  @extend %center;
-  padding-left: 6px;
+  @extend %left;
+  width: 95%;
 }
 
 .rc-accordion-icon {
   @extend %icon-md;
   cursor: pointer;
   transition: transform 0.2s ease-in;
+  width: 100%;
 
   &.rc-accordion-icon-open {
     transform: rotate(90deg);

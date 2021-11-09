@@ -8,4 +8,5 @@ export interface CheckboxModel {
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
   height?: number;
+  border?: boolean;
 }

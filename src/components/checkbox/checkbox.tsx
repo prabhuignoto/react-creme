@@ -21,6 +21,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   disabled,
   size = "sm",
   style,
+  border = true,
 }: CheckboxModel) => {
   const [checked, setChecked] = useState(isChecked);
   const ref = useRef(null);
@@ -69,6 +70,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
       classNames("rc-checkbox-wrapper", {
         [`rc-checkbox-${size}`]: true,
         "rc-disabled": disabled,
+        "rc-checkbox-border": border,
       }),
     [size, disabled]
   );

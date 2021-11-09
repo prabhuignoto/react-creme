@@ -12,6 +12,7 @@ const AccordionGroup = ({
   titles = [],
   autoClose = true,
   initialState = "close",
+  alignIconRight = false,
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
@@ -51,6 +52,7 @@ const AccordionGroup = ({
             noBorder
             title={titles[index]}
             controlledState={item.expanded}
+            alignIconRight={alignIconRight}
           >
             {children && children[index]}
           </Accordion>

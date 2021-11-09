@@ -23,6 +23,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
   onExpanded,
   title,
   transition = "cubic-bezier(0.19, 1, 0.22, 1)",
+  alignIconRight = false,
 }) => {
   const accordionID = useRef(id || `accordion-${nanoid()}`);
   const ref = useRef(null);
@@ -83,7 +84,15 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
         "rc-accordion-no-border": noBorder,
         "rc-accordion-open": open,
       }),
-    [noBorder, open]
+    [noBorder, open, alignIconRight]
+  );
+
+  const accordionHeaderClass = useMemo(
+    () =>
+      cls("rc-accordion-header", {
+        "rc-accordion-align-icon-rt": alignIconRight,
+      }),
+    [alignIconRight]
   );
 
   useEffect(() => {
@@ -115,7 +124,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = ({
   return (
     <div className={accordionClass}>
       <div
-        className="rc-accordion-header"
+        className={accordionHeaderClass}
         role="button"
         tabIndex={0}
         onClick={toggleAccordion}

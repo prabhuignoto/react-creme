@@ -3,12 +3,12 @@ import React, { CSSProperties, FunctionComponent, useMemo } from "react";
 import { SkeletonRowModel } from "./skeleton-model";
 
 const SkeletonRow: FunctionComponent<
-  SkeletonRowModel & { blink?: boolean; rowHeight?: number }
-> = ({ id, visible, width, blink, rowHeight, disableAnimation }) => {
+  SkeletonRowModel & { animate?: boolean; rowHeight?: number }
+> = ({ id, visible, width, animate, rowHeight, disableAnimation }) => {
   const skeletonRowClass = useMemo(
     () =>
       classNames("rc-skeleton-row", {
-        "rc-skeleton-blink": blink,
+        "rc-skeleton-animate": animate,
         "rc-skeleton-disable-animation": disableAnimation,
       }),
     [disableAnimation]

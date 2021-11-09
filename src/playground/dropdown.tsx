@@ -8,7 +8,8 @@ function dropdown() {
         onSelected={(val) => console.log(val)}
         placeholder="choose a country"
         allowMultiSelection
-        maxMenuHeight={500}
+        maxMenuHeight={400}
+        virtualize
         options={[
           { name: "germany", value: "germany", disabled: true },
           { name: "india", value: "india" },

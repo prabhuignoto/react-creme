@@ -33,7 +33,7 @@
 
   &:not(.rc-skeleton-disable-animation) {
     @include animate.set-animation(2s, linear, true);
-    @include animate.set-keyframes(blink-skeleton, $settings);
+    @include animate.set-keyframes(animate-skeleton, $settings);
     background: linear-gradient(
       90deg,
       colors.$mercury 0%,
@@ -44,9 +44,9 @@
     background-size: 200% 200%;
   }
 
-  &.rc-skeleton-blink:not(.rc-skeleton-disable-animation) {
+  &.rc-skeleton-animate:not(.rc-skeleton-disable-animation) {
     animation-direction: reverse;
-    animation-name: blink-skeleton;
+    animation-name: animate-skeleton;
   }
 }
 

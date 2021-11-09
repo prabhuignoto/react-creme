@@ -26,13 +26,15 @@ describe("Skeleton", () => {
   });
 
   it("should blink", () => {
-    const { getByTestId } = render(<Skeleton rows={5} blink rowHeight={20} />);
+    const { getByTestId } = render(
+      <Skeleton rows={5} animate rowHeight={20} />
+    );
 
     expect(getByTestId("rc-skeleton")).toBeInTheDocument();
 
     const children = getByTestId("rc-skeleton").children;
 
-    expect(children[0].firstChild).toHaveClass("rc-skeleton-blink");
+    expect(children[0].firstChild).toHaveClass("rc-skeleton-animate");
     // expect(children[0].firstChild).toHaveStyle("--height: 20px");
   });
 });

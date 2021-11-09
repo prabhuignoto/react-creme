@@ -6,12 +6,11 @@ function list() {
     <div style={{ minHeight: "400px", width: "450px" }}>
       <br />
       <List
-        allowMultiSelection
         enableSearch
-        maxHeight={600}
+        maxHeight={400}
         virtualized
         onSelection={(val) => console.log(val)}
-        options={Array.from({ length: 1000 }, (_, i) => ({
+        options={Array.from({ length: 500 }, (_, i) => ({
           name: `Item ${i}`,
           value: `Item ${i}`,
         }))}
@@ -19,6 +18,7 @@ function list() {
       <br />
       <List
         onSelection={(val) => console.log(val)}
+        allowMultiSelection
         options={[
           {
             name: "india is a huge country with a enormous land and rivers india is a huge country with a enormous land and rivers",

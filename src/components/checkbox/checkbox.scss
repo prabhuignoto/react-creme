@@ -3,33 +3,49 @@
 @use "../../design/font.scss";
 @use "../../design/animate.scss";
 @use "../../design/colors.scss";
+@use "sass:map";
 
 $sizes: (sm, md, lg);
 $grid: (
-  sm: 1.25rem,
-  md: 1.75rem,
+  sm: 1rem,
+  md: 1.5rem,
   lg: 2rem,
+);
+$heights: (
+  sm: 35px,
+  md: 50px,
+  lg: 65px,
 );
 
 .rc-checkbox-wrapper {
   @extend %left;
   @include animate.halo();
   align-items: center;
+  cursor: pointer;
   display: grid;
   height: 100%;
   justify-items: center;
   width: 100%;
 
+  &:hover {
+    @extend %border-radius;
+    background: rgba(colors.$secondary, 0.25);
+  }
+
+  &.rc-checkbox-border {
+    @extend %border;
+  }
+
   @each $key, $val in $grid {
     &.rc-checkbox-#{$key} {
-      grid-template-columns: 2rem calc(100% - 2rem);
+      grid-template-columns: calc($val * 2) calc(100% - calc($val * 2));
+      min-height: map.get($heights, $key);
     }
   }
 }
 
 .rc-checkbox {
   @extend %left;
-  cursor: pointer;
   user-select: none;
   z-index: 1;
 
@@ -45,6 +61,7 @@ $grid: (
 .rc-checkbox-icon {
   @extend %border;
   background: colors.$white;
+  width: 100%;
 
   &:hover {
     @extend %shadow-inset;

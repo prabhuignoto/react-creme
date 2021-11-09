@@ -15,7 +15,7 @@
   z-index: 2;
 
   &:not(.rc-input-disabled) {
-    @include animate.halo();
+    @include animate.halo(4px, 5px);
   }
 
   &.rc-input-default {

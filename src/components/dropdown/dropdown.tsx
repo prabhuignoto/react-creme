@@ -22,6 +22,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     onSelected,
     options = [],
     placeholder = "Choose an option...",
+    virtualize = false,
   }: DropdownModel) => {
     // options states
     const [dropdownOptions, setDropdownOptions] = useState(
@@ -199,6 +200,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
             onClose={handleMenuClose}
             onClosing={handleMenuClosing}
             enableSearch={enableSearch}
+            virtualize={virtualize}
           />
         )}
       </div>

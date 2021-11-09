@@ -9,6 +9,7 @@ export interface AccordionModel {
   id?: string;
   controlledState?: boolean | null;
   transition?: string;
+  alignIconRight?: boolean;
 }
 
 export interface AccordionGroupProps {
@@ -16,6 +17,7 @@ export interface AccordionGroupProps {
   titles?: string[];
   autoClose?: boolean;
   initialState?: "open" | "close";
+  alignIconRight?: boolean;
 }
 
 export interface AccordionItemProps {

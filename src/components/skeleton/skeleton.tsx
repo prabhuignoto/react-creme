@@ -6,11 +6,11 @@ import "./skeleton.scss";
 
 const Skeleton: FunctionComponent<SkeletonModel> = ({
   rows = 4,
-  blink = false,
   rowHeight = 30,
   blocks = 1,
   showCircle = false,
   animate = false,
+  style,
 }) => {
   const [skeletonBlocks, setSkeletonBlocks] = useState<SkeletonBlockModel[]>(
     Array.from({ length: blocks }).map(() => ({
@@ -25,7 +25,7 @@ const Skeleton: FunctionComponent<SkeletonModel> = ({
 
   const onInit = useCallback((node) => {
     if (node) {
-      const width = node.clientWidth - 32;
+      const width = node.clientWidth - 30;
       const width2 = Math.round(width / 2);
 
       setSkeletonBlocks((blocks) =>
@@ -45,7 +45,12 @@ const Skeleton: FunctionComponent<SkeletonModel> = ({
   }, []);
 
   return (
-    <div className="rc-skeleton-wrapper" ref={onInit} data-testid="rc-skeleton">
+    <div
+      className="rc-skeleton-wrapper"
+      ref={onInit}
+      data-testid="rc-skeleton"
+      style={style}
+    >
       {skeletonBlocks.map(({ id, rows }) => (
         <div className="rc-skeleton-block" key={id}>
           {showCircle && <div className="rc-skeleton-circle" />}
@@ -56,7 +61,7 @@ const Skeleton: FunctionComponent<SkeletonModel> = ({
                   {...row}
                   key={row.id}
                   rowHeight={rowHeight}
-                  blink={blink}
+                  animate={animate}
                   disableAnimation={!animate}
                 />
               )

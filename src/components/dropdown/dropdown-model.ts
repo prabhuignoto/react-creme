@@ -9,6 +9,7 @@ export interface DropdownMenuModel extends OverlayModel {
   open: boolean;
   options: MenuOption[];
   style: DropdownMenuStyleModel;
+  virtualize?: boolean;
 }
 
 export interface DropdownMenuStyleModel {
@@ -33,4 +34,5 @@ export interface DropdownModel {
   onSelected?: (value: string | string[]) => void;
   options: Option[];
   placeholder?: string;
+  virtualize?: boolean;
 }

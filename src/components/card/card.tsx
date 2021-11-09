@@ -11,6 +11,7 @@ const Card: React.FunctionComponent<CardModel> = ({
   borderLess = false,
   alignFooter = "left",
   alignHeader = "left",
+  children,
 }) => {
   const style = useMemo(() => {
     return {
@@ -36,7 +37,7 @@ const Card: React.FunctionComponent<CardModel> = ({
           {header}
         </header>
       )}
-      <section className="rc-card-body"></section>
+      <section className="rc-card-body">{children}</section>
       {footer && (
         <footer
           className={classNames("rc-card-footer", {

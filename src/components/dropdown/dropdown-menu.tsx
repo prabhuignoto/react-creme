@@ -13,6 +13,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
   open,
   options,
   style: { width, maxMenuHeight },
+  virtualize,
 }: DropdownMenuModel) => {
   // STYLES
   const menuStyle = useMemo(() => {
@@ -48,6 +49,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
         borderLess
         enableSearch={enableSearch}
         maxHeight={maxMenuHeight}
+        virtualized={virtualize}
       />
     </div>
   );

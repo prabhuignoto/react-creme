@@ -51,6 +51,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
               label={name}
               onChange={handleSelection}
               size="sm"
+              border={false}
             />
           </span>
         ) : (

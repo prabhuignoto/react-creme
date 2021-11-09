@@ -8,4 +8,5 @@ export interface CardModel {
   borderLess?: boolean;
   alignHeader?: "left" | "center" | "right";
   alignFooter?: "left" | "center" | "right";
+  children?: ReactNode | ReactNode[];
 }
