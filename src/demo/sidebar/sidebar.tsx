@@ -68,6 +68,7 @@ const Sidebar = () => {
             { name: "Tree", value: "tree" },
             { name: "Tags", value: "tags" },
             { name: "Tabs", value: "tabs" },
+            { name: "Card", value: "card" },
           ]}
           borderLess
           showCheckIcon={false}

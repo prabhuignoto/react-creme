@@ -1,0 +1,53 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+
+.rc-card-wrapper {
+  @extend %col;
+  background: colors.$white;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  padding: 0.5rem;
+
+  &:not(.rc-card-border-less) {
+    @extend %border;
+    // @extend %shadow-inset;
+  }
+}
+
+.rc-card-header {
+  @extend %left;
+  border-bottom: 1px solid colors.$gray;
+  height: 100%;
+  width: 100%;
+
+  &.rc-card-align-right {
+    @extend %right;
+  }
+
+  &.rc-card-align-center {
+    @extend %center;
+  }
+}
+
+.rc-card-body {
+  height: 100%;
+  width: 100%;
+}
+
+.rc-card-footer {
+  @extend %left;
+  border-top: 1px solid colors.$gray;
+  height: 100%;
+  margin-top: auto;
+  width: 100%;
+
+  &.rc-card-align-right {
+    @extend %right;
+  }
+
+  &.rc-card-align-center {
+    @extend %center;
+  }
+}

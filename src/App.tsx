@@ -35,6 +35,7 @@ import Tags from "./playground/tags";
 import Tooltip from "./playground/tooltip";
 import Transfer from "./playground/transfer";
 import Tree from "./playground/tree";
+import Card from "./playground/card";
 
 function App() {
   const { time, start, pause, reset, status } = useTimer({
@@ -281,6 +282,14 @@ function App() {
             element={
               <div className="section-content" style={{ width: "900px" }}>
                 <RadioGroup />
+              </div>
+            }
+          />
+          <Route
+            path="/card"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <Card />
               </div>
             }
           />
