@@ -8,58 +8,96 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { useDebouncedCallback } from "use-debounce";
 import "../../design/focus.scss";
 import { SearchIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { Option } from "../dropdown/dropdown-model";
 import { Input } from "../input/input";
 import { ListItem } from "./list-item";
-import { ListModel } from "./list-model";
+import { ListModel, ListOption } from "./list-model";
 import "./list.scss";
-
-export interface ListOption extends Option {
-  visible?: boolean;
-  group?: string;
-}
 
 const List: React.FunctionComponent<ListModel> = ({
   allowMultiSelection,
   borderLess = false,
   enableSearch = false,
   itemHeight = 45,
-  minHeight = 100,
   maxHeight = 600,
+  minHeight = 100,
   noUniqueIds = false,
   onSelection,
   options,
   rowGap = 10,
   showCheckIcon = true,
+  virtualized = false,
 }) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
-    options.map((option) => ({
-      id: !noUniqueIds ? nanoid() : option.id,
-      ...option,
-      visible: true,
-      selected: option.selected || false,
-    }))
+    options
+      .sort((a, b) => (b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1))
+      .map((option, index) => ({
+        id: !noUniqueIds ? nanoid() : option.id,
+        ...option,
+        visible: true,
+        selected: option.selected || false,
+        top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
+      }))
   );
 
-  const listRef = useRef<HTMLDivElement>(null);
-
+  const listRef = useRef<HTMLUListElement | null>(null);
   const [selected, setSelected] = useState<ListOption[]>();
+  const [visibleRange, setVisibleRange] = useState<number[]>([0, 0]);
+  const [timeStamp, setTimeStamp] = useState(0);
 
   const rcListClass = useMemo(
-    () => cls("rc-list", { "rc-list-border-less": borderLess }),
+    () =>
+      cls("rc-list", {
+        "rc-list-border-less": borderLess,
+        "rc-list-search": enableSearch,
+      }),
     []
   );
 
-  const handleSearch = useCallback((val) => {
-    setListOptions((prev) =>
-      prev.map((item) => ({
-        ...item,
-        visible: val ? item.name.includes(val) : !val,
-      }))
-    );
+  const listStyle = useMemo(() => {
+    return {
+      "--list-height": `${
+        _listOptions.filter((v) => v.visible).length * (itemHeight + rowGap) +
+        rowGap
+      }px`,
+    } as CSSProperties;
+  }, [_listOptions.length, timeStamp]);
+
+  const handleSearch = useCallback((val: string) => {
+    const _val = val.trim().toLowerCase();
+
+    setListOptions((prev) => {
+      let updated = [];
+
+      if (_val.length) {
+        updated = prev
+          .map((opt) => ({
+            ...opt,
+            visible: opt.name.toLowerCase().includes(_val),
+          }))
+          .sort((a, b) => (a.visible === b.visible ? 0 : a.visible ? -1 : 1));
+      } else {
+        updated = prev
+          .map((opt) => ({
+            ...opt,
+            visible: true,
+          }))
+          .sort((a, b) =>
+            b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1
+          );
+      }
+
+      return updated.map((option, index) => ({
+        ...option,
+        top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
+      }));
+    });
+
+    setTimeStamp(Date.now());
   }, []);
 
   const handleSelection = (opt: Option) => {
@@ -84,19 +122,6 @@ const List: React.FunctionComponent<ListModel> = ({
     }
   };
 
-  const visibleOptions = useMemo(
-    () => _listOptions.filter((opt) => opt.visible).length,
-    [_listOptions.length]
-  );
-
-  const listStyle = useMemo(
-    () =>
-      ({
-        "--height": `${visibleOptions * (itemHeight + rowGap) + rowGap}px`,
-      } as CSSProperties),
-    [visibleOptions]
-  );
-
   useEffect(() => {
     if (selected && onSelection) {
       onSelection(selected);
@@ -106,23 +131,52 @@ const List: React.FunctionComponent<ListModel> = ({
   useEffect(() => {
     if (!isFirstRender.current) {
       setListOptions(
-        options.map((option) => ({
+        options.map((option, index) => ({
           id: !noUniqueIds ? nanoid() : option.id,
           ...option,
           visible: true,
           selected: option.selected || false,
+          top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
         }))
       );
     }
-  }, [JSON.stringify(options)]);
+  }, [options]);
 
   const isFirstRender = useFirstRender();
+
+  const setRange = useCallback(() => {
+    if (listRef.current) {
+      const list = listRef.current;
+      const scrollTop = Math.round(list.scrollTop);
+      const height = Math.round(list.clientHeight);
+      setVisibleRange([scrollTop, scrollTop + height]);
+    }
+  }, []);
+
+  const handleScroll = useDebouncedCallback(setRange, 50, {
+    leading: false,
+    trailing: true,
+  });
+
+  const onListRef = useCallback((el) => {
+    if (el) {
+      listRef.current = el;
+
+      if (virtualized) {
+        setRange();
+      }
+    }
+  }, []);
 
   return (
     <div
       className={rcListClass}
-      ref={listRef}
-      style={{ minHeight: `${minHeight}px`, maxHeight: `${maxHeight}px` }}
+      style={
+        {
+          "--min-height": `${minHeight}px`,
+          "--max-height": `${maxHeight}px`,
+        } as CSSProperties
+      }
     >
       {enableSearch && (
         <div className="rc-list-search-input">
@@ -131,29 +185,38 @@ const List: React.FunctionComponent<ListModel> = ({
           </Input>
         </div>
       )}
-      <ul className={"rc-list-options"} role="listbox" style={listStyle}>
-        {_listOptions
-          .filter((item) => item.visible)
-          .map(({ disabled, id, name, value, selected }, index) => (
-            <ListItem
-              name={name}
-              id={id}
-              value={value}
-              selected={selected}
-              disabled={disabled}
-              showCheckIcon={showCheckIcon}
-              key={id}
-              onSelection={handleSelection}
-              allowMultiSelection={allowMultiSelection}
-              style={{
-                top: `${
-                  index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap
-                }px`,
-                height: `${itemHeight}px`,
-              }}
-            />
-          ))}
-      </ul>
+      <div
+        className="rc-list-options-wrapper"
+        ref={onListRef}
+        onScroll={handleScroll}
+      >
+        <ul className={"rc-list-options"} role="listbox" style={listStyle}>
+          {_listOptions
+            .filter((item) => item.visible)
+            .map(({ disabled, id, name, value, selected, top = 0 }) => {
+              const canShow =
+                !virtualized ||
+                (top + itemHeight >= visibleRange[0] && top <= visibleRange[1]);
+              return canShow ? (
+                <ListItem
+                  name={name}
+                  id={id}
+                  value={value}
+                  selected={selected}
+                  disabled={disabled}
+                  showCheckIcon={showCheckIcon}
+                  key={id}
+                  onSelection={handleSelection}
+                  allowMultiSelection={allowMultiSelection}
+                  style={{
+                    top: `${top}px`,
+                    height: `${itemHeight}px`,
+                  }}
+                />
+              ) : null;
+            })}
+        </ul>
+      </div>
     </div>
   );
 };

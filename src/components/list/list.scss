@@ -5,10 +5,20 @@
 @use "../../design/position.scss";
 
 .rc-list {
-  @extend %col;
   @extend %border-radius;
-  min-height: var(--height);
+  justify-items: center;
+  row-gap: 6px;
   width: 100%;
+
+  &:not(.rc-list-search) {
+    @extend %col;
+  }
+
+  &.rc-list-search {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px calc(var(--max-height) - 56px);
+  }
 
   &:not(.rc-list-border-less) {
     @extend %border;
@@ -16,8 +26,8 @@
 }
 
 .rc-list-search-input {
-  margin: 1rem 0 0.25rem;
-  width: 90%;
+  @extend %center;
+  width: 95%;
 }
 
 $hide-anim: (
@@ -35,6 +45,24 @@ $list-anim-settings: (
   from: $hide-anim,
   to: $show-anim,
 );
+
+.rc-list-options-wrapper {
+  max-height: var(--max-height);
+  overflow-y: auto;
+  width: 100%;
+}
+
+.rc-list-options {
+  @extend %list;
+  height: var(--list-height);
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-bottom: 0.5rem;
+  position: relative;
+  width: 100%;
+}
 
 @include animate.set-keyframes(list-menu-open, $list-anim-settings);
 @include animate.set-keyframes(list-menu-close, $list-anim-settings, true);

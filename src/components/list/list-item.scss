@@ -7,18 +7,6 @@
 
 $height: 40px;
 
-.rc-list-options {
-  @extend %list;
-  height: var(--height);
-  justify-content: flex-start;
-  margin-top: 0.5rem;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding-bottom: 0.5rem;
-  position: relative;
-  width: 100%;
-}
-
 .rc-list-option {
   @extend %list-item-left;
   @extend %border-radius;

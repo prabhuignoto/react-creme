@@ -1,5 +1,6 @@
 import React from "react";
-import { List, ListOption } from "../list/list";
+import { List } from "../list/list";
+import { ListOption } from "../list/list-model";
 import { TransferList as TransferListModel } from "./transfer-model";
 
 export interface TransferListProps {

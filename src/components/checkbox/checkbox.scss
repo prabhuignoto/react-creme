@@ -13,6 +13,7 @@ $grid: (
 
 .rc-checkbox-wrapper {
   @extend %left;
+  @include animate.halo();
   align-items: center;
   display: grid;
   height: 100%;
@@ -21,14 +22,13 @@ $grid: (
 
   @each $key, $val in $grid {
     &.rc-checkbox-#{$key} {
-      grid-template-columns: 2rem calc(100% - calc($val));
+      grid-template-columns: 2rem calc(100% - 2rem);
     }
   }
 }
 
 .rc-checkbox {
   @extend %left;
-  @include animate.halo();
   cursor: pointer;
   user-select: none;
   z-index: 1;
@@ -65,10 +65,8 @@ $grid: (
 
 .rc-checkbox-label {
   @extend %text-no-wrap;
-  @extend %left;
   cursor: pointer;
-  height: 100%;
-  padding-left: 0.5rem;
+  display: block;
   width: 100%;
 
   @each $key in $sizes {

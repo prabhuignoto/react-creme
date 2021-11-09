@@ -2,15 +2,7 @@
 @use "../../design/colors.scss";
 @use "../../design/animate.scss";
 @use "../../design/list.scss";
-
-$settings: (
-  from: (
-    background: colors.$gray,
-  ),
-  to: (
-    background: colors.$chinese-gray,
-  ),
-);
+@use "../../design/position.scss";
 
 .rc-skeleton-wrapper {
   @extend %border-radius;
@@ -21,21 +13,55 @@ $settings: (
 }
 
 .rc-skeleton-row {
+  $settings: (
+    from: (
+      background-position: 0% 0%,
+    ),
+    to: (
+      background-position: 400% 400%,
+    ),
+  );
   @extend %border-radius;
-  background: colors.$gray;
   display: block;
   height: var(--height);
   margin: 0.5rem 0;
+  z-index: -1;
 
-  &.rc-skeleton-blink {
-    @include animate.set-animation(s, linear);
+  &.rc-skeleton-disable-animation {
+    background: colors.$chinese-gray;
+  }
+
+  &:not(.rc-skeleton-disable-animation) {
+    @include animate.set-animation(2s, linear, true);
     @include animate.set-keyframes(blink-skeleton, $settings);
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
+    background: linear-gradient(
+      90deg,
+      colors.$mercury 0%,
+      colors.$chinese-gray 35%,
+      colors.$mercury 100%
+    );
+    background-position: 400% 400%;
+    background-size: 200% 200%;
+  }
+
+  &.rc-skeleton-blink:not(.rc-skeleton-disable-animation) {
+    animation-direction: reverse;
     animation-name: blink-skeleton;
   }
 }
 
 .rc-skeleton-block:not(:first-child) {
-  margin: 1rem 0;
+  margin: 2rem 0;
+}
+
+.rc-skeleton-block {
+  position: relative;
+}
+
+.rc-skeleton-circle {
+  background: colors.$chinese-gray;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: 1;
 }

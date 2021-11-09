@@ -15,12 +15,12 @@ $item-height: 30px;
 
   &.rc-tree-item-exp {
     max-height: $max-height;
-    transition: max-height 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: max-height 0.25s cubic-bezier(0.77, 0, 0.18, 1);
   }
 
   &.rc-tree-item-collapsed {
     max-height: $item-height;
-    transition: max-height 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: max-height 0.25s cubic-bezier(0.77, 0, 0.18, 1);
   }
 }
 

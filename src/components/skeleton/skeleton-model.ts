@@ -4,12 +4,15 @@ export interface SkeletonModel {
   blink?: boolean;
   rowHeight?: number;
   blocks?: number;
+  showCircle?: boolean;
+  animate?: boolean;
 }
 
 export interface SkeletonRowModel {
   id: string;
   visible?: boolean;
   width?: number;
+  disableAnimation?: boolean;
 }
 
 export interface SkeletonBlockModel {

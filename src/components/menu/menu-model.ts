@@ -1,7 +1,7 @@
 import React from "react";
 export interface MenuModel {
   children: React.ReactNode;
-  closeManual?: boolean;
+  focusable?: boolean;
   id?: string;
   items: MenuItemModel[];
   onClose?: (id?: string) => void;

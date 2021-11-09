@@ -104,7 +104,6 @@ const MenuBar: React.FunctionComponent<MenuBarModel> = ({
               onClose={onCloseMenu}
               id={id}
               onSelected={(val) => handleSelection(val, name)}
-              closeManual={isMenuOpen}
               position="left"
             >
               <span

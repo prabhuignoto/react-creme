@@ -6,12 +6,12 @@
 @use "../../design/animate.scss";
 
 .rc-input {
-
   align-items: center;
   display: grid;
   grid-template-columns: 2rem calc(100% - 4rem) 2rem;
   height: 35px;
   justify-items: center;
+  width: 100%;
   z-index: 2;
 
   &:not(.rc-input-disabled) {

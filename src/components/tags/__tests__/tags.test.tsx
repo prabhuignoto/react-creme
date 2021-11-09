@@ -45,7 +45,7 @@ describe("Tags", () => {
       });
     });
 
-    await act(async () => new Promise((resolve) => setTimeout(resolve, 100)));
+    await act(async () => new Promise((resolve) => setTimeout(resolve, 500)));
 
     await act(async () => {
       fireEvent.keyUp(input, {
@@ -97,7 +97,7 @@ describe("Tags", () => {
       });
     });
 
-    await act(async () => new Promise((resolve) => setTimeout(resolve, 100)));
+    await act(async () => new Promise((resolve) => setTimeout(resolve, 500)));
 
     await act(async () => {
       fireEvent.keyUp(input, {

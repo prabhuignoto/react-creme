@@ -7,4 +7,5 @@ export interface CheckboxModel {
   disabled?: boolean;
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
+  height?: number;
 }

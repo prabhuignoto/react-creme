@@ -1,52 +1,16 @@
-import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, {
-  CSSProperties,
-  FunctionComponent,
-  useCallback,
-  useMemo,
-  useState,
-} from "react";
-import {
-  SkeletonBlockModel,
-  SkeletonModel,
-  SkeletonRowModel,
-} from "./skeleton-model";
+import React, { FunctionComponent, useCallback, useState } from "react";
+import { SkeletonBlockModel, SkeletonModel } from "./skeleton-model";
+import { SkeletonRow } from "./skeleton-row";
 import "./skeleton.scss";
-
-const SkeletonRow: FunctionComponent<
-  SkeletonRowModel & { blink?: boolean; rowHeight?: number }
-> = ({ id, visible, width, blink, rowHeight }) => {
-  const skeletonRowClass = useMemo(
-    () =>
-      classNames("rc-skeleton-row", {
-        "rc-skeleton-blink": blink,
-      }),
-    []
-  );
-
-  const rowStyle = useMemo(
-    () =>
-      ({
-        "--height": `${rowHeight}px`,
-      } as CSSProperties),
-    [rowHeight]
-  );
-
-  return (
-    <span
-      className={skeletonRowClass}
-      key={id}
-      style={{ width: `${width}px`, ...rowStyle }}
-    ></span>
-  );
-};
 
 const Skeleton: FunctionComponent<SkeletonModel> = ({
   rows = 4,
   blink = false,
   rowHeight = 30,
   blocks = 1,
+  showCircle = false,
+  animate = false,
 }) => {
   const [skeletonBlocks, setSkeletonBlocks] = useState<SkeletonBlockModel[]>(
     Array.from({ length: blocks }).map(() => ({
@@ -84,6 +48,7 @@ const Skeleton: FunctionComponent<SkeletonModel> = ({
     <div className="rc-skeleton-wrapper" ref={onInit} data-testid="rc-skeleton">
       {skeletonBlocks.map(({ id, rows }) => (
         <div className="rc-skeleton-block" key={id}>
+          {showCircle && <div className="rc-skeleton-circle" />}
           {rows.map(
             (row) =>
               row.visible && (
@@ -92,6 +57,7 @@ const Skeleton: FunctionComponent<SkeletonModel> = ({
                   key={row.id}
                   rowHeight={rowHeight}
                   blink={blink}
+                  disableAnimation={!animate}
                 />
               )
           )}

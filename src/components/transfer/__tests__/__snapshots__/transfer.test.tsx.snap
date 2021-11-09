@@ -9,202 +9,206 @@ exports[`Transfer should render transfer snapshot 1`] = `
   >
     <div
       class="rc-list"
-      style="min-height: 100px; max-height: 350px;"
+      style="--min-height: 100px; --max-height: 350px;"
     >
-      <ul
-        class="rc-list-options"
-        role="listbox"
-        style="--height: 210px;"
+      <div
+        class="rc-list-options-wrapper"
       >
-        <li
-          class="rc-list-option"
-          role="option"
-          style="top: 10px; height: 40px;"
+        <ul
+          class="rc-list-options"
+          role="listbox"
+          style="--list-height: 210px;"
         >
-          <span
-            class="rc-list-item-checkbox-wrapper"
+          <li
+            class="rc-list-option"
+            role="option"
+            style="top: 10px; height: 40px;"
           >
-            <div
-              class="rc-checkbox-wrapper rc-checkbox-sm"
+            <span
+              class="rc-list-item-checkbox-wrapper"
             >
               <div
                 aria-checked="false"
-                aria-labelledby="label-pua1VIACAnLvKbD1L3eLk"
-                class="rc-checkbox rc-checkbox-sm"
+                class="rc-checkbox-wrapper rc-checkbox-sm"
                 role="checkbox"
                 tabindex="0"
               >
-                <span
-                  class="rc-checkbox-icon rc-checkbox-sm"
-                  role="img"
+                <div
+                  aria-labelledby="label-MY5JN2N1o0CmmQQNanv5a"
+                  class="rc-checkbox rc-checkbox-sm"
                 >
-                  <svg
-                    class="prefix__feather prefix__feather-check"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="rc-checkbox-icon rc-checkbox-sm"
+                    role="img"
                   >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                    />
-                  </svg>
-                </span>
+                    <svg
+                      class="prefix__feather prefix__feather-check"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <label
+                  class="rc-checkbox-label rc-checkbox-label-sm"
+                  id="label-MY5JN2N1o0CmmQQNanv5a"
+                >
+                  five
+                </label>
               </div>
-              <label
-                class="rc-checkbox-label rc-checkbox-label-sm"
-                id="label-pua1VIACAnLvKbD1L3eLk"
-              >
-                one
-              </label>
-            </div>
-          </span>
-        </li>
-        <li
-          class="rc-list-option"
-          role="option"
-          style="top: 60px; height: 40px;"
-        >
-          <span
-            class="rc-list-item-checkbox-wrapper"
+            </span>
+          </li>
+          <li
+            class="rc-list-option"
+            role="option"
+            style="top: 60px; height: 40px;"
           >
-            <div
-              class="rc-checkbox-wrapper rc-checkbox-sm"
+            <span
+              class="rc-list-item-checkbox-wrapper"
             >
               <div
                 aria-checked="false"
-                aria-labelledby="label-5GF9JI6ADHl8QKbrghYg2"
-                class="rc-checkbox rc-checkbox-sm"
+                class="rc-checkbox-wrapper rc-checkbox-sm"
                 role="checkbox"
                 tabindex="0"
               >
-                <span
-                  class="rc-checkbox-icon rc-checkbox-sm"
-                  role="img"
+                <div
+                  aria-labelledby="label-AHiLtRAS8r8pnpyQhZbAF"
+                  class="rc-checkbox rc-checkbox-sm"
                 >
-                  <svg
-                    class="prefix__feather prefix__feather-check"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="rc-checkbox-icon rc-checkbox-sm"
+                    role="img"
                   >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                    />
-                  </svg>
-                </span>
+                    <svg
+                      class="prefix__feather prefix__feather-check"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <label
+                  class="rc-checkbox-label rc-checkbox-label-sm"
+                  id="label-AHiLtRAS8r8pnpyQhZbAF"
+                >
+                  one
+                </label>
               </div>
-              <label
-                class="rc-checkbox-label rc-checkbox-label-sm"
-                id="label-5GF9JI6ADHl8QKbrghYg2"
-              >
-                two
-              </label>
-            </div>
-          </span>
-        </li>
-        <li
-          class="rc-list-option"
-          role="option"
-          style="top: 110px; height: 40px;"
-        >
-          <span
-            class="rc-list-item-checkbox-wrapper"
+            </span>
+          </li>
+          <li
+            class="rc-list-option"
+            role="option"
+            style="top: 110px; height: 40px;"
           >
-            <div
-              class="rc-checkbox-wrapper rc-checkbox-sm"
+            <span
+              class="rc-list-item-checkbox-wrapper"
             >
               <div
                 aria-checked="false"
-                aria-labelledby="label-2Z0lqa08udCWxiMhtZQkm"
-                class="rc-checkbox rc-checkbox-sm"
+                class="rc-checkbox-wrapper rc-checkbox-sm"
                 role="checkbox"
                 tabindex="0"
               >
-                <span
-                  class="rc-checkbox-icon rc-checkbox-sm"
-                  role="img"
+                <div
+                  aria-labelledby="label-aEnq-QCDk41SFTRGct7bf"
+                  class="rc-checkbox rc-checkbox-sm"
                 >
-                  <svg
-                    class="prefix__feather prefix__feather-check"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="rc-checkbox-icon rc-checkbox-sm"
+                    role="img"
                   >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                    />
-                  </svg>
-                </span>
+                    <svg
+                      class="prefix__feather prefix__feather-check"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <label
+                  class="rc-checkbox-label rc-checkbox-label-sm"
+                  id="label-aEnq-QCDk41SFTRGct7bf"
+                >
+                  six
+                </label>
               </div>
-              <label
-                class="rc-checkbox-label rc-checkbox-label-sm"
-                id="label-2Z0lqa08udCWxiMhtZQkm"
-              >
-                five
-              </label>
-            </div>
-          </span>
-        </li>
-        <li
-          class="rc-list-option"
-          role="option"
-          style="top: 160px; height: 40px;"
-        >
-          <span
-            class="rc-list-item-checkbox-wrapper"
+            </span>
+          </li>
+          <li
+            class="rc-list-option"
+            role="option"
+            style="top: 160px; height: 40px;"
           >
-            <div
-              class="rc-checkbox-wrapper rc-checkbox-sm"
+            <span
+              class="rc-list-item-checkbox-wrapper"
             >
               <div
                 aria-checked="false"
-                aria-labelledby="label-WFpjlp9RDFGmIwFG36H-B"
-                class="rc-checkbox rc-checkbox-sm"
+                class="rc-checkbox-wrapper rc-checkbox-sm"
                 role="checkbox"
                 tabindex="0"
               >
-                <span
-                  class="rc-checkbox-icon rc-checkbox-sm"
-                  role="img"
+                <div
+                  aria-labelledby="label-CUx_n5R4DnYLK6NvzVyAv"
+                  class="rc-checkbox rc-checkbox-sm"
                 >
-                  <svg
-                    class="prefix__feather prefix__feather-check"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="rc-checkbox-icon rc-checkbox-sm"
+                    role="img"
                   >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                    />
-                  </svg>
-                </span>
+                    <svg
+                      class="prefix__feather prefix__feather-check"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <label
+                  class="rc-checkbox-label rc-checkbox-label-sm"
+                  id="label-CUx_n5R4DnYLK6NvzVyAv"
+                >
+                  two
+                </label>
               </div>
-              <label
-                class="rc-checkbox-label rc-checkbox-label-sm"
-                id="label-WFpjlp9RDFGmIwFG36H-B"
-              >
-                six
-              </label>
-            </div>
-          </span>
-        </li>
-      </ul>
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
   <section
@@ -267,202 +271,206 @@ exports[`Transfer should render transfer snapshot 1`] = `
   >
     <div
       class="rc-list"
-      style="min-height: 100px; max-height: 350px;"
+      style="--min-height: 100px; --max-height: 350px;"
     >
-      <ul
-        class="rc-list-options"
-        role="listbox"
-        style="--height: 210px;"
+      <div
+        class="rc-list-options-wrapper"
       >
-        <li
-          class="rc-list-option"
-          role="option"
-          style="top: 10px; height: 40px;"
+        <ul
+          class="rc-list-options"
+          role="listbox"
+          style="--list-height: 210px;"
         >
-          <span
-            class="rc-list-item-checkbox-wrapper"
+          <li
+            class="rc-list-option"
+            role="option"
+            style="top: 10px; height: 40px;"
           >
-            <div
-              class="rc-checkbox-wrapper rc-checkbox-sm"
+            <span
+              class="rc-list-item-checkbox-wrapper"
             >
               <div
                 aria-checked="false"
-                aria-labelledby="label-92mkH_smlztqYxyNNDWyK"
-                class="rc-checkbox rc-checkbox-sm"
+                class="rc-checkbox-wrapper rc-checkbox-sm"
                 role="checkbox"
                 tabindex="0"
               >
-                <span
-                  class="rc-checkbox-icon rc-checkbox-sm"
-                  role="img"
+                <div
+                  aria-labelledby="label-IPgc26xJN-55oSTsml8TE"
+                  class="rc-checkbox rc-checkbox-sm"
                 >
-                  <svg
-                    class="prefix__feather prefix__feather-check"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="rc-checkbox-icon rc-checkbox-sm"
+                    role="img"
                   >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                    />
-                  </svg>
-                </span>
+                    <svg
+                      class="prefix__feather prefix__feather-check"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <label
+                  class="rc-checkbox-label rc-checkbox-label-sm"
+                  id="label-IPgc26xJN-55oSTsml8TE"
+                >
+                  eight
+                </label>
               </div>
-              <label
-                class="rc-checkbox-label rc-checkbox-label-sm"
-                id="label-92mkH_smlztqYxyNNDWyK"
-              >
-                three
-              </label>
-            </div>
-          </span>
-        </li>
-        <li
-          class="rc-list-option"
-          role="option"
-          style="top: 60px; height: 40px;"
-        >
-          <span
-            class="rc-list-item-checkbox-wrapper"
+            </span>
+          </li>
+          <li
+            class="rc-list-option"
+            role="option"
+            style="top: 60px; height: 40px;"
           >
-            <div
-              class="rc-checkbox-wrapper rc-checkbox-sm"
+            <span
+              class="rc-list-item-checkbox-wrapper"
             >
               <div
                 aria-checked="false"
-                aria-labelledby="label-fsgL3y6TW4QV1K9MHCt5s"
-                class="rc-checkbox rc-checkbox-sm"
+                class="rc-checkbox-wrapper rc-checkbox-sm"
                 role="checkbox"
                 tabindex="0"
               >
-                <span
-                  class="rc-checkbox-icon rc-checkbox-sm"
-                  role="img"
+                <div
+                  aria-labelledby="label-Pek0Z4UZr6zVm0996qDmb"
+                  class="rc-checkbox rc-checkbox-sm"
                 >
-                  <svg
-                    class="prefix__feather prefix__feather-check"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="rc-checkbox-icon rc-checkbox-sm"
+                    role="img"
                   >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                    />
-                  </svg>
-                </span>
+                    <svg
+                      class="prefix__feather prefix__feather-check"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <label
+                  class="rc-checkbox-label rc-checkbox-label-sm"
+                  id="label-Pek0Z4UZr6zVm0996qDmb"
+                >
+                  four
+                </label>
               </div>
-              <label
-                class="rc-checkbox-label rc-checkbox-label-sm"
-                id="label-fsgL3y6TW4QV1K9MHCt5s"
-              >
-                four
-              </label>
-            </div>
-          </span>
-        </li>
-        <li
-          class="rc-list-option"
-          role="option"
-          style="top: 110px; height: 40px;"
-        >
-          <span
-            class="rc-list-item-checkbox-wrapper"
+            </span>
+          </li>
+          <li
+            class="rc-list-option"
+            role="option"
+            style="top: 110px; height: 40px;"
           >
-            <div
-              class="rc-checkbox-wrapper rc-checkbox-sm"
+            <span
+              class="rc-list-item-checkbox-wrapper"
             >
               <div
                 aria-checked="false"
-                aria-labelledby="label-5PBQrOLWp-sWmSGqr-VMi"
-                class="rc-checkbox rc-checkbox-sm"
+                class="rc-checkbox-wrapper rc-checkbox-sm"
                 role="checkbox"
                 tabindex="0"
               >
-                <span
-                  class="rc-checkbox-icon rc-checkbox-sm"
-                  role="img"
+                <div
+                  aria-labelledby="label-KTa2sueQTk3TVXFnZUX-K"
+                  class="rc-checkbox rc-checkbox-sm"
                 >
-                  <svg
-                    class="prefix__feather prefix__feather-check"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="rc-checkbox-icon rc-checkbox-sm"
+                    role="img"
                   >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                    />
-                  </svg>
-                </span>
+                    <svg
+                      class="prefix__feather prefix__feather-check"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <label
+                  class="rc-checkbox-label rc-checkbox-label-sm"
+                  id="label-KTa2sueQTk3TVXFnZUX-K"
+                >
+                  seven
+                </label>
               </div>
-              <label
-                class="rc-checkbox-label rc-checkbox-label-sm"
-                id="label-5PBQrOLWp-sWmSGqr-VMi"
-              >
-                seven
-              </label>
-            </div>
-          </span>
-        </li>
-        <li
-          class="rc-list-option"
-          role="option"
-          style="top: 160px; height: 40px;"
-        >
-          <span
-            class="rc-list-item-checkbox-wrapper"
+            </span>
+          </li>
+          <li
+            class="rc-list-option"
+            role="option"
+            style="top: 160px; height: 40px;"
           >
-            <div
-              class="rc-checkbox-wrapper rc-checkbox-sm"
+            <span
+              class="rc-list-item-checkbox-wrapper"
             >
               <div
                 aria-checked="false"
-                aria-labelledby="label-z_kowhITqQki3Yv6CXu8A"
-                class="rc-checkbox rc-checkbox-sm"
+                class="rc-checkbox-wrapper rc-checkbox-sm"
                 role="checkbox"
                 tabindex="0"
               >
-                <span
-                  class="rc-checkbox-icon rc-checkbox-sm"
-                  role="img"
+                <div
+                  aria-labelledby="label-O-EpnzMNeLuPrtpay0J5M"
+                  class="rc-checkbox rc-checkbox-sm"
                 >
-                  <svg
-                    class="prefix__feather prefix__feather-check"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="rc-checkbox-icon rc-checkbox-sm"
+                    role="img"
                   >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                    />
-                  </svg>
-                </span>
+                    <svg
+                      class="prefix__feather prefix__feather-check"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <label
+                  class="rc-checkbox-label rc-checkbox-label-sm"
+                  id="label-O-EpnzMNeLuPrtpay0J5M"
+                >
+                  three
+                </label>
               </div>
-              <label
-                class="rc-checkbox-label rc-checkbox-label-sm"
-                id="label-z_kowhITqQki3Yv6CXu8A"
-              >
-                eight
-              </label>
-            </div>
-          </span>
-        </li>
-      </ul>
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 </div>

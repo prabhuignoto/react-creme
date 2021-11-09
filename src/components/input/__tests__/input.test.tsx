@@ -43,14 +43,13 @@ describe("Input", () => {
   });
 
   it("should clear work", async () => {
+    const handler = jest.fn();
     const { getByRole } = render(<Input onChange={handler} enableClear />);
 
     await act(async () => {
       fireEvent.mouseDown(getByRole("button"));
     });
 
-    await act(async () => new Promise((resolve) => setTimeout(resolve, 100)));
-
-    expect(handler).toBeCalledWith("");
+    await waitFor(async () => expect(handler).toBeCalledWith(""));
   });
 });

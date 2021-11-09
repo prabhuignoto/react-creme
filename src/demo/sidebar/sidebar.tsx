@@ -16,6 +16,7 @@ const Sidebar = () => {
           "Data",
           "Navigation",
           "Overlay",
+          "Menu",
         ]}
         initialState="open"
         autoClose={false}
@@ -28,7 +29,7 @@ const Sidebar = () => {
           borderLess
           showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
-          rowGap={10}
+          rowGap={5}
           itemHeight={35}
         ></List>
         <List
@@ -46,7 +47,7 @@ const Sidebar = () => {
           borderLess
           showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
-          rowGap={10}
+          rowGap={5}
           itemHeight={35}
         ></List>
         <List
@@ -58,7 +59,7 @@ const Sidebar = () => {
           borderLess
           showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
-          rowGap={10}
+          rowGap={5}
           itemHeight={35}
         ></List>
         <List
@@ -71,7 +72,7 @@ const Sidebar = () => {
           borderLess
           showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
-          rowGap={10}
+          rowGap={5}
           itemHeight={35}
         ></List>
         <List
@@ -82,7 +83,7 @@ const Sidebar = () => {
           borderLess
           showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
-          rowGap={10}
+          rowGap={5}
           itemHeight={35}
         ></List>
         <List
@@ -94,7 +95,18 @@ const Sidebar = () => {
           borderLess
           showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
-          rowGap={10}
+          rowGap={5}
+          itemHeight={35}
+        ></List>
+        <List
+          options={[
+            { name: "Menu", value: "menu" },
+            { name: "Menu Bar", value: "menubar" },
+          ]}
+          borderLess
+          showCheckIcon={false}
+          onSelection={(selected) => navigate(`${selected[0].value}`)}
+          rowGap={5}
           itemHeight={35}
         ></List>
       </AccordionGroup>

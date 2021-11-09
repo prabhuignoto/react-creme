@@ -10,7 +10,6 @@ import React, {
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
-import { useKey } from "../common/effects/useKey";
 import { usePosition } from "../common/effects/usePosition";
 import { MenuItem } from "./menu-item";
 import { MenuItemModel, MenuModel } from "./menu-model";
@@ -23,8 +22,8 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   onClose,
   onOpen,
   onSelected,
-  closeManual,
   position = "left",
+  focusable = true,
 }: MenuModel) => {
   const [menuItems] = useState<MenuItemModel[]>(
     items.map((item) => ({
@@ -53,11 +52,13 @@ const Menu: React.FunctionComponent<MenuModel> = ({
     });
   }, []);
 
-  const toggleViaKeyboard = useCallback(() => setShowMenu((prev) => !prev), []);
+  if (focusable) {
+    useFocus(wrapperRef, { bgHighlight: false }, () => {
+      setShowMenu((prev) => !prev);
+    });
+  }
 
-  useFocus(wrapperRef, { bgHighlight: false });
-  useKey(wrapperRef, toggleViaKeyboard);
-  useCloseOnEscape(toggleMenu, wrapperRef);
+  useCloseOnEscape(() => setShowMenu(false), wrapperRef);
 
   const menuClass = useMemo(
     () =>
@@ -112,13 +113,31 @@ const Menu: React.FunctionComponent<MenuModel> = ({
     };
   }, []);
 
+  const menuContentWrapperClass = useMemo(
+    () =>
+      classNames(["rc-menu-content-wrapper"], {
+        "rc-menu-not-focusable": !focusable,
+      }),
+    [showMenu, focusable]
+  );
+
+  const contentWrapperProps = useMemo(
+    () =>
+      focusable
+        ? {
+            tabIndex: 0,
+          }
+        : null,
+    [focusable]
+  );
+
   return (
     <div className="rc-menu-wrapper">
       <div
-        className="rc-menu-content-wrapper"
+        className={menuContentWrapperClass}
         onClick={toggleMenu}
         ref={onInitRef}
-        tabIndex={0}
+        {...contentWrapperProps}
       >
         {children}
         <ul className={menuClass} ref={menuRef} style={cssPosition} role="menu">

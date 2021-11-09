@@ -8,17 +8,13 @@ function list() {
       <List
         allowMultiSelection
         enableSearch
+        maxHeight={600}
+        virtualized
         onSelection={(val) => console.log(val)}
-        options={[
-          {
-            name: "This is a really long name to test if the dropdown can hold this without wrapping",
-            value: "india",
-          },
-          { name: "usa", value: "usa" },
-          { name: "uk", value: "uk" },
-          { name: "France", value: "france" },
-          { name: "germany", value: "germany", disabled: true },
-        ]}
+        options={Array.from({ length: 1000 }, (_, i) => ({
+          name: `Item ${i}`,
+          value: `Item ${i}`,
+        }))}
       />
       <br />
       <List

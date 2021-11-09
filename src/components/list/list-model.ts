@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
-import { ListOption } from "./list";
-
+import { Option } from "../dropdown/dropdown-model";
 export interface ListModel {
   allowMultiSelection?: boolean;
   borderLess?: boolean;
@@ -14,6 +13,7 @@ export interface ListModel {
   options: ListOption[];
   rowGap?: number;
   showCheckIcon?: boolean;
+  virtualized?: boolean;
 }
 
 export interface ListItemModel {
@@ -27,4 +27,10 @@ export interface ListItemModel {
   value: string;
   style?: CSSProperties;
   showCheckIcon?: boolean;
+}
+
+export interface ListOption extends Option {
+  visible?: boolean;
+  group?: string;
+  top?: number;
 }

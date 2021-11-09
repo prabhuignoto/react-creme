@@ -15,7 +15,7 @@
   height: 100%;
   position: relative;
 
-  * {
+  &.rc-menu-not-focusable {
     outline: 0;
   }
 }

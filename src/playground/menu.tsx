@@ -13,6 +13,7 @@ function menu() {
           { name: "tester 2" },
           { name: "tester 3" },
         ]}
+        focusable={false}
       >
         <Button label="Menu"></Button>
       </Menu>
@@ -26,6 +27,7 @@ function menu() {
           { name: "tester 3" },
         ]}
         position="center"
+        focusable={false}
       >
         <Button type="icon" size="lg">
           <CheckCircleIcon />
