@@ -1,12 +1,16 @@
 import { CSSProperties } from "react";
 
 export interface CheckboxModel {
-  label: string;
-  onChange?: (selected: boolean) => void;
-  isChecked?: boolean;
+  autoHeight?: boolean;
+  border?: boolean;
   disabled?: boolean;
+  height?: number;
+  isChecked?: boolean;
+  label: string;
+  noHoverStyle?: boolean;
+  onChange?: (selected: boolean) => void;
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
-  height?: number;
-  border?: boolean;
+  focusable?: boolean;
+  focusIcon?: boolean;
 }

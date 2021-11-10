@@ -20,11 +20,14 @@ $height: 40px;
   width: 90%;
   z-index: 0;
 
+  &:hover:not(.rc-list-option-multi-selection) {
+    background: rgba(colors.$secondary, 0.25);
+  }
+
   &:hover:not(.rc-list-option-disabled):not(.rc-list-option-selected)::after,
   &.rc-list-option-selected::after {
     @extend %border-radius;
     @include position.position-abs("middle left");
-    background: rgba(colors.$primary, 0.1);
     content: "";
     display: block;
     height: 100%;

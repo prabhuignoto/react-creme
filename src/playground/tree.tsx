@@ -11,7 +11,7 @@ function tree() {
           {
             name: "one",
             child: [
-              { name: "two" },
+              { name: "two is a biggest number you will ever come across" },
               {
                 name: "three",
                 child: [

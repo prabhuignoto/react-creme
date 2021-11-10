@@ -30,9 +30,10 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
           {
             "rc-list-option-disabled": disabled,
             "rc-list-option-selected": selected,
+            "rc-list-option-multi-selection": allowMultiSelection,
           },
         ]),
-      [selected]
+      [selected, disabled]
     );
 
     return (

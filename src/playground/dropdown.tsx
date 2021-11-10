@@ -20,6 +20,10 @@ function dropdown() {
           { name: "france", value: "france", selected: false },
           { name: "japan", value: "japan", selected: true },
           { name: "singapore", value: "singapore", selected: false },
+          { name: "brazil", value: "brazil", selected: false },
+          { name: "venezuala", value: "venezuala", selected: false },
+          { name: "united kingdom", value: "united kingdom", selected: true },
+          { name: "australia", value: "australia", selected: false },
         ]}
       />
       <br></br>

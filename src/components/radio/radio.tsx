@@ -12,100 +12,124 @@ import { useFocus } from "../common/effects/useFocus";
 import { RadioModel } from "./radio-model";
 import "./radio.scss";
 
-const Radio: React.FunctionComponent<RadioModel> = ({
-  disabled,
-  id,
-  isChecked = false,
-  label,
-  onChange,
-  value,
-  size = "sm",
-  style,
-}) => {
-  const idRef = useRef<string>(id || nanoid());
+const Radio: React.FunctionComponent<RadioModel> = React.memo(
+  ({
+    disabled,
+    id,
+    isChecked = false,
+    label,
+    onChange,
+    value,
+    size = "sm",
+    style,
+    focusable = true,
+    withGroup = false,
+  }: RadioModel) => {
+    const idRef = useRef<string>(id || nanoid());
 
-  const labelID = useRef(`label-${idRef.current}`);
+    const labelID = useRef(`label-${idRef.current}`);
 
-  const radioRef = useRef<HTMLDivElement | null>(null);
+    const radioRef = useRef<HTMLDivElement | null>(null);
 
-  const [checked, setChecked] = useState<boolean | null>(isChecked);
+    const [checked, setChecked] = useState<boolean | null>(isChecked);
 
-  const isFirstRender = useFirstRender();
+    const isFirstRender = useFirstRender();
 
-  const canToggle = useMemo(() => !disabled && !checked, [checked, disabled]);
+    const canToggle = useMemo(() => !disabled, [disabled]);
 
-  const toggleCheck = useCallback(() => {
-    if (canToggle) {
-      setChecked((checked) => !checked);
-      onChange &&
-        onChange({
-          id,
-          selected: !checked,
-          value,
-        });
+    const toggleCheck = useCallback(() => {
+      if (canToggle) {
+        if (!withGroup) {
+          setChecked((prev) => !prev);
+        } else {
+          setChecked(true);
+        }
+        onChange &&
+          onChange({
+            id,
+            selected: !withGroup ? !checked : true,
+            value,
+          });
+      }
+    }, [canToggle, checked]);
+
+    if (focusable) {
+      useFocus(radioRef, { bgHighlight: false }, toggleCheck);
     }
-  }, [canToggle]);
 
-  useFocus(radioRef, { bgHighlight: false }, toggleCheck);
+    const radioWrapperClass = useMemo(() => {
+      return cls("rc-radio-wrapper", {
+        [`rc-radio-${size}`]: true,
+        "rc-radio-disabled": disabled,
+      });
+    }, [disabled]);
 
-  const radioWrapperClass = useMemo(
-    () =>
-      cls(
-        ["rc-radio"],
-        {
-          "rc-disabled": disabled,
+    const radioClass = useMemo(
+      () =>
+        cls(["rc-radio"], {
+          "rc-radio-disabled": disabled,
           "rc-radio-checked": checked,
           [`rc-radio-${size}`]: true,
-        },
-        ...(radioRef.current !== null ? radioRef.current.classList : [])
-      ),
-    [checked]
-  );
+        }),
+      [checked, disabled]
+    );
 
-  const radioIconClass = useMemo(() => {
-    return cls(["rc-radio-icon"], {
-      "rc-radio-ico-checked": checked,
-      "rc-radio-ico-un-checked": !isFirstRender.current && !checked,
-    });
-  }, [checked]);
+    const radioIconClass = useMemo(() => {
+      return cls(["rc-radio-icon"], {
+        "rc-radio-ico-checked": checked,
+        "rc-radio-ico-un-checked": !isFirstRender.current && !checked,
+      });
+    }, [checked]);
 
-  const radioLabelClass = useMemo(() => {
-    return cls(["rc-radio-label", `rc-radio-label-${size}`], {
-      "rc-radio-disabled": disabled,
-    });
-  }, [size, disabled]);
+    const radioLabelClass = useMemo(() => {
+      return cls(["rc-radio-label", `rc-radio-label-${size}`], {
+        "rc-radio-disabled": disabled,
+      });
+    }, [size, disabled]);
 
-  useEffect(() => {
-    if (isFirstRender.current) {
-      return;
-    }
-    setChecked(isChecked);
-  }, [isChecked]);
+    useEffect(() => {
+      if (!isFirstRender.current) {
+        setChecked(isChecked);
+      }
+    }, [isChecked]);
 
-  return (
-    <div className="rc-radio-wrapper">
+    const focusableProps = useMemo(
+      () => ({
+        onClick: toggleCheck,
+        ref: radioRef,
+        tabIndex: !disabled && focusable ? 0 : -1,
+        "aria-checked": !!checked,
+      }),
+      [checked]
+    );
+
+    const wrapperProps = useMemo(() => focusableProps, []);
+
+    return (
       <div
         className={radioWrapperClass}
-        onClick={toggleCheck}
-        aria-checked={!!checked}
         aria-labelledby={labelID.current}
-        tabIndex={!disabled ? 0 : -1}
         role="radio"
-        ref={radioRef}
         style={style}
-        id={idRef.current}
+        {...wrapperProps}
       >
-        <span className={radioIconClass}></span>
+        <div className={radioClass} id={idRef.current}>
+          <span className={radioIconClass}></span>
+        </div>
+        <label className={radioLabelClass} id={labelID.current}>
+          {label}
+        </label>
       </div>
-      <label
-        className={radioLabelClass}
-        id={labelID.current}
-        onClick={toggleCheck}
-      >
-        {label}
-      </label>
-    </div>
-  );
-};
+    );
+  },
+  (prevProps, nextProps) => {
+    return (
+      prevProps.disabled === nextProps.disabled &&
+      prevProps.isChecked === nextProps.isChecked
+    );
+  }
+);
+
+Radio.displayName = "Radio";
 
 export { Radio };

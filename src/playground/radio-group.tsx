@@ -2,7 +2,7 @@ import React, { CSSProperties } from "react";
 import { RadioGroup } from "../components";
 
 const style: CSSProperties = {
-  minWidth: "50px",
+  width: "200px",
   margin: "1rem 0",
   // ...wrap,
 };
@@ -13,10 +13,10 @@ function radioGroup() {
       <div style={style}>
         <RadioGroup
           items={[
-            { label: "prabhu", disabled: true },
-            { label: "tester" },
             { label: "prabhu", disabled: false },
             { label: "tester" },
+            { label: "murthy", disabled: true },
+            { label: "mayhem", checked: true },
           ]}
           onSelected={(val) => console.log(val)}
         />

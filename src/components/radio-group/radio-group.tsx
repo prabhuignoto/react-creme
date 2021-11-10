@@ -8,7 +8,7 @@ import "./radio-group.scss";
 
 const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   items,
-  disabled = false,
+  disabled,
   onSelected,
   style,
 }) => {
@@ -17,10 +17,11 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
       ? items.map((item) => ({
           id: nanoid(),
           ...item,
-          disabled,
+          disabled: typeof disabled !== "undefined" ? disabled : item.disabled,
         }))
       : []
   );
+  const [changeTracker, setChangeTracker] = useState<number>();
   const active = useRef<string>();
 
   const handleChange = useCallback(
@@ -29,10 +30,12 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
         setItems((prev) =>
           prev.map((item) => ({
             ...item,
-            checked: item.id === id,
+            checked: item.id === id || false,
+            isChecked: item.id === id || false,
           }))
         );
         active.current = id;
+        setChangeTracker(Date.now());
       }
     },
     []
@@ -46,7 +49,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
         onSelected(foundItem.label);
       }
     }
-  }, [JSON.stringify(_items)]);
+  }, [changeTracker]);
 
   const isFirstRender = useFirstRender();
 
@@ -68,6 +71,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
             isChecked={checked}
             disabled={disabled}
             isControlled
+            withGroup
           />
         </li>
       ))}

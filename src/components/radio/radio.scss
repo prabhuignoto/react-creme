@@ -7,9 +7,9 @@
 @use "../../design/font.scss";
 
 $sizes: (
-  sm: 0.5rem,
-  md: 0.75rem,
-  lg: 1rem,
+  sm: 1rem,
+  md: 1.5rem,
+  lg: 2rem,
 );
 
 $halo-sizes: (
@@ -18,20 +18,46 @@ $halo-sizes: (
   lg: 2.5rem,
 );
 
+$heights: (
+  sm: 35px,
+  md: 50px,
+  lg: 65px,
+);
+
 .rc-radio-wrapper {
   @extend %left;
+  cursor: pointer;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+
+  &.rc-radio-disabled {
+    @extend %disabled;
+    cursor: not-allowed;
+  }
+
+  &:not(.rc-radio-disabled) {
+    @include animate.halo();
+  }
+
+  &:hover:not(.rc-radio-disabled) {
+    @extend %border-radius;
+    background: rgba(colors.$secondary, 0.25);
+  }
+
+  @each $key, $val in $heights {
+    &.rc-radio-#{$key} {
+      grid-template-columns: calc($val) auto;
+      min-height: $val;
+    }
+  }
 }
 
 .rc-radio {
   @extend %left;
-  @include animate.halo(50%);
   cursor: pointer;
+  position: relative;
   user-select: none;
-
-  &.rc-disabled {
-    @extend %disabled;
-    cursor: not-allowed;
-  }
 
   &:focus {
     outline: 0;
@@ -41,8 +67,8 @@ $halo-sizes: (
     &.rc-radio-#{$key} {
       .rc-radio-icon {
         &.rc-radio-ico-checked::after {
-          height: $val;
-          width: $val;
+          height: calc($val - 50%);
+          width: calc($val - 50%);
         }
       }
     }
@@ -65,17 +91,20 @@ $halo-sizes: (
 }
 
 .rc-radio-icon {
-  @extend %border;
+  border: 1px solid rgba(colors.$primary, 0.25);
   border-radius: 50%;
   display: block;
   position: relative;
 
-  &:hover {
+  &:hover:not(.rc-radio-disabled) {
     @extend %shadow-inset;
   }
 
+  &.rc-radio-ico-checked {
+    background-color: colors.$secondary;
+  }
+
   &.rc-radio-ico-checked::after {
-    @extend %shadow-inset;
     @extend %pseudo-common;
     background: colors.$primary;
   }
@@ -94,7 +123,6 @@ $halo-sizes: (
 .rc-radio-label {
   @extend %left;
   cursor: pointer;
-  padding-left: 0.5rem;
 
   &.rc-radio-disabled {
     @extend %disabled;

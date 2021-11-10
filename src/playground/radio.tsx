@@ -9,14 +9,14 @@ const style: CSSProperties = {
 
 function radio() {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={style}>
+    <div style={{ display: "flex", flexDirection: "column", width: "500px" }}>
+      <div style={{ ...style, width: "100px" }}>
         <Radio label="check" />
       </div>
       <div style={style}>
         <Radio label="check1" size="md" disabled />
       </div>
-      <div style={style}>
+      <div style={{ ...style, width: "200px" }}>
         <Radio label="check2" size="lg" />
       </div>
     </div>

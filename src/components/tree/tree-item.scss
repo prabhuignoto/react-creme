@@ -13,21 +13,18 @@ $item-height: 30px;
   padding: 0.2rem 0;
   width: 100%;
 
-  &.rc-tree-item-exp {
-    max-height: $max-height;
-    transition: max-height 0.25s cubic-bezier(0.77, 0, 0.18, 1);
-  }
+  // &.rc-tree-item-exp {
+  // }
 
-  &.rc-tree-item-collapsed {
-    max-height: $item-height;
-    transition: max-height 0.25s cubic-bezier(0.77, 0, 0.18, 1);
-  }
+  // &.rc-tree-item-collapsed {
+  // }
 }
 
 .rc-tree-item-icon {
   @extend %icon-md;
   @extend %left;
   cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.77, 0, 0.18, 1);
 
   &.rc-tree-item-icon-exp {
     transform: rotate(90deg);
@@ -51,13 +48,16 @@ $item-height: 30px;
   @extend %left;
   align-items: flex-start;
   overflow: hidden;
-  transition: opacity 0.2s ease-in;
+  transition: max-height 0.25s cubic-bezier(0.77, 0, 0.18, 1),
+    opacity 0.2s ease-in;
 
   &.rc-tree-item-child-expanded {
+    max-height: var(--max-height);
     opacity: 1;
   }
 
   &.rc-tree-item-child-collapsed {
+    max-height: 0;
     opacity: 0;
   }
 }

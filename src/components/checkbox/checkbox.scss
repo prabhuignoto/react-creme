@@ -19,7 +19,6 @@ $heights: (
 
 .rc-checkbox-wrapper {
   @extend %left;
-  @include animate.halo();
   align-items: center;
   cursor: pointer;
   display: grid;
@@ -27,7 +26,11 @@ $heights: (
   justify-items: center;
   width: 100%;
 
-  &:hover {
+  &.rc-checkbox-focus {
+    @include animate.halo();
+  }
+
+  &.rc-checkbox-hover:hover {
     @extend %border-radius;
     background: rgba(colors.$secondary, 0.25);
   }
@@ -39,7 +42,10 @@ $heights: (
   @each $key, $val in $grid {
     &.rc-checkbox-#{$key} {
       grid-template-columns: calc($val * 2) calc(100% - calc($val * 2));
-      min-height: map.get($heights, $key);
+
+      &:not(.rc-checkbox-auto-height) {
+        min-height: map.get($heights, $key);
+      }
     }
   }
 }
@@ -48,6 +54,10 @@ $heights: (
   @extend %left;
   user-select: none;
   z-index: 1;
+
+  &.rc-checkbox-focus {
+    @include animate.halo();
+  }
 
   * {
     cursor: pointer;
@@ -72,7 +82,7 @@ $heights: (
   }
 
   &.rc-checkbox-checked {
-    @extend %shadow-inset;
+    background: colors.$secondary;
   }
 
   &.rc-checkbox-checked svg {

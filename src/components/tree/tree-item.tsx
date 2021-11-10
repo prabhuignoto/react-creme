@@ -35,6 +35,8 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
 
     const [checked, setChecked] = useState(selected);
 
+    const [controlledExpanded, setControlledExpanded] = useState(expanded);
+
     const itemClass = useMemo(
       () =>
         cls("rc-tree-item", {
@@ -121,6 +123,14 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
         return;
       }
       onChildToggle && onChildToggle(expanded, totalItems);
+
+      if (expanded) {
+        setControlledExpanded(expanded);
+      } else {
+        setTimeout(() => {
+          setControlledExpanded(expanded);
+        }, 500);
+      }
     }, [totalItems, expanded]);
 
     return (
@@ -135,21 +145,27 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
                 label={name || ""}
                 onChange={handleSelection}
                 isChecked={checked}
+                border={false}
+                autoHeight
+                noHoverStyle
+                focusIcon
               />
             </span>
           ) : (
             <span className="rc-tree-item-name">{name}</span>
           )}
           <div className={childContainerClass}>
-            <Suspense fallback={<span></span>}>
-              <LazyTree
-                items={child || []}
-                isChildTree
-                onChildToggle={handler}
-                allowSelection={allowSelection}
-                childrenSelected={checked}
-              />
-            </Suspense>
+            {controlledExpanded && (
+              <Suspense fallback={<span></span>}>
+                <LazyTree
+                  items={child || []}
+                  isChildTree
+                  onChildToggle={handler}
+                  allowSelection={allowSelection}
+                  childrenSelected={checked}
+                />
+              </Suspense>
+            )}
           </div>
         </div>
       </div>

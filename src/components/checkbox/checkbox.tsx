@@ -10,7 +10,6 @@ import React, {
 import { CheckIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
-import { useKey } from "../common/effects/useKey";
 import { CheckboxModel } from "./checkbox-model";
 import "./checkbox.scss";
 
@@ -22,22 +21,22 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   size = "sm",
   style,
   border = true,
+  noHoverStyle = false,
+  autoHeight = false,
+  focusable = true,
+  focusIcon = false,
 }: CheckboxModel) => {
   const [checked, setChecked] = useState(isChecked);
   const ref = useRef(null);
   const id = useRef(`label-${nanoid()}`);
 
-  useFocus(ref, { bgHighlight: false });
-
   const toggleCheck = useCallback(() => {
     setChecked((prev) => !prev);
   }, []);
 
-  useKey(ref, () => {
-    setChecked((prev) => {
-      return !prev;
-    });
-  });
+  if (focusable) {
+    useFocus(ref, { bgHighlight: false }, toggleCheck);
+  }
 
   const iconClass = useMemo(
     () =>
@@ -61,6 +60,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
       classNames("rc-checkbox", {
         "rc-disabled": disabled,
         [`rc-checkbox-${size}`]: true,
+        "rc-checkbox-focus": focusIcon,
       }),
     [disabled]
   );
@@ -71,6 +71,9 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
         [`rc-checkbox-${size}`]: true,
         "rc-disabled": disabled,
         "rc-checkbox-border": border,
+        "rc-checkbox-hover": !noHoverStyle,
+        "rc-checkbox-auto-height": autoHeight,
+        "rc-checkbox-focus": !focusIcon,
       }),
     [size, disabled]
   );
@@ -89,16 +92,31 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
 
   const isFirstRender = useFirstRender();
 
+  const focusProps = useMemo(
+    () => ({
+      role: "checkbox",
+      "aria-checked": checked,
+      ref: ref,
+      tabIndex: disabled ? -1 : 0,
+    }),
+    [disabled]
+  );
+
+  const wrapperProps = useMemo(() => !focusIcon && focusProps, []);
+  const iconProps = useMemo(() => focusIcon && focusProps, []);
+
   return (
     <div
       className={wrapperClass}
-      role="checkbox"
+      {...wrapperProps}
+      style={style}
       onClick={toggleCheck}
-      aria-checked={checked}
-      ref={ref}
-      tabIndex={disabled ? -1 : 0}
     >
-      <div className={checkBoxClass} aria-labelledby={id.current} style={style}>
+      <div
+        className={checkBoxClass}
+        aria-labelledby={id.current}
+        {...iconProps}
+      >
         <span className={iconClass} role="img">
           <CheckIcon />
         </span>

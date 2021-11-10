@@ -10,7 +10,7 @@ const style: CSSProperties = {
 function checkbox() {
   return (
     <div style={{ display: "flex", flexDirection: "column", width: "300px" }}>
-      <div style={style}>
+      {/* <div style={style}>
         <CheckBox label="select" onChange={(ele) => console.log(ele)} />
       </div>
       <div>
@@ -19,7 +19,7 @@ function checkbox() {
           onChange={(ele) => console.log(ele)}
           size="md"
         />
-      </div>
+      </div> */}
       <div style={style}>
         <CheckBox
           label="select"
@@ -27,6 +27,7 @@ function checkbox() {
           isChecked
           size="lg"
           border={false}
+          focusIcon
         />
       </div>
     </div>

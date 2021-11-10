@@ -3,11 +3,13 @@
 
 .rc-radio-grp {
   @extend %list-left;
+  width: 100%;
 }
 
 .rc-radio-grp-item {
   @extend %list-item-left;
   margin: 0.5rem 0;
+  width: 100%;
 
   &.rc-radio-grp-item-disabled {
     @extend %disabled;
