@@ -6,6 +6,7 @@ export interface RateProps {
   size?: "sm" | "md" | "lg";
   value?: 1 | 2 | 3 | 4 | 5;
   iconCount?: number;
+  focusable?: boolean;
 }
 
 export interface RateItemModel {
@@ -21,4 +22,5 @@ export interface RateItemViewModel extends RateItemModel {
   index: number;
   icon: ReactNode;
   onSelect: (idx: number) => void;
+  focusable?: boolean;
 }

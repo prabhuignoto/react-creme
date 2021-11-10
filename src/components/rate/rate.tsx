@@ -13,6 +13,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
   size = "sm",
   value = 0,
   iconCount = 5,
+  focusable = true,
 }) => {
   const [items, setItems] = React.useState<RateItemModel[]>(
     Array.from({ length: iconCount }).map(() => ({
@@ -84,6 +85,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
             onSelect={handleSelection}
             onMouseOver={handleHover}
             size={size}
+            focusable={focusable}
           />
         );
       })}

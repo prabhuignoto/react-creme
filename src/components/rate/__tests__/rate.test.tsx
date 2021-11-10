@@ -26,11 +26,14 @@ describe("Rate", () => {
 
   it("should call onChange", () => {
     const onChange = jest.fn();
-    const { getAllByRole } = render(<Rate onChange={onChange} />);
+    const { getByRole, getAllByRole } = render(<Rate onChange={onChange} />);
 
-    getAllByRole("radio")[0].click();
+    const image = getAllByRole("radio")[0]?.querySelector("span[role='img']");
 
-    expect(onChange).toHaveBeenCalledTimes(1);
+    if (image) {
+      fireEvent.click(image);
+      expect(onChange).toHaveBeenCalledTimes(1);
+    }
   });
 
   it("should change on hover", async () => {

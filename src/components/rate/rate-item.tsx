@@ -1,6 +1,7 @@
 import classNames from "classnames";
-import React from "react";
+import React, { useMemo } from "react";
 import RateIcon from "../../icons/star";
+import { useFocus } from "../common/effects/useFocus";
 import { RateItemViewModel } from "./rate-model";
 
 const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
@@ -13,22 +14,44 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
     size,
     icon,
     onSelect,
+    focusable,
   }: RateItemViewModel) => {
-    return (
-      <li
-        key={id}
-        className={classNames("rc-rate-item", {
+    const ref = React.useRef<HTMLLIElement | null>(null);
+
+    if (focusable) {
+      useFocus(ref, {}, () => onSelect(index));
+    }
+
+    const rateItemClass = useMemo(
+      () =>
+        classNames("rc-rate-item", {
           "rc-rate-item-active": active,
           [`rc-rate-item-${size}`]: true,
           "rc-rate-item-hovered": hovered,
-        })}
-        onClick={() => onSelect(index)}
+        }),
+      [active, hovered]
+    );
+
+    const focusableProps = useMemo(
+      () =>
+        focusable && {
+          tabIndex: 0,
+          ref,
+        },
+      []
+    );
+
+    return (
+      <li
+        key={id}
+        className={rateItemClass}
         onMouseOver={() => onMouseOver(index)}
         aria-checked={active}
         role="radio"
-        tabIndex={0}
       >
-        <span role="img">{icon || <RateIcon />}</span>
+        <span role="img" onClick={() => onSelect(index)} {...focusableProps}>
+          {icon || <RateIcon />}
+        </span>
       </li>
     );
   },

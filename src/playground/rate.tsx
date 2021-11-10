@@ -12,7 +12,7 @@ function rate() {
         <Rate size="md" />
       </div>
       <div style={{ margin: "1rem 0" }}>
-        <Rate size="lg" iconCount={3} />
+        <Rate size="lg" iconCount={3} focusable={false} />
       </div>
       <div style={{ margin: "1rem 0" }}>
         <Rate size="md" icon={<SearchIcon />} iconCount={7} />
