@@ -25,7 +25,7 @@
 
 .rc-slider-track {
   @extend %border-radius;
-  background: colors.$gray;
+  background: colors.$secondary;
   height: 100%;
   position: relative;
   width: 100%;
@@ -41,7 +41,8 @@
 .rc-slider-fill {
   @extend %border-radius-left;
   @include position.position-abs("center left");
-  background-color: rgba($color: colors.$primary, $alpha: 0.75);
+  background: rgba(colors.$primary, 0.75);
+  // background-color: colors.$secondary;
   display: block;
   height: 100%;
 }

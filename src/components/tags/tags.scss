@@ -54,6 +54,10 @@
   }
 
   &.rc-tag-readonly {
+    background: colors.$secondary;
+  }
+
+  &.rc-tag-readonly {
     @extend %center;
   }
 

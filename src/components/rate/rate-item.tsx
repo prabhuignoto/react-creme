@@ -6,15 +6,15 @@ import { RateItemViewModel } from "./rate-model";
 
 const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
   ({
-    id,
     active,
-    hovered,
-    onMouseOver,
-    index,
-    size,
-    icon,
-    onSelect,
     focusable,
+    hovered,
+    icon,
+    id,
+    index,
+    onMouseOver,
+    onSelect,
+    size,
   }: RateItemViewModel) => {
     const ref = React.useRef<HTMLLIElement | null>(null);
 

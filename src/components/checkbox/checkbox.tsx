@@ -90,23 +90,23 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
     }
   }, [checked]);
 
-  const isFirstRender = useFirstRender();
-
   const focusProps = useMemo(
     () => ({
-      role: "checkbox",
-      "aria-checked": checked,
       ref: ref,
-      tabIndex: disabled ? -1 : 0,
+      tabIndex: disabled || !focusable ? -1 : 0,
     }),
     [disabled]
   );
 
-  const wrapperProps = useMemo(() => !focusIcon && focusProps, []);
-  const iconProps = useMemo(() => focusIcon && focusProps, []);
+  const wrapperProps = useMemo(() => (!focusIcon ? focusProps : null), []);
+  const iconProps = useMemo(() => (focusIcon ? focusProps : null), []);
+
+  const isFirstRender = useFirstRender();
 
   return (
     <div
+      role="checkbox"
+      aria-checked={checked}
       className={wrapperClass}
       {...wrapperProps}
       style={style}

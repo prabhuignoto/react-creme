@@ -34,7 +34,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 tabindex="0"
               >
                 <div
-                  aria-labelledby="label-3-AD3d5dbNptCXvaD8Oua"
+                  aria-labelledby="label-2TQBb7FKXlKOtsEdW0gV6"
                   class="rc-checkbox rc-checkbox-sm"
                 >
                   <span
@@ -59,7 +59,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 </div>
                 <label
                   class="rc-checkbox-label rc-checkbox-label-sm"
-                  id="label-3-AD3d5dbNptCXvaD8Oua"
+                  id="label-2TQBb7FKXlKOtsEdW0gV6"
                 >
                   five
                 </label>
@@ -81,7 +81,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 tabindex="0"
               >
                 <div
-                  aria-labelledby="label-6XZfklCP94-O6shd8hg87"
+                  aria-labelledby="label--2wZrjJmXs89Z7Predy8p"
                   class="rc-checkbox rc-checkbox-sm"
                 >
                   <span
@@ -106,7 +106,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 </div>
                 <label
                   class="rc-checkbox-label rc-checkbox-label-sm"
-                  id="label-6XZfklCP94-O6shd8hg87"
+                  id="label--2wZrjJmXs89Z7Predy8p"
                 >
                   one
                 </label>
@@ -128,7 +128,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 tabindex="0"
               >
                 <div
-                  aria-labelledby="label-mTlUh-29sLLdMIpjyqM3f"
+                  aria-labelledby="label-spEtz6UYRxBfMqlzlz_5G"
                   class="rc-checkbox rc-checkbox-sm"
                 >
                   <span
@@ -153,7 +153,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 </div>
                 <label
                   class="rc-checkbox-label rc-checkbox-label-sm"
-                  id="label-mTlUh-29sLLdMIpjyqM3f"
+                  id="label-spEtz6UYRxBfMqlzlz_5G"
                 >
                   six
                 </label>
@@ -175,7 +175,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 tabindex="0"
               >
                 <div
-                  aria-labelledby="label-0jKtaz92XhcuH7UKxr3Bd"
+                  aria-labelledby="label-5xNDgKgmrUHW9tAJer2b_"
                   class="rc-checkbox rc-checkbox-sm"
                 >
                   <span
@@ -200,7 +200,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 </div>
                 <label
                   class="rc-checkbox-label rc-checkbox-label-sm"
-                  id="label-0jKtaz92XhcuH7UKxr3Bd"
+                  id="label-5xNDgKgmrUHW9tAJer2b_"
                 >
                   two
                 </label>
@@ -296,7 +296,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 tabindex="0"
               >
                 <div
-                  aria-labelledby="label-STr_BbIJdTbRQDcIk5xJx"
+                  aria-labelledby="label-2c-pTNaGlziyI8MjAIm4m"
                   class="rc-checkbox rc-checkbox-sm"
                 >
                   <span
@@ -321,7 +321,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 </div>
                 <label
                   class="rc-checkbox-label rc-checkbox-label-sm"
-                  id="label-STr_BbIJdTbRQDcIk5xJx"
+                  id="label-2c-pTNaGlziyI8MjAIm4m"
                 >
                   eight
                 </label>
@@ -343,7 +343,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 tabindex="0"
               >
                 <div
-                  aria-labelledby="label-jLFMzbJM3I-oBhnfX3pTF"
+                  aria-labelledby="label-E3Q8yyQU9hhBBcq56iJyj"
                   class="rc-checkbox rc-checkbox-sm"
                 >
                   <span
@@ -368,7 +368,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 </div>
                 <label
                   class="rc-checkbox-label rc-checkbox-label-sm"
-                  id="label-jLFMzbJM3I-oBhnfX3pTF"
+                  id="label-E3Q8yyQU9hhBBcq56iJyj"
                 >
                   four
                 </label>
@@ -390,7 +390,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 tabindex="0"
               >
                 <div
-                  aria-labelledby="label-jEqxON0MrpsgWfCOaxiJl"
+                  aria-labelledby="label-Xrw9XyIGw-NLZvUv_ASoD"
                   class="rc-checkbox rc-checkbox-sm"
                 >
                   <span
@@ -415,7 +415,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 </div>
                 <label
                   class="rc-checkbox-label rc-checkbox-label-sm"
-                  id="label-jEqxON0MrpsgWfCOaxiJl"
+                  id="label-Xrw9XyIGw-NLZvUv_ASoD"
                 >
                   seven
                 </label>
@@ -437,7 +437,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 tabindex="0"
               >
                 <div
-                  aria-labelledby="label-d5whQGF8Vdmfr1V3haARk"
+                  aria-labelledby="label-1Ih2x9Vt7jFJ9-YwrjM15"
                   class="rc-checkbox rc-checkbox-sm"
                 >
                   <span
@@ -462,7 +462,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
                 </div>
                 <label
                   class="rc-checkbox-label rc-checkbox-label-sm"
-                  id="label-d5whQGF8Vdmfr1V3haARk"
+                  id="label-1Ih2x9Vt7jFJ9-YwrjM15"
                 >
                   three
                 </label>

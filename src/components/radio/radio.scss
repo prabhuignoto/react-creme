@@ -67,8 +67,8 @@ $heights: (
     &.rc-radio-#{$key} {
       .rc-radio-icon {
         &.rc-radio-ico-checked::after {
-          height: calc($val - 50%);
-          width: calc($val - 50%);
+          height: calc(0.5rem);
+          width: calc(0.5rem);
         }
       }
     }
@@ -101,7 +101,7 @@ $heights: (
   }
 
   &.rc-radio-ico-checked {
-    background-color: colors.$secondary;
+    background-color: rgba(colors.$secondary, 0.5);
   }
 
   &.rc-radio-ico-checked::after {

@@ -19,6 +19,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   style,
   labelOutside = false,
   checked = false,
+  focusable = true,
 }) => {
   const [state, setState] = useState(checked);
   const ref = useRef(null);
@@ -37,9 +38,11 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
     }
   }, [state, disabled]);
 
-  useFocus(ref, {}, () => {
-    setState((prev) => !prev);
-  });
+  if (focusable) {
+    useFocus(ref, {}, () => {
+      setState((prev) => !prev);
+    });
+  }
 
   // CSS
   const switchKnobClass = useMemo(
@@ -49,8 +52,9 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
         "rc-switch-on-load": state && isFirstRender.current,
         "rc-switch-off": !state && !isFirstRender.current,
         [`rc-switch-knob-${size}`]: true,
+        "rc-switch-disabled": disabled,
       }),
-    [state, size]
+    [state, size, disabled]
   );
 
   const switchClass = useMemo(

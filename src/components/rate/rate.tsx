@@ -8,12 +8,13 @@ import { RateItemModel, RateProps } from "./rate-model";
 import "./rate.scss";
 
 const Rate: React.FunctionComponent<RateProps> = ({
+  focusable = true,
   icon,
+  iconCount = 5,
   onChange,
+  ratingValues = [],
   size = "sm",
   value = 0,
-  iconCount = 5,
-  focusable = true,
 }) => {
   const [items, setItems] = React.useState<RateItemModel[]>(
     Array.from({ length: iconCount }).map(() => ({
@@ -33,7 +34,14 @@ const Rate: React.FunctionComponent<RateProps> = ({
   const handleSelection = useCallback((idx: number) => {
     setSelectedIndex(idx);
     lastSelectedIndex.current = idx;
-    onChange && onChange(idx + 1);
+
+    if (!onChange) return;
+
+    if (ratingValues.length) {
+      onChange(ratingValues[idx]);
+    } else {
+      onChange(idx + 1);
+    }
   }, []);
 
   const handleHover = useDebouncedCallback((idx: number) => {

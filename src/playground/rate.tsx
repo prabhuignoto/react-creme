@@ -6,7 +6,10 @@ function rate() {
   return (
     <>
       <div style={{ margin: "1rem 0" }}>
-        <Rate onChange={(val) => alert(val)} />
+        <Rate
+          onChange={(val) => alert(val)}
+          ratingValues={["one", "two", "three", "four", "five"]}
+        />
       </div>
       <div style={{ margin: "1rem 0" }}>
         <Rate size="md" />

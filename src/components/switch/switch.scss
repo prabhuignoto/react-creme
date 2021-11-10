@@ -11,19 +11,25 @@ $sizes: (
     border-radius: 20px,
   ),
   md: (
-    height: 40px,
+    height: 35px,
     border-radius: 30px,
   ),
   lg: (
-    height: 50px,
+    height: 40px,
     border-radius: 40px,
   ),
 );
 
 $knob-sizes: (
   sm: 20px,
-  md: 30px,
-  lg: 40px,
+  md: 25px,
+  lg: 30px,
+);
+
+$switch-width: (
+  sm: 60px,
+  md: 70px,
+  lg: 80px,
 );
 
 $start-left: 4px;
@@ -32,23 +38,25 @@ $start-left: 4px;
   @include animate.halo(40px);
   cursor: pointer;
 
-  min-width: 60px;
+  min-width: 50px;
   padding: 0.1rem;
   user-select: none;
   width: 100%;
-
-  &.rc-switch-label-outside {
-    @include animate.halo(20px);
-  }
 
   &.rc-disabled {
     @extend %disabled;
   }
 
   &.rc-switch-label-outside {
+    @include animate.halo(20px);
     align-items: center;
     display: grid;
-    grid-template-columns: 60px minmax(60px, 100px);
+
+    @each $key, $value in $switch-width {
+      &.rc-switch-#{$key} {
+        grid-template-columns: $value calc(100% - $value);
+      }
+    }
   }
 }
 
@@ -60,11 +68,19 @@ $start-left: 4px;
 
 .rc-switch-track {
   @extend %center;
+  @extend %shadow-inset;
   height: 100%;
   position: relative;
   width: 100%;
-  // border: 1px solid red;
   z-index: 0;
+
+  &.rc-switch-on {
+    background-color: rgba(colors.$secondary, 0.75);
+  }
+
+  &.rc-switch-off {
+    background-color: colors.$light-gray;
+  }
 
   @each $key, $val in $sizes {
     &.rc-switch-#{$key} {
@@ -81,21 +97,12 @@ $start-left: 4px;
       }
     }
   }
-
-  &.rc-switch-on {
-    background-color: colors.$primary;
-  }
-
-  &.rc-switch-off {
-    background-color: colors.$gray;
-  }
 }
 
 .rc-switch-knob {
   @extend %shadow-small;
   @include animate.set-animation(0.2s);
   @include position.position-abs("center left");
-  background-color: colors.$white;
   border-radius: 50%;
   display: block;
   left: $start-left;
@@ -116,19 +123,27 @@ $start-left: 4px;
       width: $val;
 
       &.rc-switch-on-load {
+        background-color: colors.$primary;
         left: calc(100% - $val - 4px);
       }
 
+      &.rc-switch-disabled {
+        background-color: colors.$white;
+      }
+
       &.rc-switch-on {
-        @extend %shadow-small;
+        @extend %shadow-medium;
         @include animate.set-keyframes(slide-right-#{$key}, $settings);
         animation-name: slide-right-#{$key};
+        background-color: colors.$primary;
+        box-shadow: none;
         left: calc(100% - $val - 4px);
       }
 
       &.rc-switch-off {
         @include animate.set-keyframes(slide-left-#{$key}, $settings, true);
         animation-name: slide-left-#{$key};
+        background-color: colors.$white;
         background-color: colors.$white;
         right: calc(100% - $val - 4px);
       }
@@ -138,6 +153,10 @@ $start-left: 4px;
 
 .rc-switch-label {
   @extend %text-no-wrap;
+
+  &.rc-switch-label-on {
+    color: colors.$primary;
+  }
 
   @each $key, $val in $sizes {
     &.rc-switch-label-#{$key} {
@@ -152,9 +171,5 @@ $start-left: 4px;
   &.rc-switch-label-outside {
     @extend %left;
     margin-left: 0.5rem;
-  }
-
-  &.rc-switch-label-on:not(.rc-switch-label-outside) {
-    color: colors.$white;
   }
 }

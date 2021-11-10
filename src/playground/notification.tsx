@@ -13,7 +13,7 @@ function notification() {
       style={{
         border: "1px solid #f8f8f8",
         height: "700px",
-        width: "600px",
+        width: "400px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

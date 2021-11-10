@@ -3,7 +3,7 @@ import { Dropdown } from "../components";
 
 function dropdown() {
   return (
-    <div style={{ width: "350px" }}>
+    <div style={{ width: "450px" }}>
       <Dropdown
         onSelected={(val) => console.log(val)}
         placeholder="choose a country"

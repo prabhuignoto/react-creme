@@ -87,7 +87,7 @@
     @extend %halo-common;
     @include set-keyframes(outline-focus, $focus-settings);
     animation-name: outline-focus;
-    outline: 2px solid rgba(colors.$primary, 0.75);
+    outline: 2px solid rgba(colors.$primary, 0.5);
   }
 
   &.rc-lost-focus:not(.rc-disabled)::before {

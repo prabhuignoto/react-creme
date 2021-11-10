@@ -9,4 +9,5 @@ export interface SwitchModel {
   width?: number;
   labelOutside?: boolean;
   checked?: boolean;
+  focusable?: boolean;
 }
