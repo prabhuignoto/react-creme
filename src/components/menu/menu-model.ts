@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 export interface MenuModel {
   children: React.ReactNode;
   focusable?: boolean;
@@ -8,6 +8,7 @@ export interface MenuModel {
   onOpen?: (id?: string) => void;
   onSelected?: (val: string) => void;
   position?: "left" | "center" | "right";
+  style?: CSSProperties;
 }
 
 export interface MenuItemModel {

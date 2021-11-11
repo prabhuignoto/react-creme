@@ -10,6 +10,7 @@ import Accordion from "./playground/accordion";
 import AccordionGroup from "./playground/accordion-group";
 import Breadcrumb from "./playground/breadcrumb";
 import Buttons from "./playground/buttons";
+import Card from "./playground/card";
 import Carousel from "./playground/carousel";
 import Checkbox from "./playground/checkbox";
 import Comparer from "./playground/comparer";
@@ -19,6 +20,7 @@ import Dropdown from "./playground/dropdown";
 import Inputs from "./playground/inputs";
 import List from "./playground/list";
 import Menu from "./playground/menu";
+import MenuButton from "./playground/menu-button";
 import MenuBar from "./playground/menubar";
 import Notification from "./playground/notification";
 import Progress from "./playground/progress";
@@ -35,7 +37,6 @@ import Tags from "./playground/tags";
 import Tooltip from "./playground/tooltip";
 import Transfer from "./playground/transfer";
 import Tree from "./playground/tree";
-import Card from "./playground/card";
 
 function App() {
   const { time, start, pause, reset, status } = useTimer({
@@ -298,6 +299,14 @@ function App() {
             element={
               <div className="section-content" style={{ width: "900px" }}>
                 <Card />
+              </div>
+            }
+          />
+          <Route
+            path="/menu-button"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <MenuButton />
               </div>
             }
           />

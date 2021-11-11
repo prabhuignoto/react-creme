@@ -112,6 +112,7 @@ const Sidebar = () => {
           options={[
             { name: "Menu", value: "menu" },
             { name: "Menu Bar", value: "menubar" },
+            { name: "Menu Button", value: "menu-button" },
           ]}
           borderLess
           showCheckIcon={false}

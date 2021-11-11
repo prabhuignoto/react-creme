@@ -13,12 +13,15 @@ const Button: React.FunctionComponent<ButtonModel> = ({
   type = "default",
   size = "sm",
   style = {},
+  noBorder = false,
+  focusable = true,
 }) => {
   const buttonClass = useMemo(
     () =>
       classNames(
         {
           "rc-disabled": disabled,
+          "rc-btn-no-border": noBorder,
         },
         [`rc-btn-${size}`, `rc-btn-${type}`, "rc-btn"]
       ),
@@ -27,7 +30,16 @@ const Button: React.FunctionComponent<ButtonModel> = ({
 
   const ref = useRef(null);
 
-  useFocus(ref, { bgHighlight: false });
+  if (focusable) {
+    useFocus(ref, { bgHighlight: false });
+  }
+
+  const focusableProps = useMemo(
+    () => ({
+      tabIndex: focusable ? 0 : -1,
+    }),
+    []
+  );
 
   const handleClick = () => {
     if (!disabled) {
@@ -42,7 +54,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
       ref={ref}
       role="button"
       style={style}
-      tabIndex={0}
+      {...focusableProps}
     >
       {children && <span className="rc-btn-icon-container">{children}</span>}
       {label && <span className="rc-btn-label">{label}</span>}

@@ -11,7 +11,12 @@ function buttons() {
   return (
     <div>
       <div style={style}>
-        <Button label="I am disabled" disabled onClick={() => alert("test")} />
+        <Button
+          noBorder
+          label="I am disabled"
+          disabled
+          onClick={() => alert("test")}
+        />
       </div>
       <div style={style}>
         <Button label="save as new" type="primary" size="md" />

@@ -24,6 +24,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   onSelected,
   position = "left",
   focusable = true,
+  style,
 }: MenuModel) => {
   const [menuItems] = useState<MenuItemModel[]>(
     items.map((item) => ({
@@ -132,7 +133,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   );
 
   return (
-    <div className="rc-menu-wrapper">
+    <div className="rc-menu-wrapper" style={style}>
       <div
         className={menuContentWrapperClass}
         onClick={toggleMenu}
