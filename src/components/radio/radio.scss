@@ -21,7 +21,7 @@ $halo-sizes: (
 $heights: (
   sm: 35px,
   md: 50px,
-  lg: 65px,
+  lg: 60px,
 );
 
 .rc-radio-wrapper {
@@ -67,8 +67,8 @@ $heights: (
     &.rc-radio-#{$key} {
       .rc-radio-icon {
         &.rc-radio-ico-checked::after {
-          height: calc(0.5rem);
-          width: calc(0.5rem);
+          height: calc(50%);
+          width: calc(50%);
         }
       }
     }

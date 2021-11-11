@@ -7,7 +7,11 @@ function dialog() {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)} label="Open dialog"></Button>
+      <Button
+        size="sm"
+        onClick={() => setOpen(true)}
+        label="Open dialog"
+      ></Button>
       <div
         style={{
           height: "600px",

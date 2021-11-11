@@ -14,7 +14,7 @@ function buttons() {
         <Button label="I am disabled" disabled onClick={() => alert("test")} />
       </div>
       <div style={style}>
-        <Button label="save as new" type="primary" />
+        <Button label="save as new" type="primary" size="md" />
       </div>
       <div style={style}>
         <Button label="save as new" type="danger" size="lg" />

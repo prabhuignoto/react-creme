@@ -11,12 +11,10 @@
 .rc-tag {
   $settings: (
     from: (
-      transform: scale(0.98),
       visibility: hidden,
       opacity: 0,
     ),
     to: (
-      transform: scale(1),
       visibility: visible,
       opacity: 1,
     ),
@@ -68,6 +66,7 @@
 
   &.rc-tag-large {
     margin: 0.25rem;
+    padding: calc(100% * 0.25);
     padding: 0.5rem;
   }
 

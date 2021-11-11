@@ -81,11 +81,13 @@ function useFocus(
 
     if (target) {
       target.addEventListener("focus", onFocus);
+      target.addEventListener("click", onFocus);
       target.addEventListener("blur", onFocusLost);
       target.addEventListener("keyup", handleKeyboard);
 
       return () => {
         target.removeEventListener("focus", onFocus);
+        target.removeEventListener("click", onFocus);
         target.removeEventListener("blur", removeClass);
         target.removeEventListener("keyup", handleKeyboard);
       };

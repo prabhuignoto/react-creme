@@ -15,12 +15,19 @@
 .rc-slider-control {
   @include position.position-abs("center left");
   background: colors.$primary;
-  border-radius: 50%;
   cursor: pointer;
-  height: 16px;
+  height: var(--size);
   position: absolute;
-  width: 16px;
+  width: var(--size);
   z-index: 10;
+
+  &.rc-slider-control-circle {
+    border-radius: 50%;
+  }
+
+  &.rc-slider-control-square {
+    border-radius: 2px;
+  }
 }
 
 .rc-slider-track {

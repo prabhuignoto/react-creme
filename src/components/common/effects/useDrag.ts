@@ -8,6 +8,8 @@ import {
   useState,
 } from "react";
 
+const rnd = Math.round;
+
 interface Settings {
   direction: "horizontal" | "vertical";
   maxX?: number;
@@ -16,6 +18,9 @@ interface Settings {
   maxY?: number;
   startValue?: number;
   endValue?: number;
+  offsetLeft?: number;
+  onDragStart?: () => void;
+  onDragEnd?: () => void;
 }
 
 type functionType = (
@@ -29,7 +34,18 @@ const { max, min } = Math;
 const useDrag: functionType = (
   container,
   target,
-  { direction, maxX, maxY, minX = 0, minY = 0, startValue, endValue }
+  {
+    direction,
+    maxX,
+    maxY,
+    minX = 0,
+    minY = 0,
+    startValue,
+    endValue,
+    offsetLeft = 0,
+    onDragEnd,
+    onDragStart,
+  }
 ) => {
   const dragStarted = useRef(false);
   const [percent, setPercent] = useState(0);
@@ -44,6 +60,8 @@ const useDrag: functionType = (
       if (ev.target === target.current) {
         dragStarted.current = true;
       }
+
+      onDragStart && onDragStart();
     },
     [target]
   );
@@ -75,16 +93,17 @@ const useDrag: functionType = (
 
         if (left <= 0) {
           setPercent(0);
-        } else if (
-          // left + targetWidth <= maxXValue.current &&
-          left <= maxXValue.current &&
-          left + targetWidth >= minX
-        ) {
-          target.current.style.left = `${left - Math.round(targetWidth / 2)}px`;
+          target.current.style.left = `${minX || -rnd(targetWidth / 2)}px`;
+        } else if (left <= maxXValue.current && left >= minX) {
+          target.current.style.left = `${left - rnd(targetWidth / 2)}px`;
 
-          // const percent = (left + targetWidth) / parentWidth;
           const percent = left / parentWidth;
           setPercent(percent);
+        } else if (left >= maxXValue.current) {
+          setPercent(maxXValue.current / parentWidth);
+          target.current.style.left = `${
+            maxXValue.current || Math.round(parentWidth - targetWidth / 2)
+          }px`;
         }
       } else if (direction === "vertical") {
         const top = max(0, clientY - (parentTop || 0));
@@ -93,7 +112,7 @@ const useDrag: functionType = (
           top + targetHeight <= maxYValue.current &&
           top + targetHeight >= minY
         ) {
-          target.current.style.top = `${top - Math.round(targetHeight / 2)}px`;
+          target.current.style.top = `${top - rnd(targetHeight / 2)}px`;
 
           const percent = (top + targetHeight) / parentHeight;
           setPercent(percent);
@@ -104,6 +123,8 @@ const useDrag: functionType = (
 
   const handleDragEnd = useCallback(() => {
     dragStarted.current = false;
+
+    onDragEnd && onDragEnd();
   }, []);
 
   useEffect(() => {
@@ -126,8 +147,8 @@ const useDrag: functionType = (
     }
 
     if (startValue && endValue) {
-      const percent = startValue / endValue;
-      target.current.style.left = `${Math.round(clientWidth * percent)}px`;
+      const percent = (startValue - offsetLeft) / endValue;
+      target.current.style.left = `${rnd(clientWidth * percent)}px`;
       setPercent(percent);
     }
 

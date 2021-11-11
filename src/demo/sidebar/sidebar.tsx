@@ -10,6 +10,7 @@ const Sidebar = () => {
     <div style={{ width: "100%" }}>
       <AccordionGroup
         titles={[
+          "Layout",
           "Accordion",
           "Inputs",
           "Feedback",
@@ -21,6 +22,14 @@ const Sidebar = () => {
         initialState="open"
         autoClose={false}
       >
+        <List
+          options={[{ name: "Splitter", value: "splitter" }]}
+          borderLess
+          showCheckIcon={false}
+          onSelection={(selected) => navigate(`${selected[0].value}`)}
+          rowGap={5}
+          itemHeight={35}
+        ></List>
         <List
           options={[
             { name: "Accordion", value: "accordion" },

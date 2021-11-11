@@ -293,6 +293,14 @@ function App() {
               </div>
             }
           />
+          <Route
+            path="/splitter"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <Card />
+              </div>
+            }
+          />
         </Routes>
       </section>
     </div>

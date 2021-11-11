@@ -14,4 +14,12 @@ export interface SliderModel {
   disableTooltip?: boolean;
 
   position?: "top" | "bottom";
+
+  sliderValue?: number;
+
+  knobShape?: "circle" | "square";
+
+  showTooltipOnHover?: boolean;
+
+  knobSize?: number;
 }

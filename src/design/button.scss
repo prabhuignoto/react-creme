@@ -6,7 +6,6 @@
   @extend %center;
   background: none;
   cursor: pointer;
-  padding: 0.5rem;
   transition: background-color 50ms ease-in;
   white-space: nowrap;
 
@@ -61,9 +60,9 @@
   @extend %shadow-inset;
   @include get-button-type(
     colors.$white,
-    colors.$light-bg,
-    colors.$black,
-    colors.$black
+    rgba(colors.$secondary, 0.25),
+    colors.$primary,
+    colors.$tertiary
   );
   border: 1px solid colors.$secondary;
 }
@@ -86,10 +85,13 @@
   &:not(.rc-btn-icon) {
     @if $size == small {
       height: 35px;
+      padding: calc(35px * 0.25);
     } @else if $size == large {
-      height: 50px;
+      height: 55px;
+      padding: calc(55px * 0.25);
     } @else if $size == medium {
       height: 45px;
+      padding: calc(45px * 0.25);
     }
   }
 

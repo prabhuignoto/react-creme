@@ -6,10 +6,12 @@ function slider() {
     <div style={{ marginTop: "3rem" }}>
       <div style={{ width: "250px" }}>
         <Slider
-          start={4}
-          end={50}
+          start={1}
+          end={9}
           onChange={(val) => console.log(val)}
           position="top"
+          knobShape="square"
+          knobSize={24}
         />
       </div>
       <br></br>
@@ -18,10 +20,10 @@ function slider() {
       <br></br>
       <div style={{ width: "450px" }}>
         <Slider
-          start={4}
-          end={50}
+          start={14}
+          end={90}
           onChange={(val) => console.log(val)}
-          position="bottom"
+          knobSize={22}
         />
       </div>
     </div>

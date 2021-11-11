@@ -28,7 +28,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
   &:hover {
     @extend %border-radius;
-    background: colors.$light-bg;
+    background: rgba(colors.$secondary, 0.25);
   }
 
   &:not(.rc-accordion-align-icon-rt) {

@@ -15,9 +15,7 @@ function progress() {
   return (
     <div>
       <div style={{ display: "flex", marginBottom: "1rem" }}>
-        <div style={{ margin: "0 1rem" }}>
-          <Button onClick={start} label="Start"></Button>
-        </div>
+        <Button onClick={start} label="Start"></Button>
         <div style={{ margin: "0 1rem" }}>
           <Button onClick={pause} label="Pause"></Button>
         </div>
