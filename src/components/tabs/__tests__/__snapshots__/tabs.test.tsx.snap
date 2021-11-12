@@ -6,40 +6,47 @@ exports[`Tabs should render snapshot 1`] = `
   role="tab"
   style="--min-width: 300px;"
 >
-  <ul
-    class="rc-tab-headers"
+  <header
+    class="rc-tab-headers-wrapper"
   >
-    <li
-      class="rc-tab-head"
-      tabindex="0"
+    <ul
+      class="rc-tab-headers"
     >
-      <span
-        class="rc-tab-header-label rc-tab-header-selected"
+      <li
+        class="rc-tab-head"
+        tabindex="0"
       >
-        one
-      </span>
-    </li>
-    <li
-      class="rc-tab-head"
-      tabindex="0"
-    >
-      <span
-        class="rc-tab-header-label"
+        <span
+          class="rc-tab-header-label rc-tab-header-selected"
+        >
+          one
+        </span>
+      </li>
+      <li
+        class="rc-tab-head"
+        tabindex="0"
       >
-        two
-      </span>
-    </li>
-    <li
-      class="rc-tab-head"
-      tabindex="0"
-    >
-      <span
-        class="rc-tab-header-label"
+        <span
+          class="rc-tab-header-label"
+        >
+          two
+        </span>
+      </li>
+      <li
+        class="rc-tab-head"
+        tabindex="0"
       >
-        three
-      </span>
-    </li>
-  </ul>
+        <span
+          class="rc-tab-header-label"
+        >
+          three
+        </span>
+      </li>
+    </ul>
+    <div
+      class="rc-tab-headers-control"
+    />
+  </header>
   <ul
     class="rc-tab-panels"
   >

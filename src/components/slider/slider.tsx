@@ -17,12 +17,14 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   disableTooltip = false,
   disabled = false,
   end = 10,
+  knobShape = "circle",
+  knobSize = 16,
   onChange,
   position = "top",
-  start = 1,
-  knobShape = "circle",
   showTooltipOnHover = false,
-  knobSize = 16,
+  sliderValue = 0,
+  start = 1,
+  tooltipWidth = 40,
 }) => {
   const [dragging, setDragging] = React.useState(false);
   const [hideTooltip, setHideTooltip] = React.useState(showTooltipOnHover);
@@ -36,13 +38,18 @@ const Slider: React.FunctionComponent<SliderModel> = ({
     ? useDebouncedCallback(onChange, 100)
     : null;
 
+  const onDragStart = useCallback(() => setDragging(true), []);
+
+  const onDragEnd = useCallback(() => setDragging(false), []);
+
   const [percent] = useDrag(trackerRef, controlRef, {
     direction: "horizontal",
-    startValue: Math.min(start, end),
+    startValue: start,
     endValue: end,
     offsetLeft: start,
-    onDragStart: () => setDragging(true),
-    onDragEnd: () => setDragging(false),
+    onDragStart,
+    onDragEnd,
+    currentValue: sliderValue,
   });
 
   const onTrackerInit = useCallback((node) => {
@@ -70,13 +77,15 @@ const Slider: React.FunctionComponent<SliderModel> = ({
     }
   }, []);
 
-  const handelMouseOut = useCallback(() => {
-    !dragging && setHideTooltip(true);
-  }, [dragging]);
+  const handelMouseOut = useCallback(
+    () => !dragging && setHideTooltip(true),
+    [dragging]
+  );
 
-  const handleMouseOver = useCallback(() => {
-    !dragging && setHideTooltip(false);
-  }, []);
+  const handleMouseOver = useCallback(
+    () => !dragging && setHideTooltip(false),
+    []
+  );
 
   const sliderFillStyle = useMemo(() => {
     if (sliderFillRef.current && trackerRef.current) {
@@ -86,10 +95,9 @@ const Slider: React.FunctionComponent<SliderModel> = ({
     }
   }, [percent, sliderFillRef, trackerRef]);
 
-  const value = useMemo(
-    () => Math.round((end - start) * percent) + start,
-    [percent]
-  );
+  const value = useMemo(() => {
+    return Math.round((end - start) * percent) + start;
+  }, [percent]);
 
   const sliderWrapperClass = useMemo(
     () =>
@@ -102,8 +110,9 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   const knobClass = useMemo(() => {
     return classNames("rc-slider-control", {
       [`rc-slider-control-${knobShape}`]: true,
+      "rc-slider-control-dragging": dragging,
     });
-  }, []);
+  }, [dragging]);
 
   const canShowTooltip = useMemo(
     () => !disabled && !disableTooltip && !hideTooltip,
@@ -124,8 +133,9 @@ const Slider: React.FunctionComponent<SliderModel> = ({
       aria-valuemax={end}
       aria-valuenow={value}
       {...(showTooltipOnHover ? { onMouseOut: handelMouseOut } : null)}
+      ref={onTrackerInit}
     >
-      <div className="rc-slider-track" ref={onTrackerInit}>
+      <div className="rc-slider-track">
         <span
           ref={sliderFillRef}
           style={sliderFillStyle}
@@ -146,6 +156,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
               message={value + ""}
               onTooltipRendered={onTooltipRender}
               fixedAtCenter
+              width={tooltipWidth}
             >
               <span className="tooltip-placer" ref={onPlacerRef}></span>
             </Tooltip>

@@ -6,24 +6,26 @@ function slider() {
     <div style={{ marginTop: "3rem" }}>
       <div style={{ width: "250px" }}>
         <Slider
-          start={1}
-          end={9}
-          onChange={(val) => console.log(val)}
+          start={14}
+          end={19}
+          // onChange={(val) => console.log(val)}
           position="top"
           knobShape="square"
-          knobSize={24}
+          knobSize={15}
         />
       </div>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
-      <div style={{ width: "450px" }}>
+      <div style={{ width: "350px" }}>
         <Slider
-          start={14}
-          end={90}
-          onChange={(val) => console.log(val)}
-          knobSize={22}
+          start={52}
+          end={62}
+          // onChange={(val) => console.log(val)}
+          knobSize={16}
+          position="bottom"
+          sliderValue={60}
         />
       </div>
     </div>

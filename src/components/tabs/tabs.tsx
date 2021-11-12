@@ -38,17 +38,20 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
 
   return (
     <div className="rc-tabs" style={tabsStyle} role="tab">
-      <ul className="rc-tab-headers">
-        {items.map(({ id, name, selected }) => (
-          <TabHead
-            key={id}
-            id={id}
-            name={name}
-            selected={selected}
-            handleTabSelection={handleTabSelection}
-          />
-        ))}
-      </ul>
+      <header className="rc-tab-headers-wrapper">
+        <ul className="rc-tab-headers">
+          {items.map(({ id, name, selected }) => (
+            <TabHead
+              key={id}
+              id={id}
+              name={name}
+              selected={selected}
+              handleTabSelection={handleTabSelection}
+            />
+          ))}
+        </ul>
+        <div className="rc-tab-headers-control"></div>
+      </header>
       <ul className="rc-tab-panels">
         {items.map(
           ({ id, selected }, index) =>

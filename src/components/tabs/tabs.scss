@@ -13,12 +13,16 @@
   padding: 1rem;
 }
 
+.rc-tab-headers-wrapper {
+  @extend %left;
+  width: 100%;
+}
+
 .rc-tab-headers {
   @extend %list-horizontal-left;
   height: 35px;
-  // overflow: auto;
   padding-top: 0.25rem;
-  width: 100%;
+  width: 90%;
   z-index: 0;
 
   li {
@@ -27,9 +31,13 @@
   }
 }
 
+.rc-tab-headers-control {
+  @extend %col;
+}
+
 .rc-tab-head {
-  @include animate.halo(2px);
-  margin: 0 0.5rem 0 0.25rem;
+  // @include animate.halo(2px);
+  margin: 0 0.5rem 0 0;
   z-index: 0;
 }
 

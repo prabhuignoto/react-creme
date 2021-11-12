@@ -8,9 +8,6 @@ function tabs() {
         <span>one</span>
         <span>two</span>
         <span>three</span>
-        <span>one</span>
-        <span>two</span>
-        <span>three</span>
       </Tabs>
     </div>
   );

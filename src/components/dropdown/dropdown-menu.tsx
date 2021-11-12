@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { CSSProperties, useEffect, useMemo } from "react";
-import { List } from "..";
+import { List } from "../list/list";
 import "./dropdown-menu.scss";
 import { DropdownMenuModel } from "./dropdown-model";
 

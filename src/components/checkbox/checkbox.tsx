@@ -32,6 +32,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
 
   const toggleCheck = useCallback(() => {
     setChecked((prev) => !prev);
+    onChange && onChange(!checked);
   }, []);
 
   if (focusable) {
@@ -86,7 +87,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
 
   useEffect(() => {
     if (!isFirstRender.current) {
-      onChange && onChange(checked);
+      // onChange && onChange(checked);
     }
   }, [checked]);
 

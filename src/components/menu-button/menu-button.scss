@@ -13,11 +13,15 @@
   height: 35px;
   max-width: var(--max-width);
   min-width: 100px;
+
+  &.rc-menu-btn-disabled {
+    @extend %disabled;
+  }
 }
 
 .rc-menu-btn-icon {
   @extend %center;
-  @extend %icon-md;
+  @extend %icon-sm;
   @include animate.halo();
   background: colors.$light-bg;
   border-bottom-right-radius: 4px;

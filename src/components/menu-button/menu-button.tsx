@@ -1,19 +1,11 @@
+import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { CSSProperties, useCallback, useRef } from "react";
+import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
 import { Button, Menu } from "..";
 import { ChevronDownIcon } from "../../icons";
 import { MenuItemModel } from "../menu/menu-item";
+import { MenuButtonProps } from "./menu-button.model";
 import "./menu-button.scss";
-
-export interface MenuButtonProps {
-  label: string;
-  items: string[];
-  onChange?: (item?: string) => void;
-  focusable?: boolean;
-  selectedValue?: string;
-  position?: "left" | "right";
-  width?: number;
-}
 
 const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   label = "Select",
@@ -23,6 +15,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   focusable = true,
   position = "left",
   width = 150,
+  disabled = false,
 }) => {
   const menuItems = useRef<MenuItemModel[]>(
     items.map((item) => ({ name: item, id: nanoid() }))
@@ -37,9 +30,17 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
     onChange && onChange(item);
   }, []);
 
+  const menuButtonClass = useMemo(
+    () =>
+      classNames("rc-menu-btn-wrapper", {
+        "rc-menu-btn-disabled": disabled,
+      }),
+    [disabled]
+  );
+
   return (
     <div
-      className="rc-menu-btn-wrapper"
+      className={menuButtonClass}
       style={{ "--max-width": `${width}px` } as CSSProperties}
     >
       <Button label={selectedItem} noBorder focusable={true} />

@@ -5,6 +5,7 @@
 
 .rc-tooltip-wrapper {
   @extend %center;
+  z-index: 9999;
 
   &:not(.rc-tooltip-fixed) {
     position: relative;
@@ -26,8 +27,8 @@
       visibility: visible,
     ),
   );
-  $arrow-dim: 12px;
 
+  $arrow-dim: 10px;
   @extend %center;
   @extend %border-radius;
   @extend %shadow-medium;
@@ -35,12 +36,12 @@
 
   @include animate.set-keyframes(animate-tooltip-show, $animation);
   @include animate.set-keyframes(animate-tooltip-close, $animation, true);
+  background: colors.$white;
 
   min-width: var(--width);
-  padding: 0.75rem 0.5rem;
+  padding: calc($arrow-dim/2);
   position: absolute;
   visibility: hidden;
-  z-index: 999;
 
   &.show-tooltip {
     animation-name: animate-tooltip-show;

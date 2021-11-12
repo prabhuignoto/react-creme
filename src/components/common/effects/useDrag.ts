@@ -19,6 +19,7 @@ interface Settings {
   startValue?: number;
   endValue?: number;
   offsetLeft?: number;
+  currentValue?: number;
   onDragStart?: () => void;
   onDragEnd?: () => void;
 }
@@ -45,6 +46,7 @@ const useDrag: functionType = (
     offsetLeft = 0,
     onDragEnd,
     onDragStart,
+    currentValue = 0,
   }
 ) => {
   const dragStarted = useRef(false);
@@ -59,9 +61,8 @@ const useDrag: functionType = (
 
       if (ev.target === target.current) {
         dragStarted.current = true;
+        onDragStart && onDragStart();
       }
-
-      onDragStart && onDragStart();
     },
     [target]
   );
@@ -102,7 +103,7 @@ const useDrag: functionType = (
         } else if (left >= maxXValue.current) {
           setPercent(maxXValue.current / parentWidth);
           target.current.style.left = `${
-            maxXValue.current || Math.round(parentWidth - targetWidth / 2)
+            maxXValue.current - rnd(targetWidth / 2)
           }px`;
         }
       } else if (direction === "vertical") {
@@ -148,28 +149,30 @@ const useDrag: functionType = (
 
     if (startValue && endValue) {
       const percent = (startValue - offsetLeft) / endValue;
+      console.log(startValue, endValue, offsetLeft, percent);
+
       target.current.style.left = `${rnd(clientWidth * percent)}px`;
       setPercent(percent);
     }
 
-    document.addEventListener("mousemove", handleDrag);
-    document.addEventListener("touchmove", handleDrag);
+    container.current.addEventListener("mousemove", handleDrag);
+    container.current.addEventListener("touchmove", handleDrag);
 
-    document.addEventListener("mousedown", handleDragStart);
-    document.addEventListener("touchstart", handleDragStart);
+    container.current.addEventListener("mousedown", handleDragStart);
+    container.current.addEventListener("touchstart", handleDragStart);
 
-    document.addEventListener("mouseup", handleDragEnd);
-    document.addEventListener("touchend", handleDragEnd);
+    container.current.addEventListener("mouseup", handleDragEnd);
+    container.current.addEventListener("touchend", handleDragEnd);
 
     return () => {
-      document.removeEventListener("mousemove", handleDrag);
-      document.removeEventListener("touchmove", handleDrag);
+      container.current?.removeEventListener("mousemove", handleDrag);
+      container.current?.removeEventListener("touchmove", handleDrag);
 
-      document.removeEventListener("mousedown", handleDragStart);
-      document.removeEventListener("touchstart", handleDragStart);
+      container.current?.removeEventListener("mousedown", handleDragStart);
+      container.current?.removeEventListener("touchstart", handleDragStart);
 
-      document.removeEventListener("mouseup", handleDragEnd);
-      document.removeEventListener("touchend", handleDragEnd);
+      container.current?.removeEventListener("mouseup", handleDragEnd);
+      container.current?.removeEventListener("touchend", handleDragEnd);
     };
   }, [target, container]);
 

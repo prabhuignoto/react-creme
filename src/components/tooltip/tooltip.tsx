@@ -18,7 +18,7 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   message,
   onTooltipRendered,
   position = "bottom center",
-  width = 50,
+  width = 150,
 }: TooltipModel) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);

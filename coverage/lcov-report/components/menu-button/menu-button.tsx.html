@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">54.54% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/10</span>
+                <span class='fraction'>6/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -117,24 +117,18 @@
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,6 +152,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,22 +179,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { nanoid } from "nanoid";
-import React, { CSSProperties, useCallback, useRef } from "react";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from "classnames";
+import { nanoid } from "nanoid";
+import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
 import { Button, Menu } from "..";
 import { ChevronDownIcon } from "../../icons";
 import { MenuItemModel } from "../menu/menu-item";
+import { MenuButtonProps } from "./menu-button.model";
 import "./menu-button.scss";
-&nbsp;
-export interface MenuButtonProps {
-  label: string;
-  items: string[];
-  onChange?: (item?: string) =&gt; void;
-  focusable?: boolean;
-  selectedValue?: string;
-  position?: "left" | "right";
-  width?: number;
-}
 &nbsp;
 const MenuButton: React.FunctionComponent&lt;MenuButtonProps&gt; = ({
   label = <span class="branch-0 cbranch-no" title="branch not covered" >"Select",</span>
@@ -202,6 +196,7 @@ const MenuButton: React.FunctionComponent&lt;MenuButtonProps&gt; = ({
   focusable = true,
   position = <span class="branch-0 cbranch-no" title="branch not covered" >"left",</span>
   width = <span class="branch-0 cbranch-no" title="branch not covered" >150,</span>
+  disabled = false,
 }) =&gt; {
   const menuItems = useRef&lt;MenuItemModel[]&gt;(
     items.map((item) =&gt; ({ name: item, id: nanoid() }))
@@ -216,9 +211,17 @@ const MenuButton: React.FunctionComponent&lt;MenuButtonProps&gt; = ({
     onChange &amp;&amp; onChange(item);
   }, []);
 &nbsp;
+  const menuButtonClass = useMemo(
+    () =&gt;
+      classNames("rc-menu-btn-wrapper", {
+        "rc-menu-btn-disabled": disabled,
+      }),
+    [disabled]
+  );
+&nbsp;
   return (
     &lt;div
-      className="rc-menu-btn-wrapper"
+      className={menuButtonClass}
       style={{ "--max-width": `${width}px` } as CSSProperties}
     &gt;
       &lt;Button label={selectedItem} noBorder focusable={true} /&gt;
@@ -244,7 +247,7 @@ export { MenuButton };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Nov 11 2021 18:19:00 GMT+0530 (India Standard Time)
+                at Fri Nov 12 2021 14:09:25 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

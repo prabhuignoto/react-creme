@@ -22,4 +22,6 @@ export interface SliderModel {
   showTooltipOnHover?: boolean;
 
   knobSize?: number;
+
+  tooltipWidth?: number;
 }

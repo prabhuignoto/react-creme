@@ -1,6 +1,12 @@
 import cls from "classnames";
 import { nanoid } from "nanoid";
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, {
+  startTransition,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { ChevronDownIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
 import { withOverlay } from "../common/withOverlay";
@@ -55,30 +61,33 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
 
     // HANDLERS
     const handleSelection = useCallback((selected: Option[]) => {
-      let _value: string | string[];
+      let _value: string | string[] = "";
 
       if (allowMultiSelection) {
-        _value = selected.map((opt) => opt.value).join(",");
-        const selectedIds = selected.map((item) => item.id);
-
-        setValue(_value);
-        setDropdownOptions((options) =>
-          options.map((option) => ({
-            ...option,
-            selected: selectedIds.indexOf(option.id) > -1,
-          }))
-        );
+        startTransition(() => {
+          _value = selected.map((opt) => opt.value).join(",");
+          const selectedIds = selected.map((item) => item.id);
+          setValue(_value);
+          setDropdownOptions((options) =>
+            options.map((option) => ({
+              ...option,
+              selected: selectedIds.indexOf(option.id) > -1,
+            }))
+          );
+        });
       } else {
-        const { id, value } = selected[0];
-        _value = value;
-        setValue(value);
-        setDropdownOptions((options) =>
-          options.map((option) => ({
-            ...option,
-            selected: option.id === id,
-          }))
-        );
-        setShowMenu(false);
+        startTransition(() => {
+          const { id, value } = selected[0];
+          _value = value;
+          setValue(value);
+          setDropdownOptions((options) =>
+            options.map((option) => ({
+              ...option,
+              selected: option.id === id,
+            }))
+          );
+          setShowMenu(false);
+        });
       }
 
       if (onSelected) {
@@ -158,7 +167,11 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     );
 
     return (
-      <div className={rcDropdownClass} ref={dropdownRef}>
+      <div
+        className={rcDropdownClass}
+        ref={dropdownRef}
+        // onClick={handleToggleMenu}
+      >
         <div
           className={rcDropdownValueClass}
           ref={containerRef}

@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import React, { useCallback, useEffect } from "react";
+import React, { startTransition, useCallback, useEffect } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import RateIcon from "../../icons/star";
 import { useFirstRender } from "../common/effects/useFirstRender";
@@ -45,13 +45,17 @@ const Rate: React.FunctionComponent<RateProps> = ({
   }, []);
 
   const handleHover = useDebouncedCallback((idx: number) => {
-    setHoverIndex(idx);
-    setSelectedIndex(-1);
+    startTransition(() => {
+      setHoverIndex(idx);
+      setSelectedIndex(-1);
+    });
   }, 10);
 
   const handleLeave = useDebouncedCallback(() => {
-    setHoverIndex(-1);
-    setSelectedIndex(lastSelectedIndex.current);
+    startTransition(() => {
+      setHoverIndex(-1);
+      setSelectedIndex(lastSelectedIndex.current);
+    });
   }, 10);
 
   useEffect(() => {

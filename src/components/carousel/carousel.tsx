@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
+  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -40,11 +41,11 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   const [isAutoPlaying, setAutoPlaying] = useState(!!autoPlay);
 
   const handleNext = useCallback(() => {
-    setActivePage((prev) => prev + 1);
+    startTransition(() => setActivePage((prev) => prev + 1));
   }, []);
 
   const handlePrevious = useCallback(
-    () => setActivePage((prev) => prev - 1),
+    () => startTransition(() => setActivePage((prev) => prev - 1)),
     []
   );
 

@@ -2,6 +2,7 @@ import cls from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
+  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -70,34 +71,36 @@ const List: React.FunctionComponent<ListModel> = ({
   const handleSearch = useCallback((val: string) => {
     const _val = val.trim().toLowerCase();
 
-    setListOptions((prev) => {
-      let updated = [];
+    startTransition(() => {
+      setListOptions((prev) => {
+        let updated = [];
 
-      if (_val.length) {
-        updated = prev
-          .map((opt) => ({
-            ...opt,
-            visible: opt.name.toLowerCase().includes(_val),
-          }))
-          .sort((a, b) => (a.visible === b.visible ? 0 : a.visible ? -1 : 1));
-      } else {
-        updated = prev
-          .map((opt) => ({
-            ...opt,
-            visible: true,
-          }))
-          .sort((a, b) =>
-            b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1
-          );
-      }
+        if (_val.length) {
+          updated = prev
+            .map((opt) => ({
+              ...opt,
+              visible: opt.name.toLowerCase().includes(_val),
+            }))
+            .sort((a, b) => (a.visible === b.visible ? 0 : a.visible ? -1 : 1));
+        } else {
+          updated = prev
+            .map((opt) => ({
+              ...opt,
+              visible: true,
+            }))
+            .sort((a, b) =>
+              b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1
+            );
+        }
 
-      return updated.map((option, index) => ({
-        ...option,
-        top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
-      }));
+        return updated.map((option, index) => ({
+          ...option,
+          top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
+        }));
+      });
+
+      setTimeStamp(Date.now());
     });
-
-    setTimeStamp(Date.now());
   }, []);
 
   const handleSelection = (opt: Option) => {
@@ -149,11 +152,14 @@ const List: React.FunctionComponent<ListModel> = ({
       const list = listRef.current;
       const scrollTop = Math.round(list.scrollTop);
       const height = Math.round(list.clientHeight);
-      setVisibleRange([scrollTop, scrollTop + height]);
+
+      startTransition(() => {
+        setVisibleRange([scrollTop, scrollTop + height]);
+      });
     }
   }, []);
 
-  const handleScroll = useDebouncedCallback(setRange, 50, {
+  const handleScroll = useDebouncedCallback(setRange, 10, {
     leading: false,
     trailing: true,
   });
