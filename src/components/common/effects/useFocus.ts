@@ -46,7 +46,7 @@ function useFocus(
   };
 
   const handleKeyboard = useCallback((ev: KeyboardEvent) => {
-    if (ev.key === "Enter" || ev.key === "" || ev.key === "Spacebar") {
+    if (ev.key === "Enter" || ev.key === " " || ev.key === "Spacebar") {
       ev.preventDefault();
       addClass(ev);
 
@@ -80,16 +80,16 @@ function useFocus(
     targetRef.current = target;
 
     if (target) {
-      target.addEventListener("focus", onFocus);
-      target.addEventListener("click", onFocus);
       target.addEventListener("blur", onFocusLost);
-      target.addEventListener("keyup", handleKeyboard);
+      target.addEventListener("click", onFocus);
+      target.addEventListener("focus", onFocus);
+      target.addEventListener("keydown", handleKeyboard);
 
       return () => {
-        target.removeEventListener("focus", onFocus);
-        target.removeEventListener("click", onFocus);
         target.removeEventListener("blur", removeClass);
-        target.removeEventListener("keyup", handleKeyboard);
+        target.removeEventListener("click", onFocus);
+        target.removeEventListener("focus", onFocus);
+        target.removeEventListener("keydown", handleKeyboard);
       };
     }
   }, [element]);

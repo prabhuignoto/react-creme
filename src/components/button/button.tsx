@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React, { useMemo, useRef } from "react";
+import { CircularProgress } from "..";
 import "../../design/focus.scss";
 import { useFocus } from "../common/effects/useFocus";
 import { ButtonModel } from "./button-model";
@@ -22,6 +23,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
         {
           "rc-disabled": disabled,
           "rc-btn-no-border": noBorder,
+          "rc-btn-default": type === "progress",
         },
         [`rc-btn-${size}`, `rc-btn-${type}`, "rc-btn"]
       ),
@@ -56,6 +58,11 @@ const Button: React.FunctionComponent<ButtonModel> = ({
       style={style}
       {...focusableProps}
     >
+      {type === "progress" && (
+        <span className="rc-btn-progress-wrapper">
+          <CircularProgress size={15} />
+        </span>
+      )}
       {children && <span className="rc-btn-icon-container">{children}</span>}
       {label && <span className="rc-btn-label">{label}</span>}
     </button>

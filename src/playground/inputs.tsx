@@ -8,7 +8,14 @@ const wrap: CSSProperties = {
 
 function inputs() {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        width: "400px",
+        display: "flex",
+        flexDirection: "column",
+        margin: "0 auto",
+      }}
+    >
       <div style={{ width: "200px", ...wrap }}>
         <Input enableClear>
           <ChevronRightIcon />

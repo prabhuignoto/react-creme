@@ -8,6 +8,7 @@ import "./design/layout.scss";
 import "./design/list.scss";
 import Accordion from "./playground/accordion";
 import AccordionGroup from "./playground/accordion-group";
+import Avatar from "./playground/avatar";
 import Breadcrumb from "./playground/breadcrumb";
 import Buttons from "./playground/buttons";
 import Card from "./playground/card";
@@ -37,6 +38,7 @@ import Tags from "./playground/tags";
 import Tooltip from "./playground/tooltip";
 import Transfer from "./playground/transfer";
 import Tree from "./playground/tree";
+import DataGrid from "./playground/data-grid";
 
 function App() {
   const { time, start, pause, reset, status } = useTimer({
@@ -307,6 +309,22 @@ function App() {
             element={
               <div className="section-content" style={{ width: "900px" }}>
                 <MenuButton />
+              </div>
+            }
+          />
+          <Route
+            path="/avatar"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <Avatar />
+              </div>
+            }
+          />
+          <Route
+            path="/data-grid"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <DataGrid />
               </div>
             }
           />

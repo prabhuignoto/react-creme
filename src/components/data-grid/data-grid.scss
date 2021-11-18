@@ -1,0 +1,116 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/icon.scss";
+
+.rc-data-grid {
+  @extend %col;
+  @extend %border;
+  overflow: auto;
+  padding: 0.25rem;
+  width: 100%;
+}
+
+.rc-data-grid-row {
+  width: 100%;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid colors.$gray;
+  }
+
+  &:hover {
+    background-color: colors.$light-bg;
+  }
+
+  &.rc-data-grid-row-compact {
+    height: 40px;
+  }
+
+  &.rc-data-grid-row-comfortable {
+    height: 60px;
+  }
+}
+
+.rc-data-grid-row:nth-child(odd) {
+  .rc-data-grid-column {
+    height: 100%;
+  }
+}
+
+.rc-data-grid-column {
+  @extend %left;
+}
+
+.rc-data-grid-column-val {
+  @extend %text-no-wrap;
+  display: block;
+  padding-left: 0.5rem;
+  width: 100%;
+}
+
+.rc-data-grid-header-cell {
+  @extend %left;
+  background: rgba(colors.$secondary, 0.5);
+  color: colors.$black;
+  height: 100%;
+  text-transform: capitalize;
+}
+
+.rc-data-grid-header-cell {
+  width: 100%;
+
+  &:first-child {
+    border-top-left-radius: 4px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 4px;
+  }
+}
+
+.rc-data-grid-header-sort-icon-wrapper {
+  @extend %col;
+  margin-left: auto;
+  margin-right: 0.75rem;
+}
+
+%sort-icon {
+  @extend %icon-xs;
+  cursor: pointer;
+
+  svg {
+    fill: rgba(colors.$primary, 0.25);
+    stroke: none;
+  }
+}
+
+.rc-data-grid-header-sort-icon {
+  @extend %sort-icon;
+}
+
+.rc-data-grid-header-sort-icon-asc {
+  margin-bottom: 0.2rem;
+}
+
+.rc-data-grid-header-sort-icon-desc {
+  @extend %sort-icon;
+  margin-top: 0.2rem;
+  transform: rotate(180deg);
+}
+
+.rc-data-grid-header-sort-icon-active {
+  svg {
+    fill: colors.$primary;
+  }
+}
+
+.rc-data-grid-header {
+  width: 100%;
+
+  &.rc-data-grid-header-compact {
+    height: 30px;
+  }
+
+  &.rc-data-grid-header-comfortable {
+    height: 50px;
+  }
+}

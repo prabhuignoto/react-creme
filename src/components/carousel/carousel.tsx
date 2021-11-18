@@ -5,6 +5,7 @@ import React, {
   startTransition,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -62,7 +63,7 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
     }
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (slideWidth && slideHeight && Array.isArray(children)) {
       const prop = direction === "horizontal" ? "left" : "top";
       setCarouselItems(

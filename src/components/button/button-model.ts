@@ -6,7 +6,7 @@ export interface ButtonModel {
   children?: React.ReactNode;
   disabled?: boolean;
   primary?: boolean;
-  type?: "primary" | "default" | "danger" | "icon";
+  type?: "primary" | "default" | "danger" | "icon" | "progress";
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
   noBorder?: boolean;

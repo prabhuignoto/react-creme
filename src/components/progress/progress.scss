@@ -109,5 +109,7 @@ $bob-anim-settings: (
   ),
 );
 
+
+
 @include animate.set-keyframes(infinite-progress, $infinite-anim-settings);
 @include animate.set-keyframes(infinite-bob, $bob-anim-settings);

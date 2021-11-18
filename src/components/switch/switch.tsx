@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { nanoid } from "nanoid";
 import React, {
   useCallback,
   useEffect,
@@ -11,18 +12,19 @@ import { SwitchModel } from "./switch-model";
 import "./switch.scss";
 
 const Switch: React.FunctionComponent<SwitchModel> = ({
-  onChange,
-  label,
-  width = 50,
+  checked = false,
   disabled = false,
+  focusable = true,
+  label,
+  labelOutside = false,
+  onChange,
   size = "sm",
   style,
-  labelOutside = false,
-  checked = false,
-  focusable = true,
+  width = 50,
 }) => {
   const [state, setState] = useState(checked);
   const ref = useRef(null);
+  const id = useRef(`rc-switch-${nanoid()}`);
 
   // flag to check if the component is rendering the first time
   const isFirstRender = useRef(true);
@@ -117,6 +119,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
       onClick={handleToggle}
       role="switch"
       aria-checked={state}
+      aria-labelledby={id.current}
       style={switchStyle}
       ref={ref}
       {...switchTabIndex}
@@ -124,10 +127,16 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
       <span className={switchTrackClass}>
         <span className={switchKnobClass}></span>
         {label && !labelOutside && (
-          <span className={switchLabelClass}>{label}</span>
+          <span className={switchLabelClass} id={id.current}>
+            {label}
+          </span>
         )}
       </span>
-      {labelOutside && <span className={switchLabelClass}>{label}</span>}
+      {labelOutside && (
+        <span className={switchLabelClass} id={id.current}>
+          {label}
+        </span>
+      )}
     </div>
   );
 };

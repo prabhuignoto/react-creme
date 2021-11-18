@@ -9,7 +9,7 @@ const style: CSSProperties = {
 
 function buttons() {
   return (
-    <div>
+    <div style={{ width: "300px", margin: "0 auto" }}>
       <div style={style}>
         <Button
           noBorder
@@ -31,6 +31,9 @@ function buttons() {
         <Button label="Search this page" size="sm">
           <SearchIcon />
         </Button>
+      </div>
+      <div style={style}>
+        <Button label="Searching ..." size="sm" type="progress"></Button>
       </div>
     </div>
   );

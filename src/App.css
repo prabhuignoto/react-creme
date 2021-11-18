@@ -1,9 +1,7 @@
 .App {
-  display: grid;
-  grid-template-columns: 30% 70%;
-  justify-items: flex-start;
+  display: flex;
+  min-height: 100%;
   width: 100%;
-  height: 100vh;
 }
 
 .App-logo {
@@ -50,9 +48,11 @@ button {
   display: flex;
   flex-direction: column;
   height: 100%;
-  /* justify-content: space-between; */
-  height: 100%;
-  width: 300px;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 400px;
+  padding: 0.5rem;
 }
 
 .aside a {
@@ -64,10 +64,10 @@ button {
   display: flex;
   height: 100%;
   justify-content: center;
-  width: 100%;
   margin-top: 2rem;
+  width: 100%;
 }
 
 .section-content {
-  min-width: 450px;
+  width: 100%;
 }

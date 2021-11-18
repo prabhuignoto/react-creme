@@ -9,7 +9,13 @@ $types: (primary, default, danger);
 $sizes: (sm, md, lg);
 
 .rc-btn {
-  @include animate.halo();
+  &:not(.rc-btn-danger) {
+    @include animate.halo();
+  }
+
+  &.rc-btn-danger {
+    @include animate.halo(4px, 4px);
+  }
 
   &.rc-btn-no-border {
     border: 0;
@@ -67,4 +73,8 @@ $sizes: (sm, md, lg);
 
 .rc-btn-icon-container + .rc-btn-label {
   margin-left: 0.25rem;
+}
+
+.rc-btn-progress-wrapper {
+  margin-right: 0.5rem;
 }

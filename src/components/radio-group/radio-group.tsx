@@ -61,7 +61,6 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
           className={classNames("rc-radio-grp-item", {
             "rc-radio-grp-item-disabled": disabled,
           })}
-          role="none"
           aria-checked={!!checked}
         >
           <Radio

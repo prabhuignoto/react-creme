@@ -106,18 +106,15 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
 
   return (
     <div
-      role="checkbox"
       aria-checked={checked}
+      aria-labelledby={id.current}
       className={wrapperClass}
-      {...wrapperProps}
-      style={style}
       onClick={toggleCheck}
+      role="checkbox"
+      style={style}
+      {...wrapperProps}
     >
-      <div
-        className={checkBoxClass}
-        aria-labelledby={id.current}
-        {...iconProps}
-      >
+      <div className={checkBoxClass} {...iconProps}>
         <span className={iconClass} role="img">
           <CheckIcon />
         </span>

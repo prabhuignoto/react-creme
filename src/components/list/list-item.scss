@@ -20,7 +20,7 @@ $height: 40px;
   width: 90%;
   z-index: 0;
 
-  &:hover:not(.rc-list-option-multi-selection) {
+  &:hover:not(.rc-list-option-multi-selection):not(.rc-list-option-disabled) {
     background: rgba(colors.$secondary, 0.25);
   }
 
@@ -55,6 +55,7 @@ $height: 40px;
 
 .rc-list-option-value {
   @extend %text-no-wrap;
+  font-size: 14px;
   line-height: $height;
   padding-left: 0.5rem;
 }

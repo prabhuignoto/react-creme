@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.11% </span>
+                <span class="strong">94.44% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/34</span>
+                <span class='fraction'>34/36</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.96% </span>
+                <span class="strong">97.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/33</span>
+                <span class='fraction'>34/35</span>
             </div>
         
             
@@ -192,21 +192,29 @@
 <a name='L133'></a><a href='#L133'>133</a>
 <a name='L134'></a><a href='#L134'>134</a>
 <a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -215,6 +223,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -326,8 +337,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from "classnames";
+import { nanoid } from "nanoid";
 import React, {
   useCallback,
   useEffect,
@@ -340,18 +359,19 @@ import { SwitchModel } from "./switch-model";
 import "./switch.scss";
 &nbsp;
 const Switch: React.FunctionComponent&lt;SwitchModel&gt; = ({
-  onChange,
-  label,
-  width = 50,
+  checked = false,
   disabled = false,
+  focusable = true,
+  label,
+  labelOutside = false,
+  onChange,
   size = "sm",
   style,
-  labelOutside = false,
-  checked = false,
-  focusable = true,
+  width = 50,
 }) =&gt; {
   const [state, setState] = useState(checked);
   const ref = useRef(null);
+  const id = useRef(`rc-switch-${nanoid()}`);
 &nbsp;
   // flag to check if the component is rendering the first time
   const isFirstRender = useRef(true);
@@ -446,6 +466,7 @@ const Switch: React.FunctionComponent&lt;SwitchModel&gt; = ({
       onClick={handleToggle}
       role="switch"
       aria-checked={state}
+      aria-labelledby={id.current}
       style={switchStyle}
       ref={ref}
       {...switchTabIndex}
@@ -453,10 +474,16 @@ const Switch: React.FunctionComponent&lt;SwitchModel&gt; = ({
       &lt;span className={switchTrackClass}&gt;
         &lt;span className={switchKnobClass}&gt;&lt;/span&gt;
         {label &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!labelOutside </span>&amp;&amp; (
-<span class="branch-2 cbranch-no" title="branch not covered" >          &lt;span className={switchLabelClass}&gt;{label}&lt;/span&gt;</span>
+<span class="branch-2 cbranch-no" title="branch not covered" >          &lt;span className={switchLabelClass} id={id.current}&gt;</span>
+            {label}
+          &lt;/span&gt;
         )}
       &lt;/span&gt;
-      {labelOutside &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;span className={switchLabelClass}&gt;{label}&lt;/span&gt;}</span>
+      {labelOutside &amp;&amp; (
+<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;span className={switchLabelClass} id={id.current}&gt;</span>
+          {label}
+        &lt;/span&gt;
+      )}
     &lt;/div&gt;
   );
 };
@@ -469,7 +496,7 @@ export { Switch };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Nov 12 2021 14:09:25 GMT+0530 (India Standard Time)
+                at Thu Nov 18 2021 09:03:41 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

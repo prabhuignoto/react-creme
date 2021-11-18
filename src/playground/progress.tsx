@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react";
 import { useTimer } from "use-timer";
-import { Button, Progress } from "../components";
+import { Button, CircularProgress, Progress } from "../components";
 
 const wrap: CSSProperties = {
   margin: "1rem 0",
@@ -84,6 +84,13 @@ function progress() {
           showProgressValue
           size="sm"
         />
+      </div>
+
+      <div style={wrap}>
+        <CircularProgress size={40} />
+      </div>
+      <div style={wrap}>
+        <CircularProgress size={40} style="double-ring" />
       </div>
     </div>
   );

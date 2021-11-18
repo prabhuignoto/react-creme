@@ -27,7 +27,7 @@ $heights: (
   width: 100%;
 
   &.rc-checkbox-focus {
-    @include animate.halo();
+    @include animate.halo(4px, 3px);
   }
 
   &.rc-checkbox-hover:hover {
@@ -56,7 +56,7 @@ $heights: (
   z-index: 1;
 
   &.rc-checkbox-focus {
-    @include animate.halo();
+    @include animate.halo(4px, 3px);
   }
 
   * {

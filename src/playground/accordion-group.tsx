@@ -3,7 +3,7 @@ import { AccordionGroup } from "../components";
 
 function accordionGroup() {
   return (
-    <div style={{ height: "600px", width: "400px" }}>
+    <div style={{ height: "600px", width: "600px" }}>
       <AccordionGroup
         titles={["one", "two", "three", "image"]}
         autoClose={false}

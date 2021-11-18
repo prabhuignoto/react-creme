@@ -1,0 +1,17 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/icon.scss";
+
+$sizes: (sm, md, lg);
+
+.rc-avatar {
+  @extend %border;
+  border-radius: 50%;
+  padding: 0.25rem;
+
+  @each $size in $sizes {
+    &.rc-avatar-#{$size} {
+      @extend %icon-#{$size};
+    }
+  }
+}

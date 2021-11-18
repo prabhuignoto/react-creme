@@ -10,6 +10,7 @@ const Sidebar = () => {
     <div style={{ width: "100%" }}>
       <AccordionGroup
         titles={[
+          "Icons",
           "Layout",
           "Accordion",
           "Inputs",
@@ -23,7 +24,18 @@ const Sidebar = () => {
         autoClose={false}
       >
         <List
-          options={[{ name: "Splitter", value: "splitter" }]}
+          options={[{ name: "Avatar", value: "avatar" }]}
+          borderLess
+          showCheckIcon={false}
+          onSelection={(selected) => navigate(`${selected[0].value}`)}
+          rowGap={5}
+          itemHeight={35}
+        ></List>
+        <List
+          options={[
+            { name: "Splitter", value: "splitter" },
+            { name: "Card", value: "card" },
+          ]}
           borderLess
           showCheckIcon={false}
           onSelection={(selected) => navigate(`${selected[0].value}`)}
@@ -77,7 +89,8 @@ const Sidebar = () => {
             { name: "Tree", value: "tree" },
             { name: "Tags", value: "tags" },
             { name: "Tabs", value: "tabs" },
-            { name: "Card", value: "card" },
+            { name: "Grid", value: "data-grid" },
+            { name: "Transfer", value: "transfer" },
           ]}
           borderLess
           showCheckIcon={false}

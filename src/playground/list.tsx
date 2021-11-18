@@ -3,7 +3,7 @@ import { List } from "../components";
 
 function list() {
   return (
-    <div style={{ minHeight: "400px", width: "450px" }}>
+    <div style={{ minHeight: "400px", width: "450px", margin: "0 auto" }}>
       <br />
       <List
         enableSearch

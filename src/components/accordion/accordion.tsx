@@ -2,6 +2,7 @@ import cls from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
+  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -35,7 +36,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
 
     const toggleAccordion = useCallback(() => {
       enableCallback.current = true;
-      setOpen((prev) => !prev);
+
+      startTransition(() => setOpen((prev) => !prev));
     }, []);
 
     const enableCallback = useRef(false);

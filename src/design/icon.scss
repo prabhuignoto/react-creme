@@ -5,14 +5,17 @@
   @extend %center;
 
   @if $size == small {
+    height: 0.75rem;
+    width: 0.75rem;
+  } @else if $size == medium {
     height: 1rem;
     width: 1rem;
-  } @else if $size == medium {
+  } @else if $size == large {
     height: 1.5rem;
     width: 1.5rem;
-  } @else if $size == large {
-    height: 2rem;
-    width: 2rem;
+  } @else if $size == extra-small {
+    height: 0.6rem;
+    width: 0.6rem;
   }
 
   svg {
@@ -20,6 +23,10 @@
     height: 100%;
     width: 100%;
   }
+}
+
+%icon-xs {
+  @include get-icon(extra-small, colors.$primary);
 }
 
 %icon-sm {
