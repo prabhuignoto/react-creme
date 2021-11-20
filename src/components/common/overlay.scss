@@ -3,6 +3,7 @@
 @use "../../design/colors.scss";
 @use "../../design/layout.scss";
 @use "../../design/position.scss";
+@use "../../design/icon.scss";
 
 .rc-overlay-wrapper {
   @extend %center;
@@ -27,7 +28,22 @@
 }
 
 .rc-overlay-close-btn {
-  @extend %button-lg-no-border;
+  @extend %icon-xl;
+  @include position.position-abs("top right");
+  border-radius: 50%;
+  cursor: pointer;
+  right: 1.5rem;
+  top: 0.5rem;
+
+  svg {
+    color: colors.$white;
+  }
+}
+
+.rc-overlay-close-btn:hover {
+  svg {
+    color: colors.$primary;
+  }
 }
 
 $open-anime-settings: (

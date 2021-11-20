@@ -4,7 +4,7 @@
 
 .rc-data-grid {
   @extend %col;
-  @extend %border;
+  // @extend %border;
   overflow: auto;
   padding: 0.25rem;
   width: 100%;

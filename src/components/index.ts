@@ -11,6 +11,7 @@ export { Dialog } from "./dialog/dialog";
 export { Drawer } from "./drawer/drawer";
 export { Dropdown } from "./dropdown/dropdown";
 export { ImageComparer } from "./image-comparer/image-comparer";
+export { Image } from "./image/image";
 export { Input } from "./input/input";
 export { Link } from "./link/link";
 export { List } from "./list/list";

@@ -3,8 +3,11 @@
 
 .rc-accordion-group {
   @extend %col;
-  @extend %border;
   width: 100%;
+
+  &:not(.rc-accordion-grp-no-border) {
+    @extend %border;
+  }
 }
 
 .rc-accordion-group-item {

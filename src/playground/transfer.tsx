@@ -8,6 +8,7 @@ function transfer() {
         list1={["one", "two", "five", "six"]}
         list2={["three", "four", "seven", "eight"]}
         onChange={(val, val2) => console.log(val, val2)}
+        enableSearch
       />
     </div>
   );

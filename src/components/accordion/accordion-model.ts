@@ -18,6 +18,7 @@ export interface AccordionGroupProps {
   autoClose?: boolean;
   initialState?: "open" | "close";
   alignIconRight?: boolean;
+  noBorder?: boolean;
 }
 
 export interface AccordionItemProps {

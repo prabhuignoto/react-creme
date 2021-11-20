@@ -22,6 +22,7 @@ const Sidebar = () => {
         ]}
         initialState="open"
         autoClose={false}
+        noBorder
       >
         <List
           options={[{ name: "Avatar", value: "avatar" }]}
@@ -35,6 +36,7 @@ const Sidebar = () => {
           options={[
             { name: "Splitter", value: "splitter" },
             { name: "Card", value: "card" },
+            { name: "Image", value: "image" },
           ]}
           borderLess
           showCheckIcon={false}

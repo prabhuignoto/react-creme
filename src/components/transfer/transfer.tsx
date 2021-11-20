@@ -1,5 +1,11 @@
 import { nanoid } from "nanoid";
-import React, { useCallback, useEffect, useState } from "react";
+import React, {
+  startTransition,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import { ListOption } from "../list/list-model";
 import { TransferControlColumn } from "./transfer-control-column";
 import { TransferList } from "./transfer-list";
@@ -18,6 +24,7 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
   list1,
   list2,
   onChange,
+  enableSearch = false,
 }) => {
   const [leftList, setLeftList] = useState<TransferListInternalModel[]>(
     initMapper(list1)
@@ -29,6 +36,8 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
   const [leftSelected, setLeftSelected] = useState<TransferListInternalModel[]>(
     []
   );
+
+  const isFirstRender = useFirstRender();
 
   const [rightSelected, setRightSelected] = useState<
     TransferListInternalModel[]
@@ -58,29 +67,33 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
   );
 
   const handleListSelectionLeft = useCallback((sel: any[]) => {
-    setLeftSelected(sel);
-    const selIds = sel.map((item) => item.id);
-    setLeftList((prev) =>
-      prev.map((item) => ({
-        ...item,
-        selected: selIds.includes(item.id),
-      }))
-    );
+    startTransition(() => {
+      setLeftSelected(sel);
+      const selIds = sel.map((item) => item.id);
+      setLeftList((prev) =>
+        prev.map((item) => ({
+          ...item,
+          selected: selIds.includes(item.id),
+        }))
+      );
+    });
   }, []);
 
   const handleListSelectionRight = useCallback((sel: any[]) => {
-    setRightSelected(sel);
-    const selIds = sel.map((item) => item.id);
-    setRightList((prev) =>
-      prev.map((item) => ({
-        ...item,
-        selected: selIds.includes(item.id),
-      }))
-    );
+    startTransition(() => {
+      setRightSelected(sel);
+      const selIds = sel.map((item) => item.id);
+      setRightList((prev) =>
+        prev.map((item) => ({
+          ...item,
+          selected: selIds.includes(item.id),
+        }))
+      );
+    });
   }, []);
 
   useEffect(() => {
-    if (onChange) {
+    if (onChange && !isFirstRender.current) {
       onChange(
         leftList.map((item) => item.name),
         rightList.map((item) => item.name)
@@ -96,6 +109,7 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
             listId="list1"
             options={leftList as ListOption[]}
             onSelection={handleListSelectionLeft}
+            enableSearch={enableSearch}
           />
         ) : null}
       </section>
@@ -110,6 +124,7 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
             listId="list2"
             options={rightList as ListOption[]}
             onSelection={handleListSelectionRight}
+            enableSearch={enableSearch}
           />
         ) : null}
       </section>

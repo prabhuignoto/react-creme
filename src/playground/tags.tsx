@@ -3,7 +3,7 @@ import { Tags } from "../components";
 
 function tags() {
   return (
-    <>
+    <div style={{ width: "500px", margin: "0 auto" }}>
       <div style={{ width: "500px" }}>
         <Tags
           items={[
@@ -53,7 +53,7 @@ function tags() {
           tagStyle="fill"
         />
       </div>
-    </>
+    </div>
   );
 }
 

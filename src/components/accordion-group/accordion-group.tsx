@@ -1,5 +1,6 @@
+import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import { Accordion } from "..";
 import {
   AccordionGroupProps,
@@ -13,6 +14,7 @@ const AccordionGroup = ({
   autoClose = true,
   initialState = "close",
   alignIconRight = false,
+  noBorder = false,
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
@@ -41,8 +43,14 @@ const AccordionGroup = ({
     );
   }, []);
 
+  const groupClass = useMemo(() => {
+    return classNames("rc-accordion-group", {
+      "rc-accordion-grp-no-border": noBorder,
+    });
+  }, []);
+
   return (
-    <div className="rc-accordion-group">
+    <div className={groupClass}>
       {items.map((item, index) => (
         <div className="rc-accordion-group-item" key={item.id}>
           <Accordion

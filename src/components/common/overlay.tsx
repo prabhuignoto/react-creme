@@ -105,9 +105,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         children
       )}
       {showCloseButton && (
-        <button className={`rc-overlay-close-btn`}>
+        <span className={`rc-overlay-close-btn`} onClick={onClose}>
           <CloseIcon />
-        </button>
+        </span>
       )}
     </div>
   );

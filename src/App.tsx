@@ -39,6 +39,7 @@ import Tooltip from "./playground/tooltip";
 import Transfer from "./playground/transfer";
 import Tree from "./playground/tree";
 import DataGrid from "./playground/data-grid";
+import Image from "./playground/image";
 
 function App() {
   const { time, start, pause, reset, status } = useTimer({
@@ -325,6 +326,14 @@ function App() {
             element={
               <div className="section-content" style={{ width: "900px" }}>
                 <DataGrid />
+              </div>
+            }
+          />
+          <Route
+            path="/image"
+            element={
+              <div className="section-content" style={{ width: "900px" }}>
+                <Image />
               </div>
             }
           />
