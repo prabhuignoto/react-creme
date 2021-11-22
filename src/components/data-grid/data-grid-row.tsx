@@ -6,7 +6,14 @@ import { DataRow } from "./data-grid-model";
 import "./data-grid.scss";
 
 const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
-  ({ data, columnWidth, columnConfigs, style, layoutStyle }: DataRow) => {
+  ({
+    data,
+    columnWidth,
+    columnConfigs,
+    style,
+    layoutStyle,
+    border,
+  }: DataRow) => {
     const cellsData = useRef(
       Object.keys(data)
         .filter((k) => k !== "id")
@@ -20,6 +27,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
     const rowClass = useMemo(() => {
       return classNames("rc-data-grid-row", {
         [`rc-data-grid-row-${layoutStyle}`]: true,
+        "rc-data-grid-row-border": border,
       });
     }, []);
 
@@ -27,7 +35,12 @@ const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
       <div className={rowClass} style={style}>
         {cellsData.current.map((cell) => {
           return (
-            <DataGridCell value={cell.value} key={cell.id} name={cell.name} />
+            <DataGridCell
+              value={cell.value}
+              key={cell.id}
+              name={cell.name}
+              border={border}
+            />
           );
         })}
       </div>

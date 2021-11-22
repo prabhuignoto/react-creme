@@ -4,10 +4,14 @@
 
 .rc-data-grid {
   @extend %col;
-  // @extend %border;
-  overflow: auto;
-  padding: 0.25rem;
+  overflow: hidden;
+  padding: 0.1rem;
   width: 100%;
+
+  &.rc-data-grid-border {
+    @extend %border-radius;
+    border: 1px solid colors.$gray;
+  }
 }
 
 .rc-data-grid-row {
@@ -40,6 +44,12 @@
   @extend %left;
 }
 
+.rc-data-grid-column-border {
+  &:not(:last-child) {
+    border-right: 1px solid colors.$gray;
+  }
+}
+
 .rc-data-grid-column-val {
   @extend %text-no-wrap;
   display: block;
@@ -70,7 +80,7 @@
 .rc-data-grid-header-sort-icon-wrapper {
   @extend %col;
   margin-left: auto;
-  margin-right: 0.75rem;
+  margin-right: 0.5rem;
 }
 
 %sort-icon {

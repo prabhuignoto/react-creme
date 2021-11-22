@@ -12,6 +12,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = React.memo(
     style,
     onSort,
     layoutStyle,
+    border,
   }: DataGridHeaderProps) => {
     const [headerColumns, setHeaderColumns] = useState(
       columns.map((col) => ({ ...col, sortDirection: "none" }))
@@ -44,7 +45,11 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = React.memo(
             key={column.name}
             style={{ width: `${columnWidth}px` }}
           >
-            <DataGridCell name={column.name} value={column.name} />
+            <DataGridCell
+              name={column.name}
+              value={column.name}
+              border={border}
+            />
             {column.sortable && (
               <span className="rc-data-grid-header-sort-icon-wrapper">
                 <span

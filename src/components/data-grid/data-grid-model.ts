@@ -2,6 +2,7 @@ import { CSSProperties } from "react";
 
 interface DataGridCommon {
   layoutStyle?: "compact" | "comfortable";
+  border?: boolean;
 }
 
 export interface DataGridColumn {
@@ -18,6 +19,7 @@ export interface DataGridColumn {
 export interface DataGridCell {
   name: string;
   value: string;
+  border?: boolean;
 }
 
 export interface DataRow extends DataGridCommon {
@@ -35,6 +37,7 @@ export interface DataGridModel {
 export interface DataGridProps extends DataGridCommon {
   columns?: DataGridColumn[];
   data: { [key: string]: string | number }[];
+  gridWidth?: number;
 }
 
 export interface DataGridHeaderProps extends DataGridCommon {
@@ -42,6 +45,7 @@ export interface DataGridHeaderProps extends DataGridCommon {
   columns: DataGridColumn[];
   onSort?: (column: string, dir: SortDirection) => void;
   style?: CSSProperties;
+  border?: boolean;
 }
 
 export type SortDirection = "asc" | "desc" | "none";

@@ -1,16 +1,17 @@
 import React from "react";
 import { Avatar } from "../components";
+import "./avatar.scss";
 
 function avatar() {
   return (
-    <div>
-      <div>
+    <div className="rc-play-avatar">
+      <div className="rc-play-avatar-item">
         <Avatar />
       </div>
-      <div>
+      <div className="rc-play-avatar-item">
         <Avatar size="md" />
       </div>
-      <div>
+      <div className="rc-play-avatar-item">
         <Avatar size="lg" />
       </div>
     </div>

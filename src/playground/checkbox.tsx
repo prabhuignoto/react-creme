@@ -9,7 +9,12 @@ const style: CSSProperties = {
 
 function checkbox() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", width: "300px" }}>
+    <div
+      style={{
+        width: "300px",
+        margin: "0 auto",
+      }}
+    >
       <div style={style}>
         <CheckBox
           label="select"
