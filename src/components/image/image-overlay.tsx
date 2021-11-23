@@ -35,6 +35,7 @@ const ImageOverlayComponent: React.FunctionComponent<ImageOverlayProps> = ({
         src={src}
         width={Math.min(docWidth, width)}
         height={Math.min(docHeight, height)}
+        isOverlay
       />
     </div>
   );

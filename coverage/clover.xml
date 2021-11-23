@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637694977087" clover="3.2.0">
-  <project timestamp="1637694977088" name="All files">
-    <metrics statements="1890" coveredstatements="1413" conditionals="1012" coveredconditionals="536" methods="589" coveredmethods="378" elements="3491" coveredelements="2327" complexity="0" loc="1890" ncloc="1890" packages="39" files="77" classes="77"/>
+<coverage generated="1637698617694" clover="3.2.0">
+  <project timestamp="1637698617695" name="All files">
+    <metrics statements="1913" coveredstatements="1430" conditionals="1029" coveredconditionals="548" methods="594" coveredmethods="382" elements="3536" coveredelements="2360" complexity="0" loc="1913" ncloc="1913" packages="39" files="77" classes="77"/>
     <package name="components">
       <metrics statements="34" coveredstatements="34" conditionals="0" coveredconditionals="0" methods="34" coveredmethods="3"/>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\components\index.ts">
@@ -937,7 +937,7 @@
       </file>
     </package>
     <package name="components.image">
-      <metrics statements="45" coveredstatements="31" conditionals="17" coveredconditionals="10" methods="13" coveredmethods="5"/>
+      <metrics statements="68" coveredstatements="48" conditionals="34" coveredconditionals="22" methods="18" coveredmethods="9"/>
       <file name="image-overlay.tsx" path="D:\Projects\2020\react-phalladium\src\components\image\image-overlay.tsx">
         <metrics statements="16" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="1" count="11" type="stmt"/>
@@ -953,41 +953,64 @@
         <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="43" count="11" type="stmt"/>
-        <line num="47" count="11" type="stmt"/>
+        <line num="44" count="11" type="stmt"/>
         <line num="48" count="11" type="stmt"/>
+        <line num="49" count="11" type="stmt"/>
       </file>
       <file name="image.tsx" path="D:\Projects\2020\react-phalladium\src\components\image\image.tsx">
-        <metrics statements="29" coveredstatements="22" conditionals="15" coveredconditionals="10" methods="9" coveredmethods="5"/>
+        <metrics statements="52" coveredstatements="39" conditionals="32" coveredconditionals="22" methods="14" coveredmethods="9"/>
         <line num="1" count="11" type="stmt"/>
         <line num="2" count="11" type="stmt"/>
-        <line num="3" count="11" type="stmt"/>
-        <line num="4" count="11" type="stmt"/>
-        <line num="5" count="11" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
         <line num="11" count="11" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="19" count="11" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="58" count="1" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="77" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="83" count="1" type="stmt"/>
-        <line num="112" count="11" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="106" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="112" count="1" type="stmt"/>
+        <line num="113" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="114" count="1" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
+        <line num="119" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+        <line num="126" count="1" type="stmt"/>
+        <line num="128" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="132" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="136" count="0" type="stmt"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="145" count="1" type="stmt"/>
+        <line num="176" count="11" type="stmt"/>
       </file>
     </package>
     <package name="components.image-comparer">

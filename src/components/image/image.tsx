@@ -1,11 +1,19 @@
 import classNames from "classnames";
-import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
+import React, {
+  CSSProperties,
+  startTransition,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+} from "react";
 import { CircularProgress } from "..";
 import { ImageOverlay } from "./image-overlay";
 import "./image.scss";
 
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   expandOnClick?: boolean;
+  isOverlay?: boolean;
 }
 
 const Image: React.FunctionComponent<ImageProps> = ({
@@ -15,13 +23,25 @@ const Image: React.FunctionComponent<ImageProps> = ({
   expandOnClick = false,
   alt,
   loading = "lazy",
+  isOverlay = false,
 }) => {
   const [loaded, setLoaded] = React.useState(false);
 
-  const imageDimension = useRef<{ width: number; height: number }>({
+  const imageNaturalDimension = useRef<{ width: number; height: number }>({
     width: 0,
     height: 0,
   });
+
+  const [imageDimension, setImageDimension] = React.useState<{
+    width: number | string;
+    height: number | string;
+  }>({
+    width: "100%",
+    height: "100%",
+  });
+
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const imageRef = useRef<HTMLImageElement | null>(null);
 
   const [openOverlay, setOpenOverlay] = React.useState(false);
 
@@ -30,10 +50,11 @@ const Image: React.FunctionComponent<ImageProps> = ({
       const width = evt.currentTarget.naturalWidth;
       const height = evt.currentTarget.naturalHeight;
 
-      imageDimension.current = {
+      imageNaturalDimension.current = {
         height,
         width,
       };
+
       setTimeout(() => {
         setLoaded(true);
       }, 1000);
@@ -64,6 +85,14 @@ const Image: React.FunctionComponent<ImageProps> = ({
     []
   );
 
+  const imageStyle = useMemo(() => {
+    const { width, height } = imageDimension;
+    return {
+      maxWidth: Number.isInteger(width) ? `${width}px` : width,
+      maxHeight: Number.isInteger(height) ? `${height}px` : height,
+    } as CSSProperties;
+  }, [JSON.stringify(imageDimension)]);
+
   const handleOverlayOpen = useCallback(() => {
     setOpenOverlay(true);
   }, []);
@@ -80,8 +109,41 @@ const Image: React.FunctionComponent<ImageProps> = ({
     []
   );
 
+  const onWrapperRef = useCallback((node) => {
+    if (node) {
+      wrapperRef.current = node;
+    }
+  }, []);
+
+  const onImageRef = useCallback((node) => {
+    if (node) {
+      imageRef.current = node;
+    }
+  }, []);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    const image = imageRef.current;
+
+    if (!wrapper || !image) {
+      return;
+    }
+
+    if (isOverlay && loaded) {
+      startTransition(() => {
+        const { width, height } = image;
+        wrapper.style.setProperty("--width", `${width}px`);
+        wrapper.style.setProperty("--height", `${height}px`);
+        setImageDimension({
+          width,
+          height,
+        });
+      });
+    }
+  }, [loaded]);
+
   return (
-    <div className={wrapperClass} style={style}>
+    <div className={wrapperClass} style={style} ref={onWrapperRef}>
       <img
         src={src}
         onLoad={handleLoad}
@@ -90,6 +152,8 @@ const Image: React.FunctionComponent<ImageProps> = ({
         alt={alt}
         {...imageProps}
         loading={loading}
+        ref={onImageRef}
+        style={imageStyle}
       />
       {!loaded && (
         <span className="rc-image-load-icon-wrapper">
@@ -100,8 +164,8 @@ const Image: React.FunctionComponent<ImageProps> = ({
         <ImageOverlay
           src={src}
           onClose={handleOverlayClose}
-          width={imageDimension.current?.width}
-          height={imageDimension.current?.height}
+          width={imageNaturalDimension.current?.width}
+          height={imageNaturalDimension.current?.height}
           showClose
         />
       )}

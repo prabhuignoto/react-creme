@@ -13,7 +13,7 @@
 
 .rc-image-clickable {
   cursor: pointer;
-  
+
   &:hover {
     filter: brightness(1.1);
   }
@@ -21,8 +21,6 @@
 
 .rc-image {
   @extend %border-radius;
-  max-height: 95%;
-  max-width: 95%;
   transition: opacity 0.3s ease-in-out;
 
   &.rc-image-loaded {
