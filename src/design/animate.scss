@@ -80,7 +80,7 @@
     @include set-animation(0.1s, linear);
     border-radius: $border-radius;
     outline-offset: $outline-offset;
-    z-index: 0;
+    z-index: 5;
   }
 
   &.rc-focus:not(.rc-disabled)::before {

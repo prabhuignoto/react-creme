@@ -1,9 +1,14 @@
 .app {
   border: 1px solid red;
   display: flex;
+  font-family: 'Outfit', sans-serif;
   justify-content: center;
   margin: 0 auto;
   min-height: 100%;
+}
+
+body, html, button {
+  font-family: 'Outfit', sans-serif;
 }
 
 .app-aside {
@@ -25,7 +30,6 @@
 .app-main-section {
   align-items: flex-start;
   display: flex;
-  height: 100%;
   justify-content: center;
   margin-top: 2rem;
   width: 70%;
@@ -36,4 +40,19 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.rc-demo-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 2400px;
+  width: 90%;
+}
+
+.rc-demo-prop-section {
+  display: flex;
+  width: 95%;
+  margin: 2rem 0;
 }

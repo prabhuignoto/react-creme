@@ -1,5 +1,9 @@
 import { ReactNode } from "react";
 
+export interface TabsCommonModel {
+  tabStyle?: "flat" | "rounded";
+  border?: boolean;
+}
 export interface TabHeadProps extends TabsCommonModel {
   id: string;
   name?: string;
@@ -10,7 +14,7 @@ export interface TabHeadProps extends TabsCommonModel {
 export interface TabsModel extends TabsCommonModel {
   children: ReactNode[];
   labels: string[];
-  width?: number;
+  width?: number | string;
 }
 
 export interface TabItemModel {
@@ -19,7 +23,7 @@ export interface TabItemModel {
   selected?: boolean;
 }
 
-export interface TabsCommonModel {
-  tabStyle?: "flat" | "rounded";
-  border?: boolean;
+export interface TabHeadersModel extends TabsCommonModel {
+  items: TabItemModel[];
+  handleTabSelection: (id: string) => void;
 }

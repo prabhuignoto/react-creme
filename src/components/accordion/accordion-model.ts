@@ -1,15 +1,16 @@
 import { ReactNode } from "react";
 
 export interface AccordionModel {
-  title?: string;
-  children?: ReactNode;
-  noBorder?: boolean;
-  onExpanded?: (id: string) => void;
-  onCollapsed?: (id: string) => void;
-  id?: string;
-  controlledState?: boolean | null;
-  transition?: string;
   alignIconRight?: boolean;
+  children?: ReactNode;
+  controlledState?: boolean | null;
+  id?: string;
+  noBorder?: boolean;
+  onCollapsed?: (id: string) => void;
+  onExpanded?: (id: string) => void;
+  title?: string;
+  transition?: string;
+  focusable?: boolean;
 }
 
 export interface AccordionGroupProps {
@@ -24,4 +25,5 @@ export interface AccordionGroupProps {
 export interface AccordionItemProps {
   id?: string;
   expanded?: boolean;
+  focusable?: boolean;
 }

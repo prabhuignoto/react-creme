@@ -14,21 +14,21 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
   &:not(.rc-accordion-no-border) {
     @extend %border;
-    @extend %shadow-inset;
+    // @extend %shadow-inset;
   }
 }
 
 .rc-accordion-header {
   @extend %left;
   @include animate.halo(1px);
-  background: rgba(colors.$secondary, 0.25);
+  // background: rgba(colors.$secondary, 0.25);
   cursor: pointer;
   height: $header-height;
   justify-items: center;
   width: 100%;
-  
+
   &:hover {
-    background: colors.$secondary;
+    // background: colors.$light-bg;
     // @extend %border-radius;
   }
 
@@ -72,14 +72,17 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
 .rc-accordion-title {
   @extend %left;
+  font-weight: 400;
+  height: 100%;
+  justify-self: flex-start;
+  padding-left: 0.5rem;
   width: 95%;
 }
 
 .rc-accordion-icon {
-  @extend %icon-lg;
+  @extend %icon-md;
   cursor: pointer;
   transition: transform 0.2s ease-in;
-  width: 100%;
 
   &.rc-accordion-icon-open {
     transform: rotate(90deg);

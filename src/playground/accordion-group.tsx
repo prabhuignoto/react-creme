@@ -27,7 +27,6 @@ function accordionGroup() {
         <AccordionGroup
           titles={["one", "two", "three", "image"]}
           autoClose={false}
-          initialState="open"
           alignIconRight
         >
           <p>
@@ -56,6 +55,34 @@ function accordionGroup() {
             id fringilla ac, gravida posuere ligula. Maecenas ac lacus rutrum,
             vestibulum nulla tincidunt, interdum arcu. Nam vel interdum libero.
           </p>
+          <p>
+            Nam faucibus ac magna ac hendrerit. Aenean pulvinar tempus
+            hendrerit. Proin vitae posuere lectus. Maecenas convallis enim sit
+            amet sem gravida, eu cursus lacus placerat. Nunc a venenatis quam.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel
+            ipsum augue. Etiam blandit, erat a lacinia dapibus, risus ex
+            molestie erat, eget sagittis est turpis id lorem. Nunc bibendum
+            pretium velit eget ornare. Donec sollicitudin odio nec odio posuere
+            egestas. Pellentesque eu rhoncus massa. Etiam id urna lacus. Integer
+            ante diam, volutpat non condimentum a, lobortis non eros.
+          </p>
+          <div
+            style={{
+              width: "100%",
+              height: "400px",
+            }}
+          >
+            <Image src="https://images.unsplash.com/photo-1635449586099-3ecb7ef8374d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"></Image>
+          </div>
+        </AccordionGroup>
+        <br></br>
+        <br></br>
+        <AccordionGroup
+          titles={["one", "two"]}
+          autoClose={false}
+          noBorder
+          initialState="open"
+        >
           <p>
             Nam faucibus ac magna ac hendrerit. Aenean pulvinar tempus
             hendrerit. Proin vitae posuere lectus. Maecenas convallis enim sit

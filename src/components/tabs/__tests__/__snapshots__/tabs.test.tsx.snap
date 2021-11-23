@@ -4,7 +4,7 @@ exports[`Tabs should render snapshot 1`] = `
 <div
   class="rc-tabs rc-tabs-border"
   role="tab"
-  style="--min-width: 300px;"
+  style="--min-width: 100%;"
 >
   <header
     class="rc-tab-headers-wrapper rc-tab-headers-wrapper-flat"

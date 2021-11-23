@@ -1,0 +1,118 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/position.scss";
+@use "../../design/icon.scss";
+@use "../../design/list.scss";
+@use "../../design/animate.scss";
+
+.rc-tab-headers-wrapper {
+  @extend %left;
+  position: relative;
+  width: 100%;
+
+  &.rc-tab-headers-wrapper-flat::after {
+    height: 2px;
+  }
+
+  &::after {
+    @include position.position-abs("bottom center");
+    background: colors.$secondary;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+.rc-tab-headers {
+  @extend %list-horizontal-left;
+  height: 35px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  width: 90%;
+  z-index: 1;
+
+  li {
+    @extend %center;
+    height: 90%;
+  }
+}
+
+.rc-tab-headers-control {
+  @extend %center;
+  height: 100%;
+  justify-content: space-around;
+  width: 10%;
+}
+
+.rc-tab-header-btn {
+  @extend %border-radius;
+  @extend %icon-md;
+  cursor: pointer;
+
+  &:hover {
+    background: colors.$secondary;
+  }
+}
+
+.rc-tab-header-btn-left {
+  transform: rotate(180deg);
+}
+
+.rc-tab-head {
+  margin: 0 0.5rem 0 0;
+  position: relative;
+  // z-index: -1;
+  // @include animate.halo(4px, 3px);
+}
+
+.rc-tab-header-label {
+  @extend %center;
+  cursor: pointer;
+  height: 100%;
+  min-width: 100px;
+  position: relative;
+
+  &.rc-tab-header-selected {
+    color: colors.$primary;
+    position: relative;
+  }
+}
+
+.rc-tab-header-flat {
+  &::after {
+    @include position.position-abs("bottom center");
+    background: rgba(colors.$primary, 70%);
+    bottom: -2px;
+    content: "";
+    display: block;
+    height: 2px;
+    transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 0;
+  }
+
+  &.rc-tab-header-selected::after {
+    width: 100%;
+  }
+}
+
+.rc-tab-header-rounded {
+  @extend %border;
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
+
+  &.rc-tab-header-selected::after {
+    @include position.position-abs("bottom center");
+    background: colors.$white;
+    bottom: -2px;
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+  }
+}

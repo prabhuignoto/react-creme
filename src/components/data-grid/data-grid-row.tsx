@@ -13,6 +13,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
     style,
     layoutStyle,
     border,
+    fixedHeight,
   }: DataRow) => {
     const cellsData = useRef(
       Object.keys(data)
@@ -28,6 +29,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
       return classNames("rc-data-grid-row", {
         [`rc-data-grid-row-${layoutStyle}`]: true,
         "rc-data-grid-row-border": border,
+        "rc-data-grid-row-fixed-height": fixedHeight,
       });
     }, []);
 
@@ -40,6 +42,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
               key={cell.id}
               name={cell.name}
               border={border}
+              fixedHeight={fixedHeight}
             />
           );
         })}

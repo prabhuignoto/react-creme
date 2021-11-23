@@ -22,6 +22,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = React.memo(
     layoutStyle = "comfortable",
     border = false,
     gridWidth = 0,
+    fixedHeight = false,
   }: DataGridProps) => {
     const [rowData] = useState<{ [key: string]: string | number }[]>(
       data.map((item) => ({ id: nanoid(), ...item }))
@@ -59,7 +60,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = React.memo(
 
       return Math.floor(
         (width - usedWidth) /
-          (rowData.length - 1 - columns.filter((col) => col.width).length)
+          (columns.length - columns.filter((col) => col.width).length)
       );
     }, [width]);
 
@@ -132,6 +133,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = React.memo(
                 style={style}
                 layoutStyle={layoutStyle}
                 border={border}
+                fixedHeight={fixedHeight}
               />
             );
           })}

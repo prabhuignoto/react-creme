@@ -17,6 +17,7 @@ import "./accordion.scss";
 
 const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
   ({
+    alignIconRight = false,
     children,
     controlledState = null,
     id,
@@ -25,7 +26,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     onExpanded,
     title,
     transition = "cubic-bezier(0.19, 1, 0.22, 1)",
-    alignIconRight = false,
+    focusable = false,
   }: AccordionModel) => {
     const accordionID = useRef(id || `accordion-${nanoid()}`);
     const ref = useRef(null);
@@ -110,7 +111,9 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       }
     }, [open]);
 
-    useFocus(chevronRef, { bgHighlight: false }, toggleAccordion);
+    if (focusable) {
+      useFocus(chevronRef, { bgHighlight: false }, toggleAccordion);
+    }
 
     useEffect(() => {
       if (isFirstRender.current || controlledState === null) {

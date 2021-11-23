@@ -8,7 +8,7 @@ import "./tabs.scss";
 const Tabs: React.FunctionComponent<TabsModel> = ({
   children,
   labels,
-  width = 300,
+  width = "100%",
   tabStyle = "flat",
   border = true,
 }) => {
@@ -25,7 +25,7 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
   const tabsStyle = useMemo(
     () =>
       ({
-        "--min-width": `${width}px`,
+        "--min-width": Number.isInteger(width) ? `${width}px` : width,
       } as CSSProperties),
     []
   );

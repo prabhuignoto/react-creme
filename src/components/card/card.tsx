@@ -31,27 +31,23 @@ const Card: React.FunctionComponent<CardModel> = ({
     });
   }, [borderLess]);
 
+  const cardHeaderClass = useMemo(() => {
+    return classNames("rc-card-header", {
+      [`rc-card-align-${alignHeader}`]: true,
+    });
+  }, []);
+
+  const cardFooterClass = useMemo(() => {
+    return classNames("rc-card-footer", {
+      [`rc-card-align-${alignFooter}`]: true,
+    });
+  }, []);
+
   return (
     <div className={cardWrapperClass} style={style}>
-      {header && (
-        <header
-          className={classNames("rc-card-header", {
-            [`rc-card-align-${alignHeader}`]: true,
-          })}
-        >
-          {header}
-        </header>
-      )}
+      {header && <header className={cardHeaderClass}>{header}</header>}
       <section className="rc-card-body">{children}</section>
-      {footer && (
-        <footer
-          className={classNames("rc-card-footer", {
-            [`rc-card-align-${alignFooter}`]: true,
-          })}
-        >
-          {footer}
-        </footer>
-      )}
+      {footer && <footer className={cardFooterClass}>{footer}</footer>}
     </div>
   );
 };

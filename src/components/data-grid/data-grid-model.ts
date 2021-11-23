@@ -3,6 +3,7 @@ import { CSSProperties } from "react";
 interface DataGridCommon {
   layoutStyle?: "compact" | "comfortable";
   border?: boolean;
+  fixedHeight?: boolean;
 }
 
 export interface DataGridColumn {
@@ -20,6 +21,7 @@ export interface DataGridCell {
   name: string;
   value: string;
   border?: boolean;
+  fixedHeight?: boolean;
 }
 
 export interface DataRow extends DataGridCommon {

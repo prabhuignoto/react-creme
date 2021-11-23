@@ -20,6 +20,7 @@
 
 .splitter-control {
   background: colors.$secondary;
+  transition: background 0.1s linear;
 
   &.splitter-control-horizontal {
     @include position.position-abs("center left");
@@ -33,6 +34,10 @@
     cursor: ns-resize;
     height: 4px;
     width: 100%;
+  }
+
+  &.splitter-control-dragged {
+    background: rgba(colors.$primary, 75%);
   }
 }
 

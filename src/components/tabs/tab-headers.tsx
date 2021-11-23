@@ -8,13 +8,9 @@ import React, {
 } from "react";
 import { ChevronRightIcon } from "../../icons";
 import { TabHead } from "./tab-head";
-import { TabItemModel, TabsCommonModel } from "./tabs-model";
+import { TabHeadersModel } from "./tabs-model";
 import "./tabs.scss";
-
-export interface TabHeadersModel extends TabsCommonModel {
-  items: TabItemModel[];
-  handleTabSelection: (id: string) => void;
-}
+import "./tab-header.scss";
 
 const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   items,

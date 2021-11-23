@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
+  useState,
 } from "react";
 import { useDrag } from "../common/effects/useDrag";
 import { SplitterModel } from "./splitter-model";
@@ -24,12 +25,16 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
   const ref = useRef<HTMLDivElement | null>(null);
   const controlRef = useRef<HTMLSpanElement>(null);
 
+  const [dragStarted, setDragStarted] = useState(false);
+
   const [percent, setPercent] = useDrag(ref, controlRef, {
     direction: dir,
     maxX: maxSplitWidth,
     maxY: maxSplitHeight,
     minX: minSplitWidth,
     minY: minSplitHeight,
+    onDragStart: () => setDragStarted(true),
+    onDragEnd: () => setDragStarted(false),
   });
 
   const isHorizontal = useMemo(() => dir === "horizontal", []);
@@ -50,8 +55,9 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
     () =>
       classNames(["splitter-control", `splitter-control-${dir}`], {
         "splitter-control-disable": !canSplit,
+        "splitter-control-dragged": dragStarted,
       }),
-    [canSplit]
+    [canSplit, dragStarted]
   );
 
   const partitionOneStyle = useMemo(() => {
