@@ -3,6 +3,7 @@
 @use "../../design/list.scss";
 @use "../../design/position.scss";
 @use "../../design/animate.scss";
+@use "../../design/icon.scss";
 
 .rc-tab-panel {
   @extend %center;
@@ -10,70 +11,137 @@
 
 .rc-tabs {
   @extend %col;
-  padding: 1rem;
+  padding: 0.2rem;
+
+  &.rc-tabs-border {
+    @extend %border;
+  }
 }
 
 .rc-tab-headers-wrapper {
   @extend %left;
+  position: relative;
   width: 100%;
+
+  &.rc-tab-headers-wrapper-flat::after {
+    height: 2px;
+  }
+
+  &::after {
+    @include position.position-abs("bottom center");
+    background: colors.$secondary;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    z-index: -1;
+  }
 }
 
 .rc-tab-headers {
   @extend %list-horizontal-left;
   height: 35px;
-  padding-top: 0.25rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
   width: 90%;
-  z-index: 0;
+  z-index: 1;
 
   li {
     @extend %center;
-    height: 100%;
+    height: 90%;
   }
 }
 
 .rc-tab-headers-control {
-  @extend %col;
+  @extend %center;
+  height: 100%;
+  justify-content: space-around;
+  width: 10%;
+}
+
+.rc-tab-header-btn {
+  @extend %border-radius;
+  @extend %icon-md;
+  cursor: pointer;
+
+  &:hover {
+    background: colors.$secondary;
+  }
+}
+
+.rc-tab-header-btn-left {
+  transform: rotate(180deg);
 }
 
 .rc-tab-head {
-  // @include animate.halo(2px);
   margin: 0 0.5rem 0 0;
+  position: relative;
   z-index: 0;
 }
 
 .rc-tab-header-label {
   @extend %center;
-  @extend %border;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
   cursor: pointer;
   height: 100%;
   min-width: 100px;
   position: relative;
 
   &.rc-tab-header-selected {
-    background: colors.$light-bg;
     color: colors.$primary;
     position: relative;
   }
+}
+
+.rc-tab-header-flat {
+  &::after {
+    @include position.position-abs("bottom center");
+    background: rgba(colors.$primary, 70%);
+    bottom: -2px;
+    content: "";
+    display: block;
+    height: 2px;
+    transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 0;
+    z-index: 1;
+  }
+
+  &.rc-tab-header-selected::after {
+    width: 100%;
+  }
+}
+
+.rc-tab-header-rounded {
+  @extend %border;
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
 
   &.rc-tab-header-selected::after {
     @include position.position-abs("bottom center");
-    background: colors.$light-bg;
+    background: colors.$white;
     bottom: -2px;
     content: "";
     display: block;
     height: 2px;
     width: 100%;
+    z-index: 1;
   }
 }
 
 .rc-tab-panels {
   @extend %list;
-  @extend %border;
-  // @extend %border-radius;
-  background: colors.$light-bg;
   min-height: 200px;
   width: 100%;
   z-index: -1;
+
+  &.rc-panel-border {
+    @extend %border;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-left: 0.1rem;
+  }
 }

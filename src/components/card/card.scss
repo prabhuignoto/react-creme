@@ -7,12 +7,21 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr 50px;
+  // grid-template-rows: 50px 1fr 50px;
   padding: 0.5rem;
 
   &:not(.rc-card-border-less) {
     @extend %border;
     // @extend %shadow-inset;
+  }
+
+  &.rc-card-shadow {
+    @extend %shadow-medium;
+    @extend %border-radius;
+  }
+
+  &:not(.rc-card-shadow) {
+    @extend %border;
   }
 }
 

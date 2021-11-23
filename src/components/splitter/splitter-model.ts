@@ -7,4 +7,5 @@ export interface SplitterModel {
   maxSplitWidth?: number;
   minSplitHeight?: number;
   maxSplitHeight?: number;
+  border?: boolean;
 }

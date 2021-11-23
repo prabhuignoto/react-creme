@@ -19,6 +19,7 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
   maxSplitWidth = 400,
   minSplitHeight = 100,
   maxSplitHeight = 200,
+  border = true,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const controlRef = useRef<HTMLSpanElement>(null);
@@ -62,7 +63,7 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
       return {
         width: isHorizontal ? (width !== 0 ? width : minSplitWidth) : "100%",
         height: isHorizontal ? "100%" : height,
-        marginRight: "2px",
+        ...(isHorizontal ? { marginRight: "2px" } : { marginBottom: "2px" }),
       } as CSSProperties;
     }
   }, [percent, canSplit, isHorizontal]);
@@ -78,7 +79,7 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
         return {
           width: isHorizontal ? width : "100%",
           height: isHorizontal ? "100%" : height,
-          marginLeft: "2px",
+          ...(isHorizontal ? { marginLeft: "2px" } : { marginTop: "-2px" }),
         } as CSSProperties;
       } else {
         return {
@@ -90,7 +91,10 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
   }, [percent, dir, canSplit, isHorizontal]);
 
   const wrapperClass = useMemo(
-    () => classNames(["splitter-wrapper", `splitter-wrapper-${dir}`]),
+    () =>
+      classNames(["splitter-wrapper", `splitter-wrapper-${dir}`], {
+        "splitter-wrapper-border": border,
+      }),
     []
   );
 

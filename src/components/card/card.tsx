@@ -8,21 +8,26 @@ const Card: React.FunctionComponent<CardModel> = ({
   header,
   minHeight = 200,
   maxHeight = 400,
-  borderLess = false,
+  borderLess = true,
   alignFooter = "left",
   alignHeader = "left",
   children,
+  shadow = true,
 }) => {
   const style = useMemo(() => {
     return {
       minHeight: `${minHeight}px`,
       maxHeight: `${maxHeight}px`,
+      gridTemplateRows: `${header ? "50px" : ""} 1fr ${
+        footer ? "50px" : ""
+      }`.trim(),
     };
   }, [minHeight, maxHeight]);
 
   const cardWrapperClass = useMemo(() => {
     return classNames("rc-card-wrapper", {
       "rc-card-border-less": borderLess,
+      "rc-card-shadow": shadow,
     });
   }, [borderLess]);
 

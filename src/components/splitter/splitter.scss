@@ -12,6 +12,10 @@
   &.splitter-wrapper-horizontal {
     display: flex;
   }
+
+  &.splitter-wrapper-border {
+    @extend %border;
+  }
 }
 
 .splitter-control {
@@ -36,8 +40,4 @@
   @extend %center;
   background: colors.$white;
   overflow: auto;
-}
-
-.splitter-content {
-  width: 100%;
 }

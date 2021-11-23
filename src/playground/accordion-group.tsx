@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { AccordionGroup } from "../components";
+import { AccordionGroup, Image } from "../components";
 import useMedia from "./useMedia";
 
 function accordionGroup() {
@@ -73,13 +73,7 @@ function accordionGroup() {
               height: "400px",
             }}
           >
-            <img
-              style={{
-                maxHeight: "100%",
-                maxWidth: "100%",
-              }}
-              src="https://images.unsplash.com/photo-1635449586099-3ecb7ef8374d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
-            />
+            <Image src="https://images.unsplash.com/photo-1635449586099-3ecb7ef8374d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"></Image>
           </div>
         </AccordionGroup>
       </div>

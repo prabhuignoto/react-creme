@@ -1,6 +1,7 @@
+import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { CSSProperties, useCallback, useMemo, useState } from "react";
-import { TabHead } from "./tab-head";
+import { TabHeaders } from "./tab-headers";
 import { TabItemModel, TabsModel } from "./tabs-model";
 import "./tabs.scss";
 
@@ -8,6 +9,8 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
   children,
   labels,
   width = 300,
+  tabStyle = "flat",
+  border = true,
 }) => {
   const [items, setItems] = useState<TabItemModel[]>(
     Array.isArray(children)
@@ -36,23 +39,28 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
     );
   }, []);
 
+  const rcTabsClass = useMemo(
+    () =>
+      classNames("rc-tabs", {
+        "rc-tabs-border": border,
+      }),
+    []
+  );
+
+  const rcPanelsClass = useMemo(() => {
+    return classNames("rc-tab-panels", {
+      "rc-panel-border": tabStyle === "rounded",
+    });
+  }, []);
+
   return (
-    <div className="rc-tabs" style={tabsStyle} role="tab">
-      <header className="rc-tab-headers-wrapper">
-        <ul className="rc-tab-headers">
-          {items.map(({ id, name, selected }) => (
-            <TabHead
-              key={id}
-              id={id}
-              name={name}
-              selected={selected}
-              handleTabSelection={handleTabSelection}
-            />
-          ))}
-        </ul>
-        <div className="rc-tab-headers-control"></div>
-      </header>
-      <ul className="rc-tab-panels">
+    <div className={rcTabsClass} style={tabsStyle} role="tab">
+      <TabHeaders
+        items={items}
+        handleTabSelection={handleTabSelection}
+        tabStyle={tabStyle}
+      />
+      <ul className={rcPanelsClass}>
         {items.map(
           ({ id, selected }, index) =>
             selected && (

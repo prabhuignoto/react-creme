@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>21/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/16</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
@@ -126,13 +126,24 @@
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,6 +177,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -180,24 +210,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { nanoid } from "nanoid";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from "classnames";
+import { nanoid } from "nanoid";
 import React, { CSSProperties, useCallback, useMemo, useState } from "react";
-import { TabHead } from "./tab-head";
+import { TabHeaders } from "./tab-headers";
 import { TabItemModel, TabsModel } from "./tabs-model";
 import "./tabs.scss";
 &nbsp;
@@ -205,6 +222,8 @@ const Tabs: React.FunctionComponent&lt;TabsModel&gt; = ({
   children,
   labels,
   width = 300,
+  tabStyle = "flat",
+  border = true,
 }) =&gt; {
   const [items, setItems] = useState&lt;TabItemModel[]&gt;(
     Array.isArray(children)
@@ -233,23 +252,28 @@ const Tabs: React.FunctionComponent&lt;TabsModel&gt; = ({
     );
   }, []);
 &nbsp;
+  const rcTabsClass = useMemo(
+    () =&gt;
+      classNames("rc-tabs", {
+        "rc-tabs-border": border,
+      }),
+    []
+  );
+&nbsp;
+  const rcPanelsClass = useMemo(() =&gt; {
+    return classNames("rc-tab-panels", {
+      "rc-panel-border": tabStyle === "rounded",
+    });
+  }, []);
+&nbsp;
   return (
-    &lt;div className="rc-tabs" style={tabsStyle} role="tab"&gt;
-      &lt;header className="rc-tab-headers-wrapper"&gt;
-        &lt;ul className="rc-tab-headers"&gt;
-          {items.map(({ id, name, selected }) =&gt; (
-            &lt;TabHead
-              key={id}
-              id={id}
-              name={name}
-              selected={selected}
-              handleTabSelection={handleTabSelection}
-            /&gt;
-          ))}
-        &lt;/ul&gt;
-        &lt;div className="rc-tab-headers-control"&gt;&lt;/div&gt;
-      &lt;/header&gt;
-      &lt;ul className="rc-tab-panels"&gt;
+    &lt;div className={rcTabsClass} style={tabsStyle} role="tab"&gt;
+      &lt;TabHeaders
+        items={items}
+        handleTabSelection={handleTabSelection}
+        tabStyle={tabStyle}
+      /&gt;
+      &lt;ul className={rcPanelsClass}&gt;
         {items.map(
           ({ id, selected }, index) =&gt;
             selected &amp;&amp; (
@@ -271,7 +295,7 @@ export { Tabs };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Nov 23 2021 09:57:42 GMT+0530 (India Standard Time)
+                at Tue Nov 23 2021 17:35:14 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

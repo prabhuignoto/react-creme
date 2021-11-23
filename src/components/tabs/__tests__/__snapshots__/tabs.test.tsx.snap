@@ -2,12 +2,12 @@
 
 exports[`Tabs should render snapshot 1`] = `
 <div
-  class="rc-tabs"
+  class="rc-tabs rc-tabs-border"
   role="tab"
   style="--min-width: 300px;"
 >
   <header
-    class="rc-tab-headers-wrapper"
+    class="rc-tab-headers-wrapper rc-tab-headers-wrapper-flat"
   >
     <ul
       class="rc-tab-headers"
@@ -17,7 +17,7 @@ exports[`Tabs should render snapshot 1`] = `
         tabindex="0"
       >
         <span
-          class="rc-tab-header-label rc-tab-header-selected"
+          class="rc-tab-header-label rc-tab-header-selected rc-tab-header-flat"
         >
           one
         </span>
@@ -27,7 +27,7 @@ exports[`Tabs should render snapshot 1`] = `
         tabindex="0"
       >
         <span
-          class="rc-tab-header-label"
+          class="rc-tab-header-label rc-tab-header-flat"
         >
           two
         </span>
@@ -37,15 +37,12 @@ exports[`Tabs should render snapshot 1`] = `
         tabindex="0"
       >
         <span
-          class="rc-tab-header-label"
+          class="rc-tab-header-label rc-tab-header-flat"
         >
           three
         </span>
       </li>
     </ul>
-    <div
-      class="rc-tab-headers-control"
-    />
   </header>
   <ul
     class="rc-tab-panels"
