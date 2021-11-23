@@ -15,9 +15,9 @@ function splitter() {
     } else if (media.isMobile) {
       setWidth(350);
     } else if (media.isBigScreen) {
-      setWidth(1200);
-    } else if (media.isDesktop) {
       setWidth(850);
+    } else if (media.isDesktop) {
+      setWidth(650);
     }
   }, [media]);
 

@@ -10,7 +10,7 @@ exports[`Breadcrumb should render snapshot 1`] = `
     class="bread-crumb"
   >
     <span
-      class="bread-crumb-node"
+      class="bread-crumb-node bread-crumb-node-sm"
       tabindex="0"
     >
       <a
@@ -21,7 +21,7 @@ exports[`Breadcrumb should render snapshot 1`] = `
       />
     </span>
     <span
-      class="bread-crumb-icon"
+      class="bread-crumb-icon bread-crumb-icon-sm"
     >
       <svg
         fill="none"
@@ -44,7 +44,7 @@ exports[`Breadcrumb should render snapshot 1`] = `
     class="bread-crumb"
   >
     <span
-      class="bread-crumb-node"
+      class="bread-crumb-node bread-crumb-node-sm"
       tabindex="0"
     >
       <a
@@ -55,7 +55,7 @@ exports[`Breadcrumb should render snapshot 1`] = `
       />
     </span>
     <span
-      class="bread-crumb-icon"
+      class="bread-crumb-icon bread-crumb-icon-sm"
     >
       <svg
         fill="none"
@@ -78,7 +78,7 @@ exports[`Breadcrumb should render snapshot 1`] = `
     class="bread-crumb"
   >
     <span
-      class="bread-crumb-node"
+      class="bread-crumb-node bread-crumb-node-sm"
       tabindex="0"
     >
       <a

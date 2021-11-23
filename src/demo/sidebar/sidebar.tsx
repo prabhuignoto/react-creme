@@ -12,7 +12,6 @@ const Sidebar = () => {
         titles={[
           "Icons",
           "Layout",
-          "Accordion",
           "Inputs",
           "Feedback",
           "Data",
@@ -37,17 +36,10 @@ const Sidebar = () => {
             { name: "Splitter", value: "splitter" },
             { name: "Card", value: "card" },
             { name: "Image", value: "image" },
-          ]}
-          borderLess
-          showCheckIcon={false}
-          onSelection={(selected) => navigate(`${selected[0].value}`)}
-          rowGap={5}
-          itemHeight={35}
-        ></List>
-        <List
-          options={[
             { name: "Accordion", value: "accordion" },
+            { name: "Tabs", value: "tabs" },
             { name: "Accordion Group", value: "accordion-group" },
+            { name: "Tree", value: "tree" },
           ]}
           borderLess
           showCheckIcon={false}
@@ -59,6 +51,7 @@ const Sidebar = () => {
           options={[
             { name: "Input Text", value: "inputs" },
             { name: "Radio", value: "radio" },
+            { name: "Tags", value: "tags" },
             { name: "Radio Group", value: "radio-group" },
             { name: "Checkbox", value: "checkbox" },
             { name: "Switch", value: "switch" },
@@ -88,9 +81,6 @@ const Sidebar = () => {
         <List
           options={[
             { name: "List", value: "list" },
-            { name: "Tree", value: "tree" },
-            { name: "Tags", value: "tags" },
-            { name: "Tabs", value: "tabs" },
             { name: "Grid", value: "data-grid" },
             { name: "Transfer", value: "transfer" },
           ]}

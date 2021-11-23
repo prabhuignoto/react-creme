@@ -3,6 +3,9 @@
 @use "../../design/icon.scss";
 @use "../../design/colors.scss";
 @use "../../design/animate.scss";
+@use "../../design/font.scss";
+
+$sizes: (sm, md, lg);
 
 .bread-crumbs-wrapper {
   @extend %list-horizontal;
@@ -13,8 +16,13 @@
 }
 
 .bread-crumb-icon {
-  @extend %icon-md;
   margin-left: 0.5rem;
+
+  @each $size in $sizes {
+    &.bread-crumb-icon-#{$size} {
+      @extend %icon-#{$size};
+    }
+  }
 
   svg {
     color: colors.$primary;
@@ -25,6 +33,12 @@
   @extend %center;
   @include animate.halo();
   padding-bottom: 0.2rem;
+
+  @each $size in $sizes {
+    &.bread-crumb-node-#{$size} {
+      @extend %font-#{$size};
+    }
+  }
 
   a {
     color: colors.$black;

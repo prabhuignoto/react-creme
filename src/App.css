@@ -1,7 +1,9 @@
 .app {
+  border: 1px solid red;
   display: flex;
+  justify-content: center;
+  margin: 0 auto;
   min-height: 100%;
-  width: 100%;
 }
 
 .app-aside {

@@ -14,13 +14,13 @@ function dialog() {
       return;
     }
     if (media.isTablet) {
-      setWidth(400);
+      setWidth(500);
     } else if (media.isMobile) {
       setWidth(350);
     } else if (media.isBigScreen) {
-      setWidth(1200);
+      setWidth(700);
     } else if (media.isDesktop) {
-      setWidth(850);
+      setWidth(600);
     }
   }, [media]);
 

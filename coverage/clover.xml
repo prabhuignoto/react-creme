@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637578260588" clover="3.2.0">
-  <project timestamp="1637578260588" name="All files">
-    <metrics statements="1822" coveredstatements="1370" conditionals="969" coveredconditionals="516" methods="569" coveredmethods="368" elements="3360" coveredelements="2254" complexity="0" loc="1822" ncloc="1822" packages="39" files="75" classes="75"/>
+<coverage generated="1637641662599" clover="3.2.0">
+  <project timestamp="1637641662600" name="All files">
+    <metrics statements="1832" coveredstatements="1379" conditionals="980" coveredconditionals="522" methods="573" coveredmethods="369" elements="3385" coveredelements="2270" complexity="0" loc="1832" ncloc="1832" packages="39" files="76" classes="76"/>
     <package name="components">
       <metrics statements="34" coveredstatements="34" conditionals="0" coveredconditionals="0" methods="34" coveredmethods="3"/>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\components\index.ts">
@@ -139,40 +139,46 @@
       </file>
     </package>
     <package name="components.breadcrumb">
-      <metrics statements="22" coveredstatements="20" conditionals="8" coveredconditionals="5" methods="5" coveredmethods="4"/>
+      <metrics statements="28" coveredstatements="26" conditionals="18" coveredconditionals="11" methods="7" coveredmethods="6"/>
       <file name="breadcrumb-item.tsx" path="D:\Projects\2020\react-phalladium\src\components\breadcrumb\breadcrumb-item.tsx">
-        <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="1"/>
+        <metrics statements="18" coveredstatements="16" conditionals="12" coveredconditionals="6" methods="4" coveredmethods="3"/>
         <line num="1" count="12" type="stmt"/>
         <line num="2" count="12" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
         <line num="4" count="12" type="stmt"/>
-        <line num="13" count="12" type="stmt"/>
-        <line num="19" count="9" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="17" count="9" type="stmt"/>
+        <line num="18" count="9" type="stmt"/>
         <line num="20" count="9" type="stmt"/>
-        <line num="22" count="9" type="stmt"/>
-        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="28" count="9" type="stmt"/>
-        <line num="47" count="12" type="stmt"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="26" count="9" type="stmt"/>
+        <line num="27" count="9" type="stmt"/>
+        <line num="32" count="9" type="stmt"/>
+        <line num="33" count="9" type="stmt"/>
+        <line num="38" count="9" type="stmt"/>
+        <line num="60" count="12" type="stmt"/>
+        <line num="62" count="12" type="stmt"/>
       </file>
       <file name="breadcrumb.tsx" path="D:\Projects\2020\react-phalladium\src\components\breadcrumb\breadcrumb.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
+        <metrics statements="10" coveredstatements="10" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
         <line num="1" count="12" type="stmt"/>
         <line num="2" count="12" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
         <line num="5" count="12" type="stmt"/>
         <line num="7" count="12" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="25" count="9" type="stmt"/>
-        <line num="37" count="12" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="15" count="9" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="27" count="9" type="stmt"/>
+        <line num="41" count="12" type="stmt"/>
       </file>
     </package>
     <package name="components.button">
-      <metrics statements="19" coveredstatements="19" conditionals="19" coveredconditionals="16" methods="4" coveredmethods="4"/>
+      <metrics statements="19" coveredstatements="19" conditionals="20" coveredconditionals="16" methods="4" coveredmethods="4"/>
       <file name="button.tsx" path="D:\Projects\2020\react-phalladium\src\components\button\button.tsx">
-        <metrics statements="19" coveredstatements="19" conditionals="19" coveredconditionals="16" methods="4" coveredmethods="4"/>
+        <metrics statements="19" coveredstatements="19" conditionals="20" coveredconditionals="16" methods="4" coveredmethods="4"/>
         <line num="1" count="11" type="stmt"/>
         <line num="2" count="11" type="stmt"/>
         <line num="3" count="11" type="stmt"/>
@@ -797,9 +803,9 @@
       </file>
     </package>
     <package name="components.drawer">
-      <metrics statements="32" coveredstatements="32" conditionals="18" coveredconditionals="14" methods="7" coveredmethods="7"/>
+      <metrics statements="32" coveredstatements="32" conditionals="18" coveredconditionals="14" methods="7" coveredmethods="6"/>
       <file name="drawer.tsx" path="D:\Projects\2020\react-phalladium\src\components\drawer\drawer.tsx">
-        <metrics statements="32" coveredstatements="32" conditionals="18" coveredconditionals="14" methods="7" coveredmethods="7"/>
+        <metrics statements="32" coveredstatements="32" conditionals="18" coveredconditionals="14" methods="7" coveredmethods="6"/>
         <line num="1" count="11" type="stmt"/>
         <line num="2" count="11" type="stmt"/>
         <line num="10" count="11" type="stmt"/>
@@ -2092,7 +2098,13 @@
       </file>
     </package>
     <package name="icons">
-      <metrics statements="39" coveredstatements="34" conditionals="0" coveredconditionals="0" methods="19" coveredmethods="9"/>
+      <metrics statements="43" coveredstatements="37" conditionals="0" coveredconditionals="0" methods="21" coveredmethods="9"/>
+      <file name="arrow-right.tsx" path="D:\Projects\2020\react-phalladium\src\icons\arrow-right.tsx">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="19" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="18" count="19" type="stmt"/>
+      </file>
       <file name="avatar.tsx" path="D:\Projects\2020\react-phalladium\src\icons\avatar.tsx">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="19" type="stmt"/>
@@ -2136,16 +2148,17 @@
         <line num="18" count="19" type="stmt"/>
       </file>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\icons\index.ts">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="4"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="4"/>
         <line num="1" count="19" type="stmt"/>
-        <line num="2" count="113" type="stmt"/>
-        <line num="3" count="19" type="stmt"/>
-        <line num="4" count="34" type="stmt"/>
-        <line num="5" count="74" type="stmt"/>
-        <line num="6" count="19" type="stmt"/>
-        <line num="7" count="86" type="stmt"/>
-        <line num="8" count="19" type="stmt"/>
+        <line num="2" count="19" type="stmt"/>
+        <line num="3" count="113" type="stmt"/>
+        <line num="4" count="19" type="stmt"/>
+        <line num="5" count="34" type="stmt"/>
+        <line num="6" count="74" type="stmt"/>
+        <line num="7" count="19" type="stmt"/>
+        <line num="8" count="86" type="stmt"/>
         <line num="9" count="19" type="stmt"/>
+        <line num="10" count="19" type="stmt"/>
       </file>
       <file name="search.tsx" path="D:\Projects\2020\react-phalladium\src\icons\search.tsx">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>

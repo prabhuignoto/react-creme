@@ -1,3 +1,4 @@
+export { default as ArrowRightIcon } from "./arrow-right";
 export { default as AvatarIcon } from "./avatar";
 export { default as CheckIcon } from "./check";
 export { default as CheckCircleIcon } from "./check-circle";

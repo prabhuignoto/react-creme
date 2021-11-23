@@ -13,13 +13,13 @@ function card() {
       return;
     }
     if (media.isTablet) {
-      setWidth(600);
+      setWidth(500);
     } else if (media.isMobile) {
       setWidth(350);
     } else if (media.isBigScreen) {
-      setWidth(1200);
+      setWidth(750);
     } else if (media.isDesktop) {
-      setWidth(850);
+      setWidth(650);
     }
   }, [media]);
 

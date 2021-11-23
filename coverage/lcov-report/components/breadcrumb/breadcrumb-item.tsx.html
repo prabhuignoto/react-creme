@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/12</span>
+                <span class='fraction'>16/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>6/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/12</span>
+                <span class='fraction'>16/18</span>
             </div>
         
             
@@ -104,19 +104,32 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,6 +145,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,51 +179,68 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { FunctionComponent, ReactNode, useRef } from "react";
-import { ChevronRightIcon } from "../../icons";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from "classnames";
+import React, { FunctionComponent, useMemo, useRef } from "react";
+import { ArrowRightIcon, ChevronRightIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
 import { useKey } from "../common/effects/useKey";
+import { BreadCrumbItemModel } from "./breadcrumb-model";
 &nbsp;
-interface BreadCrumbItemModel {
-  id: string;
-  onClick?: () =&gt; void;
-  child: ReactNode;
-  showChevron?: boolean;
-}
+const BreadCrumbItem: FunctionComponent&lt;BreadCrumbItemModel&gt; = React.memo(
+  ({
+    id,
+    onClick,
+    child,
+    showChevron,
+    icon = <span class="branch-0 cbranch-no" title="branch not covered" >"chevron",</span>
+    size = <span class="branch-0 cbranch-no" title="branch not covered" >"sm",</span>
+  }: BreadCrumbItemModel) =&gt; {
+    const ref = useRef&lt;HTMLSpanElement&gt;(null);
+    useFocus(ref, { bgHighlight: false });
 &nbsp;
-const BreadCrumbItem: FunctionComponent&lt;BreadCrumbItemModel&gt; = ({
-  id,
-  onClick,
-  child,
-  showChevron,
-}) =&gt; {
-  const ref = useRef&lt;HTMLSpanElement&gt;(null);
-  useFocus(ref, { bgHighlight: false });
+    useKey(ref, <span class="fstat-no" title="function not covered" >() =</span>&gt; {
+<span class="cstat-no" title="statement not covered" >      if (ref.current) {</span>
+<span class="cstat-no" title="statement not covered" >        ref.current.querySelector("a")?.click();</span>
+      }
+    });
 &nbsp;
-  useKey(ref, <span class="fstat-no" title="function not covered" >() =</span>&gt; {
-<span class="cstat-no" title="statement not covered" >    if (ref.current) {</span>
-<span class="cstat-no" title="statement not covered" >      ref.current.querySelector("a")?.click();</span>
-    }
-  });
+    const breadCrumbNode = useMemo(() =&gt; {
+      return classNames("bread-crumb-node", {
+        [`bread-crumb-node-${size}`]: true,
+      });
+    }, []);
 &nbsp;
-  return (
-    &lt;li className="bread-crumb" key={id}&gt;
-      &lt;span
-        className="bread-crumb-node"
-        ref={ref}
-        tabIndex={0}
-        onClick={onClick}
-      &gt;
-        {child}
-      &lt;/span&gt;
-      {showChevron &amp;&amp; (
-        &lt;span className="bread-crumb-icon"&gt;
-          &lt;ChevronRightIcon /&gt;
+    const breadCrumbIcon = useMemo(() =&gt; {
+      return classNames("bread-crumb-icon", {
+        [`bread-crumb-icon-${size}`]: true,
+      });
+    }, []);
+&nbsp;
+    return (
+      &lt;li className="bread-crumb" key={id}&gt;
+        &lt;span
+          className={breadCrumbNode}
+          ref={ref}
+          tabIndex={0}
+          onClick={onClick}
+        &gt;
+          {child}
         &lt;/span&gt;
-      )}
-    &lt;/li&gt;
-  );
-};
+        {showChevron &amp;&amp; (
+          &lt;span className={breadCrumbIcon}&gt;
+            {icon === "chevron" &amp;&amp; &lt;ChevronRightIcon /&gt;}
+            {icon === "arrow" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;ArrowRightIcon /&gt;}</span>
+            {icon === "slash" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >"/"}</span>
+          &lt;/span&gt;
+        )}
+      &lt;/li&gt;
+    );
+  }
+);
+&nbsp;
+BreadCrumbItem.displayName = "BreadCrumbItem";
 &nbsp;
 export { BreadCrumbItem };
 &nbsp;</pre></td></tr></table></pre>
@@ -205,7 +250,7 @@ export { BreadCrumbItem };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Nov 22 2021 16:21:00 GMT+0530 (India Standard Time)
+                at Tue Nov 23 2021 09:57:42 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

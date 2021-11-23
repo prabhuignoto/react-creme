@@ -33,7 +33,12 @@ function buttons() {
         </Button>
       </div>
       <div style={style}>
-        <Button label="Searching ..." size="sm" type="progress"></Button>
+        <Button
+          label="Searching ..."
+          size="sm"
+          type="progress"
+          disabled
+        ></Button>
       </div>
     </div>
   );

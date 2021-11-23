@@ -7,6 +7,8 @@ import "./breadcrumb.scss";
 const BreadCrumb: React.FunctionComponent<BreadCrumbModel> = ({
   children,
   onClick,
+  icon = "chevron",
+  size = "sm",
 }) => {
   const items = useRef(
     Array.isArray(children)
@@ -28,6 +30,8 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbModel> = ({
           onClick={onClick}
           showChevron={index < items.current.length - 1}
           key={item.id}
+          icon={icon}
+          size={size}
         />
       ))}
     </ul>

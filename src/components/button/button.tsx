@@ -58,7 +58,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
       style={style}
       {...focusableProps}
     >
-      {type === "progress" && (
+      {type === "progress" && !disabled && (
         <span className="rc-btn-progress-wrapper">
           <CircularProgress size={15} />
         </span>
