@@ -10,7 +10,8 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
   labels,
   width = "100%",
   tabStyle = "flat",
-  border = true,
+  border = false,
+  style = {},
 }) => {
   const [items, setItems] = useState<TabItemModel[]>(
     Array.isArray(children)
@@ -25,6 +26,7 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
   const tabsStyle = useMemo(
     () =>
       ({
+        ...style,
         "--min-width": Number.isInteger(width) ? `${width}px` : width,
       } as CSSProperties),
     []

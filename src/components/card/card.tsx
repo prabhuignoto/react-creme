@@ -6,7 +6,7 @@ import "./card.scss";
 const Card: React.FunctionComponent<CardModel> = ({
   alignFooter = "left",
   alignHeader = "left",
-  borderLess = true,
+  border = false,
   children,
   footer,
   header,
@@ -26,10 +26,10 @@ const Card: React.FunctionComponent<CardModel> = ({
 
   const cardWrapperClass = useMemo(() => {
     return classNames("rc-card-wrapper", {
-      "rc-card-border-less": borderLess,
+      "rc-card-border-less": !border,
       "rc-card-shadow": shadow,
     });
-  }, [borderLess]);
+  }, [border]);
 
   const cardHeaderClass = useMemo(() => {
     return classNames("rc-card-header", {

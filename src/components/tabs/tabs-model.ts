@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 
 export interface TabsCommonModel {
   tabStyle?: "flat" | "rounded";
@@ -15,6 +15,7 @@ export interface TabsModel extends TabsCommonModel {
   children: ReactNode[];
   labels: string[];
   width?: number | string;
+  style?: CSSProperties;
 }
 
 export interface TabItemModel {

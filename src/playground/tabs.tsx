@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Tabs } from "../components/tabs/tabs";
+import DemoPageRenderer from "./demo-page-renderer";
 import useMedia from "./useMedia";
 
 function tabs() {
@@ -23,80 +24,111 @@ function tabs() {
 
   return (
     width > 0 && (
-      <div>
-        <div style={{ width: `${width}px`, margin: "1rem 0" }}>
-          <Tabs
-            labels={["one", "two", "three"]}
-            border={false}
-            tabStyle="rounded"
-          >
-            <span>one</span>
-            <span>two</span>
-            <span>three</span>
-          </Tabs>
-        </div>
-        <div style={{ width: `${width}px`, margin: "1rem 0" }}>
-          <Tabs labels={["one", "two", "three"]} tabStyle="flat">
-            <span>one</span>
-            <span>two</span>
-            <span>three</span>
-          </Tabs>
-        </div>
-        <div style={{ width: `${width}px`, margin: "1rem 0" }}>
-          <Tabs
-            labels={[
-              "one",
-              "two",
-              "three",
-              "four",
-              "five",
-              "six",
-              "seven",
-              "eight",
-              "nine",
-            ]}
-            tabStyle="rounded"
-            border={false}
-          >
-            <span>one</span>
-            <span>two</span>
-            <span>three</span>
-            <span>four</span>
-            <span>five</span>
-            <span>six</span>
-            <span>seven</span>
-            <span>eight</span>
-            <span>nine</span>
-          </Tabs>
-        </div>
-        <div style={{ width: `${width}px`, margin: "1rem 0" }}>
-          <Tabs
-            labels={[
-              "one",
-              "two",
-              "three",
-              "four",
-              "five",
-              "six",
-              "seven",
-              "eight",
-              "nine",
-            ]}
-            tabStyle="flat"
-            border={false}
-          >
-            <span>one</span>
-            <span>two</span>
-            <span>three</span>
-            <span>four</span>
-            <span>five</span>
-            <span>six</span>
-            <span>seven</span>
-            <span>eight</span>
-            <span>nine</span>
-          </Tabs>
-        </div>
-      </div>
+      <DemoPageRenderer
+        tabTitles={["Tabs", "properties"]}
+        data={[
+          {
+            name: "tabStyle",
+            description: "sets the tab style. 'flat' | 'rounded'",
+            default: "flat",
+            optional: "Yes",
+          },
+          {
+            name: "border",
+            description: "enables or disables the border",
+            default: "False",
+            optional: "Yes",
+          },
+          {
+            name: "labels",
+            description: "sets the label for each tab",
+            default: "[]",
+            optional: "Yes",
+          },
+          {
+            name: "style",
+            description: "Sets any custom CSS",
+            default: "{}",
+            optional: "Yes",
+          },
+        ]}
+        demoWidget={
+          <>
+            <div style={{ width: `${width}px`, margin: "1rem 0" }}>
+              <Tabs
+                labels={["one", "two", "three"]}
+                border={false}
+                tabStyle="rounded"
+              >
+                <span>one</span>
+                <span>two</span>
+                <span>three</span>
+              </Tabs>
+            </div>
+            <div style={{ width: `${width}px`, margin: "1rem 0" }}>
+              <Tabs labels={["one", "two", "three"]} tabStyle="flat">
+                <span>one</span>
+                <span>two</span>
+                <span>three</span>
+              </Tabs>
+            </div>
+            <div style={{ width: `${width}px`, margin: "1rem 0" }}>
+              <Tabs
+                labels={[
+                  "one",
+                  "two",
+                  "three",
+                  "four",
+                  "five",
+                  "six",
+                  "seven",
+                  "eight",
+                  "nine",
+                ]}
+                tabStyle="rounded"
+                border={false}
+              >
+                <span>one</span>
+                <span>two</span>
+                <span>three</span>
+                <span>four</span>
+                <span>five</span>
+                <span>six</span>
+                <span>seven</span>
+                <span>eight</span>
+                <span>nine</span>
+              </Tabs>
+            </div>
+            <div style={{ width: `${width}px`, margin: "1rem 0" }}>
+              <Tabs
+                labels={[
+                  "one",
+                  "two",
+                  "three",
+                  "four",
+                  "five",
+                  "six",
+                  "seven",
+                  "eight",
+                  "nine",
+                ]}
+                tabStyle="flat"
+                border={false}
+              >
+                <span>one</span>
+                <span>two</span>
+                <span>three</span>
+                <span>four</span>
+                <span>five</span>
+                <span>six</span>
+                <span>seven</span>
+                <span>eight</span>
+                <span>nine</span>
+              </Tabs>
+            </div>
+          </>
+        }
+      ></DemoPageRenderer>
     )
   );
 }

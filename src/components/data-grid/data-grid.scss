@@ -41,7 +41,7 @@
 }
 
 .rc-data-grid-column {
-  @extend %left;
+  @extend %center;
 }
 
 .rc-data-grid-column-border {
@@ -51,11 +51,10 @@
 }
 
 .rc-data-grid-column-val {
-
   display: block;
   font-weight: 300;
   padding: 0.5rem 0;
-  padding-left: 0.2rem;
+  padding-left: 0.5rem;
   width: 95%;
 
   &.rc-data-grid-column-val-fixed {
@@ -64,7 +63,7 @@
 }
 
 .rc-data-grid-header-cell {
-  @extend %left;
+  @extend %center;
   background: rgba(colors.$secondary, 0.5);
   color: colors.$black;
   height: 100%;

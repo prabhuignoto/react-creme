@@ -13,6 +13,7 @@
 
 .rc-sidebar-group-title {
   @extend %left;
+  text-transform: capitalize;
 }
 
 .rc-sidebar-items {

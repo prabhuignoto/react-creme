@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637744657727" clover="3.2.0">
-  <project timestamp="1637744657727" name="All files">
-    <metrics statements="1939" coveredstatements="1466" conditionals="1041" coveredconditionals="564" methods="608" coveredmethods="402" elements="3588" coveredelements="2432" complexity="0" loc="1939" ncloc="1939" packages="40" files="78" classes="78"/>
+<coverage generated="1637760184759" clover="3.2.0">
+  <project timestamp="1637760184759" name="All files">
+    <metrics statements="1939" coveredstatements="1466" conditionals="1042" coveredconditionals="565" methods="608" coveredmethods="402" elements="3589" coveredelements="2433" complexity="0" loc="1939" ncloc="1939" packages="40" files="78" classes="78"/>
     <package name="components">
       <metrics statements="35" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="35" coveredmethods="6"/>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\components\index.ts">
@@ -1866,7 +1866,7 @@
       </file>
     </package>
     <package name="components.tabs">
-      <metrics statements="76" coveredstatements="58" conditionals="23" coveredconditionals="11" methods="22" coveredmethods="17"/>
+      <metrics statements="76" coveredstatements="58" conditionals="24" coveredconditionals="12" methods="22" coveredmethods="17"/>
       <file name="tab-head.tsx" path="D:\Projects\2020\react-phalladium\src\components\tabs\tab-head.tsx">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
         <line num="1" count="13" type="stmt"/>
@@ -1930,27 +1930,27 @@
         <line num="117" count="13" type="stmt"/>
       </file>
       <file name="tabs.tsx" path="D:\Projects\2020\react-phalladium\src\components\tabs\tabs.tsx">
-        <metrics statements="20" coveredstatements="20" conditionals="9" coveredconditionals="7" methods="9" coveredmethods="9"/>
+        <metrics statements="20" coveredstatements="20" conditionals="10" coveredconditionals="8" methods="9" coveredmethods="9"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
         <line num="3" count="13" type="stmt"/>
         <line num="4" count="13" type="stmt"/>
         <line num="6" count="13" type="stmt"/>
         <line num="8" count="13" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="17" count="12" type="stmt"/>
-        <line num="25" count="4" type="stmt"/>
-        <line num="27" count="3" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
-        <line num="42" count="4" type="stmt"/>
-        <line num="44" count="3" type="stmt"/>
-        <line num="50" count="4" type="stmt"/>
-        <line num="51" count="3" type="stmt"/>
-        <line num="56" count="4" type="stmt"/>
-        <line num="66" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="77" count="13" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="18" count="12" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="52" count="4" type="stmt"/>
+        <line num="53" count="3" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="68" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="79" count="13" type="stmt"/>
       </file>
     </package>
     <package name="components.tags">

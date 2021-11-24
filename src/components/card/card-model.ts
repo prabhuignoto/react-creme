@@ -5,7 +5,7 @@ export interface CardModel {
   footer?: ReactNode;
   minHeight?: number;
   maxHeight?: number;
-  borderLess?: boolean;
+  border?: boolean;
   alignHeader?: "left" | "center" | "right";
   alignFooter?: "left" | "center" | "right";
   children?: ReactNode | ReactNode[];

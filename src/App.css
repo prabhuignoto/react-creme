@@ -56,3 +56,7 @@ body, html, button {
   width: 95%;
   margin: 2rem 0;
 }
+
+.rc-demo-widget {
+  margin: 1rem 0;
+}
