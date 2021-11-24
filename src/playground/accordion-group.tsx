@@ -26,7 +26,7 @@ function accordionGroup() {
       <div style={{ height: "600px", width: `${width}px` }}>
         <AccordionGroup
           titles={["one", "two", "three", "image"]}
-          autoClose={false}
+          autoClose
           alignIconRight
         >
           <p>

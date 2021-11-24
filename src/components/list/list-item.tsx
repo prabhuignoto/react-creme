@@ -18,6 +18,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
     onClick,
     style,
     showCheckIcon,
+    focusable,
   }: ListItemModel) => {
     const handleSelection = useCallback(() => {
       onSelection && onSelection({ id, name, value, selected });
@@ -63,6 +64,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
             selected={selected}
             showCheck={showCheckIcon}
             tabIndex={!disabled ? 0 : -1}
+            focusable={focusable}
           />
         )}
       </li>

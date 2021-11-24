@@ -1,10 +1,10 @@
 import cls from "classnames";
-import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
   startTransition,
   useCallback,
   useEffect,
+  useId,
   useMemo,
   useRef,
   useState,
@@ -28,7 +28,9 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     transition = "cubic-bezier(0.19, 1, 0.22, 1)",
     focusable = false,
   }: AccordionModel) => {
-    const accordionID = useRef(id || `accordion-${nanoid()}`);
+    const accordionID = useRef(id || `accordion-${useId()}`);
+    const accordionBodyId = useRef(`accordion-body-${useId()}`);
+
     const ref = useRef(null);
     const chevronRef = useRef(null);
 
@@ -130,18 +132,27 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     return (
       <div className={accordionClass}>
         <div
+          aria-expanded={!!open}
           className={accordionHeaderClass}
-          role="button"
-          tabIndex={0}
           onClick={toggleAccordion}
           ref={chevronRef}
+          role="button"
+          tabIndex={0}
+          aria-controls={accordionBodyId.current}
+          id={accordionID.current}
         >
           <span className={iconClass}>
             <ChevronRightIcon />
           </span>
           <span className="rc-accordion-title">{title}</span>
         </div>
-        <div className={accordionBodyClass} style={style} ref={onInitRef}>
+        <div
+          className={accordionBodyClass}
+          style={style}
+          ref={onInitRef}
+          id={accordionBodyId.current}
+          aria-labelledby={accordionID.current}
+        >
           {children}
         </div>
       </div>

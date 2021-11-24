@@ -1106,10 +1106,10 @@
     lz-string "^1.4.4"
     pretty-format "^27.0.2"
 
-"@testing-library/jest-dom@^5.15.0":
-  version "5.15.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.15.0.tgz#4f5295dbc476a14aec3b07176434b3d51aae5da7"
-  integrity sha512-lOMuQidnL1tWHLEWIhL6UvSZC1Qt3OkNe1khvi2h6xFiqpe5O8arYs46OU0qyUGq0cSTbroQyMktYNXu3a7sAA==
+"@testing-library/jest-dom@^5.15.1":
+  version "5.15.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.15.1.tgz#4c49ba4d244f235aec53f0a83498daeb4ee06c33"
+  integrity sha512-kmj8opVDRE1E4GXyLlESsQthCXK7An28dFWxhiMwD7ZUI7ZxA6sjdJRxLerD9Jd8cHX4BDc1jzXaaZKqzlUkvg==
   dependencies:
     "@babel/runtime" "^7.9.2"
     "@types/testing-library__jest-dom" "^5.9.1"
@@ -1121,10 +1121,10 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react@^13.0.0-alpha.4":
-  version "13.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-13.0.0-alpha.4.tgz#00cf104f3a9b90d07691497abc50ade74e534d98"
-  integrity sha512-SY+sz4juZDcMlAaEI8kYpdi4qv+fGjvqLHETVAcL13Q+N9PFtsdmNJnVu3Ez4V1dJuR59y4vZlSJa/U69YyYBg==
+"@testing-library/react@^13.0.0-alpha.5":
+  version "13.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-13.0.0-alpha.5.tgz#29bfc36b550e2a1025cbebf7254d5a0a46cb58c5"
+  integrity sha512-QrxKC/7pTE0ze3wLZNaenGJqsLcbAJL71XqU/ryJTL2pqZBjiJHuxZavl2ZQAxnBQkDQF9oh9my3bKPstWfnhA==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^8.5.0"
@@ -2965,10 +2965,10 @@ eslint-plugin-import@2.25.3:
     resolve "^1.20.0"
     tsconfig-paths "^3.11.0"
 
-eslint-plugin-jest@^25.2.4:
-  version "25.2.4"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-25.2.4.tgz#bb9f6a0bd1fd524ffb0b8b7a159cd70a58a1a793"
-  integrity sha512-HRyinpgmEdkVr7pNPaYPHCoGqEzpgk79X8pg/xCeoAdurbyQjntJQ4pTzHl7BiVEBlam/F1Qsn+Dk0HtJO7Aaw==
+eslint-plugin-jest@^25.3.0:
+  version "25.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-25.3.0.tgz#6c04bbf13624a75684a05391a825b58e2e291950"
+  integrity sha512-79WQtuBsTN1S8Y9+7euBYwxIOia/k7ykkl9OCBHL3xuww5ecursHy/D8GCIlvzHVWv85gOkS5Kv6Sh7RxOgK1Q==
   dependencies:
     "@typescript-eslint/experimental-utils" "^5.0.0"
 
@@ -6462,10 +6462,10 @@ rollup-plugin-terser@^7.0.2:
     serialize-javascript "^4.0.0"
     terser "^5.0.0"
 
-rollup-plugin-typescript2@^0.31.0:
-  version "0.31.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-typescript2/-/rollup-plugin-typescript2-0.31.0.tgz#7d08ad0cac52d1f4b1ebc6f655e4f1e6f838a7de"
-  integrity sha512-lA0KSTaaekrxcyd3MlUzD1QWt6IJEUBMV1KAKMiAm9UrWrmh4xAnANaOWGISEB6lNyVsPhkITmRCbZYVxpp1KA==
+rollup-plugin-typescript2@^0.31.1:
+  version "0.31.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-typescript2/-/rollup-plugin-typescript2-0.31.1.tgz#3b3a0e29b29b2ed8244b1a78fd8e2cac93ab79a4"
+  integrity sha512-sklqXuQwQX+stKi4kDfEkneVESPi3YM/2S899vfRdF9Yi40vcC50Oq4A4cSZJNXsAQE/UsBZl5fAOsBLziKmjw==
   dependencies:
     "@rollup/pluginutils" "^4.1.0"
     "@yarn-tool/resolve-package" "^1.0.36"

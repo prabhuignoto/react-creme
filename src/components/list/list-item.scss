@@ -39,6 +39,10 @@ $height: 40px;
   &.rc-list-option-disabled {
     @extend %disabled;
   }
+
+  &.rc-list-option-selected {
+    background: rgba(colors.$secondary, 50%);
+  }
 }
 
 .rc-list-option-value-wrapper {

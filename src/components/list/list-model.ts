@@ -14,6 +14,7 @@ export interface ListModel {
   rowGap?: number;
   showCheckIcon?: boolean;
   virtualized?: boolean;
+  focusable?: boolean;
 }
 
 export interface ListItemModel {
@@ -27,6 +28,7 @@ export interface ListItemModel {
   value: string;
   style?: CSSProperties;
   showCheckIcon?: boolean;
+  focusable?: boolean;
 }
 
 export interface ListOption extends Option {

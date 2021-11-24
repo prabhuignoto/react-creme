@@ -25,6 +25,7 @@ import Radio from "./playground/radio";
 import RadioGroup from "./playground/radio-group";
 import Rate from "./playground/rate";
 import ScrollPane from "./playground/ScrollPane";
+import Sidebar from "./playground/sidebar";
 import Skeleton from "./playground/skeleton";
 import Slider from "./playground/slider";
 import Splitter from "./playground/splitter";
@@ -103,7 +104,7 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/inputs"
+        path="/input-text"
         element={
           <div className="section-content">
             <Inputs />
@@ -111,7 +112,7 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/buttons"
+        path="/button"
         element={
           <div className="section-content">
             <Buttons />
@@ -143,7 +144,7 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/menubar"
+        path="/menu-bar"
         element={
           <div className="section-content">
             <MenuBar />
@@ -315,6 +316,14 @@ function AppRoutes() {
         element={
           <div className="section-content">
             <Image />
+          </div>
+        }
+      />
+      <Route
+        path="/sidebar"
+        element={
+          <div className="section-content">
+            <Sidebar />
           </div>
         }
       />

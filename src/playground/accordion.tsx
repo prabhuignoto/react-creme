@@ -27,7 +27,11 @@ function accordion() {
       <div className="rc-demo-page">
         <Tabs labels={["Accordion", "Properties"]} border={false}>
           <div
-            style={{ width: `${width}px`, minHeight: "900px", padding: "1rem" }}
+            style={{
+              width: `${width}px`,
+              minHeight: "1200px",
+              padding: "1rem",
+            }}
           >
             <Accordion title="accordion title" noBorder>
               <p>

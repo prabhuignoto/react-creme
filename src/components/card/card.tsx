@@ -4,14 +4,14 @@ import { CardModel } from "./card-model";
 import "./card.scss";
 
 const Card: React.FunctionComponent<CardModel> = ({
-  footer,
-  header,
-  minHeight = 200,
-  maxHeight = 400,
-  borderLess = true,
   alignFooter = "left",
   alignHeader = "left",
+  borderLess = true,
   children,
+  footer,
+  header,
+  maxHeight = 400,
+  minHeight = 200,
   shadow = true,
 }) => {
   const style = useMemo(() => {

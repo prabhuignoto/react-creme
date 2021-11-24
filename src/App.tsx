@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useTimer } from "use-timer";
 import AppRoutes from "./app-routes";
 import "./App.css";
-import { Sidebar } from "./demo/sidebar/sidebar";
+import { SidebarHome } from "./demo/sidebar/sidebar";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -39,7 +39,7 @@ function App() {
     width >= 0 && (
       <div className="app" style={{ width: width ? `${width}px` : "100%" }}>
         <aside className="app-aside">
-          <Sidebar />
+          <SidebarHome />
         </aside>
         <section className="app-main-section">
           <AppRoutes />

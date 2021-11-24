@@ -28,6 +28,7 @@ function notification() {
           onClose={() => {
             setShow(false);
           }}
+          containedToParent={ref}
         >
           <span>test</span>
         </Notification>

@@ -57,7 +57,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
 
       setTimeout(() => {
         setLoaded(true);
-      }, 1000);
+      }, 100);
     },
     []
   );

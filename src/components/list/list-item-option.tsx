@@ -9,6 +9,7 @@ interface ListItemOptionProps {
   tabIndex: number;
   handleSelection: () => void;
   showCheck?: boolean;
+  focusable?: boolean;
 }
 
 const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
@@ -18,10 +19,13 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
     handleSelection,
     tabIndex,
     showCheck,
+    focusable,
   }: ListItemOptionProps) => {
     const ref = React.useRef<HTMLDivElement>(null);
 
-    useFocus(ref, {}, handleSelection);
+    if (focusable) {
+      useFocus(ref, {}, handleSelection);
+    }
 
     const listOptionClass = cls("rc-list-option-value-wrapper", {
       "rc-list-option-no-icon": !showCheck,

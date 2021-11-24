@@ -23,6 +23,7 @@ export { Progress } from "./progress/progress";
 export { RadioGroup } from "./radio-group/radio-group";
 export { Radio } from "./radio/radio";
 export { ScrollPane } from "./scroll-pane/scroll-pane";
+export { Sidebar } from "./sidebar/sidebar";
 export { Skeleton } from "./skeleton/skeleton";
 export { Slider } from "./slider/slider";
 export { Splitter } from "./splitter/splitter";

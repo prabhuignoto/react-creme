@@ -23,7 +23,6 @@
   @include animate.set-animation(0.1s, linear);
   @include animate.set-keyframes("tag-fade-in", $settings);
   @include animate.set-keyframes("tag-fade-out", $settings, true);
-  font-size: 1rem;
   max-width: var(--width);
   transform: scale(1);
 

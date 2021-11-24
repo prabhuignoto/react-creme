@@ -1,0 +1,24 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/position.scss";
+@use "../../design/list.scss";
+
+.rc-sidebar {
+  padding: 0.5rem;
+}
+
+.rc-sidebar-group {
+  margin: 1rem 0;
+}
+
+.rc-sidebar-group-title {
+  @extend %left;
+}
+
+.rc-sidebar-items {
+  @extend %list-col;
+}
+
+.rc-sidebar-item {
+  @extend %left;
+}
