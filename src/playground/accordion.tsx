@@ -66,7 +66,10 @@ function accordion() {
           },
         ]}
         demoWidget={
-          <div style={{ width: `${width}px`, minHeight: "1200px" }}>
+          <div
+            style={{ width: `${width}px`, minHeight: "1200px" }}
+            className="rc-demo-widgets"
+          >
             <div className="rc-demo-widget">
               <Accordion title="Show Image">
                 <div

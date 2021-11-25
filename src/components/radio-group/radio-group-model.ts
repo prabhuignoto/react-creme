@@ -5,6 +5,7 @@ export interface RadioGroupModel {
   onSelected?: (selected: string) => void;
   disabled?: boolean;
   style?: CSSProperties;
+  layout?: "row" | "column";
 }
 
 export interface RadioGroupItemModel {

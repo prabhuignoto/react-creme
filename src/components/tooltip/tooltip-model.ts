@@ -20,6 +20,7 @@ export interface TooltipModel {
   position?: ToolTipPosition;
   ref?: RefObject<HTMLElement>;
   show?: boolean;
-  width?: number;
+  minWidth?: number;
+  maxWidth?: number;
   fixedAtCenter?: boolean;
 }

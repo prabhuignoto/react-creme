@@ -94,6 +94,7 @@ $heights: (
   @extend %text-no-wrap;
   cursor: pointer;
   display: block;
+  font-weight: 300;
   width: 100%;
 
   @each $key in $sizes {

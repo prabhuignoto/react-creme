@@ -3,6 +3,7 @@ import React, { startTransition, useCallback } from "react";
 import { AccordionGroup, List } from "../index";
 import { ListOption } from "../list/list-model";
 import { SidebarGroupModel, SidebarModel } from "./sidebar-model";
+import "./sidebar.scss";
 
 const Sidebar: React.FunctionComponent<SidebarModel> = ({
   groups,
@@ -69,6 +70,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
               onSelection={(option) => handleSelection(option, id)}
               noUniqueIds
               focusable
+              showCheckIcon={false}
             ></List>
           );
         })}

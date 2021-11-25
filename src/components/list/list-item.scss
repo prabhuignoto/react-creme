@@ -59,6 +59,7 @@ $height: 40px;
 
 .rc-list-option-value {
   @extend %text-no-wrap;
+  font-weight: 300;
   line-height: $height;
   padding-left: 0.5rem;
   text-transform: capitalize;

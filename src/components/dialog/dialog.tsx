@@ -15,8 +15,8 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
   onSuccess,
   showClose,
   title,
-  width,
-  height,
+  width = 300,
+  height = 200,
 }: DialogModel) => {
   const dialogRef = useRef<HTMLDivElement>(null);
   const dialogClass = useMemo(

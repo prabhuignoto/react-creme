@@ -1,3 +1,5 @@
+import { CSSProperties } from "react";
+
 export interface TagItemModel {
   name: string;
   disabled?: boolean;
@@ -18,4 +20,5 @@ export interface TagsModel {
   tagStyle?: "default" | "fill";
   tagSize?: "small" | "large";
   disabled?: boolean;
+  style?: CSSProperties;
 }

@@ -5,7 +5,6 @@
 .rc-data-grid {
   @extend %col;
   overflow: hidden;
-  padding: 0.1rem;
   width: 100%;
 
   &.rc-data-grid-border {
@@ -34,7 +33,14 @@
   }
 }
 
+.rc-data-grid-column-border {
+  &:not(:last-child) {
+    border-right: 1px solid colors.$gray;
+  }
+}
+
 .rc-data-grid-row:nth-child(odd) {
+  // background-color: rgba(colors.$light-bg, 10%);
   .rc-data-grid-column {
     height: 100%;
   }
@@ -42,12 +48,6 @@
 
 .rc-data-grid-column {
   @extend %center;
-}
-
-.rc-data-grid-column-border {
-  &:not(:last-child) {
-    border-right: 1px solid colors.$gray;
-  }
 }
 
 .rc-data-grid-column-val {
@@ -63,14 +63,11 @@
 }
 
 .rc-data-grid-header-cell {
-  @extend %center;
-  background: rgba(colors.$secondary, 0.5);
+  @extend %left;
+  background: rgba(colors.$secondary, 0.25);
   color: colors.$black;
   height: 100%;
   text-transform: capitalize;
-}
-
-.rc-data-grid-header-cell {
   width: 100%;
 
   &:first-child {
@@ -79,6 +76,14 @@
 
   &:last-child {
     border-top-right-radius: 4px;
+  }
+
+  .rc-data-grid-column-val {
+    font-weight: 400;
+  }
+
+  &.rc-data-grid-header-border:not(:last-child) {
+    border-right: 1px solid colors.$gray;
   }
 }
 
@@ -119,6 +124,8 @@
 }
 
 .rc-data-grid-header {
+  column-gap: 1px !important;
+  justify-items: center;
   width: 100%;
 
   &.rc-data-grid-header-compact {

@@ -156,7 +156,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
               message={value + ""}
               onTooltipRendered={onTooltipRender}
               fixedAtCenter
-              width={tooltipWidth}
+              minWidth={tooltipWidth}
             >
               <span className="tooltip-placer" ref={onPlacerRef}></span>
             </Tooltip>

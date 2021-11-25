@@ -14,16 +14,18 @@ import "./image.scss";
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   expandOnClick?: boolean;
   isOverlay?: boolean;
+  fitImage?: boolean;
 }
 
 const Image: React.FunctionComponent<ImageProps> = ({
+  alt,
+  expandOnClick = false,
+  height = "100%",
+  isOverlay = false,
+  loading = "lazy",
   src,
   width = "100%",
-  height = "100%",
-  expandOnClick = false,
-  alt,
-  loading = "lazy",
-  isOverlay = false,
+  fitImage = true,
 }) => {
   const [loaded, setLoaded] = React.useState(false);
 
@@ -87,11 +89,13 @@ const Image: React.FunctionComponent<ImageProps> = ({
 
   const imageStyle = useMemo(() => {
     const { width, height } = imageDimension;
-    return {
-      maxWidth: Number.isInteger(width) ? `${width}px` : width,
-      maxHeight: Number.isInteger(height) ? `${height}px` : height,
-    } as CSSProperties;
-  }, [JSON.stringify(imageDimension)]);
+    return fitImage
+      ? {
+          maxWidth: Number.isInteger(width) ? `${width}px` : width,
+          maxHeight: Number.isInteger(height) ? `${height}px` : height,
+        }
+      : ({} as CSSProperties);
+  }, [JSON.stringify(imageDimension), fitImage]);
 
   const handleOverlayOpen = useCallback(() => {
     setOpenOverlay(true);

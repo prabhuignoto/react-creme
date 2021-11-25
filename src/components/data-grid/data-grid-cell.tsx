@@ -18,7 +18,10 @@ const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
 
     return (
       <div className={columnClass}>
-        <span className={cellClass}>{value}</span>
+        <span
+          className={cellClass}
+          dangerouslySetInnerHTML={{ __html: value }}
+        ></span>
       </div>
     );
   }

@@ -66,7 +66,7 @@ function splitter() {
           },
         ]}
         demoWidget={
-          <div style={{ width: `${width}px` }}>
+          <div style={{ width: `${width}px` }} className="rc-demo-widgets">
             <div className="rc-demo-widget">
               <Splitter
                 dir="horizontal"

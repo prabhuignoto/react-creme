@@ -18,8 +18,7 @@ $sizes: (sm, md, lg);
   }
 
   &.rc-btn-no-border {
-    border: 0;
-    border-radius: 0;
+    @extend %border-radius;
     box-shadow: none;
   }
 }

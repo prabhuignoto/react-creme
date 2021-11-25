@@ -1,21 +1,23 @@
 import classNames from "classnames";
 import React, {
   CSSProperties,
-  ReactNode,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
+import { Image } from "..";
 import { useDrag } from "../common/effects/useDrag";
 import "./image-comparer.scss";
 
 export interface ImageComparerModel {
-  children: [ReactNode, ReactNode];
+  sourceOne?: string;
+  sourceTwo: string;
 }
 
 const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
-  children,
+  sourceOne,
+  sourceTwo,
 }) => {
   const panelRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef(null);
@@ -57,10 +59,10 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   return (
     <div className="img-comparer-wrapper" ref={panelRef}>
       <div className="img-comparer-panel img-comparer-panel-1" style={style}>
-        {children[0]}
+        <Image src={sourceOne} fitImage={false} />
       </div>
       <div className="img-comparer-panel img-comparer-panel-2">
-        {children[1]}
+        <Image src={sourceTwo} fitImage={false} />
       </div>
       <span className={dragHandleClass} ref={dragRef}></span>
     </div>

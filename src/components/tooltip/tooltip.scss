@@ -5,12 +5,11 @@
 
 .rc-tooltip-wrapper {
   @extend %center;
-  z-index: 9999;
-
+  
   &:not(.rc-tooltip-fixed) {
     position: relative;
   }
-
+  
   &.rc-tooltip-fixed {
     @include position.position-abs("center center");
   }
@@ -21,27 +20,29 @@
     from: (
       opacity: 0,
       visibility: hidden,
-    ),
-    to: (
-      opacity: 1,
+      ),
+      to: (
+        opacity: 1,
       visibility: visible,
-    ),
-  );
-
-  $arrow-dim: 10px;
+      ),
+      );
+      
+      $arrow-dim: 10px;
   @extend %center;
   @extend %border-radius;
   @extend %shadow-medium;
   @include animate.set-animation(0.25s);
-
+  
   @include animate.set-keyframes(animate-tooltip-show, $animation);
   @include animate.set-keyframes(animate-tooltip-close, $animation, true);
   background: colors.$white;
-
-  min-width: var(--width);
-  padding: calc($arrow-dim/2);
+  max-width: var(--max-width);
+  
+  min-width: var(--min-width);
+  padding: 6px;
   position: absolute;
   visibility: hidden;
+  z-index: 99999;
 
   &.show-tooltip {
     animation-name: animate-tooltip-show;

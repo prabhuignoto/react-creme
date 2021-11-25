@@ -18,7 +18,8 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   message,
   onTooltipRendered,
   position = "bottom center",
-  width = 150,
+  minWidth = 150,
+  maxWidth = 300,
 }: TooltipModel) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
@@ -75,11 +76,13 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
     if (cssPosition) {
       return {
         ...cssPosition,
-        "--width": `${width}px`,
+        "--min-width": `${minWidth}px`,
+        "--max-width": `${maxWidth}px`,
       };
     } else {
       return {
-        "--width": `${width}px`,
+        "--min-width": `${minWidth}px`,
+        "--max-width": `${maxWidth}px`,
       };
     }
   }, [cssPosition]);

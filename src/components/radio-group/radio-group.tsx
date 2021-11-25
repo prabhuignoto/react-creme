@@ -1,6 +1,12 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { Radio } from "../radio/radio";
 import { RadioGroupItemModel, RadioGroupModel } from "./radio-group-model";
@@ -11,6 +17,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   disabled,
   onSelected,
   style,
+  layout = "column",
 }) => {
   const [_items, setItems] = useState<RadioGroupItemModel[]>(
     Array.isArray(items)
@@ -53,8 +60,17 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
 
   const isFirstRender = useFirstRender();
 
+  const radioGroupClass = useMemo(
+    () =>
+      classNames("rc-radio-group", {
+        "rc-radio-group-row": layout === "row",
+        "rc-radio-group-column": layout === "column",
+      }),
+    []
+  );
+
   return (
-    <ul className={"rc-radio-grp"} role="radiogroup" style={style}>
+    <ul className={radioGroupClass} role="radiogroup" style={style}>
       {_items.map(({ id, disabled, label, checked }) => (
         <li
           key={id}

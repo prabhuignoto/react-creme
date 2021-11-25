@@ -9,6 +9,6 @@ export interface ButtonModel {
   type?: "primary" | "default" | "danger" | "icon" | "progress";
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
-  noBorder?: boolean;
+  border?: boolean;
   focusable?: boolean;
 }

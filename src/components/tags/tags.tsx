@@ -9,15 +9,16 @@ import { TagItemInternalModel, TagsModel } from "./tags-model";
 import "./tags.scss";
 
 const Tags: React.FunctionComponent<TagsModel> = ({
-  items,
+  disabled = false,
+  items = [],
   maxTags = Number.MAX_VALUE,
   onSelected,
   readonly = false,
   restrictToValues = [],
-  tagWidth = 50,
-  tagStyle = "default",
   tagSize = "large",
-  disabled = false,
+  tagStyle = "default",
+  tagWidth = 50,
+  style = {},
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemInternalModel[]>(
@@ -86,34 +87,32 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   }, [JSON.stringify(items)]);
 
   return (
-    <>
-      <ul className={"rc-tags-wrap"} role="list">
-        {tagItems.map(({ id, name, disabled, readonly, markedForRemoval }) => (
-          <TagItem
-            id={id}
-            disabled={disabled}
-            readonly={readonly}
-            handleRemove={handleRemove}
-            key={id}
-            name={name}
-            width={tagWidth}
-            tagStyle={tagStyle}
-            tagSize={tagSize}
-            markedForRemoval={markedForRemoval}
+    <ul className={"rc-tags-wrap"} role="list" style={style}>
+      {tagItems.map(({ id, name, disabled, readonly, markedForRemoval }) => (
+        <TagItem
+          id={id}
+          disabled={disabled}
+          readonly={readonly}
+          handleRemove={handleRemove}
+          key={id}
+          name={name}
+          width={tagWidth}
+          tagStyle={tagStyle}
+          tagSize={tagSize}
+          markedForRemoval={markedForRemoval}
+        />
+      ))}
+      {canAdd && (
+        <li className="rc-tags-input-wrapper">
+          <Input
+            onChange={handleChange}
+            onKeyUp={handleKeyUp}
+            value={inputValue}
+            enableClear
           />
-        ))}
-        {canAdd && (
-          <li className="rc-tags-input-wrapper">
-            <Input
-              onChange={handleChange}
-              onKeyUp={handleKeyUp}
-              value={inputValue}
-              enableClear
-            />
-          </li>
-        )}
-      </ul>
-    </>
+        </li>
+      )}
+    </ul>
   );
 };
 

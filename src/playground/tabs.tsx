@@ -46,6 +46,12 @@ function tabs() {
             optional: "Yes",
           },
           {
+            name: "disabledTabs",
+            description: "prop to disable set of tabs",
+            default: "[]",
+            optional: "Yes",
+          },
+          {
             name: "style",
             description: "Sets any custom CSS",
             default: "{}",
@@ -53,8 +59,11 @@ function tabs() {
           },
         ]}
         demoWidget={
-          <>
-            <div style={{ width: `${width}px`, margin: "1rem 0" }}>
+          <div className="rc-demo-widgets">
+            <div
+              style={{ width: `${width}px`, margin: "1rem 0" }}
+              className="rc-demo-widget"
+            >
               <Tabs
                 labels={["one", "two", "three"]}
                 border={false}
@@ -65,14 +74,24 @@ function tabs() {
                 <span>three</span>
               </Tabs>
             </div>
-            <div style={{ width: `${width}px`, margin: "1rem 0" }}>
-              <Tabs labels={["one", "two", "three"]} tabStyle="flat">
+            <div
+              style={{ width: `${width}px`, margin: "1rem 0" }}
+              className="rc-demo-widget"
+            >
+              <Tabs
+                labels={["one", "two", "three"]}
+                tabStyle="flat"
+                disabledTabs={["two", "one"]}
+              >
                 <span>one</span>
                 <span>two</span>
                 <span>three</span>
               </Tabs>
             </div>
-            <div style={{ width: `${width}px`, margin: "1rem 0" }}>
+            <div
+              style={{ width: `${width}px`, margin: "1rem 0" }}
+              className="rc-demo-widget"
+            >
               <Tabs
                 labels={[
                   "one",
@@ -87,6 +106,7 @@ function tabs() {
                 ]}
                 tabStyle="rounded"
                 border={false}
+                disabledTabs={["three", "six", "seven", "one", "two", "four"]}
               >
                 <span>one</span>
                 <span>two</span>
@@ -99,7 +119,10 @@ function tabs() {
                 <span>nine</span>
               </Tabs>
             </div>
-            <div style={{ width: `${width}px`, margin: "1rem 0" }}>
+            <div
+              style={{ width: `${width}px`, margin: "1rem 0" }}
+              className="rc-demo-widget"
+            >
               <Tabs
                 labels={[
                   "one",
@@ -126,7 +149,7 @@ function tabs() {
                 <span>nine</span>
               </Tabs>
             </div>
-          </>
+          </div>
         }
       ></DemoPageRenderer>
     )

@@ -47,7 +47,7 @@ $heights: (
 
   @each $key, $val in $heights {
     &.rc-radio-#{$key} {
-      grid-template-columns: calc($val) auto;
+      grid-template-columns: calc($val) auto calc($val/3);
       min-height: $val;
     }
   }

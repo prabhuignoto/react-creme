@@ -27,7 +27,7 @@ function sidebar() {
       <DemoPageRenderer
         tabTitles={["Sidebar", "Properties"]}
         demoWidget={
-          <div style={{ width: `${width}px` }}>
+          <div style={{ width: `${width}px` }} className="rc-demo-widgets">
             <div className="rc-demo-widget">
               <Sidebar
                 groups={[

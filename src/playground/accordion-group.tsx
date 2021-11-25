@@ -28,7 +28,10 @@ function accordionGroup() {
         data={[]}
         tabTitles={["Accordion Group", "Properties"]}
         demoWidget={
-          <div style={{ height: "600px", width: `${width}px` }}>
+          <div
+            style={{ height: "600px", width: `${width}px` }}
+            className="rc-demo-widgets"
+          >
             <div className="rc-demo-widget">
               <AccordionGroup
                 titles={["one", "two", "three", "image"]}

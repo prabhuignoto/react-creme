@@ -22,7 +22,7 @@ function image() {
         },
       ]}
       demoWidget={
-        <div>
+        <div className={"rc-demo-widgets"}>
           <div className="rc-demo-widget">
             <Image
               width={300}

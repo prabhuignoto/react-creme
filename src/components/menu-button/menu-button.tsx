@@ -8,9 +8,9 @@ import { MenuButtonProps } from "./menu-button.model";
 import "./menu-button.scss";
 
 const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
-  label = "Select",
+  placeholder = "choose an option",
   items = [],
-  onChange,
+  onSelected,
   selectedValue = "",
   focusable = true,
   position = "left",
@@ -22,12 +22,12 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   );
 
   const [selectedItem, setSelectedItem] = React.useState<string>(
-    label || selectedValue
+    placeholder || selectedValue
   );
 
   const handleChange = useCallback((item: string) => {
     setSelectedItem(item);
-    onChange && onChange(item);
+    onSelected && onSelected(item);
   }, []);
 
   const menuButtonClass = useMemo(
@@ -43,7 +43,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
       className={menuButtonClass}
       style={{ "--max-width": `${width}px` } as CSSProperties}
     >
-      <Button label={selectedItem} noBorder focusable={true} />
+      <Button label={selectedItem} border={false} focusable={true} />
       <Menu
         items={menuItems.current}
         focusable={focusable}

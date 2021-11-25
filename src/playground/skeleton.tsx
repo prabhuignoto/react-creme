@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Skeleton } from "../components";
+import DemoPageRenderer from "./demo-page-renderer";
 import useMedia from "./useMedia";
 
 function skeleton() {
@@ -23,16 +24,30 @@ function skeleton() {
 
   return (
     width > 0 && (
-      <div style={{ width: `${width}px` }}>
-        <div>
-          <Skeleton rows={6} rowHeight={10} blocks={2} showCircle animate />
-        </div>
-        <br></br>
-        <br></br>
-        <div>
-          <Skeleton rows={6} rowHeight={10} blocks={1} showCircle />
-        </div>
-      </div>
+      <DemoPageRenderer
+        data={[]}
+        tabTitles={["Skeleton", "Properties"]}
+        demoWidget={
+          <div className="rc-demo-widgets">
+            <div className="rc-demo-widget">
+              <div style={{ width: `${width}px` }}>
+                <Skeleton
+                  rows={6}
+                  rowHeight={10}
+                  blocks={2}
+                  showCircle
+                  animate
+                />
+              </div>
+            </div>
+            <div className="rc-demo-widget">
+              <div style={{ width: `${width}px` }}>
+                <Skeleton rows={6} rowHeight={10} blocks={1} showCircle />
+              </div>
+            </div>
+          </div>
+        }
+      ></DemoPageRenderer>
     )
   );
 }

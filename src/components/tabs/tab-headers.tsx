@@ -8,9 +8,9 @@ import React, {
 } from "react";
 import { ChevronRightIcon } from "../../icons";
 import { TabHead } from "./tab-head";
+import "./tab-header.scss";
 import { TabHeadersModel } from "./tabs-model";
 import "./tabs.scss";
-import "./tab-header.scss";
 
 const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   items,
@@ -75,7 +75,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   return (
     <header className={tabHeadersWrapperClass}>
       <ul className="rc-tab-headers" ref={onHeadersRef}>
-        {items.map(({ id, name, selected }) => (
+        {items.map(({ id, name, selected, disabled }) => (
           <TabHead
             key={id}
             id={id}
@@ -83,6 +83,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
             selected={selected}
             handleTabSelection={handleTabSelection}
             tabStyle={tabStyle}
+            disabled={disabled}
           />
         ))}
       </ul>

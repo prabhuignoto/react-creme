@@ -33,6 +33,7 @@ const SidebarHome = React.memo(() => {
               { name: "Accordion Group" },
               { name: "Tree" },
               { name: "Sidebar" },
+              { name: "image comparer" },
             ],
           },
           {

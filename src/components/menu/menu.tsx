@@ -19,7 +19,7 @@ import "./menu.scss";
 const Menu: React.FunctionComponent<MenuModel> = ({
   children,
   id,
-  items,
+  items = [],
   onClose,
   onOpen,
   onSelected,

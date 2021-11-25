@@ -4,7 +4,6 @@ import { RadioGroup } from "../components";
 const style: CSSProperties = {
   width: "200px",
   margin: "1rem 0",
-  // ...wrap,
 };
 
 function radioGroup() {

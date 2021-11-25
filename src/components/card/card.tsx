@@ -10,19 +10,17 @@ const Card: React.FunctionComponent<CardModel> = ({
   children,
   footer,
   header,
-  maxHeight = 400,
   minHeight = 200,
   shadow = true,
 }) => {
   const style = useMemo(() => {
     return {
       minHeight: `${minHeight}px`,
-      maxHeight: `${maxHeight}px`,
       gridTemplateRows: `${header ? "50px" : ""} 1fr ${
         footer ? "50px" : ""
       }`.trim(),
     };
-  }, [minHeight, maxHeight]);
+  }, [minHeight]);
 
   const cardWrapperClass = useMemo(() => {
     return classNames("rc-card-wrapper", {

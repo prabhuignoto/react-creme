@@ -7,7 +7,7 @@ describe("Menu Button", () => {
     const { getByText } = render(
       <MenuButton
         items={["save", "cancel", "delete"]}
-        label="Choose an option"
+        placeholder="Choose an option"
         position="right"
         width={150}
       />
@@ -21,10 +21,10 @@ describe("Menu Button", () => {
     const { getByRole, getByText } = render(
       <MenuButton
         items={["save", "cancel", "delete"]}
-        label="Choose an option"
+        placeholder="Choose an option"
         position="right"
         width={150}
-        onChange={handler}
+        onSelected={handler}
       />
     );
 

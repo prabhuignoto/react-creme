@@ -184,7 +184,7 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/comparer"
+        path="/image-comparer"
         element={
           <div className="section-content">
             <Comparer />

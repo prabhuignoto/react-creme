@@ -1,7 +1,15 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { CSSProperties, useCallback, useMemo, useState } from "react";
+import React, {
+  CSSProperties,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { TabHeaders } from "./tab-headers";
+import { TabPanel } from "./TabPanel";
 import { TabItemModel, TabsModel } from "./tabs-model";
 import "./tabs.scss";
 
@@ -12,14 +20,31 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
   tabStyle = "flat",
   border = false,
   style = {},
+  disabledTabs = [],
 }) => {
+  const selectionStart = useRef<number>(-1);
+
   const [items, setItems] = useState<TabItemModel[]>(
     Array.isArray(children)
-      ? children.map((_, index) => ({
-          id: nanoid(),
-          name: labels[index],
-          selected: index === 0,
-        }))
+      ? children.map((_, index) => {
+          const disabled = disabledTabs.includes(labels[index]);
+          let selected = index === 0 && !disabled;
+
+          if (selected) {
+            selectionStart.current = index;
+          } else if (index > 0 && selectionStart.current === -1 && !disabled) {
+            selectionStart.current = index;
+            selected = true;
+          }
+
+          return {
+            id: nanoid(),
+            name: labels[index],
+            selected,
+            disabled: disabled,
+            content: children[index],
+          };
+        })
       : []
   );
 
@@ -49,11 +74,27 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
     []
   );
 
+  const getTabContent = useCallback(
+    (index) => {
+      return items.filter((item) => !item.disabled)[index].content;
+    },
+    [disabledTabs.length]
+  );
+
   const rcPanelsClass = useMemo(() => {
     return classNames("rc-tab-panels", {
       "rc-panel-border": tabStyle === "rounded",
     });
   }, []);
+
+  useEffect(() => {
+    setItems((prev) =>
+      prev.map((item) => ({
+        ...item,
+        disabled: disabledTabs.includes(item.name),
+      }))
+    );
+  }, [JSON.stringify(disabledTabs)]);
 
   return (
     <div className={rcTabsClass} style={tabsStyle} role="tab">
@@ -63,14 +104,12 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
         tabStyle={tabStyle}
       />
       <ul className={rcPanelsClass}>
-        {items.map(
-          ({ id, selected }, index) =>
-            selected && (
-              <li className="rc-tab-panel" key={id} role="tabpanel">
-                {children[index]}
-              </li>
-            )
-        )}
+        {items
+          .filter((tab) => !tab.disabled)
+          .map(
+            ({ id, selected }, index) =>
+              selected && <TabPanel key={id}>{getTabContent(index)}</TabPanel>
+          )}
       </ul>
     </div>
   );

@@ -7,22 +7,22 @@ import { ButtonModel } from "./button-model";
 import "./button.scss";
 
 const Button: React.FunctionComponent<ButtonModel> = ({
-  label,
-  onClick,
+  border = true,
   children,
-  disabled,
-  type = "default",
+  disabled = false,
+  focusable = true,
+  label = "",
+  onClick,
   size = "sm",
   style = {},
-  noBorder = false,
-  focusable = true,
+  type = "default",
 }) => {
   const buttonClass = useMemo(
     () =>
       classNames(
         {
           "rc-disabled": disabled,
-          "rc-btn-no-border": noBorder,
+          "rc-btn-no-border": !border,
           "rc-btn-default": type === "progress",
         },
         [`rc-btn-${size}`, `rc-btn-${type}`, "rc-btn"]

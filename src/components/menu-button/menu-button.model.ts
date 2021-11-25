@@ -1,7 +1,7 @@
 export interface MenuButtonProps {
-  label: string;
+  placeholder: string;
   items: string[];
-  onChange?: (item?: string) => void;
+  onSelected?: (item?: string) => void;
   focusable?: boolean;
   selectedValue?: string;
   position?: "left" | "right";

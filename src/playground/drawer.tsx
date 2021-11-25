@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Drawer } from "../components";
+import DemoPageRenderer from "./demo-page-renderer";
 import useMedia from "./useMedia";
 
 function drawer() {
@@ -26,19 +27,52 @@ function drawer() {
 
   return (
     width > 0 && (
-      <div>
-        <Button onClick={() => setOpen(true)} label="Open drawer"></Button>
-        {open && (
-          <Drawer
-            position="right"
-            width={width}
-            onClose={() => setOpen(false)}
-            containedToParent={ref}
-          >
-            <span>This is a test</span>
-          </Drawer>
-        )}
-      </div>
+      <DemoPageRenderer
+        tabTitles={["drawer", "properties"]}
+        data={[
+          {
+            name: "position",
+            description:
+              "docking position of the drawer. 'left' | 'right' | 'top' | 'bottom'",
+            default: "left",
+            optional: "Yes",
+          },
+          {
+            name: "height",
+            description:
+              "custom height to be used when docked to top or bottom",
+            default: "300",
+            optional: "Yes",
+          },
+          {
+            name: "width",
+            description: "custom width to be used when docked to left or right",
+            default: "300",
+            optional: "Yes",
+          },
+          {
+            name: "transition",
+            description: "custom transition for custom animation",
+            default: "cubic-bezier(0.79, 0.14, 0.15, 0.86)",
+            optional: "Yes",
+          },
+        ]}
+        demoWidget={
+          <div className="rc-demo-widget">
+            <Button onClick={() => setOpen(true)} label="Open drawer"></Button>
+            {open && (
+              <Drawer
+                position="right"
+                width={width}
+                onClose={() => setOpen(false)}
+                containedToParent={ref}
+              >
+                <span>This is a test</span>
+              </Drawer>
+            )}
+          </div>
+        }
+      ></DemoPageRenderer>
     )
   );
 }

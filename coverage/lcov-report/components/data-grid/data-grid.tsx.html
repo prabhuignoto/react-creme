@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.83% </span>
+                <span class="strong">21.73% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/48</span>
+                <span class='fraction'>10/46</span>
             </div>
         
             
@@ -200,11 +200,7 @@
 <a name='L141'></a><a href='#L141'>141</a>
 <a name='L142'></a><a href='#L142'>142</a>
 <a name='L143'></a><a href='#L143'>143</a>
-<a name='L144'></a><a href='#L144'>144</a>
-<a name='L145'></a><a href='#L145'>145</a>
-<a name='L146'></a><a href='#L146'>146</a>
-<a name='L147'></a><a href='#L147'>147</a>
-<a name='L148'></a><a href='#L148'>148</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
+<a name='L144'></a><a href='#L144'>144</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -229,7 +225,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -257,8 +252,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -331,7 +324,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -368,132 +360,128 @@ import { DataGridProps, SortDirection } from "./data-grid-model";
 import { DataGridRow } from "./data-grid-row";
 import "./data-grid.scss";
 &nbsp;
-const DataGrid: React.FunctionComponent&lt;DataGridProps&gt; = React.memo(
-<span class="fstat-no" title="function not covered" >  ({</span>
-    columns = <span class="branch-0 cbranch-no" title="branch not covered" >[],</span>
-    data,
-    layoutStyle = <span class="branch-0 cbranch-no" title="branch not covered" >"comfortable",</span>
-    border = <span class="branch-0 cbranch-no" title="branch not covered" >false,</span>
-    gridWidth = <span class="branch-0 cbranch-no" title="branch not covered" >0,</span>
-    fixedHeight = <span class="branch-0 cbranch-no" title="branch not covered" >false,</span>
-  }: DataGridProps) =&gt; {
-    const [rowData] = <span class="cstat-no" title="statement not covered" >useState&lt;{ [key: string]: string | number }[]&gt;(</span>
-      data.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; (<span class="cstat-no" title="statement not covered" >{ id: nanoid(), ...item })</span>)
-    );
-    const gridRef = <span class="cstat-no" title="statement not covered" >useRef&lt;HTMLDivElement&gt;();</span>
-    const [width, setWidth] = <span class="cstat-no" title="statement not covered" >useState(gridWidth);</span>
-    const [sortData, setSortData] = <span class="cstat-no" title="statement not covered" >useState&lt;{</span>
-      column?: string;
-      dir?: SortDirection;
-    }&gt;({});
+const DataGrid: React.FunctionComponent&lt;DataGridProps&gt; = <span class="fstat-no" title="function not covered" >({</span>
+  columns = <span class="branch-0 cbranch-no" title="branch not covered" >[],</span>
+  data,
+  layoutStyle = <span class="branch-0 cbranch-no" title="branch not covered" >"comfortable",</span>
+  border = <span class="branch-0 cbranch-no" title="branch not covered" >false,</span>
+  gridWidth = <span class="branch-0 cbranch-no" title="branch not covered" >0,</span>
+  fixedHeight = <span class="branch-0 cbranch-no" title="branch not covered" >false,</span>
+}: DataGridProps) =&gt; {
+  const [rowData] = <span class="cstat-no" title="statement not covered" >useState&lt;{ [key: string]: string | number }[]&gt;(</span>
+    data.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; (<span class="cstat-no" title="statement not covered" >{ id: nanoid(), ...item })</span>)
+  );
+  const gridRef = <span class="cstat-no" title="statement not covered" >useRef&lt;HTMLDivElement&gt;();</span>
+  const [width, setWidth] = <span class="cstat-no" title="statement not covered" >useState(gridWidth);</span>
+  const [sortData, setSortData] = <span class="cstat-no" title="statement not covered" >useState&lt;{</span>
+    column?: string;
+    dir?: SortDirection;
+  }&gt;({});
 &nbsp;
-    const isFirstRender = <span class="cstat-no" title="statement not covered" >useFirstRender();</span>
+  const isFirstRender = <span class="cstat-no" title="statement not covered" >useFirstRender();</span>
 &nbsp;
-    const gridClass = <span class="cstat-no" title="statement not covered" >useMemo(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      return classNames("rc-data-grid", {</span>
-        "rc-data-grid-border": border,
+  const gridClass = <span class="cstat-no" title="statement not covered" >useMemo(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return classNames("rc-data-grid", {</span>
+      "rc-data-grid-border": border,
+    });
+  }, []);
+&nbsp;
+  const handleSort = <span class="cstat-no" title="statement not covered" >useCallback(</span>
+<span class="fstat-no" title="function not covered" >    (c</span>olumn: string, dir: SortDirection) =&gt; {
+<span class="cstat-no" title="statement not covered" >      startTransition(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        setSortData({ column, dir });</span>
       });
-    }, []);
+    },
+    [rowData.length]
+  );
 &nbsp;
-    const handleSort = <span class="cstat-no" title="statement not covered" >useCallback(</span>
-<span class="fstat-no" title="function not covered" >      (c</span>olumn: string, dir: SortDirection) =&gt; {
-<span class="cstat-no" title="statement not covered" >        startTransition(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          setSortData({ column, dir });</span>
-        });
-      },
-      [rowData.length]
+  const columnWidth = <span class="cstat-no" title="statement not covered" >useMemo(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+    let usedWidth = <span class="cstat-no" title="statement not covered" >columns.map(<span class="fstat-no" title="function not covered" >(c</span>) =&gt; <span class="cstat-no" title="statement not covered" >c.width || 0)</span>.reduce(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a + b,</span> 0);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    usedWidth += (columns.length - 1) * 1;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return Math.floor(</span>
+      (width - usedWidth) /
+        (columns.length - columns.filter(<span class="fstat-no" title="function not covered" >(c</span>ol) =&gt; <span class="cstat-no" title="statement not covered" >col.width)</span>.length)
     );
+  }, [width]);
 &nbsp;
-    const columnWidth = <span class="cstat-no" title="statement not covered" >useMemo(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-      let usedWidth = <span class="cstat-no" title="statement not covered" >columns</span>
-        .map(<span class="fstat-no" title="function not covered" >(c</span>) =&gt; <span class="cstat-no" title="statement not covered" >c.width || 0)</span>
-        .reduce(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a + b,</span> 0);
+  const onRef = <span class="cstat-no" title="statement not covered" >useCallback(</span>
+<span class="fstat-no" title="function not covered" >    (n</span>ode) =&gt; {
+<span class="cstat-no" title="statement not covered" >      if (node) {</span>
+<span class="cstat-no" title="statement not covered" >        gridRef.current = node;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      usedWidth += (columns.length - 1) * 2;</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      return Math.floor(</span>
-        (width - usedWidth) /
-          (columns.length - columns.filter(<span class="fstat-no" title="function not covered" >(c</span>ol) =&gt; <span class="cstat-no" title="statement not covered" >col.width)</span>.length)
-      );
-    }, [width]);
-&nbsp;
-    const onRef = <span class="cstat-no" title="statement not covered" >useCallback(</span>
-<span class="fstat-no" title="function not covered" >      (n</span>ode) =&gt; {
-<span class="cstat-no" title="statement not covered" >        if (node) {</span>
-<span class="cstat-no" title="statement not covered" >          gridRef.current = node;</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >          if (!gridWidth) {</span>
-<span class="cstat-no" title="statement not covered" >            setWidth((node as HTMLElement).clientWidth);</span>
-          }
+<span class="cstat-no" title="statement not covered" >        if (!gridWidth) {</span>
+<span class="cstat-no" title="statement not covered" >          setWidth((node as HTMLElement).clientWidth);</span>
         }
-      },
-      [gridWidth]
-    );
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (!isFirstRender.current &amp;&amp; gridRef.current) {</span>
-<span class="cstat-no" title="statement not covered" >        setWidth(gridWidth);</span>
       }
-    }, [gridWidth]);
+    },
+    [gridWidth]
+  );
 &nbsp;
-    const style = <span class="cstat-no" title="statement not covered" >useMemo(</span>
-<span class="fstat-no" title="function not covered" >      () =</span>&gt;
-        (<span class="cstat-no" title="statement not covered" >{</span>
-          display: "grid",
-          columnGap: "2px",
-          width: gridWidth ? `${gridWidth}px` : "100%",
-          gridTemplateColumns: columns
-            .map(<span class="fstat-no" title="function not covered" >(c</span>olumn) =&gt; {
-<span class="cstat-no" title="statement not covered" >              if (column.width) {</span>
-<span class="cstat-no" title="statement not covered" >                return `${column.width}px`;</span>
-              } else {
-<span class="cstat-no" title="statement not covered" >                return `${columnWidth}px`;</span>
-              }
-            })
-            .join(" "),
-        } as CSSProperties),
-      [width, columnWidth]
-    );
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (!isFirstRender.current &amp;&amp; gridRef.current) {</span>
+<span class="cstat-no" title="statement not covered" >      setWidth(gridWidth);</span>
+    }
+  }, [gridWidth]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
-      &lt;div className={gridClass} ref={onRef}&gt;
-        &lt;DataGridHeader
-          columns={columns}
-          style={style}
-          onSort={handleSort}
-          layoutStyle={layoutStyle}
-          border={border}
-        /&gt;
-        {rowData
-          .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; {
-<span class="cstat-no" title="statement not covered" >            if (sortData.column) {</span>
-<span class="cstat-no" title="statement not covered" >              if (sortData.dir === "asc") {</span>
-<span class="cstat-no" title="statement not covered" >                return a[sortData.column] &lt; b[sortData.column] ? -1 : 1;</span>
-              } else {
-<span class="cstat-no" title="statement not covered" >                return a[sortData.column] &gt; b[sortData.column] ? -1 : 1;</span>
-              }
+  const style = <span class="cstat-no" title="statement not covered" >useMemo(</span>
+<span class="fstat-no" title="function not covered" >    () =</span>&gt;
+      (<span class="cstat-no" title="statement not covered" >{</span>
+        display: "grid",
+        columnGap: "1px",
+        width: gridWidth ? `${gridWidth}px` : "100%",
+        gridTemplateColumns: columns
+          .map(<span class="fstat-no" title="function not covered" >(c</span>olumn) =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (column.width) {</span>
+<span class="cstat-no" title="statement not covered" >              return `${column.width}px`;</span>
             } else {
-<span class="cstat-no" title="statement not covered" >              return 0;</span>
+<span class="cstat-no" title="statement not covered" >              return `${columnWidth}px`;</span>
             }
           })
-          .map(<span class="fstat-no" title="function not covered" >(r</span>ow) =&gt; {
-<span class="cstat-no" title="statement not covered" >            return (</span>
-              &lt;DataGridRow
-                data={row}
-                key={row.id}
-                columnWidth={columnWidth}
-                columnConfigs={columns}
-                style={style}
-                layoutStyle={layoutStyle}
-                border={border}
-                fixedHeight={fixedHeight}
-              /&gt;
-            );
-          })}
-      &lt;/div&gt;
-    );
-  }
-);
+          .join(" "),
+      } as CSSProperties),
+    [width, columnWidth]
+  );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div className={gridClass} ref={onRef}&gt;
+      &lt;DataGridHeader
+        columns={columns}
+        style={style}
+        onSort={handleSort}
+        layoutStyle={layoutStyle}
+        border={border}
+      /&gt;
+      {rowData
+        .sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; {
+<span class="cstat-no" title="statement not covered" >          if (sortData.column) {</span>
+<span class="cstat-no" title="statement not covered" >            if (sortData.dir === "asc") {</span>
+<span class="cstat-no" title="statement not covered" >              return a[sortData.column] &lt; b[sortData.column] ? -1 : 1;</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              return a[sortData.column] &gt; b[sortData.column] ? -1 : 1;</span>
+            }
+          } else {
+<span class="cstat-no" title="statement not covered" >            return 0;</span>
+          }
+        })
+        .map(<span class="fstat-no" title="function not covered" >(r</span>ow) =&gt; {
+<span class="cstat-no" title="statement not covered" >          return (</span>
+            &lt;DataGridRow
+              data={row}
+              key={row.id}
+              columnWidth={columnWidth}
+              columnConfigs={columns}
+              style={style}
+              layoutStyle={layoutStyle}
+              border={border}
+              fixedHeight={fixedHeight}
+            /&gt;
+          );
+        })}
+    &lt;/div&gt;
+  );
+};
 &nbsp;
 DataGrid.displayName = "DataGrid";
 &nbsp;
@@ -505,7 +493,7 @@ export { DataGrid };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Nov 24 2021 18:53:04 GMT+0530 (India Standard Time)
+                at Thu Nov 25 2021 22:53:36 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

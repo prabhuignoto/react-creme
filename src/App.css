@@ -1,5 +1,4 @@
 .app {
-  border: 1px solid red;
   display: flex;
   font-family: 'Outfit', sans-serif;
   justify-content: center;
@@ -48,15 +47,27 @@ body, html, button {
   flex-direction: column;
   justify-content: center;
   max-height: 2400px;
-  width: 90%;
+  width: 95%;
 }
 
 .rc-demo-prop-section {
   display: flex;
-  width: 95%;
   margin: 2rem 0;
+  width: 95%;
 }
 
 .rc-demo-widget {
+  align-items: center;
+  display: flex;
   margin: 1rem 0;
+  place-content: center;
+  width: 100%;
+}
+
+.rc-demo-widgets {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 1200px;
+  width: 100%;
 }

@@ -7,11 +7,11 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  padding: 0.5rem;
+  justify-items: center;
+  width: 100%;
 
   &:not(.rc-card-border-less) {
     @extend %border;
-    // @extend %shadow-inset;
   }
 
   &.rc-card-shadow {
@@ -28,7 +28,7 @@
   @extend %left;
   border-bottom: 1px solid colors.$gray;
   height: 100%;
-  width: 100%;
+  width: 95%;
 
   &.rc-card-align-right {
     @extend %right;
@@ -40,8 +40,10 @@
 }
 
 .rc-card-body {
-  height: 100%;
-  width: 100%;
+  @extend %center;
+  height: 95%;
+  padding: 1rem;
+  width: 95%;
 }
 
 .rc-card-footer {
@@ -49,7 +51,7 @@
   border-top: 1px solid colors.$gray;
   height: 100%;
   margin-top: auto;
-  width: 100%;
+  width: 95%;
 
   &.rc-card-align-right {
     @extend %right;
