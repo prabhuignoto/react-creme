@@ -10,12 +10,12 @@ import "./accordion-group.scss";
 
 const AccordionGroup = React.memo(
   ({
-    children,
-    titles = [],
-    autoClose = true,
-    initialState = "close",
     alignIconRight = false,
-    noBorder = false,
+    autoClose = true,
+    border = true,
+    children,
+    initialState = "close",
+    titles = [],
   }: AccordionGroupProps) => {
     const [items, setItems] = React.useState<Array<AccordionItemProps>>(
       Array.isArray(children)
@@ -48,7 +48,7 @@ const AccordionGroup = React.memo(
 
     const groupClass = useMemo(() => {
       return classNames("rc-accordion-group", {
-        "rc-accordion-grp-no-border": noBorder,
+        "rc-accordion-grp-no-border": !border,
       });
     }, []);
 

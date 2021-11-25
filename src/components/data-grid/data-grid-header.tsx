@@ -46,11 +46,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = React.memo(
     return (
       <div className={headerClass} style={style}>
         {headerColumns.map((column) => (
-          <div
-            className={headerCellClass}
-            key={column.name}
-            style={{ width: `${columnWidth}px` }}
-          >
+          <div className={headerCellClass} key={column.name}>
             <DataGridCell
               name={column.name}
               value={column.name}
