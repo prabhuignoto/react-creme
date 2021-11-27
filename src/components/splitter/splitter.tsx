@@ -35,6 +35,7 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
     minY: minSplitHeight,
     onDragStart: () => setDragStarted(true),
     onDragEnd: () => setDragStarted(false),
+    observeContainer: true,
   });
 
   const isHorizontal = useMemo(() => dir === "horizontal", []);

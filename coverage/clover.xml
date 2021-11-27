@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637861017324" clover="3.2.0">
-  <project timestamp="1637861017324" name="All files">
-    <metrics statements="1970" coveredstatements="1495" conditionals="1071" coveredconditionals="587" methods="620" coveredmethods="413" elements="3661" coveredelements="2495" complexity="0" loc="1970" ncloc="1970" packages="40" files="79" classes="79"/>
+<coverage generated="1638019564538" clover="3.2.0">
+  <project timestamp="1638019564539" name="All files">
+    <metrics statements="2019" coveredstatements="1504" conditionals="1098" coveredconditionals="593" methods="638" coveredmethods="413" elements="3755" coveredelements="2510" complexity="0" loc="2019" ncloc="2019" packages="40" files="82" classes="82"/>
     <package name="components">
       <metrics statements="35" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="35" coveredmethods="6"/>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\components\index.ts">
@@ -44,9 +44,9 @@
       </file>
     </package>
     <package name="components.accordion">
-      <metrics statements="51" coveredstatements="48" conditionals="33" coveredconditionals="26" methods="12" coveredmethods="12"/>
+      <metrics statements="51" coveredstatements="48" conditionals="42" coveredconditionals="31" methods="12" coveredmethods="12"/>
       <file name="accordion.tsx" path="D:\Projects\2020\react-phalladium\src\components\accordion\accordion.tsx">
-        <metrics statements="51" coveredstatements="48" conditionals="33" coveredconditionals="26" methods="12" coveredmethods="12"/>
+        <metrics statements="51" coveredstatements="48" conditionals="42" coveredconditionals="31" methods="12" coveredmethods="12"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
         <line num="12" count="13" type="stmt"/>
@@ -54,76 +54,76 @@
         <line num="14" count="13" type="stmt"/>
         <line num="16" count="13" type="stmt"/>
         <line num="18" count="13" type="stmt"/>
-        <line num="31" count="17" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="17" type="stmt"/>
-        <line num="34" count="17" type="stmt"/>
+        <line num="32" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="17" type="stmt"/>
         <line num="35" count="17" type="stmt"/>
-        <line num="37" count="17" type="stmt"/>
+        <line num="36" count="17" type="stmt"/>
         <line num="38" count="17" type="stmt"/>
-        <line num="40" count="17" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="46" count="17" type="stmt"/>
+        <line num="39" count="17" type="stmt"/>
+        <line num="41" count="17" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
         <line num="47" count="17" type="stmt"/>
-        <line num="49" count="17" type="stmt"/>
-        <line num="51" count="10" type="stmt"/>
-        <line num="58" count="17" type="stmt"/>
-        <line num="60" count="10" type="stmt"/>
-        <line num="71" count="17" type="stmt"/>
-        <line num="72" count="10" type="stmt"/>
-        <line num="74" count="10" type="stmt"/>
-        <line num="79" count="17" type="stmt"/>
-        <line num="80" count="18" type="cond" truecount="2" falsecount="0"/>
-        <line num="81" count="9" type="stmt"/>
-        <line num="82" count="9" type="stmt"/>
+        <line num="48" count="17" type="stmt"/>
+        <line num="50" count="17" type="stmt"/>
+        <line num="52" count="10" type="stmt"/>
+        <line num="59" count="17" type="stmt"/>
+        <line num="61" count="10" type="stmt"/>
+        <line num="72" count="17" type="stmt"/>
+        <line num="73" count="10" type="stmt"/>
+        <line num="75" count="10" type="stmt"/>
+        <line num="81" count="17" type="stmt"/>
+        <line num="82" count="18" type="cond" truecount="2" falsecount="0"/>
         <line num="83" count="9" type="stmt"/>
-        <line num="87" count="17" type="stmt"/>
-        <line num="89" count="10" type="stmt"/>
-        <line num="96" count="17" type="stmt"/>
-        <line num="98" count="9" type="stmt"/>
-        <line num="104" count="17" type="stmt"/>
-        <line num="105" count="10" type="cond" truecount="4" falsecount="0"/>
-        <line num="106" count="9" type="stmt"/>
-        <line num="109" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="110" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="112" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="116" count="17" type="cond" truecount="1" falsecount="1"/>
-        <line num="117" count="0" type="stmt"/>
-        <line num="120" count="17" type="stmt"/>
-        <line num="121" count="10" type="cond" truecount="4" falsecount="0"/>
-        <line num="122" count="4" type="stmt"/>
-        <line num="125" count="6" type="stmt"/>
-        <line num="127" count="6" type="cond" truecount="1" falsecount="1"/>
-        <line num="128" count="0" type="stmt"/>
-        <line num="132" count="17" type="stmt"/>
-        <line num="163" count="13" type="stmt"/>
-        <line num="165" count="13" type="stmt"/>
+        <line num="84" count="9" type="stmt"/>
+        <line num="85" count="9" type="stmt"/>
+        <line num="89" count="17" type="stmt"/>
+        <line num="91" count="10" type="stmt"/>
+        <line num="98" count="17" type="stmt"/>
+        <line num="100" count="9" type="stmt"/>
+        <line num="106" count="17" type="stmt"/>
+        <line num="107" count="10" type="cond" truecount="4" falsecount="0"/>
+        <line num="108" count="9" type="stmt"/>
+        <line num="111" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="112" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="114" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="118" count="17" type="cond" truecount="1" falsecount="1"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="122" count="17" type="stmt"/>
+        <line num="123" count="10" type="cond" truecount="4" falsecount="0"/>
+        <line num="124" count="4" type="stmt"/>
+        <line num="127" count="6" type="stmt"/>
+        <line num="129" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="134" count="17" type="stmt"/>
+        <line num="167" count="13" type="stmt"/>
+        <line num="169" count="13" type="stmt"/>
       </file>
     </package>
     <package name="components.accordion-group">
-      <metrics statements="20" coveredstatements="16" conditionals="17" coveredconditionals="5" methods="10" coveredmethods="4"/>
+      <metrics statements="20" coveredstatements="16" conditionals="18" coveredconditionals="6" methods="10" coveredmethods="4"/>
       <file name="accordion-group.tsx" path="D:\Projects\2020\react-phalladium\src\components\accordion-group\accordion-group.tsx">
-        <metrics statements="20" coveredstatements="16" conditionals="17" coveredconditionals="5" methods="10" coveredmethods="4"/>
+        <metrics statements="20" coveredstatements="16" conditionals="18" coveredconditionals="6" methods="10" coveredmethods="4"/>
         <line num="1" count="12" type="stmt"/>
         <line num="2" count="12" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
         <line num="4" count="12" type="stmt"/>
         <line num="9" count="12" type="stmt"/>
         <line num="11" count="12" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="22" count="9" type="stmt"/>
-        <line num="29" count="3" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="23" count="9" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
-        <line num="49" count="3" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="55" count="3" type="stmt"/>
-        <line num="58" count="9" type="stmt"/>
-        <line num="77" count="12" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="59" count="9" type="stmt"/>
         <line num="79" count="12" type="stmt"/>
+        <line num="81" count="12" type="stmt"/>
       </file>
     </package>
     <package name="components.avatar">
@@ -449,7 +449,7 @@
       </file>
     </package>
     <package name="components.common.effects">
-      <metrics statements="208" coveredstatements="104" conditionals="139" coveredconditionals="37" methods="34" coveredmethods="23"/>
+      <metrics statements="223" coveredstatements="104" conditionals="154" coveredconditionals="37" methods="36" coveredmethods="23"/>
       <file name="useCloseOnEsc.ts" path="D:\Projects\2020\react-phalladium\src\components\common\effects\useCloseOnEsc.ts">
         <metrics statements="17" coveredstatements="15" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="5"/>
         <line num="1" count="14" type="stmt"/>
@@ -471,84 +471,99 @@
         <line num="41" count="14" type="stmt"/>
       </file>
       <file name="useDrag.ts" path="D:\Projects\2020\react-phalladium\src\components\common\effects\useDrag.ts">
-        <metrics statements="77" coveredstatements="5" conditionals="55" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <metrics statements="92" coveredstatements="5" conditionals="70" coveredconditionals="0" methods="8" coveredmethods="0"/>
         <line num="1" count="12" type="stmt"/>
         <line num="11" count="12" type="stmt"/>
-        <line num="33" count="12" type="stmt"/>
-        <line num="35" count="12" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
+        <line num="34" count="12" type="stmt"/>
+        <line num="36" count="12" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
-        <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="73" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="74" count="0" type="stmt"/>
         <line num="75" count="0" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
+        <line num="77" count="0" type="cond" truecount="0" falsecount="5"/>
         <line num="79" count="0" type="stmt"/>
         <line num="81" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="84" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="83" count="0" type="stmt"/>
         <line num="85" count="0" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
-        <line num="87" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="88" count="0" type="stmt"/>
+        <line num="88" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="89" count="0" type="stmt"/>
-        <line num="92" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="93" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="95" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="96" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="91" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="96" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="97" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="98" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="103" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="104" count="0" type="stmt"/>
+        <line num="99" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="101" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="102" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="103" count="0" type="stmt"/>
         <line num="105" count="0" type="stmt"/>
-        <line num="109" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="110" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="112" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="116" count="0" type="stmt"/>
-        <line num="118" count="0" type="stmt"/>
-        <line num="119" count="0" type="stmt"/>
-        <line num="125" count="0" type="stmt"/>
-        <line num="126" count="0" type="stmt"/>
-        <line num="128" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="131" count="0" type="stmt"/>
-        <line num="132" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="133" count="0" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="107" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="113" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="114" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="116" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="131" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="135" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="136" count="0" type="stmt"/>
-        <line num="138" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="139" count="0" type="stmt"/>
-        <line num="141" count="0" type="stmt"/>
-        <line num="144" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="145" count="0" type="stmt"/>
-        <line num="147" count="0" type="stmt"/>
-        <line num="150" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="151" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="139" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="140" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="141" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="142" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="146" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="149" count="0" type="stmt"/>
+        <line num="150" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="152" count="0" type="stmt"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="155" count="0" type="stmt"/>
         <line num="157" count="0" type="stmt"/>
         <line num="158" count="0" type="stmt"/>
-        <line num="161" count="0" type="stmt"/>
         <line num="162" count="0" type="stmt"/>
+        <line num="163" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="164" count="0" type="stmt"/>
-        <line num="165" count="0" type="stmt"/>
         <line num="167" count="0" type="stmt"/>
-        <line num="168" count="0" type="stmt"/>
+        <line num="169" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="170" count="0" type="stmt"/>
-        <line num="171" count="0" type="stmt"/>
         <line num="172" count="0" type="stmt"/>
-        <line num="174" count="0" type="stmt"/>
-        <line num="175" count="0" type="stmt"/>
-        <line num="177" count="0" type="stmt"/>
+        <line num="175" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="176" count="0" type="stmt"/>
         <line num="178" count="0" type="stmt"/>
-        <line num="182" count="0" type="stmt"/>
-        <line num="185" count="12" type="stmt"/>
+        <line num="181" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="182" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="186" count="0" type="stmt"/>
+        <line num="188" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="189" count="0" type="stmt"/>
+        <line num="192" count="0" type="stmt"/>
+        <line num="194" count="0" type="stmt"/>
+        <line num="195" count="0" type="stmt"/>
+        <line num="199" count="0" type="stmt"/>
+        <line num="200" count="0" type="stmt"/>
+        <line num="202" count="0" type="stmt"/>
+        <line num="203" count="0" type="stmt"/>
+        <line num="205" count="0" type="stmt"/>
+        <line num="206" count="0" type="stmt"/>
+        <line num="209" count="0" type="stmt"/>
+        <line num="212" count="12" type="stmt"/>
       </file>
       <file name="useFirstRender.ts" path="D:\Projects\2020\react-phalladium\src\components\common\effects\useFirstRender.ts">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
@@ -678,7 +693,7 @@
       </file>
     </package>
     <package name="components.data-grid">
-      <metrics statements="94" coveredstatements="31" conditionals="33" coveredconditionals="0" methods="34" coveredmethods="0"/>
+      <metrics statements="105" coveredstatements="30" conditionals="35" coveredconditionals="0" methods="39" coveredmethods="0"/>
       <file name="data-grid-cell.tsx" path="D:\Projects\2020\react-phalladium\src\components\data-grid\data-grid-cell.tsx">
         <metrics statements="10" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="12" type="stmt"/>
@@ -698,7 +713,7 @@
         <line num="2" count="12" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
         <line num="4" count="12" type="stmt"/>
-        <line num="6" count="12" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
         <line num="8" count="12" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
@@ -713,10 +728,10 @@
         <line num="41" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="88" count="12" type="stmt"/>
-        <line num="90" count="12" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="84" count="12" type="stmt"/>
+        <line num="86" count="12" type="stmt"/>
       </file>
       <file name="data-grid-row.tsx" path="D:\Projects\2020\react-phalladium\src\components\data-grid\data-grid-row.tsx">
         <metrics statements="15" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
@@ -726,64 +741,75 @@
         <line num="4" count="12" type="stmt"/>
         <line num="6" count="12" type="stmt"/>
         <line num="8" count="12" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="52" count="12" type="stmt"/>
         <line num="54" count="12" type="stmt"/>
-        <line num="56" count="12" type="stmt"/>
       </file>
       <file name="data-grid.tsx" path="D:\Projects\2020\react-phalladium\src\components\data-grid\data-grid.tsx">
-        <metrics statements="46" coveredstatements="10" conditionals="27" coveredconditionals="0" methods="15" coveredmethods="0"/>
+        <metrics statements="57" coveredstatements="9" conditionals="29" coveredconditionals="0" methods="20" coveredmethods="0"/>
         <line num="1" count="12" type="stmt"/>
         <line num="2" count="12" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
         <line num="12" count="12" type="stmt"/>
-        <line num="13" count="12" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
         <line num="15" count="12" type="stmt"/>
-        <line num="16" count="12" type="stmt"/>
-        <line num="18" count="12" type="stmt"/>
+        <line num="17" count="12" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="58" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
-        <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="78" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="83" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="71" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="74" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="83" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="84" count="0" type="stmt"/>
         <line num="85" count="0" type="stmt"/>
-        <line num="91" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="94" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="113" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="114" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="115" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="117" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="120" count="0" type="stmt"/>
-        <line num="124" count="0" type="stmt"/>
-        <line num="141" count="12" type="stmt"/>
-        <line num="143" count="12" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="105" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="118" count="0" type="stmt"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="120" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="121" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="122" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="124" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
+        <line num="162" count="12" type="stmt"/>
+        <line num="164" count="12" type="stmt"/>
       </file>
     </package>
     <package name="components.dialog">
@@ -939,7 +965,7 @@
       </file>
     </package>
     <package name="components.image">
-      <metrics statements="68" coveredstatements="48" conditionals="37" coveredconditionals="24" methods="18" coveredmethods="9"/>
+      <metrics statements="69" coveredstatements="48" conditionals="37" coveredconditionals="24" methods="18" coveredmethods="9"/>
       <file name="image-overlay.tsx" path="D:\Projects\2020\react-phalladium\src\components\image\image-overlay.tsx">
         <metrics statements="16" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="1" count="12" type="stmt"/>
@@ -960,65 +986,66 @@
         <line num="49" count="12" type="stmt"/>
       </file>
       <file name="image.tsx" path="D:\Projects\2020\react-phalladium\src\components\image\image.tsx">
-        <metrics statements="52" coveredstatements="39" conditionals="35" coveredconditionals="24" methods="14" coveredmethods="9"/>
+        <metrics statements="53" coveredstatements="39" conditionals="35" coveredconditionals="24" methods="14" coveredmethods="9"/>
         <line num="1" count="12" type="stmt"/>
         <line num="2" count="12" type="stmt"/>
         <line num="10" count="12" type="stmt"/>
         <line num="11" count="12" type="stmt"/>
         <line num="12" count="12" type="stmt"/>
         <line num="20" count="12" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
         <line num="61" count="0" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="81" count="1" type="stmt"/>
-        <line num="83" count="1" type="stmt"/>
-        <line num="90" count="1" type="stmt"/>
-        <line num="91" count="1" type="stmt"/>
-        <line num="92" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="100" count="1" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="104" count="1" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
-        <line num="108" count="1" type="stmt"/>
-        <line num="110" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="116" count="1" type="stmt"/>
-        <line num="117" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="118" count="1" type="stmt"/>
-        <line num="122" count="1" type="stmt"/>
-        <line num="123" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="124" count="1" type="stmt"/>
-        <line num="128" count="1" type="stmt"/>
-        <line num="129" count="1" type="stmt"/>
-        <line num="130" count="1" type="stmt"/>
-        <line num="132" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="133" count="0" type="stmt"/>
-        <line num="136" count="1" type="cond" truecount="2" falsecount="2"/>
-        <line num="137" count="0" type="stmt"/>
-        <line num="138" count="0" type="stmt"/>
-        <line num="139" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="95" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="107" count="1" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="111" count="1" type="stmt"/>
+        <line num="113" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="119" count="1" type="stmt"/>
+        <line num="120" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="121" count="1" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+        <line num="126" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="127" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="132" count="1" type="stmt"/>
+        <line num="133" count="1" type="stmt"/>
+        <line num="135" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="136" count="0" type="stmt"/>
+        <line num="139" count="1" type="cond" truecount="2" falsecount="2"/>
         <line num="140" count="0" type="stmt"/>
         <line num="141" count="0" type="stmt"/>
-        <line num="149" count="1" type="stmt"/>
-        <line num="180" count="12" type="stmt"/>
+        <line num="142" count="0" type="stmt"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="152" count="1" type="stmt"/>
+        <line num="183" count="12" type="stmt"/>
       </file>
     </package>
     <package name="components.image-comparer">
-      <metrics statements="24" coveredstatements="7" conditionals="10" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <metrics statements="31" coveredstatements="7" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="0"/>
       <file name="image-comparer.tsx" path="D:\Projects\2020\react-phalladium\src\components\image-comparer\image-comparer.tsx">
-        <metrics statements="24" coveredstatements="7" conditionals="10" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <metrics statements="31" coveredstatements="7" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="0"/>
         <line num="1" count="12" type="stmt"/>
         <line num="2" count="12" type="stmt"/>
         <line num="9" count="12" type="stmt"/>
@@ -1029,20 +1056,27 @@
         <line num="23" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="34" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="39" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="41" count="0" type="stmt"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
         <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="50" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="72" count="12" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="95" count="12" type="stmt"/>
       </file>
     </package>
     <package name="components.input">
@@ -1712,9 +1746,9 @@
       </file>
     </package>
     <package name="components.slider">
-      <metrics statements="51" coveredstatements="9" conditionals="39" coveredconditionals="0" methods="15" coveredmethods="0"/>
+      <metrics statements="53" coveredstatements="9" conditionals="43" coveredconditionals="0" methods="15" coveredmethods="0"/>
       <file name="slider.tsx" path="D:\Projects\2020\react-phalladium\src\components\slider\slider.tsx">
-        <metrics statements="51" coveredstatements="9" conditionals="39" coveredconditionals="0" methods="15" coveredmethods="0"/>
+        <metrics statements="53" coveredstatements="9" conditionals="43" coveredconditionals="0" methods="15" coveredmethods="0"/>
         <line num="1" count="12" type="stmt"/>
         <line num="2" count="12" type="stmt"/>
         <line num="9" count="12" type="stmt"/>
@@ -1733,39 +1767,41 @@
         <line num="41" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="69" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="70" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="76" count="0" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="81" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="86" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="91" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="87" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="93" count="0" type="stmt"/>
         <line num="99" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="111" count="0" type="stmt"/>
-        <line num="117" count="0" type="stmt"/>
-        <line num="118" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="100" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
         <line num="122" count="0" type="stmt"/>
-        <line num="124" count="0" type="stmt"/>
-        <line num="125" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="128" count="0" type="stmt"/>
-        <line num="170" count="12" type="stmt"/>
+        <line num="123" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="130" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="175" count="12" type="stmt"/>
       </file>
     </package>
     <package name="components.splitter">
@@ -1784,48 +1820,48 @@
         <line num="30" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="65" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="66" count="0" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="78" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="81" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="82" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="79" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="82" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="83" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
-        <line num="108" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="109" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="109" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="110" count="0" type="stmt"/>
         <line num="111" count="0" type="stmt"/>
-        <line num="113" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="112" count="0" type="stmt"/>
         <line num="114" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="115" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="116" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="119" count="0" type="stmt"/>
-        <line num="123" count="0" type="stmt"/>
-        <line num="124" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="117" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
         <line num="125" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="126" count="0" type="stmt"/>
-        <line num="128" count="0" type="stmt"/>
-        <line num="133" count="0" type="stmt"/>
-        <line num="146" count="12" type="stmt"/>
+        <line num="126" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="147" count="12" type="stmt"/>
       </file>
     </package>
     <package name="components.switch">
@@ -1870,16 +1906,17 @@
       </file>
     </package>
     <package name="components.tabs">
-      <metrics statements="103" coveredstatements="83" conditionals="42" coveredconditionals="26" methods="32" coveredmethods="27"/>
+      <metrics statements="104" coveredstatements="84" conditionals="42" coveredconditionals="26" methods="32" coveredmethods="27"/>
       <file name="TabPanel.tsx" path="D:\Projects\2020\react-phalladium\src\components\tabs\TabPanel.tsx">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
         <line num="9" count="13" type="stmt"/>
-        <line num="13" count="7" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
         <line num="14" count="4" type="stmt"/>
-        <line num="16" count="7" type="stmt"/>
-        <line num="23" count="13" type="stmt"/>
+        <line num="22" count="13" type="stmt"/>
+        <line num="24" count="13" type="stmt"/>
       </file>
       <file name="tab-head.tsx" path="D:\Projects\2020\react-phalladium\src\components\tabs\tab-head.tsx">
         <metrics statements="19" coveredstatements="19" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="5"/>
@@ -2248,7 +2285,13 @@
       </file>
     </package>
     <package name="icons">
-      <metrics statements="43" coveredstatements="37" conditionals="0" coveredconditionals="0" methods="21" coveredmethods="9"/>
+      <metrics statements="55" coveredstatements="46" conditionals="0" coveredconditionals="0" methods="27" coveredmethods="9"/>
+      <file name="align-center.tsx" path="D:\Projects\2020\react-phalladium\src\icons\align-center.tsx">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="21" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="17" count="21" type="stmt"/>
+      </file>
       <file name="arrow-right.tsx" path="D:\Projects\2020\react-phalladium\src\icons\arrow-right.tsx">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="21" type="stmt"/>
@@ -2298,17 +2341,32 @@
         <line num="18" count="21" type="stmt"/>
       </file>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\icons\index.ts">
-        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="4"/>
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="4"/>
         <line num="1" count="21" type="stmt"/>
         <line num="2" count="21" type="stmt"/>
-        <line num="3" count="115" type="stmt"/>
-        <line num="4" count="21" type="stmt"/>
-        <line num="5" count="36" type="stmt"/>
-        <line num="6" count="88" type="stmt"/>
-        <line num="7" count="21" type="stmt"/>
-        <line num="8" count="88" type="stmt"/>
-        <line num="9" count="21" type="stmt"/>
+        <line num="3" count="21" type="stmt"/>
+        <line num="4" count="115" type="stmt"/>
+        <line num="5" count="21" type="stmt"/>
+        <line num="6" count="36" type="stmt"/>
+        <line num="7" count="88" type="stmt"/>
+        <line num="8" count="21" type="stmt"/>
+        <line num="9" count="88" type="stmt"/>
         <line num="10" count="21" type="stmt"/>
+        <line num="11" count="21" type="stmt"/>
+        <line num="12" count="21" type="stmt"/>
+        <line num="13" count="21" type="stmt"/>
+      </file>
+      <file name="minus.tsx" path="D:\Projects\2020\react-phalladium\src\icons\minus.tsx">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="21" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="19" count="21" type="stmt"/>
+      </file>
+      <file name="plus.tsx" path="D:\Projects\2020\react-phalladium\src\icons\plus.tsx">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="21" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="19" count="21" type="stmt"/>
       </file>
       <file name="search.tsx" path="D:\Projects\2020\react-phalladium\src\icons\search.tsx">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>

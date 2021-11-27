@@ -41,6 +41,12 @@ function accordion() {
             optional: "Yes",
           },
           {
+            name: "iconType",
+            description: `prop to change the icon type. <br> <code>"chevron" | "plus"</code>`,
+            default: "chevron",
+            optional: "Yes",
+          },
+          {
             name: "noBorder",
             description: "Disables the border around the accordion item",
             default: "false",
@@ -71,7 +77,7 @@ function accordion() {
             className="rc-demo-widgets"
           >
             <div className="rc-demo-widget">
-              <Accordion title="Show Image">
+              <Accordion title="Show Image" iconType="plus" alignIconRight>
                 <div
                   style={{
                     width: `${width}px`,

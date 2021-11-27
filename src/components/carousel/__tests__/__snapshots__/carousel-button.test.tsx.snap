@@ -23,6 +23,5 @@ exports[`Carousel Button should render carousel button snapshot 1`] = `
       />
     </svg>
   </span>
-  
 </button>
 `;

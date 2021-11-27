@@ -3,6 +3,24 @@ import { ImageComparer } from "../components";
 import DemoPageRenderer from "./demo-page-renderer";
 
 function comparer() {
+  // const media = useMedia();
+  // const [_, setWidth] = React.useState(0);
+
+  // useEffect(() => {
+  //   if (!media) {
+  //     return;
+  //   }
+  //   if (media.isTablet) {
+  //     setWidth(500);
+  //   } else if (media.isMobile) {
+  //     setWidth(350);
+  //   } else if (media.isBigScreen) {
+  //     setWidth(500);
+  //   } else if (media.isDesktop) {
+  //     setWidth(450);
+  //   }
+  // }, [media]);
+
   return (
     <DemoPageRenderer
       data={[]}
@@ -10,7 +28,7 @@ function comparer() {
       demoWidget={
         <div className="rc-demo-widgets">
           <div
-            style={{ height: "400px", width: "100%" }}
+            style={{ height: "600px", width: "450px" }}
             className="rc-demo-widget"
           >
             <ImageComparer

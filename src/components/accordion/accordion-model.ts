@@ -11,6 +11,7 @@ export interface AccordionModel {
   title?: string;
   transition?: string;
   focusable?: boolean;
+  iconType?: "chevron" | "plus";
 }
 
 export interface AccordionGroupProps {
@@ -20,6 +21,7 @@ export interface AccordionGroupProps {
   initialState?: "open" | "close";
   alignIconRight?: boolean;
   border?: boolean;
+  iconType?: "chevron" | "plus";
 }
 
 export interface AccordionItemProps {

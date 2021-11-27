@@ -68,6 +68,8 @@ function accordionGroup() {
                 titles={["one", "two", "three", "image"]}
                 autoClose
                 alignIconRight
+                iconType="plus"
+                border={false}
               >
                 <p>
                   Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit
@@ -125,7 +127,7 @@ function accordionGroup() {
               <AccordionGroup
                 titles={["one", "two"]}
                 autoClose={false}
-                noBorder
+                border={false}
                 initialState="open"
               >
                 <p>

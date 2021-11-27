@@ -6,6 +6,7 @@
   @extend %center;
   height: 100px;
   min-width: 100px;
+  width: 100%;
 
   &.rc-slider-wrapper-disabled {
     @extend %disabled;

@@ -22,7 +22,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
             layoutStyle="comfortable"
             border
             columns={[
-              { name: "prop", type: "string", sortable: true },
+              { name: "name", type: "string", sortable: true },
               { name: "description", type: "string", width: 300 },
               { name: "default", type: "string" },
               { name: "optional", type: "string" },

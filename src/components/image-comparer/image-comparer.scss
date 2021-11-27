@@ -1,30 +1,45 @@
 @use "../../design/layout.scss";
 @use "../../design/position.scss";
 @use "../../design/colors.scss";
+@use "../../design/icon.scss";
 
 .img-comparer-wrapper {
-  border: 1px solid #ccc;
   height: 100%;
   position: relative;
   width: 100%;
+
+  &.rc-comparer-wrapper-visible {
+    visibility: visible;
+  }
+
+  &.rc-comparer-wrapper-hidden {
+    visibility: hidden;
+  }
 }
 
 .img-comparer-drag-handle {
   @include position.position-abs("center center");
-  background: rgba(colors.$secondary, 1);
+  background: rgba(colors.$primary, 0.75);
   cursor: ew-resize;
   height: 100%;
   width: 4px;
   z-index: 2;
 
-  &::after {
+  &.rc-comparer-drag-handle-dragged {
+    background: rgba(colors.$primary, 1);
+  }
+
+  .rc-drag-handle-square {
+    @extend %shadow-small;
+    @extend %border-radius;
+    @extend %center;
     @include position.position-abs("center center");
     background: colors.$secondary;
-    border-radius: 50%;
     content: "";
     display: block;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 20px;
+    pointer-events: none;
+    width: 20px;
   }
 }
 
@@ -42,7 +57,7 @@
 
   img {
     max-height: 100%;
-    object-fit: contain;
+    // max-width: 100%;
   }
 }
 
@@ -51,6 +66,9 @@
 }
 
 .img-comparer-panel-2 {
-  filter: grayscale(100%);
   z-index: 0;
+
+  img {
+    filter: blur(2px) grayscale(100%);
+  }
 }

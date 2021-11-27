@@ -22,6 +22,7 @@ interface Settings {
   currentValue?: number;
   onDragStart?: () => void;
   onDragEnd?: () => void;
+  observeContainer?: boolean;
 }
 
 type functionType = (
@@ -47,10 +48,13 @@ const useDrag: functionType = (
     onDragEnd,
     onDragStart,
     currentValue = 0,
+    observeContainer = false,
   }
 ) => {
   const dragStarted = useRef(false);
   const [percent, setPercent] = useState(0);
+
+  const resizeObserver = useRef<ResizeObserver>();
 
   const maxXValue = useRef<number>(0);
   const maxYValue = useRef<number>(0);
@@ -124,8 +128,35 @@ const useDrag: functionType = (
 
   const handleDragEnd = useCallback(() => {
     dragStarted.current = false;
-
     onDragEnd && onDragEnd();
+  }, []);
+
+  useEffect(() => {
+    if (observeContainer) {
+      resizeObserver.current = new ResizeObserver((observer) => {
+        const { width, height } = observer[0].contentRect;
+
+        if (direction === "horizontal") {
+          maxXValue.current = maxX || width;
+        } else if (direction === "vertical") {
+          maxYValue.current = maxY || height;
+        }
+      });
+
+      container.current && resizeObserver.current.observe(container.current);
+    }
+
+    return () => {
+      resizeObserver.current?.disconnect();
+      container.current?.removeEventListener("mousemove", handleDrag);
+      container.current?.removeEventListener("touchmove", handleDrag);
+
+      container.current?.removeEventListener("mousedown", handleDragStart);
+      container.current?.removeEventListener("touchstart", handleDragStart);
+
+      container.current?.removeEventListener("mouseup", handleDragEnd);
+      container.current?.removeEventListener("touchend", handleDragEnd);
+    };
   }, []);
 
   useEffect(() => {
@@ -149,13 +180,20 @@ const useDrag: functionType = (
 
     if (startValue && endValue) {
       const percent = currentValue
-        ? currentValue / endValue
+        ? (currentValue - offsetLeft) / endValue
         : (startValue - offsetLeft) / endValue;
 
-      // alert((clientWidth * percent));
+      console.log(clientWidth, percent);
 
-      target.current.style.left = `${rnd(clientWidth * percent)}px`;
-      setPercent(percent);
+      if (currentValue) {
+        target.current.style.left = `${Math.round(
+          clientWidth * (percent * offsetLeft)
+        )}px`;
+        setPercent(percent);
+      } else {
+        target.current.style.left = `${rnd(clientWidth * percent)}px`;
+        setPercent(percent);
+      }
     }
 
     container.current.addEventListener("mousemove", handleDrag);
@@ -166,18 +204,7 @@ const useDrag: functionType = (
 
     container.current.addEventListener("mouseup", handleDragEnd);
     container.current.addEventListener("touchend", handleDragEnd);
-
-    return () => {
-      container.current?.removeEventListener("mousemove", handleDrag);
-      container.current?.removeEventListener("touchmove", handleDrag);
-
-      container.current?.removeEventListener("mousedown", handleDragStart);
-      container.current?.removeEventListener("touchstart", handleDragStart);
-
-      container.current?.removeEventListener("mouseup", handleDragEnd);
-      container.current?.removeEventListener("touchend", handleDragEnd);
-    };
-  }, [target, container]);
+  }, [target.current?.clientWidth, container]);
 
   return [percent, setPercent];
 };

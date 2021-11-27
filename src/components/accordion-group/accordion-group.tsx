@@ -16,6 +16,7 @@ const AccordionGroup = React.memo(
     children,
     initialState = "close",
     titles = [],
+    iconType = "chevron",
   }: AccordionGroupProps) => {
     const [items, setItems] = React.useState<Array<AccordionItemProps>>(
       Array.isArray(children)
@@ -64,6 +65,7 @@ const AccordionGroup = React.memo(
               title={titles[index]}
               controlledState={item.expanded}
               alignIconRight={alignIconRight}
+              iconType={iconType}
             >
               {children && children[index]}
             </Accordion>

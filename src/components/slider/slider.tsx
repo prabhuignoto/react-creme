@@ -50,6 +50,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
     onDragStart,
     onDragEnd,
     currentValue: sliderValue,
+    observeContainer: true,
   });
 
   const onTrackerInit = useCallback((node) => {
@@ -96,8 +97,12 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   }, [percent, sliderFillRef, trackerRef]);
 
   const value = useMemo(() => {
-    return Math.round((end - start) * percent) + start;
-  }, [percent]);
+    if (sliderValue && !dragging) {
+      return sliderValue;
+    } else {
+      return Math.round((end - start) * percent);
+    }
+  }, [percent, dragging]);
 
   const sliderWrapperClass = useMemo(
     () =>

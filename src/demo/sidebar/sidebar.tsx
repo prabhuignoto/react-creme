@@ -34,6 +34,7 @@ const SidebarHome = React.memo(() => {
               { name: "Tree" },
               { name: "Sidebar" },
               { name: "image comparer" },
+              { name: "Carousel" },
             ],
           },
           {

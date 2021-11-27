@@ -83,7 +83,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   cursor: pointer;
   transition: transform 0.2s ease-in;
 
-  &.rc-accordion-icon-open {
+  &.rc-accordion-icon-open:not(.rc-accordion-icon-plus) {
     transform: rotate(90deg);
   }
 }

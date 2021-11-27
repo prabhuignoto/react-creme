@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { Carousel, Image } from "../components";
-import useMedia from "./useMedia";
+import { Carousel, Image } from "../../components";
+import useMedia from "../useMedia";
 
-function carousel() {
+function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
@@ -23,8 +23,11 @@ function carousel() {
 
   return (
     width > 0 && (
-      <div>
-        <div style={{ height: "400px", width: `${width}px` }}>
+      <div className="rc-demo-widgets">
+        <div
+          style={{ height: "400px", width: `${width}px` }}
+          className="rc-demo-widget"
+        >
           <Carousel direction="horizontal">
             <Image src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1474&q=80" />
             <Image src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1274&q=80" />
@@ -35,7 +38,10 @@ function carousel() {
         </div>
         <br></br>
         <br></br>
-        <div style={{ height: "400px", width: `${width}px` }}>
+        <div
+          style={{ height: "400px", width: `${width}px` }}
+          className="rc-demo-widget"
+        >
           <Carousel direction="vertical">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non
@@ -45,12 +51,7 @@ function carousel() {
               faucibus quis. Phasellus augue erat, maximus non turpis eget,
               egestas venenatis turpis. Sed elementum porttitor eleifend. Nulla
               tincidunt lobortis libero eu fringilla. Curabitur congue ac libero
-              ac porta. Proin quam risus, pharetra lacinia tristique a, mollis
-              at ipsum. Integer pellentesque dignissim erat, sed fermentum eros
-              malesuada eget. Quisque ullamcorper et augue at facilisis. Aliquam
-              vel urna sapien. Sed id ullamcorper ex, vel sagittis sapien.
-              Aliquam mattis ante sit amet imperdiet consectetur. Morbi sagittis
-              mi nec ante scelerisque rutrum.
+              ac porta. Proin quam risus.
             </p>
             <p>
               Proin cursus nisl libero, scelerisque finibus felis mattis nec.
@@ -69,14 +70,7 @@ function carousel() {
               vel mi. Aenean volutpat velit id lectus venenatis tincidunt.
               Vestibulum et nisl dolor. Suspendisse vel ipsum ut neque laoreet
               auctor id varius magna. Donec in nisl rutrum, facilisis leo id,
-              ultrices ex. Vivamus quis lacus ac est semper cursus et et ex. In
-              a dictum turpis. Nam pharetra diam eu finibus varius. Class aptent
-              taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos. Sed consectetur ultricies lacinia. Donec justo
-              enim, ultricies eget blandit vehicula, blandit ut purus. Fusce
-              fringilla venenatis lorem, quis imperdiet arcu porta sit amet.
-              Donec ut risus quis justo maximus tincidunt. Curabitur vehicula
-              nisl vitae dui mattis lobortis.
+              ultrices ex.
             </p>
           </Carousel>
         </div>
@@ -85,4 +79,4 @@ function carousel() {
   );
 }
 
-export default carousel;
+export default widgets;

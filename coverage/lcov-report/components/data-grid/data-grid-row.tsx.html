@@ -111,9 +111,7 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
@@ -129,7 +127,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -152,7 +149,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -176,51 +172,49 @@ import { DataGridCell } from "./data-grid-cell";
 import { DataRow } from "./data-grid-model";
 import "./data-grid.scss";
 &nbsp;
-const DataGridRow: React.FunctionComponent&lt;DataRow&gt; = React.memo(
-<span class="fstat-no" title="function not covered" >  ({</span>
-    data,
-    columnWidth,
-    columnConfigs,
-    style,
-    layoutStyle,
-    border,
-    fixedHeight,
-  }: DataRow) =&gt; {
-    const cellsData = <span class="cstat-no" title="statement not covered" >useRef(</span>
-      Object.keys(data)
-        .filter(<span class="fstat-no" title="function not covered" >(k</span>) =&gt; <span class="cstat-no" title="statement not covered" >k !== "id")</span>
-        .map(<span class="fstat-no" title="function not covered" >(k</span>ey) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
-          id: nanoid(),
-          name: key,
-          value: data[key],
-        }))
-    );
+const DataGridRow: React.FunctionComponent&lt;DataRow&gt; = <span class="fstat-no" title="function not covered" >({</span>
+  data,
+  columnWidth,
+  columnConfigs,
+  style,
+  layoutStyle,
+  border,
+  fixedHeight,
+}: DataRow) =&gt; {
+  const cellsData = <span class="cstat-no" title="statement not covered" >useRef(</span>
+    Object.keys(data)
+      .filter(<span class="fstat-no" title="function not covered" >(k</span>) =&gt; <span class="cstat-no" title="statement not covered" >k !== "id")</span>
+      .map(<span class="fstat-no" title="function not covered" >(k</span>ey) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+        id: nanoid(),
+        name: key,
+        value: data[key],
+      }))
+  );
 &nbsp;
-    const rowClass = <span class="cstat-no" title="statement not covered" >useMemo(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      return classNames("rc-data-grid-row", {</span>
-        [`rc-data-grid-row-${layoutStyle}`]: true,
-        "rc-data-grid-row-border": border,
-        "rc-data-grid-row-fixed-height": fixedHeight,
-      });
-    }, []);
+  const rowClass = <span class="cstat-no" title="statement not covered" >useMemo(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return classNames("rc-data-grid-row", {</span>
+      [`rc-data-grid-row-${layoutStyle}`]: true,
+      "rc-data-grid-row-border": border,
+      "rc-data-grid-row-fixed-height": fixedHeight,
+    });
+  }, []);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
-      &lt;div className={rowClass} style={style}&gt;
-        {cellsData.current.map(<span class="fstat-no" title="function not covered" >(c</span>ell) =&gt; {
-<span class="cstat-no" title="statement not covered" >          return (</span>
-            &lt;DataGridCell
-              value={cell.value}
-              key={cell.id}
-              name={cell.name}
-              border={border}
-              fixedHeight={fixedHeight}
-            /&gt;
-          );
-        })}
-      &lt;/div&gt;
-    );
-  }
-);
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div className={rowClass} style={style}&gt;
+      {cellsData.current.map(<span class="fstat-no" title="function not covered" >(c</span>ell) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return (</span>
+          &lt;DataGridCell
+            value={cell.value}
+            key={cell.id}
+            name={cell.name}
+            border={border}
+            fixedHeight={fixedHeight}
+          /&gt;
+        );
+      })}
+    &lt;/div&gt;
+  );
+};
 &nbsp;
 DataGridRow.displayName = "DataGridRow";
 &nbsp;
@@ -232,7 +226,7 @@ export { DataGridRow };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Nov 25 2021 22:53:36 GMT+0530 (India Standard Time)
+                at Sat Nov 27 2021 18:56:04 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

@@ -26,6 +26,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
   src,
   width = "100%",
   fitImage = true,
+  onLoad,
 }) => {
   const [loaded, setLoaded] = React.useState(false);
 
@@ -60,6 +61,8 @@ const Image: React.FunctionComponent<ImageProps> = ({
       setTimeout(() => {
         setLoaded(true);
       }, 750);
+
+      onLoad?.(evt);
     },
     []
   );

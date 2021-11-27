@@ -9,7 +9,6 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { useFirstRender } from "../common/effects/useFirstRender";
 import { DataGridHeader } from "./data-grid-header";
 import { DataGridProps, SortDirection } from "./data-grid-model";
 import { DataGridRow } from "./data-grid-row";
@@ -23,17 +22,19 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   gridWidth = 0,
   fixedHeight = false,
 }: DataGridProps) => {
-  const [rowData] = useState<{ [key: string]: string | number }[]>(
+  const [rowData, setRowData] = useState<{ [key: string]: string | number }[]>(
     data.map((item) => ({ id: nanoid(), ...item }))
   );
-  const gridRef = useRef<HTMLDivElement>();
   const [width, setWidth] = useState(gridWidth);
   const [sortData, setSortData] = useState<{
     column?: string;
     dir?: SortDirection;
   }>({});
+  const gridRef = useRef<HTMLDivElement>();
 
-  const isFirstRender = useFirstRender();
+  // const isFirstRender = useFirstRender();
+
+  const resizeObserver = useRef<ResizeObserver>();
 
   const gridClass = useMemo(() => {
     return classNames("rc-data-grid", {
@@ -51,14 +52,18 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   );
 
   const columnWidth = useMemo(() => {
-    let usedWidth = columns.map((c) => c.width || 0).reduce((a, b) => a + b, 0);
+    if (width) {
+      const usedWidth = columns
+        .map((c) => c.width || 0)
+        .reduce((a, b) => a + b, 0);
 
-    usedWidth += (columns.length - 1) * 1;
+      // usedWidth += (columns.length - 2) * 1;
 
-    return Math.floor(
-      (width - usedWidth) /
-        (columns.length - columns.filter((col) => col.width).length)
-    );
+      return Math.floor(
+        (width - usedWidth) /
+          (columns.length - columns.filter((col) => col.width).length)
+      );
+    }
   }, [width]);
 
   const onRef = useCallback(
@@ -67,7 +72,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         gridRef.current = node;
 
         if (!gridWidth) {
-          setWidth((node as HTMLElement).clientWidth);
+          setWidth((node as HTMLElement).offsetWidth);
         }
       }
     },
@@ -75,16 +80,25 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   );
 
   useEffect(() => {
-    if (!isFirstRender.current && gridRef.current) {
-      setWidth(gridWidth);
+    if (gridRef.current) {
+      resizeObserver.current = new ResizeObserver((entries) => {
+        setWidth((gridRef.current as HTMLElement).offsetWidth);
+      });
+
+      resizeObserver.current.observe(document.body);
     }
-  }, [gridWidth]);
+
+    return () => {
+      if (resizeObserver.current) {
+        resizeObserver.current.disconnect();
+      }
+    };
+  }, [width]);
 
   const style = useMemo(
     () =>
       ({
         display: "grid",
-        columnGap: "1px",
         width: gridWidth ? `${gridWidth}px` : "100%",
         gridTemplateColumns: columns
           .map((column) => {
@@ -99,6 +113,25 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
     [width, columnWidth]
   );
 
+  useEffect(() => {
+    startTransition(() => {
+      setRowData((prev) => {
+        const data = prev.sort((a, b) => {
+          if (sortData.column) {
+            if (sortData.dir === "asc") {
+              return a[sortData.column] < b[sortData.column] ? 1 : -1;
+            } else {
+              return a[sortData.column] > b[sortData.column] ? 1 : -1;
+            }
+          } else {
+            return 0;
+          }
+        });
+        return data;
+      });
+    });
+  }, [JSON.stringify(sortData)]);
+
   return (
     <div className={gridClass} ref={onRef}>
       <DataGridHeader
@@ -108,32 +141,20 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         layoutStyle={layoutStyle}
         border={border}
       />
-      {rowData
-        .sort((a, b) => {
-          if (sortData.column) {
-            if (sortData.dir === "asc") {
-              return a[sortData.column] < b[sortData.column] ? -1 : 1;
-            } else {
-              return a[sortData.column] > b[sortData.column] ? -1 : 1;
-            }
-          } else {
-            return 0;
-          }
-        })
-        .map((row) => {
-          return (
-            <DataGridRow
-              data={row}
-              key={row.id}
-              columnWidth={columnWidth}
-              columnConfigs={columns}
-              style={style}
-              layoutStyle={layoutStyle}
-              border={border}
-              fixedHeight={fixedHeight}
-            />
-          );
-        })}
+      {rowData.map((row) => {
+        return (
+          <DataGridRow
+            data={row}
+            key={row.id}
+            columnWidth={columnWidth}
+            columnConfigs={columns}
+            style={style}
+            layoutStyle={layoutStyle}
+            border={border}
+            fixedHeight={fixedHeight}
+          />
+        );
+      })}
     </div>
   );
 };

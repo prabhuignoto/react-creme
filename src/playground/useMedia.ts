@@ -22,21 +22,23 @@ function useMedia() {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
-    setMediaState({
-      isMobile: isTabletOrMobile,
-      isTablet: isTabletOrMobile && !isRetina,
-      isDesktop: isDesktopOrLaptop,
-      isBigScreen: isBigScreen,
-    });
+    if (windowWidth) {
+      setMediaState({
+        isMobile: isTabletOrMobile,
+        isTablet: isTabletOrMobile && !isRetina,
+        isDesktop: isDesktopOrLaptop,
+        isBigScreen: isBigScreen,
+      });
+    }
+  }, [windowWidth]);
 
+  useEffect(() => {
     resizeObserverRef.current = new ResizeObserver((entries) => {
       setWindowWidth(entries[0].contentRect.width);
     });
 
     resizeObserverRef.current.observe(document.body);
-  }, [windowWidth]);
 
-  useEffect(() => {
     return () => {
       resizeObserverRef.current.disconnect();
     };

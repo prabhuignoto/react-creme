@@ -1,3 +1,4 @@
+export { default as AlignCenter } from "./align-center";
 export { default as ArrowRightIcon } from "./arrow-right";
 export { default as AvatarIcon } from "./avatar";
 export { default as CheckIcon } from "./check";
@@ -6,5 +7,7 @@ export { default as ChevronDownIcon } from "./chev-down";
 export { default as ChevronRightIcon } from "./chev-right";
 export { default as CircleIcon } from "./circle";
 export { default as CloseIcon } from "./close";
+export { default as MinusIcon } from "./minus";
+export { default as PlusIcon } from "./plus";
 export { default as SearchIcon } from "./search";
 export { default as TriangleIcon } from "./triangle";

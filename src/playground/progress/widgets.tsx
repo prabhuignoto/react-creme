@@ -1,20 +1,19 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { useTimer } from "use-timer";
-import { Button, CircularProgress, Progress } from "../components";
+import { Button, CircularProgress, Progress } from "../../components";
 
-const wrap: CSSProperties = {
-  margin: "1rem 0",
-};
-
-function progress() {
+const Widgets: React.FunctionComponent = () => {
   const { time, start, pause, reset } = useTimer({
     endTime: 50,
     interval: 100,
   });
 
   return (
-    <div>
-      <div style={{ display: "flex", marginBottom: "1rem" }}>
+    <div className="rc-demo-widgets">
+      <div
+        style={{ display: "flex", marginBottom: "1rem" }}
+        className="rc-demo-widget"
+      >
         <Button onClick={start} label="Start"></Button>
         <div style={{ margin: "0 1rem" }}>
           <Button onClick={pause} label="Pause"></Button>
@@ -23,7 +22,7 @@ function progress() {
           <Button onClick={reset} label="Reset"></Button>
         </div>
       </div>
-      <div style={wrap}>
+      <div className="rc-demo-widget">
         <Progress
           type="progressive"
           width={300}
@@ -33,7 +32,7 @@ function progress() {
           showProgressValue
         />
       </div>
-      <div style={wrap}>
+      <div className="rc-demo-widget">
         <Progress
           type="progressive"
           width={300}
@@ -42,7 +41,7 @@ function progress() {
           size="sm"
         />
       </div>
-      <div style={wrap}>
+      <div className="rc-demo-widget">
         <Progress
           type="progressive"
           width={300}
@@ -52,7 +51,7 @@ function progress() {
           status="success"
         />
       </div>
-      <div style={wrap}>
+      <div className="rc-demo-widget">
         <Progress
           type="progressive"
           width={300}
@@ -63,7 +62,7 @@ function progress() {
           status="error"
         />
       </div>
-      <div style={wrap}>
+      <div className="rc-demo-widget">
         <Progress
           type="infinite"
           width={400}
@@ -75,7 +74,7 @@ function progress() {
         />
       </div>
 
-      <div style={wrap}>
+      <div className="rc-demo-widget">
         <Progress
           type="infinite"
           width={350}
@@ -86,14 +85,14 @@ function progress() {
         />
       </div>
 
-      <div style={wrap}>
+      <div>
         <CircularProgress size={40} />
       </div>
-      <div style={wrap}>
+      <div>
         <CircularProgress size={40} style="double-ring" />
       </div>
     </div>
   );
-}
+};
 
-export default progress;
+export default Widgets;

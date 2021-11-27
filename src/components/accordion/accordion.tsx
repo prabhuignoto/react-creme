@@ -9,7 +9,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { ChevronRightIcon } from "../../icons";
+import { ChevronRightIcon, MinusIcon, PlusIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
 import { AccordionModel } from "./accordion-model";
@@ -26,6 +26,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     onExpanded,
     title,
     transition = "cubic-bezier(0.19, 1, 0.22, 1)",
+    iconType = "chevron",
     focusable = false,
   }: AccordionModel) => {
     const accordionID = useRef(id || `accordion-${useId()}`);
@@ -73,6 +74,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
 
       return cls([...classes, "rc-accordion-icon"], {
         "rc-accordion-icon-open": open,
+        [`rc-accordion-icon-${iconType}`]: true,
       });
     }, [open]);
 
@@ -132,17 +134,19 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     return (
       <div className={accordionClass}>
         <div
+          aria-controls={accordionBodyId.current}
           aria-expanded={!!open}
           className={accordionHeaderClass}
+          id={accordionID.current}
           onClick={toggleAccordion}
           ref={chevronRef}
           role="button"
           tabIndex={0}
-          aria-controls={accordionBodyId.current}
-          id={accordionID.current}
         >
           <span className={iconClass}>
-            <ChevronRightIcon />
+            {iconType === "chevron" && <ChevronRightIcon />}
+            {iconType === "plus" && !open && <PlusIcon />}
+            {iconType === "plus" && open && <MinusIcon />}
           </span>
           <span className="rc-accordion-title">{title}</span>
         </div>

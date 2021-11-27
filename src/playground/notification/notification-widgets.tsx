@@ -28,59 +28,61 @@ const Widgets = () => {
   const [show2, setShow2] = useState(false);
   const [position, setPosition] = useState<NotificationPosition>("top-left");
   return (
-    <div className="rc-demo-widgets">
-      {show && (
-        <Notification
-          position={position}
-          title="Hello Little World"
-          onClose={() => {
-            setShow(false);
-          }}
-          containedToParent={ref}
+    width && (
+      <div className="rc-demo-widgets">
+        {show && (
+          <Notification
+            position={position}
+            title="Hello Little World"
+            onClose={() => {
+              setShow(false);
+            }}
+            containedToParent={ref}
+          >
+            <span>test</span>
+          </Notification>
+        )}
+        {show2 && (
+          <Notification
+            position={position}
+            title="Hello Little World"
+            onClose={() => {
+              setShow2(false);
+            }}
+          >
+            <span>test</span>
+          </Notification>
+        )}
+        <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+          <Button label="Open Notification" onClick={() => setShow2(true)} />
+        </div>
+        <div
+          className="rc-demo-widget"
+          style={{ width: `${width}px`, minHeight: "300px" }}
+          ref={ref}
         >
-          <span>test</span>
-        </Notification>
-      )}
-      {show2 && (
-        <Notification
-          position={position}
-          title="Hello Little World"
-          onClose={() => {
-            setShow2(false);
-          }}
-        >
-          <span>test</span>
-        </Notification>
-      )}
-      <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-        <Button label="Open Notification" onClick={() => setShow2(true)} />
+          <Button
+            label="Open Notification (Contained)"
+            onClick={() => setShow(true)}
+          />
+        </div>
+        <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+          <RadioGroup
+            layout="row"
+            style={{ marginTop: "2rem" }}
+            items={[
+              { label: "top-left", value: "top-left", checked: true },
+              { label: "top-right", value: "top-right" },
+              { label: "bottom-left", value: "bottom-left" },
+              { label: "bottom-right", value: "bottom-right" },
+              { label: "bottom-center", value: "bottom-center" },
+              { label: "top-center", value: "top-center" },
+            ]}
+            onSelected={(val) => setPosition(val as NotificationPosition)}
+          ></RadioGroup>
+        </div>
       </div>
-      <div
-        className="rc-demo-widget"
-        style={{ width: `${width}px`, minHeight: "300px" }}
-        ref={ref}
-      >
-        <Button
-          label="Open Notification (Contained)"
-          onClick={() => setShow(true)}
-        />
-      </div>
-      <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-        <RadioGroup
-          layout="row"
-          style={{ marginTop: "2rem" }}
-          items={[
-            { label: "top-left", value: "top-left", checked: true },
-            { label: "top-right", value: "top-right" },
-            { label: "bottom-left", value: "bottom-left" },
-            { label: "bottom-right", value: "bottom-right" },
-            { label: "bottom-center", value: "bottom-center" },
-            { label: "top-center", value: "top-center" },
-          ]}
-          onSelected={(val) => setPosition(val as NotificationPosition)}
-        ></RadioGroup>
-      </div>
-    </div>
+    )
   );
 };
 

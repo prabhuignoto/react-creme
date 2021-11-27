@@ -2,8 +2,8 @@ import classNames from "classnames";
 import React, { startTransition, useMemo, useState } from "react";
 import { TriangleIcon } from "../../icons";
 import { DataGridCell } from "./data-grid-cell";
+import "./data-grid-header.scss";
 import { DataGridHeaderProps, SortDirection } from "./data-grid-model";
-import "./data-grid.scss";
 
 const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = React.memo(
   ({
