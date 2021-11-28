@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { Transfer } from "../components";
-import useMedia from "./useMedia";
+import { Transfer } from "../../components";
+import useMedia from "../useMedia";
 
-function transfer() {
+function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
@@ -23,16 +23,18 @@ function transfer() {
 
   return (
     width > 0 && (
-      <div style={{ width: `${width}px`, margin: "0 auto" }}>
-        <Transfer
-          list1={["one", "two", "five", "six"]}
-          list2={["three", "four", "seven", "eight"]}
-          onChange={(val, val2) => console.log(val, val2)}
-          enableSearch
-        />
+      <div className="rc-demo-widgets">
+        <div className="rc-demo-widget">
+          <Transfer
+            list1={["one", "two", "five", "six"]}
+            list2={["three", "four", "seven", "eight"]}
+            onChange={(val, val2) => console.log(val, val2)}
+            enableSearch
+          />
+        </div>
       </div>
     )
   );
 }
 
-export default transfer;
+export default widgets;

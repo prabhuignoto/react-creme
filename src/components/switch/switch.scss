@@ -100,7 +100,6 @@ $start-left: 4px;
 }
 
 .rc-switch-knob {
-  @extend %shadow-small;
   @include animate.set-animation(0.2s);
   @include position.position-abs("center left");
   border-radius: 50%;
@@ -108,6 +107,10 @@ $start-left: 4px;
   left: $start-left;
   transition: background-color 0.1s ease;
   z-index: -1;
+
+  &:not(.rc-switch-on):not(.rc-switch-on-load) {
+    @extend %shadow-small;
+  }
 
   @each $key, $val in $knob-sizes {
     &.rc-switch-knob-#{$key} {

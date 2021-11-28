@@ -92,7 +92,7 @@ function useFocus(
         target.removeEventListener("keydown", handleKeyboard);
       };
     }
-  }, [element]);
+  }, []);
 }
 
 export { useFocus };

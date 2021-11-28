@@ -16,7 +16,7 @@
 
   &::after {
     @include position.position-abs("bottom center");
-    background: colors.$secondary;
+    background: colors.$gray;
     bottom: 0;
     content: "";
     display: block;

@@ -31,30 +31,35 @@ function accordionGroup() {
             description: "aligns the chevron icon to the right",
             default: "False",
             optional: "Yes",
+            type: "Boolean",
           },
           {
             name: "border",
             description: "prop to set the border for the component",
             default: "False",
             optional: "Yes",
+            type: "Boolean",
           },
           {
             name: "titles",
             description: "prop to set the title for each accordion group",
             default: "[]",
             optional: "Yes",
+            type: "Array",
           },
           {
             name: "initialState",
             description: `initial state of all the accordion groups. <br> <code>"close" | "open"</code>`,
             default: "close",
             optional: "Yes",
+            type: "String",
           },
           {
             name: "autoClose",
             description: `prop to auto close other groups when a group is open`,
-            default: "close",
+            default: "False",
             optional: "Yes",
+            type: "Boolean",
           },
         ]}
         tabTitles={["Accordion Group", "Properties"]}

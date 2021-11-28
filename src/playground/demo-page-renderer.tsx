@@ -26,6 +26,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
               { name: "description", type: "string", width: 300 },
               { name: "default", type: "string" },
               { name: "optional", type: "string" },
+              { name: "type", type: "string" },
             ]}
             data={data}
           />

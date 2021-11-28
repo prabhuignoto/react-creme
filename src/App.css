@@ -22,6 +22,72 @@ body, html, button {
   width: 30%;
 }
 
+@media (min-width: 768px) {
+  .app {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .app {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .app {
+    width: 1024px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .app {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .app {
+    width: 1600px;
+  }
+
+  .app-aside {
+    width: 20%;
+  }
+
+  .app-main-section {
+    width: 80%;
+  }
+}
+
+@media (min-width: 2560px) {
+  .app {
+    width: 1920px;
+  }
+  
+  .app-aside {
+    width: 20%;
+  }
+  
+  .app-main-section {
+    width: 80%;
+  }
+}
+
+@media (min-width: 3840px) {
+  .app {
+    width: 2560px;
+  }
+
+  .app-aside {
+    width: 20%;
+  }
+
+  .app-main-section {
+    width: 80%;
+  }
+}
+
 .aside a {
   margin: 0.5rem 0;
 }

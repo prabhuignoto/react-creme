@@ -31,10 +31,10 @@
   &.rc-data-grid-row-comfortable {
     min-height: 60px;
   }
-}
 
-.rc-data-grid-column-border:not(:last-child) {
-  border-right: 1px solid colors.$gray;
+  .rc-data-grid-column-border:not(:last-child) {
+    border-right: 1px solid colors.$gray;
+  }
 }
 
 .rc-data-grid-row:nth-child(odd) {
@@ -45,14 +45,15 @@
 
 .rc-data-grid-column {
   @extend %center;
+  width: calc(100% - 1px);
 }
 
 .rc-data-grid-column-val {
   display: block;
   font-weight: 300;
   padding: 0.5rem 0;
-  padding-left: 0.5rem;
-  width: 95%;
+  padding-left: 0.25rem;
+  width: 90%;
 
   &.rc-data-grid-column-val-fixed {
     @extend %text-no-wrap;

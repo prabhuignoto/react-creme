@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app" style={{ width: "100%" }}>
+    <div className="app">
       <aside className="app-aside">
         <SidebarHome />
       </aside>

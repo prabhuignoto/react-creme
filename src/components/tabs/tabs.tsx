@@ -14,13 +14,13 @@ import { TabItemModel, TabsModel } from "./tabs-model";
 import "./tabs.scss";
 
 const Tabs: React.FunctionComponent<TabsModel> = ({
-  children,
-  labels,
-  width = "100%",
-  tabStyle = "flat",
   border = false,
-  style = {},
+  children,
   disabledTabs = [],
+  labels,
+  style = {},
+  tabStyle = "flat",
+  width = "100%",
 }) => {
   const selectionStart = useRef<number>(-1);
 

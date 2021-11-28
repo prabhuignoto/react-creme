@@ -16,10 +16,10 @@ import { CarouselTrack } from "./carousel-track";
 import "./carousel.scss";
 
 const Carousel: React.FunctionComponent<CarouselModel> = ({
+  autoPlay = 0,
   children,
   direction = "horizontal",
   height = 400,
-  autoPlay = 0,
   transition = "cubic-bezier(0.55, 0.08, 0.68, 0.53)",
 }) => {
   const [carouselItems, setCarouselItems] = useState<CarouselItemModel[]>(
