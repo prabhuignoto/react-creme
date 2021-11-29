@@ -163,7 +163,7 @@ const List: React.FunctionComponent<ListModel> = React.memo(
       }
     }, []);
 
-    const handleScroll = useDebouncedCallback(setRange, 5, {
+    const handleScroll = useDebouncedCallback(setRange, 50, {
       leading: false,
       trailing: true,
     });

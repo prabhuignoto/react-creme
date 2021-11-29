@@ -1,7 +1,6 @@
 import React from "react";
-import { Button, Menu } from "../components";
-import { CheckCircleIcon } from "../icons";
-import DemoPageRenderer from "./demo-page-renderer";
+import DemoPageRenderer from "../demo-page-renderer";
+import Widgets from "./widgets";
 
 function menu() {
   return (
@@ -13,78 +12,52 @@ function menu() {
           description: `Docking position of the menu. <br> <code>'left' | 'center' | 'right'</code>`,
           default: "left",
           optional: "Yes",
+          type: "string",
         },
         {
           name: "items",
           description: `Collection of Menu Items`,
           default: "[]",
           optional: "Yes",
+          type: "Array",
         },
         {
           name: "onOpen",
           description: `Callback fired when the menu is opened`,
           default: "",
           optional: "Yes",
+          type: "Function",
         },
         {
           name: "onClose",
           description: `Callback fired when the menu is closed`,
           default: "",
           optional: "Yes",
+          type: "Function",
         },
         {
           name: "onSelected",
           description: `Callback fired when a menu items is selected`,
           default: "",
           optional: "Yes",
+          type: "Function",
         },
         {
           name: "style",
           description: `Any custom CSS`,
           default: "",
           optional: "Yes",
+          type: "Object",
         },
         {
           name: "focusable",
           description: `makes the component focusable via keyboard`,
-          default: "",
+          default: "True",
           optional: "Yes",
+          type: "Boolean",
         },
       ]}
-      demoWidget={
-        <div className="rc-demo-widgets">
-          <div className="r-demo-widget">
-            <Menu
-              position="right"
-              items={[
-                { name: "prabhu" },
-                { name: "tester", disabled: true },
-                { name: "tester 2" },
-                { name: "tester 3" },
-              ]}
-              focusable={false}
-            >
-              <Button label="Menu"></Button>
-            </Menu>
-          </div>
-          <div className="rc-demo-widget">
-            <Menu
-              items={[
-                { name: "prabhu" },
-                { name: "tester" },
-                { name: "tester 2" },
-                { name: "tester 3" },
-              ]}
-              position="center"
-              focusable={false}
-            >
-              <Button type="icon" size="lg">
-                <CheckCircleIcon />
-              </Button>
-            </Menu>
-          </div>
-        </div>
-      }
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }

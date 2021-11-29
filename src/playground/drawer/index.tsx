@@ -13,24 +13,28 @@ function drawer() {
             "docking position of the drawer. 'left' | 'right' | 'top' | 'bottom'",
           default: "left",
           optional: "Yes",
+          type: "String",
         },
         {
           name: "height",
           description: "custom height to be used when docked to top or bottom",
           default: "300",
           optional: "Yes",
+          type: "Number",
         },
         {
           name: "width",
           description: "custom width to be used when docked to left or right",
           default: "300",
           optional: "Yes",
+          type: "Number",
         },
         {
           name: "transition",
           description: "custom transition for custom animation",
           default: "cubic-bezier(0.79, 0.14, 0.15, 0.86)",
           optional: "Yes",
+          type: "String",
         },
       ]}
       demoWidget={<Widget />}

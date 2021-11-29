@@ -22,6 +22,7 @@ export { CircularProgress } from "./progress/circular-progress";
 export { Progress } from "./progress/progress";
 export { RadioGroup } from "./radio-group/radio-group";
 export { Radio } from "./radio/radio";
+export { Reveal } from "./reveal/reveal";
 export { ScrollPane } from "./scroll-pane/scroll-pane";
 export { Sidebar } from "./sidebar/sidebar";
 export { Skeleton } from "./skeleton/skeleton";

@@ -44,6 +44,14 @@ body, html, button {
   .app {
     width: 90%;
   }
+  
+  .app-aside {
+    width: 20%;
+  }
+  
+  .app-main-section {
+    width: 80%;
+  }
 }
 
 @media (min-width: 1920px) {
@@ -127,6 +135,14 @@ body, html, button {
   display: flex;
   margin: 1rem 0;
   place-content: center;
+  width: 100%;
+}
+
+.rc-demo-widgets-wrapper {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
   width: 100%;
 }
 

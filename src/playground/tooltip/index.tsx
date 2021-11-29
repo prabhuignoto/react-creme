@@ -12,24 +12,28 @@ function tooltip() {
             "docking position of the tooltip. <br> <code>'top left' | 'top center' | 'top right'</code>",
           default: "bottom center",
           optional: "Yes",
+          type: "String",
         },
         {
           name: "width",
           description: "minimum width of the tooltip",
           default: "150",
           optional: "Yes",
+          type: "Number",
         },
         {
           name: "message",
           description: "message to be displayed inside the tooltip",
           default: "",
           optional: "No",
+          type: "String",
         },
         {
           name: "onTooltipRendered",
           description: "callback invoked on tooltip render",
           default: "",
           optional: "Yes",
+          type: "Function",
         },
         {
           name: "isStatic",
@@ -37,6 +41,7 @@ function tooltip() {
             This can be overridden by setting isStatic. When true the popup is always shown`,
           default: "",
           optional: "Yes",
+          type: "Boolean",
         },
       ]}
       tabTitles={["tooltip", "properties"]}

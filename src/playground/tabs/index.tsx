@@ -12,30 +12,35 @@ function tabs() {
           description: "sets the tab style. 'flat' | 'rounded'",
           default: "flat",
           optional: "Yes",
+          type: "String",
         },
         {
           name: "border",
           description: "enables or disables the border",
           default: "False",
           optional: "Yes",
+          type: "Boolean",
         },
         {
           name: "labels",
           description: "sets the label for each tab",
           default: "[]",
           optional: "Yes",
+          type: "Array",
         },
         {
           name: "disabledTabs",
           description: "prop to disable set of tabs",
           default: "[]",
           optional: "Yes",
+          type: "Array",
         },
         {
           name: "style",
           description: "Sets any custom CSS",
           default: "{}",
           optional: "Yes",
+          type: "Object",
         },
       ]}
       demoWidget={<Widgets />}

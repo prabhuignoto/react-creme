@@ -24,6 +24,7 @@ import Progress from "./playground/progress";
 import Radio from "./playground/radio";
 import RadioGroup from "./playground/radio-group";
 import Rate from "./playground/rate";
+import Reveal from "./playground/reveal";
 import ScrollPane from "./playground/ScrollPane";
 import Sidebar from "./playground/sidebar";
 import Skeleton from "./playground/skeleton";
@@ -324,6 +325,14 @@ function AppRoutes() {
         element={
           <div className="section-content">
             <Sidebar />
+          </div>
+        }
+      />
+      <Route
+        path="/reveal"
+        element={
+          <div className="section-content">
+            <Reveal />
           </div>
         }
       />

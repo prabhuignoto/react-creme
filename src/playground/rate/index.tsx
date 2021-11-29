@@ -15,7 +15,7 @@ function rate() {
         },
         {
           name: "iconCount",
-          description: `number of times we want to display the icon`,
+          description: `number of icons to render`,
           default: `5`,
           optional: "Yes",
           type: `Number`,
@@ -36,14 +36,14 @@ function rate() {
         },
         {
           name: "ratingValues",
-          description: `custom rating values instead of the default numeric`,
+          description: `sets the custom rating values. <br> <code>["1", "2", "3", "4", "5"]</code>`,
           default: "[]",
           optional: "Yes",
           type: `Array`,
         },
         {
           name: "onChange",
-          description: `callback fired on state change`,
+          description: `callback function that will be called when the rating changes`,
           default: ``,
           optional: "Yes",
           type: `Function`,

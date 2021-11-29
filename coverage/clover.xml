@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1638109678219" clover="3.2.0">
-  <project timestamp="1638109678219" name="All files">
-    <metrics statements="2019" coveredstatements="1504" conditionals="1098" coveredconditionals="593" methods="638" coveredmethods="413" elements="3755" coveredelements="2510" complexity="0" loc="2019" ncloc="2019" packages="40" files="82" classes="82"/>
+<coverage generated="1638181952582" clover="3.2.0">
+  <project timestamp="1638181952583" name="All files">
+    <metrics statements="2046" coveredstatements="1510" conditionals="1106" coveredconditionals="593" methods="648" coveredmethods="413" elements="3800" coveredelements="2516" complexity="0" loc="2046" ncloc="2046" packages="41" files="83" classes="83"/>
     <package name="components">
-      <metrics statements="35" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="35" coveredmethods="6"/>
+      <metrics statements="36" coveredstatements="36" conditionals="0" coveredconditionals="0" methods="36" coveredmethods="6"/>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\components\index.ts">
-        <metrics statements="35" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="35" coveredmethods="6"/>
+        <metrics statements="36" coveredstatements="36" conditionals="0" coveredconditionals="0" methods="36" coveredmethods="6"/>
         <line num="1" count="15" type="stmt"/>
         <line num="2" count="21" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
@@ -41,6 +41,7 @@
         <line num="33" count="12" type="stmt"/>
         <line num="34" count="12" type="stmt"/>
         <line num="35" count="12" type="stmt"/>
+        <line num="36" count="12" type="stmt"/>
       </file>
     </package>
     <package name="components.accordion">
@@ -1613,6 +1614,38 @@
         <line num="82" count="9" type="stmt"/>
         <line num="89" count="47" type="stmt"/>
         <line num="108" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.reveal">
+      <metrics statements="26" coveredstatements="5" conditionals="8" coveredconditionals="0" methods="9" coveredmethods="0"/>
+      <file name="reveal.tsx" path="D:\Projects\2020\react-phalladium\src\components\reveal\reveal.tsx">
+        <metrics statements="26" coveredstatements="5" conditionals="8" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="2" count="12" type="stmt"/>
+        <line num="11" count="12" type="stmt"/>
+        <line num="13" count="12" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="74" count="12" type="stmt"/>
       </file>
     </package>
     <package name="components.scroll-pane">

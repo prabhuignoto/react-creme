@@ -26,68 +26,71 @@ const Widgets = () => {
   }, [media]);
 
   return (
-    <div className="rc-demo-widgets">
-      <div className="rc-demo-widget" style={{ margin: "3rem 0" }}>
-        <Tooltip
-          message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
-          position={position}
-          minWidth={160}
+    width > 0 && (
+      <div className="rc-demo-widgets">
+        <div className="rc-demo-widget" style={{ margin: "3rem 0" }}>
+          <Tooltip
+            message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
+            position={position}
+            minWidth={160}
+          >
+            <div style={{ width: `${width}px` }}>
+              <Card minHeight={100}>
+                Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
+                molestie velit quis volutpat vestibulum. Donec facilisis est ac
+                condimentum aliquet. Nam semper dui eget sagittis sagittis.
+                Aenean sodales vulputate magna vitae sodales. Phasellus
+                dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam
+                diam, at pulvinar
+              </Card>
+            </div>
+          </Tooltip>
+        </div>
+        <div
+          className="rc-demo-widget"
+          style={{ marginTop: "6rem", width: `${width}px` }}
         >
-          <div style={{ width: `${width}px` }}>
-            <Card minHeight={100}>
-              Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
-              molestie velit quis volutpat vestibulum. Donec facilisis est ac
-              condimentum aliquet. Nam semper dui eget sagittis sagittis. Aenean
-              sodales vulputate magna vitae sodales. Phasellus dignissim, diam
-              id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar
-            </Card>
-          </div>
-        </Tooltip>
-      </div>
-      <div
-        className="rc-demo-widget"
-        style={{ marginTop: "6rem", width: `${width}px` }}
-      >
-        <Tooltip
-          message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
-          position={position}
-          minWidth={150}
-          isStatic
+          <Tooltip
+            message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
+            position={position}
+            minWidth={150}
+            isStatic
+          >
+            <div style={{ width: `${width}px` }}>
+              <Card>
+                <Image
+                  height={400}
+                  src="https://www.dccomics.com/sites/default/files/Gallery_20210914_BM_THEWORLD_61401312483190.19934149.jpg"
+                />
+              </Card>
+            </div>
+          </Tooltip>
+        </div>
+        <div
+          style={{ margin: "3rem 0", width: `${width}px` }}
+          className="rc-demo-widget"
         >
-          <div style={{ width: `${width}px` }}>
-            <Card>
-              <Image
-                height={500}
-                src="https://www.dccomics.com/sites/default/files/Gallery_20210914_BM_THEWORLD_61401312483190.19934149.jpg"
-              />
-            </Card>
-          </div>
-        </Tooltip>
+          <RadioGroup
+            layout="row"
+            onSelected={(val) => setPosition(val as ToolTipPosition)}
+            items={[
+              { label: "top center", value: "top center", checked: true },
+              { label: "top left", value: "top left" },
+              { label: "top right", value: "top right" },
+              { label: "bottom center", value: "bottom center" },
+              { label: "bottom left", value: "bottom left" },
+              { label: "bottom right", value: "bottom right" },
+              { label: "left center", value: "left center" },
+              { label: "left top", value: "left top" },
+              { label: "left bottom", value: "left bottom" },
+              { label: "right center", value: "right center" },
+              { label: "right top", value: "right top" },
+              { label: "right bottom", value: "right bottom" },
+            ]}
+          ></RadioGroup>
+        </div>
       </div>
-      <div
-        style={{ margin: "3rem 0", width: `${width}px` }}
-        className="rc-demo-widget"
-      >
-        <RadioGroup
-          layout="row"
-          onSelected={(val) => setPosition(val as ToolTipPosition)}
-          items={[
-            { label: "top center", value: "top center", checked: true },
-            { label: "top left", value: "top left" },
-            { label: "top right", value: "top right" },
-            { label: "bottom center", value: "bottom center" },
-            { label: "bottom left", value: "bottom left" },
-            { label: "bottom right", value: "bottom right" },
-            { label: "left center", value: "left center" },
-            { label: "left top", value: "left top" },
-            { label: "left bottom", value: "left bottom" },
-            { label: "right center", value: "right center" },
-            { label: "right top", value: "right top" },
-            { label: "right bottom", value: "right bottom" },
-          ]}
-        ></RadioGroup>
-      </div>
-    </div>
+    )
   );
 };
 

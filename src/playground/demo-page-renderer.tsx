@@ -16,7 +16,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
   return (
     <div className="rc-demo-page">
       <Tabs labels={tabTitles}>
-        <div className="rc-demo-widget">{demoWidget}</div>
+        <div className="rc-demo-widgets-wrapper">{demoWidget}</div>
         <div className="rc-demo-prop-section">
           <DataGrid
             layoutStyle="comfortable"

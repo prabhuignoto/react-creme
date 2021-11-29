@@ -11,36 +11,38 @@ function widgets() {
       return;
     }
     if (media.isTablet) {
-      setWidth(500);
-    } else if (media.isMobile) {
       setWidth(350);
+    } else if (media.isMobile) {
+      setWidth(300);
     } else if (media.isBigScreen) {
       setWidth(500);
     } else if (media.isDesktop) {
-      setWidth(450);
+      setWidth(400);
     }
   }, [media]);
   return (
-    <div style={{ width: `${width}px` }} className="rc-demo-widgets">
-      <div className="rc-demo-widget">
-        <Sidebar
-          groups={[
-            {
-              title: "Section 1",
-              items: [{ name: "tester" }, { name: "tester 2" }],
-            },
-            {
-              title: "Section 2",
-              items: [{ name: "tester" }, { name: "tester 2" }],
-            },
-            {
-              title: "Section 3",
-              items: [{ name: "tester" }, { name: "tester 3" }],
-            },
-          ]}
-        />
+    width > 0 && (
+      <div style={{ width: `${width}px` }} className="rc-demo-widgets">
+        <div className="rc-demo-widget">
+          <Sidebar
+            groups={[
+              {
+                title: "Section 1",
+                items: [{ name: "tester" }, { name: "tester 2" }],
+              },
+              {
+                title: "Section 2",
+                items: [{ name: "tester" }, { name: "tester 2" }],
+              },
+              {
+                title: "Section 3",
+                items: [{ name: "tester" }, { name: "tester 3" }],
+              },
+            ]}
+          />
+        </div>
       </div>
-    </div>
+    )
   );
 }
 
