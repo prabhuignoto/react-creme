@@ -78,6 +78,13 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = React.memo(
         ))}
       </div>
     );
+  },
+  (prevProps, nextProps) => {
+    return (
+      prevProps.layoutStyle === nextProps.layoutStyle &&
+      prevProps.style?.gridTemplateColumns ===
+        nextProps.style?.gridTemplateColumns
+    );
   }
 );
 

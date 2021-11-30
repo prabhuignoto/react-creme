@@ -36,6 +36,7 @@ const SidebarHome = React.memo(() => {
               { name: "image comparer" },
               { name: "Carousel" },
               { name: "Reveal" },
+              { name: "scroll spy" },
             ],
           },
           {

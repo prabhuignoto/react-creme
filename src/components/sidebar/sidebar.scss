@@ -3,5 +3,12 @@
 @use "../../design/position.scss";
 
 .rc-sidebar {
+  @extend %col;
   width: 100%;
+}
+
+.rc-sidebar-search-wrapper {
+  @extend %center;
+  margin-bottom: 1rem;
+  width: 90%;
 }

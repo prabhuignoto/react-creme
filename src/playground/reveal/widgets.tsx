@@ -22,7 +22,7 @@ function widgets() {
     if (media.isTablet) {
       setWidth(500);
     } else if (media.isMobile) {
-      setWidth(350);
+      setWidth(400);
     } else if (media.isBigScreen) {
       setWidth(500);
     } else if (media.isDesktop) {
@@ -55,7 +55,7 @@ function widgets() {
                 width={width}
                 height={500}
                 expandOnClick
-                src="https://images.unsplash.com/photo-1637247474589-e948ee383422?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3083&q=60"
               />
             </div>
           </Reveal>

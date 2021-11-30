@@ -11,7 +11,7 @@ function widgets() {
       return;
     }
     if (media.isTablet) {
-      setWidth(650);
+      setWidth(600);
     } else if (media.isMobile) {
       setWidth(400);
     } else if (media.isBigScreen) {
@@ -25,12 +25,14 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <div className="rc-demo-widget">
-          <Transfer
-            list1={["one", "two", "five", "six"]}
-            list2={["three", "four", "seven", "eight"]}
-            onChange={(val, val2) => console.log(val, val2)}
-            enableSearch
-          />
+          <div style={{ width: `${width}px` }}>
+            <Transfer
+              list1={["one", "two", "five", "six"]}
+              list2={["three", "four", "seven", "eight"]}
+              onChange={(val, val2) => console.log(val, val2)}
+              enableSearch
+            />
+          </div>
         </div>
       </div>
     )

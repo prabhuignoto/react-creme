@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { List } from "../components";
-import useMedia from "./useMedia";
+import { List } from "../../components/list/list";
+import useMedia from "../useMedia";
 
-function list() {
+function Widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
@@ -11,7 +11,7 @@ function list() {
       return;
     }
     if (media.isTablet) {
-      setWidth(350);
+      setWidth(400);
     } else if (media.isMobile) {
       setWidth(300);
     } else if (media.isBigScreen) {
@@ -57,4 +57,4 @@ function list() {
   );
 }
 
-export default list;
+export default Widgets;

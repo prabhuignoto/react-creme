@@ -17,7 +17,7 @@ const Widgets = () => {
     if (media.isTablet) {
       setWidth(400);
     } else if (media.isMobile) {
-      setWidth(350);
+      setWidth(400);
     } else if (media.isBigScreen) {
       setWidth(750);
     } else if (media.isDesktop) {

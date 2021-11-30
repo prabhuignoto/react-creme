@@ -19,7 +19,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
         <div className="rc-demo-widgets-wrapper">{demoWidget}</div>
         <div className="rc-demo-prop-section">
           <DataGrid
-            layoutStyle="comfortable"
+            layoutStyle={"comfortable"}
             border
             columns={[
               { name: "name", type: "string", sortable: true },

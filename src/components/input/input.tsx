@@ -9,7 +9,6 @@ import React, {
 import { useDebouncedCallback } from "use-debounce";
 import "../../design/focus.scss";
 import { CloseIcon } from "../../icons";
-import { useFocus } from "../common/effects/useFocus";
 import { InputModel } from "./input-model";
 import "./input.scss";
 
@@ -63,7 +62,7 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
       [inputValue]
     );
 
-    useFocus(ref, { bgHighlight: true });
+    // useFocus(ref, { bgHighlight: true });
 
     const inputClass = useMemo(
       () =>

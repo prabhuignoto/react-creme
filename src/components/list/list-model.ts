@@ -1,9 +1,11 @@
 import { CSSProperties } from "react";
 import { Option } from "../dropdown/dropdown-model";
+
 export interface ListModel {
   allowMultiSelection?: boolean;
   borderLess?: boolean;
   enableSearch?: boolean;
+  focusable?: boolean;
   group?: boolean;
   itemHeight?: number;
   maxHeight?: number;
@@ -14,25 +16,24 @@ export interface ListModel {
   rowGap?: number;
   showCheckIcon?: boolean;
   virtualized?: boolean;
-  focusable?: boolean;
 }
 
 export interface ListItemModel {
-  disabled?: boolean;
   allowMultiSelection?: boolean;
+  disabled?: boolean;
+  focusable?: boolean;
   id?: string;
   name: string;
-  onSelection?: (opt: ListOption) => void;
   onClick?: () => void;
+  onSelection?: (opt: ListOption) => void;
   selected?: boolean;
-  value: string;
-  style?: CSSProperties;
   showCheckIcon?: boolean;
-  focusable?: boolean;
+  style?: CSSProperties;
+  value: string;
 }
 
 export interface ListOption extends Option {
-  visible?: boolean;
   group?: string;
   top?: number;
+  visible?: boolean;
 }
