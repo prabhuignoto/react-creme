@@ -8,30 +8,30 @@ function carousel() {
       demoWidget={<Widgets />}
       data={[
         {
-          name: "direction",
+          name: "<em>direction</em>",
           description: "prop to set the navigation direction of the carousel",
-          default: "horizontal",
+          default: "<em>horizontal</em>",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "height",
+          name: "<em>height</em>",
           description: "sets the height of the carousel",
-          default: "400",
+          default: "<em>400</em>",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "transition",
+          name: "<em>transition</em>",
           description: "prop to set custom transition animation",
-          default: "cubic-bezier(0.55, 0.08, 0.68, 0.53)",
+          default: "<em>cubic-bezier(0.55, 0.08, 0.68, 0.53)</em>",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "autoPlay",
+          name: "<em>autoPlay</em>",
           description: `auto plays the carousel on load. pass duration in ms for each item in the carousel`,
-          default: "0",
+          default: "<em>0</em>",
           optional: "Yes",
           type: "Number",
         },

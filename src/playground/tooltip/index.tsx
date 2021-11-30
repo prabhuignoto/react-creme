@@ -7,39 +7,39 @@ function tooltip() {
     <DemoPageRenderer
       data={[
         {
-          name: "position",
+          name: "<em>position</em>",
           description:
             "docking position of the tooltip. <br> <code>'top left' | 'top center' | 'top right'</code>",
-          default: "bottom center",
+          default: "<em>bottom center</em>",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "width",
+          name: "<em>width</em>",
           description: "minimum width of the tooltip",
-          default: "150",
+          default: "<em>150</em>",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "message",
+          name: "<em>message</em>",
           description: "message to be displayed inside the tooltip",
           default: "",
           optional: "No",
           type: "String",
         },
         {
-          name: "onTooltipRendered",
+          name: "<em>onTooltipRendered</em>",
           description: "callback invoked on tooltip render",
           default: "",
           optional: "Yes",
           type: "Function",
         },
         {
-          name: "isStatic",
-          description: `By default the tooltip is shown on hover.
+          name: "<em>isStatic</em>",
+          description: `By default the tooltip is shown on hove</em>r.
             This can be overridden by setting isStatic. When true the popup is always shown`,
-          default: "",
+          default: "<em>False</em>",
           optional: "Yes",
           type: "Boolean",
         },

@@ -11,7 +11,6 @@ function App() {
   const [width, setWidth] = React.useState(-1);
 
   useEffect(() => {
-    console.log(width);
     // if (!media) {
     //   return;
     // }

@@ -226,7 +226,7 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/scrollpane"
+        path="/scroll-pane"
         element={
           <div className="section-content">
             <ScrollPane />

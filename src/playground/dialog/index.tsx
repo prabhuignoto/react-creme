@@ -7,35 +7,35 @@ function dialog() {
     <DemoPageRenderer
       data={[
         {
-          name: "title",
+          name: "<em>title</em>",
           description: "Text title for the dialog",
           default: "",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "width",
+          name: "<em>width</em>",
           description: "width of the dialog",
-          default: "300",
+          default: "<em>300</em>",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "height",
+          name: "<em>height</em>",
           description: "height of the dialog",
-          default: "200",
+          default: "<em>200</em>",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "onClose",
+          name: "<em>onClose</em>",
           description: "callback invoked on close",
           default: "",
           optional: "Yes",
           type: "Function",
         },
         {
-          name: "onSuccess",
+          name: "<em>onSuccess</em>",
           description: "callback invoked when ok is pressed",
           default: "",
           optional: "Yes",

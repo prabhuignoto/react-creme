@@ -25,11 +25,11 @@
   }
 
   &.rc-data-grid-row-compact {
-    min-height: 40px;
+    min-height: 30px;
   }
 
   &.rc-data-grid-row-comfortable {
-    min-height: 60px;
+    min-height: 40px;
   }
 
   .rc-data-grid-column-border:not(:last-child) {
@@ -61,5 +61,15 @@
 
   &:not(.rc-data-grid-column-val-fixed) {
     overflow-wrap: anywhere;
+  }
+
+  em {
+    @extend %border-radius;
+    @extend %shadow-inset;
+    background-color: colors.$light-bg;
+    color: colors.$primary;
+    font-style: normal;
+    font-weight: 400;
+    padding: 0.2rem 0.5rem;
   }
 }

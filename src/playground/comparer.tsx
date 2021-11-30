@@ -28,12 +28,23 @@ function comparer() {
       demoWidget={
         <div className="rc-demo-widgets">
           <div
-            style={{ height: "600px", width: "450px" }}
+            style={{ height: "502px", width: "950px" }}
             className="rc-demo-widget"
           >
             <ImageComparer
-              sourceOne="https://images.unsplash.com/photo-1634747037495-3a209f58cfb0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80"
-              sourceTwo="https://images.unsplash.com/photo-1634747037495-3a209f58cfb0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80"
+              direction="horizontal"
+              sourceOne="https://i.imgur.com/gypU9cN.jpg"
+              sourceTwo="https://i.imgur.com/gypU9cN.jpg"
+            ></ImageComparer>
+          </div>
+          <div
+            style={{ height: "502px", width: "950px" }}
+            className="rc-demo-widget"
+          >
+            <ImageComparer
+              direction="vertical"
+              sourceOne="https://i.imgur.com/gypU9cN.jpg"
+              sourceTwo="https://i.imgur.com/gypU9cN.jpg"
             ></ImageComparer>
           </div>
         </div>

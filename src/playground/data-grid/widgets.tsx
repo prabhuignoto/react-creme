@@ -7,7 +7,6 @@ function widgets() {
   const [width, setWidth] = React.useState(0);
 
   useEffect(() => {
-    console.log("polo");
     if (!media) {
       return;
     }

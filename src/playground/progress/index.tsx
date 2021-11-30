@@ -7,42 +7,42 @@ function progress() {
     <DemoPageRenderer
       data={[
         {
-          name: "type",
+          name: "<em>type</em>",
           description: `type of progress <br> <code>"progressive" | "infinite"</code>`,
           default: "progressive",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "maxValue",
+          name: "<em>maxValue</em>",
           description: `max value of the progress in numeric`,
           default: "100",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "currentValue",
+          name: "<em>currentValue</em>",
           description: `current value of the progress in numeric`,
           default: "0",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "size",
+          name: "<em>size</em>",
           description: `size of the progress bar`,
           default: "sm",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "status",
+          name: "<em>status</em>",
           description: `status of the progress. "success" | "error" | "default"`,
           default: "sm",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "showProgressValue",
+          name: "<em>showProgressValue</em>",
           description: `show the progress percentage`,
           default: "false",
           optional: "Yes",

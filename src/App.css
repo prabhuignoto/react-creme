@@ -1,6 +1,7 @@
 .app {
   display: flex;
   font-family: 'Outfit', sans-serif;
+  font-size: 14px;
   justify-content: center;
   margin: 0 auto;
   min-height: 100%;

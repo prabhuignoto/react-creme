@@ -28,15 +28,15 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   const handleSelection = useCallback(
     (option: ListOption[], groupId?: string) => {
       if (option && groupId) {
-        setGroups((prev) =>
-          prev.map((item) => ({
+        setGroups((prev) => {
+          return prev.map((item) => ({
             ...item,
             items: item.items.map((item) => ({
               ...item,
               selected: item.id === option[0].id,
             })),
-          }))
-        );
+          }));
+        });
         const grp = _groups.find((grp) => grp.id === groupId);
 
         if (grp) {

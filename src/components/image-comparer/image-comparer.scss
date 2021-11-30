@@ -4,6 +4,7 @@
 @use "../../design/icon.scss";
 
 .img-comparer-wrapper {
+  background: colors.$light-bg;
   height: 100%;
   position: relative;
   width: 100%;
@@ -18,11 +19,7 @@
 }
 
 .img-comparer-drag-handle {
-  @include position.position-abs("center center");
-  background: rgba(colors.$primary, 0.75);
-  cursor: ew-resize;
-  height: 100%;
-  width: 4px;
+  background: rgba(colors.$primary, 0.95);
   z-index: 2;
 
   &.rc-comparer-drag-handle-dragged {
@@ -37,15 +34,37 @@
     background: colors.$secondary;
     content: "";
     display: block;
-    height: 20px;
     pointer-events: none;
-    width: 20px;
+  }
+}
+
+.rc-comparer-drag-handle-horizontal {
+  @include position.position-abs("center center");
+  cursor: ew-resize;
+  height: 100%;
+  width: 6px;
+
+  .rc-drag-handle-square {
+    height: 24px;
+    width: 6px;
+  }
+}
+
+.rc-comparer-drag-handle-vertical {
+  @include position.position-abs("center center");
+  cursor: ns-resize;
+  height: 6px;
+  width: 100%;
+
+  .rc-drag-handle-square {
+    height: 6px;
+    width: 24px;
   }
 }
 
 .img-comparer-drag-handle-horizontal {
   cursor: ns-resize;
-  height: 4px;
+  height: 6px;
   width: 100%;
 }
 
@@ -56,7 +75,8 @@
   width: 100%;
 
   img {
-    max-height: 100%;
+    max-height: var(--height);
+    max-width: var(--width);
     // max-width: 100%;
   }
 }

@@ -9,14 +9,14 @@ function sidebar() {
       demoWidget={<Widgets />}
       data={[
         {
-          name: "groups",
+          name: "<em>groups</em",
           description: "Collection of sidebar items passed in groups",
           default: "[]",
           optional: "No",
           type: "Array",
         },
         {
-          name: "onSelect",
+          name: "<em>onSelect</em",
           description: "Callback that gets invoked on selecting a sidebar item",
           default: "",
           optional: "Yes",

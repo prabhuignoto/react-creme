@@ -8,31 +8,31 @@ function drawer() {
       tabTitles={["drawer", "properties"]}
       data={[
         {
-          name: "position",
+          name: "<em>position</em>",
           description:
             "docking position of the drawer. 'left' | 'right' | 'top' | 'bottom'",
-          default: "left",
+          default: "<em>left</em>",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "height",
+          name: "<em>height</em>",
           description: "custom height to be used when docked to top or bottom",
-          default: "300",
+          default: "<em>300</em>",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "width",
+          name: "<em>width</em>",
           description: "custom width to be used when docked to left or right",
-          default: "300",
+          default: "<em>300</em>",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "transition",
+          name: "<em>transition</em>",
           description: "custom transition for custom animation",
-          default: "cubic-bezier(0.79, 0.14, 0.15, 0.86)",
+          default: "<em>cubic-bezier(0.79, 0.14, 0.15, 0.86)</em>",
           optional: "Yes",
           type: "String",
         },

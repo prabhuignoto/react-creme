@@ -8,35 +8,35 @@ function tabs() {
       tabTitles={["Tabs", "properties"]}
       data={[
         {
-          name: "tabStyle",
+          name: "<em>tabStyle</em>",
           description: "sets the tab style. 'flat' | 'rounded'",
           default: "flat",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "border",
+          name: "<em>border</em>",
           description: "enables or disables the border",
           default: "False",
           optional: "Yes",
           type: "Boolean",
         },
         {
-          name: "labels",
+          name: "<em>labels</em>",
           description: "sets the label for each tab",
           default: "[]",
           optional: "Yes",
           type: "Array",
         },
         {
-          name: "disabledTabs",
+          name: "<em>disabledTabs</em>",
           description: "prop to disable set of tabs",
           default: "[]",
           optional: "Yes",
           type: "Array",
         },
         {
-          name: "style",
+          name: "<em>style</em>",
           description: "Sets any custom CSS",
           default: "{}",
           optional: "Yes",

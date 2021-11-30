@@ -58,6 +58,8 @@ const AccordionGroup = ({
           expanded: initialState === "open",
         }))
       );
+    } else {
+      setItems([]);
     }
   }, [titles.length]);
 

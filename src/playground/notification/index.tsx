@@ -7,14 +7,14 @@ function notification() {
     <DemoPageRenderer
       data={[
         {
-          name: "title",
+          name: "<em>title</em>",
           description: `Notification title`,
           default: "300",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "position",
+          name: "<em>position</em>",
           description: `Docking position of the notification popup. <br>
           <code>'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'bottom-center' | 'top-center'</code>`,
           default: "left",
@@ -22,28 +22,28 @@ function notification() {
           type: "String",
         },
         {
-          name: "width",
+          name: "<em>width</em>",
           description: `minimum width of the notification popup`,
           default: "350",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "height",
+          name: "<em>height</em>",
           description: `minimum height of the notification popup`,
           default: "100",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "autoClose",
+          name: "<em>autoClose</em>",
           description: `duration in ms after which the notification would auto close`,
           default: "300",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "onClose",
+          name: "<em>onClose</em>",
           description: `callback fired after the popup is closed`,
           default: "",
           optional: "Yes",

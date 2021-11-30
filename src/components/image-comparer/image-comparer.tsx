@@ -13,11 +13,13 @@ import "./image-comparer.scss";
 export interface ImageComparerModel {
   sourceOne?: string;
   sourceTwo: string;
+  direction?: "horizontal" | "vertical";
 }
 
 const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   sourceOne,
   sourceTwo,
+  direction = "horizontal",
 }) => {
   const panelRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef(null);
@@ -26,9 +28,10 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   const [dragged, setDragged] = useState(false);
 
   const [wrapperWidth, setWrapperWidth] = useState(0);
+  const [wrapperHeight, setWrapperHeight] = useState(0);
 
   const [percent] = useDrag(panelRef, dragRef, {
-    direction: "horizontal",
+    direction,
     onDragStart: () => setDragged(true),
     onDragEnd: () => setDragged(false),
     observeContainer: true,
@@ -41,9 +44,12 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
       ? 50
       : 0;
     return {
-      clipPath: `polygon(0% 0%, ${percentToUse}% 0%, ${percentToUse}% 100%, 0% 100%)`,
+      clipPath:
+        direction === "horizontal"
+          ? `polygon(0% 0%, ${percentToUse}% 0%, ${percentToUse}% 100%, 0% 100%)`
+          : `polygon(0% 0%, 100% 0%, 100% ${percentToUse}%, 0% ${percentToUse}%)`,
     } as CSSProperties;
-  }, [percent]);
+  }, [percent, direction]);
 
   useEffect(() => {
     if (isFirstRender.current) {
@@ -55,8 +61,9 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
     () =>
       classNames("img-comparer-drag-handle", {
         "rc-comparer-drag-handle-dragged": dragged,
+        [`rc-comparer-drag-handle-${direction}`]: true,
       }),
-    [dragged]
+    [dragged, direction]
   );
 
   const wrapperClass = useMemo(() => {
@@ -68,13 +75,15 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
 
   const wrapperStyle = useMemo(() => {
     return {
-      width: `${wrapperWidth}px`,
+      "--width": wrapperWidth ? `${wrapperWidth}px` : "95%",
+      "--height": wrapperHeight ? `${wrapperHeight}px` : "95%",
     } as CSSProperties;
-  }, [wrapperWidth]);
+  }, [wrapperWidth, wrapperHeight]);
 
   const onImageLoad = (ev: any) => {
-    const { width } = ev.target;
+    const { width, height } = ev.target;
     setWrapperWidth(width);
+    setWrapperHeight(height);
   };
 
   return (

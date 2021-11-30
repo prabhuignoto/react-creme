@@ -8,14 +8,14 @@ function image() {
       tabTitles={["Image", "properties"]}
       data={[
         {
-          name: "src",
+          name: "<em>src</em>",
           description: "source url of the image",
           default: "",
           optional: "No",
           type: "String",
         },
         {
-          name: "expandOnClick",
+          name: "<em>expandOnClick</em>",
           description:
             "expands the image to the best possible resolution on full screen",
           default: "false",
