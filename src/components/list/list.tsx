@@ -54,7 +54,6 @@ const List: React.FunctionComponent<ListModel> = React.memo(
     virtualized = false,
     focusable = false,
   }: ListModel) => {
-
     const [_listOptions, setListOptions] = useState<ListOption[]>(
       initOptions(options, rowGap, itemHeight, noUniqueIds)
     );

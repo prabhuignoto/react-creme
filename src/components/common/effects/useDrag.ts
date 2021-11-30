@@ -183,8 +183,6 @@ const useDrag: functionType = (
         ? (currentValue - offsetLeft) / endValue
         : (startValue - offsetLeft) / endValue;
 
-      console.log(clientWidth, percent);
-
       if (currentValue) {
         target.current.style.left = `${Math.round(
           clientWidth * (percent * offsetLeft)
