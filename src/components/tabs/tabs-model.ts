@@ -3,6 +3,7 @@ import { CSSProperties, ReactNode } from "react";
 export interface TabsCommonModel {
   tabStyle?: "flat" | "rounded";
   border?: boolean;
+  focusable?: boolean;
 }
 export interface TabHeadProps extends TabsCommonModel {
   id: string;

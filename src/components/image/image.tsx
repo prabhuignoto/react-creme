@@ -15,6 +15,7 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   expandOnClick?: boolean;
   isOverlay?: boolean;
   fitImage?: boolean;
+  showLoader?: boolean;
 }
 
 const Image: React.FunctionComponent<ImageProps> = ({
@@ -27,6 +28,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
   width = "100%",
   fitImage = true,
   onLoad,
+  showLoader = true,
 }) => {
   const [loaded, setLoaded] = React.useState(false);
 
@@ -60,9 +62,8 @@ const Image: React.FunctionComponent<ImageProps> = ({
 
       setTimeout(() => {
         setLoaded(true);
+        onLoad?.(evt);
       }, 750);
-
-      onLoad?.(evt);
     },
     []
   );
@@ -162,7 +163,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
         ref={onImageRef}
         style={imageStyle}
       />
-      {!loaded && (
+      {showLoader && !loaded && (
         <span className="rc-image-load-icon-wrapper">
           <CircularProgress size={20} />
         </span>

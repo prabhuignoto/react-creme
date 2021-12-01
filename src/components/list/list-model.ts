@@ -24,7 +24,7 @@ export interface ListItemModel {
   focusable?: boolean;
   id?: string;
   name: string;
-  onClick?: () => void;
+  // onClick?: () => void;
   onSelection?: (opt: ListOption) => void;
   selected?: boolean;
   showCheckIcon?: boolean;

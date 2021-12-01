@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.5% </span>
+                <span class="strong">92.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>39/40</span>
+                <span class='fraction'>39/42</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.61% </span>
+                <span class="strong">77.77% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>22/26</span>
+                <span class='fraction'>21/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>12/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.29% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>36/37</span>
+                <span class='fraction'>36/39</span>
             </div>
         
             
@@ -188,7 +188,13 @@
 <a name='L129'></a><a href='#L129'>129</a>
 <a name='L130'></a><a href='#L130'>130</a>
 <a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -204,6 +210,7 @@
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -226,7 +233,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">53x</span>
-<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">53x</span>
@@ -240,7 +247,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">53x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-yes">47x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -270,7 +277,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">53x</span>
-<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">47x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -316,6 +324,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
@@ -334,118 +346,124 @@ import { useFocus } from "../common/effects/useFocus";
 import { CheckboxModel } from "./checkbox-model";
 import "./checkbox.scss";
 &nbsp;
-const CheckBox: React.FunctionComponent&lt;CheckboxModel&gt; = ({
-  label,
-  onChange,
-  isChecked = false,
-  disabled,
-  size = "sm",
-  style,
-  border = true,
-  noHoverStyle = false,
-  autoHeight = false,
-  focusable = true,
-  focusIcon = false,
-}: CheckboxModel) =&gt; {
-  const [checked, setChecked] = useState(isChecked);
-  const ref = useRef(null);
-  const id = useRef(`label-${nanoid()}`);
+const CheckBox: React.FunctionComponent&lt;CheckboxModel&gt; = React.memo(
+  ({
+    label,
+    onChange,
+    isChecked = false,
+    disabled,
+    size = "sm",
+    style,
+    border = true,
+    noHoverStyle = false,
+    autoHeight = false,
+    focusable = true,
+    focusIcon = false,
+  }: CheckboxModel) =&gt; {
+    const [checked, setChecked] = useState(isChecked);
+    const ref = useRef(null);
+    const id = useRef(`label-${nanoid()}`);
 &nbsp;
-  const toggleCheck = useCallback(() =&gt; {
-    setChecked((prev) =&gt; !prev);
-    onChange &amp;&amp; onChange(!checked);
-  }, []);
+    const toggleCheck = useCallback(() =&gt; {
+      setChecked((prev) =&gt; !prev);
+      onChange &amp;&amp; onChange(!checked);
+    }, []);
 &nbsp;
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (focusable) {
-    useFocus(ref, { bgHighlight: false }, toggleCheck);
-  }
-&nbsp;
-  const iconClass = useMemo(
-    () =&gt;
-      classNames("rc-checkbox-icon", {
-        "rc-checkbox-checked": checked,
-        [`rc-checkbox-${size}`]: true,
-      }),
-    [checked]
-  );
-&nbsp;
-  const labelClass = useMemo(
-    () =&gt;
-      classNames("rc-checkbox-label", {
-        [`rc-checkbox-label-${size}`]: true,
-      }),
-    [checked]
-  );
-&nbsp;
-  const checkBoxClass = useMemo(
-    () =&gt;
-      classNames("rc-checkbox", {
-        "rc-disabled": disabled,
-        [`rc-checkbox-${size}`]: true,
-        "rc-checkbox-focus": focusIcon,
-      }),
-    [disabled]
-  );
-&nbsp;
-  const wrapperClass = useMemo(
-    () =&gt;
-      classNames("rc-checkbox-wrapper", {
-        [`rc-checkbox-${size}`]: true,
-        "rc-disabled": disabled,
-        "rc-checkbox-border": border,
-        "rc-checkbox-hover": !noHoverStyle,
-        "rc-checkbox-auto-height": autoHeight,
-        "rc-checkbox-focus": !focusIcon,
-      }),
-    [size, disabled]
-  );
-&nbsp;
-  useEffect(() =&gt; {
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (!isFirstRender.current &amp;&amp; !disabled &amp;&amp; isChecked !== checked) {
-<span class="cstat-no" title="statement not covered" >      setChecked(isChecked);</span>
+    if (focusable) {
+      useFocus(ref, { bgHighlight: false }, toggleCheck);
     }
-  }, [isChecked, disabled]);
 &nbsp;
-  useEffect(() =&gt; {
-    if (!isFirstRender.current) {
-      // onChange &amp;&amp; onChange(checked);
-    }
-  }, [checked]);
+    const iconClass = useMemo(
+      () =&gt;
+        classNames("rc-checkbox-icon", {
+          "rc-checkbox-checked": checked,
+          [`rc-checkbox-${size}`]: true,
+        }),
+      [checked]
+    );
 &nbsp;
-  const focusProps = useMemo(
-    () =&gt; ({
-      ref: ref,
-      tabIndex: disabled || !focusable ? -1 : 0,
-    }),
-    [disabled]
-  );
+    const labelClass = useMemo(
+      () =&gt;
+        classNames("rc-checkbox-label", {
+          [`rc-checkbox-label-${size}`]: true,
+        }),
+      []
+    );
 &nbsp;
-  const wrapperProps = useMemo(() =&gt; (!focusIcon ? focusProps : <span class="branch-1 cbranch-no" title="branch not covered" >null)</span>, []);
-  const iconProps = useMemo(() =&gt; (focusIcon ? <span class="branch-0 cbranch-no" title="branch not covered" >focusProps </span>: null), []);
+    const checkBoxClass = useMemo(
+      () =&gt;
+        classNames("rc-checkbox", {
+          "rc-disabled": disabled,
+          [`rc-checkbox-${size}`]: true,
+          "rc-checkbox-focus": focusIcon,
+        }),
+      [disabled]
+    );
 &nbsp;
-  const isFirstRender = useFirstRender();
+    const wrapperClass = useMemo(
+      () =&gt;
+        classNames("rc-checkbox-wrapper", {
+          [`rc-checkbox-${size}`]: true,
+          "rc-disabled": disabled,
+          "rc-checkbox-border": border,
+          "rc-checkbox-hover": !noHoverStyle,
+          "rc-checkbox-auto-height": autoHeight,
+          "rc-checkbox-focus": !focusIcon,
+        }),
+      [size, disabled]
+    );
 &nbsp;
-  return (
-    &lt;div
-      aria-checked={checked}
-      aria-labelledby={id.current}
-      className={wrapperClass}
-      onClick={toggleCheck}
-      role="checkbox"
-      style={style}
-      {...wrapperProps}
-    &gt;
-      &lt;div className={checkBoxClass} {...iconProps}&gt;
-        &lt;span className={iconClass} role="img"&gt;
-          &lt;CheckIcon /&gt;
-        &lt;/span&gt;
+    useEffect(() =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!isFirstRender.current &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!disabled)</span> {
+<span class="cstat-no" title="statement not covered" >        console.log(isChecked);</span>
+<span class="cstat-no" title="statement not covered" >        setChecked(isChecked);</span>
+      }
+    }, [isChecked, disabled]);
+&nbsp;
+    useEffect(() =&gt; {
+      if (!isFirstRender.current) {
+        // onChange &amp;&amp; onChange(checked);
+      }
+    }, [checked]);
+&nbsp;
+    const focusProps = useMemo(
+      () =&gt; ({
+        ref: ref,
+        tabIndex: disabled || !focusable ? -1 : 0,
+      }),
+      [disabled]
+    );
+&nbsp;
+    const wrapperProps = useMemo(() =&gt; (!focusIcon ? focusProps : <span class="branch-1 cbranch-no" title="branch not covered" >null)</span>, []);
+    const iconProps = useMemo(() =&gt; (focusIcon ? <span class="branch-0 cbranch-no" title="branch not covered" >focusProps </span>: null), []);
+&nbsp;
+    const isFirstRender = useFirstRender();
+&nbsp;
+    return (
+      &lt;div
+        aria-checked={checked}
+        aria-labelledby={id.current}
+        className={wrapperClass}
+        onClick={toggleCheck}
+        role="checkbox"
+        style={style}
+        {...wrapperProps}
+      &gt;
+        &lt;div className={checkBoxClass} {...iconProps}&gt;
+          &lt;span className={iconClass} role="img"&gt;
+            &lt;CheckIcon /&gt;
+          &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;label className={labelClass} id={id.current}&gt;
+          {label}
+        &lt;/label&gt;
       &lt;/div&gt;
-      &lt;label className={labelClass} id={id.current}&gt;
-        {label}
-      &lt;/label&gt;
-    &lt;/div&gt;
-  );
-};
+    );
+  },
+<span class="fstat-no" title="function not covered" >  (p</span>rev, next) =&gt; {
+<span class="cstat-no" title="statement not covered" >    return prev.isChecked === next.isChecked &amp;&amp; prev.disabled === next.disabled;</span>
+  }
+);
 &nbsp;
 CheckBox.displayName = "CheckBox";
 &nbsp;
@@ -457,7 +475,7 @@ export { CheckBox };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Dec 01 2021 02:17:56 GMT+0530 (India Standard Time)
+                at Wed Dec 01 2021 17:51:31 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

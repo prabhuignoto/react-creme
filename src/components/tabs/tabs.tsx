@@ -21,6 +21,7 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
   style = {},
   tabStyle = "flat",
   width = "100%",
+  focusable = false,
 }) => {
   const selectionStart = useRef<number>(-1);
 
@@ -102,6 +103,7 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
         items={items}
         handleTabSelection={handleTabSelection}
         tabStyle={tabStyle}
+        focusable={focusable}
       />
       <ul className={rcPanelsClass}>
         {items

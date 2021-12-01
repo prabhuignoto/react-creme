@@ -1,4 +1,5 @@
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import { List } from "../list";
 
@@ -30,7 +31,7 @@ describe("List", () => {
 
     if (target) {
       await act(async () => {
-        fireEvent.click(target);
+        userEvent.click(target);
       });
 
       await waitFor(async () => {

@@ -16,6 +16,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   items,
   tabStyle,
   handleTabSelection,
+  focusable,
 }: TabHeadersModel) => {
   const tabHeadersRef = useRef<HTMLUListElement | null>(null);
 
@@ -84,6 +85,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
             handleTabSelection={handleTabSelection}
             tabStyle={tabStyle}
             disabled={disabled}
+            focusable={focusable}
           />
         ))}
       </ul>

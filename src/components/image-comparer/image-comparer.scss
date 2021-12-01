@@ -3,7 +3,7 @@
 @use "../../design/colors.scss";
 @use "../../design/icon.scss";
 
-.img-comparer-wrapper {
+.rc-img-comparer-wrapper {
   background: colors.$light-bg;
   height: 100%;
   position: relative;
@@ -18,7 +18,7 @@
   }
 }
 
-.img-comparer-drag-handle {
+.rc-img-comparer-drag-handle {
   background: rgba(colors.$primary, 0.95);
   z-index: 2;
 
@@ -35,6 +35,14 @@
     content: "";
     display: block;
     pointer-events: none;
+  }
+
+  &.rc-comparer-drag-handle-visible {
+    visibility: visible;
+  }
+
+  &.rc-comparer-drag-handle-hidden {
+    visibility: hidden;
   }
 }
 
@@ -77,7 +85,6 @@
   img {
     max-height: var(--height);
     max-width: var(--width);
-    // max-width: 100%;
   }
 }
 
@@ -91,4 +98,10 @@
   img {
     filter: blur(2px) grayscale(100%);
   }
+}
+
+.rc-circular-loader-wrapper {
+  @include position.position-abs("center center");
+  height: 30px;
+  width: 30px;
 }

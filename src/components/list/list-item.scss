@@ -7,6 +7,13 @@
 
 $height: 40px;
 
+.rc-list-item-wrapper {
+  @include animate.halo();
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
 .rc-list-option {
   @extend %list-item-left;
   @extend %border-radius;
@@ -24,31 +31,19 @@ $height: 40px;
     background: rgba(colors.$secondary, 0.25);
   }
 
-  &:hover:not(.rc-list-option-disabled):not(.rc-list-option-selected)::after,
-  &.rc-list-option-selected::after {
-    @extend %border-radius;
-    @include position.position-abs("middle left");
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0;
-    width: 100%;
-    z-index: -2;
-  }
-
   &.rc-list-option-disabled {
     @extend %disabled;
   }
 
   &.rc-list-option-selected {
-    background: rgba(colors.$secondary, 50%);
+    background: rgba(colors.$secondary, 70%);
   }
 }
 
 .rc-list-option-value-wrapper {
   @extend %left;
-  @include animate.halo();
   height: 100%;
+  pointer-events: none;
   width: 100%;
 
   &:not(.rc-list-option-no-icon) {
@@ -62,7 +57,9 @@ $height: 40px;
   font-weight: 300;
   line-height: $height;
   padding-left: 0.5rem;
+  pointer-events: none;
   text-transform: capitalize;
+  width: 100%;
 }
 
 .rc-list-option-icon {

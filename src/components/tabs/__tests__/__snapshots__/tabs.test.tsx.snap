@@ -14,7 +14,7 @@ exports[`Tabs should render snapshot 1`] = `
     >
       <li
         class="rc-tab-head rc-tab-head-flat"
-        tabindex="0"
+        tabindex="-1"
       >
         <span
           class="rc-tab-header-label rc-tab-header-selected rc-tab-header-flat"
@@ -24,7 +24,7 @@ exports[`Tabs should render snapshot 1`] = `
       </li>
       <li
         class="rc-tab-head rc-tab-head-flat"
-        tabindex="0"
+        tabindex="-1"
       >
         <span
           class="rc-tab-header-label rc-tab-header-flat"
@@ -34,7 +34,7 @@ exports[`Tabs should render snapshot 1`] = `
       </li>
       <li
         class="rc-tab-head rc-tab-head-flat"
-        tabindex="0"
+        tabindex="-1"
       >
         <span
           class="rc-tab-header-label rc-tab-header-flat"

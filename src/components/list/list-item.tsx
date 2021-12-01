@@ -1,7 +1,8 @@
 import cls from "classnames";
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import "../../design/focus.scss";
 import { CheckBox } from "../checkbox/checkbox";
+import { useFocus } from "../common/effects/useFocus";
 import { ListItemOption } from "./list-item-option";
 import "./list-item.scss";
 import { ListItemModel } from "./list-model";
@@ -15,14 +16,17 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
     selected,
     allowMultiSelection,
     onSelection,
-    onClick,
     style,
     showCheckIcon,
     focusable,
   }: ListItemModel) => {
     const handleSelection = useCallback(() => {
-      onSelection && onSelection({ id, name, value, selected });
+      onSelection && onSelection({ id, name, value, selected: !selected });
     }, []);
+
+    const ref = useRef<HTMLDivElement>(null);
+
+    useFocus(ref, {}, handleSelection);
 
     const listItemClass = useMemo(
       () =>
@@ -37,36 +41,42 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
       [selected, disabled]
     );
 
+    const handleMouseDown = useCallback((e: React.MouseEvent) => {
+      e.preventDefault();
+      handleSelection();
+    }, []);
+
     return (
-      <li
-        className={listItemClass}
-        key={id}
-        role="option"
-        onClick={onClick}
-        style={style}
-      >
-        {allowMultiSelection ? (
-          <span className="rc-list-item-checkbox-wrapper">
-            <CheckBox
-              disabled={disabled}
-              isChecked={selected}
-              label={name}
-              onChange={handleSelection}
-              size="sm"
-              border={false}
+      <li className={listItemClass} key={id} role="option" style={style}>
+        <div
+          className="rc-list-item-wrapper"
+          ref={ref}
+          tabIndex={0}
+          style={{ width: "100%" }}
+          onMouseDown={handleMouseDown}
+        >
+          {allowMultiSelection ? (
+            <span className="rc-list-item-checkbox-wrapper">
+              <CheckBox
+                disabled={disabled}
+                isChecked={selected}
+                label={name}
+                size="sm"
+                border={false}
+                focusable={false}
+              />
+            </span>
+          ) : (
+            <ListItemOption
+              key={id}
+              name={name}
+              selected={selected}
+              showCheck={showCheckIcon}
+              tabIndex={!disabled ? 0 : -1}
+              focusable={focusable}
             />
-          </span>
-        ) : (
-          <ListItemOption
-            handleSelection={handleSelection}
-            key={id}
-            name={name}
-            selected={selected}
-            showCheck={showCheckIcon}
-            tabIndex={!disabled ? 0 : -1}
-            focusable={focusable}
-          />
-        )}
+          )}
+        </div>
       </li>
     );
   },

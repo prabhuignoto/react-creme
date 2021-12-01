@@ -37,7 +37,7 @@ body, html, button {
 
 @media (min-width: 1200px) {
   .app {
-    width: 1024px;
+    width: 95%;
   }
 }
 

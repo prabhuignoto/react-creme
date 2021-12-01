@@ -1,4 +1,5 @@
-import { fireEvent, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import { Sidebar } from "../sidebar";
 
@@ -31,7 +32,7 @@ describe("Sidebar", () => {
       />
     );
 
-    fireEvent.click(getByText("item1"));
+    userEvent.click(getByText("item1"));
 
     expect(handler).toHaveBeenCalled();
   });

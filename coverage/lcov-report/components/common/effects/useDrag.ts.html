@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.43% </span>
+                <span class="strong">5.49% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/92</span>
+                <span class='fraction'>5/91</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/70</span>
+                <span class='fraction'>0/68</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.43% </span>
+                <span class="strong">5.49% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/92</span>
+                <span class='fraction'>5/91</span>
             </div>
         
             
@@ -264,12 +264,7 @@
 <a name='L205'></a><a href='#L205'>205</a>
 <a name='L206'></a><a href='#L206'>206</a>
 <a name='L207'></a><a href='#L207'>207</a>
-<a name='L208'></a><a href='#L208'>208</a>
-<a name='L209'></a><a href='#L209'>209</a>
-<a name='L210'></a><a href='#L210'>210</a>
-<a name='L211'></a><a href='#L211'>211</a>
-<a name='L212'></a><a href='#L212'>212</a>
-<a name='L213'></a><a href='#L213'>213</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
+<a name='L208'></a><a href='#L208'>208</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -350,7 +345,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -372,7 +366,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -385,9 +378,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -455,8 +445,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -472,6 +460,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -562,8 +552,7 @@ const useDrag: functionType = <span class="fstat-no" title="function not covered
 <span class="cstat-no" title="statement not covered" >        container.current;</span>
       const { left: parentLeft, top: parentTop } =
 <span class="cstat-no" title="statement not covered" >        container.current.getBoundingClientRect();</span>
-      const { clientWidth: targetWidth, clientHeight: targetHeight } =
-<span class="cstat-no" title="statement not covered" >        target.current;</span>
+      const { clientWidth: targetWidth } = <span class="cstat-no" title="statement not covered" >target.current;</span>
 &nbsp;
       let clientX = <span class="cstat-no" title="statement not covered" >0;</span>
       let clientY = <span class="cstat-no" title="statement not covered" >0;</span>
@@ -579,13 +568,12 @@ const useDrag: functionType = <span class="fstat-no" title="function not covered
 <span class="cstat-no" title="statement not covered" >      if (direction === "horizontal") {</span>
         const left = <span class="cstat-no" title="statement not covered" >max(0, clientX - (parentLeft || 0));</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if (left &lt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >        if (left &lt; offsetLeft) {</span>
 <span class="cstat-no" title="statement not covered" >          setPercent(0);</span>
-<span class="cstat-no" title="statement not covered" >          target.current.style.left = `${minX || -rnd(targetWidth / 2)}px`;</span>
+<span class="cstat-no" title="statement not covered" >          target.current.style.left = `${rnd(targetWidth / 2)}px`;</span>
         } else <span class="cstat-no" title="statement not covered" >if (left &lt;= maxXValue.current &amp;&amp; left &gt;= minX) {</span>
 <span class="cstat-no" title="statement not covered" >          target.current.style.left = `${left - rnd(targetWidth / 2)}px`;</span>
-&nbsp;
-          const percent = <span class="cstat-no" title="statement not covered" >left / parentWidth;</span>
+          const percent = <span class="cstat-no" title="statement not covered" >(left - rnd(offsetLeft * 0.5)) / parentWidth;</span>
 <span class="cstat-no" title="statement not covered" >          setPercent(percent);</span>
         } else <span class="cstat-no" title="statement not covered" >if (left &gt;= maxXValue.current) {</span>
 <span class="cstat-no" title="statement not covered" >          setPercent(maxXValue.current / parentWidth);</span>
@@ -596,13 +584,10 @@ const useDrag: functionType = <span class="fstat-no" title="function not covered
       } else <span class="cstat-no" title="statement not covered" >if (direction === "vertical") {</span>
         const top = <span class="cstat-no" title="statement not covered" >max(0, clientY - (parentTop || 0));</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if (</span>
-          top + targetHeight &lt;= maxYValue.current &amp;&amp;
-          top + targetHeight &gt;= minY
-        ) {
-<span class="cstat-no" title="statement not covered" >          target.current.style.top = `${top - rnd(targetHeight / 2)}px`;</span>
+<span class="cstat-no" title="statement not covered" >        if (top &lt;= maxYValue.current &amp;&amp; top &gt;= minY) {</span>
+<span class="cstat-no" title="statement not covered" >          target.current.style.top = `${top}px`;</span>
 &nbsp;
-          const percent = <span class="cstat-no" title="statement not covered" >(top + targetHeight) / parentHeight;</span>
+          const percent = <span class="cstat-no" title="statement not covered" >(top - rnd(offsetLeft * 0.5)) / parentHeight;</span>
 <span class="cstat-no" title="statement not covered" >          setPercent(percent);</span>
         }
       }
@@ -631,14 +616,14 @@ const useDrag: functionType = <span class="fstat-no" title="function not covered
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      resizeObserver.current?.disconnect();</span>
-<span class="cstat-no" title="statement not covered" >      container.current?.removeEventListener("mousemove", handleDrag);</span>
-<span class="cstat-no" title="statement not covered" >      container.current?.removeEventListener("touchmove", handleDrag);</span>
+<span class="cstat-no" title="statement not covered" >      document.removeEventListener("mousemove", handleDrag);</span>
+<span class="cstat-no" title="statement not covered" >      document.removeEventListener("touchmove", handleDrag);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      container.current?.removeEventListener("mousedown", handleDragStart);</span>
-<span class="cstat-no" title="statement not covered" >      container.current?.removeEventListener("touchstart", handleDragStart);</span>
+<span class="cstat-no" title="statement not covered" >      document.removeEventListener("mousedown", handleDragStart);</span>
+<span class="cstat-no" title="statement not covered" >      document.removeEventListener("touchstart", handleDragStart);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      container.current?.removeEventListener("mouseup", handleDragEnd);</span>
-<span class="cstat-no" title="statement not covered" >      container.current?.removeEventListener("touchend", handleDragEnd);</span>
+<span class="cstat-no" title="statement not covered" >      document.removeEventListener("mouseup", handleDragEnd);</span>
+<span class="cstat-no" title="statement not covered" >      document.removeEventListener("touchend", handleDragEnd);</span>
     };
   }, []);
 &nbsp;
@@ -666,8 +651,6 @@ const useDrag: functionType = <span class="fstat-no" title="function not covered
         ? (currentValue - offsetLeft) / endValue
         : (startValue - offsetLeft) / endValue;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      console.log(clientWidth, percent);</span>
-&nbsp;
 <span class="cstat-no" title="statement not covered" >      if (currentValue) {</span>
 <span class="cstat-no" title="statement not covered" >        target.current.style.left = `${Math.round(</span>
           clientWidth * (percent * offsetLeft)
@@ -679,14 +662,16 @@ const useDrag: functionType = <span class="fstat-no" title="function not covered
       }
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    container.current.addEventListener("mousemove", handleDrag);</span>
-<span class="cstat-no" title="statement not covered" >    container.current.addEventListener("touchmove", handleDrag);</span>
+<span class="cstat-no" title="statement not covered" >    document.addEventListener("mousemove", handleDrag, { passive: false });</span>
+<span class="cstat-no" title="statement not covered" >    document.addEventListener("touchmove", handleDrag, { passive: false });</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    container.current.addEventListener("mousedown", handleDragStart);</span>
-<span class="cstat-no" title="statement not covered" >    container.current.addEventListener("touchstart", handleDragStart);</span>
+<span class="cstat-no" title="statement not covered" >    document.addEventListener("mousedown", handleDragStart, { passive: false });</span>
+<span class="cstat-no" title="statement not covered" >    document.addEventListener("touchstart", handleDragStart, {</span>
+      passive: false,
+    });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    container.current.addEventListener("mouseup", handleDragEnd);</span>
-<span class="cstat-no" title="statement not covered" >    container.current.addEventListener("touchend", handleDragEnd);</span>
+<span class="cstat-no" title="statement not covered" >    document.addEventListener("mouseup", handleDragEnd, { passive: true });</span>
+<span class="cstat-no" title="statement not covered" >    document.addEventListener("touchend", handleDragEnd, { passive: true });</span>
   }, [target.current?.clientWidth, container]);
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return [percent, setPercent];</span>
@@ -700,7 +685,7 @@ export { useDrag };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Dec 01 2021 02:17:56 GMT+0530 (India Standard Time)
+                at Wed Dec 01 2021 17:51:31 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

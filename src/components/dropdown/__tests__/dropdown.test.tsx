@@ -1,10 +1,5 @@
-import {
-  act,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import { Dropdown } from "../dropdown";
 
@@ -50,16 +45,17 @@ describe("Dropdown", () => {
       const ele = container.querySelector(".rc-dropdown-value-container");
 
       if (ele) {
-        fireEvent.click(ele);
+        userEvent.click(ele);
 
         await waitFor(async () => {
           expect(screen.getByRole("listbox")).toBeInTheDocument();
           expect(screen.getAllByRole("option")).toHaveLength(5);
 
-          const target = screen.getAllByRole("option")[0]?.firstChild;
+          const target = screen.getAllByRole("option")[0]
+            ?.firstChild as HTMLElement;
 
           if (target) {
-            fireEvent.click(target);
+            userEvent.click(target);
 
             await waitFor(async () => {
               expect(handler).toBeCalled();

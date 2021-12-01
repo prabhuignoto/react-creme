@@ -1,43 +1,25 @@
 import cls from "classnames";
 import React from "react";
 import { CheckIcon } from "../../icons";
-import { useFocus } from "../common/effects/useFocus";
 
 interface ListItemOptionProps {
   name: string;
   selected?: boolean;
   tabIndex: number;
-  handleSelection: () => void;
   showCheck?: boolean;
   focusable?: boolean;
 }
 
 const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
-  ({
-    name,
-    selected,
-    handleSelection,
-    tabIndex,
-    showCheck,
-    focusable,
-  }: ListItemOptionProps) => {
+  ({ name, selected, showCheck, focusable }: ListItemOptionProps) => {
     const ref = React.useRef<HTMLDivElement>(null);
-
-    if (focusable) {
-      useFocus(ref, {}, handleSelection);
-    }
 
     const listOptionClass = cls("rc-list-option-value-wrapper", {
       "rc-list-option-no-icon": !showCheck,
     });
 
     return (
-      <div
-        className={listOptionClass}
-        onClick={handleSelection}
-        ref={ref}
-        tabIndex={tabIndex}
-      >
+      <div className={listOptionClass} ref={ref}>
         {showCheck && (
           <span
             className={cls("rc-list-option-icon", {
@@ -51,7 +33,9 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
       </div>
     );
   },
-  (prev, cur) => prev.selected === cur.selected
+  (prev, next) => {
+    return prev.selected === next.selected;
+  }
 );
 
 ListItemOption.displayName = "ListItemOption";

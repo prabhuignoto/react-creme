@@ -19,17 +19,12 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
 .rc-accordion-header {
   @extend %left;
-  @include animate.halo(1px);
-  // background: rgba(colors.$secondary, 0.25);
+  @include animate.halo();
   cursor: pointer;
   height: $header-height;
   justify-items: center;
+  position: relative;
   width: 100%;
-
-  &:hover {
-    // background: colors.$light-bg;
-    // @extend %border-radius;
-  }
 
   &:not(.rc-accordion-align-icon-rt) {
     display: grid;

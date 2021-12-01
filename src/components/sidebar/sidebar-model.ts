@@ -2,6 +2,7 @@ export interface SidebarModel {
   groups: SidebarGroupModel[];
   onSelect?: (group: SidebarGroupModel, item: SidebarItemModel) => void;
   enableSearch?: boolean;
+  searchPlaceholder?: string;
 }
 
 export interface SidebarGroupModel {

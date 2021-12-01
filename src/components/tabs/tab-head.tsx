@@ -13,11 +13,12 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     handleTabSelection,
     tabStyle,
     disabled,
+    focusable,
   }: TabHeadProps) => {
     const ref = useRef(null);
 
-    if (!disabled) {
-      useFocus(ref);
+    if (!disabled && focusable) {
+      useFocus(ref, {}, () => handleTabSelection(id));
       useKey(ref, () => handleTabSelection(id));
     }
 
@@ -40,7 +41,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         key={id}
         className={tabHeadClass}
         onClick={() => !disabled && handleTabSelection(id)}
-        tabIndex={!disabled ? 0 : -1}
+        tabIndex={!disabled && focusable ? 0 : -1}
         ref={ref}
       >
         <span className={headerLabelClass}>{name}</span>

@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Image } from "..";
+import { CircularProgress, Image } from "..";
 import { useDrag } from "../common/effects/useDrag";
 import "./image-comparer.scss";
 
@@ -25,6 +25,9 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   const dragRef = useRef(null);
   const isFirstRender = useRef(true);
 
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded2, setImageLoaded2] = useState(false);
+
   const [dragged, setDragged] = useState(false);
 
   const [wrapperWidth, setWrapperWidth] = useState(0);
@@ -35,6 +38,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
     onDragStart: () => setDragged(true),
     onDragEnd: () => setDragged(false),
     observeContainer: true,
+    offsetLeft: 6,
   });
 
   const style = useMemo(() => {
@@ -57,20 +61,24 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
     }
   }, []);
 
+  const imagesLoaded = useMemo(
+    () => imageLoaded && imageLoaded2,
+    [imageLoaded, imageLoaded2]
+  );
+
   const dragHandleClass = useMemo(
     () =>
-      classNames("img-comparer-drag-handle", {
+      classNames("rc-img-comparer-drag-handle", {
         "rc-comparer-drag-handle-dragged": dragged,
         [`rc-comparer-drag-handle-${direction}`]: true,
+        "rc-comparer-drag-handle-visible": imagesLoaded,
+        "rc-comparer-drag-handle-hidden": !imagesLoaded,
       }),
-    [dragged, direction]
+    [dragged, direction, imagesLoaded]
   );
 
   const wrapperClass = useMemo(() => {
-    return classNames("img-comparer-wrapper", {
-      "rc-comparer-wrapper-visible": wrapperWidth > 0,
-      "rc-comparer-wrapper-hidden": wrapperWidth === 0,
-    });
+    return classNames("rc-img-comparer-wrapper");
   }, [wrapperWidth]);
 
   const wrapperStyle = useMemo(() => {
@@ -84,15 +92,35 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
     const { width, height } = ev.target;
     setWrapperWidth(width);
     setWrapperHeight(height);
+    setImageLoaded(true);
+  };
+
+  const onImageLoad2 = (ev: any) => {
+    setImageLoaded2(true);
   };
 
   return (
     <div className={wrapperClass} ref={panelRef} style={wrapperStyle}>
+      {!imagesLoaded && (
+        <div className="rc-circular-loader-wrapper">
+          <CircularProgress />
+        </div>
+      )}
       <div className="img-comparer-panel img-comparer-panel-1" style={style}>
-        <Image src={sourceOne} fitImage={false} onLoad={onImageLoad} />
+        <Image
+          src={sourceOne}
+          fitImage={false}
+          onLoad={onImageLoad}
+          showLoader={false}
+        />
       </div>
       <div className="img-comparer-panel img-comparer-panel-2">
-        <Image src={sourceTwo} fitImage={false} />
+        <Image
+          src={sourceTwo}
+          fitImage={false}
+          onLoad={onImageLoad2}
+          showLoader={false}
+        />
       </div>
       <span className={dragHandleClass} ref={dragRef}>
         <span className="rc-drag-handle-square"></span>

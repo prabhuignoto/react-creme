@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
-import React, { startTransition, useCallback } from "react";
+import React, { useCallback } from "react";
+import { SearchIcon } from "../../icons";
 import { AccordionGroup, Input, List } from "../index";
 import { ListOption } from "../list/list-model";
 import { SidebarGroupModel, SidebarModel } from "./sidebar-model";
@@ -9,6 +10,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   groups,
   onSelect,
   enableSearch = true,
+  searchPlaceholder = "Search ...",
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     groups
@@ -50,24 +52,22 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   const handleSearch = useCallback(
     (ter: string) => {
       const term = ter.trim().toLowerCase();
-      startTransition(() => {
-        setGroups((prev) =>
-          prev.map((group) => {
-            const visible = group.items.some((item) =>
-              item.name.toLowerCase().includes(term)
-            );
+      setGroups((prev) =>
+        prev.map((group) => {
+          const visible = group.items.some((item) =>
+            item.name.toLowerCase().includes(term)
+          );
 
-            return {
-              ...group,
-              items: group.items.map((item) => ({
-                ...item,
-                visible: item.name.toLowerCase().includes(term),
-              })),
-              visible,
-            };
-          })
-        );
-      });
+          return {
+            ...group,
+            items: group.items.map((item) => ({
+              ...item,
+              visible: item.name.toLowerCase().includes(term),
+            })),
+            visible,
+          };
+        })
+      );
     },
     [groups.length]
   );
@@ -76,7 +76,14 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
     <div className="rc-sidebar">
       <div className="rc-sidebar-search-wrapper">
         {enableSearch && (
-          <Input type="text" enableClear onChange={handleSearch} />
+          <Input
+            type="text"
+            enableClear
+            onChange={handleSearch}
+            placeholder={searchPlaceholder}
+          >
+            <SearchIcon />
+          </Input>
         )}
       </div>
       <AccordionGroup

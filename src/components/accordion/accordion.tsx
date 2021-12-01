@@ -131,6 +131,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       }
     }, [controlledState, open]);
 
+    useFocus(chevronRef, { bgHighlight: false }, toggleAccordion);
+
     return (
       <div className={accordionClass}>
         <div
