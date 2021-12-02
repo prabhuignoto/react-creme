@@ -33,6 +33,7 @@ const initOptions = (
       id: !noUniqueIds ? nanoid() : option.id,
       ...option,
       visible: true,
+      value: option.value || option.name,
       selected: !isUndefined(option.selected) ? option.selected : false,
       top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
     }));
@@ -200,7 +201,7 @@ const List: React.FunctionComponent<ListModel> = ({
         <ul className={"rc-list-options"} role="listbox" style={listStyle}>
           {_listOptions
             .filter((item) => item.visible)
-            .map(({ disabled, id, name, value, selected, top = 0 }) => {
+            .map(({ disabled, id, name, value = "", selected, top = 0 }) => {
               const canShow =
                 !virtualized ||
                 (top + itemHeight >= visibleRange[0] && top <= visibleRange[1]);

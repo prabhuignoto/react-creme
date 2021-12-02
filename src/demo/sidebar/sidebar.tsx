@@ -19,6 +19,7 @@ const SidebarHome = React.memo(() => {
   const sideBarMemoized = React.useMemo(() => {
     return (
       <Sidebar
+        enableSearch
         onSelect={handleSidebarSelect}
         searchPlaceholder="Search Components ..."
         groups={[

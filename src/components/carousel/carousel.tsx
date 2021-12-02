@@ -10,6 +10,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import useSwipe from "../common/effects/useSwipe";
 import { CarouselItems } from "./carousel-items";
 import { CarouselItemModel, CarouselModel } from "./carousel-model";
 import { CarouselTrack } from "./carousel-track";
@@ -21,7 +22,9 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   direction = "horizontal",
   height = 400,
   transition = "cubic-bezier(0.55, 0.08, 0.68, 0.53)",
+  enableSwipe = false,
 }) => {
+  const carouselRef = useRef<HTMLDivElement | null>(null);
   const [carouselItems, setCarouselItems] = useState<CarouselItemModel[]>(
     Array.isArray(children)
       ? children.map(() => ({
@@ -42,12 +45,15 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   const [isAutoPlaying, setAutoPlaying] = useState(!!autoPlay);
 
   const handleNext = useCallback(() => {
-    startTransition(() => setActivePage((prev) => prev + 1));
-  }, []);
+    activePage < trackCount.current - 1 &&
+      startTransition(() => setActivePage((prev) => prev + 1));
+  }, [activePage]);
 
   const handlePrevious = useCallback(
-    () => startTransition(() => setActivePage((prev) => prev - 1)),
-    []
+    () =>
+      activePage > 0 &&
+      startTransition(() => setActivePage((prev) => prev - 1)),
+    [activePage]
   );
 
   const handleActivatePage = useCallback(
@@ -140,8 +146,26 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
     []
   );
 
+  if (enableSwipe) {
+    const { dir, offset } = useSwipe(carouselRef);
+
+    useEffect(() => {
+      if (
+        (dir === "RIGHT" && direction === "horizontal") ||
+        (dir === "BOTTOM" && direction === "vertical")
+      ) {
+        handlePrevious();
+      } else if (
+        (dir === "LEFT" && direction === "horizontal") ||
+        (dir === "TOP" && direction === "vertical")
+      ) {
+        handleNext();
+      }
+    }, [offset]);
+  }
+
   return (
-    <div className={carouselContainerClass}>
+    <div className={carouselContainerClass} ref={carouselRef}>
       <div
         className={wrapperClass}
         ref={onInitRef}

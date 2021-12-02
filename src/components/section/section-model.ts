@@ -2,6 +2,7 @@ import React from "react";
 
 export interface SectionModel {
   children: React.ReactNode | React.ReactNode[];
-  title: string;
+  title?: string;
   height?: number;
+  layout?: "row" | "column";
 }

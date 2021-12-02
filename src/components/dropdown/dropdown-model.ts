@@ -23,7 +23,7 @@ export interface Option {
   id?: string;
   name: string;
   selected?: boolean;
-  value: string;
+  value?: string;
 }
 
 export interface DropdownModel {

@@ -10,7 +10,7 @@ import "./accordion-group.scss";
 
 const AccordionGroup = ({
   alignIconRight = false,
-  autoClose = true,
+  autoClose = false,
   border = true,
   children,
   initialState = "close",

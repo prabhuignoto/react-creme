@@ -6,6 +6,7 @@ export interface CarouselModel {
   height?: number;
   autoPlay?: number;
   transition?: string;
+  enableSwipe?: boolean;
 }
 
 export interface CarouselItemModel {

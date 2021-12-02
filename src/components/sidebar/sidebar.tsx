@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import React, { useCallback } from "react";
 import { SearchIcon } from "../../icons";
+import { isArray } from "../common/utils";
 import { AccordionGroup, Input, List } from "../index";
 import { ListOption } from "../list/list-model";
 import { SidebarGroupModel, SidebarModel } from "./sidebar-model";
@@ -9,15 +10,15 @@ import "./sidebar.scss";
 const Sidebar: React.FunctionComponent<SidebarModel> = ({
   groups,
   onSelect,
-  enableSearch = true,
+  enableSearch = false,
   searchPlaceholder = "Search ...",
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
-    groups
+    isArray(groups)
       ? groups.map((item) => ({
           ...item,
-          items: item.items.map((red) => ({
-            ...red,
+          items: item.items.map((obj) => ({
+            ...obj,
             id: nanoid(),
             selected: false,
           })),
@@ -51,18 +52,19 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
 
   const handleSearch = useCallback(
     (ter: string) => {
-      const term = ter.trim().toLowerCase();
+      const tester = new RegExp(`\\b${ter.trim()}`, "i");
+
+      console.log(tester);
+
       setGroups((prev) =>
         prev.map((group) => {
-          const visible = group.items.some((item) =>
-            item.name.toLowerCase().includes(term)
-          );
+          const visible = group.items.some((item) => tester.test(item.name));
 
           return {
             ...group,
             items: group.items.map((item) => ({
               ...item,
-              visible: item.name.toLowerCase().includes(term),
+              visible: tester.test(item.name),
             })),
             visible,
           };
@@ -98,13 +100,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
             return (
               <List
                 key={id}
-                options={items.map(({ name, selected, id, visible }) => ({
-                  name,
-                  value: name,
-                  selected,
-                  id,
-                  visible,
-                }))}
+                options={items}
                 borderLess
                 rowGap={5}
                 itemHeight={35}

@@ -78,8 +78,8 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
       } else {
         startTransition(() => {
           const { id, value } = selected[0];
-          _value = value;
-          setValue(value);
+          _value = value || "";
+          setValue(_value);
           setDropdownOptions((options) =>
             options.map((option) => ({
               ...option,

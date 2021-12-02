@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { CardModel } from "./card-model";
 import "./card.scss";
 
@@ -13,6 +13,8 @@ const Card: React.FunctionComponent<CardModel> = ({
   minHeight = 200,
   shadow = true,
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
   const style = useMemo(() => {
     return {
       minHeight: `${minHeight}px`,
@@ -42,7 +44,7 @@ const Card: React.FunctionComponent<CardModel> = ({
   }, []);
 
   return (
-    <div className={cardWrapperClass} style={style}>
+    <div className={cardWrapperClass} style={style} ref={ref}>
       {header && <header className={cardHeaderClass}>{header}</header>}
       <section className="rc-card-body">{children}</section>
       {footer && <footer className={cardFooterClass}>{footer}</footer>}

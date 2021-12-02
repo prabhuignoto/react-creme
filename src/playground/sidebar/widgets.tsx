@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Section } from "../../components";
 import { Sidebar } from "../../components/sidebar/sidebar";
 import useMedia from "../useMedia";
 
@@ -22,25 +23,48 @@ function widgets() {
   }, [media]);
   return (
     width > 0 && (
-      <div style={{ width: `${width}px` }} className="rc-demo-widgets">
-        <div className="rc-demo-widget">
-          <Sidebar
-            groups={[
-              {
-                title: "Section 1",
-                items: [{ name: "tester" }, { name: "tester 2" }],
-              },
-              {
-                title: "Section 2",
-                items: [{ name: "tester" }, { name: "tester 2" }],
-              },
-              {
-                title: "Section 3",
-                items: [{ name: "tester" }, { name: "tester 3" }],
-              },
-            ]}
-          />
-        </div>
+      <div className="rc-demo-widgets">
+        <Section title="Default render">
+          <div className="rc-demo-widget">
+            <div style={{ width: `${width}px` }}>
+              <Sidebar
+                groups={[
+                  {
+                    title: "Section 1",
+                    items: [{ name: "tester" }, { name: "tester 2" }],
+                  },
+                  {
+                    title: "Section 2",
+                    items: [{ name: "tester" }, { name: "tester 2" }],
+                  },
+                ]}
+              />
+            </div>
+          </div>
+        </Section>
+        <Section title="Search">
+          <div className="rc-demo-widget">
+            <div style={{ width: `${width}px` }}>
+              <Sidebar
+                enableSearch
+                groups={[
+                  {
+                    title: "Section 1",
+                    items: [{ name: "tester" }],
+                  },
+                  {
+                    title: "Section 2",
+                    items: [{ name: "tester" }, { name: "tester 2" }],
+                  },
+                  {
+                    title: "Section 3",
+                    items: [{ name: "tester" }],
+                  },
+                ]}
+              />
+            </div>
+          </div>
+        </Section>
       </div>
     )
   );

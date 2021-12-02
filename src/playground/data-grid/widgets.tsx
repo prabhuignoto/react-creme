@@ -1,6 +1,29 @@
 import React, { useEffect } from "react";
-import { DataGrid } from "../../components";
+import { DataGrid, Section } from "../../components";
 import useMedia from "../useMedia";
+
+const data = [
+  {
+    name: "John",
+    age: 30,
+    dept: "physics",
+    marks: 100,
+  },
+  {
+    name: "Jane",
+    age: 25,
+    dept: "chemistry is the toughest job in the world",
+    marks: 80,
+  },
+  {
+    name: "Lewis hamilton",
+    age: 25,
+    dept: "chemistry",
+    marks: 78,
+  },
+  { name: "Prabhu", age: 35, dept: "Physics", marks: 100 },
+  { name: "Clive", age: 25, dept: "Biology", marks: 95 },
+];
 
 function widgets() {
   const media = useMedia();
@@ -24,40 +47,51 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <div className="rc-demo-widget">
-          <DataGrid
-            layoutStyle="comfortable"
-            border
-            columns={[
-              { name: "name", type: "string", sortable: true },
-              { name: "age", type: "number", sortable: false },
-              { name: "dept", type: "string" },
-              { name: "marks", type: "number" },
-            ]}
-            data={[
-              {
-                name: "John is the biggest name of the country",
-                age: 30,
-                dept: "physics",
-                marks: 100,
-              },
-              {
-                name: "Jane",
-                age: 25,
-                dept: "chemistry is the toughest job in the world",
-                marks: 200,
-              },
-              {
-                name: "Lewis hamilton won the grand prix in the year 2010",
-                age: 25,
-                dept: "chemistry",
-                marks: 400,
-              },
-              { name: "Johnny", age: 25, dept: "chemistry", marks: 900 },
-              { name: "Clive", age: 25, dept: "chemistry", marks: 180 },
-            ]}
-          />
-        </div>
+        <Section title="Comfortable View">
+          <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+            <DataGrid
+              layoutStyle="comfortable"
+              border
+              columns={[
+                { name: "name", type: "string" },
+                { name: "age", type: "number" },
+                { name: "dept", type: "string" },
+                { name: "marks", type: "number" },
+              ]}
+              data={data}
+            />
+          </div>
+        </Section>
+        <Section title="Compact View">
+          <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+            <DataGrid
+              layoutStyle="compact"
+              border
+              columns={[
+                { name: "name", type: "string" },
+                { name: "age", type: "number" },
+                { name: "dept", type: "string" },
+                { name: "marks", type: "number" },
+              ]}
+              data={data}
+            />
+          </div>
+        </Section>
+        <Section title="Sortable">
+          <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+            <DataGrid
+              layoutStyle="comfortable"
+              border
+              columns={[
+                { name: "name", type: "string", sortable: true },
+                { name: "age", type: "number" },
+                { name: "dept", type: "string" },
+                { name: "marks", type: "number" },
+              ]}
+              data={data}
+            />
+          </div>
+        </Section>
       </div>
     )
   );

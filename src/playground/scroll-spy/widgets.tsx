@@ -31,7 +31,7 @@ function Widgets() {
     } else if (media.isMobile) {
       setWidth(450);
     } else if (media.isBigScreen) {
-      setWidth(650);
+      setWidth(750);
     } else if (media.isDesktop) {
       setWidth(650);
     }
@@ -63,7 +63,7 @@ function Widgets() {
             </ScrollSpy>
           </div>
         </Section>
-        <Section title="right aligned links">
+        <Section title="Right aligned links">
           <div
             className="rc-demo-widget"
             style={{ width: `${width}px`, height: "450px" }}

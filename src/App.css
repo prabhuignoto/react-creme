@@ -1,14 +1,13 @@
 .app {
   display: flex;
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
   justify-content: center;
   margin: 0 auto;
   min-height: 100%;
 }
 
-body, html, button {
+body, html, button, div, section, ul, span {
   font-family: 'Outfit', sans-serif;
+  font-size: 14px;
 }
 
 .app-aside {
@@ -16,7 +15,7 @@ body, html, button {
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-height: 100vh;
+  max-height: 95vh; 
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0.5rem;
@@ -104,7 +103,8 @@ body, html, button {
 .app-main-section {
   align-items: flex-start;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   margin-top: 1rem;
   width: 70%;
 }
@@ -135,7 +135,7 @@ body, html, button {
   align-items: center;
   display: flex;
   margin: 2rem 0;
-  place-content: center;
+  place-content: flex-start;
   width: 100%;
 }
 
@@ -153,4 +153,10 @@ body, html, button {
   flex-direction: column;
   min-height: 1200px;
   width: 90%;
+}
+
+.app-header {
+  height: 40px;
+  margin-bottom: 1rem;
+  width: 100%;
 }

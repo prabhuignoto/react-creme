@@ -1,3 +1,5 @@
+import { ListOption } from "../list/list-model";
+
 export interface SidebarModel {
   groups: SidebarGroupModel[];
   onSelect?: (group: SidebarGroupModel, item: SidebarItemModel) => void;
@@ -7,7 +9,7 @@ export interface SidebarModel {
 
 export interface SidebarGroupModel {
   title: string;
-  items: SidebarItemModel[];
+  items: ListOption[];
   id?: string;
   visible?: boolean;
 }

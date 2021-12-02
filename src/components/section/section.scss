@@ -12,15 +12,15 @@
 .rc-section-header {
   border-bottom: 1px solid colors.$secondary;
   color: colors.$primary;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
   height: 30px;
-  text-transform: capitalize;
+  padding-left: 1rem;
   width: 100%;
 }
 
 .rc-section-body {
-  @extend %center;
+  @extend %left;
   min-height: calc(100% - 30px);
   padding: 1rem;
   width: 100%;

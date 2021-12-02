@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Skeleton } from "../../components";
+import { Section, Skeleton } from "../../components";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -24,16 +24,34 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <div className="rc-demo-widget">
-          <div style={{ width: `${width}px` }}>
-            <Skeleton rows={6} rowHeight={10} blocks={2} showCircle animate />
+        <Section title="Default rendering">
+          <div className="rc-demo-widget">
+            <div style={{ width: `${width}px` }}>
+              <Skeleton rows={6} rowHeight={8} blocks={1} />
+            </div>
           </div>
-        </div>
-        <div className="rc-demo-widget">
-          <div style={{ width: `${width}px` }}>
-            <Skeleton rows={6} rowHeight={10} blocks={1} showCircle />
+        </Section>
+        <Section title="With Circle">
+          <div className="rc-demo-widget">
+            <div style={{ width: `${width}px` }}>
+              <Skeleton rows={6} rowHeight={8} blocks={1} showCircle />
+            </div>
           </div>
-        </div>
+        </Section>
+        <Section title="Custom row count and height">
+          <div className="rc-demo-widget">
+            <div style={{ width: `${width}px` }}>
+              <Skeleton rows={8} rowHeight={5} blocks={1} />
+            </div>
+          </div>
+        </Section>
+        <Section title="Animated rows">
+          <div className="rc-demo-widget">
+            <div style={{ width: `${width}px` }}>
+              <Skeleton rows={6} rowHeight={8} animate />
+            </div>
+          </div>
+        </Section>
       </div>
     )
   );
