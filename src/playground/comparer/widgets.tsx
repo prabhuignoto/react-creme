@@ -11,9 +11,9 @@ function Widgets() {
       return;
     }
     if (media.isTablet) {
-      setWidth("80%");
+      setWidth("90%");
     } else if (media.isMobile) {
-      setWidth("80%");
+      setWidth("90%");
     } else if (media.isBigScreen) {
       setWidth(950);
     } else if (media.isDesktop) {

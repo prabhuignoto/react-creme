@@ -37,7 +37,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
     }, []);
 
     if (focusable) {
-      useFocus(ref, { bgHighlight: false }, toggleCheck);
+      useFocus(ref, toggleCheck);
     }
 
     const iconClass = useMemo(

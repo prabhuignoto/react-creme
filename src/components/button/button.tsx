@@ -33,7 +33,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
   const ref = useRef(null);
 
   if (focusable) {
-    useFocus(ref, { bgHighlight: false });
+    useFocus(ref);
   }
 
   const focusableProps = useMemo(

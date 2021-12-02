@@ -1,12 +1,7 @@
 import { RefObject, useCallback, useEffect, useRef } from "react";
 
-interface FocusSetting {
-  bgHighlight?: boolean;
-}
-
 function useFocus(
   element: RefObject<HTMLElement>,
-  setting?: FocusSetting,
   cb?: () => void
 ) {
   const targetRef = useRef<HTMLElement | null>(null);
@@ -90,7 +85,6 @@ function useFocus(
 
   const setFocus = (ev: MouseEvent) => {
     ev.preventDefault();
-    debugger;
     targetRef.current?.focus();
   };
 

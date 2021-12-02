@@ -7,18 +7,18 @@ import "./tabs.scss";
 
 const TabHead: React.FC<TabHeadProps> = React.memo(
   ({
+    disabled,
+    focusable,
+    handleTabSelection,
     id,
     name,
     selected,
-    handleTabSelection,
     tabStyle,
-    disabled,
-    focusable,
   }: TabHeadProps) => {
     const ref = useRef(null);
 
     if (!disabled && focusable) {
-      useFocus(ref, {}, () => handleTabSelection(id));
+      useFocus(ref, () => handleTabSelection(id));
       useKey(ref, () => handleTabSelection(id));
     }
 

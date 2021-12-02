@@ -57,7 +57,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   }, []);
 
   if (focusable) {
-    useFocus(wrapperRef, { bgHighlight: false }, () => {
+    useFocus(wrapperRef, () => {
       setShowMenu((prev) => !prev);
     });
   }

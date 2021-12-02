@@ -27,6 +27,7 @@ import Rate from "./playground/rate";
 import Reveal from "./playground/reveal";
 import ScrollSpy from "./playground/scroll-spy";
 import ScrollPane from "./playground/ScrollPane";
+import Section from "./playground/section";
 import Sidebar from "./playground/sidebar";
 import Skeleton from "./playground/skeleton";
 import Slider from "./playground/slider";
@@ -342,6 +343,14 @@ function AppRoutes() {
         element={
           <div className="section-content">
             <ScrollSpy />
+          </div>
+        }
+      />
+      <Route
+        path="/section"
+        element={
+          <div className="section-content">
+            <Section />
           </div>
         }
       />

@@ -15,7 +15,7 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemModel> = React.memo(
     size = "sm",
   }: BreadCrumbItemModel) => {
     const ref = useRef<HTMLSpanElement>(null);
-    useFocus(ref, { bgHighlight: false });
+    useFocus(ref);
 
     useKey(ref, () => {
       if (ref.current) {

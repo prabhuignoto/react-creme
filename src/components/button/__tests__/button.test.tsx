@@ -1,5 +1,6 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
+import { act } from "react-dom/test-utils";
 import { Button } from "../button";
 
 const handler = jest.fn();
@@ -52,5 +53,19 @@ describe("Button", () => {
     fireEvent.click(getByText("My Button"));
 
     expect(handler).toBeCalled();
+  });
+
+  it("should call handler via keyboard action", async () => {
+    const { getByText } = render(
+      <Button label="My Button" onClick={handler} />
+    );
+
+    await act(async () => {
+      fireEvent.keyDown(getByText("My Button"), { key: "Enter" });
+    });
+
+    await waitFor(() => {
+      expect(handler).toBeCalled();
+    });
   });
 });

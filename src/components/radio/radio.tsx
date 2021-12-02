@@ -54,7 +54,7 @@ const Radio: React.FunctionComponent<RadioModel> = React.memo(
     }, [canToggle, checked]);
 
     if (focusable) {
-      useFocus(radioRef, { bgHighlight: false }, toggleCheck);
+      useFocus(radioRef, toggleCheck);
     }
 
     const radioWrapperClass = useMemo(() => {

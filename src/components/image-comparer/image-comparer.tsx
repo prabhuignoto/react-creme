@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, {
   CSSProperties,
+  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -8,13 +9,8 @@ import React, {
 } from "react";
 import { CircularProgress, Image } from "..";
 import { useDrag } from "../common/effects/useDrag";
+import { ImageComparerModel } from "./image-comparer.model";
 import "./image-comparer.scss";
-
-export interface ImageComparerModel {
-  sourceOne?: string;
-  sourceTwo: string;
-  direction?: "horizontal" | "vertical";
-}
 
 const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   sourceOne,
@@ -88,12 +84,12 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
     } as CSSProperties;
   }, [wrapperWidth, wrapperHeight]);
 
-  const onImageLoad = (ev: any) => {
+  const onImageLoad = useCallback((ev: any) => {
     const { width, height } = ev.target;
     setWrapperWidth(width);
     setWrapperHeight(height);
     setImageLoaded(true);
-  };
+  }, []);
 
   const onImageLoad2 = (ev: any) => {
     setImageLoaded2(true);

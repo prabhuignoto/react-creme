@@ -8,14 +8,6 @@
   height: 100%;
   position: relative;
   width: 100%;
-
-  &.rc-comparer-wrapper-visible {
-    visibility: visible;
-  }
-
-  &.rc-comparer-wrapper-hidden {
-    visibility: hidden;
-  }
 }
 
 .rc-img-comparer-drag-handle {

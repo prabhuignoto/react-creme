@@ -123,7 +123,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     }, [showMenu]);
 
     // setup focus
-    useFocus(containerRef, { bgHighlight: false }, handleToggleMenu);
+    useFocus(containerRef, handleToggleMenu);
 
     // memoize the selected value
     const selectedValue = useMemo(() => {

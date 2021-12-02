@@ -22,7 +22,6 @@ const SidebarHome = React.memo(() => {
         onSelect={handleSidebarSelect}
         searchPlaceholder="Search Components ..."
         groups={[
-          { title: "Icons", items: [{ name: "avatar" }] },
           {
             title: "Layout",
             items: [
@@ -38,6 +37,7 @@ const SidebarHome = React.memo(() => {
               { name: "Carousel" },
               { name: "Reveal" },
               { name: "scroll spy" },
+              { name: "section" },
             ],
           },
           {
@@ -71,6 +71,7 @@ const SidebarHome = React.memo(() => {
               { name: "Transfer" },
             ],
           },
+          { title: "Icons", items: [{ name: "avatar" }] },
           {
             title: "Overlay",
             items: [

@@ -11,9 +11,9 @@ function widgets() {
       return;
     }
     if (media.isTablet) {
-      setWidth(600);
+      setWidth(500);
     } else if (media.isMobile) {
-      setWidth(450);
+      setWidth(400);
     } else if (media.isBigScreen) {
       setWidth(850);
     } else if (media.isDesktop) {
@@ -25,7 +25,11 @@ function widgets() {
     width > 0 && (
       <div style={{ width: `${width}px` }} className="rc-demo-widgets">
         <div className="rc-demo-widget">
-          <Splitter dir="horizontal" minSplitWidth={200} maxSplitWidth={300}>
+          <Splitter
+            dir="horizontal"
+            minSplitWidth={Math.round(width * 0.25)}
+            maxSplitWidth={Math.round(width * 0.75)}
+          >
             <p>
               Contrary to popular belief, Lorem Ipsum is not simply random text.
               It has roots in a piece of classical Latin literature from 45 BC,
@@ -48,7 +52,11 @@ function widgets() {
           </Splitter>
         </div>
         <div className="rc-demo-widget">
-          <Splitter dir="vertical" minSplitHeight={100} maxSplitHeight={300}>
+          <Splitter
+            dir="vertical"
+            minSplitHeight={400 * 0.25}
+            maxSplitHeight={400 * 0.75}
+          >
             <p>
               Contrary to popular belief, Lorem Ipsum is not simply random text.
               It has roots in a piece of classical Latin literature from 45 BC,

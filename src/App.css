@@ -105,7 +105,7 @@ body, html, button {
   align-items: flex-start;
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 70%;
 }
 
@@ -134,7 +134,7 @@ body, html, button {
 .rc-demo-widget {
   align-items: center;
   display: flex;
-  margin: 1rem 0;
+  margin: 2rem 0;
   place-content: center;
   width: 100%;
 }
@@ -152,5 +152,5 @@ body, html, button {
   display: flex;
   flex-direction: column;
   min-height: 1200px;
-  width: 100%;
+  width: 90%;
 }

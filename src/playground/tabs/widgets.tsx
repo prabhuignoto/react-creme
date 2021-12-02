@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Tabs } from "../../components";
+import { Section, Tabs } from "../../components";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -24,95 +24,103 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <div
-          style={{ width: `${width}px`, margin: "1rem 0" }}
-          className="rc-demo-widget"
-        >
-          <Tabs
-            labels={["one", "two", "three"]}
-            border={false}
-            tabStyle="rounded"
+        <Section title="Flat tabs">
+          <div
+            style={{ width: `${width}px`, margin: "1rem 0" }}
+            className="rc-demo-widget"
           >
-            <span>one</span>
-            <span>two</span>
-            <span>three</span>
-          </Tabs>
-        </div>
-        <div
-          style={{ width: `${width}px`, margin: "1rem 0" }}
-          className="rc-demo-widget"
-        >
-          <Tabs
-            labels={["one", "two", "three"]}
-            tabStyle="flat"
-            disabledTabs={["two", "one"]}
+            <Tabs
+              labels={[
+                "one",
+                "two",
+                "three",
+                "four",
+                "five",
+                "six",
+                "seven",
+                "eight",
+                "nine",
+              ]}
+              tabStyle="flat"
+              border={false}
+            >
+              <span>one</span>
+              <span>two</span>
+              <span>three</span>
+              <span>four</span>
+              <span>five</span>
+              <span>six</span>
+              <span>seven</span>
+              <span>eight</span>
+              <span>nine</span>
+            </Tabs>
+          </div>
+        </Section>
+        <Section title="Rounded tabs">
+          <div
+            style={{ width: `${width}px`, margin: "1rem 0" }}
+            className="rc-demo-widget"
           >
-            <span>one</span>
-            <span>two</span>
-            <span>three</span>
-          </Tabs>
-        </div>
-        <div
-          style={{ width: `${width}px`, margin: "1rem 0" }}
-          className="rc-demo-widget"
-        >
-          <Tabs
-            labels={[
-              "one",
-              "two",
-              "three",
-              "four",
-              "five",
-              "six",
-              "seven",
-              "eight",
-              "nine",
-            ]}
-            tabStyle="rounded"
-            border={false}
-            disabledTabs={["three", "six", "seven", "one", "two", "four"]}
+            <Tabs
+              labels={["one", "two", "three"]}
+              border={false}
+              tabStyle="rounded"
+            >
+              <span>one</span>
+              <span>two</span>
+              <span>three</span>
+            </Tabs>
+          </div>
+        </Section>
+        <Section title="Rounded tabs with scroll">
+          <div
+            style={{ width: `${width}px`, margin: "1rem 0" }}
+            className="rc-demo-widget"
           >
-            <span>one</span>
-            <span>two</span>
-            <span>three</span>
-            <span>four</span>
-            <span>five</span>
-            <span>six</span>
-            <span>seven</span>
-            <span>eight</span>
-            <span>nine</span>
-          </Tabs>
-        </div>
-        <div
-          style={{ width: `${width}px`, margin: "1rem 0" }}
-          className="rc-demo-widget"
-        >
-          <Tabs
-            labels={[
-              "one",
-              "two",
-              "three",
-              "four",
-              "five",
-              "six",
-              "seven",
-              "eight",
-              "nine",
-            ]}
-            tabStyle="flat"
-            border={false}
+            <Tabs
+              labels={[
+                "one",
+                "two",
+                "three",
+                "four",
+                "five",
+                "six",
+                "seven",
+                "eight",
+                "nine",
+              ]}
+              tabStyle="rounded"
+              border={false}
+              disabledTabs={["three", "six", "seven", "one", "two", "four"]}
+            >
+              <span>one</span>
+              <span>two</span>
+              <span>three</span>
+              <span>four</span>
+              <span>five</span>
+              <span>six</span>
+              <span>seven</span>
+              <span>eight</span>
+              <span>nine</span>
+            </Tabs>
+          </div>
+        </Section>
+        <Section title="Flat tabs (Disabled)">
+          <div
+            style={{ width: `${width}px`, margin: "1rem 0" }}
+            className="rc-demo-widget"
           >
-            <span>one</span>
-            <span>two</span>
-            <span>three</span>
-            <span>four</span>
-            <span>five</span>
-            <span>six</span>
-            <span>seven</span>
-            <span>eight</span>
-            <span>nine</span>
-          </Tabs>
-        </div>
+            <Tabs
+              labels={["one", "two", "three"]}
+              tabStyle="flat"
+              disabledTabs={["two", "one"]}
+            >
+              <span>one</span>
+              <span>two</span>
+              <span>three</span>
+            </Tabs>
+          </div>
+        </Section>
       </div>
     )
   );

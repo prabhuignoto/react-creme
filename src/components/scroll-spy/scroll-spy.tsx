@@ -1,5 +1,6 @@
+import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import {
   ScrollSpyContent,
   ScrollSpyLinkInternal,
@@ -7,7 +8,11 @@ import {
 } from "./scroll-spy.model";
 import "./scroll-spy.scss";
 
-const ScrollSpy: React.FC<ScrollSpyProps> = ({ links = [], children = [] }) => {
+const ScrollSpy: React.FC<ScrollSpyProps> = ({
+  links = [],
+  children = [],
+  linksPosition = "left",
+}) => {
   const scrollSpyContentRef = React.useRef<HTMLDivElement | null>(null);
   const spy = useRef<IntersectionObserver>();
 
@@ -22,7 +27,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({ links = [], children = [] }) => {
   >(
     links.map((link) => ({
       name: link,
-      id: nanoid(),
+      id: `spy-${nanoid()}`,
       active: false,
     }))
   );
@@ -107,10 +112,17 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({ links = [], children = [] }) => {
 
     lastSelectedIndex.current = index;
 
-    const element = scrollSpyContentRef.current?.querySelector(`#${id}`);
+    const element = scrollSpyContentRef.current?.querySelector(
+      `#${id}`
+    ) as HTMLElement;
 
-    if (element) {
-      element.scrollIntoView(true);
+    const ref = scrollSpyContentRef.current;
+
+    if (element && ref) {
+      ref.scrollTo({
+        top: element.offsetTop - ref.offsetTop,
+        behavior: "smooth",
+      });
     }
   }, []);
 
@@ -122,8 +134,14 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({ links = [], children = [] }) => {
     }
   }, []);
 
+  const spyWrapperClass = useMemo(() => {
+    return classNames("rc-scroll-spy-wrapper", {
+      [`rc-scroll-spy-wrapper-${linksPosition}`]: true,
+    });
+  }, []);
+
   return (
-    <div className="rc-scroll-spy-wrapper">
+    <div className={spyWrapperClass}>
       <div className="rc-scroll-spy-aside">
         <ul className="rc-scroll-spy-list">
           {scrollSpyLinks.map((link, index) => {

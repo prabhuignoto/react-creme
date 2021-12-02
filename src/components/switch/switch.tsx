@@ -41,7 +41,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   }, [state, disabled]);
 
   if (focusable) {
-    useFocus(ref, {}, () => {
+    useFocus(ref, () => {
       setState((prev) => !prev);
     });
   }

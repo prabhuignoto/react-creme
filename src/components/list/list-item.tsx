@@ -26,7 +26,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
 
     const ref = useRef<HTMLDivElement>(null);
 
-    useFocus(ref, {}, handleSelection);
+    useFocus(ref, handleSelection);
 
     const listItemClass = useMemo(
       () =>

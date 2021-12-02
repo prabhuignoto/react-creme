@@ -3,6 +3,7 @@ import React from "react";
 export interface ScrollSpyProps {
   links: string[];
   children: React.ReactNode[] | React.ReactNode;
+  linksPosition?: "left" | "right";
 }
 
 export interface ScrollSpyLinkInternal {

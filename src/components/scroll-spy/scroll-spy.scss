@@ -5,11 +5,25 @@
 .rc-scroll-spy-wrapper {
   @extend %center;
   align-items: flex-start;
-  column-gap: 6px;
+  column-gap: 2%;
   display: grid;
-  grid-template-columns: 150px auto;
   height: 100%;
   justify-items: center;
+}
+
+.rc-scroll-spy-wrapper-left {
+  grid-template-columns: 150px auto;
+}
+
+.rc-scroll-spy-wrapper-right {
+  grid-template-columns: auto 150px;
+  .rc-scroll-spy-aside {
+    order: 2;
+  }
+
+  .rc-scroll-spy-content {
+    order: 1;
+  }
 }
 
 .rc-scroll-spy-aside {

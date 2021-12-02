@@ -19,7 +19,7 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
     const ref = React.useRef<HTMLLIElement | null>(null);
 
     if (focusable) {
-      useFocus(ref, {}, () => onSelect(index));
+      useFocus(ref, () => onSelect(index));
     }
 
     const rateItemClass = useMemo(

@@ -7,7 +7,7 @@ import React, {
   useId,
   useMemo,
   useRef,
-  useState,
+  useState
 } from "react";
 import { ChevronRightIcon, MinusIcon, PlusIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
@@ -116,7 +116,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     }, [open]);
 
     if (focusable) {
-      useFocus(chevronRef, { bgHighlight: false }, toggleAccordion);
+      useFocus(chevronRef,  toggleAccordion);
     }
 
     useEffect(() => {
@@ -131,7 +131,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       }
     }, [controlledState, open]);
 
-    useFocus(chevronRef, { bgHighlight: false }, toggleAccordion);
+    useFocus(chevronRef, toggleAccordion);
 
     return (
       <div className={accordionClass}>

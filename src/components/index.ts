@@ -25,6 +25,7 @@ export { Radio } from "./radio/radio";
 export { Reveal } from "./reveal/reveal";
 export { ScrollPane } from "./scroll-pane/scroll-pane";
 export { ScrollSpy } from "./scroll-spy/scroll-spy";
+export { Section } from "./section/section";
 export { Sidebar } from "./sidebar/sidebar";
 export { Skeleton } from "./skeleton/skeleton";
 export { Slider } from "./slider/slider";
