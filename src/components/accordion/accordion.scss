@@ -20,12 +20,12 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 .rc-accordion-header {
   @extend %left;
   @include animate.halo();
+  color: colors.$primary;
   cursor: pointer;
   height: $header-height;
   justify-items: center;
   position: relative;
   width: 100%;
-  color: colors.$primary;
 
   &:not(.rc-accordion-align-icon-rt) {
     display: grid;

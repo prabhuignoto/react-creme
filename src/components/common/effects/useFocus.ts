@@ -1,9 +1,6 @@
 import { RefObject, useCallback, useEffect, useRef } from "react";
 
-function useFocus(
-  element: RefObject<HTMLElement>,
-  cb?: () => void
-) {
+function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
   const targetRef = useRef<HTMLElement | null>(null);
 
   const addClass = (ev: FocusEvent | KeyboardEvent) => {
