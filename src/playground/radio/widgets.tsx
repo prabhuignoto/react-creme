@@ -1,10 +1,9 @@
 import React, { CSSProperties, useEffect } from "react";
-import { Radio } from "../../components";
+import { Radio, Section } from "../../components";
 import useMedia from "../useMedia";
 
 const style: CSSProperties = {
   minWidth: "50px",
-  margin: "1rem 0",
 };
 
 function widgets() {
@@ -29,24 +28,30 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <div
-          style={{ ...style, width: `${width}px` }}
-          className="rc-demo-widget"
-        >
-          <Radio label="check" />
-        </div>
-        <div
-          style={{ ...style, width: `${width}px` }}
-          className="rc-demo-widget"
-        >
-          <Radio label="check1" size="md" disabled />
-        </div>
-        <div
-          style={{ ...style, width: `${width}px` }}
-          className="rc-demo-widget"
-        >
-          <Radio label="check2" size="lg" />
-        </div>
+        <Section title="Default render">
+          <div
+            style={{ ...style, width: `${width}px` }}
+            className="rc-demo-widget"
+          >
+            <Radio label="Radio option one" />
+          </div>
+        </Section>
+        <Section title="Checkbox disabled">
+          <div
+            style={{ ...style, width: `${width}px` }}
+            className="rc-demo-widget"
+          >
+            <Radio label="Radio option two" size="md" disabled />
+          </div>
+        </Section>
+        <Section title="Custom Size">
+          <div
+            style={{ ...style, width: `${width}px` }}
+            className="rc-demo-widget"
+          >
+            <Radio label="Radio option three" size="lg" />
+          </div>
+        </Section>
       </div>
     )
   );

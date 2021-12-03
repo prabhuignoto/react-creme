@@ -6,6 +6,7 @@ function radio() {
   return (
     <DemoPageRenderer
       demoWidget={<Widgets />}
+      renderPropertiesOnSamePage
       data={[
         {
           name: "<em>id</em>",

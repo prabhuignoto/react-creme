@@ -140,9 +140,10 @@ body, html, button, div, section, ul, span {
 }
 
 .rc-demo-widgets-wrapper {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   padding-top: 2rem;
   width: 100%;
 }
@@ -151,7 +152,6 @@ body, html, button, div, section, ul, span {
   align-items: center;
   display: flex;
   flex-direction: column;
-  min-height: 1200px;
   width: 90%;
 }
 
