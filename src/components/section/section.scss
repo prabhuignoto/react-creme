@@ -21,7 +21,14 @@
 
 .rc-section-body {
   @extend %left;
-  min-height: calc(100% - 30px);
   padding: 1rem;
   width: 100%;
+
+  &:not(.rc-section-no-title) {
+    min-height: calc(100% - 30px);
+  }
+
+  &.rc-section-no-title {
+    min-height: 100%;
+  }
 }

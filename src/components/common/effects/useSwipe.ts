@@ -26,7 +26,8 @@ const useSwipe: (ref: RefObject<HTMLElement | null>) => SwipeState = (ref) => {
 
     const _rect = rect.current;
 
-    const { clientX, clientY } = ev instanceof TouchEvent ? ev.touches[0] : ev;
+    const { clientX, clientY } =
+      ev instanceof window.TouchEvent ? ev.touches[0] : ev;
 
     ref.current?.setAttribute("disabled", "true");
 

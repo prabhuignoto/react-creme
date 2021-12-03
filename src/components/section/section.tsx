@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { CSSProperties, useMemo } from "react";
 import { SectionModel } from "./section-model";
 import "./section.scss";
@@ -25,10 +26,19 @@ const Section: React.FC<SectionModel> = ({
     []
   );
 
+  const sectionClass = useMemo(
+    () =>
+      classNames("rc-section-body", {
+        [`rc-section-${layout}`]: true,
+        "rc-section-no-title": !title,
+      }),
+    [layout, title]
+  );
+
   return (
-    <div className="rc-section" style={sectionStyle}>
+    <div style={sectionStyle} className={"rc-section"}>
       {title && <div className="rc-section-header">{title}</div>}
-      <div className="rc-section-body" style={bodyStyle}>
+      <div style={bodyStyle} className={sectionClass}>
         {children}
       </div>
     </div>

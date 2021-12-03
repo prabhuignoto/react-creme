@@ -9,6 +9,7 @@
   &.rc-radio-group-row {
     @extend %center;
     flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
   &.rc-radio-group-column {

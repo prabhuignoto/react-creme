@@ -45,7 +45,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
 
   const handleClick = () => {
     if (!disabled) {
-      onClick && onClick();
+      onClick?.();
     }
   };
 

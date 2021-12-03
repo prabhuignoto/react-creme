@@ -164,7 +164,7 @@ const List: React.FunctionComponent<ListModel> = ({
     }
   }, []);
 
-  const handleScroll = useDebouncedCallback(setRange, 50);
+  const handleScroll = useDebouncedCallback(setRange, 50, { leading: true });
 
   const onListRef = useCallback((el) => {
     if (el) {

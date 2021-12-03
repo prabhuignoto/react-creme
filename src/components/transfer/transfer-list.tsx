@@ -1,17 +1,15 @@
 import React from "react";
 import { List } from "../list/list";
-import { ListOption } from "../list/list-model";
-import { TransferList as TransferListModel } from "./transfer-model";
-
-export interface TransferListProps {
-  listId: TransferListModel;
-  options: ListOption[];
-  onSelection: (selected: ListOption[]) => void;
-  enableSearch?: boolean;
-}
+import { TransferListProps } from "./transfer-model";
 
 const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
-  ({ listId, options, onSelection, enableSearch }: TransferListProps) => {
+  ({
+    listId,
+    options,
+    onSelection,
+    enableSearch,
+    virtualize,
+  }: TransferListProps) => {
     return (
       <List
         options={options
@@ -27,6 +25,7 @@ const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
         onSelection={onSelection}
         itemHeight={40}
         enableSearch={enableSearch}
+        virtualized={virtualize}
       />
     );
   }

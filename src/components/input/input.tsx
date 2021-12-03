@@ -30,7 +30,7 @@ const Input: React.FunctionComponent<InputModel> = React.memo(
     const ref = useRef(null);
 
     const debouncedOnChange = onChange
-      ? useDebouncedCallback(onChange, 250)
+      ? useDebouncedCallback(onChange, 150)
       : null;
 
     const handleClear = useCallback((ev: React.MouseEvent) => {

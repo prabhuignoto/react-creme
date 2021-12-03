@@ -134,7 +134,7 @@ body, html, button, div, section, ul, span {
 .rc-demo-widget {
   align-items: center;
   display: flex;
-  margin: 2rem 0;
+  margin: 1rem 0;
   place-content: flex-start;
   width: 100%;
 }

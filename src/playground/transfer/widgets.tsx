@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Transfer } from "../../components";
+import { Section, Transfer } from "../../components";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -24,16 +24,41 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <div className="rc-demo-widget">
-          <div style={{ width: `${width}px` }}>
-            <Transfer
-              list1={["one", "two", "five", "six"]}
-              list2={["three", "four", "seven", "eight"]}
-              onChange={(val, val2) => console.log(val, val2)}
-              enableSearch
-            />
+        <Section title="Default render">
+          <div className="rc-demo-widget">
+            <div style={{ width: `${width}px` }}>
+              <Transfer
+                list1={["one", "two", "five", "six"]}
+                list2={["three", "four", "seven", "eight"]}
+                onChange={(val, val2) => console.log(val, val2)}
+              />
+            </div>
           </div>
-        </div>
+        </Section>
+        <Section title="Search">
+          <div className="rc-demo-widget">
+            <div style={{ width: `${width}px` }}>
+              <Transfer
+                list1={[
+                  "one",
+                  "two",
+                  "five",
+                  "six",
+                  "nine",
+                  "ten",
+                  "thirteen",
+                  "fourteen",
+                  "seventeen",
+                  "eighteen",
+                ]}
+                list2={["three", "four", "seven", "eight"]}
+                onChange={(val, val2) => console.log(val, val2)}
+                enableSearch
+                virtualize
+              />
+            </div>
+          </div>
+        </Section>
       </div>
     )
   );

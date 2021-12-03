@@ -25,6 +25,7 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
   list2,
   onChange,
   enableSearch = false,
+  virtualize = false,
 }) => {
   const [leftList, setLeftList] = useState<TransferListInternalModel[]>(
     initMapper(list1)
@@ -110,6 +111,7 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
             options={leftList as ListOption[]}
             onSelection={handleListSelectionLeft}
             enableSearch={enableSearch}
+            virtualize={virtualize}
           />
         ) : null}
       </section>

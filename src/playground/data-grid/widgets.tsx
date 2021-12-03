@@ -66,6 +66,7 @@ function widgets() {
           <div className="rc-demo-widget" style={{ width: `${width}px` }}>
             <DataGrid
               layoutStyle="compact"
+              fixedHeight
               border
               columns={[
                 { name: "name", type: "string" },
