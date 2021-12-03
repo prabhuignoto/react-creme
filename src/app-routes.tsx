@@ -38,6 +38,7 @@ import Tags from "./playground/tags";
 import Tooltip from "./playground/tooltip";
 import Transfer from "./playground/transfer";
 import Tree from "./playground/tree";
+import Draggable from "./playground/draggable";
 
 function AppRoutes() {
   return (
@@ -351,6 +352,14 @@ function AppRoutes() {
         element={
           <div className="section-content">
             <Section />
+          </div>
+        }
+      />
+      <Route
+        path="/draggable"
+        element={
+          <div className="section-content">
+            <Draggable />
           </div>
         }
       />

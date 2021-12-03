@@ -39,6 +39,7 @@ const SidebarHome = React.memo(() => {
               { name: "Reveal" },
               { name: "scroll spy" },
               { name: "section" },
+              { name: "draggable" },
             ],
           },
           {

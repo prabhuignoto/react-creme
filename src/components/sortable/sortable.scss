@@ -1,0 +1,7 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+
+.rc-sortable-wrapper {
+  @extend %center;
+}
+
