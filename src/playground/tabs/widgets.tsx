@@ -15,7 +15,7 @@ function widgets() {
     } else if (media.isMobile) {
       setWidth(450);
     } else if (media.isBigScreen) {
-      setWidth(850);
+      setWidth(750);
     } else if (media.isDesktop) {
       setWidth(650);
     }
@@ -25,10 +25,7 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Flat tabs">
-          <div
-            style={{ width: `${width}px`, margin: "1rem 0" }}
-            className="rc-demo-widget"
-          >
+          <div style={{ width: `${width}px` }} className="rc-demo-widget">
             <Tabs
               labels={[
                 "one",
@@ -58,10 +55,7 @@ function widgets() {
           </div>
         </Section>
         <Section title="Rounded tabs">
-          <div
-            style={{ width: `${width}px`, margin: "1rem 0" }}
-            className="rc-demo-widget"
-          >
+          <div style={{ width: `${width}px` }} className="rc-demo-widget">
             <Tabs
               labels={["one", "two", "three"]}
               border={false}
@@ -74,10 +68,7 @@ function widgets() {
           </div>
         </Section>
         <Section title="Rounded tabs with scroll">
-          <div
-            style={{ width: `${width}px`, margin: "1rem 0" }}
-            className="rc-demo-widget"
-          >
+          <div style={{ width: `${width}px` }} className="rc-demo-widget">
             <Tabs
               labels={[
                 "one",
@@ -107,10 +98,7 @@ function widgets() {
           </div>
         </Section>
         <Section title="Flat tabs (Disabled)">
-          <div
-            style={{ width: `${width}px`, margin: "1rem 0" }}
-            className="rc-demo-widget"
-          >
+          <div style={{ width: `${width}px` }} className="rc-demo-widget">
             <Tabs
               labels={["one", "two", "three"]}
               tabStyle="flat"

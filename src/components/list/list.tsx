@@ -50,7 +50,7 @@ const List: React.FunctionComponent<ListModel> = ({
   onSelection,
   options = [],
   rowGap = 5,
-  showCheckIcon = true,
+  showCheckIcon = false,
   virtualized = false,
   focusable = false,
 }: ListModel) => {
@@ -164,7 +164,7 @@ const List: React.FunctionComponent<ListModel> = ({
     }
   }, []);
 
-  const handleScroll = useDebouncedCallback(setRange, 50, { leading: true });
+  const handleScroll = useDebouncedCallback(setRange);
 
   const onListRef = useCallback((el) => {
     if (el) {

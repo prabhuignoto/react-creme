@@ -9,12 +9,16 @@ function widgets() {
     >
       <Section title="Switch - default">
         <div style={{ width: "100px" }} className="rc-demo-widget">
-          <Switch label="Settings" checked />
+          <Switch
+            label="Settings"
+            checked
+            onChange={(val) => console.log(val)}
+          />
         </div>
       </Section>
       <Section title="Switch with label outside">
         <div style={{ width: "150px" }} className="rc-demo-widget">
-          <Switch label="Settings" labelOutside checked focusable={false} />
+          <Switch label="Settings" labelOutside checked focusable={true} />
         </div>
       </Section>
       <Section title="Disabled">
@@ -29,7 +33,7 @@ function widgets() {
       </Section>
       <Section title="Extra large">
         <div style={{ width: "250px" }} className="rc-demo-widget">
-          <Switch label="Mookupodi" size="lg" labelOutside />
+          <Switch label="Show settings" size="lg" labelOutside />
         </div>
       </Section>
     </div>

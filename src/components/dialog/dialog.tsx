@@ -13,7 +13,6 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
   isClosing,
   onClose,
   onSuccess,
-  showClose,
   title,
   width = 300,
   height = 200,

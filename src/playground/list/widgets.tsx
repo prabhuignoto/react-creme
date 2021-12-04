@@ -18,7 +18,7 @@ function Widgets() {
     } else if (media.isBigScreen) {
       setWidth(650);
     } else if (media.isDesktop) {
-      setWidth(650);
+      setWidth(500);
     }
   }, [media]);
 
@@ -29,8 +29,7 @@ function Widgets() {
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <List
-                maxHeight={250}
-                virtualized
+                maxHeight={350}
                 onSelection={(val) => console.log(val)}
                 options={Array.from({ length: 500 }, (_, i) => ({
                   name: `Item ${i}`,
@@ -46,6 +45,7 @@ function Widgets() {
               <List
                 onSelection={(val) => console.log(val)}
                 allowMultiSelection
+                maxHeight={350}
                 options={[
                   {
                     name: "india is a huge country with a enormous land and rivers india is a huge country with a enormous land and rivers",
@@ -64,9 +64,25 @@ function Widgets() {
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <List
-                maxHeight={300}
+                maxHeight={400}
                 virtualized
                 enableSearch
+                onSelection={(val) => console.log(val)}
+                options={Array.from({ length: 500 }, (_, i) => ({
+                  name: `Item ${i}`,
+                  value: `Item ${i}`,
+                }))}
+              />
+            </div>
+          </div>
+        </Section>
+        <Section title="Virtualized">
+          <div className="rc-demo-widget">
+            <div style={{ width: `${width}px` }}>
+              <List
+                maxHeight={350}
+                virtualized
+                showCheckIcon
                 onSelection={(val) => console.log(val)}
                 options={Array.from({ length: 500 }, (_, i) => ({
                   name: `Item ${i}`,

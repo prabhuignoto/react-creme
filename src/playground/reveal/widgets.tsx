@@ -2,11 +2,19 @@ import React, { CSSProperties, useEffect } from "react";
 import { Image, Reveal } from "../../components";
 import useMedia from "../useMedia";
 
-const imageWrapStyle = {
-  height: "400px",
+const blankStyle = {
+  minHeight: "1200px",
   display: "flex",
-  placeContent: "center center",
-  alignItems: "center",
+  alignItems: "flex-start",
+  justifyContent: "center",
+  fontSize: "1.2rem",
+  paddingTop: "200px",
+} as CSSProperties;
+
+const imageWrapStyle = {
+  width: "450px",
+  display: "flex",
+  margin: "0 auto",
 } as CSSProperties;
 
 function widgets() {
@@ -20,76 +28,71 @@ function widgets() {
       return;
     }
     if (media.isTablet) {
-      setWidth(500);
+      setWidth(650);
     } else if (media.isMobile) {
-      setWidth(400);
-    } else if (media.isBigScreen) {
-      setWidth(500);
-    } else if (media.isDesktop) {
       setWidth(450);
+    } else if (media.isDesktop) {
+      setWidth(750);
+    } else if (media.isBigScreen) {
+      setWidth(850);
     }
   }, [media]);
 
   return (
     width > 0 && (
-      <div
-        className="rc-demo-widget"
-        style={{
-          height: "600px",
-          overflow: "auto",
-          border: "1px solid #ccc",
-          display: "flex",
-          flexDirection: "column",
-        }}
-        ref={ref}
-      >
+      <div className="rc-demo-widget" ref={ref}>
         <div
           style={{
-            marginTop: "2000px",
-            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            width: `${width}px`,
+            height: "750px",
+            overflowY: "auto",
+            overflowX: "hidden",
           }}
         >
+          <div style={blankStyle}>⬇️ Scroll Down ⬇️</div>
           <Reveal parent={ref}>
-            <div style={{ ...imageWrapStyle }}>
-              <Image
-                width={width}
-                height={500}
-                expandOnClick
-                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3083&q=60"
-              />
-            </div>
+            <p style={imageWrapStyle}>
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by
+              injected humour, or randomised words which dont look even slightly
+              believable. If you are going to use a passage of Lorem Ipsum, you
+              need to be sure there isnt anything embarrassing hidden in the
+              middle of text. All the Lorem Ipsum generators on the Internet
+              tend to repeat predefined chunks as necessary, making this the
+              first true generator on the Internet. It uses a dictionary of over
+              200 Latin words, combined with a handful of model sentence
+              structures, to generate Lorem Ipsum which looks reasonable. The
+              generated Lorem Ipsum is therefore always free from repetition,
+              injected humour, or non-characteristic words etc.
+            </p>
           </Reveal>
-        </div>
-        <div
-          style={{
-            width: "100%",
-          }}
-        >
+          <div style={blankStyle}>⬇️ Scroll Down ⬇️</div>
           <Reveal parent={ref}>
-            <div style={{ ...imageWrapStyle }}>
-              <Image
-                width={width}
-                height={300}
-                expandOnClick
-                src="https://mmc.tirto.id/image/otf/500x0/2016/07/26/TIRTO-20140522_batman_warner-bros_ratio-16x9.jpg"
-              />
-            </div>
+            <Image
+              width={width}
+              height={300}
+              expandOnClick
+              src="https://mmc.tirto.id/image/otf/500x0/2016/07/26/TIRTO-20140522_batman_warner-bros_ratio-16x9.jpg"
+            />
           </Reveal>
-        </div>
-        <div
-          style={{
-            width: "100%",
-          }}
-        >
+          <div style={blankStyle}>⬇️ Scroll Down ⬇️</div>
           <Reveal parent={ref}>
-            <div style={{ ...imageWrapStyle }}>
-              <Image
-                width={width}
-                height={300}
-                expandOnClick
-                src="https://mmc.tirto.id/image/otf/500x0/2016/07/26/TIRTO-20140522_batman_warner-bros_ratio-16x9.jpg"
-              />
-            </div>
+            <p style={imageWrapStyle}>
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by
+              injected humour, or randomised words which dont look even slightly
+              believable. If you are going to use a passage of Lorem Ipsum, you
+              need to be sure there isnt anything embarrassing hidden in the
+              middle of text. All the Lorem Ipsum generators on the Internet
+              tend to repeat predefined chunks as necessary, making this the
+              first true generator on the Internet. It uses a dictionary of over
+              200 Latin words, combined with a handful of model sentence
+              structures, to generate Lorem Ipsum which looks reasonable. The
+              generated Lorem Ipsum is therefore always free from repetition,
+              injected humour, or non-characteristic words etc.
+            </p>
           </Reveal>
         </div>
       </div>

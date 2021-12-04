@@ -1,12 +1,6 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useFocus } from "../common/effects/useFocus";
 import { SwitchModel } from "./switch-model";
 import "./switch.scss";
@@ -30,20 +24,19 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   const isFirstRender = useRef(true);
 
   // handler
-  const handleToggle = useCallback(() => {
+  const handleToggle = () => {
     if (!disabled) {
-      setState(!state);
-
-      if (onChange) {
-        onChange(!state);
-      }
+      setState((prev) => {
+        if (onChange) {
+          onChange(!prev);
+        }
+        return !prev;
+      });
     }
-  }, [state, disabled]);
+  };
 
   if (focusable) {
-    useFocus(ref, () => {
-      setState((prev) => !prev);
-    });
+    useFocus(ref, handleToggle);
   }
 
   // CSS
@@ -109,7 +102,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   }, []);
 
   const switchTabIndex = useMemo(
-    () => !disabled && { tabIndex: 0 },
+    () => !disabled && focusable && { tabIndex: 0 },
     [disabled]
   );
 

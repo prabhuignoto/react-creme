@@ -4,6 +4,7 @@ export interface ScrollSpyProps {
   links: string[];
   children: React.ReactNode[] | React.ReactNode;
   linksPosition?: "left" | "right";
+  showSectionTitle?: boolean;
 }
 
 export interface ScrollSpyLinkInternal {
