@@ -16,7 +16,7 @@
 
 .rc-dropdown-value-container {
   @extend %border;
-  @extend %shadow-inset; 
+  // @extend %shadow-inset; 
 
   align-items: center;
   cursor: pointer;

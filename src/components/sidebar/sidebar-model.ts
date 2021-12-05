@@ -5,6 +5,7 @@ export interface SidebarModel {
   onSelect?: (group: SidebarGroupModel, item: SidebarItemModel) => void;
   enableSearch?: boolean;
   searchPlaceholder?: string;
+  border?: boolean;
 }
 
 export interface SidebarGroupModel {

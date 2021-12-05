@@ -1,6 +1,12 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { CSSProperties, useCallback, useMemo, useState } from "react";
+import React, {
+  CSSProperties,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { TreeItem } from "./tree-item";
 import { TreeModel } from "./tree-model";
 import "./tree.scss";
@@ -11,9 +17,10 @@ const Tree: React.FunctionComponent<TreeModel> = React.memo(
     childrenSelected,
     height = 200,
     isChildTree,
-    items,
+    items = [],
     onChildToggle,
     width = 100,
+    onChange,
   }: TreeModel) => {
     const [_items, setItems] = useState(
       items.map((item) => ({
@@ -21,6 +28,9 @@ const Tree: React.FunctionComponent<TreeModel> = React.memo(
         ...item,
       }))
     );
+
+    const rootRef = useRef();
+    const [rootWidth, setRootWidth] = useState(0);
 
     const toggleItem = useCallback(
       (id?: string) => {
@@ -37,20 +47,30 @@ const Tree: React.FunctionComponent<TreeModel> = React.memo(
     const treeStyle = useMemo(
       () =>
         ({
-          "--width": `${width}px`,
+          // "--width": `${width}px`,
           "--height": `${height}px`,
+          width: "100%",
         } as CSSProperties),
       []
     );
+
+    const onRootRef = useCallback((node) => {
+      if (node) {
+        rootRef.current = node;
+        setRootWidth(node.clientWidth);
+      }
+    }, []);
 
     return (
       <div
         className={classNames({ "rc-tree-wrapper": !isChildTree })}
         role="tree"
         style={treeStyle}
+        ref={onRootRef}
       >
-        {_items.map(({ id, name, expanded, child }) => (
+        {_items.map(({ id, name, expanded, child, disabled }) => (
           <TreeItem
+            width={rootWidth}
             id={id}
             name={name}
             expanded={expanded}
@@ -60,6 +80,8 @@ const Tree: React.FunctionComponent<TreeModel> = React.memo(
             onChildToggle={onChildToggle}
             allowSelection={allowSelection}
             selected={childrenSelected}
+            onChange={onChange}
+            disabled={disabled}
           />
         ))}
       </div>

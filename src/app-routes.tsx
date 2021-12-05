@@ -11,6 +11,7 @@ import Checkbox from "./playground/checkbox";
 import Comparer from "./playground/comparer";
 import DataGrid from "./playground/data-grid";
 import Dialog from "./playground/dialog";
+import Draggable from "./playground/draggable";
 import Drawer from "./playground/drawer";
 import Dropdown from "./playground/dropdown";
 import Image from "./playground/image";
@@ -38,11 +39,18 @@ import Tags from "./playground/tags";
 import Tooltip from "./playground/tooltip";
 import Transfer from "./playground/transfer";
 import Tree from "./playground/tree";
-import Draggable from "./playground/draggable";
 
 function AppRoutes() {
   return (
     <Routes>
+      <Route
+        path="/"
+        element={
+          <div className="section-content">
+            <Accordion />
+          </div>
+        }
+      />
       <Route
         path="/dropdown"
         element={

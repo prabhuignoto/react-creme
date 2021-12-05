@@ -1,5 +1,6 @@
+import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import { SearchIcon } from "../../icons";
 import { isArray } from "../common/utils";
 import { AccordionGroup, Input, List } from "../index";
@@ -12,6 +13,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   onSelect,
   enableSearch = false,
   searchPlaceholder = "Search ...",
+  border = false,
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)
@@ -74,10 +76,18 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
     [groups.length]
   );
 
+  const sideBarClass = useMemo(
+    () =>
+      classNames("rc-sidebar", {
+        "rc-sidebar-border": border,
+      }),
+    [border]
+  );
+
   return (
-    <div className="rc-sidebar">
-      <div className="rc-sidebar-search-wrapper">
-        {enableSearch && (
+    <div className={sideBarClass}>
+      {enableSearch && (
+        <div className="rc-sidebar-search-wrapper">
           <Input
             type="text"
             enableClear
@@ -86,8 +96,8 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
           >
             <SearchIcon />
           </Input>
-        )}
-      </div>
+        </div>
+      )}
       <AccordionGroup
         titles={_groups.filter((grp) => grp.visible).map((grp) => grp.title)}
         initialState="open"

@@ -5,10 +5,14 @@
 .rc-sidebar {
   @extend %col;
   width: 100%;
+
+  &.rc-sidebar-border {
+    @extend %border;
+  }
 }
 
 .rc-sidebar-search-wrapper {
   @extend %center;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   width: 90%;
 }

@@ -27,6 +27,9 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     onChildToggle,
     allowSelection,
     selected,
+    width,
+    onChange,
+    disabled,
   }: TreeItemModel) => {
     const isFirstRender = useRef(true);
     const [totalItems, setTotalItems] = useState(
@@ -42,8 +45,9 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
         cls("rc-tree-item", {
           "rc-tree-item-exp": expanded,
           "rc-tree-item-collapsed": !expanded,
+          "rc-tree-item-disabled": disabled,
         }),
-      [expanded]
+      [expanded, disabled]
     );
 
     const iconClass = useMemo(
@@ -76,17 +80,18 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     }, []);
 
     useEffect(() => {
-      if (typeof selected !== "undefined") {
+      if (typeof selected !== "undefined" && !disabled) {
         setChecked(selected);
       }
-    }, [selected]);
+    }, [selected, disabled]);
 
     const itemStyle = useMemo(
       () =>
         ({
           "--max-height": `${totalItems * 30}px`,
+          "--max-width": `${width}px`,
         } as CSSProperties),
-      [totalItems]
+      [totalItems, width]
     );
 
     useEffect(() => {
@@ -133,9 +138,24 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
       }
     }, [totalItems, expanded]);
 
+    const handleToggle = useCallback((ev: React.MouseEvent, id: string) => {
+      onToggle?.(id);
+    }, []);
+
+    const onSelect = useCallback(() => {
+      onChange?.(name);
+    }, []);
+
+    const handleOnChange = useCallback((_name) => {
+      onChange?.(`${name} > ${_name}`);
+    }, []);
+
     return (
       <div className={itemClass} style={itemStyle} role="treeitem">
-        <span className={iconClass} onClick={() => onToggle && onToggle(id)}>
+        <span
+          className={iconClass}
+          onClick={(ev) => id && handleToggle(ev, id)}
+        >
           <ChevronRightIcon />
         </span>
         <div className="rc-tree-item-wrapper">
@@ -144,7 +164,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
               <CheckBox
                 label={name || ""}
                 onChange={handleSelection}
-                isChecked={checked}
+                isChecked={selected && !disabled}
                 border={false}
                 autoHeight
                 noHoverStyle
@@ -152,7 +172,9 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
               />
             </span>
           ) : (
-            <span className="rc-tree-item-name">{name}</span>
+            <span className="rc-tree-item-name" onClick={onSelect} tabIndex={0}>
+              {name}
+            </span>
           )}
           <div className={childContainerClass}>
             {controlledExpanded && (
@@ -163,6 +185,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
                   onChildToggle={handler}
                   allowSelection={allowSelection}
                   childrenSelected={checked}
+                  onChange={handleOnChange}
                 />
               </Suspense>
             )}
@@ -172,7 +195,9 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     );
   },
   (prev, cur) =>
-    prev.expanded === cur.expanded && prev.selected === cur.selected
+    prev.expanded === cur.expanded &&
+    prev.selected === cur.selected &&
+    prev.width === cur.width
 );
 
 TreeItem.displayName = "TreeItem";

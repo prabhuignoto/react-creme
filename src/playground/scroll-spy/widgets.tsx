@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { CSSProperties, useEffect, useMemo } from "react";
 import { ScrollSpy, Section } from "../../components";
 import useMedia from "./../useMedia";
 
@@ -37,14 +37,15 @@ function Widgets() {
     }
   }, [media]);
 
+  const style = useMemo(() => {
+    return { width: `${width}px`, height: "650px" } as CSSProperties;
+  }, [width]);
+
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Left aligned links">
-          <div
-            className="rc-demo-widget"
-            style={{ width: `${width}px`, height: "500px" }}
-          >
+          <div className="rc-demo-widget" style={style}>
             <ScrollSpy
               links={[
                 "one",
@@ -64,10 +65,7 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Right aligned links">
-          <div
-            className="rc-demo-widget"
-            style={{ width: `${width}px`, height: "450px" }}
-          >
+          <div className="rc-demo-widget" style={style}>
             <ScrollSpy
               linksPosition="right"
               links={["one", "two", "three", "four", "five"]}

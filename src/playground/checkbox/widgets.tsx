@@ -1,5 +1,5 @@
 import React, { CSSProperties, useEffect, useMemo } from "react";
-import { CheckBox } from "../../components";
+import { CheckBox, Section } from "../../components";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -31,31 +31,37 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <div className="rc-demo-widget" style={style}>
-          <CheckBox
-            label="select"
-            onChange={(ele) => console.log(ele)}
-            focusIcon
-          />
-        </div>
-        <div className="rc-demo-widget" style={style}>
-          <CheckBox
-            label="select the value its too lg"
-            onChange={(ele) => console.log(ele)}
-            size="md"
-            border={false}
-          />
-        </div>
-        <div className="rc-demo-widget" style={style}>
-          <CheckBox
-            label="select"
-            onChange={(ele) => console.log(ele)}
-            isChecked
-            size="lg"
-            border={false}
-            focusIcon
-          />
-        </div>
+        <Section title="Default render">
+          <div className="rc-demo-widget" style={style}>
+            <CheckBox
+              label="select"
+              onChange={(ele) => console.log(ele)}
+              focusIcon
+            />
+          </div>
+        </Section>
+        <Section title="Large size">
+          <div className="rc-demo-widget" style={style}>
+            <CheckBox
+              label="select"
+              onChange={(ele) => console.log(ele)}
+              isChecked
+              size="lg"
+              border={false}
+              focusIcon
+            />
+          </div>
+        </Section>
+        <Section>
+          <div className="rc-demo-widget" style={style}>
+            <CheckBox
+              label="select the value its too lg"
+              onChange={(ele) => console.log(ele)}
+              size="md"
+              border={false}
+            />
+          </div>
+        </Section>
       </div>
     )
   );

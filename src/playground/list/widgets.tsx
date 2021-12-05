@@ -31,7 +31,7 @@ function Widgets() {
               <List
                 maxHeight={350}
                 onSelection={(val) => console.log(val)}
-                options={Array.from({ length: 500 }, (_, i) => ({
+                options={Array.from({ length: 25 }, (_, i) => ({
                   name: `Item ${i}`,
                   value: `Item ${i}`,
                 }))}
