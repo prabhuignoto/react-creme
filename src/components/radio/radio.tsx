@@ -24,6 +24,7 @@ const Radio: React.FunctionComponent<RadioModel> = React.memo(
     style,
     focusable = true,
     withGroup = false,
+    fullWidth = true,
   }: RadioModel) => {
     const idRef = useRef<string>(id || nanoid());
 
@@ -61,8 +62,9 @@ const Radio: React.FunctionComponent<RadioModel> = React.memo(
       return cls("rc-radio-wrapper", {
         [`rc-radio-${size}`]: true,
         "rc-radio-disabled": disabled,
+        "rc-radio-full-width": fullWidth,
       });
-    }, [disabled]);
+    }, [disabled, fullWidth]);
 
     const radioClass = useMemo(
       () =>

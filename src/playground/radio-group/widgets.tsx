@@ -11,13 +11,13 @@ function Widgets() {
       return;
     }
     if (media.isTablet) {
-      setWidth(450);
+      setWidth(200);
     } else if (media.isMobile) {
-      setWidth(350);
-    } else if (media.isBigScreen) {
-      setWidth(400);
+      setWidth(200);
     } else if (media.isDesktop) {
-      setWidth(400);
+      setWidth(200);
+    } else if (media.isBigScreen) {
+      setWidth(200);
     }
   }, [media]);
 
@@ -41,7 +41,7 @@ function Widgets() {
         </Section>
         <Section title="Custom layout">
           <div className="rc-demo-widget">
-            <div style={{ width: `${width}px` }}>
+            <div style={{ width: `${width * 3}px` }}>
               <RadioGroup
                 layout="row"
                 items={[

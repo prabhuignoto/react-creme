@@ -18,13 +18,13 @@ function widgets() {
       return;
     }
     if (media.isTablet) {
-      setWidth(400);
+      setWidth(250);
     } else if (media.isMobile) {
-      setWidth(300);
+      setWidth(250);
     } else if (media.isBigScreen) {
-      setWidth(500);
+      setWidth(250);
     } else if (media.isDesktop) {
-      setWidth(400);
+      setWidth(250);
     }
   }, [media]);
 

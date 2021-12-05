@@ -19,6 +19,7 @@ body, html, button, div, section, ul, span {
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0.5rem;
+  width: 20%;
 }
 
 @media (min-width: 768px) {
@@ -35,21 +36,13 @@ body, html, button, div, section, ul, span {
 
 @media (min-width: 1200px) {
   .app {
-    width: 95%;
+    width: 100%;
   }
 }
 
 @media (min-width: 1600px) {
   .app {
     width: 100%;
-  }
-  
-  .app-aside {
-    width: 20%;
-  }
-  
-  .app-main-section {
-    width: 80%;
   }
 }
 
@@ -71,27 +64,11 @@ body, html, button, div, section, ul, span {
   .app {
     width: 1920px;
   }
-  
-  .app-aside {
-    width: 20%;
-  }
-  
-  .app-main-section {
-    width: 80%;
-  }
 }
 
 @media (min-width: 3840px) {
   .app {
     width: 2560px;
-  }
-
-  .app-aside {
-    width: 20%;
-  }
-
-  .app-main-section {
-    width: 80%;
   }
 }
 
@@ -105,6 +82,7 @@ body, html, button, div, section, ul, span {
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 1rem;
+  width: 80%;
 }
 
 .section-content {

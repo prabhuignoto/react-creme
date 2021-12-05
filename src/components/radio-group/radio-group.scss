@@ -11,15 +11,20 @@
     flex-wrap: wrap;
     justify-content: flex-start;
   }
+}
 
-  &.rc-radio-group-column {
-    @extend %list-left;
+.rc-radio-group-column {
+  @extend %list-left;
+  
+  .rc-radio-grp-item {
+    width: 100%;
   }
 }
 
 .rc-radio-grp-item {
   @extend %list-item-left;
   margin: 0.5rem;
+  // width: 100%;
 
   &.rc-radio-grp-item-disabled {
     @extend %disabled;

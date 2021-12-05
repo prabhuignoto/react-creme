@@ -6,7 +6,7 @@ import "./section.scss";
 const Section: React.FC<SectionModel> = ({
   children,
   title,
-  height = 200,
+  height = 150,
   layout = "row",
 }) => {
   const sectionStyle = useMemo(

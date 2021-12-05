@@ -20,7 +20,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = ({
   disabled,
   size = "sm",
   style,
-  border = true,
+  border = false,
   noHoverStyle = false,
   autoHeight = false,
   focusable = true,

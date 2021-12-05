@@ -8,21 +8,15 @@
 @use "sass:map";
 
 $sizes: (
-  sm: 12px,
-  md: 16px,
-  lg: 20px,
-);
-
-$halo-sizes: (
-  sm: 1.5rem,
-  md: 2rem,
-  lg: 2.5rem,
+  sm: 16px,
+  md: 24px,
+  lg: 28px,
 );
 
 $heights: (
-  sm: 35px,
-  md: 50px,
-  lg: 60px,
+  sm: 32px,
+  md: 48px,
+  lg: 56px,
 );
 
 .rc-radio-wrapper {
@@ -30,8 +24,12 @@ $heights: (
   cursor: pointer;
   display: grid;
   justify-items: center;
-  padding-left: 3%;
-  width: 97%;
+  padding: 0.25rem 0;
+  padding-left: 0.5rem;
+
+  &.rc-radio-full-width {
+    width: 100%;
+  }
 
   &.rc-radio-disabled {
     @extend %disabled;
@@ -49,8 +47,7 @@ $heights: (
 
   @each $key, $val in $heights {
     &.rc-radio-#{$key} {
-      column-gap: 4px;
-      grid-template-columns: map.get($sizes, $key) 1fr;
+      display: flex;
       min-height: $val;
     }
   }
@@ -59,6 +56,7 @@ $heights: (
 .rc-radio {
   @extend %left;
   cursor: pointer;
+  height: 100%;
   position: relative;
   user-select: none;
 
@@ -69,19 +67,19 @@ $heights: (
   @each $key, $val in $sizes {
     &.rc-radio-#{$key} {
       .rc-radio-icon {
+        height: $val;
+        position: relative;
+        width: $val;
+
         &.rc-radio-ico-checked::after {
           @include position.position-abs("center center");
-          height: calc($val/2);
-          width: calc($val/2);
+          background: colors.$primary;
+          border-radius: 100%;
+          content: "";
+          display: block;
+          height: 65%;
+          width: 65%;
         }
-      }
-    }
-  }
-
-  @each $key, $val in $halo-sizes {
-    &.rc-radio-#{$key} {
-      .rc-radio-icon {
-        @extend %icon-#{$key};
       }
     }
   }
@@ -107,28 +105,12 @@ $heights: (
   &.rc-radio-ico-checked {
     background-color: rgba(colors.$secondary, 0.5);
   }
-
-  &.rc-radio-ico-checked::after {
-    @extend %pseudo-common;
-    background: colors.$primary;
-  }
-
-  &.rc-radio-ico-checked::before {
-    @extend %pseudo-common;
-    background: rgba(colors.$primary, 0.1);
-  }
-
-  &.rc-radio-ico-un-checked::before {
-    @extend %pseudo-common;
-    background: rgba(colors.$primary, 0.1);
-  }
 }
 
 .rc-radio-label {
   @extend %left;
   cursor: pointer;
-  padding-left: 2%;
-  width: 98%;
+  padding-left: 0.5rem;
 
   &.rc-radio-disabled {
     @extend %disabled;

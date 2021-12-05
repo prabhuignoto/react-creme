@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1638716044916" clover="3.2.0">
-  <project timestamp="1638716044916" name="All files">
-    <metrics statements="2284" coveredstatements="1583" conditionals="1255" coveredconditionals="612" methods="713" coveredmethods="419" elements="4252" coveredelements="2614" complexity="0" loc="2284" ncloc="2284" packages="43" files="89" classes="89"/>
+<coverage generated="1638730079834" clover="3.2.0">
+  <project timestamp="1638730079835" name="All files">
+    <metrics statements="2284" coveredstatements="1583" conditionals="1256" coveredconditionals="613" methods="713" coveredmethods="419" elements="4253" coveredelements="2615" complexity="0" loc="2284" ncloc="2284" packages="43" files="89" classes="89"/>
     <package name="components">
       <metrics statements="38" coveredstatements="38" conditionals="0" coveredconditionals="0" methods="38" coveredmethods="6"/>
       <file name="index.ts" path="D:\Projects\2020\react-phalladium\src\components\index.ts">
@@ -1594,9 +1594,9 @@
       </file>
     </package>
     <package name="components.radio">
-      <metrics statements="39" coveredstatements="39" conditionals="26" coveredconditionals="22" methods="12" coveredmethods="12"/>
+      <metrics statements="39" coveredstatements="39" conditionals="27" coveredconditionals="23" methods="12" coveredmethods="12"/>
       <file name="radio.tsx" path="D:\Projects\2020\react-phalladium\src\components\radio\radio.tsx">
-        <metrics statements="39" coveredstatements="39" conditionals="26" coveredconditionals="22" methods="12" coveredmethods="12"/>
+        <metrics statements="39" coveredstatements="39" conditionals="27" coveredconditionals="23" methods="12" coveredmethods="12"/>
         <line num="1" count="14" type="stmt"/>
         <line num="2" count="14" type="stmt"/>
         <line num="3" count="14" type="stmt"/>
@@ -1604,38 +1604,38 @@
         <line num="11" count="14" type="stmt"/>
         <line num="13" count="14" type="stmt"/>
         <line num="15" count="14" type="stmt"/>
-        <line num="28" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="30" count="12" type="stmt"/>
-        <line num="32" count="12" type="stmt"/>
-        <line num="34" count="12" type="stmt"/>
-        <line num="36" count="12" type="stmt"/>
-        <line num="38" count="12" type="stmt"/>
-        <line num="40" count="12" type="stmt"/>
-        <line num="41" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="42" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="47" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="56" count="12" type="cond" truecount="1" falsecount="1"/>
-        <line num="57" count="12" type="stmt"/>
-        <line num="60" count="12" type="stmt"/>
-        <line num="61" count="6" type="stmt"/>
-        <line num="67" count="12" type="stmt"/>
-        <line num="69" count="8" type="stmt"/>
-        <line num="77" count="12" type="stmt"/>
-        <line num="78" count="8" type="stmt"/>
-        <line num="84" count="12" type="stmt"/>
-        <line num="85" count="6" type="stmt"/>
-        <line num="90" count="12" type="stmt"/>
-        <line num="91" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="92" count="7" type="stmt"/>
-        <line num="96" count="12" type="stmt"/>
-        <line num="97" count="8" type="stmt"/>
-        <line num="106" count="12" type="stmt"/>
+        <line num="29" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="12" type="stmt"/>
+        <line num="33" count="12" type="stmt"/>
+        <line num="35" count="12" type="stmt"/>
+        <line num="37" count="12" type="stmt"/>
+        <line num="39" count="12" type="stmt"/>
+        <line num="41" count="12" type="stmt"/>
+        <line num="42" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="43" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="48" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="57" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="58" count="12" type="stmt"/>
+        <line num="61" count="12" type="stmt"/>
+        <line num="62" count="6" type="stmt"/>
+        <line num="69" count="12" type="stmt"/>
+        <line num="71" count="8" type="stmt"/>
+        <line num="79" count="12" type="stmt"/>
+        <line num="80" count="8" type="stmt"/>
+        <line num="86" count="12" type="stmt"/>
+        <line num="87" count="6" type="stmt"/>
+        <line num="92" count="12" type="stmt"/>
+        <line num="93" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="94" count="7" type="stmt"/>
+        <line num="98" count="12" type="stmt"/>
+        <line num="99" count="8" type="stmt"/>
         <line num="108" count="12" type="stmt"/>
-        <line num="126" count="2" type="stmt"/>
-        <line num="133" count="14" type="stmt"/>
+        <line num="110" count="12" type="stmt"/>
+        <line num="128" count="2" type="stmt"/>
         <line num="135" count="14" type="stmt"/>
+        <line num="137" count="14" type="stmt"/>
       </file>
     </package>
     <package name="components.radio-group">
@@ -1669,7 +1669,7 @@
         <line num="65" count="2" type="stmt"/>
         <line num="72" count="3" type="stmt"/>
         <line num="75" count="6" type="stmt"/>
-        <line num="97" count="13" type="stmt"/>
+        <line num="99" count="13" type="stmt"/>
       </file>
     </package>
     <package name="components.rate">

@@ -12,21 +12,24 @@ const data = [
         name: "three",
         child: [
           {
-            name: "three to the three to the four, three to the three to the four",
+            name: "This is a long text that should be truncated",
           },
-          { name: "pop" },
-          { name: "pop" },
-          { name: "pop" },
-          { name: "pop" },
+          { name: "four" },
+          { name: "five" },
+          { name: "six" },
+          { name: "seven" },
           {
-            name: "pop",
+            name: "eight",
             child: [
-              { name: "pop" },
-              { name: "pop" },
+              { name: "nine" },
+              { name: "ten" },
               {
-                name: "pop",
-                disabled: true,
-                child: [{ name: "pop" }, { name: "pop" }, { name: "pop" }],
+                name: "eleven",
+                child: [
+                  { name: "twelve" },
+                  { name: "thirteen" },
+                  { name: "fourteen" },
+                ],
               },
             ],
           },
@@ -35,12 +38,12 @@ const data = [
     ],
   },
   {
-    name: "five",
+    name: "sixteen",
     disabled: true,
-    child: [{ name: "pop" }, { name: "pop" }, { name: "pop" }],
+    child: [{ name: "seventeen" }, { name: "eighteen" }, { name: "nineteen" }],
   },
-  { name: "six", child: [{ name: "prabhu" }] },
-  { name: "seven" },
+  { name: "twenty", child: [{ name: "twenty one" }] },
+  { name: "twenty two" },
 ];
 
 function Widgets() {

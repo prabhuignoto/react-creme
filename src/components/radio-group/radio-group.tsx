@@ -87,6 +87,8 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
             disabled={disabled}
             isControlled
             withGroup
+            size="sm"
+            fullWidth={layout === "column"}
           />
         </li>
       ))}
