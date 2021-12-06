@@ -5,6 +5,8 @@ import Widgets from "./widgets";
 function rate() {
   return (
     <DemoPageRenderer
+      title="Rate"
+      description="Rate is a component that allows users to rate something."
       data={[
         {
           name: "<em>icon</em>",

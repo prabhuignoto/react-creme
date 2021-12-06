@@ -1,5 +1,5 @@
 import React from "react";
-import { Section, Tree } from "../../components";
+import { BlockQuote, Section, Tree } from "../../components";
 
 const data = [
   {
@@ -59,6 +59,10 @@ function Widgets() {
         </div>
       </Section>
       <Section title="Selection Mode">
+        <BlockQuote>
+          In selection mode, individual nodes with its children can be selected
+          through the checkbox
+        </BlockQuote>
         <div style={{ width: "300px" }} className="rc-demo-widget">
           <Tree height={400} allowSelection items={data} />
         </div>

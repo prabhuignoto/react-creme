@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Card, Image, Section, Skeleton } from "../../components";
+import { BlockQuote, Card, Image, Section, Skeleton } from "../../components";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -26,6 +26,9 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Card shadowed">
+          <BlockQuote>
+            There are slots for header, footer and the main content.
+          </BlockQuote>
           <div
             style={{ width: `${width}px`, marginTop: "2rem" }}
             className="rc-demo-widget"
@@ -47,6 +50,7 @@ function widgets() {
           </div>
         </Section>
         <Section title="Card without shadow">
+          <BlockQuote>Card with no shadow but with a border.</BlockQuote>
           <div
             style={{ margin: "1rem 0", width: `${width}px` }}
             className="rc-demo-widget"

@@ -5,6 +5,9 @@ import Widgets from "./widgets";
 function switchComponent() {
   return (
     <DemoPageRenderer
+      title="Switch"
+      description={`Toggle switch (known as “toggles”) is a UI control that has two mutually-exclusive states, such as ON and OFF.
+      The design and functionality of this control is based on a physical switch that allows users to turn things ON or OFF`}
       data={[
         {
           name: "<em>label</em>",
@@ -63,7 +66,7 @@ function switchComponent() {
           type: "Function",
         },
       ]}
-      tabTitles={["Switch", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

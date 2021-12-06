@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Card, Image, RadioGroup, Section, Tooltip } from "../../components";
+import {
+  BlockQuote,
+  Card,
+  Image,
+  RadioGroup,
+  Section,
+  Tooltip,
+} from "../../components";
 import { ToolTipPosition } from "../../components/tooltip/tooltip-model";
 import useMedia from "../useMedia";
 
@@ -29,6 +36,9 @@ const Widgets = () => {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section>
+          <BlockQuote>
+            The Component supports 12 different docking positions.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <RadioGroup
               layout="row"
@@ -51,6 +61,9 @@ const Widgets = () => {
           </div>
         </Section>
         <Section title="On Hover">
+          <BlockQuote>
+            The Tooltip is activated by hovering over the target element.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <Tooltip
               message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
@@ -71,6 +84,9 @@ const Widgets = () => {
           </div>
         </Section>
         <Section title="Static Tooltip">
+          <BlockQuote>
+            The Tooltip can also be configured to be static.
+          </BlockQuote>
           <div className="rc-demo-widget" style={{ width: `${width}px` }}>
             <Tooltip
               message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"

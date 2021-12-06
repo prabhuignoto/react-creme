@@ -5,7 +5,9 @@ import Widgets from "./widgets";
 function accordion() {
   return (
     <DemoPageRenderer
-      tabTitles={["Accordion", "Properties"]}
+      title="Accordion"
+      description="Accordion is a collapsible component that can be used to hide or expose collapsible content."
+      tabTitles={["Examples", "Properties"]}
       data={[
         {
           name: "<em>id</em>",

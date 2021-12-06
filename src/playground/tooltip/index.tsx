@@ -5,6 +5,8 @@ import { Widgets } from "./tooltip-widgets";
 function tooltip() {
   return (
     <DemoPageRenderer
+      title="Tooltip"
+      description="Tooltip is a small overlay that displays a message when a user hovers over an element."
       data={[
         {
           name: "<em>position</em>",
@@ -44,7 +46,7 @@ function tooltip() {
           type: "Boolean",
         },
       ]}
-      tabTitles={["tooltip", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

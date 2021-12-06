@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Dropdown, Section } from "../../components";
+import { BlockQuote, Dropdown, Section } from "../../components";
 import useMedia from "../useMedia";
 
 function Widgets() {
@@ -42,6 +42,9 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Multi selection">
+          <BlockQuote>
+            With multi selection, you can select multiple options.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <Dropdown
@@ -73,6 +76,9 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Search">
+          <BlockQuote>
+            Available options can be filtered by typing in the search box.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <Dropdown
@@ -92,6 +98,10 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Virtualized">
+          <BlockQuote>
+            With virtualized, the options are rendered only when they are in the
+            viewport of the menu.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <Dropdown

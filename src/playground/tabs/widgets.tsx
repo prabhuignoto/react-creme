@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Section, Tabs } from "../../components";
+import { BlockQuote, Section, Tabs } from "../../components";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -25,6 +25,10 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Flat tabs">
+          <BlockQuote>
+            In flat mode, the tabs are rendered as a horizontal list of tabs
+            with a flat accent.
+          </BlockQuote>
           <div style={{ width: `${width}px` }} className="rc-demo-widget">
             <Tabs
               labels={[
@@ -55,6 +59,10 @@ function widgets() {
           </div>
         </Section>
         <Section title="Rounded tabs">
+          <BlockQuote>
+            In rounded mode, the tabs are rendered as a horizontal list of tabs
+            with rounded borders.
+          </BlockQuote>
           <div style={{ width: `${width}px` }} className="rc-demo-widget">
             <Tabs
               labels={["one", "two", "three"]}
@@ -68,6 +76,10 @@ function widgets() {
           </div>
         </Section>
         <Section title="Rounded tabs with scroll">
+          <BlockQuote>
+            When the tabs are too long to fit in the available space, they can
+            be scrolled with the help of the buttons to the right.
+          </BlockQuote>
           <div style={{ width: `${width}px` }} className="rc-demo-widget">
             <Tabs
               labels={[
@@ -98,6 +110,10 @@ function widgets() {
           </div>
         </Section>
         <Section title="Flat tabs (Disabled)">
+          <BlockQuote>
+            Specific tabs can be disabled by passing an array of tab labels to
+            the <em>disabledTabs</em> array
+          </BlockQuote>
           <div style={{ width: `${width}px` }} className="rc-demo-widget">
             <Tabs
               labels={["one", "two", "three"]}

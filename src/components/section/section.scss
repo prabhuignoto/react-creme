@@ -4,16 +4,15 @@
 
 .rc-section {
   @extend %col;
-  height: 100%;
   margin: 1rem 0;
   width: 100%;
 }
 
 .rc-section-header {
   border-bottom: 1px solid colors.$secondary;
-  color: colors.$primary;
-  font-size: 1.1rem;
-  font-weight: 400;
+  color: colors.$black;
+  font-size: 1rem;
+  font-weight: 500;
   height: 30px;
   padding-left: 1rem;
   width: 100%;

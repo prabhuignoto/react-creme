@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { DataGrid, Section } from "../../components";
+import { BlockQuote, DataGrid, Section } from "../../components";
 import useMedia from "../useMedia";
 
 const data = [
@@ -34,9 +34,9 @@ function widgets() {
       return;
     }
     if (media.isTablet) {
-      setWidth(600);
+      setWidth(700);
     } else if (media.isMobile) {
-      setWidth(400);
+      setWidth(450);
     } else if (media.isBigScreen) {
       setWidth(1200);
     } else if (media.isDesktop) {
@@ -48,6 +48,10 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Comfortable View">
+          <BlockQuote>
+            In Comfortable mode, the display density is set to high and is
+            preferred for better readability.
+          </BlockQuote>
           <div className="rc-demo-widget" style={{ width: `${width}px` }}>
             <DataGrid
               layoutStyle="comfortable"
@@ -63,6 +67,11 @@ function widgets() {
           </div>
         </Section>
         <Section title="Compact View">
+          <BlockQuote>
+            In Compact mode, the display density is set to low and is preferred
+            for smaller viewport and when you want to cramp in more rows in the
+            grid.
+          </BlockQuote>
           <div className="rc-demo-widget" style={{ width: `${width}px` }}>
             <DataGrid
               layoutStyle="compact"
@@ -79,6 +88,9 @@ function widgets() {
           </div>
         </Section>
         <Section title="Sortable">
+          <BlockQuote>
+            Individual columns can be configured to be sortable.
+          </BlockQuote>
           <div className="rc-demo-widget" style={{ width: `${width}px` }}>
             <DataGrid
               layoutStyle="comfortable"

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Drawer } from "../../components";
+import { Button, Drawer, Section } from "../../components";
 import useMedia from "../useMedia";
 
 const Widget: React.FunctionComponent = () => {
@@ -28,10 +28,11 @@ const Widget: React.FunctionComponent = () => {
   return (
     <div className="rc-demo-widgets">
       <div className="rc-demo-widget">
-        <Button
-          onClick={() => setOpen(true)}
-          label="Open drawer from right"
-        ></Button>
+        <Section title="Docked to Right" height={100}>
+          <div style={{ width: "100px" }}>
+            <Button onClick={() => setOpen(true)} label="Open drawer"></Button>
+          </div>
+        </Section>
         {open && (
           <Drawer position="right" width={width} onClose={() => setOpen(false)}>
             <span>This is a test</span>
@@ -39,10 +40,11 @@ const Widget: React.FunctionComponent = () => {
         )}
       </div>
       <div className="rc-demo-widget">
-        <Button
-          onClick={() => setOpen2(true)}
-          label="Open drawer from left"
-        ></Button>
+        <Section title="Docked to Left" height={100}>
+          <div style={{ width: "100px" }}>
+            <Button onClick={() => setOpen2(true)} label="Open drawer"></Button>
+          </div>
+        </Section>
         {open2 && (
           <Drawer position="left" width={width} onClose={() => setOpen2(false)}>
             <span>This is a test</span>
@@ -50,10 +52,11 @@ const Widget: React.FunctionComponent = () => {
         )}
       </div>
       <div className="rc-demo-widget">
-        <Button
-          onClick={() => setOpen3(true)}
-          label="Open drawer from top"
-        ></Button>
+        <Section title="Docked to Top" height={100}>
+          <div style={{ width: "100px" }}>
+            <Button onClick={() => setOpen3(true)} label="Open drawer"></Button>
+          </div>
+        </Section>
         {open3 && (
           <Drawer position="top" height={400} onClose={() => setOpen3(false)}>
             <span>This is a test</span>
@@ -61,10 +64,11 @@ const Widget: React.FunctionComponent = () => {
         )}
       </div>
       <div className="rc-demo-widget">
-        <Button
-          onClick={() => setOpen4(true)}
-          label="Open drawer from bottom"
-        ></Button>
+        <Section title="Docked to Bottom" height={100}>
+          <div style={{ width: "100px" }}>
+            <Button onClick={() => setOpen4(true)} label="Open drawer"></Button>
+          </div>
+        </Section>
         {open4 && (
           <Drawer
             position="bottom"

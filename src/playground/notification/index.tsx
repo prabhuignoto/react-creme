@@ -5,6 +5,8 @@ import { Widgets } from "./notification-widgets";
 function notification() {
   return (
     <DemoPageRenderer
+      title="Notification"
+      description="Notification is a component that can be used to display a message to the user."
       data={[
         {
           name: "<em>title</em>",

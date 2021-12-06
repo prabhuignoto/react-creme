@@ -5,6 +5,8 @@ import Widgets from "./widgets";
 function tree() {
   return (
     <DemoPageRenderer
+      title="Tree"
+      description="Tree is a component that displays a hierarchical data structure with expandable/collapsible nodes."
       data={[
         {
           name: "<em>height</em>",
@@ -42,7 +44,7 @@ function tree() {
           type: "function",
         },
       ]}
-      tabTitles={["Tree", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

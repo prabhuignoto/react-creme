@@ -5,6 +5,9 @@ import Widgets from "./widgets";
 function accordionGroup() {
   return (
     <DemoPageRenderer
+      title="Accordion Group"
+      description={`An accordion group is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them.
+      It is one of many ways you can expose content to users`}
       data={[
         {
           name: "<em>alignIconRight</em>",
@@ -42,7 +45,7 @@ function accordionGroup() {
           type: "Boolean",
         },
       ]}
-      tabTitles={["Accordion Group", "Properties"]}
+      tabTitles={["Examples", "Properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

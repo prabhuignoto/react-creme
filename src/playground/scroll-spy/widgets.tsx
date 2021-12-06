@@ -1,5 +1,5 @@
 import React, { CSSProperties, useEffect, useMemo } from "react";
-import { ScrollSpy, Section } from "../../components";
+import { BlockQuote, ScrollSpy, Section } from "../../components";
 import useMedia from "./../useMedia";
 
 const Para = () => (
@@ -45,6 +45,10 @@ function Widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Left aligned links">
+          <BlockQuote>
+            The navigation links are left aligned and clicking on them will
+            scroll to the section of the container that is being spyed on.
+          </BlockQuote>
           <div className="rc-demo-widget" style={style}>
             <ScrollSpy
               links={[
@@ -65,6 +69,10 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Right aligned links">
+          <BlockQuote>
+            The navigation links are right aligned and clicking on them will
+            scroll to the section of the container that is being spyed on.
+          </BlockQuote>
           <div className="rc-demo-widget" style={style}>
             <ScrollSpy
               linksPosition="right"

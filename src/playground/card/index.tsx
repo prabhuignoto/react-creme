@@ -5,8 +5,10 @@ import Widgets from "./widgets";
 function card() {
   return (
     <DemoPageRenderer
-      tabTitles={["card", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
+      title="Card"
+      description="Card is a container for displaying content."
       data={[
         {
           name: "<em>header</em>",

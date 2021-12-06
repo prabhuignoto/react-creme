@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Button, Dialog } from "../../components";
+import { Button, Dialog, Section } from "../../components";
 import useMedia from "../useMedia";
 
 const Widget = () => {
@@ -26,23 +26,25 @@ const Widget = () => {
 
   return (
     <div className="rc-demo-widgets">
-      <div className="rc-demo-widget">
-        <Button
-          size="sm"
-          onClick={() => setOpen(true)}
-          label="Open dialog"
-        ></Button>
-        {open && (
-          <Dialog
-            onClose={() => setOpen(false)}
-            containedToParent={ref}
-            width={width}
-            height={300}
-          >
-            <span>Test dialog content</span>
-          </Dialog>
-        )}
-      </div>
+      <Section title="Default render">
+        <div className="rc-demo-widget">
+          <Button
+            size="sm"
+            onClick={() => setOpen(true)}
+            label="Open dialog"
+          ></Button>
+          {open && (
+            <Dialog
+              onClose={() => setOpen(false)}
+              containedToParent={ref}
+              width={width}
+              height={300}
+            >
+              <span>Test dialog content</span>
+            </Dialog>
+          )}
+        </div>
+      </Section>
     </div>
   );
 };

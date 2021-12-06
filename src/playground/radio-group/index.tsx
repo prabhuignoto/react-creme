@@ -6,6 +6,8 @@ function radioGroup() {
   return (
     <DemoPageRenderer
       demoWidget={<Widgets />}
+      title="Radio Group"
+      description="Radio group is a group of radio buttons."
       tabTitles={["Radio Group", "properties"]}
       data={[
         {

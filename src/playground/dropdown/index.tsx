@@ -5,6 +5,8 @@ import Widgets from "./widgets";
 function dropdown() {
   return (
     <DemoPageRenderer
+      title="Dropdown"
+      description="Dropdown is a component that allows you to select a value from a list of options."
       data={[
         {
           name: "<em>allowMultiSelection</em>",
@@ -56,7 +58,7 @@ function dropdown() {
           type: "Boolean",
         },
       ]}
-      tabTitles={["dropdown", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

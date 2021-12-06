@@ -7,6 +7,8 @@ function sidebar() {
     <DemoPageRenderer
       tabTitles={["Sidebar", "Properties"]}
       demoWidget={<Widgets />}
+      title="Sidebar"
+      description="Sidebar is a container for sidebar items. It can be used to display a list of items in a collapsible sidebar."
       data={[
         {
           name: "<em>groups</em",

@@ -1,6 +1,12 @@
 import React from "react";
 import { useTimer } from "use-timer";
-import { Button, CircularProgress, Progress, Section } from "../../components";
+import {
+  BlockQuote,
+  Button,
+  CircularProgress,
+  Progress,
+  Section,
+} from "../../components";
 
 const Widgets: React.FunctionComponent = () => {
   const { time, start, pause, reset } = useTimer({
@@ -12,7 +18,9 @@ const Widgets: React.FunctionComponent = () => {
     <div className="rc-demo-widgets">
       <Section title="Default rendering">
         <div className="rc-demo-widget">
-          <Button onClick={start} label="Start"></Button>
+          <div style={{ margin: "0 1rem" }}>
+            <Button onClick={start} label="Start"></Button>
+          </div>
           <div style={{ margin: "0 1rem" }}>
             <Button onClick={pause} label="Pause"></Button>
           </div>
@@ -41,6 +49,9 @@ const Widgets: React.FunctionComponent = () => {
         </div>
       </Section>
       <Section title="States">
+        <BlockQuote>
+          The progress bar can be in a success or error state.
+        </BlockQuote>
         <div className="rc-demo-widget">
           <Progress
             type="progressive"
@@ -64,6 +75,9 @@ const Widgets: React.FunctionComponent = () => {
         </div>
       </Section>
       <Section title="Infinite progress">
+        <BlockQuote>
+          Useful for operations that take a long time to complete.
+        </BlockQuote>
         <div className="rc-demo-widget">
           <Progress
             type="infinite"
@@ -76,6 +90,7 @@ const Widgets: React.FunctionComponent = () => {
         </div>
       </Section>
       <Section title="Infinite Progress - Bob">
+        <BlockQuote>Infinite progress with a bob animation</BlockQuote>
         <div className="rc-demo-widget">
           <Progress
             type="infinite"
@@ -89,6 +104,9 @@ const Widgets: React.FunctionComponent = () => {
         </div>
       </Section>
       <Section title="Circular Progress">
+        <BlockQuote>
+          Infinite progress is also available in circular mode.
+        </BlockQuote>
         <div className="rc-demo-widget">
           <CircularProgress size={40} />
         </div>

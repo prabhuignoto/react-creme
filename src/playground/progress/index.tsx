@@ -5,6 +5,9 @@ import Widgets from "./widgets";
 function progress() {
   return (
     <DemoPageRenderer
+      title="Progress"
+      description={`Progress bars are used to show the completion status of an operation.
+      They can be used to show the progress of a task, or the progress of a process.`}
       data={[
         {
           name: "<em>type</em>",

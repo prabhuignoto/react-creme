@@ -5,6 +5,8 @@ import Widgets from "./widgets";
 function comparer() {
   return (
     <DemoPageRenderer
+      title="Image Comparer"
+      description="A Image comparer for comparing two images side by side."
       data={[
         {
           name: "<em>direction</em>",
@@ -28,7 +30,7 @@ function comparer() {
           type: "string",
         },
       ]}
-      tabTitles={["comparer", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

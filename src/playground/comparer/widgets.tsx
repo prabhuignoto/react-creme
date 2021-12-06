@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { ImageComparer, Section } from "../../components";
+import { BlockQuote, ImageComparer, Section } from "../../components";
 import useMedia from "./../useMedia";
 
 function Widgets() {
@@ -24,6 +24,10 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Horizontal Comparison">
+        <BlockQuote>
+          Compare two images side by side horizontally. The drag handle guides
+          the user to the correct position.
+        </BlockQuote>
         <div
           style={{
             height: "502px",
@@ -39,6 +43,10 @@ function Widgets() {
         </div>
       </Section>
       <Section title="Vertical comparison">
+        <BlockQuote>
+          Compare two images side by side vertically. The drag handle guides the
+          user to the correct position.
+        </BlockQuote>
         <div
           style={{
             height: "502px",

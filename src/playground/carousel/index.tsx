@@ -6,6 +6,8 @@ function carousel() {
   return (
     <DemoPageRenderer
       demoWidget={<Widgets />}
+      title="Carousel"
+      description="Carousel is a component that displays a list of items in a carousel."
       data={[
         {
           name: "<em>direction</em>",
@@ -36,7 +38,7 @@ function carousel() {
           type: "Number",
         },
       ]}
-      tabTitles={["carousel", "properties"]}
+      tabTitles={["examples", "properties"]}
     ></DemoPageRenderer>
   );
 }

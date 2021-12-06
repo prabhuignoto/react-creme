@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from "react";
-import { Carousel, Image, Section } from "../../components";
+import { BlockQuote, Carousel, Image, Section } from "../../components";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -30,6 +30,10 @@ function widgets() {
     width && (
       <div className="rc-demo-widgets" style={{ minHeight: "1000px" }}>
         <Section title="Horizontal layout">
+          <BlockQuote>
+            Renders the items in a horizontal layout with navigation controls
+            displayed at the bottom
+          </BlockQuote>
           <div
             style={{
               height: "350px",
@@ -47,6 +51,10 @@ function widgets() {
           </div>
         </Section>
         <Section title="Vertical layout">
+          <BlockQuote>
+            Renders the items in a vertical layout with navigation controls
+            displayed to the left
+          </BlockQuote>
           <div
             style={{ height: "300px", width: resolvedWidth }}
             className="rc-demo-widget"
@@ -75,6 +83,9 @@ function widgets() {
           </div>
         </Section>
         <Section title="Swipable">
+          <BlockQuote>
+            The carousel can be swipable. Swipe left or right to navigate.
+          </BlockQuote>
           <div
             style={{
               height: "300px",

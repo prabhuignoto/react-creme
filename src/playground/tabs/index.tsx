@@ -5,7 +5,9 @@ import Widgets from "./widgets";
 function tabs() {
   return (
     <DemoPageRenderer
-      tabTitles={["Tabs", "properties"]}
+      tabTitles={["examples", "properties"]}
+      title="Tabs"
+      description="Tabs are used to group and organize content. They can be used to switch between views or to navigate between pages in a document."
       data={[
         {
           name: "<em>tabStyle</em>",

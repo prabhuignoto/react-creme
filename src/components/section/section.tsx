@@ -14,7 +14,7 @@ const Section: React.FC<SectionModel> = ({
       ({
         minHeight: `${height}px`,
       } as CSSProperties),
-    []
+    [height]
   );
 
   const bodyStyle = useMemo(

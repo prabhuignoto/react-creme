@@ -5,7 +5,9 @@ import Widgets from "./widgets";
 function tags() {
   return (
     <DemoPageRenderer
-      tabTitles={["tags", "properties"]}
+      tabTitles={["examples", "properties"]}
+      title="Tags"
+      description="Tags are used to group related content."
       data={[
         {
           name: "<em>tagSize</em>",

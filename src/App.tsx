@@ -5,6 +5,25 @@ import { SidebarHome } from "./demo/sidebar/sidebar";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
+import LogoIcon from "./logo";
+
+const Logo = () => (
+  <div className="rc-demo-app-logo">
+    <span className="rc-demo-logo-icon-wrapper">{/* <LogoIcon /> */}</span>
+    React Creme
+  </div>
+);
+
+const GithubLink = () => (
+  <div className="rc-demo-app-github-link">
+    <a href="http://github.com">
+      <img
+        src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+        alt="github"
+      />
+    </a>
+  </div>
+);
 
 function App() {
   return (
@@ -13,7 +32,10 @@ function App() {
         <SidebarHome />
       </aside>
       <section className="app-main-section">
-        <header className="app-header"></header>
+        <header className="app-header">
+          <Logo />
+          <GithubLink />
+        </header>
         <AppRoutes />
       </section>
     </div>

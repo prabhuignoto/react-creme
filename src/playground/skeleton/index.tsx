@@ -5,6 +5,8 @@ import Widgets from "./widgets";
 function skeleton() {
   return (
     <DemoPageRenderer
+      title="Skeleton"
+      description="Skeleton is a lightweight component that can be used to display a loading state."
       data={[
         {
           name: "<em>rows</em>",
@@ -49,7 +51,7 @@ function skeleton() {
           optional: "Yes",
         },
       ]}
-      tabTitles={["Skeleton", "Properties"]}
+      tabTitles={["examples", "Properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

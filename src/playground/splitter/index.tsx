@@ -5,7 +5,9 @@ import Widgets from "./widgets";
 function splitter() {
   return (
     <DemoPageRenderer
-      tabTitles={["Splitter", "properties"]}
+      tabTitles={["examples", "properties"]}
+      description="Splitter is a component that can be used to split the screen into two parts. It can be used to create a left and right panel."
+      title="Splitter"
       data={[
         {
           name: "<em>direction</em>",

@@ -97,11 +97,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   }, [percent, sliderFillRef, trackerRef]);
 
   const value = useMemo(() => {
-    if (sliderValue && !dragging) {
-      return sliderValue;
-    } else {
-      return Math.round((end - start) * percent);
-    }
+    return Math.round((end - start) * percent) + start;
   }, [percent, dragging]);
 
   const sliderWrapperClass = useMemo(

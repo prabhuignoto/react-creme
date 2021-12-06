@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Section, Splitter } from "../../components";
+import { BlockQuote, Section, Splitter } from "../../components";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -25,6 +25,10 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Horizontal mode">
+          <BlockQuote>
+            Splits the container horizontally with a drag handle for resizing
+            and there by controlling the width of the left and right panels.
+          </BlockQuote>
           <div className="rc-demo-widget" style={{ width: `${width}px` }}>
             <Splitter
               dir="horizontal"
@@ -54,6 +58,10 @@ function widgets() {
           </div>
         </Section>
         <Section title="Vertical Mode">
+          <BlockQuote>
+            Splits the container vertically with a drag handle for resizing and
+            there by controlling the height of the top and bottom panels.
+          </BlockQuote>
           <div className="rc-demo-widget" style={{ width: `${width}px` }}>
             <Splitter
               dir="vertical"

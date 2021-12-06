@@ -6,6 +6,8 @@ function list() {
   return (
     <DemoPageRenderer
       demoWidget={<Widgets />}
+      title="List"
+      description="List is a component that displays a list of items."
       data={[
         {
           name: "<em>allowMultiSelection</em>",
@@ -92,7 +94,7 @@ function list() {
           type: "boolean",
         },
       ]}
-      tabTitles={["list", "properties"]}
+      tabTitles={["examples", "properties"]}
     ></DemoPageRenderer>
   );
 }

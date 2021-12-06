@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { AccordionGroup, Image, Section } from "../../components";
+import { AccordionGroup, BlockQuote, Image, Section } from "../../components";
 import useMedia from "../useMedia";
 
 function Widgets() {
@@ -21,6 +21,18 @@ function Widgets() {
     }
   }, [media]);
 
+  const Para = () => (
+    <p>
+      Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit amet justo
+      vel, convallis volutpat neque. Morbi semper odio sed diam tristique, nec
+      tempor neque tempus. Praesent quis ultrices odio. Nulla vestibulum nulla
+      sed massa molestie, quis vulputate risus semper. Phasellus elementum,
+      metus in iaculis sollicitudin, risus elit pulvinar neque, eget pulvinar
+      odio libero eu mi. Vivamus id leo facilisis, tincidunt lacus semper,
+      condimentum est. Nam euismod non eros a lacinia.
+    </p>
+  );
+
   return (
     width > 0 && (
       <div className="rc-demo-widgets" style={{ minHeight: "1200px" }}>
@@ -28,22 +40,7 @@ function Widgets() {
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <AccordionGroup titles={["one", "two"]}>
-                <p>
-                  Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit
-                  amet justo vel, convallis volutpat neque. Morbi semper odio
-                  sed diam tristique, nec tempor neque tempus. Praesent quis
-                  ultrices odio. Nulla vestibulum nulla sed massa molestie, quis
-                  vulputate risus semper. Phasellus elementum, metus in iaculis
-                  sollicitudin, risus elit pulvinar neque, eget pulvinar odio
-                  libero eu mi. Vivamus id leo facilisis, tincidunt lacus
-                  semper, condimentum est. Nam euismod non eros a lacinia. Nam
-                  in maximus quam. Pellentesque dignissim risus sed tellus
-                  fringilla vehicula. Quisque dapibus ex in eros iaculis
-                  ullamcorper. Nulla cursus tortor vitae rutrum tincidunt. Nunc
-                  sit amet lectus ac arcu suscipit bibendum. Nam eu aliquam
-                  dolor. Nam in gravida ipsum. In et urna laoreet, placerat erat
-                  in, tempor lacus.
-                </p>
+                <Para />
                 <div
                   style={{
                     width: "100%",
@@ -57,6 +54,10 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Initial state">
+          <BlockQuote>
+            Set a default state for the AccordionGroup on load. This is useful
+            if you want to keep the accordions closed or open on load.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <AccordionGroup
@@ -65,18 +66,7 @@ function Widgets() {
                 border={false}
                 initialState="open"
               >
-                <p>
-                  Nam faucibus ac magna ac hendrerit. Aenean pulvinar tempus
-                  hendrerit. Proin vitae posuere lectus. Maecenas convallis enim
-                  sit amet sem gravida, eu cursus lacus placerat. Nunc a
-                  venenatis quam. Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. In vel ipsum augue. Etiam blandit, erat a
-                  lacinia dapibus, risus ex molestie erat, eget sagittis est
-                  turpis id lorem. Nunc bibendum pretium velit eget ornare.
-                  Donec sollicitudin odio nec odio posuere egestas. Pellentesque
-                  eu rhoncus massa. Etiam id urna lacus. Integer ante diam,
-                  volutpat non condimentum a, lobortis non eros.
-                </p>
+                <Para />
                 <div
                   style={{
                     width: "100%",
@@ -89,7 +79,11 @@ function Widgets() {
             </div>
           </div>
         </Section>
-        <Section title="Autoclosing Sections">
+        <Section title="Auto Closing Sections">
+          <BlockQuote>
+            The AccordionGroup can be configured to close all other sections
+            when one is open.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <AccordionGroup
@@ -97,41 +91,18 @@ function Widgets() {
                 autoClose
                 border={false}
               >
-                <p>
-                  Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit
-                  amet justo vel, convallis volutpat neque. Morbi semper odio
-                  sed diam tristique, nec tempor neque tempus. Praesent quis
-                  ultrices odio. Nulla vestibulum nulla sed massa molestie, quis
-                  vulputate risus semper. Phasellus elementum, metus in iaculis
-                  sollicitudin, risus elit pulvinar neque, eget pulvinar odio
-                  libero eu mi. Vivamus id leo facilisis, tincidunt lacus
-                  semper, condimentum est. Nam euismod non eros a lacinia.
-                </p>
-                <p>
-                  Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit
-                  amet justo vel, convallis volutpat neque. Morbi semper odio
-                  sed diam tristique, nec tempor neque tempus. Praesent quis
-                  ultrices odio. Nulla vestibulum nulla sed massa molestie, quis
-                  vulputate risus semper. Phasellus elementum, metus in iaculis
-                  sollicitudin, risus elit pulvinar neque, eget pulvinar odio
-                  libero eu mi. Vivamus id leo facilisis, tincidunt lacus
-                  semper, condimentum est. Nam euismod non eros a lacinia.
-                </p>
-                <p>
-                  Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit
-                  amet justo vel, convallis volutpat neque. Morbi semper odio
-                  sed diam tristique, nec tempor neque tempus. Praesent quis
-                  ultrices odio. Nulla vestibulum nulla sed massa molestie, quis
-                  vulputate risus semper. Phasellus elementum, metus in iaculis
-                  sollicitudin, risus elit pulvinar neque, eget pulvinar odio
-                  libero eu mi. Vivamus id leo facilisis, tincidunt lacus
-                  semper, condimentum est. Nam euismod non eros a lacinia.
-                </p>
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <Para key={i} />
+                ))}
               </AccordionGroup>
             </div>
           </div>
         </Section>
         <Section title="Custom Icons and Alignment">
+          <BlockQuote>
+            The AccordionGroup can be configured to use custom icons and
+            alignment
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <AccordionGroup
@@ -140,36 +111,9 @@ function Widgets() {
                 alignIconRight
                 iconType="plus"
               >
-                <p>
-                  Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit
-                  amet justo vel, convallis volutpat neque. Morbi semper odio
-                  sed diam tristique, nec tempor neque tempus. Praesent quis
-                  ultrices odio. Nulla vestibulum nulla sed massa molestie, quis
-                  vulputate risus semper. Phasellus elementum, metus in iaculis
-                  sollicitudin, risus elit pulvinar neque, eget pulvinar odio
-                  libero eu mi. Vivamus id leo facilisis, tincidunt lacus
-                  semper, condimentum est. Nam euismod non eros a lacinia.
-                </p>
-                <p>
-                  Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit
-                  amet justo vel, convallis volutpat neque. Morbi semper odio
-                  sed diam tristique, nec tempor neque tempus. Praesent quis
-                  ultrices odio. Nulla vestibulum nulla sed massa molestie, quis
-                  vulputate risus semper. Phasellus elementum, metus in iaculis
-                  sollicitudin, risus elit pulvinar neque, eget pulvinar odio
-                  libero eu mi. Vivamus id leo facilisis, tincidunt lacus
-                  semper, condimentum est. Nam euismod non eros a lacinia.
-                </p>
-                <p>
-                  Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit
-                  amet justo vel, convallis volutpat neque. Morbi semper odio
-                  sed diam tristique, nec tempor neque tempus. Praesent quis
-                  ultrices odio. Nulla vestibulum nulla sed massa molestie, quis
-                  vulputate risus semper. Phasellus elementum, metus in iaculis
-                  sollicitudin, risus elit pulvinar neque, eget pulvinar odio
-                  libero eu mi. Vivamus id leo facilisis, tincidunt lacus
-                  semper, condimentum est. Nam euismod non eros a lacinia.
-                </p>
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <Para key={i} />
+                ))}
               </AccordionGroup>
             </div>
           </div>

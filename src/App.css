@@ -62,7 +62,7 @@ body, html, button, div, section, ul, span {
 
 @media (min-width: 2560px) {
   .app {
-    width: 1920px;
+    width: 1640px;
   }
 }
 
@@ -81,7 +81,6 @@ body, html, button, div, section, ul, span {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 1rem;
   width: 80%;
 }
 
@@ -110,7 +109,7 @@ body, html, button, div, section, ul, span {
 .rc-demo-widget {
   align-items: center;
   display: flex;
-  margin: 1rem 0;
+  margin: 2rem 0;
   place-content: flex-start;
   width: 100%;
 }
@@ -128,11 +127,63 @@ body, html, button, div, section, ul, span {
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 95%;
 }
 
 .app-header {
-  height: 40px;
+  align-items: center;
+  display: flex;
+  height: 45px;
   margin-bottom: 1rem;
   width: 100%;
+}
+
+.rc-demo-app-logo {
+  align-items: center;
+  color: #3f72af;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.rc-demo-app-logo a {
+  display: block;
+  font-weight: 600;
+  height: 2rem;
+  text-decoration: none;
+  width: 2rem;
+}
+
+.rc-demo-logo-icon-wrapper {
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+}
+
+.rc-demo-logo-icon-wrapper svg {
+  height: 100%;
+  width: 100%;
+}
+
+
+.rc-demo-app-logo svg {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.rc-demo-app-github-link {
+  align-items: center;
+  display: flex;
+  margin-left: auto;
+}
+
+.rc-demo-app-github-link a {
+  height: 2rem;
+  width: 2rem;
+}
+
+.rc-demo-app-github-link img {
+  max-height: 100%;
+  max-width: 100%;
 }

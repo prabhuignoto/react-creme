@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { RadioGroup, Section } from "../../components";
+import { BlockQuote, RadioGroup, Section } from "../../components";
 import useMedia from "../useMedia";
 
 function Widgets() {
@@ -40,6 +40,10 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Custom layout">
+          <BlockQuote>
+            The Layout of the RadioGroup can be customized to either row or
+            column.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width * 3}px` }}>
               <RadioGroup
@@ -55,6 +59,10 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Disabled option">
+          <BlockQuote>
+            Disable specific option by setting the disabled property to true.
+          </BlockQuote>
+
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <RadioGroup

@@ -6,8 +6,10 @@ function transfer() {
   return (
     <DemoPageRenderer
       demoWidget={<Widgets />}
+      title="Transfer"
+      description="Transfer is a component that allows you to transfer items between two lists."
       data={[]}
-      tabTitles={["Transfer", "Properties"]}
+      tabTitles={["examples", "Properties"]}
     ></DemoPageRenderer>
   );
 }

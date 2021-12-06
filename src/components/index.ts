@@ -1,6 +1,7 @@
 export { AccordionGroup } from "./accordion-group/accordion-group";
 export { Accordion } from "./accordion/accordion";
 export { Avatar } from "./avatar/avatar";
+export { BlockQuote } from "./block-quote/block-quote";
 export { BreadCrumb } from "./breadcrumb/breadcrumb";
 export { Button } from "./button/button";
 export { Card } from "./card/card";
@@ -18,6 +19,7 @@ export { List } from "./list/list";
 export { Menu } from "./menu/menu";
 export { MenuBar } from "./menubar/menubar";
 export { Notification } from "./notification/notification";
+export { PageHeader } from "./page-header/page-header";
 export { CircularProgress } from "./progress/circular-progress";
 export { Progress } from "./progress/progress";
 export { RadioGroup } from "./radio-group/radio-group";

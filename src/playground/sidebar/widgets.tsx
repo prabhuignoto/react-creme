@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Section } from "../../components";
+import { BlockQuote, Section } from "../../components";
 import { Sidebar } from "../../components/sidebar/sidebar";
 import useMedia from "../useMedia";
 
@@ -25,6 +25,7 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
+          <BlockQuote>Sections are collapsible by default.</BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <Sidebar
@@ -43,6 +44,9 @@ function widgets() {
           </div>
         </Section>
         <Section title="Search">
+          <BlockQuote>
+            Can optionally include a search bar for filtering the sidebar.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <Sidebar

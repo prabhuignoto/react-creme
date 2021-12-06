@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { BlockQuote } from "../../components";
 import { List } from "../../components/list/list";
 import { Section } from "../../components/section/section";
 import useMedia from "../useMedia";
@@ -40,6 +41,9 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Multi selection mode">
+          <BlockQuote>
+            In Multi selection mode you can select multiple items.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <List
@@ -61,6 +65,9 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Searchable list">
+          <BlockQuote>
+            With searchable list items can be quickly searched.
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <List
@@ -77,6 +84,10 @@ function Widgets() {
           </div>
         </Section>
         <Section title="Virtualized">
+          <BlockQuote>
+            The virtualized list is a performance improvement over the default
+            rendering. It renders only the visible items
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <List

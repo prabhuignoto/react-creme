@@ -1,20 +1,26 @@
 import React from "react";
 import { DataGrid } from "../components/data-grid/data-grid";
+import { PageHeader } from "../components/page-header/page-header";
 import { Tabs } from "../components/tabs/tabs";
 
 interface DemoPageRendererProps {
   demoWidget: React.ReactNode;
   tabTitles: string[];
   data: any[];
+  title?: string;
+  description?: string;
 }
 
 const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
   demoWidget,
   tabTitles,
   data,
+  title,
+  description,
 }) => {
   return (
     <div className="rc-demo-page">
+      {title && <PageHeader title={title}>{description}</PageHeader>}
       <Tabs labels={tabTitles}>
         <div className="rc-demo-widgets-wrapper">{demoWidget}</div>
         <div className="rc-demo-prop-section">

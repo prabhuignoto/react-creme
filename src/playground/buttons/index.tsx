@@ -5,6 +5,8 @@ import Widgets from "./widgets";
 function buttons() {
   return (
     <DemoPageRenderer
+      title="Buttons"
+      description="Buttons are used to perform an action. They can be used in different contexts, such as primary, secondary, danger, or warning."
       data={[
         {
           name: "<em>label</em>",
@@ -56,7 +58,7 @@ function buttons() {
           type: "Boolean",
         },
       ]}
-      tabTitles={["buttons", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

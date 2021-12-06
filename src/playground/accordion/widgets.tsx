@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Accordion, Image, Section } from "../../components";
+import { Accordion, BlockQuote, Image, Section } from "../../components";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -59,6 +59,7 @@ function widgets() {
           </div>
         </Section>
         <Section title="Custom Icon alignment">
+          <BlockQuote>The icon can be aligned to the right</BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <Accordion title="Lorem Ipsum" noBorder alignIconRight>
@@ -93,7 +94,10 @@ function widgets() {
             </div>
           </div>
         </Section>
-        <Section title="Bordered">
+        <Section title="Bordered with Custom Icon">
+          <BlockQuote>
+            Use a custom icon for the header with a border
+          </BlockQuote>
           <div className="rc-demo-widget">
             <div
               style={{

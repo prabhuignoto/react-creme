@@ -5,6 +5,8 @@ import { Widget } from "./dialog-widgets";
 function dialog() {
   return (
     <DemoPageRenderer
+      title="Dialog"
+      description="A dialog is a window that displays content in a modal overlay."
       data={[
         {
           name: "<em>title</em>",
@@ -42,7 +44,7 @@ function dialog() {
           type: "Function",
         },
       ]}
-      tabTitles={["button", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widget />}
     ></DemoPageRenderer>
   );

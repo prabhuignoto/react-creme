@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Section, Tags } from "../../components";
+import { BlockQuote, Section, Tags } from "../../components";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -27,6 +27,10 @@ function widgets() {
     width && (
       <div className="rc-demo-widgets">
         <Section title="Tags - default">
+          <BlockQuote>
+            New tags can be added to the list by typing in the input field.Tags
+            can be removed by clicking on the close icon on the tag.
+          </BlockQuote>
           <div style={{ width: resolvedWidth }} className="rc-demo-widget">
             <Tags
               items={[
@@ -43,6 +47,9 @@ function widgets() {
           </div>
         </Section>
         <Section title="Tags - Filled style">
+          <BlockQuote>
+            Tags can be disabled by setting the disabled property to true.
+          </BlockQuote>
           <div style={{ width: resolvedWidth }} className="rc-demo-widget">
             <Tags
               items={[
@@ -60,6 +67,10 @@ function widgets() {
           </div>
         </Section>
         <Section title="Tags - Readonly">
+          <BlockQuote>
+            In readonly mode, you can only select the tags that are already in
+            the list.
+          </BlockQuote>
           <div style={{ width: resolvedWidth }} className="rc-demo-widget">
             <Tags
               items={[
