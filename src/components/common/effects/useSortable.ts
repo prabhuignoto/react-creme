@@ -13,10 +13,14 @@ const useSortable: (
 
   const parentRef = useRef<HTMLElement | null>(null);
 
-  useDraggable(ref, {
+  const test = useDraggable(ref, {
     makeChildrenDraggable: true,
-    dragDirection: "HORIZONTAL",
+    dragDirection: "VERTICAL",
   });
+
+  useEffect(() => {
+    console.log(test);
+  }, [test]);
 
   useEffect(() => {
     const node = ref.current;

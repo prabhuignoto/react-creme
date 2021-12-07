@@ -27,7 +27,6 @@ import RadioGroup from "./playground/radio-group";
 import Rate from "./playground/rate";
 import Reveal from "./playground/reveal";
 import ScrollSpy from "./playground/scroll-spy";
-import ScrollPane from "./playground/ScrollPane";
 import Section from "./playground/section";
 import Sidebar from "./playground/sidebar";
 import Skeleton from "./playground/skeleton";
@@ -233,14 +232,6 @@ function AppRoutes() {
         element={
           <div className="section-content">
             <AccordionGroup />
-          </div>
-        }
-      />
-      <Route
-        path="/scroll-pane"
-        element={
-          <div className="section-content">
-            <ScrollPane />
           </div>
         }
       />

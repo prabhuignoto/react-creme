@@ -6,11 +6,10 @@ import { List } from "../list";
 const handler = jest.fn();
 
 const options = [
+  { name: "brazil", value: "brazil" },
   { name: "usa", value: "usa" },
   { name: "uk", value: "uk" },
   { name: "germany", value: "germany", disabled: true },
-  { name: "pakistan", value: "pakistan" },
-  { name: "srilanka", value: "srilanka" },
   { name: "india", value: "india" },
 ];
 
@@ -19,7 +18,7 @@ describe("List", () => {
     const { getByRole } = render(<List options={options} />);
 
     expect(getByRole("listbox")).toBeInTheDocument();
-    expect(getByRole("listbox").querySelectorAll("li")).toHaveLength(6);
+    expect(getByRole("listbox").querySelectorAll("li")).toHaveLength(5);
   });
 
   it("should call handler", async () => {
@@ -90,9 +89,9 @@ describe("List", () => {
     );
 
     expect(getByRole("listbox")).toBeInTheDocument();
-    expect(getAllByRole("checkbox")).toHaveLength(6);
+    expect(getAllByRole("option")).toHaveLength(5);
 
-    fireEvent.click(getAllByRole("checkbox")[0]);
+    fireEvent.click(getAllByRole("option")[0]);
     expect(handler).toBeCalled();
   });
 });

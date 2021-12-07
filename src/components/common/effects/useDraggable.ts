@@ -1,6 +1,13 @@
-import { RefObject, useCallback, useEffect, useRef } from "react";
+import { RefObject, useCallback, useEffect, useRef, useState } from "react";
+import { useDebounce } from "use-debounce";
 
 type DragDirection = "HORIZONTAL" | "VERTICAL" | "BOTH";
+
+interface Position {
+  x: number;
+  y: number;
+  target: HTMLElement | null;
+}
 
 interface DragSettings {
   makeChildrenDraggable?: boolean;
@@ -11,7 +18,7 @@ interface DragSettings {
 type UseDraggable = (
   ref: RefObject<HTMLElement> | HTMLElement,
   settings?: DragSettings
-) => void;
+) => Position;
 
 const useDraggable: UseDraggable = (
   targetRef,
@@ -31,7 +38,15 @@ const useDraggable: UseDraggable = (
 
   const dragTarget = useRef<HTMLElement | null>(null);
 
-  const handleMouseDown = useCallback((ev: MouseEvent) => {
+  const [position, setPosition] = useState<Position>({
+    x: 0,
+    y: 0,
+    target: null,
+  });
+
+  const [debouncedPosition] = useDebounce(position, 500, { trailing: true });
+
+  const handleMouseDown = useCallback((ev: MouseEvent | TouchEvent) => {
     ev.preventDefault();
     mousePressed.current = true;
     const target = ev.target as HTMLElement;
@@ -51,9 +66,11 @@ const useDraggable: UseDraggable = (
 
       const rect = target.getBoundingClientRect();
 
+      const event = ev instanceof MouseEvent ? ev : ev.touches[0];
+
       start.current = {
-        x: ev.clientX - rect.left,
-        y: ev.clientY - rect.top,
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
       };
     }
   }, []);
@@ -93,7 +110,7 @@ const useDraggable: UseDraggable = (
     };
   }, []);
 
-  const handleMouseMove = useCallback((ev: MouseEvent) => {
+  const handleMouseMove = useCallback((ev: MouseEvent | TouchEvent) => {
     ev.preventDefault();
     const isMousePressed = mousePressed.current;
     const target =
@@ -104,8 +121,10 @@ const useDraggable: UseDraggable = (
     if (isMousePressed && target && boundRect) {
       const { x, y } = start.current;
 
-      let newLeft = ev.clientX - x;
-      let newTop = ev.clientY - y;
+      const event = ev instanceof MouseEvent ? ev : ev.touches[0];
+
+      let newLeft = event.clientX - x;
+      let newTop = event.clientY - y;
 
       const { canMoveLeft, canMoveTop } = checkBounds(newLeft, newTop);
 
@@ -157,6 +176,8 @@ const useDraggable: UseDraggable = (
         };
         z-index: 999;
       `;
+
+      setPosition({ x: newLeft, y: newTop, target: ev.target as HTMLElement });
     }
   }, []);
 
@@ -188,14 +209,22 @@ const useDraggable: UseDraggable = (
           boundToRect.current = target.getBoundingClientRect();
         }, 500);
         Array.from<HTMLElement>(target.querySelectorAll(":scope > *")).forEach(
-          (item) => item.addEventListener("mousedown", handleMouseDown)
+          (item) => {
+            item.addEventListener("mousedown", handleMouseDown);
+            item.addEventListener("touchstart", handleMouseDown);
+          }
         );
       } else {
         target.addEventListener("mousedown", handleMouseDown);
+        target.addEventListener("touchstart", handleMouseDown);
       }
 
       document.addEventListener("mouseup", handleMouseUp, { passive: false });
+      document.addEventListener("touchend", handleMouseUp, { passive: false });
 
+      document.addEventListener("touchmove", handleMouseMove, {
+        passive: false,
+      });
       document.addEventListener("mousemove", handleMouseMove, {
         passive: false,
       });
@@ -228,18 +257,25 @@ const useDraggable: UseDraggable = (
         if (makeChildrenDraggable) {
           Array.from<HTMLElement>(
             eleRef.querySelectorAll(":scope > *")
-          ).forEach((item) =>
-            item.removeEventListener("mousedown", handleMouseDown)
-          );
+          ).forEach((item) => {
+            item.removeEventListener("mousedown", handleMouseDown);
+            item.removeEventListener("touchstart", handleMouseDown);
+          });
         } else {
           eleRef.removeEventListener("mousedown", handleMouseDown);
+          eleRef.removeEventListener("touchstart", handleMouseDown);
         }
 
         document.removeEventListener("mouseup", handleMouseUp);
         document.removeEventListener("mousemove", handleMouseMove);
+
+        document.removeEventListener("touchend", handleMouseUp);
+        document.removeEventListener("touchmove", handleMouseMove);
       }
     };
   }, []);
+
+  return debouncedPosition;
 };
 
 export default useDraggable;

@@ -1,7 +1,5 @@
 import cls from "classnames";
 import React, { useCallback, useMemo, useRef } from "react";
-import "../../design/focus.scss";
-import { CheckBox } from "../checkbox/checkbox";
 import { useFocus } from "../common/effects/useFocus";
 import { ListItemOption } from "./list-item-option";
 import "./list-item.scss";
@@ -55,27 +53,14 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
           style={{ width: "100%" }}
           onMouseDown={handleMouseDown}
         >
-          {allowMultiSelection ? (
-            <span className="rc-list-item-checkbox-wrapper">
-              <CheckBox
-                disabled={disabled}
-                isChecked={selected}
-                label={name}
-                size="sm"
-                border={false}
-                focusable={false}
-              />
-            </span>
-          ) : (
-            <ListItemOption
-              key={id}
-              name={name}
-              selected={selected}
-              showCheck={showCheckIcon}
-              tabIndex={!disabled ? 0 : -1}
-              focusable={focusable}
-            />
-          )}
+          <ListItemOption
+            key={id}
+            name={name}
+            selected={selected}
+            showCheck={showCheckIcon}
+            tabIndex={!disabled ? 0 : -1}
+            focusable={focusable}
+          />
         </div>
       </li>
     );

@@ -14,6 +14,7 @@ body {
 body, html, button, div, section, ul, span {
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
+  font-weight: 300;
 }
 
 .app-aside {
@@ -29,7 +30,7 @@ body, html, button, div, section, ul, span {
 }
 
 .app-main-section {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -158,7 +159,7 @@ body, html, button, div, section, ul, span {
   display: flex;
   height: 45px;
   margin-bottom: 1rem;
-  width: 100%;
+  width: 95%;
 }
 
 .rc-demo-app-logo {

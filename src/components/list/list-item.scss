@@ -63,9 +63,16 @@ $height: 40px;
 }
 
 .rc-list-option-icon {
-  @extend %icon-sm;
+  color: colors.$primary;
+  height: 100%;
   justify-self: center;
   visibility: hidden;
+  width: 80%;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
 
   &.rc-list-option-selected {
     visibility: visible;

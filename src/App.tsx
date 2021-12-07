@@ -5,11 +5,10 @@ import { SidebarHome } from "./demo/sidebar/sidebar";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
-import LogoIcon from "./logo";
 
 const Logo = () => (
   <div className="rc-demo-app-logo">
-    <span className="rc-demo-logo-icon-wrapper">{/* <LogoIcon /> */}</span>
+    {/* <span className="rc-demo-logo-icon-wrapper"><LogoIcon /></span> */}
     React Creme
   </div>
 );

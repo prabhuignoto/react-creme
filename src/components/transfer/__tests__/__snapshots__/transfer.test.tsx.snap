@@ -29,47 +29,33 @@ exports[`Transfer should render transfer snapshot 1`] = `
               style="width: 100%;"
               tabindex="0"
             >
-              <span
-                class="rc-list-item-checkbox-wrapper"
+              <div
+                class="rc-list-option-value-wrapper"
               >
-                <div
-                  aria-checked="false"
-                  aria-labelledby="label-hY8s_7K_nRJ_nqhl0Dz3A"
-                  class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
-                  role="checkbox"
-                  tabindex="-1"
+                <span
+                  class="rc-list-option-icon"
                 >
-                  <div
-                    class="rc-checkbox rc-checkbox-sm"
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <span
-                      class="rc-checkbox-icon rc-checkbox-sm"
-                      role="img"
-                    >
-                      <svg
-                        class="prefix__feather prefix__feather-check"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20 6L9 17l-5-5"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <label
-                    class="rc-checkbox-label rc-checkbox-label-sm"
-                    id="label-hY8s_7K_nRJ_nqhl0Dz3A"
-                  >
-                    five
-                  </label>
-                </div>
-              </span>
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="rc-list-option-value"
+                >
+                  five
+                </span>
+              </div>
             </div>
           </li>
           <li
@@ -82,47 +68,33 @@ exports[`Transfer should render transfer snapshot 1`] = `
               style="width: 100%;"
               tabindex="0"
             >
-              <span
-                class="rc-list-item-checkbox-wrapper"
+              <div
+                class="rc-list-option-value-wrapper"
               >
-                <div
-                  aria-checked="false"
-                  aria-labelledby="label-I1HgGAX6VOu2Bdj-gKn-6"
-                  class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
-                  role="checkbox"
-                  tabindex="-1"
+                <span
+                  class="rc-list-option-icon"
                 >
-                  <div
-                    class="rc-checkbox rc-checkbox-sm"
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <span
-                      class="rc-checkbox-icon rc-checkbox-sm"
-                      role="img"
-                    >
-                      <svg
-                        class="prefix__feather prefix__feather-check"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20 6L9 17l-5-5"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <label
-                    class="rc-checkbox-label rc-checkbox-label-sm"
-                    id="label-I1HgGAX6VOu2Bdj-gKn-6"
-                  >
-                    one
-                  </label>
-                </div>
-              </span>
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="rc-list-option-value"
+                >
+                  one
+                </span>
+              </div>
             </div>
           </li>
           <li
@@ -135,47 +107,33 @@ exports[`Transfer should render transfer snapshot 1`] = `
               style="width: 100%;"
               tabindex="0"
             >
-              <span
-                class="rc-list-item-checkbox-wrapper"
+              <div
+                class="rc-list-option-value-wrapper"
               >
-                <div
-                  aria-checked="false"
-                  aria-labelledby="label-HhNCj2ydyXR79J0sb_E9T"
-                  class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
-                  role="checkbox"
-                  tabindex="-1"
+                <span
+                  class="rc-list-option-icon"
                 >
-                  <div
-                    class="rc-checkbox rc-checkbox-sm"
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <span
-                      class="rc-checkbox-icon rc-checkbox-sm"
-                      role="img"
-                    >
-                      <svg
-                        class="prefix__feather prefix__feather-check"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20 6L9 17l-5-5"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <label
-                    class="rc-checkbox-label rc-checkbox-label-sm"
-                    id="label-HhNCj2ydyXR79J0sb_E9T"
-                  >
-                    six
-                  </label>
-                </div>
-              </span>
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="rc-list-option-value"
+                >
+                  six
+                </span>
+              </div>
             </div>
           </li>
           <li
@@ -188,47 +146,33 @@ exports[`Transfer should render transfer snapshot 1`] = `
               style="width: 100%;"
               tabindex="0"
             >
-              <span
-                class="rc-list-item-checkbox-wrapper"
+              <div
+                class="rc-list-option-value-wrapper"
               >
-                <div
-                  aria-checked="false"
-                  aria-labelledby="label-Odt7FTKUHW8ufX1Qj1bmz"
-                  class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
-                  role="checkbox"
-                  tabindex="-1"
+                <span
+                  class="rc-list-option-icon"
                 >
-                  <div
-                    class="rc-checkbox rc-checkbox-sm"
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <span
-                      class="rc-checkbox-icon rc-checkbox-sm"
-                      role="img"
-                    >
-                      <svg
-                        class="prefix__feather prefix__feather-check"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20 6L9 17l-5-5"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <label
-                    class="rc-checkbox-label rc-checkbox-label-sm"
-                    id="label-Odt7FTKUHW8ufX1Qj1bmz"
-                  >
-                    two
-                  </label>
-                </div>
-              </span>
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="rc-list-option-value"
+                >
+                  two
+                </span>
+              </div>
             </div>
           </li>
         </ul>
@@ -311,47 +255,33 @@ exports[`Transfer should render transfer snapshot 1`] = `
               style="width: 100%;"
               tabindex="0"
             >
-              <span
-                class="rc-list-item-checkbox-wrapper"
+              <div
+                class="rc-list-option-value-wrapper"
               >
-                <div
-                  aria-checked="false"
-                  aria-labelledby="label-G_t5pPlXh1CklzuZnvbqn"
-                  class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
-                  role="checkbox"
-                  tabindex="-1"
+                <span
+                  class="rc-list-option-icon"
                 >
-                  <div
-                    class="rc-checkbox rc-checkbox-sm"
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <span
-                      class="rc-checkbox-icon rc-checkbox-sm"
-                      role="img"
-                    >
-                      <svg
-                        class="prefix__feather prefix__feather-check"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20 6L9 17l-5-5"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <label
-                    class="rc-checkbox-label rc-checkbox-label-sm"
-                    id="label-G_t5pPlXh1CklzuZnvbqn"
-                  >
-                    eight
-                  </label>
-                </div>
-              </span>
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="rc-list-option-value"
+                >
+                  eight
+                </span>
+              </div>
             </div>
           </li>
           <li
@@ -364,47 +294,33 @@ exports[`Transfer should render transfer snapshot 1`] = `
               style="width: 100%;"
               tabindex="0"
             >
-              <span
-                class="rc-list-item-checkbox-wrapper"
+              <div
+                class="rc-list-option-value-wrapper"
               >
-                <div
-                  aria-checked="false"
-                  aria-labelledby="label-jqEScIlAtA-ndXp86Lw5z"
-                  class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
-                  role="checkbox"
-                  tabindex="-1"
+                <span
+                  class="rc-list-option-icon"
                 >
-                  <div
-                    class="rc-checkbox rc-checkbox-sm"
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <span
-                      class="rc-checkbox-icon rc-checkbox-sm"
-                      role="img"
-                    >
-                      <svg
-                        class="prefix__feather prefix__feather-check"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20 6L9 17l-5-5"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <label
-                    class="rc-checkbox-label rc-checkbox-label-sm"
-                    id="label-jqEScIlAtA-ndXp86Lw5z"
-                  >
-                    four
-                  </label>
-                </div>
-              </span>
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="rc-list-option-value"
+                >
+                  four
+                </span>
+              </div>
             </div>
           </li>
           <li
@@ -417,47 +333,33 @@ exports[`Transfer should render transfer snapshot 1`] = `
               style="width: 100%;"
               tabindex="0"
             >
-              <span
-                class="rc-list-item-checkbox-wrapper"
+              <div
+                class="rc-list-option-value-wrapper"
               >
-                <div
-                  aria-checked="false"
-                  aria-labelledby="label-5ZAzV1pUan4tdRKJYNyoG"
-                  class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
-                  role="checkbox"
-                  tabindex="-1"
+                <span
+                  class="rc-list-option-icon"
                 >
-                  <div
-                    class="rc-checkbox rc-checkbox-sm"
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <span
-                      class="rc-checkbox-icon rc-checkbox-sm"
-                      role="img"
-                    >
-                      <svg
-                        class="prefix__feather prefix__feather-check"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20 6L9 17l-5-5"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <label
-                    class="rc-checkbox-label rc-checkbox-label-sm"
-                    id="label-5ZAzV1pUan4tdRKJYNyoG"
-                  >
-                    seven
-                  </label>
-                </div>
-              </span>
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="rc-list-option-value"
+                >
+                  seven
+                </span>
+              </div>
             </div>
           </li>
           <li
@@ -470,47 +372,33 @@ exports[`Transfer should render transfer snapshot 1`] = `
               style="width: 100%;"
               tabindex="0"
             >
-              <span
-                class="rc-list-item-checkbox-wrapper"
+              <div
+                class="rc-list-option-value-wrapper"
               >
-                <div
-                  aria-checked="false"
-                  aria-labelledby="label-Sp83g238ssZeYRmPV9QG1"
-                  class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
-                  role="checkbox"
-                  tabindex="-1"
+                <span
+                  class="rc-list-option-icon"
                 >
-                  <div
-                    class="rc-checkbox rc-checkbox-sm"
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <span
-                      class="rc-checkbox-icon rc-checkbox-sm"
-                      role="img"
-                    >
-                      <svg
-                        class="prefix__feather prefix__feather-check"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20 6L9 17l-5-5"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <label
-                    class="rc-checkbox-label rc-checkbox-label-sm"
-                    id="label-Sp83g238ssZeYRmPV9QG1"
-                  >
-                    three
-                  </label>
-                </div>
-              </span>
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="rc-list-option-value"
+                >
+                  three
+                </span>
+              </div>
             </div>
           </li>
         </ul>

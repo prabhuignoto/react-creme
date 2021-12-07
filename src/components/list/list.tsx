@@ -10,7 +10,6 @@ import React, {
   useState,
 } from "react";
 import { useDebouncedCallback } from "use-debounce";
-import "../../design/focus.scss";
 import { SearchIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { isUndefined } from "../common/utils";
@@ -50,7 +49,7 @@ const List: React.FunctionComponent<ListModel> = ({
   onSelection,
   options = [],
   rowGap = 5,
-  showCheckIcon = false,
+  showCheckIcon = true,
   virtualized = false,
   focusable = false,
 }: ListModel) => {

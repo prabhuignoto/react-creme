@@ -7,7 +7,6 @@ import React, {
   useState,
 } from "react";
 import { useDebouncedCallback } from "use-debounce";
-import "../../design/focus.scss";
 import { CloseIcon } from "../../icons";
 import { InputModel } from "./input-model";
 import "./input.scss";

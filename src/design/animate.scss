@@ -50,7 +50,6 @@
 }
 
 @mixin halo($border-radius: 4px, $outline-offset: 1px, $halo-effect: true) {
-  // z-index: 1;
   $focus-settings: (
     from: (
       outline: 1px solid rgba(colors.$white, 0.1),
@@ -67,6 +66,7 @@
       box-shadow: 0 0 1px 7px rgba(colors.$primary, 0.25),
     ),
   );
+  z-index: 1;
 
   &.rc-focus,
   &.rc-lost-focus,

@@ -5,11 +5,11 @@
   @extend %left;
   background: rgba(colors.$secondary, 0.25);
   border-left: 3px solid rgba(colors.$primary, 0.5);
-  font-weight: 400;
+  font-weight: 300;
   margin: 0.5rem 0;
   padding: 1rem 0;
   padding-left: 1rem;
-  width: 100%;
+  width: calc(100% - 1rem);
 
   code {
     @extend %border-radius;
