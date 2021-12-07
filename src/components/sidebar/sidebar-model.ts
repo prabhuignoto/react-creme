@@ -6,6 +6,7 @@ export interface SidebarModel {
   enableSearch?: boolean;
   searchPlaceholder?: string;
   border?: boolean;
+  listMaxHeight?: number;
 }
 
 export interface SidebarGroupModel {

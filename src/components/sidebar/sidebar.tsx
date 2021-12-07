@@ -14,6 +14,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   enableSearch = false,
   searchPlaceholder = "Search ...",
   border = false,
+  listMaxHeight = 750,
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)
@@ -55,8 +56,6 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   const handleSearch = useCallback(
     (ter: string) => {
       const tester = new RegExp(`\\b${ter.trim()}`, "i");
-
-      console.log(tester);
 
       setGroups((prev) =>
         prev.map((group) => {
@@ -114,6 +113,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
                 borderLess
                 rowGap={5}
                 itemHeight={35}
+                maxHeight={listMaxHeight}
                 onSelection={(option) => handleSelection(option, id)}
                 noUniqueIds
                 focusable

@@ -50,7 +50,7 @@ function widgets() {
         <Section title="Comfortable View">
           <BlockQuote>
             In Comfortable mode, the display density is set to high and is
-            preferred for better readability.
+            preferable for better readability.
           </BlockQuote>
           <div className="rc-demo-widget" style={{ width: `${width}px` }}>
             <DataGrid

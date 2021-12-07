@@ -32,6 +32,7 @@ import Section from "./playground/section";
 import Sidebar from "./playground/sidebar";
 import Skeleton from "./playground/skeleton";
 import Slider from "./playground/slider";
+import Sortable from "./playground/sortable";
 import Splitter from "./playground/splitter";
 import Switch from "./playground/switch";
 import Tabs from "./playground/tabs";
@@ -368,6 +369,14 @@ function AppRoutes() {
         element={
           <div className="section-content">
             <Draggable />
+          </div>
+        }
+      />
+      <Route
+        path="/sortable"
+        element={
+          <div className="section-content">
+            <Sortable />
           </div>
         }
       />
