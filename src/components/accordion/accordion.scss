@@ -8,7 +8,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
 .rc-accordion {
   @extend %col;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   width: 100%;
 
@@ -25,7 +25,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   height: $header-height;
   justify-items: center;
   position: relative;
-  width: 100%;
+  width: 98%;
 
   &:not(.rc-accordion-align-icon-rt) {
     display: grid;

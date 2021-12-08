@@ -47,13 +47,9 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
     if (tabHeaders) {
       const { scrollLeft, clientWidth } = tabHeaders;
       const newLeft = Math.max(0, scrollLeft - (clientWidth * 1) / 2);
+
       tabHeaders.scrollLeft = newLeft;
       setScrollLeftCurrent({ dir: "left", value: newLeft });
-
-      // startTransition(() => {
-      //   setDisableScrollLeft(newLeft === 0);
-      //   setDisableScrollRight(false);
-      // });
     }
   }, []);
 
@@ -64,11 +60,6 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
       const newLeft = scrollLeft + (clientWidth * 1) / 2;
       tabHeaders.scrollLeft = newLeft;
       setScrollLeftCurrent({ dir: "right", value: newLeft });
-
-      // startTransition(() => {
-      //   setDisableScrollRight(newLeft + clientWidth >= scrollWidth);
-      //   setDisableScrollLeft(false);
-      // });
     }
   }, []);
 
@@ -84,7 +75,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   }, []);
 
   useEffect(() => {
-    if (scrollLeftCurrent.value && tabHeadersRef.current) {
+    if (scrollLeftCurrent.value >= 0 && tabHeadersRef.current) {
       const { dir, value } = scrollLeftCurrent;
       const ref = tabHeadersRef.current;
 
@@ -135,7 +126,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
           />
         ))}
       </ul>
-      {canShowControls && (
+      {canShowControls ? (
         <div className="rc-tab-headers-control">
           {!disableScrollLeft && (
             <span
@@ -156,7 +147,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
             </span>
           )}
         </div>
-      )}
+      ) : null}
     </header>
   );
 };

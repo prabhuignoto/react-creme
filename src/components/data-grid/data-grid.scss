@@ -65,11 +65,10 @@
 
   em {
     @extend %border-radius;
-    @extend %shadow-inset;
-    background-color: colors.$light-bg;
+    background-color: rgba(colors.$primary, 0.1);
     color: colors.$primary;
     font-style: normal;
     font-weight: 400;
-    padding: 0.2rem;
+    padding: 0.25rem 0.5rem;
   }
 }

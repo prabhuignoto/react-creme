@@ -14,6 +14,7 @@ import Dialog from "./playground/dialog";
 import Draggable from "./playground/draggable";
 import Drawer from "./playground/drawer";
 import Dropdown from "./playground/dropdown";
+import GlobalNotification from "./playground/global-notification";
 import Image from "./playground/image";
 import Inputs from "./playground/inputs";
 import List from "./playground/list";
@@ -368,6 +369,14 @@ function AppRoutes() {
         element={
           <div className="section-content">
             <Sortable />
+          </div>
+        }
+      />
+      <Route
+        path="/global-notification"
+        element={
+          <div className="section-content">
+            <GlobalNotification />
           </div>
         }
       />

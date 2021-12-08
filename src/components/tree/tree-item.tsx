@@ -9,7 +9,7 @@ import React, {
   useState,
 } from "react";
 import { CheckBox } from "..";
-import { ChevronRightIcon } from "../../icons";
+import { ChevronRightIcon, MinusIcon, PlusIcon } from "../../icons";
 import "./tree-item.scss";
 import { TreeItemModel } from "./tree-model";
 
@@ -30,6 +30,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     width,
     onChange,
     disabled,
+    iconType,
   }: TreeItemModel) => {
     const isFirstRender = useRef(true);
     const [totalItems, setTotalItems] = useState(
@@ -55,6 +56,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
         cls("rc-tree-item-icon", {
           "rc-tree-item-icon-exp": expanded,
           "rc-tree-item-icon-hide": !child,
+          [`rc-tree-item-icon-${iconType}`]: true,
         }),
       [expanded]
     );
@@ -156,7 +158,9 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
           className={iconClass}
           onClick={(ev) => id && handleToggle(ev, id)}
         >
-          <ChevronRightIcon />
+          {iconType === "chevron" && <ChevronRightIcon />}
+          {iconType === "plus" && !expanded && <PlusIcon />}
+          {iconType === "plus" && expanded && <MinusIcon />}
         </span>
         <div className="rc-tree-item-wrapper">
           {allowSelection ? (
@@ -186,6 +190,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
                   allowSelection={allowSelection}
                   childrenSelected={checked}
                   onChange={handleOnChange}
+                  iconType={iconType}
                 />
               </Suspense>
             )}

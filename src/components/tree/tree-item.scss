@@ -36,7 +36,7 @@ $item-height: 30px;
   cursor: pointer;
   transition: transform 0.25s cubic-bezier(0.77, 0, 0.18, 1);
 
-  &.rc-tree-item-icon-exp {
+  &.rc-tree-item-icon-exp:not(.rc-tree-item-icon-plus) {
     transform: rotate(90deg);
   }
 

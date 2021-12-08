@@ -67,6 +67,14 @@ function Widgets() {
           <Tree height={400} allowSelection items={data} />
         </div>
       </Section>
+      <Section title="Custom Icon">
+        <BlockQuote>
+          Use a custom icon for the expand and collapse actions.
+        </BlockQuote>
+        <div style={{ width: "300px" }} className="rc-demo-widget">
+          <Tree height={400} items={data} iconType="plus" />
+        </div>
+      </Section>
     </div>
   );
 }

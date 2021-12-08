@@ -11,6 +11,7 @@ export { DataGrid } from "./data-grid/data-grid";
 export { Dialog } from "./dialog/dialog";
 export { Drawer } from "./drawer/drawer";
 export { Dropdown } from "./dropdown/dropdown";
+export { GlobalNotification } from "./global-notification/global-notification";
 export { ImageComparer } from "./image-comparer/image-comparer";
 export { Image } from "./image/image";
 export { Input } from "./input/input";

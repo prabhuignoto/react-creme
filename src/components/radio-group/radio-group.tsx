@@ -51,9 +51,10 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   useEffect(() => {
     if (!isFirstRender.current) {
       const foundItem = _items.find((item) => item.checked);
+      const value = foundItem ? foundItem.value : undefined;
 
-      if (foundItem && onSelected) {
-        onSelected(foundItem.label);
+      if (value && onSelected) {
+        onSelected(value);
       }
     }
   }, [changeTracker]);

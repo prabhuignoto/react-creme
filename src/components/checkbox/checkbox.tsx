@@ -45,7 +45,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
     const iconClass = useMemo(
       () =>
         classNames("rc-checkbox-icon", {
-          "rc-checkbox-checked": checked || isChecked,
+          "rc-checkbox-checked": checked,
           [`rc-checkbox-${size}`]: true,
         }),
       [checked]

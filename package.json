@@ -27,8 +27,8 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "nanoid": "^3.1.30",
-    "react": "^18.0.0-beta-4729ff6d1-20211202",
-    "react-dom": "^18.0.0-beta-4729ff6d1-20211202",
+    "react": "^18.0.0-beta-c7917fe76-20211206",
+    "react-dom": "^18.0.0-beta-c7917fe76-20211206",
     "react-router-dom": "^6.0.2",
     "use-debounce": "^7.0.1"
   },
@@ -88,7 +88,7 @@
     "ts-jest": "^27.1.0",
     "typescript": "^4.5.2",
     "use-timer": "^2.0.1",
-    "vite": "^2.6.14"
+    "vite": "^2.7.1"
   },
   "lint-staged": {
     "**/*.tsx": [

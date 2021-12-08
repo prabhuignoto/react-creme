@@ -1,0 +1,59 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/icon.scss";
+
+.rc-global-notification {
+  @extend %center;
+  background: colors.$secondary;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  transition: height 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  width: 100%;
+  z-index: 99999;
+
+  &.rc-global-notification-open {
+    height: var(--height);
+  }
+
+  &.rc-global-notification-close {
+    height: 0;
+  }
+
+  &.rc-global-notification-success {
+    background: colors.$success-green;
+    color: colors.$white;
+  }
+
+  &.rc-global-notification-error {
+    background: colors.$crimson;
+    color: colors.$white;
+  }
+
+  &.rc-global-notification-warning {
+    background: colors.$amber;
+    color: colors.$black;
+  }
+
+  &.rc-global-notification-info {
+    background: colors.$secondary;
+    color: colors.$black;
+  }
+}
+
+.rc-global-notification-close-btn {
+  @extend %center;
+  cursor: pointer;
+  display: block;
+  height: 2rem;
+  margin-left: auto;
+  width: 2rem;
+}
+
+.rc-global-notification-message {
+  @extend %left;
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-left: auto;
+}

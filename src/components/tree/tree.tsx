@@ -21,6 +21,7 @@ const Tree: React.FunctionComponent<TreeModel> = React.memo(
     onChildToggle,
     width = 100,
     onChange,
+    iconType = "chevron",
   }: TreeModel) => {
     const [_items, setItems] = useState(
       items.map((item) => ({
@@ -82,6 +83,7 @@ const Tree: React.FunctionComponent<TreeModel> = React.memo(
             selected={childrenSelected}
             onChange={onChange}
             disabled={disabled}
+            iconType={iconType}
           />
         ))}
       </div>
