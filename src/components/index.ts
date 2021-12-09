@@ -19,6 +19,7 @@ export { Link } from "./link/link";
 export { List } from "./list/list";
 export { Menu } from "./menu/menu";
 export { MenuBar } from "./menubar/menubar";
+export { Alert } from "./alert/alert";
 export { Notification } from "./notification/notification";
 export { PageHeader } from "./page-header/page-header";
 export { CircularProgress } from "./progress/circular-progress";

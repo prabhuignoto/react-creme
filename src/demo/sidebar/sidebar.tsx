@@ -18,11 +18,13 @@ const SidebarHome = React.memo(() => {
   };
 
   useEffect(() => {
-    window.scrollTo({
-      behavior: "smooth",
-      top: 0,
-      left: 0,
-    });
+    if (window.scrollY) {
+      window.scrollTo({
+        behavior: "smooth",
+        top: 0,
+        left: 0,
+      });
+    }
   }, [location.pathname]);
 
   const sideBarMemoized = React.useMemo(() => {
@@ -73,6 +75,7 @@ const SidebarHome = React.memo(() => {
               { name: "Skeleton" },
               { name: "Notification" },
               { name: "Global Notification" },
+              { name: "Alerts" },
             ],
           },
           {

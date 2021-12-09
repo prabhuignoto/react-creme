@@ -143,14 +143,14 @@ const useDrag: functionType = (
 
     return () => {
       resizeObserver.current?.disconnect();
-      document.removeEventListener("mousemove", handleDrag);
-      document.removeEventListener("touchmove", handleDrag);
+      container.current?.removeEventListener("mousemove", handleDrag);
+      container.current?.removeEventListener("touchmove", handleDrag);
 
-      document.removeEventListener("mousedown", handleDragStart);
-      document.removeEventListener("touchstart", handleDragStart);
+      container.current?.removeEventListener("mousedown", handleDragStart);
+      container.current?.removeEventListener("touchstart", handleDragStart);
 
-      document.removeEventListener("mouseup", handleDragEnd);
-      document.removeEventListener("touchend", handleDragEnd);
+      container.current?.removeEventListener("mouseup", handleDragEnd);
+      container.current?.removeEventListener("touchend", handleDragEnd);
     };
   }, []);
 
@@ -189,16 +189,26 @@ const useDrag: functionType = (
       }
     }
 
-    document.addEventListener("mousemove", handleDrag, { passive: false });
-    document.addEventListener("touchmove", handleDrag, { passive: false });
-
-    document.addEventListener("mousedown", handleDragStart, { passive: false });
-    document.addEventListener("touchstart", handleDragStart, {
+    container.current.addEventListener("mousemove", handleDrag, {
+      passive: false,
+    });
+    container.current.addEventListener("touchmove", handleDrag, {
       passive: false,
     });
 
-    document.addEventListener("mouseup", handleDragEnd, { passive: true });
-    document.addEventListener("touchend", handleDragEnd, { passive: true });
+    container.current.addEventListener("mousedown", handleDragStart, {
+      passive: false,
+    });
+    container.current.addEventListener("touchstart", handleDragStart, {
+      passive: false,
+    });
+
+    container.current.addEventListener("mouseup", handleDragEnd, {
+      passive: true,
+    });
+    container.current.addEventListener("touchend", handleDragEnd, {
+      passive: true,
+    });
   }, [target.current?.clientWidth, container]);
 
   return [percent, setPercent];

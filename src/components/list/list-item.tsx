@@ -51,7 +51,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
           ref={ref}
           tabIndex={0}
           style={{ width: "100%" }}
-          onMouseDown={handleMouseDown}
+          onClick={handleMouseDown}
         >
           <ListItemOption
             key={id}

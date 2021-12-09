@@ -1,5 +1,6 @@
 import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { useDebounce } from "use-debounce";
+import isTouchDevice from "../utils";
 
 type DragDirection = "HORIZONTAL" | "VERTICAL" | "BOTH";
 
@@ -35,6 +36,7 @@ const useDraggable: UseDraggable = (
   const rect = useRef<DOMRect>();
   const boundToRect = useRef<DOMRect | null>();
   const start = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const tapDetectionTimer = useRef<number>();
 
   const dragTarget = useRef<HTMLElement | null>(null);
 
@@ -46,10 +48,14 @@ const useDraggable: UseDraggable = (
 
   const [debouncedPosition] = useDebounce(position, 500, { trailing: true });
 
-  const handleMouseDown = useCallback((ev: MouseEvent | TouchEvent) => {
-    ev.preventDefault();
-    mousePressed.current = true;
+  const isTouch = isTouchDevice();
+
+  const handleMouseDown = useCallback((ev: any) => {
     const target = ev.target as HTMLElement;
+
+    tapDetectionTimer.current = window.setTimeout(() => {
+      mousePressed.current = true;
+    }, 50);
 
     if (boundTo) {
       boundToRect.current = boundTo.current?.getBoundingClientRect();
@@ -110,8 +116,7 @@ const useDraggable: UseDraggable = (
     };
   }, []);
 
-  const handleMouseMove = useCallback((ev: MouseEvent | TouchEvent) => {
-    ev.preventDefault();
+  const handleMouseMove = useCallback((ev: any) => {
     const isMousePressed = mousePressed.current;
     const target =
       targetRef instanceof HTMLElement ? targetRef : targetRef.current;
@@ -119,6 +124,7 @@ const useDraggable: UseDraggable = (
     const dir = dragDirection;
 
     if (isMousePressed && target && boundRect) {
+      ev.preventDefault();
       const { x, y } = start.current;
 
       const event = ev instanceof MouseEvent ? ev : ev.touches[0];
@@ -182,9 +188,9 @@ const useDraggable: UseDraggable = (
   }, []);
 
   const handleMouseUp = useCallback((ev) => {
-    ev.preventDefault();
     // set pressed state to false
     mousePressed.current = false;
+    window.clearTimeout(tapDetectionTimer.current);
 
     (ev.target as HTMLElement).style.zIndex = "";
 
@@ -210,24 +216,38 @@ const useDraggable: UseDraggable = (
         }, 500);
         Array.from<HTMLElement>(target.querySelectorAll(":scope > *")).forEach(
           (item) => {
-            item.addEventListener("mousedown", handleMouseDown);
-            item.addEventListener("touchstart", handleMouseDown);
+            if (isTouch) {
+              item.addEventListener("touchstart", handleMouseDown);
+            } else {
+              item.addEventListener("mousedown", handleMouseDown);
+            }
           }
         );
       } else {
-        target.addEventListener("mousedown", handleMouseDown);
-        target.addEventListener("touchstart", handleMouseDown);
+        if (isTouch) {
+          target.addEventListener("touchstart", handleMouseDown);
+        } else {
+          target.addEventListener("mousedown", handleMouseDown);
+        }
       }
 
-      document.addEventListener("mouseup", handleMouseUp, { passive: false });
-      document.addEventListener("touchend", handleMouseUp, { passive: false });
+      if (isTouch) {
+        document.addEventListener("touchend", handleMouseUp, {
+          passive: false,
+        });
+      } else {
+        document.addEventListener("mouseup", handleMouseUp, { passive: false });
+      }
 
-      document.addEventListener("touchmove", handleMouseMove, {
-        passive: false,
-      });
-      document.addEventListener("mousemove", handleMouseMove, {
-        passive: false,
-      });
+      if (isTouch) {
+        document.addEventListener("touchmove", handleMouseMove, {
+          passive: false,
+        });
+      } else {
+        document.addEventListener("mousemove", handleMouseMove, {
+          passive: false,
+        });
+      }
     }
   }, [targetRef]);
 

@@ -1,0 +1,76 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/icon.scss";
+
+.rc-alert {
+  @extend %border-radius;
+  align-items: center;
+  color: colors.$white;
+  display: grid;
+  grid-template-columns: 3rem 1fr 2rem;
+  justify-items: center;
+  opacity: 1;
+  overflow: hidden;
+  padding: 0;
+  transition: height 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  width: 100%;
+
+  &.rc-alert-success {
+    background-color: colors.$success-green;
+  }
+
+  &.rc-alert-error {
+    background-color: colors.$crimson;
+  }
+
+  &.rc-alert-warning {
+    background-color: colors.$amber;
+  }
+
+  &.rc-alert-info {
+    background-color: colors.$blue;
+  }
+
+  &:not(.rc-alert-close) {
+    height: var(--height);
+  }
+
+  &.rc-alert-close {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.rc-alert-icon-wrapper {
+  @extend %center;
+  background: rgba($color: #fff, $alpha: 0.1);
+  height: 100%;
+  width: 100%;
+}
+
+.rc-alert-icon {
+  @extend %icon-xl;
+  align-self: center;
+  justify-self: flex-start;
+
+  svg {
+    color: colors.$white;
+  }
+}
+
+.rc-alert-content {
+  @extend %left;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.rc-alert-close-btn {
+  @extend %icon-lg;
+  align-self: flex-start;
+  cursor: pointer;
+  margin-top: 0.5rem;
+
+  svg {
+    color: colors.$white;
+  }
+}

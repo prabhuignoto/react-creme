@@ -11,8 +11,15 @@ body {
   padding: 0;
 }
 
-body, html, button, div, section, ul, span {
-  font-family: 'Outfit', sans-serif;
+body,
+html,
+button,
+div,
+section,
+ul,
+code,
+span {
+  font-family: "Outfit", sans-serif;
   font-size: 14px;
   font-weight: 300;
 }
@@ -49,11 +56,11 @@ body, html, button, div, section, ul, span {
   }
 
   .app-aside {
-    width: 30%;
+    width: 20%;
   }
 
   .app-main-section {
-    width: 70%;
+    width: 80%;
   }
 }
 
@@ -97,7 +104,7 @@ body, html, button, div, section, ul, span {
   .app-aside {
     width: 20%;
   }
-  
+
   .app-main-section {
     width: 80%;
   }
@@ -112,7 +119,6 @@ body, html, button, div, section, ul, span {
 .aside a {
   margin: 0.5rem 0;
 }
-
 
 .rc-demo-page {
   align-items: center;
@@ -188,7 +194,6 @@ body, html, button, div, section, ul, span {
   height: 100%;
   width: 100%;
 }
-
 
 .rc-demo-app-logo svg {
   max-height: 100%;

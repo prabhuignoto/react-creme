@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router";
 import Accordion from "./playground/accordion";
 import AccordionGroup from "./playground/accordion-group";
+import Alert from "./playground/alerts";
 import Avatar from "./playground/avatar";
 import Breadcrumb from "./playground/breadcrumb";
 import Buttons from "./playground/buttons";
@@ -377,6 +378,14 @@ function AppRoutes() {
         element={
           <div className="section-content">
             <GlobalNotification />
+          </div>
+        }
+      />
+      <Route
+        path="/alerts"
+        element={
+          <div className="section-content">
+            <Alert />
           </div>
         }
       />

@@ -49,6 +49,7 @@ $height: 40px;
   &:not(.rc-list-option-no-icon) {
     display: grid;
     grid-template-columns: 2rem calc(100% - 2rem);
+    justify-items: center;
   }
 }
 
@@ -63,9 +64,9 @@ $height: 40px;
 }
 
 .rc-list-option-icon {
+  @extend %center;
   color: colors.$primary;
   height: 100%;
-  justify-self: center;
   visibility: hidden;
   width: 80%;
 

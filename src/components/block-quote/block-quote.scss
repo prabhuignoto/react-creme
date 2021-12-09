@@ -1,5 +1,6 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
+@use "../../design/position.scss";
 
 .rc-block-quote {
   @extend %left;
@@ -12,13 +13,24 @@
   width: calc(100% - 1rem);
 
   code {
+    color: colors.$white;
+    font-style: normal;
+    margin: 0 0.5rem;
+    position: relative;
+    text-decoration: none;
+    z-index: 0;
+  }
+
+  code::after {
     @extend %border-radius;
     @extend %center;
-    background: rgba(colors.$primary, 0.2);
-    color: colors.$black;
-    font-size: 0.9rem;
+    @include position.position-abs("center center");
+    background: rgba(colors.$primary, 0.75);
+    content: "";
+    display: block;
     font-style: normal;
-    margin: 0 0.25rem;
-    padding: 0.1rem 0.5rem;
+    height: calc(100% + 2px);
+    width: calc(100% + 8px);
+    z-index: -1;
   }
 }

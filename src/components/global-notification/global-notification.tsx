@@ -61,12 +61,19 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
     []
   );
 
-  const handleClose = useCallback(() => setOpen(false), []);
+  const handleClose = useCallback(() => {
+    setOpen(false);
+    setTimeout(() => onClose?.(), 250);
+  }, []);
 
   return (
-    <div className={globalNotificationClass} style={style}>
+    <div className={globalNotificationClass} style={style} role="alertdialog">
       <span className="rc-global-notification-message">{open && message}</span>
-      <span className="rc-global-notification-close-btn" onClick={handleClose}>
+      <span
+        className="rc-global-notification-close-btn"
+        onClick={handleClose}
+        role="button"
+      >
         {open && <CloseIcon />}
       </span>
     </div>

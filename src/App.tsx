@@ -1,10 +1,11 @@
 import React from "react";
 import AppRoutes from "./app-routes";
-import "./App.css";
+import "./App.scss";
 import { SidebarHome } from "./demo/sidebar/sidebar";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
+import Footer from "./Footer";
 
 const Logo = () => (
   <div className="rc-demo-app-logo">
@@ -36,6 +37,7 @@ function App() {
           <GithubLink />
         </header>
         <AppRoutes />
+        <Footer />
       </section>
     </div>
   );

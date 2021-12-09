@@ -3,8 +3,8 @@ import React from "react";
 import { RadioGroup } from "../radio-group";
 
 const items = [
-  { label: "one", id: "23" },
-  { label: "two", id: "45" },
+  { label: "one", id: "23", value: "one" },
+  { label: "two", id: "45", value: "two" },
 ];
 
 const handler = jest.fn();
