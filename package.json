@@ -29,10 +29,10 @@
     "nanoid": "^3.1.30",
     "react": "^18.0.0-rc.0-next-f2a59df48-20211208",
     "react-dom": "^18.0.0-rc.0-next-f2a59df48-20211208",
-    "react-router-dom": "^6.0.2",
     "use-debounce": "^7.0.1"
   },
   "devDependencies": {
+    "react-router-dom": "^6.0.2",
     "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-optional-chaining": "^7.16.0",
     "@babel/plugin-transform-runtime": "^7.16.4",

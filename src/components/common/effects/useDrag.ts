@@ -5,7 +5,7 @@ import {
   useCallback,
   useEffect,
   useRef,
-  useState
+  useState,
 } from "react";
 import isTouchDevice from "../utils";
 
@@ -65,7 +65,6 @@ const useDrag: functionType = (
 
   const handleDragStart = useCallback(
     (ev: MouseEvent | TouchEvent) => {
-
       if (ev.target === target.current) {
         dragStartTimer.current = window.setTimeout(() => {
           dragStarted.current = true;
@@ -77,7 +76,6 @@ const useDrag: functionType = (
   );
 
   const handleDrag = useCallback((ev: MouseEvent | TouchEvent) => {
-
     if (dragStarted.current && target.current && container.current) {
       ev.preventDefault();
       const { clientWidth: parentWidth, clientHeight: parentHeight } =
@@ -109,8 +107,9 @@ const useDrag: functionType = (
           setPercent(percent);
         } else if (left >= maxXValue.current) {
           setPercent(maxXValue.current / parentWidth);
-          target.current.style.left = `${maxXValue.current - rnd(targetWidth / 2)
-            }px`;
+          target.current.style.left = `${
+            maxXValue.current - rnd(targetWidth / 2)
+          }px`;
         }
       } else if (direction === "vertical") {
         const top = max(0, clientY - (parentTop || 0));
@@ -196,7 +195,6 @@ const useDrag: functionType = (
       }
     }
 
-
     if (isTouch) {
       document.addEventListener("touchmove", handleDrag, {
         passive: false,
@@ -218,7 +216,6 @@ const useDrag: functionType = (
         passive: false,
       });
     }
-
   }, [target.current?.clientWidth, container]);
 
   return [percent, setPercent];

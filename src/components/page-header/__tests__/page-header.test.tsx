@@ -10,9 +10,7 @@ describe("PageHeader", () => {
 
   it("should render the children", () => {
     const { container, getByText } = render(
-      <PageHeader title="Tests">
-        Test
-      </PageHeader>
+      <PageHeader title="Tests">Test</PageHeader>
     );
     expect(getByText("Test")).toBeInTheDocument();
   });
