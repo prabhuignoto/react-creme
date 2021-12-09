@@ -108,7 +108,15 @@ const Widgets: React.FunctionComponent = () => {
           Infinite progress is also available in circular mode.
         </BlockQuote>
         <div className="rc-demo-widget">
-          <CircularProgress size={40} />
+          <div style={{ margin: "0 0.5rem" }}>
+            <CircularProgress size={"sm"} />
+          </div>
+          <div style={{ margin: "0 0.5rem" }}>
+            <CircularProgress size={"md"} />
+          </div>
+          <div style={{ margin: "0 0.5rem" }}>
+            <CircularProgress size={"lg"} />
+          </div>
         </div>
       </Section>
       {/* <Section title="Circular Progress - Double ring">

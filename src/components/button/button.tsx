@@ -59,7 +59,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
     >
       {type === "progress" && !disabled && (
         <span className="rc-btn-progress-wrapper">
-          <CircularProgress size={15} />
+          <CircularProgress size={"xs"} />
         </span>
       )}
       {children && <span className="rc-btn-icon-container">{children}</span>}

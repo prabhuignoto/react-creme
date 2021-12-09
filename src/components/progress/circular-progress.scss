@@ -1,6 +1,13 @@
 @use "../../design/colors";
 @use "../../design/position";
 
+$sizes: (
+  xs: 16px,
+  sm: 32px,
+  md: 48px,
+  lg: 56px,
+);
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -11,7 +18,7 @@
   }
 }
 
-.circular-progress-wrapper {
+.rc-circular-progress {
   animation: spin 1s linear infinite;
   background: linear-gradient(
     to right,
@@ -20,38 +27,43 @@
   );
   border-radius: 100%;
   display: block;
-  height: var(--size);
   position: relative;
   transform-origin: 50% 50%;
-  width: var(--size);
   z-index: 0;
-}
 
-.inner-circle {
-  @include position.position-abs("center center");
-  background: linear-gradient(
-    to right,
-    colors.$secondary 50%,
-    colors.$primary 50% 100%
-  );
-  border: 1px solid colors.$white;
-  border: 5px solid #fff;
-  border-radius: 50%;
-  display: block;
-  height: 60%;
-  width: 60%;
-  z-index: 1;
-
-  &::after {
-    @include position.position-abs("center center");
-    background: #fff;
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 80%;
-    width: 80%;
+  @each $key, $val in $sizes {
+    &.rc-circular-progress-#{$key} {
+      height: #{$val};
+      width: #{$val};
+    }
   }
 }
+
+// .inner-circle {
+//   @include position.position-abs("center center");
+//   background: linear-gradient(
+//     to right,
+//     colors.$secondary 50%,
+//     colors.$primary 50% 100%
+//   );
+//   border: 1px solid colors.$white;
+//   border: 5px solid #fff;
+//   border-radius: 50%;
+//   display: block;
+//   height: 60%;
+//   width: 60%;
+//   z-index: 1;
+
+//   &::after {
+//     @include position.position-abs("center center");
+//     background: #fff;
+//     border-radius: 50%;
+//     content: "";
+//     display: block;
+//     height: 80%;
+//     width: 80%;
+//   }
+// }
 
 .inner-circle-2 {
   @include position.position-abs("center center");

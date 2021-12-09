@@ -33,12 +33,8 @@
 }
 
 .rc-image-load-icon-wrapper {
-  @extend %border-radius;
   @extend %center;
   @include position.position-abs("center center");
-  background: colors.$light-bg;
-  height: 40px;
-  width: 40px;
 }
 
 .rc-image-overlay {

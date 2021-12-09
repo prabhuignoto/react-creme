@@ -5,6 +5,8 @@ import Widgets from "./widgets";
 function menubar() {
   return (
     <DemoPageRenderer
+      title="Menubar"
+      description="Menubar is a component that can be used to display a menu bar on top of the application."
       data={[
         {
           name: "<em>align</em>",

@@ -62,9 +62,9 @@ const DraggableWidgets: React.FunctionComponent<{
 }> = ({ outerWidth, outerHeight }) => {
   const ref = useRef();
 
-  // useDraggable(ref, {
-  //   makeChildrenDraggable: true,
-  // });
+  useDraggable(ref, {
+    makeChildrenDraggable: true,
+  });
 
   return (
     <div

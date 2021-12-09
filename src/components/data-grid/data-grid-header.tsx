@@ -59,6 +59,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = React.memo(
                     "rc-data-grid-header-sort-icon-active":
                       column.sortDirection === "asc",
                   })}
+                  role="button"
                   onClick={() => handleSort(column.name, "asc")}
                 >
                   <TriangleIcon />
@@ -68,6 +69,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = React.memo(
                     "rc-data-grid-header-sort-icon-active":
                       column.sortDirection === "desc",
                   })}
+                  role="button"
                   onClick={() => handleSort(column.name, "desc")}
                 >
                   <TriangleIcon />

@@ -5,10 +5,13 @@ import {
   useCallback,
   useEffect,
   useRef,
-  useState,
+  useState
 } from "react";
+import isTouchDevice from "../utils";
 
 const rnd = Math.round;
+
+const isTouch = isTouchDevice();
 
 interface Settings {
   direction: "horizontal" | "vertical";
@@ -55,26 +58,28 @@ const useDrag: functionType = (
   const [percent, setPercent] = useState(0);
 
   const resizeObserver = useRef<ResizeObserver>();
+  const dragStartTimer = useRef<number>();
 
   const maxXValue = useRef<number>(0);
   const maxYValue = useRef<number>(0);
 
   const handleDragStart = useCallback(
     (ev: MouseEvent | TouchEvent) => {
-      ev.preventDefault();
 
       if (ev.target === target.current) {
-        dragStarted.current = true;
-        onDragStart && onDragStart();
+        dragStartTimer.current = window.setTimeout(() => {
+          dragStarted.current = true;
+          onDragStart && onDragStart();
+        }, 100);
       }
     },
     [target]
   );
 
   const handleDrag = useCallback((ev: MouseEvent | TouchEvent) => {
-    ev.preventDefault();
 
     if (dragStarted.current && target.current && container.current) {
+      ev.preventDefault();
       const { clientWidth: parentWidth, clientHeight: parentHeight } =
         container.current;
       const { left: parentLeft, top: parentTop } =
@@ -104,9 +109,8 @@ const useDrag: functionType = (
           setPercent(percent);
         } else if (left >= maxXValue.current) {
           setPercent(maxXValue.current / parentWidth);
-          target.current.style.left = `${
-            maxXValue.current - rnd(targetWidth / 2)
-          }px`;
+          target.current.style.left = `${maxXValue.current - rnd(targetWidth / 2)
+            }px`;
         }
       } else if (direction === "vertical") {
         const top = max(0, clientY - (parentTop || 0));
@@ -122,6 +126,7 @@ const useDrag: functionType = (
   }, []);
 
   const handleDragEnd = useCallback(() => {
+    window.clearTimeout(dragStartTimer.current);
     dragStarted.current = false;
     onDragEnd && onDragEnd();
   }, []);
@@ -143,14 +148,14 @@ const useDrag: functionType = (
 
     return () => {
       resizeObserver.current?.disconnect();
-      container.current?.removeEventListener("mousemove", handleDrag);
-      container.current?.removeEventListener("touchmove", handleDrag);
+      document.removeEventListener("mousemove", handleDrag);
+      document.removeEventListener("touchmove", handleDrag);
 
-      container.current?.removeEventListener("mousedown", handleDragStart);
-      container.current?.removeEventListener("touchstart", handleDragStart);
+      document.removeEventListener("mousedown", handleDragStart);
+      document.removeEventListener("touchstart", handleDragStart);
 
-      container.current?.removeEventListener("mouseup", handleDragEnd);
-      container.current?.removeEventListener("touchend", handleDragEnd);
+      document.removeEventListener("mouseup", handleDragEnd);
+      document.removeEventListener("touchend", handleDragEnd);
     };
   }, []);
 
@@ -158,6 +163,8 @@ const useDrag: functionType = (
     if (!target.current || !container.current) {
       return;
     }
+
+    container.current.style.userSelect = "none";
 
     const { clientHeight, clientWidth } = container.current;
 
@@ -189,26 +196,29 @@ const useDrag: functionType = (
       }
     }
 
-    container.current.addEventListener("mousemove", handleDrag, {
-      passive: false,
-    });
-    container.current.addEventListener("touchmove", handleDrag, {
-      passive: false,
-    });
 
-    container.current.addEventListener("mousedown", handleDragStart, {
-      passive: false,
-    });
-    container.current.addEventListener("touchstart", handleDragStart, {
-      passive: false,
-    });
+    if (isTouch) {
+      document.addEventListener("touchmove", handleDrag, {
+        passive: false,
+      });
+      document.addEventListener("touchstart", handleDragStart, {
+        passive: false,
+      });
+      document.addEventListener("touchend", handleDragEnd, {
+        passive: true,
+      });
+    } else {
+      document.addEventListener("mousedown", handleDragStart, {
+        passive: false,
+      });
+      document.addEventListener("mouseup", handleDragEnd, {
+        passive: true,
+      });
+      document.addEventListener("mousemove", handleDrag, {
+        passive: false,
+      });
+    }
 
-    container.current.addEventListener("mouseup", handleDragEnd, {
-      passive: true,
-    });
-    container.current.addEventListener("touchend", handleDragEnd, {
-      passive: true,
-    });
   }, [target.current?.clientWidth, container]);
 
   return [percent, setPercent];

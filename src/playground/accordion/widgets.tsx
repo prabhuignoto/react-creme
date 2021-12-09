@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Accordion, BlockQuote, Image, Section } from "../../components";
+import { Code } from "../syntax-highlighter";
 import useMedia from "../useMedia";
 
 function widgets() {
@@ -24,6 +25,7 @@ function widgets() {
     width > 0 && (
       <div style={{ minHeight: "1200px" }} className="rc-demo-widgets">
         <Section title="Default render">
+          <Code code="<span>This is a test</span>"></Code>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <Accordion title="Lorem Ipsum" noBorder>

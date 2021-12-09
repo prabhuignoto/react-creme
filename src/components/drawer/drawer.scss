@@ -59,6 +59,7 @@
   height: var(--min-height);
   min-width: $min-width;
   position: relative;
+  outline: 0;
   visibility: hidden;
 
   &.visible {

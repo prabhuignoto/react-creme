@@ -165,7 +165,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
       />
       {showLoader && !loaded && (
         <span className="rc-image-load-icon-wrapper">
-          <CircularProgress size={20} />
+          <CircularProgress size={"sm"} />
         </span>
       )}
       {openOverlay && src && (

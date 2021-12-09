@@ -5,19 +5,19 @@ import { DataGridCell as CellModel } from "./data-grid-model";
 const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
   ({ name, value, border, fixedHeight }: CellModel) => {
     const columnClass = useMemo(() => {
-      return classNames("rc-data-grid-column", {
-        "rc-data-grid-column-border": border,
+      return classNames("rc-data-grid-cell", {
+        "rc-data-grid-cell-border": border,
       });
     }, [border]);
 
     const cellClass = useMemo(() => {
-      return classNames("rc-data-grid-column-val", {
-        "rc-data-grid-column-val-fixed": fixedHeight,
+      return classNames("rc-data-grid-cell-val", {
+        "rc-data-grid-cell-val-fixed": fixedHeight,
       });
     }, []);
 
     return (
-      <div className={columnClass}>
+      <div className={columnClass} role="cell">
         <span
           className={cellClass}
           dangerouslySetInnerHTML={{ __html: value }}
