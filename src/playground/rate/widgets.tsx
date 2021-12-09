@@ -14,7 +14,7 @@ function widgets() {
       <Section title="Custom icon count">
         <BlockQuote>You can choose the number of icons to display.</BlockQuote>
         <div className="rc-demo-widget">
-          <Rate size="lg" iconCount={3} focusable={false} value={3} />
+          <Rate size="lg" iconCount={3} focusable={false} value={2} />
         </div>
       </Section>
       <Section title="Custom Icon">

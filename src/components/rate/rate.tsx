@@ -59,11 +59,9 @@ const Rate: React.FunctionComponent<RateProps> = ({
   }, 10);
 
   useEffect(() => {
-    if (!isFirstRender.current) {
-      setItems((prev) =>
-        prev.map((item, index) => ({ ...item, active: index <= selectedIndex }))
-      );
-    }
+    setItems((prev) =>
+      prev.map((item, index) => ({ ...item, active: index <= selectedIndex }))
+    );
   }, [selectedIndex]);
 
   useEffect(() => {
