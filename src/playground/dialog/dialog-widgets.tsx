@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { Button, Dialog, Section } from "../../components";
 import useMedia from "../useMedia";
 
@@ -9,7 +9,7 @@ const Widget = () => {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }

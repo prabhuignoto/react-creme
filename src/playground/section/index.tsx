@@ -11,23 +11,23 @@ function index() {
       tabTitles={["examples", "properties"]}
       data={[
         {
-          name: "title",
+          name: "<em>title</em>",
           description: "Title of the section",
           default: "",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "height",
+          name: "<em>height</em>",
           description: "Minimum height of the section",
-          default: "150",
+          default: "<em>150</em>",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "layout",
+          name: "<em>layout</em>",
           description: "Layout of the section",
-          default: "row",
+          default: "<em>row</em>",
           optional: "Yes",
           type: "String",
         },

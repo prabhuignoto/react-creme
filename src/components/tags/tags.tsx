@@ -1,5 +1,11 @@
 import { nanoid } from "nanoid";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  startTransition,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import "../../design/icon.scss";
 import "../../design/layout.scss";
 import "../../design/list.scss";
@@ -50,7 +56,11 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   const handleKeyUp = useCallback(
     (ev: React.KeyboardEvent) => {
       if (ev.key === "Enter" && canAdd && inputValue) {
-        setTagItems((prev) => prev.concat({ id: nanoid(), name: inputValue }));
+        startTransition(() => {
+          setTagItems((prev) =>
+            prev.concat({ id: nanoid(), name: inputValue })
+          );
+        });
         setInputValue("");
       }
     },
@@ -58,14 +68,14 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   );
 
   const handleRemove = useCallback((val) => {
-    setTagItems((tags) =>
-      tags.map((tag) =>
-        tag.id === val ? { ...tag, markedForRemoval: true } : tag
-      )
-    );
-    setTimeout(() => {
+    startTransition(() => {
+      setTagItems((tags) =>
+        tags.map((tag) =>
+          tag.id === val ? { ...tag, markedForRemoval: true } : tag
+        )
+      );
       setTagItems((tags) => tags.filter((tag) => tag.id !== val));
-    }, 250);
+    });
   }, []);
 
   // EFFECTS
@@ -76,15 +86,17 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   }, [tagItems.length]);
 
   useEffect(() => {
-    setTagItems(
-      items.map((item) => ({
-        name: item.name,
-        id: nanoid(),
-        disabled: item.disabled,
-        readonly: readonly,
-      }))
-    );
-  }, [JSON.stringify(items)]);
+    startTransition(() => {
+      setTagItems(
+        items.map((item) => ({
+          name: item.name,
+          id: nanoid(),
+          disabled: item.disabled,
+          readonly: readonly,
+        }))
+      );
+    });
+  }, [items.length]);
 
   return (
     <ul className={"rc-tags-wrap"} role="list" style={style}>
@@ -109,6 +121,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
             onKeyUp={handleKeyUp}
             value={inputValue}
             enableClear
+            controlled
           />
         </li>
       )}

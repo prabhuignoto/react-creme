@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useLayoutEffect, useMemo } from "react";
 import { BlockQuote, Carousel, Image, Section } from "../../components";
 import useMedia from "../useMedia";
 
@@ -6,7 +6,7 @@ function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState<string | number>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }

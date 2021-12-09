@@ -5,7 +5,7 @@ import Widgets from "./widgets";
 function sidebar() {
   return (
     <DemoPageRenderer
-      tabTitles={["Sidebar", "Properties"]}
+      tabTitles={["examples", "Properties"]}
       demoWidget={<Widgets />}
       title="Sidebar"
       description="Sidebar is a container for sidebar items. It can be used to display a list of items in a collapsible sidebar."

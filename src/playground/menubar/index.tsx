@@ -37,7 +37,7 @@ function menubar() {
           type: "Function",
         },
       ]}
-      tabTitles={["menu bar", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

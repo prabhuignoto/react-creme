@@ -35,7 +35,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = React.memo(
       return classNames("rc-data-grid-header", {
         [`rc-data-grid-header-${layoutStyle}`]: true,
       });
-    }, []);
+    }, [layoutStyle]);
 
     const headerCellClass = useMemo(() => {
       return classNames("rc-data-grid-header-cell", {

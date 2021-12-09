@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { Slider } from "../../components/slider/slider";
 import useMedia from "../useMedia";
 
@@ -6,7 +6,7 @@ const Widgets = () => {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }

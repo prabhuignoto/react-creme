@@ -71,7 +71,7 @@ function radio() {
           type: "Object",
         },
       ]}
-      tabTitles={["radio", "properties"]}
+      tabTitles={["examples", "properties"]}
     ></DemoPageRenderer>
   );
 }

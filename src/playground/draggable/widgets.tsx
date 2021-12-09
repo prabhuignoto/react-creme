@@ -9,7 +9,7 @@ const DraggableWidget: React.FC<{
   height?: number;
   bound?: boolean;
   draggableChildren?: boolean;
-  direction?: "horizontal" | "vertical";
+  direction?: "HORIZONTAL" | "VERTICAL";
 }> = ({
   outerWidth,
   width,
@@ -27,7 +27,10 @@ const DraggableWidget: React.FC<{
       boundTo: boundRef,
     });
   } else if (direction) {
-    useDraggable(ref, { dragDirection: "HORIZONTAL", boundTo: boundRef });
+    useDraggable(ref, {
+      dragDirection: direction,
+      boundTo: boundRef,
+    });
   } else if (draggableChildren) {
     useDraggable(ref, { makeChildrenDraggable: true });
   } else {
@@ -132,7 +135,17 @@ function Widgets() {
             outerHeight={300}
             width={120}
             height={100}
-            direction="horizontal"
+            direction="HORIZONTAL"
+            bound={null}
+          />
+        </div>
+        <div className="rc-demo-widget">
+          <DraggableWidget
+            outerWidth={400}
+            outerHeight={300}
+            width={120}
+            height={100}
+            direction="VERTICAL"
             bound={null}
           />
         </div>

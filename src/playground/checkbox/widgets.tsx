@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useMemo } from "react";
+import React, { CSSProperties, useLayoutEffect, useMemo } from "react";
 import { CheckBox, Section } from "../../components";
 import useMedia from "../useMedia";
 
@@ -13,7 +13,7 @@ function widgets() {
     } as CSSProperties;
   }, [width]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }

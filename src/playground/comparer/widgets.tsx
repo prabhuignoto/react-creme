@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { BlockQuote, ImageComparer, Section } from "../../components";
 import useMedia from "./../useMedia";
 
@@ -6,7 +6,7 @@ function Widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState<string | number>("90%");
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }

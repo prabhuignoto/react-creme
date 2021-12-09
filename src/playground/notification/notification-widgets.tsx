@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import {
   BlockQuote,
   Button,
@@ -15,7 +15,7 @@ const Widgets = () => {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }

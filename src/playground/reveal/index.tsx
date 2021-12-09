@@ -7,7 +7,7 @@ function reveal() {
     <DemoPageRenderer
       demoWidget={<Widgets />}
       data={[]}
-      tabTitles={["Reveal", "properties"]}
+      tabTitles={["examples", "properties"]}
     ></DemoPageRenderer>
   );
 }

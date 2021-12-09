@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useMemo } from "react";
+import React, { CSSProperties, useLayoutEffect, useMemo } from "react";
 import { BlockQuote, ScrollSpy, Section } from "../../components";
 import useMedia from "./../useMedia";
 
@@ -22,7 +22,7 @@ function Widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }
@@ -31,9 +31,9 @@ function Widgets() {
     } else if (media.isMobile) {
       setWidth(400);
     } else if (media.isBigScreen) {
-      setWidth(750);
+      setWidth(800);
     } else if (media.isDesktop) {
-      setWidth(600);
+      setWidth(650);
     }
   }, [media]);
 

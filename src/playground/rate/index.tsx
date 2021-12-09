@@ -51,7 +51,7 @@ function rate() {
           type: `Function`,
         },
       ]}
-      tabTitles={["Rate", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

@@ -2,7 +2,6 @@ import classNames from "classnames";
 import React, {
   CSSProperties,
   useCallback,
-  useEffect,
   useMemo,
   useRef,
   useState,
@@ -50,12 +49,6 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
           : `polygon(0% 0%, 100% 0%, 100% ${percentToUse}%, 0% ${percentToUse}%)`,
     } as CSSProperties;
   }, [percent, direction]);
-
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-    }
-  }, []);
 
   const imagesLoaded = useMemo(
     () => imageLoaded && imageLoaded2,

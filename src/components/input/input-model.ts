@@ -11,4 +11,5 @@ export interface InputModel {
   value?: string;
   style?: CSSProperties;
   disabled?: boolean;
+  controlled?: boolean;
 }

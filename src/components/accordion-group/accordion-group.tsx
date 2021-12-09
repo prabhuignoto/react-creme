@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useCallback, useEffect, useMemo } from "react";
+import React, { useCallback, useLayoutEffect, useMemo } from "react";
 import { Accordion } from "..";
 import {
   AccordionGroupProps,
@@ -50,7 +50,7 @@ const AccordionGroup = ({
     });
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (titles.length) {
       setItems(() =>
         titles.map(() => ({

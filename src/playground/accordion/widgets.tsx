@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
+// import { Accordion, BlockQuote, Image, Section } from "../components-from-npm";
 import { Accordion, BlockQuote, Image, Section } from "../../components";
-import { Code } from "../syntax-highlighter";
 import useMedia from "../useMedia";
 
 function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }
@@ -25,7 +25,7 @@ function widgets() {
     width > 0 && (
       <div style={{ minHeight: "1200px" }} className="rc-demo-widgets">
         <Section title="Default render">
-          <Code code="<span>This is a test</span>"></Code>
+          {/* <Code code="<span>This is a test</span>"></Code> */}
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
               <Accordion title="Lorem Ipsum" noBorder>
@@ -109,7 +109,8 @@ function widgets() {
             >
               <Accordion title="Show Image" iconType="plus" alignIconRight>
                 <Image
-                  height={400}
+                  height={"400"}
+                  alt="demo"
                   src="https://images.unsplash.com/photo-1635276080002-e1b219f8414f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1447&q=80"
                 />
               </Accordion>

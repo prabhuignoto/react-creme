@@ -6,7 +6,7 @@ function slider() {
   return (
     <DemoPageRenderer
       data={[]}
-      tabTitles={["sliders", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

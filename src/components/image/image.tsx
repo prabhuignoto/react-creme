@@ -12,15 +12,18 @@ import { ImageOverlay } from "./image-overlay";
 import "./image.scss";
 
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  expandOnClick?: boolean;
+  expandImageOnClick?: boolean;
   isOverlay?: boolean;
   fitImage?: boolean;
   showLoader?: boolean;
+  loaderSize?: "xs" | "sm" | "md" | "lg";
+  onLoad?: (evt: React.SyntheticEvent) => void;
+  alt?: string;
 }
 
 const Image: React.FunctionComponent<ImageProps> = ({
   alt,
-  expandOnClick = false,
+  expandImageOnClick = false,
   height = "100%",
   isOverlay = false,
   loading = "lazy",
@@ -29,6 +32,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
   fitImage = true,
   onLoad,
   showLoader = true,
+  loaderSize = "sm",
 }) => {
   const [loaded, setLoaded] = React.useState(false);
 
@@ -71,7 +75,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
   const wrapperClass = useMemo(() => {
     return classNames("rc-image-wrapper", {
       "rc-image-loaded": loaded,
-      "rc-image-clickable": expandOnClick,
+      "rc-image-clickable": expandImageOnClick,
     });
   }, [loaded]);
 
@@ -111,7 +115,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
 
   const imageProps = useMemo(
     () =>
-      expandOnClick && {
+      expandImageOnClick && {
         onClick: handleOverlayOpen,
       },
     []
@@ -165,7 +169,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
       />
       {showLoader && !loaded && (
         <span className="rc-image-load-icon-wrapper">
-          <CircularProgress size={"sm"} />
+          <CircularProgress size={loaderSize} />
         </span>
       )}
       {openOverlay && src && (

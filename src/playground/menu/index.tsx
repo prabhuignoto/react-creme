@@ -5,7 +5,7 @@ import Widgets from "./widgets";
 function menu() {
   return (
     <DemoPageRenderer
-      tabTitles={["menu", "properties"]}
+      tabTitles={["examples", "properties"]}
       data={[
         {
           name: "<em>position</em>",

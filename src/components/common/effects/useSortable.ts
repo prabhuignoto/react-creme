@@ -19,10 +19,6 @@ const useSortable: (
   });
 
   useEffect(() => {
-    console.log(test);
-  }, [test]);
-
-  useEffect(() => {
     const node = ref.current;
 
     if (node) {

@@ -53,7 +53,7 @@ function index() {
         },
       ]}
       demoWidget={<Widgets />}
-      tabTitles={["global notification", "properties"]}
+      tabTitles={["examples", "properties"]}
     ></DemoPageRenderer>
   );
 }

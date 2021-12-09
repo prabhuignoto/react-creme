@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect } from "react";
+import React, { CSSProperties, useLayoutEffect } from "react";
 import { Radio, Section } from "../../components";
 import useMedia from "../useMedia";
 
@@ -10,7 +10,7 @@ function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }

@@ -49,7 +49,7 @@ function menuButton() {
           type: "Number",
         },
       ]}
-      tabTitles={["menu button", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={
         <div className="rc-demo-widgets">
           <div className="rc-demo-widget">

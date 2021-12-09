@@ -52,7 +52,7 @@ function notification() {
           type: "Function",
         },
       ]}
-      tabTitles={["notification", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

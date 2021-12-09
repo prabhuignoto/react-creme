@@ -52,7 +52,7 @@ function progress() {
           type: "Boolean",
         },
       ]}
-      tabTitles={["progress", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

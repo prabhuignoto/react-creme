@@ -16,7 +16,7 @@
 
   &::after {
     @include position.position-abs("bottom center");
-    background: colors.$gray;
+    background: colors.$platinum;
     bottom: 0;
     content: "";
     display: block;
@@ -65,6 +65,7 @@
   @include animate.halo();
   margin: 0 0.5rem 0 0;
   position: relative;
+  user-select: none;
 
   &.rc-tab-head-disabled {
     @extend %disabled;

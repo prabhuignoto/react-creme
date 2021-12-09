@@ -63,7 +63,7 @@ function checkbox() {
           type: "Function",
         },
       ]}
-      tabTitles={["checkbox", "properties"]}
+      tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

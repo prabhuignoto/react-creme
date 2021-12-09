@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { Button, Drawer, Section } from "../../components";
 import useMedia from "../useMedia";
 
@@ -10,7 +10,7 @@ const Widget: React.FunctionComponent = () => {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }

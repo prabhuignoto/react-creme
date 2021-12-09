@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { BlockQuote, Section } from "../../components";
 import { Sidebar } from "../../components/sidebar/sidebar";
 import useMedia from "../useMedia";
@@ -7,7 +7,7 @@ function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }

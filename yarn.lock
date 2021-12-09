@@ -6445,6 +6445,18 @@ react-creme-pre-alpha@^0.1.0:
     react-dom "^18.0.0-rc.0-next-f2a59df48-20211208"
     use-debounce "^7.0.1"
 
+react-creme-pre-alpha@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-creme-pre-alpha/-/react-creme-pre-alpha-0.1.1.tgz#32c4c9e0977369b387fb8470fb6011b5e878dd93"
+  integrity sha512-Ay6KC7ed2ObnK/bINP9tgX72CQHWoRfdW5jRda6ynFZhO84PkLLeV2LMCUppxE1kH3rZZ3r3KHP/AszV6oQ6BQ==
+  dependencies:
+    classnames "^2.3.1"
+    nanoid "^3.1.30"
+    react "^18.0.0-rc.0-next-f2a59df48-20211208"
+    react-creme-pre-alpha "^0.1.0"
+    react-dom "^18.0.0-rc.0-next-f2a59df48-20211208"
+    use-debounce "^7.0.1"
+
 react-dom@^18.0.0-rc.0-next-f2a59df48-20211208:
   version "18.0.0-rc.0-next-f2a59df48-20211208"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-rc.0-next-f2a59df48-20211208.tgz#96b4e0f0d15ba5cbad24de2c852742f5ef9a6991"
@@ -6718,10 +6730,17 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.59.0, rollup@^2.60.2:
+rollup@^2.59.0:
   version "2.60.2"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.60.2.tgz#3f45ace36a9b10b4297181831ea0719922513463"
   integrity sha512-1Bgjpq61sPjgoZzuiDSGvbI1tD91giZABgjCQBKM5aYLnzjq52GoDuWVwT/cm/MCxCMPU8gqQvkj8doQ5C8Oqw==
+  optionalDependencies:
+    fsevents "~2.3.2"
+
+rollup@^2.61.0:
+  version "2.61.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.61.0.tgz#ccd927bcd6cc0c78a4689c918627a717977208f4"
+  integrity sha512-teQ+T1mUYbyvGyUavCodiyA9hD4DxwYZJwr/qehZGhs1Z49vsmzelMVYMxGU4ZhGRKxYPupHuz5yzm/wj7VpWA==
   optionalDependencies:
     fsevents "~2.3.2"
 

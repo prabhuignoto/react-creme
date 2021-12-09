@@ -30,7 +30,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
       "rc-data-grid-row-border": border,
       "rc-data-grid-row-fixed-height": fixedHeight,
     });
-  }, []);
+  }, [layoutStyle]);
 
   return (
     <div className={rowClass} style={style}>

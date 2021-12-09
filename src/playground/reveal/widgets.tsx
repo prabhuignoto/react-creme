@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect } from "react";
+import React, { CSSProperties, useLayoutEffect } from "react";
 import { Image, Reveal } from "../../components";
 import useMedia from "../useMedia";
 
@@ -23,7 +23,7 @@ function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }
@@ -73,7 +73,7 @@ function widgets() {
             <Image
               width={width}
               height={300}
-              expandOnClick
+              expandImageOnClick
               src="https://mmc.tirto.id/image/otf/500x0/2016/07/26/TIRTO-20140522_batman_warner-bros_ratio-16x9.jpg"
             />
           </Reveal>

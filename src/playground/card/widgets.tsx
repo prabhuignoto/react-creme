@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { BlockQuote, Card, Image, Section, Skeleton } from "../../components";
 import useMedia from "../useMedia";
 
@@ -7,7 +7,7 @@ function widgets() {
 
   const [width, setWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!media) {
       return;
     }

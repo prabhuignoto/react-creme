@@ -24,6 +24,13 @@ function accordion() {
           type: "Boolean",
         },
         {
+          name: "<em>title</em>",
+          description: "Title of the accordion",
+          default: "<em>''</em>",
+          optional: "Yes",
+          type: "String",
+        },
+        {
           name: "<em>iconType</em>",
           description: `prop to change the icon type. <br> <code>"chevron" | "plus"</code>`,
           default: "<em>chevron</em>",
@@ -40,7 +47,7 @@ function accordion() {
         {
           name: "<em>transition</em>",
           description: "custom transition function",
-          default: "",
+          default: "<em>cubic-bezier(0.19, 1, 0.22, 1)</em>",
           optional: "Yes",
           type: "String",
         },
@@ -57,6 +64,13 @@ function accordion() {
           default: "",
           optional: "Yes",
           type: "Function",
+        },
+        {
+          name: "<em>focusable</em>",
+          description: "enables focus outlines",
+          default: "false",
+          optional: "Yes",
+          type: "<em>Boolean</em>",
         },
       ]}
       demoWidget={<Widgets />}
