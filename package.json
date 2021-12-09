@@ -1,5 +1,5 @@
 {
-  "name": "react-creme",
+  "name": "react-creme-pre-alpha",
   "version": "0.1.0",
   "author": {
     "name": "Prabhu Murthy",
@@ -28,11 +28,11 @@
     "classnames": "^2.3.1",
     "nanoid": "^3.1.30",
     "react": "^18.0.0-rc.0-next-f2a59df48-20211208",
+    "react-creme-pre-alpha": "^0.1.0",
     "react-dom": "^18.0.0-rc.0-next-f2a59df48-20211208",
     "use-debounce": "^7.0.1"
   },
   "devDependencies": {
-    "react-router-dom": "^6.0.2",
     "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-optional-chaining": "^7.16.0",
     "@babel/plugin-transform-runtime": "^7.16.4",
@@ -75,6 +75,7 @@
     "postcss-preset-env": "^7.0.1",
     "prettier": "^2.5.1",
     "react-responsive": "^9.0.0-beta.5",
+    "react-router-dom": "^6.0.2",
     "react-syntax-highlighter": "^15.4.5",
     "resize-observer-polyfill": "^1.5.1",
     "rollup": "^2.60.2",
@@ -113,8 +114,8 @@
     "not dead",
     "> 5%"
   ],
-  "main": "dist/react-creme.js",
-  "module": "dist/react-creme.esm.js",
-  "umd": "dist/react-creme.umd.js",
-  "css": "dist/react-creme.css"
+  "main": "dist/react-creme-pre-alpha.js",
+  "module": "dist/react-creme-pre-alpha.esm.js",
+  "umd": "dist/react-creme-pre-alpha.umd.js",
+  "css": "dist/react-creme-pre-alpha.css"
 }

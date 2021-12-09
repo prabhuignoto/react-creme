@@ -6434,6 +6434,17 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
+react-creme-pre-alpha@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-creme-pre-alpha/-/react-creme-pre-alpha-0.1.0.tgz#f97aea7681b9f2e482f7a8fc333468084dad60db"
+  integrity sha512-nYEpSk9rGVTu8fNR5r5s8rGYeW/m5GZYjVnukMASl0qc4hEI7EmkKYDNKuKd0b0H88aQFDFRv7ArcZkd4/upuw==
+  dependencies:
+    classnames "^2.3.1"
+    nanoid "^3.1.30"
+    react "^18.0.0-rc.0-next-f2a59df48-20211208"
+    react-dom "^18.0.0-rc.0-next-f2a59df48-20211208"
+    use-debounce "^7.0.1"
+
 react-dom@^18.0.0-rc.0-next-f2a59df48-20211208:
   version "18.0.0-rc.0-next-f2a59df48-20211208"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-rc.0-next-f2a59df48-20211208.tgz#96b4e0f0d15ba5cbad24de2c852742f5ef9a6991"
