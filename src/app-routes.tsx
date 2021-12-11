@@ -17,7 +17,7 @@ import Drawer from "./playground/drawer";
 import Dropdown from "./playground/dropdown";
 import GlobalNotification from "./playground/global-notification";
 import Image from "./playground/image";
-import Inputs from "./playground/inputs";
+import Inputs from "./playground/input";
 import List from "./playground/list";
 import Menu from "./playground/menu";
 import MenuButton from "./playground/menu-button";

@@ -1,7 +1,8 @@
 import React, { useLayoutEffect } from "react";
 import { BlockQuote, Section } from "../../components";
 import { Sidebar } from "../../components/sidebar/sidebar";
-import useMedia from "../useMedia";
+import { DemoWidget } from "../common/demo-widget";
+import useMedia from "../common/useMedia";
 
 function widgets() {
   const media = useMedia();
@@ -26,7 +27,7 @@ function widgets() {
       <div className="rc-demo-widgets">
         <Section title="Default render">
           <BlockQuote>Sections are collapsible by default.</BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Sidebar
                 groups={[
@@ -41,13 +42,13 @@ function widgets() {
                 ]}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Search">
           <BlockQuote>
             Can optionally include a search bar for filtering the sidebar.
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Sidebar
                 enableSearch
@@ -67,7 +68,7 @@ function widgets() {
                 ]}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
       </div>
     )

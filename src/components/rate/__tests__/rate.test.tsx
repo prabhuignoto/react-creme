@@ -58,4 +58,12 @@ describe("Rate", () => {
       });
     });
   });
+
+  it("check disabled state", () => {
+    const { getAllByRole } = render(<Rate disabled />);
+
+    getAllByRole("radio").forEach((radio) => {
+      expect(radio).toHaveAttribute("aria-disabled", "true");
+    });
+  });
 });

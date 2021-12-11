@@ -1,6 +1,6 @@
 import React from "react";
 import { MenuButton } from "../components/menu-button/menu-button";
-import DemoPageRenderer from "./demo-page-renderer";
+import DemoPageRenderer from "./common/demo-page-renderer";
 
 function menuButton() {
   return (

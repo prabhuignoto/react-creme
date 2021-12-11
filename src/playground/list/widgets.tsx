@@ -2,7 +2,8 @@ import React, { useLayoutEffect } from "react";
 import { BlockQuote } from "../../components";
 import { List } from "../../components/list/list";
 import { Section } from "../../components/section/section";
-import useMedia from "../useMedia";
+import { DemoWidget } from "../common/demo-widget";
+import useMedia from "../common/useMedia";
 
 function Widgets() {
   const media = useMedia();
@@ -27,24 +28,24 @@ function Widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <List
                 maxHeight={350}
                 onSelection={(val) => console.log(val)}
-                options={Array.from({ length: 25 }, (_, i) => ({
-                  name: `Item ${i}`,
-                  value: `Item ${i}`,
+                options={Array.from({ length: 5 }, (_, i) => ({
+                  name: `Item ${i + 1}`,
+                  value: `Item ${i + 1}`,
                 }))}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Multi selection mode">
           <BlockQuote>
             In Multi selection mode you can select multiple items.
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <List
                 onSelection={(val) => console.log(val)}
@@ -52,7 +53,7 @@ function Widgets() {
                 maxHeight={350}
                 options={[
                   {
-                    name: "india is a huge country with a enormous land and rivers india is a huge country with a enormous land and rivers",
+                    name: "india",
                     value: "india",
                   },
                   { name: "usa", value: "usa" },
@@ -62,7 +63,7 @@ function Widgets() {
                 ]}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Searchable list">
           <BlockQuote>

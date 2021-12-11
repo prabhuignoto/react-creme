@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { Slider } from "../../components/slider/slider";
-import useMedia from "../useMedia";
+import useMedia from "../common/useMedia";
 
 const Widgets = () => {
   const media = useMedia();

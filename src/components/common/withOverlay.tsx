@@ -31,6 +31,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
       containedToParent,
       placementReference,
       placement,
+      overlayAnimation,
     } = props;
     const { backdropColor } = settings;
     const [portalWrapperCreated, setPortalWrapperCreated] = useState(false);
@@ -73,6 +74,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
             placementReference={placementReference}
             backdropColor={backdropColor}
             containedToParent={!!containedToParent}
+            overlayAnimation={overlayAnimation}
           >
             <Node {...props} onClose={handleClose} isClosing={isClosing} />
           </Overlay>,

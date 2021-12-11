@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { BlockQuote, Dropdown, Section } from "../../components";
-import useMedia from "../useMedia";
+import { DemoWidget } from "../common/demo-widget";
+import useMedia from "../common/useMedia";
 
 function Widgets() {
   const media = useMedia();
@@ -24,7 +25,7 @@ function Widgets() {
     width && (
       <div className="rc-demo-widgets">
         <Section title="Single selection">
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Dropdown
                 maxMenuHeight={400}
@@ -39,13 +40,13 @@ function Widgets() {
                 ]}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Multi selection">
           <BlockQuote>
             With multi selection, you can select multiple options.
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Dropdown
                 onSelected={(val) => console.log(val)}
@@ -59,27 +60,16 @@ function Widgets() {
                   { name: "uk", value: "uk", selected: true },
                   { name: "srilanka", value: "srilanka", selected: false },
                   { name: "brazil", value: "brazil", selected: false },
-                  { name: "france", value: "france", selected: false },
-                  { name: "japan", value: "japan", selected: true },
-                  { name: "singapore", value: "singapore", selected: false },
-                  { name: "brazil", value: "brazil", selected: false },
-                  { name: "venezuala", value: "venezuala", selected: false },
-                  {
-                    name: "united kingdom",
-                    value: "united kingdom",
-                    selected: true,
-                  },
-                  { name: "australia", value: "australia", selected: false },
                 ]}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Search">
           <BlockQuote>
             Available options can be filtered by typing in the search box.
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Dropdown
                 maxMenuHeight={400}
@@ -95,14 +85,14 @@ function Widgets() {
                 ]}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Virtualized">
           <BlockQuote>
             With virtualized, the options are rendered only when they are in the
             viewport of the menu.
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Dropdown
                 maxMenuHeight={400}
@@ -118,17 +108,10 @@ function Widgets() {
                   { name: "canada", value: "canada" },
                   { name: "thailand", value: "thailand" },
                   { name: "brazil", value: "brazil" },
-                  { name: "vietnam", value: "vietnam" },
-                  { name: "chile", value: "chile" },
-                  { name: "Iran", value: "Iran" },
-                  { name: "bolivia", value: "bolivia" },
-                  { name: "australia", value: "australia" },
-                  { name: "indonesia", value: "indonesia" },
-                  { name: "italy", value: "italy" },
                 ]}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
       </div>
     )

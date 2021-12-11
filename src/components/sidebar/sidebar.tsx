@@ -118,6 +118,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
                 noUniqueIds
                 focusable
                 showCheckIcon={false}
+                highlightSelection
               ></List>
             );
           })}

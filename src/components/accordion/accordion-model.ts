@@ -12,6 +12,8 @@ export interface AccordionModel {
   transition?: string;
   focusable?: boolean;
   iconType?: "chevron" | "plus";
+  disableIcon?: boolean;
+  customIcon?: ReactNode;
 }
 
 export interface AccordionGroupProps {

@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { BlockQuote, ImageComparer, Section } from "../../components";
-import useMedia from "./../useMedia";
+import { DemoWidget } from "../common/demo-widget";
+import useMedia from "../common/useMedia";
 
 function Widgets() {
   const media = useMedia();
@@ -28,38 +29,40 @@ function Widgets() {
           Compare two images side by side horizontally. The drag handle guides
           the user to the correct position.
         </BlockQuote>
-        <div
-          style={{
-            height: "502px",
-            width: `${Number.isInteger(width) ? `${width}px` : width}`,
-          }}
-          className="rc-demo-widget"
-        >
-          <ImageComparer
-            direction="horizontal"
-            sourceOne="https://i.imgur.com/gypU9cN.jpg"
-            sourceTwo="https://i.imgur.com/gypU9cN.jpg"
-          ></ImageComparer>
-        </div>
+        <DemoWidget>
+          <div
+            style={{
+              height: "502px",
+              width: `${Number.isInteger(width) ? `${width}px` : width}`,
+            }}
+          >
+            <ImageComparer
+              direction="horizontal"
+              sourceOne="https://i.imgur.com/gypU9cN.jpg"
+              sourceTwo="https://i.imgur.com/gypU9cN.jpg"
+            ></ImageComparer>
+          </div>
+        </DemoWidget>
       </Section>
       <Section title="Vertical comparison">
         <BlockQuote>
           Compare two images side by side vertically. The drag handle guides the
           user to the correct position.
         </BlockQuote>
-        <div
-          style={{
-            height: "502px",
-            width: `${Number.isInteger(width) ? `${width}px` : width}`,
-          }}
-          className="rc-demo-widget"
-        >
-          <ImageComparer
-            direction="vertical"
-            sourceOne="https://i.imgur.com/gypU9cN.jpg"
-            sourceTwo="https://i.imgur.com/gypU9cN.jpg"
-          ></ImageComparer>
-        </div>
+        <DemoWidget>
+          <div
+            style={{
+              height: "502px",
+              width: `${Number.isInteger(width) ? `${width}px` : width}`,
+            }}
+          >
+            <ImageComparer
+              direction="vertical"
+              sourceOne="https://i.imgur.com/gypU9cN.jpg"
+              sourceTwo="https://i.imgur.com/gypU9cN.jpg"
+            ></ImageComparer>
+          </div>
+        </DemoWidget>
       </Section>
     </div>
   );

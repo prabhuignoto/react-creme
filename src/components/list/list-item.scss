@@ -35,7 +35,7 @@ $height: 40px;
     @extend %disabled;
   }
 
-  &.rc-list-option-selected {
+  &.rc-list-option-selected.rc-list-option-highlight-selection {
     background: rgba(colors.$secondary, 50%);
   }
 }

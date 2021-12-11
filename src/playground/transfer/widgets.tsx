@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { Section, Transfer } from "../../components";
-import useMedia from "../useMedia";
+import { DemoWidget } from "../common/demo-widget";
+import useMedia from "../common/useMedia";
 
 function widgets() {
   const media = useMedia();
@@ -11,9 +12,9 @@ function widgets() {
       return;
     }
     if (media.isTablet) {
-      setWidth(500);
+      setWidth(600);
     } else if (media.isMobile) {
-      setWidth(400);
+      setWidth(450);
     } else if (media.isBigScreen) {
       setWidth(750);
     } else if (media.isDesktop) {
@@ -25,7 +26,7 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Transfer
                 list1={["one", "two", "five", "six"]}
@@ -33,10 +34,10 @@ function widgets() {
                 onChange={(val, val2) => console.log(val, val2)}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Search">
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Transfer
                 list1={[
@@ -57,7 +58,7 @@ function widgets() {
                 virtualize
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
       </div>
     )

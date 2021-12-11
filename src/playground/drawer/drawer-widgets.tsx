@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from "react";
 import { Button, Drawer, Section } from "../../components";
-import useMedia from "../useMedia";
+import useMedia from "../common/useMedia";
 
 const Widget: React.FunctionComponent = () => {
   const [open, setOpen] = useState(false);

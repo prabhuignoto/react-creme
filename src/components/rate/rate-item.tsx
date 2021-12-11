@@ -7,6 +7,7 @@ import { RateItemViewModel } from "./rate-model";
 const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
   ({
     active,
+    disabled,
     focusable,
     hovered,
     icon,
@@ -18,7 +19,7 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
   }: RateItemViewModel) => {
     const ref = React.useRef<HTMLLIElement | null>(null);
 
-    if (focusable) {
+    if (focusable && !disabled) {
       useFocus(ref, () => onSelect(index));
     }
 
@@ -28,8 +29,9 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
           "rc-rate-item-active": active,
           [`rc-rate-item-${size}`]: true,
           "rc-rate-item-hovered": hovered,
+          "rc-rate-item-disabled": disabled,
         }),
-      [active, hovered]
+      [active, hovered, disabled]
     );
 
     const focusableProps = useMemo(
@@ -41,6 +43,14 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
       []
     );
 
+    const disabledProps = useMemo(
+      () =>
+        disabled && {
+          "aria-disabled": disabled,
+        },
+      [disabled]
+    );
+
     return (
       <li
         key={id}
@@ -48,6 +58,7 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
         onMouseOver={() => onMouseOver(index)}
         aria-checked={active}
         role="radio"
+        {...disabledProps}
       >
         <span role="img" onClick={() => onSelect(index)} {...focusableProps}>
           {icon || <RateIcon />}
@@ -58,7 +69,8 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
   (prevProps, nextProps) => {
     return (
       prevProps.active === nextProps.active &&
-      prevProps.hovered === nextProps.hovered
+      prevProps.hovered === nextProps.hovered &&
+      prevProps.disabled === nextProps.disabled
     );
   }
 );

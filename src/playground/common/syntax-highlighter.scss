@@ -1,0 +1,23 @@
+.rc-demo-code-block {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.rc-demo-code-copy-btn {
+  color: #fff;
+  cursor: pointer;
+  height: 1.5rem;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  width: 1.5rem;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}

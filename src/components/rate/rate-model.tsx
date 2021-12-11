@@ -11,6 +11,7 @@ export interface RateProps extends CommonProps {
   onChange?: (value: number | string) => void;
   ratingValues?: string[];
   value?: 1 | 2 | 3 | 4 | 5;
+  disabled?: boolean;
 }
 
 export interface RateItemModel {
@@ -23,4 +24,5 @@ export interface RateItemViewModel extends CommonProps, RateItemModel {
   index: number;
   onMouseOver: (idx: number) => void;
   onSelect: (idx: number) => void;
+  disabled?: boolean;
 }

@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react";
 import { Sortable } from "../../components/sortable/sortable";
-import DemoPageRenderer from "../demo-page-renderer";
+import DemoPageRenderer from "../common/demo-page-renderer";
 
 const style = {
   width: "250px",

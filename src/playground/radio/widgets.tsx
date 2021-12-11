@@ -1,6 +1,7 @@
 import React, { CSSProperties, useLayoutEffect } from "react";
 import { Radio, Section } from "../../components";
-import useMedia from "../useMedia";
+import { DemoWidget } from "../common/demo-widget";
+import useMedia from "../common/useMedia";
 
 const style: CSSProperties = {
   minWidth: "50px",
@@ -29,28 +30,25 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
-          <div
-            style={{ ...style, width: `${width}px` }}
-            className="rc-demo-widget"
-          >
-            <Radio label="Radio option one" />
-          </div>
+          <DemoWidget>
+            <div style={{ ...style, width: `${width}px` }}>
+              <Radio label="Radio option one" />
+            </div>
+          </DemoWidget>
         </Section>
         <Section title="Checkbox disabled">
-          <div
-            style={{ ...style, width: `${width}px` }}
-            className="rc-demo-widget"
-          >
-            <Radio label="Radio option two" size="md" disabled />
-          </div>
+          <DemoWidget>
+            <div style={{ ...style, width: `${width}px` }}>
+              <Radio label="Radio option two" size="md" disabled />
+            </div>
+          </DemoWidget>
         </Section>
         <Section title="Custom Size">
-          <div
-            style={{ ...style, width: `${width}px` }}
-            className="rc-demo-widget"
-          >
-            <Radio label="Radio option three" size="lg" />
-          </div>
+          <DemoWidget>
+            <div style={{ ...style, width: `${width}px` }}>
+              <Radio label="Radio option three" size="lg" />
+            </div>
+          </DemoWidget>
         </Section>
       </div>
     )

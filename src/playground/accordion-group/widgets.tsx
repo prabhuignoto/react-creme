@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { AccordionGroup, BlockQuote, Image, Section } from "../../components";
-import useMedia from "../useMedia";
+import useMedia from "../common/useMedia";
 
 function Widgets() {
   const media = useMedia();

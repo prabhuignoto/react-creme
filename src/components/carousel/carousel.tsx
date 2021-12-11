@@ -10,11 +10,13 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { useDebounce } from "use-debounce";
 import useSwipe from "../common/effects/useSwipe";
 import { CarouselItems } from "./carousel-items";
 import { CarouselItemModel, CarouselModel } from "./carousel-model";
 import { CarouselTrack } from "./carousel-track";
 import "./carousel.scss";
+import ResizeObserver from "resize-observer-polyfill";
 
 const Carousel: React.FunctionComponent<CarouselModel> = ({
   autoPlay = 0,
@@ -44,6 +46,11 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   const [slideHeight, setSlideHeight] = useState(0);
   const [isAutoPlaying, setAutoPlaying] = useState(!!autoPlay);
 
+  const [debouncedSlideWidth] = useDebounce(slideWidth, 100);
+  const [debouncedSlideHeight] = useDebounce(slideHeight, 100);
+
+  const resizeObserver = useRef<ResizeObserver | null>(null);
+
   const handleNext = useCallback(() => {
     activePage < trackCount.current - 1 &&
       startTransition(() => setActivePage((prev) => prev + 1));
@@ -66,6 +73,16 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
       const { clientHeight, clientWidth } = node;
       setSlideWidth(clientWidth);
       setSlideHeight(clientHeight);
+
+      resizeObserver.current = new ResizeObserver(() => {
+        const { clientHeight, clientWidth } = node as HTMLElement;
+        startTransition(() => {
+          setSlideWidth(clientWidth);
+          setSlideHeight(clientHeight);
+        });
+      });
+
+      resizeObserver.current.observe(node);
     }
   }, []);
 
@@ -75,8 +92,8 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
       setCarouselItems(
         children.map((_, index) => ({
           id: nanoid(),
-          width: slideWidth,
-          height: slideHeight,
+          width: debouncedSlideWidth,
+          height: debouncedSlideHeight,
           visible: false,
           [prop]: `${
             direction === "horizontal"
@@ -86,14 +103,14 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
         }))
       );
     }
-  }, [slideWidth, slideHeight]);
+  }, [debouncedSlideWidth, debouncedSlideHeight]);
 
   const hideNextButton = useMemo(
     () => activePage === trackCount.current - 1,
     [activePage]
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (
       !autoPlayRef.current &&
       autoPlay &&
@@ -116,29 +133,35 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
 
   const hidePreviousButton = useMemo(() => activePage === 0, [activePage]);
 
-  const carouselTrackClass = useMemo(() => {
-    return classNames([
-      "rc-carousel-track-wrapper",
-      `rc-carousel-track-wrapper-${direction}`,
-      {
-        "rc-carousel-track-auto-play": isAutoPlaying,
-      },
-    ]);
-  }, [isAutoPlaying]);
+  const carouselTrackClass = useMemo(
+    () =>
+      classNames([
+        "rc-carousel-track-wrapper",
+        `rc-carousel-track-wrapper-${direction}`,
+        {
+          "rc-carousel-track-auto-play": isAutoPlaying,
+        },
+      ]),
+    [isAutoPlaying]
+  );
 
-  const carouselContainerClass = useMemo(() => {
-    return classNames([
-      "rc-carousel-container",
-      `rc-carousel-container-${direction}`,
-    ]);
-  }, []);
+  const carouselContainerClass = useMemo(
+    () =>
+      classNames([
+        "rc-carousel-container",
+        `rc-carousel-container-${direction}`,
+      ]),
+    []
+  );
 
-  const carouselWrapperStyle = useMemo(() => {
-    return {
-      "--min-height": `${height}px`,
-      "--transition": transition,
-    } as CSSProperties;
-  }, []);
+  const carouselWrapperStyle = useMemo(
+    () =>
+      ({
+        "--min-height": `${height}px`,
+        "--transition": transition,
+      } as CSSProperties),
+    []
+  );
 
   const wrapperClass = useMemo(
     () =>
@@ -164,8 +187,14 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
     }, [offset]);
   }
 
+  useEffect(() => {
+    return () => {
+      resizeObserver.current?.disconnect();
+    };
+  }, []);
+
   return (
-    <div className={carouselContainerClass} ref={carouselRef}>
+    <div className={carouselContainerClass}>
       <div
         className={wrapperClass}
         ref={onInitRef}

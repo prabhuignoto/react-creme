@@ -11,6 +11,12 @@ body {
   padding: 0;
 }
 
+pre {
+  border-radius: 4px;
+  padding: 1rem 0 !important;
+  padding-left: 1rem !important;
+}
+
 body,
 html,
 button,
@@ -56,11 +62,11 @@ span {
   }
 
   .app-aside {
-    width: 20%;
+    width: 30%;
   }
 
   .app-main-section {
-    width: 80%;
+    width: 70%;
   }
 }
 
@@ -137,7 +143,7 @@ span {
 .rc-demo-widget {
   align-items: center;
   display: flex;
-  margin: 2rem 0;
+  margin: 1rem 0;
   place-content: flex-start;
   width: 100%;
 }

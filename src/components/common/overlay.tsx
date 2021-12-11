@@ -19,12 +19,16 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   placementReference,
   backdropColor = "rgba(0, 0, 0, 0.5)",
   containedToParent = false,
+  overlayAnimation = true,
 }) => {
+  const [hideOverlay, setHideOverlay] =
+    React.useState<boolean>(overlayAnimation);
   const overlayWrapperClass = useMemo(() => {
     return classNames(["rc-overlay-wrapper"], {
       "rc-overlay-contained": containedToParent,
+      "rc-overlay-hide": hideOverlay,
     });
-  }, []);
+  }, [hideOverlay]);
 
   const [contentHeight, setContentHeight] = React.useState<number>(0);
   const [scrollPosition, setScrollPosition] = React.useState<number>(0);
@@ -53,6 +57,14 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   }, [placementReference, placement, contentHeight, scrollPosition]);
 
   const handleClose = (ev: React.MouseEvent | KeyboardEvent) => {
+    const canClose = (ev.target as HTMLElement).classList.contains(
+      "rc-overlay-wrapper"
+    );
+
+    if (!canClose) {
+      return;
+    }
+
     if (ev instanceof KeyboardEvent) {
       if (ev.key === "Escape") {
         onClose && onClose();
@@ -64,6 +76,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         onClose && onClose();
       }
     }
+    setHideOverlay(true);
   };
 
   const handleWindowScroll = useCallback(
@@ -74,6 +87,12 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   useEffect(() => {
     window.addEventListener("scroll", handleWindowScroll);
     window.addEventListener("keyup", handleClose);
+
+    if (overlayAnimation) {
+      setTimeout(() => {
+        setHideOverlay(false);
+      }, 100);
+    }
 
     return () => {
       window.removeEventListener("scroll", handleWindowScroll);

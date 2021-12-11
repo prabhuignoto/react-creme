@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { BlockQuote, Section, Tags } from "../../components";
-import useMedia from "../useMedia";
+import { DemoWidget } from "../common/demo-widget";
+import useMedia from "../common/useMedia";
 
 function widgets() {
   const media = useMedia();
@@ -31,62 +32,68 @@ function widgets() {
             New tags can be added to the list by typing in the input field.Tags
             can be removed by clicking on the close icon on the tag.
           </BlockQuote>
-          <div style={{ width: resolvedWidth }} className="rc-demo-widget">
-            <Tags
-              items={[
-                { name: "prabhu murthy", disabled: false },
-                { name: "blue" },
-                { name: "red" },
-                { name: "orange" },
-                { name: "tester", disabled: false },
-              ]}
-              maxTags={15}
-              onSelected={(val) => console.log(val)}
-              tagWidth={150}
-            />
-          </div>
+          <DemoWidget>
+            <div style={{ width: resolvedWidth }}>
+              <Tags
+                items={[
+                  { name: "prabhu murthy", disabled: false },
+                  { name: "blue" },
+                  { name: "red" },
+                  { name: "orange" },
+                  { name: "tester", disabled: false },
+                ]}
+                maxTags={15}
+                onSelected={(val) => console.log(val)}
+                tagWidth={150}
+              />
+            </div>
+          </DemoWidget>
         </Section>
         <Section title="Tags - Filled style">
           <BlockQuote>
             Tags can be disabled by setting the disabled property to true.
           </BlockQuote>
-          <div style={{ width: resolvedWidth }} className="rc-demo-widget">
-            <Tags
-              items={[
-                { name: "prabhu murthy", disabled: false },
-                { name: "blue" },
-                { name: "red" },
-                { name: "orange" },
-                { name: "tester", disabled: true },
-              ]}
-              maxTags={15}
-              onSelected={(val) => console.log(val)}
-              tagWidth={150}
-              tagStyle="fill"
-            />
-          </div>
+          <DemoWidget>
+            <div style={{ width: resolvedWidth }}>
+              <Tags
+                items={[
+                  { name: "prabhu murthy", disabled: false },
+                  { name: "blue" },
+                  { name: "red" },
+                  { name: "orange" },
+                  { name: "tester", disabled: true },
+                ]}
+                maxTags={15}
+                onSelected={(val) => console.log(val)}
+                tagWidth={150}
+                tagStyle="fill"
+              />
+            </div>
+          </DemoWidget>
         </Section>
         <Section title="Tags - Readonly">
           <BlockQuote>
             In readonly mode, you can only select the tags that are already in
             the list.
           </BlockQuote>
-          <div style={{ width: resolvedWidth }} className="rc-demo-widget">
-            <Tags
-              items={[
-                { name: "prabhu", disabled: false },
-                { name: "blue" },
-                { name: "red" },
-                { name: "orange" },
-                { name: "tester", disabled: false },
-              ]}
-              maxTags={15}
-              restrictToValues={["one", "two"]}
-              onSelected={(val) => console.log(val)}
-              readonly
-              tagWidth={50}
-            />
-          </div>
+          <DemoWidget>
+            <div style={{ width: resolvedWidth }}>
+              <Tags
+                items={[
+                  { name: "prabhu", disabled: false },
+                  { name: "blue" },
+                  { name: "red" },
+                  { name: "orange" },
+                  { name: "tester", disabled: false },
+                ]}
+                maxTags={15}
+                restrictToValues={["one", "two"]}
+                onSelected={(val) => console.log(val)}
+                readonly
+                tagWidth={50}
+              />
+            </div>
+          </DemoWidget>
         </Section>
       </div>
     )

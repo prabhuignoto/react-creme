@@ -1,6 +1,6 @@
 import React, { CSSProperties, useLayoutEffect } from "react";
 import { Image, Reveal } from "../../components";
-import useMedia from "../useMedia";
+import useMedia from "../common/useMedia";
 
 const blankStyle = {
   minHeight: "1200px",

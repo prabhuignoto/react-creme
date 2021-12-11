@@ -16,6 +16,7 @@ export interface ListModel {
   rowGap?: number;
   showCheckIcon?: boolean;
   virtualized?: boolean;
+  highlightSelection?: boolean;
 }
 
 export interface ListItemModel {
@@ -30,6 +31,7 @@ export interface ListItemModel {
   showCheckIcon?: boolean;
   style?: CSSProperties;
   value: string;
+  highlightSelection?: boolean;
 }
 
 export interface ListOption extends Option {

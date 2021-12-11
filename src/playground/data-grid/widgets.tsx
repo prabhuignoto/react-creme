@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { BlockQuote, DataGrid, Section } from "../../components";
-import useMedia from "../useMedia";
+import useMedia from "../common/useMedia";
 
 const data = [
   {

@@ -8,18 +8,9 @@ import React, {
   useRef,
 } from "react";
 import { CircularProgress } from "..";
+import { ImageProps } from "./image-model";
 import { ImageOverlay } from "./image-overlay";
 import "./image.scss";
-
-export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  expandImageOnClick?: boolean;
-  isOverlay?: boolean;
-  fitImage?: boolean;
-  showLoader?: boolean;
-  loaderSize?: "xs" | "sm" | "md" | "lg";
-  onLoad?: (evt: React.SyntheticEvent) => void;
-  alt?: string;
-}
 
 const Image: React.FunctionComponent<ImageProps> = ({
   alt,

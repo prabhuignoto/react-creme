@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.44% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>51/54</span>
+                <span class='fraction'>56/63</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.8% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>31/42</span>
+                <span class='fraction'>35/50</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.23% </span>
+                <span class="strong">88.52% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>49/52</span>
+                <span class='fraction'>54/61</span>
             </div>
         
             
@@ -228,7 +228,21 @@
 <a name='L169'></a><a href='#L169'>169</a>
 <a name='L170'></a><a href='#L170'>170</a>
 <a name='L171'></a><a href='#L171'>171</a>
-<a name='L172'></a><a href='#L172'>172</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">13x</span>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -246,6 +260,8 @@
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -303,6 +319,7 @@
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -328,6 +345,7 @@
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -364,10 +382,20 @@
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -429,6 +457,8 @@ const Accordion: React.FunctionComponent&lt;AccordionModel&gt; = React.memo(
     transition = "cubic-bezier(0.19, 1, 0.22, 1)",
     iconType = "chevron",
     focusable = false,
+    disableIcon = false,
+    customIcon = null,
   }: AccordionModel) =&gt; {
     const accordionID = useRef(id || `accordion-${useId()}`);
     const accordionBodyId = useRef(`accordion-body-${useId()}`);
@@ -476,8 +506,9 @@ const Accordion: React.FunctionComponent&lt;AccordionModel&gt; = React.memo(
       return cls([...classes, "rc-accordion-icon"], {
         "rc-accordion-icon-open": open,
         [`rc-accordion-icon-${iconType}`]: true,
+        "rc-accordion-custom-icon": customIcon,
       });
-    }, [open]);
+    }, [open, customIcon]);
 &nbsp;
     const onInitRef = useCallback((node) =&gt; {
       if (node) {
@@ -500,6 +531,7 @@ const Accordion: React.FunctionComponent&lt;AccordionModel&gt; = React.memo(
       () =&gt;
         cls("rc-accordion-header", {
           "rc-accordion-align-icon-rt": alignIconRight,
+          "rc-accordion-disable-icon": disableIcon,
         }),
       [alignIconRight]
     );
@@ -534,6 +566,20 @@ const Accordion: React.FunctionComponent&lt;AccordionModel&gt; = React.memo(
 &nbsp;
     useFocus(chevronRef, toggleAccordion);
 &nbsp;
+    const icon = useMemo(() =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (disableIcon) {
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+      }
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (customIcon) {
+<span class="cstat-no" title="statement not covered" >        return customIcon;</span>
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (iconType === "chevron") {
+        return &lt;ChevronRightIcon /&gt;;
+      } else <span class="cstat-no" title="statement not covered" >if (iconType === "plus") {</span>
+<span class="cstat-no" title="statement not covered" >        return open ? &lt;MinusIcon /&gt; : &lt;PlusIcon /&gt;;</span>
+      }
+    }, [iconType, open, disableIcon]);
+&nbsp;
     return (
       &lt;div className={accordionClass}&gt;
         &lt;div
@@ -544,13 +590,9 @@ const Accordion: React.FunctionComponent&lt;AccordionModel&gt; = React.memo(
           onClick={toggleAccordion}
           ref={chevronRef}
           role="button"
-          tabIndex={0}
+          tabIndex={focusable ? <span class="branch-0 cbranch-no" title="branch not covered" >0 </span>: -1}
         &gt;
-          &lt;span className={iconClass}&gt;
-            {iconType === "chevron" &amp;&amp; &lt;ChevronRightIcon /&gt;}
-            {iconType === "plus" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!open </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >&lt;PlusIcon /&gt;}</span>
-            {iconType === "plus" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >open </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >&lt;MinusIcon /&gt;}</span>
-          &lt;/span&gt;
+          {!disableIcon &amp;&amp; &lt;span className={iconClass}&gt;{icon}&lt;/span&gt;}
           &lt;span className="rc-accordion-title"&gt;{title}&lt;/span&gt;
         &lt;/div&gt;
         &lt;div
@@ -577,7 +619,7 @@ export { Accordion };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Dec 09 2021 15:30:24 GMT+0530 (India Standard Time)
+                at Sat Dec 11 2021 12:14:46 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

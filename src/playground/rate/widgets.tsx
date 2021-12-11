@@ -2,35 +2,41 @@ import React from "react";
 import { BlockQuote, Section } from "../../components";
 import { Rate } from "../../components/rate/rate";
 import { SearchIcon } from "../../icons";
+import { DemoWidget } from "../common/demo-widget";
 
 function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Rating default">
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <Rate size="md" />
-        </div>
+        </DemoWidget>
       </Section>
       <Section title="Custom icon count">
         <BlockQuote>You can choose the number of icons to display.</BlockQuote>
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <Rate size="lg" iconCount={3} focusable={false} value={2} />
-        </div>
+        </DemoWidget>
       </Section>
       <Section title="Custom Icon">
         <BlockQuote>You can set the custom icon.</BlockQuote>
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <Rate size="md" icon={<SearchIcon />} iconCount={7} />
-        </div>
+        </DemoWidget>
       </Section>
       <Section title="Custom size">
         <BlockQuote>The size of the icon can be customized too</BlockQuote>
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <Rate
-            onChange={(val) => alert(val)}
+            onChange={(val) => console.log(val)}
             ratingValues={["one", "two", "three", "four", "five"]}
           />
-        </div>
+        </DemoWidget>
+      </Section>
+      <Section title="Disabled state">
+        <DemoWidget>
+          <Rate size="md" disabled value={3} />
+        </DemoWidget>
       </Section>
     </div>
   );

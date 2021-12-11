@@ -1,6 +1,7 @@
 import React, { CSSProperties, useLayoutEffect, useMemo } from "react";
 import { BlockQuote, ScrollSpy, Section } from "../../components";
-import useMedia from "./../useMedia";
+import { DemoWidget } from "../common/demo-widget";
+import useMedia from "../common/useMedia";
 
 const Para = () => (
   <p>
@@ -27,7 +28,7 @@ function Widgets() {
       return;
     }
     if (media.isTablet) {
-      setWidth(500);
+      setWidth(650);
     } else if (media.isMobile) {
       setWidth(400);
     } else if (media.isBigScreen) {
@@ -49,40 +50,44 @@ function Widgets() {
             The navigation links are left aligned and clicking on them will
             scroll to the section of the container that is being spyed on.
           </BlockQuote>
-          <div className="rc-demo-widget" style={style}>
-            <ScrollSpy
-              links={[
-                "one",
-                "two",
-                "three",
-                "four",
-                "five",
-                "six",
-                "seven",
-                "eight",
-              ]}
-            >
-              {Array.from({ length: 8 }).map((_, i) => (
-                <Para key={i} />
-              ))}
-            </ScrollSpy>
-          </div>
+          <DemoWidget>
+            <div style={style}>
+              <ScrollSpy
+                links={[
+                  "one",
+                  "two",
+                  "three",
+                  "four",
+                  "five",
+                  "six",
+                  "seven",
+                  "eight",
+                ]}
+              >
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <Para key={i} />
+                ))}
+              </ScrollSpy>
+            </div>
+          </DemoWidget>
         </Section>
         <Section title="Right aligned links">
           <BlockQuote>
             The navigation links are right aligned and clicking on them will
             scroll to the section of the container that is being spyed on.
           </BlockQuote>
-          <div className="rc-demo-widget" style={style}>
-            <ScrollSpy
-              linksPosition="right"
-              links={["one", "two", "three", "four", "five"]}
-            >
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Para key={i} />
-              ))}
-            </ScrollSpy>
-          </div>
+          <DemoWidget>
+            <div style={style}>
+              <ScrollSpy
+                linksPosition="right"
+                links={["one", "two", "three", "four", "five"]}
+              >
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Para key={i} />
+                ))}
+              </ScrollSpy>
+            </div>
+          </DemoWidget>
         </Section>
       </div>
     )

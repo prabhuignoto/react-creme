@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sidebar } from "../../components/sidebar/sidebar";
+import { Sidebar } from "../components";
 import {
   SidebarGroupModel,
   SidebarItemModel,
-} from "../../components/sidebar/sidebar-model";
+} from "../components/sidebar/sidebar-model";
 
 const SidebarHome = React.memo(() => {
   const navigate = useNavigate();
@@ -113,4 +113,4 @@ const SidebarHome = React.memo(() => {
 
 SidebarHome.displayName = "SidebarHome";
 
-export { SidebarHome };
+export default SidebarHome;

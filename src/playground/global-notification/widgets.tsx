@@ -4,6 +4,7 @@ import {
   GlobalNotification,
   GlobalNotificationState,
 } from "../../components/global-notification/global-notification";
+import { DemoWidget } from "../common/demo-widget";
 
 function widgets() {
   const [show, setShow] = React.useState(false);
@@ -46,6 +47,9 @@ function widgets() {
             label="Open Global Notification"
           />
         </div>
+        <DemoWidget>
+          <GlobalNotification message="This is a test message" delay={0} />
+        </DemoWidget>
         {show && (
           <GlobalNotification
             message="This is a test message"

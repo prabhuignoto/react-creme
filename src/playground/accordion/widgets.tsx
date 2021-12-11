@@ -1,7 +1,8 @@
 import React, { useLayoutEffect } from "react";
 // import { Accordion, BlockQuote, Image, Section } from "../components-from-npm";
 import { Accordion, BlockQuote, Image, Section } from "../../components";
-import useMedia from "../useMedia";
+import { DemoWidget } from "../common/demo-widget";
+import useMedia from "../common/useMedia";
 
 function widgets() {
   const media = useMedia();
@@ -26,7 +27,7 @@ function widgets() {
       <div style={{ minHeight: "1200px" }} className="rc-demo-widgets">
         <Section title="Default render">
           {/* <Code code="<span>This is a test</span>"></Code> */}
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Accordion title="Lorem Ipsum" noBorder>
                 <p>
@@ -58,11 +59,11 @@ function widgets() {
                 </p>
               </Accordion>
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Custom Icon alignment">
           <BlockQuote>The icon can be aligned to the right</BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Accordion title="Lorem Ipsum" noBorder alignIconRight>
                 <p>
@@ -94,17 +95,16 @@ function widgets() {
                 </p>
               </Accordion>
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Bordered with Custom Icon">
           <BlockQuote>
             Use a custom icon for the header with a border
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div
               style={{
                 width: `${width}px`,
-                height: "400px",
               }}
             >
               <Accordion title="Show Image" iconType="plus" alignIconRight>
@@ -115,7 +115,7 @@ function widgets() {
                 />
               </Accordion>
             </div>
-          </div>
+          </DemoWidget>
         </Section>
       </div>
     )

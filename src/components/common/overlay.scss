@@ -9,9 +9,11 @@
   @extend %center;
 
   left: 0;
+  opacity: 1;
   outline: 0;
   overflow: hidden;
   top: 0;
+  transition: opacity 0.25s ease;
   z-index: 999;
 
   &.rc-overlay-contained {
@@ -24,6 +26,10 @@
     height: 100%;
     position: fixed;
     width: 100vw;
+  }
+
+  &.rc-overlay-hide {
+    opacity: 0;
   }
 }
 

@@ -7,7 +7,7 @@ import {
   Section,
 } from "../../components";
 import { NotificationPosition } from "../../components/notification/notification-model";
-import useMedia from "../useMedia";
+import useMedia from "../common/useMedia";
 
 const Widgets = () => {
   const ref = useRef();

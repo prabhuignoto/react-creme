@@ -214,6 +214,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
             onClosing={handleMenuClosing}
             enableSearch={enableSearch}
             virtualize={virtualize}
+            overlayAnimation={false}
           />
         )}
       </div>

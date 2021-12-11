@@ -11,12 +11,20 @@ $sizes: (
 
 .rc-rate-wrapper {
   @extend %list-horizontal;
+
+  &.rc-rate-disabled {
+    @extend %disabled;
+  }
 }
 
 .rc-rate-item {
   @include animate.set-animation();
   cursor: pointer;
   margin: 0 0.5rem;
+
+  &.rc-rate-item-disabled {
+    @extend %disabled;
+  }
 
   span {
     @include animate.halo();

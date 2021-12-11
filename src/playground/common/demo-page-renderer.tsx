@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
-import { DataGrid } from "../components/data-grid/data-grid";
-import { PageHeader } from "../components/page-header/page-header";
-import { Tabs } from "../components/tabs/tabs";
+import { DataGrid } from "../../components/data-grid/data-grid";
+import { PageHeader } from "../../components/page-header/page-header";
+import { Tabs } from "../../components/tabs/tabs";
 import useMedia from "./useMedia";
 
 interface DemoPageRendererProps {
@@ -23,26 +23,18 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
 
   const [width, setWidth] = React.useState(null);
 
-  const [tableStyle, setTableStyle] = React.useState<"compact" | "comfortable">(
-    "compact"
-  );
-
   useLayoutEffect(() => {
     if (!media) {
       return;
     }
     if (media.isTablet) {
-      setWidth([150, 180]);
-      setTableStyle("compact");
+      setWidth([150, 250, 180]);
     } else if (media.isMobile) {
       setWidth([150, 150]);
-      setTableStyle("compact");
     } else if (media.isDesktop) {
-      setWidth([200, 400, 200]);
-      setTableStyle("comfortable");
-    } else if (media.isBigScreen) {
       setWidth([200, 400, 300]);
-      setTableStyle("comfortable");
+    } else if (media.isBigScreen) {
+      setWidth([200, 400, 400]);
     }
   }, [media]);
 
@@ -54,9 +46,8 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
           <div className="rc-demo-widgets-wrapper">{demoWidget}</div>
           <div className="rc-demo-prop-section">
             <DataGrid
-              layoutStyle={tableStyle}
+              layoutStyle={"comfortable"}
               border
-              fixedHeight={tableStyle === "compact"}
               columns={[
                 {
                   name: "name",

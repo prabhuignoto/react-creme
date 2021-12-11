@@ -1,11 +1,11 @@
 import React from "react";
 import AppRoutes from "./app-routes";
 import "./App.scss";
-import { SidebarHome } from "./demo/sidebar/sidebar";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
 import Footer from "./Footer";
+import SidebarHome from "./playground/sidebar-home";
 
 const Logo = () => (
   <div className="rc-demo-app-logo">

@@ -28,6 +28,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     transition = "cubic-bezier(0.19, 1, 0.22, 1)",
     iconType = "chevron",
     focusable = false,
+    disableIcon = false,
+    customIcon = null,
   }: AccordionModel) => {
     const accordionID = useRef(id || `accordion-${useId()}`);
     const accordionBodyId = useRef(`accordion-body-${useId()}`);
@@ -75,8 +77,9 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       return cls([...classes, "rc-accordion-icon"], {
         "rc-accordion-icon-open": open,
         [`rc-accordion-icon-${iconType}`]: true,
+        "rc-accordion-custom-icon": customIcon,
       });
-    }, [open]);
+    }, [open, customIcon]);
 
     const onInitRef = useCallback((node) => {
       if (node) {
@@ -99,6 +102,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       () =>
         cls("rc-accordion-header", {
           "rc-accordion-align-icon-rt": alignIconRight,
+          "rc-accordion-disable-icon": disableIcon,
         }),
       [alignIconRight]
     );
@@ -133,6 +137,20 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
 
     useFocus(chevronRef, toggleAccordion);
 
+    const icon = useMemo(() => {
+      if (disableIcon) {
+        return null;
+      }
+
+      if (customIcon) {
+        return customIcon;
+      } else if (iconType === "chevron") {
+        return <ChevronRightIcon />;
+      } else if (iconType === "plus") {
+        return open ? <MinusIcon /> : <PlusIcon />;
+      }
+    }, [iconType, open, disableIcon]);
+
     return (
       <div className={accordionClass}>
         <div
@@ -143,13 +161,9 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
           onClick={toggleAccordion}
           ref={chevronRef}
           role="button"
-          tabIndex={0}
+          tabIndex={focusable ? 0 : -1}
         >
-          <span className={iconClass}>
-            {iconType === "chevron" && <ChevronRightIcon />}
-            {iconType === "plus" && !open && <PlusIcon />}
-            {iconType === "plus" && open && <MinusIcon />}
-          </span>
+          {!disableIcon && <span className={iconClass}>{icon}</span>}
           <span className="rc-accordion-title">{title}</span>
         </div>
         <div

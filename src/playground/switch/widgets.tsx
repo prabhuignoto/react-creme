@@ -1,5 +1,6 @@
 import React from "react";
 import { BlockQuote, Section, Switch } from "../../components";
+import { DemoWidget } from "../common/demo-widget";
 
 function widgets() {
   return (
@@ -8,41 +9,51 @@ function widgets() {
       className="rc-demo-widgets"
     >
       <Section title="Switch - default">
-        <div style={{ width: "100px" }} className="rc-demo-widget">
-          <Switch
-            label="Settings"
-            checked
-            onChange={(val) => console.log(val)}
-          />
-        </div>
+        <DemoWidget>
+          <div style={{ width: "100px" }}>
+            <Switch
+              label="Settings"
+              checked
+              onChange={(val) => console.log(val)}
+            />
+          </div>
+        </DemoWidget>
       </Section>
       <Section title="Switch with label outside">
         <BlockQuote>The label can be placed outside the switch.</BlockQuote>
-        <div style={{ width: "150px" }} className="rc-demo-widget">
-          <Switch label="Settings" labelOutside checked focusable={true} />
-        </div>
+        <DemoWidget>
+          <div style={{ width: "150px" }}>
+            <Switch label="Settings" labelOutside checked focusable={true} />
+          </div>
+        </DemoWidget>
       </Section>
       <Section title="Disabled">
         <BlockQuote>
           Use the disabled property to disable the switch.
         </BlockQuote>
-        <div style={{ width: "100px" }} className="rc-demo-widget">
-          <Switch label="setting" disabled />
-        </div>
+        <DemoWidget>
+          <div style={{ width: "100px" }}>
+            <Switch label="setting" disabled />
+          </div>
+        </DemoWidget>
       </Section>
       <Section title="Large size">
         <BlockQuote>
           Switch comes in three sizes: small, medium, and large. This example
           shows a large size switch.
         </BlockQuote>
-        <div style={{ width: "200px" }} className="rc-demo-widget">
-          <Switch label="Are you authorized" size="md" />
-        </div>
+        <DemoWidget>
+          <div style={{ width: "200px" }}>
+            <Switch label="Are you authorized" size="md" />
+          </div>
+        </DemoWidget>
       </Section>
       <Section title="Extra large">
-        <div style={{ width: "250px" }} className="rc-demo-widget">
-          <Switch label="Show settings" size="lg" labelOutside />
-        </div>
+        <DemoWidget>
+          <div style={{ width: "250px" }}>
+            <Switch label="Show settings" size="lg" labelOutside />
+          </div>
+        </DemoWidget>
       </Section>
     </div>
   );

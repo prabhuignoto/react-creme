@@ -27,7 +27,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   position: relative;
   width: 98%;
 
-  &:not(.rc-accordion-align-icon-rt) {
+  &:not(.rc-accordion-align-icon-rt):not(.rc-accordion-disable-icon) {
     display: grid;
     grid-template-columns: 2rem calc(100% - 2rem);
   }
@@ -79,7 +79,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   cursor: pointer;
   transition: transform 0.2s ease-in;
 
-  &.rc-accordion-icon-open:not(.rc-accordion-icon-plus) {
+  &.rc-accordion-icon-open:not(.rc-accordion-icon-plus):not(.rc-accordion-custom-icon) {
     transform: rotate(90deg);
   }
 }

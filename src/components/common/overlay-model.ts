@@ -12,6 +12,7 @@ export interface OverlayModel extends OverlayCommon {
   showClose?: boolean;
   placement?: "top" | "bottom";
   containedToParent?: RefObject<HTMLElement>;
+  overlayAnimation?: boolean;
 }
 
 export interface OverlayProps extends OverlayCommon {
@@ -19,4 +20,5 @@ export interface OverlayProps extends OverlayCommon {
   children: React.ReactNode;
   showCloseButton?: boolean;
   containedToParent?: boolean;
+  overlayAnimation?: boolean;
 }

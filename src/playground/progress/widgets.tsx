@@ -7,6 +7,7 @@ import {
   Progress,
   Section,
 } from "../../components";
+import { DemoWidget } from "../common/demo-widget";
 
 const Widgets: React.FunctionComponent = () => {
   const { time, start, pause, reset } = useTimer({
@@ -28,7 +29,7 @@ const Widgets: React.FunctionComponent = () => {
             <Button onClick={reset} label="Reset"></Button>
           </div>
         </div>
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <Progress
             type="progressive"
             // width={300}
@@ -37,8 +38,8 @@ const Widgets: React.FunctionComponent = () => {
             size="md"
             showProgressValue
           />
-        </div>
-        <div className="rc-demo-widget">
+        </DemoWidget>
+        <DemoWidget>
           <Progress
             type="progressive"
             // width={300}
@@ -46,13 +47,13 @@ const Widgets: React.FunctionComponent = () => {
             currentValue={time * 1}
             size="sm"
           />
-        </div>
+        </DemoWidget>
       </Section>
       <Section title="States">
         <BlockQuote>
           The progress bar can be in a success or error state.
         </BlockQuote>
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <Progress
             type="progressive"
             // width={300}
@@ -61,8 +62,8 @@ const Widgets: React.FunctionComponent = () => {
             size="sm"
             status="success"
           />
-        </div>
-        <div className="rc-demo-widget">
+        </DemoWidget>
+        <DemoWidget>
           <Progress
             type="progressive"
             // width={300}
@@ -72,13 +73,13 @@ const Widgets: React.FunctionComponent = () => {
             size="lg"
             status="error"
           />
-        </div>
+        </DemoWidget>
       </Section>
       <Section title="Infinite progress">
         <BlockQuote>
           Useful for operations that take a long time to complete.
         </BlockQuote>
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <Progress
             type="infinite"
             // width={350}
@@ -87,11 +88,11 @@ const Widgets: React.FunctionComponent = () => {
             showProgressValue
             size="sm"
           />
-        </div>
+        </DemoWidget>
       </Section>
       <Section title="Infinite Progress - Bob">
         <BlockQuote>Infinite progress with a bob animation</BlockQuote>
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <Progress
             type="infinite"
             // width={400}
@@ -101,23 +102,17 @@ const Widgets: React.FunctionComponent = () => {
             size="md"
             infiniteStyle="bob"
           />
-        </div>
+        </DemoWidget>
       </Section>
       <Section title="Circular Progress">
         <BlockQuote>
           Infinite progress is also available in circular mode.
         </BlockQuote>
-        <div className="rc-demo-widget">
-          <div style={{ margin: "0 0.5rem" }}>
-            <CircularProgress size={"sm"} />
-          </div>
+        <DemoWidget>
           <div style={{ margin: "0 0.5rem" }}>
             <CircularProgress size={"md"} />
           </div>
-          <div style={{ margin: "0 0.5rem" }}>
-            <CircularProgress size={"lg"} />
-          </div>
-        </div>
+        </DemoWidget>
       </Section>
       {/* <Section title="Circular Progress - Double ring">
         <div className="rc-demo-widget">

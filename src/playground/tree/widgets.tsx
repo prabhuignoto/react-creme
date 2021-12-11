@@ -1,5 +1,6 @@
 import React from "react";
 import { BlockQuote, Section, Tree } from "../../components";
+import { DemoWidget } from "../common/demo-widget";
 
 const data = [
   {
@@ -18,21 +19,6 @@ const data = [
           { name: "five" },
           { name: "six" },
           { name: "seven" },
-          {
-            name: "eight",
-            child: [
-              { name: "nine" },
-              { name: "ten" },
-              {
-                name: "eleven",
-                child: [
-                  { name: "twelve" },
-                  { name: "thirteen" },
-                  { name: "fourteen" },
-                ],
-              },
-            ],
-          },
         ],
       },
     ],
@@ -40,7 +26,6 @@ const data = [
   {
     name: "sixteen",
     disabled: true,
-    child: [{ name: "seventeen" }, { name: "eighteen" }, { name: "nineteen" }],
   },
   { name: "twenty", child: [{ name: "twenty one" }] },
   { name: "twenty two" },
@@ -50,30 +35,36 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render">
-        <div style={{ width: "300px" }} className="rc-demo-widget">
-          <Tree
-            height={400}
-            items={data}
-            onChange={(selected) => console.log(selected, name)}
-          />
-        </div>
+        <DemoWidget>
+          <div style={{ width: "300px" }}>
+            <Tree
+              height={400}
+              items={data}
+              onChange={(selected) => console.log(selected, name)}
+            />
+          </div>
+        </DemoWidget>
       </Section>
       <Section title="Selection Mode">
         <BlockQuote>
           In selection mode, individual nodes with its children can be selected
           through the checkbox
         </BlockQuote>
-        <div style={{ width: "300px" }} className="rc-demo-widget">
-          <Tree height={400} allowSelection items={data} />
-        </div>
+        <DemoWidget>
+          <div style={{ width: "300px" }}>
+            <Tree height={400} allowSelection items={data} />
+          </div>
+        </DemoWidget>
       </Section>
       <Section title="Custom Icon">
         <BlockQuote>
           Use a custom icon for the expand and collapse actions.
         </BlockQuote>
-        <div style={{ width: "300px" }} className="rc-demo-widget">
-          <Tree height={400} items={data} iconType="plus" />
-        </div>
+        <DemoWidget>
+          <div style={{ width: "300px" }}>
+            <Tree height={400} items={data} iconType="plus" />
+          </div>
+        </DemoWidget>
       </Section>
     </div>
   );

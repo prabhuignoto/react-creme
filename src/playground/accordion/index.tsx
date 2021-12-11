@@ -1,5 +1,5 @@
 import React from "react";
-import DemoPageRenderer from "../demo-page-renderer";
+import DemoPageRenderer from "../common/demo-page-renderer";
 import Widgets from "./widgets";
 
 function accordion() {
@@ -70,7 +70,7 @@ function accordion() {
           description: "enables focus outlines",
           default: "false",
           optional: "Yes",
-          type: "<em>Boolean</em>",
+          type: "Boolean",
         },
       ]}
       demoWidget={<Widgets />}

@@ -8,7 +8,7 @@ import {
   Tooltip,
 } from "../../components";
 import { ToolTipPosition } from "../../components/tooltip/tooltip-model";
-import useMedia from "../useMedia";
+import useMedia from "../common/useMedia";
 
 const Widgets = () => {
   const [position, setPosition] = useState<ToolTipPosition>("top center");

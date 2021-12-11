@@ -1,6 +1,6 @@
 import React, { CSSProperties, useLayoutEffect, useMemo } from "react";
 import { CheckBox, Section } from "../../components";
-import useMedia from "../useMedia";
+import useMedia from "../common/useMedia";
 
 function widgets() {
   const media = useMedia();

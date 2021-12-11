@@ -1,0 +1,21 @@
+.rc-demo-code-icon {
+  display: block;
+  height: 1rem;
+  width: 1rem;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.rc-demo-code-block {
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+
+  pre {
+    width: 100%;
+  }
+}

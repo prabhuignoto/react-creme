@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { BlockQuote, RadioGroup, Section } from "../../components";
-import useMedia from "../useMedia";
+import { DemoWidget } from "../common/demo-widget";
+import useMedia from "../common/useMedia";
 
 function Widgets() {
   const media = useMedia();
@@ -25,7 +26,7 @@ function Widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <RadioGroup
                 items={[
@@ -37,14 +38,14 @@ function Widgets() {
                 onSelected={(val) => console.log(val)}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Custom layout">
           <BlockQuote>
             The Layout of the RadioGroup can be customized to either row or
             column.
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width * 3}px` }}>
               <RadioGroup
                 layout="row"
@@ -56,14 +57,14 @@ function Widgets() {
                 onSelected={(val) => console.log(val)}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Disabled option">
           <BlockQuote>
             Disable specific option by setting the disabled property to true.
           </BlockQuote>
 
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <RadioGroup
                 items={[
@@ -74,7 +75,7 @@ function Widgets() {
                 onSelected={(val) => console.log(val)}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
       </div>
     )

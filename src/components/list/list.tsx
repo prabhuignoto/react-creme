@@ -52,6 +52,7 @@ const List: React.FunctionComponent<ListModel> = ({
   showCheckIcon = true,
   virtualized = false,
   focusable = false,
+  highlightSelection = false,
 }: ListModel) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     initOptions(options, rowGap, itemHeight, noUniqueIds)
@@ -215,6 +216,7 @@ const List: React.FunctionComponent<ListModel> = ({
                   onSelection={handleSelection}
                   selected={selected}
                   showCheckIcon={showCheckIcon}
+                  highlightSelection={highlightSelection}
                   value={value}
                   style={{
                     top: `${top}px`,

@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { Alert, BlockQuote, Section } from "../../components";
-import useMedia from "../useMedia";
+import useMedia from "../common/useMedia";
+import { DemoWidget } from "../common/demo-widget";
 
 function Widgets() {
   const media = useMedia();
@@ -28,37 +29,37 @@ function Widgets() {
           Alerts can be closed or dismissed by default. Use the{" "}
           <code>canDismiss</code> prop to change this behavior.
         </BlockQuote>
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <div style={{ width: `${width}px` }}>
             <Alert message="This is a information text" />
           </div>
-        </div>
-        <div className="rc-demo-widget">
+        </DemoWidget>
+        <DemoWidget>
           <div style={{ width: `${width}px` }}>
             <Alert message="This is a information text" canDismiss={false} />
           </div>
-        </div>
+        </DemoWidget>
       </Section>
       <Section title="Success Message">
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <div style={{ width: `${width}px` }}>
             <Alert message="This is a success text" state="success" />
           </div>
-        </div>
+        </DemoWidget>
       </Section>
       <Section title="Warning Message">
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <div style={{ width: `${width}px` }}>
             <Alert message="This is a warning text" state="warning" />
           </div>
-        </div>
+        </DemoWidget>
       </Section>
       <Section title="Error Message">
-        <div className="rc-demo-widget">
+        <DemoWidget>
           <div style={{ width: `${width}px` }}>
             <Alert message="This is a error text" state="error" />
           </div>
-        </div>
+        </DemoWidget>
       </Section>
     </div>
   );

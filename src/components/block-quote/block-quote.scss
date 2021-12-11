@@ -8,29 +8,23 @@
   border-left: 3px solid rgba(colors.$primary, 0.5);
   font-weight: 300;
   margin: 0.5rem 0;
-  padding: 1rem 0;
+  padding-bottom: 0.5rem;
   padding-left: 1rem;
+  padding-top: 0.5rem;
   width: calc(100% - 1rem);
 
   code {
-    color: colors.$white;
+    @extend %border-radius;
+    @extend %center;
+    background: rgba(colors.$secondary, 0.75);
+    color: colors.$primary;
+    display: inline-block;
     font-style: normal;
-    margin: 0 0.5rem;
+    font-style: normal;
+    margin: 0 0.2rem;
+    padding: 0 0.2rem;
     position: relative;
     text-decoration: none;
     z-index: 0;
-  }
-
-  code::after {
-    @extend %border-radius;
-    @extend %center;
-    @include position.position-abs("center center");
-    background: rgba(colors.$primary, 0.75);
-    content: "";
-    display: block;
-    font-style: normal;
-    height: calc(100% + 2px);
-    width: calc(100% + 8px);
-    z-index: -1;
   }
 }

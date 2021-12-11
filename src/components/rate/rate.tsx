@@ -1,5 +1,6 @@
+import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { startTransition, useCallback, useEffect } from "react";
+import React, { startTransition, useCallback, useEffect, useMemo } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import RateIcon from "../../icons/star";
 import { useFirstRender } from "../common/effects/useFirstRender";
@@ -15,6 +16,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
   ratingValues = [],
   size = "sm",
   value = 0,
+  disabled = false,
 }) => {
   const [items, setItems] = React.useState<RateItemModel[]>(
     Array.from({ length: iconCount }).map(() => ({
@@ -45,17 +47,21 @@ const Rate: React.FunctionComponent<RateProps> = ({
   }, []);
 
   const handleHover = useDebouncedCallback((idx: number) => {
-    startTransition(() => {
-      setHoverIndex(idx);
-      setSelectedIndex(-1);
-    });
+    if (!disabled) {
+      startTransition(() => {
+        setHoverIndex(idx);
+        setSelectedIndex(-1);
+      });
+    }
   }, 10);
 
   const handleLeave = useDebouncedCallback(() => {
-    startTransition(() => {
-      setHoverIndex(-1);
-      setSelectedIndex(lastSelectedIndex.current);
-    });
+    if (!disabled) {
+      startTransition(() => {
+        setHoverIndex(-1);
+        setSelectedIndex(lastSelectedIndex.current);
+      });
+    }
   }, 10);
 
   useEffect(() => {
@@ -77,9 +83,15 @@ const Rate: React.FunctionComponent<RateProps> = ({
 
   const isFirstRender = useFirstRender();
 
+  const rateWrapperClass = useMemo(() => {
+    return classNames("rc-rate-wrapper", {
+      "rc-rate-disabled": disabled,
+    });
+  }, [disabled]);
+
   return (
     <ul
-      className="rc-rate-wrapper"
+      className={rateWrapperClass}
       role="radiogroup"
       onMouseLeave={handleLeave}
     >
@@ -96,6 +108,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
             onMouseOver={handleHover}
             size={size}
             focusable={focusable}
+            disabled={disabled}
           />
         );
       })}
