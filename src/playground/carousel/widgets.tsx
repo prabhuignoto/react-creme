@@ -11,14 +11,15 @@ function widgets() {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
+
+    if (media.isBigScreen) {
+      setWidth(700);
+    } else if (media.isDesktop) {
+      setWidth(600);
+    } else if (media.isTablet) {
       setWidth("90%");
     } else if (media.isMobile) {
       setWidth("90%");
-    } else if (media.isBigScreen) {
-      setWidth(750);
-    } else if (media.isDesktop) {
-      setWidth(650);
     }
   }, [media]);
 
@@ -35,7 +36,7 @@ function widgets() {
             Renders the items in a horizontal layout with navigation controls
             displayed at the bottom
           </BlockQuote>
-          <DemoWidget>
+          <DemoWidget fullWidth>
             <div
               style={{
                 height: "450px",
@@ -57,7 +58,7 @@ function widgets() {
             Renders the items in a vertical layout with navigation controls
             displayed to the left
           </BlockQuote>
-          <DemoWidget>
+          <DemoWidget fullWidth>
             <div style={{ height: "300px", width: resolvedWidth }}>
               <Carousel direction="vertical">
                 <p>
@@ -87,7 +88,7 @@ function widgets() {
           <BlockQuote>
             The carousel can be swipable. Swipe left or right to navigate.
           </BlockQuote>
-          <DemoWidget>
+          <DemoWidget fullWidth>
             <div
               style={{
                 height: "300px",

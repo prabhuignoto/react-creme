@@ -1,9 +1,10 @@
 .app {
+  --aside-width: 300px;
   background: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   margin: 0 auto;
-  min-height: 100%;
+  position: relative;
 }
 
 body {
@@ -35,10 +36,16 @@ span {
   background: #fcfcfc;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  width: 20%;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  width: var(--aside-width);
+}
+
+.app-aside-visible {
+  visibility: visible;
 }
 
 .app-main-section {
@@ -46,44 +53,42 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 80%;
+  min-height: 120vh;
+  width: calc(100% - var(--aside-width) - 20px);
 }
 
 .section-content {
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-right: auto;
   width: 100%;
 }
 
 @media (min-width: 768px) {
   .app {
+    --aside-width: 250px;
     width: 100%;
-  }
-
-  .app-aside {
-    width: 30%;
-  }
-
-  .app-main-section {
-    width: 70%;
   }
 }
 
 @media (min-width: 992px) {
   .app {
+    --aside-width: 300px;
     width: 100%;
   }
 }
 
 @media (min-width: 1200px) {
   .app {
+    --aside-width: 300px;
     width: 100%;
   }
 }
 
 @media (min-width: 1600px) {
   .app {
+    --aside-width: 350px;
     width: 100%;
   }
 }
@@ -92,27 +97,11 @@ span {
   .app {
     width: 1600px;
   }
-
-  .app-aside {
-    width: 20%;
-  }
-
-  .app-main-section {
-    width: 80%;
-  }
 }
 
 @media (min-width: 2560px) {
   .app {
-    width: 1640px;
-  }
-
-  .app-aside {
-    width: 20%;
-  }
-
-  .app-main-section {
-    width: 80%;
+    width: 1800px;
   }
 }
 
@@ -131,13 +120,13 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 95%;
+  width: 100%;
 }
 
 .rc-demo-prop-section {
   display: flex;
   margin: 2rem 0;
-  width: 100%;
+  width: 95%;
 }
 
 .rc-demo-widget {
@@ -169,7 +158,7 @@ span {
   display: flex;
   height: 45px;
   margin-bottom: 1rem;
-  width: 95%;
+  width: 100%;
 }
 
 .rc-demo-app-logo {

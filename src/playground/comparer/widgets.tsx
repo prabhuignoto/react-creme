@@ -29,7 +29,7 @@ function Widgets() {
           Compare two images side by side horizontally. The drag handle guides
           the user to the correct position.
         </BlockQuote>
-        <DemoWidget>
+        <DemoWidget fullWidth>
           <div
             style={{
               height: "502px",
@@ -49,7 +49,7 @@ function Widgets() {
           Compare two images side by side vertically. The drag handle guides the
           user to the correct position.
         </BlockQuote>
-        <DemoWidget>
+        <DemoWidget fullWidth>
           <div
             style={{
               height: "502px",

@@ -8,7 +8,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
 .rc-accordion {
   @extend %col;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
 
@@ -51,7 +51,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   margin: 0 auto;
   max-height: var(--max-height);
   overflow: hidden;
-  width: 95%;
+  width: 100%;
 
   &.rc-accordion-open {
     opacity: 1;

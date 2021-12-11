@@ -11,11 +11,11 @@ interface MediaState {
 function useMedia() {
   const [mediaState, setMediaState] = useState<MediaState | null>(null);
   const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 1224px)",
+    query: "(min-width: 992px)",
   });
-  const isBigScreen = useMediaQuery({ query: "(min-width: 1824px)" });
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
-  const isRetina = useMediaQuery({ query: "(min-resolution: 2dppx)" });
+  const isBigScreen = useMediaQuery({ query: "(min-width: 1200px)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
+  const isMobile = useMediaQuery({ query: "(min-width: 576px)" });
 
   const resizeObserverRef = useRef<ResizeObserver>(null);
 
@@ -24,8 +24,8 @@ function useMedia() {
   useEffect(() => {
     if (windowWidth) {
       setMediaState({
-        isMobile: isTabletOrMobile,
-        isTablet: isTabletOrMobile && !isRetina,
+        isMobile: isMobile,
+        isTablet: isTablet,
         isDesktop: isDesktopOrLaptop,
         isBigScreen: isBigScreen,
       });

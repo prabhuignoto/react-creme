@@ -9,12 +9,14 @@ interface WidgetProps {
   children: React.ReactNode;
   layout?: "horizontal" | "vertical";
   width?: string | number;
+  fullWidth?: boolean;
 }
 
 const DemoWidget: React.FC<WidgetProps> = ({
   children,
   layout = "row",
   width,
+  fullWidth = false,
 }) => {
   return (
     <div
@@ -26,7 +28,9 @@ const DemoWidget: React.FC<WidgetProps> = ({
         alignItems: "flex-start",
       }}
     >
-      <div style={{ width: "100%", margin: "0.5rem 0" }}>{children}</div>
+      <div style={{ margin: "0.5rem 0", width: fullWidth ? "100%" : "" }}>
+        {children}
+      </div>
       <div className="rc-demo-code-block">
         <Accordion
           title="Show Code"

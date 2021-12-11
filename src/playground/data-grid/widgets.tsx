@@ -33,14 +33,15 @@ function widgets() {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
-      setWidth(700);
-    } else if (media.isMobile) {
-      setWidth(450);
-    } else if (media.isBigScreen) {
+
+    if (media.isBigScreen) {
       setWidth(1200);
     } else if (media.isDesktop) {
-      setWidth(850);
+      setWidth(650);
+    } else if (media.isTablet) {
+      setWidth(600);
+    } else if (media.isMobile) {
+      setWidth(450);
     }
   }, [media]);
 

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 // import { Accordion, BlockQuote, Image, Section } from "../components-from-npm";
 import { Accordion, BlockQuote, Image, Section } from "../../components";
 import { DemoWidget } from "../common/demo-widget";
@@ -8,7 +8,7 @@ function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!media) {
       return;
     }
@@ -22,6 +22,7 @@ function widgets() {
       setWidth(450);
     }
   }, [media]);
+
   return (
     width > 0 && (
       <div style={{ minHeight: "1200px" }} className="rc-demo-widgets">
@@ -105,6 +106,7 @@ function widgets() {
             <div
               style={{
                 width: `${width}px`,
+                height: "400px",
               }}
             >
               <Accordion title="Show Image" iconType="plus" alignIconRight>

@@ -15,11 +15,11 @@ function widgets() {
     if (media.isTablet) {
       setWidth(500);
     } else if (media.isMobile) {
-      setWidth(400);
+      setWidth(350);
     } else if (media.isBigScreen) {
       setWidth(750);
     } else if (media.isDesktop) {
-      setWidth(650);
+      setWidth(600);
     }
   }, [media]);
 
