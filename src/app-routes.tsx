@@ -9,6 +9,7 @@ import Buttons from "./playground/buttons";
 import Card from "./playground/card";
 import Carousel from "./playground/carousel";
 import Checkbox from "./playground/checkbox";
+import CheckboxGroup from "./playground/checkbox-group";
 import Comparer from "./playground/comparer";
 import DataGrid from "./playground/data-grid";
 import Dialog from "./playground/dialog";
@@ -386,6 +387,14 @@ function AppRoutes() {
         element={
           <div className="section-content">
             <Alert />
+          </div>
+        }
+      />
+      <Route
+        path="/checkbox-group"
+        element={
+          <div className="section-content">
+            <CheckboxGroup />
           </div>
         }
       />

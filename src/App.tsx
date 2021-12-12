@@ -47,7 +47,7 @@ function App() {
         const { left: sectionLeft } =
           sectionRef.current.getBoundingClientRect();
         if (sectionLeft - asideWidth > 0) {
-          setLeft(sectionLeft - asideWidth - 20);
+          setLeft(sectionLeft - asideWidth);
         } else {
           setLeft(0);
         }

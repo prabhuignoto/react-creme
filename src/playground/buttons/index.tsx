@@ -52,7 +52,7 @@ function buttons() {
         },
         {
           name: "<em>border</em>",
-          description: `prop for disabling the button border`,
+          description: `prop for enabling or disabling the button border`,
           default: "<em>true</em>",
           optional: "Yes",
           type: "Boolean",

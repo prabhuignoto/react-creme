@@ -52,6 +52,7 @@ const SidebarHome = React.memo(() => {
                 { name: "Tags" },
                 { name: "Radio Group" },
                 { name: "Checkbox" },
+                { name: "Checkbox Group" },
                 { name: "Switch" },
                 { name: "Dropdown" },
                 { name: "Rate" },

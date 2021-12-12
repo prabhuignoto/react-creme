@@ -121,7 +121,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
       [totalItems]
     );
 
-    const handleSelection = (val: boolean) => {
+    const handleSelection = (id: string, label: string, val: boolean) => {
       setChecked(val);
     };
 

@@ -26,16 +26,24 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
     autoHeight = false,
     focusable = true,
     focusIcon = false,
+    noUniqueId = false,
+    id,
   }: CheckboxModel) => {
     const [checked, setChecked] = useState(isChecked);
     const ref = useRef(null);
-    const id = useRef(`label-${nanoid()}`);
+    const checkBoxId = noUniqueId
+      ? id
+        ? useRef(id)
+        : useRef(`label-${nanoid()}`)
+      : useRef("");
 
     const toggleCheck = useCallback(() => {
-      setChecked((prev) => {
-        onChange && onChange(!prev);
-        return !prev;
-      });
+      if (!disabled) {
+        setChecked((prev) => {
+          onChange && onChange(checkBoxId.current, label, !prev);
+          return !prev;
+        });
+      }
     }, []);
 
     if (focusable) {
@@ -102,7 +110,10 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
       [disabled]
     );
 
-    const wrapperProps = useMemo(() => (!focusIcon ? focusProps : null), []);
+    const wrapperProps = useMemo(
+      () => (!focusIcon && !disabled ? focusProps : null),
+      [disabled]
+    );
     const iconProps = useMemo(() => (focusIcon ? focusProps : null), []);
 
     const isFirstRender = useFirstRender();
@@ -110,11 +121,12 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
     return (
       <div
         aria-checked={checked}
-        aria-labelledby={id.current}
+        aria-labelledby={checkBoxId.current}
         className={wrapperClass}
         onClick={toggleCheck}
         role="checkbox"
         style={style}
+        aria-disabled={disabled}
         {...wrapperProps}
       >
         <div className={checkBoxClass} {...iconProps}>
@@ -122,7 +134,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
             <CheckIcon />
           </span>
         </div>
-        <label className={labelClass} id={id.current}>
+        <label className={labelClass} id={checkBoxId.current}>
           {label}
         </label>
       </div>

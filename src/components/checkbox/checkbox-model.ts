@@ -8,9 +8,11 @@ export interface CheckboxModel {
   isChecked?: boolean;
   label: string;
   noHoverStyle?: boolean;
-  onChange?: (selected: boolean) => void;
+  onChange?: (id: string, name: string, selected: boolean) => void;
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
   focusable?: boolean;
   focusIcon?: boolean;
+  noUniqueId?: boolean;
+  id?: string;
 }

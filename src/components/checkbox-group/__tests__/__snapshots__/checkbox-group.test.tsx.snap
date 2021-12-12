@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckboxGroup should match snapshot 1`] = `
+<div>
+  <div
+    class="rc-checkbox-group rc-checkbox-group-horizontal"
+    role="group"
+  >
+    <div
+      aria-checked="false"
+      aria-labelledby=""
+      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
+      role="checkbox"
+      tabindex="0"
+    >
+      <div
+        class="rc-checkbox rc-checkbox-sm"
+      >
+        <span
+          class="rc-checkbox-icon rc-checkbox-sm"
+          role="img"
+        >
+          <svg
+            class="prefix__feather prefix__feather-check"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 6L9 17l-5-5"
+            />
+          </svg>
+        </span>
+      </div>
+      <label
+        class="rc-checkbox-label rc-checkbox-label-sm"
+        id=""
+      >
+        Option 1
+      </label>
+    </div>
+    <div
+      aria-checked="true"
+      aria-labelledby=""
+      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
+      role="checkbox"
+      tabindex="0"
+    >
+      <div
+        class="rc-checkbox rc-checkbox-sm"
+      >
+        <span
+          class="rc-checkbox-icon rc-checkbox-checked rc-checkbox-sm"
+          role="img"
+        >
+          <svg
+            class="prefix__feather prefix__feather-check"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 6L9 17l-5-5"
+            />
+          </svg>
+        </span>
+      </div>
+      <label
+        class="rc-checkbox-label rc-checkbox-label-sm"
+        id=""
+      >
+        Option 2
+      </label>
+    </div>
+    <div
+      aria-checked="false"
+      aria-disabled="true"
+      aria-labelledby=""
+      class="rc-checkbox-wrapper rc-checkbox-sm rc-disabled rc-checkbox-hover rc-checkbox-focus"
+      role="checkbox"
+    >
+      <div
+        class="rc-checkbox rc-disabled rc-checkbox-sm"
+      >
+        <span
+          class="rc-checkbox-icon rc-checkbox-sm"
+          role="img"
+        >
+          <svg
+            class="prefix__feather prefix__feather-check"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 6L9 17l-5-5"
+            />
+          </svg>
+        </span>
+      </div>
+      <label
+        class="rc-checkbox-label rc-checkbox-label-sm"
+        id=""
+      >
+        Option 3
+      </label>
+    </div>
+  </div>
+</div>
+`;

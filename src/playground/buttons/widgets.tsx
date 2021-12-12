@@ -29,7 +29,7 @@ function widgets() {
         </DemoWidget>
       </Section>
       <Section title="Disabled">
-        <BlockQuote>Buttons can be disabled.</BlockQuote>
+        <BlockQuote>Buttons can be disabled</BlockQuote>
         <DemoWidget>
           <Button
             border={false}
@@ -41,14 +41,17 @@ function widgets() {
       </Section>
       <Section title="Large sized button">
         <BlockQuote>
-          Customize the size of the button by using the <code>size</code>
+          Customize the size of the button by using the <code>size</code> prop
         </BlockQuote>
         <DemoWidget>
           <Button label="save as new" type="primary" size="md" border={false} />
         </DemoWidget>
       </Section>
       <Section title="Button with State (Extra large)">
-        <BlockQuote>Buttons can be in different states.</BlockQuote>
+        <BlockQuote>
+          Buttons can be in different states. Example shows button in{" "}
+          <code>danger</code> state
+        </BlockQuote>
         <DemoWidget>
           <Button label="save as new" type="danger" size="lg" />
         </DemoWidget>

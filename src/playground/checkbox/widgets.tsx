@@ -1,5 +1,6 @@
 import React, { CSSProperties, useLayoutEffect, useMemo } from "react";
-import { CheckBox, Section } from "../../components";
+import { BlockQuote, CheckBox, Section } from "../../components";
+import { DemoWidget } from "../common/demo-widget";
 import useMedia from "../common/useMedia";
 
 function widgets() {
@@ -32,35 +33,42 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
-          <div className="rc-demo-widget" style={style}>
-            <CheckBox
-              label="select"
-              onChange={(ele) => console.log(ele)}
-              focusIcon
-            />
-          </div>
+          <DemoWidget>
+            <div style={style}>
+              <CheckBox
+                label="select"
+                onChange={(ele) => console.log(ele)}
+                focusIcon
+              />
+            </div>
+          </DemoWidget>
+        </Section>
+        <Section title="Disabled State">
+          <DemoWidget>
+            <div style={style}>
+              <CheckBox
+                label="This option is disabled"
+                onChange={(ele) => console.log(ele)}
+                border={false}
+                disabled
+              />
+            </div>
+          </DemoWidget>
         </Section>
         <Section title="Large size">
-          <div className="rc-demo-widget" style={style}>
-            <CheckBox
-              label="select"
-              onChange={(ele) => console.log(ele)}
-              isChecked
-              size="lg"
-              border={false}
-              focusIcon
-            />
-          </div>
-        </Section>
-        <Section>
-          <div className="rc-demo-widget" style={style}>
-            <CheckBox
-              label="select the value its too lg"
-              onChange={(ele) => console.log(ele)}
-              size="md"
-              border={false}
-            />
-          </div>
+          <BlockQuote>Comes in three sizes: small, medium, large.</BlockQuote>
+          <DemoWidget>
+            <div style={style}>
+              <CheckBox
+                label="select"
+                onChange={(ele) => console.log(ele)}
+                isChecked
+                size="lg"
+                border={false}
+                focusIcon
+              />
+            </div>
+          </DemoWidget>
         </Section>
       </div>
     )

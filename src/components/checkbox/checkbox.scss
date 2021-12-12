@@ -27,8 +27,9 @@ $heights: (
   height: 100%;
   justify-items: center;
   padding: 0.25rem 0;
-  padding-left: 1rem;
-  width: calc(100% - 1rem);
+  padding: 0 0.5rem;
+  // padding-left: 1rem;
+  width: 100%;
 
   &.rc-checkbox-focus {
     @include animate.halo(4px, 3px);
@@ -45,7 +46,6 @@ $heights: (
 
   @each $key, $val in $grid {
     &.rc-checkbox-#{$key} {
-      // grid-template-columns: calc($val * 2) calc(100% - calc($val * 2));
       display: flex;
 
       &:not(.rc-checkbox-auto-height) {
@@ -76,7 +76,6 @@ $heights: (
 .rc-checkbox-icon {
   @extend %border;
   background: colors.$white;
-  width: 100%;
 
   &:hover {
     @extend %shadow-inset;

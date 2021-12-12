@@ -1,0 +1,12 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+
+.rc-checkbox-group-wrapper {
+  &.rc-checkbox-group-horizontal {
+    @extend %left;
+  }
+
+  &.rc-checkbox-group-vertical {
+    @extend %col;
+  }
+}

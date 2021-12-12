@@ -54,7 +54,7 @@ span {
   flex-direction: column;
   justify-content: flex-start;
   min-height: 120vh;
-  width: calc(100% - var(--aside-width) - 20px);
+  width: calc(100% - var(--aside-width));
 }
 
 .section-content {
@@ -67,14 +67,14 @@ span {
 
 @media (min-width: 768px) {
   .app {
-    --aside-width: 250px;
+    --aside-width: 200px;
     width: 100%;
   }
 }
 
 @media (min-width: 992px) {
   .app {
-    --aside-width: 300px;
+    --aside-width: 250px;
     width: 100%;
   }
 }
@@ -120,7 +120,7 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 98%;
 }
 
 .rc-demo-prop-section {
@@ -158,7 +158,7 @@ span {
   display: flex;
   height: 45px;
   margin-bottom: 1rem;
-  width: 100%;
+  width: 98%;
 }
 
 .rc-demo-app-logo {

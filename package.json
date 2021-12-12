@@ -30,8 +30,8 @@
     "react": "^18.0.0-rc.0-next-f2a59df48-20211208",
     "react-creme-pre-alpha": "^0.1.1",
     "react-dom": "^18.0.0-rc.0-next-f2a59df48-20211208",
-    "use-debounce": "^7.0.1",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "use-debounce": "^7.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -77,9 +77,9 @@
     "prettier": "^2.5.1",
     "react-element-to-jsx-string": "^14.3.4",
     "react-responsive": "^9.0.0-beta.5",
-    "react-router-dom": "^6.0.2",
+    "react-router-dom": "^6.1.1",
     "react-syntax-highlighter": "^15.4.5",
-    "rollup": "^2.61.0",
+    "rollup": "^2.61.1",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-sass": "^1.2.10",
     "rollup-plugin-terser": "^7.0.2",
