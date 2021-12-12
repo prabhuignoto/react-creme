@@ -51,7 +51,8 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   margin: 0 auto;
   max-height: var(--max-height);
   overflow: hidden;
-  width: 100%;
+  padding-left: 1rem;
+  width: calc(100% - 1rem);
 
   &.rc-accordion-open {
     opacity: 1;

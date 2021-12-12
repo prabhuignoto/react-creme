@@ -1,8 +1,9 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { CheckBox } from "../checkbox/checkbox";
 import { CheckboxModel } from "../checkbox/checkbox-model";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import "./checkbox-group.scss";
 
 interface CheckboxGroupProps {
@@ -10,13 +11,21 @@ interface CheckboxGroupProps {
   border?: boolean;
   disabled?: boolean;
   layout?: "horizontal" | "vertical";
+  checkboxStyle?: "square" | "round";
+  onChange?: (
+    selected: { id?: string; name?: string; isChecked: boolean }[]
+  ) => void;
+  noUniqueIds?: boolean;
 }
 
 const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
-  options,
+  options = [],
   disabled,
   border,
-  layout = "horizontal",
+  layout = "vertical",
+  checkboxStyle = "square",
+  onChange,
+  noUniqueIds = false,
 }) => {
   const wrapperClass = useMemo(() => {
     return classNames("rc-checkbox-group", {
@@ -28,18 +37,44 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   }, [layout, disabled]);
 
   const [items, setItems] = React.useState(
-    options ? options.map((option) => ({ id: nanoid(), ...option })) : []
+    options
+      ? options.map((option) => ({
+          ...(!noUniqueIds ? { id: nanoid() } : { id: option.id }),
+          ...option,
+          isChecked: option.isChecked || false,
+        }))
+      : []
   );
 
-  const handleChange = (id: string, name: string, selected: boolean) => {
-    const newItems = items.map((item) => {
-      if (item.id === id) {
-        return { ...item, isChecked: selected };
-      }
-      return item;
-    });
-    setItems(newItems);
-  };
+  const handleChange = useCallback(
+    (id: string, name: string, selected: boolean) => {
+      setItems((items) => {
+        const _newItems = items.map((item) => {
+          return {
+            ...item,
+            isChecked: item.id === id ? selected : !!item.isChecked,
+          };
+        });
+
+        return _newItems;
+      });
+    },
+    []
+  );
+
+  useEffect(() => {
+    if (!isFirstRender.current) {
+      onChange?.(
+        items.map((item) => ({
+          id: item.id,
+          name: item.label,
+          isChecked: item.isChecked,
+        }))
+      );
+    }
+  }, [JSON.stringify(items.map((i) => i.isChecked))]);
+
+  const isFirstRender = useFirstRender();
 
   return (
     <div className={wrapperClass} role="group">
@@ -51,6 +86,9 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
             {...rest}
             disabled={disabled || item.disabled}
             onChange={handleChange}
+            checkBoxStyle={checkboxStyle}
+            noUniqueId={true}
+            id={item.id}
           />
         );
       })}

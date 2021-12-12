@@ -42,7 +42,6 @@ const SidebarHome = React.memo(() => {
                 { name: "scroll spy" },
                 { name: "section" },
                 { name: "draggable" },
-                { name: "sortable" },
               ],
             },
             {

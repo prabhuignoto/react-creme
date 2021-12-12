@@ -11,14 +11,14 @@ function widgets() {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
-      setWidth("90%");
-    } else if (media.isMobile) {
-      setWidth("90%");
-    } else if (media.isBigScreen) {
+    if (media.isBigScreen) {
       setWidth(950);
     } else if (media.isDesktop) {
       setWidth(650);
+    } else if (media.isTablet) {
+      setWidth("90%");
+    } else if (media.isMobile) {
+      setWidth("90%");
     }
   }, [media]);
 

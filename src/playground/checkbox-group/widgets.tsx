@@ -8,6 +8,7 @@ function Widgets() {
       <Section title="Default Render">
         <DemoWidget>
           <CheckBoxGroup
+            onChange={(value) => console.log(value)}
             options={[
               {
                 label: "Option 1",
@@ -58,6 +59,27 @@ function Widgets() {
                 label: "Option 3",
                 isChecked: true,
                 disabled: true,
+              },
+            ]}
+          />
+        </DemoWidget>
+      </Section>
+      <Section title="Checkbox Group - Circle style">
+        <DemoWidget>
+          <CheckBoxGroup
+            checkboxStyle="round"
+            options={[
+              {
+                label: "Option 1",
+              },
+              {
+                label: "Option 2",
+              },
+              {
+                label: "Option 3",
+              },
+              {
+                label: "Option 4",
               },
             ]}
           />

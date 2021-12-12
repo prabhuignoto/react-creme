@@ -91,7 +91,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   const sliderFillStyle = useMemo(() => {
     if (sliderFillRef.current && trackerRef.current) {
       return {
-        width: `${Math.round(trackerRef.current.clientWidth * percent) + 2}px`,
+        width: `${Math.round(trackerRef.current.clientWidth * percent)}px`,
       } as CSSProperties;
     }
   }, [percent, sliderFillRef, trackerRef]);
@@ -116,8 +116,8 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   }, [dragging]);
 
   const canShowTooltip = useMemo(
-    () => !disabled && !disableTooltip && !hideTooltip,
-    [hideTooltip, disabled, disableTooltip]
+    () => !disableTooltip && !hideTooltip,
+    [hideTooltip, disableTooltip]
   );
 
   useFocus(controlRef);

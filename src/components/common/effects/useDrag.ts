@@ -100,10 +100,12 @@ const useDrag: functionType = (
 
         if (left < offsetLeft) {
           setPercent(0);
-          target.current.style.left = `${rnd(targetWidth / 2)}px`;
+          target.current.style.left = `${-rnd(targetWidth / 2)}px`;
         } else if (left <= maxXValue.current && left >= minX) {
-          target.current.style.left = `${left - rnd(targetWidth / 2)}px`;
-          const percent = (left - rnd(offsetLeft * 0.5)) / parentWidth;
+          target.current.style.left = `${
+            left - rnd(targetWidth / 2) - (startValue || 0)
+          }px`;
+          const percent = (left - rnd(targetWidth / 2)) / parentWidth;
           setPercent(percent);
         } else if (left >= maxXValue.current) {
           setPercent(maxXValue.current / parentWidth);
@@ -181,13 +183,11 @@ const useDrag: functionType = (
 
     if (startValue && endValue) {
       const percent = currentValue
-        ? (currentValue - offsetLeft) / endValue
-        : (startValue - offsetLeft) / endValue;
+        ? (currentValue - startValue) / (endValue - startValue)
+        : 0;
 
       if (currentValue) {
-        target.current.style.left = `${Math.round(
-          clientWidth * (percent * offsetLeft)
-        )}px`;
+        target.current.style.left = `${Math.round(clientWidth * percent)}px`;
         setPercent(percent);
       } else {
         target.current.style.left = `${rnd(clientWidth * percent)}px`;
@@ -216,7 +216,7 @@ const useDrag: functionType = (
         passive: false,
       });
     }
-  }, [target.current?.clientWidth, container]);
+  }, [target.current, container]);
 
   return [percent, setPercent];
 };

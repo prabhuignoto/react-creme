@@ -14,7 +14,7 @@ describe("Checkbox", () => {
   it("should render disabled", () => {
     const { getByRole } = render(<CheckBox label="My Checkbox" disabled />);
 
-    expect(getByRole("checkbox")).toHaveClass("rc-disabled");
+    expect(getByRole("checkbox")).toHaveClass("rc-checkbox-disabled");
     expect(getByRole("checkbox")).toHaveAttribute("aria-disabled", "true");
   });
 

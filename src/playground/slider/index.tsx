@@ -8,6 +8,8 @@ function slider() {
       data={[]}
       tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}
+      title="Slider"
+      description="Slider is a component that allows you to select a value from a range of values."
     ></DemoPageRenderer>
   );
 }

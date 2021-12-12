@@ -3,7 +3,7 @@
 @use "../../design/animate.scss";
 @use "../../design/colors.scss";
 
-$item-height: 30px;
+$item-height: 35px;
 
 .rc-tree-item {
   $max-height: var(--max-height);
@@ -35,6 +35,7 @@ $item-height: 30px;
   @extend %left;
   cursor: pointer;
   transition: transform 0.25s cubic-bezier(0.77, 0, 0.18, 1);
+  // margin-right: 0.5rem;
 
   &.rc-tree-item-icon-exp:not(.rc-tree-item-icon-plus) {
     transform: rotate(90deg);

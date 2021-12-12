@@ -18,6 +18,7 @@
   background: colors.$primary;
   cursor: pointer;
   height: var(--size);
+  outline: 0;
   position: absolute;
   transition: box-shadow 0.3s ease-in-out;
   width: var(--size);

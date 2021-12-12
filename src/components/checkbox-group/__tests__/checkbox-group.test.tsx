@@ -1,18 +1,21 @@
-import { render } from "@testing-library/react";
+import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
 import { CheckBoxGroup } from "../checkbox-group";
 
 const options = [
   {
     label: "Option 1",
+    id: "1",
   },
   {
     label: "Option 2",
     isChecked: true,
+    id: "2",
   },
   {
     label: "Option 3",
     disabled: true,
+    id: "3",
   },
 ];
 
@@ -50,5 +53,37 @@ describe("CheckboxGroup", () => {
       "aria-disabled",
       "true"
     );
+  });
+
+  it("should handle on change", async () => {
+    const handleChange = jest.fn();
+    const { getAllByRole } = render(
+      <CheckBoxGroup options={options} onChange={handleChange} noUniqueIds />
+    );
+
+    await act(async () => {
+      fireEvent.click(getAllByRole("checkbox")[1]);
+    });
+
+    await waitFor(() => {
+      expect(handleChange).toHaveBeenCalledTimes(1);
+      expect(handleChange).toHaveBeenCalledWith([
+        {
+          name: "Option 1",
+          id: "1",
+          isChecked: false,
+        },
+        {
+          name: "Option 2",
+          isChecked: false,
+          id: "2",
+        },
+        {
+          name: "Option 3",
+          isChecked: false,
+          id: "3",
+        },
+      ]);
+    });
   });
 });

@@ -44,6 +44,10 @@ $heights: (
     @extend %border;
   }
 
+  &.rc-checkbox-disabled {
+    @extend %disabled;
+  }
+
   @each $key, $val in $grid {
     &.rc-checkbox-#{$key} {
       display: flex;
@@ -76,6 +80,10 @@ $heights: (
 .rc-checkbox-icon {
   @extend %border;
   background: colors.$white;
+
+  &.rc-checkbox-round {
+    border-radius: 50%;
+  }
 
   &:hover {
     @extend %shadow-inset;

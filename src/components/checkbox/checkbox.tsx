@@ -15,19 +15,20 @@ import "./checkbox.scss";
 
 const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
   ({
-    label,
-    onChange,
-    isChecked = false,
+    autoHeight = false,
+    border = false,
+    checkBoxStyle = "square",
     disabled,
+    focusIcon = false,
+    focusable = true,
+    id,
+    isChecked = false,
+    label,
+    noHoverStyle = false,
+    noUniqueId = false,
+    onChange,
     size = "sm",
     style,
-    border = false,
-    noHoverStyle = false,
-    autoHeight = false,
-    focusable = true,
-    focusIcon = false,
-    noUniqueId = false,
-    id,
   }: CheckboxModel) => {
     const [checked, setChecked] = useState(isChecked);
     const ref = useRef(null);
@@ -55,6 +56,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
         classNames("rc-checkbox-icon", {
           "rc-checkbox-checked": checked,
           [`rc-checkbox-${size}`]: true,
+          [`rc-checkbox-${checkBoxStyle}`]: true,
         }),
       [checked]
     );
@@ -81,7 +83,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
       () =>
         classNames("rc-checkbox-wrapper", {
           [`rc-checkbox-${size}`]: true,
-          "rc-disabled": disabled,
+          "rc-checkbox-disabled": disabled,
           "rc-checkbox-border": border,
           "rc-checkbox-hover": !noHoverStyle,
           "rc-checkbox-auto-height": autoHeight,

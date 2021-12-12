@@ -1,25 +1,7 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDebounce } from "use-debounce";
 import isTouchDevice from "../utils";
-
-type DragDirection = "HORIZONTAL" | "VERTICAL" | "BOTH";
-
-interface Position {
-  x: number;
-  y: number;
-  target: HTMLElement | null;
-}
-
-interface DragSettings {
-  makeChildrenDraggable?: boolean;
-  boundTo?: RefObject<HTMLElement> | null;
-  dragDirection?: DragDirection;
-}
-
-type UseDraggable = (
-  ref: RefObject<HTMLElement> | HTMLElement,
-  settings?: DragSettings
-) => Position;
+import { Position, UseDraggable } from "./draggable-model";
 
 const useDraggable: UseDraggable = (
   targetRef,
@@ -194,7 +176,6 @@ const useDraggable: UseDraggable = (
 
     (ev.target as HTMLElement).style.zIndex = "";
 
-    // re calculate the positions
     if (targetRef instanceof HTMLElement) {
       rect.current = targetRef.getBoundingClientRect();
     } else {
@@ -203,6 +184,10 @@ const useDraggable: UseDraggable = (
   }, []);
 
   useEffect(() => {
+    if (!boundTo) {
+      return;
+    }
+
     const target =
       targetRef instanceof HTMLElement ? targetRef : targetRef.current;
 
@@ -252,20 +237,18 @@ const useDraggable: UseDraggable = (
   }, [targetRef]);
 
   useEffect(() => {
-    setTimeout(() => {
+    if (boundTo?.current) {
       const _targetRef =
         targetRef instanceof HTMLElement ? targetRef : targetRef.current;
 
-      if (boundTo?.current) {
+      if (boundTo?.current && !makeChildrenDraggable) {
         boundToRect.current = boundTo.current?.getBoundingClientRect();
         boundTo.current.style.position = "relative";
-      }
-
-      if (!boundTo?.current && makeChildrenDraggable && _targetRef) {
+      } else if (makeChildrenDraggable && _targetRef) {
         boundToRect.current = _targetRef.getBoundingClientRect();
         _targetRef.style.position = "relative";
       }
-    }, 500);
+    }
   }, [boundTo]);
 
   useEffect(() => {
