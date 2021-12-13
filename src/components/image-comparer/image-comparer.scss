@@ -4,10 +4,17 @@
 @use "../../design/icon.scss";
 
 .rc-img-comparer-wrapper {
-  // background: colors.$light-bg;
-  height: 100%;
   position: relative;
-  width: 100%;
+
+  &:not(.rc-image-comparer-loaded) {
+    height: 100%;
+    width: 100%;
+  }
+
+  &.rc-image-comparer-loaded {
+    height: var(--height);
+    width: var(--width);
+  }
 }
 
 .rc-img-comparer-drag-handle {
@@ -86,10 +93,6 @@
 
 .img-comparer-panel-2 {
   z-index: 0;
-
-  img {
-    filter: blur(2px) grayscale(100%);
-  }
 }
 
 .rc-circular-loader-wrapper {

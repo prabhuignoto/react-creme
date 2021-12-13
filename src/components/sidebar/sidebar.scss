@@ -1,18 +1,85 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
 @use "../../design/position.scss";
+@use "../../design/icon.scss";
 
 .rc-sidebar {
-  @extend %col;
-  width: 100%;
+  align-items: flex-start;
+  display: flex;
+  position: relative;
+  // width: 100%;
 
   &.rc-sidebar-border {
     @extend %border;
+  }
+
+  &:not(.rc-sidebar-minimize) {
+    justify-content: center;
+  }
+
+  &.rc-sidebar-minimize {
+    justify-content: flex-start;
   }
 }
 
 .rc-sidebar-search-wrapper {
   @extend %center;
-  margin: 1rem 0;
+  margin: 0 auto;
+  margin-top: 1rem;
   width: 90%;
+}
+
+.rc-sidebar-minimize-btn {
+  // @extend %icon-md;
+  background-color: colors.$primary;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  height: 1.5rem;
+  position: absolute;
+  top: 1px;
+  transition: right 0.2s ease-in;
+  width: 1.5rem;
+  z-index: 999;
+}
+
+.rc-sidebar-minimize-btn-open {
+  right: calc(0% - 1.5rem);
+
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.rc-sidebar-minimize-btn-close {
+  right: calc(100% - 1.5rem);
+}
+
+.rc-sidebar-content-wrapper {
+  &.rc-sidebar-border {
+    @extend %border;
+  }
+
+  &.rc-sidebar-minimize {
+    transition: width 0.25s ease-in-out, opacity 0.1s linear;
+  }
+
+  &:not(.rc-sidebar-minimize) {
+    width: 100%;
+  }
+
+  &.rc-sidebar-hide {
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+  }
+
+  &.rc-sidebar-open {
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+  }
 }

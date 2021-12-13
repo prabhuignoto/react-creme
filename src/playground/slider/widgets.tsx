@@ -66,6 +66,13 @@ const Widgets = () => {
             </div>
           </DemoWidget>
         </Section>
+        <Section title="Show Tooltip on Hover">
+          <DemoWidget>
+            <div style={{ width: `${width}px` }}>
+              <Slider start={1} end={5} knobSize={16} showTooltipOnHover />
+            </div>
+          </DemoWidget>
+        </Section>
         <Section title="Disabled state">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>

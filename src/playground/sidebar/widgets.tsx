@@ -70,6 +70,29 @@ function widgets() {
             </div>
           </DemoWidget>
         </Section>
+        <Section title="Minimize">
+          <BlockQuote>
+            The Sidebar can be collapsed and expanded with the{" "}
+            <code>minimizeSidebar</code> option
+          </BlockQuote>
+          <DemoWidget>
+            <div style={{ width: `${width}px` }}>
+              <Sidebar
+                minimizeSidebar
+                groups={[
+                  {
+                    title: "Section 1",
+                    items: [{ name: "tester" }, { name: "tester 2" }],
+                  },
+                  {
+                    title: "Section 2",
+                    items: [{ name: "tester" }, { name: "tester 2" }],
+                  },
+                ]}
+              />
+            </div>
+          </DemoWidget>
+        </Section>
       </div>
     )
   );

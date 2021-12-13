@@ -69,7 +69,7 @@ const useDrag: functionType = (
         dragStartTimer.current = window.setTimeout(() => {
           dragStarted.current = true;
           onDragStart && onDragStart();
-        }, 100);
+        }, 50);
       }
     },
     [target]
@@ -165,58 +165,69 @@ const useDrag: functionType = (
       return;
     }
 
-    container.current.style.userSelect = "none";
+    const _target = target.current;
+    const _container = container.current;
 
-    const { clientHeight, clientWidth } = container.current;
-
-    if (!maxX) {
-      maxXValue.current = clientWidth;
-    } else {
-      maxXValue.current = min(maxX, clientWidth);
-    }
-
-    if (!maxY) {
-      maxYValue.current = clientHeight;
-    } else {
-      maxYValue.current = min(maxY, clientHeight);
-    }
-
-    if (startValue && endValue) {
-      const percent = currentValue
-        ? (currentValue - startValue) / (endValue - startValue)
-        : 0;
-
-      if (currentValue) {
-        target.current.style.left = `${Math.round(clientWidth * percent)}px`;
-        setPercent(percent);
-      } else {
-        target.current.style.left = `${rnd(clientWidth * percent)}px`;
-        setPercent(percent);
+    const setup = () => {
+      if (!_target || !_container) {
+        return;
       }
-    }
 
-    if (isTouch) {
-      document.addEventListener("touchmove", handleDrag, {
-        passive: false,
-      });
-      document.addEventListener("touchstart", handleDragStart, {
-        passive: false,
-      });
-      document.addEventListener("touchend", handleDragEnd, {
-        passive: true,
-      });
-    } else {
-      document.addEventListener("mousedown", handleDragStart, {
-        passive: false,
-      });
-      document.addEventListener("mouseup", handleDragEnd, {
-        passive: true,
-      });
-      document.addEventListener("mousemove", handleDrag, {
-        passive: false,
-      });
-    }
-  }, [target.current, container]);
+      container.current.style.userSelect = "none";
+
+      const { clientHeight, clientWidth } = container.current;
+
+      if (!maxX) {
+        maxXValue.current = clientWidth;
+      } else {
+        maxXValue.current = min(maxX, clientWidth);
+      }
+
+      if (!maxY) {
+        maxYValue.current = clientHeight;
+      } else {
+        maxYValue.current = min(maxY, clientHeight);
+      }
+
+      if (startValue && endValue) {
+        const percent = currentValue
+          ? (currentValue - startValue) / (endValue - startValue)
+          : 0;
+
+        if (currentValue) {
+          target.current.style.left = `${Math.round(clientWidth * percent)}px`;
+          setPercent(percent);
+        } else {
+          target.current.style.left = `${rnd(clientWidth * percent)}px`;
+          setPercent(percent);
+        }
+      }
+
+      if (isTouch) {
+        document.addEventListener("touchmove", handleDrag, {
+          passive: false,
+        });
+        document.addEventListener("touchstart", handleDragStart, {
+          passive: false,
+        });
+        document.addEventListener("touchend", handleDragEnd, {
+          passive: true,
+        });
+      } else {
+        document.addEventListener("mousedown", handleDragStart, {
+          passive: false,
+        });
+        document.addEventListener("mouseup", handleDragEnd, {
+          passive: true,
+        });
+        document.addEventListener("mousemove", handleDrag, {
+          passive: false,
+        });
+      }
+    };
+
+    setup();
+  }, [target, container]);
 
   return [percent, setPercent];
 };

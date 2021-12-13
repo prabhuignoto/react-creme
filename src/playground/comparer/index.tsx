@@ -17,14 +17,14 @@ function comparer() {
         },
         {
           name: "<em>sourceOne</em>",
-          description: "The first source of the comparer",
+          description: "Source of the first image. Should be a valid URL.",
           defaultValue: "",
           optional: "Yes",
           type: "string",
         },
         {
           name: "<em>sourceTwo</em>",
-          description: "The second source of the comparer",
+          description: "Source of the second image. Should be a valid URL.",
           defaultValue: "",
           optional: "Yes",
           type: "string",

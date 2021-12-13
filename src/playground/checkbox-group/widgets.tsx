@@ -37,7 +37,7 @@ function Widgets() {
                 label: "Option 2",
               },
               {
-                label: "Option 3",
+                label: "This option is preselected",
                 isChecked: true,
               },
             ]}
@@ -52,11 +52,11 @@ function Widgets() {
                 label: "Option 1",
               },
               {
-                label: "Option 2",
+                label: "This option is disabled",
                 disabled: true,
               },
               {
-                label: "Option 3",
+                label: "This option is disabled but preselected",
                 isChecked: true,
                 disabled: true,
               },
@@ -64,7 +64,7 @@ function Widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section title="Checkbox Group - Circle style">
+      <Section title="Checkbox Group - Round style">
         <DemoWidget>
           <CheckBoxGroup
             checkboxStyle="round"

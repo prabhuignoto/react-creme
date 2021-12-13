@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { useCallback, useMemo } from "react";
-import { SearchIcon } from "../../icons";
+import { ChevronRightIcon, SearchIcon } from "../../icons";
 import { isArray } from "../common/utils";
 import { AccordionGroup, Input, List } from "../index";
 import { ListOption } from "../list/list-model";
@@ -15,6 +15,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   searchPlaceholder = "Search ...",
   border = false,
   listMaxHeight = 750,
+  minimizeSidebar = false,
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)
@@ -30,6 +31,8 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
         }))
       : []
   );
+
+  const [minimize, setMinimize] = React.useState(false);
 
   const handleSelection = useCallback(
     (option: ListOption[], groupId?: string) => {
@@ -78,51 +81,76 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   const sideBarClass = useMemo(
     () =>
       classNames("rc-sidebar", {
-        "rc-sidebar-border": border,
+        "rc-sidebar-minimize": minimizeSidebar,
       }),
-    [border]
+    [minimizeSidebar]
   );
+
+  const handleMinimize = useCallback(() => setMinimize((prev) => !prev), []);
+
+  const contentWrapper = useMemo(() => {
+    return classNames("rc-sidebar-content-wrapper", {
+      "rc-sidebar-minimize": minimizeSidebar,
+      "rc-sidebar-hide": minimize,
+      "rc-sidebar-open": !minimize,
+      "rc-sidebar-border": border || minimizeSidebar,
+    });
+  }, [minimize, minimizeSidebar, border]);
+
+  const minimizeButton = useMemo(() => {
+    return classNames("rc-sidebar-minimize-btn", {
+      "rc-sidebar-minimize-btn-open": !minimize,
+      "rc-sidebar-minimize-btn-close": minimize,
+    });
+  }, [minimize]);
 
   return (
     <div className={sideBarClass}>
-      {enableSearch && (
-        <div className="rc-sidebar-search-wrapper">
-          <Input
-            type="text"
-            enableClear
-            onChange={handleSearch}
-            placeholder={searchPlaceholder}
-          >
-            <SearchIcon />
-          </Input>
-        </div>
+      {minimizeSidebar && (
+        <span className={minimizeButton} onClick={handleMinimize}>
+          <ChevronRightIcon />
+        </span>
       )}
-      <AccordionGroup
-        titles={_groups.filter((grp) => grp.visible).map((grp) => grp.title)}
-        initialState="open"
-        autoClose={false}
-        border={false}
-      >
-        {_groups
-          .filter((grp) => grp.visible)
-          .map(({ id, items }) => {
-            return (
-              <List
-                key={id}
-                options={items}
-                borderLess
-                rowGap={5}
-                itemHeight={35}
-                maxHeight={listMaxHeight}
-                onSelection={(option) => handleSelection(option, id)}
-                noUniqueIds
-                focusable
-                showCheckIcon={false}
-                highlightSelection
-              ></List>
-            );
-          })}
-      </AccordionGroup>
+      <div className={contentWrapper}>
+        {enableSearch && (
+          <div className="rc-sidebar-search-wrapper">
+            <Input
+              type="text"
+              enableClear
+              onChange={handleSearch}
+              placeholder={searchPlaceholder}
+            >
+              <SearchIcon />
+            </Input>
+          </div>
+        )}
+        <AccordionGroup
+          titles={_groups.filter((grp) => grp.visible).map((grp) => grp.title)}
+          initialState="open"
+          autoClose={false}
+          border={false}
+        >
+          {_groups
+            .filter((grp) => grp.visible)
+            .map(({ id, items }) => {
+              return (
+                <List
+                  key={id}
+                  options={items}
+                  borderLess
+                  rowGap={5}
+                  itemHeight={35}
+                  maxHeight={listMaxHeight}
+                  onSelection={(option) => handleSelection(option, id)}
+                  noUniqueIds
+                  focusable
+                  showCheckIcon={false}
+                  highlightSelection
+                ></List>
+              );
+            })}
+        </AccordionGroup>
+      </div>
     </div>
   );
 };

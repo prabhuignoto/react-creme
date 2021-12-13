@@ -1,18 +1,19 @@
 import { ListOption } from "../list/list-model";
 
 export interface SidebarModel {
-  groups: SidebarGroupModel[];
-  onSelect?: (group: SidebarGroupModel, item: SidebarItemModel) => void;
-  enableSearch?: boolean;
-  searchPlaceholder?: string;
   border?: boolean;
+  enableSearch?: boolean;
+  groups: SidebarGroupModel[];
   listMaxHeight?: number;
+  onSelect?: (group: SidebarGroupModel, item: SidebarItemModel) => void;
+  searchPlaceholder?: string;
+  minimizeSidebar?: boolean;
 }
 
 export interface SidebarGroupModel {
-  title: string;
-  items: ListOption[];
   id?: string;
+  items: ListOption[];
+  title: string;
   visible?: boolean;
 }
 

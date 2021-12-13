@@ -19,7 +19,11 @@ const Logo = () => (
 
 const GithubLink = () => (
   <div className="rc-demo-app-github-link">
-    <a href="http://github.com">
+    <a
+      href="http://github.com/prabhuignoto/react-creme"
+      target="_blank"
+      rel="noreferrer"
+    >
       <img
         src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
         alt="github"
@@ -27,6 +31,10 @@ const GithubLink = () => (
     </a>
   </div>
 );
+
+const Badge = () => {
+  return <div className="rc-demo-alpha-badge">Alpha</div>;
+};
 
 function App() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -88,6 +96,7 @@ function App() {
       <section className="app-main-section" ref={onRef}>
         <header className="app-header">
           <Logo />
+          <Badge />
           <GithubLink />
         </header>
         <AppRoutes />

@@ -9,7 +9,7 @@ export function BoundToContainer() {
   return (
     <div
       style={{
-        width: `350px`,
+        width: `450px`,
         height: `350px`,
         padding: "1rem",
       }}

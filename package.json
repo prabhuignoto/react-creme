@@ -27,9 +27,9 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "nanoid": "^3.1.30",
-    "react": "^18.0.0-rc.0-next-f2a59df48-20211208",
+    "react": "^18.0.0-rc.0-next-3b3daf557-20211210",
     "react-creme-pre-alpha": "^0.1.1",
-    "react-dom": "^18.0.0-rc.0-next-f2a59df48-20211208",
+    "react-dom": "^18.0.0-rc.0-next-3b3daf557-20211210",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^7.0.1"
   },
@@ -70,7 +70,7 @@
     "husky": "^7.0.4",
     "jest": "^27.4.4",
     "lint-staged": "^12.1.2",
-    "postcss": "^8.4.4",
+    "postcss": "^8.4.5",
     "postcss-bem-linter": "^3.3.0",
     "postcss-prefixer": "^2.1.3",
     "postcss-preset-env": "^7.0.1",
@@ -92,7 +92,8 @@
     "ts-jest": "^27.1.1",
     "typescript": "^4.5.3",
     "use-timer": "^2.0.1",
-    "vite": "2.6.13"
+    "vite": "2.6.13",
+    "vite-plugin-react-svg": "^0.2.0"
   },
   "lint-staged": {
     "**/*.tsx": [

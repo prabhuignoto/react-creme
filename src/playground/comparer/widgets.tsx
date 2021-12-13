@@ -11,14 +11,15 @@ function Widgets() {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
-      setWidth("90%");
-    } else if (media.isMobile) {
-      setWidth("90%");
-    } else if (media.isBigScreen) {
+
+    if (media.isBigScreen) {
       setWidth(950);
     } else if (media.isDesktop) {
       setWidth(650);
+    } else if (media.isTablet) {
+      setWidth("90%");
+    } else if (media.isMobile) {
+      setWidth("90%");
     }
   }, [media]);
 
@@ -32,14 +33,14 @@ function Widgets() {
         <DemoWidget fullWidth>
           <div
             style={{
-              height: "502px",
+              height: "450px",
               width: `${Number.isInteger(width) ? `${width}px` : width}`,
             }}
           >
             <ImageComparer
               direction="horizontal"
               sourceOne="https://i.imgur.com/gypU9cN.jpg"
-              sourceTwo="https://i.imgur.com/gypU9cN.jpg"
+              sourceTwo="https://i.imgur.com/LZXFDdq.jpg"
             ></ImageComparer>
           </div>
         </DemoWidget>
@@ -52,14 +53,14 @@ function Widgets() {
         <DemoWidget fullWidth>
           <div
             style={{
-              height: "502px",
+              height: "450px",
               width: `${Number.isInteger(width) ? `${width}px` : width}`,
             }}
           >
             <ImageComparer
               direction="vertical"
               sourceOne="https://i.imgur.com/gypU9cN.jpg"
-              sourceTwo="https://i.imgur.com/gypU9cN.jpg"
+              sourceTwo="https://i.imgur.com/LZXFDdq.jpg"
             ></ImageComparer>
           </div>
         </DemoWidget>

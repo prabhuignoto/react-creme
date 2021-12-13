@@ -1,6 +1,41 @@
 .rc-demo-footer {
+  align-items: center;
   background: rgba(#1e56a0, 1);
-  height: 100px;
+  border-radius: 2px;
+  display: flex;
+  height: 60px;
   margin-top: auto;
   width: 100%;
+}
+
+.rc-demo-footer-content {
+  color: #fff;
+  font-size: 14px;
+  margin-left: 1rem;
+
+  a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+  }
+}
+
+.github-link {
+  margin-left: auto;
+  margin-right: 1rem;
+
+  a {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    font-size: 14px;
+    text-decoration: none;
+    text-decoration: none;
+  }
+
+  svg {
+    height: 14px;
+    margin-right: 0.25rem;
+    width: 14px;
+  }
 }

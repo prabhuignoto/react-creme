@@ -36,7 +36,7 @@ function widgets() {
           <DemoWidget>
             <div style={style}>
               <CheckBox
-                label="Choose your style"
+                label="Choose your preferred option"
                 onChange={(ele) => console.log(ele)}
                 focusIcon
               />
@@ -75,7 +75,7 @@ function widgets() {
             <div style={style}>
               <CheckBox
                 onChange={(ele) => console.log(ele)}
-                label="Choose the option"
+                label="Choose this option"
                 focusIcon
                 checkBoxStyle="round"
                 isChecked

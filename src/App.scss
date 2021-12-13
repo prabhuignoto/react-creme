@@ -197,7 +197,6 @@ span {
 .rc-demo-app-github-link {
   align-items: center;
   display: flex;
-  margin-left: auto;
 }
 
 .rc-demo-app-github-link a {
@@ -208,4 +207,17 @@ span {
 .rc-demo-app-github-link img {
   max-height: 100%;
   max-width: 100%;
+}
+
+.rc-demo-alpha-badge {
+  align-items: center;
+  background: rgba(#1e56a0, 1);
+  border-radius: 20px;
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 1rem;
+  padding: 0.25rem 0.5rem;
 }

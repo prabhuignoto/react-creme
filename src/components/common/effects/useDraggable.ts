@@ -32,7 +32,7 @@ const useDraggable: UseDraggable = (
 
   const isTouch = isTouchDevice();
 
-  const handleMouseDown = useCallback((ev: any) => {
+  const handleMouseDown = useCallback((ev: MouseEvent | TouchEvent) => {
     const target = ev.target as HTMLElement;
 
     tapDetectionTimer.current = window.setTimeout(() => {

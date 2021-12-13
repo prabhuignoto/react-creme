@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, {
   CSSProperties,
+  startTransition,
   useCallback,
   useMemo,
   useRef,
@@ -8,6 +9,7 @@ import React, {
 } from "react";
 import { CircularProgress, Image } from "..";
 import { useDrag } from "../common/effects/useDrag";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import { ImageComparerModel } from "./image-comparer.model";
 import "./image-comparer.scss";
 
@@ -16,45 +18,33 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   sourceTwo,
   direction = "horizontal",
 }) => {
-  const panelRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef(null);
-  const isFirstRender = useRef(true);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const dragRef = useRef<HTMLElement | null>(null);
 
+  // tracks if the fist image is loaded
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  // tracks if the second image is loaded
   const [imageLoaded2, setImageLoaded2] = useState(false);
 
+  // tracks the dragging state
   const [dragged, setDragged] = useState(false);
 
-  const [wrapperWidth, setWrapperWidth] = useState(0);
-  const [wrapperHeight, setWrapperHeight] = useState(0);
+  // this state is used to set the dimension of the wrapper
+  const [wrapperDimensions, setWrapperDimensions] = useState<{
+    width: number;
+    height: number;
+  }>({ width: 0, height: 0 });
 
-  const [percent] = useDrag(panelRef, dragRef, {
-    direction,
-    onDragStart: () => setDragged(true),
-    onDragEnd: () => setDragged(false),
-    observeContainer: true,
-    offsetLeft: 6,
-  });
+  // const isFirstRender = useRef(null);
 
-  const style = useMemo(() => {
-    const percentToUse = percent
-      ? Math.round(percent * 100)
-      : isFirstRender.current
-      ? 50
-      : 0;
-    return {
-      clipPath:
-        direction === "horizontal"
-          ? `polygon(0% 0%, ${percentToUse}% 0%, ${percentToUse}% 100%, 0% 100%)`
-          : `polygon(0% 0%, 100% 0%, 100% ${percentToUse}%, 0% ${percentToUse}%)`,
-    } as CSSProperties;
-  }, [percent, direction]);
-
+  // checks if both the images are loaded
   const imagesLoaded = useMemo(
     () => imageLoaded && imageLoaded2,
     [imageLoaded, imageLoaded2]
   );
 
+  // classes
   const dragHandleClass = useMemo(
     () =>
       classNames("rc-img-comparer-drag-handle", {
@@ -67,26 +57,62 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   );
 
   const wrapperClass = useMemo(() => {
-    return classNames("rc-img-comparer-wrapper");
-  }, [wrapperWidth]);
+    return classNames("rc-img-comparer-wrapper", {
+      "rc-image-comparer-loaded": imagesLoaded,
+    });
+  }, [imagesLoaded]);
 
   const wrapperStyle = useMemo(() => {
+    const { width, height } = wrapperDimensions;
     return {
-      "--width": wrapperWidth ? `${wrapperWidth}px` : "95%",
-      "--height": wrapperHeight ? `${wrapperHeight}px` : "95%",
+      "--width": width ? `${width}px` : "95%",
+      "--height": height ? `${height}px` : "95%",
+      visibility: imagesLoaded ? "visible" : "hidden",
     } as CSSProperties;
-  }, [wrapperWidth, wrapperHeight]);
+  }, [wrapperDimensions.height, wrapperDimensions.width, imagesLoaded]);
 
+  // callback executed on first image load
   const onImageLoad = useCallback((ev: any) => {
     const { width, height } = ev.target;
-    setWrapperWidth(width);
-    setWrapperHeight(height);
-    setImageLoaded(true);
+
+    setWrapperDimensions({
+      width: width,
+      height: height,
+    });
+
+    startTransition(() => setImageLoaded(true));
   }, []);
 
-  const onImageLoad2 = (ev: any) => {
-    setImageLoaded2(true);
-  };
+  // callback executed when the second image is loaded
+  const onImageLoad2 = (ev: any) => setImageLoaded2(true);
+
+  // setup the drag effect
+  const [percent] = useDrag(panelRef, dragRef, {
+    direction,
+    onDragStart: () => setDragged(true),
+    onDragEnd: () => setDragged(false),
+    observeContainer: true,
+  });
+
+  // tracks the first render of the component
+  const isFirstRender = useFirstRender();
+
+  // styling object for the first image panel
+  const style = useMemo(() => {
+    if (isFirstRender) {
+      const percentToUse = percent
+        ? Math.round(percent * 100)
+        : isFirstRender.current
+        ? 50
+        : 0;
+      return {
+        clipPath:
+          direction === "horizontal"
+            ? `polygon(0% 0%, ${percentToUse}% 0%, ${percentToUse}% 100%, 0% 100%)`
+            : `polygon(0% 0%, 100% 0%, 100% ${percentToUse}%, 0% ${percentToUse}%)`,
+      } as CSSProperties;
+    }
+  }, [percent, direction]);
 
   return (
     <div className={wrapperClass} ref={panelRef} style={wrapperStyle}>

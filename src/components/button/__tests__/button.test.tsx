@@ -68,4 +68,14 @@ describe("Button", () => {
       expect(handler).toBeCalled();
     });
   });
+
+  it("should have focus", () => {
+    const { getByRole } = render(
+      <Button label="My Button" onClick={handler} focusable />
+    );
+
+    fireEvent.focus(getByRole("button"));
+
+    expect(getByRole("button")).toHaveAttribute("tabIndex", "0");
+  });
 });

@@ -8,6 +8,7 @@ import {
   Tooltip,
 } from "../../components";
 import { ToolTipPosition } from "../../components/tooltip/tooltip-model";
+import { DemoWidget } from "../common/demo-widget";
 import useMedia from "../common/useMedia";
 
 const Widgets = () => {
@@ -21,14 +22,14 @@ const Widgets = () => {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
-      setWidth(600);
-    } else if (media.isMobile) {
-      setWidth(450);
-    } else if (media.isBigScreen) {
+    if (media.isBigScreen) {
       setWidth(750);
     } else if (media.isDesktop) {
       setWidth(650);
+    } else if (media.isTablet) {
+      setWidth(580);
+    } else if (media.isMobile) {
+      setWidth(400);
     }
   }, [media]);
 
@@ -39,7 +40,7 @@ const Widgets = () => {
           <BlockQuote>
             The Component supports 12 different docking positions.
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <div className="rc-demo-widget" style={{ width: "350px" }}>
             <RadioGroup
               layout="row"
               onSelected={(val) => setPosition(val as ToolTipPosition)}
@@ -64,13 +65,13 @@ const Widgets = () => {
           <BlockQuote>
             The Tooltip is activated by hovering over the target element.
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <Tooltip
               message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
               position={position}
               minWidth={160}
             >
-              <div style={{ width: `${width}px` }}>
+              <div style={{ width: `${width}px`, marginTop: "1rem" }}>
                 <Card minHeight={100}>
                   Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
                   molestie velit quis volutpat vestibulum. Donec facilisis est
@@ -81,29 +82,31 @@ const Widgets = () => {
                 </Card>
               </div>
             </Tooltip>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Static Tooltip">
           <BlockQuote>
             The Tooltip can also be configured to be static.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-            <Tooltip
-              message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
-              position={position}
-              minWidth={150}
-              isStatic
-            >
-              <div style={{ width: `${width}px` }}>
-                <Card>
-                  <Image
-                    height={400}
-                    src="https://www.dccomics.com/sites/default/files/Gallery_20210914_BM_THEWORLD_61401312483190.19934149.jpg"
-                  />
-                </Card>
-              </div>
-            </Tooltip>
-          </div>
+          <DemoWidget>
+            <div style={{ width: `${width}px`, marginTop: "1rem" }}>
+              <Tooltip
+                message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
+                position={position}
+                minWidth={150}
+                isStatic
+              >
+                <div style={{ width: `${width}px` }}>
+                  <Card>
+                    <Image
+                      height={400}
+                      src="https://www.dccomics.com/sites/default/files/Gallery_20210914_BM_THEWORLD_61401312483190.19934149.jpg"
+                    />
+                  </Card>
+                </div>
+              </Tooltip>
+            </div>
+          </DemoWidget>
         </Section>
       </div>
     )

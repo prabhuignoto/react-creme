@@ -36,4 +36,16 @@ describe("Checkbox", () => {
     expect(handler).toBeCalled();
     expect(handler).toHaveBeenCalledWith("12445", "My Checkbox", true);
   });
+
+  it("should receive focus", () => {
+    const { getByRole } = render(<CheckBox label="My Checkbox" focusable />);
+
+    expect(getByRole("checkbox")).toHaveAttribute("tabindex", "0");
+  });
+
+  it("should be checked by default", () => {
+    const { getByRole } = render(<CheckBox label="My Checkbox" isChecked />);
+
+    expect(getByRole("checkbox")).toHaveAttribute("aria-checked", "true");
+  });
 });

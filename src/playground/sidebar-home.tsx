@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Sidebar } from "../components";
 import {
   SidebarGroupModel,
@@ -8,7 +8,7 @@ import {
 
 const SidebarHome = React.memo(() => {
   const navigate = useNavigate();
-  // const location = useLocation();
+  const location = useLocation();
 
   const handleSidebarSelect = (
     group: SidebarGroupModel,
@@ -16,6 +16,12 @@ const SidebarHome = React.memo(() => {
   ) => {
     navigate("/" + item.name.trim().toLowerCase().replace(/ /g, "-"));
   };
+
+  useEffect(() => {
+    if (location.pathname) {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
 
   const sideBarMemoized = React.useMemo(() => {
     return (
