@@ -2,18 +2,18 @@ import classNames from "classnames";
 import React, { useEffect, useMemo, useRef } from "react";
 import ResizeObserver from "resize-observer-polyfill";
 import { useDebouncedCallback } from "use-debounce";
-import AppRoutes from "./app-routes";
 import "./App.scss";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
+import AppRoutes from "./expo/app-routes";
+import SidebarHome from "./expo/common/sidebar-home";
 import Footer from "./Footer";
-import SidebarHome from "./playground/sidebar-home";
 
 const Logo = () => (
   <div className="rc-demo-app-logo">
-    {/* <span className="rc-demo-logo-icon-wrapper"><LogoIcon /></span> */}
-    React Creme
+    <span className="rc-demo-menu-icon"></span>
+    <span>React Creme</span>
   </div>
 );
 

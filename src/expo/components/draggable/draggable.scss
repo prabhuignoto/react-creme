@@ -1,0 +1,12 @@
+@use "../../../design/colors.scss";
+@use "../../../design/layout.scss";
+
+.rc-demo-drag-outer-box {
+  background: colors.$light-bg;
+}
+
+.rc-demo-drag-inner-box {
+  @extend %border-radius;
+  background: colors.$secondary;
+  border: 1px solid rgba(colors.$primary, 0.25);
+}
