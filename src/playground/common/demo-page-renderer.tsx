@@ -28,10 +28,12 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
       return;
     }
 
-    if (media.isBigScreen) {
-      setWidth([200, 400, 300]);
+    if (media.isExtraLargeScreen) {
+      setWidth([200, 400, 350]);
+    } else if (media.isBigScreen) {
+      setWidth([200, 250, 150]);
     } else if (media.isDesktop) {
-      setWidth([200, 400, 400]);
+      setWidth([150, 200, 150]);
     } else if (media.isTablet) {
       setWidth([120, 200, 120]);
     } else if (media.isMobile) {

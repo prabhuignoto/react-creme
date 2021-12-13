@@ -37,12 +37,6 @@
   }
 }
 
-.rc-data-grid-row:nth-child(odd) {
-  .rc-data-grid-cell {
-    height: 100%;
-  }
-}
-
 .rc-data-grid-cell {
   @extend %center;
   width: calc(100% - 1px);

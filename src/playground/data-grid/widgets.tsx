@@ -34,10 +34,12 @@ function widgets() {
       return;
     }
 
-    if (media.isBigScreen) {
-      setWidth(1200);
+    if (media.isExtraLargeScreen) {
+      setWidth(1250);
+    } else if (media.isBigScreen) {
+      setWidth(850);
     } else if (media.isDesktop) {
-      setWidth(650);
+      setWidth(700);
     } else if (media.isTablet) {
       setWidth(600);
     } else if (media.isMobile) {
@@ -57,6 +59,7 @@ function widgets() {
             <DataGrid
               layoutStyle="comfortable"
               border
+              gridWidth={width}
               columns={[
                 { name: "name", type: "string" },
                 { name: "age", type: "number" },
