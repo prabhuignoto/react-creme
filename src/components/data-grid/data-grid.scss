@@ -60,7 +60,7 @@
 
   em {
     @extend %border-radius;
-    background-color: rgba(colors.$primary, 0.1);
+    background-color: rgba(colors.$light-bg, 1);
     color: colors.$primary;
     font-style: normal;
     font-weight: 400;

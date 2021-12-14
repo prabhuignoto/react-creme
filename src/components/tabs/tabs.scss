@@ -7,6 +7,7 @@
 
 .rc-tab-panel {
   @extend %center;
+  min-height: 100%;
   width: 100%;
 }
 

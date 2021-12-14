@@ -12,45 +12,49 @@ interface WidgetProps {
   fullWidth?: boolean;
 }
 
-const DemoWidget: React.FC<WidgetProps> = ({
-  children,
-  layout = "row",
-  width,
-  fullWidth = false,
-}) => {
-  return (
-    <div
-      className="rc-demo-widget"
-      style={{
-        display: "flex",
-        flexDirection: layout === "horizontal" ? "row" : "column",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-      }}
-    >
-      <div style={{ margin: "0.5rem 0", width: fullWidth ? "100%" : "" }}>
-        {children}
+const DemoWidget: React.FC<WidgetProps> = React.memo(
+  ({
+    children,
+    layout = "vertical",
+    width,
+    fullWidth = false,
+  }: WidgetProps) => {
+    return (
+      <div
+        className="rc-demo-widget"
+        style={{
+          display: "flex",
+          flexDirection: layout === "horizontal" ? "row" : "column",
+          justifyContent: "flex-start",
+          alignItems: "flex-start",
+        }}
+      >
+        <div style={{ margin: "0.5rem 0", width: fullWidth ? "100%" : "" }}>
+          {children}
+        </div>
+        <div className="rc-demo-code-block">
+          <Accordion
+            title="Show Code"
+            noBorder
+            focusable={false}
+            customIcon={<CodeIcon />}
+          >
+            <Code
+              code={reactElementToJSXString(children, {
+                showDefaultProps: true,
+                maxInlineAttributesLineLength: 550,
+                useBooleanShorthandSyntax: true,
+                tabStop: 4,
+                sortProps: true,
+              })}
+            ></Code>
+          </Accordion>
+        </div>
       </div>
-      <div className="rc-demo-code-block">
-        <Accordion
-          title="Show Code"
-          noBorder
-          focusable={false}
-          customIcon={<CodeIcon />}
-        >
-          <Code
-            code={reactElementToJSXString(children, {
-              showDefaultProps: true,
-              maxInlineAttributesLineLength: 550,
-              useBooleanShorthandSyntax: true,
-              tabStop: 4,
-              sortProps: true,
-            })}
-          ></Code>
-        </Accordion>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+);
+
+DemoWidget.displayName = "DemoWidget";
 
 export { DemoWidget };

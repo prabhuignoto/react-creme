@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import { Accordion, BlockQuote, Image, Section } from "../index-from-npm";
 import { Accordion, BlockQuote, Image, Section } from "../../../components";
 import { DemoWidget } from "../../common/demo-widget";
 import useMedia from "../../common/useMedia";

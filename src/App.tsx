@@ -42,6 +42,8 @@ function App() {
   const [left, setLeft] = React.useState(-1);
   const resizeObserver = useRef<ResizeObserver>();
 
+  const appRef = useRef<HTMLDivElement>(null);
+
   const sidebarClass = useMemo(() => {
     return classNames("app-aside", {
       "app-aside-visible": left > -1,
@@ -78,14 +80,14 @@ function App() {
     resizeObserver.current = new ResizeObserver((entries) => {
       positionAside();
     });
-    resizeObserver.current.observe(document.body);
+    resizeObserver.current.observe(appRef.current);
     return () => {
       resizeObserver.current.disconnect();
     };
   }, []);
 
   return (
-    <div className="app">
+    <div className="app" ref={appRef}>
       <aside
         className={sidebarClass}
         ref={asideRef}

@@ -53,15 +53,16 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 120vh;
+  min-height: 140vh;
   width: calc(100% - var(--aside-width));
 }
 
 .section-content {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   justify-content: center;
   margin-right: auto;
+  min-height: 120vh;
   width: 100%;
 }
 
