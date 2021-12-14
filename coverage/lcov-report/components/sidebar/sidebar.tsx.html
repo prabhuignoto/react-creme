@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.43% </span>
+                <span class="strong">81.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>37/46</span>
+                <span class='fraction'>39/48</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.68% </span>
+                <span class="strong">77.27% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/19</span>
+                <span class='fraction'>17/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.56% </span>
+                <span class="strong">70.83% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>16/23</span>
+                <span class='fraction'>17/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/40</span>
+                <span class='fraction'>36/42</span>
             </div>
         
             
@@ -215,17 +215,32 @@
 <a name='L156'></a><a href='#L156'>156</a>
 <a name='L157'></a><a href='#L157'>157</a>
 <a name='L158'></a><a href='#L158'>158</a>
-<a name='L159'></a><a href='#L159'>159</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -304,6 +319,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -343,6 +363,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -372,10 +394,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useCallback, useMemo } from "react";
+import React, { CSSProperties, useCallback, useMemo } from "react";
 import { ChevronRightIcon, SearchIcon } from "../../icons";
 import { isArray } from "../common/utils";
 import { AccordionGroup, Input, List } from "../index";
@@ -391,6 +415,9 @@ const Sidebar: React.FunctionComponent&lt;SidebarModel&gt; = ({
   border = false,
   listMaxHeight = 750,
   minimizeSidebar = false,
+  groupIconColor = "#000",
+  groupTitleColor = "#000",
+  backGroundColor = "#fff",
 }) =&gt; {
   const [_groups, setGroups] = React.useState&lt;SidebarGroupModel[]&gt;(
     isArray(groups)
@@ -462,6 +489,11 @@ const Sidebar: React.FunctionComponent&lt;SidebarModel&gt; = ({
   );
 &nbsp;
   const handleMinimize = useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >setMinimize(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt; <span class="cstat-no" title="statement not covered" >!prev)</span>,</span> []);
+  const style = useMemo(() =&gt; {
+    return {
+      "--bg-color": backGroundColor,
+    } as CSSProperties;
+  }, []);
 &nbsp;
   const contentWrapper = useMemo(() =&gt; {
     return classNames("rc-sidebar-content-wrapper", {
@@ -480,7 +512,7 @@ const Sidebar: React.FunctionComponent&lt;SidebarModel&gt; = ({
   }, [minimize]);
 &nbsp;
   return (
-    &lt;div className={sideBarClass}&gt;
+    &lt;div className={sideBarClass} style={style}&gt;
       {minimizeSidebar &amp;&amp; (
 <span class="branch-1 cbranch-no" title="branch not covered" >        &lt;span className={minimizeButton} onClick={handleMinimize}&gt;</span>
           &lt;ChevronRightIcon /&gt;
@@ -504,6 +536,8 @@ const Sidebar: React.FunctionComponent&lt;SidebarModel&gt; = ({
           initialState="open"
           autoClose={false}
           border={false}
+          titleColor={groupTitleColor}
+          iconColor={groupIconColor}
         &gt;
           {_groups
             .filter((grp) =&gt; grp.visible)
@@ -521,6 +555,8 @@ const Sidebar: React.FunctionComponent&lt;SidebarModel&gt; = ({
                   focusable
                   showCheckIcon={false}
                   highlightSelection
+                  textColor={groupTitleColor}
+                  backGroundColor="transparent"
                 &gt;&lt;/List&gt;
               );
             })}
@@ -538,7 +574,7 @@ export { Sidebar };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Dec 14 2021 12:11:09 GMT+0530 (India Standard Time)
+                at Tue Dec 14 2021 23:39:28 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

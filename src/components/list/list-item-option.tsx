@@ -1,25 +1,32 @@
 import cls from "classnames";
-import React from "react";
+import React, { CSSProperties, useMemo } from "react";
 import { CheckIcon } from "../../icons";
-
-interface ListItemOptionProps {
-  name: string;
-  selected?: boolean;
-  tabIndex: number;
-  showCheck?: boolean;
-  focusable?: boolean;
-}
+import { ListItemOptionProps } from "./list-model";
 
 const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
-  ({ name, selected, showCheck, focusable }: ListItemOptionProps) => {
+  ({
+    name,
+    selected,
+    showCheck,
+    focusable,
+    textColor,
+    textColorSelected,
+  }: ListItemOptionProps) => {
     const ref = React.useRef<HTMLDivElement>(null);
 
     const listOptionClass = cls("rc-list-option-value-wrapper", {
       "rc-list-option-no-icon": !showCheck,
     });
 
+    const style = useMemo(() => {
+      return {
+        "--text-color": textColor,
+        "--text-color-selected": textColorSelected,
+      } as CSSProperties;
+    }, []);
+
     return (
-      <div className={listOptionClass} ref={ref}>
+      <div className={listOptionClass} ref={ref} style={style}>
         {showCheck && (
           <span
             className={cls("rc-list-option-icon", {

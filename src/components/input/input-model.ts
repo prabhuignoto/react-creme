@@ -12,4 +12,7 @@ export interface InputModel {
   style?: CSSProperties;
   disabled?: boolean;
   controlled?: boolean;
+  noUniqueId?: boolean;
+  id?: string;
+  isAutoComplete?: boolean;
 }

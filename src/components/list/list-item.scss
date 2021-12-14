@@ -42,6 +42,8 @@ $height: 40px;
 
 .rc-list-option-value-wrapper {
   @extend %left;
+
+  color: var(--text-color);
   height: 100%;
   pointer-events: none;
   width: 100%;

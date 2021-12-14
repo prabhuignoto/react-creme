@@ -9,17 +9,10 @@
   overflow: hidden;
   position: fixed;
   top: 0;
-  transition: height 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: height 0.2s cubic-bezier(0.075, 0.82, 0.165, 1),
+    top 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   width: 100%;
   z-index: 99999;
-
-  &.rc-global-notification-open {
-    height: var(--height);
-  }
-
-  &.rc-global-notification-close {
-    height: 0;
-  }
 
   &.rc-global-notification-success {
     background: colors.$success-green;
@@ -40,8 +33,31 @@
   }
 }
 
+.rc-global-notification-animation-shrink {
+  &.rc-global-notification-open {
+    height: var(--height);
+  }
+
+  &.rc-global-notification-close {
+    height: 0;
+  }
+}
+
+.rc-global-notification-animation-hide {
+  height: var(--height);
+
+  &.rc-global-notification-open {
+    top: 0;
+  }
+
+  &.rc-global-notification-close {
+    top: calc(var(--height) * -1);
+  }
+}
+
 .rc-global-notification-close-btn {
   @extend %center;
+  color: #fff;
   cursor: pointer;
   display: block;
   height: 2rem;

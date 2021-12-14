@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  BlockQuote,
   Button,
   GlobalNotification,
   RadioGroup,
@@ -19,7 +20,12 @@ function widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="">
+      <Section title="Default Render">
+        <BlockQuote>
+          The global notification component can be configured to be in four
+          states: <code>info</code>, <code>success</code>, <code>warning</code>{" "}
+          and <code>error</code>.
+        </BlockQuote>
         <div className="rc-demo-widget" style={{ width: "250px" }}>
           <RadioGroup
             items={[

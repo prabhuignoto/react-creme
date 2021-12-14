@@ -1,11 +1,18 @@
 import { CSSProperties } from "react";
 import { Option } from "../dropdown/dropdown-model";
 
-export interface ListModel {
+interface ListCommonProps {
   allowMultiSelection?: boolean;
+  focusable?: boolean;
+  highlightSelection?: boolean;
+  showCheckIcon?: boolean;
+  textColor?: string;
+  textColorSelected?: string;
+}
+
+export interface ListModel extends ListCommonProps {
   borderLess?: boolean;
   enableSearch?: boolean;
-  focusable?: boolean;
   group?: boolean;
   itemHeight?: number;
   maxHeight?: number;
@@ -14,28 +21,31 @@ export interface ListModel {
   onSelection?: (selected: ListOption[]) => void;
   options: ListOption[];
   rowGap?: number;
-  showCheckIcon?: boolean;
   virtualized?: boolean;
-  highlightSelection?: boolean;
+  backGroundColor?: string;
+  id?: string;
 }
 
-export interface ListItemModel {
-  allowMultiSelection?: boolean;
+export interface ListItemModel extends ListCommonProps {
   disabled?: boolean;
-  focusable?: boolean;
   id?: string;
   name: string;
-  // onClick?: () => void;
   onSelection?: (opt: ListOption) => void;
   selected?: boolean;
-  showCheckIcon?: boolean;
   style?: CSSProperties;
   value: string;
-  highlightSelection?: boolean;
 }
 
 export interface ListOption extends Option {
   group?: string;
   top?: number;
   visible?: boolean;
+}
+
+export interface ListItemOptionProps extends ListCommonProps {
+  name: string;
+  selected?: boolean;
+  tabIndex: number;
+  showCheck?: boolean;
+  focusable?: boolean;
 }

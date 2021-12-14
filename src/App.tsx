@@ -13,7 +13,7 @@ import Footer from "./Footer";
 const Logo = () => (
   <div className="rc-demo-app-logo">
     <span className="rc-demo-menu-icon"></span>
-    <span>React Creme</span>
+    <span className="rc-demo-logo-text">React Creme</span>
   </div>
 );
 
@@ -80,7 +80,7 @@ function App() {
     resizeObserver.current = new ResizeObserver((entries) => {
       positionAside();
     });
-    resizeObserver.current.observe(appRef.current);
+    resizeObserver.current.observe(document.body);
     return () => {
       resizeObserver.current.disconnect();
     };

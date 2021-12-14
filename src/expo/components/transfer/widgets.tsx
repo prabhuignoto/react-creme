@@ -10,14 +10,17 @@ function widgets() {
     if (!media) {
       return;
     }
-    if (media.isBigScreen) {
-      setWidth(750);
+
+    if (media.isExtraLargeScreen) {
+      setWidth(800);
+    } else if (media.isBigScreen) {
+      setWidth(700);
     } else if (media.isDesktop) {
-      setWidth(650);
-    } else if (media.isTablet) {
       setWidth(600);
+    } else if (media.isTablet) {
+      setWidth(500);
     } else if (media.isMobile) {
-      setWidth(450);
+      setWidth(400);
     }
   }, [media]);
 

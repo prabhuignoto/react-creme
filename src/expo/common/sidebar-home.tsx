@@ -25,11 +25,14 @@ const SidebarHome = React.memo(() => {
 
   const sideBarMemoized = React.useMemo(() => {
     return (
-      <div style={{ height: "100vh", overflowY: "auto" }}>
+      <div style={{ height: "100vh", overflowY: "auto", width: "98%" }}>
         <Sidebar
           enableSearch
           onSelect={handleSidebarSelect}
           searchPlaceholder="Search Components ..."
+          groupIconColor="#fff"
+          groupTitleColor="#fff"
+          backGroundColor="#1e56a0"
           groups={[
             {
               title: "Layout",
@@ -63,6 +66,7 @@ const SidebarHome = React.memo(() => {
                 { name: "Rate" },
                 { name: "Button" },
                 { name: "Slider" },
+                { name: "Autocomplete" },
               ],
             },
             {

@@ -30,6 +30,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     focusable = false,
     disableIcon = false,
     customIcon = null,
+    titleColor = "#000",
+    iconColor = "#000",
   }: AccordionModel) => {
     const accordionID = useRef(id || `accordion-${useId()}`);
     const accordionBodyId = useRef(`accordion-body-${useId()}`);
@@ -67,6 +69,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
               : `${100}px`
             : "0px",
           "--transition": transition,
+          "--title-color": titleColor,
+          "--icon-color": iconColor,
         } as CSSProperties),
       [open, bodyHeight]
     );
@@ -152,7 +156,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     }, [iconType, open, disableIcon]);
 
     return (
-      <div className={accordionClass}>
+      <div className={accordionClass} style={style}>
         <div
           aria-controls={accordionBodyId.current}
           aria-expanded={!!open}

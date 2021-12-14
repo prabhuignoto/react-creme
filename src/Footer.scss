@@ -1,6 +1,6 @@
 .rc-demo-footer {
   align-items: center;
-  background: rgba(#1e56a0, 1);
+  background: rgba(#f5f5f5, 1);
   border-radius: 2px;
   display: flex;
   height: 60px;
@@ -9,12 +9,12 @@
 }
 
 .rc-demo-footer-content {
-  color: #fff;
+  color: #000;
   font-size: 14px;
   margin-left: 1rem;
 
   a {
-    color: #fff;
+    color: #000;
     font-size: 14px;
     text-decoration: none;
   }
@@ -26,7 +26,7 @@
 
   a {
     align-items: center;
-    color: #fff;
+    color: #000;
     display: flex;
     font-size: 14px;
     text-decoration: none;

@@ -1,6 +1,7 @@
 export { AccordionGroup } from "./accordion-group/accordion-group";
 export { Accordion } from "./accordion/accordion";
 export { Alert } from "./alert/alert";
+export { AutoComplete } from "./auto-complete/auto-complete";
 export { Avatar } from "./avatar/avatar";
 export { BlockQuote } from "./block-quote/block-quote";
 export { BreadCrumb } from "./breadcrumb/breadcrumb";

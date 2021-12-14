@@ -14,6 +14,8 @@ export interface AccordionModel {
   iconType?: "chevron" | "plus";
   disableIcon?: boolean;
   customIcon?: ReactNode;
+  titleColor?: string;
+  iconColor?: string;
 }
 
 export interface AccordionGroupProps {
@@ -24,6 +26,8 @@ export interface AccordionGroupProps {
   alignIconRight?: boolean;
   border?: boolean;
   iconType?: "chevron" | "plus";
+  titleColor?: string;
+  iconColor?: string;
 }
 
 export interface AccordionItemProps {

@@ -8,6 +8,9 @@ export interface SidebarModel {
   onSelect?: (group: SidebarGroupModel, item: SidebarItemModel) => void;
   searchPlaceholder?: string;
   minimizeSidebar?: boolean;
+  groupTitleColor?: string;
+  groupIconColor?: string;
+  backGroundColor?: string;
 }
 
 export interface SidebarGroupModel {

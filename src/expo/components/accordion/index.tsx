@@ -72,6 +72,20 @@ function accordion() {
           optional: "Yes",
           type: "Boolean",
         },
+        {
+          name: "titleColor",
+          description: "color of the title",
+          default: "#000",
+          optional: "Yes",
+          type: "String",
+        },
+        {
+          name: "iconColor",
+          description: "color of the icon",
+          default: "#000",
+          optional: "Yes",
+          type: "String",
+        },
       ]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

@@ -24,6 +24,27 @@ function sidebar() {
           optional: "Yes",
           type: "Function",
         },
+        {
+          name: "groupIconColor",
+          description: "Color of the group icon",
+          default: "#000",
+          optional: "Yes",
+          type: "String",
+        },
+        {
+          name: "groupTitleColor",
+          description: "Color of the group title",
+          default: "#000",
+          optional: "Yes",
+          type: "String",
+        },
+        {
+          name: "backGroundColor",
+          description: "Background color",
+          default: "#fff",
+          optional: "Yes",
+          type: "String",
+        },
       ]}
     ></DemoPageRenderer>
   );

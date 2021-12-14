@@ -41,6 +41,7 @@ import Tooltip from "./components/tooltip";
 import Transfer from "./components/transfer";
 import Tree from "./components/tree";
 import AccordionGroup from "./components/accordion-group";
+import AutoComplete from "./components/auto-complete";
 
 function AppRoutes() {
   return (
@@ -386,6 +387,14 @@ function AppRoutes() {
         element={
           <div className="section-content">
             <CheckboxGroup />
+          </div>
+        }
+      />
+      <Route
+        path="/autocomplete"
+        element={
+          <div className="section-content">
+            <AutoComplete />
           </div>
         }
       />

@@ -9,7 +9,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
   >
     <div
       class="rc-list"
-      style="--min-height: 100px; --max-height: 350px;"
+      style="--min-height: 100px; --max-height: 350px; --list-bg-color: #fff;"
     >
       <div
         class="rc-list-options-wrapper"
@@ -31,6 +31,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
             >
               <div
                 class="rc-list-option-value-wrapper"
+                style="--text-color: #000;"
               >
                 <span
                   class="rc-list-option-icon"
@@ -70,6 +71,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
             >
               <div
                 class="rc-list-option-value-wrapper"
+                style="--text-color: #000;"
               >
                 <span
                   class="rc-list-option-icon"
@@ -109,6 +111,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
             >
               <div
                 class="rc-list-option-value-wrapper"
+                style="--text-color: #000;"
               >
                 <span
                   class="rc-list-option-icon"
@@ -148,6 +151,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
             >
               <div
                 class="rc-list-option-value-wrapper"
+                style="--text-color: #000;"
               >
                 <span
                   class="rc-list-option-icon"
@@ -235,7 +239,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
   >
     <div
       class="rc-list"
-      style="--min-height: 100px; --max-height: 350px;"
+      style="--min-height: 100px; --max-height: 350px; --list-bg-color: #fff;"
     >
       <div
         class="rc-list-options-wrapper"
@@ -257,6 +261,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
             >
               <div
                 class="rc-list-option-value-wrapper"
+                style="--text-color: #000;"
               >
                 <span
                   class="rc-list-option-icon"
@@ -296,6 +301,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
             >
               <div
                 class="rc-list-option-value-wrapper"
+                style="--text-color: #000;"
               >
                 <span
                   class="rc-list-option-icon"
@@ -335,6 +341,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
             >
               <div
                 class="rc-list-option-value-wrapper"
+                style="--text-color: #000;"
               >
                 <span
                   class="rc-list-option-icon"
@@ -374,6 +381,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
             >
               <div
                 class="rc-list-option-value-wrapper"
+                style="--text-color: #000;"
               >
                 <span
                   class="rc-list-option-icon"

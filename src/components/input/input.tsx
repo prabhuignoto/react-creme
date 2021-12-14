@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { nanoid } from "nanoid";
 import React, {
   useCallback,
   useEffect,
@@ -22,10 +23,15 @@ const Input: React.FunctionComponent<InputModel> = ({
   type = "text",
   value = "",
   controlled = false,
+  noUniqueId = false,
+  id = "",
+  isAutoComplete = false,
 }: InputModel) => {
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
   const ref = useRef(null);
+
+  const inputId = useRef(noUniqueId ? id : nanoid());
 
   const handleClear = useCallback((ev: React.MouseEvent) => {
     ev.preventDefault();
@@ -85,6 +91,17 @@ const Input: React.FunctionComponent<InputModel> = ({
     ? { onChange: handleInput, value: inputValue }
     : { onChange: handleUnControlled };
 
+  const autoCompleteProps = useMemo(
+    () =>
+      isAutoComplete
+        ? {
+            role: "combobox",
+            "aria-controls": id,
+          }
+        : null,
+    []
+  );
+
   return (
     <div
       className={inputClass}
@@ -92,6 +109,7 @@ const Input: React.FunctionComponent<InputModel> = ({
       ref={ref}
       style={style}
       tabIndex={0}
+      {...autoCompleteProps}
       onClick={() => inputRef.current && inputRef.current.focus()}
     >
       <span className={"rc-input-icon"}>{children}</span>
@@ -101,6 +119,7 @@ const Input: React.FunctionComponent<InputModel> = ({
         {...controlledProps}
         onKeyUp={onKeyUp}
         ref={inputRef}
+        id={inputId.current}
       />
       <span onMouseDown={handleClear} className={clearClass} role="button">
         {enableClear && <CloseIcon />}

@@ -173,10 +173,14 @@ span {
 
 .rc-demo-app-logo a {
   display: block;
-  font-weight: 600;
   height: 2rem;
   text-decoration: none;
   width: 2rem;
+}
+
+.rc-demo-logo-text {
+  font-size: 1.75rem;
+  font-weight: 500;
 }
 
 .rc-demo-logo-icon-wrapper {
@@ -212,9 +216,10 @@ span {
 
 .rc-demo-alpha-badge {
   align-items: center;
-  background: rgba(#1e56a0, 1);
+  background: #f5f5f5;
   border-radius: 20px;
-  color: #fff;
+  box-shadow: inset 0 0 6px 2px rgb(0 0 0 / 10%);
+  color: #000;
   display: flex;
   font-size: 14px;
   justify-content: center;

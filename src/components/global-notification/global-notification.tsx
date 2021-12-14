@@ -12,12 +12,13 @@ import "./global-notification.scss";
 export type GlobalNotificationState = "success" | "error" | "warning" | "info";
 
 export interface GlobalNotificationProps {
-  height?: number;
-  delay?: number;
   closeAfter?: number;
+  delay?: number;
+  height?: number;
   message: string;
-  state?: GlobalNotificationState;
   onClose?: () => void;
+  state?: GlobalNotificationState;
+  hideAnimationStyle?: "hide" | "shrink";
 }
 
 const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
@@ -27,6 +28,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   message,
   state = "info",
   onClose,
+  hideAnimationStyle = "hide",
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -49,8 +51,9 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
         "rc-global-notification-open": open,
         "rc-global-notification-close": !open,
         [`rc-global-notification-${state}`]: true,
+        [`rc-global-notification-animation-${hideAnimationStyle}`]: true,
       }),
-    [open, state]
+    [open, state, hideAnimationStyle]
   );
 
   const style = useMemo(

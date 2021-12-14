@@ -53,6 +53,10 @@ const List: React.FunctionComponent<ListModel> = ({
   virtualized = false,
   focusable = false,
   highlightSelection = false,
+  textColor = "#000",
+  textColorSelected = "#000",
+  backGroundColor = "#fff",
+  id,
 }: ListModel) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     initOptions(options, rowGap, itemHeight, noUniqueIds)
@@ -85,6 +89,10 @@ const List: React.FunctionComponent<ListModel> = ({
 
   const handleSearch = useCallback((val: string) => {
     const _val = val.trim().toLowerCase();
+
+    if (listRef.current) {
+      listRef.current.scrollTop = 0;
+    }
 
     startTransition(() => {
       setListOptions((prev) => {
@@ -183,6 +191,7 @@ const List: React.FunctionComponent<ListModel> = ({
         {
           "--min-height": `${minHeight}px`,
           "--max-height": `${maxHeight}px`,
+          "--list-bg-color": backGroundColor,
         } as CSSProperties
       }
     >
@@ -198,7 +207,12 @@ const List: React.FunctionComponent<ListModel> = ({
         ref={onListRef}
         onScroll={handleScroll}
       >
-        <ul className={"rc-list-options"} role="listbox" style={listStyle}>
+        <ul
+          className={"rc-list-options"}
+          role="listbox"
+          style={listStyle}
+          id={id}
+        >
           {_listOptions
             .filter((item) => item.visible)
             .map(({ disabled, id, name, value = "", selected, top = 0 }) => {
@@ -217,6 +231,8 @@ const List: React.FunctionComponent<ListModel> = ({
                   selected={selected}
                   showCheckIcon={showCheckIcon}
                   highlightSelection={highlightSelection}
+                  textColor={textColor}
+                  textColorSelected={textColorSelected}
                   value={value}
                   style={{
                     top: `${top}px`,

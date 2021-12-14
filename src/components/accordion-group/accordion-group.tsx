@@ -16,6 +16,8 @@ const AccordionGroup = ({
   initialState = "close",
   titles = [],
   iconType = "chevron",
+  titleColor = "#000",
+  iconColor = "#000",
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
@@ -76,6 +78,8 @@ const AccordionGroup = ({
             controlledState={item.expanded}
             alignIconRight={alignIconRight}
             iconType={iconType}
+            titleColor={titleColor}
+            iconColor={iconColor}
           >
             {children && children[index]}
           </Accordion>

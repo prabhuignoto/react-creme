@@ -51,6 +51,13 @@ function index() {
           optional: "Yes",
           type: "function",
         },
+        {
+          name: "hideAnimationStyle",
+          description: `The animation style used while showing and hiding the notification. can be <code>hide</code> or <code>shrink</code>`,
+          default: "hide",
+          optional: "Yes",
+          type: "string",
+        },
       ]}
       demoWidget={<Widgets />}
       tabTitles={["examples", "properties"]}

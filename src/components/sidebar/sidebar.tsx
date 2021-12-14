@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useCallback, useMemo } from "react";
+import React, { CSSProperties, useCallback, useMemo } from "react";
 import { ChevronRightIcon, SearchIcon } from "../../icons";
 import { isArray } from "../common/utils";
 import { AccordionGroup, Input, List } from "../index";
@@ -16,6 +16,9 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   border = false,
   listMaxHeight = 750,
   minimizeSidebar = false,
+  groupIconColor = "#000",
+  groupTitleColor = "#000",
+  backGroundColor = "#fff",
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)
@@ -87,6 +90,11 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   );
 
   const handleMinimize = useCallback(() => setMinimize((prev) => !prev), []);
+  const style = useMemo(() => {
+    return {
+      "--bg-color": backGroundColor,
+    } as CSSProperties;
+  }, []);
 
   const contentWrapper = useMemo(() => {
     return classNames("rc-sidebar-content-wrapper", {
@@ -105,7 +113,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   }, [minimize]);
 
   return (
-    <div className={sideBarClass}>
+    <div className={sideBarClass} style={style}>
       {minimizeSidebar && (
         <span className={minimizeButton} onClick={handleMinimize}>
           <ChevronRightIcon />
@@ -129,6 +137,8 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
           initialState="open"
           autoClose={false}
           border={false}
+          titleColor={groupTitleColor}
+          iconColor={groupIconColor}
         >
           {_groups
             .filter((grp) => grp.visible)
@@ -146,6 +156,8 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
                   focusable
                   showCheckIcon={false}
                   highlightSelection
+                  textColor={groupTitleColor}
+                  backGroundColor="transparent"
                 ></List>
               );
             })}

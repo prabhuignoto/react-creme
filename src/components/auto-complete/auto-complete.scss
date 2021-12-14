@@ -1,0 +1,19 @@
+@use "../../design/layout.scss";
+@use "../../design/colors.scss";
+@use "../../design/position.scss";
+
+.rc-auto-complete {
+  position: relative;
+}
+
+.rc-auto-complete-input-wrapper {
+  height: 40px;
+}
+
+.rc-auto-complete-suggestions-wrapper {
+  @include position.position-abs("bottom left");
+  background-color: colors.$white;
+  top: 40px;
+  width: var(--rc-autocomplete-suggestions-width, 150px);
+  z-index: 999;
+}
