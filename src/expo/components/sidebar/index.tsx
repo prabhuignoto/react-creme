@@ -11,14 +11,14 @@ function sidebar() {
       description="Sidebar is a container for sidebar items. It can be used to display a list of items in a collapsible sidebar."
       data={[
         {
-          name: "<em>groups</em",
+          name: "groups",
           description: "Collection of sidebar items passed in groups",
           default: "[]",
           optional: "No",
           type: "Array",
         },
         {
-          name: "<em>onSelect</em",
+          name: "onSelect",
           description: "Callback that gets invoked on selecting a sidebar item",
           default: "",
           optional: "Yes",

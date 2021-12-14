@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import { DataGridCell as CellModel } from "./data-grid-model";
 
 const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
-  ({ name, value, border, fixedHeight }: CellModel) => {
+  ({ name, value, border, fixedHeight, formatter }: CellModel) => {
     const columnClass = useMemo(() => {
       return classNames("rc-data-grid-cell", {
         "rc-data-grid-cell-border": border,
@@ -20,7 +20,9 @@ const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
       <div className={columnClass} role="cell">
         <span
           className={cellClass}
-          dangerouslySetInnerHTML={{ __html: value }}
+          dangerouslySetInnerHTML={{
+            __html: formatter ? formatter(value) : value,
+          }}
         ></span>
       </div>
     );

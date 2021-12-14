@@ -11,35 +11,35 @@ function radioGroup() {
       tabTitles={["examples", "properties"]}
       data={[
         {
-          name: "<em>layout</em>",
+          name: "layout",
           description: "layout of the radio group",
           default: "column",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "<em>items</em>",
+          name: "items",
           description: "items to be displayed in the radio group",
           default: "[]",
           optional: "Yes",
           type: "Array",
         },
         {
-          name: "<em>disabled</em>",
+          name: "disabled",
           description: "disables the complete radio group",
           default: "false",
           optional: "Yes",
           type: "Boolean",
         },
         {
-          name: "<em>onSelected</em>",
+          name: "onSelected",
           description: "callback when a radio is selected",
           default: "",
           optional: "Yes",
           type: "Function",
         },
         {
-          name: "<em>style</em>",
+          name: "style",
           description: "style object",
           default: "{}",
           optional: "Yes",

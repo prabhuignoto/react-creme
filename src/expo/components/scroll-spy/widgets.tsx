@@ -70,7 +70,7 @@ function Widgets() {
             </div>
           </DemoWidget>
         </Section>
-        <Section title="Right aligned links">
+        {/* <Section title="Right aligned links">
           <BlockQuote>
             The navigation links are right aligned and clicking on them will
             scroll to the section of the container that is being spyed on.
@@ -87,7 +87,7 @@ function Widgets() {
               </ScrollSpy>
             </div>
           </DemoWidget>
-        </Section>
+        </Section> */}
       </div>
     )
   );

@@ -16,6 +16,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
   style = {},
   type = "default",
 }) => {
+  // classes
   const buttonClass = useMemo(
     () =>
       classNames(
@@ -28,6 +29,8 @@ const Button: React.FunctionComponent<ButtonModel> = ({
       ),
     [disabled]
   );
+
+  // setup for focus
 
   const ref = useRef(null);
 
@@ -42,11 +45,8 @@ const Button: React.FunctionComponent<ButtonModel> = ({
     []
   );
 
-  const handleClick = () => {
-    if (!disabled) {
-      onClick?.();
-    }
-  };
+  // handler for button click
+  const handleClick = () => !disabled && onClick?.();
 
   return (
     <button

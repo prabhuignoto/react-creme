@@ -45,6 +45,7 @@
 .rc-data-grid-cell-val {
   display: block;
   font-weight: 300;
+  line-height: 25px;
   padding: 0.5rem 0;
   padding-left: 0.25rem;
   width: 90%;
@@ -63,6 +64,6 @@
     color: colors.$primary;
     font-style: normal;
     font-weight: 400;
-    padding: 0.25rem 0.5rem;
+    padding: 0.1rem 0.2rem;
   }
 }

@@ -34,7 +34,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
 
   return (
     <div className={rowClass} style={style}>
-      {cellsData.current.map((cell) => {
+      {cellsData.current.map((cell, index) => {
         return (
           <DataGridCell
             value={cell.value}
@@ -42,6 +42,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
             name={cell.name}
             border={border}
             fixedHeight={fixedHeight}
+            formatter={columnConfigs && columnConfigs[index].formatter}
           />
         );
       })}

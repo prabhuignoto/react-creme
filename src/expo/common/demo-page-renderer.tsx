@@ -55,9 +55,15 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
                   type: "string",
                   sortable: true,
                   width: width[0],
+                  formatter: (val) => (val ? `<em>${val}</em>` : ""),
                 },
                 { name: "description", type: "string", width: width[1] },
-                { name: "default", type: "string", width: width[2] },
+                {
+                  name: "default",
+                  type: "string",
+                  width: width[2],
+                  formatter: (val) => (val ? `<em>${val}</em>` : ""),
+                },
                 { name: "optional", type: "string" },
                 { name: "type", type: "string" },
               ]}

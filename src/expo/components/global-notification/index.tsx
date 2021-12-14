@@ -9,42 +9,42 @@ function index() {
       description="Grabs the attention of the user by displaying a notification in the top of the screen."
       data={[
         {
-          name: "<em>height</em>",
+          name: "height",
           description: "The height of the notification.",
-          default: "<em>50</em>",
+          default: "50",
           optional: "Yes",
           type: "number",
         },
         {
-          name: "<em>delay</em>",
+          name: "delay",
           description: "The delay before the notification appears.",
-          default: "<em>0</em>",
+          default: "0",
           optional: "Yes",
           type: "number",
         },
         {
-          name: "<em>closeAfter</em>",
+          name: "closeAfter",
           description: "The delay before the notification disappears.",
-          default: "<em>3000</em>",
+          default: "3000",
           optional: "Yes",
           type: "number",
         },
         {
-          name: "<em>state</em>",
+          name: "state",
           description: "The state of the notification.",
-          default: "<em>info</em>",
+          default: "info",
           optional: "Yes",
           type: "string",
         },
         {
-          name: "<em>message</em>",
+          name: "message",
           description: "The message of the notification.",
           default: "",
           optional: "Yes",
           type: "string",
         },
         {
-          name: "<em>onClose</em>",
+          name: "onClose",
           description:
             "The callback function to be called when the notification is closed.",
           default: "",

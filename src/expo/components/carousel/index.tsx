@@ -10,30 +10,30 @@ function carousel() {
       description="Carousel is a component that displays a list of items in a carousel."
       data={[
         {
-          name: "<em>direction</em>",
+          name: "direction",
           description: "prop to set the navigation direction of the carousel",
-          default: "<em>horizontal</em>",
+          default: "horizontal",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "<em>height</em>",
+          name: "height",
           description: "sets the height of the carousel",
-          default: "<em>400</em>",
+          default: "400",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "<em>transition</em>",
+          name: "transition",
           description: "prop to set custom transition animation",
-          default: "<em>cubic-bezier(0.55, 0.08, 0.68, 0.53)</em>",
+          default: "cubic-bezier(0.55, 0.08, 0.68, 0.53",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "<em>autoPlay</em>",
+          name: "autoPlay",
           description: `auto plays the carousel on load. pass duration in ms for each item in the carousel`,
-          default: "<em>0</em>",
+          default: "0",
           optional: "Yes",
           type: "Number",
         },

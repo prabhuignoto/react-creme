@@ -10,42 +10,42 @@ function splitter() {
       title="Splitter"
       data={[
         {
-          name: "<em>direction</em>",
+          name: "direction",
           description: "sets the direction of split 'horizontal' | 'vertical'",
           default: "horizontal",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "<em>border</em>",
+          name: "border",
           description: "enables or disables the border",
           default: "False",
           optional: "Yes",
           type: "Boolean",
         },
         {
-          name: "<em>minSplitWidth</em>",
+          name: "minSplitWidth",
           description: "Minimum split width",
           default: "200",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "<em>maxSplitWidth</em>",
+          name: "maxSplitWidth",
           description: "Maximum split width",
           default: "400",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "<em>minSplitHeight</em>",
+          name: "minSplitHeight",
           description: "Minimum split height",
           default: "100",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "<em>maxSplitHeight</em>",
+          name: "maxSplitHeight",
           description: "Maximum split height",
           default: "200",
           optional: "Yes",

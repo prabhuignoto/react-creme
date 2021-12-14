@@ -10,30 +10,30 @@ function index() {
       demoWidget={<Widgets />}
       data={[
         {
-          name: "<em>options</em>",
+          name: "options",
           description: "Options to be displayed in the checkbox group.",
           default: "[]",
           optional: "Yes",
           type: "Array<Option>",
         },
         {
-          name: "<em>noUniqueIds</em>",
+          name: "noUniqueIds",
           description:
             "If true, the checkbox group will not generate unique ids for each checkbox.",
-          default: "<em>false</em>",
+          default: "false",
           optional: "Yes",
           type: "boolean",
         },
         {
-          name: "<em>checkboxStyle</em>",
+          name: "checkboxStyle",
           description:
-            "checkbox render style. <em>square</em> or <em>round</em>",
-          default: "<em>square</em>",
+            "checkbox render style. <code>square</code> or <code>round</code>",
+          default: "square",
           optional: "Yes",
           type: "string",
         },
         {
-          name: "<em>onChange</em>",
+          name: "onChange",
           description:
             "Callback function to be called when the checkbox group changes.",
           default: "",
@@ -41,17 +41,16 @@ function index() {
           type: "function",
         },
         {
-          name: "<em>disabled</em>",
+          name: "disabled",
           description: "Disables the checkbox group",
-          default: "<em>false</em>",
+          default: "false",
           optional: "Yes",
           type: "boolean",
         },
         {
-          name: "<em>layout</em>",
-          description:
-            "layout of the checkbox group. <em>vertical</em> or <em>horizontal</em>",
-          default: "<em>vertical</em>",
+          name: "layout",
+          description: "layout of the checkbox group. vertical or horizontal",
+          default: "vertical",
           optional: "Yes",
           type: "string",
         },

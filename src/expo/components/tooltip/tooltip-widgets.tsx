@@ -7,9 +7,10 @@ import {
   Section,
   Tooltip,
 } from "../../../components";
+import { ToolTipPosition } from "../../../components/tooltip/tooltip-model";
 import { DemoWidget } from "../../common/demo-widget";
 import useMedia from "../../common/useMedia";
-import { ToolTipPosition } from "../index/tooltip/tooltip-model";
+
 const Widgets = () => {
   const [position, setPosition] = useState<ToolTipPosition>("top center");
 
@@ -39,7 +40,7 @@ const Widgets = () => {
           <BlockQuote>
             The Component supports 12 different docking positions.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: "350px" }}>
+          <div className="rc-demo-widget" style={{ width: "400px" }}>
             <RadioGroup
               layout="row"
               onSelected={(val) => setPosition(val as ToolTipPosition)}

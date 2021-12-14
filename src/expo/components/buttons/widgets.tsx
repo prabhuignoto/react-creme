@@ -8,7 +8,11 @@ function widgets() {
     <div className="rc-demo-widgets">
       <Section title="Default render">
         <DemoWidget>
-          <Button label="save" onClick={() => alert("test")} />
+          <Button
+            label="save"
+            onClick={() => alert("test")}
+            focusable={false}
+          />
         </DemoWidget>
       </Section>
       <Section title="Icon">

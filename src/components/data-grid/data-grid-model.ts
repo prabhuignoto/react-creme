@@ -15,6 +15,7 @@ export interface DataGridColumn {
   sortable?: boolean;
   type?: "string" | "number";
   width?: number;
+  formatter?: (value: any) => any;
 }
 
 export interface DataGridCell {
@@ -22,6 +23,7 @@ export interface DataGridCell {
   value: string;
   border?: boolean;
   fixedHeight?: boolean;
+  formatter?: (value: any) => any;
 }
 
 export interface DataRow extends DataGridCommon {

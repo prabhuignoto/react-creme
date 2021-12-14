@@ -9,31 +9,31 @@ function index() {
       description="Alerts are used to notify the user of an important event."
       data={[
         {
-          name: "<em>message</em>",
+          name: "message",
           description: "The message to display in the alert.",
           optional: "No",
           default: "",
           type: "string",
         },
         {
-          name: "<em>height</em>",
+          name: "height",
           description: "The height of the alert box.",
           optional: "No",
-          default: "<em>100</em>",
+          default: "100",
           type: "number",
         },
         {
-          name: "<em>state</em>",
+          name: "state",
           description: "The state of the alert.",
           optional: "Yes",
-          default: "<em>info</em>",
+          default: "info",
           type: "string",
         },
         {
-          name: "<em>canDismiss</em>",
+          name: "canDismiss",
           description: "Whether or not the alert can be dismissed.",
           optional: "Yes",
-          default: "<em>true</em>",
+          default: "true",
           type: "boolean",
         },
       ]}

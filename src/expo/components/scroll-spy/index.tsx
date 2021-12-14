@@ -8,18 +8,18 @@ function index() {
       demoWidget={<Widgets />}
       data={[
         {
-          name: "<em>links</em>",
+          name: "links",
           description: "Array of links to scroll to",
           type: "Array<string>",
           optional: "Yes",
           default: "",
         },
         {
-          name: "<em>linksPosition</em>",
+          name: "linksPosition",
           description: "Position of the links",
           type: "string",
           optional: "Yes",
-          default: "<em>left</em>",
+          default: "left",
         },
       ]}
       title="Scroll Spy"

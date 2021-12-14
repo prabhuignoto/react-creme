@@ -11,23 +11,23 @@ const DataGridDemo: React.FunctionComponent = () => {
       description="Data Grid is a component that displays data in a table format."
       data={[
         {
-          name: "<em>layoutStyle</em>",
+          name: "layoutStyle",
           description: "Layout style of the data grid.",
-          defaultValue: "<em>comfortable</em>",
+          defaultValue: "comfortable",
           optional: "Yes",
           type: "string",
         },
         {
-          name: "<em>columns</em>",
+          name: "columns",
           description: "column configuration of the data grid.",
-          defaultValue: "<em>[]</em>",
+          defaultValue: "[]",
           optional: "Yes",
           type: "Array",
         },
         {
-          name: "<em>data</em>",
+          name: "data",
           description: "data to be displayed in the data grid.",
-          defaultValue: "<em>[]</em>",
+          defaultValue: "[]",
           optional: "Yes",
           type: "Array",
         },
