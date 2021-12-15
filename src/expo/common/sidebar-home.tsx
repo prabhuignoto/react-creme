@@ -25,7 +25,7 @@ const SidebarHome = React.memo(() => {
 
   const sideBarMemoized = React.useMemo(() => {
     return (
-      <div style={{ height: "100vh", overflowY: "auto", width: "98%" }}>
+      <div style={{ height: "100vh", width: "100%" }}>
         <Sidebar
           enableSearch
           onSelect={handleSidebarSelect}

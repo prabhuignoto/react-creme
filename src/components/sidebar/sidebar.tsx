@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { CSSProperties, useCallback, useMemo } from "react";
+import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
 import { ChevronRightIcon, SearchIcon } from "../../icons";
 import { isArray } from "../common/utils";
 import { AccordionGroup, Input, List } from "../index";
@@ -19,6 +19,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   groupIconColor = "#000",
   groupTitleColor = "#000",
   backGroundColor = "#fff",
+  height = "100%",
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)
@@ -36,6 +37,9 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   );
 
   const [minimize, setMinimize] = React.useState(false);
+
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [sidebarHeight, setSidebarHeight] = React.useState(0);
 
   const handleSelection = useCallback(
     (option: ListOption[], groupId?: string) => {
@@ -93,6 +97,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   const style = useMemo(() => {
     return {
       "--bg-color": backGroundColor,
+      "--sidebar-height": Number.isInteger(height) ? `${height}px` : "height",
     } as CSSProperties;
   }, []);
 
@@ -112,8 +117,21 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
     });
   }, [minimize]);
 
+  const onRef = useCallback((node) => {
+    if (node) {
+      ref.current = node;
+      setSidebarHeight(node.clientHeight - 40 * 2);
+    }
+  }, []);
+
+  const groupsWrapperStyle = useMemo(() => {
+    return {
+      height: `${sidebarHeight}px`,
+    } as CSSProperties;
+  }, [sidebarHeight]);
+
   return (
-    <div className={sideBarClass} style={style}>
+    <div className={sideBarClass} style={style} ref={onRef}>
       {minimizeSidebar && (
         <span className={minimizeButton} onClick={handleMinimize}>
           <ChevronRightIcon />
@@ -132,36 +150,40 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
             </Input>
           </div>
         )}
-        <AccordionGroup
-          titles={_groups.filter((grp) => grp.visible).map((grp) => grp.title)}
-          initialState="open"
-          autoClose={false}
-          border={false}
-          titleColor={groupTitleColor}
-          iconColor={groupIconColor}
-        >
-          {_groups
-            .filter((grp) => grp.visible)
-            .map(({ id, items }) => {
-              return (
-                <List
-                  key={id}
-                  options={items}
-                  borderLess
-                  rowGap={5}
-                  itemHeight={35}
-                  maxHeight={listMaxHeight}
-                  onSelection={(option) => handleSelection(option, id)}
-                  noUniqueIds
-                  focusable
-                  showCheckIcon={false}
-                  highlightSelection
-                  textColor={groupTitleColor}
-                  backGroundColor="transparent"
-                ></List>
-              );
-            })}
-        </AccordionGroup>
+        <div className="rc-sidebar-groups-wrapper" style={groupsWrapperStyle}>
+          <AccordionGroup
+            titles={_groups
+              .filter((grp) => grp.visible)
+              .map((grp) => grp.title)}
+            initialState="open"
+            autoClose={false}
+            border={false}
+            titleColor={groupTitleColor}
+            iconColor={groupIconColor}
+          >
+            {_groups
+              .filter((grp) => grp.visible)
+              .map(({ id, items }) => {
+                return (
+                  <List
+                    key={id}
+                    options={items}
+                    borderLess
+                    rowGap={5}
+                    itemHeight={35}
+                    maxHeight={listMaxHeight}
+                    onSelection={(option) => handleSelection(option, id)}
+                    noUniqueIds
+                    focusable
+                    showCheckIcon={false}
+                    highlightSelection
+                    textColor={groupTitleColor}
+                    backGroundColor="transparent"
+                  ></List>
+                );
+              })}
+          </AccordionGroup>
+        </div>
       </div>
     </div>
   );

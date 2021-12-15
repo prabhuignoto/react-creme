@@ -37,7 +37,7 @@ span {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   position: fixed;
   top: 0;
   visibility: hidden;
@@ -121,7 +121,7 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 98%;
+  width: 97%;
 }
 
 .rc-demo-prop-section {

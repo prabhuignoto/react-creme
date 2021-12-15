@@ -27,7 +27,7 @@ function widgets() {
         <Section title="Default render">
           <BlockQuote>Sections are collapsible by default.</BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
+            <div style={{ width: `${width}px`, height: "400px" }}>
               <Sidebar
                 groups={[
                   {
@@ -48,7 +48,7 @@ function widgets() {
             Can optionally include a search bar for filtering the sidebar.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
+            <div style={{ width: `${width}px`, height: "450px" }}>
               <Sidebar
                 enableSearch
                 groups={[
@@ -75,7 +75,7 @@ function widgets() {
             <code>minimizeSidebar</code> option
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
+            <div style={{ width: `${width}px`, height: "400px" }}>
               <Sidebar
                 minimizeSidebar
                 groups={[

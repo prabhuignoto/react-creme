@@ -21,7 +21,6 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   @include animate.halo();
   color: var(--title-color);
   cursor: pointer;
-  font-size: 1.2rem;
   height: $header-height;
   justify-items: center;
   position: relative;
@@ -68,6 +67,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
 .rc-accordion-title {
   @extend %left;
+  font-size: 1rem;
   font-weight: 400;
   height: 100%;
   justify-self: flex-start;

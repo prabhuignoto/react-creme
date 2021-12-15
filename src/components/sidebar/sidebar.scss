@@ -3,12 +3,16 @@
 @use "../../design/position.scss";
 @use "../../design/icon.scss";
 
+$searchbar-height: 40px;
+
 .rc-sidebar {
   align-items: flex-start;
 
   background-color: var(--bg-color);
   display: flex;
+  height: var(--sidebar-height, 100%);
   min-height: 100%;
+  overflow: hidden;
   position: relative;
 
   &.rc-sidebar-border {
@@ -26,6 +30,7 @@
 
 .rc-sidebar-search-wrapper {
   @extend %center;
+  height: $searchbar-height;
   margin: 0 auto;
   margin: 1rem 0;
   margin-left: auto;
@@ -86,4 +91,10 @@
     visibility: visible;
     width: 100%;
   }
+}
+
+.rc-sidebar-groups-wrapper {
+  height: calc(100% - $searchbar-height);
+  overflow-y: auto;
+  padding-top: 0.5rem;
 }
