@@ -16,4 +16,5 @@ export interface NotificationModel extends OverlayModel {
   width?: number | string;
   height?: number | string;
   autoClose?: number;
+  swipeToClose?: boolean;
 }

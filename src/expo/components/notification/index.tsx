@@ -38,6 +38,14 @@ function notification() {
           type: "Number",
         },
         {
+          name: "swipeToClose",
+          description: `Close the notification with a swipe gesture.
+            This option is active only when the notification is docked to either left or right side of the screen`,
+          default: "true",
+          optional: "Yes",
+          type: "Boolean",
+        },
+        {
           name: "autoClose",
           description: `duration in ms after which the notification would auto close`,
           default: "300",

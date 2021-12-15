@@ -27,9 +27,9 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
     }
 
     if (media.isExtraLargeScreen) {
-      setWidth([200, 400, 350]);
+      setWidth([200, 500, 350]);
     } else if (media.isBigScreen) {
-      setWidth([200, 250, 150]);
+      setWidth([180, 250, 150]);
     } else if (media.isDesktop) {
       setWidth([150, 200, 150]);
     } else if (media.isTablet) {
@@ -42,6 +42,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> = ({
   return (
     width && (
       <div className="rc-demo-page">
+        {/* {JSON.stringify(media)} */}
         {title && <PageHeader title={title}>{description}</PageHeader>}
         <Tabs labels={tabTitles}>
           <div className="rc-demo-widgets-wrapper">{demoWidget}</div>

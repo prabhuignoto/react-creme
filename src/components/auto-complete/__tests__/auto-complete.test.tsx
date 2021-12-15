@@ -48,4 +48,21 @@ describe("AutoComplete", () => {
       expect(getByPlaceholderText("enter input")).toHaveValue("one");
     });
   });
+
+  it("should call onChange with the input", async () => {
+    const onChange = jest.fn();
+    const { getByPlaceholderText } = render(
+      <AutoComplete
+        suggestions={suggestions}
+        placeholder="enter input"
+        onChange={onChange}
+      />
+    );
+
+    userEvent.type(getByPlaceholderText("enter input"), "open");
+
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalledWith("open");
+    });
+  });
 });

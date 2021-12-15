@@ -63,7 +63,7 @@ function App() {
         }
       }
     },
-    100,
+    50,
     {
       leading: true,
     }

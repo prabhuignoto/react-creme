@@ -2,16 +2,31 @@ import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 
 type SwipeDirection = "LEFT" | "TOP" | "RIGHT" | "BOTTOM" | "NONE";
 
+type SwipeStrength = "low" | "medium" | "high";
+
+const SwipeStrengthSettings = {
+  low: 0.1,
+  medium: 0.5,
+  high: 0.75,
+};
+
 interface SwipeState {
   dir: SwipeDirection;
   offset: number;
 }
 
-const useSwipe: (ref: RefObject<HTMLElement | null>) => SwipeState = (ref) => {
+type SwipeFunc = (
+  ref: RefObject<HTMLElement | null>,
+  swipeStrength?: SwipeStrength
+) => SwipeState;
+
+const useSwipe: SwipeFunc = (ref, strength = "medium") => {
   const swipeStarted = useRef<Boolean>(false);
   const rect = useRef<DOMRect | null>(null);
   const startPosition = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const endPosition = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  const threshold = SwipeStrengthSettings[strength];
 
   const [swipeState, setSwipeState] = useState<SwipeState>({
     dir: "NONE",
@@ -52,14 +67,18 @@ const useSwipe: (ref: RefObject<HTMLElement | null>) => SwipeState = (ref) => {
     const diffX = startX - endX;
     const diffY = startY - endY;
 
+    if (rect.current && Math.abs(diffX) / rect.current.width < threshold) {
+      return;
+    }
+
     if (Math.abs(diffX) > Math.abs(diffY)) {
       const left = diffX !== 0 ? diffX > 0 : null;
 
       if (left !== null) {
         setSwipeState(
           left
-            ? { dir: "LEFT", offset: diffX }
-            : { dir: "RIGHT", offset: diffY }
+            ? { dir: "LEFT", offset: Math.abs(diffX) }
+            : { dir: "RIGHT", offset: Math.abs(diffX) }
         );
       }
     } else {
@@ -67,7 +86,9 @@ const useSwipe: (ref: RefObject<HTMLElement | null>) => SwipeState = (ref) => {
 
       if (top !== null) {
         setSwipeState(
-          top ? { dir: "TOP", offset: diffY } : { dir: "BOTTOM", offset: diffY }
+          top
+            ? { dir: "TOP", offset: Math.abs(diffY) }
+            : { dir: "BOTTOM", offset: Math.abs(diffY) }
         );
       }
     }

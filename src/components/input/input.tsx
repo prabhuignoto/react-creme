@@ -99,7 +99,7 @@ const Input: React.FunctionComponent<InputModel> = ({
             "aria-controls": id,
           }
         : null,
-    []
+    [isAutoComplete]
   );
 
   return (

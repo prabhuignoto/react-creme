@@ -15,7 +15,7 @@ function useMedia() {
     query: "(min-width: 992px)",
   });
   const isBigScreen = useMediaQuery({ query: "(min-width: 1200px)" });
-  const isExtraLargeScreen = useMediaQuery({ query: "(min-width: 1600px)" });
+  const isExtraLargeScreen = useMediaQuery({ query: "(min-width: 1900px)" });
   const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const isMobile = useMediaQuery({ query: "(min-width: 576px)" });
 

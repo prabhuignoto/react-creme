@@ -3,19 +3,21 @@ import React, { CSSProperties, useEffect, useMemo, useRef } from "react";
 import { Button } from "..";
 import { CloseIcon } from "../../icons";
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
+import useSwipe from "../common/effects/useSwipe";
 import { withOverlay } from "../common/withOverlay";
 import { NotificationModel } from "./notification-model";
 import "./notification.scss";
 
 const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
-  title,
+  autoClose,
   children,
-  position,
+  height = 150,
   isClosing,
   onClose,
+  position,
+  swipeToClose = true,
+  title,
   width = 350,
-  height = 100,
-  autoClose,
 }) => {
   const wrapperClass = classNames([
     "rc-notification-wrapper",
@@ -45,6 +47,23 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
       setTimeout(() => onClose && onClose(), autoClose);
     }
   }, []);
+
+  const canSwipeToClose = useMemo(() => {
+    const xPosition = position?.split("-")[1] || "";
+    const leftORight = xPosition === "left" || xPosition === "right";
+    return swipeToClose && !autoClose && leftORight;
+  }, [position, swipeToClose]);
+
+  const state = swipeToClose ? useSwipe(ref, "medium") : null;
+
+  useEffect(() => {
+    if (state) {
+      const xPosition = position?.split("-")[1] || "";
+      if (state.offset > 0 && state.dir.toLowerCase() === xPosition) {
+        onClose && onClose();
+      }
+    }
+  }, [state, canSwipeToClose, position]);
 
   return (
     <div

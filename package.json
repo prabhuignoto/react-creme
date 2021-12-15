@@ -27,8 +27,8 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "nanoid": "^3.1.30",
-    "react": "^18.0.0-rc.0-next-3b3daf557-20211210",
-    "react-dom": "^18.0.0-rc.0-next-3b3daf557-20211210",
+    "react": "^18.0.0-rc.0-next-575791925-20211213",
+    "react-dom": "^18.0.0-rc.0-next-575791925-20211213",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^7.0.1"
   },

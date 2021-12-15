@@ -96,6 +96,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
           placeholder={placeholder}
           noUniqueId
           id={id.current}
+          isAutoComplete
         />
       </div>
       {matchFound && (
