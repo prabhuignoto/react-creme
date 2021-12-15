@@ -237,14 +237,19 @@ const useDraggable: UseDraggable = (
   }, [targetRef]);
 
   useEffect(() => {
-    if (boundTo?.current) {
+    const bound = boundTo?.current;
+    if (bound) {
       const _targetRef =
         targetRef instanceof HTMLElement ? targetRef : targetRef.current;
 
-      if (boundTo?.current && !makeChildrenDraggable) {
+      // if you want to make a single target draggable within a bound container
+      if (bound && !makeChildrenDraggable) {
         boundToRect.current = boundTo.current?.getBoundingClientRect();
         boundTo.current.style.position = "relative";
-      } else if (makeChildrenDraggable && _targetRef) {
+      }
+
+      // is we want to make all children's draggable within bounds
+      if (makeChildrenDraggable && _targetRef) {
         boundToRect.current = _targetRef.getBoundingClientRect();
         _targetRef.style.position = "relative";
       }

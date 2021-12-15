@@ -19,19 +19,19 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
   ({
     alignIconRight = false,
     children,
-    controlledState = null,
+    expanded = null,
+    customIcon = null,
+    disableIcon = false,
+    focusable = false,
+    iconColor = "#000",
+    iconType = "chevron",
     id,
     noBorder = false,
     onCollapsed,
     onExpanded,
     title,
-    transition = "cubic-bezier(0.19, 1, 0.22, 1)",
-    iconType = "chevron",
-    focusable = false,
-    disableIcon = false,
-    customIcon = null,
     titleColor = "#000",
-    iconColor = "#000",
+    transition = "cubic-bezier(0.19, 1, 0.22, 1)",
   }: AccordionModel) => {
     const accordionID = useRef(id || `accordion-${useId()}`);
     const accordionBodyId = useRef(`accordion-body-${useId()}`);
@@ -39,7 +39,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     const ref = useRef(null);
     const chevronRef = useRef(null);
 
-    const [open, setOpen] = useState(controlledState);
+    const [open, setOpen] = useState(expanded);
     const [bodyHeight, setBodyHeight] = useState(0);
 
     const toggleAccordion = useCallback(() => {
@@ -85,14 +85,6 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       });
     }, [open, customIcon]);
 
-    const onInitRef = useCallback((node) => {
-      if (node) {
-        ref.current = node;
-        const height = (node as HTMLElement).scrollHeight;
-        setBodyHeight(height);
-      }
-    }, []);
-
     const accordionClass = useMemo(
       () =>
         cls("rc-accordion", {
@@ -111,6 +103,14 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       [alignIconRight]
     );
 
+    const onInitRef = useCallback((node) => {
+      if (node) {
+        ref.current = node;
+        const height = (node as HTMLElement).scrollHeight;
+        setBodyHeight(height);
+      }
+    }, []);
+
     useEffect(() => {
       if (isFirstRender.current || !enableCallback.current) {
         return;
@@ -128,16 +128,16 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     }
 
     useEffect(() => {
-      if (isFirstRender.current || controlledState === null) {
+      if (isFirstRender.current || expanded === null) {
         return;
       }
 
       enableCallback.current = false;
 
-      if (open !== controlledState) {
-        setOpen(controlledState);
+      if (open !== expanded) {
+        setOpen(expanded);
       }
-    }, [controlledState, open]);
+    }, [expanded, open]);
 
     useFocus(chevronRef, toggleAccordion);
 

@@ -155,7 +155,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
             titles={_groups
               .filter((grp) => grp.visible)
               .map((grp) => grp.title)}
-            initialState="open"
+            expanded
             autoClose={false}
             border={false}
             titleColor={groupTitleColor}

@@ -13,7 +13,7 @@ const AccordionGroup = ({
   autoClose = false,
   border = true,
   children,
-  initialState = "close",
+  expanded = false,
   titles = [],
   iconType = "chevron",
   titleColor = "#000",
@@ -23,7 +23,7 @@ const AccordionGroup = ({
     Array.isArray(children)
       ? children.map(() => ({
           id: nanoid(),
-          expanded: initialState === "open",
+          expanded: expanded,
         }))
       : []
   );
@@ -57,7 +57,7 @@ const AccordionGroup = ({
       setItems(() =>
         titles.map(() => ({
           id: nanoid(),
-          expanded: initialState === "open",
+          expanded: expanded,
         }))
       );
     } else {
@@ -75,7 +75,7 @@ const AccordionGroup = ({
             onCollapsed={handleCollapse}
             noBorder
             title={titles[index]}
-            controlledState={item.expanded}
+            expanded={item.expanded}
             alignIconRight={alignIconRight}
             iconType={iconType}
             titleColor={titleColor}

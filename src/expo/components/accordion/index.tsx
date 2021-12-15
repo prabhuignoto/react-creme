@@ -86,6 +86,13 @@ function accordion() {
           optional: "Yes",
           type: "String",
         },
+        {
+          name: "expanded",
+          description: "expand the accordion on load",
+          default: "false",
+          optional: "Yes",
+          type: "Boolean",
+        },
       ]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

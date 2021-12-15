@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 export interface AccordionModel {
   alignIconRight?: boolean;
   children?: ReactNode;
-  controlledState?: boolean | null;
+  expanded?: boolean | null;
   id?: string;
   noBorder?: boolean;
   onCollapsed?: (id: string) => void;
@@ -22,7 +22,7 @@ export interface AccordionGroupProps {
   children: ReactNode[];
   titles?: string[];
   autoClose?: boolean;
-  initialState?: "open" | "close";
+  expanded?: boolean;
   alignIconRight?: boolean;
   border?: boolean;
   iconType?: "chevron" | "plus";

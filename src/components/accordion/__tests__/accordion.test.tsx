@@ -40,4 +40,18 @@ describe("Accordion", () => {
       expect(container.firstChild).toHaveClass("rc-accordion-open");
     });
   });
+
+  it("should call onExpanded", () => {
+    const onExpanded = jest.fn();
+
+    const { getByRole } = render(
+      <Accordion onExpanded={onExpanded}>
+        <p>this is a test</p>
+      </Accordion>
+    );
+
+    fireEvent.click(getByRole("button"));
+
+    expect(onExpanded).toHaveBeenCalled();
+  });
 });
