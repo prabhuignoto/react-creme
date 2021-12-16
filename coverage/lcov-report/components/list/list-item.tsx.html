@@ -140,7 +140,10 @@
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
@@ -162,20 +165,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
+<span class="cline-any cline-yes">109x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
+<span class="cline-any cline-yes">109x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
+<span class="cline-any cline-yes">109x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,16 +184,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,7 +212,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">80x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -249,7 +255,7 @@ const ListItem: React.FunctionComponent&lt;ListItemModel&gt; = React.memo(
       onSelection &amp;&amp; onSelection({ id, name, value, selected: !selected });
     }, []);
 &nbsp;
-    const ref = useRef&lt;HTMLDivElement&gt;(null);
+    const ref = useRef&lt;HTMLLIElement&gt;(null);
 &nbsp;
     useFocus(ref, handleSelection);
 &nbsp;
@@ -262,9 +268,10 @@ const ListItem: React.FunctionComponent&lt;ListItemModel&gt; = React.memo(
             "rc-list-option-selected": selected,
             "rc-list-option-multi-selection": allowMultiSelection,
             "rc-list-option-highlight-selection": highlightSelection,
+            "rc-list-option-focusable": focusable,
           },
         ]),
-      [selected, disabled]
+      [selected, disabled, focusable]
     );
 &nbsp;
     const handleMouseDown = useCallback((e: React.MouseEvent) =&gt; {
@@ -273,14 +280,16 @@ const ListItem: React.FunctionComponent&lt;ListItemModel&gt; = React.memo(
     }, []);
 &nbsp;
     return (
-      &lt;li className={listItemClass} key={id} role="option" style={style}&gt;
-        &lt;div
-          className="rc-list-item-wrapper"
-          ref={ref}
-          tabIndex={0}
-          style={{ width: "100%" }}
-          onClick={handleMouseDown}
-        &gt;
+      &lt;li
+        className={listItemClass}
+        key={id}
+        role="option"
+        style={style}
+        ref={ref}
+        tabIndex={0}
+        onClick={handleMouseDown}
+      &gt;
+        &lt;div className="rc-list-item-wrapper" style={{ width: "100%" }}&gt;
           &lt;ListItemOption
             key={id}
             name={name}
@@ -313,7 +322,7 @@ export { ListItem };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Dec 16 2021 01:46:20 GMT+0530 (India Standard Time)
+                at Thu Dec 16 2021 23:44:46 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

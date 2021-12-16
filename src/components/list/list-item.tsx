@@ -24,7 +24,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
       onSelection && onSelection({ id, name, value, selected: !selected });
     }, []);
 
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = useRef<HTMLLIElement>(null);
 
     useFocus(ref, handleSelection);
 
@@ -37,9 +37,10 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
             "rc-list-option-selected": selected,
             "rc-list-option-multi-selection": allowMultiSelection,
             "rc-list-option-highlight-selection": highlightSelection,
+            "rc-list-option-focusable": focusable,
           },
         ]),
-      [selected, disabled]
+      [selected, disabled, focusable]
     );
 
     const handleMouseDown = useCallback((e: React.MouseEvent) => {
@@ -48,14 +49,16 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
     }, []);
 
     return (
-      <li className={listItemClass} key={id} role="option" style={style}>
-        <div
-          className="rc-list-item-wrapper"
-          ref={ref}
-          tabIndex={0}
-          style={{ width: "100%" }}
-          onClick={handleMouseDown}
-        >
+      <li
+        className={listItemClass}
+        key={id}
+        role="option"
+        style={style}
+        ref={ref}
+        tabIndex={0}
+        onClick={handleMouseDown}
+      >
+        <div className="rc-list-item-wrapper" style={{ width: "100%" }}>
           <ListItemOption
             key={id}
             name={name}

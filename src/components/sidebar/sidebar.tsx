@@ -9,17 +9,18 @@ import { SidebarGroupModel, SidebarModel } from "./sidebar-model";
 import "./sidebar.scss";
 
 const Sidebar: React.FunctionComponent<SidebarModel> = ({
-  groups,
-  onSelect,
-  enableSearch = false,
-  searchPlaceholder = "Search ...",
+  backGroundColor = "#fff",
   border = false,
-  listMaxHeight = 750,
-  minimizeSidebar = false,
+  enableSearch = false,
   groupIconColor = "#000",
   groupTitleColor = "#000",
-  backGroundColor = "#fff",
+  groups,
   height = "100%",
+  listMaxHeight = 750,
+  minimizeSidebar = false,
+  onSelect,
+  searchPlaceholder = "Search ...",
+  focusable = false,
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)
@@ -174,7 +175,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
                     maxHeight={listMaxHeight}
                     onSelection={(option) => handleSelection(option, id)}
                     noUniqueIds
-                    focusable
+                    focusable={focusable}
                     showCheckIcon={false}
                     highlightSelection
                     textColor={groupTitleColor}

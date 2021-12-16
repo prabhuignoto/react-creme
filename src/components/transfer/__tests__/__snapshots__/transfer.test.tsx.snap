@@ -23,11 +23,11 @@ exports[`Transfer should render transfer snapshot 1`] = `
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
             style="top: 5px; height: 40px;"
+            tabindex="0"
           >
             <div
               class="rc-list-item-wrapper"
               style="width: 100%;"
-              tabindex="0"
             >
               <div
                 class="rc-list-option-value-wrapper"
@@ -63,11 +63,11 @@ exports[`Transfer should render transfer snapshot 1`] = `
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
             style="top: 50px; height: 40px;"
+            tabindex="0"
           >
             <div
               class="rc-list-item-wrapper"
               style="width: 100%;"
-              tabindex="0"
             >
               <div
                 class="rc-list-option-value-wrapper"
@@ -103,11 +103,11 @@ exports[`Transfer should render transfer snapshot 1`] = `
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
             style="top: 95px; height: 40px;"
+            tabindex="0"
           >
             <div
               class="rc-list-item-wrapper"
               style="width: 100%;"
-              tabindex="0"
             >
               <div
                 class="rc-list-option-value-wrapper"
@@ -143,11 +143,11 @@ exports[`Transfer should render transfer snapshot 1`] = `
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
             style="top: 140px; height: 40px;"
+            tabindex="0"
           >
             <div
               class="rc-list-item-wrapper"
               style="width: 100%;"
-              tabindex="0"
             >
               <div
                 class="rc-list-option-value-wrapper"
@@ -253,11 +253,11 @@ exports[`Transfer should render transfer snapshot 1`] = `
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
             style="top: 5px; height: 40px;"
+            tabindex="0"
           >
             <div
               class="rc-list-item-wrapper"
               style="width: 100%;"
-              tabindex="0"
             >
               <div
                 class="rc-list-option-value-wrapper"
@@ -293,11 +293,11 @@ exports[`Transfer should render transfer snapshot 1`] = `
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
             style="top: 50px; height: 40px;"
+            tabindex="0"
           >
             <div
               class="rc-list-item-wrapper"
               style="width: 100%;"
-              tabindex="0"
             >
               <div
                 class="rc-list-option-value-wrapper"
@@ -333,11 +333,11 @@ exports[`Transfer should render transfer snapshot 1`] = `
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
             style="top: 95px; height: 40px;"
+            tabindex="0"
           >
             <div
               class="rc-list-item-wrapper"
               style="width: 100%;"
-              tabindex="0"
             >
               <div
                 class="rc-list-option-value-wrapper"
@@ -373,11 +373,11 @@ exports[`Transfer should render transfer snapshot 1`] = `
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
             style="top: 140px; height: 40px;"
+            tabindex="0"
           >
             <div
               class="rc-list-item-wrapper"
               style="width: 100%;"
-              tabindex="0"
             >
               <div
                 class="rc-list-option-value-wrapper"

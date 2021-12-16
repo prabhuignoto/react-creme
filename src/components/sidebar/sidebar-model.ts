@@ -12,6 +12,7 @@ export interface SidebarModel {
   minimizeSidebar?: boolean;
   onSelect?: (group: SidebarGroupModel, item: SidebarItemModel) => void;
   searchPlaceholder?: string;
+  focusable?: boolean;
 }
 
 export interface SidebarGroupModel {

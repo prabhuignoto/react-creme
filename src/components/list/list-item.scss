@@ -8,7 +8,6 @@
 $height: 40px;
 
 .rc-list-item-wrapper {
-  @include animate.halo();
   height: 100%;
   position: relative;
   width: 100%;
@@ -16,7 +15,6 @@ $height: 40px;
 
 .rc-list-option {
   @extend %list-item-left;
-  @extend %border-radius;
   cursor: pointer;
   height: $height;
   left: 0;
@@ -24,8 +22,16 @@ $height: 40px;
   margin-right: auto;
   position: absolute;
   right: 0;
-  width: 95%;
+  width: 100%;
   z-index: 0;
+  
+  &.rc-list-option-focusable {
+    @include animate.halo();
+  }
+
+  &:not(.rc-list-option-focusable) {
+    outline: 0;
+  }
 
   &:hover:not(.rc-list-option-multi-selection):not(.rc-list-option-disabled) {
     background: rgba(colors.$secondary, 0.25);
@@ -45,8 +51,9 @@ $height: 40px;
 
   color: var(--text-color);
   height: 100%;
+  padding-left: 0.5rem;
   pointer-events: none;
-  width: 100%;
+  width: calc(100% - 0.5rem);
 
   &:not(.rc-list-option-no-icon) {
     display: grid;
