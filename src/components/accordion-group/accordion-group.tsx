@@ -14,10 +14,10 @@ const AccordionGroup = ({
   border = true,
   children,
   expanded = false,
-  titles = [],
+  iconColor = "#000",
   iconType = "chevron",
   titleColor = "#000",
-  iconColor = "#000",
+  titles = [],
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)

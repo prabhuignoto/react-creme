@@ -18,19 +18,23 @@ function widgets() {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
-      setWidth(500);
-    } else if (media.isMobile) {
-      setWidth(350);
+
+    if (media.isExtraLargeScreen) {
+      setWidth(650);
     } else if (media.isBigScreen) {
-      setWidth(750);
+      setWidth(550);
     } else if (media.isDesktop) {
-      setWidth(600);
+      setWidth(500);
+    } else if (media.isTablet) {
+      setWidth(450);
+    } else if (media.isMobile) {
+      setWidth(320);
     }
   }, [media]);
 
   return (
-    width > 0 && (
+    width > 0 &&
+    media && (
       <div className="rc-demo-widgets">
         <Section title="Card shadowed">
           <BlockQuote>
@@ -42,12 +46,12 @@ function widgets() {
                 alignHeader="left"
                 header={<h2>header</h2>}
                 footer={<span>footer</span>}
-                minHeight={400}
+                minHeight={250}
               >
                 <Skeleton
                   animate
                   rowHeight={10}
-                  rows={10}
+                  rows={media.isMobile ? 6 : 10}
                   style={{ marginTop: "1rem" }}
                   showCircle
                 ></Skeleton>
@@ -59,7 +63,7 @@ function widgets() {
           <BlockQuote>Card with no shadow but with a border.</BlockQuote>
           <DemoWidget>
             <div style={{ margin: "1rem 0", width: `${width}px` }}>
-              <Card alignHeader="left" minHeight={400} shadow={false}>
+              <Card alignHeader="left" minHeight={250} shadow={false}>
                 <Image src="https://mmc.tirto.id/image/otf/500x0/2016/07/26/TIRTO-20140522_batman_warner-bros_ratio-16x9.jpg" />
               </Card>
             </div>

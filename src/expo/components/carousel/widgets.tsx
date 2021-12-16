@@ -39,7 +39,7 @@ function widgets() {
           <DemoWidget fullWidth>
             <div
               style={{
-                height: "450px",
+                height: "350px",
                 width: resolvedWidth,
               }}
             >

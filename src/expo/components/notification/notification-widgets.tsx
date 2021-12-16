@@ -18,14 +18,17 @@ const Widgets = () => {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
-      setWidth(500);
-    } else if (media.isMobile) {
-      setWidth(400);
+
+    if (media.isExtraLargeScreen) {
+      setWidth(600);
     } else if (media.isBigScreen) {
-      setWidth(650);
+      setWidth(500);
     } else if (media.isDesktop) {
+      setWidth(500);
+    } else if (media.isTablet) {
       setWidth(450);
+    } else if (media.isMobile) {
+      setWidth(250);
     }
   }, [media]);
 
@@ -110,7 +113,7 @@ const Widgets = () => {
             style={{
               width: `${width}px`,
               background: "#f5f5f5",
-              height: "400px",
+              height: "350px",
               placeContent: "center",
             }}
             ref={ref}

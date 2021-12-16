@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-import { Section, Button, Dialog } from "../../../components";
+import { Button, Dialog, Section } from "../../../components";
 import useMedia from "../../common/useMedia";
 
 const Widget = () => {
@@ -13,39 +13,44 @@ const Widget = () => {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
-      setWidth(500);
-    } else if (media.isMobile) {
-      setWidth(400);
-    } else if (media.isBigScreen) {
+
+    if (media.isExtraLargeScreen) {
       setWidth(700);
+    } else if (media.isBigScreen) {
+      setWidth(650);
     } else if (media.isDesktop) {
       setWidth(600);
+    } else if (media.isTablet) {
+      setWidth(500);
+    } else if (media.isMobile) {
+      setWidth(300);
     }
   }, [media]);
 
   return (
-    <div className="rc-demo-widgets">
-      <Section title="Default render">
-        <div className="rc-demo-widget">
-          <Button
-            size="sm"
-            onClick={() => setOpen(true)}
-            label="Open dialog"
-          ></Button>
-          {open && (
-            <Dialog
-              onClose={() => setOpen(false)}
-              containedToParent={ref}
-              width={width}
-              height={300}
-            >
-              <span>Test dialog content</span>
-            </Dialog>
-          )}
-        </div>
-      </Section>
-    </div>
+    media && (
+      <div className="rc-demo-widgets">
+        <Section title="Default render">
+          <div className="rc-demo-widget">
+            <Button
+              size="sm"
+              onClick={() => setOpen(true)}
+              label="Open dialog"
+            ></Button>
+            {open && (
+              <Dialog
+                onClose={() => setOpen(false)}
+                containedToParent={ref}
+                width={width}
+                height={250}
+              >
+                <span>Test dialog content</span>
+              </Dialog>
+            )}
+          </div>
+        </Section>
+      </div>
+    )
   );
 };
 

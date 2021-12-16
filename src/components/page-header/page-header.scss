@@ -1,6 +1,7 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
 @use "../../design/list.scss";
+@use "../../design/icon.scss";
 
 .rc-page-header {
   @extend %list-left;
@@ -9,6 +10,7 @@
 
   h2 {
     border-bottom: 1px solid colors.$gray;
+    font-size: 1.2rem;
     font-weight: 400;
     height: 35px;
     width: 100%;

@@ -5,7 +5,7 @@
   @extend %center;
   align-items: flex-start;
   display: grid;
-  grid-template-columns: minmax(200px, 40%) 20% minmax(200px, 40%);
+  grid-template-columns: 40% 20% 40%;
 }
 
 .transfer-column1 {

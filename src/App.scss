@@ -66,6 +66,12 @@ span {
   width: 100%;
 }
 
+@media (max-width: 480px) {
+  .app-main-section {
+    width: 100%;
+  }
+}
+
 @media (min-width: 768px) {
   .app {
     --aside-width: 200px;
@@ -120,8 +126,9 @@ span {
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 97%;
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: 95%;
 }
 
 .rc-demo-prop-section {
@@ -179,7 +186,7 @@ span {
 }
 
 .rc-demo-logo-text {
-  font-size: 1.75rem;
+  font-size: 1.4rem;
   font-weight: 500;
 }
 
@@ -226,4 +233,11 @@ span {
   margin-left: auto;
   margin-right: 1rem;
   padding: 0.25rem 0.5rem;
+}
+
+.rc-demo-menu-icon {
+  color: #3f72af;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  width: 2rem;
 }

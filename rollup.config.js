@@ -68,7 +68,7 @@ export default {
     postcss({
       preprocessor: (content, id) =>
         new Promise((resolve, reject) => {
-          const result = sass.renderSync({ file: id });
+          const result = sass.compileString({ file: id });
           resolve({ code: result.css.toString() });
         }),
       plugins: [

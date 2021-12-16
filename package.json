@@ -55,7 +55,7 @@
     "babel-jest": "^27.4.5",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "canvas": "^2.8.0",
-    "cssnano": "^5.0.12",
+    "cssnano": "^5.0.13",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",

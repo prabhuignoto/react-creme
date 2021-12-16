@@ -12,12 +12,14 @@ interface MediaState {
 function useMedia() {
   const [mediaState, setMediaState] = useState<MediaState | null>(null);
   const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 992px)",
+    query: "(min-width: 768px)",
   });
   const isBigScreen = useMediaQuery({ query: "(min-width: 1200px)" });
   const isExtraLargeScreen = useMediaQuery({ query: "(min-width: 1900px)" });
-  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
-  const isMobile = useMediaQuery({ query: "(min-width: 576px)" });
+  const isTablet = useMediaQuery({
+    query: "(min-width: 481px) and (max-width: 767px)",
+  });
+  const isMobile = useMediaQuery({ query: "(max-width: 480px)" });
 
   const resizeObserverRef = useRef<ResizeObserver>(null);
 

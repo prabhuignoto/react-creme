@@ -1,18 +1,28 @@
 import classNames from "classnames";
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import ResizeObserver from "resize-observer-polyfill";
 import { useDebouncedCallback } from "use-debounce";
+import MenuSVG from "../menu.svg?component";
 import "./App.scss";
+import { Drawer } from "./components";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
 import AppRoutes from "./expo/app-routes";
 import SidebarHome from "./expo/common/sidebar-home";
+import useMedia from "./expo/common/useMedia";
 import Footer from "./Footer";
 
-const Logo = () => (
+const Logo: React.FC<{ isMobile: boolean; onMenuClick }> = ({
+  isMobile,
+  onMenuClick,
+}) => (
   <div className="rc-demo-app-logo">
-    <span className="rc-demo-menu-icon"></span>
+    {isMobile && (
+      <span className="rc-demo-menu-icon" onClick={onMenuClick}>
+        <MenuSVG />
+      </span>
+    )}
     <span className="rc-demo-logo-text">React Creme</span>
   </div>
 );
@@ -36,13 +46,30 @@ const Badge = () => {
   return <div className="rc-demo-alpha-badge">Alpha</div>;
 };
 
+const Header: React.FC<{ isMobile?: boolean; onOpen?: () => void }> = ({
+  isMobile,
+  onOpen,
+}) => {
+  return (
+    <header className="app-header">
+      <Logo isMobile={isMobile} onMenuClick={onOpen} />
+      <Badge />
+      <GithubLink />
+    </header>
+  );
+};
+
 function App() {
   const sectionRef = useRef<HTMLElement>(null);
   const asideRef = useRef<HTMLElement>(null);
   const [left, setLeft] = React.useState(-1);
   const resizeObserver = useRef<ResizeObserver>();
 
+  const media = useMedia();
+
   const appRef = useRef<HTMLDivElement>(null);
+
+  const [openAside, setOpenAside] = React.useState(false);
 
   const sidebarClass = useMemo(() => {
     return classNames("app-aside", {
@@ -50,24 +77,19 @@ function App() {
     });
   }, [left]);
 
-  const positionAside = useDebouncedCallback(
-    () => {
-      if (sectionRef.current && asideRef.current) {
-        const asideWidth = asideRef.current.offsetWidth;
-        const { left: sectionLeft } =
-          sectionRef.current.getBoundingClientRect();
-        if (sectionLeft - asideWidth > 0) {
-          setLeft(sectionLeft - asideWidth);
-        } else {
-          setLeft(0);
-        }
+  const positionAside = useCallback(() => {
+    if (sectionRef.current && asideRef.current && !media.isMobile) {
+      const asideWidth = asideRef.current.offsetWidth;
+      const { left: sectionLeft } = sectionRef.current.getBoundingClientRect();
+      if (sectionLeft - asideWidth > 0) {
+        setLeft(sectionLeft - asideWidth);
+      } else {
+        setLeft(0);
       }
-    },
-    50,
-    {
-      leading: true,
     }
-  );
+  }, [media]);
+
+  const debouncedPositionAside = useDebouncedCallback(positionAside, 100);
 
   const onRef = (el: HTMLElement) => {
     if (el && asideRef.current) {
@@ -77,30 +99,39 @@ function App() {
   };
 
   useEffect(() => {
-    resizeObserver.current = new ResizeObserver((entries) => {
-      positionAside();
-    });
+    resizeObserver.current = new ResizeObserver(() => debouncedPositionAside());
     resizeObserver.current.observe(document.body);
     return () => {
       resizeObserver.current.disconnect();
     };
   }, []);
 
+  const toggleOpen = useCallback(() => setOpenAside((prev) => !prev), []);
+
+  const canRenderAside = useMemo(() => {
+    return media && media.isMobile && openAside;
+  }, [media, openAside]);
+
+  const onClose = useCallback(() => setOpenAside(false), []);
+
   return (
     <div className="app" ref={appRef}>
-      <aside
-        className={sidebarClass}
-        ref={asideRef}
-        style={{ left: `${left}px` }}
-      >
-        <SidebarHome />
-      </aside>
+      {media && !media.isMobile && (
+        <aside
+          className={sidebarClass}
+          ref={asideRef}
+          style={{ left: `${left}px` }}
+        >
+          <SidebarHome />
+        </aside>
+      )}
+      {canRenderAside && (
+        <Drawer onClose={onClose} showClose>
+          <SidebarHome />
+        </Drawer>
+      )}
       <section className="app-main-section" ref={onRef}>
-        <header className="app-header">
-          <Logo />
-          <Badge />
-          <GithubLink />
-        </header>
+        <Header isMobile={media && media.isMobile} onOpen={toggleOpen} />
         <AppRoutes />
         <Footer />
       </section>

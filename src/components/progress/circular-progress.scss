@@ -39,39 +39,13 @@ $sizes: (
   }
 }
 
-// .inner-circle {
-//   @include position.position-abs("center center");
-//   background: linear-gradient(
-//     to right,
-//     colors.$secondary 50%,
-//     colors.$primary 50% 100%
-//   );
-//   border: 1px solid colors.$white;
-//   border: 5px solid #fff;
-//   border-radius: 50%;
-//   display: block;
-//   height: 60%;
-//   width: 60%;
-//   z-index: 1;
-
-//   &::after {
-//     @include position.position-abs("center center");
-//     background: #fff;
-//     border-radius: 50%;
-//     content: "";
-//     display: block;
-//     height: 80%;
-//     width: 80%;
-//   }
-// }
-
 .inner-circle-2 {
   @include position.position-abs("center center");
   background: colors.$white;
   border-radius: 50%;
   display: block;
-  height: 70%;
-  width: 70%;
+  height: 85%;
+  width: 85%;
   z-index: 2;
 
   &::after {

@@ -8,11 +8,23 @@
   align-items: center;
   background: colors.$white;
   display: grid;
+  font-size: 1rem;
   grid-template-columns: 2rem calc(100% - 4rem) 2rem;
   height: 35px;
   justify-items: center;
   width: 100%;
   z-index: 2;
+
+  ::input-placeholder {
+    color: rgba($color: #000, $alpha: 0.25);
+    /* Chrome/Opera/Safari */
+    font-size: 1rem;
+  }
+
+  ::placeholder {
+    /* Firefox 19+ */
+    font-size: 1rem;
+  }
 
   &:not(.rc-input-disabled) {
     @include animate.halo(4px, 5px);

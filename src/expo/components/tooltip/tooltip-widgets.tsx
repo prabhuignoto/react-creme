@@ -22,14 +22,16 @@ const Widgets = () => {
     if (!media) {
       return;
     }
-    if (media.isBigScreen) {
-      setWidth(750);
-    } else if (media.isDesktop) {
+    if (media.isExtraLargeScreen) {
+      setWidth(700);
+    } else if (media.isBigScreen) {
       setWidth(650);
+    } else if (media.isDesktop) {
+      setWidth(550);
     } else if (media.isTablet) {
-      setWidth(580);
+      setWidth(500);
     } else if (media.isMobile) {
-      setWidth(400);
+      setWidth(350);
     }
   }, [media]);
 
@@ -99,7 +101,7 @@ const Widgets = () => {
                 <div style={{ width: `${width}px` }}>
                   <Card>
                     <Image
-                      height={400}
+                      height={300}
                       src="https://www.dccomics.com/sites/default/files/Gallery_20210914_BM_THEWORLD_61401312483190.19934149.jpg"
                     />
                   </Card>
