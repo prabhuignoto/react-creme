@@ -10,13 +10,13 @@ import React, {
   useRef,
   useState,
 } from "react";
+import ResizeObserver from "resize-observer-polyfill";
 import { useDebounce } from "use-debounce";
 import useSwipe from "../common/effects/useSwipe";
 import { CarouselItems } from "./carousel-items";
 import { CarouselItemModel, CarouselModel } from "./carousel-model";
 import { CarouselTrack } from "./carousel-track";
 import "./carousel.scss";
-import ResizeObserver from "resize-observer-polyfill";
 
 const Carousel: React.FunctionComponent<CarouselModel> = ({
   autoPlay = 0,
@@ -172,6 +172,8 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   if (enableSwipe) {
     const { dir, offset } = useSwipe(carouselRef, "low");
 
+    console.log(dir, offset);
+
     useEffect(() => {
       if (
         (dir === "RIGHT" && direction === "horizontal") ||
@@ -184,7 +186,7 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
       ) {
         handleNext();
       }
-    }, [offset]);
+    }, [offset, dir]);
   }
 
   useEffect(() => {

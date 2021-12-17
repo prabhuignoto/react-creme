@@ -6,7 +6,7 @@ import "./skeleton.scss";
 
 const Skeleton: FunctionComponent<SkeletonModel> = ({
   rows = 4,
-  rowHeight = 30,
+  rowHeight = 10,
   blocks = 1,
   showCircle = false,
   animate = false,

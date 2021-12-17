@@ -5,6 +5,9 @@
 @use "../../design/list.scss";
 @use "../../design/animate.scss";
 
+$flat-tabs-height: 40px;
+$rounded-tabs-height: 35px;
+
 .rc-tab-headers-wrapper {
   @extend %left;
   position: relative;
@@ -27,12 +30,19 @@
 
 .rc-tab-headers {
   @extend %list-horizontal-left;
-  height: 35px;
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
   width: 90%;
   z-index: 1;
+
+  &.rc-tab-headers-flat {
+    height: $flat-tabs-height;
+  }
+
+  &.rc-tab-headers-rounded {
+    height: $rounded-tabs-height;
+  }
 
   li {
     @extend %center;

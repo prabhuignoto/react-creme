@@ -46,6 +46,7 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
                 useBooleanShorthandSyntax: true,
                 tabStop: 4,
                 sortProps: true,
+                showFunctions: true,
               })}
             ></Code>
           </Accordion>

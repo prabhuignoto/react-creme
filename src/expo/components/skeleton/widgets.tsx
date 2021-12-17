@@ -29,7 +29,7 @@ function widgets() {
         <Section title="Default rendering">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Skeleton rows={6} rowHeight={8} blocks={1} />
+              <Skeleton rows={6} rowHeight={6} blocks={1} />
             </div>
           </DemoWidget>
         </Section>
@@ -39,7 +39,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Skeleton rows={6} rowHeight={8} blocks={1} showCircle />
+              <Skeleton rows={6} rowHeight={6} blocks={1} showCircle />
             </div>
           </DemoWidget>
         </Section>

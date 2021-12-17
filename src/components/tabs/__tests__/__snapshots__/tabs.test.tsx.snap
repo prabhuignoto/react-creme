@@ -10,7 +10,7 @@ exports[`Tabs should render snapshot 1`] = `
     class="rc-tab-headers-wrapper rc-tab-headers-wrapper-flat"
   >
     <ul
-      class="rc-tab-headers"
+      class="rc-tab-headers rc-tab-headers-flat"
     >
       <li
         class="rc-tab-head rc-tab-head-flat"

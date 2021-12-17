@@ -74,6 +74,12 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
     });
   }, []);
 
+  const tabHeadersClass = useMemo(() => {
+    return classNames("rc-tab-headers", {
+      [`rc-tab-headers-${tabStyle}`]: true,
+    });
+  }, []);
+
   useEffect(() => {
     if (scrollLeftCurrent.value >= 0 && tabHeadersRef.current) {
       const { dir, value } = scrollLeftCurrent;
@@ -112,7 +118,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
 
   return (
     <header className={tabHeadersWrapperClass}>
-      <ul className="rc-tab-headers" ref={onHeadersRef}>
+      <ul className={tabHeadersClass} ref={onHeadersRef}>
         {items.map(({ id, name, selected, disabled }) => (
           <TabHead
             key={id}

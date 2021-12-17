@@ -1,6 +1,6 @@
 import React from "react";
-import GithubSVG from "../github.svg?component";
 import "./Footer.scss";
+import GithubSVG from "./github.svg?component";
 
 function Footer() {
   return (
