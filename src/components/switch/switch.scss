@@ -68,14 +68,14 @@ $start-left: 4px;
 
 .rc-switch-track {
   @extend %center;
-  @extend %shadow-inset;
+  // @extend %shadow-inset;
   height: 100%;
   position: relative;
   width: 100%;
   z-index: 0;
 
   &.rc-switch-on {
-    background-color: rgba(colors.$secondary, 0.75);
+    background-color: rgba(colors.$secondary, 0.5);
   }
 
   &.rc-switch-off {

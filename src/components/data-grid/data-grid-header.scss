@@ -4,7 +4,7 @@
 
 .rc-data-grid-header-cell {
   @extend %left;
-  background: rgba(colors.$secondary, 0.25);
+  background: rgba(colors.$secondary, 0.2);
   color: colors.$black;
   height: 100%;
   text-transform: capitalize;
@@ -28,7 +28,7 @@
   }
 
   &.rc-data-grid-header-border:not(:last-child) {
-    border-right: 1px solid colors.$gray;
+    border-right: 1px solid colors.$secondary;
   }
 }
 

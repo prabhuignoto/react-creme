@@ -16,14 +16,20 @@ import Dialog from "./components/dialog";
 import Draggable from "./components/draggable";
 import Drawer from "./components/drawer";
 import Dropdown from "./components/dropdown";
+import { Home } from "./home";
 import { routes as otherRoutes } from "./route-configs-2";
 
 const routes = [
   ...otherRoutes,
   {
+    path: "/home",
+    key: "home",
+    component: <Home />,
+  },
+  {
     path: "/",
     key: "home",
-    component: <span></span>,
+    component: <Home />,
   },
   {
     path: "/accordion",

@@ -9,7 +9,7 @@
 
   &.rc-data-grid-border {
     @extend %border-radius;
-    border: 1px solid colors.$gray;
+    border: 1px solid colors.$secondary;
   }
 }
 
@@ -17,7 +17,7 @@
   width: 100%;
 
   &:not(:last-child) {
-    border-bottom: 1px solid colors.$gray;
+    border-bottom: 1px solid colors.$secondary;
   }
 
   &:hover {
@@ -33,7 +33,7 @@
   }
 
   .rc-data-grid-cell-border:not(:last-child) {
-    border-right: 1px solid colors.$gray;
+    border-right: 1px solid colors.$secondary;
   }
 }
 
