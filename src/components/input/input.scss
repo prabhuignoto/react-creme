@@ -15,10 +15,23 @@
   width: 100%;
   z-index: 2;
 
+  &.rc-input-border {
+    @extend %border;
+  }
+
+  &:not(.rc-input-border) {
+    @extend %border-radius;
+  }
+
+  &:not(.rc-input-border).rc-input-default {
+    background: colors.$light-bg;
+  }
+
   ::input-placeholder {
     color: rgba($color: #000, $alpha: 0.25);
     /* Chrome/Opera/Safari */
     font-size: 1rem;
+    font-weight: 300;
   }
 
   ::placeholder {
@@ -30,12 +43,19 @@
     @include animate.halo(4px, 5px);
   }
 
-  &.rc-input-default {
-    @extend %border;
+  // &.rc-input-default {
+  // }
+
+  &.rc-input-error.rc-input-border {
+    @extend %border-error;
   }
 
-  &.rc-input-error {
-    @extend %border-error;
+  &.rc-input-error:not(.rc-input-border) {
+    box-shadow: inset 0 0 2px 1px rgba(colors.$crimson, 0.25);
+  }
+
+  &.rc-input-success:not(.rc-input-border) {
+    box-shadow: inset 0 0 2px 1px rgba(colors.$success-green, 0.25);
   }
 
   &.rc-input-success {
@@ -66,7 +86,7 @@
 }
 
 .rc-input-clear {
-  @extend %icon-sm;
+  @extend %icon-md;
   cursor: pointer;
   display: block;
   width: 100%;

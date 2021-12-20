@@ -2,8 +2,8 @@ import React, { useLayoutEffect, useState } from "react";
 import {
   BlockQuote,
   Card,
+  Dropdown,
   Image,
-  RadioGroup,
   Section,
   Tooltip,
 } from "../../../components";
@@ -43,24 +43,26 @@ const Widgets = () => {
             The Component supports 12 different docking positions.
           </BlockQuote>
           <div className="rc-demo-widget" style={{ width: "400px" }}>
-            <RadioGroup
-              layout="row"
-              onSelected={(val) => setPosition(val as ToolTipPosition)}
-              items={[
-                { label: "top center", value: "top center", checked: true },
-                { label: "top left", value: "top left" },
-                { label: "top right", value: "top right" },
-                { label: "bottom center", value: "bottom center" },
-                { label: "bottom left", value: "bottom left" },
-                { label: "bottom right", value: "bottom right" },
-                { label: "left center", value: "left center" },
-                { label: "left top", value: "left top" },
-                { label: "left bottom", value: "left bottom" },
-                { label: "right center", value: "right center" },
-                { label: "right top", value: "right top" },
-                { label: "right bottom", value: "right bottom" },
+            <Dropdown
+              placeholder="choose a position"
+              onSelected={(val) => {
+                setPosition(val as ToolTipPosition);
+              }}
+              options={[
+                { name: "top center", value: "top center" },
+                { name: "top left", value: "top left" },
+                { name: "top right", value: "top right" },
+                { name: "bottom center", value: "bottom center" },
+                { name: "bottom left", value: "bottom left" },
+                { name: "bottom right", value: "bottom right" },
+                { name: "left center", value: "left center" },
+                { name: "left top", value: "left top" },
+                { name: "left bottom", value: "left bottom" },
+                { name: "right center", value: "right center" },
+                { name: "right top", value: "right top" },
+                { name: "right bottom", value: "right bottom" },
               ]}
-            ></RadioGroup>
+            ></Dropdown>
           </div>
         </Section>
         <Section title="On Hover">

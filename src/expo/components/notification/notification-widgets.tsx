@@ -2,8 +2,8 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import {
   BlockQuote,
   Button,
+  Dropdown,
   Notification,
-  RadioGroup,
   Section,
 } from "../../../components";
 import { NotificationPosition } from "../../../components/notification/notification-model";
@@ -20,9 +20,9 @@ const Widgets = () => {
     }
 
     if (media.isExtraLargeScreen) {
-      setWidth(600);
+      setWidth(450);
     } else if (media.isBigScreen) {
-      setWidth(500);
+      setWidth(400);
     } else if (media.isDesktop) {
       setWidth(500);
     } else if (media.isTablet) {
@@ -45,18 +45,17 @@ const Widgets = () => {
             screen.
           </BlockQuote>
           <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-            <RadioGroup
-              layout="row"
-              items={[
-                { label: "top-left", value: "top-left", checked: true },
-                { label: "top-right", value: "top-right" },
-                { label: "bottom-left", value: "bottom-left" },
-                { label: "bottom-right", value: "bottom-right" },
-                { label: "bottom-center", value: "bottom-center" },
-                { label: "top-center", value: "top-center" },
+            <Dropdown
+              options={[
+                { name: "top-left", value: "top-left" },
+                { name: "top-right", value: "top-right" },
+                { name: "bottom-left", value: "bottom-left" },
+                { name: "bottom-right", value: "bottom-right" },
+                { name: "bottom-center", value: "bottom-center" },
+                { name: "top-center", value: "top-center" },
               ]}
               onSelected={(val) => setPosition(val as NotificationPosition)}
-            ></RadioGroup>
+            ></Dropdown>
           </div>
         </Section>
         {show && (

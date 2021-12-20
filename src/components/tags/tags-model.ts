@@ -21,4 +21,6 @@ export interface TagsModel {
   tagSize?: "small" | "large";
   disabled?: boolean;
   style?: CSSProperties;
+  autoComplete?: boolean;
+  suggestions?: string[];
 }

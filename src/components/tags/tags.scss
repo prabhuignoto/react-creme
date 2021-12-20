@@ -19,7 +19,6 @@
       opacity: 1,
     ),
   );
-  @extend %border;
   @include animate.set-animation(0.1s, linear);
   @include animate.set-keyframes("tag-fade-in", $settings);
   @include animate.set-keyframes("tag-fade-out", $settings, true);
@@ -46,12 +45,18 @@
   // }
 
   &.rc-tag-style-fill:not(.rc-tag-disabled):not(.rc-tag-readonly) {
+    @extend %border-radius;
     background: colors.$primary;
     color: colors.$white;
   }
 
+  &.rc-tag-style-default {
+    @extend %border;
+  }
+
   &.rc-tag-readonly {
-    background: rgba(colors.$primary, 0.85);
+    @extend %border-radius;
+    background: rgba(colors.$primary, 1);
     color: colors.$white;
   }
 
@@ -79,7 +84,7 @@
 }
 
 .rc-tag-icon {
-  @extend %icon-sm;
+  @extend %icon-md;
   border-radius: 50%;
   cursor: pointer;
 }

@@ -5,8 +5,8 @@
   @extend %center;
 
   @if $size == small {
-    height: 1rem;
-    width: 1rem;
+    height: 0.7rem;
+    width: 0.7rem;
   } @else if $size == medium {
     height: 1.25rem;
     width: 1.25rem;

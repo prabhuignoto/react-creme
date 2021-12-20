@@ -99,8 +99,9 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
         cls("rc-accordion-header", {
           "rc-accordion-align-icon-rt": alignIconRight,
           "rc-accordion-disable-icon": disableIcon,
+          "rc-accordion-focusable": focusable,
         }),
-      [alignIconRight]
+      [alignIconRight, focusable]
     );
 
     const onInitRef = useCallback((node) => {
@@ -139,7 +140,14 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       }
     }, [expanded, open]);
 
-    useFocus(chevronRef, toggleAccordion);
+    if (focusable) {
+      useFocus(chevronRef, toggleAccordion);
+    }
+
+    const focusProps = useMemo(
+      () => (focusable ? { tabIndex: 0 } : null),
+      [focusable]
+    );
 
     const icon = useMemo(() => {
       if (disableIcon) {
@@ -165,7 +173,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
           onClick={toggleAccordion}
           ref={chevronRef}
           role="button"
-          tabIndex={focusable ? 0 : -1}
+          {...focusProps}
         >
           {!disableIcon && <span className={iconClass}>{icon}</span>}
           <span className="rc-accordion-title">{title}</span>

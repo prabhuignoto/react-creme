@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import { AutoComplete } from "..";
 import "../../design/icon.scss";
 import "../../design/layout.scss";
 import "../../design/list.scss";
@@ -25,6 +26,8 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   tagStyle = "default",
   tagWidth = 50,
   style = {},
+  suggestions = [],
+  autoComplete = false,
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemInternalModel[]>(
@@ -116,13 +119,23 @@ const Tags: React.FunctionComponent<TagsModel> = ({
       ))}
       {canAdd && (
         <li className="rc-tags-input-wrapper">
-          <Input
-            onChange={handleChange}
-            onKeyUp={handleKeyUp}
-            value={inputValue}
-            enableClear
-            controlled
-          />
+          {autoComplete && (
+            <AutoComplete
+              suggestions={suggestions}
+              onChange={handleChange}
+              onKeyUp={handleKeyUp}
+              value={inputValue}
+            />
+          )}
+          {!autoComplete && (
+            <Input
+              onChange={handleChange}
+              onKeyUp={handleKeyUp}
+              value={inputValue}
+              enableClear
+              controlled
+            />
+          )}
         </li>
       )}
     </ul>

@@ -71,6 +71,35 @@ function index() {
           optional: "yes",
           type: "string",
         },
+        {
+          name: "border",
+          description: "enables the border",
+          default: "false",
+          optional: "yes",
+          type: "boolean",
+        },
+        {
+          name: "noUniqueId",
+          description:
+            "disables the unique id generation. when this prop is set to true, the id need to be manually passed",
+          default: "false",
+          optional: "yes",
+          type: "boolean",
+        },
+        {
+          name: "id",
+          description: "id of the input",
+          default: "",
+          optional: "yes",
+          type: "string",
+        },
+        {
+          name: "isAutoComplete",
+          description: "configures the input to be an autocomplete",
+          default: "false",
+          optional: "yes",
+          type: "boolean",
+        },
       ]}
       tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}

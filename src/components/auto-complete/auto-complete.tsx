@@ -19,6 +19,8 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   suggestions,
   suggestionsWidth = 200,
   placeholder = "",
+  onKeyUp,
+  value,
 }) => {
   const suggestionItems = React.useRef<Option[]>(
     suggestions
@@ -77,6 +79,12 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
     }
   }, [input]);
 
+  useEffect(() => {
+    if (!isFirstRender.current && !!value) {
+      setInput(value);
+    }
+  }, [value]);
+
   const style = useMemo(
     () =>
       ({
@@ -97,6 +105,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
           noUniqueId
           id={id.current}
           isAutoComplete
+          onKeyUp={onKeyUp}
         />
       </div>
       {matchFound && (

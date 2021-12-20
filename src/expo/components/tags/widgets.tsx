@@ -2,6 +2,15 @@ import React, { useLayoutEffect } from "react";
 import { BlockQuote, Section, Tags } from "../../../components";
 import { DemoWidget } from "../../common/demo-widget";
 import useMedia from "../../common/useMedia";
+
+const items = [
+  { name: "python", disabled: false },
+  { name: "fortran" },
+  { name: "c sharp" },
+  { name: "Go lang" },
+  { name: "RUST", disabled: false },
+];
+
 function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState<string | number>(null);
@@ -34,13 +43,7 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
               <Tags
-                items={[
-                  { name: "prabhu murthy", disabled: false },
-                  { name: "blue" },
-                  { name: "red" },
-                  { name: "orange" },
-                  { name: "tester", disabled: false },
-                ]}
+                items={items}
                 maxTags={15}
                 onSelected={(val) => console.log(val)}
                 tagWidth={150}
@@ -55,13 +58,7 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
               <Tags
-                items={[
-                  { name: "prabhu murthy", disabled: false },
-                  { name: "blue" },
-                  { name: "red" },
-                  { name: "orange" },
-                  { name: "tester", disabled: true },
-                ]}
+                items={items}
                 maxTags={15}
                 onSelected={(val) => console.log(val)}
                 tagWidth={150}
@@ -78,18 +75,31 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
               <Tags
-                items={[
-                  { name: "prabhu", disabled: false },
-                  { name: "blue" },
-                  { name: "red" },
-                  { name: "orange" },
-                  { name: "tester", disabled: false },
-                ]}
+                items={items}
                 maxTags={15}
                 restrictToValues={["one", "two"]}
                 onSelected={(val) => console.log(val)}
                 readonly
                 tagWidth={50}
+              />
+            </div>
+          </DemoWidget>
+        </Section>
+        <Section title="Tags - AutoComplete">
+          <BlockQuote>
+            In readonly mode, you can only select the tags that are already in
+            the list.
+          </BlockQuote>
+          <DemoWidget>
+            <div style={{ width: resolvedWidth }}>
+              <Tags
+                items={items}
+                maxTags={15}
+                restrictToValues={["one", "two"]}
+                onSelected={(val) => console.log(val)}
+                tagWidth={100}
+                autoComplete
+                suggestions={["one", "two"]}
               />
             </div>
           </DemoWidget>

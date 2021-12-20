@@ -26,6 +26,7 @@ const Input: React.FunctionComponent<InputModel> = ({
   noUniqueId = false,
   id = "",
   isAutoComplete = false,
+  border = false,
 }: InputModel) => {
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -77,6 +78,7 @@ const Input: React.FunctionComponent<InputModel> = ({
         [`rc-input-${state}`]: true,
         "rc-input-no-icon": !children,
         "rc-input-disabled": disabled,
+        "rc-input-border": border,
       }),
     [disabled]
   );

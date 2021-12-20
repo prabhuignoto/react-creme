@@ -76,7 +76,7 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
       <header className="rc-notification-header">
         <span className="rc-notification-title">{title}</span>
         <span className="rc-notification-close-btn">
-          <Button type="icon" size="sm" onClick={onClose}>
+          <Button type="icon" size="md" onClick={onClose}>
             <CloseIcon />
           </Button>
         </span>
