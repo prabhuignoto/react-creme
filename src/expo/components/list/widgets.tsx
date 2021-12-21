@@ -15,7 +15,7 @@ function Widgets() {
     if (media.isExtraLargeScreen) {
       setWidth(650);
     } else if (media.isBigScreen) {
-      setWidth(500);
+      setWidth(450);
     } else if (media.isDesktop) {
       setWidth(450);
     } else if (media.isTablet) {
@@ -32,7 +32,7 @@ function Widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <List
-                maxHeight={350}
+                maxHeight={450}
                 onSelection={(val) => console.log(val)}
                 options={Array.from({ length: 5 }, (_, i) => ({
                   name: `Item ${i + 1}`,

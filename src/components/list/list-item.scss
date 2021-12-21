@@ -25,11 +25,11 @@ $height: 40px;
   width: 100%;
   z-index: 0;
   
-  &.rc-list-option-focusable {
+  &.rc-list-option-focus {
     @include animate.halo();
   }
 
-  &:not(.rc-list-option-focusable) {
+  &:not(.rc-list-option-focus) {
     outline: 0;
   }
 

@@ -11,7 +11,7 @@ interface ListCommonProps {
 }
 
 export interface ListModel extends ListCommonProps {
-  borderLess?: boolean;
+  border?: boolean;
   enableSearch?: boolean;
   group?: boolean;
   itemHeight?: number;

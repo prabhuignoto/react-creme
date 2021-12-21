@@ -37,7 +37,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
             "rc-list-option-selected": selected,
             "rc-list-option-multi-selection": allowMultiSelection,
             "rc-list-option-highlight-selection": highlightSelection,
-            "rc-list-option-focusable": focusable,
+            "rc-list-option-focus": focusable,
           },
         ]),
       [selected, disabled, focusable]

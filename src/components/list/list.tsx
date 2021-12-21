@@ -40,7 +40,7 @@ const initOptions = (
 
 const List: React.FunctionComponent<ListModel> = ({
   allowMultiSelection = false,
-  borderLess = false,
+  border = true,
   enableSearch = false,
   itemHeight = 40,
   maxHeight = 600,
@@ -65,12 +65,12 @@ const List: React.FunctionComponent<ListModel> = ({
   const listRef = useRef<HTMLUListElement | null>(null);
   const [selected, setSelected] = useState<ListOption[]>();
   const [visibleRange, setVisibleRange] = useState<number[]>([0, 0]);
-  const [timeStamp, setTimeStamp] = useState(0);
+  const [renderTrigger, setRenderTrigger] = useState(0);
 
   const rcListClass = useMemo(
     () =>
       cls("rc-list", {
-        "rc-list-border-less": borderLess,
+        "rc-list-border": border,
         "rc-list-search": enableSearch,
       }),
     []
@@ -85,7 +85,7 @@ const List: React.FunctionComponent<ListModel> = ({
     } as CSSProperties;
 
     return style;
-  }, [_listOptions.length, timeStamp]);
+  }, [_listOptions.length, renderTrigger]);
 
   const handleSearch = useCallback((val: string) => {
     const _val = val.trim().toLowerCase();
@@ -121,6 +121,7 @@ const List: React.FunctionComponent<ListModel> = ({
           top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
         }));
       });
+      setRenderTrigger(Date.now());
     });
   }, []);
 
@@ -145,7 +146,7 @@ const List: React.FunctionComponent<ListModel> = ({
       });
     }
 
-    setTimeStamp(Date.now());
+    setRenderTrigger(Date.now());
   };
 
   useEffect(() => {

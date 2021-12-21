@@ -169,7 +169,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
                   <List
                     key={id}
                     options={items}
-                    borderLess
+                    border={false}
                     rowGap={5}
                     itemHeight={35}
                     maxHeight={listMaxHeight}

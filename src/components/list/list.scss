@@ -21,7 +21,7 @@
     grid-template-rows: 50px calc(var(--max-height) - 56px);
   }
 
-  &:not(.rc-list-border-less) {
+  &.rc-list-border {
     @extend %border;
   }
 }
