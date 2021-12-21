@@ -46,7 +46,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
         options={options}
         onSelection={handleSelection}
         allowMultiSelection={allowMultiSelection}
-        borderLess
+        border={false}
         enableSearch={enableSearch}
         maxHeight={maxMenuHeight}
         virtualized={virtualize}
