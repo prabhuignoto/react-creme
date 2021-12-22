@@ -57,7 +57,6 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
                 { name: "Reveal" },
                 { name: "scroll spy" },
                 { name: "section" },
-                { name: "draggable" },
               ],
             },
             {
@@ -110,6 +109,10 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
                 { name: "Menu Bar" },
                 { name: "Menu Button" },
               ],
+            },
+            {
+              title: "Utilities",
+              items: [{ name: "draggable" }],
             },
           ]}
         />

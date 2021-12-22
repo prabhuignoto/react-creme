@@ -46,7 +46,7 @@ export function BoundToContainer() {
     >
       <div
         style={{
-          width: `${dimensions.width / 5}px`,
+          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
         }}
         ref={ref}
@@ -75,7 +75,7 @@ export function BoundToContainerHorizontal() {
     >
       <div
         style={{
-          width: `${dimensions.width / 5}px`,
+          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
         }}
         ref={ref}
@@ -103,7 +103,7 @@ export function BoundToContainerVertical() {
     >
       <div
         style={{
-          width: `${dimensions.width / 5}px`,
+          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
         }}
         ref={ref}
@@ -135,21 +135,21 @@ export function DraggableWidgets() {
     >
       <div
         style={{
-          width: `${dimensions.width / 5}px`,
+          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
         }}
         className="rc-demo-drag-inner-box"
       ></div>
       <div
         style={{
-          width: `${dimensions.width / 5}px`,
+          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
         }}
         className="rc-demo-drag-inner-box"
       ></div>
       <div
         style={{
-          width: `${dimensions.width / 5}px`,
+          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
         }}
         className="rc-demo-drag-inner-box"

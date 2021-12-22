@@ -25,8 +25,11 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   sliderValue = 0,
   start = 1,
   tooltipWidth = 40,
+  focusable = false,
 }) => {
   const [dragging, setDragging] = React.useState(false);
+
+  // state to toggle the tooltip
   const [hideTooltip, setHideTooltip] = React.useState(showTooltipOnHover);
 
   const controlRef = useRef<HTMLElement | null>(null);
@@ -38,10 +41,11 @@ const Slider: React.FunctionComponent<SliderModel> = ({
     ? useDebouncedCallback(onChange, 100)
     : null;
 
+  // callbacks for drag start and end operation
   const onDragStart = useCallback(() => setDragging(true), []);
-
   const onDragEnd = useCallback(() => setDragging(false), []);
 
+  // setup the slider dragging function
   const [percent] = useDrag(trackerRef, controlRef, {
     direction: "horizontal",
     startValue: start,
@@ -88,6 +92,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
     []
   );
 
+  // Styles
   const sliderFillStyle = useMemo(() => {
     if (sliderFillRef.current && trackerRef.current) {
       return {
@@ -95,10 +100,6 @@ const Slider: React.FunctionComponent<SliderModel> = ({
       } as CSSProperties;
     }
   }, [percent, sliderFillRef, trackerRef]);
-
-  const value = useMemo(() => {
-    return Math.round((end - start) * percent) + start;
-  }, [percent, dragging]);
 
   const sliderWrapperClass = useMemo(
     () =>
@@ -115,16 +116,25 @@ const Slider: React.FunctionComponent<SliderModel> = ({
     });
   }, [dragging]);
 
+  const value = useMemo(() => {
+    return Math.round((end - start) * percent) + start;
+  }, [percent, dragging]);
+
   const canShowTooltip = useMemo(
     () => !disableTooltip && !hideTooltip,
     [hideTooltip, disableTooltip]
   );
 
-  useFocus(controlRef);
+  if (focusable) {
+    useFocus(controlRef);
+  }
 
-  useEffect(() => {
-    onChangeDebounced && onChangeDebounced(value);
-  }, [value]);
+  useEffect(() => onChangeDebounced?.(value), [value]);
+
+  const focusableProps = useMemo(
+    () => focusable && { tabIndex: 0 },
+    [focusable]
+  );
 
   return (
     <div
@@ -146,7 +156,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
           className={knobClass}
           ref={onControlInit}
           role="slider"
-          tabIndex={0}
+          {...focusableProps}
           style={{ "--size": `${knobSize}px` } as CSSProperties}
           {...(showTooltipOnHover ? { onMouseOver: handleMouseOver } : null)}
         >

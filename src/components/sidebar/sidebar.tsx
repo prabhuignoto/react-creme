@@ -3,8 +3,9 @@ import { nanoid } from "nanoid";
 import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
 import { ChevronRightIcon, SearchIcon } from "../../icons";
 import { isArray } from "../common/utils";
-import { AccordionGroup, Input, List } from "../index";
+import { Input } from "../index";
 import { ListOption } from "../list/list-model";
+import { SidebarGroups } from "./sidebar-groups";
 import { SidebarGroupModel, SidebarModel } from "./sidebar-model";
 import "./sidebar.scss";
 
@@ -12,6 +13,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   backGroundColor = "#fff",
   border = false,
   enableSearch = false,
+  focusable = false,
   groupIconColor = "#000",
   groupTitleColor = "#000",
   groups,
@@ -20,7 +22,6 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   minimizeSidebar = false,
   onSelect,
   searchPlaceholder = "Search ...",
-  focusable = false,
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)
@@ -38,9 +39,9 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   );
 
   const [minimize, setMinimize] = React.useState(false);
+  const [sidebarHeight, setSidebarHeight] = React.useState(0);
 
   const ref = useRef<HTMLDivElement | null>(null);
-  const [sidebarHeight, setSidebarHeight] = React.useState(0);
 
   const handleSelection = useCallback(
     (option: ListOption[], groupId?: string) => {
@@ -125,12 +126,6 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
     }
   }, []);
 
-  const groupsWrapperStyle = useMemo(() => {
-    return {
-      height: `${sidebarHeight}px`,
-    } as CSSProperties;
-  }, [sidebarHeight]);
-
   return (
     <div className={sideBarClass} style={style} ref={onRef}>
       {minimizeSidebar && (
@@ -151,40 +146,15 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
             </Input>
           </div>
         )}
-        <div className="rc-sidebar-groups-wrapper" style={groupsWrapperStyle}>
-          <AccordionGroup
-            titles={_groups
-              .filter((grp) => grp.visible)
-              .map((grp) => grp.title)}
-            expanded
-            autoClose={false}
-            border={false}
-            titleColor={groupTitleColor}
-            iconColor={groupIconColor}
-          >
-            {_groups
-              .filter((grp) => grp.visible)
-              .map(({ id, items }) => {
-                return (
-                  <List
-                    key={id}
-                    options={items}
-                    border={false}
-                    rowGap={5}
-                    itemHeight={35}
-                    maxHeight={listMaxHeight}
-                    onSelection={(option) => handleSelection(option, id)}
-                    noUniqueIds
-                    focusable={focusable}
-                    showCheckIcon={false}
-                    highlightSelection
-                    textColor={groupTitleColor}
-                    backGroundColor="transparent"
-                  ></List>
-                );
-              })}
-          </AccordionGroup>
-        </div>
+        <SidebarGroups
+          groups={_groups}
+          focusable={focusable}
+          onSelection={handleSelection}
+          groupIconColor={groupIconColor}
+          groupTitleColor={groupTitleColor}
+          sideBarHeight={sidebarHeight}
+          listMaxHeight={listMaxHeight}
+        />
       </div>
     </div>
   );

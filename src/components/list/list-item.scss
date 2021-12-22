@@ -33,7 +33,7 @@ $height: 40px;
     outline: 0;
   }
 
-  &:hover:not(.rc-list-option-multi-selection):not(.rc-list-option-disabled) {
+  &:hover:not(.rc-list-option-disabled) {
     background: rgba(colors.$secondary, 0.25);
   }
 

@@ -1,18 +1,14 @@
 import { ListOption } from "../list/list-model";
 
-export interface SidebarModel {
+export interface SidebarModel extends SidebarCommonProps {
   backGroundColor?: string;
   border?: boolean;
   enableSearch?: boolean;
-  groupIconColor?: string;
-  groupTitleColor?: string;
   groups: SidebarGroupModel[];
   height?: number;
-  listMaxHeight?: number;
   minimizeSidebar?: boolean;
   onSelect?: (group: SidebarGroupModel, item: SidebarItemModel) => void;
   searchPlaceholder?: string;
-  focusable?: boolean;
 }
 
 export interface SidebarGroupModel {
@@ -27,4 +23,17 @@ export interface SidebarItemModel {
   name: string;
   selected?: boolean;
   visible?: boolean;
+}
+
+export interface SidebarGroupsModel extends SidebarCommonProps {
+  groups: SidebarGroupModel[];
+  onSelection: (option: ListOption[], id?: string) => void;
+  sideBarHeight?: number;
+}
+
+export interface SidebarCommonProps {
+  groupIconColor?: string;
+  focusable?: boolean;
+  groupTitleColor?: string;
+  listMaxHeight?: number;
 }

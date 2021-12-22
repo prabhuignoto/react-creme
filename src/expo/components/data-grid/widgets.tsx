@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { Section, BlockQuote, DataGrid } from "../../../components";
+import { BlockQuote, DataGrid, Section } from "../../../components";
 import useMedia from "../../common/useMedia";
 
 const data = [
@@ -37,7 +37,7 @@ function widgets() {
     if (media.isExtraLargeScreen) {
       setWidth(1250);
     } else if (media.isBigScreen) {
-      setWidth(850);
+      setWidth(950);
     } else if (media.isDesktop) {
       setWidth(700);
     } else if (media.isTablet) {
