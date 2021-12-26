@@ -6,6 +6,9 @@
 .rc-tooltip-wrapper {
   @extend %center;
 
+  background-color: var(-bg-color, colors.$white);
+  color: var(--fore-color, colors.$primary);
+
   &:not(.rc-tooltip-fixed) {
     position: relative;
   }
@@ -38,7 +41,7 @@
   background: colors.$white;
   max-width: var(--max-width);
   min-width: var(--min-width);
-  padding: 6px;
+  padding: 0.5rem;
   position: absolute;
   visibility: hidden;
   z-index: 99999;

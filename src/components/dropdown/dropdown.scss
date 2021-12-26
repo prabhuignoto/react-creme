@@ -24,6 +24,7 @@
   font-size: 14px;
   grid-template-columns: calc(100% - 2rem) 2rem;
   height: 100%;
+  padding: 0.1rem 0;
   width: 100%;
 
   &:not(.rc-dropdown-disabled) {
@@ -36,14 +37,13 @@
 
   &.rc-dropdown-multi {
     max-height: 400px;
-    min-height: 40px;
-    padding: 0.25rem 0;
+    min-height: 35px;
     transition: max-height 0.5s ease-in;
   }
 
   &:not(.rc-dropdown-multi) {
     @extend %center;
-    height: 40px;
+    height: 35px;
   }
 }
 

@@ -75,7 +75,7 @@ const Widgets = () => {
               position={position}
               minWidth={160}
             >
-              <div style={{ width: `${width}px`, marginTop: "1rem" }}>
+              <div style={{ width: `${width}px` }}>
                 <Card minHeight={100}>
                   Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
                   molestie velit quis volutpat vestibulum. Donec facilisis est
@@ -93,7 +93,7 @@ const Widgets = () => {
             The Tooltip can also be configured to be static.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px`, marginTop: "1rem" }}>
+            <div style={{ width: `${width}px` }}>
               <Tooltip
                 message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
                 position={position}

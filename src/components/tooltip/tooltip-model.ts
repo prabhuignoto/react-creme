@@ -23,4 +23,6 @@ export interface TooltipModel {
   minWidth?: number;
   maxWidth?: number;
   fixedAtCenter?: boolean;
+  bgColor?: string;
+  foreColor?: string;
 }

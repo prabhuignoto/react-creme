@@ -29,6 +29,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     options = [],
     placeholder = "Choose an option...",
     virtualize = false,
+    focusable = false,
   }: DropdownModel) => {
     // options states
     const [dropdownOptions, setDropdownOptions] = useState(
@@ -123,7 +124,10 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     }, [showMenu]);
 
     // setup focus
-    useFocus(containerRef, handleToggleMenu);
+
+    if (focusable) {
+      useFocus(containerRef, handleToggleMenu);
+    }
 
     // memoize the selected value
     const selectedValue = useMemo(() => {
@@ -176,7 +180,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
           className={rcDropdownValueClass}
           ref={containerRef}
           onClick={handleToggleMenu}
-          tabIndex={!disabled ? 0 : -1}
+          tabIndex={!disabled && focusable ? 0 : -1}
           aria-disabled={disabled}
         >
           {allowMultiSelection ? (

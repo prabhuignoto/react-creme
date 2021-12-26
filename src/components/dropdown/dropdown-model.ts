@@ -35,4 +35,5 @@ export interface DropdownModel {
   options: Option[];
   placeholder?: string;
   virtualize?: boolean;
+  focusable?: boolean;
 }

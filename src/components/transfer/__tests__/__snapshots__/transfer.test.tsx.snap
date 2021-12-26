@@ -8,7 +8,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
     class="transfer-column1"
   >
     <div
-      class="rc-list"
+      class="rc-list rc-list-border"
       style="--min-height: 100px; --max-height: 350px; --list-bg-color: #fff;"
     >
       <div
@@ -238,7 +238,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
     class="transfer-column2"
   >
     <div
-      class="rc-list"
+      class="rc-list rc-list-border"
       style="--min-height: 100px; --max-height: 350px; --list-bg-color: #fff;"
     >
       <div

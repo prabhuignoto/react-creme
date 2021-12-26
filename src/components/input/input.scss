@@ -34,10 +34,11 @@
     font-size: 1rem;
     font-weight: 300; 
   }
-
+  
   ::placeholder {
     /* Firefox 19+ */
     font-size: 1rem;
+    font-weight: 300; 
   }
 
   &:not(.rc-input-disabled) {

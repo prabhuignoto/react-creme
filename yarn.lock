@@ -1575,10 +1575,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@^17.0.37":
-  version "17.0.37"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.37.tgz#6884d0aa402605935c397ae689deed115caad959"
-  integrity sha512-2FS1oTqBGcH/s0E+CjrCCR9+JMpsu9b69RTFO+40ua43ZqP5MmQ4iUde/dMjWR909KxZwmOQIFq6AV6NjEG5xg==
+"@types/react@^17.0.38":
+  version "17.0.38"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.38.tgz#f24249fefd89357d5fa71f739a686b8d7c7202bd"
+  integrity sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -2296,10 +2296,15 @@ caniuse-lite@^1.0.30001271, caniuse-lite@^1.0.30001272:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001272.tgz#8e9790ff995e9eb6e1f4c45cd07ddaa87cddbb14"
   integrity sha512-DV1j9Oot5dydyH1v28g25KoVm7l8MTxazwuiH3utWiAS6iL/9Nh//TGwqFEeqqN8nnWYQ8HHhUq+o4QPt9kvYw==
 
-caniuse-lite@^1.0.30001286, caniuse-lite@^1.0.30001287:
+caniuse-lite@^1.0.30001286:
   version "1.0.30001287"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001287.tgz#5fab6a46ab9e47146d5dd35abfe47beaf8073c71"
   integrity sha512-4udbs9bc0hfNrcje++AxBuc6PfLNHwh3PO9kbwnfCQWyqtlzg3py0YgFu8jyRTTo85VAz4U+VLxSlID09vNtWA==
+
+caniuse-lite@^1.0.30001291:
+  version "1.0.30001292"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001292.tgz#4a55f61c06abc9595965cfd77897dc7bc1cdc456"
+  integrity sha512-jnT4Tq0Q4ma+6nncYQVe7d73kmDmE9C3OGTx3MvW7lBM/eY1S1DZTMBON7dqV481RhNiS5OxD7k9JQvmDOTirw==
 
 canvas@^2.8.0:
   version "2.8.0"
@@ -3405,10 +3410,10 @@ eslint-plugin-promise@6.0.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-6.0.0.tgz#017652c07c9816413a41e11c30adc42c3d55ff18"
   integrity sha512-7GPezalm5Bfi/E22PnQxDWH2iW9GTvAlUNTztemeHb6c1BniSyoeTrM87JkC0wYdi6aQrZX9p2qEiAno8aTcbw==
 
-eslint-plugin-react@^7.27.1:
-  version "7.27.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.27.1.tgz#469202442506616f77a854d91babaae1ec174b45"
-  integrity sha512-meyunDjMMYeWr/4EBLTV1op3iSG3mjT/pz5gti38UzfM4OPpNc2m0t2xvKCOMU5D6FSdd34BIMFOvQbW+i8GAA==
+eslint-plugin-react@^7.28.0:
+  version "7.28.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.28.0.tgz#8f3ff450677571a659ce76efc6d80b6a525adbdf"
+  integrity sha512-IOlFIRHzWfEQQKcAD4iyYDndHwTQiCMcJVJjxempf203jnNLUnW34AXLrV33+nEXoifJE2ZEGmcjKPL8957eSw==
   dependencies:
     array-includes "^3.1.4"
     array.prototype.flatmap "^1.2.5"
@@ -6471,14 +6476,14 @@ postcss-prefixer@^2.1.3:
     css-selector-tokenizer "^0.7.2"
     postcss "^5.2.18"
 
-postcss-preset-env@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-7.0.2.tgz#f143d4aa2eb0f13a50f20bbcff8b3bb3413e7bc6"
-  integrity sha512-xgmkS+H2xhjPQWewnH4ViKBCHIZ15FfpldGZuBFaBIi/iipxHTLnBHKtkCp1L531SdNEPwo9md2psjOU1G77lw==
+postcss-preset-env@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-7.1.0.tgz#bb91486e15aa30307292acfcea07e871f30714d5"
+  integrity sha512-YZI44uxVJQQu18TeHEoDtdLsjKLQpCpzt/4FAzadIcnNYwvKSQqvxaHE6uWobEWQrcfU42zIddMPUKgYQxZs8g==
   dependencies:
     autoprefixer "^10.4.0"
     browserslist "^4.19.1"
-    caniuse-lite "^1.0.30001287"
+    caniuse-lite "^1.0.30001291"
     css-blank-pseudo "^3.0.0"
     css-has-pseudo "^3.0.0"
     css-prefers-color-scheme "^6.0.0"
@@ -6806,14 +6811,14 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
-react-dom@^18.0.0-rc.0-next-aa8f2bdbc-20211215:
-  version "18.0.0-rc.0-next-aa8f2bdbc-20211215"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-rc.0-next-aa8f2bdbc-20211215.tgz#6ffd75da09e903b2a41a7864e5e593848161de49"
-  integrity sha512-Tst8hBrKMumjnAXiPf2rOhW6jH7tXJJiIK5lY4QYTEKfJfNDnVr/whkoXfH5bBW2co6/MZwdpNWTHzDCwCQ4qA==
+react-dom@^18.0.0-rc.0-next-20212349a-20211223:
+  version "18.0.0-rc.0-next-20212349a-20211223"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-rc.0-next-20212349a-20211223.tgz#534223a17d6045bc79d5f1b4a303a9f292304235"
+  integrity sha512-CJvn0Plr7KakctwvdOV844Q4KSzdbzAk3FsgIoGe4J4pezwpNV/7szFMGyYsHNEbRE8RJoPoPTPNKLYWeAD9Rw==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    scheduler "0.21.0-rc.0-next-aa8f2bdbc-20211215"
+    scheduler "0.21.0-rc.0-next-20212349a-20211223"
 
 react-element-to-jsx-string@^14.3.4:
   version "14.3.4"
@@ -6875,10 +6880,10 @@ react-syntax-highlighter@^15.4.5:
     prismjs "^1.25.0"
     refractor "^3.2.0"
 
-react@^18.0.0-rc.0-next-aa8f2bdbc-20211215:
-  version "18.0.0-rc.0-next-aa8f2bdbc-20211215"
-  resolved "https://registry.yarnpkg.com/react/-/react-18.0.0-rc.0-next-aa8f2bdbc-20211215.tgz#83a27dd32f1f769e34c741cca75a1260c01911d0"
-  integrity sha512-9D3VLGHusmvuZB5/fD1rFC7Uqff35Nf77B4grAWH1RIoKQkvLHgwZkegInnN9dMEEf/OtJSgUcj9iJRtWugsjg==
+react@^18.0.0-rc.0-next-20212349a-20211223:
+  version "18.0.0-rc.0-next-20212349a-20211223"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.0.0-rc.0-next-20212349a-20211223.tgz#b2d6a182bae4c993c664904a970ce76502b5461d"
+  integrity sha512-rioMSt72tw0Y/od/9Qsqe+oYZD2L1IYOkf7Ut5fQhYIS3g0IMlO8Taua4gjnpl7CMEE7Bp1iGVYELWhPkgPdpA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -7169,10 +7174,10 @@ saxes@^5.0.1:
   dependencies:
     xmlchars "^2.2.0"
 
-scheduler@0.21.0-rc.0-next-aa8f2bdbc-20211215:
-  version "0.21.0-rc.0-next-aa8f2bdbc-20211215"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.21.0-rc.0-next-aa8f2bdbc-20211215.tgz#89e316e4865788a9c0e4efea98d79cc34f28151e"
-  integrity sha512-vpZzI3C5Jqy6lPikaLxQI5WxCvR699SBnlyRHCv9YHFSsrGgkhMTARPsfRdjBkMlsqzrpiaxSbc7JDZiWQIKDw==
+scheduler@0.21.0-rc.0-next-20212349a-20211223:
+  version "0.21.0-rc.0-next-20212349a-20211223"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.21.0-rc.0-next-20212349a-20211223.tgz#54b03a0a1cc82121a1865509374b0fa11031e8b7"
+  integrity sha512-SvlscAsujsSCXCHSC0R3AEHCsSybIMrghHu0NW1xVG5k9BohRBrnZ9i8EbbY5JpBkGaUn5dG4NTYNPN+DiFwZA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

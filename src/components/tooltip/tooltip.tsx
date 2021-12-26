@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React, {
+  CSSProperties,
   useCallback,
   useEffect,
   useMemo,
@@ -20,6 +21,8 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   position = "bottom center",
   minWidth = 150,
   maxWidth = 300,
+  bgColor = "#fff",
+  foreColor = "#000",
 }: TooltipModel) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
@@ -95,12 +98,26 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
 
   useEffect(() => {
     if (cssPosition) {
-      onTooltipRendered && onTooltipRendered();
+      onTooltipRendered?.();
     }
   }, [cssPosition]);
 
+  const style = useMemo(
+    () =>
+      ({
+        "--bg-color": bgColor,
+        "--fore-color": foreColor,
+      } as CSSProperties),
+    []
+  );
+
   return (
-    <div className={tooltipWrapperClass} ref={onRef} role="tooltip">
+    <div
+      className={tooltipWrapperClass}
+      ref={onRef}
+      role="tooltip"
+      style={style}
+    >
       <span
         className={toolTipMessageClass}
         style={tooltipMessageStyle}

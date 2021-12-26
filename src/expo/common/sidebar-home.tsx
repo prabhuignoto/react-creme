@@ -45,19 +45,20 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
               title: "Layout",
               items: [
                 { name: "Splitter" },
-                { name: "Card" },
-                { name: "Image" },
                 { name: "Accordion" },
+                { name: "Image" },
                 { name: "Tabs" },
                 { name: "Accordion Group" },
-                { name: "Tree" },
                 { name: "Sidebar" },
                 { name: "image comparer" },
                 { name: "Carousel" },
                 { name: "Reveal" },
                 { name: "scroll spy" },
-                { name: "section" },
               ],
+            },
+            {
+              title: "content",
+              items: [{ name: "section" }, { name: "Card" }],
             },
             {
               title: "Inputs",
@@ -88,6 +89,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
             {
               title: "Data",
               items: [
+                { name: "Tree" },
                 { name: "List" },
                 { name: "Data Grid" },
                 { name: "Transfer" },
