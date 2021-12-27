@@ -1,7 +1,6 @@
 import cls from "classnames";
 import React, {
   CSSProperties,
-  startTransition,
   useCallback,
   useEffect,
   useId,
@@ -19,9 +18,9 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
   ({
     alignIconRight = false,
     children,
-    expanded = null,
     customIcon = null,
     disableIcon = false,
+    expanded = null,
     focusable = false,
     iconColor = "#000",
     iconType = "chevron",
@@ -45,7 +44,11 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     const toggleAccordion = useCallback(() => {
       enableCallback.current = true;
 
-      startTransition(() => setOpen((prev) => !prev));
+      setOpen((prev) => {
+        return !prev;
+      });
+      // startTransition(() =>
+      // );
     }, []);
 
     const enableCallback = useRef(false);
@@ -129,16 +132,12 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     }
 
     useEffect(() => {
-      if (isFirstRender.current || expanded === null) {
-        return;
-      }
-
       enableCallback.current = false;
 
-      if (open !== expanded) {
+      if (expanded !== null) {
         setOpen(expanded);
       }
-    }, [expanded, open]);
+    }, [expanded]);
 
     if (focusable) {
       useFocus(chevronRef, toggleAccordion);

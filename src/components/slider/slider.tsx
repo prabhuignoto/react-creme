@@ -26,6 +26,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   start = 1,
   tooltipWidth = 40,
   focusable = false,
+  formatter,
 }) => {
   const [dragging, setDragging] = React.useState(false);
 
@@ -131,6 +132,13 @@ const Slider: React.FunctionComponent<SliderModel> = ({
 
   useEffect(() => onChangeDebounced?.(value), [value]);
 
+  const tooltipMessage = useMemo(() => {
+    if (formatter) {
+      return formatter(value) + "";
+    }
+    return value + "";
+  }, [value]);
+
   const focusableProps = useMemo(
     () => focusable && { tabIndex: 0 },
     [focusable]
@@ -164,7 +172,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
             <Tooltip
               isStatic
               position={`${position} center`}
-              message={value + ""}
+              message={tooltipMessage}
               onTooltipRendered={onTooltipRender}
               fixedAtCenter
               minWidth={tooltipWidth}

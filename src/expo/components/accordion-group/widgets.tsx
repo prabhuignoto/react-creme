@@ -64,7 +64,8 @@ function Widgets() {
         <Section title="Initial state">
           <BlockQuote>
             Set a default state for the AccordionGroup on load. This is useful
-            if you want to keep the accordions closed or open on load.
+            if you want to keep the accordions closed or open on load. The
+            example shows the accordions open on load
           </BlockQuote>
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
@@ -72,7 +73,7 @@ function Widgets() {
                 titles={["one", "two"]}
                 autoClose={false}
                 border={false}
-                initialState="open"
+                expanded
               >
                 <Para />
                 <div
@@ -106,7 +107,7 @@ function Widgets() {
             </div>
           </div>
         </Section>
-        <Section title="Custom Icons and Alignment">
+        <Section title="Custom Icon">
           <BlockQuote>
             The AccordionGroup can be configured to use custom icons and
             alignment
@@ -116,7 +117,6 @@ function Widgets() {
               <AccordionGroup
                 titles={["one", "two", "three"]}
                 border={false}
-                alignIconRight
                 iconType="plus"
               >
                 {Array.from({ length: 3 }).map((_, i) => (

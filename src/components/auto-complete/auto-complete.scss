@@ -8,6 +8,7 @@
 
 .rc-auto-complete-input-wrapper {
   height: 40px;
+  @extend %center;
 }
 
 .rc-auto-complete-suggestions-wrapper {

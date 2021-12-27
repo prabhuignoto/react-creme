@@ -6,9 +6,6 @@
 .rc-tooltip-wrapper {
   @extend %center;
 
-  background-color: var(-bg-color, colors.$white);
-  color: var(--fore-color, colors.$primary);
-
   &:not(.rc-tooltip-fixed) {
     position: relative;
   }
@@ -39,6 +36,8 @@
   @include animate.set-keyframes(animate-tooltip-show, $animation);
   @include animate.set-keyframes(animate-tooltip-close, $animation, true);
   background: colors.$white;
+  background-color: var(-bg-color, colors.$white);
+  color: var(--fore-color, colors.$primary);
   max-width: var(--max-width);
   min-width: var(--min-width);
   padding: 0.5rem;

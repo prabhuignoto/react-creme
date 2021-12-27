@@ -56,6 +56,13 @@ function slider() {
           type: "boolean",
         },
         {
+          name: "showCheckIcon",
+          description: "Shows the check icon.",
+          default: "false",
+          optional: "Yes",
+          type: "boolean",
+        },
+        {
           name: "tooltipWidth",
           description: "The width of the tooltip.",
           default: "<code>40</code>",

@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useFocus } from "../common/effects/useFocus";
 import { SwitchModel } from "./switch-model";
 import "./switch.scss";
+import { CheckIcon } from "../../icons";
 
 const Switch: React.FunctionComponent<SwitchModel> = ({
   checked = false,
@@ -15,6 +16,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   size = "sm",
   style,
   width = 50,
+  showCheckIcon = false,
 }) => {
   const [state, setState] = useState(checked);
   const ref = useRef(null);
@@ -48,8 +50,9 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
         "rc-switch-off": !state && !isFirstRender.current,
         [`rc-switch-knob-${size}`]: true,
         "rc-switch-disabled": disabled,
+        "rc-switch-check-icon": showCheckIcon,
       }),
-    [state, size, disabled]
+    [state, size, disabled, showCheckIcon]
   );
 
   const switchClass = useMemo(
@@ -118,7 +121,9 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
       {...switchTabIndex}
     >
       <span className={switchTrackClass}>
-        <span className={switchKnobClass}></span>
+        <span className={switchKnobClass}>
+          {showCheckIcon && <CheckIcon />}
+        </span>
         {label && !labelOutside && (
           <span className={switchLabelClass} id={id.current}>
             {label}

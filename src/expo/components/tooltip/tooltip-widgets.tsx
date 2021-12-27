@@ -74,6 +74,8 @@ const Widgets = () => {
               message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
               position={position}
               minWidth={160}
+              bgColor="#fff"
+              foreColor="#FF0000"
             >
               <div style={{ width: `${width}px` }}>
                 <Card minHeight={100}>

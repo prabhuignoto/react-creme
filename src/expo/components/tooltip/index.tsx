@@ -45,6 +45,20 @@ function tooltip() {
           optional: "Yes",
           type: "Boolean",
         },
+        {
+          name: "bgColor",
+          description: "background color of the tooltip",
+          default: "#fff",
+          optional: "Yes",
+          type: "String",
+        },
+        {
+          name: "foreColor",
+          description: "foreground color of the tooltip",
+          default: "#000",
+          optional: "Yes",
+          type: "String",
+        },
       ]}
       tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}

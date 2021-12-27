@@ -3,7 +3,7 @@
 @use "../../design/icon.scss";
 @use "../../design/animate.scss";
 
-$header-height: 40px;
+$header-height: 35px;
 $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
 .rc-accordion {
@@ -23,13 +23,13 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   height: $header-height;
   justify-items: center;
   position: relative;
-  // width: 100%;
+  text-transform: capitalize;
   
   &.rc-accordion-focusable {
     @include animate.halo();
   }
 
-  &:not(.rc-accordion-align-icon-rt):not(.rc-accordion-disable-icon) {
+  &:not(.rc-accordion-align-icon-rt):not(.rc-accordion-disable-icon):not(.rc-accordion-header-icon) {
     display: grid;
     grid-template-columns: 2rem calc(100% - 2rem);
   }
@@ -53,7 +53,6 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   margin: 0 auto;
   max-height: var(--max-height);
   overflow: hidden;
-  // padding-left: 1rem;
   width: 100%;
 
   &.rc-accordion-open {
@@ -68,14 +67,18 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   }
 }
 
-.rc-accordion-title {
-  @extend %left;
+.rc-accordion-title-text {
+  display: block;
   font-size: 1rem;
   font-weight: 400;
   height: 100%;
   justify-self: flex-start;
   padding-left: 0.5rem;
-  width: 95%;
+  white-space: nowrap;
+}
+
+.rc-accordion-title {
+  @extend %left;
 }
 
 .rc-accordion-icon {

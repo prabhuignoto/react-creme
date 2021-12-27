@@ -136,13 +136,15 @@ const List: React.FunctionComponent<ListModel> = ({
         return updated;
       });
     } else {
-      setListOptions((prev) => {
-        const updated = prev.map((option) => ({
-          ...option,
-          selected: option.id === opt.id,
-        }));
-        setSelected(updated.filter((opt) => opt.selected));
-        return updated;
+      startTransition(() => {
+        setListOptions((prev) => {
+          const updated = prev.map((option) => ({
+            ...option,
+            selected: option.id === opt.id,
+          }));
+          setSelected(updated.filter((opt) => opt.selected));
+          return updated;
+        });
       });
     }
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Accordion, BlockQuote, Image, Section } from "../../../components";
+import { Accordion, BlockQuote, Section } from "../../../components";
 import { DemoWidget } from "../../common/demo-widget";
 import useMedia from "../../common/useMedia";
 
@@ -101,7 +101,9 @@ function widgets() {
           </DemoWidget>
         </Section>
         <Section title="Expanded by default">
-          <BlockQuote>The icon can be aligned to the right</BlockQuote>
+          <BlockQuote>
+            Accordions can be expanded or collapsed by default
+          </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Accordion title="Lorem Ipsum" noBorder expanded>
@@ -117,27 +119,6 @@ function widgets() {
                   Various versions have evolved over the years, sometimes by
                   accident, sometimes on purpose (injected humour and the like).
                 </p>
-              </Accordion>
-            </div>
-          </DemoWidget>
-        </Section>
-        <Section title="Bordered with Custom Icon">
-          <BlockQuote>
-            Use a custom icon for the header with a border
-          </BlockQuote>
-          <DemoWidget>
-            <div
-              style={{
-                width: `${width}px`,
-                height: "400px",
-              }}
-            >
-              <Accordion title="Show Image" iconType="plus" alignIconRight>
-                <Image
-                  height={"400"}
-                  alt="demo"
-                  src="https://images.unsplash.com/photo-1635276080002-e1b219f8414f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1447&q=80"
-                />
               </Accordion>
             </div>
           </DemoWidget>

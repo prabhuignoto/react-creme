@@ -99,6 +99,14 @@ $start-left: 4px;
   }
 }
 
+.rc-switch-knob:not(.rc-switch-on):not(.rc-switch-on-load) {
+  @extend %shadow-small;
+
+  svg {
+    color: colors.$chinese-gray;
+  }
+}
+
 .rc-switch-knob {
   @include animate.set-animation(0.2s);
   @include position.position-abs("center left");
@@ -108,8 +116,11 @@ $start-left: 4px;
   transition: background-color 0.1s ease;
   z-index: -1;
 
-  &:not(.rc-switch-on):not(.rc-switch-on-load) {
-    @extend %shadow-small;
+  svg {
+    @include position.position-abs("center center");
+    color: colors.$white;
+    height: 75%;
+    width: 75%;
   }
 
   @each $key, $val in $knob-sizes {

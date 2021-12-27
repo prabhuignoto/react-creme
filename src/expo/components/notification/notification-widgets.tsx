@@ -44,7 +44,7 @@ const Widgets = () => {
             The notification can be positioned in different places on the
             screen.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+          <div className="rc-demo-widget" style={{ width: `320px` }}>
             <Dropdown
               options={[
                 { name: "top-left", value: "top-left" },

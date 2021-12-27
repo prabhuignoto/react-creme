@@ -51,17 +51,17 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
           {title}
         </h2>
         <div className="rc-dialog-button-wrapper">
-          <Button type="icon" onClick={onClose} size="md">
+          <Button type="icon" onClick={onClose} size="sm">
             <CloseIcon />
           </Button>
         </div>
       </header>
       <section className="rc-dialog-body">{children}</section>
       <footer className="rc-dialog-footer">
-        <Button label="okay" type="primary" onClick={onSuccess}>
+        <Button label="okay" type="primary" onClick={onSuccess} size="sm">
           <CheckIcon />
         </Button>
-        <Button label="cancel" onClick={onClose}>
+        <Button label="cancel" onClick={onClose} size="sm">
           <CloseIcon />
         </Button>
       </footer>

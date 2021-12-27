@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { Section, Dropdown, BlockQuote } from "../../../components";
+import { BlockQuote, Dropdown, Section } from "../../../components";
 import { DemoWidget } from "../../common/demo-widget";
 import useMedia from "../../common/useMedia";
 
@@ -11,14 +11,17 @@ function Widgets() {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
-      setWidth(450);
+
+    if (media.isExtraLargeScreen) {
+      setWidth(400);
+    } else if (media.isTablet) {
+      setWidth(400);
     } else if (media.isMobile) {
       setWidth(350);
     } else if (media.isBigScreen) {
-      setWidth(450);
+      setWidth(400);
     } else if (media.isDesktop) {
-      setWidth(450);
+      setWidth(400);
     }
   }, [media]);
   return (

@@ -36,7 +36,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
 
   useEffect(() => {
     if (isClosing) {
-      onClosing && onClosing();
+      onClosing?.();
     }
   }, [isClosing]);
 

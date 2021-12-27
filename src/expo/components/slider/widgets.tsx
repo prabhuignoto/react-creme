@@ -66,13 +66,44 @@ const Widgets = () => {
           </DemoWidget>
         </Section>
         <Section title="Show Tooltip on Hover">
+          <BlockQuote>
+            The tooltip will only show when the user hovers over the slider.
+          </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Slider start={1} end={5} knobSize={16} showTooltipOnHover />
+              <Slider
+                start={1}
+                end={20}
+                position="top"
+                knobShape="square"
+                knobSize={15}
+                sliderValue={10}
+                showTooltipOnHover
+              />
+            </div>
+          </DemoWidget>
+        </Section>
+        <Section title="Formatted value">
+          <BlockQuote>
+            The slider can also display the value in a formatted way.
+          </BlockQuote>
+          <DemoWidget>
+            <div style={{ width: `${width}px` }}>
+              <Slider
+                start={1}
+                end={20}
+                sliderValue={15}
+                knobSize={16}
+                formatter={(val) => `value: ${val}`}
+                tooltipWidth={70}
+              />
             </div>
           </DemoWidget>
         </Section>
         <Section title="Disabled state">
+          <BlockQuote>
+            The slide can be disabled via the <code>disabled</code> prop.
+          </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Slider

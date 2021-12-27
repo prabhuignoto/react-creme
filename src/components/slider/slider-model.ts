@@ -33,4 +33,6 @@ export interface SliderModel {
   tooltipWidth?: number;
 
   focusable?: boolean;
+
+  formatter?: (value: number) => string;
 }

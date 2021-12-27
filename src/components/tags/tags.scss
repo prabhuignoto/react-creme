@@ -32,7 +32,7 @@
     align-items: center;
     column-gap: 0.2rem;
     display: grid;
-    grid-template-columns: calc(100% - 1rem) 1rem;
+    grid-template-columns: calc(100% - 1.5rem) 1.5rem;
     justify-items: center;
   }
 
@@ -87,9 +87,11 @@
   @extend %icon-md;
   border-radius: 50%;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .rc-tag-icon-default {
+  color: colors.$gunmetal-gray;
   &:hover {
     background: colors.$light-bg;
   }

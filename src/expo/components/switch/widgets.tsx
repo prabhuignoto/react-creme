@@ -22,7 +22,18 @@ function widgets() {
         <BlockQuote>The label can be placed outside the switch.</BlockQuote>
         <DemoWidget>
           <div style={{ width: "150px" }}>
-            <Switch label="Settings" labelOutside checked focusable={true} />
+            <Switch label="Settings" labelOutside focusable={true} />
+          </div>
+        </DemoWidget>
+      </Section>
+      <Section title="Switch with Check status">
+        <BlockQuote>
+          Use <code>showCheckIcon</code> property to display a check icon inside
+          the toggle control.
+        </BlockQuote>
+        <DemoWidget>
+          <div style={{ width: "130px" }}>
+            <Switch label="Enable Setting" showCheckIcon checked />
           </div>
         </DemoWidget>
       </Section>
