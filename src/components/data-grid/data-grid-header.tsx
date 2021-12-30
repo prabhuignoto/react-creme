@@ -15,7 +15,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = React.memo(
     border,
   }: DataGridHeaderProps) => {
     const [headerColumns, setHeaderColumns] = useState(
-      columns.map((col) => ({ ...col, sortDirection: "none" }))
+      columns.map((col) => ({ ...col, sortDirection: "asc" }))
     );
 
     const handleSort = (column: string, dir: SortDirection) => {

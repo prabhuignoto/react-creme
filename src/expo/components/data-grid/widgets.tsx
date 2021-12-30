@@ -1,5 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { BlockQuote, DataGrid, Section } from "../../../components";
+import { DemoWidget } from "../../common/demo-widget";
 import useMedia from "../../common/useMedia";
 
 const data = [
@@ -55,20 +56,22 @@ function widgets() {
             In Comfortable mode, the display density is set to high and is
             preferable for better readability.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-            <DataGrid
-              layoutStyle="comfortable"
-              border
-              gridWidth={width}
-              columns={[
-                { name: "name", type: "string" },
-                { name: "age", type: "number" },
-                { name: "dept", type: "string" },
-                { name: "marks", type: "number" },
-              ]}
-              data={data}
-            />
-          </div>
+          <DemoWidget>
+            <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+              <DataGrid
+                layoutStyle="comfortable"
+                border
+                gridWidth={width}
+                columns={[
+                  { name: "name", type: "string" },
+                  { name: "age", type: "number" },
+                  { name: "dept", type: "string" },
+                  { name: "marks", type: "number" },
+                ]}
+                data={data}
+              />
+            </div>
+          </DemoWidget>
         </Section>
         <Section title="Compact View">
           <BlockQuote>
@@ -76,38 +79,63 @@ function widgets() {
             for smaller viewport and when you want to cramp in more rows in the
             grid.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-            <DataGrid
-              layoutStyle="compact"
-              fixedHeight
-              border
-              columns={[
-                { name: "name", type: "string" },
-                { name: "age", type: "number" },
-                { name: "dept", type: "string" },
-                { name: "marks", type: "number" },
-              ]}
-              data={data}
-            />
-          </div>
+          <DemoWidget>
+            <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+              <DataGrid
+                layoutStyle="compact"
+                fixedHeight
+                border
+                columns={[
+                  { name: "name", type: "string" },
+                  { name: "age", type: "number" },
+                  { name: "dept", type: "string" },
+                  { name: "marks", type: "number" },
+                ]}
+                data={data}
+              />
+            </div>
+          </DemoWidget>
         </Section>
         <Section title="Sortable">
           <BlockQuote>
             Individual columns can be configured to be sortable.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-            <DataGrid
-              layoutStyle="comfortable"
-              border
-              columns={[
-                { name: "name", type: "string", sortable: true },
-                { name: "age", type: "number" },
-                { name: "dept", type: "string" },
-                { name: "marks", type: "number" },
-              ]}
-              data={data}
-            />
-          </div>
+          <DemoWidget>
+            <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+              <DataGrid
+                layoutStyle="comfortable"
+                border
+                columns={[
+                  { name: "name", type: "string", sortable: true },
+                  { name: "age", type: "number" },
+                  { name: "dept", type: "string" },
+                  { name: "marks", type: "number" },
+                ]}
+                data={data}
+              />
+            </div>
+          </DemoWidget>
+        </Section>
+        <Section title="Custom Table outlook">
+          <BlockQuote>
+            Use the <code>zebra</code> property to alternate the background
+            color of the rows.
+          </BlockQuote>
+          <DemoWidget>
+            <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+              <DataGrid
+                layoutStyle="comfortable"
+                zebra
+                columns={[
+                  { name: "name", type: "string", sortable: true },
+                  { name: "age", type: "number" },
+                  { name: "dept", type: "string" },
+                  { name: "marks", type: "number" },
+                ]}
+                data={data}
+              />
+            </div>
+          </DemoWidget>
         </Section>
       </div>
     )

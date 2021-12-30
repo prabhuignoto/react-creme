@@ -21,15 +21,42 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   border = false,
   gridWidth = 0,
   fixedHeight = false,
+  zebra = false,
 }: DataGridProps) => {
+  const sortableColumns = useRef(columns.filter((col) => col.sortable));
+  const sortableColumnFirst = useRef(
+    sortableColumns.current.length ? sortableColumns.current[0] : null
+  );
+
+  const initData = useRef(
+    sortableColumnFirst.current !== null
+      ? data
+          .map((item) => ({ id: nanoid(), ...item }))
+          .sort((a: any, b: any) => {
+            const column = sortableColumnFirst.current;
+
+            if (column !== null) {
+              return a[column.name] < b[column.name] ? -1 : 1;
+            } else {
+              return 0;
+            }
+          })
+      : data.map((item) => ({ id: nanoid(), ...item }))
+  );
+
   const [rowData, setRowData] = useState<{ [key: string]: string | number }[]>(
-    data.map((item) => ({ id: nanoid(), ...item }))
+    initData.current
   );
   const [width, setWidth] = useState(gridWidth);
+
   const [sortData, setSortData] = useState<{
     column?: string;
     dir?: SortDirection;
-  }>({});
+  }>(
+    sortableColumns.current.length > 0
+      ? { column: sortableColumns.current[0].name, dir: "asc" }
+      : {}
+  );
   const gridRef = useRef<HTMLDivElement>();
 
   // const isFirstRender = useFirstRender();
@@ -39,6 +66,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   const gridClass = useMemo(() => {
     return classNames("rc-data-grid", {
       "rc-data-grid-border": border,
+      "rc-data-grid-zebra": zebra,
     });
   }, []);
 
@@ -67,7 +95,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   }, [width]);
 
   const onRef = useCallback(
-    (node) => {
+    (node: HTMLDivElement) => {
       if (node) {
         gridRef.current = node;
 
@@ -152,6 +180,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
             layoutStyle={layoutStyle}
             border={border}
             fixedHeight={fixedHeight}
+            zebra={zebra}
           />
         );
       })}

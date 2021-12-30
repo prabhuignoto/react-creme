@@ -18,6 +18,7 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
   swipeToClose = true,
   title,
   width = 350,
+  disableHeader = false,
 }) => {
   const wrapperClass = classNames([
     "rc-notification-wrapper",
@@ -73,14 +74,16 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
       aria-modal="true"
       ref={ref}
     >
-      <header className="rc-notification-header">
-        <span className="rc-notification-title">{title}</span>
-        <span className="rc-notification-close-btn">
-          <Button type="icon" size="md" onClick={onClose}>
-            <CloseIcon />
-          </Button>
-        </span>
-      </header>
+      {!disableHeader && (
+        <header className="rc-notification-header">
+          <span className="rc-notification-title">{title}</span>
+          <span className="rc-notification-close-btn">
+            <Button type="icon" size="md" onClick={onClose}>
+              <CloseIcon />
+            </Button>
+          </span>
+        </header>
+      )}
       <section className="rc-notification-content">{children}</section>
     </div>
   );

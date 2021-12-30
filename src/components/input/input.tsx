@@ -70,8 +70,6 @@ const Input: React.FunctionComponent<InputModel> = ({
     [inputValue]
   );
 
-  // useFocus(ref, { bgHighlight: true });
-
   const inputClass = useMemo(
     () =>
       classNames("rc-input", {

@@ -116,6 +116,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
             showCheckIcon={false}
             itemHeight={35}
             id={id.current}
+            border={false}
           />
         </div>
       )}

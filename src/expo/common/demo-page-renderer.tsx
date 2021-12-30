@@ -88,9 +88,9 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
               <div className="rc-demo-prop-section">
                 <DataGrid
                   layoutStyle={"comfortable"}
-                  border
                   columns={columns}
                   data={data}
+                  border
                 />
               </div>
             </Tabs>

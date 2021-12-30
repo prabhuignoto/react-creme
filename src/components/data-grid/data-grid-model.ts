@@ -4,6 +4,7 @@ interface DataGridCommon {
   layoutStyle?: "compact" | "comfortable";
   border?: boolean;
   fixedHeight?: boolean;
+  zebra?: boolean;
 }
 
 export interface DataGridColumn {

@@ -13,10 +13,16 @@
   }
 }
 
+.rc-data-grid-row-zebra {
+  &:nth-child(odd) {
+    background-color: rgba(colors.$light-bg, 0.75);
+  }
+}
+
 .rc-data-grid-row {
   width: 100%;
 
-  &:not(:last-child) {
+  &:not(:last-child):not(.rc-data-grid-row-zebra) {
     border-bottom: 1px solid colors.$secondary;
   }
 

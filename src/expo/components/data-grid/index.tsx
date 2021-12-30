@@ -31,6 +31,13 @@ const DataGridDemo: React.FunctionComponent = () => {
           optional: "Yes",
           type: "Array",
         },
+        {
+          name: "zebra",
+          description: "alternates the background color of the rows",
+          defaultValue: "False",
+          optional: "Yes",
+          type: "Boolean",
+        },
       ]}
       tabTitles={["examples", "properties"]}
     ></DemoPageRenderer>

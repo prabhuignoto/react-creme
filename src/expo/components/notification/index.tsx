@@ -59,6 +59,13 @@ function notification() {
           optional: "Yes",
           type: "Function",
         },
+        {
+          name: "disableHeader",
+          description: `disables the header`,
+          default: "false",
+          optional: "Yes",
+          type: "Boolean",
+        },
       ]}
       tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}

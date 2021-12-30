@@ -17,7 +17,7 @@ function Widgets() {
     }
 
     if (media.isExtraLargeScreen) {
-      setWidth(650);
+      setWidth(500);
     } else if (media.isBigScreen) {
       setWidth(500);
     } else if (media.isDesktop) {

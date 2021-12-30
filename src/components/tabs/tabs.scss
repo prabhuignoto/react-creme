@@ -15,10 +15,6 @@
   @extend %col;
   padding: 0.2rem;
   width: var(--min-width);
-
-  &.rc-tabs-border {
-    @extend %border;
-  }
 }
 
 .rc-tab-panels {
@@ -27,7 +23,9 @@
   width: 100%;
 
   &.rc-panel-border {
-    @extend %border;
+    border: 1px solid colors.$platinum;
+    border-radius: 4px;
+    // @extend %border;
     border-top: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
