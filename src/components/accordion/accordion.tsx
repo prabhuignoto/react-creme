@@ -31,6 +31,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     title,
     titleColor = "#000",
     transition = "cubic-bezier(0.19, 1, 0.22, 1)",
+    titleBold = false,
+    disableCollapse = false,
   }: AccordionModel) => {
     const accordionID = useRef(id || `accordion-${useId()}`);
     const accordionBodyId = useRef(`accordion-body-${useId()}`);
@@ -144,8 +146,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     }
 
     const focusProps = useMemo(
-      () => (focusable ? { tabIndex: 0 } : null),
-      [focusable]
+      () => (focusable && !disableCollapse ? { tabIndex: 0 } : null),
+      [focusable, disableCollapse]
     );
 
     const icon = useMemo(() => {
@@ -162,20 +164,34 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       }
     }, [iconType, open, disableIcon]);
 
+    const titleClass = useMemo(() => {
+      return cls("rc-accordion-title", {
+        "rc-accordion-title-bold": titleBold,
+      });
+    }, [titleBold]);
+
+    const collapsibleProps = useMemo(() => {
+      return !disableCollapse
+        ? {
+            onClick: toggleAccordion,
+            "aria-controls": accordionBodyId.current,
+            "aria-expanded": !!open,
+          }
+        : null;
+    }, []);
+
     return (
       <div className={accordionClass} style={style}>
         <div
-          aria-controls={accordionBodyId.current}
-          aria-expanded={!!open}
           className={accordionHeaderClass}
           id={accordionID.current}
-          onClick={toggleAccordion}
           ref={chevronRef}
           role="button"
           {...focusProps}
+          {...collapsibleProps}
         >
           {!disableIcon && <span className={iconClass}>{icon}</span>}
-          <span className="rc-accordion-title">{title}</span>
+          <span className={titleClass}>{title}</span>
         </div>
         <div
           className={accordionBodyClass}

@@ -11,13 +11,15 @@ import "./accordion-group.scss";
 const AccordionGroup = ({
   alignIconRight = false,
   autoClose = false,
-  border = true,
+  border = false,
   children,
   expanded = false,
   iconColor = "#000",
   iconType = "chevron",
   titleColor = "#000",
   titles = [],
+  titleBold = false,
+  disableCollapse = false,
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
@@ -80,6 +82,9 @@ const AccordionGroup = ({
             iconType={iconType}
             titleColor={titleColor}
             iconColor={iconColor}
+            titleBold={titleBold}
+            disableCollapse={disableCollapse}
+            disableIcon={disableCollapse}
           >
             {children && children[index]}
           </Accordion>

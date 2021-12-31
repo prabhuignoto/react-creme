@@ -36,4 +36,5 @@ export interface SidebarCommonProps {
   focusable?: boolean;
   groupTitleColor?: string;
   listMaxHeight?: number;
+  sectionsCollapsible?: boolean;
 }

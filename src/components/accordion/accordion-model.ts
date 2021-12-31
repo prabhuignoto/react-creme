@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export interface AccordionModel {
+export interface AccordionModel extends AccordionCommon {
   alignIconRight?: boolean;
   children?: ReactNode;
   expanded?: boolean | null;
@@ -14,11 +14,9 @@ export interface AccordionModel {
   iconType?: "chevron" | "plus";
   disableIcon?: boolean;
   customIcon?: ReactNode;
-  titleColor?: string;
-  iconColor?: string;
 }
 
-export interface AccordionGroupProps {
+export interface AccordionGroupProps extends AccordionCommon {
   children: ReactNode[];
   titles?: string[];
   autoClose?: boolean;
@@ -26,12 +24,17 @@ export interface AccordionGroupProps {
   alignIconRight?: boolean;
   border?: boolean;
   iconType?: "chevron" | "plus";
-  titleColor?: string;
-  iconColor?: string;
 }
 
 export interface AccordionItemProps {
   id?: string;
   expanded?: boolean;
   focusable?: boolean;
+}
+
+export interface AccordionCommon {
+  titleColor?: string;
+  iconColor?: string;
+  titleBold?: boolean;
+  disableCollapse?: boolean;
 }

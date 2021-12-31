@@ -22,6 +22,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   minimizeSidebar = false,
   onSelect,
   searchPlaceholder = "Search ...",
+  sectionsCollapsible = true,
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)
@@ -154,6 +155,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
           groupTitleColor={groupTitleColor}
           sideBarHeight={sidebarHeight}
           listMaxHeight={listMaxHeight}
+          sectionsCollapsible={sectionsCollapsible}
         />
       </div>
     </div>

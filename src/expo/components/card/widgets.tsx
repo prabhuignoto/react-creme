@@ -50,7 +50,7 @@ function widgets() {
               >
                 <Skeleton
                   animate
-                  rowHeight={10}
+                  rowHeight={7}
                   rows={media.isMobile ? 6 : 10}
                   style={{ marginTop: "1rem" }}
                   showCircle

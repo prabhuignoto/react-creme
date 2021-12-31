@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import MenuSVG from "./menu.svg?component";
+import "./logo.scss";
 
 const Logo: React.FC<{ isMobile: boolean; onMenuClick }> = ({
   isMobile,
@@ -15,6 +16,7 @@ const Logo: React.FC<{ isMobile: boolean; onMenuClick }> = ({
           <MenuSVG />
         </span>
       )}
+      <span className="rc-demo-logo"></span>
       <span className="rc-demo-logo-text">React Creme</span>
     </div>
   );

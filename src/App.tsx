@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import ResizeObserver from "resize-observer-polyfill";
 import { useDebouncedCallback } from "use-debounce";
 import "./App.scss";
@@ -22,6 +23,7 @@ function App() {
   const media = useMedia();
   const appRef = useRef<HTMLDivElement>(null);
   const [openAside, setOpenAside] = React.useState(false);
+  const location = useLocation();
 
   const sidebarClass = useMemo(() => {
     return classNames("app-aside", {
@@ -83,7 +85,9 @@ function App() {
         </Drawer>
       )}
       <section className="app-main-section" ref={onRef}>
-        <Header isMobile={media && media.isMobile} onOpen={toggleOpen} />
+        {location.pathname !== "/" && (
+          <Header isMobile={media && media.isMobile} onOpen={toggleOpen} />
+        )}
         <AppRoutes />
         <Footer />
       </section>

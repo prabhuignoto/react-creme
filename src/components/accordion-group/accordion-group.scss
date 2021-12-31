@@ -5,6 +5,7 @@
   @extend %col;
   width: 100%;
 
+  
   &:not(.rc-accordion-grp-no-border) {
     @extend %border;
   }
@@ -12,9 +13,10 @@
 
 .rc-accordion-group-item {
   @extend %left;
+  margin-bottom: 0.5rem;
   width: 100%;
 
-  &:not(:last-child) {
-    border-bottom: 1px solid colors.$secondary;
-  }
+  // &:not(:last-child) {
+    // border-bottom: 1px solid colors.$secondary;
+  // }
 }
