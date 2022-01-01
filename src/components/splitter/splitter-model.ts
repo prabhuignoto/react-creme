@@ -8,4 +8,5 @@ export interface SplitterModel {
   minSplitHeight?: number;
   maxSplitHeight?: number;
   border?: boolean;
+  handleBarWidth?: number;
 }

@@ -87,7 +87,7 @@
       true
     );
 
-    &.#{$position} {
+    &.rc-drawer-#{$position} {
       @include position.position-abs($val);
 
       @if $position == top or $position == bottom {
@@ -109,6 +109,14 @@
         #{$position}: util.negative($min-height);
       }
     }
+  }
+}
+
+.rc-drawer-top,
+.rc-drawer-right,
+.rc-drawer-bottom {
+  .rc-drawer-close-btn-wrapper {
+    right: 1.5rem;
   }
 }
 

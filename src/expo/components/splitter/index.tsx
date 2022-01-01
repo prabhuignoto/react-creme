@@ -51,6 +51,13 @@ function splitter() {
           optional: "Yes",
           type: "Number",
         },
+        {
+          name: "handleBarWidth",
+          description: "width of the drag handle bar",
+          default: "6",
+          optional: "Yes",
+          type: "Number",
+        },
       ]}
       demoWidget={<Widgets />}
     />

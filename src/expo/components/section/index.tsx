@@ -26,10 +26,18 @@ function index() {
         },
         {
           name: "layout",
-          description: "Layout of the section",
+          description:
+            "Layout of the section. can be <em>row</em> or <em>column</em>",
           default: "row",
           optional: "Yes",
           type: "String",
+        },
+        {
+          name: "RTL",
+          description: "Right to Left",
+          default: "False",
+          optional: "Yes",
+          type: "Boolean",
         },
       ]}
     ></DemoPageRenderer>

@@ -47,6 +47,10 @@
   }
 }
 
+.rc-dropdown-rtl {
+  direction: rtl;
+}
+
 .rc-dropdown-value {
   @extend %text-no-wrap;
   height: 20px;

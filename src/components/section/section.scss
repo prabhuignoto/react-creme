@@ -19,9 +19,16 @@
 }
 
 .rc-section-body {
-  @extend %left;
   padding: 1rem;
   width: 100%;
+
+  &:not(.rc-section-rtl) {
+    @extend %left;
+  }
+
+  &.rc-section-rtl {
+    @extend %right;
+  }
 
   &:not(.rc-section-no-title) {
     min-height: calc(100% - 30px);
@@ -30,4 +37,8 @@
   &.rc-section-no-title {
     min-height: 100%;
   }
+}
+
+.rc-section-header-rtl {
+  @extend %right;
 }

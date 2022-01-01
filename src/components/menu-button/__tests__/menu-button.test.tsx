@@ -5,15 +5,10 @@ import { MenuButton } from "../menu-button";
 describe("Menu Button", () => {
   it("should render the Menu button", () => {
     const { getByText } = render(
-      <MenuButton
-        items={["save", "cancel", "delete"]}
-        placeholder="Choose an option"
-        position="right"
-        width={150}
-      />
+      <MenuButton items={["save", "cancel", "delete"]} width={150} />
     );
 
-    expect(getByText("Choose an option")).toBeInTheDocument();
+    expect(getByText("save")).toBeInTheDocument();
   });
 
   it("should open menu on click", async () => {
@@ -21,8 +16,6 @@ describe("Menu Button", () => {
     const { getByRole, getByText } = render(
       <MenuButton
         items={["save", "cancel", "delete"]}
-        placeholder="Choose an option"
-        position="right"
         width={150}
         onSelected={handler}
       />
@@ -34,12 +27,13 @@ describe("Menu Button", () => {
 
     await waitFor(async () => {
       expect(getByRole("menu")).toBeInTheDocument();
-      expect(getByText("save")).toBeInTheDocument();
+      expect(getByText("cancel")).toBeInTheDocument();
+      expect(getByText("delete")).toBeInTheDocument();
     });
 
     await act(async () => {
-      fireEvent.click(getByText("save"));
-      expect(handler).toBeCalledWith("save");
+      fireEvent.click(getByText("cancel"));
+      expect(handler).toBeCalledWith("cancel");
     });
   });
 });

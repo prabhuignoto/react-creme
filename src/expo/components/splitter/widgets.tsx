@@ -6,6 +6,7 @@ import useMedia from "../../common/useMedia";
 function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
+  const [handleBarWidth, setHandleBarWidth] = React.useState(6);
 
   useLayoutEffect(() => {
     if (!media) {
@@ -22,6 +23,7 @@ function widgets() {
       setWidth(500);
     } else if (media.isMobile) {
       setWidth(350);
+      setHandleBarWidth(10);
     }
   }, [media]);
 
@@ -37,8 +39,9 @@ function widgets() {
             <div style={{ width: `${width}px` }}>
               <Splitter
                 dir="horizontal"
-                minSplitWidth={Math.round(width * 0.25)}
+                minSplitWidth={Math.round(width * 0.3)}
                 maxSplitWidth={Math.round(width * 0.75)}
+                handleBarWidth={handleBarWidth}
               >
                 <p>
                   Contrary to popular belief, Lorem Ipsum is not simply random

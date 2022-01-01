@@ -36,4 +36,5 @@ export interface DropdownModel {
   placeholder?: string;
   virtualize?: boolean;
   focusable?: boolean;
+  RTL?: boolean;
 }

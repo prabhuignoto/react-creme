@@ -56,6 +56,7 @@ const List: React.FunctionComponent<ListModel> = ({
   textColor = "#000",
   textColorSelected = "#000",
   backGroundColor = "#fff",
+  RTL = false,
   id,
 }: ListModel) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
@@ -237,6 +238,7 @@ const List: React.FunctionComponent<ListModel> = ({
                   textColor={textColor}
                   textColorSelected={textColorSelected}
                   value={value}
+                  RTL={RTL}
                   style={{
                     top: `${top}px`,
                     height: `${itemHeight}px`,

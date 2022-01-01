@@ -58,7 +58,11 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
             },
             {
               title: "content",
-              items: [{ name: "section" }, { name: "Card" }],
+              items: [
+                { name: "section" },
+                { name: "Card" },
+                { name: "page header" },
+              ],
             },
             {
               title: "Inputs",
@@ -74,6 +78,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
                 { name: "Button" },
                 { name: "Slider" },
                 { name: "Autocomplete" },
+                { name: "Menu Button" },
               ],
             },
             {
@@ -106,11 +111,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
             },
             {
               title: "Menu",
-              items: [
-                { name: "Menu" },
-                { name: "Menu Bar" },
-                { name: "Menu Button" },
-              ],
+              items: [{ name: "Menu" }, { name: "Menu Bar" }],
             },
             {
               title: "Utilities",

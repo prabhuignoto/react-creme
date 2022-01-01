@@ -142,6 +142,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
               enableClear
               onChange={handleSearch}
               placeholder={searchPlaceholder}
+              controlled
             >
               <SearchIcon />
             </Input>

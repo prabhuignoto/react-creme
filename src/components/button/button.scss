@@ -18,7 +18,7 @@ $sizes: (sm, md, lg);
   }
 
   &.rc-btn-no-border {
-    @extend %border-radius;
+    border: 0;
     box-shadow: none;
   }
 }

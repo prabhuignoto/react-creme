@@ -18,6 +18,7 @@ import Drawer from "./components/drawer";
 import Dropdown from "./components/dropdown";
 import { Home } from "./home";
 import { routes as otherRoutes } from "./route-configs-2";
+import PageHeader from "./components/page-header";
 
 const routes = [
   ...otherRoutes,
@@ -115,6 +116,11 @@ const routes = [
     path: "/dropdown",
     key: "dropdown",
     component: <Dropdown />,
+  },
+  {
+    path: "/page-header",
+    key: "page-header",
+    component: <PageHeader />,
   },
 ];
 

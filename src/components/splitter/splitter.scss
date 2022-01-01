@@ -26,13 +26,11 @@
     @include position.position-abs("center left");
     cursor: ew-resize;
     height: 100%;
-    width: 4px;
   }
 
   &.splitter-control-vertical {
     @include position.position-abs("top left");
     cursor: ns-resize;
-    height: 4px;
     width: 100%;
   }
 

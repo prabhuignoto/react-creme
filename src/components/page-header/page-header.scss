@@ -4,9 +4,12 @@
 @use "../../design/icon.scss";
 
 .rc-page-header {
-  @extend %list-left;
   margin-bottom: 1rem;
   width: 100%;
+
+  &:not(.rc-page-header-rtl) {
+    @extend %list-left;
+  }
 
   h2 {
     border-bottom: 1px solid colors.$gray;
@@ -14,5 +17,19 @@
     font-weight: 400;
     height: 35px;
     width: 100%;
+  }
+}
+
+.rc-page-header:not(.rc-page-header-rtl) {
+  h2 {
+    text-align: left;
+  }
+}
+
+.rc-page-header-rtl {
+  @extend %list-right;
+
+  h2 {
+    text-align: right;
   }
 }

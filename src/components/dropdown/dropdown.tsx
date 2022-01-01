@@ -30,6 +30,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     placeholder = "Choose an option...",
     virtualize = false,
     focusable = false,
+    RTL = false,
   }: DropdownModel) => {
     // options states
     const [dropdownOptions, setDropdownOptions] = useState(
@@ -157,6 +158,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
         cls("rc-dropdown-value-container", {
           "rc-dropdown-multi": allowMultiSelection,
           "rc-dropdown-disabled": disabled,
+          "rc-dropdown-rtl": RTL,
         }),
       [disabled]
     );

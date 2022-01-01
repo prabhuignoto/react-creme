@@ -93,6 +93,13 @@ function list() {
           optional: "Yes",
           type: "boolean",
         },
+        {
+          name: "RTL",
+          description: "supports RTL languages",
+          default: "false",
+          optional: "Yes",
+          type: "boolean",
+        },
       ]}
       tabTitles={["examples", "properties"]}
     ></DemoPageRenderer>

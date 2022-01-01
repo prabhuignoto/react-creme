@@ -8,6 +8,7 @@ interface ListCommonProps {
   showCheckIcon?: boolean;
   textColor?: string;
   textColorSelected?: string;
+  RTL?: boolean;
 }
 
 export interface ListModel extends ListCommonProps {

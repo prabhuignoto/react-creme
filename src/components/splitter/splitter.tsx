@@ -21,9 +21,14 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
   minSplitHeight = 100,
   maxSplitHeight = 200,
   border = true,
+  handleBarWidth = 6,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const controlRef = useRef<HTMLSpanElement>(null);
+  const gapWidthHalf = useMemo(
+    () => round(handleBarWidth / 2),
+    [handleBarWidth]
+  );
 
   const [dragStarted, setDragStarted] = useState(false);
 
@@ -64,13 +69,14 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
   const partitionOneStyle = useMemo(() => {
     if (ref.current && canSplit) {
       const { clientWidth, clientHeight } = ref.current;
-      const width = round(clientWidth * percent);
-      const height = round(clientHeight * percent);
+      const width = round(clientWidth * percent) - gapWidthHalf;
+      const height = round(clientHeight * percent) - gapWidthHalf;
+      const gap = `${handleBarWidth}px`;
 
       return {
         width: isHorizontal ? (width !== 0 ? width : minSplitWidth) : "100%",
         height: isHorizontal ? "100%" : height,
-        ...(isHorizontal ? { marginRight: "2px" } : { marginBottom: "2px" }),
+        ...(isHorizontal ? { paddingRight: gap } : { paddingBottom: gap }),
       } as CSSProperties;
     }
   }, [percent, canSplit, isHorizontal]);
@@ -80,13 +86,16 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
       const { clientWidth, clientHeight } = ref.current;
 
       if (percent) {
-        const width = round(clientWidth * (1 - percent));
-        const height = round(clientHeight * (1 - percent));
+        const gap = handleBarWidth;
+        const width = round(clientWidth * (1 - percent)) - gapWidthHalf;
+        const height = round(clientHeight * (1 - percent)) - gapWidthHalf;
 
         return {
           width: isHorizontal ? width : "100%",
           height: isHorizontal ? "100%" : height,
-          ...(isHorizontal ? { marginLeft: "2px" } : { marginTop: "-2px" }),
+          ...(isHorizontal
+            ? { paddingLeft: `${gap}px` }
+            : { paddingTop: `-${gap}px` }),
         } as CSSProperties;
       } else {
         return {
@@ -131,9 +140,25 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
     }
   }, []);
 
+  const handleBarStyle = useMemo(() => {
+    if (dir === "horizontal") {
+      return {
+        width: `${handleBarWidth}px`,
+      } as CSSProperties;
+    } else {
+      return {
+        height: `${handleBarWidth}px`,
+      } as CSSProperties;
+    }
+  }, []);
+
   return (
     <div className={wrapperClass} ref={setWrapperRef}>
-      <span className={controlClass} ref={controlRef}></span>
+      <span
+        className={controlClass}
+        ref={controlRef}
+        style={handleBarStyle}
+      ></span>
       <div className="splitter-partition" style={partitionOneStyle}>
         {children && children[0]}
       </div>

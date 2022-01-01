@@ -8,6 +8,7 @@ const Section: React.FC<SectionModel> = ({
   title,
   height = 150,
   layout = "row",
+  RTL = false,
 }) => {
   const sectionStyle = useMemo(
     () =>
@@ -31,13 +32,20 @@ const Section: React.FC<SectionModel> = ({
       classNames("rc-section-body", {
         [`rc-section-${layout}`]: true,
         "rc-section-no-title": !title,
+        "rc-section-rtl": RTL,
       }),
     [layout, title]
   );
 
+  const headerClass = useMemo(() => {
+    return classNames("rc-section-header", {
+      "rc-section-header-rtl": RTL,
+    });
+  }, []);
+
   return (
     <div style={sectionStyle} className={"rc-section"}>
-      {title && <div className="rc-section-header">{title}</div>}
+      {title && <div className={headerClass}>{title}</div>}
       <div style={bodyStyle} className={sectionClass}>
         {children}
       </div>

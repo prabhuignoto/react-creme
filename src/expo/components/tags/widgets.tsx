@@ -8,7 +8,7 @@ const items = [
   { name: "fortran" },
   { name: "c sharp" },
   { name: "Go lang" },
-  { name: "RUST", disabled: false },
+  { name: "RUST", disabled: true },
 ];
 
 function widgets() {

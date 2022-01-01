@@ -29,7 +29,7 @@ const Code: React.FunctionComponent<CodeModel> = ({ code }) => {
           containedToParent={ref}
           disableHeader
           width={80}
-          height={40}
+          height={30}
         >
           <span style={{ padding: "0.5rem" }}>Copied</span>
         </Notification>

@@ -19,6 +19,13 @@
   flex-direction: column;
 }
 
+%list-right {
+  @extend %list-common;
+  @include layout.get-flex(center);
+  align-items: flex-end;
+  flex-direction: column;
+}
+
 %list-horizontal {
   @extend %list-common;
   @include layout.get-flex(center);

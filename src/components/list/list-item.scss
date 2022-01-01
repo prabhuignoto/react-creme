@@ -24,7 +24,7 @@ $height: 40px;
   right: 0;
   width: 100%;
   z-index: 0;
-  
+
   &.rc-list-option-focus {
     @include animate.halo();
   }
@@ -47,18 +47,48 @@ $height: 40px;
 }
 
 .rc-list-option-value-wrapper {
-  @extend %left;
-
   color: var(--text-color);
+  display: grid;
   height: 100%;
-  padding-left: 0.5rem;
+  justify-items: center;
   pointer-events: none;
   width: calc(100% - 0.5rem);
 
-  &:not(.rc-list-option-no-icon) {
-    display: grid;
-    grid-template-columns: 2rem calc(100% - 2rem);
-    justify-items: center;
+  &:not(.rc-list-option-rtl) {
+    @extend %left;
+    padding-left: 0.5rem;
+  }
+
+  &.rc-list-option-rtl {
+    @extend %right;
+    padding-right: 0.5rem;
+  }
+
+  &:not(.rc-list-option-no-icon):not(.rc-list-option-rtl) {
+    grid-template-columns: 24px calc(100% - 24px);
+  }
+}
+
+.rc-list-option-rtl {
+  grid-template-columns: calc(100% - 24px) 24px;
+
+  .rc-list-option-value {
+    order: 0;
+    padding-right: 0.5rem;
+  }
+
+  .rc-list-option-icon {
+    order: 1;
+  }
+
+  .rc-list-option-value {
+    text-align: right;
+  }
+}
+
+.rc-list-option-value-wrapper:not(.rc-list-option-rtl) {
+  .rc-list-option-value {
+    padding-left: 0.5rem;
   }
 }
 
@@ -66,7 +96,6 @@ $height: 40px;
   @extend %text-no-wrap;
   font-weight: 300;
   line-height: $height;
-  padding-left: 0.5rem;
   pointer-events: none;
   text-transform: capitalize;
   width: 100%;
@@ -74,15 +103,16 @@ $height: 40px;
 
 .rc-list-option-icon {
   @extend %center;
+  @extend %icon-lg;
   color: colors.$primary;
   height: 100%;
   visibility: hidden;
-  width: 80%;
+  // width: 80%;
 
-  svg {
-    height: 100%;
-    width: 100%;
-  }
+  // svg {
+  //   height: 100%;
+  //   width: 100%;
+  // }
 
   &.rc-list-option-selected {
     visibility: visible;

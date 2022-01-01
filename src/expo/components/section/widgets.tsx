@@ -1,13 +1,20 @@
 import React from "react";
 import { Section } from "../../../components";
+import { DemoWidget } from "../../common/demo-widget";
+
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <div className="rc-demo-widget">
-        <Section title="Section title">
+      <DemoWidget fullWidth>
+        <Section title="Default rendering">
           <p>lorem ipsum </p>
         </Section>
-      </div>
+      </DemoWidget>
+      <DemoWidget fullWidth>
+        <Section title="Right to Left" RTL>
+          <p>lorem ipsum </p>
+        </Section>
+      </DemoWidget>
     </div>
   );
 }

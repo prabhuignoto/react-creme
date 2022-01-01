@@ -1,10 +1,12 @@
 import React from "react";
-import { MenuButton } from "../../components/menu-button/menu-button";
-import DemoPageRenderer from "../common/demo-page-renderer";
+import DemoPageRenderer from "../../common/demo-page-renderer";
+import Widgets from "./widgets";
 
 function menuButton() {
   return (
     <DemoPageRenderer
+      title="Menu Button"
+      description="MenuButton allows to choose an action from a list of actions"
       data={[
         {
           name: "placeholder",
@@ -48,20 +50,16 @@ function menuButton() {
           optional: "Yes",
           type: "Number",
         },
+        {
+          name: "RTL",
+          description: `Right to Left`,
+          default: "False",
+          optional: "Yes",
+          type: "Boolean",
+        },
       ]}
       tabTitles={["examples", "properties"]}
-      demoWidget={
-        <div className="rc-demo-widgets">
-          <div className="rc-demo-widget">
-            <MenuButton
-              items={["save", "cancel", "delete"]}
-              placeholder="Choose an option"
-              position="right"
-              width={150}
-            />
-          </div>
-        </div>
-      }
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }

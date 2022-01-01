@@ -172,8 +172,6 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   if (enableSwipe) {
     const { dir, offset } = useSwipe(carouselRef, "low");
 
-    console.log(dir, offset);
-
     useEffect(() => {
       if (
         (dir === "RIGHT" && direction === "horizontal") ||

@@ -11,11 +11,13 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
     focusable,
     textColor,
     textColorSelected,
+    RTL,
   }: ListItemOptionProps) => {
     const ref = React.useRef<HTMLDivElement>(null);
 
     const listOptionClass = cls("rc-list-option-value-wrapper", {
       "rc-list-option-no-icon": !showCheck,
+      "rc-list-option-rtl": RTL,
     });
 
     const style = useMemo(() => {
@@ -31,6 +33,7 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
           <span
             className={cls("rc-list-option-icon", {
               "rc-list-option-selected": selected,
+              "rc-list-option-rtl": RTL,
             })}
           >
             <CheckIcon />

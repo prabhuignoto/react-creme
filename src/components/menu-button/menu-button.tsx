@@ -8,47 +8,45 @@ import { MenuButtonProps } from "./menu-button.model";
 import "./menu-button.scss";
 
 const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
-  placeholder = "choose an option",
   items = [],
   onSelected,
-  selectedValue = "",
-  focusable = true,
-  position = "left",
+  focusable = false,
   width = 150,
   disabled = false,
+  RTL = false,
 }) => {
   const menuItems = useRef<MenuItemModel[]>(
-    items.map((item) => ({ name: item, id: nanoid() }))
-  );
-
-  const [selectedItem, setSelectedItem] = React.useState<string>(
-    placeholder || selectedValue
+    items.slice(1).map((item) => ({ name: item, id: nanoid() }))
   );
 
   const handleChange = useCallback((item: string) => {
-    setSelectedItem(item);
-    onSelected && onSelected(item);
+    onSelected?.(item);
   }, []);
 
   const menuButtonClass = useMemo(
     () =>
       classNames("rc-menu-btn-wrapper", {
         "rc-menu-btn-disabled": disabled,
+        "rc-menu-btn-rtl": RTL,
       }),
     [disabled]
   );
+
+  const menuPosition = useMemo(() => {
+    return RTL ? "left" : "right";
+  }, []);
 
   return (
     <div
       className={menuButtonClass}
       style={{ "--max-width": `${width}px` } as CSSProperties}
     >
-      <Button label={selectedItem} border={false} focusable={true} />
+      <Button label={items[0]} border={false} focusable={focusable} />
       <Menu
         items={menuItems.current}
         focusable={focusable}
         onSelected={handleChange}
-        position={position}
+        position={menuPosition}
       >
         <span className="rc-menu-btn-icon" role="img">
           <ChevronDownIcon />
