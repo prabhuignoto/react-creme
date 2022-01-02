@@ -194,6 +194,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
                   tagStyle="fill"
                   tagSize={"small"}
                   tagWidth={100}
+                  RTL={RTL}
                 />
               </div>
             ) : (
@@ -221,6 +222,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
             enableSearch={enableSearch}
             virtualize={virtualize}
             overlayAnimation={false}
+            RTL={RTL}
           />
         )}
       </div>

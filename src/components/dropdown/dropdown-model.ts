@@ -10,6 +10,7 @@ export interface DropdownMenuModel extends OverlayModel {
   options: MenuOption[];
   style: DropdownMenuStyleModel;
   virtualize?: boolean;
+  RTL?: boolean;
 }
 
 export interface DropdownMenuStyleModel {

@@ -8,6 +8,7 @@ import React, {
   useState,
 } from "react";
 import { CloseIcon } from "../../icons";
+import { useFirstRender } from "../common/effects/useFirstRender";
 import { InputModel } from "./input-model";
 import "./input.scss";
 
@@ -31,6 +32,7 @@ const Input: React.FunctionComponent<InputModel> = ({
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
   const ref = useRef(null);
+  const isFirstRender = useFirstRender();
 
   const inputId = useRef(noUniqueId ? id : nanoid());
 
@@ -63,8 +65,6 @@ const Input: React.FunctionComponent<InputModel> = ({
     []
   );
 
-  useEffect(() => setInputValue(value), [value]);
-
   const clearClass = useMemo(
     () => classNames(["rc-input-clear", !inputValue ? "hidden" : ""]),
     [inputValue]
@@ -82,7 +82,7 @@ const Input: React.FunctionComponent<InputModel> = ({
   );
 
   useEffect(() => {
-    if (controlled) {
+    if (controlled && !isFirstRender.current) {
       setInputValue(value);
     }
   }, [value]);

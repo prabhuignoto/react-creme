@@ -14,7 +14,6 @@ export interface TagsModel {
   items: TagItemModel[];
   onSelected?: (selected: string[]) => void;
   maxTags?: number;
-  restrictToValues?: string[];
   readonly?: boolean;
   tagWidth?: number;
   tagStyle?: "default" | "fill";
@@ -23,4 +22,5 @@ export interface TagsModel {
   style?: CSSProperties;
   autoComplete?: boolean;
   suggestions?: string[];
+  RTL?: boolean;
 }

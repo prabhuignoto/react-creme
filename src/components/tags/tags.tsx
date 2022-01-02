@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   startTransition,
@@ -6,11 +7,10 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { AutoComplete } from "..";
 import "../../design/icon.scss";
 import "../../design/layout.scss";
 import "../../design/list.scss";
-import { Input } from "../input/input";
+import { AutoComplete } from "../auto-complete/auto-complete";
 import { TagItem } from "./tag-item";
 import { TagItemInternalModel, TagsModel } from "./tags-model";
 import "./tags.scss";
@@ -21,13 +21,13 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   maxTags = Number.MAX_VALUE,
   onSelected,
   readonly = false,
-  restrictToValues = [],
   tagSize = "large",
   tagStyle = "default",
   tagWidth = 50,
   style = {},
   suggestions = [],
   autoComplete = false,
+  RTL = false,
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemInternalModel[]>(
@@ -56,15 +56,20 @@ const Tags: React.FunctionComponent<TagsModel> = ({
     []
   );
 
+  const handleAdd = useCallback(
+    (value: string) => {
+      if (canAdd) {
+        setTagItems((prev) => prev.concat({ id: nanoid(), name: value }));
+        setInputValue("");
+      }
+    },
+    [canAdd]
+  );
+
   const handleKeyUp = useCallback(
     (ev: React.KeyboardEvent) => {
       if (ev.key === "Enter" && canAdd && inputValue) {
-        startTransition(() => {
-          setTagItems((prev) =>
-            prev.concat({ id: nanoid(), name: inputValue })
-          );
-        });
-        setInputValue("");
+        handleAdd(inputValue);
       }
     },
     [inputValue, canAdd]
@@ -102,7 +107,14 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   }, [items.length]);
 
   return (
-    <ul className={"rc-tags-wrap"} role="list" style={style}>
+    <ul
+      className={classNames("rc-tags-wrap", {
+        "rc-tags-rtl": RTL,
+        "rc-tags-disabled": disabled,
+      })}
+      role="list"
+      style={style}
+    >
       {tagItems.map(({ id, name, disabled, readonly, markedForRemoval }) => (
         <TagItem
           id={id}
@@ -119,23 +131,13 @@ const Tags: React.FunctionComponent<TagsModel> = ({
       ))}
       {canAdd && (
         <li className="rc-tags-input-wrapper">
-          {autoComplete && (
-            <AutoComplete
-              suggestions={suggestions}
-              onChange={handleChange}
-              onKeyUp={handleKeyUp}
-              value={inputValue}
-            />
-          )}
-          {!autoComplete && (
-            <Input
-              onChange={handleChange}
-              onKeyUp={handleKeyUp}
-              value={inputValue}
-              enableClear
-              controlled
-            />
-          )}
+          <AutoComplete
+            suggestions={suggestions}
+            onChange={handleChange}
+            onSelection={handleAdd}
+            onKeyUp={handleKeyUp}
+            value={inputValue}
+          />
         </li>
       )}
     </ul>

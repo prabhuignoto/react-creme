@@ -21,3 +21,7 @@ export default function isTouchDevice() {
     )
   );
 }
+
+export function isValidString(value: any): boolean {
+  return typeof value === "string" && !isUndefined(value) && value !== null;
+}

@@ -10,6 +10,7 @@ import React, {
 import { useDebouncedCallback } from "use-debounce";
 import { Input, List } from "..";
 import { useFirstRender } from "../common/effects/useFirstRender";
+import { isValidString } from "../common/utils";
 import { Option } from "../dropdown/dropdown-model";
 import { AutoCompleteProps } from "./auto-complete.model";
 import "./auto-complete.scss";
@@ -21,6 +22,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   placeholder = "",
   onKeyUp,
   value,
+  onSelection,
 }) => {
   const suggestionItems = React.useRef<Option[]>(
     suggestions
@@ -33,7 +35,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
 
   const id = useRef(`rc-autocomplete-${nanoid()}`);
 
-  const [input, setInput] = React.useState("");
+  const [input, setInput] = React.useState<string | undefined>("");
   const [selected, setSelected] = React.useState<Boolean>(false);
 
   const regexTester = useMemo(
@@ -68,19 +70,21 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
     if (Array.isArray(selected) && selected.length > 0) {
       setInput(selected[0].name);
       startTransition(() => setSelected(true));
+      onSelection?.(selected[0].name);
     }
   }, []);
 
   const isFirstRender = useFirstRender();
 
   useEffect(() => {
-    if (!isFirstRender.current) {
+    if (!isFirstRender.current && input) {
       onChange?.(input);
     }
   }, [input]);
 
   useEffect(() => {
-    if (!isFirstRender.current && !!value) {
+    console.log(value);
+    if (!isFirstRender.current && isValidString(value)) {
       setInput(value);
     }
   }, [value]);

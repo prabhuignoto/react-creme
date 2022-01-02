@@ -6,6 +6,14 @@
 
 .rc-tags-wrap {
   @extend %list-wrap;
+
+  &.rc-tags-rtl {
+    direction: rtl;
+  }
+
+  &.rc-tags-disabled {
+    @extend %disabled;
+  }
 }
 
 .rc-tag {
@@ -37,14 +45,11 @@
   }
 
   &.rc-tag-disabled {
-    @extend %disabled;
+    opacity: 0.5;
+    pointer-events: none;
   }
 
-  // &.rc-tag-style-default:not(.rc-tag-disabled) {
-  // @extend %shadow-inset;
-  // }
-
-  &.rc-tag-style-fill:not(.rc-tag-disabled):not(.rc-tag-readonly) {
+  &.rc-tag-style-fill {
     @extend %border-radius;
     background: colors.$primary;
     color: colors.$white;

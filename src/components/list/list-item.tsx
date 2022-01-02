@@ -49,6 +49,17 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
       handleSelection();
     }, []);
 
+    const clickableProps = useMemo(() => {
+      if (disabled) {
+        return {};
+      }
+
+      return {
+        onClick: handleMouseDown,
+        tabIndex: 0,
+      };
+    }, []);
+
     return (
       <li
         className={listItemClass}
@@ -56,8 +67,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
         role="option"
         style={style}
         ref={ref}
-        tabIndex={0}
-        onClick={handleMouseDown}
+        {...clickableProps}
       >
         <div className="rc-list-item-wrapper" style={{ width: "100%" }}>
           <ListItemOption

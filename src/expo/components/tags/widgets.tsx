@@ -77,7 +77,6 @@ function widgets() {
               <Tags
                 items={items}
                 maxTags={15}
-                restrictToValues={["one", "two"]}
                 onSelected={(val) => console.log(val)}
                 readonly
                 tagWidth={50}
@@ -95,7 +94,6 @@ function widgets() {
               <Tags
                 items={items}
                 maxTags={15}
-                restrictToValues={["one", "two"]}
                 onSelected={(val) => console.log(val)}
                 tagWidth={100}
                 autoComplete

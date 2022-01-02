@@ -6,5 +6,6 @@ export interface AutoCompleteProps {
   suggestionsWidth?: number;
   placeholder?: string;
   onKeyUp?: (ev: React.KeyboardEvent) => void;
+  onSelection?: (value: string) => void;
   value?: string;
 }
