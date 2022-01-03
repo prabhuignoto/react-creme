@@ -27,7 +27,7 @@ function widgets() {
         <Section title="Default render">
           <BlockQuote>Sections are collapsible by default.</BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px`, height: "300px" }}>
+            <div style={{ width: `${width}px`, height: "400px" }}>
               <Sidebar
                 groups={[
                   {

@@ -1,5 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { BlockQuote, DataGrid, Section } from "../../../components";
+import { DataGridColumn } from "../../../components/data-grid/data-grid-model";
 import { DemoWidget } from "../../common/demo-widget";
 import useMedia from "../../common/useMedia";
 
@@ -29,6 +30,12 @@ const data = [
 function widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
+  const [columns, setColumns] = React.useState<DataGridColumn[]>([
+    { name: "name", type: "string" },
+    { name: "age", type: "number" },
+    { name: "dept", type: "string" },
+    { name: "marks", type: "number" },
+  ]);
 
   useLayoutEffect(() => {
     if (!media) {
@@ -38,11 +45,21 @@ function widgets() {
     if (media.isExtraLargeScreen) {
       setWidth(1250);
     } else if (media.isBigScreen) {
-      setWidth(950);
+      setWidth(850);
     } else if (media.isDesktop) {
-      setWidth(700);
+      setWidth(500);
+      setColumns([
+        { name: "name", type: "string" },
+        { name: "marks", type: "number" },
+        { name: "dept", type: "string" },
+      ]);
     } else if (media.isTablet) {
-      setWidth(600);
+      setWidth(650);
+      setColumns([
+        { name: "name", type: "string", width: 200 },
+        { name: "dept", type: "string", width: 200 },
+        { name: "marks", type: "number" },
+      ]);
     } else if (media.isMobile) {
       setWidth(450);
     }
@@ -62,12 +79,7 @@ function widgets() {
                 layoutStyle="comfortable"
                 border
                 gridWidth={width}
-                columns={[
-                  { name: "name", type: "string" },
-                  { name: "age", type: "number" },
-                  { name: "dept", type: "string" },
-                  { name: "marks", type: "number" },
-                ]}
+                columns={columns}
                 data={data}
               />
             </div>
@@ -85,12 +97,7 @@ function widgets() {
                 layoutStyle="compact"
                 fixedHeight
                 border
-                columns={[
-                  { name: "name", type: "string" },
-                  { name: "age", type: "number" },
-                  { name: "dept", type: "string" },
-                  { name: "marks", type: "number" },
-                ]}
+                columns={columns}
                 data={data}
               />
             </div>
@@ -105,12 +112,7 @@ function widgets() {
               <DataGrid
                 layoutStyle="comfortable"
                 border
-                columns={[
-                  { name: "name", type: "string", sortable: true },
-                  { name: "age", type: "number" },
-                  { name: "dept", type: "string" },
-                  { name: "marks", type: "number" },
-                ]}
+                columns={columns}
                 data={data}
               />
             </div>
@@ -126,12 +128,7 @@ function widgets() {
               <DataGrid
                 layoutStyle="comfortable"
                 zebra
-                columns={[
-                  { name: "name", type: "string", sortable: true },
-                  { name: "age", type: "number" },
-                  { name: "dept", type: "string" },
-                  { name: "marks", type: "number" },
-                ]}
+                columns={columns}
                 data={data}
               />
             </div>

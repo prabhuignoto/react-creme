@@ -16,7 +16,7 @@
 .rc-demo-app-features {
   align-items: flex-start;
   background: rgba($color: #fff, $alpha: 0.5);
-  border-radius: 1px;
+  border-radius: 4px;
   box-shadow: 0 0 30px 15px rgba($color: #000, $alpha: 0.1);
   display: flex;
   flex-direction: column;
@@ -25,6 +25,9 @@
   margin: 0;
   margin-top: 16px;
   padding: 2rem;
+  @media (max-width: 480px) {
+    width: 70%;
+  }
 }
 
 .rc-demo-home-header {
@@ -52,15 +55,37 @@
 
 .rc-demo-app-feature-icon {
   align-items: center;
-  // background-color: rgba(0, 0, 0, 0.2);
-  background-color: rgba($color: #003b73, $alpha: 0.75);
   border-radius: 10%;
   border-radius: 50%;
   color: #fff;
   display: flex;
-  height: 2.5rem;
+  height: 35px;
   justify-content: center;
-  width: 2.5rem;
+  position: relative;
+  width: 35px;
+  z-index: 1;
+  @media (max-width: 480px) {
+    height: 30px;
+    width: 30px;
+  }
+
+  &::after {
+    background-color: rgba($color: #003b73, $alpha: 0.75);
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 40px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    z-index: -1;
+    @media (max-width: 480px) {
+      height: 35px;
+      width: 35px;
+    }
+  }
 
   svg {
     height: 70%;
@@ -71,6 +96,9 @@
 .rc-demo-app-feature-name {
   font-size: 1.2rem;
   margin-left: 1rem;
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 }
 
 .rc-demo-app-hero-image {
@@ -91,6 +119,22 @@
   margin-bottom: 1rem;
   width: 100%;
 
+  @media (max-width: 480px) {
+    height: 300px;
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    height: 600px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    height: 600px;
+  }
+
+  @media (min-width: 1025px) {
+    height: 700px;
+  }
+
   img {
     object-fit: cover;
   }
@@ -104,4 +148,40 @@
   justify-content: center;
   margin-bottom: 3rem;
   padding: 1rem;
+}
+
+.rc-home-main-content {
+  width: 95%;
+}
+
+.browser-support-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  margin-top: 1rem;
+  padding: 0;
+
+  li {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 1rem;
+  }
+
+  .browser-support-name {
+    color: #0074b7;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  .browser-support-icon {
+    align-items: center;
+    background: #fff;
+    color: rgba(#0074b7, 1);
+    display: flex;
+    justify-content: center;
+  }
 }

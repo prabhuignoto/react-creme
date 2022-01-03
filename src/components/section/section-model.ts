@@ -6,4 +6,5 @@ export interface SectionModel {
   height?: number;
   layout?: "row" | "column";
   RTL?: boolean;
+  size?: "sm" | "md" | "lg";
 }

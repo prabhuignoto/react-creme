@@ -43,11 +43,11 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
       }, [media]);
 
       const columns: DataGridColumn[] = useMemo(() => {
-        if (!width) {
+        if (!width || !media) {
           return [];
         }
 
-        if (media && media.isMobile) {
+        if (media.isMobile) {
           return [
             {
               name: "name",
@@ -57,7 +57,11 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
             },
             { name: "description", type: "string" },
           ];
-        } else {
+        } else if (
+          media.isBigScreen ||
+          media.isExtraLargeScreen ||
+          media.isTablet
+        ) {
           return [
             {
               name: "name",
@@ -75,6 +79,23 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
             },
             { name: "optional", type: "string" },
             { name: "type", type: "string" },
+          ];
+        } else {
+          return [
+            {
+              name: "name",
+              type: "string",
+              sortable: true,
+              formatter: (val) => (val ? `<em>${val}</em>` : ""),
+              width: 150,
+            },
+            { name: "description", type: "string" },
+            {
+              name: "default",
+              type: "string",
+              formatter: (val) => (val ? `<em>${val}</em>` : ""),
+              width: 150,
+            },
           ];
         }
       }, [media, width]);

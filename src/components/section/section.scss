@@ -1,6 +1,19 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
 @use "../../design/list.scss";
+@use "sass:map";
+
+$sizes: (
+  sm: 1rem,
+  md: 1.25rem,
+  lg: 1.5rem,
+);
+
+$heights: (
+  sm: 30px,
+  md: 35px,
+  lg: 40px,
+);
 
 .rc-section {
   @extend %col;
@@ -16,6 +29,13 @@
   height: 30px;
   padding-left: 1rem;
   width: 100%;
+
+  @each $key, $val in $sizes {
+    &.rc-section-header-#{$key} {
+      font-size: $val;
+      height: map.get($heights, $key);
+    }
+  }
 }
 
 .rc-section-body {

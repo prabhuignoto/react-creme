@@ -6,12 +6,14 @@ export interface PageHeaderProps {
   title: string;
   children?: React.ReactNode;
   RTL?: boolean;
+  size?: "sm" | "md" | "lg";
 }
 
 const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   title,
   children,
   RTL = false,
+  size = "md",
 }) => {
   const headerClass = useMemo(() => {
     return classNames("rc-page-header", {
@@ -19,9 +21,15 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
     });
   }, []);
 
+  const titleClass = useMemo(() => {
+    return classNames("rc-page-header-title", {
+      [`rc-page-header-title-${size}`]: true,
+    });
+  }, []);
+
   return (
     <header className={headerClass}>
-      <h2>{title}</h2>
+      <h2 className={titleClass}>{title}</h2>
       <p>{children}</p>
     </header>
   );

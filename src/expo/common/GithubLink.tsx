@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const GithubLink = () => (
   <div className="rc-demo-app-github-link">
@@ -7,10 +9,7 @@ const GithubLink = () => (
       target="_blank"
       rel="noreferrer"
     >
-      <img
-        src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-        alt="github"
-      />
+      <FontAwesomeIcon icon={faGithub} size="2x" />
     </a>
   </div>
 );

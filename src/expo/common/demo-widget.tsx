@@ -1,9 +1,8 @@
 import React from "react";
-import reactElementToJSXString from "react-element-to-jsx-string";
 import { Accordion } from "../../components";
 import { CodeIcon } from "../../icons";
+import { Code } from "./Code";
 import "./demo-widget.scss";
-import { Code } from "./syntax-highlighter";
 
 interface WidgetProps {
   children: React.ReactNode;
@@ -32,23 +31,14 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
         <div style={{ margin: "0.5rem 0", width: fullWidth ? "100%" : "" }}>
           {children}
         </div>
-        <div className="rc-demo-code-block">
+        <div style={{ width: "100%" }}>
           <Accordion
             title="Show Code"
             noBorder
             focusable={false}
             customIcon={<CodeIcon />}
           >
-            <Code
-              code={reactElementToJSXString(children, {
-                showDefaultProps: true,
-                maxInlineAttributesLineLength: 550,
-                useBooleanShorthandSyntax: true,
-                tabStop: 4,
-                sortProps: true,
-                showFunctions: true,
-              })}
-            ></Code>
+            <Code>{children}</Code>
           </Accordion>
         </div>
       </div>

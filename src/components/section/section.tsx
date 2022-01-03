@@ -9,6 +9,7 @@ const Section: React.FC<SectionModel> = ({
   height = 150,
   layout = "row",
   RTL = false,
+  size = "sm",
 }) => {
   const sectionStyle = useMemo(
     () =>
@@ -40,6 +41,7 @@ const Section: React.FC<SectionModel> = ({
   const headerClass = useMemo(() => {
     return classNames("rc-section-header", {
       "rc-section-header-rtl": RTL,
+      [`rc-section-header-${size}`]: true,
     });
   }, []);
 

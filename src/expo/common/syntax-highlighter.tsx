@@ -9,7 +9,7 @@ interface CodeModel {
   code?: string;
 }
 
-const Code: React.FunctionComponent<CodeModel> = ({ code }) => {
+const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
   const [showNotification, setShowNotification] = React.useState(false);
 
   const handleCopy = async () => {
@@ -51,4 +51,4 @@ const Code: React.FunctionComponent<CodeModel> = ({ code }) => {
   );
 };
 
-export { Code };
+export { SyntaxHighLighter };
