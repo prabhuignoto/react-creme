@@ -38,4 +38,5 @@ export interface DropdownModel {
   virtualize?: boolean;
   focusable?: boolean;
   RTL?: boolean;
+  chevronIconColor?: string;
 }

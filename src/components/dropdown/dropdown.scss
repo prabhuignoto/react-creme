@@ -24,15 +24,15 @@
   height: 100%;
   padding: 0.1rem 0;
   width: 100%;
-  
+
   &:not(.rc-dropdown-disabled) {
     @include animate.halo(4px, 4px);
   }
-  
+
   &.rc-dropdown-disabled {
     @extend %disabled;
   }
-  
+
   &.rc-dropdown-multi {
     display: flex;
     max-height: 400px;
@@ -44,12 +44,12 @@
     @extend %center;
     height: 35px;
   }
-  
+
   &.rc-dropdown-rtl:not(.rc-dropdown-multi) {
     display: grid;
     grid-template-columns: 2rem calc(100% - 2rem);
   }
-  
+
   &:not(.rc-dropdown-rtl):not(.rc-dropdown-multi) {
     display: grid;
     grid-template-columns: calc(100% - 2rem) 2rem;
@@ -93,6 +93,7 @@
 
 .rc-dropdown-chevron-icon {
   @extend %icon-lg;
+  color: var(--chevron-icon-color, colors.$primary);
   transition: transform 0.2s ease-in;
 }
 

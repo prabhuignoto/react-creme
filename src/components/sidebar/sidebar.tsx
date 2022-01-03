@@ -14,14 +14,15 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   border = false,
   enableSearch = false,
   focusable = false,
-  groupIconColor = "#000",
-  groupTitleColor = "#000",
+  groupIconColor,
+  groupTitleColor,
   groups,
   height = "100%",
   listMaxHeight = 750,
   onSelect,
   searchPlaceholder = "Search ...",
   sectionsCollapsible = true,
+  iconsColor,
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)

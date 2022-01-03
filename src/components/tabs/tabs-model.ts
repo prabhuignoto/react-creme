@@ -20,6 +20,7 @@ export interface TabsModel extends TabsCommonModel {
   width?: number | string;
   style?: CSSProperties;
   disabledTabs?: string[];
+  iconsColor?: string;
 }
 
 export interface TabItemModel {

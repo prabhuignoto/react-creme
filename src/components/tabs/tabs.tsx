@@ -23,6 +23,7 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
   width = "100%",
   focusable = false,
   enableSwipe = false,
+  iconsColor,
 }) => {
   const selectionStart = useRef<number>(-1);
 
@@ -55,6 +56,7 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
       ({
         ...style,
         "--min-width": Number.isInteger(width) ? `${width}px` : width,
+        "--icons-color": iconsColor,
       } as CSSProperties),
     []
   );

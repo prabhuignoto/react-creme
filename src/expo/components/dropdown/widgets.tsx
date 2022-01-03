@@ -102,6 +102,7 @@ function Widgets() {
                 placeholder="choose another country"
                 onSelected={(val) => console.log(val)}
                 virtualize
+                enableSearch
                 options={[
                   { name: "germany", value: "germany", disabled: true },
                   { name: "india", value: "india" },
@@ -111,6 +112,11 @@ function Widgets() {
                   { name: "canada", value: "canada" },
                   { name: "thailand", value: "thailand" },
                   { name: "brazil", value: "brazil" },
+                  { name: "china", value: "china" },
+                  { name: "japan", value: "japan" },
+                  { name: "korea", value: "korea" },
+                  { name: "indonesia", value: "indonesia" },
+                  { name: "malaysia", value: "malaysia" },
                 ]}
               />
             </div>

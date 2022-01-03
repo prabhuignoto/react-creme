@@ -36,4 +36,5 @@ export interface SidebarCommonProps {
   groupTitleColor?: string;
   listMaxHeight?: number;
   sectionsCollapsible?: boolean;
+  iconsColor?: string;
 }

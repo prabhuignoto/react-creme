@@ -1,6 +1,7 @@
 import cls from "classnames";
 import { nanoid } from "nanoid";
 import React, {
+  CSSProperties,
   startTransition,
   useCallback,
   useMemo,
@@ -31,6 +32,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     virtualize = false,
     focusable = false,
     RTL = false,
+    chevronIconColor,
   }: DropdownModel) => {
     // options states
     const [dropdownOptions, setDropdownOptions] = useState(
@@ -172,12 +174,14 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
       [showMenu, menuClosing]
     );
 
+    const iconStyle = useMemo(() => {
+      return {
+        "---chevron-icon-color": chevronIconColor,
+      } as CSSProperties;
+    }, []);
+
     return (
-      <div
-        className={rcDropdownClass}
-        ref={dropdownRef}
-        // onClick={handleToggleMenu}
-      >
+      <div className={rcDropdownClass} ref={dropdownRef}>
         <div
           className={rcDropdownValueClass}
           ref={containerRef}
@@ -203,7 +207,12 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
           ) : (
             <span className={"rc-dropdown-value"}>{selectedValue}</span>
           )}
-          <span className={rcDropdownIconClass} role="img" data-testid="icon">
+          <span
+            className={rcDropdownIconClass}
+            role="img"
+            data-testid="icon"
+            style={iconStyle}
+          >
             <ChevronDownIcon />
           </span>
         </div>

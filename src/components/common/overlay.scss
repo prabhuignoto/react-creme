@@ -38,8 +38,23 @@
   @include position.position-abs("top right");
   border-radius: 50%;
   cursor: pointer;
-  right: 1.5rem;
-  top: 0.5rem;
+  right: 3rem;
+  top: 1rem;
+
+  &:hover::after {
+    background: rgba($color: #000, $alpha: 0.75);
+  }
+
+  &::after {
+    @include position.position-abs("center center");
+    background: rgba($color: #000, $alpha: 0.25);
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 120%;
+    width: 120%;
+    z-index: -1;
+  }
 
   svg {
     color: colors.$white;

@@ -6,7 +6,7 @@
 
 .rc-menu-bar-wrapper {
   @extend %border;
-  @extend %shadow-inset;
+  // @extend %shadow-inset;
 
   height: 40px;
   min-width: var(--min-width);

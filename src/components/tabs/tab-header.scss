@@ -60,6 +60,7 @@ $rounded-tabs-height: 35px;
 .rc-tab-header-btn {
   @extend %border-radius;
   @extend %icon-md;
+  color: var(--icons-color, colors.$primary);
   cursor: pointer;
 
   &:hover {

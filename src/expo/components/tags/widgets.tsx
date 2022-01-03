@@ -43,6 +43,7 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
               <Tags
+                placeholder="Choose a language..."
                 items={items}
                 maxTags={15}
                 onSelected={(val) => console.log(val)}
@@ -58,6 +59,7 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
               <Tags
+                placeholder="Choose a language..."
                 items={items}
                 maxTags={15}
                 onSelected={(val) => console.log(val)}
@@ -75,6 +77,7 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
               <Tags
+                placeholder="Choose a language..."
                 items={items}
                 maxTags={15}
                 onSelected={(val) => console.log(val)}
@@ -92,6 +95,7 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
               <Tags
+                placeholder="Choose a language..."
                 items={items}
                 maxTags={15}
                 onSelected={(val) => console.log(val)}
