@@ -8,9 +8,8 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { ChevronRightIcon, MinusIcon, PlusIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
-import { useFocus } from "../common/effects/useFocus";
+import { AccordionHeader } from "./accordion-header";
 import { AccordionModel } from "./accordion-model";
 import "./accordion.scss";
 
@@ -22,7 +21,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     disableIcon = false,
     expanded = null,
     focusable = false,
-    iconColor = "#000",
+    iconColor,
     iconType = "chevron",
     id,
     noBorder = false,
@@ -31,14 +30,13 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     title,
     titleColor = "#000",
     transition = "cubic-bezier(0.19, 1, 0.22, 1)",
-    titleBold = false,
+    isTitleBold = false,
     disableCollapse = false,
   }: AccordionModel) => {
     const accordionID = useRef(id || `accordion-${useId()}`);
     const accordionBodyId = useRef(`accordion-body-${useId()}`);
 
     const ref = useRef(null);
-    const chevronRef = useRef(null);
 
     const [open, setOpen] = useState(expanded);
     const [bodyHeight, setBodyHeight] = useState(0);
@@ -49,8 +47,6 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       setOpen((prev) => {
         return !prev;
       });
-      // startTransition(() =>
-      // );
     }, []);
 
     const enableCallback = useRef(false);
@@ -80,16 +76,6 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       [open, bodyHeight]
     );
 
-    const iconClass = useMemo(() => {
-      const classes: string[] = [];
-
-      return cls([...classes, "rc-accordion-icon"], {
-        "rc-accordion-icon-open": open,
-        [`rc-accordion-icon-${iconType}`]: true,
-        "rc-accordion-custom-icon": customIcon,
-      });
-    }, [open, customIcon]);
-
     const accordionClass = useMemo(
       () =>
         cls("rc-accordion", {
@@ -97,16 +83,6 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
           "rc-accordion-open": open,
         }),
       [noBorder, open, alignIconRight]
-    );
-
-    const accordionHeaderClass = useMemo(
-      () =>
-        cls("rc-accordion-header", {
-          "rc-accordion-align-icon-rt": alignIconRight,
-          "rc-accordion-disable-icon": disableIcon,
-          "rc-accordion-focusable": focusable,
-        }),
-      [alignIconRight, focusable]
     );
 
     const onInitRef = useCallback((node) => {
@@ -129,10 +105,6 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       }
     }, [open]);
 
-    if (focusable) {
-      useFocus(chevronRef, toggleAccordion);
-    }
-
     useEffect(() => {
       enableCallback.current = false;
 
@@ -141,58 +113,23 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
       }
     }, [expanded]);
 
-    if (focusable) {
-      useFocus(chevronRef, toggleAccordion);
-    }
-
-    const focusProps = useMemo(
-      () => (focusable && !disableCollapse ? { tabIndex: 0 } : null),
-      [focusable, disableCollapse]
-    );
-
-    const icon = useMemo(() => {
-      if (disableIcon) {
-        return null;
-      }
-
-      if (customIcon) {
-        return customIcon;
-      } else if (iconType === "chevron") {
-        return <ChevronRightIcon />;
-      } else if (iconType === "plus") {
-        return open ? <MinusIcon /> : <PlusIcon />;
-      }
-    }, [iconType, open, disableIcon]);
-
-    const titleClass = useMemo(() => {
-      return cls("rc-accordion-title", {
-        "rc-accordion-title-bold": titleBold,
-      });
-    }, [titleBold]);
-
-    const collapsibleProps = useMemo(() => {
-      return !disableCollapse
-        ? {
-            onClick: toggleAccordion,
-            "aria-controls": accordionBodyId.current,
-            "aria-expanded": !!open,
-          }
-        : null;
-    }, []);
-
     return (
       <div className={accordionClass} style={style}>
-        <div
-          className={accordionHeaderClass}
-          id={accordionID.current}
-          ref={chevronRef}
-          role="button"
-          {...focusProps}
-          {...collapsibleProps}
-        >
-          {!disableIcon && <span className={iconClass}>{icon}</span>}
-          <span className={titleClass}>{title}</span>
-        </div>
+        <AccordionHeader
+          disableIcon={disableIcon}
+          focusable={focusable}
+          alignIconRight={alignIconRight}
+          disableCollapse={disableCollapse}
+          accordionBodyId={accordionBodyId.current}
+          accordionId={accordionID.current}
+          iconType={iconType}
+          iconColor={iconColor}
+          title={title}
+          customIcon={customIcon}
+          isTitleBold={isTitleBold}
+          open={open}
+          onToggle={toggleAccordion}
+        />
         <div
           className={accordionBodyClass}
           style={style}

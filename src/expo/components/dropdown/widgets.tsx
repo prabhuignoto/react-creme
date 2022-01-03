@@ -32,12 +32,12 @@ function Widgets() {
             <div style={{ width: `${width}px` }}>
               <Dropdown
                 maxMenuHeight={400}
-                placeholder="choose another country"
+                placeholder="choose a country"
                 onSelected={(val) => console.log(val)}
                 options={[
                   { name: "germany", value: "germany", disabled: true },
                   { name: "india", value: "india" },
-                  { name: "usa", value: "usa", selected: true },
+                  { name: "usa", value: "usa" },
                   { name: "uk", value: "uk" },
                   { name: "srilanka", value: "srilanka" },
                 ]}

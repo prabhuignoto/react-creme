@@ -85,7 +85,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
 .rc-accordion-icon {
   @extend %icon-md;
-  color: var(--icon-color);
+  color: var(--icon-color, colors.$primary);
   cursor: pointer;
   transition: transform 0.2s ease-in;
 

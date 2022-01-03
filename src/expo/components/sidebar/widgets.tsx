@@ -27,7 +27,7 @@ function widgets() {
         <Section title="Default render">
           <BlockQuote>Sections are collapsible by default.</BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px`, height: "400px" }}>
+            <div style={{ width: `${width}px`, height: "300px" }}>
               <Sidebar
                 groups={[
                   {
@@ -63,29 +63,6 @@ function widgets() {
                   {
                     title: "Section 3",
                     items: [{ name: "tester" }],
-                  },
-                ]}
-              />
-            </div>
-          </DemoWidget>
-        </Section>
-        <Section title="Minimize">
-          <BlockQuote>
-            The Sidebar can be collapsed and expanded with the{" "}
-            <code>minimizeSidebar</code> option
-          </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px`, height: "400px" }}>
-              <Sidebar
-                minimizeSidebar
-                groups={[
-                  {
-                    title: "Section 1",
-                    items: [{ name: "tester" }, { name: "tester 2" }],
-                  },
-                  {
-                    title: "Section 2",
-                    items: [{ name: "tester" }, { name: "tester 2" }],
                   },
                 ]}
               />

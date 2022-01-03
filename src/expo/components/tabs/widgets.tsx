@@ -49,6 +49,7 @@ function widgets() {
                 tabStyle="flat"
                 border={false}
                 enableSwipe
+                focusable
               >
                 <span>one</span>
                 <span>two</span>

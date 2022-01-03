@@ -6,7 +6,7 @@ import { CarouselButtonModel } from "./carousel-model";
 import "./carousel.scss";
 
 const CarouselButton: React.FunctionComponent<CarouselButtonModel> = React.memo(
-  ({ onClick, position, hide, direction }: CarouselButtonModel) => {
+  ({ onClick, position, hide, direction, focusable }: CarouselButtonModel) => {
     return (
       <span
         className={classNames(
@@ -20,7 +20,7 @@ const CarouselButton: React.FunctionComponent<CarouselButtonModel> = React.memo(
           }
         )}
       >
-        <Button type="icon" onClick={onClick}>
+        <Button type="icon" onClick={onClick} focusable={focusable}>
           <ChevronRightIcon />
         </Button>
       </span>

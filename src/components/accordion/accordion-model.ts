@@ -8,12 +8,7 @@ export interface AccordionModel extends AccordionCommon {
   noBorder?: boolean;
   onCollapsed?: (id: string) => void;
   onExpanded?: (id: string) => void;
-  title?: string;
   transition?: string;
-  focusable?: boolean;
-  iconType?: "chevron" | "plus";
-  disableIcon?: boolean;
-  customIcon?: ReactNode;
 }
 
 export interface AccordionGroupProps extends AccordionCommon {
@@ -21,7 +16,6 @@ export interface AccordionGroupProps extends AccordionCommon {
   titles?: string[];
   autoClose?: boolean;
   expanded?: boolean;
-  alignIconRight?: boolean;
   border?: boolean;
   iconType?: "chevron" | "plus";
 }
@@ -32,9 +26,22 @@ export interface AccordionItemProps {
   focusable?: boolean;
 }
 
+export interface AccordionHeaderProps extends AccordionCommon {
+  accordionBodyId?: string;
+  accordionId?: string;
+  onToggle?: () => void;
+  open?: boolean | null;
+}
+
 export interface AccordionCommon {
-  titleColor?: string;
-  iconColor?: string;
-  titleBold?: boolean;
+  alignIconRight?: boolean;
   disableCollapse?: boolean;
+  customIcon?: ReactNode;
+  disableIcon?: boolean;
+  iconType?: "chevron" | "plus";
+  focusable?: boolean;
+  iconColor?: string;
+  isTitleBold?: boolean;
+  title?: string;
+  titleColor?: string;
 }

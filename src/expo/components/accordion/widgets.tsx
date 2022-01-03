@@ -32,7 +32,7 @@ function widgets() {
           {/* <Code code="<span>This is a test</span>"></Code> */}
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Accordion title="Lorem Ipsum" noBorder>
+              <Accordion title="Lorem Ipsum" noBorder focusable>
                 <p>
                   Sed laoreet neque eget sem varius, et interdum dui venenatis.
                   Suspendisse in faucibus tortor, nec aliquet arcu. Quisque at
@@ -68,7 +68,7 @@ function widgets() {
           <BlockQuote>The icon can be aligned to the right</BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Accordion title="Lorem Ipsum" noBorder alignIconRight>
+              <Accordion title="Lorem Ipsum" noBorder alignIconRight focusable>
                 <p>
                   Sed laoreet neque eget sem varius, et interdum dui venenatis.
                   Suspendisse in faucibus tortor, nec aliquet arcu. Quisque at
@@ -106,7 +106,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Accordion title="Lorem Ipsum" noBorder expanded>
+              <Accordion title="Lorem Ipsum" noBorder expanded focusable>
                 <p>
                   It is a long established fact that a reader will be distracted
                   by the readable content of a page when looking at its layout.

@@ -30,7 +30,6 @@ export { RadioGroup } from "./radio-group/radio-group";
 export { Radio } from "./radio/radio";
 export { Rate } from "./rate/rate";
 export { Reveal } from "./reveal/reveal";
-export { ScrollPane } from "./scroll-pane/scroll-pane";
 export { ScrollSpy } from "./scroll-spy/scroll-spy";
 export { Section } from "./section/section";
 export { Sidebar } from "./sidebar/sidebar";

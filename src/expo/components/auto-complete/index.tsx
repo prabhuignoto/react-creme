@@ -29,6 +29,34 @@ function index() {
           optional: "Yes",
           type: "string[]",
         },
+        {
+          name: "placeholder",
+          description: "Placeholder text",
+          default: "",
+          optional: "Yes",
+          type: "string",
+        },
+        {
+          name: "onSelection",
+          description: "Callback function when an item is selected",
+          default: "",
+          optional: "Yes",
+          type: "function",
+        },
+        {
+          name: "onKeyUp",
+          description: "Callback function when the input value changes",
+          default: "",
+          optional: "Yes",
+          type: "function",
+        },
+        {
+          name: "value",
+          description: "Value of the input",
+          default: "",
+          optional: "Yes",
+          type: "string",
+        },
       ]}
       tabTitles={["examples", "properties"]}
       demoWidget={<Widgets />}

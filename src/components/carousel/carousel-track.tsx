@@ -13,6 +13,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
   onPrevious,
   hidePrevious,
   hideNext,
+  focusable,
 }: CarouselTrackModel) => {
   const carouselTrackClass = useMemo(
     () => classNames(["rc-carousel-track", `rc-carousel-track-${direction}`]),
@@ -27,6 +28,19 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
     [direction]
   );
 
+  const focusableProps = useMemo(() => {
+    return {
+      tabIndex: focusable ? 0 : -1,
+      onKeyDown: (event: React.KeyboardEvent) => {
+        if (event.key === "ArrowRight") {
+          onNext();
+        } else if (event.key === "ArrowLeft") {
+          onPrevious();
+        }
+      },
+    };
+  }, []);
+
   return (
     <div className={carouselContainerClass}>
       <CarouselButton
@@ -34,12 +48,14 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
         position="left"
         hide={hidePrevious}
         direction={direction}
+        focusable={focusable}
       />
       <ul className={carouselTrackClass} role="list">
         {Array.from({ length }).map((_, index) => (
           <li
             key={index}
             role="listitem"
+            {...focusableProps}
             className={classNames([
               "rc-carousel-track-item",
               index === activeIndex ? "rc-carousel-track-item-selected" : "",
@@ -53,6 +69,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
         position="right"
         hide={hideNext}
         direction={direction}
+        focusable={focusable}
       />
     </div>
   );

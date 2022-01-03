@@ -7,6 +7,7 @@ export interface CarouselModel {
   autoPlay?: number;
   transition?: string;
   enableSwipe?: boolean;
+  focusable?: boolean;
 }
 
 export interface CarouselItemModel {
@@ -36,6 +37,7 @@ export interface CarouselTrackModel {
   onNext: () => void;
   onPrevious: () => void;
   hideNext?: boolean;
+  focusable?: boolean;
   hidePrevious?: boolean;
 }
 
@@ -44,4 +46,5 @@ export interface CarouselButtonModel {
   position: "left" | "right";
   direction: "horizontal" | "vertical";
   hide?: boolean;
+  focusable?: boolean;
 }

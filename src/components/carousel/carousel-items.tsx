@@ -28,8 +28,10 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
           key={item.id}
           className={"rc-carousel-item"}
           role="listitem"
+          data-visible={activePage === index}
           style={{
             width: item.width,
+            visibility: item.width === 0 ? "hidden" : "visible",
             top: direction === "horizontal" ? 0 : item.top,
             left: direction === "horizontal" ? item.left : 0,
           }}

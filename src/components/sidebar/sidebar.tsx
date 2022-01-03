@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
-import { ChevronRightIcon, SearchIcon } from "../../icons";
+import { SearchIcon } from "../../icons";
 import { isArray } from "../common/utils";
 import { Input } from "../index";
 import { ListOption } from "../list/list-model";
@@ -19,7 +19,6 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   groups,
   height = "100%",
   listMaxHeight = 750,
-  minimizeSidebar = false,
   onSelect,
   searchPlaceholder = "Search ...",
   sectionsCollapsible = true,
@@ -39,7 +38,6 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
       : []
   );
 
-  const [minimize, setMinimize] = React.useState(false);
   const [sidebarHeight, setSidebarHeight] = React.useState(0);
 
   const ref = useRef<HTMLDivElement | null>(null);
@@ -88,15 +86,8 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
     [groups.length]
   );
 
-  const sideBarClass = useMemo(
-    () =>
-      classNames("rc-sidebar", {
-        "rc-sidebar-minimize": minimizeSidebar,
-      }),
-    [minimizeSidebar]
-  );
+  const sideBarClass = useMemo(() => classNames("rc-sidebar"), []);
 
-  const handleMinimize = useCallback(() => setMinimize((prev) => !prev), []);
   const style = useMemo(() => {
     return {
       "--bg-color": backGroundColor,
@@ -106,19 +97,9 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
 
   const contentWrapper = useMemo(() => {
     return classNames("rc-sidebar-content-wrapper", {
-      "rc-sidebar-minimize": minimizeSidebar,
-      "rc-sidebar-hide": minimize,
-      "rc-sidebar-open": !minimize,
-      "rc-sidebar-border": border || minimizeSidebar,
+      "rc-sidebar-border": border,
     });
-  }, [minimize, minimizeSidebar, border]);
-
-  const minimizeButton = useMemo(() => {
-    return classNames("rc-sidebar-minimize-btn", {
-      "rc-sidebar-minimize-btn-open": !minimize,
-      "rc-sidebar-minimize-btn-close": minimize,
-    });
-  }, [minimize]);
+  }, [border]);
 
   const onRef = useCallback((node) => {
     if (node) {
@@ -129,11 +110,6 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
 
   return (
     <div className={sideBarClass} style={style} ref={onRef}>
-      {minimizeSidebar && (
-        <span className={minimizeButton} onClick={handleMinimize}>
-          <ChevronRightIcon />
-        </span>
-      )}
       <div className={contentWrapper}>
         {enableSearch && (
           <div className="rc-sidebar-search-wrapper">

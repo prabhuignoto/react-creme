@@ -32,13 +32,6 @@ function card() {
           type: "number",
         },
         {
-          name: "maxHeight",
-          description: "Maximum height of the card",
-          default: "400",
-          optional: "Yes",
-          type: "number",
-        },
-        {
           name: "alignHeader",
           description:
             "aligns the header element to 'left' | 'right' | 'center",

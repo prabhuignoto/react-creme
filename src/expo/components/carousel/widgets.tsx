@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useMemo } from "react";
-import { Section, BlockQuote, Carousel, Image } from "../../../components";
+import { BlockQuote, Carousel, Image, Section } from "../../../components";
 import { DemoWidget } from "../../common/demo-widget";
 import useMedia from "../../common/useMedia";
 
@@ -43,7 +43,7 @@ function widgets() {
                 width: resolvedWidth,
               }}
             >
-              <Carousel direction="horizontal">
+              <Carousel direction="horizontal" focusable>
                 <Image src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1474&q=80" />
                 <Image src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1274&q=80" />
                 <Image src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1476&q=80" />

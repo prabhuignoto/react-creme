@@ -29,7 +29,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
         border={false}
         titleColor={groupTitleColor}
         iconColor={groupIconColor}
-        titleBold
+        isTitleBold
         disableCollapse={!sectionsCollapsible}
       >
         {groups

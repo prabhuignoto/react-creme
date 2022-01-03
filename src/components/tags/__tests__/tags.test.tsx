@@ -32,10 +32,10 @@ describe("Tags", () => {
   });
 
   it("Should create new tag", async () => {
-    const { getAllByPlaceholderText, getByRole } = render(
-      <Tags items={tags} />
+    const { getByPlaceholderText, getByRole } = render(
+      <Tags items={tags} placeholder="Please enter a value ..." />
     );
-    const input = getAllByPlaceholderText("Please enter a value ...")[0];
+    const input = getByPlaceholderText("Please enter a value ...");
 
     await act(async () => {
       fireEvent.change(input, {
@@ -83,11 +83,15 @@ describe("Tags", () => {
   });
 
   it("should call on change", async () => {
-    const { getAllByPlaceholderText } = render(
-      <Tags items={tags} onSelected={onSelected} />
+    const { getByPlaceholderText } = render(
+      <Tags
+        items={tags}
+        onSelected={onSelected}
+        placeholder="Please enter a value ..."
+      />
     );
 
-    const input = getAllByPlaceholderText("Please enter a value ...")[0];
+    const input = getByPlaceholderText("Please enter a value ...");
 
     await act(async () => {
       fireEvent.change(input, {

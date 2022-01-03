@@ -18,7 +18,7 @@ import "./auto-complete.scss";
 const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   onChange,
   suggestions,
-  suggestionsWidth = 200,
+  suggestionsWidth,
   placeholder = "",
   onKeyUp,
   value,
@@ -83,7 +83,6 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   }, [input]);
 
   useEffect(() => {
-    console.log(value);
     if (!isFirstRender.current && isValidString(value)) {
       setInput(value);
     }
@@ -91,9 +90,11 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
 
   const style = useMemo(
     () =>
-      ({
-        "--rc-autocomplete-suggestions-width": `${suggestionsWidth}px`,
-      } as CSSProperties),
+      suggestionsWidth
+        ? ({
+            "--rc-autocomplete-suggestions-width": `${suggestionsWidth}px`,
+          } as CSSProperties)
+        : {},
     [suggestionsWidth]
   );
 

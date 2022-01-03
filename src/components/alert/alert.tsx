@@ -7,15 +7,8 @@ import {
   InfoIcon,
   WarningIcon,
 } from "../../icons";
+import { AlertProps } from "./alert-model";
 import "./alert.scss";
-
-interface AlertProps {
-  message?: string;
-  height?: number;
-  state?: "success" | "error" | "warning" | "info";
-  canDismiss?: boolean;
-  onDismiss?: () => void;
-}
 
 const Alert: React.FunctionComponent<AlertProps> = ({
   message,
@@ -37,10 +30,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   const messageClass = useMemo(
     () =>
       classNames("rc-alert", {
-        "rc-alert-success": state === "success",
-        "rc-alert-error": state === "error",
-        "rc-alert-warning": state === "warning",
-        "rc-alert-info": state === "info",
+        [`rc-alert-${state}`]: true,
         "rc-alert-close": close,
       }),
     [state, close]
@@ -51,14 +41,26 @@ const Alert: React.FunctionComponent<AlertProps> = ({
     onDismiss && onDismiss();
   }, []);
 
+  const icon = useMemo(() => {
+    switch (state) {
+      case "success":
+        return <CheckIcon />;
+      case "error":
+        return <ErrorIcon />;
+      case "warning":
+        return <WarningIcon />;
+      case "info":
+        return <InfoIcon />;
+      default:
+        return <InfoIcon />;
+    }
+  }, []);
+
   return (
     <div className={messageClass} style={style} role="alert">
       <div className="rc-alert-icon-wrapper">
         <span className="rc-alert-icon" role="img">
-          {state === "error" && <ErrorIcon />}
-          {state === "warning" && <WarningIcon />}
-          {state === "info" && <InfoIcon />}
-          {state === "success" && <CheckIcon />}
+          {icon}
         </span>
       </div>
       <span className="rc-alert-content">{message}</span>

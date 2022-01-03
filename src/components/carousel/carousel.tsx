@@ -25,6 +25,7 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   height = 400,
   transition = "cubic-bezier(0.55, 0.08, 0.68, 0.53)",
   enableSwipe = false,
+  focusable = false,
 }) => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const [carouselItems, setCarouselItems] = useState<CarouselItemModel[]>(
@@ -222,6 +223,7 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
             onPrevious={handlePrevious}
             hideNext={hideNextButton}
             hidePrevious={hidePreviousButton}
+            focusable={focusable}
           />
         )}
       </div>

@@ -35,7 +35,7 @@ const Button: React.FunctionComponent<ButtonModel> = ({
   const ref = useRef(null);
 
   if (focusable) {
-    useFocus(ref);
+    useFocus(ref, onClick);
   }
 
   const focusableProps = useMemo(

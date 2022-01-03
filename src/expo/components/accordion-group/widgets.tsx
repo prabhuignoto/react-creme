@@ -47,7 +47,7 @@ function Widgets() {
         <Section title="Default Render">
           <div className="rc-demo-widget">
             <div style={{ width: `${width}px` }}>
-              <AccordionGroup titles={["one", "two"]}>
+              <AccordionGroup titles={["one", "two"]} focusable>
                 <Para />
                 <div
                   style={{

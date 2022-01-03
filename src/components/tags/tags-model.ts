@@ -23,4 +23,5 @@ export interface TagsModel {
   autoComplete?: boolean;
   suggestions?: string[];
   RTL?: boolean;
+  placeholder?: string;
 }

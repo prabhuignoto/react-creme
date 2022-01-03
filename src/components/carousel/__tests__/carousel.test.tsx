@@ -1,10 +1,10 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { act, render, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
-import { act } from "react-dom/test-utils";
 import { Carousel } from "../carousel";
 
 describe("Carousel", () => {
-  it("should render carousel", () => {
+  it("should render carousel", async () => {
     const { getByText } = render(
       <Carousel direction="horizontal">
         <span>one</span>
@@ -12,11 +12,13 @@ describe("Carousel", () => {
       </Carousel>
     );
 
-    expect(getByText("one")).toBeInTheDocument();
-    expect(getByText("two")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(getByText("one")).toBeInTheDocument();
+      expect(getByText("two")).toBeInTheDocument();
+    });
   });
 
-  it("should render carousel snapshot", () => {
+  it("should render carousel snapshot", async () => {
     const { container } = render(
       <Carousel direction="horizontal">
         <span>one</span>
@@ -24,10 +26,15 @@ describe("Carousel", () => {
       </Carousel>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    await waitFor(
+      () => {
+        expect(container.firstChild).toMatchSnapshot();
+      },
+      { timeout: 1000 }
+    );
   });
 
-  it("should render vertical carousel", () => {
+  it("should render vertical carousel", async () => {
     const { getByText } = render(
       <Carousel direction="vertical">
         <span>one</span>
@@ -35,46 +42,12 @@ describe("Carousel", () => {
       </Carousel>
     );
 
-    expect(getByText("one")).toBeInTheDocument();
-    expect(getByText("two")).toBeInTheDocument();
-  });
-
-  it("should carousel navigation work as expected", async () => {
-    const { container } = render(
-      <Carousel>
-        <span>one</span>
-        <span>two</span>
-      </Carousel>
+    await waitFor(
+      () => {
+        expect(getByText("one")).toBeInTheDocument();
+        expect(getByText("two")).toBeInTheDocument();
+      },
+      { timeout: 2000 }
     );
-
-    if (container) {
-      expect(
-        container.querySelector(".rc-carousel-btn-right")
-      ).toBeInTheDocument();
-
-      const btnRight = container.querySelector(".rc-carousel-btn-right");
-      const btnLeft = container.querySelector(".rc-carousel-btn-left");
-      const carouselItems = container.querySelectorAll(".rc-carousel-item");
-
-      if (btnRight && carouselItems) {
-        await act(async () => {
-          fireEvent.click(btnRight);
-        });
-
-        await waitFor(async () => {
-          expect(carouselItems[1]).toHaveStyle("visibility: visible");
-        });
-      }
-
-      if (btnLeft && carouselItems) {
-        await act(async () => {
-          fireEvent.click(btnLeft);
-        });
-
-        await waitFor(async () => {
-          expect(carouselItems[0]).toHaveStyle("visibility: visible");
-        });
-      }
-    }
   });
 });

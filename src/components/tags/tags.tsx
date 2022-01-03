@@ -28,6 +28,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   suggestions = [],
   autoComplete = false,
   RTL = false,
+  placeholder = "",
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemInternalModel[]>(
@@ -137,6 +138,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
             onSelection={handleAdd}
             onKeyUp={handleKeyUp}
             value={inputValue}
+            placeholder={placeholder}
           />
         </li>
       )}

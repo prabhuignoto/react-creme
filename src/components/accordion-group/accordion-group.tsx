@@ -14,12 +14,13 @@ const AccordionGroup = ({
   border = false,
   children,
   expanded = false,
-  iconColor = "#000",
+  iconColor,
   iconType = "chevron",
   titleColor = "#000",
   titles = [],
-  titleBold = false,
+  isTitleBold = false,
   disableCollapse = false,
+  focusable = false,
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
@@ -82,9 +83,10 @@ const AccordionGroup = ({
             iconType={iconType}
             titleColor={titleColor}
             iconColor={iconColor}
-            titleBold={titleBold}
+            isTitleBold={isTitleBold}
             disableCollapse={disableCollapse}
             disableIcon={disableCollapse}
+            focusable={focusable}
           >
             {children && children[index]}
           </Accordion>

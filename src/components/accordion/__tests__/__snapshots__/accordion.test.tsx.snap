@@ -3,7 +3,7 @@
 exports[`Accordion should render snapshot 1`] = `
 <div
   class="rc-accordion"
-  style="--max-height: 0px; --transition: cubic-bezier(0.19, 1, 0.22, 1); --title-color: #000; --icon-color: #000;"
+  style="--max-height: 0px; --transition: cubic-bezier(0.19, 1, 0.22, 1); --title-color: #000;"
 >
   <div
     aria-controls="accordion-body-r:3"
@@ -37,7 +37,7 @@ exports[`Accordion should render snapshot 1`] = `
     aria-labelledby="accordion-r:2"
     class="rc-accordion-body rc-accordion-close"
     id="accordion-body-r:3"
-    style="--max-height: 0px; --transition: cubic-bezier(0.19, 1, 0.22, 1); --title-color: #000; --icon-color: #000;"
+    style="--max-height: 0px; --transition: cubic-bezier(0.19, 1, 0.22, 1); --title-color: #000;"
   >
     <p>
       this is a test

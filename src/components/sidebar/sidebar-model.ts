@@ -6,7 +6,6 @@ export interface SidebarModel extends SidebarCommonProps {
   enableSearch?: boolean;
   groups: SidebarGroupModel[];
   height?: number;
-  minimizeSidebar?: boolean;
   onSelect?: (group: SidebarGroupModel, item: SidebarItemModel) => void;
   searchPlaceholder?: string;
 }
