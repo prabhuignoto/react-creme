@@ -1,23 +1,12 @@
-import {
-  faChrome,
-  faEdge,
-  faFirefoxBrowser,
-  faReact,
-  faSafari,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faBolt,
-  faCubes,
-  faFistRaised,
-  faMobile,
-  faTools,
-} from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import packages from "../../package.json";
 import { BlockQuote } from "../components";
 import { Section } from "../components/section/section";
 import { Code } from "./common/Code";
+import { HomeButton } from "./home-button";
+import { Features, supportedBrowsers } from "./home-data";
 import "./home.scss";
 
 const Home: React.FunctionComponent = () => {
@@ -29,55 +18,23 @@ const Home: React.FunctionComponent = () => {
           <span className="rc-demo-app-title">react-creme</span>
         </header>
         <ul className="rc-demo-app-features">
-          <li className="rc-demo-app-feature">
-            <span className="rc-demo-app-feature-icon">
-              <FontAwesomeIcon icon={faReact} size="2x" />
-            </span>
-            <span className="rc-demo-app-feature-name">
-              Comprehensive UI Toolkit for React
-            </span>
-          </li>
-          <li className="rc-demo-app-feature">
-            <span className="rc-demo-app-feature-icon">
-              <FontAwesomeIcon icon={faBolt} size="2x" />
-            </span>
-            <span className="rc-demo-app-feature-name">
-              Robust UI components for your web app
-            </span>
-          </li>
-          <li className="rc-demo-app-feature">
-            <span className="rc-demo-app-feature-icon">
-              <FontAwesomeIcon icon={faTools} size="2x" />
-            </span>
-            <span className="rc-demo-app-feature-name">
-              40+ components to choose from
-            </span>
-          </li>
-          <li className="rc-demo-app-feature">
-            <span className="rc-demo-app-feature-icon">
-              <FontAwesomeIcon icon={faFistRaised} size="2x" />
-            </span>
-            <span className="rc-demo-app-feature-name">
-              Built with TypeScript
-            </span>
-          </li>
-          <li className="rc-demo-app-feature">
-            <span className="rc-demo-app-feature-icon">
-              <FontAwesomeIcon icon={faCubes} size="2x" />
-            </span>
-            <span className="rc-demo-app-feature-name">
-              Highly customizable and easy to use components
-            </span>
-          </li>
-          <li className="rc-demo-app-feature">
-            <span className="rc-demo-app-feature-icon">
-              <FontAwesomeIcon icon={faMobile} size="2x" />
-            </span>
-            <span className="rc-demo-app-feature-name">
-              Support for Mobiles
-            </span>
-          </li>
+          {Features.map((feature, index) => (
+            <li key={index} className="rc-demo-app-feature">
+              <span className="rc-demo-app-feature-icon">
+                <FontAwesomeIcon icon={feature.icon} size="2x" />
+              </span>
+              <span className="rc-demo-app-feature-name">{feature.title}</span>
+            </li>
+          ))}
         </ul>
+        <div className="github-home-btn">
+          <HomeButton
+            label="Github"
+            link="https://github.com/prabhuignoto/react-creme"
+          >
+            <FontAwesomeIcon icon={faGithub} size="2x" />
+          </HomeButton>
+        </div>
       </section>
       <div className="rc-home-main-content">
         <Section title="Setup" size="md">
@@ -104,30 +61,14 @@ const Home: React.FunctionComponent = () => {
             most popular web browsers.
           </BlockQuote>
           <ul className="browser-support-list">
-            <li>
-              <span className="browser-support-icon">
-                <FontAwesomeIcon icon={faChrome} size="4x" />
-              </span>
-              <span className="browser-support-name">Chrome</span>
-            </li>
-            <li>
-              <span className="browser-support-icon">
-                <FontAwesomeIcon icon={faFirefoxBrowser} size="4x" />
-              </span>
-              <span className="browser-support-name">Firefox</span>
-            </li>
-            <li>
-              <span className="browser-support-icon">
-                <FontAwesomeIcon icon={faEdge} size="4x" />
-              </span>
-              <span className="browser-support-name">Edge</span>
-            </li>
-            <li>
-              <span className="browser-support-icon">
-                <FontAwesomeIcon icon={faSafari} size="4x" />
-              </span>
-              <span className="browser-support-name">Safari</span>
-            </li>
+            {supportedBrowsers.slice(0, 3).map((browser, index) => (
+              <li key={index} className="browser-support-item">
+                <span className="browser-support-icon">
+                  <FontAwesomeIcon icon={browser.icon} size="4x" />
+                </span>
+                <span className="browser-support-name">{browser.title}</span>
+              </li>
+            ))}
           </ul>
         </Section>
       </div>

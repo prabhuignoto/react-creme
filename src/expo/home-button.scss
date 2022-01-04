@@ -1,0 +1,43 @@
+$heights: (
+  sm: 40px,
+  md: 60px,
+  lg: 80px,
+);
+
+.rc-demo-home-btn {
+  align-items: center;
+  background: rgba(#003b73, 0.3);
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: inset 0 0 4px 2px rgba(#003b73, 0.4);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+
+  @each $key, $val in $heights {
+    &.rc-demo-home-btn-height-#{$key} {
+      height: $val;
+    }
+  }
+
+  &:hover {
+    background: rgba(#003b73, 0.75);
+    box-shadow: none;
+    color: #fff;
+  }
+}
+
+.rc-home-button-icon {
+  display: block;
+  height: 2rem;
+  width: 2rem;
+}
+
+.rc-home-button-label {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-left: 0.25rem;
+}
