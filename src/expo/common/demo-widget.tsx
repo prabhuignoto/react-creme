@@ -34,7 +34,7 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
         <div style={{ width: "100%" }}>
           <Accordion
             title="Show Code"
-            noBorder
+            border={false}
             focusable={false}
             customIcon={<CodeIcon />}
           >

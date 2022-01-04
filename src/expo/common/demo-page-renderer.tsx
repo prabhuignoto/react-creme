@@ -5,7 +5,7 @@ import React, {
   useMemo,
 } from "react";
 import { CSSTransition } from "react-transition-group";
-import { PageHeader, Tabs } from "../../components";
+import { PageHeader, Progress, Tabs } from "../../components";
 import { DataGridColumn } from "../../components/data-grid/data-grid-model";
 import useMedia from "./useMedia";
 
@@ -120,7 +120,13 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
             {title && <PageHeader title={title}>{description}</PageHeader>}
             <Tabs labels={tabTitles}>
               <div className="rc-demo-widgets-wrapper">
-                <Suspense fallback={<div></div>}>
+                <Suspense
+                  fallback={
+                    <div style={{ width: "100px", height: "4px" }}>
+                      <Progress type="infinite" size="sm" />
+                    </div>
+                  }
+                >
                   <CSSTransition
                     key={tabTitles.join("")}
                     classNames="widget-fade"
