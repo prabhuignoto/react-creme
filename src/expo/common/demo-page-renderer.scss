@@ -1,0 +1,8 @@
+.widget-fade-enter {
+  opacity: 0;
+}
+
+.widget-fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}

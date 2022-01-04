@@ -1,6 +1,5 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import Widgets from "./widgets";
 
 function checkbox() {
   return (
@@ -67,7 +66,7 @@ function checkbox() {
         },
       ]}
       tabTitles={["examples", "properties"]}
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );
 }

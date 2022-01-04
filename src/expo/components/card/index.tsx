@@ -1,12 +1,11 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import Widgets from "./widgets";
 
 function card() {
   return (
     <DemoPageRenderer
       tabTitles={["examples", "properties"]}
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./widgets"))}
       title="Card"
       description="Card is a container for displaying content."
       data={[

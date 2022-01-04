@@ -1,6 +1,5 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import Widgets from "./widgets";
 
 function index() {
   return (
@@ -59,7 +58,7 @@ function index() {
           type: "string",
         },
       ]}
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./widgets"))}
       tabTitles={["examples", "properties"]}
     ></DemoPageRenderer>
   );

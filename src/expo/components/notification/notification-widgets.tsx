@@ -137,4 +137,4 @@ const Widgets = () => {
   );
 };
 
-export { Widgets };
+export default Widgets;

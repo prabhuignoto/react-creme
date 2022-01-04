@@ -1,6 +1,5 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import { Widget } from "./dialog-widgets";
 
 function dialog() {
   return (
@@ -45,7 +44,7 @@ function dialog() {
         },
       ]}
       tabTitles={["examples", "properties"]}
-      demoWidget={<Widget />}
+      demoWidget={lazy(() => import("./dialog-widgets"))}
     ></DemoPageRenderer>
   );
 }

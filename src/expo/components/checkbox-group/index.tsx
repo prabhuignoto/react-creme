@@ -1,13 +1,12 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import Widgets from "./widgets";
 
 function index() {
   return (
     <DemoPageRenderer
       title="Checkbox Group"
       description="Checkbox group is a group of checkboxes that can be used to select multiple options."
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./widgets"))}
       data={[
         {
           name: "options",

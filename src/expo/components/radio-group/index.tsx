@@ -1,11 +1,10 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import Widgets from "./widgets";
 
 function radioGroup() {
   return (
     <DemoPageRenderer
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./widgets"))}
       title="Radio Group"
       description="Radio group is a group of radio buttons."
       tabTitles={["examples", "properties"]}

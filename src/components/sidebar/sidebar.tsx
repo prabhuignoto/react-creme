@@ -105,7 +105,9 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   const onRef = useCallback((node) => {
     if (node) {
       ref.current = node;
-      setSidebarHeight(node.clientHeight - 40 * 2);
+      setSidebarHeight(
+        node.clientHeight ? node.clientHeight : window.innerHeight
+      );
     }
   }, []);
 

@@ -1,6 +1,5 @@
 import React from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import Widgets from "./widgets";
 
 function accordion() {
   return (
@@ -96,7 +95,7 @@ function accordion() {
           type: "Boolean",
         },
       ]}
-      demoWidget={<Widgets />}
+      demoWidget={React.lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );
 }

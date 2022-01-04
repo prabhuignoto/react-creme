@@ -1,6 +1,5 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import { Widgets } from "./notification-widgets";
 
 function notification() {
   return (
@@ -68,7 +67,7 @@ function notification() {
         },
       ]}
       tabTitles={["examples", "properties"]}
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./notification-widgets"))}
     ></DemoPageRenderer>
   );
 }

@@ -1,12 +1,11 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
 import "./data-grid.scss";
-import Widgets from "./widgets";
 
 const DataGridDemo: React.FunctionComponent = () => {
   return (
     <DemoPageRenderer
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./widgets"))}
       title="Data Grid"
       description="Data Grid is a component that displays data in a table format."
       data={[

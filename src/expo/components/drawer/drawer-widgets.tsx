@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from "react";
-import { Section, Button, Drawer } from "../../../components";
+import { Button, Drawer, Section } from "../../../components";
 import useMedia from "../../common/useMedia";
 
 const Widget: React.FunctionComponent = () => {
@@ -83,4 +83,4 @@ const Widget: React.FunctionComponent = () => {
   );
 };
 
-export { Widget };
+export default Widget;

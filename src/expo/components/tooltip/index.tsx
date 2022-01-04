@@ -1,6 +1,5 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import { Widgets } from "./tooltip-widgets";
 
 function tooltip() {
   return (
@@ -61,7 +60,7 @@ function tooltip() {
         },
       ]}
       tabTitles={["examples", "properties"]}
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./tooltip-widgets"))}
     ></DemoPageRenderer>
   );
 }

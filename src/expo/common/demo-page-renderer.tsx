@@ -1,4 +1,10 @@
-import React, { Suspense, useLayoutEffect, useMemo } from "react";
+import React, {
+  LazyExoticComponent,
+  Suspense,
+  useLayoutEffect,
+  useMemo,
+} from "react";
+import { CSSTransition } from "react-transition-group";
 import { PageHeader, Tabs } from "../../components";
 import { DataGridColumn } from "../../components/data-grid/data-grid-model";
 import useMedia from "./useMedia";
@@ -10,7 +16,7 @@ const DataGrid = React.lazy(() =>
 );
 
 interface DemoPageRendererProps {
-  demoWidget: React.ReactNode;
+  demoWidget: LazyExoticComponent<React.FC>;
   tabTitles: string[];
   data: any[];
   title?: string;
@@ -27,6 +33,8 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
       description,
     }: DemoPageRendererProps) => {
       const media = useMedia();
+
+      const Demo = demoWidget;
 
       const [width, setWidth] = React.useState(null);
 
@@ -111,9 +119,19 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
           <div className="rc-demo-page">
             {title && <PageHeader title={title}>{description}</PageHeader>}
             <Tabs labels={tabTitles}>
-              <div className="rc-demo-widgets-wrapper">{demoWidget}</div>
+              <div className="rc-demo-widgets-wrapper">
+                <Suspense fallback={<div></div>}>
+                  <CSSTransition
+                    key={tabTitles.join("")}
+                    classNames="widget-fade"
+                    timeout={300}
+                  >
+                    <Demo />
+                  </CSSTransition>
+                </Suspense>
+              </div>
               <div className="rc-demo-prop-section">
-                <Suspense fallback={<div>loading...</div>}>
+                <Suspense fallback={<div></div>}>
                   <DataGrid
                     layoutStyle={"comfortable"}
                     columns={columns}

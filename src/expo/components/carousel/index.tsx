@@ -1,11 +1,10 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import Widgets from "./widgets";
 
 function carousel() {
   return (
     <DemoPageRenderer
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./widgets"))}
       title="Carousel"
       description="Carousel is a component that displays a list of items in a carousel."
       data={[

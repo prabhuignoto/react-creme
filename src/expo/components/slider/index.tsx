@@ -1,6 +1,5 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import { Widgets } from "./widgets";
 
 function slider() {
   return (
@@ -93,7 +92,7 @@ function slider() {
         },
       ]}
       tabTitles={["examples", "properties"]}
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./widgets"))}
       title="Slider"
       description="Slider is a component that allows you to select a value from a range of values."
     ></DemoPageRenderer>

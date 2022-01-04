@@ -1,6 +1,5 @@
 import React from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import Widgets from "./widgets";
 
 function accordionGroup() {
   return (
@@ -60,7 +59,7 @@ function accordionGroup() {
         },
       ]}
       tabTitles={["Examples", "Properties"]}
-      demoWidget={<Widgets />}
+      demoWidget={React.lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );
 }

@@ -1,6 +1,5 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
-import Widgets from "./widgets";
 
 function progress() {
   return (
@@ -53,7 +52,7 @@ function progress() {
         },
       ]}
       tabTitles={["examples", "properties"]}
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );
 }

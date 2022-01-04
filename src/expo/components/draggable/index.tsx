@@ -1,12 +1,11 @@
-import React from "react";
+import React, { lazy } from "react";
 import DemoPageRenderer from "../../common/demo-page-renderer";
 import "./draggable.scss";
-import Widgets from "./widgets";
 
 function Draggable() {
   return (
     <DemoPageRenderer
-      demoWidget={<Widgets />}
+      demoWidget={lazy(() => import("./widgets"))}
       title="Draggable"
       description="React Hook to enable draggable functionality"
       data={[]}

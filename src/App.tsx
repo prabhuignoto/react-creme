@@ -1,5 +1,11 @@
 import classNames from "classnames";
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import React, {
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+} from "react";
 import { useLocation } from "react-router-dom";
 import ResizeObserver from "resize-observer-polyfill";
 import { useDebouncedCallback } from "use-debounce";
@@ -88,7 +94,9 @@ function App() {
         {location.pathname !== "/" && (
           <Header isMobile={media && media.isMobile} onOpen={toggleOpen} />
         )}
-        <AppRoutes />
+        <Suspense fallback={<span></span>}>
+          <AppRoutes />
+        </Suspense>
         <Footer />
       </section>
     </div>
