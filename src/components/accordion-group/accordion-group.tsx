@@ -76,7 +76,7 @@ const AccordionGroup = ({
             id={item.id}
             onExpanded={handleExpand}
             onCollapsed={handleCollapse}
-            noBorder
+            border={border}
             title={titles[index]}
             expanded={item.expanded}
             alignIconRight={alignIconRight}
