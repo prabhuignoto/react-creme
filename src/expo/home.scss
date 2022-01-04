@@ -52,11 +52,12 @@
 
 .rc-demo-app-feature {
   align-items: center;
-  background: rgba($color: #fff, $alpha: 0.2);
-  border-radius: 8px;
+  background: rgba($color: #fff, $alpha: 0.25);
+  border-radius: 2px;
+  box-shadow: inset 0 0 10px 5px rgba(#fff, 0.1);
   display: flex;
   display: grid;
-  grid-template-columns: 60px calc(100% - 60px);
+  grid-template-columns: 70px calc(100% - 70px);
   height: 100%;
   justify-items: flex-start;
   width: 100%;
@@ -81,16 +82,16 @@
   }
 
   &::after {
-    background-color: rgba($color: #003b73, $alpha: 0.75);
+    background-color: rgba($color: #003b73, $alpha: 0.95);
     border-radius: 50%;
     content: "";
     display: block;
-    height: 40px;
+    height: 45px;
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 40px;
+    width: 45px;
     z-index: -1;
     @media (max-width: 480px) {
       height: 35px;
