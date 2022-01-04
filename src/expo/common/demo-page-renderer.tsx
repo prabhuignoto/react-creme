@@ -1,7 +1,13 @@
-import React, { useLayoutEffect, useMemo } from "react";
-import { DataGrid, PageHeader, Tabs } from "../../components";
+import React, { Suspense, useLayoutEffect, useMemo } from "react";
+import { PageHeader, Tabs } from "../../components";
 import { DataGridColumn } from "../../components/data-grid/data-grid-model";
 import useMedia from "./useMedia";
+
+const DataGrid = React.lazy(() =>
+  import("../../components/data-grid/data-grid").then(({ DataGrid }) => ({
+    default: DataGrid,
+  }))
+);
 
 interface DemoPageRendererProps {
   demoWidget: React.ReactNode;
@@ -107,12 +113,14 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
             <Tabs labels={tabTitles}>
               <div className="rc-demo-widgets-wrapper">{demoWidget}</div>
               <div className="rc-demo-prop-section">
-                <DataGrid
-                  layoutStyle={"comfortable"}
-                  columns={columns}
-                  data={data}
-                  border
-                />
+                <Suspense fallback={<div>loading...</div>}>
+                  <DataGrid
+                    layoutStyle={"comfortable"}
+                    columns={columns}
+                    data={data}
+                    border
+                  />
+                </Suspense>
               </div>
             </Tabs>
           </div>

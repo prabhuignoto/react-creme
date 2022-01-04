@@ -5,13 +5,20 @@ import { routes } from "./route-configs";
 function AppRoutes() {
   return (
     <Routes>
-      {routes.map(({ key, path, component }) => (
-        <Route
-          key={key}
-          path={path}
-          element={<div className="section-content">{component}</div>}
-        />
-      ))}
+      {routes.map(({ key, path, component }) => {
+        const Component = component;
+        return (
+          <Route
+            key={key}
+            path={path}
+            element={
+              <div className="section-content">
+                <Component />
+              </div>
+            }
+          />
+        );
+      })}
     </Routes>
   );
 }

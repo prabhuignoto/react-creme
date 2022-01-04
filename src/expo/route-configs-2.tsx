@@ -1,154 +1,129 @@
-import React from "react";
-import GlobalNotification from "./components/global-notification";
-import Image from "./components/image";
-import Inputs from "./components/input";
-import List from "./components/list";
-import Menu from "./components/menu";
-import MenuButton from "./components/menu-button";
-import MenuBar from "./components/menubar";
-import Notification from "./components/notification";
-import Progress from "./components/progress";
-import Radio from "./components/radio";
-import RadioGroup from "./components/radio-group";
-import Rate from "./components/rate";
-import Reveal from "./components/reveal";
-import ScrollSpy from "./components/scroll-spy";
-import Section from "./components/section";
-import Sidebar from "./components/sidebar";
-import Skeleton from "./components/skeleton";
-import Slider from "./components/slider";
-import Splitter from "./components/splitter";
-import Switch from "./components/switch";
-import Tabs from "./components/tabs";
-import Tags from "./components/tags";
-import Tooltip from "./components/tooltip";
-import Transfer from "./components/transfer";
-import Tree from "./components/tree";
+import { lazy } from "react";
 
 export const routes = [
   {
     path: "/global-notification",
     key: "global-notification",
-    component: <GlobalNotification />,
+    component: lazy(() => import("./components/global-notification")),
   },
   {
     path: "/image",
     key: "image",
-    component: <Image />,
+    component: lazy(() => import("./components/image")),
   },
   {
     path: "/input-text",
     key: "input",
-    component: <Inputs />,
+    component: lazy(() => import("./components/input")),
   },
   {
     path: "/list",
     key: "list",
-    component: <List />,
+    component: lazy(() => import("./components/list")),
   },
   {
     path: "/menu",
     key: "menu",
-    component: <Menu />,
+    component: lazy(() => import("./components/menu")),
   },
   {
     path: "/menu-button",
     key: "menu-button",
-    component: <MenuButton />,
+    component: lazy(() => import("./components/menu-button")),
   },
   {
     path: "/menu-bar",
     key: "menubar",
-    component: <MenuBar />,
+    component: lazy(() => import("./components/menubar")),
   },
   {
     path: "/notification",
     key: "notification",
-    component: <Notification />,
+    component: lazy(() => import("./components/notification")),
   },
   {
     path: "/progress",
     key: "progress",
-    component: <Progress />,
+    component: lazy(() => import("./components/progress")),
   },
   {
     path: "/radio",
     key: "radio",
-    component: <Radio />,
+    component: lazy(() => import("./components/radio")),
   },
   {
     path: "/radio-group",
     key: "radio-group",
-    component: <RadioGroup />,
+    component: lazy(() => import("./components/radio-group")),
   },
   {
     path: "/rate",
     key: "rate",
-    component: <Rate />,
+    component: lazy(() => import("./components/rate")),
   },
   {
     path: "/reveal",
     key: "reveal",
-    component: <Reveal />,
+    component: lazy(() => import("./components/reveal")),
   },
   {
     path: "/scroll-spy",
     key: "scroll-spy",
-    component: <ScrollSpy />,
+    component: lazy(() => import("./components/scroll-spy")),
   },
   {
     path: "/section",
     key: "section",
-    component: <Section />,
+    component: lazy(() => import("./components/section")),
   },
   {
     path: "/sidebar",
     key: "sidebar",
-    component: <Sidebar />,
+    component: lazy(() => import("./components/sidebar")),
   },
   {
     path: "/skeleton",
     key: "skeleton",
-    component: <Skeleton />,
+    component: lazy(() => import("./components/skeleton")),
   },
   {
     path: "/slider",
     key: "slider",
-    component: <Slider />,
+    component: lazy(() => import("./components/slider")),
   },
   {
     path: "/splitter",
     key: "splitter",
-    component: <Splitter />,
+    component: lazy(() => import("./components/splitter")),
   },
   {
     path: "/switch",
     key: "switch",
-    component: <Switch />,
+    component: lazy(() => import("./components/switch")),
   },
   {
     path: "/tabs",
     key: "tabs",
-    component: <Tabs />,
+    component: lazy(() => import("./components/tabs")),
   },
   {
     path: "/tags",
     key: "tags",
-    component: <Tags />,
+    component: lazy(() => import("./components/tags")),
   },
   {
     path: "/tooltip",
     key: "tooltip",
-    component: <Tooltip />,
+    component: lazy(() => import("./components/tooltip")),
   },
   {
     path: "/transfer",
     key: "transfer",
-    component: <Transfer />,
+    component: lazy(() => import("./components/transfer")),
   },
   {
     path: "/tree",
     key: "tree",
-    component: <Tree />,
+    component: lazy(() => import("./components/tree")),
   },
 ];

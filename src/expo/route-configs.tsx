@@ -1,126 +1,107 @@
-import React from "react";
-import Accordion from "./components/accordion";
-import AccordionGroup from "./components/accordion-group";
-import Alert from "./components/alerts";
-import AutoComplete from "./components/auto-complete";
-import Avatar from "./components/avatar";
-import Breadcrumb from "./components/breadcrumb";
-import Buttons from "./components/buttons";
-import Card from "./components/card";
-import Carousel from "./components/carousel";
-import Checkbox from "./components/checkbox";
-import CheckboxGroup from "./components/checkbox-group";
-import Comparer from "./components/comparer";
-import DataGrid from "./components/data-grid";
-import Dialog from "./components/dialog";
-import Draggable from "./components/draggable";
-import Drawer from "./components/drawer";
-import Dropdown from "./components/dropdown";
-import { Home } from "./home";
+import React, { lazy } from "react";
 import { routes as otherRoutes } from "./route-configs-2";
-import PageHeader from "./components/page-header";
 
 const routes = [
   ...otherRoutes,
   {
     path: "/home",
     key: "home",
-    component: <Home />,
+    component: React.lazy(() => import("./home")),
   },
   {
     path: "/",
     key: "home",
-    component: <Home />,
+    component: lazy(() => import("./home")),
   },
   {
     path: "/accordion",
     key: "accordion",
-    component: <Accordion />,
+    component: lazy(() => import("./components/accordion")),
   },
   {
     path: "/accordion-group",
     key: "accordion-group",
-    component: <AccordionGroup />,
+    component: lazy(() => import("./components/accordion-group")),
   },
   {
     path: "/alerts",
     key: "alerts",
-    component: <Alert />,
+    component: lazy(() => import("./components/alerts")),
   },
   {
     path: "/autocomplete",
     key: "auto-complete",
-    component: <AutoComplete />,
+    component: lazy(() => import("./components/auto-complete")),
   },
   {
     path: "/avatar",
     key: "avatar",
-    component: <Avatar />,
+    component: lazy(() => import("./components/avatar")),
   },
   {
     path: "/breadcrumb",
     key: "breadcrumb",
-    component: <Breadcrumb />,
+    component: lazy(() => import("./components/breadcrumb")),
   },
   {
     path: "/button",
     key: "buttons",
-    component: <Buttons />,
+    component: lazy(() => import("./components/buttons")),
   },
   {
     path: "/card",
     key: "card",
-    component: <Card />,
+    component: lazy(() => import("./components/card")),
   },
   {
     path: "/carousel",
     key: "carousel",
-    component: <Carousel />,
+    component: lazy(() => import("./components/carousel")),
   },
   {
     path: "/checkbox",
     key: "checkbox",
-    component: <Checkbox />,
+    component: lazy(() => import("./components/checkbox")),
   },
   {
     path: "/checkbox-group",
     key: "checkbox-group",
-    component: <CheckboxGroup />,
+    component: lazy(() => import("./components/checkbox-group")),
   },
   {
     path: "/image-comparer",
     key: "comparer",
-    component: <Comparer />,
+    component: lazy(() => import("./components/comparer")),
   },
   {
     path: "/data-grid",
     key: "data-grid",
-    component: <DataGrid />,
+    component: lazy(() => import("./components/data-grid")),
   },
   {
     path: "/dialog",
     key: "dialog",
-    component: <Dialog />,
+    component: lazy(() => import("./components/dialog")),
   },
   {
     path: "/draggable",
     key: "draggable",
-    component: <Draggable />,
+    component: React.lazy(() => import("./components/draggable")),
   },
   {
     path: "/drawer",
     key: "drawer",
-    component: <Drawer />,
+    component: React.lazy(() => import("./components/drawer")),
   },
   {
     path: "/dropdown",
     key: "dropdown",
-    component: <Dropdown />,
+    component: React.lazy(() => import("./components/dropdown")),
   },
   {
     path: "/page-header",
     key: "page-header",
-    component: <PageHeader />,
+    component: React.lazy(() => import("./components/page-header")),
   },
 ];
 

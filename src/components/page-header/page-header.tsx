@@ -13,7 +13,7 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   title,
   children,
   RTL = false,
-  size = "md",
+  size = "sm",
 }) => {
   const headerClass = useMemo(() => {
     return classNames("rc-page-header", {

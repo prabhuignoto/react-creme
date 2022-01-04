@@ -24,7 +24,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     iconColor,
     iconType = "chevron",
     id,
-    noBorder = false,
+    border = false,
     onCollapsed,
     onExpanded,
     title,
@@ -79,10 +79,10 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     const accordionClass = useMemo(
       () =>
         cls("rc-accordion", {
-          "rc-accordion-no-border": noBorder,
+          "rc-accordion-no-border": !border,
           "rc-accordion-open": open,
         }),
-      [noBorder, open, alignIconRight]
+      [border, open, alignIconRight]
     );
 
     const onInitRef = useCallback((node) => {

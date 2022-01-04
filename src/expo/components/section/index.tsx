@@ -39,6 +39,14 @@ function index() {
           optional: "Yes",
           type: "Boolean",
         },
+        {
+          name: "size",
+          description:
+            "Size of the page header. can be <em>sm</em> or <em>md</em> or <em>lg</em>.",
+          default: "sm",
+          optional: "Yes",
+          type: "String",
+        },
       ]}
     ></DemoPageRenderer>
   );

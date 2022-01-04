@@ -135,4 +135,4 @@ const Home: React.FunctionComponent = () => {
   );
 };
 
-export { Home };
+export default Home;

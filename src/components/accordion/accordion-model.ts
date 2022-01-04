@@ -5,7 +5,7 @@ export interface AccordionModel extends AccordionCommon {
   children?: ReactNode;
   expanded?: boolean | null;
   id?: string;
-  noBorder?: boolean;
+  border?: boolean;
   onCollapsed?: (id: string) => void;
   onExpanded?: (id: string) => void;
   transition?: string;
