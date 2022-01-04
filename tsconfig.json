@@ -23,8 +23,8 @@
     "declarationDir": "dist",
     "types": [
       "@testing-library/jest-dom",
-      "react/next",
-      "react-dom/next"
+      "react",
+      "react-dom"
     ]
   },
   "include": [

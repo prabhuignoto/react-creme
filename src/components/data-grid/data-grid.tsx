@@ -2,7 +2,6 @@ import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
-  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -72,9 +71,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
 
   const handleSort = useCallback(
     (column: string, dir: SortDirection) => {
-      startTransition(() => {
-        setSortData({ column, dir });
-      });
+      setSortData({ column, dir });
     },
     [rowData.length]
   );
@@ -142,21 +139,19 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   );
 
   useEffect(() => {
-    startTransition(() => {
-      setRowData((prev) => {
-        const data = prev.sort((a, b) => {
-          if (sortData.column) {
-            if (sortData.dir === "asc") {
-              return a[sortData.column] < b[sortData.column] ? 1 : -1;
-            } else {
-              return a[sortData.column] > b[sortData.column] ? 1 : -1;
-            }
+    setRowData((prev) => {
+      const data = prev.sort((a, b) => {
+        if (sortData.column) {
+          if (sortData.dir === "asc") {
+            return a[sortData.column] < b[sortData.column] ? 1 : -1;
           } else {
-            return 0;
+            return a[sortData.column] > b[sortData.column] ? 1 : -1;
           }
-        });
-        return data;
+        } else {
+          return 0;
+        }
       });
+      return data;
     });
   }, [JSON.stringify(sortData)]);
 

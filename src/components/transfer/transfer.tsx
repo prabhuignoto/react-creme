@@ -1,10 +1,5 @@
 import { nanoid } from "nanoid";
-import React, {
-  startTransition,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { ListOption } from "../list/list-model";
 import { TransferControlColumn } from "./transfer-control-column";
@@ -68,29 +63,25 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
   );
 
   const handleListSelectionLeft = useCallback((sel: any[]) => {
-    startTransition(() => {
-      setLeftSelected(sel);
-      const selIds = sel.map((item) => item.id);
-      setLeftList((prev) =>
-        prev.map((item) => ({
-          ...item,
-          selected: selIds.includes(item.id),
-        }))
-      );
-    });
+    setLeftSelected(sel);
+    const selIds = sel.map((item) => item.id);
+    setLeftList((prev) =>
+      prev.map((item) => ({
+        ...item,
+        selected: selIds.includes(item.id),
+      }))
+    );
   }, []);
 
   const handleListSelectionRight = useCallback((sel: any[]) => {
-    startTransition(() => {
-      setRightSelected(sel);
-      const selIds = sel.map((item) => item.id);
-      setRightList((prev) =>
-        prev.map((item) => ({
-          ...item,
-          selected: selIds.includes(item.id),
-        }))
-      );
-    });
+    setRightSelected(sel);
+    const selIds = sel.map((item) => item.id);
+    setRightList((prev) =>
+      prev.map((item) => ({
+        ...item,
+        selected: selIds.includes(item.id),
+      }))
+    );
   }, []);
 
   useEffect(() => {

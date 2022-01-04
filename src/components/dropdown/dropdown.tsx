@@ -2,7 +2,6 @@ import cls from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
-  startTransition,
   useCallback,
   useMemo,
   useRef,
@@ -68,30 +67,26 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
       let _value: string | string[] = "";
 
       if (allowMultiSelection) {
-        startTransition(() => {
-          _value = selected.map((opt) => opt.value).join(",");
-          const selectedIds = selected.map((item) => item.id);
-          setValue(_value);
-          setDropdownOptions((options) =>
-            options.map((option) => ({
-              ...option,
-              selected: selectedIds.indexOf(option.id) > -1,
-            }))
-          );
-        });
+        _value = selected.map((opt) => opt.value).join(",");
+        const selectedIds = selected.map((item) => item.id);
+        setValue(_value);
+        setDropdownOptions((options) =>
+          options.map((option) => ({
+            ...option,
+            selected: selectedIds.indexOf(option.id) > -1,
+          }))
+        );
       } else {
-        startTransition(() => {
-          const { id, value } = selected[0];
-          _value = value || "";
-          setValue(_value);
-          setDropdownOptions((options) =>
-            options.map((option) => ({
-              ...option,
-              selected: option.id === id,
-            }))
-          );
-          setShowMenu(false);
-        });
+        const { id, value } = selected[0];
+        _value = value || "";
+        setValue(_value);
+        setDropdownOptions((options) =>
+          options.map((option) => ({
+            ...option,
+            selected: option.id === id,
+          }))
+        );
+        setShowMenu(false);
       }
 
       if (onSelected) {

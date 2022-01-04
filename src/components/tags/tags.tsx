@@ -1,12 +1,6 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, {
-  startTransition,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "../../design/icon.scss";
 import "../../design/layout.scss";
 import "../../design/list.scss";
@@ -77,14 +71,12 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   );
 
   const handleRemove = useCallback((val) => {
-    startTransition(() => {
-      setTagItems((tags) =>
-        tags.map((tag) =>
-          tag.id === val ? { ...tag, markedForRemoval: true } : tag
-        )
-      );
-      setTagItems((tags) => tags.filter((tag) => tag.id !== val));
-    });
+    setTagItems((tags) =>
+      tags.map((tag) =>
+        tag.id === val ? { ...tag, markedForRemoval: true } : tag
+      )
+    );
+    setTagItems((tags) => tags.filter((tag) => tag.id !== val));
   }, []);
 
   // EFFECTS
@@ -95,16 +87,14 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   }, [tagItems.length]);
 
   useEffect(() => {
-    startTransition(() => {
-      setTagItems(
-        items.map((item) => ({
-          name: item.name,
-          id: nanoid(),
-          disabled: item.disabled,
-          readonly: readonly,
-        }))
-      );
-    });
+    setTagItems(
+      items.map((item) => ({
+        name: item.name,
+        id: nanoid(),
+        disabled: item.disabled,
+        readonly: readonly,
+      }))
+    );
   }, [items.length]);
 
   return (

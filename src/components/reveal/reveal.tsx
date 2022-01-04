@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import React, {
-  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -30,9 +29,7 @@ const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
       observer.current = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            startTransition(() => {
-              setVisible(entry.isIntersecting);
-            });
+            setVisible(entry.isIntersecting);
           });
         },
         {

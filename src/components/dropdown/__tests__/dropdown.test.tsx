@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
+import { act } from "react-dom/test-utils";
 import { Dropdown } from "../dropdown";
 
 const options = [
@@ -51,11 +52,12 @@ describe("Dropdown", () => {
       expect(getAllByRole("option")).toHaveLength(5);
 
       expect(getByText("germany")).toBeInTheDocument();
-
-      userEvent.click(getByText("india"));
-
-      expect(handler).toBeCalled();
     });
+
+    await act(async () => {
+      userEvent.click(getByText("india"));
+    });
+    expect(handler).toBeCalled();
   });
 
   it("should auto close menu", async () => {

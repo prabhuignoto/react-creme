@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">65.85% </span>
+                <span class="strong">68.35% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>54/82</span>
+                <span class='fraction'>54/79</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">56.52% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>13/26</span>
+                <span class='fraction'>13/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">67.08% </span>
+                <span class="strong">69.73% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>53/79</span>
+                <span class='fraction'>53/76</span>
             </div>
         
             
@@ -285,16 +285,9 @@
 <a name='L226'></a><a href='#L226'>226</a>
 <a name='L227'></a><a href='#L227'>227</a>
 <a name='L228'></a><a href='#L228'>228</a>
-<a name='L229'></a><a href='#L229'>229</a>
-<a name='L230'></a><a href='#L230'>230</a>
-<a name='L231'></a><a href='#L231'>231</a>
-<a name='L232'></a><a href='#L232'>232</a>
-<a name='L233'></a><a href='#L233'>233</a>
-<a name='L234'></a><a href='#L234'>234</a>
-<a name='L235'></a><a href='#L235'>235</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">15x</span>
+<a name='L229'></a><a href='#L229'>229</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -347,12 +340,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -372,8 +362,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
@@ -529,7 +517,6 @@
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
-  startTransition,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -580,14 +567,11 @@ const Carousel: React.FunctionComponent&lt;CarouselModel&gt; = ({
   const resizeObserver = useRef&lt;ResizeObserver | null&gt;(null);
 &nbsp;
   const handleNext = useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {
-<span class="cstat-no" title="statement not covered" >    activePage &lt; trackCount.current - 1 &amp;&amp;</span>
-      startTransition(<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >setActivePage(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt; <span class="cstat-no" title="statement not covered" >prev + 1)</span>)</span>;
+<span class="cstat-no" title="statement not covered" >    activePage &lt; trackCount.current - 1 &amp;&amp; setActivePage(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt; <span class="cstat-no" title="statement not covered" >prev + 1)</span>;</span>
   }, [activePage]);
 &nbsp;
   const handlePrevious = useCallback(
-<span class="fstat-no" title="function not covered" >    () =</span>&gt;
-<span class="cstat-no" title="statement not covered" >      activePage &gt; 0 &amp;&amp;</span>
-      startTransition(<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >setActivePage(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt; <span class="cstat-no" title="statement not covered" >prev - 1)</span>)</span>,
+<span class="fstat-no" title="function not covered" >    () =</span>&gt; <span class="cstat-no" title="statement not covered" >activePage &gt; 0 &amp;&amp; setActivePage(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt; <span class="cstat-no" title="statement not covered" >prev - 1)</span>,</span>
     [activePage]
   );
 &nbsp;
@@ -604,10 +588,8 @@ const Carousel: React.FunctionComponent&lt;CarouselModel&gt; = ({
 &nbsp;
       resizeObserver.current = new ResizeObserver(<span class="fstat-no" title="function not covered" >() =</span>&gt; {
         const { clientHeight, clientWidth } = <span class="cstat-no" title="statement not covered" >node as HTMLElement;</span>
-<span class="cstat-no" title="statement not covered" >        startTransition(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          setSlideWidth(clientWidth);</span>
-<span class="cstat-no" title="statement not covered" >          setSlideHeight(clientHeight);</span>
-        });
+<span class="cstat-no" title="statement not covered" >        setSlideWidth(clientWidth);</span>
+<span class="cstat-no" title="statement not covered" >        setSlideHeight(clientHeight);</span>
       });
 &nbsp;
       resizeObserver.current.observe(node);
@@ -766,7 +748,7 @@ export { Carousel };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jan 03 2022 12:48:07 GMT+0530 (India Standard Time)
+                at Tue Jan 04 2022 09:56:18 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

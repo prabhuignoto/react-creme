@@ -2,7 +2,6 @@ import cls from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
-  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -95,35 +94,33 @@ const List: React.FunctionComponent<ListModel> = ({
       listRef.current.scrollTop = 0;
     }
 
-    startTransition(() => {
-      setListOptions((prev) => {
-        let updated = [];
+    setListOptions((prev) => {
+      let updated = [];
 
-        if (_val.length) {
-          updated = prev
-            .map((opt) => ({
-              ...opt,
-              visible: opt.name.toLowerCase().includes(_val),
-            }))
-            .sort((a, b) => (a.visible === b.visible ? 0 : a.visible ? -1 : 1));
-        } else {
-          updated = prev
-            .map((opt) => ({
-              ...opt,
-              visible: true,
-            }))
-            .sort((a, b) =>
-              b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1
-            );
-        }
+      if (_val.length) {
+        updated = prev
+          .map((opt) => ({
+            ...opt,
+            visible: opt.name.toLowerCase().includes(_val),
+          }))
+          .sort((a, b) => (a.visible === b.visible ? 0 : a.visible ? -1 : 1));
+      } else {
+        updated = prev
+          .map((opt) => ({
+            ...opt,
+            visible: true,
+          }))
+          .sort((a, b) =>
+            b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1
+          );
+      }
 
-        return updated.map((option, index) => ({
-          ...option,
-          top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
-        }));
-      });
-      setRenderTrigger(Date.now());
+      return updated.map((option, index) => ({
+        ...option,
+        top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
+      }));
     });
+    setRenderTrigger(Date.now());
   }, []);
 
   const handleSelection = (opt: Option) => {
@@ -137,15 +134,13 @@ const List: React.FunctionComponent<ListModel> = ({
         return updated;
       });
     } else {
-      startTransition(() => {
-        setListOptions((prev) => {
-          const updated = prev.map((option) => ({
-            ...option,
-            selected: option.id === opt.id,
-          }));
-          setSelected(updated.filter((opt) => opt.selected));
-          return updated;
-        });
+      setListOptions((prev) => {
+        const updated = prev.map((option) => ({
+          ...option,
+          selected: option.id === opt.id,
+        }));
+        setSelected(updated.filter((opt) => opt.selected));
+        return updated;
       });
     }
 

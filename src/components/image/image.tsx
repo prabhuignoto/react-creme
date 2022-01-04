@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import React, {
   CSSProperties,
-  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -133,14 +132,12 @@ const Image: React.FunctionComponent<ImageProps> = ({
     }
 
     if (isOverlay && loaded) {
-      startTransition(() => {
-        const { width, height } = image;
-        wrapper.style.setProperty("--width", `${width}px`);
-        wrapper.style.setProperty("--height", `${height}px`);
-        setImageDimension({
-          width,
-          height,
-        });
+      const { width, height } = image;
+      wrapper.style.setProperty("--width", `${width}px`);
+      wrapper.style.setProperty("--height", `${height}px`);
+      setImageDimension({
+        width,
+        height,
       });
     }
   }, [loaded]);

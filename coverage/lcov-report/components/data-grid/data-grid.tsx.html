@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.63% </span>
+                <span class="strong">14.06% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/66</span>
+                <span class='fraction'>9/64</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/23</span>
+                <span class='fraction'>0/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.84% </span>
+                <span class="strong">14.28% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/65</span>
+                <span class='fraction'>9/63</span>
             </div>
         
             
@@ -245,15 +245,9 @@
 <a name='L186'></a><a href='#L186'>186</a>
 <a name='L187'></a><a href='#L187'>187</a>
 <a name='L188'></a><a href='#L188'>188</a>
-<a name='L189'></a><a href='#L189'>189</a>
-<a name='L190'></a><a href='#L190'>190</a>
-<a name='L191'></a><a href='#L191'>191</a>
-<a name='L192'></a><a href='#L192'>192</a>
-<a name='L193'></a><a href='#L193'>193</a>
-<a name='L194'></a><a href='#L194'>194</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">15x</span>
+<a name='L189'></a><a href='#L189'>189</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -325,8 +319,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -399,7 +391,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -408,7 +399,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -447,7 +437,6 @@
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
-  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -517,9 +506,7 @@ const DataGrid: React.FunctionComponent&lt;DataGridProps&gt; = <span class="fsta
 &nbsp;
   const handleSort = <span class="cstat-no" title="statement not covered" >useCallback(</span>
 <span class="fstat-no" title="function not covered" >    (c</span>olumn: string, dir: SortDirection) =&gt; {
-<span class="cstat-no" title="statement not covered" >      startTransition(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        setSortData({ column, dir });</span>
-      });
+<span class="cstat-no" title="statement not covered" >      setSortData({ column, dir });</span>
     },
     [rowData.length]
   );
@@ -587,21 +574,19 @@ const DataGrid: React.FunctionComponent&lt;DataGridProps&gt; = <span class="fsta
   );
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    startTransition(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      setRowData(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt; {</span>
-        const data = <span class="cstat-no" title="statement not covered" >prev.sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          if (sortData.column) {</span>
-<span class="cstat-no" title="statement not covered" >            if (sortData.dir === "asc") {</span>
-<span class="cstat-no" title="statement not covered" >              return a[sortData.column] &lt; b[sortData.column] ? 1 : -1;</span>
-            } else {
-<span class="cstat-no" title="statement not covered" >              return a[sortData.column] &gt; b[sortData.column] ? 1 : -1;</span>
-            }
+<span class="cstat-no" title="statement not covered" >    setRowData(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt; {</span>
+      const data = <span class="cstat-no" title="statement not covered" >prev.sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (sortData.column) {</span>
+<span class="cstat-no" title="statement not covered" >          if (sortData.dir === "asc") {</span>
+<span class="cstat-no" title="statement not covered" >            return a[sortData.column] &lt; b[sortData.column] ? 1 : -1;</span>
           } else {
-<span class="cstat-no" title="statement not covered" >            return 0;</span>
+<span class="cstat-no" title="statement not covered" >            return a[sortData.column] &gt; b[sortData.column] ? 1 : -1;</span>
           }
-        });
-<span class="cstat-no" title="statement not covered" >        return data;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          return 0;</span>
+        }
       });
+<span class="cstat-no" title="statement not covered" >      return data;</span>
     });
   }, [JSON.stringify(sortData)]);
 &nbsp;
@@ -643,7 +628,7 @@ export { DataGrid };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jan 03 2022 12:48:07 GMT+0530 (India Standard Time)
+                at Tue Jan 04 2022 09:56:18 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

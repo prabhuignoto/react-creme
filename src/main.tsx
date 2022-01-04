@@ -4,10 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
 // @ts-ignore
-const rootElement = ReactDOM.createRoot(document.getElementById("root"));
 
-rootElement.render(
+ReactDOM.render(
   <BrowserRouter>
     <App />
-  </BrowserRouter>
+  </BrowserRouter>,
+  document.getElementById("root")
 );

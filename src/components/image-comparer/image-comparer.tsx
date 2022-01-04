@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import React, {
   CSSProperties,
-  startTransition,
   useCallback,
   useMemo,
   useRef,
@@ -80,7 +79,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
       height: height,
     });
 
-    startTransition(() => setImageLoaded(true));
+    setImageLoaded(true);
   }, []);
 
   // callback executed when the second image is loaded

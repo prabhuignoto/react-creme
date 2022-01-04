@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, {
-  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -46,13 +45,11 @@ const Menu: React.FunctionComponent<MenuModel> = ({
 
   // HANDLERS
   const toggleMenu = useCallback((ev: React.MouseEvent | KeyboardEvent) => {
-    startTransition(() => {
-      setShowMenu((prev) => {
-        if (prev) {
-          onClose?.();
-        }
-        return !prev;
-      });
+    setShowMenu((prev) => {
+      if (prev) {
+        onClose?.();
+      }
+      return !prev;
     });
   }, []);
 

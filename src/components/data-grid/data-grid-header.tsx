@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { startTransition, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { TriangleIcon } from "../../icons";
 import { DataGridCell } from "./data-grid-cell";
 import "./data-grid-header.scss";
@@ -19,14 +19,12 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = React.memo(
     );
 
     const handleSort = (column: string, dir: SortDirection) => {
-      startTransition(() => {
-        setHeaderColumns((columns) =>
-          columns.map((col) => ({
-            ...col,
-            sortDirection: col.name === column ? dir : "none",
-          }))
-        );
-      });
+      setHeaderColumns((columns) =>
+        columns.map((col) => ({
+          ...col,
+          sortDirection: col.name === column ? dir : "none",
+        }))
+      );
 
       onSort && onSort(column, dir);
     };

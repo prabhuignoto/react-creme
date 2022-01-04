@@ -1,7 +1,6 @@
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
-  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -61,7 +60,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
 
   const handleChange = useCallback((value: string) => {
     setInput(value);
-    startTransition(() => setSelected(false));
+    setSelected(false);
   }, []);
 
   const debouncedChange = useDebouncedCallback(handleChange, 10);
@@ -69,7 +68,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   const handleSelection = useCallback((selected: Option[]) => {
     if (Array.isArray(selected) && selected.length > 0) {
       setInput(selected[0].name);
-      startTransition(() => setSelected(true));
+      setSelected(true);
       onSelection?.(selected[0].name);
     }
   }, []);

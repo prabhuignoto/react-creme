@@ -9,6 +9,7 @@ import {
   faBolt,
   faCubes,
   faFistRaised,
+  faMobile,
   faTools,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,7 +31,7 @@ const Home: React.FunctionComponent = () => {
         <ul className="rc-demo-app-features">
           <li className="rc-demo-app-feature">
             <span className="rc-demo-app-feature-icon">
-              <FontAwesomeIcon icon={faTools} size="2x" />
+              <FontAwesomeIcon icon={faReact} size="2x" />
             </span>
             <span className="rc-demo-app-feature-name">
               Comprehensive UI Toolkit for React
@@ -46,10 +47,10 @@ const Home: React.FunctionComponent = () => {
           </li>
           <li className="rc-demo-app-feature">
             <span className="rc-demo-app-feature-icon">
-              <FontAwesomeIcon icon={faReact} size="2x" />
+              <FontAwesomeIcon icon={faTools} size="2x" />
             </span>
             <span className="rc-demo-app-feature-name">
-              30+ components to choose from
+              40+ components to choose from
             </span>
           </li>
           <li className="rc-demo-app-feature">
@@ -66,6 +67,14 @@ const Home: React.FunctionComponent = () => {
             </span>
             <span className="rc-demo-app-feature-name">
               Highly customizable and easy to use components
+            </span>
+          </li>
+          <li className="rc-demo-app-feature">
+            <span className="rc-demo-app-feature-icon">
+              <FontAwesomeIcon icon={faMobile} size="2x" />
+            </span>
+            <span className="rc-demo-app-feature-name">
+              Support for Mobiles
             </span>
           </li>
         </ul>

@@ -6,7 +6,7 @@ exports[`Section should render Section correctly 1`] = `
   style="min-height: 150px;"
 >
   <div
-    class="rc-section-header"
+    class="rc-section-header rc-section-header-sm"
   >
     test
   </div>

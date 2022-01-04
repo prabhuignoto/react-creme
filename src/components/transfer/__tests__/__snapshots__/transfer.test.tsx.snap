@@ -208,6 +208,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
           />
         </svg>
       </span>
+      
     </button>
     <button
       class="rc-disabled rc-btn-md rc-btn-icon rc-btn"
@@ -232,6 +233,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
           />
         </svg>
       </span>
+      
     </button>
   </section>
   <section

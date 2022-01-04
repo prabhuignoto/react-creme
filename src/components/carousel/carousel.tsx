@@ -2,7 +2,6 @@ import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
-  startTransition,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -53,14 +52,11 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   const resizeObserver = useRef<ResizeObserver | null>(null);
 
   const handleNext = useCallback(() => {
-    activePage < trackCount.current - 1 &&
-      startTransition(() => setActivePage((prev) => prev + 1));
+    activePage < trackCount.current - 1 && setActivePage((prev) => prev + 1);
   }, [activePage]);
 
   const handlePrevious = useCallback(
-    () =>
-      activePage > 0 &&
-      startTransition(() => setActivePage((prev) => prev - 1)),
+    () => activePage > 0 && setActivePage((prev) => prev - 1),
     [activePage]
   );
 
@@ -77,10 +73,8 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
 
       resizeObserver.current = new ResizeObserver(() => {
         const { clientHeight, clientWidth } = node as HTMLElement;
-        startTransition(() => {
-          setSlideWidth(clientWidth);
-          setSlideHeight(clientHeight);
-        });
+        setSlideWidth(clientWidth);
+        setSlideHeight(clientHeight);
       });
 
       resizeObserver.current.observe(node);

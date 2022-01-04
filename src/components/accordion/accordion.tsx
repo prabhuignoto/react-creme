@@ -1,9 +1,9 @@
 import cls from "classnames";
+import { nanoid } from "nanoid";
 import React, {
   CSSProperties,
   useCallback,
   useEffect,
-  useId,
   useMemo,
   useRef,
   useState,
@@ -33,8 +33,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     isTitleBold = false,
     disableCollapse = false,
   }: AccordionModel) => {
-    const accordionID = useRef(id || `accordion-${useId()}`);
-    const accordionBodyId = useRef(`accordion-body-${useId()}`);
+    const accordionID = useRef(id || `accordion-${nanoid()}`);
+    const accordionBodyId = useRef(`accordion-body-${nanoid()}`);
 
     const ref = useRef(null);
 

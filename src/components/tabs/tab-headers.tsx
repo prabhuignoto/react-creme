@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import React, {
-  startTransition,
   useCallback,
   useEffect,
   useMemo,
@@ -86,18 +85,14 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
       const ref = tabHeadersRef.current;
 
       if (dir === "left") {
-        startTransition(() => {
-          setDisableScrollLeft(value === 0);
-          setDisableScrollRight(false);
-        });
+        setDisableScrollLeft(value === 0);
+        setDisableScrollRight(false);
       }
 
       if (dir === "right") {
         const { clientWidth, scrollWidth } = ref;
-        startTransition(() => {
-          setDisableScrollRight(value + clientWidth >= scrollWidth);
-          setDisableScrollLeft(false);
-        });
+        setDisableScrollRight(value + clientWidth >= scrollWidth);
+        setDisableScrollLeft(false);
       }
     }
   }, [scrollLeftCurrent.value]);
