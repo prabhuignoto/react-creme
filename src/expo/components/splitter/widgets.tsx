@@ -18,12 +18,12 @@ function widgets() {
     } else if (media.isBigScreen) {
       setWidth(700);
     } else if (media.isDesktop) {
-      setWidth(650);
+      setWidth(500);
     } else if (media.isTablet) {
       setWidth(500);
     } else if (media.isMobile) {
-      setWidth(350);
-      setHandleBarWidth(10);
+      setWidth(320);
+      setHandleBarWidth(8);
     }
   }, [media]);
 

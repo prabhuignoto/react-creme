@@ -31,12 +31,17 @@ $heights: (
 
 .rc-home-button-icon {
   display: block;
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
+
+  svg {
+    height: 100% !important;
+    width: 100% !important;
+  }
 }
 
 .rc-home-button-label {
-  font-size: 1.25rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 300;
   margin-left: 0.25rem;
 }

@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import reactElementToJSXString from "react-element-to-jsx-string";
 import { SyntaxHighLighter } from "./syntax-highlighter";
 
-const Code: React.FunctionComponent<{ children: ReactNode }> = ({
+const Code: React.FunctionComponent<{ children?: ReactNode }> = ({
   children,
 }) => {
   return (

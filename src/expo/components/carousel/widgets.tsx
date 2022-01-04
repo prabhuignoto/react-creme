@@ -12,10 +12,12 @@ function widgets() {
       return;
     }
 
-    if (media.isBigScreen) {
+    if (media.isExtraLargeScreen) {
       setWidth(700);
+    } else if (media.isBigScreen) {
+      setWidth(650);
     } else if (media.isDesktop) {
-      setWidth(600);
+      setWidth(500);
     } else if (media.isTablet) {
       setWidth("90%");
     } else if (media.isMobile) {

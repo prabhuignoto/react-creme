@@ -5,6 +5,7 @@ import {
   Image,
   Section,
 } from "../../../components";
+import { DemoWidget } from "../../common/demo-widget";
 import useMedia from "../../common/useMedia";
 
 function Widgets() {
@@ -45,7 +46,7 @@ function Widgets() {
     width > 0 && (
       <div className="rc-demo-widgets" style={{ minHeight: "1200px" }}>
         <Section title="Default Render">
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <AccordionGroup titles={["one", "two"]} focusable>
                 <Para />
@@ -59,7 +60,7 @@ function Widgets() {
                 </div>
               </AccordionGroup>
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Initial state">
           <BlockQuote>
@@ -67,7 +68,7 @@ function Widgets() {
             if you want to keep the accordions closed or open on load. The
             example shows the accordions open on load
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <AccordionGroup
                 titles={["one", "two"]}
@@ -86,14 +87,14 @@ function Widgets() {
                 </div>
               </AccordionGroup>
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Auto Closing Sections">
           <BlockQuote>
             The AccordionGroup can be configured to close all other sections
             when one is open.
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <AccordionGroup
                 titles={["one", "two", "three"]}
@@ -105,14 +106,14 @@ function Widgets() {
                 ))}
               </AccordionGroup>
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Custom Icon">
           <BlockQuote>
             The AccordionGroup can be configured to use custom icons and
             alignment
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <AccordionGroup
                 titles={["one", "two", "three"]}
@@ -124,7 +125,7 @@ function Widgets() {
                 ))}
               </AccordionGroup>
             </div>
-          </div>
+          </DemoWidget>
         </Section>
       </div>
     )

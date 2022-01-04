@@ -9,6 +9,8 @@ interface WidgetProps {
   layout?: "horizontal" | "vertical";
   width?: string | number;
   fullWidth?: boolean;
+  showCodeByDefault?: boolean;
+  customTitle?: string;
 }
 
 const DemoWidget: React.FC<WidgetProps> = React.memo(
@@ -17,6 +19,8 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
     layout = "vertical",
     width,
     fullWidth = false,
+    showCodeByDefault = false,
+    customTitle = "Show Code",
   }: WidgetProps) => {
     return (
       <div
@@ -33,9 +37,12 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
         </div>
         <div style={{ width: "100%" }}>
           <Accordion
-            title="Show Code"
+            title={customTitle}
             border={false}
             focusable={false}
+            expanded={showCodeByDefault}
+            disableCollapse={showCodeByDefault}
+            disableIcon={showCodeByDefault}
             customIcon={<CodeIcon />}
           >
             <Code>{children}</Code>

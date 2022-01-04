@@ -23,12 +23,30 @@
   margin: 0;
   padding: 0;
   row-gap: 1rem;
+  width: 65%;
+
   @media (max-width: 480px) {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 70%;
+  }
+
+  @media (min-width: 1920px) {
+    width: 50%;
+  }
+
+  @media (max-width: 1600px) {
+    width: 60%;
+  }
+
+  @media (max-width: 1024px) {
+    width: 70%;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
   }
 }
 
@@ -55,12 +73,19 @@
   background: rgba($color: #fff, $alpha: 0.25);
   border-radius: 2px;
   box-shadow: inset 0 0 10px 5px rgba(#fff, 0.1);
-  display: flex;
   display: grid;
   grid-template-columns: 70px calc(100% - 70px);
   height: 100%;
   justify-items: flex-start;
   width: 100%;
+
+  @media (max-width: 480px) {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem;
+    width: calc(80% - 2rem);
+  }
 }
 
 .rc-demo-app-feature-icon {
@@ -134,7 +159,7 @@
   width: 100%;
 
   @media (max-width: 480px) {
-    height: 600px;
+    height: 720px;
   }
 
   @media (min-width: 481px) and (max-width: 768px) {

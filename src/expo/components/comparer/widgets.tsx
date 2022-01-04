@@ -13,12 +13,14 @@ function Widgets() {
       return;
     }
 
-    if (media.isBigScreen) {
-      setWidth(950);
+    if (media.isExtraLargeScreen) {
+      setWidth(850);
+    } else if (media.isBigScreen) {
+      setWidth(750);
     } else if (media.isDesktop) {
-      setWidth(650);
+      setWidth(500);
     } else if (media.isTablet) {
-      setWidth("90%");
+      setWidth("80%");
     } else if (media.isMobile) {
       setWidth("90%");
     }
