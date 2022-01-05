@@ -1,7 +1,8 @@
 import React, { CSSProperties, useLayoutEffect, useMemo } from "react";
+import { useRecoilValue } from "recoil";
 import { BlockQuote, ScrollSpy, Section } from "../../../components";
+import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
 const Para = () => (
   <p>
     Nulla congue efficitur massa, at tempor enim mattis vitae. Suspendisse
@@ -19,7 +20,7 @@ const Para = () => (
 );
 
 function Widgets() {
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
 
   useLayoutEffect(() => {

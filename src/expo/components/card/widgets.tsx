@@ -1,4 +1,5 @@
 import React, { useLayoutEffect } from "react";
+import { useRecoilValue } from "recoil";
 import {
   BlockQuote,
   Card,
@@ -6,35 +7,36 @@ import {
   Section,
   Skeleton,
 } from "../../../components";
+import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
 
 function widgets() {
-  const media = useMedia();
+  // const media = useMedia();
 
   const [width, setWidth] = React.useState(0);
 
+  const responsive = useRecoilValue(responsiveState);
+
   useLayoutEffect(() => {
-    if (!media) {
+    if (!responsive) {
       return;
     }
 
-    if (media.isExtraLargeScreen) {
+    if (responsive.isExtraLargeScreen) {
       setWidth(650);
-    } else if (media.isBigScreen) {
+    } else if (responsive.isBigScreen) {
       setWidth(550);
-    } else if (media.isDesktop) {
+    } else if (responsive.isDesktop) {
       setWidth(500);
-    } else if (media.isTablet) {
+    } else if (responsive.isTablet) {
       setWidth(450);
-    } else if (media.isMobile) {
+    } else if (responsive.isMobile) {
       setWidth(320);
     }
-  }, [media]);
+  }, [responsive]);
 
   return (
-    width > 0 &&
-    media && (
+    width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Card shadowed">
           <BlockQuote>
@@ -51,7 +53,7 @@ function widgets() {
                 <Skeleton
                   animate
                   rowHeight={7}
-                  rows={media.isMobile ? 6 : 10}
+                  rows={responsive.isMobile ? 6 : 10}
                   style={{ marginTop: "1rem" }}
                   showCircle
                 ></Skeleton>

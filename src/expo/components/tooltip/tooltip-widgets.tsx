@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 import {
   BlockQuote,
   Card,
@@ -8,13 +9,13 @@ import {
   Tooltip,
 } from "../../../components";
 import { ToolTipPosition } from "../../../components/tooltip/tooltip-model";
+import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
 
 const Widgets = () => {
   const [position, setPosition] = useState<ToolTipPosition>("top center");
 
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
 
   const [width, setWidth] = React.useState(0);
 

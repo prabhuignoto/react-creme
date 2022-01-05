@@ -1,10 +1,11 @@
-import React, { CSSProperties, useLayoutEffect, useMemo } from "react";
+import React, { CSSProperties, useEffect, useMemo } from "react";
+import { useRecoilValue } from "recoil";
 import { BlockQuote, CheckBox, Section } from "../../../components";
+import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
 
 function widgets() {
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
 
   const style = useMemo(() => {
@@ -14,7 +15,7 @@ function widgets() {
     } as CSSProperties;
   }, [width]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!media) {
       return;
     }
@@ -26,6 +27,8 @@ function widgets() {
       setWidth(250);
     } else if (media.isDesktop) {
       setWidth(250);
+    } else if (media.isExtraLargeScreen) {
+      setWidth(350);
     }
   }, [media]);
 

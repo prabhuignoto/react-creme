@@ -2,15 +2,14 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback } from "react";
-import { useSetRecoilState } from "recoil";
-import { asideState } from "../atoms/home";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { asideState, responsiveState } from "../atoms/home";
 import { HomeButton } from "../home-button";
 import { Features } from "./../home-data";
 import "./hero-section.scss";
-import useMedia from "./useMedia";
 
 function HeroSection() {
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
   const setAsideState = useSetRecoilState(asideState);
 
   const handleOpenSidebar = useCallback(() => {

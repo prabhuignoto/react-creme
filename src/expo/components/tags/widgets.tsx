@@ -1,7 +1,8 @@
 import React, { useLayoutEffect } from "react";
+import { useRecoilValue } from "recoil";
 import { BlockQuote, Section, Tags } from "../../../components";
+import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
 
 const items = [
   { name: "python", disabled: false },
@@ -12,7 +13,7 @@ const items = [
 ];
 
 function widgets() {
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState<string | number>(null);
 
   useLayoutEffect(() => {

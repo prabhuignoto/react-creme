@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
+import { useRecoilValue } from "recoil";
 import {
   BlockQuote,
   Button,
@@ -7,11 +8,12 @@ import {
   Section,
 } from "../../../components";
 import { NotificationPosition } from "../../../components/notification/notification-model";
-import useMedia from "../../common/useMedia";
+import { responsiveState } from "../../atoms/home";
+
 const Widgets = () => {
   const ref = useRef();
 
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
 
   useLayoutEffect(() => {

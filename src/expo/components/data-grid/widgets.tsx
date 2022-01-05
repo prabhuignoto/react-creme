@@ -1,8 +1,9 @@
 import React, { useLayoutEffect } from "react";
+import { useRecoilValue } from "recoil";
 import { BlockQuote, DataGrid, Section } from "../../../components";
 import { DataGridColumn } from "../../../components/data-grid/data-grid-model";
+import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
 
 const data = [
   {
@@ -28,7 +29,7 @@ const data = [
 ];
 
 function widgets() {
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
   const [columns, setColumns] = React.useState<DataGridColumn[]>([
     { name: "name", type: "string" },

@@ -1,13 +1,14 @@
 import React, { CSSProperties, useLayoutEffect } from "react";
+import { useRecoilValue } from "recoil";
 import { Radio, Section } from "../../../components";
+import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
 const style: CSSProperties = {
   minWidth: "50px",
 };
 
 function widgets() {
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
 
   useLayoutEffect(() => {
@@ -22,6 +23,8 @@ function widgets() {
       setWidth(200);
     } else if (media.isDesktop) {
       setWidth(200);
+    } else if (media.isExtraLargeScreen) {
+      setWidth(300);
     }
   }, [media]);
 

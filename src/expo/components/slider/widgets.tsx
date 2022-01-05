@@ -1,10 +1,11 @@
 import React, { useLayoutEffect } from "react";
+import { useRecoilValue } from "recoil";
 import { BlockQuote, Section, Slider } from "../../../components";
+import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
 
 const Widgets = () => {
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
 
   useLayoutEffect(() => {
@@ -20,6 +21,8 @@ const Widgets = () => {
       setWidth(350);
     } else if (media.isMobile) {
       setWidth(300);
+    } else if (media.isExtraLargeScreen) {
+      setWidth(500);
     }
   }, [media]);
 

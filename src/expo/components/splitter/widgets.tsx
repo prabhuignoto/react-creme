@@ -1,10 +1,11 @@
 import React, { useLayoutEffect } from "react";
+import { useRecoilValue } from "recoil";
 import { BlockQuote, Section, Splitter } from "../../../components";
+import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
 
 function widgets() {
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
   const [handleBarWidth, setHandleBarWidth] = React.useState(6);
 

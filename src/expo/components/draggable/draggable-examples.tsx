@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from "react";
+import { useRecoilValue } from "recoil";
 import useDraggable from "../../../components/common/effects/useDraggable";
-import useMedia from "../../common/useMedia";
+import { responsiveState } from "../../atoms/home";
 
 function useDimensions() {
   const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 });
 
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
 
   useEffect(() => {
     if (!media) {

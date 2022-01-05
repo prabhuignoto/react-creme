@@ -7,7 +7,7 @@ import React, {
   useRef,
 } from "react";
 import { useLocation } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import ResizeObserver from "resize-observer-polyfill";
 import { useDebouncedCallback } from "use-debounce";
 import "./App.scss";
@@ -16,7 +16,7 @@ import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
 import AppRoutes from "./expo/app-routes";
-import { asideState } from "./expo/atoms/home";
+import { asideState, responsiveState } from "./expo/atoms/home";
 import Footer from "./expo/common/Footer";
 import { Header } from "./expo/common/Header";
 import SidebarHome from "./expo/common/sidebar-home";
@@ -29,6 +29,7 @@ function App() {
   const resizeObserver = useRef<ResizeObserver>();
 
   const [asideValue, setAsideValue] = useRecoilState(asideState);
+  const setResponsiveState = useSetRecoilState(responsiveState);
 
   const media = useMedia();
   const appRef = useRef<HTMLDivElement>(null);
@@ -75,6 +76,20 @@ function App() {
       setOpenAside(true);
     }
   }, [asideValue]);
+
+  useEffect(() => {
+    if (!media) {
+      return;
+    }
+
+    setResponsiveState({
+      isMobile: media.isMobile,
+      isTablet: media.isTablet,
+      isDesktop: media.isDesktop,
+      isBigScreen: media.isBigScreen,
+      isExtraLargeScreen: media.isExtraLargeScreen,
+    });
+  }, [media]);
 
   const toggleOpen = useCallback(() => setOpenAside((prev) => !prev), []);
 

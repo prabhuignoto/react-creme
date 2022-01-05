@@ -1,11 +1,12 @@
 import React, { useLayoutEffect } from "react";
+import { useRecoilValue } from "recoil";
 import { ImageComparer, Section } from "../../../components";
 import { BlockQuote } from "../../../components/block-quote/block-quote";
+import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
 
 function Widgets() {
-  const media = useMedia();
+  const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState<string | number>("90%");
 
   useLayoutEffect(() => {
