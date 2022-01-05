@@ -10,8 +10,10 @@
 }
 
 .rc-demo-app-logo-container {
+  align-items: center;
   border-radius: 4px;
   cursor: pointer;
+  display: flex;
   padding: 0.5rem;
 
   &:hover {
@@ -23,4 +25,20 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  justify-self: flex-start;
+}
+
+.rc-demo-menu-icon {
+  align-items: center;
+  color: #0074b7;
+  display: flex;
+  height: 2rem;
+  justify-content: center;
+  margin-right: 0.5rem;
+  width: 2rem;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
 }

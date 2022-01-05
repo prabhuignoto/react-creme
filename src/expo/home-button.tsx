@@ -7,6 +7,7 @@ interface HomeButtonProps {
   label?: string;
   children?: ReactNode;
   link?: string;
+  onClick?: () => void;
 }
 
 const HomeButton: React.FunctionComponent<HomeButtonProps> = ({
@@ -14,22 +15,40 @@ const HomeButton: React.FunctionComponent<HomeButtonProps> = ({
   label,
   children,
   link = "",
+  onClick,
 }) => {
   const sizeClass = useMemo(
     () => classNames(size ? `rc-home-button-${size}` : "", "rc-demo-home-btn"),
     []
   );
 
+  const linkProps = useMemo(() => {
+    return link
+      ? {
+          target: "_blank",
+          rel: "noreferrer",
+        }
+      : {};
+  }, []);
+
+  const noLinkProps = useMemo(() => {
+    return !link
+      ? {
+          onClick: onClick,
+        }
+      : {};
+  }, []);
+
   return (
     <a
       className={sizeClass}
       role="button"
-      target="_blank"
-      href={link}
-      rel="noreferrer"
+      href={link || "javascript:void(0);"}
+      {...linkProps}
+      {...noLinkProps}
     >
       <span className="rc-home-button-icon">{children}</span>
-      <span className="rc-home-button-label">{label}</span>
+      {label && <span className="rc-home-button-label">{label}</span>}
     </a>
   );
 };

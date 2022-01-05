@@ -6,9 +6,8 @@ $heights: (
 
 .rc-demo-home-btn {
   align-items: center;
-  background: rgba(#003b73, 0.3);
-  border-radius: 20px;
-  box-shadow: inset 0 0 4px 2px rgba(#003b73, 0.4);
+  background: rgba($color: #434343, $alpha: 0.1);
+  border-radius: 6px;
   color: #fff;
   cursor: pointer;
   display: flex;

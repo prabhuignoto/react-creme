@@ -16,22 +16,22 @@ import "./accordion.scss";
 const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
   ({
     alignIconRight = false,
+    border = false,
     children,
     customIcon = null,
+    disableCollapse = false,
     disableIcon = false,
     expanded = null,
     focusable = false,
     iconColor,
     iconType = "chevron",
     id,
-    border = false,
+    isTitleBold = false,
     onCollapsed,
     onExpanded,
     title,
     titleColor = "#000",
     transition = "cubic-bezier(0.19, 1, 0.22, 1)",
-    isTitleBold = false,
-    disableCollapse = false,
   }: AccordionModel) => {
     const accordionID = useRef(id || `accordion-${nanoid()}`);
     const accordionBodyId = useRef(`accordion-body-${nanoid()}`);

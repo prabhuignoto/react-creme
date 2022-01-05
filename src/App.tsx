@@ -7,6 +7,7 @@ import React, {
   useRef,
 } from "react";
 import { useLocation } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import ResizeObserver from "resize-observer-polyfill";
 import { useDebouncedCallback } from "use-debounce";
 import "./App.scss";
@@ -15,6 +16,7 @@ import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
 import AppRoutes from "./expo/app-routes";
+import { asideState } from "./expo/atoms/home";
 import Footer from "./expo/common/Footer";
 import { Header } from "./expo/common/Header";
 import SidebarHome from "./expo/common/sidebar-home";
@@ -25,6 +27,8 @@ function App() {
   const asideRef = useRef<HTMLElement>(null);
   const [left, setLeft] = React.useState(-1);
   const resizeObserver = useRef<ResizeObserver>();
+
+  const [asideValue, setAsideValue] = useRecoilState(asideState);
 
   const media = useMedia();
   const appRef = useRef<HTMLDivElement>(null);
@@ -66,13 +70,22 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (asideValue.isOpen) {
+      setOpenAside(true);
+    }
+  }, [asideValue]);
+
   const toggleOpen = useCallback(() => setOpenAside((prev) => !prev), []);
 
   const canRenderAside = useMemo(() => {
     return media && media.isMobile && openAside;
   }, [media, openAside]);
 
-  const onClose = useCallback(() => setOpenAside(false), []);
+  const onClose = useCallback(() => {
+    setOpenAside(false);
+    setAsideValue({ isOpen: false });
+  }, []);
 
   return (
     <div className="app" ref={appRef}>

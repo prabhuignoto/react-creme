@@ -18,7 +18,7 @@
   margin: 0;
   padding: 0;
   row-gap: 1rem;
-  width: 70%;
+  width: 80%;
 
   @media (max-width: 480px) {
     align-items: center;
@@ -49,7 +49,9 @@
   padding: 0.5rem;
 }
 
-
+.rc-demo-app-hero {
+  position: relative;
+}
 
 .rc-demo-app-feature {
   align-items: center;
@@ -69,4 +71,10 @@
     padding: 1rem;
     width: calc(80% - 2rem);
   }
+}
+
+.home-menu {
+  left: 1rem;
+  position: absolute;
+  top: 0.5rem;
 }
