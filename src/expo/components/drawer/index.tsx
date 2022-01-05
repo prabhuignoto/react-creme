@@ -12,7 +12,7 @@ function drawer() {
         {
           name: "position",
           description:
-            "docking position of the drawer. 'left' | 'right' | 'top' | 'bottom'",
+            "docking position of the drawer. <em>'left'</em> | <em>'right'</em> | <em>'top'</em> | <em>'bottom'</em>",
           default: "left",
           optional: "Yes",
           type: "String",

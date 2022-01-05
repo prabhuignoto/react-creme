@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import MenuSVG from "./menu.svg?component";
+import MenuSVG from "./images/menu.svg?component";
 import "./logo.scss";
 
 const Logo: React.FC<{ isMobile: boolean; onMenuClick }> = ({
@@ -10,14 +10,16 @@ const Logo: React.FC<{ isMobile: boolean; onMenuClick }> = ({
   const navigate = useNavigate();
 
   return (
-    <div className="rc-demo-app-logo" onClick={() => navigate("/")}>
+    <div className="rc-demo-app-logo">
       {isMobile && (
         <span className="rc-demo-menu-icon" onClick={onMenuClick}>
           <MenuSVG />
         </span>
       )}
-      <span className="rc-demo-logo"></span>
-      <span className="rc-demo-logo-text">React Creme</span>
+      <div onClick={() => navigate("/")}>
+        <span className="rc-demo-logo"></span>
+        <span className="rc-demo-logo-text">React Creme</span>
+      </div>
     </div>
   );
 };

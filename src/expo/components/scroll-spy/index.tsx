@@ -9,16 +9,16 @@ function index() {
         {
           name: "links",
           description: "Array of links to scroll to",
-          type: "Array<string>",
+          default: "[]",
           optional: "Yes",
-          default: "",
+          type: "string[]",
         },
         {
           name: "linksPosition",
           description: "Position of the links",
-          type: "string",
-          optional: "Yes",
           default: "left",
+          optional: "Yes",
+          type: "string",
         },
       ]}
       title="Scroll Spy"

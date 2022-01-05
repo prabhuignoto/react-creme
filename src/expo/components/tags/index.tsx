@@ -10,14 +10,14 @@ function tags() {
       data={[
         {
           name: "tagSize",
-          description: `prop to set the size of the tag.<br> <code>'small' | 'large'</code>`,
+          description: `prop to set the size of the tag.<br> <em>small</em> | <em>large</em>`,
           default: `small`,
           optional: "Yes",
           type: `String`,
         },
         {
           name: "tagStyle",
-          description: `prop to set the style for the tag. <code>'default' | 'fill'</code>`,
+          description: `prop to set the style for the tag. <em>default</em> | <em>fill</em>`,
           default: `default`,
           optional: "Yes",
           type: `String`,

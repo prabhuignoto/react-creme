@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, GithubLink } from "./GithubLink";
+import { Badge, GithubLink } from "./githubLink";
 import { Logo } from "./Logo";
 
 const Header: React.FC<{ isMobile?: boolean; onOpen?: () => void }> = ({

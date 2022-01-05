@@ -23,7 +23,7 @@ function index() {
         },
         {
           name: "onChange",
-          description: "Callback for when the input changes",
+          description: "Callback fired on input changes",
           default: "",
           optional: "yes",
           type: "function",
@@ -37,21 +37,22 @@ function index() {
         },
         {
           name: "placeholder",
-          description: "placeholder text",
+          description: "Placeholder text",
           default: "",
           optional: "yes",
           type: "string",
         },
         {
           name: "disabled",
-          description: "whether the input is disabled",
+          description: "Disables the Input",
           default: "false",
           optional: "yes",
           type: "boolean",
         },
         {
           name: "type",
-          description: "type of the input",
+          description: `Type of input.
+          Can be <em>text</em>, <em>password</em>`,
           default: "text",
           optional: "yes",
           type: "string",
@@ -65,7 +66,8 @@ function index() {
         },
         {
           name: "state",
-          description: "state of the input. can be success, error or default",
+          description:
+            "State of the input. can be <em>success</em>, <em>error</em> or <em>default</em>",
           default: "default",
           optional: "yes",
           type: "string",
@@ -80,21 +82,21 @@ function index() {
         {
           name: "noUniqueId",
           description:
-            "disables the unique id generation. when this prop is set to true, the id need to be manually passed",
+            "Disables the unique id generation. when this prop is set to true, the id need to be manually passed",
           default: "false",
           optional: "yes",
           type: "boolean",
         },
         {
           name: "id",
-          description: "id of the input",
+          description: "Input ID",
           default: "",
           optional: "yes",
           type: "string",
         },
         {
           name: "isAutoComplete",
-          description: "configures the input to be an autocomplete",
+          description: "Configures the input to be an autocomplete.",
           default: "false",
           optional: "yes",
           type: "boolean",

@@ -9,7 +9,8 @@ function index() {
       data={[
         {
           name: "message",
-          description: "The message to display in the alert.",
+          description: `The message to display in the alert.
+          can be one of <em>success</em> | <em>error</em> | <em>warning</em> | <em>info</em>`,
           optional: "No",
           default: "",
           type: "string",
@@ -34,6 +35,13 @@ function index() {
           optional: "Yes",
           default: "true",
           type: "boolean",
+        },
+        {
+          name: "onDismiss",
+          description: "The function to call when the alert is dismissed.",
+          optional: "Yes",
+          default: "",
+          type: "function",
         },
       ]}
       tabTitles={["examples", "properties"]}

@@ -17,7 +17,8 @@ function notification() {
         {
           name: "position",
           description: `Docking position of the notification popup. <br>
-          <code>'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'bottom-center' | 'top-center'</code>`,
+          <em>top-left</em> | <em>top-right</em> | <em>bottom-left</em> |
+          <em>bottom-right</em> | <em>bottom-center</em> | <em>top-center</em>`,
           default: "left",
           optional: "Yes",
           type: "String",

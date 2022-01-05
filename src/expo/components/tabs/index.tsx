@@ -10,7 +10,7 @@ function tabs() {
       data={[
         {
           name: "tabStyle",
-          description: "sets the tab style. 'flat' | 'rounded'",
+          description: "sets the tab style. <em>flat</em> | <em>rounded</em>",
           default: "flat",
           optional: "Yes",
           type: "String",

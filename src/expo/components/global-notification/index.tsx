@@ -52,7 +52,7 @@ function index() {
         },
         {
           name: "hideAnimationStyle",
-          description: `The animation style used while showing and hiding the notification. can be <code>hide</code> or <code>shrink</code>`,
+          description: `The animation style used while showing and hiding the notification. can be <em>hide</em> or <em>shrink</em>`,
           default: "hide",
           optional: "Yes",
           type: "string",

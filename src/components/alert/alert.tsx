@@ -16,6 +16,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   state = "info",
   canDismiss = true,
   onDismiss,
+  children,
 }) => {
   const [close, setClose] = React.useState(false);
 
@@ -63,7 +64,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
           {icon}
         </span>
       </div>
-      <span className="rc-alert-content">{message}</span>
+      <span className="rc-alert-content">{children || message}</span>
       {canDismiss && (
         <span
           className="rc-alert-close-btn"

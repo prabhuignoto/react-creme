@@ -10,7 +10,8 @@ function splitter() {
       data={[
         {
           name: "direction",
-          description: "sets the direction of split 'horizontal' | 'vertical'",
+          description:
+            "sets the direction of split <em>horizontal</em> | <em>vertical</em>",
           default: "horizontal",
           optional: "Yes",
           type: "String",

@@ -26,7 +26,7 @@ function index() {
         {
           name: "checkboxStyle",
           description:
-            "checkbox render style. <code>square</code> or <code>round</code>",
+            "checkbox render style. <em>square</em> or <em>round</em>",
           default: "square",
           optional: "Yes",
           type: "string",

@@ -40,4 +40,13 @@ describe("Alert", () => {
     fireEvent.click(getByRole("button"));
     expect(onDismiss).toHaveBeenCalled();
   });
+
+  it("should render custom content", () => {
+    const { getByText } = render(
+      <Alert message="test" state="info">
+        <span>custom content</span>
+      </Alert>
+    );
+    expect(getByText("custom content")).toBeInTheDocument();
+  });
 });

@@ -9,7 +9,7 @@ function skeleton() {
       data={[
         {
           name: "rows",
-          description: "number of rows",
+          description: "Number of skeleton rows",
           default: "4",
           type: "Number",
           optional: "Yes",
@@ -23,28 +23,28 @@ function skeleton() {
         },
         {
           name: "rowHeight",
-          description: "height of each row",
+          description: "Height of each row",
           default: "30",
           type: "Number",
           optional: "Yes",
         },
         {
           name: "animate",
-          description: "animate rows",
+          description: "Animate rows",
           default: "False",
           type: "Boolean",
           optional: "Yes",
         },
         {
           name: "blocks",
-          description: "sets the number of blocks",
+          description: "Specifies the number of blocks",
           default: "4",
           type: "Number",
           optional: "Yes",
         },
         {
           name: "showCircle",
-          description: "shows a circle for each block",
+          description: "Shows a circle for each block",
           default: "False",
           type: "Boolean",
           optional: "Yes",

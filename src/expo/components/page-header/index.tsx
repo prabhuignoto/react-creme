@@ -22,7 +22,8 @@ function PageHeader() {
         },
         {
           name: "size",
-          description: `Size of the page header. can be "sm" or "md" or "lg".`,
+          description: `Size of the page header.
+          </br> can be <em>sm</em> or <em>md</em> or <em>lg</em>.`,
           default: "md",
           optional: "Yes",
           type: "String",

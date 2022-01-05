@@ -13,81 +13,6 @@
   font-weight: 500;
 }
 
-.rc-demo-app-features {
-  column-gap: 1rem;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: repeat(3, 100px);
-  justify-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  row-gap: 1rem;
-  width: 70%;
-
-  @media (max-width: 480px) {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 70%;
-  }
-
-  @media (min-width: 1920px) {
-    width: 50%;
-  }
-
-  @media (max-width: 1600px) {
-    width: 60%;
-  }
-
-  @media (max-width: 1024px) {
-    width: 70%;
-  }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
-    width: 85%;
-  }
-}
-
-.rc-demo-home-header {
-  padding: 0.5rem;
-}
-
-.rc-demo-app-icon {
-  align-items: center;
-  background-image: url("../../images/cafe.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: block;
-  display: flex;
-  height: 45px;
-  justify-content: center;
-  margin-right: 0.5rem;
-  width: 45px;
-}
-
-.rc-demo-app-feature {
-  align-items: center;
-  background: rgba($color: #fff, $alpha: 0.25);
-  border-radius: 2px;
-  box-shadow: inset 0 0 10px 5px rgba(#fff, 0.1);
-  display: grid;
-  grid-template-columns: 70px calc(100% - 70px);
-  height: 100%;
-  justify-items: flex-start;
-  width: 100%;
-
-  @media (max-width: 480px) {
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
-    padding: 1rem;
-    width: calc(80% - 2rem);
-  }
-}
-
 .rc-demo-app-feature-icon {
   align-items: center;
   border-radius: 10%;
@@ -145,86 +70,11 @@
   width: 100%;
 }
 
-.rc-demo-app-hero {
-  align-items: center;
-  background-image: url("../../images/adrian.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  height: 650px;
-  justify-content: center;
-  margin-bottom: 1rem;
-  width: 100%;
-
-  @media (max-width: 480px) {
-    height: 720px;
-  }
-
-  @media (min-width: 481px) and (max-width: 768px) {
-    height: 600px;
-  }
-
-  @media (min-width: 769px) and (max-width: 1024px) {
-    height: 600px;
-  }
-
-  @media (min-width: 1025px) {
-    height: 700px;
-  }
-
-  img {
-    object-fit: cover;
-  }
-}
-
-.rc-demo-app-hero-header {
-  align-items: center;
-  background: #fff;
-  // background:rgba($color: #003B73, $alpha: 0.2);
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 3rem;
-  padding: 1rem;
-}
-
 .rc-home-main-content {
   width: 95%;
 }
 
-.browser-support-list {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  margin-top: 1rem;
-  padding: 0;
 
-  li {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0 1rem;
-  }
-
-  .browser-support-name {
-    color: #0074b7;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-top: 0.5rem;
-  }
-
-  .browser-support-icon {
-    align-items: center;
-    background: #fff;
-    color: rgba(#0074b7, 1);
-    display: flex;
-    justify-content: center;
-  }
-}
 
 .github-home-btn {
   position: absolute;

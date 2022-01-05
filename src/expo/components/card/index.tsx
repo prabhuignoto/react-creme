@@ -32,16 +32,14 @@ function card() {
         },
         {
           name: "alignHeader",
-          description:
-            "aligns the header element to 'left' | 'right' | 'center",
+          description: `aligns the header element to <em>left</em> | <em>right</em> | <em>center</em>`,
           default: "left",
           optional: "Yes",
           type: "string",
         },
         {
           name: "alignHeader",
-          description:
-            "aligns the footer element to 'left' | 'right' | 'center",
+          description: `aligns the footer element to <em>left</em> | <em>right</em> | <em>center</em>`,
           default: "left",
           optional: "Yes",
           type: "string",

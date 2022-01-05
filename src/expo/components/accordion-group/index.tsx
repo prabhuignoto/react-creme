@@ -31,7 +31,7 @@ function accordionGroup() {
         },
         {
           name: "initialState",
-          description: `initial state of all the accordion groups. <br> <code>"close" | "open"</code>`,
+          description: `initial state of all the accordion groups. <br> <em>"close"</em> | <em>"open"</em>`,
           default: "close",
           optional: "Yes",
           type: "String",

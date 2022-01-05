@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { Alert, BlockQuote, Section } from "../../../components";
+import { Alert, BlockQuote, Button, Section } from "../../../components";
 import { DemoWidget } from "../../common/demo-widget";
 import useMedia from "../../common/useMedia";
 
@@ -62,6 +62,15 @@ function Widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Alert message="This is a error text" state="error" />
+            </div>
+          </DemoWidget>
+        </Section>
+        <Section title="Render Custom content">
+          <DemoWidget>
+            <div style={{ width: `${width}px` }}>
+              <Alert message="This is a information text" canDismiss={false}>
+                <Button label="Custom Button" />
+              </Alert>
             </div>
           </DemoWidget>
         </Section>

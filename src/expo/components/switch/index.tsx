@@ -45,7 +45,7 @@ function switchComponent() {
         },
         {
           name: "size",
-          description: `prop for setting the size. <br> <code>"sm" | "md" | "lg"</code>`,
+          description: `prop for setting the size. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
           default: "sm",
           optional: "Yes",
           type: "String",

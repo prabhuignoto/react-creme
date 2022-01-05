@@ -24,7 +24,7 @@ function checkbox() {
         },
         {
           name: "size",
-          description: `sets the size of the button. <br> <code>"sm" | "md" | "lg"</code>`,
+          description: `sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
           default: "sm",
           optional: "Yes",
           type: "String",

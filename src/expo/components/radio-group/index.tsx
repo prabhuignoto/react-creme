@@ -11,35 +11,36 @@ function radioGroup() {
       data={[
         {
           name: "layout",
-          description: "layout of the radio group",
+          description: "Layout of the radio group",
           default: "column",
           optional: "Yes",
           type: "String",
         },
         {
           name: "items",
-          description: "items to be displayed in the radio group",
+          description: "Collection of Options",
           default: "[]",
           optional: "Yes",
           type: "Array",
         },
         {
           name: "disabled",
-          description: "disables the complete radio group",
+          description: "Disables the complete radio group",
           default: "false",
           optional: "Yes",
           type: "Boolean",
         },
         {
           name: "onSelected",
-          description: "callback when a radio is selected",
+          description:
+            "Callback function to be executed when an option is selected",
           default: "",
           optional: "Yes",
           type: "Function",
         },
         {
           name: "style",
-          description: "style object",
+          description: "Custom Style object",
           default: "{}",
           optional: "Yes",
           type: "Object",

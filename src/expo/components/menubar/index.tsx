@@ -9,7 +9,7 @@ function menubar() {
       data={[
         {
           name: "align",
-          description: `aligns the menubar items to 'left' or 'right`,
+          description: `Aligns the menubar items to <em>left</em>' or <em>right</em>`,
           default: "left",
           optional: "Yes",
           type: "String",
@@ -23,14 +23,14 @@ function menubar() {
         },
         {
           name: "width",
-          description: `minimum width of the menu bar`,
+          description: `Minimum width of the menu bar`,
           default: "300",
           optional: "Yes",
           type: "Number",
         },
         {
           name: "onSelected",
-          description: `callback fired when a menu item is selected`,
+          description: `Callback fired when a menu item is selected`,
           default: "",
           optional: "Yes",
           type: "Function",

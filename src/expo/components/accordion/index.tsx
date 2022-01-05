@@ -31,7 +31,7 @@ function accordion() {
         },
         {
           name: "iconType",
-          description: `prop to change the icon type. <br> <code>"chevron" | "plus"</code>`,
+          description: `prop to change the icon type. <br> <em>chevron</em> | <em>plus</em>`,
           default: "chevron",
           optional: "Yes",
           type: "String",

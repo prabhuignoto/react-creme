@@ -117,7 +117,11 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
       return (
         width && (
           <div className="rc-demo-page">
-            {title && <PageHeader title={title}>{description}</PageHeader>}
+            {title && (
+              <PageHeader title={title} size="md">
+                {description}
+              </PageHeader>
+            )}
             <Tabs labels={tabTitles}>
               <div className="rc-demo-widgets-wrapper">
                 <Suspense fallback={<span>Loading Widgets...</span>}>

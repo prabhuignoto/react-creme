@@ -10,7 +10,7 @@ function progress() {
       data={[
         {
           name: "type",
-          description: `type of progress <br> <code>"progressive" | "infinite"</code>`,
+          description: `type of progress. can be <em>progressive</em> | <em>infinite</em>`,
           default: "progressive",
           optional: "Yes",
           type: "String",
@@ -38,7 +38,8 @@ function progress() {
         },
         {
           name: "status",
-          description: `status of the progress. "success" | "error" | "default"`,
+          description: `status of the progress.
+          <em>success</em> | <em>error</em> | <em>default</em>`,
           default: "sm",
           optional: "Yes",
           type: "String",

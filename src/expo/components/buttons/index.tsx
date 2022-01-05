@@ -16,7 +16,8 @@ function buttons() {
         },
         {
           name: "type",
-          description: `configures the type of button. <br> <code>"primary" | "default" | "danger" | "icon" | "progress"</code>`,
+          description: `configures the type of button.
+          <br> <em>primary</em> | <em>default</em> | <em>danger</em> | <em>icon</em> | <em>progress</em>`,
           default: "default",
           optional: "Yes",
           type: "String",
@@ -30,7 +31,7 @@ function buttons() {
         },
         {
           name: "size",
-          description: `sets the size of the button. <br> <code>"sm" | "md" | "lg"</code>`,
+          description: `sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
           default: "sm",
           optional: "Yes",
           type: "String",

@@ -23,7 +23,8 @@ function menuButton() {
         },
         {
           name: "position",
-          description: `Docking position of the menu. <br> <code>'left' | 'center' | 'right'</code>`,
+          description: `Docking position of the menu.
+          <br> <em>left</em> | <em>center</em> | <em>right</em>`,
           default: "left",
           optional: "Yes",
           type: "String",
