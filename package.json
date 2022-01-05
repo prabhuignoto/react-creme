@@ -8,7 +8,7 @@
   "description": "Modern UI Toolkit for React",
   "license": "MIT",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "rimraf ./dist && tsc && vite build",
     "ci": "yarn lint:all && yarn test -- --runInBand --updateSnapshot",
     "dev": "vite",
     "eslint": "npx eslint ./src/**/*.tsx",
