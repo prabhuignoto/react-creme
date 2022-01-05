@@ -1,7 +1,7 @@
 import React from "react";
 import { Accordion } from "../../components";
 import { CodeIcon } from "../../icons";
-import { Code } from "./Code";
+import { Code } from "./syntax";
 import "./demo-widget.scss";
 
 interface WidgetProps {

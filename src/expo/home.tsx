@@ -3,7 +3,7 @@ import packages from "../../package.json";
 import { BlockQuote, Button } from "../components";
 import { Section } from "../components/section/section";
 import BrowserSupport from "./common/browser-support";
-import { Code } from "./common/code";
+import { Code } from "./common/syntax";
 import HeroSection from "./common/hero-section";
 import { SyntaxHighLighter } from "./common/syntax-highlighter";
 import "./home.scss";
