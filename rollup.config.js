@@ -21,21 +21,21 @@ export default {
   input: "src/components/index.ts",
   output: [
     {
-      file: pkg.main,
+      file: `lib/dist/${pkg.main}`,
       format: "cjs",
       exports: "named",
       strict: true,
       banner,
     },
     {
-      file: pkg.module,
+      file: `lib/dist/${pkg.module}`,
       format: "es",
       exports: "named",
       strict: true,
       banner,
     },
     {
-      file: pkg.umd,
+      file: `lib/dist/${pkg.umd}`,
       format: "umd",
       exports: "named",
       strict: true,

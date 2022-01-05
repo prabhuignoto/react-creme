@@ -19,7 +19,7 @@
     "playwright": "playwright test",
     "prepare": "husky install",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
-    "rollup": "rimraf ./dist && rollup -c",
+    "rollup": "rimraf ./lib && rollup -c",
     "serve": "vite preview",
     "test": "jest --coverage",
     "test:dev": "jest --runInBand",
@@ -132,8 +132,8 @@
     "not dead",
     "> 5%"
   ],
-  "main": "dist/react-creme-pre-alpha.js",
-  "module": "dist/react-creme-pre-alpha.esm.js",
-  "umd": "dist/react-creme-pre-alpha.umd.js",
-  "css": "dist/react-creme-pre-alpha.css"
+  "main": "react-creme-pre-alpha.js",
+  "module": "react-creme-pre-alpha.esm.js",
+  "umd": "react-creme-pre-alpha.umd.js",
+  "css": "react-creme-pre-alpha.css"
 }
