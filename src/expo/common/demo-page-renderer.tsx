@@ -46,7 +46,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
         if (media.isExtraLargeScreen) {
           setWidth([200, 450, 200]);
         } else if (media.isBigScreen) {
-          setWidth([200, 400, 200]);
+          setWidth([200, 300, 150]);
         } else if (media.isDesktop) {
           setWidth([150, 250, 150]);
         } else if (media.isTablet) {
@@ -71,11 +71,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
             },
             { name: "description", type: "string" },
           ];
-        } else if (
-          media.isBigScreen ||
-          media.isExtraLargeScreen ||
-          media.isTablet
-        ) {
+        } else if (media.isBigScreen || media.isExtraLargeScreen) {
           return [
             {
               name: "name",

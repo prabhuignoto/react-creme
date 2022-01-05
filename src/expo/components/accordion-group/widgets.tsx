@@ -26,7 +26,7 @@ function Widgets() {
     } else if (media.isTablet) {
       setWidth(500);
     } else if (media.isMobile) {
-      setWidth(400);
+      setWidth(330);
     }
   }, [media]);
 

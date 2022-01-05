@@ -48,24 +48,23 @@ function widgets() {
     } else if (media.isBigScreen) {
       setWidth(850);
     } else if (media.isDesktop) {
-      setWidth(500);
+      setWidth(650);
       setColumns([
         { name: "name", type: "string" },
         { name: "marks", type: "number" },
         { name: "dept", type: "string" },
       ]);
     } else if (media.isTablet) {
-      setWidth(650);
+      setWidth(580);
       setColumns([
         { name: "name", type: "string", width: 200 },
         { name: "dept", type: "string", width: 200 },
         { name: "marks", type: "number" },
       ]);
     } else if (media.isMobile) {
-      setWidth(360);
+      setWidth(320);
       setColumns([
         { name: "name", type: "string" },
-        { name: "dept", type: "string" },
         { name: "marks", type: "number" },
       ]);
     }

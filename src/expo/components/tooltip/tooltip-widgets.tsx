@@ -32,7 +32,7 @@ const Widgets = () => {
     } else if (media.isTablet) {
       setWidth(500);
     } else if (media.isMobile) {
-      setWidth(350);
+      setWidth(330);
     }
   }, [media]);
 
@@ -106,7 +106,7 @@ const Widgets = () => {
                 <div style={{ width: `${width}px` }}>
                   <Card>
                     <Image
-                      height={300}
+                      height={280}
                       src="https://www.dccomics.com/sites/default/files/Gallery_20210914_BM_THEWORLD_61401312483190.19934149.jpg"
                     />
                   </Card>

@@ -15,7 +15,7 @@ function useMedia() {
     query: "(min-width: 300px) and (max-width: 480px)",
   });
   const isTablet = useMediaQuery({
-    query: "(min-width: 481px) and (max-width: 767px)",
+    query: "(min-width: 481px) and (max-width: 1023px)",
   });
   const isDesktop = useMediaQuery({
     query: "(min-width: 1024px) and (max-width: 1279px)",
