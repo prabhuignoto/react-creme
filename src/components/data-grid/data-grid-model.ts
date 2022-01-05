@@ -5,6 +5,7 @@ interface DataGridCommon {
   border?: boolean;
   fixedHeight?: boolean;
   zebra?: boolean;
+  rowHeight?: number;
 }
 
 export interface DataGridColumn {

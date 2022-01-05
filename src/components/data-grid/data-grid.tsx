@@ -21,6 +21,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   gridWidth = 0,
   fixedHeight = false,
   zebra = false,
+  rowHeight,
 }: DataGridProps) => {
   const sortableColumns = useRef(columns.filter((col) => col.sortable));
   const sortableColumnFirst = useRef(
@@ -125,6 +126,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
       ({
         display: "grid",
         width: gridWidth ? `${gridWidth}px` : "100%",
+        ...(rowHeight ? { "--row-height": `${rowHeight}px` } : {}),
         gridTemplateColumns: columns
           .map((column) => {
             if (column.width) {
@@ -176,6 +178,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
             border={border}
             fixedHeight={fixedHeight}
             zebra={zebra}
+            rowHeight={rowHeight}
           />
         );
       })}

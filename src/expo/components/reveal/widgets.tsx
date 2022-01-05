@@ -34,6 +34,8 @@ function widgets() {
       setWidth(750);
     } else if (media.isBigScreen) {
       setWidth(850);
+    } else if (media.isExtraLargeScreen) {
+      setWidth(950);
     }
   }, [media]);
 

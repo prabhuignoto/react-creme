@@ -137,6 +137,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                     columns={columns}
                     data={data}
                     border
+                    rowHeight={68}
                   />
                 </Suspense>
               </div>

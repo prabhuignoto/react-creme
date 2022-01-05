@@ -106,7 +106,6 @@ function widgets() {
                 ]}
                 tabStyle="rounded"
                 border={false}
-                disabledTabs={["three", "six", "seven", "one", "two", "four"]}
               >
                 <span>one</span>
                 <span>two</span>

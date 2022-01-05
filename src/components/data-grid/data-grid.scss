@@ -34,11 +34,11 @@ $comfortable-row-height: 50px;
   }
 
   &.rc-data-grid-row-compact {
-    min-height: $compact-row-height;
+    min-height: var(--row-height, $compact-row-height);
   }
 
   &.rc-data-grid-row-comfortable {
-    min-height: $comfortable-row-height;
+    min-height: var(--row-height, $comfortable-row-height);
   }
 
   .rc-data-grid-cell-border:not(:last-child) {
