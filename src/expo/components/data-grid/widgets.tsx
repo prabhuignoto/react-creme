@@ -61,7 +61,12 @@ function widgets() {
         { name: "marks", type: "number" },
       ]);
     } else if (media.isMobile) {
-      setWidth(450);
+      setWidth(360);
+      setColumns([
+        { name: "name", type: "string" },
+        { name: "dept", type: "string" },
+        { name: "marks", type: "number" },
+      ]);
     }
   }, [media]);
 
@@ -112,7 +117,13 @@ function widgets() {
               <DataGrid
                 layoutStyle="comfortable"
                 border
-                columns={columns}
+                columns={columns.map((x) => {
+                  if (x.name === "name") {
+                    return { ...x, sortable: true };
+                  } else {
+                    return x;
+                  }
+                })}
                 data={data}
               />
             </div>

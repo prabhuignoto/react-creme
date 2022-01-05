@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "..";
 import { ChevronRightIcon } from "../../icons";
+import { Button } from "../button/button";
 
 interface TransferControlModel {
   onTransfer: (dir: string) => void;

@@ -28,13 +28,16 @@ const Input: React.FunctionComponent<InputModel> = ({
   id = "",
   isAutoComplete = false,
   border = false,
+  focus = false,
 }: InputModel) => {
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isFirstRender = useFirstRender();
 
   const inputId = useRef(noUniqueId ? id : nanoid());
+
+  const [hasFocus, setHasFocus] = useState(false);
 
   const handleClear = useCallback((ev: React.MouseEvent) => {
     ev.preventDefault();
@@ -77,8 +80,9 @@ const Input: React.FunctionComponent<InputModel> = ({
         "rc-input-no-icon": !children,
         "rc-input-disabled": disabled,
         "rc-input-border": border,
+        "rc-input-focus": hasFocus,
       }),
-    [disabled]
+    [disabled, hasFocus]
   );
 
   useEffect(() => {
@@ -102,6 +106,17 @@ const Input: React.FunctionComponent<InputModel> = ({
     [isAutoComplete]
   );
 
+  const focusProps = useMemo(() => {
+    if (focus) {
+      return {
+        onFocus: () => setHasFocus(true),
+        onBlur: () => setHasFocus(false),
+      };
+    } else {
+      return {};
+    }
+  }, []);
+
   return (
     <div
       className={inputClass}
@@ -110,7 +125,6 @@ const Input: React.FunctionComponent<InputModel> = ({
       style={style}
       tabIndex={0}
       {...autoCompleteProps}
-      onClick={() => inputRef.current && inputRef.current.focus()}
     >
       <span className={"rc-input-icon"}>{children}</span>
       <input
@@ -120,6 +134,8 @@ const Input: React.FunctionComponent<InputModel> = ({
         onKeyUp={onKeyUp}
         ref={inputRef}
         id={inputId.current}
+        disabled={disabled}
+        {...focusProps}
       />
       <span onMouseDown={handleClear} className={clearClass} role="button">
         {enableClear && <CloseIcon />}

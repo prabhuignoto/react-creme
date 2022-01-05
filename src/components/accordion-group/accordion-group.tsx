@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { useCallback, useLayoutEffect, useMemo } from "react";
-import { Accordion } from "..";
+import { Accordion } from "../accordion/accordion";
 import {
   AccordionGroupProps,
   AccordionItemProps,

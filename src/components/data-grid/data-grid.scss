@@ -2,6 +2,9 @@
 @use "../../design/colors.scss";
 @use "../../design/icon.scss";
 
+$compact-row-height: 35px;
+$comfortable-row-height: 50px;
+
 .rc-data-grid {
   @extend %col;
   overflow: hidden;
@@ -31,11 +34,11 @@
   }
 
   &.rc-data-grid-row-compact {
-    min-height: 50px;
+    min-height: $compact-row-height;
   }
 
   &.rc-data-grid-row-comfortable {
-    min-height: 60px;
+    min-height: $comfortable-row-height;
   }
 
   .rc-data-grid-cell-border:not(:last-child) {

@@ -1,8 +1,9 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
-import { Button, Menu } from "..";
 import { ChevronDownIcon } from "../../icons";
+import { Button } from "../button/button";
+import { Menu } from "../menu/menu";
 import { MenuItemModel } from "../menu/menu-item";
 import { MenuButtonProps } from "./menu-button.model";
 import "./menu-button.scss";
@@ -14,6 +15,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   width = 150,
   disabled = false,
   RTL = false,
+  iconColor,
 }) => {
   const menuItems = useRef<MenuItemModel[]>(
     items.slice(1).map((item) => ({ name: item, id: nanoid() }))
@@ -36,11 +38,15 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
     return RTL ? "left" : "right";
   }, []);
 
+  const menuStyle = useMemo(() => {
+    return {
+      "--max-width": `${width}px`,
+      "--icon-color": iconColor,
+    } as CSSProperties;
+  }, []);
+
   return (
-    <div
-      className={menuButtonClass}
-      style={{ "--max-width": `${width}px` } as CSSProperties}
-    >
+    <div className={menuButtonClass} style={menuStyle}>
       <Button label={items[0]} border={false} focusable={focusable} />
       <Menu
         items={menuItems.current}

@@ -81,7 +81,7 @@ const Home: React.FunctionComponent = () => {
           </ul>
         </Section>
 
-        <Section title="Usage">
+        <Section title="Usage" size="md">
           <BlockQuote>
             The example below shows how to use the react-creme package. we
             create a simple component that renders a button.

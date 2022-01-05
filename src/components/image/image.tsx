@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useRef,
 } from "react";
-import { CircularProgress } from "..";
+import { CircularProgress } from "../progress/circular-progress";
 import { ImageProps } from "./image-model";
 import { ImageOverlay } from "./image-overlay";
 import "./image.scss";

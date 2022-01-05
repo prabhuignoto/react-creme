@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { useMemo, useRef } from "react";
-import { CircularProgress } from "..";
+import { CircularProgress } from "../progress/circular-progress";
 import { useFocus } from "../common/effects/useFocus";
 import { ButtonModel } from "./button-model";
 import "./button.scss";

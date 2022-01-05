@@ -17,7 +17,7 @@ function Widgets() {
         <BlockQuote>Use a custom icon inside the input.</BlockQuote>
         <DemoWidget>
           <div style={{ width: "200px" }}>
-            <Input enableClear>
+            <Input enableClear focus>
               <ChevronRightIcon />
             </Input>
           </div>

@@ -22,7 +22,9 @@
     "rollup": "rimraf ./dist && rollup -c",
     "serve": "vite preview",
     "test": "jest --coverage",
-    "test:dev": "jest --runInBand"
+    "test:dev": "jest --runInBand",
+    "emit-dts": "rimraf ./dts && tsc --project tsconfig.json --declaration --emitDeclarationOnly",
+    "extract-api": "rimraf ./typings && npx api-extractor run --local --verbose"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -61,10 +63,11 @@
     "@typescript-eslint/parser": "^5.9.0",
     "@vitejs/plugin-react-refresh": "^1.3.1",
     "autoprefixer": "^10.4.1",
-    "babel-jest": "^27.4.5",
+    "babel-jest": "^27.4.6",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "canvas": "^2.8.0",
     "cssnano": "^5.0.14",
+    "esbuild": "^0.14.10",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
@@ -76,7 +79,7 @@
     "eslint-plugin-react": "^7.28.0",
     "history": "5.2.0",
     "husky": "^7.0.4",
-    "jest": "^27.4.5",
+    "jest": "^27.4.6",
     "lint-staged": "^12.1.5",
     "postcss": "^8.4.5",
     "postcss-bem-linter": "^3.3.0",
@@ -89,8 +92,11 @@
     "react-syntax-highlighter": "^15.4.5",
     "react-transition-group": "^4.4.2",
     "recoil": "^0.5.2",
-    "rollup": "^2.62.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.63.0",
+    "rollup-plugin-esbuild": "^4.8.2",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-progress": "^1.1.2",
     "rollup-plugin-sass": "^1.2.10",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.31.1",
@@ -118,7 +124,7 @@
     ]
   },
   "files": [
-    "dist"
+    "lib/dist"
   ],
   "browserslist": [
     "last 3 versions",

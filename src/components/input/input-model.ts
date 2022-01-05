@@ -16,4 +16,5 @@ export interface InputModel {
   id?: string;
   isAutoComplete?: boolean;
   border?: boolean;
+  focus?: boolean;
 }

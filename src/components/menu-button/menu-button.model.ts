@@ -5,4 +5,5 @@ export interface MenuButtonProps {
   width?: number;
   disabled?: boolean;
   RTL?: boolean;
+  iconColor?: string;
 }

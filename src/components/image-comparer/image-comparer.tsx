@@ -6,9 +6,10 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { CircularProgress, Image } from "..";
 import { useDrag } from "../common/effects/useDrag";
 import { useFirstRender } from "../common/effects/useFirstRender";
+import { Image } from "../image/image";
+import { CircularProgress } from "../progress/circular-progress";
 import { ImageComparerModel } from "./image-comparer.model";
 import "./image-comparer.scss";
 

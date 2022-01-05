@@ -7,10 +7,11 @@ import React, {
   useRef,
 } from "react";
 import { useDebouncedCallback } from "use-debounce";
-import { Input, List } from "..";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { isValidString } from "../common/utils";
 import { Option } from "../dropdown/dropdown-model";
+import { Input } from "../input/input";
+import { List } from "../list/list";
 import { AutoCompleteProps } from "./auto-complete.model";
 import "./auto-complete.scss";
 

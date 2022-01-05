@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
 import { SearchIcon } from "../../icons";
 import { isArray } from "../common/utils";
-import { Input } from "../index";
+import { Input } from "../input/input";
 import { ListOption } from "../list/list-model";
 import { SidebarGroups } from "./sidebar-groups";
 import { SidebarGroupModel, SidebarModel } from "./sidebar-model";
@@ -106,7 +106,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
     if (node) {
       ref.current = node;
       setSidebarHeight(
-        node.clientHeight ? node.clientHeight : window.innerHeight
+        node.clientHeight ? node.clientHeight - 40 : window.innerHeight
       );
     }
   }, []);

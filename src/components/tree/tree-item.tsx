@@ -8,8 +8,8 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { CheckBox } from "..";
 import { ChevronRightIcon, MinusIcon, PlusIcon } from "../../icons";
+import { CheckBox } from "../checkbox/checkbox";
 import "./tree-item.scss";
 import { TreeItemModel } from "./tree-model";
 

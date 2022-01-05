@@ -6,7 +6,7 @@
 
 .rc-menu-btn-wrapper {
   @extend %border;
-  @extend %shadow-inset;
+  // @extend %shadow-inset;
   column-gap: 0.25rem;
   display: grid;
   height: 35px;
@@ -38,6 +38,7 @@
   @extend %center;
   @extend %icon-md;
   @include animate.halo();
+  color: var(--icon-color, colors.$primary);
   cursor: pointer;
   display: block;
   position: relative;

@@ -19,6 +19,11 @@
     @extend %border;
   }
 
+  &.rc-input-focus {
+    outline: 2px solid colors.$primary;
+    outline-offset: 3px;
+  }
+
   &:not(.rc-input-border) {
     @extend %border-radius;
   }
@@ -29,7 +34,7 @@
   }
 
   ::input-placeholder {
-    color: rgba($color: #000, $alpha: 0.25);
+    color: rgba($color: #000, $alpha: 0.5);
     /* Chrome/Opera/Safari */
     font-size: 1rem;
     font-weight: 300;

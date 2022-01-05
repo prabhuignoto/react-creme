@@ -1,26 +1,25 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "useDefineForClassFields": true,
     "lib": [
       "DOM",
       "DOM.Iterable",
       "ESNext"
     ],
+    "useDefineForClassFields": true,
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react",
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "dts",
     "types": [
       "@testing-library/jest-dom",
       "react",
@@ -30,7 +29,6 @@
   "include": [
     "./src/components",
     "./src/components/models",
-    "./jest-setup.ts"
   ],
   "exclude": [
     "src/**/*.test.tsx",

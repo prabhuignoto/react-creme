@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { CSSProperties, useEffect, useMemo, useRef } from "react";
-import { Button } from "..";
 import { CloseIcon } from "../../icons";
+import { Button } from "../button/button";
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import useSwipe from "../common/effects/useSwipe";
 import { withOverlay } from "../common/withOverlay";

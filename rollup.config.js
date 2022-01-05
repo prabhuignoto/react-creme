@@ -1,15 +1,13 @@
-import babel from "@rollup/plugin-babel";
-import common from "@rollup/plugin-commonjs";
-import resolve from "@rollup/plugin-node-resolve";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import BemLinter from "postcss-bem-linter";
+import PostCSSPreset from "postcss-preset-env";
+import esbuild from "rollup-plugin-esbuild";
 import postcss from "rollup-plugin-postcss";
+import progress from "rollup-plugin-progress";
 import { terser } from "rollup-plugin-terser";
-import typescript from "rollup-plugin-typescript2";
 import sass from "sass";
 import pkg from "./package.json";
-import PostCSSPreset from "postcss-preset-env";
 
 const banner = `/*
  * ${pkg.name}
@@ -50,20 +48,31 @@ export default {
     },
   ],
   plugins: [
-    typescript(),
-    babel({
-      extensions: ["tsx", "ts"],
-      babelHelpers: "runtime",
-      plugins: [
-        "@babel/plugin-transform-runtime",
-        "@babel/plugin-proposal-optional-chaining",
-        [
-          "react-remove-properties",
-          {
-            "properties": ["data-testid"],
-          },
-        ],
-      ],
+    progress({
+      clearLine: false,
+    }),
+    esbuild({
+      include: /\.[jt]sx?$/, // default, inferred from `loaders` option
+      exclude: /node_modules/, // default
+      sourceMap: false, // by default inferred from rollup's `output.sourcemap` option
+      minify: process.env.NODE_ENV === "production",
+      target: "esnext", // default, or 'es20XX', 'esnext'
+      jsx: "transform", // default, or 'preserve'
+      jsxFactory: "React.createElement",
+      jsxFragment: "React.Fragment",
+      // Like @rollup/plugin-replace
+      define: {
+        __VERSION__: '"x.y.z"',
+      },
+      tsconfig: "tsconfig.json", // default
+      // Add extra loaders
+      loaders: {
+        // Add .json files support
+        // require @rollup/plugin-commonjs
+        ".json": "json",
+        // Enable JSX in .js files too
+        ".js": "jsx",
+      },
     }),
     postcss({
       preprocessor: (content, id) =>
@@ -77,14 +86,12 @@ export default {
         }),
         autoprefixer,
         BemLinter,
-        PostCSSPreset
+        PostCSSPreset,
       ],
       sourceMap: false,
       extract: true,
       extensions: [".scss"],
     }),
-    common(),
-    resolve(),
     terser({
       compress: {
         drop_debugger: true,

@@ -14,6 +14,7 @@
 .rc-auto-complete-suggestions-wrapper {
   @include position.position-abs("bottom left");
   background-color: colors.$white;
+  height: 100%;
   top: 40px;
   width: var(--rc-autocomplete-suggestions-width, 200px);
   z-index: 999;

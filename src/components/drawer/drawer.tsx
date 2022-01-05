@@ -7,8 +7,8 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Button } from "..";
 import { CloseIcon } from "../../icons";
+import { Button } from "../button/button";
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import { useFocus } from "../common/effects/useFocus";
 import { useKey } from "../common/effects/useKey";

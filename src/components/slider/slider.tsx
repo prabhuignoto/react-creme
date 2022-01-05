@@ -7,9 +7,9 @@ import React, {
   useRef,
 } from "react";
 import { useDebouncedCallback } from "use-debounce";
-import { Tooltip } from "..";
 import { useDrag } from "../common/effects/useDrag";
 import { useFocus } from "../common/effects/useFocus";
+import { Tooltip } from "../tooltip/tooltip";
 import { SliderModel } from "./slider-model";
 import "./slider.scss";
 

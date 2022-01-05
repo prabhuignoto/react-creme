@@ -56,6 +56,13 @@ function menuButton() {
           optional: "Yes",
           type: "Boolean",
         },
+        {
+          name: "iconColor",
+          description: `color of the chevron icon`,
+          default: "",
+          optional: "Yes",
+          type: "String",
+        },
       ]}
       tabTitles={["examples", "properties"]}
       demoWidget={lazy(() => import("./widgets"))}

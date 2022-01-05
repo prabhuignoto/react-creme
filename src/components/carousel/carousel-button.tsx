@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
-import { Button } from "..";
 import { ChevronRightIcon } from "../../icons";
+import { Button } from "../button/button";
 import { CarouselButtonModel } from "./carousel-model";
 import "./carousel.scss";
 
