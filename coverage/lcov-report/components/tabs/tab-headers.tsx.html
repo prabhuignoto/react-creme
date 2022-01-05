@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">33.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>10/30</span>
+                <span class='fraction'>7/21</span>
             </div>
         
             
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line medium'></div>
     <pre><table class="coverage">
@@ -215,22 +221,22 @@
 <a name='L156'></a><a href='#L156'>156</a>
 <a name='L157'></a><a href='#L157'>157</a>
 <a name='L158'></a><a href='#L158'>158</a>
-<a name='L159'></a><a href='#L159'>159</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
+<a name='L159'></a><a href='#L159'>159</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -370,9 +376,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from "classnames";
 import React, {
   useCallback,
@@ -418,7 +424,7 @@ const TabHeaders: React.FunctionComponent&lt;TabHeadersModel&gt; = ({
 &nbsp;
   const scrollLeft = useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {
     const tabHeaders = <span class="cstat-no" title="statement not covered" >tabHeadersRef.current;</span>
-<span class="cstat-no" title="statement not covered" >    if (tabHeaders) {</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (tabHeaders) {</span>
       const { scrollLeft, clientWidth } = <span class="cstat-no" title="statement not covered" >tabHeaders;</span>
       const newLeft = <span class="cstat-no" title="statement not covered" >Math.max(0, scrollLeft - (clientWidth * 1) / 2);</span>
 &nbsp;
@@ -429,7 +435,7 @@ const TabHeaders: React.FunctionComponent&lt;TabHeadersModel&gt; = ({
 &nbsp;
   const scrollRight = useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {
     const tabHeaders = <span class="cstat-no" title="statement not covered" >tabHeadersRef.current;</span>
-<span class="cstat-no" title="statement not covered" >    if (tabHeaders) {</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (tabHeaders) {</span>
       const { scrollLeft, clientWidth } = <span class="cstat-no" title="statement not covered" >tabHeaders;</span>
       const newLeft = <span class="cstat-no" title="statement not covered" >scrollLeft + (clientWidth * 1) / 2;</span>
 <span class="cstat-no" title="statement not covered" >      tabHeaders.scrollLeft = newLeft;</span>
@@ -455,11 +461,11 @@ const TabHeaders: React.FunctionComponent&lt;TabHeadersModel&gt; = ({
   }, []);
 &nbsp;
   useEffect(() =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (scrollLeftCurrent.value &gt;= 0 &amp;&amp; tabHeadersRef.current) {
+    if (scrollLeftCurrent.value &gt;= 0 &amp;&amp; tabHeadersRef.current) {
       const { dir, value } = scrollLeftCurrent;
       const ref = tabHeadersRef.current;
 &nbsp;
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (dir === "left") {
+      if (dir === "left") {
         setDisableScrollLeft(value === 0);
         setDisableScrollRight(false);
       }
@@ -476,10 +482,10 @@ const TabHeaders: React.FunctionComponent&lt;TabHeadersModel&gt; = ({
     const swipeState = <span class="cstat-no" title="statement not covered" >useSwipe(tabHeadersRef);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (swipeState.offset &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (swipeState.offset &gt;= 0) {</span>
 <span class="cstat-no" title="statement not covered" >        if (swipeState.dir === "LEFT") {</span>
 <span class="cstat-no" title="statement not covered" >          scrollRight();</span>
-        } else <span class="cstat-no" title="statement not covered" >if (swipeState.dir === "RIGHT") {</span>
+        } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (swipeState.dir === "RIGHT") {</span>
 <span class="cstat-no" title="statement not covered" >          scrollLeft();</span>
         }
       }
@@ -537,10 +543,9 @@ export { TabHeaders };
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jan 04 2022 09:56:18 GMT+0530 (India Standard Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Wed Jan 05 2022 16:55:42 GMT+0530 (India Standard Time)
             </div>
-        </div>
         <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {

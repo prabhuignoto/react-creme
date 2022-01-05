@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">59.61% </span>
+                <span class="strong">58.69% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>31/52</span>
+                <span class='fraction'>27/46</span>
             </div>
         
             
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line high'></div>
     <pre><table class="coverage">
@@ -267,26 +273,26 @@
 <a name='L208'></a><a href='#L208'>208</a>
 <a name='L209'></a><a href='#L209'>209</a>
 <a name='L210'></a><a href='#L210'>210</a>
-<a name='L211'></a><a href='#L211'>211</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<a name='L211'></a><a href='#L211'>211</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -474,9 +480,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import cls from "classnames";
 import React, {
   CSSProperties,
@@ -487,8 +493,8 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { CheckBox } from "..";
 import { ChevronRightIcon, MinusIcon, PlusIcon } from "../../icons";
+import { CheckBox } from "../checkbox/checkbox";
 import "./tree-item.scss";
 import { TreeItemModel } from "./tree-model";
 &nbsp;
@@ -555,7 +561,7 @@ const TreeItem: React.FunctionComponent&lt;TreeItemModel&gt; = React.memo(
     );
 &nbsp;
     useEffect(() =&gt; {
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (isFirstRender.current) {
+      if (isFirstRender.current) {
         isFirstRender.current = false;
       }
     }, []);
@@ -587,7 +593,7 @@ const TreeItem: React.FunctionComponent&lt;TreeItemModel&gt; = React.memo(
 &nbsp;
     const handler = useCallback(
 <span class="fstat-no" title="function not covered" >      (e</span>xpanded: boolean, count: number) =&gt; {
-<span class="cstat-no" title="statement not covered" >        if (typeof count === "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof count === "undefined") {</span>
 <span class="cstat-no" title="statement not covered" >          return;</span>
         }
 &nbsp;
@@ -610,9 +616,9 @@ const TreeItem: React.FunctionComponent&lt;TreeItemModel&gt; = React.memo(
       }
       onChildToggle &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >onChildToggle(expanded, totalItems);</span>
 &nbsp;
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (expanded) {
+      if (expanded) {
         setControlledExpanded(expanded);
-      } else {
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >        setTimeout(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >          setControlledExpanded(expanded);</span>
         }, 500);
@@ -693,10 +699,9 @@ export { TreeItem };
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jan 04 2022 09:56:18 GMT+0530 (India Standard Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Wed Jan 05 2022 16:55:42 GMT+0530 (India Standard Time)
             </div>
-        </div>
         <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
