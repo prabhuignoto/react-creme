@@ -10,13 +10,13 @@ const Logo: React.FC<{ isMobile: boolean; onMenuClick }> = ({
   const navigate = useNavigate();
 
   return (
-    <div className="rc-demo-app-logo">
+    <div className="rc-demo-app-logo-container">
       {isMobile && (
         <span className="rc-demo-menu-icon" onClick={onMenuClick}>
           <MenuSVG />
         </span>
       )}
-      <div onClick={() => navigate("/")}>
+      <div onClick={() => navigate("/")} className="rc-demo-app-logo">
         <span className="rc-demo-logo"></span>
         <span className="rc-demo-logo-text">React Creme</span>
       </div>

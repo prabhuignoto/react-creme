@@ -11,7 +11,9 @@
     "build": "rimraf ./dist && tsc && vite build",
     "ci": "yarn lint:all && yarn test -- --runInBand --updateSnapshot",
     "dev": "vite",
+    "emit-dts": "rimraf ./dts && tsc --project tsconfig.json --declaration --emitDeclarationOnly",
     "eslint": "npx eslint ./src/**/*.tsx",
+    "extract-api": "rimraf ./typings && npx api-extractor run --local --verbose",
     "fix:css": "npx stylelint ./src/**/*.scss --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:all": "yarn run eslint && yarn run lint:css && yarn run prettier:check",
@@ -21,10 +23,8 @@
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "rollup": "rimraf ./lib && rollup -c",
     "serve": "vite preview",
-    "test": "jest --coverage",
-    "test:dev": "jest --runInBand",
-    "emit-dts": "rimraf ./dts && tsc --project tsconfig.json --declaration --emitDeclarationOnly",
-    "extract-api": "rimraf ./typings && npx api-extractor run --local --verbose"
+    "snyk": "snyk test",
+    "test:dev": "jest --runInBand"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -101,6 +101,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.31.1",
     "sass": "^1.45.2",
+    "snyk": "^1.817.0",
     "stylelint": "14.2.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
@@ -132,6 +133,9 @@
     "not dead",
     "> 5%"
   ],
+  "resolutions": {
+    "nth-check": "^2.0.1"
+  },
   "main": "react-creme-pre-alpha.js",
   "module": "react-creme-pre-alpha.esm.js",
   "umd": "react-creme-pre-alpha.umd.js",

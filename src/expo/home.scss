@@ -74,10 +74,56 @@
   width: 95%;
 }
 
-
-
 .github-home-btn {
   position: absolute;
   right: 15px;
   top: 10px;
+}
+
+.rc-demo-app-hero {
+  align-items: center;
+  background-image: url("../../images/adrian.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  @media (max-width: 480px) {
+    height: 720px;
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    height: 600px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    height: 600px;
+  }
+
+  @media (min-width: 1025px) {
+    height: 700px;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.rc-demo-app-icon {
+  align-items: center;
+  background-image: url("../../images/cafe.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  margin-right: 0.5rem;
+  width: 45px;
 }

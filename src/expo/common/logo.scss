@@ -9,7 +9,7 @@
   width: 25px;
 }
 
-.rc-demo-app-logo {
+.rc-demo-app-logo-container {
   border-radius: 4px;
   cursor: pointer;
   padding: 0.5rem;
@@ -17,4 +17,10 @@
   &:hover {
     background-color: rgba($color: #003b73, $alpha: 0.1);
   }
+}
+
+.rc-demo-app-logo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
