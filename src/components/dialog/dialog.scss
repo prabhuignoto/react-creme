@@ -14,7 +14,7 @@
 
   background-color: colors.$white;
   min-height: 300px;
-  min-width: 500px;
+  min-width: var(--min-width, 300px);
 
   &.rc-dialog-close {
     animation-name: animation-pop-close;

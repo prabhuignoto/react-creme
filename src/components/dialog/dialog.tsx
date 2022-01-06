@@ -14,7 +14,7 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
   onClose,
   onSuccess,
   title,
-  width = 300,
+  width,
   height = 200,
 }: DialogModel) => {
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -30,7 +30,7 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
 
   const style = useMemo(
     () => ({
-      width: width ? `${width}px` : "auto",
+      "--min-width": `${width}px`,
       height: height ? `${height}px` : "auto",
     }),
     [width, height]
