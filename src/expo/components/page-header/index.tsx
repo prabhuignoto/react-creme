@@ -5,7 +5,7 @@ function PageHeader() {
   return (
     <DemoPageRenderer
       demoWidget={lazy(() => import("./widgets"))}
-      data={[
+      properties={[
         {
           name: "title",
           description: `Title of the page.`,

@@ -6,7 +6,17 @@ function index() {
     <DemoPageRenderer
       title="Global notification"
       description="Grabs the attention of the user by displaying a notification in the top of the screen."
-      data={[
+      callbacks={[
+        {
+          name: "onClose",
+          description:
+            "The callback function to be called when the notification is closed.",
+          default: "",
+          optional: "Yes",
+          type: "function",
+        },
+      ]}
+      properties={[
         {
           name: "height",
           description: "The height of the notification.",
@@ -41,14 +51,6 @@ function index() {
           default: "",
           optional: "Yes",
           type: "string",
-        },
-        {
-          name: "onClose",
-          description:
-            "The callback function to be called when the notification is closed.",
-          default: "",
-          optional: "Yes",
-          type: "function",
         },
         {
           name: "hideAnimationStyle",

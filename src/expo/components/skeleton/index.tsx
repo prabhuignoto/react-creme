@@ -6,7 +6,7 @@ function skeleton() {
     <DemoPageRenderer
       title="Skeleton"
       description="Skeleton is a lightweight component that can be used to display a loading state."
-      data={[
+      properties={[
         {
           name: "rows",
           description: "Number of skeleton rows",

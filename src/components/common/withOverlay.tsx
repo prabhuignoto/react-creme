@@ -15,6 +15,9 @@ type OverlayFunc = <U extends OverlayModel>(
   settings: Settings
 ) => React.FunctionComponent<U>;
 
+export const OverlayContext =
+  React.createContext<{ align?: "left" | "right" }>(null);
+
 const withOverlay: OverlayFunc = function <T extends OverlayModel>(
   Node: React.FunctionComponent<T>,
   settings: Settings = {
@@ -32,6 +35,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
       placementReference,
       placement,
       overlayAnimation,
+      align,
     } = props;
     const { backdropColor } = settings;
     const [portalWrapperCreated, setPortalWrapperCreated] = useState(false);
@@ -67,17 +71,19 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
 
     return portalWrapperCreated
       ? ReactDOM.createPortal(
-          <Overlay
-            showCloseButton={showClose}
-            onClose={handleClose}
-            placement={placement}
-            placementReference={placementReference}
-            backdropColor={backdropColor}
-            containedToParent={!!containedToParent}
-            overlayAnimation={overlayAnimation}
-          >
-            <Node {...props} onClose={handleClose} isClosing={isClosing} />
-          </Overlay>,
+          <OverlayContext.Provider value={{ align }}>
+            <Overlay
+              showCloseButton={showClose}
+              onClose={handleClose}
+              placement={placement}
+              placementReference={placementReference}
+              backdropColor={backdropColor}
+              containedToParent={!!containedToParent}
+              overlayAnimation={overlayAnimation}
+            >
+              <Node {...props} onClose={handleClose} isClosing={isClosing} />
+            </Overlay>
+          </OverlayContext.Provider>,
           portalContainer.current as HTMLElement
         )
       : null;

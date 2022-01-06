@@ -6,7 +6,23 @@ function dialog() {
     <DemoPageRenderer
       title="Dialog"
       description="A dialog is a window that displays content in a modal overlay."
-      data={[
+      callbacks={[
+        {
+          name: "onClose",
+          description: "callback invoked on close",
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+        {
+          name: "onSuccess",
+          description: "callback invoked when ok is pressed",
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "title",
           description: "Text title for the dialog",
@@ -27,20 +43,6 @@ function dialog() {
           default: "200",
           optional: "Yes",
           type: "Number",
-        },
-        {
-          name: "onClose",
-          description: "callback invoked on close",
-          default: "",
-          optional: "Yes",
-          type: "Function",
-        },
-        {
-          name: "onSuccess",
-          description: "callback invoked when ok is pressed",
-          default: "",
-          optional: "Yes",
-          type: "Function",
         },
       ]}
       tabTitles={["examples", "properties"]}

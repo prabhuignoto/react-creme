@@ -42,7 +42,6 @@ function Widgets() {
                 { name: "Close" },
                 { name: "Exit" },
               ]}
-              position="center"
               focusable={false}
             >
               <Button type="icon" size="lg">
@@ -59,7 +58,7 @@ function Widgets() {
         <DemoWidget>
           <div style={{ width: "100px" }}>
             <Menu
-              position="left"
+              position="right"
               items={[
                 { name: "Open" },
                 { name: "Save As" },

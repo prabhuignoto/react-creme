@@ -124,6 +124,7 @@ const Input: React.FunctionComponent<InputModel> = ({
       ref={ref}
       style={style}
       tabIndex={0}
+      aria-label={placeholder}
       {...autoCompleteProps}
     >
       <span className={"rc-input-icon"}>{children}</span>

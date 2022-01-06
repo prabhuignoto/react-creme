@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
 import { ChevronDownIcon } from "../../icons";
 import { Button } from "../button/button";
-import { Menu } from "../menu/menu";
+import { MenuContainer as Menu } from "../menu/menu";
 import { MenuItemModel } from "../menu/menu-item";
 import { MenuButtonProps } from "./menu-button.model";
 import "./menu-button.scss";

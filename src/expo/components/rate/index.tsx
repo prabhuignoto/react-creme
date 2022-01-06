@@ -6,7 +6,16 @@ function rate() {
     <DemoPageRenderer
       title="Rate"
       description="Rate is a component that allows users to rate something."
-      data={[
+      callbacks={[
+        {
+          name: "onChange",
+          description: `callback function that will be called when the rating changes`,
+          default: ``,
+          optional: "Yes",
+          type: `Function`,
+        },
+      ]}
+      properties={[
         {
           name: "icon",
           description: `custom icon that will be used for rendering`,
@@ -42,13 +51,6 @@ function rate() {
           default: "[]",
           optional: "Yes",
           type: `Array`,
-        },
-        {
-          name: "onChange",
-          description: `callback function that will be called when the rating changes`,
-          default: ``,
-          optional: "Yes",
-          type: `Function`,
         },
       ]}
       tabTitles={["examples", "properties"]}

@@ -6,21 +6,7 @@ function index() {
     <DemoPageRenderer
       title="Inputs"
       description="Inputs are used to collect user input."
-      data={[
-        {
-          name: "controlled",
-          description: "Controlled input",
-          default: "false",
-          optional: "yes",
-          type: "boolean",
-        },
-        {
-          name: "value",
-          description: "Value of the input",
-          default: "''",
-          optional: "yes",
-          type: "string",
-        },
+      callbacks={[
         {
           name: "onChange",
           description: "Callback fired on input changes",
@@ -34,6 +20,22 @@ function index() {
           default: "",
           optional: "yes",
           type: "function",
+        },
+      ]}
+      properties={[
+        {
+          name: "controlled",
+          description: "Controlled input",
+          default: "false",
+          optional: "yes",
+          type: "boolean",
+        },
+        {
+          name: "value",
+          description: "Value of the input",
+          default: "''",
+          optional: "yes",
+          type: "string",
         },
         {
           name: "placeholder",

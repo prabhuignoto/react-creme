@@ -4,6 +4,7 @@ interface OverlayCommon {
   onClose?: () => void;
   onClosing?: () => void;
   placement?: "top" | "bottom";
+  align?: "left" | "right";
   placementReference?: RefObject<HTMLElement>;
 }
 
@@ -11,6 +12,7 @@ export interface OverlayModel extends OverlayCommon {
   isClosing?: boolean;
   showClose?: boolean;
   placement?: "top" | "bottom";
+  align?: "left" | "right";
   containedToParent?: RefObject<HTMLElement>;
   overlayAnimation?: boolean;
 }

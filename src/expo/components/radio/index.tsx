@@ -5,7 +5,16 @@ function radio() {
   return (
     <DemoPageRenderer
       demoWidget={lazy(() => import("./widgets"))}
-      data={[
+      callbacks={[
+        {
+          name: "onChange",
+          description: "callback for when the radio is changed",
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "id",
           description: "unique id for the radio",
@@ -47,13 +56,6 @@ function radio() {
           default: "true",
           optional: "Yes",
           type: "Boolean",
-        },
-        {
-          name: "onChange",
-          description: "callback for when the radio is changed",
-          default: "",
-          optional: "Yes",
-          type: "Function",
         },
         {
           name: "size",

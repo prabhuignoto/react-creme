@@ -158,7 +158,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   }, [JSON.stringify(sortData)]);
 
   return (
-    <div className={gridClass} ref={onRef}>
+    <div className={gridClass} ref={onRef} role="table">
       <DataGridHeader
         columns={columns}
         style={style}

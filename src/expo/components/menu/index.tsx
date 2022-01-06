@@ -7,22 +7,7 @@ function menu() {
       tabTitles={["examples", "properties"]}
       title="Menu"
       description="Menu is a component that can be used to display a list of items. It can be docked to any target element and aligned to three supported positions: left, right, and center."
-      data={[
-        {
-          name: "position",
-          description: `Docking position of the menu. <br>
-          <em>'left'</em> | <em>'center'</em> | <em>'right'</em>`,
-          default: "left",
-          optional: "Yes",
-          type: "string",
-        },
-        {
-          name: "items",
-          description: `Collection of Menu Items`,
-          default: "[]",
-          optional: "Yes",
-          type: "Array",
-        },
+      callbacks={[
         {
           name: "onOpen",
           description: `Callback fired when the menu is opened`,
@@ -43,6 +28,23 @@ function menu() {
           default: "",
           optional: "Yes",
           type: "Function",
+        },
+      ]}
+      properties={[
+        {
+          name: "align",
+          description: `Docking position of the menu. <br>
+          <em>'left'</em> | <em>'right'</em>`,
+          default: "left",
+          optional: "Yes",
+          type: "string",
+        },
+        {
+          name: "items",
+          description: `Collection of Menu Items`,
+          default: "[]",
+          optional: "Yes",
+          type: "Array",
         },
         {
           name: "style",

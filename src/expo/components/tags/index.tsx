@@ -7,7 +7,16 @@ function tags() {
       tabTitles={["examples", "properties"]}
       title="Tags"
       description="Tags are used to group related content."
-      data={[
+      callbacks={[
+        {
+          name: "onSelected",
+          description: `callback fired on state change`,
+          default: ``,
+          optional: "Yes",
+          type: `Function`,
+        },
+      ]}
+      properties={[
         {
           name: "tagSize",
           description: `prop to set the size of the tag.<br> <em>small</em> | <em>large</em>`,
@@ -63,13 +72,6 @@ function tags() {
           default: `{}`,
           optional: "Yes",
           type: `Object`,
-        },
-        {
-          name: "onSelected",
-          description: `callback fired on state change`,
-          default: ``,
-          optional: "Yes",
-          type: `Function`,
         },
       ]}
       demoWidget={lazy(() => import("./widgets"))}

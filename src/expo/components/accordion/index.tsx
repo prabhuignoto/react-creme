@@ -7,7 +7,25 @@ function accordion() {
       title="Accordion"
       description="Accordion is a collapsible component that can be used to hide or expose collapsible content."
       tabTitles={["Examples", "Properties"]}
-      data={[
+      callbacks={[
+        {
+          name: "onCollapsed",
+          description:
+            "callback function called when the accordion is collapsed",
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+        {
+          name: "onExpanded",
+          description:
+            "callback function called when the accordion is expanded",
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "id",
           description: "unique id for the accordion",
@@ -49,22 +67,6 @@ function accordion() {
           default: "cubic-bezier(0.19, 1, 0.22, 1)",
           optional: "Yes",
           type: "String",
-        },
-        {
-          name: "onCollapsed",
-          description:
-            "callback function called when the accordion is collapsed",
-          default: "",
-          optional: "Yes",
-          type: "Function",
-        },
-        {
-          name: "onExpanded",
-          description:
-            "callback function called when the accordion is expanded",
-          default: "",
-          optional: "Yes",
-          type: "Function",
         },
         {
           name: "focusable",

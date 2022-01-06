@@ -37,15 +37,19 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     }, [disabled]);
 
     return (
-      <li
+      <div
         key={id}
         className={tabHeadClass}
         onClick={() => !disabled && handleTabSelection(id)}
         tabIndex={!disabled && focusable ? 0 : -1}
         ref={ref}
+        role="tab"
+        aria-selected={selected}
+        aria-controls={`rc-tab-panel-${id}`}
+        id={`rc-tab-${id}`}
       >
         <span className={headerLabelClass}>{name}</span>
-      </li>
+      </div>
     );
   },
   (prev, next) =>

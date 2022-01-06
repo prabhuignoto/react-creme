@@ -7,7 +7,16 @@ function checkbox() {
       title="Checkbox"
       description={`Checkboxes are used when there is a list of options and the user may select any number of choices, including zero.
       Each checkbox is independent of all other checkboxes in the list, and checking one box doesn’t uncheck the others.`}
-      data={[
+      callbacks={[
+        {
+          name: "onChange",
+          description: `Callback fired when the state changes`,
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "label",
           description: `label for the checkbox`,
@@ -56,13 +65,6 @@ function checkbox() {
           default: "False",
           optional: "Yes",
           type: "Boolean",
-        },
-        {
-          name: "onChange",
-          description: `Callback fired when the state changes`,
-          default: "",
-          optional: "Yes",
-          type: "Function",
         },
       ]}
       tabTitles={["examples", "properties"]}

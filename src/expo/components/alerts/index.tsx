@@ -6,7 +6,16 @@ function index() {
     <DemoPageRenderer
       title="Alerts"
       description="Alerts are used to notify the user of an important event."
-      data={[
+      callbacks={[
+        {
+          name: "onDismiss",
+          description: "The function to call when the alert is dismissed.",
+          optional: "Yes",
+          default: "",
+          type: "function",
+        },
+      ]}
+      properties={[
         {
           name: "message",
           description: `The message to display in the alert.
@@ -35,13 +44,6 @@ function index() {
           optional: "Yes",
           default: "true",
           type: "boolean",
-        },
-        {
-          name: "onDismiss",
-          description: "The function to call when the alert is dismissed.",
-          optional: "Yes",
-          default: "",
-          type: "function",
         },
       ]}
       tabTitles={["examples", "properties"]}

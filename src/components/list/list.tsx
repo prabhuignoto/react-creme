@@ -57,6 +57,7 @@ const List: React.FunctionComponent<ListModel> = ({
   backGroundColor = "#fff",
   RTL = false,
   id,
+  label,
 }: ListModel) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     initOptions(options, rowGap, itemHeight, noUniqueIds)
@@ -209,6 +210,7 @@ const List: React.FunctionComponent<ListModel> = ({
         <ul
           className={"rc-list-options"}
           role="listbox"
+          aria-label={`rc-list-label-${label}`}
           style={listStyle}
           id={id}
         >

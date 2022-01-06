@@ -8,7 +8,7 @@ function index() {
       title="Section"
       description="Section is a container for other components. It can be used to group components together."
       tabTitles={["examples", "properties"]}
-      data={[
+      properties={[
         {
           name: "title",
           description: "Title of the section",

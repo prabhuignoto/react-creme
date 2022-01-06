@@ -129,6 +129,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
           isTitleBold={isTitleBold}
           open={open}
           onToggle={toggleAccordion}
+          aria-controls={accordionBodyId.current}
+          aria-expanded={open}
         />
         <div
           className={accordionBodyClass}

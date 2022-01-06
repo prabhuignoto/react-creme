@@ -7,7 +7,17 @@ function index() {
       title="Checkbox Group"
       description="Checkbox group is a group of checkboxes that can be used to select multiple options."
       demoWidget={lazy(() => import("./widgets"))}
-      data={[
+      callbacks={[
+        {
+          name: "onChange",
+          description:
+            "Callback function to be called when the checkbox group changes.",
+          default: "",
+          optional: "Yes",
+          type: "function",
+        },
+      ]}
+      properties={[
         {
           name: "options",
           description: "Options to be displayed in the checkbox group.",
@@ -30,14 +40,6 @@ function index() {
           default: "square",
           optional: "Yes",
           type: "string",
-        },
-        {
-          name: "onChange",
-          description:
-            "Callback function to be called when the checkbox group changes.",
-          default: "",
-          optional: "Yes",
-          type: "function",
         },
         {
           name: "disabled",

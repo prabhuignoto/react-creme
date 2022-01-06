@@ -6,7 +6,16 @@ function menuButton() {
     <DemoPageRenderer
       title="Menu Button"
       description="MenuButton allows to choose an action from a list of actions"
-      data={[
+      callbacks={[
+        {
+          name: "onSelected",
+          description: `Callback fired when a menu items is selected`,
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "placeholder",
           description: `placeholder text for the button`,
@@ -28,13 +37,6 @@ function menuButton() {
           default: "left",
           optional: "Yes",
           type: "String",
-        },
-        {
-          name: "onSelected",
-          description: `Callback fired when a menu items is selected`,
-          default: "",
-          optional: "Yes",
-          type: "Function",
         },
         {
           name: "focusable",

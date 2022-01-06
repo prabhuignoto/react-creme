@@ -7,7 +7,7 @@ function progress() {
       title="Progress"
       description={`Progress bars are used to show the completion status of an operation.
       They can be used to show the progress of a task, or the progress of a process.`}
-      data={[
+      properties={[
         {
           name: "type",
           description: `type of progress. can be <em>progressive</em> | <em>infinite</em>`,

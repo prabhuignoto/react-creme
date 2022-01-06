@@ -5,7 +5,7 @@ function reveal() {
   return (
     <DemoPageRenderer
       demoWidget={lazy(() => import("./widgets"))}
-      data={[]}
+      properties={[]}
       tabTitles={["examples", "properties"]}
     ></DemoPageRenderer>
   );

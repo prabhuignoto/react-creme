@@ -6,7 +6,7 @@ function dropdown() {
     <DemoPageRenderer
       title="Dropdown"
       description="Dropdown is a component that allows you to select a value from a list of options."
-      data={[
+      properties={[
         {
           name: "allowMultiSelection",
           description: `Enables multi selection on the dropdown`,

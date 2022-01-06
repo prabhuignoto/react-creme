@@ -6,7 +6,16 @@ function notification() {
     <DemoPageRenderer
       title="Notification"
       description="Notification is a component that can be used to display a message to the user."
-      data={[
+      callbacks={[
+        {
+          name: "onClose",
+          description: `callback fired after the popup is closed`,
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "title",
           description: `Notification title`,
@@ -51,13 +60,6 @@ function notification() {
           default: "300",
           optional: "Yes",
           type: "Number",
-        },
-        {
-          name: "onClose",
-          description: `callback fired after the popup is closed`,
-          default: "",
-          optional: "Yes",
-          type: "Function",
         },
         {
           name: "disableHeader",

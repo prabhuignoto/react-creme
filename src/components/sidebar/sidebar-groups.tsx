@@ -34,7 +34,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
       >
         {groups
           .filter((grp) => grp.visible)
-          .map(({ id, items }) => {
+          .map(({ id, items, title }) => {
             return (
               <List
                 key={id}
@@ -50,6 +50,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
                 highlightSelection
                 textColor="#000"
                 backGroundColor="transparent"
+                label={title}
               ></List>
             );
           })}

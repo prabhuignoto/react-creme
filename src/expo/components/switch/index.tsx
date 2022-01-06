@@ -7,7 +7,16 @@ function switchComponent() {
       title="Switch"
       description={`Toggle switch (known as “toggles”) is a UI control that has two mutually-exclusive states, such as ON and OFF.
       The design and functionality of this control is based on a physical switch that allows users to turn things ON or OFF`}
-      data={[
+      callbacks={[
+        {
+          name: "onChange",
+          description: `callback fired on state change`,
+          default: ``,
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "label",
           description: `label for the switch`,
@@ -56,13 +65,6 @@ function switchComponent() {
           default: `{}`,
           optional: "Yes",
           type: "Object",
-        },
-        {
-          name: "onChange",
-          description: `callback fired on state change`,
-          default: ``,
-          optional: "Yes",
-          type: "Function",
         },
       ]}
       tabTitles={["examples", "properties"]}

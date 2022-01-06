@@ -107,11 +107,8 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
                 { name: "Dialog" },
                 { name: "Drawer" },
                 { name: "Tooltip" },
+                { name: "Menu" },
               ],
-            },
-            {
-              title: "Menu",
-              items: [{ name: "Menu" }, { name: "Menu Bar" }],
             },
             {
               title: "Utilities",

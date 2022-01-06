@@ -6,7 +6,7 @@ function comparer() {
     <DemoPageRenderer
       title="Image Comparer"
       description="A Image comparer for comparing two images side by side."
-      data={[
+      properties={[
         {
           name: "direction",
           description: "The direction of the comparer",

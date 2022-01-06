@@ -101,7 +101,7 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
   }, [JSON.stringify(disabledTabs)]);
 
   return (
-    <div className={rcTabsClass} style={tabsStyle} role="tab">
+    <div className={rcTabsClass} style={tabsStyle}>
       <TabHeaders
         items={items}
         handleTabSelection={handleTabSelection}
@@ -109,14 +109,18 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
         focusable={focusable}
         enableSwipe={enableSwipe}
       />
-      <ul className={rcPanelsClass}>
+      <div className={rcPanelsClass}>
         {items
           .filter((tab) => !tab.disabled)
           .map(
             ({ id, selected }, index) =>
-              selected && <TabPanel key={id}>{getTabContent(index)}</TabPanel>
+              selected && (
+                <TabPanel key={id} id={id}>
+                  {getTabContent(index)}
+                </TabPanel>
+              )
           )}
-      </ul>
+      </div>
     </div>
   );
 };

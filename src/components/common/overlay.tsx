@@ -2,6 +2,7 @@ import classNames from "classnames";
 import React, {
   CSSProperties,
   useCallback,
+  useContext,
   useEffect,
   useMemo,
   useRef,
@@ -10,6 +11,7 @@ import ResizeObserver from "resize-observer-polyfill";
 import { CloseIcon } from "../../icons";
 import { OverlayProps } from "./overlay-model";
 import "./overlay.scss";
+import { OverlayContext } from "./withOverlay";
 
 const Overlay: React.FunctionComponent<OverlayProps> = ({
   children,
@@ -21,6 +23,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   containedToParent = false,
   overlayAnimation = true,
 }) => {
+  const { align } = useContext(OverlayContext);
   const [hideOverlay, setHideOverlay] =
     React.useState<boolean>(overlayAnimation);
   const overlayWrapperClass = useMemo(() => {
@@ -29,6 +32,8 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       "rc-overlay-hide": hideOverlay,
     });
   }, [hideOverlay]);
+
+  const overlayContentRef = useRef<HTMLDivElement | null>(null);
 
   const [contentHeight, setContentHeight] = React.useState<number>(0);
   const [scrollPosition, setScrollPosition] = React.useState<number>(0);
@@ -45,16 +50,24 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   }
 
   const placementStyle = useMemo(() => {
-    if (placementReference?.current && placement) {
-      const { top, left } = placementReference.current.getBoundingClientRect();
+    if (placementReference?.current && placement && overlayContentRef.current) {
+      const child = placementReference?.current.firstChild as HTMLElement;
+      const { top, left, right } = child.getBoundingClientRect();
+      const positionRight = right - overlayContentRef.current.offsetWidth;
       return {
         [placement === "top" ? "bottom" : "top"]: `${top + contentHeight}px`,
-        left: `${left}px`,
+        left: `${align === "left" ? left : positionRight}px`,
         position: "absolute",
         pointerEvents: "all",
       } as CSSProperties;
     }
-  }, [placementReference, placement, contentHeight, scrollPosition]);
+  }, [
+    placementReference,
+    placement,
+    contentHeight,
+    scrollPosition,
+    overlayContentRef,
+  ]);
 
   const handleClose = (ev: React.MouseEvent | KeyboardEvent) => {
     const canClose = (ev.target as HTMLElement).classList.contains(
@@ -117,7 +130,11 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       style={{ backgroundColor: backdropColor }}
     >
       {placement ? (
-        <div style={placementStyle} className="rc-overlay-content-wrapper">
+        <div
+          style={placementStyle}
+          className="rc-overlay-content-wrapper"
+          ref={overlayContentRef}
+        >
           {children}
         </div>
       ) : (

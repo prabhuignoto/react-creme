@@ -6,7 +6,16 @@ function tooltip() {
     <DemoPageRenderer
       title="Tooltip"
       description="Tooltip is a small overlay that displays a message when a user hovers over an element."
-      data={[
+      callbacks={[
+        {
+          name: "onTooltipRendered",
+          description: "Callback invoked on tooltip render",
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "position",
           description: `Docking position of the tooltip.
@@ -29,13 +38,6 @@ function tooltip() {
           default: "",
           optional: "No",
           type: "String",
-        },
-        {
-          name: "onTooltipRendered",
-          description: "Callback invoked on tooltip render",
-          default: "",
-          optional: "Yes",
-          type: "Function",
         },
         {
           name: "isStatic",

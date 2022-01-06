@@ -8,7 +8,7 @@ function card() {
       demoWidget={lazy(() => import("./widgets"))}
       title="Card"
       description="Card is a container for displaying content."
-      data={[
+      properties={[
         {
           name: "header",
           description: "Renders the passed element inside the header section",

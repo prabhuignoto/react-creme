@@ -6,7 +6,16 @@ function buttons() {
     <DemoPageRenderer
       title="Buttons"
       description="Buttons are used to perform an action. They can be used in different contexts, such as primary, secondary, danger, or warning."
-      data={[
+      callbacks={[
+        {
+          name: "onClick",
+          description: "Callback function when the button is clicked",
+          default: "",
+          optional: "Yes",
+          type: "function",
+        },
+      ]}
+      properties={[
         {
           name: "label",
           description: "Label of the button",

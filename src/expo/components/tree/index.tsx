@@ -6,7 +6,7 @@ function tree() {
     <DemoPageRenderer
       title="Tree"
       description="Tree is a component that displays a hierarchical data structure with expandable/collapsible nodes."
-      data={[
+      properties={[
         {
           name: "height",
           description: "The height of the tree",

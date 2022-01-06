@@ -5,7 +5,16 @@ function image() {
   return (
     <DemoPageRenderer
       tabTitles={["examples", "properties"]}
-      data={[
+      callbacks={[
+        {
+          name: "onLoad",
+          description: "Callback executed on image load",
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "src",
           description: "Source url of the image",
@@ -41,13 +50,6 @@ function image() {
           default: "100%",
           optional: "Yes",
           type: "String",
-        },
-        {
-          name: "onLoad",
-          description: "Callback executed on image load",
-          default: "",
-          optional: "Yes",
-          type: "Function",
         },
         {
           name: "showLoader",

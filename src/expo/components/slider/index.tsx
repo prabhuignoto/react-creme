@@ -4,7 +4,16 @@ import DemoPageRenderer from "../../common/demo-page-renderer";
 function slider() {
   return (
     <DemoPageRenderer
-      data={[
+      callbacks={[
+        {
+          name: "onChange",
+          description: "The function to call when the slider value changes.",
+          default: "",
+          optional: "Yes",
+          type: "function",
+        },
+      ]}
+      properties={[
         {
           name: "start",
           description: "The starting value of the slider.",
@@ -25,13 +34,6 @@ function slider() {
           default: "0",
           optional: "Yes",
           type: "number",
-        },
-        {
-          name: "onChange",
-          description: "The function to call when the slider value changes.",
-          default: "",
-          optional: "Yes",
-          type: "function",
         },
         {
           name: "position",

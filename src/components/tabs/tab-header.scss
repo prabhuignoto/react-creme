@@ -74,6 +74,7 @@ $rounded-tabs-height: 35px;
 
 .rc-tab-head {
   @include animate.halo();
+  height: calc(100% - 4px);
   margin: 0 0.5rem 0 0;
   position: relative;
   user-select: none;

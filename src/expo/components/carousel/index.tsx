@@ -7,7 +7,7 @@ function carousel() {
       demoWidget={lazy(() => import("./widgets"))}
       title="Carousel"
       description="Carousel is a component that displays a list of items in a carousel."
-      data={[
+      properties={[
         {
           name: "direction",
           description: "prop to set the navigation direction of the carousel",

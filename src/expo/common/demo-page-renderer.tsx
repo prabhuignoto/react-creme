@@ -5,8 +5,9 @@ import React, {
   useMemo,
 } from "react";
 import { CSSTransition } from "react-transition-group";
-import { PageHeader, Tabs } from "../../components";
+import { PageHeader, Section, Tabs } from "../../components";
 import { DataGridColumn } from "../../components/data-grid/data-grid-model";
+import "./demo-page-renderer.scss";
 import useMedia from "./useMedia";
 
 const DataGrid = React.lazy(() =>
@@ -18,7 +19,8 @@ const DataGrid = React.lazy(() =>
 interface DemoPageRendererProps {
   demoWidget: LazyExoticComponent<React.FC>;
   tabTitles: string[];
-  data: any[];
+  properties: any[];
+  callbacks?: any[];
   title?: string;
   description?: string;
 }
@@ -28,7 +30,8 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
     ({
       demoWidget,
       tabTitles,
-      data,
+      properties,
+      callbacks,
       title,
       description,
     }: DemoPageRendererProps) => {
@@ -132,13 +135,26 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
               </div>
               <div className="rc-demo-prop-section">
                 <Suspense fallback={<div></div>}>
-                  <DataGrid
-                    layoutStyle={"comfortable"}
-                    columns={columns}
-                    data={data}
-                    border
-                    rowHeight={68}
-                  />
+                  <Section title="Properties">
+                    <DataGrid
+                      layoutStyle={"comfortable"}
+                      columns={columns}
+                      data={properties}
+                      border
+                      rowHeight={68}
+                    />
+                  </Section>
+                  {callbacks && (
+                    <Section title="Callbacks">
+                      <DataGrid
+                        layoutStyle={"comfortable"}
+                        columns={columns}
+                        data={callbacks}
+                        border
+                        rowHeight={68}
+                      />
+                    </Section>
+                  )}
                 </Suspense>
               </div>
             </Tabs>

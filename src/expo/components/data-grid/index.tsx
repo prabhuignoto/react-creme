@@ -8,7 +8,7 @@ const DataGridDemo: React.FunctionComponent = () => {
       demoWidget={lazy(() => import("./widgets"))}
       title="Data Grid"
       description="Data Grid is a component that displays data in a table format."
-      data={[
+      properties={[
         {
           name: "layoutStyle",
           description: "Layout style of the data grid.",

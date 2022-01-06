@@ -7,7 +7,16 @@ function list() {
       demoWidget={lazy(() => import("./widgets"))}
       title="List"
       description="List is a component that displays a list of items."
-      data={[
+      callbacks={[
+        {
+          name: "onSelection",
+          description: "Callback for selection",
+          default: "undefined",
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "allowMultiSelection",
           description: "Allow multiple selection",
@@ -49,13 +58,6 @@ function list() {
           default: "false",
           optional: "Yes",
           type: "boolean",
-        },
-        {
-          name: "onSelection",
-          description: "Callback for selection",
-          default: "undefined",
-          optional: "Yes",
-          type: "Function",
         },
         {
           name: "options",

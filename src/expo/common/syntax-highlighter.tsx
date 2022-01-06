@@ -38,6 +38,7 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
         className="rc-demo-code-copy-btn"
         role="button"
         onClick={handleCopy}
+        aria-label="Copy code"
       >
         <CopyIcon />
       </span>

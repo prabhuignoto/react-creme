@@ -77,6 +77,8 @@ function App() {
     }
   }, [asideValue]);
 
+  useEffect(() => {}, [location]);
+
   useEffect(() => {
     if (!media) {
       return;

@@ -7,7 +7,16 @@ function transfer() {
       demoWidget={lazy(() => import("./widgets"))}
       title="Transfer"
       description="Transfer is a component that allows you to transfer items between two lists."
-      data={[
+      callbacks={[
+        {
+          name: "onChange",
+          description: "Callback function fired when items are transferred",
+          default: "",
+          optional: "Yes",
+          type: "function",
+        },
+      ]}
+      properties={[
         {
           name: "list1",
           description: "Source array for list one",
@@ -21,13 +30,6 @@ function transfer() {
           default: "[]",
           optional: "Yes",
           type: "array",
-        },
-        {
-          name: "onChange",
-          description: "Callback function fired when items are transferred",
-          default: "",
-          optional: "Yes",
-          type: "function",
         },
         {
           name: "virtualize",

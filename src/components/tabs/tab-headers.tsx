@@ -113,7 +113,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
 
   return (
     <header className={tabHeadersWrapperClass}>
-      <ul className={tabHeadersClass} ref={onHeadersRef}>
+      <div className={tabHeadersClass} ref={onHeadersRef} role="tablist">
         {items.map(({ id, name, selected, disabled }) => (
           <TabHead
             key={id}
@@ -126,7 +126,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
             focusable={focusable}
           />
         ))}
-      </ul>
+      </div>
       {canShowControls ? (
         <div className="rc-tab-headers-control">
           {!disableScrollLeft && (

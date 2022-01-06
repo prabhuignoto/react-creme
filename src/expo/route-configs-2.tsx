@@ -32,11 +32,6 @@ export const routes = [
     component: lazy(() => import("./components/menu-button")),
   },
   {
-    path: "/menu-bar",
-    key: "menubar",
-    component: lazy(() => import("./components/menubar")),
-  },
-  {
     path: "/notification",
     key: "notification",
     component: lazy(() => import("./components/notification")),

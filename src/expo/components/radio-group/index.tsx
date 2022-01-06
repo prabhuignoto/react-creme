@@ -8,7 +8,17 @@ function radioGroup() {
       title="Radio Group"
       description="Radio group is a group of radio buttons."
       tabTitles={["examples", "properties"]}
-      data={[
+      callbacks={[
+        {
+          name: "onSelected",
+          description:
+            "Callback function to be executed when an option is selected",
+          default: "",
+          optional: "Yes",
+          type: "Function",
+        },
+      ]}
+      properties={[
         {
           name: "layout",
           description: "Layout of the radio group",
@@ -29,14 +39,6 @@ function radioGroup() {
           default: "false",
           optional: "Yes",
           type: "Boolean",
-        },
-        {
-          name: "onSelected",
-          description:
-            "Callback function to be executed when an option is selected",
-          default: "",
-          optional: "Yes",
-          type: "Function",
         },
         {
           name: "style",

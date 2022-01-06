@@ -25,6 +25,7 @@ export interface ListModel extends ListCommonProps {
   virtualized?: boolean;
   backGroundColor?: string;
   id?: string;
+  label?: string;
 }
 
 export interface ListItemModel extends ListCommonProps {

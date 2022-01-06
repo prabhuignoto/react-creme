@@ -7,7 +7,7 @@ function tabs() {
       tabTitles={["examples", "properties"]}
       title="Tabs"
       description="Tabs are used to group and organize content. They can be used to switch between views or to navigate between pages in a document."
-      data={[
+      properties={[
         {
           name: "tabStyle",
           description: "sets the tab style. <em>flat</em> | <em>rounded</em>",

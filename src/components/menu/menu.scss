@@ -7,7 +7,7 @@
   @extend %center;
   height: 100%;
   position: relative;
-  z-index: 9999;
+  // z-index: 9999;
 }
 
 .rc-menu-content-wrapper {
@@ -22,41 +22,14 @@
 }
 
 .rc-menu {
-  $animation: (
-    from: (
-      opacity: 0,
-      visibility: hidden,
-    ),
-    to: (
-      opacity: 1,
-      visibility: visible,
-    ),
-  );
   @extend %list;
   @extend %border-radius;
   @extend %col;
-  @include animate.set-animation(0.1s, cubic-bezier(0.17, 0.84, 0.44, 1));
-  @include animate.set-keyframes(animate-menu-open, $animation);
-  @include animate.set-keyframes(animate-menu-close, $animation, true);
   background: colors.$white;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   min-width: 150px;
-  opacity: 0;
-  position: absolute;
-  visibility: hidden;
-  z-index: 9999;
+}
 
-  &.rc-menu-open {
-    animation-name: animate-menu-open;
-    opacity: 1;
-    transform: scale(1);
-    visibility: visible;
-  }
-
-  &.rc-menu-close {
-    animation-name: animate-menu-close;
-    opacity: 0;
-    transform: scale(0.98);
-    visibility: hidden;
-  }
+.rc-menu-overlay-wrapper {
+  @extend %center;
 }

@@ -6,13 +6,20 @@ function index() {
     <DemoPageRenderer
       title="Auto Complete"
       description="Auto Complete is a component that provides a dropdown list of suggestions for the user to select from."
-      data={[
+      callbacks={[
         {
-          name: "suggestionsWidth",
-          description: "Width of the suggestions list",
-          default: "200",
+          name: "onSelection",
+          description: "Callback function when an item is selected",
+          default: "",
           optional: "Yes",
-          type: "number",
+          type: "function",
+        },
+        {
+          name: "onKeyUp",
+          description: "Callback function when the input value changes",
+          default: "",
+          optional: "Yes",
+          type: "function",
         },
         {
           name: "onChange",
@@ -20,6 +27,15 @@ function index() {
           default: "",
           optional: "Yes",
           type: "function",
+        },
+      ]}
+      properties={[
+        {
+          name: "suggestionsWidth",
+          description: "Width of the suggestions list",
+          default: "200",
+          optional: "Yes",
+          type: "number",
         },
         {
           name: "suggestions",
@@ -34,20 +50,6 @@ function index() {
           default: "",
           optional: "Yes",
           type: "string",
-        },
-        {
-          name: "onSelection",
-          description: "Callback function when an item is selected",
-          default: "",
-          optional: "Yes",
-          type: "function",
-        },
-        {
-          name: "onKeyUp",
-          description: "Callback function when the input value changes",
-          default: "",
-          optional: "Yes",
-          type: "function",
         },
         {
           name: "value",

@@ -5,7 +5,7 @@ function index() {
   return (
     <DemoPageRenderer
       demoWidget={lazy(() => import("./widgets"))}
-      data={[
+      properties={[
         {
           name: "links",
           description: "Array of links to scroll to",

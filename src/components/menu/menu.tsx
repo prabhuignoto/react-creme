@@ -10,12 +10,43 @@ import React, {
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
-import { usePosition } from "../common/effects/usePosition";
+import { OverlayModel } from "../common/overlay-model";
+import { withOverlay } from "../common/withOverlay";
 import { MenuItem } from "./menu-item";
 import { MenuItemModel, MenuModel } from "./menu-model";
 import "./menu.scss";
 
-const Menu: React.FunctionComponent<MenuModel> = ({
+interface MenuInternalModel extends OverlayModel {
+  items: MenuItemModel[];
+  onSelection?: (val: string) => void;
+}
+
+const Menu: React.FunctionComponent<MenuInternalModel> = ({
+  items,
+  onSelection,
+}) => {
+  const menuClass = useMemo(() => classNames(["rc-menu"], {}), []);
+
+  return (
+    <ul className={menuClass} role="menu">
+      {items.map(({ name, id, disabled }) => (
+        <MenuItem
+          name={name}
+          disabled={disabled}
+          handleSelection={onSelection}
+          key={id}
+        />
+      ))}
+    </ul>
+  );
+};
+
+const MenuOverlay = withOverlay<MenuInternalModel>(Menu, {
+  backdropColor: "transparent",
+  placement: "bottom",
+});
+
+const MenuContainer: React.FunctionComponent<MenuModel> = ({
   children,
   id,
   items = [],
@@ -32,16 +63,11 @@ const Menu: React.FunctionComponent<MenuModel> = ({
       ...item,
     }))
   );
-  const menuRef = useRef<HTMLUListElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isFirstRender = useFirstRender();
+  const containerRef = useRef(null);
 
   const [showMenu, setShowMenu] = useState(false);
-
-  const cssPosition = usePosition(wrapperRef, menuRef, `bottom ${position}`, {
-    spacing: 5,
-    alignToEdge: true,
-  });
 
   // HANDLERS
   const toggleMenu = useCallback((ev: React.MouseEvent | KeyboardEvent) => {
@@ -60,15 +86,6 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   }
 
   useCloseOnEscape(() => setShowMenu(false), wrapperRef);
-
-  const menuClass = useMemo(
-    () =>
-      classNames(["rc-menu"], {
-        "rc-menu-open": showMenu,
-        "rc-menu-close": !isFirstRender.current && !showMenu,
-      }),
-    [showMenu]
-  );
 
   useEffect(() => {
     if (isFirstRender.current) {
@@ -95,23 +112,8 @@ const Menu: React.FunctionComponent<MenuModel> = ({
     }
   }, []);
 
-  const closeMenu = useCallback((ev: MouseEvent) => {
-    const target = ev.target as HTMLElement;
-    if (wrapperRef.current) {
-      const isChild = wrapperRef.current?.contains(target);
-
-      if (!isChild) {
-        setShowMenu(false);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    document.addEventListener("click", closeMenu);
-
-    return () => {
-      document.removeEventListener("click", closeMenu);
-    };
+  const closeMenu = useCallback(() => {
+    setShowMenu(false);
   }, []);
 
   const menuContentWrapperClass = useMemo(
@@ -133,7 +135,7 @@ const Menu: React.FunctionComponent<MenuModel> = ({
   );
 
   return (
-    <div className="rc-menu-wrapper" style={style}>
+    <div className="rc-menu-wrapper" style={style} ref={containerRef}>
       <div
         className={menuContentWrapperClass}
         onClick={toggleMenu}
@@ -141,19 +143,21 @@ const Menu: React.FunctionComponent<MenuModel> = ({
         {...contentWrapperProps}
       >
         {children}
-        <ul className={menuClass} ref={menuRef} style={cssPosition} role="menu">
-          {menuItems.map(({ name, id, disabled }) => (
-            <MenuItem
-              name={name}
-              disabled={disabled}
-              handleSelection={handleSelection}
-              key={id}
-            />
-          ))}
-        </ul>
       </div>
+      {showMenu && (
+        <div className="rc-menu-overlay-wrapper">
+          <MenuOverlay
+            items={menuItems}
+            onSelection={handleSelection}
+            placementReference={containerRef}
+            placement="bottom"
+            onClose={closeMenu}
+            align={position}
+          />
+        </div>
+      )}
     </div>
   );
 };
 
-export { Menu };
+export { MenuContainer };
