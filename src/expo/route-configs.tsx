@@ -34,11 +34,6 @@ const routes = [
     component: lazy(() => import("./components/auto-complete")),
   },
   {
-    path: "/avatar",
-    key: "avatar",
-    component: lazy(() => import("./components/avatar")),
-  },
-  {
     path: "/breadcrumb",
     key: "breadcrumb",
     component: lazy(() => import("./components/breadcrumb")),
