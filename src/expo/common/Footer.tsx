@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.scss";
-// import GithubSVG from "./images/github.svg?component";
+import GithubSVG from "./images/github.svg?component";
 
 function Footer() {
   return (
@@ -21,7 +21,7 @@ function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          {/* <GithubSVG /> */}
+          <GithubSVG />
           Github
         </a>
       </div>
