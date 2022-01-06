@@ -13,7 +13,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   disabled = false,
   items = [],
   maxTags = Number.MAX_VALUE,
-  onSelected,
+  onChange,
   readonly = false,
   tagSize = "large",
   tagStyle = "default",
@@ -81,8 +81,8 @@ const Tags: React.FunctionComponent<TagsModel> = ({
 
   // EFFECTS
   useEffect(() => {
-    if (onSelected) {
-      onSelected(tagItems.map((tag) => tag.name));
+    if (onChange) {
+      onChange(tagItems.map((tag) => tag.name));
     }
   }, [tagItems.length]);
 

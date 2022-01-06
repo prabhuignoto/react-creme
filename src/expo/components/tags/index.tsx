@@ -9,7 +9,7 @@ function tags() {
       description="Tags are used to group related content."
       callbacks={[
         {
-          name: "onSelected",
+          name: "onChange",
           description: `callback fired on state change`,
           default: ``,
           optional: "Yes",

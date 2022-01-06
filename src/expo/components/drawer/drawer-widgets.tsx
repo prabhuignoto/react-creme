@@ -23,6 +23,8 @@ const Widget: React.FunctionComponent = () => {
       setWidth(650);
     } else if (media.isDesktop) {
       setWidth(550);
+    } else if (media.isExtraLargeScreen) {
+      setWidth(600);
     }
   }, [media]);
 

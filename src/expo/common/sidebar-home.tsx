@@ -100,7 +100,6 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
                 { name: "Transfer" },
               ],
             },
-            { title: "Icons", items: [{ name: "avatar" }] },
             {
               title: "Overlay",
               items: [

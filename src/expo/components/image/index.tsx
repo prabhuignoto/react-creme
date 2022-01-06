@@ -4,6 +4,8 @@ import DemoPageRenderer from "../../common/demo-page-renderer";
 function image() {
   return (
     <DemoPageRenderer
+      title="Image"
+      description="Embed images in your app with the Image component."
       tabTitles={["examples", "properties"]}
       callbacks={[
         {

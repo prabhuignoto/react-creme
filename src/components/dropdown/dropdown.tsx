@@ -227,6 +227,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
             virtualize={virtualize}
             overlayAnimation={false}
             RTL={RTL}
+            align="left"
           />
         )}
       </div>

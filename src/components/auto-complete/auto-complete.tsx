@@ -6,7 +6,6 @@ import React, {
   useMemo,
   useRef,
 } from "react";
-import { useDebouncedCallback } from "use-debounce";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { isValidString } from "../common/utils";
 import { Option } from "../dropdown/dropdown-model";
@@ -17,12 +16,12 @@ import "./auto-complete.scss";
 
 const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   onChange,
+  onKeyUp,
+  onSelection,
+  placeholder = "",
   suggestions,
   suggestionsWidth,
-  placeholder = "",
-  onKeyUp,
   value,
-  onSelection,
 }) => {
   const suggestionItems = React.useRef<Option[]>(
     suggestions
@@ -64,8 +63,6 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
     setSelected(false);
   }, []);
 
-  const debouncedChange = useDebouncedCallback(handleChange, 10);
-
   const handleSelection = useCallback((selected: Option[]) => {
     if (Array.isArray(selected) && selected.length > 0) {
       setInput(selected[0].name);
@@ -103,7 +100,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
       <div className="rc-auto-complete-input-wrapper">
         <Input
           enableClear
-          onChange={debouncedChange}
+          onChange={handleChange}
           value={input}
           controlled
           placeholder={placeholder}

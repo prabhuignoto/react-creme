@@ -12,7 +12,7 @@ export interface TagItemInternalModel extends TagItemModel {
 }
 export interface TagsModel {
   items: TagItemModel[];
-  onSelected?: (selected: string[]) => void;
+  onChange?: (selected: string[]) => void;
   maxTags?: number;
   readonly?: boolean;
   tagWidth?: number;
