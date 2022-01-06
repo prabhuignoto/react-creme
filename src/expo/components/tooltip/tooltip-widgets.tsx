@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import {
   BlockQuote,
@@ -19,7 +19,7 @@ const Widgets = () => {
 
   const [width, setWidth] = React.useState(0);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!media) {
       return;
     }
@@ -43,7 +43,7 @@ const Widgets = () => {
           <BlockQuote>
             The Component supports 12 different docking positions.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: "400px" }}>
+          <div className="rc-demo-widget" style={{ width: "320px" }}>
             <Dropdown
               placeholder="choose a position"
               onSelected={(val) => {

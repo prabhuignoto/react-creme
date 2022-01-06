@@ -29,7 +29,8 @@ const Widget = () => {
   }, [media]);
 
   return (
-    media && (
+    media &&
+    width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
           <div className="rc-demo-widget">

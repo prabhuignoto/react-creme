@@ -8,6 +8,7 @@ import progress from "rollup-plugin-progress";
 import { terser } from "rollup-plugin-terser";
 import sass from "sass";
 import pkg from "./package.json";
+import purgecss from "rollup-plugin-purgecss";
 
 const banner = `/*
  * ${pkg.name}
@@ -74,6 +75,9 @@ export default {
         ".js": "jsx",
       },
     }),
+    purgecss({
+      content: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+    }),
     postcss({
       preprocessor: (content, id) =>
         new Promise((resolve, reject) => {
@@ -81,12 +85,12 @@ export default {
           resolve({ code: result.css.toString() });
         }),
       plugins: [
-        cssnano({
-          preset: "default",
-        }),
         autoprefixer,
         BemLinter,
         PostCSSPreset,
+        cssnano({
+          preset: "default",
+        }),
       ],
       sourceMap: false,
       extract: true,

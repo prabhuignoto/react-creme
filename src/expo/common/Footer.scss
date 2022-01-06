@@ -1,20 +1,20 @@
 .rc-demo-footer {
   align-items: center;
-  background: rgba(#f5f5f5, 1);
+  background: #0074b7;
   border-radius: 2px;
   display: flex;
-  height: 120px;
+  height: 65px;
   margin-top: auto;
   width: 100%;
 }
 
 .rc-demo-footer-content {
-  color: #000;
+  color: #fff;
   font-size: 14px;
   margin-left: 1rem;
 
   a {
-    color: #000;
+    color: #fff;
     font-size: 14px;
     text-decoration: none;
   }
@@ -26,7 +26,7 @@
 
   a {
     align-items: center;
-    color: #000;
+    color: #fff;
     display: flex;
     font-size: 14px;
     text-decoration: none;

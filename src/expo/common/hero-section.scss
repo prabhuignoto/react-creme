@@ -18,7 +18,6 @@
   margin: 0;
   padding: 0;
   row-gap: 1rem;
-  // width: 80%;
 
   @media (max-width: 480px) {
     align-items: center;
@@ -59,17 +58,17 @@
   border-radius: 2px;
   box-shadow: inset 0 0 10px 5px rgba(#fff, 0.1);
   display: grid;
-  grid-template-columns: 70px calc(100% - 70px);
+  grid-template-columns: 60px calc(100% - 60px);
   height: 100%;
   justify-items: flex-start;
   width: 100%;
 
-  @media (max-width: 480px) {
+  @media (min-width: 300px) and (max-width: 480px) {
     align-items: center;
     display: flex;
     justify-content: flex-start;
     padding: 1rem;
-    width: calc(80% - 2rem);
+    width: calc(100% - 2rem);
   }
 }
 

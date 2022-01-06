@@ -29,14 +29,12 @@ function widgets() {
     width > 0 && (
       <div style={{ minHeight: "1200px" }} className="rc-demo-widgets">
         <Section title="Default render">
-          {/* <Code code="<span>This is a test</span>"></Code> */}
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Accordion title="Lorem Ipsum" focusable>
                 <p>
                   Sed laoreet neque eget sem varius, et interdum dui venenatis.
                   Suspendisse in faucibus tortor, nec aliquet arcu. Quisque at
-                  lorem sed est pretium bibendum. Etiam semper iaculis semper.
                   Proin auctor velit massa, euismod pretium dui euismod in.
                   Pellentesque rhoncus eros id posuere tincidunt. Maecenas quis
                   libero vitae elit consectetur finibus et ac libero. Donec at

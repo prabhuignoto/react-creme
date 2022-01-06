@@ -19,14 +19,14 @@
   border-radius: 50%;
   color: #fff;
   display: flex;
-  height: 45px;
+  height: 40px;
   justify-content: center;
   justify-self: center;
   position: relative;
-  width: 45px;
+  width: 40px;
   z-index: 1;
 
-  @media (max-width: 480px) {
+  @media (min-width: 320px) and (max-width: 480px) {
     height: 30px;
     width: 30px;
   }
@@ -36,14 +36,14 @@
     border-radius: 50%;
     content: "";
     display: block;
-    height: 45px;
+    height: 40px;
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 45px;
+    width: 40px;
     z-index: -1;
-    @media (max-width: 480px) {
+    @media (min-width: 320px) and (max-width: 480px) {
       height: 35px;
       width: 35px;
     }

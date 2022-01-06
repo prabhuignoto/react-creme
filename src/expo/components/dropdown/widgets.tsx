@@ -14,15 +14,15 @@ function Widgets() {
     }
 
     if (media.isExtraLargeScreen) {
-      setWidth(400);
+      setWidth(450);
     } else if (media.isTablet) {
       setWidth(400);
     } else if (media.isMobile) {
-      setWidth(350);
+      setWidth(320);
     } else if (media.isBigScreen) {
-      setWidth(400);
+      setWidth(450);
     } else if (media.isDesktop) {
-      setWidth(400);
+      setWidth(380);
     }
   }, [media]);
   return (
