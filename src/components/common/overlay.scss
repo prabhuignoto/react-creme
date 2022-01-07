@@ -42,12 +42,12 @@
   top: 1rem;
 
   &:hover::after {
-    background: rgba($color: #000, $alpha: 0.85);
+    background: rgba($color: #000, $alpha: 0.8);
   }
 
   &::after {
     @include position.position-abs("center center");
-    background: rgba($color: #000, $alpha: 0.25);
+    background: rgba($color: #000, $alpha: 0.5);
     border-radius: 50%;
     content: "";
     display: block;
