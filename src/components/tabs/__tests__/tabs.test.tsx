@@ -13,7 +13,7 @@ describe("Tabs", () => {
       </Tabs>
     );
 
-    expect(getByRole("tab")).toBeInTheDocument();
+    expect(getByRole("tablist")).toBeInTheDocument();
   });
 
   it("should render tab content on selection", async () => {
@@ -45,6 +45,6 @@ describe("Tabs", () => {
       </Tabs>
     );
 
-    expect(getByRole("tab")).toMatchSnapshot();
+    expect(getByRole("tablist")).toMatchSnapshot();
   });
 });

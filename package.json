@@ -9,7 +9,8 @@
   "license": "MIT",
   "scripts": {
     "build:doc": "rimraf ./expo_dist && tsc && vite build",
-    "ci": "yarn lint:all && yarn test -- --runInBand --updateSnapshot",
+    "build:lib": "yarn rollup && yarn emit-dts && yarn extract-api && ncp ./typings ./dist",
+    "ci": "yarn lint:all && yarn test -- --runInBand --updateSnapshot && yarn build:lib",
     "dev": "vite",
     "emit-dts": "rimraf ./dts && tsc --project tsconfig.json --declaration --emitDeclarationOnly --noEmit false",
     "eslint": "npx eslint ./src/**/*.tsx",
@@ -24,8 +25,7 @@
     "rollup": "rimraf ./dist && rollup -c",
     "serve": "vite preview",
     "snyk": "snyk test",
-    "test:dev": "jest --runInBand",
-    "build:lib": "yarn rollup && yarn emit-dts && yarn extract-api && ncp ./typings ./dist"
+    "test": "jest --runInBand --updateSnapshot"
   },
   "dependencies": {
     "classnames": "^2.3.1",

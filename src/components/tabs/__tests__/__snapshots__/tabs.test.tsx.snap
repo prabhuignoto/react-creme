@@ -2,59 +2,50 @@
 
 exports[`Tabs should render snapshot 1`] = `
 <div
-  class="rc-tabs"
-  role="tab"
-  style="--min-width: 100%;"
+  class="rc-tab-headers rc-tab-headers-flat"
+  role="tablist"
 >
-  <header
-    class="rc-tab-headers-wrapper rc-tab-headers-wrapper-flat"
+  <div
+    aria-controls="rc-tab-panel-sHMSPWnvtwFltSimvUTqL"
+    aria-selected="true"
+    class="rc-tab-head rc-tab-head-flat"
+    id="rc-tab-sHMSPWnvtwFltSimvUTqL"
+    role="tab"
+    tabindex="-1"
   >
-    <ul
-      class="rc-tab-headers rc-tab-headers-flat"
+    <span
+      class="rc-tab-header-label rc-tab-header-selected rc-tab-header-flat"
     >
-      <li
-        class="rc-tab-head rc-tab-head-flat"
-        tabindex="-1"
-      >
-        <span
-          class="rc-tab-header-label rc-tab-header-selected rc-tab-header-flat"
-        >
-          one
-        </span>
-      </li>
-      <li
-        class="rc-tab-head rc-tab-head-flat"
-        tabindex="-1"
-      >
-        <span
-          class="rc-tab-header-label rc-tab-header-flat"
-        >
-          two
-        </span>
-      </li>
-      <li
-        class="rc-tab-head rc-tab-head-flat"
-        tabindex="-1"
-      >
-        <span
-          class="rc-tab-header-label rc-tab-header-flat"
-        >
-          three
-        </span>
-      </li>
-    </ul>
-  </header>
-  <ul
-    class="rc-tab-panels"
+      one
+    </span>
+  </div>
+  <div
+    aria-controls="rc-tab-panel-dxVVU5LbKLBrJqwWR9K5W"
+    aria-selected="false"
+    class="rc-tab-head rc-tab-head-flat"
+    id="rc-tab-dxVVU5LbKLBrJqwWR9K5W"
+    role="tab"
+    tabindex="-1"
   >
-    <li
-      class="rc-tab-panel"
-      role="tabpanel"
+    <span
+      class="rc-tab-header-label rc-tab-header-flat"
     >
-      <span>
-        one content
-      </span>
-    </li>
-  </ul>
+      two
+    </span>
+  </div>
+  <div
+    aria-controls="rc-tab-panel-FQvmDIJs1bGaPTXWUD4MM"
+    aria-selected="false"
+    class="rc-tab-head rc-tab-head-flat"
+    id="rc-tab-FQvmDIJs1bGaPTXWUD4MM"
+    role="tab"
+    tabindex="-1"
+  >
+    <span
+      class="rc-tab-header-label rc-tab-header-flat"
+    >
+      three
+    </span>
+  </div>
 </div>
 `;

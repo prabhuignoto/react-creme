@@ -1,7 +1,7 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
 import { act } from "react-dom/test-utils";
-import { Menu } from "../menu";
+import { MenuContainer as Menu } from "../menu";
 import { MenuItemModel } from "../menu-model";
 
 const onSelected = jest.fn();
@@ -24,27 +24,40 @@ describe("Menu", () => {
   });
 
   it("should onSelection work as expected", async () => {
+    const onSelected = jest.fn();
     const { getByText } = render(
       <Menu items={items} onSelected={onSelected}>
         <span>icon</span>
       </Menu>
     );
+    fireEvent.click(getByText("icon"));
+
+    await waitFor(() => {
+      expect(getByText("one")).toBeInTheDocument();
+    });
+
     fireEvent.click(getByText("one"));
+
     expect(onSelected).toBeCalledWith("one");
   });
 
-  it("should menu toggle", () => {
-    const { getByText, getByRole } = render(
+  it("should menu toggle", async () => {
+    const { getByText, queryByText } = render(
       <Menu items={items} onSelected={onSelected}>
         <span>icon</span>
       </Menu>
     );
+    fireEvent.click(getByText("icon"));
+
+    await waitFor(() => {
+      expect(getByText("one")).toBeInTheDocument();
+    });
 
     fireEvent.click(getByText("icon"));
-    expect(getByRole("menu")).toHaveClass("rc-menu-open");
 
-    fireEvent.click(getByText("icon"));
-    expect(getByRole("menu")).toHaveClass("rc-menu-close");
+    await waitFor(() => {
+      expect(queryByText("one")).not.toBeInTheDocument();
+    });
   });
 
   it("should not select the disabled item", async () => {
@@ -56,7 +69,10 @@ describe("Menu", () => {
       </Menu>
     );
 
-    await act(async () => {
+    fireEvent.click(getByText("icon"));
+
+    await act(() => {
+      expect(getByText("three")).toBeInTheDocument();
       fireEvent.click(getByText("three"));
       expect(handler).not.toBeCalled();
     });

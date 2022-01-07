@@ -86,7 +86,7 @@ describe("Tags", () => {
     const { getByPlaceholderText } = render(
       <Tags
         items={tags}
-        onSelected={onSelected}
+        onChange={onSelected}
         placeholder="Please enter a value ..."
       />
     );
