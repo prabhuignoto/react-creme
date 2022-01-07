@@ -1,15 +1,4 @@
 {
-  "version": "2.0",
-  "sessionAttributes": {},
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "expo_dist"
-      }
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
