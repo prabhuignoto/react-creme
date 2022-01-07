@@ -11,7 +11,7 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 import ResizeObserver from "resize-observer-polyfill";
 import { useDebouncedCallback } from "use-debounce";
 import "./App.scss";
-import { Drawer } from "./components";
+import { Drawer } from "./react-creme-pre-alpha";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";

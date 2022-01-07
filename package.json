@@ -8,7 +8,7 @@
   "description": "Modern UI Toolkit for React",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf ./dist && tsc && vite build",
+    "build": "rimraf ./expo_dist && tsc && vite build",
     "ci": "yarn lint:all && yarn test -- --runInBand --updateSnapshot",
     "dev": "vite",
     "emit-dts": "rimraf ./dts && tsc --project tsconfig.json --declaration --emitDeclarationOnly",
@@ -21,7 +21,7 @@
     "playwright": "playwright test",
     "prepare": "husky install",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
-    "rollup": "rimraf ./lib && rollup -c",
+    "rollup": "rimraf ./dist && rollup -c",
     "serve": "vite preview",
     "snyk": "snyk test",
     "test:dev": "jest --runInBand"
@@ -84,7 +84,7 @@
     "postcss-prefixer": "^2.1.3",
     "postcss-preset-env": "^7.2.0",
     "prettier": "^2.5.1",
-    "react-creme-pre-alpha": "^0.1.3",
+    "react-creme-pre-alpha": "^0.1.4",
     "react-element-to-jsx-string": "^14.3.4",
     "react-responsive": "^9.0.0-beta.5",
     "react-router-dom": "^6.2.1",
@@ -125,7 +125,7 @@
     ]
   },
   "files": [
-    "lib/dist"
+    "dist"
   ],
   "browserslist": [
     "last 3 versions",

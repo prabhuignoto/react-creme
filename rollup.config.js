@@ -19,24 +19,24 @@ const banner = `/*
 `;
 
 export default {
-  input: "src/components/react-creme-pre-alpha.ts",
+  input: "src/react-creme-pre-alpha.ts",
   output: [
     {
-      file: `lib/dist/${pkg.main}`,
+      file: `dist/${pkg.main}`,
       format: "cjs",
       exports: "named",
       strict: true,
       banner,
     },
     {
-      file: `lib/dist/${pkg.module}`,
+      file: `dist/${pkg.module}`,
       format: "es",
       exports: "named",
       strict: true,
       banner,
     },
     {
-      file: `lib/dist/${pkg.umd}`,
+      file: `dist/${pkg.umd}`,
       format: "umd",
       exports: "named",
       strict: true,
