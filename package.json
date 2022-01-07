@@ -1,6 +1,6 @@
 {
   "name": "react-creme-pre-alpha",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": {
     "name": "Prabhu Murthy",
     "email": "prabhu.m.murthy@gmail.com"
@@ -124,7 +124,9 @@
       "git add"
     ]
   },
-  "files": ["dist/**"],
+  "files": [
+    "dist/**"
+  ],
   "browserslist": [
     "last 3 versions",
     "not ie <= 11",
