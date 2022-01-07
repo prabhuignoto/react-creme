@@ -18,7 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react",
-    "noEmit": true,
+    "noEmit": false,
     "declaration": true,
     "declarationDir": "dts",
     "types": [
@@ -29,7 +29,7 @@
   },
   "include": [
     "./src/components",
-    "./src/components/models",
+    "./src/components/models", "src/react-creme-pre-alpha.ts",
   ],
   "exclude": [
     "src/**/*.test.tsx",
@@ -38,6 +38,6 @@
     "rollup.config.js"
   ],
   "files": [
-    "src/components/index.ts"
+    "src/react-creme-pre-alpha.ts"
   ],
 }

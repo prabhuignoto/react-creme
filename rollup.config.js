@@ -19,7 +19,7 @@ const banner = `/*
 `;
 
 export default {
-  input: "src/components/index.ts",
+  input: "src/components/react-creme-pre-alpha.ts",
   output: [
     {
       file: `lib/dist/${pkg.main}`,
