@@ -5725,10 +5725,10 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
-react-creme-pre-alpha@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/react-creme-pre-alpha/-/react-creme-pre-alpha-0.1.5.tgz#91037191df8faa2c57c19b9885d163829dae9392"
-  integrity sha512-OhkYyEUhw2CxcrHdgSlZE0TfFbhQhR2eoPqJP2b4V6pdMTZ97Spa6Jr2nd08+B506/sAO5m68O6rdo1138FyiA==
+react-creme-pre-alpha@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/react-creme-pre-alpha/-/react-creme-pre-alpha-0.1.7.tgz#26386cfd931c5c71e651b08e253869344a925191"
+  integrity sha512-h6qAWpbyfFTWw4/zYUuMigSMwDvpVvR4+U7B792JNpt1GgRj6IwKw2IsvptETGHOHryWQGY0nyLRWN5WJ1J5sw==
   dependencies:
     classnames "^2.3.1"
     nanoid "^3.1.30"

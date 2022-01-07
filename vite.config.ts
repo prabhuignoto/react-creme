@@ -5,7 +5,7 @@ import reactSVG from "vite-plugin-react-svg";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [reactRefresh(), reactSVG()],
-  logLevel: 'warn',
+  logLevel: 'info',
   cacheDir: '.vite_cache',
   mode: 'universal',
   build: {

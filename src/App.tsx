@@ -11,7 +11,6 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 import ResizeObserver from "resize-observer-polyfill";
 import { useDebouncedCallback } from "use-debounce";
 import "./App.scss";
-import { Drawer } from "./react-creme-pre-alpha";
 import "./design/colors.scss";
 import "./design/layout.scss";
 import "./design/list.scss";
@@ -21,6 +20,7 @@ import Footer from "./expo/common/Footer";
 import { Header } from "./expo/common/Header";
 import SidebarHome from "./expo/common/sidebar-home";
 import useMedia from "./expo/common/useMedia";
+import { Drawer } from "./react-creme-pre-alpha";
 
 function App() {
   const sectionRef = useRef<HTMLElement>(null);
