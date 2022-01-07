@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import React, { useMemo, useRef } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import { CheckIcon, CloseIcon } from "../../icons";
 import { Button } from "../button/button";
 import { useFocus } from "../common/effects/useFocus";
@@ -36,6 +36,11 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
     [width, height]
   );
 
+  const handleSuccess = useCallback(() => {
+    onSuccess?.();
+    onClose?.();
+  }, []);
+
   useFocus(dialogRef);
 
   return (
@@ -51,14 +56,14 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
           {title}
         </h2>
         <div className="rc-dialog-button-wrapper">
-          <Button type="icon" onClick={onClose} size="sm">
+          <Button type="icon" onClick={onClose} size="md">
             <CloseIcon />
           </Button>
         </div>
       </header>
       <section className="rc-dialog-body">{children}</section>
       <footer className="rc-dialog-footer">
-        <Button label="okay" type="primary" onClick={onSuccess} size="sm">
+        <Button label="okay" type="primary" onClick={handleSuccess} size="sm">
           <CheckIcon />
         </Button>
         <Button label="cancel" onClick={onClose} size="sm">

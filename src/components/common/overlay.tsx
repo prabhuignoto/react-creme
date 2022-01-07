@@ -14,17 +14,17 @@ import "./overlay.scss";
 import { OverlayContext } from "./withOverlay";
 
 const Overlay: React.FunctionComponent<OverlayProps> = ({
+  backdropColor = "rgba(0, 0, 0, 0.5)",
   children,
+  containedToParent = false,
+  disableBackdrop,
   onClose,
-  showCloseButton = false,
+  overlayAnimation = true,
   placement,
   placementReference,
-  backdropColor = "rgba(0, 0, 0, 0.5)",
-  containedToParent = false,
-  overlayAnimation = true,
-  disableBackdrop,
+  showCloseButton = false,
 }) => {
-  const { align } = useContext(OverlayContext);
+  const { align, childClosing } = useContext(OverlayContext);
   const [hideOverlay, setHideOverlay] =
     React.useState<boolean>(overlayAnimation);
   const overlayWrapperClass = useMemo(() => {
@@ -40,8 +40,8 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   const [contentHeight, setContentHeight] = React.useState<number>(0);
   const [scrollPosition, setScrollPosition] = React.useState<number>(0);
 
+  // setup the observer for position the overlay content
   const observer = useRef<ResizeObserver>();
-
   if (placementReference?.current) {
     observer.current = new ResizeObserver((entries) => {
       const contentHeight = entries[0].contentRect.height;
@@ -51,6 +51,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     observer.current.observe(placementReference?.current as HTMLElement);
   }
 
+  // computes the style for the overlay content
   const placementStyle = useMemo(() => {
     if (placementReference?.current && placement && overlayContentRef.current) {
       const child = placementReference?.current.firstChild as HTMLElement;
@@ -71,6 +72,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     overlayContentRef,
   ]);
 
+  // event handlers
+
+  // handles closure
   const handleClose = (ev: React.MouseEvent | KeyboardEvent) => {
     const canClose = (ev.target as HTMLElement).classList.contains(
       "rc-overlay-wrapper"
@@ -94,6 +98,14 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     setHideOverlay(true);
   };
 
+  useEffect(() => {
+    if (childClosing) {
+      setHideOverlay(true);
+      onClose?.();
+    }
+  }, [childClosing]);
+
+  // closes the overlay when clicked on the document
   const handleCloseOnClick = useCallback((ev: MouseEvent) => {
     const overlayContent = overlayContentRef.current;
     if (overlayContent && !overlayContent.contains(ev.target as HTMLElement)) {
@@ -102,15 +114,16 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     }
   }, []);
 
+  // sync the position on scroll
   const handleWindowScroll = useCallback(
     () => setScrollPosition(window.scrollY),
     []
   );
 
+  // onMount process
   useEffect(() => {
     document.addEventListener("scroll", handleWindowScroll);
     document.addEventListener("keyup", handleClose);
-
     document.addEventListener("click", handleCloseOnClick);
 
     if (overlayAnimation) {
@@ -118,6 +131,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       setTimeout(() => {}, 100);
     }
 
+    // cleanup
     return () => {
       document.removeEventListener("scroll", handleWindowScroll);
       document.removeEventListener("keyup", handleClose);

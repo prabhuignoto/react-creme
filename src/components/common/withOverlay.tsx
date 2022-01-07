@@ -17,7 +17,9 @@ type OverlayFunc = <U extends OverlayModel>(
 ) => React.FunctionComponent<U>;
 
 export const OverlayContext =
-  React.createContext<{ align?: "left" | "right" }>(null);
+  React.createContext<{ align?: "left" | "right"; childClosing?: boolean }>(
+    null
+  );
 
 const withOverlay: OverlayFunc = function <T extends OverlayModel>(
   Node: React.FunctionComponent<T>,
@@ -39,10 +41,12 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
       overlayAnimation,
       align,
     } = props;
-    const { backdropColor, disableBackdrop } = settings;
+    const { backdropColor, disableBackdrop, disableAnimation } = settings;
     const [portalWrapperCreated, setPortalWrapperCreated] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const portalContainer = useRef<HTMLElement | null>(null);
+
+    const [childInvokedClose, setChildInvokedClose] = useState(false);
 
     useEffect(() => {
       if (containedToParent?.current) {
@@ -65,15 +69,24 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     const handleClose = useCallback(() => {
       setIsClosing(true);
 
-      setTimeout(() => {
+      if (!disableAnimation) {
+        setTimeout(() => {
+          setPortalWrapperCreated(false);
+          onClose && onClose();
+        }, 250);
+      } else {
         setPortalWrapperCreated(false);
         onClose && onClose();
-      }, 250);
+      }
     }, []);
+
+    const handleChildClose = useCallback(() => setChildInvokedClose(true), []);
 
     return portalWrapperCreated
       ? ReactDOM.createPortal(
-          <OverlayContext.Provider value={{ align }}>
+          <OverlayContext.Provider
+            value={{ align, childClosing: childInvokedClose }}
+          >
             <Overlay
               showCloseButton={showClose}
               onClose={handleClose}
@@ -84,7 +97,11 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
               overlayAnimation={overlayAnimation}
               disableBackdrop={disableBackdrop}
             >
-              <Node {...props} onClose={handleClose} isClosing={isClosing} />
+              <Node
+                {...props}
+                onClose={handleChildClose}
+                isClosing={isClosing}
+              />
             </Overlay>
           </OverlayContext.Provider>,
           portalContainer.current as HTMLElement

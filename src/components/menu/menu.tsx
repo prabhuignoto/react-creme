@@ -42,8 +42,8 @@ const Menu: React.FunctionComponent<MenuInternalModel> = ({
 };
 
 const MenuOverlay = withOverlay<MenuInternalModel>(Menu, {
-  backdropColor: "transparent",
   placement: "bottom",
+  backdropColor: "transparent",
 });
 
 const MenuContainer: React.FunctionComponent<MenuModel> = ({

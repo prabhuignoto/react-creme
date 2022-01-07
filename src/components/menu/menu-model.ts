@@ -9,6 +9,7 @@ export interface MenuModel {
   onSelected?: (val: string) => void;
   position?: "left" | "right";
   style?: CSSProperties;
+  isClosing?: boolean;
 }
 
 export interface MenuItemModel {
