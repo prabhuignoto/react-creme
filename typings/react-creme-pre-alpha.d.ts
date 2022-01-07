@@ -1,3 +1,5 @@
+/// <reference types="react" />
+
 import { AnchorHTMLAttributes } from 'react';
 import { CSSProperties } from 'react';
 import { FunctionComponent } from 'react';
@@ -53,6 +55,7 @@ declare interface AlertProps {
     state?: "success" | "error" | "warning" | "info";
     canDismiss?: boolean;
     onDismiss?: () => void;
+    children?: ReactNode;
 }
 
 export declare const AutoComplete: React_2.FunctionComponent<AutoCompleteProps>;
@@ -65,12 +68,6 @@ declare interface AutoCompleteProps {
     onKeyUp?: (ev: React_2.KeyboardEvent) => void;
     onSelection?: (value: string) => void;
     value?: string;
-}
-
-export declare const Avatar: React_2.FunctionComponent<AvatarProps>;
-
-declare interface AvatarProps {
-    size?: "sm" | "md" | "lg";
 }
 
 export declare const BlockQuote: React_2.FC<BlockQuoteProps>;
@@ -200,6 +197,7 @@ declare interface DataGridCommon {
     border?: boolean;
     fixedHeight?: boolean;
     zebra?: boolean;
+    rowHeight?: number;
 }
 
 declare interface DataGridProps extends DataGridCommon {
@@ -335,6 +333,7 @@ declare interface ListModel extends ListCommonProps {
     virtualized?: boolean;
     backGroundColor?: string;
     id?: string;
+    label?: string;
 }
 
 declare interface ListOption extends Option_2 {
@@ -344,19 +343,6 @@ declare interface ListOption extends Option_2 {
 }
 
 export declare const Menu: React_2.FunctionComponent<MenuModel>;
-
-export declare const MenuBar: React_2.FunctionComponent<MenuBarModel>;
-
-declare interface MenuBarItemModel extends MenuItemModel {
-    menu?: MenuBarItemModel[];
-}
-
-declare interface MenuBarModel {
-    items: MenuBarItemModel[];
-    onSelected?: (value: string) => void;
-    width?: number;
-    align?: "left" | "right";
-}
 
 declare interface MenuItemModel {
     disabled?: boolean;
@@ -373,7 +359,7 @@ declare interface MenuModel {
     onClose?: (id?: string) => void;
     onOpen?: (id?: string) => void;
     onSelected?: (val: string) => void;
-    position?: "left" | "center" | "right";
+    position?: "left" | "right";
     style?: CSSProperties;
 }
 
@@ -405,6 +391,7 @@ declare interface OverlayCommon {
     onClose?: () => void;
     onClosing?: () => void;
     placement?: "top" | "bottom";
+    align?: "left" | "right";
     placementReference?: RefObject<HTMLElement>;
 }
 
@@ -412,6 +399,7 @@ declare interface OverlayModel extends OverlayCommon {
     isClosing?: boolean;
     showClose?: boolean;
     placement?: "top" | "bottom";
+    align?: "left" | "right";
     containedToParent?: RefObject<HTMLElement>;
     overlayAnimation?: boolean;
 }
@@ -635,7 +623,7 @@ export declare const Tags: React_2.FunctionComponent<TagsModel>;
 
 declare interface TagsModel {
     items: TagItemModel[];
-    onSelected?: (selected: string[]) => void;
+    onChange?: (selected: string[]) => void;
     maxTags?: number;
     readonly?: boolean;
     tagWidth?: number;

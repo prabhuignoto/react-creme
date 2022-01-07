@@ -8,10 +8,10 @@
   "description": "Modern UI Toolkit for React",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf ./expo_dist && tsc && vite build",
+    "build:doc": "rimraf ./expo_dist && tsc && vite build",
     "ci": "yarn lint:all && yarn test -- --runInBand --updateSnapshot",
     "dev": "vite",
-    "emit-dts": "rimraf ./dts && tsc --project tsconfig.json --declaration --emitDeclarationOnly",
+    "emit-dts": "rimraf ./dts && tsc --project tsconfig.json --declaration --emitDeclarationOnly --noEmit false",
     "eslint": "npx eslint ./src/**/*.tsx",
     "extract-api": "rimraf ./typings && npx api-extractor run --local --verbose",
     "fix:css": "npx stylelint ./src/**/*.scss --fix",
@@ -24,7 +24,8 @@
     "rollup": "rimraf ./dist && rollup -c",
     "serve": "vite preview",
     "snyk": "snyk test",
-    "test:dev": "jest --runInBand"
+    "test:dev": "jest --runInBand",
+    "build:lib": "yarn rollup && yarn emit-dts && yarn extract-api && ncp ./typings ./dist"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -79,6 +80,7 @@
     "husky": "^7.0.4",
     "jest": "^27.4.7",
     "lint-staged": "^12.1.5",
+    "ncp": "^2.0.0",
     "postcss": "^8.4.5",
     "postcss-bem-linter": "^3.3.0",
     "postcss-prefixer": "^2.1.3",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
-  "mainEntryPointFilePath": "<projectFolder>/dts/src/components/index.d.ts",
+  "mainEntryPointFilePath": "<projectFolder>/dts/react-creme-pre-alpha.d.ts",
   "bundledPackages": [],
   "compiler": {},
   "apiReport": {
@@ -13,7 +13,6 @@
     "enabled": true,
     "publicTrimmedFilePath": "<projectFolder>/typings/<unscopedPackageName>.d.ts",
     "untrimmedFilePath": "<projectFolder>/typings/<unscopedPackageName>.d.ts"
-    // "betaTrimmedFilePath": "<projectFolder>/typings/<unscopedPackageName>-beta.d.ts"
   },
   "tsdocMetadata": {
     "enabled": false
