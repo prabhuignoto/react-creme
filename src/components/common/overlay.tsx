@@ -22,6 +22,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   backdropColor = "rgba(0, 0, 0, 0.5)",
   containedToParent = false,
   overlayAnimation = true,
+  disableBackdrop,
 }) => {
   const { align } = useContext(OverlayContext);
   const [hideOverlay, setHideOverlay] =
@@ -33,6 +34,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     });
   }, [hideOverlay]);
 
+  const overlayRef = useRef<HTMLDivElement | null>(null);
   const overlayContentRef = useRef<HTMLDivElement | null>(null);
 
   const [contentHeight, setContentHeight] = React.useState<number>(0);
@@ -80,7 +82,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
     if (ev instanceof KeyboardEvent) {
       if (ev.key === "Escape") {
-        onClose && onClose();
+        onClose?.();
       }
     } else {
       const classes = Array.from((ev.target as HTMLElement).classList);
@@ -92,35 +94,46 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     setHideOverlay(true);
   };
 
+  const handleCloseOnClick = useCallback((ev: MouseEvent) => {
+    const overlayContent = overlayContentRef.current;
+    if (overlayContent && !overlayContent.contains(ev.target as HTMLElement)) {
+      setHideOverlay(true);
+      onClose?.();
+    }
+  }, []);
+
   const handleWindowScroll = useCallback(
     () => setScrollPosition(window.scrollY),
     []
   );
 
   useEffect(() => {
-    window.addEventListener("scroll", handleWindowScroll);
-    window.addEventListener("keyup", handleClose);
+    document.addEventListener("scroll", handleWindowScroll);
+    document.addEventListener("keyup", handleClose);
+
+    document.addEventListener("click", handleCloseOnClick);
 
     if (overlayAnimation) {
-      setTimeout(() => {
-        setHideOverlay(false);
-      }, 100);
+      setHideOverlay(false);
+      setTimeout(() => {}, 100);
     }
 
     return () => {
-      window.removeEventListener("scroll", handleWindowScroll);
-      window.removeEventListener("keyup", handleClose);
+      document.removeEventListener("scroll", handleWindowScroll);
+      document.removeEventListener("keyup", handleClose);
+      document.removeEventListener("click", handleCloseOnClick);
       observer?.current?.disconnect();
     };
   }, []);
 
   const onRef = useCallback((node) => {
     if (node) {
+      overlayRef.current = node;
       (node as HTMLElement).focus();
     }
   }, []);
 
-  return (
+  return !disableBackdrop ? (
     <div
       className={overlayWrapperClass}
       onClick={handleClose}
@@ -145,6 +158,14 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
           <CloseIcon />
         </span>
       )}
+    </div>
+  ) : (
+    <div
+      style={placementStyle}
+      className="rc-overlay-content-wrapper"
+      ref={overlayContentRef}
+    >
+      {children}
     </div>
   );
 };

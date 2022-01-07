@@ -5,7 +5,7 @@ module.exports = {
   moduleNameMapper: {
     "^.+\\.(css|less|scss)$": "babel-jest",
   },
-  collectCoverage: true,
+  collectCoverage: false,
   coverageDirectory: "coverage",
   setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
   testPathIgnorePatterns: [

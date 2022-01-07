@@ -7,12 +7,56 @@ import React, {
   useRef,
 } from "react";
 import { useFirstRender } from "../common/effects/useFirstRender";
+import { OverlayModel } from "../common/overlay-model";
 import { isValidString } from "../common/utils";
+import { withOverlay } from "../common/withOverlay";
 import { Option } from "../dropdown/dropdown-model";
 import { Input } from "../input/input";
 import { List } from "../list/list";
+import { ListOption } from "../list/list-model";
 import { AutoCompleteProps } from "./auto-complete.model";
 import "./auto-complete.scss";
+
+interface SuggestionsOverlayModel extends OverlayModel {
+  suggestions: Option[];
+  onSelection: (option: ListOption[]) => void;
+  id?: string;
+  width?: number;
+}
+
+const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
+  suggestions,
+  onSelection,
+  id,
+  width,
+}) => {
+  const style = useMemo(
+    () =>
+      width
+        ? ({
+            "--rc-autocomplete-suggestions-width": `${width}px`,
+          } as CSSProperties)
+        : {},
+    [width]
+  );
+  return (
+    <div className="rc-auto-complete-suggestions-wrapper" style={style}>
+      <List
+        options={suggestions}
+        onSelection={onSelection}
+        showCheckIcon={false}
+        itemHeight={35}
+        id={id}
+        border={false}
+      />
+    </div>
+  );
+};
+
+const SuggestionsMenuOverlay = withOverlay<SuggestionsOverlayModel>(
+  SuggestionsMenu,
+  { placement: "bottom", disableBackdrop: true }
+);
 
 const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   onChange,
@@ -33,6 +77,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   );
 
   const id = useRef(`rc-autocomplete-${nanoid()}`);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   const [input, setInput] = React.useState<string | undefined>("");
   const [selected, setSelected] = React.useState<Boolean>(false);
@@ -85,18 +130,12 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
     }
   }, [value]);
 
-  const style = useMemo(
-    () =>
-      suggestionsWidth
-        ? ({
-            "--rc-autocomplete-suggestions-width": `${suggestionsWidth}px`,
-          } as CSSProperties)
-        : {},
-    [suggestionsWidth]
-  );
-
   return (
-    <div className="rc-auto-complete" data-testid="rc-auto-complete">
+    <div
+      className="rc-auto-complete"
+      data-testid="rc-auto-complete"
+      ref={rootRef}
+    >
       <div className="rc-auto-complete-input-wrapper">
         <Input
           enableClear
@@ -111,16 +150,14 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
         />
       </div>
       {matchFound && (
-        <div className="rc-auto-complete-suggestions-wrapper" style={style}>
-          <List
-            options={listItems}
-            onSelection={handleSelection}
-            showCheckIcon={false}
-            itemHeight={35}
-            id={id.current}
-            border={false}
-          />
-        </div>
+        <SuggestionsMenuOverlay
+          id={id.current}
+          suggestions={listItems}
+          onSelection={handleSelection}
+          placementReference={rootRef}
+          align="left"
+          placement="bottom"
+        />
       )}
     </div>
   );

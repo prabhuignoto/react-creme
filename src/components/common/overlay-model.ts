@@ -23,4 +23,5 @@ export interface OverlayProps extends OverlayCommon {
   showCloseButton?: boolean;
   containedToParent?: boolean;
   overlayAnimation?: boolean;
+  disableBackdrop?: boolean;
 }

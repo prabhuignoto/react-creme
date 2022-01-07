@@ -7,7 +7,6 @@ import React, {
   useState,
 } from "react";
 import { ChevronRightIcon } from "../../icons";
-import useSwipe from "../common/effects/useSwipe";
 import { TabHead } from "./tab-head";
 import "./tab-header.scss";
 import { TabHeadersModel } from "./tabs-model";
@@ -18,7 +17,6 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   tabStyle,
   handleTabSelection,
   focusable,
-  enableSwipe,
 }: TabHeadersModel) => {
   const tabHeadersRef = useRef<HTMLUListElement | null>(null);
 
@@ -96,20 +94,6 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
       }
     }
   }, [scrollLeftCurrent.value]);
-
-  if (enableSwipe) {
-    const swipeState = useSwipe(tabHeadersRef);
-
-    useEffect(() => {
-      if (swipeState.offset >= 0) {
-        if (swipeState.dir === "LEFT") {
-          scrollRight();
-        } else if (swipeState.dir === "RIGHT") {
-          scrollLeft();
-        }
-      }
-    }, [swipeState]);
-  }
 
   return (
     <header className={tabHeadersWrapperClass}>

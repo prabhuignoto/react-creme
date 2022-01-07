@@ -13,7 +13,7 @@ const items: MenuItemModel[] = [
 ];
 
 describe("Menu", () => {
-  it("should render the host component", async () => {
+  it("should render the host component", () => {
     const { getByText, container } = render(
       <Menu items={items}>
         <span>icon</span>
@@ -71,7 +71,7 @@ describe("Menu", () => {
 
     fireEvent.click(getByText("icon"));
 
-    await act(() => {
+    await act(async () => {
       expect(getByText("three")).toBeInTheDocument();
       fireEvent.click(getByText("three"));
       expect(handler).not.toBeCalled();

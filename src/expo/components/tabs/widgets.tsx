@@ -18,9 +18,9 @@ function widgets() {
     } else if (media.isBigScreen) {
       setWidth(650);
     } else if (media.isDesktop) {
-      setWidth(500);
+      setWidth(600);
     } else if (media.isTablet) {
-      setWidth(480);
+      setWidth(550);
     } else if (media.isMobile) {
       setWidth(320);
     }
@@ -50,7 +50,6 @@ function widgets() {
                 ]}
                 tabStyle="flat"
                 border={false}
-                enableSwipe
                 focusable
               >
                 <span>one</span>
