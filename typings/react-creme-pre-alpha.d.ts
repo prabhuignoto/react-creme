@@ -361,6 +361,7 @@ declare interface MenuModel {
     onSelected?: (val: string) => void;
     position?: "left" | "right";
     style?: CSSProperties;
+    isClosing?: boolean;
 }
 
 declare const Notification_2: React_2.FunctionComponent<NotificationModel>;
@@ -600,7 +601,6 @@ export declare const Tabs: React_2.FunctionComponent<TabsModel>;
 declare interface TabsCommonModel {
     tabStyle?: "flat" | "rounded";
     border?: boolean;
-    enableSwipe?: boolean;
     focusable?: boolean;
 }
 

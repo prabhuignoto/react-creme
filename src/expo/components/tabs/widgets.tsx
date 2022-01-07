@@ -20,7 +20,7 @@ function widgets() {
     } else if (media.isDesktop) {
       setWidth(600);
     } else if (media.isTablet) {
-      setWidth(550);
+      setWidth(500);
     } else if (media.isMobile) {
       setWidth(320);
     }

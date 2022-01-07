@@ -14,14 +14,14 @@ import { DataGridRow } from "./data-grid-row";
 import "./data-grid.scss";
 
 const DataGrid: React.FunctionComponent<DataGridProps> = ({
+  border = false,
   columns = [],
   data,
-  layoutStyle = "comfortable",
-  border = false,
-  gridWidth = 0,
   fixedHeight = false,
-  zebra = false,
+  gridWidth = 0,
+  layoutStyle = "comfortable",
   rowHeight,
+  zebra = false,
 }: DataGridProps) => {
   const sortableColumns = useRef(columns.filter((col) => col.sortable));
   const sortableColumnFirst = useRef(

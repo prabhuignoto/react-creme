@@ -1,3 +1,4 @@
+import babel from "@rollup/plugin-babel";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import BemLinter from "postcss-bem-linter";
@@ -5,10 +6,10 @@ import PostCSSPreset from "postcss-preset-env";
 import esbuild from "rollup-plugin-esbuild";
 import postcss from "rollup-plugin-postcss";
 import progress from "rollup-plugin-progress";
+import purgecss from "rollup-plugin-purgecss";
 import { terser } from "rollup-plugin-terser";
 import sass from "sass";
 import pkg from "./package.json";
-import purgecss from "rollup-plugin-purgecss";
 
 const banner = `/*
  * ${pkg.name}
@@ -41,7 +42,7 @@ export default {
       exports: "named",
       strict: true,
       banner,
-      name: "ReactPhoenix",
+      name: "ReactCreme",
       globals: {
         react: "React",
         "react-dom": "ReactDOM",
@@ -74,6 +75,14 @@ export default {
         // Enable JSX in .js files too
         ".js": "jsx",
       },
+    }),
+    babel({
+      presets: ['@babel/preset-env', '@babel/preset-react'],
+      babelHelpers: "runtime",
+      plugins: [
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-proposal-optional-chaining",
+      ],
     }),
     purgecss({
       content: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
