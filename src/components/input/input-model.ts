@@ -1,20 +1,20 @@
 import React, { CSSProperties } from "react";
 
 export interface InputModel {
+  border?: boolean;
   children?: React.ReactNode;
+  controlled?: boolean;
+  disabled?: boolean;
   enableClear?: boolean;
+  focus?: boolean;
+  id?: string;
+  isAutoComplete?: boolean;
+  noUniqueId?: boolean;
   onChange?: (val: string) => void;
   onKeyUp?: (ev: React.KeyboardEvent) => void;
   placeholder?: string;
   state?: "default" | "error" | "success";
+  style?: CSSProperties;
   type?: "text" | "password";
   value?: string;
-  style?: CSSProperties;
-  disabled?: boolean;
-  controlled?: boolean;
-  noUniqueId?: boolean;
-  id?: string;
-  isAutoComplete?: boolean;
-  border?: boolean;
-  focus?: boolean;
 }

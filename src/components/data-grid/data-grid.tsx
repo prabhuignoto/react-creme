@@ -28,7 +28,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
     sortableColumns.current.length ? sortableColumns.current[0] : null
   );
 
-  const initData = useRef(
+  const rowData = useRef(
     sortableColumnFirst.current !== null
       ? data
           .map((item) => ({ id: nanoid(), ...item }))
@@ -44,9 +44,6 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
       : data.map((item) => ({ id: nanoid(), ...item }))
   );
 
-  const [rowData, setRowData] = useState<{ [key: string]: string | number }[]>(
-    initData.current
-  );
   const [width, setWidth] = useState(gridWidth);
 
   const [sortData, setSortData] = useState<{
@@ -59,8 +56,6 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   );
   const gridRef = useRef<HTMLDivElement>();
 
-  // const isFirstRender = useFirstRender();
-
   const resizeObserver = useRef<ResizeObserver>();
 
   const gridClass = useMemo(() => {
@@ -70,12 +65,9 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
     });
   }, []);
 
-  const handleSort = useCallback(
-    (column: string, dir: SortDirection) => {
-      setSortData({ column, dir });
-    },
-    [rowData.length]
-  );
+  const handleSort = useCallback((column: string, dir: SortDirection) => {
+    setSortData({ column, dir });
+  }, []);
 
   const columnWidth = useMemo(() => {
     if (width) {
@@ -140,22 +132,28 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
     [width, columnWidth]
   );
 
-  useEffect(() => {
-    setRowData((prev) => {
-      const data = prev.sort((a, b) => {
-        if (sortData.column) {
-          if (sortData.dir === "asc") {
-            return a[sortData.column] < b[sortData.column] ? 1 : -1;
-          } else {
-            return a[sortData.column] > b[sortData.column] ? 1 : -1;
-          }
-        } else {
-          return 0;
+  const sortedData = useMemo(() => {
+    return rowData.current.sort((a, b) => {
+      if (sortData.dir === "asc") {
+        if (a[sortData.column] < b[sortData.column]) {
+          return -1;
+        } else if (a[sortData.column] > b[sortData.column]) {
+          return 1;
         }
-      });
-      return data;
+
+        return 0;
+      } else {
+        console.log(a[sortData.column], b[sortData.column]);
+        if (a[sortData.column] < b[sortData.column]) {
+          return 1;
+        } else if (a[sortData.column] > b[sortData.column]) {
+          return -1;
+        }
+
+        return 0;
+      }
     });
-  }, [JSON.stringify(sortData)]);
+  }, [sortData.dir]);
 
   return (
     <div className={gridClass} ref={onRef} role="table">
@@ -166,7 +164,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         layoutStyle={layoutStyle}
         border={border}
       />
-      {rowData.map((row) => {
+      {sortedData.map((row) => {
         return (
           <DataGridRow
             data={row}

@@ -34,7 +34,7 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
     () =>
       width
         ? ({
-            "--rc-autocomplete-suggestions-width": `${width}px`,
+            "--suggestions-width": `${width}px`,
           } as CSSProperties)
         : {},
     [width]
@@ -78,6 +78,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
 
   const id = useRef(`rc-autocomplete-${nanoid()}`);
   const rootRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [input, setInput] = React.useState<string | undefined>("");
   const [selected, setSelected] = React.useState<Boolean>(false);
@@ -113,6 +114,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
       setInput(selected[0].name);
       setSelected(true);
       onSelection?.(selected[0].name);
+      inputRef.current?.focus();
     }
   }, []);
 
@@ -147,6 +149,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
           id={id.current}
           isAutoComplete
           onKeyUp={onKeyUp}
+          ref={inputRef}
         />
       </div>
       {matchFound && (
@@ -157,6 +160,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
           placementReference={rootRef}
           align="left"
           placement="bottom"
+          width={suggestionsWidth}
         />
       )}
     </div>
