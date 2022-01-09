@@ -37,7 +37,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn install --frozen-lockfile
+    - run: npx pnpm install --frozen-lockfile
 
       ################################
       # Run Linter against code base #

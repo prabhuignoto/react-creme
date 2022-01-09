@@ -21,9 +21,9 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn install --frozen-lockfile
-    - run: yarn ci
-    - run: yarn build:doc
+    - run: npx pnpm install --frozen-lockfile
+    - run: npx pnpm ci
+    - run: npx pnpm build
 
     # Runs a single command using the runners shell
     - name: Codecov

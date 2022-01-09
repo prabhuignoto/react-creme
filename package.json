@@ -37,7 +37,6 @@
     "lint:all": "turbo run lint:all",
     "format": "turbo run format",
     "build": "turbo run build",
-    "all": "turbo run lint:all format test build",
     "prepare": "husky install",
     "dev": "turbo run dev"
   },
