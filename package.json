@@ -38,7 +38,8 @@
     "format": "turbo run format",
     "build": "turbo run build",
     "all": "turbo run lint:all format test build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "turbo run dev"
   },
   "repository": {
     "type": "git",
