@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.scss";
+import "./footer-styles.scss";
 // import GithubSVG from "./images/github.svg";
 
 function Footer() {
