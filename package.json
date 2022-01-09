@@ -1,125 +1,62 @@
 {
-  "name": "react-creme-pre-alpha",
-  "version": "0.1.6",
-  "author": {
-    "name": "Prabhu Murthy",
-    "email": "prabhu.m.murthy@gmail.com"
-  },
-  "description": "Modern UI Toolkit for React",
-  "license": "MIT",
-  "scripts": {
-    "build:doc": "rimraf ./expo_dist && tsc && vite build",
-    "build:lib": "yarn rollup && yarn emit-dts && yarn extract-api && ncp ./typings ./dist",
-    "ci": "yarn lint:all && yarn test -- --runInBand --updateSnapshot && yarn build:lib",
-    "dev": "vite",
-    "emit-dts": "rimraf ./dts && tsc --project tsconfig.json --declaration --emitDeclarationOnly --noEmit false",
-    "eslint": "npx eslint ./src/**/*.tsx",
-    "extract-api": "rimraf ./typings && npx api-extractor run --local --verbose",
-    "fix:css": "npx stylelint ./src/**/*.scss --fix",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint:all": "yarn run eslint && yarn run lint:css && yarn run prettier:check",
-    "lint:css": "npx stylelint ./src/**/*.scss",
-    "playwright": "playwright test",
-    "prepare": "husky install",
-    "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
-    "rollup": "rimraf ./dist && rollup -c",
-    "serve": "vite preview",
-    "snyk": "snyk test",
-    "test": "jest --runInBand --updateSnapshot"
+  "name": "react-creme",
+  "version": "1.0.0",
+  "description": "Mono repo for react-creme",
+  "main": ".eslintrc.js",
+  "directories": {
+    "lib": "lib"
   },
   "dependencies": {
-    "classnames": "^2.3.1",
-    "nanoid": "^3.1.30",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "resize-observer-polyfill": "^1.5.1",
-    "use-debounce": "^7.0.1"
+    "turbo": "^1.0.24"
   },
-  "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+  "turbo": {
+    "npmClient": "pnpm",
+    "pipeline": {
+      "format": {
+        "outputs": [],
+        "cache": true
+      },
+      "lint:all": {
+        "dependsOn": [
+          "format"
+        ]
+      },
+      "build": {
+        "dependsOn": [
+          "^build"
+        ]
+      },
+      "test": {}
+    }
   },
+  "workspaces": [
+    "documentation/*",
+    "lib/*"
+  ],
+  "scripts": {
+    "lint:all": "turbo run lint:all",
+    "format": "turbo run format",
+    "build": "turbo run build",
+    "all": "turbo run lint:all format test build",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prabhuignoto/react-creme.git"
+  },
+  "author": "Prabhu Murthy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prabhuignoto/react-creme/issues"
+  },
+  "homepage": "https://github.com/prabhuignoto/react-creme#readme",
   "devDependencies": {
-    "@axe-core/react": "^4.3.2",
-    "@babel/core": "^7.16.7",
-    "@babel/plugin-proposal-optional-chaining": "^7.16.7",
-    "@babel/plugin-transform-runtime": "^7.16.7",
-    "@babel/preset-env": "^7.16.7",
-    "@babel/preset-react": "^7.16.7",
-    "@csstools/postcss-sass": "^4.0.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.16",
-    "@microsoft/api-extractor": "^7.19.4",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^13.0.0-alpha.5",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.0",
-    "@types/react": "^17.0.38",
-    "@types/react-dom": "^17.0.11",
-    "@types/react-syntax-highlighter": "^13.5.2",
-    "@types/react-transition-group": "^4.4.4",
-    "@typescript-eslint/eslint-plugin": "^5.9.0",
-    "@typescript-eslint/parser": "^5.9.0",
-    "@vitejs/plugin-react-refresh": "^1.3.1",
-    "autoprefixer": "^10.4.2",
-    "babel-jest": "^27.4.6",
-    "babel-plugin-react-remove-properties": "^0.3.0",
-    "canvas": "^2.8.0",
-    "cssnano": "^5.0.15",
-    "esbuild": "^0.14.10",
-    "eslint": "^8.6.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-jest": "^25.3.4",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "6.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "history": "5.2.0",
-    "husky": "^7.0.4",
-    "jest": "^27.4.7",
-    "lint-staged": "^12.1.7",
-    "ncp": "^2.0.0",
-    "postcss": "^8.4.5",
-    "postcss-bem-linter": "^3.3.0",
-    "postcss-prefixer": "^2.1.3",
-    "postcss-preset-env": "^7.2.0",
-    "prettier": "^2.5.1",
-    "react-element-to-jsx-string": "^14.3.4",
-    "react-responsive": "^9.0.0-beta.5",
-    "react-router-dom": "^6.2.1",
-    "react-syntax-highlighter": "^15.4.5",
-    "react-transition-group": "^4.4.2",
-    "recoil": "^0.5.2",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.63.0",
-    "rollup-plugin-esbuild": "^4.8.2",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-progress": "^1.1.2",
-    "rollup-plugin-purgecss": "^4.1.3",
-    "rollup-plugin-sass": "^1.2.10",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.31.1",
-    "sass": "^1.47.0",
-    "snyk": "^1.819.0",
-    "stylelint": "14.2.0",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-sass-guidelines": "^9.0.1",
-    "stylelint-scss": "^4.1.0",
-    "ts-jest": "^27.1.2",
-    "typescript": "^4.5.4",
-    "use-timer": "^2.0.1",
-    "vite": "2.6.13",
-    "vite-plugin-react-svg": "^0.2.0"
+    "husky": "^7.0.4"
   },
   "lint-staged": {
     "**/*.tsx": [
       "npx prettier --write",
-      "eslint --fix",
+      "npx eslint --fix",
       "git add"
     ],
     "**/*.scss": [
@@ -127,22 +64,5 @@
       "npx stylelint",
       "git add"
     ]
-  },
-  "files": [
-    "dist/**"
-  ],
-  "browserslist": [
-    "last 3 versions",
-    "not ie <= 11",
-    "not dead",
-    "> 5%"
-  ],
-  "resolutions": {
-    "nth-check": "^2.0.1",
-    "postcss": "^8.2.13"
-  },
-  "main": "react-creme-pre-alpha.js",
-  "module": "react-creme-pre-alpha.esm.js",
-  "umd": "react-creme-pre-alpha.umd.js",
-  "css": "react-creme-pre-alpha.css"
+  }
 }
