@@ -16,4 +16,5 @@ export interface CheckboxModel {
   onChange?: (id: string, name: string, selected: boolean) => void;
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
+  RTL?: boolean;
 }

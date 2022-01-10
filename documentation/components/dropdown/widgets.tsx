@@ -77,7 +77,7 @@ function Widgets() {
             <div style={{ width: `${width}px` }}>
               <Dropdown
                 maxMenuHeight={400}
-                placeholder="choose another country"
+                placeholder="choose a country"
                 onSelected={(val) => console.log(val)}
                 enableSearch
                 options={[
@@ -100,7 +100,7 @@ function Widgets() {
             <div style={{ width: `${width}px` }}>
               <Dropdown
                 maxMenuHeight={400}
-                placeholder="choose another country"
+                placeholder="choose a country"
                 onSelected={(val) => console.log(val)}
                 virtualize
                 enableSearch
@@ -117,6 +117,31 @@ function Widgets() {
                   { name: "japan", value: "japan" },
                   { name: "korea", value: "korea" },
                   { name: "indonesia", value: "indonesia" },
+                  { name: "malaysia", value: "malaysia" },
+                ]}
+              />
+            </div>
+          </DemoWidget>
+        </Section>
+        <Section title="RTL">
+          <BlockQuote>
+            With virtualized, the options are rendered only when they are in the
+            viewport of the menu.
+          </BlockQuote>
+          <DemoWidget>
+            <div style={{ width: `${width}px` }}>
+              <Dropdown
+                maxMenuHeight={400}
+                placeholder="choose a country"
+                onSelected={(val) => console.log(val)}
+                enableSearch
+                RTL
+                options={[
+                  { name: "germany", value: "germany", disabled: true },
+                  { name: "india", value: "india" },
+                  { name: "usa", value: "usa", selected: true },
+                  { name: "uk", value: "uk" },
+                  { name: "srilanka", value: "srilanka" },
                   { name: "malaysia", value: "malaysia" },
                 ]}
               />

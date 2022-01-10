@@ -39,6 +39,10 @@
     height: 0;
     opacity: 0;
   }
+
+  &.rc-alert-rtl {
+    direction: rtl;
+  }
 }
 
 .rc-alert-icon-wrapper {

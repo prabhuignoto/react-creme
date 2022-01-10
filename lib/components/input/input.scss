@@ -15,6 +15,10 @@
   width: 100%;
   z-index: 2;
 
+  &.rc-input-rtl {
+    direction: rtl;
+  }
+
   &.rc-input-border {
     @extend %border;
   }

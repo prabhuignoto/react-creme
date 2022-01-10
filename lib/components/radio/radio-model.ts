@@ -17,4 +17,5 @@ export interface RadioModel {
   focusable?: boolean;
   withGroup?: boolean;
   fullWidth?: boolean;
+  RTL?: boolean;
 }

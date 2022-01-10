@@ -89,6 +89,10 @@
   @extend %text-no-wrap;
   height: 20px;
   line-height: 20px;
+
+  &.rc-dropdown-rtl {
+    text-align: right;
+  }
 }
 
 .rc-dropdown-chevron-icon {

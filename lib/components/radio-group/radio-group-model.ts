@@ -6,6 +6,8 @@ export interface RadioGroupModel {
   disabled?: boolean;
   style?: CSSProperties;
   layout?: "row" | "column";
+  RTL?: boolean;
+  focusable?: boolean;
 }
 
 export interface RadioGroupItemModel {

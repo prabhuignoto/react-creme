@@ -25,7 +25,7 @@
     transform: translateY(-50%);
   } @else if $position == "center center" {
     left: 50%;
-    right: calc(0% + $space);
+    // right: calc(0% + $space);
     top: 50%;
     transform: translateY(-50%) translateX(-50%);
   } @else if $position == "center right" {

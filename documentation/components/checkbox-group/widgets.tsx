@@ -85,6 +85,27 @@ function Widgets() {
           />
         </DemoWidget>
       </Section>
+      <Section title="Checkbox Group - RTL">
+        <DemoWidget>
+          <CheckBoxGroup
+            RTL
+            options={[
+              {
+                label: "Option 1",
+              },
+              {
+                label: "Option 2",
+              },
+              {
+                label: "Option 3",
+              },
+              {
+                label: "Option 4",
+              },
+            ]}
+          />
+        </DemoWidget>
+      </Section>
     </div>
   );
 }

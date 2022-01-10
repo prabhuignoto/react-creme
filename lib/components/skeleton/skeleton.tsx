@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { FunctionComponent, useCallback, useState } from "react";
 import { SkeletonBlockModel, SkeletonModel } from "./skeleton-model";
@@ -11,6 +12,7 @@ const Skeleton: FunctionComponent<SkeletonModel> = ({
   showCircle = false,
   animate = false,
   style,
+  RTL = false,
 }) => {
   const [skeletonBlocks, setSkeletonBlocks] = useState<SkeletonBlockModel[]>(
     Array.from({ length: blocks }).map(() => ({
@@ -52,7 +54,12 @@ const Skeleton: FunctionComponent<SkeletonModel> = ({
       style={style}
     >
       {skeletonBlocks.map(({ id, rows }) => (
-        <div className="rc-skeleton-block" key={id}>
+        <div
+          className={classNames("rc-skeleton-block", {
+            "rc-skeleton-block-rtl": RTL,
+          })}
+          key={id}
+        >
           {showCircle && <div className="rc-skeleton-circle" />}
           {rows.map(
             (row) =>

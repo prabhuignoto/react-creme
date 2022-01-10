@@ -17,4 +17,5 @@ export interface InputModel {
   style?: CSSProperties;
   type?: "text" | "password";
   value?: string;
+  RTL?: boolean;
 }

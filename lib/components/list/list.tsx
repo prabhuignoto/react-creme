@@ -197,7 +197,7 @@ const List: React.FunctionComponent<ListModel> = ({
     >
       {enableSearch && (
         <div className="rc-list-search-input">
-          <Input onChange={handleSearch} enableClear controlled>
+          <Input onChange={handleSearch} enableClear controlled RTL={RTL}>
             <SearchIcon />
           </Input>
         </div>

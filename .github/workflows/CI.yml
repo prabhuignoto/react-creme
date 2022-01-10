@@ -18,14 +18,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
     - run: npx pnpm install --frozen-lockfile
     - run: npx pnpm ci
-    - run: npx pnpm snyk
+    - name: snyk
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      run: npx pnpm snyk
 
     # Runs a single command using the runners shell
     - name: Codecov

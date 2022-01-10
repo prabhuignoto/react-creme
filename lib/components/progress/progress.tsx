@@ -18,6 +18,7 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
   status = "default",
   type = "progressive",
   width = 250,
+  RTL = false,
 }) => {
   const progressTrackRef = useRef<HTMLDivElement | null>(null);
   const [loaded, setLoaded] = useState(false);
@@ -100,6 +101,7 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
     () =>
       classNames("rc-progress-track", {
         [`rc-progress-track-${status}`]: true,
+        "rc-progress-track-rtl": RTL,
       }),
     [status]
   );

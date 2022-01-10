@@ -175,6 +175,12 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
       } as CSSProperties;
     }, []);
 
+    const valueClass = useMemo(() => {
+      return cls("rc-dropdown-value", {
+        "rc-dropdown-rtl": RTL,
+      });
+    }, []);
+
     return (
       <div className={rcDropdownClass} ref={dropdownRef}>
         <div
@@ -197,10 +203,10 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
                 />
               </div>
             ) : (
-              <span className={"rc-dropdown-value"}>{selectedValue}</span>
+              <span className={valueClass}>{selectedValue}</span>
             )
           ) : (
-            <span className={"rc-dropdown-value"}>{selectedValue}</span>
+            <span className={valueClass}>{selectedValue}</span>
           )}
           <span
             className={rcDropdownIconClass}

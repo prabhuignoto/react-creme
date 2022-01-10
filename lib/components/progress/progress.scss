@@ -18,6 +18,10 @@
   width: 100%;
   z-index: 1;
 
+  &.rc-progress-track-rtl {
+    direction: rtl;
+  }
+
   &.rc-progress-track-default {
     background: colors.$secondary;
   }
@@ -108,8 +112,6 @@ $bob-anim-settings: (
     left: 100%,
   ),
 );
-
-
 
 @include animate.set-keyframes(infinite-progress, $infinite-anim-settings);
 @include animate.set-keyframes(infinite-bob, $bob-anim-settings);

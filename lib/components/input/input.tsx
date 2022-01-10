@@ -32,6 +32,7 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
       isAutoComplete = false,
       border = false,
       focus = false,
+      RTL = false,
     } = props;
     const [inputValue, setInputValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -93,6 +94,7 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
           "rc-input-disabled": disabled,
           "rc-input-border": border,
           "rc-input-focus": hasFocus,
+          "rc-input-rtl": RTL,
         }),
       [disabled, hasFocus]
     );

@@ -18,6 +18,8 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   onSelected,
   style,
   layout = "column",
+  RTL = false,
+  focusable = false,
 }) => {
   const [_items, setItems] = useState<RadioGroupItemModel[]>(
     Array.isArray(items)
@@ -90,6 +92,8 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
             withGroup
             size="sm"
             fullWidth={layout === "column"}
+            RTL={RTL}
+            focusable={focusable}
           />
         </li>
       ))}

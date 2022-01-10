@@ -40,7 +40,7 @@ $heights: (
 
 .rc-section-body {
   padding: 1rem;
-  width: 100%;
+  width: calc(100% - 2rem);
 
   &:not(.rc-section-rtl) {
     @extend %left;

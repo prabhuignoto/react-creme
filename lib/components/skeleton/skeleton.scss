@@ -57,6 +57,10 @@
 .rc-skeleton-block {
   padding: 1rem;
   position: relative;
+
+  &.rc-skeleton-block-rtl {
+    direction: rtl;
+  }
 }
 
 .rc-skeleton-circle {

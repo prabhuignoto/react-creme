@@ -49,7 +49,20 @@
   width: 99%;
 }
 
-@mixin halo($border-radius: 2px, $outline-offset: 2px, $halo-effect: true) {
+%halo-common-rtl {
+  @include position.position-abs("center right");
+  content: "";
+  display: block;
+  height: 100%;
+  width: 99%;
+}
+
+@mixin halo(
+  $border-radius: 2px,
+  $outline-offset: 2px,
+  $halo-effect: true,
+  $rtl: false
+) {
   $focus-settings: (
     from: (
       outline: 1px solid rgba(colors.$white, 0.1),
@@ -84,14 +97,24 @@
   }
 
   &.rc-focus:not(.rc-disabled)::before {
-    @extend %halo-common;
+    @if $rtl {
+      @extend %halo-common-rtl;
+    }
+    @else {
+      @extend %halo-common;
+    }
     @include set-keyframes(outline-focus, $focus-settings);
     animation-name: outline-focus;
     outline: 2px solid rgba(colors.$primary, 0.5);
   }
 
   &.rc-lost-focus:not(.rc-disabled)::before {
-    @extend %halo-common;
+    @if $rtl {
+      @extend %halo-common-rtl;
+    }
+    @else {
+      @extend %halo-common;
+    }
     @include set-keyframes(outline-de-focus, $focus-settings, true);
     animation-name: outline-de-focus;
     outline: 1px solid rgba(colors.$white, 0.1);
@@ -99,7 +122,12 @@
 
   @if $halo-effect {
     &.rc-halo:not(.rc-disabled)::after {
-      @extend %halo-common;
+      @if $rtl {
+        @extend %halo-common-rtl;
+      }
+      @else {
+        @extend %halo-common;
+      }
       @include set-keyframes(halo-focus, $halo-settings);
       animation-name: halo-focus;
       box-shadow: 0 0 1px 7px rgba(colors.$primary, 0.25);
@@ -107,7 +135,12 @@
     }
 
     &.rc-de-halo:not(.rc-disabled)::after {
-      @extend %halo-common;
+      @if $rtl {
+        @extend %halo-common-rtl;
+      }
+      @else {
+        @extend %halo-common;
+      }
       @include set-keyframes(halo-de-focus, $halo-settings, true);
       animation-name: halo-de-focus;
       box-shadow: 0 0 1px 1px rgba(colors.$white, 0.1);

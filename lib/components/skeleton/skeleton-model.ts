@@ -8,6 +8,7 @@ export interface SkeletonModel {
   showCircle?: boolean;
   animate?: boolean;
   style?: CSSProperties;
+  RTL?: boolean;
 }
 
 export interface SkeletonRowModel {

@@ -80,6 +80,21 @@ function Widgets() {
             </div>
           </DemoWidget>
         </Section>
+        <Section title="RTL">
+          <DemoWidget>
+            <div style={{ width: `${width}px` }}>
+              <RadioGroup
+                RTL
+                items={[
+                  { label: "John", disabled: true },
+                  { label: "Doe" },
+                  { label: "Prabhu", checked: true },
+                ]}
+                onSelected={(val) => console.log(val)}
+              />
+            </div>
+          </DemoWidget>
+        </Section>
       </div>
     )
   );

@@ -17,6 +17,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   canDismiss = true,
   onDismiss,
   children,
+  RTL = false,
 }) => {
   const [close, setClose] = React.useState(false);
 
@@ -33,6 +34,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
       classNames("rc-alert", {
         [`rc-alert-${state}`]: true,
         "rc-alert-close": close,
+        "rc-alert-rtl": RTL,
       }),
     [state, close]
   );

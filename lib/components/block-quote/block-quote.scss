@@ -8,9 +8,9 @@
   border-left: 3px solid rgba(colors.$primary, 0.5);
   font-weight: 300;
   margin: 0.5rem 0;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
   padding-left: 1rem;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
 
   code {
     @extend %border-radius;

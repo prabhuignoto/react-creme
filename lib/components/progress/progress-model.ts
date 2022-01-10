@@ -7,4 +7,5 @@ export interface ProgressModel {
   type: "infinite" | "progressive";
   width?: number;
   status?: "success" | "error" | "default";
+  RTL?: boolean;
 }

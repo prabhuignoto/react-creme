@@ -8,6 +8,7 @@ import { DemoWidget } from "../../common/demo-widget";
 function Widgets() {
   const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState<string | number>("90%");
+  const [height, setHeight] = React.useState<string | number>(450);
 
   useLayoutEffect(() => {
     if (!media) {
@@ -20,10 +21,13 @@ function Widgets() {
       setWidth(750);
     } else if (media.isDesktop) {
       setWidth(500);
+      setHeight(300);
     } else if (media.isTablet) {
       setWidth("80%");
+      setHeight(300);
     } else if (media.isMobile) {
       setWidth("90%");
+      setHeight(300);
     }
   }, [media]);
 
@@ -37,7 +41,7 @@ function Widgets() {
         <DemoWidget fullWidth>
           <div
             style={{
-              height: "450px",
+              height: `${height}px`,
               width: `${Number.isInteger(width) ? `${width}px` : width}`,
             }}
           >
@@ -57,7 +61,7 @@ function Widgets() {
         <DemoWidget fullWidth>
           <div
             style={{
-              height: "450px",
+              height: `${height}px`,
               width: `${Number.isInteger(width) ? `${width}px` : width}`,
             }}
           >

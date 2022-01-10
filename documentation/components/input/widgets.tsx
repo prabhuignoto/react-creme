@@ -49,6 +49,15 @@ function Widgets() {
           </div>
         </DemoWidget>
       </Section>
+      <Section title="RTL">
+        <DemoWidget>
+          <div style={{ width: "200px" }}>
+            <Input enableClear focus RTL>
+              <ChevronRightIcon />
+            </Input>
+          </div>
+        </DemoWidget>
+      </Section>
     </div>
   );
 }

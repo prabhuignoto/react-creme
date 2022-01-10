@@ -29,6 +29,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
     onChange,
     size = "sm",
     style,
+    RTL = false,
   }: CheckboxModel) => {
     const [checked, setChecked] = useState(isChecked);
     const ref = useRef(null);
@@ -65,6 +66,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
       () =>
         classNames("rc-checkbox-label", {
           [`rc-checkbox-label-${size}`]: true,
+          "rc-checkbox-label-rtl": RTL,
         }),
       []
     );
@@ -88,6 +90,7 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
           "rc-checkbox-hover": !noHoverStyle,
           "rc-checkbox-auto-height": autoHeight,
           "rc-checkbox-focus": !focusIcon,
+          "rc-checkbox-rtl": RTL,
         }),
       [size, disabled]
     );
