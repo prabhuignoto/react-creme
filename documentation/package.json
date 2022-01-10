@@ -16,7 +16,7 @@
     "lint:css": "npx stylelint ./components/**/*.scss",
     "prettier:check": "prettier --check \"components/**/*.{js,jsx,ts,tsx}\"",
     "serve": "vite preview",
-    "snyk": "snyk test"
+    "snyk": "npx snyk test"
   },
   "dependencies": {
     "@types/react": "^17.0.38",
