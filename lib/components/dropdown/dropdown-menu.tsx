@@ -20,6 +20,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
   const menuStyle = useMemo(() => {
     return {
       "--menu-width": `${width || 0}px`,
+      "--menu-max-height": `${maxMenuHeight || 0}px`,
     } as CSSProperties;
   }, [top, width]);
 

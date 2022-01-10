@@ -39,7 +39,7 @@
     colors.$white,
     colors.$primary
   );
-  border: 1px solid colors.$primary;
+  // border: 1px solid colors.$primary;
 
   svg {
     color: colors.$white !important;
@@ -64,7 +64,8 @@
     colors.$primary,
     colors.$tertiary
   );
-  border: 1px solid colors.$secondary;
+  // border: 1px solid colors.$secondary;
+  // box-shadow: inset 0 0 3px 1px rgba(colors.$primary, 0.85);
 }
 
 %button-icon {

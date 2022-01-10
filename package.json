@@ -7,7 +7,7 @@
     "documentation": "documentation"
   },
   "dependencies": {
-    "snyk": "^1.819.0",
+    "snyk": "^1.821.0",
     "turbo": "^1.0.24"
   },
   "scripts": {
@@ -20,7 +20,8 @@
     "all": "turbo run format lint:all test build",
     "build:lib": "turbo run build --scope=*lib*",
     "ci": "turbo run ci",
-    "snyk": "turbo run snyk"
+    "snyk": "turbo run snyk",
+    "fix:css": "turbo run fix:css"
   },
   "turbo": {
     "npmClient": "pnpm",
@@ -45,7 +46,8 @@
         "cache": false
       },
       "ci": {},
-      "snyk": {}
+      "snyk": {},
+      "fix:css": {}
     }
   },
   "workspaces": [

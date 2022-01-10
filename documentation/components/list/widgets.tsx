@@ -71,7 +71,7 @@ function Widgets() {
           <BlockQuote>
             With searchable list items can be quickly searched.
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <List
                 maxHeight={400}
@@ -84,14 +84,14 @@ function Widgets() {
                 }))}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Virtualized">
           <BlockQuote>
             The virtualized list is a performance improvement over the default
             rendering. It renders only the visible items
           </BlockQuote>
-          <div className="rc-demo-widget">
+          <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <List
                 maxHeight={350}
@@ -104,7 +104,7 @@ function Widgets() {
                 }))}
               />
             </div>
-          </div>
+          </DemoWidget>
         </Section>
       </div>
     )

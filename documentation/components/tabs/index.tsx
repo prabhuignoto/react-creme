@@ -43,6 +43,13 @@ function tabs() {
           optional: "Yes",
           type: "Object",
         },
+        {
+          name: "focusable",
+          description: "Enables focus outlines for keyboard users",
+          default: "False",
+          optional: "Yes",
+          type: "Boolean",
+        },
       ]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>

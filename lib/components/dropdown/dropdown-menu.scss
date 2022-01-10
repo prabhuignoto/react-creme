@@ -6,7 +6,7 @@
 .rc-dropdown-menu-container {
   @extend %border-radius;
   @extend %shadow-medium;
-  @include animate.set-animation(0.5s, cubic-bezier(0.17, 0.84, 0.44, 1));
+  @include animate.set-animation(0.25s, cubic-bezier(0.17, 0.84, 0.44, 1));
 
   background: colors.$white;
   left: 0;
@@ -24,15 +24,15 @@
 
   &.rc-dropdown-menu-open {
     animation-name: dropdown-menu-open;
+    height: var(--menu-max-height);
     opacity: 1;
-    transform: scale(1);
     visibility: visible;
   }
 
   &.rc-dropdown-menu-close {
     animation-name: dropdown-menu-close;
+    height: 0;
     opacity: 0;
-    transform: blur(10px);
     visibility: hidden;
   }
 }
@@ -75,12 +75,12 @@
 $hide-anim: (
   opacity: 0,
   visibility: hidden,
-  transform: blur(10px),
+  height: 0,
 );
 $show-anim: (
   opacity: 1,
   visibility: visible,
-  transform: blur(0),
+  height: var(--menu-max-height),
 );
 
 $dropdown-anim-settings: (

@@ -32,7 +32,7 @@ function Widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Dropdown
-                maxMenuHeight={400}
+                maxMenuHeight={300}
                 placeholder="choose a country"
                 onSelected={(val) => console.log(val)}
                 options={[
@@ -56,7 +56,7 @@ function Widgets() {
                 onSelected={(val) => console.log(val)}
                 placeholder="choose a country"
                 allowMultiSelection
-                maxMenuHeight={400}
+                maxMenuHeight={300}
                 options={[
                   { name: "germany", value: "germany", disabled: true },
                   { name: "india", value: "india" },
@@ -76,7 +76,7 @@ function Widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Dropdown
-                maxMenuHeight={400}
+                maxMenuHeight={300}
                 placeholder="choose a country"
                 onSelected={(val) => console.log(val)}
                 enableSearch
@@ -99,7 +99,7 @@ function Widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Dropdown
-                maxMenuHeight={400}
+                maxMenuHeight={300}
                 placeholder="choose a country"
                 onSelected={(val) => console.log(val)}
                 virtualize
@@ -131,7 +131,7 @@ function Widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Dropdown
-                maxMenuHeight={400}
+                maxMenuHeight={300}
                 placeholder="choose a country"
                 onSelected={(val) => console.log(val)}
                 enableSearch
