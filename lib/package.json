@@ -1,12 +1,18 @@
 {
   "name": "react-creme",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Prabhu Murthy",
     "email": "prabhu.m.murthy@gmail.com"
   },
   "description": "Modern UI Toolkit for React",
   "license": "MIT",
+  "keywords": [
+    "react",
+    "react-creme",
+    "ui toolkit",
+    "design system"
+  ],
   "scripts": {
     "build": "pnpm rollup && pnpm emit-dts && pnpm extract-api && ncp ./typings ./dist",
     "ci": "pnpm lint:all && pnpm test -- --runInBand --updateSnapshot",
@@ -20,7 +26,8 @@
     "prettier:check": "prettier --check \"components/**/*.{js,jsx,ts,tsx}\"",
     "rollup": "rimraf ./dist && rollup -c",
     "snyk": "npx snyk test",
-    "test": "jest --runInBand --updateSnapshot"
+    "test": "jest --runInBand --updateSnapshot",
+    "publish": "pnpm build && ncp ./package.json ./dist && pnpm --prefix ./dist/ publish"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -103,9 +110,6 @@
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"
   },
-  "files": [
-    "dist/**"
-  ],
   "browserslist": [
     "last 3 versions",
     "not ie <= 11",

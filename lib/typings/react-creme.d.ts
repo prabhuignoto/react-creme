@@ -69,6 +69,7 @@ export declare interface AlertProps {
     canDismiss?: boolean;
     onDismiss?: () => void;
     children?: ReactNode;
+    RTL?: boolean;
 }
 
 export declare const AutoComplete: React_2.FunctionComponent<AutoCompleteProps>;
@@ -203,6 +204,7 @@ export declare interface CheckboxGroupProps {
         isChecked: boolean;
     }[]) => void;
     noUniqueIds?: boolean;
+    RTL?: boolean;
 }
 
 export declare interface CheckboxModel {
@@ -221,6 +223,7 @@ export declare interface CheckboxModel {
     onChange?: (id: string, name: string, selected: boolean) => void;
     size?: "sm" | "md" | "lg";
     style?: CSSProperties;
+    RTL?: boolean;
 }
 
 export declare const CircularProgress: React_2.FunctionComponent<CircularProgressProps>;
@@ -403,6 +406,7 @@ export declare interface InputModel {
     style?: CSSProperties;
     type?: "text" | "password";
     value?: string;
+    RTL?: boolean;
 }
 
 export declare const Link: React_2.FunctionComponent<AnchorHTMLAttributes<LinkModel>>;
@@ -552,6 +556,7 @@ export declare interface ProgressModel {
     type: "infinite" | "progressive";
     width?: number;
     status?: "success" | "error" | "default";
+    RTL?: boolean;
 }
 
 export declare const Radio: React_2.FunctionComponent<RadioModel>;
@@ -572,6 +577,8 @@ export declare interface RadioGroupModel {
     disabled?: boolean;
     style?: CSSProperties;
     layout?: "row" | "column";
+    RTL?: boolean;
+    focusable?: boolean;
 }
 
 export declare interface RadioModel {
@@ -591,6 +598,7 @@ export declare interface RadioModel {
     focusable?: boolean;
     withGroup?: boolean;
     fullWidth?: boolean;
+    RTL?: boolean;
 }
 
 export declare const Rate: React_2.FunctionComponent<RateProps>;
@@ -699,6 +707,7 @@ export declare interface SkeletonModel {
     showCircle?: boolean;
     animate?: boolean;
     style?: CSSProperties;
+    RTL?: boolean;
 }
 
 export declare interface SkeletonRowModel {
