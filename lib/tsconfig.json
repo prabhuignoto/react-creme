@@ -29,7 +29,7 @@
   },
   "include": [
     "./components",
-    "./components/models", "react-creme-alpha.ts"
+    "./components/models", "react-creme.ts"
   ],
   "exclude": [
     "./**/*.test.tsx",
@@ -38,6 +38,6 @@
     "rollup.config.js"
   ],
   "files": [
-    "react-creme-alpha.ts"
+    "react-creme.ts"
   ],
 }

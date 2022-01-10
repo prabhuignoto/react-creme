@@ -15,7 +15,8 @@
     "lint:all": "npx eslint && pnpm run lint:css && pnpm run prettier:check",
     "lint:css": "npx stylelint ./components/**/*.scss",
     "prettier:check": "prettier --check \"components/**/*.{js,jsx,ts,tsx}\"",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "snyk": "snyk test"
   },
   "dependencies": {
     "@types/react": "^17.0.38",

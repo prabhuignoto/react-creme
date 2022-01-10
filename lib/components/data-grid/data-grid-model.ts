@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
 
-interface DataGridCommon {
+export interface DataGridCommon {
   layoutStyle?: "compact" | "comfortable";
   border?: boolean;
   fixedHeight?: boolean;

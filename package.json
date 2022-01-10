@@ -2,12 +2,25 @@
   "name": "react-creme",
   "version": "1.0.0",
   "description": "Mono repo for react-creme",
-  "main": ".eslintrc.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "documentation": "documentation"
   },
   "dependencies": {
+    "snyk": "^1.819.0",
     "turbo": "^1.0.24"
+  },
+  "scripts": {
+    "lint:all": "turbo run lint:all",
+    "format": "turbo run format",
+    "build": "turbo run build",
+    "prepare": "husky install",
+    "dev": "turbo run dev --scope=*docu*",
+    "test": "turbo run test",
+    "all": "turbo run format lint:all test build",
+    "build:lib": "turbo run build --scope=*lib*",
+    "ci": "turbo run ci",
+    "snyk": "turbo run snyk"
   },
   "turbo": {
     "npmClient": "pnpm",
@@ -23,23 +36,22 @@
       },
       "build": {
         "dependsOn": [
-          "^build"
+          "^build",
+          "test"
         ]
       },
-      "test": {}
+      "test": {},
+      "dev": {
+        "cache": false
+      },
+      "ci": {},
+      "snyk": {}
     }
   },
   "workspaces": [
     "documentation/*",
     "lib/*"
   ],
-  "scripts": {
-    "lint:all": "turbo run lint:all",
-    "format": "turbo run format",
-    "build": "turbo run build",
-    "prepare": "husky install",
-    "dev": "turbo run dev"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prabhuignoto/react-creme.git"

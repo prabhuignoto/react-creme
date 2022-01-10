@@ -9,7 +9,7 @@ import { RefObject } from 'react';
 
 export declare const Accordion: React_2.FunctionComponent<AccordionModel>;
 
-declare interface AccordionCommon {
+export declare interface AccordionCommon {
     alignIconRight?: boolean;
     disableCollapse?: boolean;
     customIcon?: ReactNode;
@@ -27,7 +27,7 @@ export declare const AccordionGroup: {
     displayName: string;
 };
 
-declare interface AccordionGroupProps extends AccordionCommon {
+export declare interface AccordionGroupProps extends AccordionCommon {
     children: ReactNode[];
     titles?: string[];
     autoClose?: boolean;
@@ -36,7 +36,20 @@ declare interface AccordionGroupProps extends AccordionCommon {
     iconType?: "chevron" | "plus";
 }
 
-declare interface AccordionModel extends AccordionCommon {
+export declare interface AccordionHeaderProps extends AccordionCommon {
+    accordionBodyId?: string;
+    accordionId?: string;
+    onToggle?: () => void;
+    open?: boolean | null;
+}
+
+export declare interface AccordionItemProps {
+    id?: string;
+    expanded?: boolean;
+    focusable?: boolean;
+}
+
+export declare interface AccordionModel extends AccordionCommon {
     alignIconRight?: boolean;
     children?: ReactNode;
     expanded?: boolean | null;
@@ -49,7 +62,7 @@ declare interface AccordionModel extends AccordionCommon {
 
 export declare const Alert: React_2.FunctionComponent<AlertProps>;
 
-declare interface AlertProps {
+export declare interface AlertProps {
     message?: string;
     height?: number;
     state?: "success" | "error" | "warning" | "info";
@@ -60,7 +73,7 @@ declare interface AlertProps {
 
 export declare const AutoComplete: React_2.FunctionComponent<AutoCompleteProps>;
 
-declare interface AutoCompleteProps {
+export declare interface AutoCompleteProps {
     onChange?: (value: string) => void;
     suggestions: string[];
     suggestionsWidth?: number;
@@ -72,7 +85,7 @@ declare interface AutoCompleteProps {
 
 export declare const BlockQuote: React_2.FC<BlockQuoteProps>;
 
-declare interface BlockQuoteProps {
+export declare interface BlockQuoteProps {
     children: React_2.ReactNode;
 }
 
@@ -83,14 +96,21 @@ declare interface BreadCrumbCommonModel {
     size?: "sm" | "md" | "lg";
 }
 
-declare interface BreadCrumbModel extends BreadCrumbCommonModel {
+export declare interface BreadCrumbItemModel extends BreadCrumbCommonModel {
+    id: string;
+    onClick?: () => void;
+    child: ReactNode;
+    showChevron?: boolean;
+}
+
+export declare interface BreadCrumbModel extends BreadCrumbCommonModel {
     children: React_2.ReactNode;
     onClick?: () => void;
 }
 
 export declare const Button: React_2.FunctionComponent<ButtonModel>;
 
-declare interface ButtonModel {
+export declare interface ButtonModel {
     label?: string;
     onClick?: () => void;
     children?: React_2.ReactNode;
@@ -105,7 +125,7 @@ declare interface ButtonModel {
 
 export declare const Card: React_2.FunctionComponent<CardModel>;
 
-declare interface CardModel {
+export declare interface CardModel {
     header?: ReactNode;
     footer?: ReactNode;
     minHeight?: number;
@@ -118,7 +138,34 @@ declare interface CardModel {
 
 export declare const Carousel: React_2.FunctionComponent<CarouselModel>;
 
-declare interface CarouselModel {
+export declare interface CarouselButtonModel {
+    onClick: () => void;
+    position: "left" | "right";
+    direction: "horizontal" | "vertical";
+    hide?: boolean;
+    focusable?: boolean;
+}
+
+export declare interface CarouselItemModel {
+    height: number;
+    id: string;
+    left?: string;
+    top?: string;
+    visible?: boolean;
+    width: number;
+}
+
+export declare interface CarouselItemsModel {
+    activePage: number;
+    carouselItems: CarouselItemModel[];
+    children: React_2.ReactNode[] | React_2.ReactNode;
+    direction: "horizontal" | "vertical";
+    height: number;
+    totalItems: number;
+    width: number;
+}
+
+export declare interface CarouselModel {
     children: React_2.ReactNode | React_2.ReactNode;
     direction?: "horizontal" | "vertical";
     height?: number;
@@ -128,11 +175,23 @@ declare interface CarouselModel {
     focusable?: boolean;
 }
 
+export declare interface CarouselTrackModel {
+    activeIndex: number;
+    direction: "horizontal" | "vertical";
+    handleSelection: (index: number) => void;
+    length: number;
+    onNext: () => void;
+    onPrevious: () => void;
+    hideNext?: boolean;
+    focusable?: boolean;
+    hidePrevious?: boolean;
+}
+
 export declare const CheckBox: React_2.FunctionComponent<CheckboxModel>;
 
 export declare const CheckBoxGroup: React_2.FunctionComponent<CheckboxGroupProps>;
 
-declare interface CheckboxGroupProps {
+export declare interface CheckboxGroupProps {
     options: CheckboxModel[];
     border?: boolean;
     disabled?: boolean;
@@ -146,7 +205,7 @@ declare interface CheckboxGroupProps {
     noUniqueIds?: boolean;
 }
 
-declare interface CheckboxModel {
+export declare interface CheckboxModel {
     autoHeight?: boolean;
     border?: boolean;
     checkBoxStyle?: "square" | "round";
@@ -166,7 +225,7 @@ declare interface CheckboxModel {
 
 export declare const CircularProgress: React_2.FunctionComponent<CircularProgressProps>;
 
-declare interface CircularProgressProps {
+export declare interface CircularProgressProps {
     size?: "xs" | "sm" | "md" | "lg";
     style?: "double-ring" | "default";
     type?: "infinite" | "progressive";
@@ -180,7 +239,15 @@ declare interface CommonProps {
 
 export declare const DataGrid: React_2.FunctionComponent<DataGridProps>;
 
-declare interface DataGridColumn {
+export declare interface DataGridCell {
+    name: string;
+    value: string;
+    border?: boolean;
+    fixedHeight?: boolean;
+    formatter?: (value: any) => any;
+}
+
+export declare interface DataGridColumn {
     align?: string;
     format?: string;
     id?: string;
@@ -192,7 +259,7 @@ declare interface DataGridColumn {
     formatter?: (value: any) => any;
 }
 
-declare interface DataGridCommon {
+export declare interface DataGridCommon {
     layoutStyle?: "compact" | "comfortable";
     border?: boolean;
     fixedHeight?: boolean;
@@ -200,7 +267,19 @@ declare interface DataGridCommon {
     rowHeight?: number;
 }
 
-declare interface DataGridProps extends DataGridCommon {
+export declare interface DataGridHeaderProps extends DataGridCommon {
+    columnWidth?: number;
+    columns: DataGridColumn[];
+    onSort?: (column: string, dir: SortDirection) => void;
+    style?: CSSProperties;
+    border?: boolean;
+}
+
+export declare interface DataGridModel {
+    rows: DataRow[];
+}
+
+export declare interface DataGridProps extends DataGridCommon {
     columns?: DataGridColumn[];
     data: {
         [key: string]: string | number;
@@ -208,9 +287,17 @@ declare interface DataGridProps extends DataGridCommon {
     gridWidth?: number;
 }
 
+export declare interface DataRow extends DataGridCommon {
+    columnConfigs?: DataGridColumn[];
+    columnWidth?: number;
+    data: any;
+    id?: string;
+    style?: CSSProperties;
+}
+
 export declare const Dialog: React_2.FunctionComponent<DialogModel>;
 
-declare interface DialogModel extends OverlayModel {
+export declare interface DialogModel extends OverlayModel {
     children?: React_2.ReactNode;
     height?: number;
     onClose?: () => void;
@@ -221,7 +308,7 @@ declare interface DialogModel extends OverlayModel {
 
 export declare const Drawer: React_2.FunctionComponent<DrawerModel>;
 
-declare interface DrawerModel extends OverlayModel {
+export declare interface DrawerModel extends OverlayModel {
     children?: React_2.ReactNode | React_2.ReactNode[];
     height?: number | string;
     position?: "left" | "right" | "top" | "bottom";
@@ -231,7 +318,24 @@ declare interface DrawerModel extends OverlayModel {
 
 export declare const Dropdown: React_2.FunctionComponent<DropdownModel>;
 
-declare interface DropdownModel {
+export declare interface DropdownMenuModel extends OverlayModel {
+    allowMultiSelection?: boolean;
+    enableSearch?: boolean;
+    handleSelection: (selected: Option_2[]) => void;
+    open: boolean;
+    options: MenuOption[];
+    style: DropdownMenuStyleModel;
+    virtualize?: boolean;
+    RTL?: boolean;
+}
+
+declare interface DropdownMenuStyleModel {
+    maxMenuHeight?: number;
+    top?: number;
+    width?: number;
+}
+
+export declare interface DropdownModel {
     allowMultiSelection?: boolean;
     disabled?: boolean;
     enableSearch?: boolean;
@@ -247,7 +351,7 @@ declare interface DropdownModel {
 
 export declare const GlobalNotification: React_2.FunctionComponent<GlobalNotificationProps>;
 
-declare interface GlobalNotificationProps {
+export declare interface GlobalNotificationProps {
     closeAfter?: number;
     delay?: number;
     height?: number;
@@ -264,13 +368,13 @@ export { Image_2 as Image }
 
 export declare const ImageComparer: React_2.FunctionComponent<ImageComparerModel>;
 
-declare interface ImageComparerModel {
+export declare interface ImageComparerModel {
     sourceOne?: string;
     sourceTwo: string;
     direction?: "horizontal" | "vertical";
 }
 
-declare interface ImageProps extends React_2.ImgHTMLAttributes<HTMLImageElement> {
+export declare interface ImageProps extends React_2.ImgHTMLAttributes<HTMLImageElement> {
     expandImageOnClick?: boolean;
     isOverlay?: boolean;
     fitImage?: boolean;
@@ -282,7 +386,7 @@ declare interface ImageProps extends React_2.ImgHTMLAttributes<HTMLImageElement>
 
 export declare const Input: React_2.FunctionComponent<InputModel>;
 
-declare interface InputModel {
+export declare interface InputModel {
     border?: boolean;
     children?: React_2.ReactNode;
     controlled?: boolean;
@@ -303,7 +407,7 @@ declare interface InputModel {
 
 export declare const Link: React_2.FunctionComponent<AnchorHTMLAttributes<LinkModel>>;
 
-declare interface LinkModel {
+export declare interface LinkModel {
     children: React_2.ReactNode;
 }
 
@@ -319,7 +423,25 @@ declare interface ListCommonProps {
     RTL?: boolean;
 }
 
-declare interface ListModel extends ListCommonProps {
+export declare interface ListItemModel extends ListCommonProps {
+    disabled?: boolean;
+    id?: string;
+    name: string;
+    onSelection?: (opt: ListOption) => void;
+    selected?: boolean;
+    style?: CSSProperties;
+    value: string;
+}
+
+export declare interface ListItemOptionProps extends ListCommonProps {
+    name: string;
+    selected?: boolean;
+    tabIndex: number;
+    showCheck?: boolean;
+    focusable?: boolean;
+}
+
+export declare interface ListModel extends ListCommonProps {
     border?: boolean;
     enableSearch?: boolean;
     group?: boolean;
@@ -336,7 +458,7 @@ declare interface ListModel extends ListCommonProps {
     label?: string;
 }
 
-declare interface ListOption extends Option_2 {
+export declare interface ListOption extends Option_2 {
     group?: string;
     top?: number;
     visible?: boolean;
@@ -344,14 +466,14 @@ declare interface ListOption extends Option_2 {
 
 export declare const Menu: React_2.FunctionComponent<MenuModel>;
 
-declare interface MenuItemModel {
+export declare interface MenuItemModel {
     disabled?: boolean;
     id?: string;
     isDivider?: boolean;
     name?: string;
 }
 
-declare interface MenuModel {
+export declare interface MenuModel {
     children: React_2.ReactNode;
     focusable?: boolean;
     id?: string;
@@ -364,10 +486,14 @@ declare interface MenuModel {
     isClosing?: boolean;
 }
 
+export declare type MenuOption = Option_2 & {
+    visible: boolean;
+};
+
 declare const Notification_2: React_2.FunctionComponent<NotificationModel>;
 export { Notification_2 as Notification }
 
-declare interface NotificationModel extends OverlayModel {
+export declare interface NotificationModel extends OverlayModel {
     title?: string;
     position?: NotificationPosition;
     children: React_2.ReactNode[] | React_2.ReactNode;
@@ -387,6 +513,7 @@ declare interface Option_2 {
     selected?: boolean;
     value?: string;
 }
+export { Option_2 as Option }
 
 declare interface OverlayCommon {
     onClose?: () => void;
@@ -396,7 +523,7 @@ declare interface OverlayCommon {
     placementReference?: RefObject<HTMLElement>;
 }
 
-declare interface OverlayModel extends OverlayCommon {
+export declare interface OverlayModel extends OverlayCommon {
     isClosing?: boolean;
     showClose?: boolean;
     placement?: "top" | "bottom";
@@ -407,7 +534,7 @@ declare interface OverlayModel extends OverlayCommon {
 
 export declare const PageHeader: React_2.FunctionComponent<PageHeaderProps>;
 
-declare interface PageHeaderProps {
+export declare interface PageHeaderProps {
     title: string;
     children?: React_2.ReactNode;
     RTL?: boolean;
@@ -416,7 +543,7 @@ declare interface PageHeaderProps {
 
 export declare const Progress: React_2.FunctionComponent<ProgressModel>;
 
-declare interface ProgressModel {
+export declare interface ProgressModel {
     currentValue?: number;
     infiniteStyle?: "disappear" | "bob";
     maxValue?: number;
@@ -431,7 +558,7 @@ export declare const Radio: React_2.FunctionComponent<RadioModel>;
 
 export declare const RadioGroup: React_2.FunctionComponent<RadioGroupModel>;
 
-declare interface RadioGroupItemModel {
+export declare interface RadioGroupItemModel {
     disabled?: boolean;
     id?: string;
     label: string;
@@ -439,7 +566,7 @@ declare interface RadioGroupItemModel {
     value?: string;
 }
 
-declare interface RadioGroupModel {
+export declare interface RadioGroupModel {
     items: RadioGroupItemModel[];
     onSelected?: (selected: string) => void;
     disabled?: boolean;
@@ -447,7 +574,7 @@ declare interface RadioGroupModel {
     layout?: "row" | "column";
 }
 
-declare interface RadioModel {
+export declare interface RadioModel {
     disabled?: boolean;
     id?: string;
     isChecked?: boolean | null;
@@ -468,7 +595,20 @@ declare interface RadioModel {
 
 export declare const Rate: React_2.FunctionComponent<RateProps>;
 
-declare interface RateProps extends CommonProps {
+export declare interface RateItemModel {
+    active: boolean;
+    hovered: boolean;
+    id: string;
+}
+
+export declare interface RateItemViewModel extends CommonProps, RateItemModel {
+    index: number;
+    onMouseOver: (idx: number) => void;
+    onSelect: (idx: number) => void;
+    disabled?: boolean;
+}
+
+export declare interface RateProps extends CommonProps {
     iconCount?: number;
     onChange?: (value: number | string) => void;
     ratingValues?: string[];
@@ -478,14 +618,14 @@ declare interface RateProps extends CommonProps {
 
 export declare const Reveal: React_2.FunctionComponent<RevealProps>;
 
-declare interface RevealProps {
+export declare interface RevealProps {
     children: React_2.ReactNode | React_2.ReactNode[];
     parent: React_2.RefObject<HTMLElement>;
 }
 
 export declare const ScrollSpy: React_2.FC<ScrollSpyProps>;
 
-declare interface ScrollSpyProps {
+export declare interface ScrollSpyProps {
     links: string[];
     children: React_2.ReactNode[] | React_2.ReactNode;
     linksPosition?: "left" | "right";
@@ -494,7 +634,7 @@ declare interface ScrollSpyProps {
 
 export declare const Section: React_2.FC<SectionModel>;
 
-declare interface SectionModel {
+export declare interface SectionModel {
     children: React_2.ReactNode | React_2.ReactNode[];
     title?: string;
     height?: number;
@@ -505,7 +645,7 @@ declare interface SectionModel {
 
 export declare const Sidebar: React_2.FunctionComponent<SidebarModel>;
 
-declare interface SidebarCommonProps {
+export declare interface SidebarCommonProps {
     groupIconColor?: string;
     focusable?: boolean;
     groupTitleColor?: string;
@@ -514,21 +654,27 @@ declare interface SidebarCommonProps {
     iconsColor?: string;
 }
 
-declare interface SidebarGroupModel {
+export declare interface SidebarGroupModel {
     id?: string;
     items: ListOption[];
     title: string;
     visible?: boolean;
 }
 
-declare interface SidebarItemModel {
+export declare interface SidebarGroupsModel extends SidebarCommonProps {
+    groups: SidebarGroupModel[];
+    onSelection: (option: ListOption[], id?: string) => void;
+    sideBarHeight?: number;
+}
+
+export declare interface SidebarItemModel {
     id?: string;
     name: string;
     selected?: boolean;
     visible?: boolean;
 }
 
-declare interface SidebarModel extends SidebarCommonProps {
+export declare interface SidebarModel extends SidebarCommonProps {
     backGroundColor?: string;
     border?: boolean;
     enableSearch?: boolean;
@@ -540,7 +686,12 @@ declare interface SidebarModel extends SidebarCommonProps {
 
 export declare const Skeleton: FunctionComponent<SkeletonModel>;
 
-declare interface SkeletonModel {
+export declare interface SkeletonBlockModel {
+    id: string;
+    rows: SkeletonRowModel[];
+}
+
+export declare interface SkeletonModel {
     rows?: number;
     width?: number;
     rowHeight?: number;
@@ -550,9 +701,16 @@ declare interface SkeletonModel {
     style?: CSSProperties;
 }
 
+export declare interface SkeletonRowModel {
+    id: string;
+    visible?: boolean;
+    width?: number;
+    disableAnimation?: boolean;
+}
+
 export declare const Slider: React_2.FunctionComponent<SliderModel>;
 
-declare interface SliderModel {
+export declare interface SliderModel {
     start?: number;
     end?: number;
     onChange?: (value: number) => void;
@@ -568,9 +726,11 @@ declare interface SliderModel {
     formatter?: (value: number) => string;
 }
 
+export declare type SortDirection = "asc" | "desc" | "none";
+
 export declare const Splitter: React_2.FunctionComponent<SplitterModel>;
 
-declare interface SplitterModel {
+export declare interface SplitterModel {
     dir: "horizontal" | "vertical";
     children: React_2.ReactNode[];
     minSplitWidth?: number;
@@ -583,7 +743,7 @@ declare interface SplitterModel {
 
 export declare const Switch: React_2.FunctionComponent<SwitchModel>;
 
-declare interface SwitchModel {
+export declare interface SwitchModel {
     checked?: boolean;
     disabled?: boolean;
     focusable?: boolean;
@@ -596,6 +756,27 @@ declare interface SwitchModel {
     showCheckIcon?: boolean;
 }
 
+export declare interface TabHeadersModel extends TabsCommonModel {
+    items: TabItemModel[];
+    handleTabSelection: (id: string) => void;
+}
+
+export declare interface TabHeadProps extends TabsCommonModel {
+    id: string;
+    name?: string;
+    selected?: boolean;
+    disabled?: boolean;
+    handleTabSelection: (id: string) => void;
+}
+
+export declare interface TabItemModel {
+    name: string;
+    id: string;
+    selected?: boolean;
+    disabled?: boolean;
+    content?: ReactNode;
+}
+
 export declare const Tabs: React_2.FunctionComponent<TabsModel>;
 
 declare interface TabsCommonModel {
@@ -604,7 +785,7 @@ declare interface TabsCommonModel {
     focusable?: boolean;
 }
 
-declare interface TabsModel extends TabsCommonModel {
+export declare interface TabsModel extends TabsCommonModel {
     children: ReactNode[];
     labels: string[];
     width?: number | string;
@@ -613,7 +794,7 @@ declare interface TabsModel extends TabsCommonModel {
     iconsColor?: string;
 }
 
-declare interface TagItemModel {
+export declare interface TagItemModel {
     name: string;
     disabled?: boolean;
     readonly?: boolean;
@@ -621,7 +802,7 @@ declare interface TagItemModel {
 
 export declare const Tags: React_2.FunctionComponent<TagsModel>;
 
-declare interface TagsModel {
+export declare interface TagsModel {
     items: TagItemModel[];
     onChange?: (selected: string[]) => void;
     maxTags?: number;
@@ -639,7 +820,7 @@ declare interface TagsModel {
 
 export declare const Tooltip: React_2.FunctionComponent<TooltipModel>;
 
-declare interface TooltipModel {
+export declare interface TooltipModel {
     children: React_2.ReactNode[] | React_2.ReactNode;
     isStatic?: boolean;
     message: string;
@@ -654,15 +835,32 @@ declare interface TooltipModel {
     foreColor?: string;
 }
 
-declare type ToolTipPosition = "top left" | "top right" | "top center" | "bottom center" | "bottom left" | "bottom right" | "left center" | "left top" | "left bottom" | "right center";
+export declare type ToolTipPosition = "top left" | "top right" | "top center" | "bottom center" | "bottom left" | "bottom right" | "left center" | "left top" | "left bottom" | "right center";
 
 export declare const Transfer: React_2.FunctionComponent<TransferModel>;
 
-declare interface TransferCommonModel {
+export declare interface TransferCommonModel {
     virtualize?: boolean;
 }
 
-declare interface TransferModel extends TransferCommonModel {
+export declare type TransferList = "list1" | "list2";
+
+export declare interface TransferListItemModel extends TransferCommonModel {
+    selected?: boolean;
+    id: string;
+    name: string;
+    handleSelection: (l: TransferList, id: string) => void;
+    list: TransferList;
+}
+
+export declare interface TransferListProps extends TransferCommonModel {
+    listId: TransferList;
+    options: ListOption[];
+    onSelection: (selected: ListOption[]) => void;
+    enableSearch?: boolean;
+}
+
+export declare interface TransferModel extends TransferCommonModel {
     list1: string[];
     list2: string[];
     onChange?: (list1: string[], list2: string[]) => void;
@@ -679,7 +877,7 @@ declare interface TreeCommonModel {
     iconType?: "plus" | "chevron";
 }
 
-declare interface TreeItemModel extends TreeCommonModel {
+export declare interface TreeItemModel extends TreeCommonModel {
     child?: TreeItemModel[];
     disabled?: boolean;
     expanded?: boolean;
@@ -689,7 +887,7 @@ declare interface TreeItemModel extends TreeCommonModel {
     selected?: boolean;
 }
 
-declare interface TreeModel extends TreeCommonModel {
+export declare interface TreeModel extends TreeCommonModel {
     childrenSelected?: boolean;
     height?: number;
     isChildTree?: boolean;

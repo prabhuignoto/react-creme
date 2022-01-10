@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React, { useMemo } from "react";
 import "./circular-progress.scss";
 
-interface CircularProgressProps {
+export interface CircularProgressProps {
   size?: "xs" | "sm" | "md" | "lg";
   style?: "double-ring" | "default";
   type?: "infinite" | "progressive";

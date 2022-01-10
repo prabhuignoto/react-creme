@@ -1,7 +1,7 @@
 import React, { AnchorHTMLAttributes } from "react";
 import "./link.scss";
 
-interface LinkModel {
+export interface LinkModel {
   children: React.ReactNode;
 }
 

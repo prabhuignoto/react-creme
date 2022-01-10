@@ -5,8 +5,10 @@ importers:
   .:
     specifiers:
       husky: ^7.0.4
+      snyk: ^1.819.0
       turbo: ^1.0.24
     dependencies:
+      snyk: 1.820.0
       turbo: 1.0.24
     devDependencies:
       husky: 7.0.4
@@ -8205,7 +8207,6 @@ packages:
     resolution: {integrity: sha512-O+c6I3ekVng1O2lsJVfdtbcXIendARjU+4zBq2YmQzaQWX+bZXBYoEZzsYb9UoyzriXhxUtjVDjE0RnJFVKPBQ==}
     engines: {node: '>=10'}
     hasBin: true
-    dev: true
 
   /socks-proxy-agent/6.1.1:
     resolution: {integrity: sha512-t8J0kG3csjA4g6FTbsMOWws+7R7vuRC8aQ/wy3/1OWmsgwA68zs/+cExQ0koSitUDXqhufF/YJr9wtNMZHw5Ew==}

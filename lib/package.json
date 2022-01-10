@@ -1,6 +1,6 @@
 {
-  "name": "react-creme-alpha",
-  "version": "0.1.6",
+  "name": "react-creme",
+  "version": "0.0.1",
   "author": {
     "name": "Prabhu Murthy",
     "email": "prabhu.m.murthy@gmail.com"
@@ -116,8 +116,8 @@
     "nth-check": "^2.0.1",
     "postcss": "^8.2.13"
   },
-  "main": "react-creme-alpha.js",
-  "module": "react-creme-alpha.esm.js",
-  "umd": "react-creme-alpha.umd.js",
-  "css": "react-creme-alpha.css"
+  "main": "react-creme.js",
+  "module": "react-creme.esm.js",
+  "umd": "react-creme.umd.js",
+  "css": "react-creme.css"
 }

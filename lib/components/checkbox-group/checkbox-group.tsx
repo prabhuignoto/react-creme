@@ -6,7 +6,7 @@ import { CheckboxModel } from "../checkbox/checkbox-model";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import "./checkbox-group.scss";
 
-interface CheckboxGroupProps {
+export interface CheckboxGroupProps {
   options: CheckboxModel[];
   border?: boolean;
   disabled?: boolean;

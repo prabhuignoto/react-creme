@@ -1,7 +1,7 @@
 import React from "react";
 import "./block-quote.scss";
 
-interface BlockQuoteProps {
+export interface BlockQuoteProps {
   children: React.ReactNode;
 }
 
