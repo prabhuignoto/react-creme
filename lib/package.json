@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm rollup && pnpm emit-dts && pnpm extract-api && ncp ./typings ./dist",
-    "ci": "pnpm lint:all && pnpm test -- --runInBand --updateSnapshot && pnpm build",
+    "ci": "pnpm lint:all && pnpm test -- --runInBand --updateSnapshot",
     "emit-dts": "rimraf ./dts && tsc --project tsconfig.json --declaration --emitDeclarationOnly --noEmit false",
     "eslint": "npx eslint ./components/**/*.tsx",
     "extract-api": "rimraf ./typings && npx api-extractor run --local --verbose",

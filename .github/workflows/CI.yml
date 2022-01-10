@@ -23,7 +23,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npx pnpm install --frozen-lockfile
     - run: npx pnpm ci
-    - run: npx pnpm build
+    - run: npx pnpm snyk
 
     # Runs a single command using the runners shell
     - name: Codecov
