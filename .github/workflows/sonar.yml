@@ -19,8 +19,8 @@ jobs:
       uses: sonarsource/sonarcloud-github-action@master
       with:
         args: >
-          -Dsonar.organization=Prabhu Murthy
-          -Dsonar.projectKey=my-prabhuignoto
+          -Dsonar.organization=react-creme
+          -Dsonar.projectKey=react-creme
           -Dsonar.python.coverage.reportPaths=coverage.xml
           -Dsonar.sources=lib/
           -Dsonar.test.exclusions=tests/**
