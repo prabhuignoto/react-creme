@@ -50,7 +50,7 @@ npm install react-creme
 
 `react-creme` is a modern UI component library with support for all the latest browsers
 
-<div style="display: flex; justify-content: space-between; width: 250px">
+<div style="display: flex; justify-content: space-between; width: 280px">
   <img src="./readme-assets/chrome.svg" alt="chrome" width=50 />
   <img src="./readme-assets/firefox.svg" alt="chrome" width=50 />
   <img src="./readme-assets/edge.svg" alt="chrome" width=50 />
