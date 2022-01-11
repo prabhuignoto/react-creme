@@ -5,7 +5,7 @@
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=react-creme)
 
 <section>
-  <img src="backdrop.jpg" />
+  <img src="./readme-assets/backdrop.jpg" />
 </section>
 
 </br>
@@ -45,6 +45,17 @@ npm install react-creme
 
   export default App;
 ```
+
+## Browser Support
+
+`react-creme` is a modern UI component library with support for all the latest browsers
+
+<div style="display: flex; justify-content: space-between; width: 250px">
+  <img src="./readme-assets/chrome.svg" alt="chrome" width=50 />
+  <img src="./readme-assets/firefox.svg" alt="chrome" width=50 />
+  <img src="./readme-assets/edge.svg" alt="chrome" width=50 />
+  <img src="./readme-assets/safari.svg" alt="chrome" width=50 />
+</div>
 
 ## Development
 
