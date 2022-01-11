@@ -2,6 +2,7 @@
 [![codecov](https://codecov.io/gh/prabhuignoto/react-creme/branch/master/graph/badge.svg?token=JEL70TGE8Q)](https://codecov.io/gh/prabhuignoto/react-creme)
 [![Snyk](https://snyk.io/test/github/prabhuignoto/react-creme/badge.svg)](https://snyk.io/test/github/prabhuignoto/react-creme)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=react-creme&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=react-creme)
+[![CodeFactor](https://www.codefactor.io/repository/github/prabhuignoto/react-creme/badge)](https://www.codefactor.io/repository/github/prabhuignoto/react-creme)
 [![dev status](https://img.shields.io/badge/status-alpha-green)](https://img.shields.io/badge/status-alpha-green)
 
 <section>
@@ -50,7 +51,7 @@ npm install react-creme
 
 `react-creme` is a modern UI component library with support for all the latest browsers
 
-<div style="display: flex; justify-content: space-between; width: 250px">
+<div style="display: flex; justify-content: space-between; width: 280px">
   <img src="./readme-assets/chrome.svg" alt="chrome" width=50 />
   <img src="./readme-assets/firefox.svg" alt="chrome" width=50 />
   <img src="./readme-assets/edge.svg" alt="chrome" width=50 />
