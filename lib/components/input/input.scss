@@ -13,9 +13,9 @@
   grid-template-columns: 2rem calc(100% - 4rem) 2rem;
   height: 35px;
   justify-items: center;
+  position: relative;
   width: 100%;
   z-index: 2;
-  position: relative;
 
   &.rc-input-rtl {
     direction: rtl;
@@ -27,20 +27,18 @@
 
   &::after {
     @include position.position-abs("center center");
+    border: 3px solid transparent;
+    border-radius: 4px;
     content: "";
     display: block;
-    width: 98%;
     height: 98%;
-    border: 3px solid transparent;
     transition: border 0.25s ease-in;
+    width: 98%;
     z-index: -1;
-    border-radius: 4px;
   }
 
-  &.rc-input-focus {
-    &::after {
-      border: 3px solid colors.$primary;
-    }
+  &.rc-input-focus::after {
+    border: 3px solid colors.$primary;
   }
 
   &:not(.rc-input-border) {

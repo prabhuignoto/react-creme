@@ -22,7 +22,7 @@
     "build:doc": "turbo run build --scope=*docu*",
     "ci": "turbo run ci",
     "snyk": "turbo run snyk",
-    "fix:css": "turbo run fix:css"
+    "fix-css": "turbo run fix-css"
   },
   "turbo": {
     "npmClient": "pnpm",
@@ -47,7 +47,7 @@
       },
       "ci": {},
       "snyk": {},
-      "fix:css": {}
+      "fix-css": {}
     }
   },
   "workspaces": [

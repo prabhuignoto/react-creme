@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rimraf ./expo_dist && tsc && vite build",
     "dev": "vite",
-    "fix:css": "npx stylelint ./components/**/*.scss --fix",
+    "fix-css": "npx stylelint ./components/**/*.scss --fix",
     "format": "prettier --write \"components/**/*.{js,jsx,ts,tsx}\"",
     "lint:all": "npx eslint && pnpm run lint:css && pnpm run prettier:check",
     "lint:css": "npx stylelint ./components/**/*.scss",

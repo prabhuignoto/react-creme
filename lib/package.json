@@ -19,7 +19,7 @@
     "emit-dts": "rimraf ./dts && tsc --project tsconfig.json --declaration --emitDeclarationOnly --noEmit false",
     "eslint": "npx eslint ./components/**/*.tsx",
     "extract-api": "rimraf ./typings && npx api-extractor run --local --verbose",
-    "fix:css": "npx stylelint ./components/**/*.scss --fix",
+    "fix-css": "npx stylelint ./components/**/*.scss --fix",
     "format": "prettier --write \"components/**/*.{js,jsx,ts,tsx}\"",
     "lint:all": "pnpm run eslint && pnpm run lint:css && pnpm run prettier:check",
     "lint:css": "npx stylelint ./components/**/*.scss",
