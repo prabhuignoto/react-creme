@@ -6,7 +6,7 @@ export interface InputModel {
   controlled?: boolean;
   disabled?: boolean;
   enableClear?: boolean;
-  focus?: boolean;
+  focusable?: boolean;
   id?: string;
   isAutoComplete?: boolean;
   noUniqueId?: boolean;

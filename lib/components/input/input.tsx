@@ -6,7 +6,7 @@ import React, {
   useImperativeHandle,
   useMemo,
   useRef,
-  useState,
+  useState
 } from "react";
 import { CloseIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
@@ -31,7 +31,7 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
       id = "",
       isAutoComplete = false,
       border = false,
-      focus = false,
+      focusable = false,
       RTL = false,
     } = props;
     const [inputValue, setInputValue] = useState(value);
@@ -121,7 +121,7 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
     );
 
     const focusProps = useMemo(() => {
-      if (focus) {
+      if (focusable) {
         return {
           onFocus: () => setHasFocus(true),
           onBlur: () => setHasFocus(false),
@@ -163,3 +163,4 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
 Input.displayName = "Input";
 
 export { Input };
+

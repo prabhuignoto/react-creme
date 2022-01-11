@@ -28,7 +28,6 @@
     "npmClient": "pnpm",
     "pipeline": {
       "format": {
-        "outputs": [],
         "cache": true
       },
       "lint:all": {

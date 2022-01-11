@@ -122,6 +122,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
               onChange={handleSearch}
               placeholder={searchPlaceholder}
               controlled
+              focusable={focusable}
             >
               <SearchIcon />
             </Input>

@@ -68,7 +68,7 @@ function widgets() {
                 isChecked
                 size="lg"
                 border={false}
-                focusIcon
+                focusable
               />
             </div>
           </DemoWidget>

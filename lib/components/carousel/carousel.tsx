@@ -55,10 +55,9 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
     activePage < trackCount.current - 1 && setActivePage((prev) => prev + 1);
   }, [activePage]);
 
-  const handlePrevious = useCallback(
-    () => activePage > 0 && setActivePage((prev) => prev - 1),
-    [activePage]
-  );
+  const handlePrevious = useCallback(() => {
+    setActivePage((prev) => prev - 1);
+  }, [activePage]);
 
   const handleActivatePage = useCallback(
     (pageIndex) => setActivePage(pageIndex),

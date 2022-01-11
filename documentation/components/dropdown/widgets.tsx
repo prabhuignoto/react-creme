@@ -57,6 +57,7 @@ function Widgets() {
                 placeholder="choose a country"
                 allowMultiSelection
                 maxMenuHeight={300}
+                focusable
                 options={[
                   { name: "germany", value: "germany", disabled: true },
                   { name: "india", value: "india" },

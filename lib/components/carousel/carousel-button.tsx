@@ -5,28 +5,38 @@ import { Button } from "../button/button";
 import { CarouselButtonModel } from "./carousel-model";
 import "./carousel.scss";
 
-const CarouselButton: React.FunctionComponent<CarouselButtonModel> = React.memo(
-  ({ onClick, position, hide, direction, focusable }: CarouselButtonModel) => {
-    return (
-      <span
-        className={classNames(
-          [
-            "rc-carousel-btn",
-            `rc-carousel-btn-${position}`,
-            `rc-carousel-btn-${direction}`,
-          ],
-          {
-            "rc-carousel-btn-hide": hide,
-          }
-        )}
+const CarouselButton: React.FunctionComponent<CarouselButtonModel> = ({
+  onClick,
+  position,
+  hide,
+  direction,
+  focusable,
+  label,
+}: CarouselButtonModel) => {
+  return (
+    <span
+      className={classNames(
+        [
+          "rc-carousel-btn",
+          `rc-carousel-btn-${position}`,
+          `rc-carousel-btn-${direction}`,
+        ],
+        {
+          "rc-carousel-btn-hide": hide,
+        }
+      )}
+    >
+      <Button
+        type="icon"
+        onClick={onClick}
+        focusable={focusable}
+        label={label}
       >
-        <Button type="icon" onClick={onClick} focusable={focusable}>
-          <ChevronRightIcon />
-        </Button>
-      </span>
-    );
-  }
-);
+        <ChevronRightIcon />
+      </Button>
+    </span>
+  );
+};
 
 CarouselButton.displayName = "CarouselButton";
 

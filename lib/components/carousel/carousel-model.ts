@@ -47,4 +47,5 @@ export interface CarouselButtonModel {
   direction: "horizontal" | "vertical";
   hide?: boolean;
   focusable?: boolean;
+  label: string;
 }

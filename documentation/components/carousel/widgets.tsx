@@ -63,7 +63,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget fullWidth>
             <div style={{ height: "300px", width: resolvedWidth }}>
-              <Carousel direction="vertical">
+              <Carousel direction="vertical" focusable>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
                   non tempor nunc, quis gravida justo. Proin sed pellentesque

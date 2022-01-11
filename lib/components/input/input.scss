@@ -3,6 +3,7 @@
 @use "../../design/icon.scss";
 @use "../../design/button.scss";
 @use "../../design/animate.scss";
+@use "../../design/position.scss";
 
 .rc-input {
   align-items: center;
@@ -14,6 +15,7 @@
   justify-items: center;
   width: 100%;
   z-index: 2;
+  position: relative;
 
   &.rc-input-rtl {
     direction: rtl;
@@ -23,9 +25,22 @@
     @extend %border;
   }
 
+  &::after {
+    @include position.position-abs("center center");
+    content: "";
+    display: block;
+    width: 98%;
+    height: 98%;
+    border: 3px solid transparent;
+    transition: border 0.25s ease-in;
+    z-index: -1;
+    border-radius: 4px;
+  }
+
   &.rc-input-focus {
-    outline: 2px solid colors.$primary;
-    outline-offset: 3px;
+    &::after {
+      border: 3px solid colors.$primary;
+    }
   }
 
   &:not(.rc-input-border) {

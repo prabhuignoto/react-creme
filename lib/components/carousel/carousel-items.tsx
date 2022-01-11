@@ -29,6 +29,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
           className={"rc-carousel-item"}
           role="listitem"
           data-visible={activePage === index}
+          aria-hidden={activePage !== index}
           style={{
             width: item.width,
             visibility: item.width === 0 ? "hidden" : "visible",
