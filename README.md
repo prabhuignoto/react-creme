@@ -72,3 +72,9 @@ To build and run the documentation
 pnpm build:doc
 cd ./documentation/expo_dist && npx serve .
 ```
+
+To run the Unit tests
+
+```sh
+pnpm test
+```
