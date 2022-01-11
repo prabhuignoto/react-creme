@@ -19,7 +19,7 @@ jobs:
       uses: sonarsource/sonarcloud-github-action@master
       with:
         args: >
-          -Dsonar.organization=Prabhu Murthy
+          -Dsonar.organization=PrabhuMurthy
           -Dsonar.projectKey=my-prabhuignoto
           -Dsonar.python.coverage.reportPaths=coverage.xml
           -Dsonar.sources=lib/
