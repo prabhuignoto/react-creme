@@ -22,7 +22,7 @@ function widgets() {
         <BlockQuote>The label can be placed outside the switch.</BlockQuote>
         <DemoWidget>
           <div style={{ width: "150px" }}>
-            <Switch label="Settings" labelOutside focusable={true} />
+            <Switch label="Settings" labelOutside focusable />
           </div>
         </DemoWidget>
       </Section>

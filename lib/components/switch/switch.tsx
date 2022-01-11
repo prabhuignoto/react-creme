@@ -9,7 +9,7 @@ import { CheckIcon } from "../../icons";
 const Switch: React.FunctionComponent<SwitchModel> = ({
   checked = false,
   disabled = false,
-  focusable = true,
+  focusable = false,
   label,
   labelOutside = false,
   onChange,

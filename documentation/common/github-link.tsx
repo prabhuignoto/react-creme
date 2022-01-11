@@ -5,7 +5,7 @@ import React from "react";
 const GithubLink = () => (
   <div className="rc-demo-app-github-link">
     <a
-      href="http://github.com/prabhuignoto/react-creme"
+      href="https://github.com/prabhuignoto/react-creme/"
       target="_blank"
       rel="noreferrer"
       aria-label="Github"

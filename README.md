@@ -1,11 +1,19 @@
 [![Snyk](https://github.com/prabhuignoto/react-creme/actions/workflows/snyk.yml/badge.svg)](https://github.com/prabhuignoto/react-creme/actions/workflows/snyk.yml)
 [![Lint Code Base](https://github.com/prabhuignoto/react-creme/actions/workflows/linter.yml/badge.svg)](https://github.com/prabhuignoto/react-creme/actions/workflows/linter.yml)
 [![codecov](https://codecov.io/gh/prabhuignoto/react-creme/branch/master/graph/badge.svg?token=JEL70TGE8Q)](https://codecov.io/gh/prabhuignoto/react-creme)
+[![Known Vulnerabilities](https://snyk.io/test/github/prabhuignoto/react-creme/badge.svg)](https://snyk.io/test/github/prabhuignoto/react-creme)
 
+<section>
+  <img src="backdrop.jpg" />
+</section>
 
-# React-Creme
+</br>
 
-Extensive UI Toolkit built for React
+# react-creme
+
+Modern UI Toolkit for React
+
+> This is a Monorepo powered by Turbo Repo. Both the library and the documentation is housed in the mono repo
 
 ## Getting Started
 
@@ -20,61 +28,47 @@ npm install react-creme
 
 ```
 
-## Local Development
+## Usage
 
 ```sh
-yarn install
-yarn run dev
+  import React from "react";
+  import { Button } from "react-creme";
+
+  const App = () => {
+    return (
+      <div>
+        <Button>Click Me</Button>
+      </div>
+    );
+  };
+
+  export default App;
 ```
 
-## Linting Javascript and CSS
-
-Linting Typescript
+## Development
 
 ```sh
-  yarn run eslint
+pnpm install
+pnpm dev
 ```
 
-Linting SCSS
+## Build
+
+To build everything
 
 ```sh
-  yarn run lint:css
+pnpm build
 ```
 
-Linting everything
+To build the library
 
 ```sh
-  yarn run lint:all
+pnpm build: lib
 ```
 
-
-## Prettier
-
-Check for issues
+To build and run the documentation
 
 ```sh
-  yarn run prettier:check
-```
-
-Format
-
-```sh
-  yarn run format
-```
-
-
-## Building and running the documentation
-
-```sh
-yarn build:doc
-
-cd ./expo_dist
-npx serve .
-
-```
-
-## Building and packaging the library
-
-```sh
-yarn build:lib
+pnpm build:doc
+cd ./documentation/expo_dist && npx serve .
 ```
