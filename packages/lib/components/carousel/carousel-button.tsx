@@ -26,12 +26,7 @@ const CarouselButton: React.FunctionComponent<CarouselButtonModel> = ({
         }
       )}
     >
-      <Button
-        type="icon"
-        onClick={onClick}
-        focusable={focusable}
-        label={label}
-      >
+      <Button type="icon" onClick={onClick} focusable={focusable} label={label}>
         <ChevronRightIcon />
       </Button>
     </span>

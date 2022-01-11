@@ -145,6 +145,7 @@ export declare interface CarouselButtonModel {
     direction: "horizontal" | "vertical";
     hide?: boolean;
     focusable?: boolean;
+    label: string;
 }
 
 export declare interface CarouselItemModel {
@@ -395,7 +396,7 @@ export declare interface InputModel {
     controlled?: boolean;
     disabled?: boolean;
     enableClear?: boolean;
-    focus?: boolean;
+    focusable?: boolean;
     id?: string;
     isAutoComplete?: boolean;
     noUniqueId?: boolean;

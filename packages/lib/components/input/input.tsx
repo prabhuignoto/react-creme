@@ -6,7 +6,7 @@ import React, {
   useImperativeHandle,
   useMemo,
   useRef,
-  useState
+  useState,
 } from "react";
 import { CloseIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
@@ -163,4 +163,3 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
 Input.displayName = "Input";
 
 export { Input };
-
