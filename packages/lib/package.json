@@ -1,6 +1,6 @@
 {
   "name": "react-creme",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "author": {
     "name": "Prabhu Murthy",
     "email": "prabhu.m.murthy@gmail.com"
@@ -20,14 +20,13 @@
   "scripts": {
     "build": "pnpm rollup",
     "ci": "pnpm lint && pnpm test -- --updateSnapshot --coverage",
-    "emit-dts": "tsc --project tsconfig.json --declaration --emitDeclarationOnly --noEmit false",
     "eslint": "npx eslint ./components/**/*.tsx",
     "fix-css": "npx stylelint ./components/**/*.scss ./design/**/*.scss --fix",
     "format": "prettier --write \"components/**/*.{js,jsx,ts,tsx}\"",
     "lint": "pnpm eslint && pnpm lint:css && pnpm prettier:check",
     "lint:css": "npx stylelint ./components/**/*.scss ./design/**/*.scss",
     "prettier:check": "prettier --check \"components/**/*.{ts,tsx}\"",
-    "rollup": "rollup -c",
+    "rollup": "rimraf ./dist && rollup -c",
     "snyk": "npx snyk test",
     "test": "jest --runInBand --updateSnapshot"
   },

@@ -5,6 +5,7 @@ function carousel() {
   return (
     <DemoPageRenderer
       demoWidget={lazy(() => import("./widgets"))}
+      stackBlitzCodes={["react-ts-kgea3r"]}
       title="Carousel"
       description="Carousel is a component that displays a list of items in a carousel."
       properties={[
@@ -37,7 +38,7 @@ function carousel() {
           type: "Number",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
     ></DemoPageRenderer>
   );
 }

@@ -6,7 +6,6 @@ importers:
     specifiers:
       eslint: ^8.6.0
       eslint-config-prettier: ^8.3.0
-      eslint-config-standard: ^16.0.3
       eslint-plugin-import: 2.25.4
       eslint-plugin-jest: ^25.3.4
       eslint-plugin-jsx-a11y: ^6.5.1
@@ -15,7 +14,7 @@ importers:
       eslint-plugin-react: ^7.28.0
       husky: ^7.0.4
       lint-staged: ^12.1.7
-      snyk: ^1.821.0
+      snyk: ^1.825.0
       stylelint: 14.2.0
       stylelint-config-prettier: ^9.0.3
       stylelint-scss: ^4.1.0
@@ -24,7 +23,6 @@ importers:
     dependencies:
       eslint: 8.6.0
       eslint-config-prettier: 8.3.0_eslint@8.6.0
-      eslint-config-standard: 16.0.3_8d3cc733693a55bff97313a767012510
       eslint-plugin-import: 2.25.4_eslint@8.6.0
       eslint-plugin-jest: 25.3.4_eslint@8.6.0+typescript@4.5.4
       eslint-plugin-jsx-a11y: 6.5.1_eslint@8.6.0
@@ -33,7 +31,7 @@ importers:
       eslint-plugin-react: 7.28.0_eslint@8.6.0
       husky: 7.0.4
       lint-staged: 12.1.7
-      snyk: 1.821.0
+      snyk: 1.825.0
       stylelint: 14.2.0
       stylelint-config-prettier: 9.0.3_stylelint@14.2.0
       stylelint-scss: 4.1.0_stylelint@14.2.0
@@ -54,6 +52,7 @@ importers:
       '@fortawesome/free-solid-svg-icons': ^5.15.4
       '@fortawesome/react-fontawesome': ^0.1.16
       '@playwright/test': ^1.17.2
+      '@stackblitz/sdk': ^1.5.3
       '@types/react': ^17.0.38
       '@types/react-dom': ^17.0.11
       '@types/react-syntax-highlighter': ^13.5.2
@@ -67,7 +66,6 @@ importers:
       esbuild: ^0.14.11
       eslint: ^8.6.0
       eslint-config-prettier: ^8.3.0
-      eslint-config-standard: ^16.0.3
       eslint-plugin-import: 2.25.4
       eslint-plugin-jsx-a11y: ^6.5.1
       eslint-plugin-node: 11.1.0
@@ -101,6 +99,7 @@ importers:
       vite: 2.6.13
       vite-plugin-react-svg: ^0.2.0
     dependencies:
+      '@stackblitz/sdk': 1.5.3
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
       classnames: 2.3.1
@@ -133,7 +132,6 @@ importers:
       esbuild: 0.14.11
       eslint: 8.6.0
       eslint-config-prettier: 8.3.0_eslint@8.6.0
-      eslint-config-standard: 16.0.3_8d3cc733693a55bff97313a767012510
       eslint-plugin-import: 2.25.4_eslint@8.6.0
       eslint-plugin-jsx-a11y: 6.5.1_eslint@8.6.0
       eslint-plugin-node: 11.1.0_eslint@8.6.0
@@ -2074,6 +2072,10 @@ packages:
     dependencies:
       '@sinonjs/commons': 1.8.3
     dev: true
+
+  /@stackblitz/sdk/1.5.3:
+    resolution: {integrity: sha512-4fCa1YGdGXiWsCEsFQN+O6RP4JibmEMO58S9wzbFSko6lu1zLqkTBomRt1LCF7TImWeJaSSMDMqin58bey+N9Q==}
+    dev: false
 
   /@svgr/babel-plugin-add-jsx-attribute/5.4.0:
     resolution: {integrity: sha512-ZFf2gs/8/6B8PnSofI0inYXr2SDNTDScPXhN7k5EqD4aZ3gi6u+rbmZHVB8IM3wDyx8ntKACZbtXSm7oZGRqVg==}
@@ -4159,6 +4161,7 @@ packages:
       eslint-plugin-import: 2.25.4_eslint@8.6.0
       eslint-plugin-node: 11.1.0_eslint@8.6.0
       eslint-plugin-promise: 6.0.0_eslint@8.6.0
+    dev: true
 
   /eslint-import-resolver-node/0.3.6:
     resolution: {integrity: sha512-0En0w03NRVMn9Uiyn8YRPDKvWjxCWkslUEhGNTdGx15RvPJYQ+lbOlqrlNI2vEAs4pDYK4f/HN2TbDmk5TP0iw==}
@@ -8045,6 +8048,13 @@ packages:
     resolution: {integrity: sha512-ZKFwIrdhBf2kOxDUUpf1gKiOehu4B1nu16pXZ9H6bRp4t7QIdVVtjsqGAy0pmWqug8+1uroMb/SsGFmumRwVsw==}
     engines: {node: '>=10'}
     hasBin: true
+    dev: true
+
+  /snyk/1.825.0:
+    resolution: {integrity: sha512-ruzpPXVMSLmXnr57dsRBxMwUY3YtRixrZ/mWh0bmAvOwyN+jPJ4D65VF31Jq/MC5oBFzv7a5SdX9mO8MqM6e1g==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dev: false
 
   /socks-proxy-agent/6.1.1:
     resolution: {integrity: sha512-t8J0kG3csjA4g6FTbsMOWws+7R7vuRC8aQ/wy3/1OWmsgwA68zs/+cExQ0koSitUDXqhufF/YJr9wtNMZHw5Ew==}

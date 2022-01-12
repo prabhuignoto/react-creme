@@ -4,7 +4,8 @@ import DemoPageRenderer from "../../common/demo-page-renderer";
 function sidebar() {
   return (
     <DemoPageRenderer
-      tabTitles={["examples", "Properties"]}
+      tabTitles={["examples", "Properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-xhgzf5"]}
       demoWidget={lazy(() => import("./widgets"))}
       title="Sidebar"
       description="Sidebar is a container for sidebar items. It can be used to display a list of items in a collapsible sidebar."

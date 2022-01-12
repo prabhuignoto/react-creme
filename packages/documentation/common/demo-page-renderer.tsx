@@ -1,13 +1,14 @@
 import React, {
-    LazyExoticComponent,
-    Suspense,
-    useLayoutEffect,
-    useMemo
+  LazyExoticComponent,
+  Suspense,
+  useLayoutEffect,
+  useMemo,
 } from "react";
 import { CSSTransition } from "react-transition-group";
 import { PageHeader, Section, Tabs } from "../../lib/components";
 import { DataGridColumn } from "../../lib/components/data-grid/data-grid-model";
 import "./demo-page-renderer.scss";
+import StackBlitz from "./stackblitz";
 import useMedia from "./useMedia";
 
 const DataGrid = React.lazy(() =>
@@ -23,6 +24,7 @@ interface DemoPageRendererProps {
   callbacks?: any[];
   title?: string;
   description?: string;
+  stackBlitzCodes?: string[];
 }
 
 const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
@@ -34,6 +36,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
       callbacks,
       title,
       description,
+      stackBlitzCodes,
     }: DemoPageRendererProps) => {
       const media = useMedia();
 
@@ -156,6 +159,14 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                     </Section>
                   )}
                 </Suspense>
+              </div>
+              <div className="rc-demo-stackblitz-collection">
+                {stackBlitzCodes &&
+                  stackBlitzCodes.map((code) => (
+                    <div className="rc-demo-stackblitz" key={code}>
+                      <StackBlitz id={code} />
+                    </div>
+                  ))}
               </div>
             </Tabs>
           </div>

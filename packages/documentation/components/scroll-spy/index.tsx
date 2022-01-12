@@ -24,7 +24,8 @@ function index() {
       title="Scroll Spy"
       description={`Scroll Spy is a component that allows you to track the current scroll position of a container
        and display a navigation menu with links to sections of the page or a container.`}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-tdht4j"]}
     ></DemoPageRenderer>
   );
 }

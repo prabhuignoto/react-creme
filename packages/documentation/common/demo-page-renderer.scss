@@ -12,3 +12,22 @@
   display: flex;
   flex-direction: column;
 }
+
+
+.rc-demo-stackblitz-collection {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.rc-demo-stackblitz {
+  margin-bottom: 20px;
+  margin-right: 20px;
+
+  iframe {
+    height: 700px;
+    box-shadow: none;
+    border: 0;
+  }
+}

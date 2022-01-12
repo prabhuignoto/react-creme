@@ -29,9 +29,10 @@ function PageHeader() {
           type: "String",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
       description="Page header can be used to display the title of the page."
       title="Page Header"
+      stackBlitzCodes={["react-ts-wo1xvm"]}
     />
   );
 }

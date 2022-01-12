@@ -5,6 +5,7 @@ function accordionGroup() {
   return (
     <DemoPageRenderer
       title="Accordion Group"
+      stackBlitzCodes={["react-ts-kq6o5l"]}
       description={`An accordion group is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them.
       It is one of many ways you can expose content to users`}
       properties={[
@@ -58,7 +59,7 @@ function accordionGroup() {
           type: "String",
         },
       ]}
-      tabTitles={["Examples", "Properties"]}
+      tabTitles={["Examples", "Properties", "Stackblitz"]}
       demoWidget={React.lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );
