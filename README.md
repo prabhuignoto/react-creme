@@ -83,7 +83,7 @@ To build and run the documentation
 
 ```sh
 pnpm build:doc
-cd ./documentation/expo_dist && npx serve .
+cd ./packages/documentation/expo_dist && npx serve .
 ```
 
 To run the Unit tests

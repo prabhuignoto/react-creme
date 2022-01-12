@@ -42,7 +42,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
-    "@microsoft/api-extractor": "^7.19.4",
     "@playwright/test": "^1.17.2",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/react-transition-group": "^4.4.4",

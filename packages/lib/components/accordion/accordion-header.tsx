@@ -1,4 +1,4 @@
-import cls from "classnames";
+import classnames from "classnames";
 import React, { useMemo, useRef } from "react";
 import { ChevronRightIcon, MinusIcon, PlusIcon } from "../../icons";
 import { useFocus } from "../common/effects/useFocus";
@@ -20,7 +20,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
 }) => {
   const accordionHeaderClass = useMemo(
     () =>
-      cls("rc-accordion-header", {
+      classnames("rc-accordion-header", {
         "rc-accordion-align-icon-rt": alignIconRight,
         "rc-accordion-disable-icon": disableIcon,
         "rc-accordion-focusable": focusable,
@@ -46,7 +46,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   }, []);
 
   const titleClass = useMemo(() => {
-    return cls("rc-accordion-title", {
+    return classnames("rc-accordion-title", {
       "rc-accordion-title-bold": isTitleBold,
     });
   }, [isTitleBold]);
@@ -54,7 +54,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   const iconClass = useMemo(() => {
     const classes: string[] = [];
 
-    return cls([...classes, "rc-accordion-icon"], {
+    return classnames([...classes, "rc-accordion-icon"], {
       "rc-accordion-icon-open": open,
       [`rc-accordion-icon-${iconType}`]: true,
       "rc-accordion-custom-icon": customIcon,
