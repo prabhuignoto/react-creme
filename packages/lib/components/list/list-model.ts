@@ -1,4 +1,3 @@
-import { CSSProperties } from "react";
 import { Option } from "../dropdown/dropdown-model";
 
 interface ListCommonProps {
@@ -34,7 +33,7 @@ export interface ListItemModel extends ListCommonProps {
   name: string;
   onSelection?: (opt: ListOption) => void;
   selected?: boolean;
-  style?: CSSProperties;
+  style?: any;
   value: string;
 }
 

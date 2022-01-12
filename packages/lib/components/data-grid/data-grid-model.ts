@@ -1,5 +1,9 @@
 import { CSSProperties } from "react";
 
+export type Record = {
+  [key: string]: string | number;
+};
+
 export interface DataGridCommon {
   layoutStyle?: "compact" | "comfortable";
   border?: boolean;
@@ -22,7 +26,7 @@ export interface DataGridColumn {
 
 export interface DataGridCell {
   name: string;
-  value: string;
+  value: string | number;
   border?: boolean;
   fixedHeight?: boolean;
   formatter?: (value: any) => any;
@@ -31,7 +35,7 @@ export interface DataGridCell {
 export interface DataRow extends DataGridCommon {
   columnConfigs?: DataGridColumn[];
   columnWidth?: number;
-  data: any;
+  data: Record;
   id?: string;
   style?: CSSProperties;
 }
@@ -42,7 +46,7 @@ export interface DataGridModel {
 
 export interface DataGridProps extends DataGridCommon {
   columns?: DataGridColumn[];
-  data: { [key: string]: string | number }[];
+  data: Record[];
   gridWidth?: number;
 }
 

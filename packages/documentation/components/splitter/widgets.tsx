@@ -7,7 +7,7 @@ import { DemoWidget } from "../../common/demo-widget";
 function widgets() {
   const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
-  const [handleBarWidth, setHandleBarWidth] = React.useState(6);
+  const [handleBarWidth, setHandleBarWidth] = React.useState(4);
 
   useLayoutEffect(() => {
     if (!media) {
@@ -24,7 +24,7 @@ function widgets() {
       setWidth(500);
     } else if (media.isMobile) {
       setWidth(320);
-      setHandleBarWidth(8);
+      setHandleBarWidth(6);
     }
   }, [media]);
 
