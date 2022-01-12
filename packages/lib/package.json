@@ -14,7 +14,7 @@
     "design system"
   ],
   "scripts": {
-    "build": "pnpm rollup && pnpm emit-dts && ncp ./dts",
+    "build": "pnpm rollup && pnpm emit-dts && pnpm extract-api && ncp ./typings ./dist",
     "ci": "pnpm lint && pnpm test -- --updateSnapshot --coverage",
     "emit-dts": "tsc --project tsconfig.json --declaration --emitDeclarationOnly --noEmit false",
     "eslint": "npx eslint ./components/**/*.tsx",
@@ -50,7 +50,6 @@
     "@babel/preset-react": "^7.16.7",
     "@csstools/postcss-sass": "^4.0.0",
     "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^5.16.1",
