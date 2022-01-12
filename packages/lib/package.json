@@ -14,11 +14,10 @@
     "design system"
   ],
   "scripts": {
-    "build": "pnpm rollup && pnpm emit-dts && pnpm extract-api && ncp ./typings ./dist",
+    "build": "pnpm rollup && pnpm emit-dts && ncp ./typings ./dist",
     "ci": "pnpm lint && pnpm test -- --updateSnapshot --coverage",
     "emit-dts": "tsc --project tsconfig.json --declaration --emitDeclarationOnly --noEmit false",
     "eslint": "npx eslint ./components/**/*.tsx",
-    "extract-api": "npx api-extractor run --local --verbose",
     "fix-css": "npx stylelint ./components/**/*.scss ./design/**/*.scss --fix",
     "format": "prettier --write \"components/**/*.{js,jsx,ts,tsx}\"",
     "lint": "pnpm eslint && pnpm lint:css && pnpm prettier:check",
@@ -49,8 +48,8 @@
     "@babel/preset-env": "^7.16.8",
     "@babel/preset-react": "^7.16.7",
     "@csstools/postcss-sass": "^4.0.0",
-    "@microsoft/api-extractor": "^7.19.4",
     "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^5.16.1",
@@ -115,6 +114,9 @@
     "not ie <= 11",
     "not dead",
     "> 5%"
+  ],
+  "files": [
+    "dist"
   ],
   "resolutions": {
     "nth-check": "^2.0.1",

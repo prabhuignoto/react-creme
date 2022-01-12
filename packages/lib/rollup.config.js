@@ -11,6 +11,7 @@ import { terser } from "rollup-plugin-terser";
 import sass from "sass";
 import pkg from "./package.json";
 import resolve from "@rollup/plugin-node-resolve";
+import common from "@rollup/plugin-commonjs";
 
 const banner = `/*
  * ${pkg.name}
@@ -54,6 +55,7 @@ export default {
     progress({
       clearLine: false,
     }),
+    common(),
     resolve(),
     esbuild({
       include: /\.[jt]sx?$/, // default, inferred from `loaders` option
