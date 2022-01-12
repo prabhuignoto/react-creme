@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\carousel\__tests__\carousel-items.test.tsx">
+    <testCase name="Carousel items Should render carousel items" duration="171"/>
+    <testCase name="Carousel items Should render carousel items snapshot" duration="36"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\tags\__tests__\tags.test.tsx">
+    <testCase name="Tags Should render default" duration="181"/>
+    <testCase name="Tags Should render disabled" duration="51"/>
+    <testCase name="Tags Should create new tag" duration="573"/>
+    <testCase name="Tags should delete a tag" duration="49"/>
+    <testCase name="Tags should call on change" duration="563"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\global-notification\__tests__\global-notification.test.tsx">
+    <testCase name="GlobalNotification should render global notification" duration="19"/>
+    <testCase name="GlobalNotification should render success state" duration="36"/>
+    <testCase name="GlobalNotification should render error state" duration="30"/>
+    <testCase name="GlobalNotification should render warning state" duration="21"/>
+    <testCase name="GlobalNotification should render info state" duration="19"/>
+    <testCase name="GlobalNotification should call onClose on dismissed" duration="332"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\dropdown\__tests__\dropdown.test.tsx">
+    <testCase name="Dropdown should handler be called" duration="221"/>
+    <testCase name="Dropdown should auto close menu" duration="400"/>
+    <testCase name="Dropdown should render disabled" duration="9"/>
+    <testCase name="Dropdown should render allowMultiSelection mode" duration="67"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\rate\__tests__\rate.test.tsx">
+    <testCase name="Rate renders correctly" duration="71"/>
+    <testCase name="Rate renders custom icon count" duration="66"/>
+    <testCase name="Rate renders custom icon" duration="69"/>
+    <testCase name="Rate should call onChange" duration="37"/>
+    <testCase name="Rate should change on hover" duration="106"/>
+    <testCase name="Rate check disabled state" duration="28"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\drawer\__tests__\drawer.test.tsx">
+    <testCase name="Drawer should render the drawer" duration="80"/>
+    <testCase name="Drawer should render the drawer from right" duration="29"/>
+    <testCase name="Drawer should render the drawer from bottom" duration="21"/>
+    <testCase name="Drawer should render the drawer from top" duration="26"/>
+    <testCase name="Drawer should close the drawer" duration="291"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\sidebar\__tests__\sidebar.test.tsx">
+    <testCase name="Sidebar should render" duration="126"/>
+    <testCase name="Sidebar should call handler" duration="158"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\dialog\__tests__\dialog.test.tsx">
+    <testCase name="Dialog should render the dialog" duration="40"/>
+    <testCase name="Dialog should render the dialog" duration="28"/>
+    <testCase name="Dialog should close the dialog" duration="336"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\auto-complete\__tests__\auto-complete.test.tsx">
+    <testCase name="AutoComplete should render auto complete" duration="22"/>
+    <testCase name="AutoComplete should render auto complete with placeholder" duration="8"/>
+    <testCase name="AutoComplete should render suggestions" duration="120"/>
+    <testCase name="AutoComplete should show the selected item" duration="143"/>
+    <testCase name="AutoComplete should call onChange with the input" duration="64"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\notification\__tests__\notification.test.tsx">
+    <testCase name="Drawer should render the notification" duration="46"/>
+    <testCase name="Drawer should close the notification" duration="295"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\carousel\__tests__\carousel-button.test.tsx">
+    <testCase name="Carousel Button should render with position" duration="16"/>
+    <testCase name="Carousel Button should render carousel button snapshot" duration="41"/>
+    <testCase name="Carousel Button should call the onClick handler" duration="38"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\transfer\__tests__\transfer.test.tsx">
+    <testCase name="Transfer should render transfer view" duration="127"/>
+    <testCase name="Transfer should render transfer snapshot" duration="47"/>
+    <testCase name="Transfer should transfer right work as expected" duration="74"/>
+    <testCase name="Transfer should transfer left work as expected" duration="65"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\list\__tests__\list.test.tsx">
+    <testCase name="List should render list" duration="80"/>
+    <testCase name="List should call handler" duration="85"/>
+    <testCase name="List should handle search" duration="21"/>
+    <testCase name="List should render multi selection" duration="137"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\checkbox-group\__tests__\checkbox-group.test.tsx">
+    <testCase name="CheckboxGroup should render checkbox group" duration="57"/>
+    <testCase name="CheckboxGroup should match snapshot" duration="26"/>
+    <testCase name="CheckboxGroup should check for isChecked" duration="59"/>
+    <testCase name="CheckboxGroup check for disabled option" duration="37"/>
+    <testCase name="CheckboxGroup should handle on change" duration="41"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\card\__tests__\card.test.tsx">
+    <testCase name="Card should render a basic card" duration="6"/>
+    <testCase name="Card should render header and footer" duration="11"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\input\__tests__\input.test.tsx">
+    <testCase name="Input should render default" duration="69"/>
+    <testCase name="Input should render state" duration="35"/>
+    <testCase name="Input should call onchange" duration="133"/>
+    <testCase name="Input should clear work" duration="24"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\switch\__tests__\switch.test.tsx">
+    <testCase name="Switch should render default" duration="7"/>
+    <testCase name="Switch should be checked" duration="15"/>
+    <testCase name="Switch should display toggle states" duration="51"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\alert\__tests__\alert.test.tsx">
+    <testCase name="Alert should render the alert" duration="19"/>
+    <testCase name="Alert should render success state correctly" duration="44"/>
+    <testCase name="Alert should render warning state correctly" duration="48"/>
+    <testCase name="Alert should render error state correctly" duration="34"/>
+    <testCase name="Alert should render info state correctly" duration="88"/>
+    <testCase name="Alert should call onDismiss" duration="29"/>
+    <testCase name="Alert should render custom content" duration="13"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\tabs\__tests__\tabs.test.tsx">
+    <testCase name="Tabs should render tabs" duration="64"/>
+    <testCase name="Tabs should render tab content on selection" duration="31"/>
+    <testCase name="Tabs should render snapshot" duration="44"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\carousel\__tests__\carousel-track.test.tsx">
+    <testCase name="Carousel Track Should render the track" duration="122"/>
+    <testCase name="Carousel Track Should render the track snapshot" duration="35"/>
+    <testCase name="Carousel Track Should call the handler" duration="64"/>
+    <testCase name="Carousel Track Should the active selection is selected" duration="48"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\radio-group\__tests__\radio-group.test.tsx">
+    <testCase name="Radio Group should render the radio group" duration="100"/>
+    <testCase name="Radio Group should call the handler" duration="46"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\breadcrumb\__tests__\breadcrumb.test.tsx">
+    <testCase name="Breadcrumb should render" duration="165"/>
+    <testCase name="Breadcrumb should onClick is called" duration="33"/>
+    <testCase name="Breadcrumb should render snapshot" duration="56"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\tree\__tests__\tree-item.test.tsx">
+    <testCase name="Tree should render Tree" duration="54"/>
+    <testCase name="Tree should render expand and collapse tree" duration="83"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\button\__tests__\button.test.tsx">
+    <testCase name="Button should render default" duration="7"/>
+    <testCase name="Button should render label" duration="8"/>
+    <testCase name="Button should render size" duration="40"/>
+    <testCase name="Button should render button snapshot" duration="21"/>
+    <testCase name="Button should render disabled button" duration="51"/>
+    <testCase name="Button should call handler" duration="9"/>
+    <testCase name="Button should call handler via keyboard action" duration="11"/>
+    <testCase name="Button should have focus" duration="36"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\carousel\__tests__\carousel.test.tsx">
+    <testCase name="Carousel should render carousel" duration="37"/>
+    <testCase name="Carousel should render carousel snapshot" duration="37"/>
+    <testCase name="Carousel should render vertical carousel" duration="20"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\menu\__tests__\menu.test.tsx">
+    <testCase name="Menu should render the host component" duration="12"/>
+    <testCase name="Menu should onSelection work as expected" duration="49"/>
+    <testCase name="Menu should menu toggle" duration="51"/>
+    <testCase name="Menu should not select the disabled item" duration="26"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\section\__tests__\section.test.tsx">
+    <testCase name="Section should render Section correctly" duration="15"/>
+    <testCase name="Section should render section content" duration="7"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\menu-button\__tests__\menu-button.test.tsx">
+    <testCase name="Menu Button should render the Menu button" duration="16"/>
+    <testCase name="Menu Button should open menu on click" duration="83"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\data-grid\__tests__\data-grid-header.test.tsx">
+    <testCase name="DataGridHeader should render the headers correctly" duration="20"/>
+    <testCase name="DataGridHeader headers should be sortable" duration="72"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\accordion\__tests__\accordion.test.tsx">
+    <testCase name="Accordion should render accordion" duration="15"/>
+    <testCase name="Accordion should render snapshot" duration="10"/>
+    <testCase name="Accordion should toggle content" duration="40"/>
+    <testCase name="Accordion should call onExpanded" duration="32"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\checkbox\__tests__\checkbox.test.tsx">
+    <testCase name="Checkbox should render default" duration="14"/>
+    <testCase name="Checkbox should render disabled" duration="29"/>
+    <testCase name="Checkbox should render default prop isChecked" duration="12"/>
+    <testCase name="Checkbox should call the handler" duration="22"/>
+    <testCase name="Checkbox should receive focus" duration="15"/>
+    <testCase name="Checkbox should be checked by default" duration="17"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\skeleton\__tests__\skeleton.test.tsx">
+    <testCase name="Skeleton should render skeleton" duration="43"/>
+    <testCase name="Skeleton should render skeleton blocks" duration="24"/>
+    <testCase name="Skeleton should blink" duration="20"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\image\__tests__\image.test.tsx">
+    <testCase name="Image should render image" duration="50"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\dropdown\__tests__\dropdown-menu.test.tsx">
+    <testCase name="Dropdown menu should render dropdown menu" duration="75"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\tooltip\__tests__\tooltip.test.tsx">
+    <testCase name="Tooltip Should render tooltip" duration="34"/>
+    <testCase name="Tooltip Should show/hide tooltip on hover" duration="51"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\progress\__tests__\progress.test.tsx">
+    <testCase name="Progress should render progressbar" duration="8"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\data-grid\__tests__\data-grid-cell.test.tsx">
+    <testCase name="DataGridCell should render the data grid cell" duration="61"/>
+    <testCase name="DataGridCell should render with border" duration="19"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\radio\__tests__\radio.test.tsx">
+    <testCase name="Radio should render the radio component" duration="37"/>
+    <testCase name="Radio should call the handler on selection" duration="40"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\page-header\__tests__\page-header.test.tsx">
+    <testCase name="PageHeader should render" duration="14"/>
+    <testCase name="PageHeader should render the children" duration="9"/>
+  </file>
+</testExecutions>

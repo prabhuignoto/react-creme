@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel should render carousel snapshot 1`] = `
+<div
+  class="rc-carousel-container rc-carousel-container-horizontal"
+>
+  <div
+    class="rc-carousel-wrapper rc-carousel-wrapper-horizontal"
+    style="--min-height: 400px; --transition: cubic-bezier(0.55, 0.08, 0.68, 0.53);"
+  >
+    <ul
+      class="rc-carousel"
+      role="list"
+      style="width: 0px; transform: translateX(-0px);"
+    >
+      <li
+        aria-hidden="false"
+        class="rc-carousel-item"
+        data-visible="true"
+        role="listitem"
+        style="width: 0px; visibility: hidden; top: 0px;"
+      >
+        <div
+          class="rc-carousel-item-container"
+        >
+          <span>
+            one
+          </span>
+        </div>
+      </li>
+      <li
+        aria-hidden="true"
+        class="rc-carousel-item"
+        data-visible="false"
+        role="listitem"
+        style="width: 0px; visibility: hidden; top: 0px;"
+      >
+        <div
+          class="rc-carousel-item-container"
+        >
+          <span>
+            two
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="rc-carousel-track-wrapper rc-carousel-track-wrapper-horizontal"
+  >
+    <div
+      class="rc-carousel-track-wrapper rc-carousel-track-wrapper-horizontal"
+    >
+      <span
+        class="rc-carousel-btn rc-carousel-btn-left rc-carousel-btn-horizontal rc-carousel-btn-hide"
+      >
+        <button
+          aria-label="Previous"
+          class="rc-btn-sm rc-btn-icon rc-btn"
+          role="button"
+          tabindex="-1"
+        >
+          <span
+            class="rc-btn-icon-container"
+          >
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </span>
+        </button>
+      </span>
+      <ul
+        class="rc-carousel-track rc-carousel-track-horizontal"
+        role="list"
+      >
+        <li
+          class="rc-carousel-track-item rc-carousel-track-item-selected"
+          role="listitem"
+        />
+        <li
+          class="rc-carousel-track-item"
+          role="listitem"
+        />
+      </ul>
+      <span
+        class="rc-carousel-btn rc-carousel-btn-right rc-carousel-btn-horizontal"
+      >
+        <button
+          aria-label="Next"
+          class="rc-btn-sm rc-btn-icon rc-btn"
+          role="button"
+          tabindex="-1"
+        >
+          <span
+            class="rc-btn-icon-container"
+          >
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </span>
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;

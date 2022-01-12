@@ -1,0 +1,12 @@
+images/**
+icons/**
+**/*.tsx
+*.css
+**/*.css
+*.tsx
+expo_dist
+*.ts
+*.html
+*.json
+*.svg
+*.ico

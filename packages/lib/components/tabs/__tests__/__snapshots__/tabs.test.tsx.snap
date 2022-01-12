@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs should render snapshot 1`] = `
+<div
+  class="rc-tab-headers rc-tab-headers-flat"
+  role="tablist"
+>
+  <div
+    aria-controls="rc-tab-panel--4akHOcYpXTugDdTQIsAM"
+    aria-selected="true"
+    class="rc-tab-head rc-tab-head-flat"
+    id="rc-tab--4akHOcYpXTugDdTQIsAM"
+    role="tab"
+    tabindex="-1"
+  >
+    <span
+      class="rc-tab-header-label rc-tab-header-selected rc-tab-header-flat"
+    >
+      one
+    </span>
+  </div>
+  <div
+    aria-controls="rc-tab-panel-2RipSfVQ_ve390Ec3gUE2"
+    aria-selected="false"
+    class="rc-tab-head rc-tab-head-flat"
+    id="rc-tab-2RipSfVQ_ve390Ec3gUE2"
+    role="tab"
+    tabindex="-1"
+  >
+    <span
+      class="rc-tab-header-label rc-tab-header-flat"
+    >
+      two
+    </span>
+  </div>
+  <div
+    aria-controls="rc-tab-panel-iD47nhQ9iWS1w7lRG_HMu"
+    aria-selected="false"
+    class="rc-tab-head rc-tab-head-flat"
+    id="rc-tab-iD47nhQ9iWS1w7lRG_HMu"
+    role="tab"
+    tabindex="-1"
+  >
+    <span
+      class="rc-tab-header-label rc-tab-header-flat"
+    >
+      three
+    </span>
+  </div>
+</div>
+`;

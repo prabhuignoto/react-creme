@@ -7,54 +7,61 @@
     "documentation": "documentation"
   },
   "dependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-jest": "^25.3.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "6.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "lint-staged": "^12.1.7",
     "snyk": "^1.821.0",
-    "turbo": "^1.0.25"
+    "stylelint": "14.2.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-scss": "^4.1.0",
+    "turbo": "1.0.24",
+    "husky": "^7.0.4",
+    "typescript": "^4.5.4"
   },
   "scripts": {
-    "lint:all": "turbo run lint:all",
+    "lint": "turbo run lint",
     "format": "turbo run format",
     "build": "turbo run build",
     "prepare": "husky install",
     "dev": "turbo run dev --scope=*docu*",
     "test": "turbo run test",
-    "all": "turbo run format lint:all test build",
+    "all": "turbo run format lint test build",
     "build:lib": "turbo run build --scope=*lib*",
     "build:doc": "turbo run build --scope=*docu*",
     "ci": "turbo run ci",
     "snyk": "turbo run snyk",
-    "fix:css": "turbo run fix:css"
+    "fix-css": "turbo run fix-css"
   },
   "turbo": {
     "npmClient": "pnpm",
     "pipeline": {
-      "format": {
-        "outputs": [],
-        "cache": true
-      },
-      "lint:all": {
-        "dependsOn": [
-          "format"
-        ]
-      },
+      "format": {},
+      "lint": {},
       "build": {
-        "dependsOn": [
-          "^build",
-          "test"
+        "outputs": [
+          "dist/**", "dts/**", "typings/**", "expo_dist"
         ]
       },
       "test": {},
       "dev": {
         "cache": false
       },
-      "ci": {},
+      "ci": {
+        "outputs": [
+          "dist/**", "dts/**", "typings/**", "expo_dist"
+        ]
+      },
       "snyk": {},
-      "fix:css": {}
+      "fix-css": {}
     }
   },
-  "workspaces": [
-    "documentation/*",
-    "lib/*"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prabhuignoto/react-creme.git"
@@ -66,8 +73,10 @@
   },
   "homepage": "https://github.com/prabhuignoto/react-creme#readme",
   "devDependencies": {
-    "husky": "^7.0.4"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "lint-staged": {
     "**/*.tsx": [
       "npx prettier --write",

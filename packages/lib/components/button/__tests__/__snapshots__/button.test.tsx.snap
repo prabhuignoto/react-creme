@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render button snapshot 1`] = `
+<button
+  aria-label="My Button"
+  class="rc-btn-sm rc-btn-default rc-btn"
+  role="button"
+  tabindex="0"
+>
+  <span
+    class="rc-btn-label"
+  >
+    My Button
+  </span>
+</button>
+`;
