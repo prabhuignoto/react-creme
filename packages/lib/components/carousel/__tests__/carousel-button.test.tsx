@@ -11,6 +11,7 @@ describe("Carousel Button", () => {
         position="left"
         onClick={handler}
         direction="horizontal"
+        label="Previous"
       />
     );
 
@@ -20,7 +21,12 @@ describe("Carousel Button", () => {
 
   it("should render carousel button snapshot", () => {
     const { getByRole } = render(
-      <CarouselButton position="left" onClick={handler} direction="vertical" />
+      <CarouselButton
+        position="left"
+        onClick={handler}
+        direction="vertical"
+        label="previous"
+      />
     );
 
     expect(getByRole("button")).toMatchSnapshot();
@@ -32,6 +38,7 @@ describe("Carousel Button", () => {
         position="left"
         onClick={handler}
         direction="horizontal"
+        label="Previous"
       />
     );
 

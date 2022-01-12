@@ -13,4 +13,5 @@ module.exports = {
     "<rootDir>/src/icons",
     "dist",
   ],
+  testResultsProcessor: "jest-sonar-reporter",
 };

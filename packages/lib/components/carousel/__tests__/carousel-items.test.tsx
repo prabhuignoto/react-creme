@@ -38,7 +38,7 @@ describe("Carousel items", () => {
       </CarouselItems>
     );
     expect(getByRole("list")).toBeInTheDocument();
-    expect(getAllByRole("listitem")).toHaveLength(2);
+    expect(getAllByRole("listitem")).toHaveLength(1);
   });
 
   it("Should render carousel items snapshot", () => {

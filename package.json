@@ -22,6 +22,7 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-scss": "^4.1.0",
     "turbo": "1.0.24",
+    "husky": "^7.0.4",
     "typescript": "^4.5.4"
   },
   "scripts": {
@@ -45,14 +46,18 @@
       "lint": {},
       "build": {
         "outputs": [
-          "dist/**"
+          "dist/**", "dts/**", "typings/**", "expo_dist"
         ]
       },
       "test": {},
       "dev": {
         "cache": false
       },
-      "ci": {},
+      "ci": {
+        "outputs": [
+          "dist/**", "dts/**", "typings/**", "expo_dist"
+        ]
+      },
       "snyk": {},
       "fix-css": {}
     }
@@ -68,7 +73,6 @@
   },
   "homepage": "https://github.com/prabhuignoto/react-creme#readme",
   "devDependencies": {
-    "husky": "^7.0.4"
   },
   "workspaces": [
     "packages/*"

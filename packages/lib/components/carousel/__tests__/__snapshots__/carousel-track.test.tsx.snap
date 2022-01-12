@@ -8,17 +8,14 @@ exports[`Carousel Track Should render the track snapshot 1`] = `
   <li
     class="rc-carousel-track-item"
     role="listitem"
-    tabindex="-1"
   />
   <li
     class="rc-carousel-track-item rc-carousel-track-item-selected"
     role="listitem"
-    tabindex="-1"
   />
   <li
     class="rc-carousel-track-item"
     role="listitem"
-    tabindex="-1"
   />
 </ul>
 `;
