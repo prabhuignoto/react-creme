@@ -24,7 +24,7 @@ jobs:
           -Dsonar.sources=packages/lib/
           -Dsonar.coverage
           -Dsonar.test.exclusions=tests/**
-          -Dsonar.testExecutionReportPaths=test-report.xml
+          -Dsonar.testExecutionReportPaths=packages/lib/test-report.xml
           -Dsonar.verbose=true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

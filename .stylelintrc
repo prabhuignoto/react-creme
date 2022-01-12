@@ -8,5 +8,5 @@
   ],
   "rules": {
     "selector-pseudo-element-no-unknown": null
-  }
+  },
 }

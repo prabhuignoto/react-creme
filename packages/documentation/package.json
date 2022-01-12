@@ -9,15 +9,15 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc && vite build",
+    "ci": "pnpm lint && pnpm build",
     "dev": "vite",
-    "fix-css": "npx stylelint ./components/**/*.scss --fix",
+    "fix-css": "npx stylelint . --fix",
     "format": "prettier --write \"components/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "npx eslint && pnpm run lint:css && pnpm run prettier:check",
+    "lint": "npx eslint \"components/**/*.{js,jsx,ts,tsx}\" && pnpm run lint:css && pnpm run prettier:check",
     "lint:css": "npx stylelint ./components/**/*.scss",
     "prettier:check": "prettier --check \"components/**/*.{js,jsx,ts,tsx}\"",
     "serve": "vite preview",
-    "snyk": "npx snyk test",
-    "ci": "pnpm lint && pnpm build"
+    "snyk": "npx snyk test"
   },
   "dependencies": {
     "@types/react": "^17.0.38",
