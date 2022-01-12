@@ -1,35 +1,30 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "esnext",
     "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
-    "useDefineForClassFields": true,
+    // "useDefineForClassFields": true,
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react",
     "noEmit": true,
     "declaration": true,
-    "declarationDir": "dts",
-    "types": [
-      "@testing-library/jest-dom",
-      "react",
-      "react-dom"
-    ]
+    "declarationDir": "dist"
   },
   "include": [
     "./components",
-    "./components/models", "react-creme.ts"
+    "./components/models"
   ],
   "exclude": [
     "./**/*.test.tsx",

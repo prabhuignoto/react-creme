@@ -11,7 +11,7 @@ import ResizeObserver from "resize-observer-polyfill";
 import { CloseIcon } from "../../icons";
 import { OverlayProps } from "./overlay-model";
 import "./overlay.scss";
-import { OverlayContext } from "./withOverlay";
+import { OverlayContext, OverlayContextModel } from "./withOverlay";
 
 const Overlay: React.FunctionComponent<OverlayProps> = ({
   backdropColor = "rgba(0, 0, 0, 0.5)",
@@ -24,7 +24,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   placementReference,
   showCloseButton = false,
 }) => {
-  const { align, childClosing } = useContext(OverlayContext);
+  const { align, childClosing } = useContext(
+    OverlayContext
+  ) as OverlayContextModel;
   const [hideOverlay, setHideOverlay] =
     React.useState<boolean>(overlayAnimation);
   const overlayWrapperClass = useMemo(() => {

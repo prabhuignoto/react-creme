@@ -1,12 +1,16 @@
 {
   "name": "react-creme",
-  "version": "0.0.2",
+  "version": "0.0.12",
   "author": {
     "name": "Prabhu Murthy",
     "email": "prabhu.m.murthy@gmail.com"
   },
   "description": "Modern UI Toolkit for React",
   "license": "MIT",
+  "publishConfig": {
+    "cache": "cache/.npm",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "react",
     "react-creme",
@@ -14,7 +18,7 @@
     "design system"
   ],
   "scripts": {
-    "build": "pnpm rollup && pnpm emit-dts && ncp ./typings ./dist",
+    "build": "pnpm rollup",
     "ci": "pnpm lint && pnpm test -- --updateSnapshot --coverage",
     "emit-dts": "tsc --project tsconfig.json --declaration --emitDeclarationOnly --noEmit false",
     "eslint": "npx eslint ./components/**/*.tsx",
@@ -30,9 +34,6 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "nanoid": "^3.1.30",
-    "react": "^17.0.2",
-    "react-creme": "link:",
-    "react-dom": "^17.0.2",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^7.0.1"
   },
@@ -87,6 +88,8 @@
     "postcss-prefixer": "^2.1.3",
     "postcss-preset-env": "^7.2.0",
     "prettier": "^2.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-element-to-jsx-string": "^14.3.4",
     "react-responsive": "^9.0.0-beta.5",
     "react-router-dom": "^6.2.1",
@@ -100,6 +103,7 @@
     "rollup-plugin-purgecss": "^4.1.3",
     "rollup-plugin-sass": "^1.2.10",
     "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.1",
     "sass": "^1.47.0",
     "snyk": "^1.821.0",
     "stylelint": "14.2.0",
@@ -122,8 +126,8 @@
     "nth-check": "^2.0.1",
     "postcss": "^8.2.13"
   },
-  "main": "react-creme.js",
-  "module": "react-creme.esm.js",
-  "umd": "react-creme.umd.js",
-  "css": "react-creme.css"
+  "main": "dist/react-creme.js",
+  "module": "dist/react-creme.esm.js",
+  "umd": "dist/react-creme.umd.js",
+  "css": "dist/react-creme.css"
 }

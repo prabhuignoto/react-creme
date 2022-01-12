@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, {
-  CSSProperties,
   useCallback,
   useEffect,
   useMemo,
@@ -9,7 +8,12 @@ import React, {
   useState,
 } from "react";
 import { DataGridHeader } from "./data-grid-header";
-import { DataGridProps, SortDirection } from "./data-grid-model";
+import {
+  DataGridColumn,
+  DataGridProps,
+  Record,
+  SortDirection,
+} from "./data-grid-model";
 import { DataGridRow } from "./data-grid-row";
 import "./data-grid.scss";
 
@@ -24,19 +28,19 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   zebra = false,
 }: DataGridProps) => {
   const sortableColumns = useRef(columns.filter((col) => col.sortable));
-  const sortableColumnFirst = useRef(
+  const sortableColumnFirst = useRef<DataGridColumn>(
     sortableColumns.current.length ? sortableColumns.current[0] : null
   );
 
-  const rowData = useRef(
+  const rowData = useRef<Record[]>(
     sortableColumnFirst.current !== null
       ? data
           .map((item) => ({ id: nanoid(), ...item }))
-          .sort((a: any, b: any) => {
-            const column = sortableColumnFirst.current;
+          .sort((a: Record, b: Record) => {
+            const name = sortableColumnFirst.current?.name;
 
-            if (column !== null) {
-              return a[column.name] < b[column.name] ? -1 : 1;
+            if (name) {
+              return a[name] < b[name] ? -1 : 1;
             } else {
               return 0;
             }
@@ -114,27 +118,26 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   }, [width]);
 
   const style = useMemo(
-    () =>
-      ({
-        display: "grid",
-        width: gridWidth ? `${gridWidth}px` : "100%",
-        ...(rowHeight ? { "--row-height": `${rowHeight}px` } : {}),
-        gridTemplateColumns: columns
-          .map((column) => {
-            if (column.width) {
-              return `${column.width}px`;
-            } else {
-              return `${columnWidth}px`;
-            }
-          })
-          .join(" "),
-      } as CSSProperties),
+    () => ({
+      display: "grid",
+      width: gridWidth ? `${gridWidth}px` : "100%",
+      ...(rowHeight ? { "--row-height": `${rowHeight}px` } : {}),
+      gridTemplateColumns: columns
+        .map((column) => {
+          if (column.width) {
+            return `${column.width}px`;
+          } else {
+            return `${columnWidth}px`;
+          }
+        })
+        .join(" "),
+    }),
     [width, columnWidth]
   );
 
   const sortedData = useMemo(() => {
     return rowData.current.sort((a, b) => {
-      if (sortData.dir === "asc") {
+      if (sortData.dir === "asc" && sortData.column) {
         if (a[sortData.column] < b[sortData.column]) {
           return -1;
         } else if (a[sortData.column] > b[sortData.column]) {
@@ -142,7 +145,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         }
 
         return 0;
-      } else {
+      } else if (sortData.column) {
         console.log(a[sortData.column], b[sortData.column]);
         if (a[sortData.column] < b[sortData.column]) {
           return 1;
@@ -152,6 +155,8 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
 
         return 0;
       }
+
+      return 0;
     });
   }, [sortData.dir]);
 

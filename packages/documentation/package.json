@@ -8,7 +8,7 @@
   "description": "Modern UI Toolkit for React",
   "license": "MIT",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "rimraf ./expo_dist && tsc && vite build",
     "ci": "pnpm lint && pnpm build",
     "dev": "vite",
     "fix-css": "npx stylelint . --fix",

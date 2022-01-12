@@ -16,10 +16,14 @@ type OverlayFunc = <U extends OverlayModel>(
   settings: Settings
 ) => React.FunctionComponent<U>;
 
-export const OverlayContext =
-  React.createContext<{ align?: "left" | "right"; childClosing?: boolean }>(
-    null
-  );
+export type OverlayContextModel = {
+  align?: "left" | "right";
+  childClosing?: boolean;
+};
+
+export const OverlayContext = React.createContext<OverlayContextModel | null>(
+  null
+);
 
 const withOverlay: OverlayFunc = function <T extends OverlayModel>(
   Node: React.FunctionComponent<T>,
