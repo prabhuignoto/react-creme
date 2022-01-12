@@ -10,6 +10,7 @@ import purgecss from "rollup-plugin-purgecss";
 import { terser } from "rollup-plugin-terser";
 import sass from "sass";
 import pkg from "./package.json";
+import resolve from "@rollup/plugin-node-resolve";
 
 const banner = `/*
  * ${pkg.name}
@@ -53,6 +54,7 @@ export default {
     progress({
       clearLine: false,
     }),
+    resolve(),
     esbuild({
       include: /\.[jt]sx?$/, // default, inferred from `loaders` option
       exclude: /node_modules/, // default
