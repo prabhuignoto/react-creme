@@ -6,7 +6,8 @@ function image() {
     <DemoPageRenderer
       title="Image"
       description="Embed images in your app with the Image component."
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-fujyxg"]}
       callbacks={[
         {
           name: "onLoad",

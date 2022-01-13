@@ -67,7 +67,8 @@ function checkbox() {
           type: "Boolean",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-wrjrdy"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );

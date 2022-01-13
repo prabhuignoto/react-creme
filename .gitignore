@@ -12,3 +12,6 @@ temp
 expo_dist
 .vite_cache
 .turbo
+
+cache
+.cache

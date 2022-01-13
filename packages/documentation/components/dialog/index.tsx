@@ -45,7 +45,8 @@ function dialog() {
           type: "Number",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-9dnouy"]}
       demoWidget={lazy(() => import("./dialog-widgets"))}
     ></DemoPageRenderer>
   );

@@ -20,7 +20,7 @@
     "jsx": "react",
     "noEmit": true,
     "declaration": true,
-    "declarationDir": "dist"
+    "declarationDir": "dist",
   },
   "include": [
     "./components",

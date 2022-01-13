@@ -10,9 +10,9 @@ import postcss from "rollup-plugin-postcss";
 import progress from "rollup-plugin-progress";
 import purgecss from "rollup-plugin-purgecss";
 import { terser } from "rollup-plugin-terser";
+import typescript from "rollup-plugin-typescript2";
 import sass from "sass";
 import pkg from "./package.json";
-import typescript from "rollup-plugin-typescript2";
 
 const banner = `/*
  * ${pkg.name}
@@ -26,21 +26,21 @@ export default {
   input: "react-creme.ts",
   output: [
     {
-      file: `${pkg.main}`,
+      file: pkg.main,
       format: "cjs",
       exports: "named",
       strict: true,
       banner,
     },
     {
-      file: `${pkg.module}`,
+      file: pkg.module,
       format: "es",
       exports: "named",
       strict: true,
       banner,
     },
     {
-      file: `${pkg.umd}`,
+      file: pkg.umd,
       format: "umd",
       exports: "named",
       strict: true,
@@ -57,29 +57,6 @@ export default {
       clearLine: false,
     }),
     typescript(),
-    // esbuild({
-    //   include: /\.[jt]sx?$/, // default, inferred from `loaders` option
-    //   exclude: /node_modules/, // default
-    //   sourceMap: false, // by default inferred from rollup's `output.sourcemap` option
-    //   minify: process.env.NODE_ENV === "production",
-    //   target: "esnext", // default, or 'es20XX', 'esnext'
-    //   jsx: "transform", // default, or 'preserve'
-    //   jsxFactory: "React.createElement",
-    //   jsxFragment: "React.Fragment",
-    //   // Like @rollup/plugin-replace
-    //   define: {
-    //     __VERSION__: '"x.y.z"',
-    //   },
-    //   tsconfig: "tsconfig.json", // default
-    //   // Add extra loaders
-    //   loaders: {
-    //     // Add .json files support
-    //     // require @rollup/plugin-commonjs
-    //     ".json": "json",
-    //     // Enable JSX in .js files too
-    //     ".js": "jsx",
-    //   },
-    // }),
     babel({
       presets: ["@babel/preset-env", "@babel/preset-react"],
       babelHelpers: "runtime",
@@ -109,8 +86,10 @@ export default {
       extract: true,
       extensions: [".scss"],
     }),
+    resolve({
+      browser: true,
+    }),
     common(),
-    resolve(),
     terser({
       compress: {
         drop_debugger: true,

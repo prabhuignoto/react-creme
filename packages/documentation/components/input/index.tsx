@@ -104,7 +104,8 @@ function index() {
           type: "boolean",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-rc3h9z"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );

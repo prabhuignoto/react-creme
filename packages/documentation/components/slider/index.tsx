@@ -93,7 +93,8 @@ function slider() {
           type: "boolean",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-acenzu"]}
       demoWidget={lazy(() => import("./widgets"))}
       title="Slider"
       description="Slider is a component that allows you to select a value from a range of values."

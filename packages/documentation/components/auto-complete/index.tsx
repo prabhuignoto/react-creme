@@ -6,6 +6,7 @@ function index() {
     <DemoPageRenderer
       title="Auto Complete"
       description="Auto Complete is a component that provides a dropdown list of suggestions for the user to select from."
+      stackBlitzCodes={["react-ts-hf5mto"]}
       callbacks={[
         {
           name: "onSelection",
@@ -59,7 +60,7 @@ function index() {
           type: "string",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );
