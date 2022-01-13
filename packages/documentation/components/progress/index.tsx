@@ -52,7 +52,8 @@ function progress() {
           type: "Boolean",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-asnqkz"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );

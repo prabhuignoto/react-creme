@@ -50,7 +50,8 @@ function skeleton() {
           optional: "Yes",
         },
       ]}
-      tabTitles={["examples", "Properties"]}
+      tabTitles={["examples", "Properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-1jank5"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );
