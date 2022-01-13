@@ -31,7 +31,7 @@ function widgets() {
         <Section title="Default render">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Accordion title="Lorem Ipsum" focusable>
+              <Accordion title="Lorem Ipsum">
                 <p>
                   Sed laoreet neque eget sem varius, et interdum dui venenatis.
                   Suspendisse in faucibus tortor, nec aliquet arcu. Quisque at
@@ -66,7 +66,7 @@ function widgets() {
           <BlockQuote>The icon can be aligned to the right</BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Accordion title="Lorem Ipsum" alignIconRight focusable>
+              <Accordion title="Lorem Ipsum" alignIconRight>
                 <p>
                   Sed laoreet neque eget sem varius, et interdum dui venenatis.
                   Suspendisse in faucibus tortor, nec aliquet arcu. Quisque at

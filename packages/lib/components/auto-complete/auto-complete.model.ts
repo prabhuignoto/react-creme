@@ -8,4 +8,5 @@ export interface AutoCompleteProps {
   onKeyUp?: (ev: React.KeyboardEvent) => void;
   onSelection?: (value: string) => void;
   value?: string;
+  focusable?: boolean;
 }

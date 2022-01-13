@@ -76,6 +76,7 @@ function widgets() {
                 labels={["one", "two", "three"]}
                 border={false}
                 tabStyle="rounded"
+                focusable
               >
                 <span>one</span>
                 <span>two</span>

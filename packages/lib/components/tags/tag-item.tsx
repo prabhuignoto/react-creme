@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import { CloseIcon } from "../../icons";
 import { useFirstRender } from "../common/effects/useFirstRender";
+import { useFocus } from "../common/effects/useFocus";
 // import { useFocus } from "../common/effects/useFocus";
 import { useKey } from "../common/effects/useKey";
 import { TagItemInternalModel } from "./tags-model";
@@ -18,6 +19,7 @@ type TagItemViewModel = TagItemInternalModel & {
   width?: number;
   tagStyle?: "default" | "fill";
   tagSize?: "small" | "large";
+  focusable?: boolean;
 };
 
 const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
@@ -31,6 +33,7 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
     tagStyle,
     tagSize,
     markedForRemoval,
+    focusable,
   }: TagItemViewModel) => {
     const ref = useRef(null);
 
@@ -73,6 +76,10 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
       []
     );
 
+    if (focusable) {
+      useFocus(ref, handleClick);
+    }
+
     return (
       <li key={id} role="listitem" className={tagItemClass} style={style}>
         <span className={classNames("rc-tag-name", "center")} title={name}>
@@ -84,7 +91,7 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
             onClick={handleClick}
             ref={ref}
             role="button"
-            tabIndex={0}
+            tabIndex={focusable ? 0 : -1}
           >
             <CloseIcon />
           </span>

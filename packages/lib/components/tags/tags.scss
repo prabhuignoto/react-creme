@@ -45,7 +45,7 @@
   }
 
   &.rc-tag-disabled {
-    opacity: 0.75;
+    // opacity: 0.75;
     pointer-events: none;
   }
 
@@ -90,6 +90,7 @@
 
 .rc-tag-icon {
   @extend %icon-md;
+  @include animate.halo();
   border-radius: 50%;
   cursor: pointer;
   margin-left: auto;

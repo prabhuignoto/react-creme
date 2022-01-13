@@ -24,4 +24,5 @@ export interface TagsModel {
   suggestions?: string[];
   RTL?: boolean;
   placeholder?: string;
+  focusable?: boolean;
 }

@@ -129,7 +129,7 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
       } else {
         return {};
       }
-    }, []);
+    }, [focusable]);
 
     return (
       <div
@@ -137,7 +137,6 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
         role="textbox"
         ref={containerRef}
         style={style}
-        tabIndex={0}
         aria-label={placeholder}
         {...autoCompleteProps}
       >

@@ -7,6 +7,7 @@ function Widgets() {
     <Section title="Default Render">
       <DemoWidget>
         <AutoComplete
+          focusable
           placeholder="Choose a name"
           suggestions={[
             "Alex",

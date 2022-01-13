@@ -69,7 +69,7 @@ const useDrag: functionType = (
         dragStartTimer.current = window.setTimeout(() => {
           dragStarted.current = true;
           onDragStart && onDragStart();
-        }, 50);
+        }, 30);
       }
     },
     [target]

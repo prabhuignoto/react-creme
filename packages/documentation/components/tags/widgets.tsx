@@ -52,6 +52,7 @@ function widgets() {
                 maxTags={15}
                 onChange={(val) => console.log(val)}
                 tagWidth={150}
+                focusable
               />
             </div>
           </DemoWidget>

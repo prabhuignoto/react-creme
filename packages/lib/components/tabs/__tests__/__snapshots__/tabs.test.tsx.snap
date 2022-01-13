@@ -6,43 +6,43 @@ exports[`Tabs should render snapshot 1`] = `
   role="tablist"
 >
   <div
-    aria-controls="rc-tab-panel-ezrO31G_65dlu1kl-FBuI"
+    aria-controls="rc-tab-panel-Wdi17VYaPA5ekuBsCGJpU"
     aria-selected="true"
-    class="rc-tab-head rc-tab-head-flat"
-    id="rc-tab-ezrO31G_65dlu1kl-FBuI"
+    class="rc-tab-head rc-tab-head-selected rc-tab-head-flat"
+    id="rc-tab-Wdi17VYaPA5ekuBsCGJpU"
     role="tab"
-    tabindex="-1"
   >
     <span
-      class="rc-tab-header-label rc-tab-header-selected rc-tab-header-flat"
+      class="rc-tab-header-label rc-tab-header-flat"
+      tabindex="-1"
     >
       one
     </span>
   </div>
   <div
-    aria-controls="rc-tab-panel-IgL51Skp8A4K_bUlFRyTh"
+    aria-controls="rc-tab-panel-5d7InYnAqDyf7GfPu6CAT"
     aria-selected="false"
     class="rc-tab-head rc-tab-head-flat"
-    id="rc-tab-IgL51Skp8A4K_bUlFRyTh"
+    id="rc-tab-5d7InYnAqDyf7GfPu6CAT"
     role="tab"
-    tabindex="-1"
   >
     <span
       class="rc-tab-header-label rc-tab-header-flat"
+      tabindex="-1"
     >
       two
     </span>
   </div>
   <div
-    aria-controls="rc-tab-panel-zvU8WObW92EnQXffgs9U0"
+    aria-controls="rc-tab-panel-xj5Nrd6pZDx7kyRH-LUQr"
     aria-selected="false"
     class="rc-tab-head rc-tab-head-flat"
-    id="rc-tab-zvU8WObW92EnQXffgs9U0"
+    id="rc-tab-xj5Nrd6pZDx7kyRH-LUQr"
     role="tab"
-    tabindex="-1"
   >
     <span
       class="rc-tab-header-label rc-tab-header-flat"
+      tabindex="-1"
     >
       three
     </span>
