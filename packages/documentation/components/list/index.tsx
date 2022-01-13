@@ -102,7 +102,8 @@ function list() {
           type: "boolean",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-18dr2b"]}
     ></DemoPageRenderer>
   );
 }
