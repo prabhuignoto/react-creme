@@ -67,7 +67,8 @@ function menuButton() {
           type: "String",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-kdxxkx"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );

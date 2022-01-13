@@ -67,7 +67,8 @@ function switchComponent() {
           type: "Object",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-p8rf9h"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );

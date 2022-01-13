@@ -14,7 +14,6 @@ const StackBlitz: React.FunctionComponent<StackBlitzProps> = ({ id }) => {
         height: "100%",
         hideExplorer: true,
         hideNavigation: true,
-        view: "editor"
       });
     }
   }, []);

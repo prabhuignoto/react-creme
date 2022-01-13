@@ -6,6 +6,7 @@ function buttons() {
     <DemoPageRenderer
       title="Buttons"
       description="Buttons are used to perform an action. They can be used in different contexts, such as primary, secondary, danger, or warning."
+      stackBlitzCodes={["react-ts-uy6jjh"]}
       callbacks={[
         {
           name: "onClick",
@@ -67,7 +68,7 @@ function buttons() {
           type: "Boolean",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );

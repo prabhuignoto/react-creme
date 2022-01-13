@@ -4,7 +4,8 @@ import DemoPageRenderer from "../../common/demo-page-renderer";
 function tags() {
   return (
     <DemoPageRenderer
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-hppcze"]}
       title="Tags"
       description="Tags are used to group related content."
       callbacks={[

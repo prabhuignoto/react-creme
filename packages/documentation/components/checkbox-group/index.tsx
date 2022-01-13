@@ -56,7 +56,8 @@ function index() {
           type: "string",
         },
       ]}
-      tabTitles={["examples", "properties"]}
+      tabTitles={["examples", "properties", "Stackblitz"]}
+      stackBlitzCodes={["react-ts-npfjx5"]}
     ></DemoPageRenderer>
   );
 }
