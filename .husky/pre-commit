@@ -1,6 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+pnpm format
 pnpm fix-css
 pnpm lint
 

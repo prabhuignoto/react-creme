@@ -19,6 +19,7 @@ export { CheckBoxGroup } from "./components/checkbox-group/checkbox-group";
 export type { CheckboxGroupProps } from "./components/checkbox-group/checkbox-group";
 export { CheckBox } from "./components/checkbox/checkbox";
 export type { CheckboxModel } from "./components/checkbox/checkbox-model";
+export { default as useDraggable } from "./components/common/effects/useDraggable";
 export type { OverlayModel } from "./components/common/overlay-model";
 export { DataGrid } from "./components/data-grid/data-grid";
 export type { DataGridCell, DataGridColumn, DataGridCommon, DataGridHeaderProps, DataGridModel, DataGridProps, DataRow, SortDirection } from "./components/data-grid/data-grid-model";
@@ -84,4 +85,3 @@ export { Transfer } from "./components/transfer/transfer";
 export type { TransferCommonModel, TransferList, TransferListItemModel, TransferListProps, TransferModel } from "./components/transfer/transfer-model";
 export { Tree } from "./components/tree/tree";
 export type { TreeItemModel, TreeModel } from "./components/tree/tree-model";
-
