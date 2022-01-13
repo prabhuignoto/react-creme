@@ -11,6 +11,7 @@ export interface TabHeadProps extends TabsCommonModel {
   selected?: boolean;
   disabled?: boolean;
   handleTabSelection: (id: string) => void;
+  icon?: ReactNode;
 }
 
 export interface TabsModel extends TabsCommonModel {
@@ -20,6 +21,7 @@ export interface TabsModel extends TabsCommonModel {
   style?: CSSProperties;
   disabledTabs?: string[];
   iconsColor?: string;
+  icons?: ReactNode[];
 }
 
 export interface TabItemModel {
@@ -33,4 +35,5 @@ export interface TabItemModel {
 export interface TabHeadersModel extends TabsCommonModel {
   items: TabItemModel[];
   handleTabSelection: (id: string) => void;
+  icons?: ReactNode[];
 }

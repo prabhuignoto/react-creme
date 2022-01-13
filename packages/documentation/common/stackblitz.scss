@@ -1,4 +1,18 @@
 .stackblitz-container {
   height: 100%;
+  position: relative;
   width: 90%;
+}
+
+.stackblitz-loading {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 200px;
+}
+
+.stackblitz-editor {
+  height: 100%;
+  width: 100%;
 }

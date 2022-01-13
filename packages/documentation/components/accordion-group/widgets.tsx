@@ -48,7 +48,7 @@ function Widgets() {
         <Section title="Default Render">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <AccordionGroup titles={["one", "two"]} focusable>
+              <AccordionGroup titles={["one", "two"]}>
                 <Para />
                 <div
                   style={{
@@ -75,6 +75,7 @@ function Widgets() {
                 autoClose={false}
                 border={false}
                 expanded
+                focusable
               >
                 <Para />
                 <div

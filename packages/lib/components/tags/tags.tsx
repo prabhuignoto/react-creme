@@ -23,6 +23,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   autoComplete = false,
   RTL = false,
   placeholder = "",
+  focusable = false,
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemInternalModel[]>(
@@ -118,6 +119,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
           tagStyle={tagStyle}
           tagSize={tagSize}
           markedForRemoval={markedForRemoval}
+          focusable={focusable}
         />
       ))}
       {canAdd && (
@@ -129,6 +131,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
             onKeyUp={handleKeyUp}
             value={inputValue}
             placeholder={placeholder}
+            focusable={focusable}
           />
         </li>
       )}

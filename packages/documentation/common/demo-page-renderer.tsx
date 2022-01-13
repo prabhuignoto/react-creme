@@ -4,6 +4,7 @@ import React, {
   useLayoutEffect,
   useMemo,
 } from "react";
+import { BookOpen, Code, Sliders } from "react-feather";
 import { CSSTransition } from "react-transition-group";
 import { PageHeader, Section, Tabs } from "../../lib/components";
 import { DataGridColumn } from "../../lib/components/data-grid/data-grid-model";
@@ -16,6 +17,12 @@ const DataGrid = React.lazy(() =>
     default: DataGrid,
   }))
 );
+
+const Icons = [
+  <BookOpen size={18} key="book-open" />,
+  <Sliders size={18} key="settings" />,
+  <Code size={18} key="code" />,
+];
 
 interface DemoPageRendererProps {
   demoWidget: LazyExoticComponent<React.FC>;
@@ -124,7 +131,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                 {description}
               </PageHeader>
             )}
-            <Tabs labels={tabTitles}>
+            <Tabs labels={tabTitles} icons={Icons}>
               <div className="rc-demo-widgets-wrapper">
                 <Suspense fallback={<span>Loading Widgets...</span>}>
                   <CSSTransition

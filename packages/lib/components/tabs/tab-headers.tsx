@@ -17,6 +17,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   tabStyle,
   handleTabSelection,
   focusable,
+  icons,
 }: TabHeadersModel) => {
   const tabHeadersRef = useRef<HTMLUListElement | null>(null);
 
@@ -98,7 +99,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   return (
     <header className={tabHeadersWrapperClass}>
       <div className={tabHeadersClass} ref={onHeadersRef} role="tablist">
-        {items.map(({ id, name, selected, disabled }) => (
+        {items.map(({ id, name, selected, disabled }, index) => (
           <TabHead
             key={id}
             id={id}
@@ -108,6 +109,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
             tabStyle={tabStyle}
             disabled={disabled}
             focusable={focusable}
+            icon={icons?.[index]}
           />
         ))}
       </div>

@@ -14,6 +14,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     name,
     selected,
     tabStyle,
+    icon,
   }: TabHeadProps) => {
     const ref = useRef(null);
 
@@ -24,31 +25,43 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
 
     const headerLabelClass = useMemo(() => {
       return classNames("rc-tab-header-label", {
-        "rc-tab-header-selected": selected,
         [`rc-tab-header-${tabStyle}`]: true,
+        "rc-tab-header-label-icon": icon,
       });
-    }, [selected]);
+    }, [icon]);
 
     const tabHeadClass = useMemo(() => {
       return classNames("rc-tab-head", {
         "rc-tab-head-disabled": disabled,
+        "rc-tab-head-selected": selected,
         [`rc-tab-head-${tabStyle}`]: true,
       });
-    }, [disabled]);
+    }, [disabled, selected]);
+
+    const tabHeadIcon = useMemo(() => {
+      return classNames("rc-tab-head-icon", {
+        "rc-tab-head-icon-selected": selected,
+      });
+    }, []);
 
     return (
       <div
         key={id}
         className={tabHeadClass}
         onClick={() => !disabled && handleTabSelection(id)}
-        tabIndex={!disabled && focusable ? 0 : -1}
-        ref={ref}
         role="tab"
         aria-selected={selected}
         aria-controls={`rc-tab-panel-${id}`}
         id={`rc-tab-${id}`}
       >
-        <span className={headerLabelClass}>{name}</span>
+        {icon && <span className={tabHeadIcon}>{icon}</span>}
+        <span
+          className={headerLabelClass}
+          ref={ref}
+          tabIndex={!disabled && focusable ? 0 : -1}
+        >
+          {name}
+        </span>
       </div>
     );
   },

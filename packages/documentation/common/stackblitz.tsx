@@ -1,5 +1,6 @@
 import sdk from "@stackblitz/sdk";
 import React, { useCallback } from "react";
+import { Progress } from "../../lib/components";
 import "./stackblitz.scss";
 
 interface StackBlitzProps {
@@ -7,18 +8,30 @@ interface StackBlitzProps {
 }
 
 const StackBlitz: React.FunctionComponent<StackBlitzProps> = ({ id }) => {
-  const onRef = useCallback((node) => {
+  const [loaded, setLoaded] = React.useState(false);
+
+  const onRef = useCallback(async (node) => {
     if (node) {
-      sdk.embedProjectId(node, id, {
+      await sdk.embedProjectId(node, id, {
         openFile: "index.tsx",
         height: "100%",
         hideExplorer: true,
         hideNavigation: true,
       });
+      setLoaded(true);
     }
   }, []);
 
-  return <div ref={onRef} className="stackblitz-container"></div>;
+  return (
+    <div className="stackblitz-container">
+      {!loaded && (
+        <div className="stackblitz-loading">
+          <Progress type="infinite" size="sm" />
+        </div>
+      )}
+      <div ref={onRef} className="stackblitz-editor"></div>
+    </div>
+  );
 };
 
 export default StackBlitz;

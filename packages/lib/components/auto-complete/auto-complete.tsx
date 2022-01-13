@@ -16,6 +16,7 @@ import { List } from "../list/list";
 import { ListOption } from "../list/list-model";
 import { AutoCompleteProps } from "./auto-complete.model";
 import "./auto-complete.scss";
+import "../input/input.scss";
 
 interface SuggestionsOverlayModel extends OverlayModel {
   suggestions: Option[];
@@ -66,6 +67,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   suggestions,
   suggestionsWidth,
   value,
+  focusable = false,
 }) => {
   const suggestionItems = React.useRef<Option[]>(
     suggestions
@@ -149,6 +151,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
           id={id.current}
           isAutoComplete
           onKeyUp={onKeyUp}
+          focusable={focusable}
           // ref={inputRef}
         />
       </div>
