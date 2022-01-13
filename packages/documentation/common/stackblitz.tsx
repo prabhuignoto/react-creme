@@ -12,9 +12,9 @@ const StackBlitz: React.FunctionComponent<StackBlitzProps> = ({ id }) => {
       sdk.embedProjectId(node, id, {
         openFile: "index.tsx",
         height: "100%",
-        clickToLoad: true,
         hideExplorer: true,
         hideNavigation: true,
+        view: "editor"
       });
     }
   }, []);
