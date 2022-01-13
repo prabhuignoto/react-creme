@@ -60,7 +60,7 @@ delete_branch_on_merge = true # default: false
 #
 # If you request review from a user, don't merge until that user provides a
 # review, even if the PR is passing all status checks.
-block_on_reviews_requested = true # default: false
+block_on_reviews_requested = false # default: false
 
 # If there is a merge conflict, make a comment on the PR and remove the
 # automerge label. This option only applies when `merge.require_automerge_label`
