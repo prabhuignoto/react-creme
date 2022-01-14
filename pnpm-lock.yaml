@@ -20,7 +20,7 @@ importers:
       stylelint: 14.2.0
       stylelint-config-prettier: ^9.0.3
       stylelint-scss: ^4.1.0
-      turbo: 1.0.24
+      turbo: ^1.0.28
       typescript: ^4.5.4
     dependencies:
       eslint: 8.6.0
@@ -39,7 +39,7 @@ importers:
       stylelint: 14.2.0
       stylelint-config-prettier: 9.0.3_stylelint@14.2.0
       stylelint-scss: 4.1.0_stylelint@14.2.0
-      turbo: 1.0.24
+      turbo: 1.0.28
       typescript: 4.5.4
 
   packages/documentation:
@@ -103,6 +103,7 @@ importers:
       use-timer: ^2.0.1
       vite: 2.6.13
       vite-plugin-react-svg: ^0.2.0
+      vite-svg-loader: ^3.1.2
     dependencies:
       '@stackblitz/sdk': 1.5.3
       '@types/react': 17.0.38
@@ -164,6 +165,7 @@ importers:
       use-timer: 2.0.1_react-dom@17.0.2+react@17.0.2
       vite: 2.6.13_sass@1.48.0
       vite-plugin-react-svg: 0.2.0_@babel+core@7.16.7+vite@2.6.13
+      vite-svg-loader: 3.1.2
 
   packages/lib:
     specifiers:
@@ -2552,6 +2554,58 @@ packages:
       react-refresh: 0.10.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@vue/compiler-core/3.2.26:
+    resolution: {integrity: sha512-N5XNBobZbaASdzY9Lga2D9Lul5vdCIOXvUMd6ThcN8zgqQhPKfCV+wfAJNNJKQkSHudnYRO2gEB+lp0iN3g2Tw==}
+    dependencies:
+      '@babel/parser': 7.16.8
+      '@vue/shared': 3.2.26
+      estree-walker: 2.0.2
+      source-map: 0.6.1
+    dev: true
+
+  /@vue/compiler-dom/3.2.26:
+    resolution: {integrity: sha512-smBfaOW6mQDxcT3p9TKT6mE22vjxjJL50GFVJiI0chXYGU/xzC05QRGrW3HHVuJrmLTLx5zBhsZ2dIATERbarg==}
+    dependencies:
+      '@vue/compiler-core': 3.2.26
+      '@vue/shared': 3.2.26
+    dev: true
+
+  /@vue/compiler-sfc/3.2.26:
+    resolution: {integrity: sha512-ePpnfktV90UcLdsDQUh2JdiTuhV0Skv2iYXxfNMOK/F3Q+2BO0AulcVcfoksOpTJGmhhfosWfMyEaEf0UaWpIw==}
+    dependencies:
+      '@babel/parser': 7.16.8
+      '@vue/compiler-core': 3.2.26
+      '@vue/compiler-dom': 3.2.26
+      '@vue/compiler-ssr': 3.2.26
+      '@vue/reactivity-transform': 3.2.26
+      '@vue/shared': 3.2.26
+      estree-walker: 2.0.2
+      magic-string: 0.25.7
+      postcss: 8.4.5
+      source-map: 0.6.1
+    dev: true
+
+  /@vue/compiler-ssr/3.2.26:
+    resolution: {integrity: sha512-2mywLX0ODc4Zn8qBoA2PDCsLEZfpUGZcyoFRLSOjyGGK6wDy2/5kyDOWtf0S0UvtoyVq95OTSGIALjZ4k2q/ag==}
+    dependencies:
+      '@vue/compiler-dom': 3.2.26
+      '@vue/shared': 3.2.26
+    dev: true
+
+  /@vue/reactivity-transform/3.2.26:
+    resolution: {integrity: sha512-XKMyuCmzNA7nvFlYhdKwD78rcnmPb7q46uoR00zkX6yZrUmcCQ5OikiwUEVbvNhL5hBJuvbSO95jB5zkUon+eQ==}
+    dependencies:
+      '@babel/parser': 7.16.8
+      '@vue/compiler-core': 3.2.26
+      '@vue/shared': 3.2.26
+      estree-walker: 2.0.2
+      magic-string: 0.25.7
+    dev: true
+
+  /@vue/shared/3.2.26:
+    resolution: {integrity: sha512-vPV6Cq+NIWbH5pZu+V+2QHE9y1qfuTq49uNWw4f7FDEeZaDU2H2cx5jcUZOAKW7qTrUS4k6qZPbMy1x4N96nbA==}
     dev: true
 
   /@yarn-tool/resolve-package/1.0.41:
@@ -8665,119 +8719,119 @@ packages:
       tslib: 1.14.1
       typescript: 4.5.4
 
-  /turbo-darwin-64/1.0.24:
-    resolution: {integrity: sha512-A65Wxp+jBMfI3QX2uObX6DKvk+TxNXTf7ufQTHvRSLeAreB8QiVzJdYE0nC6YdrRwfPgFY3L72dhYd2v8ouXDg==}
+  /turbo-darwin-64/1.0.28:
+    resolution: {integrity: sha512-uvARrncW6HNTFi7PFe4sq4JqSOKs1vPgWjJjOEyVhsCFwBgYkXxYsJSdDfO8OhvJa3wv+eYFAK5RaUCk80Z8eg==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-darwin-arm64/1.0.24:
-    resolution: {integrity: sha512-31zfexqUhvk/CIfAUk2mwjlpEjIURXu4QG8hoWlGxpcpAhlnkIX6CXle+LoQSnU3+4EbNe2SE92fYXsT/SnHAg==}
+  /turbo-darwin-arm64/1.0.28:
+    resolution: {integrity: sha512-d/ANU+RIq4Fx/MphkqFThvwOpb+NYDuR+07aV5w8cwI7ljw7hPAe3EW3CSlkPJhvjs6P/oh+F86jhh1Q581mVA==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-freebsd-64/1.0.24:
-    resolution: {integrity: sha512-vZYbDkOHH5eeQrxsAYldrh2nDY884irtmgJdGbpjryJgnJx+xzriZfoFalm/d1ZfG3ArENRJqGU+k6BriefZzw==}
+  /turbo-freebsd-64/1.0.28:
+    resolution: {integrity: sha512-JMJWftuWhJan+Momc39vbbwaLYEcMpYyBxIrumyIrIkQVaiSKs/6oEFzh1YA+KE16kAgzTPJPXFDkmsY3idAQg==}
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-freebsd-arm64/1.0.24:
-    resolution: {integrity: sha512-TDIu1PlyusY8AB69KGM4wGrCjtfbzmVF4Hlgf9mVeSWVKzqkRASorOEq1k8KvfZ+sBTS2GBMpqwpa1KVkYpVhw==}
+  /turbo-freebsd-arm64/1.0.28:
+    resolution: {integrity: sha512-fGJNE8qJUhosaIK5sGBheeve9y074FLWv8KfYuXMyV/6+dxpNV60HoAFvw8tL3q8TNp47pU6x8e8h+u1/rn1wQ==}
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-32/1.0.24:
-    resolution: {integrity: sha512-lhhK7914sUtuWYcDO8LV7NQkvTIwpAZlYH0XEOC/OTiYRQJvtKbEySLvefvtwuGjx7cGNI6OYraUsY3WWoK3FA==}
+  /turbo-linux-32/1.0.28:
+    resolution: {integrity: sha512-fE0qIExxYuVFo5WlVWY0DJ1YZ/w+EC9RheT9nc1tU2EK83XPE1CZFW4lFIsWsXnIy9337zUeNDFVoVxOxCBSUQ==}
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-64/1.0.24:
-    resolution: {integrity: sha512-EbfdrkwVsHDG7AIVQ1enWHoD6riAApx4VRAuFcQHTvJU9e+BuOQBMjb7e9jO4mUrpumtN3n20tP+86odRwsk5g==}
+  /turbo-linux-64/1.0.28:
+    resolution: {integrity: sha512-e+f/O1MlcKCMhJf10q1x+1KSImHwuFUW2+A6DbLk+ekBUW5RELC2qF7hGypCzcpm8xIqtj5A0kP3blFy60AMxw==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-arm/1.0.24:
-    resolution: {integrity: sha512-lCNDVEkwxcn0acyPFVJgV5N5vKAP4LfXb+8uW/JpGHVoPHSONKtzYQG05J1KbHXpIjUT+DNgFtshtsdZYOewZQ==}
+  /turbo-linux-arm/1.0.28:
+    resolution: {integrity: sha512-PbB/RzN4W9M6sNZTvcjmc3PZ2S4CeFyQv/53tSs82pIlwM7NKVJzxVC0j3xCtoqoDDgXoJBhCpPV7MUEjCARQg==}
     cpu: [arm]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-arm64/1.0.24:
-    resolution: {integrity: sha512-H4rqlgP2L7G3iAB/un/7DclExzLUkQ1NoZ0p/1Oa7Wb8H1YUlc8GkwUmpIFd5AOFSPL75DjYvlS8T5Tm23i+1A==}
+  /turbo-linux-arm64/1.0.28:
+    resolution: {integrity: sha512-zN0nQClxp4nP4edinbdTd/9CpPjgNPsULc8LgunuJD+B9A0NRcRP5NCDo8/6ctTWs456sE3UhUF3t2b+uEgDzw==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-mips64le/1.0.24:
-    resolution: {integrity: sha512-AmrgQUDIe9AdNyh5YrI6pfMTUHD/gYfbylNmedLuN5Al3xINdZObcISzd/7VWd+V8wNW/1b9lUnt70Rv/KExfA==}
+  /turbo-linux-mips64le/1.0.28:
+    resolution: {integrity: sha512-7LKmFS9M+AKW5slTHLz00Y4ovZh2CpjgMUkNNC6qtJB8YyWwXwoU0U7Yz28q3+rNVkcEiqWWx4l1Tj1AotTlaA==}
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-ppc64le/1.0.24:
-    resolution: {integrity: sha512-+6ESjsfrvRUr1AsurNcRTrqYr+XHG8g763+hXLog1MP9mn1cufZqWlAyE4G8/MLXDHsEKgK+tXqPLIyLBRjLEw==}
+  /turbo-linux-ppc64le/1.0.28:
+    resolution: {integrity: sha512-R382Op75XxcIiY1pWPnVnefxOeVbrVAeABIHLL1hKetbu9UPNzKAnQKqJYGzKIdTRKtPh5CQuErEFzs/Ky2ZgA==}
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-windows-32/1.0.24:
-    resolution: {integrity: sha512-pqRys+FfHxuLVmW/AariITL5qpItp4WPAsYnWLx4u7VpCOO/qmTAI/SL7/jnTm4gxjBv3uf//lisu0AvEZd+TA==}
+  /turbo-windows-32/1.0.28:
+    resolution: {integrity: sha512-SjDgimlD5TMvkrFRtsJb4uVP7T44gwr0HqiIpAuWj1m5d8Pz/OisOoUkM/ISPKqVycIU5JF8wx0+CTnxC7YNhQ==}
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-windows-64/1.0.24:
-    resolution: {integrity: sha512-YHAWha5XkW0Ate1HtwhzFD32kZFXtC8KB4ReEvHc9GM2inQob1ZinvktS0xi5MC5Sxl9+bObOWmsxeZPOgNCFA==}
+  /turbo-windows-64/1.0.28:
+    resolution: {integrity: sha512-nT7bgcdl/9QNGBiwCYwTQ2VszcsqJ4NqT4YkE954KFZYxgSwMjjVTdoXcsnXMHpWiMiYfFF7HZLecUNnDm1uUA==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo/1.0.24:
-    resolution: {integrity: sha512-bfOr7iW48+chDl+yKiZ5FIWzXOF6xOIyrAGPaWI+I5CdD27IZCEGvqvTV/weaHvjLbV7otybHQ56XCybBlVjoA==}
+  /turbo/1.0.28:
+    resolution: {integrity: sha512-5xmyVabNYqA0sCAU4VLdUS2A6GwIyy8FTszB/Fx4eNHwHudQwo00F2qORcDFwBHE4MqtnRoBFhL3ZJzo8c9A2w==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.0.24
-      turbo-darwin-arm64: 1.0.24
-      turbo-freebsd-64: 1.0.24
-      turbo-freebsd-arm64: 1.0.24
-      turbo-linux-32: 1.0.24
-      turbo-linux-64: 1.0.24
-      turbo-linux-arm: 1.0.24
-      turbo-linux-arm64: 1.0.24
-      turbo-linux-mips64le: 1.0.24
-      turbo-linux-ppc64le: 1.0.24
-      turbo-windows-32: 1.0.24
-      turbo-windows-64: 1.0.24
+      turbo-darwin-64: 1.0.28
+      turbo-darwin-arm64: 1.0.28
+      turbo-freebsd-64: 1.0.28
+      turbo-freebsd-arm64: 1.0.28
+      turbo-linux-32: 1.0.28
+      turbo-linux-64: 1.0.28
+      turbo-linux-arm: 1.0.28
+      turbo-linux-arm64: 1.0.28
+      turbo-linux-mips64le: 1.0.28
+      turbo-linux-ppc64le: 1.0.28
+      turbo-windows-32: 1.0.28
+      turbo-windows-64: 1.0.28
     dev: false
 
   /type-check/0.3.2:
@@ -8949,6 +9003,13 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
+    dev: true
+
+  /vite-svg-loader/3.1.2:
+    resolution: {integrity: sha512-op5ENc3eo1K1YlufQtdyAcxxXtiWJHyimH9y573ZWhj/9cw5x3ZtYhOEQua7MugclTa9mnZTzuir0rfTCkVyiQ==}
+    dependencies:
+      '@vue/compiler-sfc': 3.2.26
+      svgo: 2.8.0
     dev: true
 
   /vite/2.6.13_sass@1.48.0:

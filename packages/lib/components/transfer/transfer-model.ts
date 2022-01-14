@@ -1,6 +1,6 @@
 import { ListOption } from "../list/list-model";
 
-export interface TransferModel extends TransferCommonModel {
+export interface TransferProps extends TransferCommonProps {
   list1: string[];
   list2: string[];
   onChange?: (list1: string[], list2: string[]) => void;
@@ -15,7 +15,7 @@ export interface TransferListInternalModel {
 }
 
 export type TransferList = "list1" | "list2";
-export interface TransferListItemModel extends TransferCommonModel {
+export interface TransferListItemModel extends TransferCommonProps {
   selected?: boolean;
   id: string;
   name: string;
@@ -23,11 +23,12 @@ export interface TransferListItemModel extends TransferCommonModel {
   list: TransferList;
 }
 
-export interface TransferCommonModel {
+export interface TransferCommonProps {
   virtualize?: boolean;
+  focusable?: boolean;
 }
 
-export interface TransferListProps extends TransferCommonModel {
+export interface TransferListProps extends TransferCommonProps {
   listId: TransferList;
   options: ListOption[];
   onSelection: (selected: ListOption[]) => void;

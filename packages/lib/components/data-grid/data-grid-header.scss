@@ -4,7 +4,7 @@
 
 .rc-data-grid-header-cell {
   @extend %left;
-  background: rgba(colors.$secondary, 0.2);
+  background: rgba(colors.$primary, 0.1);
   color: colors.$black;
   height: 100%;
   text-transform: capitalize;
