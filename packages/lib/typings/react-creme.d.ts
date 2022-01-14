@@ -1,11 +1,6 @@
 /// <reference types="react" />
 
-import { AnchorHTMLAttributes } from 'react';
-import { CSSProperties } from 'react';
-import { FunctionComponent } from 'react';
-import { default as React_2 } from 'react';
-import { ReactNode } from 'react';
-import { RefObject } from 'react';
+import { AnchorHTMLAttributes, CSSProperties, default as React_2, FunctionComponent, ReactNode, RefObject } from 'react';
 
 export declare const Accordion: React_2.FunctionComponent<AccordionModel>;
 
@@ -320,7 +315,7 @@ export declare interface DrawerModel extends OverlayModel {
     transition?: string;
 }
 
-export declare const Dropdown: React_2.FunctionComponent<DropdownModel>;
+export declare const Dropdown: React_2.FunctionComponent<DropdownProps>;
 
 export declare interface DropdownMenuModel extends OverlayModel {
     allowMultiSelection?: boolean;
@@ -339,7 +334,7 @@ declare interface DropdownMenuStyleModel {
     width?: number;
 }
 
-export declare interface DropdownModel {
+export declare interface DropdownProps {
     allowMultiSelection?: boolean;
     disabled?: boolean;
     enableSearch?: boolean;
@@ -368,7 +363,10 @@ export declare interface GlobalNotificationProps {
 declare type GlobalNotificationState = "success" | "error" | "warning" | "info";
 
 declare const Image_2: React_2.FunctionComponent<ImageProps>;
-export { Image_2 as Image }
+export { Image_2 as Image };
+export { Notification_2 as Notification };
+export { Option_2 as Option };
+export { };
 
 export declare const ImageComparer: React_2.FunctionComponent<ImageComparerModel>;
 
@@ -496,7 +494,6 @@ export declare type MenuOption = Option_2 & {
 };
 
 declare const Notification_2: React_2.FunctionComponent<NotificationModel>;
-export { Notification_2 as Notification }
 
 export declare interface NotificationModel extends OverlayModel {
     title?: string;
@@ -518,7 +515,6 @@ declare interface Option_2 {
     selected?: boolean;
     value?: string;
 }
-export { Option_2 as Option }
 
 declare interface OverlayCommon {
     onClose?: () => void;
@@ -904,4 +900,4 @@ export declare interface TreeModel extends TreeCommonModel {
     items: TreeItemModel[];
 }
 
-export { }
+

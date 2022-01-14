@@ -2,7 +2,7 @@ import { OverlayModel } from "../common/overlay-model";
 
 export type MenuOption = Option & { visible: boolean };
 
-export interface DropdownMenuModel extends OverlayModel {
+export interface DropdownMenuProps extends OverlayModel {
   allowMultiSelection?: boolean;
   enableSearch?: boolean;
   handleSelection: (selected: Option[]) => void;
@@ -11,6 +11,7 @@ export interface DropdownMenuModel extends OverlayModel {
   style: DropdownMenuStyleModel;
   virtualize?: boolean;
   RTL?: boolean;
+  focusable?: boolean;
 }
 
 export interface DropdownMenuStyleModel {
@@ -27,7 +28,7 @@ export interface Option {
   value?: string;
 }
 
-export interface DropdownModel {
+export interface DropdownProps {
   allowMultiSelection?: boolean;
   disabled?: boolean;
   enableSearch?: boolean;

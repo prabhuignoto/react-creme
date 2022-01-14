@@ -40,7 +40,7 @@ function Widgets() {
         </BlockQuote>
         <DemoWidget>
           <div style={{ width: "200px" }}>
-            <Input enableClear state="error"></Input>
+            <Input enableClear state="error" focusable></Input>
           </div>
         </DemoWidget>
         <DemoWidget>
