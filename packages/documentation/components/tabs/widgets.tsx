@@ -139,6 +139,26 @@ function widgets() {
             </div>
           </DemoWidget>
         </Section>
+        <Section title="Tabs with Icons">
+          <BlockQuote>
+            Specific tabs can be disabled by passing an array of tab labels to
+            the <em>disabledTabs</em> array
+          </BlockQuote>
+          <DemoWidget>
+            <div style={{ width: `${width}px` }}>
+              <Tabs
+                labels={["one", "two"]}
+                tabStyle="flat"
+                disabledTabs={["two", "one"]}
+                icons={[]}
+              >
+                <span>one</span>
+                <span>two</span>
+                <span>three</span>
+              </Tabs>
+            </div>
+          </DemoWidget>
+        </Section>
       </div>
     )
   );

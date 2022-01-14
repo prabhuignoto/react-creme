@@ -9,6 +9,7 @@ const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
     onSelection,
     enableSearch,
     virtualize,
+    focusable,
   }: TransferListProps) => {
     return (
       <List
@@ -26,6 +27,7 @@ const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
         itemHeight={40}
         enableSearch={enableSearch}
         virtualized={virtualize}
+        focusable={focusable}
       />
     );
   }

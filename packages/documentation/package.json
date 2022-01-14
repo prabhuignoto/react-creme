@@ -80,7 +80,8 @@
     "typescript": "^4.5.4",
     "use-timer": "^2.0.1",
     "vite": "2.6.13",
-    "vite-plugin-react-svg": "^0.2.0"
+    "vite-plugin-react-svg": "^0.2.0",
+    "vite-svg-loader": "^3.1.2"
   },
   "browserslist": [
     "last 3 versions",

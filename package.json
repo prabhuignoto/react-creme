@@ -23,7 +23,7 @@
     "stylelint": "14.2.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-scss": "^4.1.0",
-    "turbo": "1.0.24",
+    "turbo": "^1.0.28",
     "typescript": "^4.5.4"
   },
   "scripts": {
@@ -55,7 +55,9 @@
       },
       "test": {},
       "dev": {
-        "cache": false
+        "outputs": [
+          ".vite_cache"
+        ]
       },
       "ci": {
         "outputs": [

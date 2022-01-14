@@ -3,5 +3,4 @@
 
 pnpm format
 pnpm fix-css
-pnpm lint
 

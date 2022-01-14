@@ -4,7 +4,7 @@ import { useFirstRender } from "../common/effects/useFirstRender";
 import { ListOption } from "../list/list-model";
 import { TransferControlColumn } from "./transfer-control-column";
 import { TransferList } from "./transfer-list";
-import { TransferListInternalModel, TransferModel } from "./transfer-model";
+import { TransferListInternalModel, TransferProps } from "./transfer-model";
 import "./transfer.scss";
 
 const initMapper = (list: string[]) =>
@@ -15,12 +15,13 @@ const initMapper = (list: string[]) =>
     visible: true,
   }));
 
-const Transfer: React.FunctionComponent<TransferModel> = ({
+const Transfer: React.FunctionComponent<TransferProps> = ({
   list1,
   list2,
   onChange,
   enableSearch = false,
   virtualize = false,
+  focusable = false,
 }) => {
   const [leftList, setLeftList] = useState<TransferListInternalModel[]>(
     initMapper(list1)
@@ -103,6 +104,7 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
             onSelection={handleListSelectionLeft}
             enableSearch={enableSearch}
             virtualize={virtualize}
+            focusable={focusable}
           />
         ) : null}
       </section>
@@ -118,6 +120,7 @@ const Transfer: React.FunctionComponent<TransferModel> = ({
             options={rightList as ListOption[]}
             onSelection={handleListSelectionRight}
             enableSearch={enableSearch}
+            focusable={focusable}
           />
         ) : null}
       </section>

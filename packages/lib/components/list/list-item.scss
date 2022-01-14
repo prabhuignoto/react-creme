@@ -23,11 +23,7 @@ $height: 40px;
   position: absolute;
   right: 0;
   width: 100%;
-  z-index: 0;
-
-  &.rc-list-option-focus {
-    @include animate.halo();
-  }
+  z-index: 1;
 
   &:not(.rc-list-option-focus) {
     outline: 0;
@@ -43,6 +39,27 @@ $height: 40px;
 
   &.rc-list-option-selected.rc-list-option-highlight-selection {
     background: rgba(colors.$secondary, 50%);
+  }
+}
+
+.rc-list-option-focus {
+  &::after {
+    @include position.position-abs("center center");
+    border: 2px solid colors.$white;
+    border-radius: 4px;
+    content: "";
+    display: block;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    transition: border 0.1s ease-in;
+    width: 98%;
+    z-index: -1;
+  }
+}
+
+.rc-list-option-focus:focus {
+  &::after {
+    border: 2px solid colors.$primary;
   }
 }
 

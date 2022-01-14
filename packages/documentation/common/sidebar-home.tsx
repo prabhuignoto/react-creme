@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Sidebar } from "../../lib/components";
 import {
-    SidebarGroupModel,
-    SidebarItemModel
+  SidebarGroupModel,
+  SidebarItemModel,
 } from "../../lib/components/sidebar/sidebar-model";
 
 interface SideBarHomeProps {
@@ -40,6 +40,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
           groupIconColor="#0074B7"
           groupTitleColor="#0074B7"
           sectionsCollapsible={false}
+          focusable
           groups={[
             {
               title: "Layout",
