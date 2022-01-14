@@ -12,14 +12,14 @@ import { useFocus } from "../common/effects/useFocus";
 import { withOverlay } from "../common/withOverlay";
 import { Tags } from "../tags/tags";
 import { DropDownMenu } from "./dropdown-menu";
-import { DropdownMenuModel, DropdownModel, Option } from "./dropdown-model";
+import { DropdownMenuProps, DropdownProps, Option } from "./dropdown-model";
 import "./dropdown.scss";
 
-const DropdownMenuOverlay = withOverlay<DropdownMenuModel>(DropDownMenu, {
+const DropdownMenuOverlay = withOverlay<DropdownMenuProps>(DropDownMenu, {
   backdropColor: "transparent",
 });
 
-const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
+const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
   ({
     allowMultiSelection,
     disabled = false,
@@ -32,7 +32,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
     focusable = false,
     RTL = false,
     chevronIconColor,
-  }: DropdownModel) => {
+  }: DropdownProps) => {
     // options states
     const [dropdownOptions, setDropdownOptions] = useState(
       options.map((option) => ({
@@ -233,6 +233,7 @@ const Dropdown: React.FunctionComponent<DropdownModel> = React.memo(
             virtualize={virtualize}
             overlayAnimation={false}
             RTL={RTL}
+            focusable={focusable}
             align="left"
           />
         )}

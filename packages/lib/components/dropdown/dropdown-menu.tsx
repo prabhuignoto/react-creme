@@ -2,9 +2,9 @@ import classNames from "classnames";
 import React, { CSSProperties, useEffect, useMemo } from "react";
 import { List } from "../list/list";
 import "./dropdown-menu.scss";
-import { DropdownMenuModel } from "./dropdown-model";
+import { DropdownMenuProps } from "./dropdown-model";
 
-const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
+const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   allowMultiSelection,
   enableSearch,
   handleSelection,
@@ -15,7 +15,8 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
   style: { width, maxMenuHeight },
   virtualize,
   RTL,
-}: DropdownMenuModel) => {
+  focusable,
+}: DropdownMenuProps) => {
   // STYLES
   const menuStyle = useMemo(() => {
     return {
@@ -53,6 +54,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuModel> = ({
         maxHeight={maxMenuHeight}
         virtualized={virtualize}
         RTL={RTL}
+        focusable={focusable}
       />
     </div>
   );
