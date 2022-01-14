@@ -4,11 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import App from "./App";
 
-if (typeof window !== "undefined" && process.env.NODE_ENV !== "production") {
-  // axe(React, ReactDOM, 1000);
-}
-
-// @ts-ignore
+import LogRocket from "logrocket";
+LogRocket.init("v2ukds/react-creme");
 
 ReactDOM.render(
   <BrowserRouter>

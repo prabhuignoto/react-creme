@@ -75,6 +75,7 @@ importers:
       eslint-plugin-node: 11.1.0
       eslint-plugin-promise: 6.0.0
       eslint-plugin-react: ^7.28.0
+      logrocket: ^2.1.3
       postcss: ^8.4.5
       postcss-bem-linter: ^3.3.0
       postcss-prefixer: ^2.1.3
@@ -109,6 +110,7 @@ importers:
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
       classnames: 2.3.1
+      logrocket: 2.1.3
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-feather: 2.0.9_react@17.0.2
@@ -6072,6 +6074,10 @@ packages:
       cli-cursor: 3.1.0
       slice-ansi: 4.0.0
       wrap-ansi: 6.2.0
+    dev: false
+
+  /logrocket/2.1.3:
+    resolution: {integrity: sha512-qrGyZON8EEpiFSWaiL2qM1LsgQ/ccivpMhrjGMLCrbG3uJ60YdRkgRR8bpuxkgMY3RMa8E7cpkvir0L0B/6yHg==}
     dev: false
 
   /loose-envify/1.4.0:
