@@ -77,7 +77,6 @@ importers:
       eslint-plugin-node: 11.1.0
       eslint-plugin-promise: 6.0.0
       eslint-plugin-react: ^7.28.0
-      logrocket: ^2.1.3
       postcss: ^8.4.5
       postcss-bem-linter: ^3.3.0
       postcss-prefixer: ^2.1.3
@@ -106,7 +105,6 @@ importers:
       use-timer: ^2.0.1
       vite: 2.6.13
       vite-plugin-react-svg: ^0.2.0
-      vite-svg-loader: ^3.1.2
     dependencies:
       '@sentry/browser': 6.16.1
       '@sentry/tracing': 6.16.1
@@ -114,7 +112,6 @@ importers:
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
       classnames: 2.3.1
-      logrocket: 2.1.3
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-feather: 2.0.9_react@17.0.2
@@ -171,7 +168,6 @@ importers:
       use-timer: 2.0.1_react-dom@17.0.2+react@17.0.2
       vite: 2.6.13_sass@1.48.0
       vite-plugin-react-svg: 0.2.0_@babel+core@7.16.7+vite@2.6.13
-      vite-svg-loader: 3.1.2
 
   packages/lib:
     specifiers:
@@ -185,7 +181,7 @@ importers:
       '@rollup/plugin-babel': ^5.3.0
       '@rollup/plugin-commonjs': ^21.0.1
       '@rollup/plugin-node-resolve': ^13.1.3
-      '@testing-library/dom': ^8.11.1
+      '@testing-library/dom': ^8.11.2
       '@testing-library/jest-dom': ^5.16.1
       '@testing-library/react': ^13.0.0-alpha.5
       '@testing-library/user-event': ^13.5.0
@@ -268,10 +264,10 @@ importers:
       '@rollup/plugin-babel': 5.3.0_@babel+core@7.16.7+rollup@2.64.0
       '@rollup/plugin-commonjs': 21.0.1_rollup@2.64.0
       '@rollup/plugin-node-resolve': 13.1.3_rollup@2.64.0
-      '@testing-library/dom': 8.11.1
+      '@testing-library/dom': 8.11.2
       '@testing-library/jest-dom': 5.16.1
       '@testing-library/react': 13.0.0-alpha.5_react-dom@17.0.2+react@17.0.2
-      '@testing-library/user-event': 13.5.0_@testing-library+dom@8.11.1
+      '@testing-library/user-event': 13.5.0_@testing-library+dom@8.11.2
       '@types/bluebird': 3.5.36
       '@types/jest': 27.4.0
       '@types/node': 17.0.8
@@ -2253,8 +2249,8 @@ packages:
       svgo: 1.3.2
     dev: true
 
-  /@testing-library/dom/8.11.1:
-    resolution: {integrity: sha512-3KQDyx9r0RKYailW2MiYrSSKEfH0GTkI51UGEvJenvcoDoeRYs0PZpi2SXqtnMClQvCqdtTTpOfFETDTVADpAg==}
+  /@testing-library/dom/8.11.2:
+    resolution: {integrity: sha512-idsS/cqbYudXcVWngc1PuWNmXs416oBy2g/7Q8QAUREt5Z3MUkAL2XJD7xazLJ6esDfqRDi/ZBxk+OPPXitHRw==}
     engines: {node: '>=12'}
     dependencies:
       '@babel/code-frame': 7.16.7
@@ -2290,19 +2286,19 @@ packages:
       react-dom: '*'
     dependencies:
       '@babel/runtime': 7.16.7
-      '@testing-library/dom': 8.11.1
+      '@testing-library/dom': 8.11.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     dev: true
 
-  /@testing-library/user-event/13.5.0_@testing-library+dom@8.11.1:
+  /@testing-library/user-event/13.5.0_@testing-library+dom@8.11.2:
     resolution: {integrity: sha512-5Kwtbo3Y/NowpkbRuSepbyMFkZmHgD+vPzYB/RJ4oxt5Gj/avFFBYjhw27cqSVPVw/3a67NK1PbiIr9k4Gwmdg==}
     engines: {node: '>=10', npm: '>=6'}
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
     dependencies:
       '@babel/runtime': 7.16.7
-      '@testing-library/dom': 8.11.1
+      '@testing-library/dom': 8.11.2
     dev: true
 
   /@tootallnate/once/1.1.2:
@@ -2640,58 +2636,6 @@ packages:
       react-refresh: 0.10.0
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@vue/compiler-core/3.2.26:
-    resolution: {integrity: sha512-N5XNBobZbaASdzY9Lga2D9Lul5vdCIOXvUMd6ThcN8zgqQhPKfCV+wfAJNNJKQkSHudnYRO2gEB+lp0iN3g2Tw==}
-    dependencies:
-      '@babel/parser': 7.16.8
-      '@vue/shared': 3.2.26
-      estree-walker: 2.0.2
-      source-map: 0.6.1
-    dev: true
-
-  /@vue/compiler-dom/3.2.26:
-    resolution: {integrity: sha512-smBfaOW6mQDxcT3p9TKT6mE22vjxjJL50GFVJiI0chXYGU/xzC05QRGrW3HHVuJrmLTLx5zBhsZ2dIATERbarg==}
-    dependencies:
-      '@vue/compiler-core': 3.2.26
-      '@vue/shared': 3.2.26
-    dev: true
-
-  /@vue/compiler-sfc/3.2.26:
-    resolution: {integrity: sha512-ePpnfktV90UcLdsDQUh2JdiTuhV0Skv2iYXxfNMOK/F3Q+2BO0AulcVcfoksOpTJGmhhfosWfMyEaEf0UaWpIw==}
-    dependencies:
-      '@babel/parser': 7.16.8
-      '@vue/compiler-core': 3.2.26
-      '@vue/compiler-dom': 3.2.26
-      '@vue/compiler-ssr': 3.2.26
-      '@vue/reactivity-transform': 3.2.26
-      '@vue/shared': 3.2.26
-      estree-walker: 2.0.2
-      magic-string: 0.25.7
-      postcss: 8.4.5
-      source-map: 0.6.1
-    dev: true
-
-  /@vue/compiler-ssr/3.2.26:
-    resolution: {integrity: sha512-2mywLX0ODc4Zn8qBoA2PDCsLEZfpUGZcyoFRLSOjyGGK6wDy2/5kyDOWtf0S0UvtoyVq95OTSGIALjZ4k2q/ag==}
-    dependencies:
-      '@vue/compiler-dom': 3.2.26
-      '@vue/shared': 3.2.26
-    dev: true
-
-  /@vue/reactivity-transform/3.2.26:
-    resolution: {integrity: sha512-XKMyuCmzNA7nvFlYhdKwD78rcnmPb7q46uoR00zkX6yZrUmcCQ5OikiwUEVbvNhL5hBJuvbSO95jB5zkUon+eQ==}
-    dependencies:
-      '@babel/parser': 7.16.8
-      '@vue/compiler-core': 3.2.26
-      '@vue/shared': 3.2.26
-      estree-walker: 2.0.2
-      magic-string: 0.25.7
-    dev: true
-
-  /@vue/shared/3.2.26:
-    resolution: {integrity: sha512-vPV6Cq+NIWbH5pZu+V+2QHE9y1qfuTq49uNWw4f7FDEeZaDU2H2cx5jcUZOAKW7qTrUS4k6qZPbMy1x4N96nbA==}
     dev: true
 
   /@yarn-tool/resolve-package/1.0.42_88031b6e6190b2649c0fa76955fcd1d2:
@@ -6158,10 +6102,6 @@ packages:
       wrap-ansi: 6.2.0
     dev: false
 
-  /logrocket/2.1.3:
-    resolution: {integrity: sha512-qrGyZON8EEpiFSWaiL2qM1LsgQ/ccivpMhrjGMLCrbG3uJ60YdRkgRR8bpuxkgMY3RMa8E7cpkvir0L0B/6yHg==}
-    dev: false
-
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
@@ -9099,13 +9039,6 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
-    dev: true
-
-  /vite-svg-loader/3.1.2:
-    resolution: {integrity: sha512-op5ENc3eo1K1YlufQtdyAcxxXtiWJHyimH9y573ZWhj/9cw5x3ZtYhOEQua7MugclTa9mnZTzuir0rfTCkVyiQ==}
-    dependencies:
-      '@vue/compiler-sfc': 3.2.26
-      svgo: 2.8.0
     dev: true
 
   /vite/2.6.13_sass@1.48.0:
