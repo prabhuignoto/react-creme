@@ -19,7 +19,7 @@
     "lint-staged": "^12.1.7",
     "postcss": "^8.4.5",
     "postcss-scss": "^4.0.3",
-    "snyk": "^1.826.0",
+    "snyk": "^1.827.0",
     "stylelint": "14.2.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-scss": "^4.1.0",
