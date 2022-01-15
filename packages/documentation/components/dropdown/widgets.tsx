@@ -137,6 +137,7 @@ function Widgets() {
                 onSelected={(val) => console.log(val)}
                 enableSearch
                 RTL
+                focusable
                 options={[
                   { name: "germany", value: "germany", disabled: true },
                   { name: "india", value: "india" },

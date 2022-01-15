@@ -103,6 +103,13 @@ function index() {
           optional: "yes",
           type: "boolean",
         },
+        {
+          name: "focusable",
+          description: "enables focus outlines",
+          default: "false",
+          optional: "yes",
+          type: "boolean",
+        },
       ]}
       tabTitles={["examples", "properties", "Stackblitz"]}
       stackBlitzCodes={["react-ts-dnneps"]}

@@ -28,7 +28,7 @@ export type { DialogModel } from "./components/dialog/dialog-model";
 export { Drawer } from "./components/drawer/drawer";
 export type { DrawerModel } from "./components/drawer/drawer-model";
 export { Dropdown } from "./components/dropdown/dropdown";
-export type { DropdownMenuModel, DropdownModel, MenuOption, Option } from "./components/dropdown/dropdown-model";
+export type { DropdownMenuModel, DropdownProps, MenuOption, Option } from "./components/dropdown/dropdown-model";
 export { GlobalNotification } from "./components/global-notification/global-notification";
 export type { GlobalNotificationProps } from "./components/global-notification/global-notification";
 export { ImageComparer } from "./components/image-comparer/image-comparer";
