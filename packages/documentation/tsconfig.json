@@ -28,5 +28,6 @@
   },
   "exclude": [
     "./node_modules/**/*"
-  ]
+  ],
+  "include": ["svg.d.ts"]
 }
