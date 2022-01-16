@@ -7,16 +7,16 @@ import { useFirstRender } from "../common/effects/useFirstRender";
 import "./checkbox-group.scss";
 
 export interface CheckboxGroupProps {
-  options: CheckboxModel[];
+  RTL?: boolean;
   border?: boolean;
+  checkboxStyle?: "square" | "round";
   disabled?: boolean;
   layout?: "horizontal" | "vertical";
-  checkboxStyle?: "square" | "round";
-  onChange?: (
-    selected: { id?: string; name?: string; isChecked: boolean }[]
-  ) => void;
   noUniqueIds?: boolean;
-  RTL?: boolean;
+  onChange?: (
+    selected: { id?: string; isChecked: boolean; name?: string }[]
+  ) => void;
+  options: CheckboxModel[];
 }
 
 const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({

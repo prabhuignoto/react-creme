@@ -46,7 +46,7 @@ function transfer() {
           type: "boolean",
         },
       ]}
-      tabTitles={["examples", "Properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-q3izbn"]}
     ></DemoPageRenderer>
   );

@@ -59,7 +59,7 @@ function accordionGroup() {
           type: "String",
         },
       ]}
-      tabTitles={["Examples", "Properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       demoWidget={React.lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
   );

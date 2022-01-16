@@ -1,20 +1,23 @@
 import { Option } from "../dropdown/dropdown-model";
 
 interface ListCommonProps {
+  RTL?: boolean;
   allowMultiSelection?: boolean;
   focusable?: boolean;
   highlightSelection?: boolean;
   showCheckIcon?: boolean;
   textColor?: string;
   textColorSelected?: string;
-  RTL?: boolean;
 }
 
 export interface ListModel extends ListCommonProps {
+  backGroundColor?: string;
   border?: boolean;
   enableSearch?: boolean;
   group?: boolean;
+  id?: string;
   itemHeight?: number;
+  label?: string;
   maxHeight?: number;
   minHeight?: number;
   noUniqueIds?: boolean;
@@ -22,9 +25,6 @@ export interface ListModel extends ListCommonProps {
   options: ListOption[];
   rowGap?: number;
   virtualized?: boolean;
-  backGroundColor?: string;
-  id?: string;
-  label?: string;
 }
 
 export interface ListItemModel extends ListCommonProps {
@@ -44,9 +44,9 @@ export interface ListOption extends Option {
 }
 
 export interface ListItemOptionProps extends ListCommonProps {
+  focusable?: boolean;
   name: string;
   selected?: boolean;
-  tabIndex: number;
   showCheck?: boolean;
-  focusable?: boolean;
+  tabIndex: number;
 }

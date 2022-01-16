@@ -15,8 +15,8 @@ type Position =
   | "right center";
 
 interface Settings {
-  spacing: number;
   alignToEdge?: boolean;
+  spacing: number;
 }
 
 type FunctionType = (

@@ -15,11 +15,11 @@ import { TagItemInternalModel } from "./tags-model";
 import "./tags.scss";
 
 type TagItemViewModel = TagItemInternalModel & {
-  handleRemove: (id: string) => void;
-  width?: number;
-  tagStyle?: "default" | "fill";
-  tagSize?: "small" | "large";
   focusable?: boolean;
+  handleRemove: (id: string) => void;
+  tagSize?: "small" | "large";
+  tagStyle?: "default" | "fill";
+  width?: number;
 };
 
 const TagItem: FunctionComponent<TagItemViewModel> = React.memo(

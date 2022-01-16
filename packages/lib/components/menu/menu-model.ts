@@ -3,13 +3,13 @@ export interface MenuModel {
   children: React.ReactNode;
   focusable?: boolean;
   id?: string;
+  isClosing?: boolean;
   items: MenuItemModel[];
   onClose?: (id?: string) => void;
   onOpen?: (id?: string) => void;
   onSelected?: (val: string) => void;
   position?: "left" | "right";
   style?: CSSProperties;
-  isClosing?: boolean;
 }
 
 export interface MenuItemModel {

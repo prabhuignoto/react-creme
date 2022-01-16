@@ -1,21 +1,21 @@
 import { atom } from "recoil";
 
 const asideState = atom({
-  key: "asideState",
   default: {
     isOpen: false,
   },
+  key: "asideState",
 });
 
 const responsiveState = atom({
-  key: "responsiveState",
   default: {
-    isMobile: false,
-    isDesktop: false,
     isBigScreen: false,
+    isDesktop: false,
     isExtraLargeScreen: false,
+    isMobile: false,
     isTablet: false,
   },
+  key: "responsiveState",
 });
 
 export { asideState, responsiveState };

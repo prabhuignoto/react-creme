@@ -53,7 +53,7 @@ function rate() {
           type: `Array`,
         },
       ]}
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-lqtbt6"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>

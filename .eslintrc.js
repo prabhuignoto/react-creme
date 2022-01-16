@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ["plugin:import/recommended", "plugin:react/recommended", "prettier"],
+  extends: ["plugin:import/typescript", "plugin:react/recommended", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -13,20 +13,19 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "jsx-a11y", "jest", "sort-keys-fix"],
+  plugins: [
+    "react",
+    "@typescript-eslint",
+    "jsx-a11y",
+    "jest",
+    "sort-keys-fix",
+    "typescript-sort-keys",
+  ],
   rules: {
-    "import/extensions": [
-      "error",
-      "always",
-      {
-        js: "never",
-        jsx: "never",
-        ts: "never",
-        tsx: "never",
-      },
-    ],
     "no-use-before-define": "off",
-    "sort-keys-fix/sort-keys-fix": "warn",
+    "sort-keys-fix/sort-keys-fix": "error",
+    "typescript-sort-keys/interface": "error",
+    "typescript-sort-keys/string-enum": "error",
   },
   settings: {
     "import/resolver": {

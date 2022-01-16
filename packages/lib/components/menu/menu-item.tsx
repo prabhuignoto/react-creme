@@ -4,9 +4,9 @@ import "./menu-item.scss";
 
 export interface MenuItemModel {
   disabled?: boolean;
+  handleSelection?: (name: string) => void;
   isDivider?: boolean;
   name?: string;
-  handleSelection?: (name: string) => void;
 }
 
 const MenuItem: React.FunctionComponent<MenuItemModel> = ({

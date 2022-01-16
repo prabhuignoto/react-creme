@@ -69,7 +69,7 @@ function notification() {
           type: "Boolean",
         },
       ]}
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-fwgs9r"]}
       demoWidget={lazy(() => import("./notification-widgets"))}
     ></DemoPageRenderer>

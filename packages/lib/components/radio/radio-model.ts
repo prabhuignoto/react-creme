@@ -1,7 +1,10 @@
 import { CSSProperties } from "react";
 
 export interface RadioModel {
+  RTL?: boolean;
   disabled?: boolean;
+  focusable?: boolean;
+  fullWidth?: boolean;
   id?: string;
   isChecked?: boolean | null;
   isControlled?: boolean;
@@ -14,8 +17,5 @@ export interface RadioModel {
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
   value?: string;
-  focusable?: boolean;
   withGroup?: boolean;
-  fullWidth?: boolean;
-  RTL?: boolean;
 }

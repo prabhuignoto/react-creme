@@ -2,14 +2,15 @@ import React, {
   LazyExoticComponent,
   Suspense,
   useLayoutEffect,
-  useMemo,
+  useMemo
 } from "react";
-import { BookOpen, Code, Sliders } from "react-feather";
+import { BookOpen, Code, Sliders, Tool } from "react-feather";
 import { CSSTransition } from "react-transition-group";
 import { PageHeader, Section, Tabs } from "../../lib/components";
 import { DataGridColumn } from "../../lib/components/data-grid/data-grid-model";
 import "./demo-page-renderer.scss";
 import StackBlitz from "./stackblitz";
+import { SyntaxHighLighter } from "./syntax-highlighter";
 import useMedia from "./useMedia";
 
 const DataGrid = React.lazy(() =>
@@ -21,6 +22,7 @@ const DataGrid = React.lazy(() =>
 const Icons = [
   <BookOpen size={18} key="book-open" />,
   <Sliders size={18} key="settings" />,
+  <Tool size={18} key="tool" />,
   <Code size={18} key="code" />,
 ];
 
@@ -32,6 +34,7 @@ interface DemoPageRendererProps {
   title?: string;
   description?: string;
   stackBlitzCodes?: string[];
+  typeDefStrings?: string[];
 }
 
 const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
@@ -43,6 +46,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
       callbacks,
       title,
       description,
+      typeDefStrings,
       stackBlitzCodes,
     }: DemoPageRendererProps) => {
       const media = useMedia();
@@ -77,28 +81,28 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
         if (media.isMobile) {
           return [
             {
-              name: "name",
-              type: "string",
-              sortable: true,
               formatter: (val) => (val ? `<em>${val}</em>` : ""),
+              name: "name",
+              sortable: true,
+              type: "string",
             },
             { name: "description", type: "string" },
           ];
         } else if (media.isBigScreen || media.isExtraLargeScreen) {
           return [
             {
-              name: "name",
-              type: "string",
-              sortable: true,
-              width: width[0],
               formatter: (val) => (val ? `<em>${val}</em>` : ""),
+              name: "name",
+              sortable: true,
+              type: "string",
+              width: width[0],
             },
             { name: "description", type: "string", width: width[1] },
             {
+              formatter: (val) => (val ? `<em>${val}</em>` : ""),
               name: "default",
               type: "string",
               width: width[2],
-              formatter: (val) => (val ? `<em>${val}</em>` : ""),
             },
             { name: "optional", type: "string" },
             { name: "type", type: "string" },
@@ -106,17 +110,17 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
         } else {
           return [
             {
-              name: "name",
-              type: "string",
-              sortable: true,
               formatter: (val) => (val ? `<em>${val}</em>` : ""),
+              name: "name",
+              sortable: true,
+              type: "string",
               width: 150,
             },
             { name: "description", type: "string" },
             {
+              formatter: (val) => (val ? `<em>${val}</em>` : ""),
               name: "default",
               type: "string",
-              formatter: (val) => (val ? `<em>${val}</em>` : ""),
               width: 150,
             },
           ];
@@ -169,10 +173,21 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                   )}
                 </Suspense>
               </div>
-              <div className="rc-demo-stackblitz-collection">
+              <div className="rc-demo-type-definitions">
+                {typeDefStrings && (
+                  <Section title="Type Definitions">
+                    {typeDefStrings.map((typeDefString, index) => (
+                      <div key={index}>
+                        <SyntaxHighLighter code={typeDefString}/>
+                      </div>
+                    ))}
+                  </Section>
+                )}
+              </div>
+              <div className="rc-demo-stack-blitz-collection">
                 {stackBlitzCodes &&
                   stackBlitzCodes.map((code) => (
-                    <div className="rc-demo-stackblitz" key={code}>
+                    <div className="rc-demo-stack-blitz" key={code}>
                       <StackBlitz id={code} />
                     </div>
                   ))}

@@ -1,10 +1,10 @@
 import { ListOption } from "../list/list-model";
 
 export interface TransferProps extends TransferCommonProps {
+  enableSearch?: boolean;
   list1: string[];
   list2: string[];
   onChange?: (list1: string[], list2: string[]) => void;
-  enableSearch?: boolean;
 }
 
 export interface TransferListInternalModel {
@@ -16,21 +16,21 @@ export interface TransferListInternalModel {
 
 export type TransferList = "list1" | "list2";
 export interface TransferListItemModel extends TransferCommonProps {
-  selected?: boolean;
-  id: string;
-  name: string;
   handleSelection: (l: TransferList, id: string) => void;
+  id: string;
   list: TransferList;
+  name: string;
+  selected?: boolean;
 }
 
 export interface TransferCommonProps {
-  virtualize?: boolean;
   focusable?: boolean;
+  virtualize?: boolean;
 }
 
 export interface TransferListProps extends TransferCommonProps {
-  listId: TransferList;
-  options: ListOption[];
-  onSelection: (selected: ListOption[]) => void;
   enableSearch?: boolean;
+  listId: TransferList;
+  onSelection: (selected: ListOption[]) => void;
+  options: ListOption[];
 }

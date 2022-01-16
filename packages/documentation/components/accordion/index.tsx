@@ -4,9 +4,9 @@ import DemoPageRenderer from "../../common/demo-page-renderer";
 function accordion() {
   return (
     <DemoPageRenderer
-      title="Accordion"
       description="Accordion is a collapsible component that can be used to hide or expose collapsible content."
-      tabTitles={["Examples", "Properties", "Stackblitz"]}
+      title="Accordion"
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-s9qxmk"]}
       callbacks={[
         {

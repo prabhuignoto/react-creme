@@ -13,16 +13,16 @@ export type ToolTipPosition =
   | "right center";
 
 export interface TooltipModel {
+  bgColor?: string;
   children: React.ReactNode[] | React.ReactNode;
+  fixedAtCenter?: boolean;
+  foreColor?: string;
   isStatic?: boolean;
+  maxWidth?: number;
   message: string;
+  minWidth?: number;
   onTooltipRendered?: () => void;
   position?: ToolTipPosition;
   ref?: RefObject<HTMLElement>;
   show?: boolean;
-  minWidth?: number;
-  maxWidth?: number;
-  fixedAtCenter?: boolean;
-  bgColor?: string;
-  foreColor?: string;
 }

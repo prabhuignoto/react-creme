@@ -3,8 +3,8 @@ import useSortable from "./../common/effects/useSortable";
 import "./sortable.scss";
 
 interface SortableProps {
-  direction?: "horizontal" | "vertical";
   children?: ReactNode | ReactNode[];
+  direction?: "horizontal" | "vertical";
 }
 
 const Sortable: React.FunctionComponent<SortableProps> = ({

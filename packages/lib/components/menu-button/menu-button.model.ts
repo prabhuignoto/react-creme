@@ -1,9 +1,9 @@
 export interface MenuButtonProps {
+  RTL?: boolean;
+  disabled?: boolean;
+  focusable?: boolean;
+  iconColor?: string;
   items: string[];
   onSelected?: (item?: string) => void;
-  focusable?: boolean;
   width?: number;
-  disabled?: boolean;
-  RTL?: boolean;
-  iconColor?: string;
 }

@@ -31,10 +31,10 @@ export interface SidebarGroupsModel extends SidebarCommonProps {
 }
 
 export interface SidebarCommonProps {
-  groupIconColor?: string;
   focusable?: boolean;
+  groupIconColor?: string;
   groupTitleColor?: string;
+  iconsColor?: string;
   listMaxHeight?: number;
   sectionsCollapsible?: boolean;
-  iconsColor?: string;
 }

@@ -1,3 +1,11 @@
-App.tsx
+images/**
+icons/**
+*.css
+**/*.css
+expo_dist
+*.html
+*.json
+*.svg
+*.ico
+*.d.ts
 __tests__
-*.scss

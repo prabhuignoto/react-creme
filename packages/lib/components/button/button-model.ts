@@ -1,14 +1,14 @@
 import React, { CSSProperties } from "react";
 
 export interface ButtonModel {
-  label?: string;
-  onClick?: () => void;
+  border?: boolean;
   children?: React.ReactNode;
   disabled?: boolean;
+  focusable?: boolean;
+  label?: string;
+  onClick?: () => void;
   primary?: boolean;
-  type?: "primary" | "default" | "danger" | "icon" | "progress";
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
-  border?: boolean;
-  focusable?: boolean;
+  type?: "primary" | "default" | "danger" | "icon" | "progress";
 }

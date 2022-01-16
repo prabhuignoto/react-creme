@@ -38,7 +38,7 @@ function carousel() {
           type: "Number",
         },
       ]}
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
     ></DemoPageRenderer>
   );
 }

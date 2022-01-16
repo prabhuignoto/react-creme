@@ -3,15 +3,15 @@ import { OverlayModel } from "../common/overlay-model";
 export type MenuOption = Option & { visible: boolean };
 
 export interface DropdownMenuProps extends OverlayModel {
+  RTL?: boolean;
   allowMultiSelection?: boolean;
   enableSearch?: boolean;
+  focusable?: boolean;
   handleSelection: (selected: Option[]) => void;
   open: boolean;
   options: MenuOption[];
   style: DropdownMenuStyleModel;
   virtualize?: boolean;
-  RTL?: boolean;
-  focusable?: boolean;
 }
 
 export interface DropdownMenuStyleModel {
@@ -29,15 +29,15 @@ export interface Option {
 }
 
 export interface DropdownProps {
+  RTL?: boolean;
   allowMultiSelection?: boolean;
+  chevronIconColor?: string;
   disabled?: boolean;
   enableSearch?: boolean;
+  focusable?: boolean;
   maxMenuHeight?: number;
   onSelected?: (value: string | string[]) => void;
   options: Option[];
   placeholder?: string;
   virtualize?: boolean;
-  focusable?: boolean;
-  RTL?: boolean;
-  chevronIconColor?: string;
 }

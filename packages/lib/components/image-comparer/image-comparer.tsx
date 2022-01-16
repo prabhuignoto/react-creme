@@ -32,8 +32,8 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
 
   // this state is used to set the dimension of the wrapper
   const [wrapperDimensions, setWrapperDimensions] = useState<{
-    width: number;
     height: number;
+    width: number;
   }>({ height: 0, width: 0 });
 
   // const isFirstRender = useRef(null);

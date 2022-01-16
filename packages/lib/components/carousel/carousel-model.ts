@@ -1,13 +1,13 @@
 import React from "react";
 
 export interface CarouselModel {
+  autoPlay?: number;
   children: React.ReactNode | React.ReactNode;
   direction?: "horizontal" | "vertical";
-  height?: number;
-  autoPlay?: number;
-  transition?: string;
   enableSwipe?: boolean;
   focusable?: boolean;
+  height?: number;
+  transition?: string;
 }
 
 export interface CarouselItemModel {
@@ -32,20 +32,20 @@ export interface CarouselItemsModel {
 export interface CarouselTrackModel {
   activeIndex: number;
   direction: "horizontal" | "vertical";
+  focusable?: boolean;
   handleSelection: (index: number) => void;
+  hideNext?: boolean;
+  hidePrevious?: boolean;
   length: number;
   onNext: () => void;
   onPrevious: () => void;
-  hideNext?: boolean;
-  focusable?: boolean;
-  hidePrevious?: boolean;
 }
 
 export interface CarouselButtonModel {
+  direction: "horizontal" | "vertical";
+  focusable?: boolean;
+  hide?: boolean;
+  label: string;
   onClick: () => void;
   position: "left" | "right";
-  direction: "horizontal" | "vertical";
-  hide?: boolean;
-  focusable?: boolean;
-  label: string;
 }

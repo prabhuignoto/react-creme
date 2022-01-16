@@ -14,18 +14,18 @@ const rnd = Math.round;
 const isTouch = isTouchDevice();
 
 interface Settings {
+  currentValue?: number;
   direction: "horizontal" | "vertical";
+  endValue?: number;
   maxX?: number;
+  maxY?: number;
   minX?: number;
   minY?: number;
-  maxY?: number;
-  startValue?: number;
-  endValue?: number;
-  offsetLeft?: number;
-  currentValue?: number;
-  onDragStart?: () => void;
-  onDragEnd?: () => void;
   observeContainer?: boolean;
+  offsetLeft?: number;
+  onDragEnd?: () => void;
+  onDragStart?: () => void;
+  startValue?: number;
 }
 
 type functionType = (

@@ -15,10 +15,10 @@ export interface GlobalNotificationProps {
   closeAfter?: number;
   delay?: number;
   height?: number;
+  hideAnimationStyle?: "hide" | "shrink";
   message: string;
   onClose?: () => void;
   state?: GlobalNotificationState;
-  hideAnimationStyle?: "hide" | "shrink";
 }
 
 const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({

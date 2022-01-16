@@ -111,7 +111,7 @@ function index() {
           type: "boolean",
         },
       ]}
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-dnneps"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
