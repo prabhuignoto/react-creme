@@ -11,39 +11,39 @@ function index() {
       stackBlitzCodes={["react-ts-2fdwsf"]}
       properties={[
         {
-          name: "title",
-          description: "Title of the section",
           default: "",
+          description: "Title of the section",
+          name: "title",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "height",
-          description: "Minimum height of the section",
           default: "150",
+          description: "Minimum height of the section",
+          name: "height",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "layout",
+          default: "row",
           description:
             "Layout of the section. can be <em>row</em> or <em>column</em>",
-          default: "row",
+          name: "layout",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "RTL",
-          description: "Right to Left",
           default: "False",
+          description: "Right to Left",
+          name: "RTL",
           optional: "Yes",
           type: "Boolean",
         },
         {
-          name: "size",
+          default: "sm",
           description:
             "Size of the page header. can be <em>sm</em> or <em>md</em> or <em>lg</em>.",
-          default: "sm",
+          name: "size",
           optional: "Yes",
           type: "String",
         },

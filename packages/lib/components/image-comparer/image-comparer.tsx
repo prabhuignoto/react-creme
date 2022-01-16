@@ -34,7 +34,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   const [wrapperDimensions, setWrapperDimensions] = useState<{
     width: number;
     height: number;
-  }>({ width: 0, height: 0 });
+  }>({ height: 0, width: 0 });
 
   // const isFirstRender = useRef(null);
 
@@ -50,8 +50,8 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
       classNames("rc-img-comparer-drag-handle", {
         "rc-comparer-drag-handle-dragged": dragged,
         [`rc-comparer-drag-handle-${direction}`]: true,
-        "rc-comparer-drag-handle-visible": imagesLoaded,
         "rc-comparer-drag-handle-hidden": !imagesLoaded,
+        "rc-comparer-drag-handle-visible": imagesLoaded,
       }),
     [dragged, direction, imagesLoaded]
   );
@@ -65,8 +65,8 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   const wrapperStyle = useMemo(() => {
     const { width, height } = wrapperDimensions;
     return {
-      "--width": width ? `${width}px` : "95%",
       "--height": height ? `${height}px` : "95%",
+      "--width": width ? `${width}px` : "95%",
       visibility: imagesLoaded ? "visible" : "hidden",
     } as CSSProperties;
   }, [wrapperDimensions.height, wrapperDimensions.width, imagesLoaded]);
@@ -76,8 +76,8 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
     const { width, height } = ev.target;
 
     setWrapperDimensions({
-      width: width,
       height: height,
+      width: width,
     });
 
     setImageLoaded(true);
@@ -89,9 +89,9 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   // setup the drag effect
   const [percent] = useDrag(panelRef, dragRef, {
     direction,
-    onDragStart: () => setDragged(true),
-    onDragEnd: () => setDragged(false),
     observeContainer: true,
+    onDragEnd: () => setDragged(false),
+    onDragStart: () => setDragged(true),
   });
 
   // tracks the first render of the component

@@ -9,49 +9,49 @@ function index() {
       demoWidget={lazy(() => import("./widgets"))}
       callbacks={[
         {
-          name: "onChange",
+          default: "",
           description:
             "Callback function to be called when the checkbox group changes.",
-          default: "",
+          name: "onChange",
           optional: "Yes",
           type: "function",
         },
       ]}
       properties={[
         {
-          name: "options",
-          description: "Options to be displayed in the checkbox group.",
           default: "[]",
+          description: "Options to be displayed in the checkbox group.",
+          name: "options",
           optional: "Yes",
           type: "Array<Option>",
         },
         {
-          name: "noUniqueIds",
+          default: "false",
           description:
             "If true, the checkbox group will not generate unique ids for each checkbox.",
-          default: "false",
+          name: "noUniqueIds",
           optional: "Yes",
           type: "boolean",
         },
         {
-          name: "checkboxStyle",
+          default: "square",
           description:
             "checkbox render style. <em>square</em> or <em>round</em>",
-          default: "square",
+          name: "checkboxStyle",
           optional: "Yes",
           type: "string",
         },
         {
-          name: "disabled",
-          description: "Disables the checkbox group",
           default: "false",
+          description: "Disables the checkbox group",
+          name: "disabled",
           optional: "Yes",
           type: "boolean",
         },
         {
-          name: "layout",
-          description: "layout of the checkbox group. vertical or horizontal",
           default: "vertical",
+          description: "layout of the checkbox group. vertical or horizontal",
+          name: "layout",
           optional: "Yes",
           type: "string",
         },

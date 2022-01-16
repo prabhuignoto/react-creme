@@ -7,24 +7,24 @@ function PageHeader() {
       demoWidget={lazy(() => import("./widgets"))}
       properties={[
         {
-          name: "title",
-          description: `Title of the page.`,
           default: "Page Header",
+          description: `Title of the page.`,
+          name: "title",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "RTL",
-          description: `Right to left support.`,
           default: "False",
+          description: `Right to left support.`,
+          name: "RTL",
           optional: "Yes",
           type: "Boolean",
         },
         {
-          name: "size",
+          default: "md",
           description: `Size of the page header.
           </br> can be <em>sm</em> or <em>md</em> or <em>lg</em>.`,
-          default: "md",
+          name: "size",
           optional: "Yes",
           type: "String",
         },

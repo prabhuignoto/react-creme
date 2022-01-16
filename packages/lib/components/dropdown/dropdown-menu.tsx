@@ -20,8 +20,8 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   // STYLES
   const menuStyle = useMemo(() => {
     return {
-      "--menu-width": `${width || 0}px`,
       "--menu-max-height": `${maxMenuHeight || 0}px`,
+      "--menu-width": `${width || 0}px`,
     } as CSSProperties;
   }, [top, width]);
 
@@ -30,8 +30,8 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
       classNames([
         "rc-dropdown-menu-container",
         {
-          "rc-dropdown-menu-open": open && !isClosing,
           "rc-dropdown-menu-close": !open || isClosing,
+          "rc-dropdown-menu-open": open && !isClosing,
         },
       ]),
     [open, isClosing]

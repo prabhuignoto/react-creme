@@ -30,10 +30,10 @@ const initOptions = (
     .map((option, index) => ({
       id: !noUniqueIds ? nanoid() : option.id,
       ...option,
-      visible: true,
-      value: option.value || option.name,
       selected: !isUndefined(option.selected) ? option.selected : false,
       top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
+      value: option.value || option.name,
+      visible: true,
     }));
 };
 
@@ -189,9 +189,9 @@ const List: React.FunctionComponent<ListModel> = ({
       className={rcListClass}
       style={
         {
-          "--min-height": `${minHeight}px`,
-          "--max-height": `${maxHeight}px`,
           "--list-bg-color": backGroundColor,
+          "--max-height": `${maxHeight}px`,
+          "--min-height": `${minHeight}px`,
         } as CSSProperties
       }
     >
@@ -243,8 +243,8 @@ const List: React.FunctionComponent<ListModel> = ({
                   value={value}
                   RTL={RTL}
                   style={{
-                    top: `${top}px`,
                     height: `${itemHeight}px`,
+                    top: `${top}px`,
                   }}
                 />
               ) : null;

@@ -4,7 +4,7 @@ import useDraggable from "../../../lib/components/common/effects/useDraggable";
 import { responsiveState } from "../../atoms/home";
 
 function useDimensions() {
-  const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 });
+  const [dimensions, setDimensions] = React.useState({ height: 0, width: 0 });
 
   const media = useRecoilValue(responsiveState);
 
@@ -13,15 +13,15 @@ function useDimensions() {
       return;
     }
     if (media.isExtraLargeScreen) {
-      setDimensions({ width: 700, height: 350 });
+      setDimensions({ height: 350, width: 700 });
     } else if (media.isBigScreen) {
-      setDimensions({ width: 600, height: 300 });
+      setDimensions({ height: 300, width: 600 });
     } else if (media.isDesktop) {
-      setDimensions({ width: 500, height: 250 });
+      setDimensions({ height: 250, width: 500 });
     } else if (media.isTablet) {
-      setDimensions({ width: 400, height: 200 });
+      setDimensions({ height: 200, width: 400 });
     } else if (media.isMobile) {
-      setDimensions({ width: 300, height: 200 });
+      setDimensions({ height: 200, width: 300 });
     }
   }, [media]);
 
@@ -38,17 +38,17 @@ export function BoundToContainer() {
   return (
     <div
       style={{
-        width: `${dimensions.width}px`,
         height: `${dimensions.height}px`,
         padding: "1rem",
+        width: `${dimensions.width}px`,
       }}
       ref={boundRef}
       className="rc-demo-drag-outer-box"
     >
       <div
         style={{
-          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
+          width: `${dimensions.width / 3}px`,
         }}
         ref={ref}
         className="rc-demo-drag-inner-box"
@@ -67,17 +67,17 @@ export function BoundToContainerHorizontal() {
   return (
     <div
       style={{
-        width: `${dimensions.width}px`,
         height: `${dimensions.height}px`,
         padding: "1rem",
+        width: `${dimensions.width}px`,
       }}
       ref={boundRef}
       className="rc-demo-drag-outer-box"
     >
       <div
         style={{
-          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
+          width: `${dimensions.width / 3}px`,
         }}
         ref={ref}
         className="rc-demo-drag-inner-box"
@@ -95,17 +95,17 @@ export function BoundToContainerVertical() {
   return (
     <div
       style={{
-        width: `${dimensions.width}px`,
         height: `${dimensions.height}px`,
         padding: "1rem",
+        width: `${dimensions.width}px`,
       }}
       ref={boundRef}
       className="rc-demo-drag-outer-box"
     >
       <div
         style={{
-          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
+          width: `${dimensions.width / 3}px`,
         }}
         ref={ref}
         className="rc-demo-drag-inner-box"
@@ -118,8 +118,8 @@ export function DraggableWidgets() {
   const boundRef = useRef();
 
   useDraggable(boundRef, {
-    makeChildrenDraggable: true,
     boundTo: boundRef,
+    makeChildrenDraggable: true,
   });
 
   const dimensions = useDimensions();
@@ -127,31 +127,31 @@ export function DraggableWidgets() {
   return (
     <div
       style={{
-        width: `${dimensions.width}px`,
         height: `${dimensions.height}px`,
         padding: "1rem",
+        width: `${dimensions.width}px`,
       }}
       ref={boundRef}
       className="rc-demo-drag-outer-box"
     >
       <div
         style={{
-          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
+          width: `${dimensions.width / 3}px`,
         }}
         className="rc-demo-drag-inner-box"
       ></div>
       <div
         style={{
-          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
+          width: `${dimensions.width / 3}px`,
         }}
         className="rc-demo-drag-inner-box"
       ></div>
       <div
         style={{
-          width: `${dimensions.width / 3}px`,
           height: `${dimensions.height / 3}px`,
+          width: `${dimensions.width / 3}px`,
         }}
         className="rc-demo-drag-inner-box"
       ></div>

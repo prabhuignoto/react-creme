@@ -5,11 +5,11 @@ import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
 
 const items = [
-  { name: "python", disabled: false },
+  { disabled: false, name: "python" },
   { name: "fortran" },
   { name: "c sharp" },
   { name: "Go lang" },
-  { name: "RUST", disabled: true },
+  { disabled: true, name: "RUST" },
 ];
 
 function widgets() {

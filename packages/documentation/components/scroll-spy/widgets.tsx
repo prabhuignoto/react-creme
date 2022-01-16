@@ -42,7 +42,7 @@ function Widgets() {
   }, [media]);
 
   const style = useMemo(() => {
-    return { width: `${width}px`, height: "650px" } as CSSProperties;
+    return { height: "650px", width: `${width}px` } as CSSProperties;
   }, [width]);
 
   return (

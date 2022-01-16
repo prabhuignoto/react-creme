@@ -38,9 +38,9 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
     maxY: maxSplitHeight,
     minX: minSplitWidth,
     minY: minSplitHeight,
-    onDragStart: () => setDragStarted(true),
-    onDragEnd: () => setDragStarted(false),
     observeContainer: true,
+    onDragEnd: () => setDragStarted(false),
+    onDragStart: () => setDragStarted(true),
   });
 
   const isHorizontal = useMemo(() => dir === "horizontal", []);
@@ -74,8 +74,8 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
       const gap = `${handleBarWidth}px`;
 
       return {
-        width: isHorizontal ? (width !== 0 ? width : minSplitWidth) : "100%",
         height: isHorizontal ? "100%" : height,
+        width: isHorizontal ? (width !== 0 ? width : minSplitWidth) : "100%",
         ...(isHorizontal ? { paddingRight: gap } : { paddingBottom: gap }),
       } as CSSProperties;
     }
@@ -91,16 +91,16 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
         const height = round(clientHeight * (1 - percent)) - gapWidthHalf;
 
         return {
-          width: isHorizontal ? width : "100%",
           height: isHorizontal ? "100%" : height,
+          width: isHorizontal ? width : "100%",
           ...(isHorizontal
             ? { paddingLeft: `${gap}px` }
             : { paddingTop: `-${gap}px` }),
         } as CSSProperties;
       } else {
         return {
-          width: isHorizontal ? clientWidth - minSplitWidth : "100%",
           height: isHorizontal ? "100%" : clientHeight - minSplitHeight,
+          width: isHorizontal ? clientWidth - minSplitWidth : "100%",
         } as CSSProperties;
       }
     }

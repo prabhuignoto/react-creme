@@ -5,9 +5,9 @@ type SwipeDirection = "LEFT" | "TOP" | "RIGHT" | "BOTTOM" | "NONE";
 type SwipeStrength = "low" | "medium" | "high";
 
 const SwipeStrengthSettings = {
+  high: 0.75,
   low: 0.1,
   medium: 0.5,
-  high: 0.75,
 };
 
 interface SwipeState {

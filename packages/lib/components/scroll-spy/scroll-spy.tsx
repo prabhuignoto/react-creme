@@ -26,20 +26,20 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
     ScrollSpyLinkInternal[]
   >(
     links.map((link) => ({
-      name: link,
-      id: `spy-${nanoid()}`,
       active: false,
+      id: `spy-${nanoid()}`,
+      name: link,
     }))
   );
 
   const [contents, setContents] = React.useState<ScrollSpyContent[]>(
     Array.isArray(children)
       ? children.map((_, index) => ({
-          id: scrollSpyLinks[index].id,
           active: false,
           hash: 0,
+          id: scrollSpyLinks[index].id,
         }))
-      : [{ id: scrollSpyLinks[0].id, active: false, hash: 0 }]
+      : [{ active: false, hash: 0, id: scrollSpyLinks[0].id }]
   );
 
   const onRef = useCallback((node: HTMLDivElement) => {
@@ -120,8 +120,8 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
 
     if (element && ref) {
       ref.scrollTo({
-        top: element.offsetTop - ref.offsetTop,
         behavior: "smooth",
+        top: element.offsetTop - ref.offsetTop,
       });
     }
   }, []);

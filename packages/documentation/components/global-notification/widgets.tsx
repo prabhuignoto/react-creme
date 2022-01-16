@@ -39,9 +39,9 @@ function widgets() {
                 value: "error",
               },
               {
+                checked: true,
                 label: "Info",
                 value: "info",
-                checked: true,
               },
             ]}
             onSelected={(value) => {

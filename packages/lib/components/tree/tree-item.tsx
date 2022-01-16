@@ -44,9 +44,9 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     const itemClass = useMemo(
       () =>
         cls("rc-tree-item", {
-          "rc-tree-item-exp": expanded,
           "rc-tree-item-collapsed": !expanded,
           "rc-tree-item-disabled": disabled,
+          "rc-tree-item-exp": expanded,
         }),
       [expanded, disabled]
     );
@@ -69,8 +69,8 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     const childContainerClass = useMemo(
       () =>
         cls("rc-tree-item-child-container", {
-          "rc-tree-item-child-expanded": canRenderChild,
           "rc-tree-item-child-collapsed": !canRenderChild,
+          "rc-tree-item-child-expanded": canRenderChild,
         }),
       [canRenderChild]
     );

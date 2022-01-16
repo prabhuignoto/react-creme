@@ -28,12 +28,12 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
     isArray(groups)
       ? groups.map((item) => ({
           ...item,
+          id: nanoid(),
           items: item.items.map((obj) => ({
             ...obj,
             id: nanoid(),
             selected: false,
           })),
-          id: nanoid(),
           visible: true,
         }))
       : []

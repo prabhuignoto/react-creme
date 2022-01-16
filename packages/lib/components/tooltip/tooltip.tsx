@@ -55,8 +55,8 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
       classNames([
         "rc-tooltip-message",
         {
-          "show-tooltip": showTooltip,
           "hide-tooltip": !isFirstRender.current && !showTooltip,
+          "show-tooltip": showTooltip,
           [`rc-tooltip-${position.split(" ")[0]}-${position.split(" ")[1]}`]:
             true,
         },
@@ -79,13 +79,13 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
     if (cssPosition) {
       return {
         ...cssPosition,
-        "--min-width": `${minWidth}px`,
         "--max-width": `${maxWidth}px`,
+        "--min-width": `${minWidth}px`,
       };
     } else {
       return {
-        "--min-width": `${minWidth}px`,
         "--max-width": `${maxWidth}px`,
+        "--min-width": `${minWidth}px`,
       };
     }
   }, [cssPosition]);

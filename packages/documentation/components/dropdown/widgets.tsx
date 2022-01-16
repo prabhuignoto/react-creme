@@ -36,7 +36,7 @@ function Widgets() {
                 placeholder="choose a country"
                 onSelected={(val) => console.log(val)}
                 options={[
-                  { name: "germany", value: "germany", disabled: true },
+                  { disabled: true, name: "germany", value: "germany" },
                   { name: "india", value: "india" },
                   { name: "usa", value: "usa" },
                   { name: "uk", value: "uk" },
@@ -59,12 +59,12 @@ function Widgets() {
                 maxMenuHeight={300}
                 focusable
                 options={[
-                  { name: "germany", value: "germany", disabled: true },
+                  { disabled: true, name: "germany", value: "germany" },
                   { name: "india", value: "india" },
                   { name: "usa", value: "usa" },
-                  { name: "uk", value: "uk", selected: true },
-                  { name: "srilanka", value: "srilanka", selected: false },
-                  { name: "brazil", value: "brazil", selected: false },
+                  { name: "uk", selected: true, value: "uk" },
+                  { name: "srilanka", selected: false, value: "srilanka" },
+                  { name: "brazil", selected: false, value: "brazil" },
                 ]}
               />
             </div>
@@ -82,9 +82,9 @@ function Widgets() {
                 onSelected={(val) => console.log(val)}
                 enableSearch
                 options={[
-                  { name: "germany", value: "germany", disabled: true },
+                  { disabled: true, name: "germany", value: "germany" },
                   { name: "india", value: "india" },
-                  { name: "usa", value: "usa", selected: true },
+                  { name: "usa", selected: true, value: "usa" },
                   { name: "uk", value: "uk" },
                   { name: "srilanka", value: "srilanka" },
                 ]}
@@ -106,9 +106,9 @@ function Widgets() {
                 virtualize
                 enableSearch
                 options={[
-                  { name: "germany", value: "germany", disabled: true },
+                  { disabled: true, name: "germany", value: "germany" },
                   { name: "india", value: "india" },
-                  { name: "usa", value: "usa", selected: true },
+                  { name: "usa", selected: true, value: "usa" },
                   { name: "uk", value: "uk" },
                   { name: "srilanka", value: "srilanka" },
                   { name: "canada", value: "canada" },
@@ -139,9 +139,9 @@ function Widgets() {
                 RTL
                 focusable
                 options={[
-                  { name: "germany", value: "germany", disabled: true },
+                  { disabled: true, name: "germany", value: "germany" },
                   { name: "india", value: "india" },
-                  { name: "usa", value: "usa", selected: true },
+                  { name: "usa", selected: true, value: "usa" },
                   { name: "uk", value: "uk" },
                   { name: "srilanka", value: "srilanka" },
                   { name: "malaysia", value: "malaysia" },

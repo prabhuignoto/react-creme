@@ -25,8 +25,8 @@ const AccordionGroup = ({
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
       ? children.map(() => ({
-          id: nanoid(),
           expanded: expanded,
+          id: nanoid(),
         }))
       : []
   );
@@ -59,8 +59,8 @@ const AccordionGroup = ({
     if (titles.length) {
       setItems(() =>
         titles.map(() => ({
-          id: nanoid(),
           expanded: expanded,
+          id: nanoid(),
         }))
       );
     } else {

@@ -43,7 +43,7 @@ function widgets() {
             There are slots for header, footer and the main content.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px`, marginTop: "2rem" }}>
+            <div style={{ marginTop: "2rem", width: `${width}px` }}>
               <Card
                 alignHeader="left"
                 header={<h2>header</h2>}

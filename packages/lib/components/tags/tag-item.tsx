@@ -51,11 +51,11 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
       () =>
         classNames("rc-tag", {
           "rc-tag-disabled": disabled,
-          "rc-tag-readonly": readonly,
-          [`rc-tag-style-${tagStyle}`]: true,
-          [`rc-tag-${tagSize}`]: true,
           "rc-tag-marked-for-removal":
             markedForRemoval && !isFirstRender.current,
+          [`rc-tag-style-${tagStyle}`]: true,
+          [`rc-tag-${tagSize}`]: true,
+          "rc-tag-readonly": readonly,
         }),
       [markedForRemoval]
     );

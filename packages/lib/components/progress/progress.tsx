@@ -82,9 +82,9 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
   const wrapperStyle = useMemo(
     () =>
       ({
-        "--width": `${width}px`,
         "--height":
           size === "lg" ? `${40}px` : size === "md" ? `${20}px` : `${10}px`,
+        "--width": `${width}px`,
       } as CSSProperties),
     []
   );

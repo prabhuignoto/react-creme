@@ -37,8 +37,8 @@ function Widgets() {
                 label: "Option 2",
               },
               {
-                label: "This option is preselected",
                 isChecked: true,
+                label: "This option is preselected",
               },
             ]}
           />
@@ -52,13 +52,13 @@ function Widgets() {
                 label: "Option 1",
               },
               {
-                label: "This option is disabled",
                 disabled: true,
+                label: "This option is disabled",
               },
               {
-                label: "This option is disabled but preselected",
-                isChecked: true,
                 disabled: true,
+                isChecked: true,
+                label: "This option is disabled but preselected",
               },
             ]}
           />

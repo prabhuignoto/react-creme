@@ -62,8 +62,8 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       return {
         [placement === "top" ? "bottom" : "top"]: `${top + contentHeight}px`,
         left: `${align === "left" ? left : positionRight}px`,
-        position: "absolute",
         pointerEvents: "all",
+        position: "absolute",
       } as CSSProperties;
     }
   }, [

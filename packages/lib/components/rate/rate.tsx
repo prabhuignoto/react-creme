@@ -20,9 +20,9 @@ const Rate: React.FunctionComponent<RateProps> = ({
 }) => {
   const [items, setItems] = React.useState<RateItemModel[]>(
     Array.from({ length: iconCount }).map(() => ({
-      id: nanoid(),
       active: false,
       hovered: false,
+      id: nanoid(),
     }))
   );
 

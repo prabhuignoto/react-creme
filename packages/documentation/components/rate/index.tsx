@@ -8,47 +8,47 @@ function rate() {
       description="Rate is a component that allows users to rate something."
       callbacks={[
         {
-          name: "onChange",
-          description: `callback function that will be called when the rating changes`,
           default: ``,
+          description: `callback function that will be called when the rating changes`,
+          name: "onChange",
           optional: "Yes",
           type: `Function`,
         },
       ]}
       properties={[
         {
-          name: "icon",
-          description: `custom icon that will be used for rendering`,
           default: `⭐`,
+          description: `custom icon that will be used for rendering`,
+          name: "icon",
           optional: "Yes",
           type: `String`,
         },
         {
-          name: "iconCount",
-          description: `number of icons to render`,
           default: `5`,
+          description: `number of icons to render`,
+          name: "iconCount",
           optional: "Yes",
           type: `Number`,
         },
         {
-          name: "focusable",
-          description: `makes the component focusable via keyboard`,
           default: "False",
+          description: `makes the component focusable via keyboard`,
+          name: "focusable",
           optional: "Yes",
           type: `Boolean`,
         },
         {
-          name: "size",
+          default: "sm",
           description: `sets the size of the button.
           <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
-          default: "sm",
+          name: "size",
           optional: "Yes",
           type: `String`,
         },
         {
-          name: "ratingValues",
-          description: `sets the custom rating values. <br> <em>["1", "2", "3", "4", "5"]</em>`,
           default: "[]",
+          description: `sets the custom rating values. <br> <em>["1", "2", "3", "4", "5"]</em>`,
+          name: "ratingValues",
           optional: "Yes",
           type: `Array`,
         },

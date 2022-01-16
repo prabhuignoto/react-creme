@@ -27,16 +27,16 @@ const Image: React.FunctionComponent<ImageProps> = ({
   const [loaded, setLoaded] = React.useState(false);
 
   const imageNaturalDimension = useRef<{ width: number; height: number }>({
-    width: 0,
     height: 0,
+    width: 0,
   });
 
   const [imageDimension, setImageDimension] = React.useState<{
     width: number | string;
     height: number | string;
   }>({
-    width: "100%",
     height: "100%",
+    width: "100%",
   });
 
   const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -64,8 +64,8 @@ const Image: React.FunctionComponent<ImageProps> = ({
 
   const wrapperClass = useMemo(() => {
     return classNames("rc-image-wrapper", {
-      "rc-image-loaded": loaded,
       "rc-image-clickable": expandImageOnClick,
+      "rc-image-loaded": loaded,
     });
   }, [loaded]);
 
@@ -79,8 +79,8 @@ const Image: React.FunctionComponent<ImageProps> = ({
   const style = useMemo(
     () =>
       ({
-        "--width": Number.isInteger(width) ? `${width}px` : "100%",
         "--height": Number.isInteger(height) ? `${height}px` : "100%",
+        "--width": Number.isInteger(width) ? `${width}px` : "100%",
       } as CSSProperties),
     []
   );
@@ -89,8 +89,8 @@ const Image: React.FunctionComponent<ImageProps> = ({
     const { width, height } = imageDimension;
     return fitImage
       ? {
-          maxWidth: Number.isInteger(width) ? `${width}px` : width,
           maxHeight: Number.isInteger(height) ? `${height}px` : height,
+          maxWidth: Number.isInteger(width) ? `${width}px` : width,
         }
       : ({} as CSSProperties);
   }, [JSON.stringify(imageDimension), fitImage]);
@@ -136,8 +136,8 @@ const Image: React.FunctionComponent<ImageProps> = ({
       wrapper.style.setProperty("--width", `${width}px`);
       wrapper.style.setProperty("--height", `${height}px`);
       setImageDimension({
-        width,
         height,
+        width,
       });
     }
   }, [loaded]);

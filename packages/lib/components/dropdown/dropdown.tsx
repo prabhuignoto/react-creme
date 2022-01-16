@@ -114,8 +114,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       if (containerRef.current) {
         const { clientWidth } = containerRef.current;
         return {
-          width: clientWidth,
           maxMenuHeight,
+          width: clientWidth,
         };
       }
       return {};
@@ -153,8 +153,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const rcDropdownValueClass = useMemo(
       () =>
         cls("rc-dropdown-value-container", {
-          "rc-dropdown-multi": allowMultiSelection,
           "rc-dropdown-disabled": disabled,
+          "rc-dropdown-multi": allowMultiSelection,
           "rc-dropdown-rtl": RTL,
         }),
       [disabled]

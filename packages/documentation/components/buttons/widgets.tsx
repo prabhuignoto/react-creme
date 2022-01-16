@@ -18,7 +18,7 @@ function widgets() {
       <Section title="Icon">
         <BlockQuote>Insert a custom icon to the button.</BlockQuote>
         <DemoWidget>
-          <Button label="Search this page" size="sm">
+          <Button label="Search this page" size="sm" focusable>
             <SearchIcon />
           </Button>
         </DemoWidget>

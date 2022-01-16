@@ -9,39 +9,39 @@ function transfer() {
       description="Transfer is a component that allows you to transfer items between two lists."
       callbacks={[
         {
-          name: "onChange",
-          description: "Callback function fired when items are transferred",
           default: "",
+          description: "Callback function fired when items are transferred",
+          name: "onChange",
           optional: "Yes",
           type: "function",
         },
       ]}
       properties={[
         {
-          name: "list1",
+          default: "[]",
           description: "Source array for list one",
-          default: "[]",
+          name: "list1",
           optional: "Yes",
           type: "array",
         },
         {
-          name: "list2",
+          default: "[]",
           description: "Source array for list two",
-          default: "[]",
+          name: "list2",
           optional: "Yes",
           type: "array",
         },
         {
-          name: "virtualize",
-          description: "Enable virtualization of the lists",
           default: "false",
+          description: "Enable virtualization of the lists",
+          name: "virtualize",
           optional: "Yes",
           type: "boolean",
         },
         {
-          name: "enableSearch",
-          description: "Enable search functionality",
           default: "false",
+          description: "Enable search functionality",
+          name: "enableSearch",
           optional: "Yes",
           type: "boolean",
         },

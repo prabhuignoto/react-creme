@@ -7,10 +7,10 @@
     "documentation": "documentation"
   },
   "dependencies": {
-    "eslint": "^8.6.0",
+    "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-jest": "^25.3.4",
+    "eslint-plugin-jest": "^25.7.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "6.0.0",
@@ -38,7 +38,8 @@
     "build:doc": "turbo run build --scope=*docu*",
     "ci": "turbo run ci",
     "snyk": "turbo run snyk",
-    "fix-css": "turbo run fix-css"
+    "fix-css": "turbo run fix-css",
+    "fix-js": "turbo run fix-js"
   },
   "turbo": {
     "npmClient": "pnpm",
@@ -68,7 +69,8 @@
         ]
       },
       "snyk": {},
-      "fix-css": {}
+      "fix-css": {},
+      "fix-js": {}
     }
   },
   "repository": {
@@ -95,5 +97,8 @@
       "npx stylelint",
       "git add"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-sort-keys-fix": "^1.1.2"
   }
 }

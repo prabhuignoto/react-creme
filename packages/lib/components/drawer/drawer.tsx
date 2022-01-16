@@ -36,8 +36,8 @@ const DrawerComponent: React.FunctionComponent<DrawerModel> = ({
     }
 
     return {
-      "--min-width": `${width}px`,
       "--min-height": `${newHeight}`,
+      "--min-width": `${width}px`,
       "--transition": transition,
     } as CSSProperties;
   }, []);

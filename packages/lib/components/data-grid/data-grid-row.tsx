@@ -15,7 +15,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
   fixedHeight,
   zebra,
 }: DataRow) => {
-  const cellsData = useRef(
+  const cellsData = useRef<{ [key: string]: string | number }[]>(
     Object.keys(data)
       .filter((k) => k !== "id")
       .map((key) => ({
@@ -36,16 +36,19 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
 
   return (
     <div className={rowClass} style={style} role="row">
-      {columnConfigs?.map((_, index) => {
-        const { value, id, name } = cellsData.current[index];
+      {columnConfigs?.map((col) => {
+        const { value, id, name } = cellsData.current.find(
+          (cell) => cell.name === col.name
+        )!;
+        const formatter = col.formatter;
         return (
           <DataGridCell
             value={value}
             key={id}
-            name={name}
+            name={name + ""}
             border={border}
             fixedHeight={fixedHeight}
-            formatter={columnConfigs && columnConfigs[index]?.formatter}
+            formatter={formatter}
           />
         );
       })}

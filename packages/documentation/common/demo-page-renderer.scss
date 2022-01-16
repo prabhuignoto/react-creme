@@ -22,8 +22,9 @@
 }
 
 .rc-demo-stackblitz {
-  margin-bottom: 20px;
-  margin-right: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 
   iframe {
     border: 0;

@@ -28,8 +28,8 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
         classNames("rc-rate-item", {
           "rc-rate-item-active": active,
           [`rc-rate-item-${size}`]: true,
-          "rc-rate-item-hovered": hovered,
           "rc-rate-item-disabled": disabled,
+          "rc-rate-item-hovered": hovered,
         }),
       [active, hovered, disabled]
     );
@@ -37,8 +37,8 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
     const focusableProps = useMemo(
       () =>
         focusable && {
-          tabIndex: 0,
           ref,
+          tabIndex: 0,
         },
       []
     );

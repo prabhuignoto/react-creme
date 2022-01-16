@@ -30,9 +30,9 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   const [carouselItems, setCarouselItems] = useState<CarouselItemModel[]>(
     Array.isArray(children)
       ? children.map(() => ({
+          height: 0,
           id: nanoid(),
           visible: false,
-          height: 0,
           width: 0,
         }))
       : []
@@ -85,15 +85,15 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
       const prop = direction === "horizontal" ? "left" : "top";
       setCarouselItems(
         children.map((_, index) => ({
-          id: nanoid(),
-          width: debouncedSlideWidth,
           height: debouncedSlideHeight,
-          visible: false,
+          id: nanoid(),
           [prop]: `${
             direction === "horizontal"
               ? index * slideWidth
               : index * slideHeight
           }px`,
+          visible: false,
+          width: debouncedSlideWidth,
         }))
       );
     }

@@ -8,39 +8,39 @@ function dialog() {
       description="A dialog is a window that displays content in a modal overlay."
       callbacks={[
         {
-          name: "onClose",
-          description: "callback invoked on close",
           default: "",
+          description: "callback invoked on close",
+          name: "onClose",
           optional: "Yes",
           type: "Function",
         },
         {
-          name: "onSuccess",
-          description: "callback invoked when ok is pressed",
           default: "",
+          description: "callback invoked when ok is pressed",
+          name: "onSuccess",
           optional: "Yes",
           type: "Function",
         },
       ]}
       properties={[
         {
-          name: "title",
-          description: "Text title for the dialog",
           default: "",
+          description: "Text title for the dialog",
+          name: "title",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "width",
-          description: "width of the dialog",
           default: "300",
+          description: "width of the dialog",
+          name: "width",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "height",
-          description: "height of the dialog",
           default: "200",
+          description: "height of the dialog",
+          name: "height",
           optional: "Yes",
           type: "Number",
         },

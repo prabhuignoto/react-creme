@@ -61,7 +61,7 @@ function Widgets() {
                   { name: "usa", value: "usa" },
                   { name: "uk", value: "uk" },
                   { name: "France", value: "france" },
-                  { name: "germany", value: "germany", disabled: true },
+                  { disabled: true, name: "germany", value: "germany" },
                 ]}
               />
             </div>

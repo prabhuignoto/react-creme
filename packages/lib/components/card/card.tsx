@@ -17,10 +17,10 @@ const Card: React.FunctionComponent<CardModel> = ({
 
   const style = useMemo(() => {
     return {
-      minHeight: `${minHeight}px`,
       gridTemplateRows: `${header ? "50px" : ""} 1fr ${
         footer ? "50px" : ""
       }`.trim(),
+      minHeight: `${minHeight}px`,
     };
   }, [minHeight]);
 

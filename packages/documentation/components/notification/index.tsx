@@ -8,63 +8,63 @@ function notification() {
       description="Notification is a component that can be used to display a message to the user."
       callbacks={[
         {
-          name: "onClose",
-          description: `callback fired after the popup is closed`,
           default: "",
+          description: `callback fired after the popup is closed`,
+          name: "onClose",
           optional: "Yes",
           type: "Function",
         },
       ]}
       properties={[
         {
-          name: "title",
-          description: `Notification title`,
           default: "300",
+          description: `Notification title`,
+          name: "title",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "position",
+          default: "left",
           description: `Docking position of the notification popup. <br>
           <em>top-left</em> | <em>top-right</em> | <em>bottom-left</em> |
           <em>bottom-right</em> | <em>bottom-center</em> | <em>top-center</em>`,
-          default: "left",
+          name: "position",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "width",
-          description: `minimum width of the notification popup`,
           default: "350",
+          description: `minimum width of the notification popup`,
+          name: "width",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "height",
-          description: `minimum height of the notification popup`,
           default: "100",
+          description: `minimum height of the notification popup`,
+          name: "height",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "swipeToClose",
+          default: "true",
           description: `Close the notification with a swipe gesture.
             This option is active only when the notification is docked to either left or right side of the screen`,
-          default: "true",
+          name: "swipeToClose",
           optional: "Yes",
           type: "Boolean",
         },
         {
-          name: "autoClose",
-          description: `duration in ms after which the notification would auto close`,
           default: "300",
+          description: `duration in ms after which the notification would auto close`,
+          name: "autoClose",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "disableHeader",
-          description: `disables the header`,
           default: "false",
+          description: `disables the header`,
+          name: "disableHeader",
           optional: "Yes",
           type: "Boolean",
         },

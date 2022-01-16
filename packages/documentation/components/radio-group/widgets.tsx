@@ -33,10 +33,10 @@ function Widgets() {
             <div style={{ width: `${width}px` }}>
               <RadioGroup
                 items={[
-                  { label: "John", disabled: false },
+                  { disabled: false, label: "John" },
                   { label: "Doe" },
                   { label: "Murthy" },
-                  { label: "Prabhu", checked: true },
+                  { checked: true, label: "Prabhu" },
                 ]}
                 onSelected={(val) => console.log(val)}
               />
@@ -53,9 +53,9 @@ function Widgets() {
               <RadioGroup
                 layout="row"
                 items={[
-                  { label: "John", disabled: false },
+                  { disabled: false, label: "John" },
                   { label: "Doe" },
-                  { label: "Prabhu", checked: true },
+                  { checked: true, label: "Prabhu" },
                 ]}
                 onSelected={(val) => console.log(val)}
               />
@@ -71,9 +71,9 @@ function Widgets() {
             <div style={{ width: `${width}px` }}>
               <RadioGroup
                 items={[
-                  { label: "John", disabled: true },
+                  { disabled: true, label: "John" },
                   { label: "Doe" },
-                  { label: "Prabhu", checked: true },
+                  { checked: true, label: "Prabhu" },
                 ]}
                 onSelected={(val) => console.log(val)}
               />
@@ -86,9 +86,9 @@ function Widgets() {
               <RadioGroup
                 RTL
                 items={[
-                  { label: "John", disabled: true },
+                  { disabled: true, label: "John" },
                   { label: "Doe" },
-                  { label: "Prabhu", checked: true },
+                  { checked: true, label: "Prabhu" },
                 ]}
                 onSelected={(val) => console.log(val)}
               />
