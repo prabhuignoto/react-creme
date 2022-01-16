@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ESNext",
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "ESNext"
     ],
     // "useDefineForClassFields": true,
     "allowJs": false,
@@ -13,7 +13,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -21,6 +21,10 @@
     "noEmit": true,
     "declaration": true,
     "declarationDir": "dist",
+    "types": [
+      "react",
+      "react-dom"
+    ],
   },
   "include": [
     "./components",

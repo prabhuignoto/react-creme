@@ -9,7 +9,7 @@ function Draggable() {
       title="Draggable"
       description="React Hook to enable draggable functionality"
       properties={[]}
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-re75pw"]}
     ></DemoPageRenderer>
   );

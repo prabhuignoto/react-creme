@@ -43,7 +43,6 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
           focusable
           groups={[
             {
-              title: "Layout",
               items: [
                 { name: "Splitter" },
                 { name: "Accordion" },
@@ -56,17 +55,17 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
                 { name: "Reveal" },
                 { name: "scroll spy" },
               ],
+              title: "Layout",
             },
             {
-              title: "content",
               items: [
                 { name: "section" },
                 { name: "Card" },
                 { name: "page header" },
               ],
+              title: "content",
             },
             {
-              title: "Inputs",
               items: [
                 { name: "Input Text" },
                 { name: "Tags" },
@@ -81,9 +80,9 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
                 { name: "Autocomplete" },
                 { name: "Menu Button" },
               ],
+              title: "Inputs",
             },
             {
-              title: "Feedback",
               items: [
                 { name: "Progress" },
                 { name: "Skeleton" },
@@ -91,28 +90,29 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
                 { name: "Global Notification" },
                 { name: "Alerts" },
               ],
+              title: "Feedback",
             },
             {
-              title: "Data",
               items: [
                 { name: "Tree" },
                 { name: "List" },
                 { name: "Data Grid" },
                 { name: "Transfer" },
               ],
+              title: "Data",
             },
             {
-              title: "Overlay",
               items: [
                 { name: "Dialog" },
                 { name: "Drawer" },
                 { name: "Tooltip" },
                 { name: "Menu" },
               ],
+              title: "Overlay",
             },
             {
-              title: "Utilities",
               items: [{ name: "draggable" }],
+              title: "Utilities",
             },
           ]}
         />

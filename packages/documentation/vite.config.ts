@@ -4,10 +4,6 @@ import reactSVG from "vite-plugin-react-svg";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [reactRefresh(), reactSVG()],
-  logLevel: 'info',
-  cacheDir: '.vite_cache',
-  mode: 'universal',
   build: {
     outDir: 'expo_dist',
     reportCompressedSize: true,
@@ -18,5 +14,9 @@ export default defineConfig({
         unused: true,
       }
     }
-  }
+  },
+  cacheDir: '.vite_cache',
+  logLevel: 'info',
+  mode: 'universal',
+  plugins: [reactRefresh(), reactSVG()]
 })

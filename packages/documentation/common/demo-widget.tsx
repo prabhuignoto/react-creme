@@ -26,10 +26,10 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
       <div
         className="rc-demo-widget"
         style={{
+          alignItems: "flex-start",
           display: "flex",
           flexDirection: layout === "horizontal" ? "row" : "column",
           justifyContent: "flex-start",
-          alignItems: "flex-start",
         }}
       >
         <div style={{ margin: "0.5rem 0", width: fullWidth ? "100%" : "" }}>

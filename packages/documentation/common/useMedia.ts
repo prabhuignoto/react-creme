@@ -32,11 +32,11 @@ function useMedia() {
   useEffect(() => {
     if (windowWidth) {
       setMediaState({
+        isBigScreen: isBigScreen,
+        isDesktop: isDesktop,
+        isExtraLargeScreen: isExtraLargeScreen,
         isMobile: isMobile,
         isTablet: isTablet,
-        isDesktop: isDesktop,
-        isBigScreen: isBigScreen,
-        isExtraLargeScreen: isExtraLargeScreen,
       });
     }
   }, [windowWidth]);

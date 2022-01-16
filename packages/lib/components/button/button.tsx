@@ -10,11 +10,11 @@ const Button: React.FunctionComponent<ButtonModel> = ({
   children,
   disabled = false,
   focusable = true,
+  type = "default",
   label = "",
   onClick,
   size = "sm",
   style = {},
-  type = "default",
 }) => {
   // classes
   const buttonClass = useMemo(

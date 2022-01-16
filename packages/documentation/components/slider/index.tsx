@@ -93,7 +93,7 @@ function slider() {
           type: "boolean",
         },
       ]}
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-acenzu"]}
       demoWidget={lazy(() => import("./widgets"))}
       title="Slider"

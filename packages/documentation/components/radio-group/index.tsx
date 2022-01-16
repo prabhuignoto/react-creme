@@ -7,7 +7,7 @@ function radioGroup() {
       demoWidget={lazy(() => import("./widgets"))}
       title="Radio Group"
       description="Radio group is a group of radio buttons."
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-m9yskx"]}
       callbacks={[
         {

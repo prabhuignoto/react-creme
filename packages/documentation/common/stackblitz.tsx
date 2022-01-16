@@ -13,10 +13,10 @@ const StackBlitz: React.FunctionComponent<StackBlitzProps> = ({ id }) => {
   const onRef = useCallback(async (node) => {
     if (node) {
       await sdk.embedProjectId(node, id, {
-        openFile: "index.tsx",
         height: "100%",
         hideExplorer: true,
         hideNavigation: true,
+        openFile: "index.tsx",
       });
       setLoaded(true);
     }

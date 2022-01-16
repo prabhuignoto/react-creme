@@ -8,7 +8,7 @@ function reveal() {
       description="Reveals content when a user scrolls to it."
       demoWidget={lazy(() => import("./widgets"))}
       properties={[]}
-      tabTitles={["examples", "properties", "StackBlitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
     ></DemoPageRenderer>
   );
 }

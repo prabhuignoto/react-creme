@@ -4,7 +4,7 @@ import DemoPageRenderer from "../../common/demo-page-renderer";
 function splitter() {
   return (
     <DemoPageRenderer
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-blpdcl"]}
       description="Splitter is a component that can be used to split the screen into two parts. It can be used to create a left and right panel."
       title="Splitter"

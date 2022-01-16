@@ -4,7 +4,11 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ["plugin:import/recommended", "plugin:react/recommended", "prettier"],
+  extends: [
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "prettier",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {

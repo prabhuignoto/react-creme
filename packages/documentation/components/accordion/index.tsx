@@ -6,7 +6,7 @@ function accordion() {
     <DemoPageRenderer
       title="Accordion"
       description="Accordion is a collapsible component that can be used to hide or expose collapsible content."
-      tabTitles={["Examples", "Properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-s9qxmk"]}
       callbacks={[
         {

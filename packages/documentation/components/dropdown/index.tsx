@@ -57,7 +57,7 @@ function dropdown() {
           type: "Boolean",
         },
       ]}
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-b9syfa"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>

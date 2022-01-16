@@ -8,12 +8,12 @@ const Code: React.FunctionComponent<{ children?: ReactNode }> = ({
   return (
     <SyntaxHighLighter
       code={reactElementToJSXString(children, {
-        showDefaultProps: true,
         maxInlineAttributesLineLength: 550,
-        useBooleanShorthandSyntax: true,
-        tabStop: 4,
-        sortProps: true,
+        showDefaultProps: true,
         showFunctions: true,
+        sortProps: true,
+        tabStop: 4,
+        useBooleanShorthandSyntax: true,
       })}
     ></SyntaxHighLighter>
   );

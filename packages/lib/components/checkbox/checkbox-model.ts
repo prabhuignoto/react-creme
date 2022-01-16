@@ -3,12 +3,12 @@ import { CSSProperties } from "react";
 export interface CheckboxModel {
   autoHeight?: boolean;
   border?: boolean;
+  id?: string;
   checkBoxStyle?: "square" | "round";
   disabled?: boolean;
   focusIcon?: boolean;
   focusable?: boolean;
   height?: number;
-  id?: string;
   isChecked?: boolean;
   label: string;
   noHoverStyle?: boolean;

@@ -8,7 +8,7 @@ export interface ButtonModel {
   primary?: boolean;
   type?: "primary" | "default" | "danger" | "icon" | "progress";
   size?: "sm" | "md" | "lg";
+  focusable?: boolean;
   style?: CSSProperties;
   border?: boolean;
-  focusable?: boolean;
 }

@@ -62,7 +62,7 @@ function tooltip() {
           type: "String",
         },
       ]}
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-pwaial"]}
       demoWidget={lazy(() => import("./tooltip-widgets"))}
     ></DemoPageRenderer>

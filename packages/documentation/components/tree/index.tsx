@@ -43,7 +43,7 @@ function tree() {
           type: "function",
         },
       ]}
-      tabTitles={["examples", "properties", "Stackblitz"]}
+      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
       stackBlitzCodes={["react-ts-bpfa5b"]}
       demoWidget={lazy(() => import("./widgets"))}
     ></DemoPageRenderer>
