@@ -4,6 +4,7 @@ importers:
 
   .:
     specifiers:
+      '@typescript-eslint/parser': ^5.9.1
       eslint: ^8.7.0
       eslint-config-prettier: ^8.3.0
       eslint-plugin-import: 2.25.4
@@ -24,6 +25,7 @@ importers:
       turbo: ^1.0.28
       typescript: ^4.5.4
     dependencies:
+      '@typescript-eslint/parser': 5.9.1_eslint@8.7.0+typescript@4.5.4
       eslint: 8.7.0
       eslint-config-prettier: 8.3.0_eslint@8.7.0
       eslint-plugin-import: 2.25.4_eslint@8.7.0
@@ -2488,6 +2490,26 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
+    dev: false
+
+  /@typescript-eslint/parser/5.9.1_eslint@8.7.0+typescript@4.5.4:
+    resolution: {integrity: sha512-PLYO0AmwD6s6n0ZQB5kqPgfvh73p0+VqopQQLuNfi7Lm0EpfKyDalchpVwkE+81k5HeiRrTV/9w1aNHzjD7C4g==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@typescript-eslint/scope-manager': 5.9.1
+      '@typescript-eslint/types': 5.9.1
+      '@typescript-eslint/typescript-estree': 5.9.1_typescript@4.5.4
+      debug: 4.3.3
+      eslint: 8.7.0
+      typescript: 4.5.4
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@typescript-eslint/scope-manager/5.9.1:
