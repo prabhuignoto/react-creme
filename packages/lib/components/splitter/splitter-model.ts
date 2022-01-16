@@ -1,12 +1,12 @@
 import React from "react";
 
 export interface SplitterModel {
-  dir: "horizontal" | "vertical";
+  border?: boolean;
   children: React.ReactNode[];
-  minSplitWidth?: number;
+  dir: "horizontal" | "vertical";
+  handleBarWidth?: number;
+  maxSplitHeight?: number;
   maxSplitWidth?: number;
   minSplitHeight?: number;
-  maxSplitHeight?: number;
-  border?: boolean;
-  handleBarWidth?: number;
+  minSplitWidth?: number;
 }

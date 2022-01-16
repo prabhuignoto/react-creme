@@ -5,10 +5,10 @@ import { OverlayModel } from "./overlay-model";
 import "./overlay.scss";
 
 type Settings = {
-  disableAnimation?: boolean;
   backdropColor?: string;
-  placement?: "bottom" | "top";
+  disableAnimation?: boolean;
   disableBackdrop?: boolean;
+  placement?: "bottom" | "top";
 };
 
 type OverlayFunc = <U extends OverlayModel>(

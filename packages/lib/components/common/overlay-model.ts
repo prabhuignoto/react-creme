@@ -1,10 +1,10 @@
 import React, { RefObject } from "react";
 
 interface OverlayCommon {
+  align?: "left" | "right";
   onClose?: () => void;
   onClosing?: () => void;
   placement?: "top" | "bottom";
-  align?: "left" | "right";
   placementReference?: RefObject<HTMLElement>;
 }
 
@@ -20,8 +20,8 @@ export interface OverlayModel extends OverlayCommon {
 export interface OverlayProps extends OverlayCommon {
   backdropColor?: string;
   children: React.ReactNode;
-  showCloseButton?: boolean;
   containedToParent?: boolean;
-  overlayAnimation?: boolean;
   disableBackdrop?: boolean;
+  overlayAnimation?: boolean;
+  showCloseButton?: boolean;
 }

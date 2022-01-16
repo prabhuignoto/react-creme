@@ -23,15 +23,15 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemModel> = React.memo(
       }
     });
 
-    const breadCrumbNode = useMemo(() => {
-      return classNames("bread-crumb-node", {
-        [`bread-crumb-node-${size}`]: true,
-      });
-    }, []);
-
     const breadCrumbIcon = useMemo(() => {
       return classNames("bread-crumb-icon", {
         [`bread-crumb-icon-${size}`]: true,
+      });
+    }, []);
+
+    const breadCrumbNode = useMemo(() => {
+      return classNames("bread-crumb-node", {
+        [`bread-crumb-node-${size}`]: true,
       });
     }, []);
 

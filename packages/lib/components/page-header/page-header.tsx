@@ -3,10 +3,10 @@ import React, { useMemo } from "react";
 import "./page-header.scss";
 
 export interface PageHeaderProps {
-  title: string;
-  children?: React.ReactNode;
   RTL?: boolean;
+  children?: React.ReactNode;
   size?: "sm" | "md" | "lg";
+  title: string;
 }
 
 const PageHeader: React.FunctionComponent<PageHeaderProps> = ({

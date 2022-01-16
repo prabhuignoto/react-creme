@@ -1,20 +1,20 @@
 import React from "react";
 
 export interface ScrollSpyProps {
-  links: string[];
   children: React.ReactNode[] | React.ReactNode;
+  links: string[];
   linksPosition?: "left" | "right";
   showSectionTitle?: boolean;
 }
 
 export interface ScrollSpyLinkInternal {
+  active: boolean;
   id: string;
   name: string;
-  active: boolean;
 }
 
 export interface ScrollSpyContent {
-  id: string;
   active: boolean;
   hash: number;
+  id: string;
 }

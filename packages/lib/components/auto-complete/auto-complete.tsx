@@ -19,9 +19,9 @@ import "./auto-complete.scss";
 import "../input/input.scss";
 
 interface SuggestionsOverlayModel extends OverlayModel {
-  suggestions: Option[];
-  onSelection: (option: ListOption[]) => void;
   id?: string;
+  onSelection: (option: ListOption[]) => void;
+  suggestions: Option[];
   width?: number;
 }
 

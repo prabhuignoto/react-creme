@@ -3,15 +3,15 @@ import { RefObject } from "react";
 export type DragDirection = "HORIZONTAL" | "VERTICAL" | "BOTH";
 
 export interface Position {
+  target: HTMLElement | null;
   x: number;
   y: number;
-  target: HTMLElement | null;
 }
 
 export interface DragSettings {
-  makeChildrenDraggable?: boolean;
   boundTo?: RefObject<HTMLElement> | null;
   dragDirection?: DragDirection;
+  makeChildrenDraggable?: boolean;
 }
 
 export type UseDraggable = (

@@ -15,16 +15,16 @@ import "./accordion.scss";
 
 const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
   ({
+    customIcon = null,
     alignIconRight = false,
     border = false,
     children,
-    customIcon = null,
     disableCollapse = false,
     disableIcon = false,
+    iconType = "chevron",
     expanded = null,
     focusable = false,
     iconColor,
-    iconType = "chevron",
     id,
     isTitleBold = false,
     onCollapsed,

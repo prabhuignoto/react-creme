@@ -26,14 +26,14 @@ const Image: React.FunctionComponent<ImageProps> = ({
 }) => {
   const [loaded, setLoaded] = React.useState(false);
 
-  const imageNaturalDimension = useRef<{ width: number; height: number }>({
+  const imageNaturalDimension = useRef<{ height: number; width: number }>({
     height: 0,
     width: 0,
   });
 
   const [imageDimension, setImageDimension] = React.useState<{
-    width: number | string;
     height: number | string;
+    width: number | string;
   }>({
     height: "100%",
     width: "100%",

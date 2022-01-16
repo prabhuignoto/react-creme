@@ -6,9 +6,9 @@ export interface BreadCrumbModel extends BreadCrumbCommonModel {
 }
 
 export interface BreadCrumbItemModel extends BreadCrumbCommonModel {
+  child: ReactNode;
   id: string;
   onClick?: () => void;
-  child: ReactNode;
   showChevron?: boolean;
 }
 

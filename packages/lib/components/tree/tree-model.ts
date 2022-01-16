@@ -16,9 +16,9 @@ export interface TreeModel extends TreeCommonModel {
 }
 
 export interface TreeCommonModel {
-  onChange?: (name?: string) => void;
   allowSelection?: boolean;
+  iconType?: "plus" | "chevron";
+  onChange?: (name?: string) => void;
   onChildToggle?: (expanded: boolean, childrenCount: number) => void;
   width?: number;
-  iconType?: "plus" | "chevron";
 }

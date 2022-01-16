@@ -15,11 +15,12 @@ importers:
       eslint-plugin-promise: 6.0.0
       eslint-plugin-react: ^7.28.0
       eslint-plugin-sort-keys-fix: ^1.1.2
+      eslint-plugin-typescript-sort-keys: ^2.1.0
       husky: ^7.0.4
       lint-staged: ^12.1.7
       postcss: ^8.4.5
       postcss-scss: ^4.0.3
-      snyk: ^1.827.0
+      snyk: ^1.828.0
       stylelint: 14.2.0
       stylelint-config-prettier: ^9.0.3
       stylelint-scss: ^4.1.0
@@ -37,11 +38,12 @@ importers:
       eslint-plugin-promise: 6.0.0_eslint@8.7.0
       eslint-plugin-react: 7.28.0_eslint@8.7.0
       eslint-plugin-sort-keys-fix: 1.1.2
+      eslint-plugin-typescript-sort-keys: 2.1.0_bbe74534e31a8c21f1b3522447c55341
       husky: 7.0.4
       lint-staged: 12.1.7
       postcss: 8.4.5
       postcss-scss: 4.0.3_postcss@8.4.5
-      snyk: 1.827.0
+      snyk: 1.828.0
       stylelint: 14.2.0
       stylelint-config-prettier: 9.0.3_stylelint@14.2.0
       stylelint-scss: 4.1.0_stylelint@14.2.0
@@ -92,7 +94,7 @@ importers:
       resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
       sass: ^1.48.0
-      snyk: ^1.827.0
+      snyk: ^1.828.0
       stylelint: 14.2.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -147,7 +149,7 @@ importers:
       recoil: 0.5.2_react-dom@17.0.2+react@17.0.2
       rimraf: 3.0.2
       sass: 1.48.0
-      snyk: 1.827.0
+      snyk: 1.828.0
       stylelint: 14.2.0
       stylelint-config-prettier: 9.0.3_stylelint@14.2.0
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.5+stylelint@14.2.0
@@ -191,7 +193,7 @@ importers:
       history: 5.2.0
       jest: ^27.4.7
       jest-sonar-reporter: ^2.0.0
-      nanoid: ^3.1.32
+      nanoid: ^3.2.0
       ncp: ^2.0.0
       postcss: ^8.4.5
       postcss-bem-linter: ^3.3.0
@@ -216,7 +218,7 @@ importers:
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.31.1
       sass: ^1.48.0
-      snyk: ^1.827.0
+      snyk: ^1.828.0
       stylelint: 14.2.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -227,7 +229,7 @@ importers:
       use-debounce: ^7.0.1
     dependencies:
       classnames: 2.3.1
-      nanoid: 3.1.32
+      nanoid: 3.2.0
       resize-observer-polyfill: 1.5.1
       use-debounce: 7.0.1_react@17.0.2
     devDependencies:
@@ -285,7 +287,7 @@ importers:
       rollup-plugin-terser: 7.0.2_rollup@2.64.0
       rollup-plugin-typescript2: 0.31.1_b82e7e1ce7a445600f7361d5d588a407
       sass: 1.48.0
-      snyk: 1.827.0
+      snyk: 1.828.0
       stylelint: 14.2.0
       stylelint-config-prettier: 9.0.3_stylelint@14.2.0
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.5+stylelint@14.2.0
@@ -4380,6 +4382,24 @@ packages:
       requireindex: 1.2.0
     dev: false
 
+  /eslint-plugin-typescript-sort-keys/2.1.0_bbe74534e31a8c21f1b3522447c55341:
+    resolution: {integrity: sha512-ET7ABypdz19m47QnKynzNfWPi4CTNQ5jQQC1X5d0gojIwblkbGiCa5IilsqzBTmqxZ0yXDqKBO/GBkBFQCOFsg==}
+    engines: {node: 10 - 12 || >= 13.9}
+    peerDependencies:
+      '@typescript-eslint/parser': ^1 || ^2 || ^3 || ^4 || ^5
+      eslint: ^5 || ^6 || ^7 || ^8
+      typescript: ^3 || ^4
+    dependencies:
+      '@typescript-eslint/experimental-utils': 5.9.1_eslint@8.7.0+typescript@4.5.4
+      '@typescript-eslint/parser': 5.9.1_eslint@8.7.0+typescript@4.5.4
+      eslint: 8.7.0
+      json-schema: 0.4.0
+      natural-compare-lite: 1.4.0
+      typescript: 4.5.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /eslint-scope/5.1.1:
     resolution: {integrity: sha512-2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw==}
     engines: {node: '>=8.0.0'}
@@ -5920,6 +5940,10 @@ packages:
   /json-schema-traverse/1.0.0:
     resolution: {integrity: sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==}
 
+  /json-schema/0.4.0:
+    resolution: {integrity: sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA==}
+    dev: false
+
   /json-stable-stringify-without-jsonify/1.0.1:
     resolution: {integrity: sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=}
     dev: false
@@ -6302,10 +6326,14 @@ packages:
     resolution: {integrity: sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==}
     dev: true
 
-  /nanoid/3.1.32:
-    resolution: {integrity: sha512-F8mf7R3iT9bvThBoW4tGXhXFHCctyCiUUPrWF8WaTqa3h96d9QybkSeba43XVOOE3oiLfkVDe4bT8MeGmkrTxw==}
+  /nanoid/3.2.0:
+    resolution: {integrity: sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /natural-compare-lite/1.4.0:
+    resolution: {integrity: sha1-F7CVgZiJef3a/gIB6TG6kzyWy7Q=}
+    dev: false
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
@@ -7453,7 +7481,7 @@ packages:
     resolution: {integrity: sha512-jBDboWM8qpaqwkMwItqTQTiFikhs/67OYVvblFFTM7MrZjt6yMKd6r2kgXizEbTTljacm4NldIlZnhbjr84QYg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.1.32
+      nanoid: 3.2.0
       picocolors: 1.0.0
       source-map-js: 1.0.1
 
@@ -8171,8 +8199,8 @@ packages:
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
     dev: true
 
-  /snyk/1.827.0:
-    resolution: {integrity: sha512-9mDSG2KeUUiHfMBfpf56QazDOEBjjKnsaoPuUgfCa5o4dDwV92r9LQLrurexQi1c/6P55oMa80Qji05TJy9IgA==}
+  /snyk/1.828.0:
+    resolution: {integrity: sha512-gyfW9geXlvxF8cFyI7FpQBIFWpiosvf8UMLuKBR5PfcWGaqCCj8RXrzXa4CLRpbZbUj/s8Uxx09Tb94+X8kJcw==}
     engines: {node: '>=10'}
     hasBin: true
 

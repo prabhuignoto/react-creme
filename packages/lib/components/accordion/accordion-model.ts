@@ -2,28 +2,28 @@ import { ReactNode } from "react";
 
 export interface AccordionModel extends AccordionCommon {
   alignIconRight?: boolean;
+  border?: boolean;
   children?: ReactNode;
   expanded?: boolean | null;
   id?: string;
-  border?: boolean;
   onCollapsed?: (id: string) => void;
   onExpanded?: (id: string) => void;
   transition?: string;
 }
 
 export interface AccordionGroupProps extends AccordionCommon {
-  children: ReactNode[];
-  titles?: string[];
   autoClose?: boolean;
-  expanded?: boolean;
   border?: boolean;
+  children: ReactNode[];
+  expanded?: boolean;
   iconType?: "chevron" | "plus";
+  titles?: string[];
 }
 
 export interface AccordionItemProps {
-  id?: string;
   expanded?: boolean;
   focusable?: boolean;
+  id?: string;
 }
 
 export interface AccordionHeaderProps extends AccordionCommon {
@@ -35,12 +35,12 @@ export interface AccordionHeaderProps extends AccordionCommon {
 
 export interface AccordionCommon {
   alignIconRight?: boolean;
-  disableCollapse?: boolean;
   customIcon?: ReactNode;
+  disableCollapse?: boolean;
   disableIcon?: boolean;
-  iconType?: "chevron" | "plus";
   focusable?: boolean;
   iconColor?: string;
+  iconType?: "chevron" | "plus";
   isTitleBold?: boolean;
   title?: string;
   titleColor?: string;

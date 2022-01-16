@@ -34,7 +34,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   const active = useRef<string>();
 
   const handleChange = useCallback(
-    ({ id }: { id?: string; checked?: boolean }) => {
+    ({ id }: { checked?: boolean; id?: string }) => {
       if (active.current !== id) {
         setItems((prev) =>
           prev.map((item) => ({

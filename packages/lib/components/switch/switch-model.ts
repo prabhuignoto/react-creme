@@ -7,8 +7,8 @@ export interface SwitchModel {
   label?: string;
   labelOutside?: boolean;
   onChange?: (val: boolean) => void;
+  showCheckIcon?: boolean;
   size?: "sm" | "md" | "lg";
   style?: CSSProperties;
   width?: number;
-  showCheckIcon?: boolean;
 }

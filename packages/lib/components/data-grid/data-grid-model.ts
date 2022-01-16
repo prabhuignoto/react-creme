@@ -5,31 +5,31 @@ export type Record = {
 };
 
 export interface DataGridCommon {
-  layoutStyle?: "compact" | "comfortable";
   border?: boolean;
   fixedHeight?: boolean;
-  zebra?: boolean;
+  layoutStyle?: "compact" | "comfortable";
   rowHeight?: number;
+  zebra?: boolean;
 }
 
 export interface DataGridColumn {
   align?: string;
   format?: string;
+  formatter?: (value: any) => any;
   id?: string;
   name: string;
   sortOrder?: string;
   sortable?: boolean;
   type?: "string" | "number";
   width?: number;
-  formatter?: (value: any) => any;
 }
 
 export interface DataGridCell {
-  name: string;
-  value: string | number;
   border?: boolean;
   fixedHeight?: boolean;
   formatter?: (value: any) => any;
+  name: string;
+  value: string | number;
 }
 
 export interface DataRow extends DataGridCommon {
@@ -51,11 +51,11 @@ export interface DataGridProps extends DataGridCommon {
 }
 
 export interface DataGridHeaderProps extends DataGridCommon {
+  border?: boolean;
   columnWidth?: number;
   columns: DataGridColumn[];
   onSort?: (column: string, dir: SortDirection) => void;
   style?: CSSProperties;
-  border?: boolean;
 }
 
 export type SortDirection = "asc" | "desc" | "none";

@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
 
 export interface InputModel {
+  RTL?: boolean;
   border?: boolean;
   children?: React.ReactNode;
   controlled?: boolean;
@@ -17,5 +18,4 @@ export interface InputModel {
   style?: CSSProperties;
   type?: "text" | "password";
   value?: string;
-  RTL?: boolean;
 }
