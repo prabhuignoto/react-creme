@@ -7,8 +7,8 @@ const useDraggable: UseDraggable = (
   targetRef,
   settings = {
     boundTo: null,
-    makeChildrenDraggable: false,
     dragDirection: "BOTH",
+    makeChildrenDraggable: false,
   }
 ) => {
   const { makeChildrenDraggable, boundTo, dragDirection = "BOTH" } = settings;
@@ -23,9 +23,9 @@ const useDraggable: UseDraggable = (
   const dragTarget = useRef<HTMLElement | null>(null);
 
   const [position, setPosition] = useState<Position>({
+    target: null,
     x: 0,
     y: 0,
-    target: null,
   });
 
   const [debouncedPosition] = useDebounce(position, 500, { trailing: true });
@@ -165,7 +165,7 @@ const useDraggable: UseDraggable = (
         z-index: 999;
       `;
 
-      setPosition({ x: newLeft, y: newTop, target: ev.target as HTMLElement });
+      setPosition({ target: ev.target as HTMLElement, x: newLeft, y: newTop });
     }
   }, []);
 

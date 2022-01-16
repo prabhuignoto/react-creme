@@ -42,7 +42,7 @@ $height: 40px;
 .rc-list-option-focus {
   &::after {
     @include position.position-abs("center center");
-    border: 2px solid colors.$white;
+    border: 2px solid rgba(colors.$white, 0.1);
     border-radius: 4px;
     content: "";
     display: block;

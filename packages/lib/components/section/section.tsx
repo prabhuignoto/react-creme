@@ -22,8 +22,8 @@ const Section: React.FC<SectionModel> = ({
   const bodyStyle = useMemo(
     () =>
       ({
-        flexDirection: layout === "column" ? "row" : "column",
         alignItems: layout === "column" ? "center" : "stretch",
+        flexDirection: layout === "column" ? "row" : "column",
       } as CSSProperties),
     []
   );

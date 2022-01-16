@@ -66,8 +66,8 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   const radioGroupClass = useMemo(
     () =>
       classNames("rc-radio-group", {
-        "rc-radio-group-row": layout === "row",
         "rc-radio-group-column": layout === "column",
+        "rc-radio-group-row": layout === "row",
       }),
     []
   );

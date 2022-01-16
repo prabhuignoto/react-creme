@@ -48,8 +48,8 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   const globalNotificationClass = useMemo(
     () =>
       classNames("rc-global-notification", {
-        "rc-global-notification-open": open,
         "rc-global-notification-close": !open,
+        "rc-global-notification-open": open,
         [`rc-global-notification-${state}`]: true,
         [`rc-global-notification-animation-${hideAnimationStyle}`]: true,
       }),

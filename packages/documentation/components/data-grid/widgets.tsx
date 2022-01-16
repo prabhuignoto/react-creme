@@ -1,31 +1,31 @@
 import React, { useLayoutEffect } from "react";
 import { useRecoilValue } from "recoil";
-import { DataGridColumn } from "../../../lib/components/data-grid/data-grid-model";
 import { BlockQuote, DataGrid, Section } from "../../../lib/components";
+import { DataGridColumn } from "../../../lib/components/data-grid/data-grid-model";
 import { responsiveState } from "../../atoms/home";
 import { DemoWidget } from "../../common/demo-widget";
 
 const data = [
   {
-    name: "John",
     age: 30,
     dept: "physics",
     marks: 100,
+    name: "John",
   },
   {
-    name: "Jane",
     age: 25,
     dept: "chemistry is the toughest job in the world",
     marks: 80,
+    name: "Jane",
   },
   {
-    name: "Lewis hamilton",
     age: 25,
     dept: "chemistry",
     marks: 78,
+    name: "Lewis hamilton",
   },
-  { name: "Prabhu", age: 35, dept: "Physics", marks: 100 },
-  { name: "Clive", age: 25, dept: "Biology", marks: 95 },
+  { age: 35, dept: "Physics", marks: 100, name: "Prabhu" },
+  { age: 25, dept: "Biology", marks: 95, name: "Clive" },
 ];
 
 function widgets() {

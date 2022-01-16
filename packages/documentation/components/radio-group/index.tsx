@@ -11,40 +11,40 @@ function radioGroup() {
       stackBlitzCodes={["react-ts-m9yskx"]}
       callbacks={[
         {
-          name: "onSelected",
+          default: "",
           description:
             "Callback function to be executed when an option is selected",
-          default: "",
+          name: "onSelected",
           optional: "Yes",
           type: "Function",
         },
       ]}
       properties={[
         {
-          name: "layout",
-          description: "Layout of the radio group",
           default: "column",
+          description: "Layout of the radio group",
+          name: "layout",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "items",
-          description: "Collection of Options",
           default: "[]",
+          description: "Collection of Options",
+          name: "items",
           optional: "Yes",
           type: "Array",
         },
         {
-          name: "disabled",
-          description: "Disables the complete radio group",
           default: "false",
+          description: "Disables the complete radio group",
+          name: "disabled",
           optional: "Yes",
           type: "Boolean",
         },
         {
-          name: "style",
-          description: "Custom Style object",
           default: "{}",
+          description: "Custom Style object",
+          name: "style",
           optional: "Yes",
           type: "Object",
         },

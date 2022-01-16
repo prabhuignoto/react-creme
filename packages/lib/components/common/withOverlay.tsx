@@ -28,8 +28,8 @@ export const OverlayContext = React.createContext<OverlayContextModel | null>(
 const withOverlay: OverlayFunc = function <T extends OverlayModel>(
   Node: React.FunctionComponent<T>,
   settings: Settings = {
-    disableAnimation: false,
     backdropColor: "rgba(0,0,0,0.5)",
+    disableAnimation: false,
     disableBackdrop: false,
   }
 ) {

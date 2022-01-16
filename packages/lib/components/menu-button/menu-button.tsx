@@ -18,7 +18,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   iconColor,
 }) => {
   const menuItems = useRef<MenuItemModel[]>(
-    items.slice(1).map((item) => ({ name: item, id: nanoid() }))
+    items.slice(1).map((item) => ({ id: nanoid(), name: item }))
   );
 
   const handleChange = useCallback((item: string) => {
@@ -40,8 +40,8 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
 
   const menuStyle = useMemo(() => {
     return {
-      "--max-width": `${width}px`,
       "--icon-color": iconColor,
+      "--max-width": `${width}px`,
     } as CSSProperties;
   }, []);
 

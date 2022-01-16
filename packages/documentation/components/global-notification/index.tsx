@@ -8,54 +8,54 @@ function index() {
       description="Grabs the attention of the user by displaying a notification in the top of the screen."
       callbacks={[
         {
-          name: "onClose",
+          default: "",
           description:
             "The callback function to be called when the notification is closed.",
-          default: "",
+          name: "onClose",
           optional: "Yes",
           type: "function",
         },
       ]}
       properties={[
         {
-          name: "height",
-          description: "The height of the notification.",
           default: "50",
+          description: "The height of the notification.",
+          name: "height",
           optional: "Yes",
           type: "number",
         },
         {
-          name: "delay",
-          description: "The delay before the notification appears.",
           default: "0",
+          description: "The delay before the notification appears.",
+          name: "delay",
           optional: "Yes",
           type: "number",
         },
         {
-          name: "closeAfter",
-          description: "The delay before the notification disappears.",
           default: "3000",
+          description: "The delay before the notification disappears.",
+          name: "closeAfter",
           optional: "Yes",
           type: "number",
         },
         {
-          name: "state",
-          description: "The state of the notification.",
           default: "info",
+          description: "The state of the notification.",
+          name: "state",
           optional: "Yes",
           type: "string",
         },
         {
-          name: "message",
-          description: "The message of the notification.",
           default: "",
+          description: "The message of the notification.",
+          name: "message",
           optional: "Yes",
           type: "string",
         },
         {
-          name: "hideAnimationStyle",
-          description: `The animation style used while showing and hiding the notification. can be <em>hide</em> or <em>shrink</em>`,
           default: "hide",
+          description: `The animation style used while showing and hiding the notification. can be <em>hide</em> or <em>shrink</em>`,
+          name: "hideAnimationStyle",
           optional: "Yes",
           type: "string",
         },

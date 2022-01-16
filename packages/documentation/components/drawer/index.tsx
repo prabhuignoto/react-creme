@@ -11,31 +11,31 @@ function drawer() {
        It can be used as a navigation drawer or a side drawer.`}
       properties={[
         {
-          name: "position",
+          default: "left",
           description:
             "docking position of the drawer. <em>'left'</em> | <em>'right'</em> | <em>'top'</em> | <em>'bottom'</em>",
-          default: "left",
+          name: "position",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "height",
+          default: "300",
           description: "custom height to be used when docked to top or bottom",
-          default: "300",
+          name: "height",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "width",
+          default: "300",
           description: "custom width to be used when docked to left or right",
-          default: "300",
+          name: "width",
           optional: "Yes",
           type: "Number",
         },
         {
-          name: "transition",
-          description: "custom transition for custom animation",
           default: "cubic-bezier(0.79, 0.14, 0.15, 0.86",
+          description: "custom transition for custom animation",
+          name: "transition",
           optional: "Yes",
           type: "String",
         },

@@ -4,13 +4,11 @@ import { DemoWidget } from "../../common/demo-widget";
 
 const data = [
   {
-    name: "one",
     child: [
       {
         name: "two",
       },
       {
-        name: "three",
         child: [
           {
             name: "This is a long text that should be truncated",
@@ -20,14 +18,16 @@ const data = [
           { name: "six" },
           { name: "seven" },
         ],
+        name: "three",
       },
     ],
+    name: "one",
   },
   {
-    name: "sixteen",
     disabled: true,
+    name: "sixteen",
   },
-  { name: "twenty", child: [{ name: "twenty one" }] },
+  { child: [{ name: "twenty one" }], name: "twenty" },
   { name: "twenty two" },
 ];
 

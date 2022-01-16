@@ -22,7 +22,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
     RTL,
   }: ListItemModel) => {
     const handleSelection = useCallback(() => {
-      onSelection && onSelection({ id, name, value, selected: !selected });
+      onSelection && onSelection({ id, name, selected: !selected, value });
     }, []);
 
     const ref = useRef<HTMLLIElement>(null);
@@ -35,10 +35,10 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
           "rc-list-option",
           {
             "rc-list-option-disabled": disabled,
-            "rc-list-option-selected": selected,
-            "rc-list-option-multi-selection": allowMultiSelection,
-            "rc-list-option-highlight-selection": highlightSelection,
             "rc-list-option-focus": focusable,
+            "rc-list-option-highlight-selection": highlightSelection,
+            "rc-list-option-multi-selection": allowMultiSelection,
+            "rc-list-option-selected": selected,
           },
         ]),
       [selected, disabled, focusable]

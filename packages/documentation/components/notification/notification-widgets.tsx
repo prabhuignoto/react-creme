@@ -112,10 +112,10 @@ const Widgets = () => {
           <div
             className="rc-demo-widget"
             style={{
-              width: `${width}px`,
               background: "#f5f5f5",
               height: "350px",
               placeContent: "center",
+              width: `${width}px`,
             }}
             ref={ref}
           >

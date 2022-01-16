@@ -29,11 +29,11 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   const [tagItems, setTagItems] = useState<TagItemInternalModel[]>(
     items
       .map((item) => ({
-        name: item.name,
-        id: nanoid(),
         disabled: item.disabled,
-        readonly: readonly,
+        id: nanoid(),
         markedForRemoval: false,
+        name: item.name,
+        readonly: readonly,
       }))
       .slice(0, maxTags)
   );
@@ -90,9 +90,9 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   useEffect(() => {
     setTagItems(
       items.map((item) => ({
-        name: item.name,
-        id: nanoid(),
         disabled: item.disabled,
+        id: nanoid(),
+        name: item.name,
         readonly: readonly,
       }))
     );
@@ -101,8 +101,8 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   return (
     <ul
       className={classNames("rc-tags-wrap", {
-        "rc-tags-rtl": RTL,
         "rc-tags-disabled": disabled,
+        "rc-tags-rtl": RTL,
       })}
       role="list"
       style={style}

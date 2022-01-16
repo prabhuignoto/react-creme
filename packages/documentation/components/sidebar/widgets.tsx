@@ -30,16 +30,16 @@ function widgets() {
         <Section title="Default render">
           <BlockQuote>Sections are collapsible by default.</BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px`, height: "400px" }}>
+            <div style={{ height: "400px", width: `${width}px` }}>
               <Sidebar
                 groups={[
                   {
-                    title: "Section 1",
                     items: [{ name: "tester" }, { name: "tester 2" }],
+                    title: "Section 1",
                   },
                   {
-                    title: "Section 2",
                     items: [{ name: "tester" }, { name: "tester 2" }],
+                    title: "Section 2",
                   },
                 ]}
               />
@@ -51,21 +51,21 @@ function widgets() {
             Can optionally include a search bar for filtering the sidebar.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px`, height: "450px" }}>
+            <div style={{ height: "450px", width: `${width}px` }}>
               <Sidebar
                 enableSearch
                 groups={[
                   {
+                    items: [{ name: "tester" }],
                     title: "Section 1",
-                    items: [{ name: "tester" }],
                   },
                   {
-                    title: "Section 2",
                     items: [{ name: "tester" }, { name: "tester 2" }],
+                    title: "Section 2",
                   },
                   {
-                    title: "Section 3",
                     items: [{ name: "tester" }],
+                    title: "Section 3",
                   },
                 ]}
               />

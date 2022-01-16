@@ -11,39 +11,39 @@ function sidebar() {
       description="Sidebar is a container for sidebar items. It can be used to display a list of items in a collapsible sidebar."
       callbacks={[
         {
-          name: "onSelect",
-          description: "Callback that gets invoked on selecting a sidebar item",
           default: "",
+          description: "Callback that gets invoked on selecting a sidebar item",
+          name: "onSelect",
           optional: "Yes",
           type: "Function",
         },
       ]}
       properties={[
         {
-          name: "groups",
-          description: "Collection of sidebar items passed in groups",
           default: "[]",
+          description: "Collection of sidebar items passed in groups",
+          name: "groups",
           optional: "No",
           type: "Array",
         },
         {
-          name: "groupIconColor",
+          default: "#000",
           description: "Color of the group icon",
-          default: "#000",
+          name: "groupIconColor",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "groupTitleColor",
+          default: "#000",
           description: "Color of the group title",
-          default: "#000",
+          name: "groupTitleColor",
           optional: "Yes",
           type: "String",
         },
         {
-          name: "backGroundColor",
-          description: "Background color",
           default: "#fff",
+          description: "Background color",
+          name: "backGroundColor",
           optional: "Yes",
           type: "String",
         },

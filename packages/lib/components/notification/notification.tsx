@@ -37,8 +37,8 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
   const wrapperStyle = useMemo(
     () =>
       ({
-        "--min-width": `${width}px`,
         "--min-height": `${height}px`,
+        "--min-width": `${width}px`,
       } as CSSProperties),
     []
   );

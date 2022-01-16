@@ -10,54 +10,54 @@ function menu() {
       description="Menu is a component that can be used to display a list of items. It can be docked to any target element and aligned to three supported positions: left, right, and center."
       callbacks={[
         {
-          name: "onOpen",
+          default: "",
           description: `Callback fired when the menu is opened`,
-          default: "",
+          name: "onOpen",
           optional: "Yes",
           type: "Function",
         },
         {
-          name: "onClose",
+          default: "",
           description: `Callback fired when the menu is closed`,
-          default: "",
+          name: "onClose",
           optional: "Yes",
           type: "Function",
         },
         {
-          name: "onSelected",
-          description: `Callback fired when a menu items is selected`,
           default: "",
+          description: `Callback fired when a menu items is selected`,
+          name: "onSelected",
           optional: "Yes",
           type: "Function",
         },
       ]}
       properties={[
         {
-          name: "align",
+          default: "left",
           description: `Docking position of the menu. <br>
           <em>'left'</em> | <em>'right'</em>`,
-          default: "left",
+          name: "align",
           optional: "Yes",
           type: "string",
         },
         {
-          name: "items",
-          description: `Collection of Menu Items`,
           default: "[]",
+          description: `Collection of Menu Items`,
+          name: "items",
           optional: "Yes",
           type: "Array",
         },
         {
-          name: "style",
-          description: `Any custom CSS`,
           default: "",
+          description: `Any custom CSS`,
+          name: "style",
           optional: "Yes",
           type: "Object",
         },
         {
-          name: "focusable",
-          description: `makes the component focusable via keyboard`,
           default: "True",
+          description: `makes the component focusable via keyboard`,
+          name: "focusable",
           optional: "Yes",
           type: "Boolean",
         },

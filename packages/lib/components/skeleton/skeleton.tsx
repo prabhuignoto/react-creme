@@ -35,11 +35,11 @@ const Skeleton: FunctionComponent<SkeletonModel> = ({
           ...item,
           rows: item.rows.map((row) => ({
             ...row,
+            visible: true,
             width: Math.max(
               Math.round(width * Math.random()),
               Math.round(width2 * Math.random())
             ),
-            visible: true,
           })),
         }))
       );

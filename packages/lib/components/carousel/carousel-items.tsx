@@ -13,11 +13,11 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
 }: CarouselItemsModel) => {
   const carouselStyle = useMemo(() => {
     return {
-      width: `${width * totalItems}px`,
       transform:
         direction === "horizontal"
           ? `translateX(-${width * activePage}px)`
           : `translateY(-${height * activePage}px)`,
+      width: `${width * totalItems}px`,
     } as CSSProperties;
   }, [width, height, activePage]);
 
@@ -31,10 +31,10 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
           data-visible={activePage === index}
           aria-hidden={activePage !== index}
           style={{
-            width: item.width,
-            visibility: item.width === 0 ? "hidden" : "visible",
-            top: direction === "horizontal" ? 0 : item.top,
             left: direction === "horizontal" ? item.left : 0,
+            top: direction === "horizontal" ? 0 : item.top,
+            visibility: item.width === 0 ? "hidden" : "visible",
+            width: item.width,
           }}
         >
           <div className="rc-carousel-item-container">

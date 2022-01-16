@@ -44,8 +44,8 @@ const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
   const revealClass = useMemo(
     () =>
       classNames("rc-reveal", {
-        "rc-reveal-show": visible,
         "rc-reveal-hide": !visible,
+        "rc-reveal-show": visible,
       }),
     [visible]
   );

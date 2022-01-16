@@ -74,9 +74,9 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
     const checkBoxClass = useMemo(
       () =>
         classNames("rc-checkbox", {
-          "rc-disabled": disabled,
-          [`rc-checkbox-${size}`]: true,
           "rc-checkbox-focus": focusIcon,
+          [`rc-checkbox-${size}`]: true,
+          "rc-disabled": disabled,
         }),
       [disabled]
     );
@@ -85,11 +85,11 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
       () =>
         classNames("rc-checkbox-wrapper", {
           [`rc-checkbox-${size}`]: true,
-          "rc-checkbox-disabled": disabled,
-          "rc-checkbox-border": border,
-          "rc-checkbox-hover": !noHoverStyle,
           "rc-checkbox-auto-height": autoHeight,
+          "rc-checkbox-border": border,
+          "rc-checkbox-disabled": disabled,
           "rc-checkbox-focus": !focusIcon,
+          "rc-checkbox-hover": !noHoverStyle,
           "rc-checkbox-rtl": RTL,
         }),
       [size, disabled]

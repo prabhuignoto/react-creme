@@ -32,8 +32,8 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
         {showCheck && (
           <span
             className={cls("rc-list-option-icon", {
-              "rc-list-option-selected": selected,
               "rc-list-option-rtl": RTL,
+              "rc-list-option-selected": selected,
             })}
           >
             <CheckIcon />

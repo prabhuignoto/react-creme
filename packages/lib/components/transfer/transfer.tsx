@@ -9,8 +9,8 @@ import "./transfer.scss";
 
 const initMapper = (list: string[]) =>
   list.map((item) => ({
-    name: item,
     id: nanoid(),
+    name: item,
     selected: false,
     visible: true,
   }));

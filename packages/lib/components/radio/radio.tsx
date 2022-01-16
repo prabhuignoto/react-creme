@@ -71,8 +71,8 @@ const Radio: React.FunctionComponent<RadioModel> = React.memo(
     const radioClass = useMemo(
       () =>
         cls(["rc-radio"], {
-          "rc-radio-disabled": disabled,
           "rc-radio-checked": checked,
+          "rc-radio-disabled": disabled,
           [`rc-radio-${size}`]: true,
         }),
       [checked, disabled]
@@ -100,10 +100,10 @@ const Radio: React.FunctionComponent<RadioModel> = React.memo(
 
     const focusableProps = useMemo(
       () => ({
+        "aria-checked": !!checked,
         onClick: toggleCheck,
         ref: radioRef,
         tabIndex: !disabled && focusable ? 0 : -1,
-        "aria-checked": !!checked,
       }),
       [checked]
     );

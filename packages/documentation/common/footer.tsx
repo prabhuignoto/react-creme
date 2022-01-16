@@ -12,7 +12,7 @@ function Footer() {
         </span>{" "}
         by{" "}
         <a href="https://www.prabhumurthy.com" target="_new">
-          Prabhu Murthy
+          @prabhuignoto
         </a>
       </div>
       <div className="github-link">

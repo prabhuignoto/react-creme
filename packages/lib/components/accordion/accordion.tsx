@@ -55,8 +55,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     const accordionBodyClass = useMemo(
       () =>
         cls("rc-accordion-body", {
-          "rc-accordion-open": open && !isFirstRender.current,
           "rc-accordion-close": !open,
+          "rc-accordion-open": open && !isFirstRender.current,
         }),
       [open]
     );
@@ -64,14 +64,14 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     const style = useMemo(
       () =>
         ({
+          "--icon-color": iconColor,
           "--max-height": open
             ? bodyHeight
               ? `${bodyHeight}px`
               : `${100}px`
             : "0px",
-          "--transition": transition,
           "--title-color": titleColor,
-          "--icon-color": iconColor,
+          "--transition": transition,
         } as CSSProperties),
       [open, bodyHeight]
     );

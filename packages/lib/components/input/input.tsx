@@ -90,10 +90,10 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
       () =>
         classNames("rc-input", {
           [`rc-input-${state}`]: true,
-          "rc-input-no-icon": !children,
-          "rc-input-disabled": disabled,
           "rc-input-border": border,
+          "rc-input-disabled": disabled,
           "rc-input-focus": hasFocus,
+          "rc-input-no-icon": !children,
           "rc-input-rtl": RTL,
         }),
       [disabled, hasFocus]
@@ -113,8 +113,8 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
       () =>
         isAutoComplete
           ? {
-              role: "combobox",
               "aria-controls": id,
+              role: "combobox",
             }
           : null,
       [isAutoComplete]
@@ -123,8 +123,8 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
     const focusProps = useMemo(() => {
       if (focusable) {
         return {
-          onFocus: () => setHasFocus(true),
           onBlur: () => setHasFocus(false),
+          onFocus: () => setHasFocus(true),
         };
       } else {
         return {};

@@ -32,9 +32,9 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   const wrapperClass = useMemo(() => {
     return classNames("rc-checkbox-group", {
       "rc-checkbox-group-border": border,
-      "rc-checkbox-group-vertical": layout === "vertical",
-      "rc-checkbox-group-horizontal": layout === "horizontal",
       "rc-checkbox-group-disabled": disabled,
+      "rc-checkbox-group-horizontal": layout === "horizontal",
+      "rc-checkbox-group-vertical": layout === "vertical",
     });
   }, [layout, disabled]);
 
@@ -69,8 +69,8 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
       onChange?.(
         items.map((item) => ({
           id: item.id,
-          name: item.label,
           isChecked: item.isChecked,
+          name: item.label,
         }))
       );
     }

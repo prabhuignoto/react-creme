@@ -7,16 +7,16 @@ function index() {
       demoWidget={lazy(() => import("./widgets"))}
       properties={[
         {
-          name: "links",
-          description: "Array of links to scroll to",
           default: "[]",
+          description: "Array of links to scroll to",
+          name: "links",
           optional: "Yes",
           type: "string[]",
         },
         {
-          name: "linksPosition",
-          description: "Position of the links",
           default: "left",
+          description: "Position of the links",
+          name: "linksPosition",
           optional: "Yes",
           type: "string",
         },

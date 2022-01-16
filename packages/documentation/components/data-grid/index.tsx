@@ -10,32 +10,47 @@ const DataGridDemo: React.FunctionComponent = () => {
       description="Data Grid is a component that displays data in a table format."
       properties={[
         {
-          name: "layoutStyle",
-          description: "Layout style of the data grid.",
           defaultValue: "comfortable",
+          description:
+            "Sets the layout style of the grid. can be <em>comfortable</em> or <em>compact</em>",
+          name: "layoutStyle",
           optional: "Yes",
           type: "string",
         },
         {
+          defaultValue: "[]",
+          description: "Columns configuration.",
           name: "columns",
-          description: "column configuration of the data grid.",
-          defaultValue: "[]",
           optional: "Yes",
           type: "Array",
         },
         {
+          defaultValue: "[]",
+          description: "Row data.",
           name: "data",
-          description: "data to be displayed in the data grid.",
-          defaultValue: "[]",
           optional: "Yes",
           type: "Array",
         },
         {
-          name: "zebra",
-          description: "alternates the background color of the rows",
           defaultValue: "False",
+          description: "Alternates the background color of the grid rows",
+          name: "zebra",
           optional: "Yes",
           type: "Boolean",
+        },
+        {
+          defaultValue: "",
+          description: "Sets the height of the grid row",
+          name: "rowHeight",
+          optional: "Yes",
+          type: "number",
+        },
+        {
+          defaultValue: "false",
+          description: "Makes the height of the grid as fixed",
+          name: "fixedHeight",
+          optional: "Yes",
+          type: "boolean",
         },
       ]}
       tabTitles={["examples", "properties", "Stackblitz"]}

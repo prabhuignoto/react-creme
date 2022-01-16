@@ -56,7 +56,7 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
 
 const SuggestionsMenuOverlay = withOverlay<SuggestionsOverlayModel>(
   SuggestionsMenu,
-  { placement: "bottom", disableBackdrop: true }
+  { disableBackdrop: true, placement: "bottom" }
 );
 
 const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({

@@ -14,8 +14,8 @@ const useSortable: (
   const parentRef = useRef<HTMLElement | null>(null);
 
   const test = useDraggable(ref, {
-    makeChildrenDraggable: true,
     dragDirection: "VERTICAL",
+    makeChildrenDraggable: true,
   });
 
   useEffect(() => {

@@ -20,8 +20,8 @@ const ImageOverlayComponent: React.FunctionComponent<ImageOverlayProps> = ({
 
   const overlayClass = useMemo(() => {
     return classNames("rc-image-overlay", {
-      "rc-image-overlay-open": canShow,
       "rc-image-overlay-close": isClosing,
+      "rc-image-overlay-open": canShow,
     });
   }, [isClosing, canShow]);
 

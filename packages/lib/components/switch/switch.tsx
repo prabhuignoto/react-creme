@@ -45,12 +45,12 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   const switchKnobClass = useMemo(
     () =>
       classNames(["rc-switch-knob"], {
-        "rc-switch-on": state && !isFirstRender.current,
-        "rc-switch-on-load": state && isFirstRender.current,
+        "rc-switch-check-icon": showCheckIcon,
+        "rc-switch-disabled": disabled,
         "rc-switch-off": !state && !isFirstRender.current,
         [`rc-switch-knob-${size}`]: true,
-        "rc-switch-disabled": disabled,
-        "rc-switch-check-icon": showCheckIcon,
+        "rc-switch-on": state && !isFirstRender.current,
+        "rc-switch-on-load": state && isFirstRender.current,
       }),
     [state, size, disabled, showCheckIcon]
   );
@@ -68,11 +68,11 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   const switchTrackClass = useMemo(
     () =>
       classNames("rc-switch-track", {
-        "rc-switch-on": state,
-        "rc-switch-off": !state,
-        "rc-switch-track-disabled": disabled,
-        [`rc-switch-${size}`]: true,
         "rc-switch-label-outside": labelOutside,
+        "rc-switch-off": !state,
+        "rc-switch-on": state,
+        [`rc-switch-${size}`]: true,
+        "rc-switch-track-disabled": disabled,
       }),
     [state, size, disabled, labelOutside]
   );
@@ -80,8 +80,8 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   const switchLabelClass = useMemo(
     () =>
       classNames(["rc-switch-label"], {
-        "rc-switch-label-on": state,
         "rc-switch-label-off": !state,
+        "rc-switch-label-on": state,
         [`rc-switch-label-${size}`]: true,
         "rc-switch-label-outside": labelOutside,
       }),

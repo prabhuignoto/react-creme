@@ -41,11 +41,11 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
           }
 
           return {
+            content: children[index],
+            disabled: disabled,
             id: nanoid(),
             name: labels[index],
             selected,
-            disabled: disabled,
-            content: children[index],
           };
         })
       : []
@@ -55,8 +55,8 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
     () =>
       ({
         ...style,
-        "--min-width": Number.isInteger(width) ? `${width}px` : width,
         "--icons-color": iconsColor,
+        "--min-width": Number.isInteger(width) ? `${width}px` : width,
       } as CSSProperties),
     []
   );

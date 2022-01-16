@@ -38,9 +38,9 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   const collapsibleProps = useMemo(() => {
     return !disableCollapse
       ? {
-          onClick: onToggle,
           "aria-controls": accordionBodyId,
           "aria-expanded": !!open,
+          onClick: onToggle,
         }
       : null;
   }, []);
@@ -55,9 +55,9 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     const classes: string[] = [];
 
     return classnames([...classes, "rc-accordion-icon"], {
-      "rc-accordion-icon-open": open,
-      [`rc-accordion-icon-${iconType}`]: true,
       "rc-accordion-custom-icon": customIcon,
+      [`rc-accordion-icon-${iconType}`]: true,
+      "rc-accordion-icon-open": open,
     });
   }, [open, customIcon]);
 

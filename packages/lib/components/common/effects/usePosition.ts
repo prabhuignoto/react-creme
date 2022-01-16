@@ -97,8 +97,8 @@ const usePosition: FunctionType = function (
           : "left";
         const value = alignToEdge ? 0 : `${eleWidth - tooltipHalfWidth}px`;
         cssPosition = {
-          top: `${heightWithSpace}px`,
           [prop]: value,
+          top: `${heightWithSpace}px`,
         };
         break;
       }
@@ -115,8 +115,8 @@ const usePosition: FunctionType = function (
       case "right top": {
         const prop = isPositionX("left") ? "right" : "left";
         cssPosition = {
-          top: 0,
           [prop]: eleWidth + spacing,
+          top: 0,
         };
         break;
       }

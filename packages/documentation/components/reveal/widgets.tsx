@@ -2,18 +2,18 @@ import React, { CSSProperties, useLayoutEffect } from "react";
 import { Image, Reveal } from "../../../lib/components";
 import useMedia from "../../common/useMedia";
 const blankStyle = {
-  minHeight: "1200px",
-  display: "flex",
   alignItems: "flex-start",
-  justifyContent: "center",
+  display: "flex",
   fontSize: "1.2rem",
+  justifyContent: "center",
+  minHeight: "1200px",
   paddingTop: "200px",
 } as CSSProperties;
 
 const imageWrapStyle = {
-  width: "450px",
   display: "flex",
   margin: "0 auto",
+  width: "450px",
 } as CSSProperties;
 
 function widgets() {
@@ -46,10 +46,10 @@ function widgets() {
           style={{
             display: "flex",
             flexDirection: "column",
-            width: `${width}px`,
             height: "750px",
-            overflowY: "auto",
             overflowX: "hidden",
+            overflowY: "auto",
+            width: `${width}px`,
           }}
         >
           <div style={blankStyle}>⬇️ Scroll Down ⬇️</div>

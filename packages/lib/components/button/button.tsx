@@ -21,9 +21,9 @@ const Button: React.FunctionComponent<ButtonModel> = ({
     () =>
       classNames(
         {
-          "rc-disabled": disabled,
-          "rc-btn-no-border": !border,
           "rc-btn-default": type === "progress",
+          "rc-btn-no-border": !border,
+          "rc-disabled": disabled,
         },
         [`rc-btn-${size}`, `rc-btn-${type}`, "rc-btn"]
       ),
