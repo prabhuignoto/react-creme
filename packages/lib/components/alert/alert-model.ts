@@ -4,6 +4,7 @@ export interface AlertProps {
   RTL?: boolean;
   canDismiss?: boolean;
   children?: ReactNode;
+  focusable?: boolean;
   height?: number;
   message?: string;
   onDismiss?: () => void;
