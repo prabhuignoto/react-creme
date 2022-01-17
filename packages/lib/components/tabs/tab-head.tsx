@@ -1,7 +1,6 @@
 import classNames from 'classnames';
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { useFocus } from '../common/effects/useFocus';
-import { useKey } from '../common/effects/useKey';
 import { TabHeadProps } from './tabs-model';
 import './tabs.scss';
 
@@ -15,12 +14,15 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     selected,
     tabStyle,
     icon,
+    onFocus,
+    parentHasFocus,
   }: TabHeadProps) => {
-    const ref = useRef(null);
+    const ref = useRef<HTMLElement>(null);
 
+    // enable focus outlines
     if (!disabled && focusable) {
       useFocus(ref, () => handleTabSelection(id));
-      useKey(ref, () => handleTabSelection(id));
+      // useKey(ref, () => handleTabSelection(id));
     }
 
     const headerLabelClass = useMemo(() => {
@@ -44,6 +46,15 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
       });
     }, []);
 
+    useEffect(() => {
+      if (!selected) {
+        return;
+      }
+      if (selected && parentHasFocus) {
+        ref.current?.focus();
+      }
+    }, [selected, parentHasFocus]);
+
     return (
       <div
         key={id}
@@ -53,12 +64,13 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         aria-selected={selected}
         aria-controls={`rc-tab-panel-${id}`}
         id={`rc-tab-${id}`}
+        onFocus={!parentHasFocus ? onFocus : undefined}
       >
         {icon && <span className={tabHeadIcon}>{icon}</span>}
         <span
           className={headerLabelClass}
           ref={ref}
-          tabIndex={!disabled && focusable ? 0 : -1}
+          tabIndex={!disabled && focusable && selected ? 0 : -1}
         >
           {name}
         </span>

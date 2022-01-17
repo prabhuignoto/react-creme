@@ -17,33 +17,40 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   border = false,
   children,
   disabledTabs = [],
+  focusable = false,
+  icons,
+  iconsColor,
   labels,
   style = {},
   tabStyle = 'flat',
   width = '100%',
-  focusable = false,
-  iconsColor,
-  icons,
+  activeTab,
 }) => {
   const selectionStart = useRef<number>(-1);
+  const [activeTabId, setActiveTabId] = useState<string>('');
 
-  const [items, setItems] = useState<TabItemProps[]>(
+  // state of tabs
+  const items = useRef<TabItemProps[]>(
     Array.isArray(children)
       ? children.map((_, index) => {
+          // check if the tab is disabled
           const disabled = disabledTabs.includes(labels[index]);
-          let selected = index === 0 && !disabled;
+
+          // check if the tab can be selected on load
+          let selected = activeTab
+            ? activeTab === labels[index]
+            : index === 0 && !disabled;
+
+          const _id = nanoid();
 
           if (selected) {
             selectionStart.current = index;
-          } else if (index > 0 && selectionStart.current === -1 && !disabled) {
-            selectionStart.current = index;
-            selected = true;
           }
 
           return {
             content: children[index],
             disabled: disabled,
-            id: nanoid(),
+            id: _id,
             name: labels[index],
             selected,
           };
@@ -51,6 +58,20 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
       : []
   );
 
+  // handles the tab selection
+  const handleTabSelection = useCallback((id) => {
+    setActiveTabId(id);
+  }, []);
+
+  // retrieves the content of the selected tab
+  const getTabContent = useCallback(
+    (index) => {
+      return items.current.filter((item) => !item.disabled)[index].content;
+    },
+    [disabledTabs.length]
+  );
+
+  // styles and classes
   const tabsStyle = useMemo(
     () =>
       ({
@@ -61,28 +82,12 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     []
   );
 
-  const handleTabSelection = useCallback((id) => {
-    setItems((prev) =>
-      prev.map((item) => ({
-        ...item,
-        selected: id === item.id,
-      }))
-    );
-  }, []);
-
   const rcTabsClass = useMemo(
     () =>
       classNames('rc-tabs', {
         'rc-tabs-border': border,
       }),
     []
-  );
-
-  const getTabContent = useCallback(
-    (index) => {
-      return items.filter((item) => !item.disabled)[index].content;
-    },
-    [disabledTabs.length]
   );
 
   const rcPanelsClass = useMemo(() => {
@@ -92,29 +97,50 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   }, []);
 
   useEffect(() => {
-    setItems((prev) =>
-      prev.map((item) => ({
-        ...item,
-        disabled: disabledTabs.includes(item.name),
-      }))
-    );
-  }, [JSON.stringify(disabledTabs)]);
+    const selected = items.current.find((item) => item.selected);
+
+    if (selected) {
+      setActiveTabId(selected.id);
+    }
+  }, []);
+
+  const handleKeyUp = useCallback(
+    (ev: React.KeyboardEvent) => {
+      ev.stopPropagation();
+      const key = ev.key;
+      const _items = items.current;
+
+      if (key === 'ArrowLeft' || key === 'ArrowRight') {
+        const activeTabIndex = _items.findIndex((item) => {
+          return item.id === activeTabId;
+        });
+
+        if (key === 'ArrowLeft' && activeTabIndex > 0) {
+          handleTabSelection(_items[activeTabIndex - 1].id);
+        } else if (key === 'ArrowRight' && activeTabIndex < _items.length - 1) {
+          handleTabSelection(_items[activeTabIndex + 1].id);
+        }
+      }
+    },
+    [activeTabId]
+  );
 
   return (
-    <div className={rcTabsClass} style={tabsStyle}>
+    <div className={rcTabsClass} style={tabsStyle} onKeyUp={handleKeyUp}>
       <TabHeaders
-        items={items}
+        items={items.current}
         handleTabSelection={handleTabSelection}
         tabStyle={tabStyle}
         focusable={focusable}
         icons={icons}
+        activeTabId={activeTabId}
       />
       <div className={rcPanelsClass}>
-        {items
+        {items.current
           .filter((tab) => !tab.disabled)
           .map(
-            ({ id, selected }, index) =>
-              selected && (
+            ({ id }, index) =>
+              id === activeTabId && (
                 <TabPanel key={id} id={id}>
                   {getTabContent(index)}
                 </TabPanel>

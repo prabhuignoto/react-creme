@@ -1,11 +1,6 @@
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
-
-export interface TabPanelProps {
-  children?: React.ReactNode;
-  disabled?: boolean;
-  id?: string;
-}
+import { TabPanelProps } from './tabs-model';
 
 const TabPanel: React.FunctionComponent<TabPanelProps> = ({
   children,

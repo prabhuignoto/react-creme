@@ -47,4 +47,17 @@ describe('Tabs', () => {
 
     expect(getByRole('tablist')).toMatchSnapshot();
   });
+
+  it('should render a specific tab on load', () => {
+    const { getByText, queryByText } = render(
+      <Tabs labels={['one', 'two', 'three']} activeTab="two">
+        <span>one content</span>
+        <span>two content</span>
+        <span>three content</span>
+      </Tabs>
+    );
+
+    expect(getByText('two content')).toBeInTheDocument();
+    expect(queryByText('three content')).not.toBeInTheDocument();
+  });
 });

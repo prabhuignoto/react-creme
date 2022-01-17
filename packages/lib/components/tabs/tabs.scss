@@ -25,10 +25,10 @@
   &.rc-panel-border {
     border: 1px solid colors.$platinum;
     border-radius: 4px;
-    // @extend %border;
     border-top: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     margin-left: 0.1rem;
   }
 }
+  
