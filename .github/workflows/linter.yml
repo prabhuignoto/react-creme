@@ -54,3 +54,4 @@ jobs:
         JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.js
         VALIDATE_CSS: true
         VALIDATE_JAVASCRIPT_ES: true
+        FILTER_REGEX_EXCLUDE: .*coverage/.*.css
