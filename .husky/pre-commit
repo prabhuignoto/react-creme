@@ -3,4 +3,4 @@
 
 pnpm format
 pnpm fix-css
-
+pnpm fix-js
