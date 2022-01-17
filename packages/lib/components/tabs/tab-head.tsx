@@ -18,6 +18,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
   }: TabHeadProps) => {
     const ref = useRef(null);
 
+    // enable focus outlines
     if (!disabled && focusable) {
       useFocus(ref, () => handleTabSelection(id));
       useKey(ref, () => handleTabSelection(id));

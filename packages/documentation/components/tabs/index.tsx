@@ -39,7 +39,7 @@ function tabs() {
         },
         {
           default: '{}',
-          description: 'Sets any custom CSS',
+          description: 'Sets any custom CSS properties',
           name: 'style',
           optional: 'Yes',
           type: 'Object',
@@ -50,6 +50,14 @@ function tabs() {
           name: 'focusable',
           optional: 'Yes',
           type: 'Boolean',
+        },
+        {
+          default: 'False',
+          description:
+            'Selects a specific tab on load. This should match the label of the tab',
+          name: 'activeTab',
+          optional: 'Yes',
+          type: 'String',
         },
       ]}
       demoWidget={lazy(() => import('./widgets'))}

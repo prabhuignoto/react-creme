@@ -13,11 +13,11 @@ import { TabHeadersProps } from './tabs-model';
 import './tabs.scss';
 
 const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
+  focusable,
+  handleTabSelection,
+  icons,
   items,
   tabStyle,
-  handleTabSelection,
-  focusable,
-  icons,
 }: TabHeadersProps) => {
   const tabHeadersRef = useRef<HTMLUListElement | null>(null);
 
@@ -31,6 +31,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     value: number;
   }>({ dir: 'left', value: 0 });
 
+  // show or hide scroll buttons
   const canShowControls = useMemo(() => {
     if (tabHeadersRef.current) {
       const { clientWidth, scrollWidth } =
@@ -40,6 +41,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     }
   }, [headerWidth]);
 
+  // scroll left and right handlers
   const scrollLeft = useCallback(() => {
     const tabHeaders = tabHeadersRef.current;
     if (tabHeaders) {
@@ -66,6 +68,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     setHeaderWidth(node?.scrollWidth || 0);
   }, []);
 
+  // style classes
   const tabHeadersWrapperClass = useMemo(() => {
     return classNames('rc-tab-headers-wrapper', {
       [`rc-tab-headers-wrapper-${tabStyle}`]: true,
@@ -78,6 +81,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     });
   }, []);
 
+  // side effects
   useEffect(() => {
     if (scrollLeftCurrent.value >= 0 && tabHeadersRef.current) {
       const { dir, value } = scrollLeftCurrent;
@@ -96,8 +100,12 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     }
   }, [scrollLeftCurrent.value]);
 
+  const handleKeyUp = useCallback((ev) => {
+    console.log(ev.key);
+  }, []);
+
   return (
-    <header className={tabHeadersWrapperClass}>
+    <header className={tabHeadersWrapperClass} onKeyUp={handleKeyUp}>
       <div className={tabHeadersClass} ref={onHeadersRef} role="tablist">
         {items.map(({ id, name, selected, disabled }, index) => (
           <TabHead

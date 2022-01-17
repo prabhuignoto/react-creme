@@ -24,6 +24,7 @@ importers:
       snyk: ^1.828.0
       stylelint: 14.2.0
       stylelint-config-prettier: ^9.0.3
+      stylelint-order: ^5.0.0
       stylelint-scss: ^4.1.0
       turbo: ^1.0.28
       typescript: ^4.5.4
@@ -48,6 +49,7 @@ importers:
       snyk: 1.828.0
       stylelint: 14.2.0
       stylelint-config-prettier: 9.0.3_stylelint@14.2.0
+      stylelint-order: 5.0.0_stylelint@14.2.0
       stylelint-scss: 4.1.0_stylelint@14.2.0
       turbo: 1.0.28
       typescript: 4.5.4
@@ -7434,7 +7436,6 @@ packages:
       postcss: ^8.3.9
     dependencies:
       postcss: 8.4.5
-    dev: true
 
   /postcss-svgo/5.0.3_postcss@8.4.5:
     resolution: {integrity: sha512-41XZUA1wNDAZrQ3XgWREL/M2zSw8LJPvb5ZWivljBsUQAGoEKMYm6okHsTjJxKYI4M75RQEH4KYlEM52VwdXVA==}
@@ -8468,7 +8469,6 @@ packages:
       postcss: 8.4.5
       postcss-sorting: 7.0.1_postcss@8.4.5
       stylelint: 14.2.0
-    dev: true
 
   /stylelint-scss/4.1.0_stylelint@14.2.0:
     resolution: {integrity: sha512-BNYTo7MMamhFOlcaAWp2dMpjg6hPyM/FFqfDIYzmYVLMmQJqc8lWRIiTqP4UX5bresj9Vo0dKC6odSh43VP2NA==}

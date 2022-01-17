@@ -4,37 +4,38 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ["plugin:import/typescript", "plugin:react/recommended", "prettier"],
-  parser: "@typescript-eslint/parser",
+  extends: ['plugin:import/typescript', 'plugin:react/recommended', 'prettier'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module',
   },
   plugins: [
-    "react",
-    "@typescript-eslint",
-    "jsx-a11y",
-    "jest",
-    "sort-keys-fix",
-    "typescript-sort-keys",
+    'react',
+    '@typescript-eslint',
+    'jsx-a11y',
+    'jest',
+    'sort-keys-fix',
+    'typescript-sort-keys',
   ],
   rules: {
-    "no-use-before-define": "off",
-    "sort-keys-fix/sort-keys-fix": "error",
-    "typescript-sort-keys/interface": "error",
-    "typescript-sort-keys/string-enum": "error",
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
+    'no-use-before-define': 'off',
+    'sort-keys-fix/sort-keys-fix': 'error',
+    'typescript-sort-keys/interface': 'error',
+    'typescript-sort-keys/string-enum': 'error',
   },
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       node: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
     react: {
-      version: "latest",
+      version: 'latest',
     },
   },
 };

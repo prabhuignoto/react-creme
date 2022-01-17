@@ -4,9 +4,10 @@
     "stylelint-config-prettier"
   ],
   "plugins": [
-    "stylelint-scss"
+    "stylelint-scss",
+    "stylelint-order"
   ],
   "rules": {
     "selector-pseudo-element-no-unknown": null
-  },
+  }
 }

@@ -36,7 +36,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Tabs
+              {/* <Tabs
                 labels={[
                   'one',
                   'two',
@@ -50,7 +50,7 @@ function widgets() {
                 ]}
                 tabStyle="flat"
                 border={false}
-                focusable
+                // focusable
               >
                 <span>one</span>
                 <span>two</span>
@@ -61,7 +61,7 @@ function widgets() {
                 <span>seven</span>
                 <span>eight</span>
                 <span>nine</span>
-              </Tabs>
+              </Tabs> */}
             </div>
           </DemoWidget>
         </Section>
@@ -73,14 +73,16 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Tabs
-                labels={['one', 'two', 'three']}
+                labels={['one', 'two', 'three', 'four']}
                 border={false}
                 tabStyle="rounded"
+                activeTab="four"
                 focusable
               >
                 <span>one</span>
                 <span>two</span>
                 <span>three</span>
+                <span>four</span>
               </Tabs>
             </div>
           </DemoWidget>
@@ -92,7 +94,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Tabs
+              {/* <Tabs
                 labels={[
                   'one',
                   'two',
@@ -116,7 +118,7 @@ function widgets() {
                 <span>seven</span>
                 <span>eight</span>
                 <span>nine</span>
-              </Tabs>
+              </Tabs> */}
             </div>
           </DemoWidget>
         </Section>
@@ -127,7 +129,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Tabs
+              {/* <Tabs
                 labels={['one', 'two', 'three']}
                 tabStyle="flat"
                 disabledTabs={['two', 'one']}
@@ -135,7 +137,7 @@ function widgets() {
                 <span>one</span>
                 <span>two</span>
                 <span>three</span>
-              </Tabs>
+              </Tabs> */}
             </div>
           </DemoWidget>
         </Section>
@@ -146,7 +148,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Tabs
+              {/* <Tabs
                 labels={['one', 'two']}
                 tabStyle="flat"
                 disabledTabs={['two', 'one']}
@@ -155,7 +157,7 @@ function widgets() {
                 <span>one</span>
                 <span>two</span>
                 <span>three</span>
-              </Tabs>
+              </Tabs> */}
             </div>
           </DemoWidget>
         </Section>

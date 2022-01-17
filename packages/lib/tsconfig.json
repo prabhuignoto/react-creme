@@ -6,7 +6,6 @@
       "dom.iterable",
       "ESNext"
     ],
-    // "useDefineForClassFields": true,
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -24,7 +23,8 @@
     "types": [
       "react",
       "react-dom",
-      "jest"
+      "jest",
+      "@testing-library/jest-dom"
     ],
   },
   "include": [

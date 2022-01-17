@@ -17,28 +17,38 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   border = false,
   children,
   disabledTabs = [],
+  focusable = false,
+  icons,
+  iconsColor,
   labels,
   style = {},
   tabStyle = 'flat',
   width = '100%',
-  focusable = false,
-  iconsColor,
-  icons,
+  activeTab,
 }) => {
   const selectionStart = useRef<number>(-1);
 
+  // state of tabs
   const [items, setItems] = useState<TabItemProps[]>(
     Array.isArray(children)
       ? children.map((_, index) => {
+          // check if the tab is disabled
           const disabled = disabledTabs.includes(labels[index]);
-          let selected = index === 0 && !disabled;
+
+          // check if the tab can be selected on load
+          let selected = activeTab
+            ? activeTab === labels[index]
+            : index === 0 && !disabled;
 
           if (selected) {
             selectionStart.current = index;
-          } else if (index > 0 && selectionStart.current === -1 && !disabled) {
-            selectionStart.current = index;
-            selected = true;
           }
+
+          // if (selected) {
+          // } else if (index > 0 && selectionStart.current === -1 && !disabled) {
+          //   selectionStart.current = index;
+          //   selected = true;
+          // }
 
           return {
             content: children[index],
@@ -51,6 +61,25 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
       : []
   );
 
+  // handles the tab selection
+  const handleTabSelection = useCallback((id) => {
+    setItems((prev) =>
+      prev.map((item) => ({
+        ...item,
+        selected: id === item.id,
+      }))
+    );
+  }, []);
+
+  // retrieves the content of the selected tab
+  const getTabContent = useCallback(
+    (index) => {
+      return items.filter((item) => !item.disabled)[index].content;
+    },
+    [disabledTabs.length]
+  );
+
+  // styles and classes
   const tabsStyle = useMemo(
     () =>
       ({
@@ -61,15 +90,6 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     []
   );
 
-  const handleTabSelection = useCallback((id) => {
-    setItems((prev) =>
-      prev.map((item) => ({
-        ...item,
-        selected: id === item.id,
-      }))
-    );
-  }, []);
-
   const rcTabsClass = useMemo(
     () =>
       classNames('rc-tabs', {
@@ -78,19 +98,13 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     []
   );
 
-  const getTabContent = useCallback(
-    (index) => {
-      return items.filter((item) => !item.disabled)[index].content;
-    },
-    [disabledTabs.length]
-  );
-
   const rcPanelsClass = useMemo(() => {
     return classNames('rc-tab-panels', {
       'rc-panel-border': tabStyle === 'rounded',
     });
   }, []);
 
+  // side effects
   useEffect(() => {
     setItems((prev) =>
       prev.map((item) => ({
@@ -98,7 +112,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         disabled: disabledTabs.includes(item.name),
       }))
     );
-  }, [JSON.stringify(disabledTabs)]);
+  }, [disabledTabs.length]);
 
   return (
     <div className={rcTabsClass} style={tabsStyle}>
