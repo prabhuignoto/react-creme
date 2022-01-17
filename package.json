@@ -59,7 +59,12 @@
           "expo_dist"
         ]
       },
-      "test": {},
+      "test": {
+        "outputs": [
+          "coverage",
+          ".jest-cache"
+        ]
+      },
       "dev": {
         "outputs": [
           ".vite_cache"

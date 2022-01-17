@@ -15,3 +15,4 @@ expo_dist
 
 cache
 .cache
+.jest-cache
