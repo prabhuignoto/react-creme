@@ -1,5 +1,5 @@
-import React, { lazy } from "react";
-import DemoPageRenderer from "../../common/demo-page-renderer";
+import React, { lazy } from 'react';
+import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function switchComponent() {
   return (
@@ -11,65 +11,65 @@ function switchComponent() {
         {
           default: ``,
           description: `callback fired on state change`,
-          name: "onChange",
-          optional: "Yes",
-          type: "Function",
+          name: 'onChange',
+          optional: 'Yes',
+          type: 'Function',
         },
       ]}
       properties={[
         {
           default: `""`,
           description: `label for the switch`,
-          name: "label",
-          optional: "Yes",
-          typ: "String",
+          name: 'label',
+          optional: 'Yes',
+          typ: 'String',
         },
         {
           default: `False`,
           description: `places the label outside the switch container`,
-          name: "labelOutside",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'labelOutside',
+          optional: 'Yes',
+          type: 'Boolean',
         },
         {
-          default: "False",
+          default: 'False',
           description: `disables the button`,
-          name: "disabled",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'disabled',
+          optional: 'Yes',
+          type: 'Boolean',
         },
         {
-          default: "False",
+          default: 'False',
           description: `enables focus via keyboard`,
-          name: "focusable",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'focusable',
+          optional: 'Yes',
+          type: 'Boolean',
         },
         {
-          default: "50",
+          default: '50',
           description: `minimum width of the component`,
-          name: "width",
-          optional: "Yes",
-          type: "Number",
+          name: 'width',
+          optional: 'Yes',
+          type: 'Number',
         },
         {
-          default: "sm",
+          default: 'sm',
           description: `prop for setting the size. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
-          name: "size",
-          optional: "Yes",
-          type: "String",
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
         },
         {
           default: `{}`,
           description: `custom CSS that will be applied to the container of the component`,
-          name: "style",
-          optional: "Yes",
-          type: "Object",
+          name: 'style',
+          optional: 'Yes',
+          type: 'Object',
         },
       ]}
-      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
-      stackBlitzCodes={["react-ts-p8rf9h"]}
-      demoWidget={lazy(() => import("./widgets"))}
+      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      stackBlitzCodes={['react-ts-p8rf9h']}
+      demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>
   );
 }

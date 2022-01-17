@@ -1,12 +1,12 @@
-import { RefObject, useCallback, useEffect, useRef } from "react";
+import { RefObject, useCallback, useEffect, useRef } from 'react';
 
 function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
   const targetRef = useRef<HTMLElement | null>(null);
 
   const addClass = (ev: FocusEvent | KeyboardEvent) => {
     const ele = targetRef.current as HTMLElement;
-    const classesToAdd = ["rc-focus", "rc-halo"];
-    const classesToRemove = ["rc-de-halo"];
+    const classesToAdd = ['rc-focus', 'rc-halo'];
+    const classesToRemove = ['rc-de-halo'];
 
     classesToAdd.forEach((c) => {
       if (!ele.classList.contains(c)) {
@@ -21,24 +21,24 @@ function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
     });
 
     setTimeout(() => {
-      ele.classList.remove("rc-halo");
-      ele.classList.add("rc-de-halo");
+      ele.classList.remove('rc-halo');
+      ele.classList.add('rc-de-halo');
     }, 250);
   };
 
   const removeClass = () => {
     const ele = targetRef.current as HTMLElement;
-    ele.classList.add("rc-lost-focus");
-    ele.classList.remove("rc-focus");
+    ele.classList.add('rc-lost-focus');
+    ele.classList.remove('rc-focus');
 
     setTimeout(() => {
-      ele.classList.remove("rc-lost-focus");
-      ele.classList.remove("rc-de-halo");
+      ele.classList.remove('rc-lost-focus');
+      ele.classList.remove('rc-de-halo');
     }, 250);
   };
 
   const handleKeyboard = useCallback((ev: KeyboardEvent) => {
-    if (ev.key === "Enter" || ev.key === " " || ev.key === "Spacebar") {
+    if (ev.key === 'Enter' || ev.key === ' ' || ev.key === 'Spacebar') {
       ev.preventDefault();
       addClass(ev);
 
@@ -52,8 +52,8 @@ function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
     // ev.preventDefault();
     if (ev.target === targetRef.current) {
       const ele = targetRef.current as HTMLElement;
-      const classesToAdd = ["rc-focus", "rc-halo"];
-      const classesToRemove = ["rc-de-halo"];
+      const classesToAdd = ['rc-focus', 'rc-halo'];
+      const classesToRemove = ['rc-de-halo'];
 
       classesToAdd.forEach((c) => {
         if (!ele.classList.contains(c)) {
@@ -68,8 +68,8 @@ function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
       });
 
       setTimeout(() => {
-        ele.classList.remove("rc-halo");
-        ele.classList.add("rc-de-halo");
+        ele.classList.remove('rc-halo');
+        ele.classList.add('rc-de-halo');
       }, 250);
     }
   };
@@ -94,16 +94,16 @@ function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
     }
 
     if (target) {
-      target.addEventListener("blur", onFocusLost);
-      target.addEventListener("mousedown", setFocus);
-      target.addEventListener("focus", onFocus);
-      target.addEventListener("keydown", handleKeyboard);
+      target.addEventListener('blur', onFocusLost);
+      target.addEventListener('mousedown', setFocus);
+      target.addEventListener('focus', onFocus);
+      target.addEventListener('keydown', handleKeyboard);
 
       return () => {
-        target.removeEventListener("blur", onFocusLost);
-        target.removeEventListener("mousedown", setFocus);
-        target.removeEventListener("focus", onFocus);
-        target.removeEventListener("keydown", handleKeyboard);
+        target.removeEventListener('blur', onFocusLost);
+        target.removeEventListener('mousedown', setFocus);
+        target.removeEventListener('focus', onFocus);
+        target.removeEventListener('keydown', handleKeyboard);
       };
     }
   }, []);

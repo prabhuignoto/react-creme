@@ -1,10 +1,10 @@
-import React from "react";
-import { OverlayModel } from "../common/overlay-model";
+import React from 'react';
+import { OverlayModel } from '../common/overlay-model';
 
-export interface DrawerModel extends OverlayModel {
+export interface DrawerProps extends OverlayModel {
   children?: React.ReactNode | React.ReactNode[];
   height?: number | string;
-  position?: "left" | "right" | "top" | "bottom";
+  position?: 'left' | 'right' | 'top' | 'bottom';
   transition?: string;
   width?: number | string;
 }

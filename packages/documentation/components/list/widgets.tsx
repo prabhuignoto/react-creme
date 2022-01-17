@@ -1,8 +1,8 @@
-import React, { useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, List, Section } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, List, Section } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
@@ -55,13 +55,17 @@ function Widgets() {
                 maxHeight={350}
                 options={[
                   {
-                    name: "india",
-                    value: "india",
+                    name: 'india',
+                    value: 'india',
                   },
-                  { name: "usa", value: "usa" },
-                  { name: "uk", value: "uk" },
-                  { name: "France", value: "france" },
-                  { disabled: true, name: "germany", value: "germany" },
+                  { name: 'usa', value: 'usa' },
+                  { name: 'uk', value: 'uk' },
+                  { name: 'France', value: 'france' },
+                  {
+                    disabled: true,
+                    name: 'germany',
+                    value: 'germany',
+                  },
                 ]}
               />
             </div>

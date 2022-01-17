@@ -6,8 +6,8 @@ import {
   useEffect,
   useRef,
   useState,
-} from "react";
-import isTouchDevice from "../utils";
+} from 'react';
+import isTouchDevice from '../utils';
 
 const rnd = Math.round;
 
@@ -15,7 +15,7 @@ const isTouch = isTouchDevice();
 
 interface Settings {
   currentValue?: number;
-  direction: "horizontal" | "vertical";
+  direction: 'horizontal' | 'vertical';
   endValue?: number;
   maxX?: number;
   maxY?: number;
@@ -95,7 +95,7 @@ const useDrag: functionType = (
         clientY = (ev as TouchEvent).touches[0].clientY;
       }
 
-      if (direction === "horizontal") {
+      if (direction === 'horizontal') {
         const left = max(0, clientX - (parentLeft || 0));
 
         if (left < offsetLeft) {
@@ -113,7 +113,7 @@ const useDrag: functionType = (
             maxXValue.current - rnd(targetWidth / 2)
           }px`;
         }
-      } else if (direction === "vertical") {
+      } else if (direction === 'vertical') {
         const top = max(0, clientY - (parentTop || 0));
 
         if (top <= maxYValue.current && top >= minY) {
@@ -137,9 +137,9 @@ const useDrag: functionType = (
       resizeObserver.current = new ResizeObserver((observer) => {
         const { width, height } = observer[0].contentRect;
 
-        if (direction === "horizontal") {
+        if (direction === 'horizontal') {
           maxXValue.current = maxX || width;
-        } else if (direction === "vertical") {
+        } else if (direction === 'vertical') {
           maxYValue.current = maxY || height;
         }
       });
@@ -149,14 +149,14 @@ const useDrag: functionType = (
 
     return () => {
       resizeObserver.current?.disconnect();
-      document.removeEventListener("mousemove", handleDrag);
-      document.removeEventListener("touchmove", handleDrag);
+      document.removeEventListener('mousemove', handleDrag);
+      document.removeEventListener('touchmove', handleDrag);
 
-      document.removeEventListener("mousedown", handleDragStart);
-      document.removeEventListener("touchstart", handleDragStart);
+      document.removeEventListener('mousedown', handleDragStart);
+      document.removeEventListener('touchstart', handleDragStart);
 
-      document.removeEventListener("mouseup", handleDragEnd);
-      document.removeEventListener("touchend", handleDragEnd);
+      document.removeEventListener('mouseup', handleDragEnd);
+      document.removeEventListener('touchend', handleDragEnd);
     };
   }, []);
 
@@ -173,7 +173,7 @@ const useDrag: functionType = (
         return;
       }
 
-      container.current.style.userSelect = "none";
+      container.current.style.userSelect = 'none';
 
       const { clientHeight, clientWidth } = container.current;
 
@@ -204,23 +204,23 @@ const useDrag: functionType = (
       }
 
       if (isTouch) {
-        document.addEventListener("touchmove", handleDrag, {
+        document.addEventListener('touchmove', handleDrag, {
           passive: false,
         });
-        document.addEventListener("touchstart", handleDragStart, {
+        document.addEventListener('touchstart', handleDragStart, {
           passive: false,
         });
-        document.addEventListener("touchend", handleDragEnd, {
+        document.addEventListener('touchend', handleDragEnd, {
           passive: true,
         });
       } else {
-        document.addEventListener("mousedown", handleDragStart, {
+        document.addEventListener('mousedown', handleDragStart, {
           passive: false,
         });
-        document.addEventListener("mouseup", handleDragEnd, {
+        document.addEventListener('mouseup', handleDragEnd, {
           passive: true,
         });
-        document.addEventListener("mousemove", handleDrag, {
+        document.addEventListener('mousemove', handleDrag, {
           passive: false,
         });
       }

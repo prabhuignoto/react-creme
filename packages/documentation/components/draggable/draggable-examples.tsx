@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import { useRecoilValue } from "recoil";
-import useDraggable from "../../../lib/components/common/effects/useDraggable";
-import { responsiveState } from "../../atoms/home";
+import React, { useEffect, useRef } from 'react';
+import { useRecoilValue } from 'recoil';
+import useDraggable from '../../../lib/components/common/effects/useDraggable';
+import { responsiveState } from '../../atoms/home';
 
 function useDimensions() {
   const [dimensions, setDimensions] = React.useState({ height: 0, width: 0 });
@@ -39,7 +39,7 @@ export function BoundToContainer() {
     <div
       style={{
         height: `${dimensions.height}px`,
-        padding: "1rem",
+        padding: '1rem',
         width: `${dimensions.width}px`,
       }}
       ref={boundRef}
@@ -60,7 +60,7 @@ export function BoundToContainer() {
 export function BoundToContainerHorizontal() {
   const ref = useRef();
   const boundRef = useRef();
-  useDraggable(ref, { boundTo: boundRef, dragDirection: "HORIZONTAL" });
+  useDraggable(ref, { boundTo: boundRef, dragDirection: 'HORIZONTAL' });
 
   const dimensions = useDimensions();
 
@@ -68,7 +68,7 @@ export function BoundToContainerHorizontal() {
     <div
       style={{
         height: `${dimensions.height}px`,
-        padding: "1rem",
+        padding: '1rem',
         width: `${dimensions.width}px`,
       }}
       ref={boundRef}
@@ -89,14 +89,14 @@ export function BoundToContainerHorizontal() {
 export function BoundToContainerVertical() {
   const ref = useRef();
   const boundRef = useRef();
-  useDraggable(ref, { boundTo: boundRef, dragDirection: "VERTICAL" });
+  useDraggable(ref, { boundTo: boundRef, dragDirection: 'VERTICAL' });
   const dimensions = useDimensions();
 
   return (
     <div
       style={{
         height: `${dimensions.height}px`,
-        padding: "1rem",
+        padding: '1rem',
         width: `${dimensions.width}px`,
       }}
       ref={boundRef}
@@ -128,7 +128,7 @@ export function DraggableWidgets() {
     <div
       style={{
         height: `${dimensions.height}px`,
-        padding: "1rem",
+        padding: '1rem',
         width: `${dimensions.width}px`,
       }}
       ref={boundRef}

@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-export interface SplitterModel {
+export interface SplitterProps {
   border?: boolean;
   children: React.ReactNode[];
-  dir: "horizontal" | "vertical";
+  dir: 'horizontal' | 'vertical';
   handleBarWidth?: number;
   maxSplitHeight?: number;
   maxSplitWidth?: number;

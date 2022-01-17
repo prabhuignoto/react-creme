@@ -1,5 +1,5 @@
-import cls from "classnames";
-import { nanoid } from "nanoid";
+import cls from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   CSSProperties,
   useCallback,
@@ -7,16 +7,16 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import { useDebouncedCallback } from "use-debounce";
-import { SearchIcon } from "../../icons";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { isUndefined } from "../common/utils";
-import { Option } from "../dropdown/dropdown-model";
-import { Input } from "../input/input";
-import { ListItem } from "./list-item";
-import { ListModel, ListOption } from "./list-model";
-import "./list.scss";
+} from 'react';
+import { useDebouncedCallback } from 'use-debounce';
+import { SearchIcon } from '../../icons';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { isUndefined } from '../common/utils';
+import { Option } from '../dropdown/dropdown-model';
+import { Input } from '../input/input';
+import { ListItem } from './list-item';
+import { ListProps, ListOption } from './list-model';
+import './list.scss';
 
 const initOptions = (
   options: ListOption[],
@@ -37,7 +37,7 @@ const initOptions = (
     }));
 };
 
-const List: React.FunctionComponent<ListModel> = ({
+const List: React.FunctionComponent<ListProps> = ({
   allowMultiSelection = false,
   border = true,
   enableSearch = false,
@@ -52,13 +52,13 @@ const List: React.FunctionComponent<ListModel> = ({
   virtualized = false,
   focusable = false,
   highlightSelection = false,
-  textColor = "#000",
-  textColorSelected = "#000",
-  backGroundColor = "#fff",
+  textColor = '#000',
+  textColorSelected = '#000',
+  backGroundColor = '#fff',
   RTL = false,
   id,
   label,
-}: ListModel) => {
+}: ListProps) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     initOptions(options, rowGap, itemHeight, noUniqueIds)
   );
@@ -70,16 +70,16 @@ const List: React.FunctionComponent<ListModel> = ({
 
   const rcListClass = useMemo(
     () =>
-      cls("rc-list", {
-        "rc-list-border": border,
-        "rc-list-search": enableSearch,
+      cls('rc-list', {
+        'rc-list-border': border,
+        'rc-list-search': enableSearch,
       }),
     []
   );
 
   const listStyle = useMemo(() => {
     const style = {
-      "--list-height": `${
+      '--list-height': `${
         _listOptions.filter((v) => v.visible).length * (itemHeight + rowGap) +
         rowGap
       }px`,
@@ -189,9 +189,9 @@ const List: React.FunctionComponent<ListModel> = ({
       className={rcListClass}
       style={
         {
-          "--list-bg-color": backGroundColor,
-          "--max-height": `${maxHeight}px`,
-          "--min-height": `${minHeight}px`,
+          '--list-bg-color': backGroundColor,
+          '--max-height': `${maxHeight}px`,
+          '--min-height': `${minHeight}px`,
         } as CSSProperties
       }
     >
@@ -214,7 +214,7 @@ const List: React.FunctionComponent<ListModel> = ({
         onScroll={handleScroll}
       >
         <ul
-          className={"rc-list-options"}
+          className={'rc-list-options'}
           role="listbox"
           aria-label={`rc-list-label-${label}`}
           style={listStyle}
@@ -222,7 +222,7 @@ const List: React.FunctionComponent<ListModel> = ({
         >
           {_listOptions
             .filter((item) => item.visible)
-            .map(({ disabled, id, name, value = "", selected, top = 0 }) => {
+            .map(({ disabled, id, name, value = '', selected, top = 0 }) => {
               const canShow =
                 !virtualized ||
                 (top + itemHeight >= visibleRange[0] && top <= visibleRange[1]);
@@ -255,6 +255,6 @@ const List: React.FunctionComponent<ListModel> = ({
   );
 };
 
-List.displayName = "List";
+List.displayName = 'List';
 
 export { List };

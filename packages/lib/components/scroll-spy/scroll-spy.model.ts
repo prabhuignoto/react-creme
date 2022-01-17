@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export interface ScrollSpyProps {
   children: React.ReactNode[] | React.ReactNode;
   links: string[];
-  linksPosition?: "left" | "right";
+  linksPosition?: 'left' | 'right';
   showSectionTitle?: boolean;
 }
 

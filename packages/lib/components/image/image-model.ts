@@ -1,5 +1,5 @@
-import { OverlayModel } from "../common/overlay-model";
-import React from "react";
+import { OverlayModel } from '../common/overlay-model';
+import React from 'react';
 
 export interface ImageOverlayProps extends OverlayModel {
   height?: number;
@@ -12,7 +12,7 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   expandImageOnClick?: boolean;
   fitImage?: boolean;
   isOverlay?: boolean;
-  loaderSize?: "xs" | "sm" | "md" | "lg";
+  loaderSize?: 'xs' | 'sm' | 'md' | 'lg';
   onLoad?: (evt: React.SyntheticEvent) => void;
   showLoader?: boolean;
 }

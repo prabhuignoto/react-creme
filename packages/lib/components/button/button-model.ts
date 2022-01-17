@@ -1,6 +1,6 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties } from 'react';
 
-export interface ButtonModel {
+export interface ButtonProps {
   border?: boolean;
   children?: React.ReactNode;
   disabled?: boolean;
@@ -8,7 +8,7 @@ export interface ButtonModel {
   label?: string;
   onClick?: () => void;
   primary?: boolean;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;
-  type?: "primary" | "default" | "danger" | "icon" | "progress";
+  type?: 'primary' | 'default' | 'danger' | 'icon' | 'progress';
 }

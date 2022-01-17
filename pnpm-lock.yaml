@@ -20,6 +20,7 @@ importers:
       lint-staged: ^12.1.7
       postcss: ^8.4.5
       postcss-scss: ^4.0.3
+      prettier: ^2.5.1
       snyk: ^1.828.0
       stylelint: 14.2.0
       stylelint-config-prettier: ^9.0.3
@@ -43,6 +44,7 @@ importers:
       lint-staged: 12.1.7
       postcss: 8.4.5
       postcss-scss: 4.0.3_postcss@8.4.5
+      prettier: 2.5.1
       snyk: 1.828.0
       stylelint: 14.2.0
       stylelint-config-prettier: 9.0.3_stylelint@14.2.0
@@ -7499,7 +7501,6 @@ packages:
     resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    dev: true
 
   /pretty-format/27.4.6:
     resolution: {integrity: sha512-NblstegA1y/RJW2VyML+3LlpFjzx62cUrtBIKIWDXEDkjNeleA7Od7nrzcs/VLQvAeV4CgSYhrN39DRN88Qi/g==}

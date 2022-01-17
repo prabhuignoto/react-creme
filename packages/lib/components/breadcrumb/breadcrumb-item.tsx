@@ -1,36 +1,36 @@
-import classNames from "classnames";
-import React, { FunctionComponent, useMemo, useRef } from "react";
-import { ArrowRightIcon, ChevronRightIcon } from "../../icons";
-import { useFocus } from "../common/effects/useFocus";
-import { useKey } from "../common/effects/useKey";
-import { BreadCrumbItemModel } from "./breadcrumb-model";
+import classNames from 'classnames';
+import React, { FunctionComponent, useMemo, useRef } from 'react';
+import { ArrowRightIcon, ChevronRightIcon } from '../../icons';
+import { useFocus } from '../common/effects/useFocus';
+import { useKey } from '../common/effects/useKey';
+import { BreadCrumbItemProps } from './breadcrumb-model';
 
-const BreadCrumbItem: FunctionComponent<BreadCrumbItemModel> = React.memo(
+const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
   ({
     id,
     onClick,
     child,
     showChevron,
-    icon = "chevron",
-    size = "sm",
-  }: BreadCrumbItemModel) => {
+    icon = 'chevron',
+    size = 'sm',
+  }: BreadCrumbItemProps) => {
     const ref = useRef<HTMLSpanElement>(null);
     useFocus(ref);
 
     useKey(ref, () => {
       if (ref.current) {
-        ref.current.querySelector("a")?.click();
+        ref.current.querySelector('a')?.click();
       }
     });
 
     const breadCrumbIcon = useMemo(() => {
-      return classNames("bread-crumb-icon", {
+      return classNames('bread-crumb-icon', {
         [`bread-crumb-icon-${size}`]: true,
       });
     }, []);
 
     const breadCrumbNode = useMemo(() => {
-      return classNames("bread-crumb-node", {
+      return classNames('bread-crumb-node', {
         [`bread-crumb-node-${size}`]: true,
       });
     }, []);
@@ -47,9 +47,9 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemModel> = React.memo(
         </span>
         {showChevron && (
           <span className={breadCrumbIcon}>
-            {icon === "chevron" && <ChevronRightIcon />}
-            {icon === "arrow" && <ArrowRightIcon />}
-            {icon === "slash" && "/"}
+            {icon === 'chevron' && <ChevronRightIcon />}
+            {icon === 'arrow' && <ArrowRightIcon />}
+            {icon === 'slash' && '/'}
           </span>
         )}
       </li>
@@ -57,6 +57,6 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemModel> = React.memo(
   }
 );
 
-BreadCrumbItem.displayName = "BreadCrumbItem";
+BreadCrumbItem.displayName = 'BreadCrumbItem';
 
 export { BreadCrumbItem };

@@ -1,12 +1,12 @@
-import classNames from "classnames";
-import React, { CSSProperties, useEffect, useMemo, useRef } from "react";
-import { CloseIcon } from "../../icons";
-import { Button } from "../button/button";
-import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
-import useSwipe from "../common/effects/useSwipe";
-import { withOverlay } from "../common/withOverlay";
-import { NotificationProps } from "./notification-model";
-import "./notification.scss";
+import classNames from 'classnames';
+import React, { CSSProperties, useEffect, useMemo, useRef } from 'react';
+import { CloseIcon } from '../../icons';
+import { Button } from '../button/button';
+import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
+import useSwipe from '../common/effects/useSwipe';
+import { withOverlay } from '../common/withOverlay';
+import { NotificationProps } from './notification-model';
+import './notification.scss';
 
 const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   autoClose,
@@ -21,7 +21,7 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   disableHeader = false,
 }) => {
   const wrapperClass = classNames([
-    "rc-notification-wrapper",
+    'rc-notification-wrapper',
     {
       [`rc-notification-${position}-enter`]: !isClosing,
       [`rc-notification-${position}-exit`]: isClosing,
@@ -37,8 +37,8 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   const wrapperStyle = useMemo(
     () =>
       ({
-        "--min-height": `${height}px`,
-        "--min-width": `${width}px`,
+        '--min-height': `${height}px`,
+        '--min-width': `${width}px`,
       } as CSSProperties),
     []
   );
@@ -50,16 +50,16 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   }, []);
 
   const canSwipeToClose = useMemo(() => {
-    const xPosition = position?.split("-")[1] || "";
-    const leftORight = xPosition === "left" || xPosition === "right";
+    const xPosition = position?.split('-')[1] || '';
+    const leftORight = xPosition === 'left' || xPosition === 'right';
     return swipeToClose && !autoClose && leftORight;
   }, [position, swipeToClose]);
 
-  const state = swipeToClose ? useSwipe(ref, "medium") : null;
+  const state = swipeToClose ? useSwipe(ref, 'medium') : null;
 
   useEffect(() => {
     if (state) {
-      const xPosition = position?.split("-")[1] || "";
+      const xPosition = position?.split('-')[1] || '';
       if (state.offset > 0 && state.dir.toLowerCase() === xPosition) {
         onClose && onClose();
       }
@@ -90,7 +90,7 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
 };
 
 const Notification = withOverlay<NotificationProps>(NotificationComponent, {
-  backdropColor: "transparent",
+  backdropColor: 'transparent',
 });
 
 export { Notification };

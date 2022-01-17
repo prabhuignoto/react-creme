@@ -1,8 +1,8 @@
-import React, { useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, Dropdown, Section } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, Dropdown, Section } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
@@ -36,11 +36,15 @@ function Widgets() {
                 placeholder="choose a country"
                 onSelected={(val) => console.log(val)}
                 options={[
-                  { disabled: true, name: "germany", value: "germany" },
-                  { name: "india", value: "india" },
-                  { name: "usa", value: "usa" },
-                  { name: "uk", value: "uk" },
-                  { name: "srilanka", value: "srilanka" },
+                  {
+                    disabled: true,
+                    name: 'germany',
+                    value: 'germany',
+                  },
+                  { name: 'india', value: 'india' },
+                  { name: 'usa', value: 'usa' },
+                  { name: 'uk', value: 'uk' },
+                  { name: 'srilanka', value: 'srilanka' },
                 ]}
               />
             </div>
@@ -59,12 +63,24 @@ function Widgets() {
                 maxMenuHeight={300}
                 focusable
                 options={[
-                  { disabled: true, name: "germany", value: "germany" },
-                  { name: "india", value: "india" },
-                  { name: "usa", value: "usa" },
-                  { name: "uk", selected: true, value: "uk" },
-                  { name: "srilanka", selected: false, value: "srilanka" },
-                  { name: "brazil", selected: false, value: "brazil" },
+                  {
+                    disabled: true,
+                    name: 'germany',
+                    value: 'germany',
+                  },
+                  { name: 'india', value: 'india' },
+                  { name: 'usa', value: 'usa' },
+                  { name: 'uk', selected: true, value: 'uk' },
+                  {
+                    name: 'srilanka',
+                    selected: false,
+                    value: 'srilanka',
+                  },
+                  {
+                    name: 'brazil',
+                    selected: false,
+                    value: 'brazil',
+                  },
                 ]}
               />
             </div>
@@ -82,11 +98,19 @@ function Widgets() {
                 onSelected={(val) => console.log(val)}
                 enableSearch
                 options={[
-                  { disabled: true, name: "germany", value: "germany" },
-                  { name: "india", value: "india" },
-                  { name: "usa", selected: true, value: "usa" },
-                  { name: "uk", value: "uk" },
-                  { name: "srilanka", value: "srilanka" },
+                  {
+                    disabled: true,
+                    name: 'germany',
+                    value: 'germany',
+                  },
+                  { name: 'india', value: 'india' },
+                  {
+                    name: 'usa',
+                    selected: true,
+                    value: 'usa',
+                  },
+                  { name: 'uk', value: 'uk' },
+                  { name: 'srilanka', value: 'srilanka' },
                 ]}
               />
             </div>
@@ -106,19 +130,27 @@ function Widgets() {
                 virtualize
                 enableSearch
                 options={[
-                  { disabled: true, name: "germany", value: "germany" },
-                  { name: "india", value: "india" },
-                  { name: "usa", selected: true, value: "usa" },
-                  { name: "uk", value: "uk" },
-                  { name: "srilanka", value: "srilanka" },
-                  { name: "canada", value: "canada" },
-                  { name: "thailand", value: "thailand" },
-                  { name: "brazil", value: "brazil" },
-                  { name: "china", value: "china" },
-                  { name: "japan", value: "japan" },
-                  { name: "korea", value: "korea" },
-                  { name: "indonesia", value: "indonesia" },
-                  { name: "malaysia", value: "malaysia" },
+                  {
+                    disabled: true,
+                    name: 'germany',
+                    value: 'germany',
+                  },
+                  { name: 'india', value: 'india' },
+                  {
+                    name: 'usa',
+                    selected: true,
+                    value: 'usa',
+                  },
+                  { name: 'uk', value: 'uk' },
+                  { name: 'srilanka', value: 'srilanka' },
+                  { name: 'canada', value: 'canada' },
+                  { name: 'thailand', value: 'thailand' },
+                  { name: 'brazil', value: 'brazil' },
+                  { name: 'china', value: 'china' },
+                  { name: 'japan', value: 'japan' },
+                  { name: 'korea', value: 'korea' },
+                  { name: 'indonesia', value: 'indonesia' },
+                  { name: 'malaysia', value: 'malaysia' },
                 ]}
               />
             </div>
@@ -139,12 +171,20 @@ function Widgets() {
                 RTL
                 focusable
                 options={[
-                  { disabled: true, name: "germany", value: "germany" },
-                  { name: "india", value: "india" },
-                  { name: "usa", selected: true, value: "usa" },
-                  { name: "uk", value: "uk" },
-                  { name: "srilanka", value: "srilanka" },
-                  { name: "malaysia", value: "malaysia" },
+                  {
+                    disabled: true,
+                    name: 'germany',
+                    value: 'germany',
+                  },
+                  { name: 'india', value: 'india' },
+                  {
+                    name: 'usa',
+                    selected: true,
+                    value: 'usa',
+                  },
+                  { name: 'uk', value: 'uk' },
+                  { name: 'srilanka', value: 'srilanka' },
+                  { name: 'malaysia', value: 'malaysia' },
                 ]}
               />
             </div>

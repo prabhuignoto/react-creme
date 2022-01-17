@@ -1,5 +1,5 @@
-import React, { lazy } from "react";
-import DemoPageRenderer from "../../common/demo-page-renderer";
+import React, { lazy } from 'react';
+import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function rate() {
   return (
@@ -10,8 +10,8 @@ function rate() {
         {
           default: ``,
           description: `callback function that will be called when the rating changes`,
-          name: "onChange",
-          optional: "Yes",
+          name: 'onChange',
+          optional: 'Yes',
           type: `Function`,
         },
       ]}
@@ -19,43 +19,43 @@ function rate() {
         {
           default: `⭐`,
           description: `custom icon that will be used for rendering`,
-          name: "icon",
-          optional: "Yes",
+          name: 'icon',
+          optional: 'Yes',
           type: `String`,
         },
         {
           default: `5`,
           description: `number of icons to render`,
-          name: "iconCount",
-          optional: "Yes",
+          name: 'iconCount',
+          optional: 'Yes',
           type: `Number`,
         },
         {
-          default: "False",
+          default: 'False',
           description: `makes the component focusable via keyboard`,
-          name: "focusable",
-          optional: "Yes",
+          name: 'focusable',
+          optional: 'Yes',
           type: `Boolean`,
         },
         {
-          default: "sm",
+          default: 'sm',
           description: `sets the size of the button.
           <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
-          name: "size",
-          optional: "Yes",
+          name: 'size',
+          optional: 'Yes',
           type: `String`,
         },
         {
-          default: "[]",
+          default: '[]',
           description: `sets the custom rating values. <br> <em>["1", "2", "3", "4", "5"]</em>`,
-          name: "ratingValues",
-          optional: "Yes",
+          name: 'ratingValues',
+          optional: 'Yes',
           type: `Array`,
         },
       ]}
-      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
-      stackBlitzCodes={["react-ts-lqtbt6"]}
-      demoWidget={lazy(() => import("./widgets"))}
+      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      stackBlitzCodes={['react-ts-lqtbt6']}
+      demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>
   );
 }

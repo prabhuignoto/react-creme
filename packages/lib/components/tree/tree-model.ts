@@ -17,7 +17,7 @@ export interface TreeProps extends TreeCommonProps {
 
 export interface TreeCommonProps {
   allowSelection?: boolean;
-  iconType?: "plus" | "chevron";
+  iconType?: 'plus' | 'chevron';
   onChange?: (name?: string) => void;
   onChildToggle?: (expanded: boolean, childrenCount: number) => void;
   width?: number;

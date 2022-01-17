@@ -1,11 +1,11 @@
-import { fireEvent, render } from "@testing-library/react";
-import React from "react";
-import { CarouselTrack } from "../carousel-track";
+import { fireEvent, render } from '@testing-library/react';
+import React from 'react';
+import { CarouselTrack } from '../carousel-track';
 
 const handler = jest.fn();
 
-describe("Carousel Track", () => {
-  it("Should render the track", () => {
+describe('Carousel Track', () => {
+  it('Should render the track', () => {
     const { getByRole, getAllByRole } = render(
       <CarouselTrack
         length={3}
@@ -17,11 +17,11 @@ describe("Carousel Track", () => {
       />
     );
 
-    expect(getByRole("list")).toHaveClass("rc-carousel-track-horizontal");
-    expect(getAllByRole("listitem")).toHaveLength(3);
+    expect(getByRole('list')).toHaveClass('rc-carousel-track-horizontal');
+    expect(getAllByRole('listitem')).toHaveLength(3);
   });
 
-  it("Should render the track snapshot", () => {
+  it('Should render the track snapshot', () => {
     const { getByRole } = render(
       <CarouselTrack
         length={3}
@@ -33,10 +33,10 @@ describe("Carousel Track", () => {
       />
     );
 
-    expect(getByRole("list")).toMatchSnapshot();
+    expect(getByRole('list')).toMatchSnapshot();
   });
 
-  it("Should call the handler", () => {
+  it('Should call the handler', () => {
     const { getAllByRole } = render(
       <CarouselTrack
         length={3}
@@ -48,12 +48,12 @@ describe("Carousel Track", () => {
       />
     );
 
-    fireEvent.click(getAllByRole("listitem")[2]);
+    fireEvent.click(getAllByRole('listitem')[2]);
 
     expect(handler).toBeCalledWith(2);
   });
 
-  it("Should the active selection is selected", () => {
+  it('Should the active selection is selected', () => {
     const { getAllByRole } = render(
       <CarouselTrack
         length={3}
@@ -65,8 +65,8 @@ describe("Carousel Track", () => {
       />
     );
 
-    expect(getAllByRole("listitem")[1]).toHaveClass(
-      "rc-carousel-track-item-selected"
+    expect(getAllByRole('listitem')[1]).toHaveClass(
+      'rc-carousel-track-item-selected'
     );
   });
 });

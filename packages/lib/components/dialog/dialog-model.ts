@@ -1,7 +1,7 @@
-import React from "react";
-import { OverlayModel } from "../common/overlay-model";
+import React from 'react';
+import { OverlayModel } from '../common/overlay-model';
 
-export interface DialogModel extends OverlayModel {
+export interface DialogProps extends OverlayModel {
   children?: React.ReactNode;
   height?: number;
   onClose?: () => void;

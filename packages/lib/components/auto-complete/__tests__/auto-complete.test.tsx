@@ -1,57 +1,57 @@
-import { render, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import React from "react";
-import { act } from "react-dom/test-utils";
-import { AutoComplete } from "../auto-complete";
+import { render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { AutoComplete } from '../auto-complete';
 
-const suggestions = ["one", "two", "three", "four", "five"];
+const suggestions = ['one', 'two', 'three', 'four', 'five'];
 
-describe("AutoComplete", () => {
-  it("should render auto complete", () => {
+describe('AutoComplete', () => {
+  it('should render auto complete', () => {
     const { getByTestId } = render(<AutoComplete suggestions={suggestions} />);
-    expect(getByTestId("rc-auto-complete")).toBeInTheDocument();
+    expect(getByTestId('rc-auto-complete')).toBeInTheDocument();
   });
 
-  it("should render auto complete with placeholder", () => {
+  it('should render auto complete with placeholder', () => {
     const { getByTestId, getByText, getByPlaceholderText } = render(
       <AutoComplete suggestions={suggestions} placeholder="placeholder" />
     );
-    expect(getByTestId("rc-auto-complete")).toBeInTheDocument();
-    expect(getByPlaceholderText("placeholder")).toBeInTheDocument();
+    expect(getByTestId('rc-auto-complete')).toBeInTheDocument();
+    expect(getByPlaceholderText('placeholder')).toBeInTheDocument();
   });
 
-  it("should render suggestions", async () => {
+  it('should render suggestions', async () => {
     const { getByRole, getByPlaceholderText, getAllByRole } = render(
       <AutoComplete suggestions={suggestions} placeholder="enter input" />
     );
 
-    userEvent.type(getByPlaceholderText("enter input"), "o");
+    userEvent.type(getByPlaceholderText('enter input'), 'o');
 
     await waitFor(() => {
-      expect(getByRole("listbox")).toBeInTheDocument();
-      expect(getAllByRole("option")).toHaveLength(1);
+      expect(getByRole('listbox')).toBeInTheDocument();
+      expect(getAllByRole('option')).toHaveLength(1);
     });
   });
 
-  it("should show the selected item", async () => {
+  it('should show the selected item', async () => {
     const { getByRole, getByPlaceholderText, getByText } = render(
       <AutoComplete suggestions={suggestions} placeholder="enter input" />
     );
 
-    userEvent.type(getByPlaceholderText("enter input"), "o");
+    userEvent.type(getByPlaceholderText('enter input'), 'o');
 
     await waitFor(() => {
-      expect(getByRole("listbox")).toBeInTheDocument();
-      expect(getByText("one")).toBeInTheDocument();
+      expect(getByRole('listbox')).toBeInTheDocument();
+      expect(getByText('one')).toBeInTheDocument();
     });
 
     await act(async () => {
-      userEvent.click(getByText("one"));
+      userEvent.click(getByText('one'));
     });
-    expect(getByPlaceholderText("enter input")).toHaveValue("one");
+    expect(getByPlaceholderText('enter input')).toHaveValue('one');
   });
 
-  it("should call onChange with the input", async () => {
+  it('should call onChange with the input', async () => {
     const onChange = jest.fn();
     const { getByPlaceholderText } = render(
       <AutoComplete
@@ -61,10 +61,10 @@ describe("AutoComplete", () => {
       />
     );
 
-    userEvent.type(getByPlaceholderText("enter input"), "open");
+    userEvent.type(getByPlaceholderText('enter input'), 'open');
 
     await waitFor(() => {
-      expect(onChange).toHaveBeenCalledWith("open");
+      expect(onChange).toHaveBeenCalledWith('open');
     });
   });
 });

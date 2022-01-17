@@ -1,75 +1,75 @@
-import React, { lazy } from "react";
-import DemoPageRenderer from "../../common/demo-page-renderer";
+import React, { lazy } from 'react';
+import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function buttons() {
   return (
     <DemoPageRenderer
       title="Buttons"
       description="Buttons are used to perform an action. They can be used in different contexts, such as primary, secondary, danger, or warning."
-      stackBlitzCodes={["react-ts-uy6jjh"]}
+      stackBlitzCodes={['react-ts-uy6jjh']}
       callbacks={[
         {
-          default: "",
-          description: "Callback function when the button is clicked",
-          name: "onClick",
-          optional: "Yes",
-          type: "function",
+          default: '',
+          description: 'Callback function when the button is clicked',
+          name: 'onClick',
+          optional: 'Yes',
+          type: 'function',
         },
       ]}
       properties={[
         {
           default: `""`,
-          description: "Label of the button",
-          name: "label",
-          optional: "Yes",
-          type: "String",
+          description: 'Label of the button',
+          name: 'label',
+          optional: 'Yes',
+          type: 'String',
         },
         {
-          default: "default",
+          default: 'default',
           description: `configures the type of button.
           <br> <em>primary</em> | <em>default</em> | <em>danger</em> | <em>icon</em> | <em>progress</em>`,
-          name: "type",
-          optional: "Yes",
-          type: "String",
+          name: 'type',
+          optional: 'Yes',
+          type: 'String',
         },
         {
-          default: "False",
+          default: 'False',
           description: `disables the button`,
-          name: "disabled",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'disabled',
+          optional: 'Yes',
+          type: 'Boolean',
         },
         {
-          default: "sm",
+          default: 'sm',
           description: `sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
-          name: "size",
-          optional: "Yes",
-          type: "String",
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
         },
         {
-          default: "{}",
+          default: '{}',
           description: `Custom style object`,
-          name: "style",
-          optional: "Yes",
-          type: "Object",
+          name: 'style',
+          optional: 'Yes',
+          type: 'Object',
         },
         {
-          default: "False",
+          default: 'False',
           description: `makes the component focusable via keyboard`,
-          name: "focusable",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'focusable',
+          optional: 'Yes',
+          type: 'Boolean',
         },
         {
-          default: "true",
+          default: 'true',
           description: `prop for enabling or disabling the button border`,
-          name: "border",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'border',
+          optional: 'Yes',
+          type: 'Boolean',
         },
       ]}
-      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
-      demoWidget={lazy(() => import("./widgets"))}
+      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>
   );
 }

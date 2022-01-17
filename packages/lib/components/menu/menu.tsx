@@ -1,20 +1,20 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { useFocus } from "../common/effects/useFocus";
-import { OverlayModel } from "../common/overlay-model";
-import { withOverlay } from "../common/withOverlay";
-import { MenuItem } from "./menu-item";
-import { MenuItemProps, MenuProps } from "./menu-model";
-import "./menu.scss";
+} from 'react';
+import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { useFocus } from '../common/effects/useFocus';
+import { OverlayModel } from '../common/overlay-model';
+import { withOverlay } from '../common/withOverlay';
+import { MenuItem } from './menu-item';
+import { MenuItemProps, MenuProps } from './menu-model';
+import './menu.scss';
 
 interface MenuInternalProps extends OverlayModel {
   items: MenuItemProps[];
@@ -25,7 +25,7 @@ const Menu: React.FunctionComponent<MenuInternalProps> = ({
   items,
   onSelection,
 }) => {
-  const menuClass = useMemo(() => classNames(["rc-menu"], {}), []);
+  const menuClass = useMemo(() => classNames(['rc-menu'], {}), []);
 
   return (
     <ul className={menuClass} role="menu">
@@ -42,8 +42,8 @@ const Menu: React.FunctionComponent<MenuInternalProps> = ({
 };
 
 const MenuOverlay = withOverlay<MenuInternalProps>(Menu, {
-  backdropColor: "transparent",
-  placement: "bottom",
+  backdropColor: 'transparent',
+  placement: 'bottom',
 });
 
 const MenuContainer: React.FunctionComponent<MenuProps> = ({
@@ -53,7 +53,7 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
   onClose,
   onOpen,
   onSelected,
-  position = "left",
+  position = 'left',
   focusable = true,
   style,
 }: MenuProps) => {
@@ -118,8 +118,8 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
 
   const menuContentWrapperClass = useMemo(
     () =>
-      classNames(["rc-menu-content-wrapper"], {
-        "rc-menu-not-focusable": !focusable,
+      classNames(['rc-menu-content-wrapper'], {
+        'rc-menu-not-focusable': !focusable,
       }),
     [showMenu, focusable]
   );

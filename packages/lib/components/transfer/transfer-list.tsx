@@ -1,6 +1,6 @@
-import React from "react";
-import { List } from "../list/list";
-import { TransferListProps } from "./transfer-model";
+import React from 'react';
+import { List } from '../list/list';
+import { TransferListProps } from './transfer-model';
 
 const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
   ({
@@ -33,6 +33,6 @@ const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
   }
 );
 
-TransferList.displayName = "TransferList";
+TransferList.displayName = 'TransferList';
 
 export { TransferList };

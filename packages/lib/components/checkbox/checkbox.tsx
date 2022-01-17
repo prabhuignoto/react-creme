@@ -1,23 +1,23 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { CheckIcon } from "../../icons";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { useFocus } from "../common/effects/useFocus";
-import { CheckboxModel } from "./checkbox-model";
-import "./checkbox.scss";
+} from 'react';
+import { CheckIcon } from '../../icons';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { useFocus } from '../common/effects/useFocus';
+import { CheckboxProps } from './checkbox-model';
+import './checkbox.scss';
 
-const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
+const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
   ({
     autoHeight = false,
     border = false,
-    checkBoxStyle = "square",
+    checkBoxStyle = 'square',
     disabled,
     focusIcon = false,
     focusable = true,
@@ -27,17 +27,17 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
     noHoverStyle = false,
     noUniqueId = false,
     onChange,
-    size = "sm",
+    size = 'sm',
     style,
     RTL = false,
-  }: CheckboxModel) => {
+  }: CheckboxProps) => {
     const [checked, setChecked] = useState(isChecked);
     const ref = useRef(null);
     const checkBoxId = noUniqueId
       ? id
         ? useRef(id)
         : useRef(`label-${nanoid()}`)
-      : useRef("");
+      : useRef('');
 
     const toggleCheck = useCallback(() => {
       if (!disabled) {
@@ -54,8 +54,8 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
 
     const iconClass = useMemo(
       () =>
-        classNames("rc-checkbox-icon", {
-          "rc-checkbox-checked": checked,
+        classNames('rc-checkbox-icon', {
+          'rc-checkbox-checked': checked,
           [`rc-checkbox-${size}`]: true,
           [`rc-checkbox-${checkBoxStyle}`]: true,
         }),
@@ -64,33 +64,33 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
 
     const labelClass = useMemo(
       () =>
-        classNames("rc-checkbox-label", {
+        classNames('rc-checkbox-label', {
           [`rc-checkbox-label-${size}`]: true,
-          "rc-checkbox-label-rtl": RTL,
+          'rc-checkbox-label-rtl': RTL,
         }),
       []
     );
 
     const checkBoxClass = useMemo(
       () =>
-        classNames("rc-checkbox", {
-          "rc-checkbox-focus": focusIcon,
+        classNames('rc-checkbox', {
+          'rc-checkbox-focus': focusIcon,
           [`rc-checkbox-${size}`]: true,
-          "rc-disabled": disabled,
+          'rc-disabled': disabled,
         }),
       [disabled]
     );
 
     const wrapperClass = useMemo(
       () =>
-        classNames("rc-checkbox-wrapper", {
+        classNames('rc-checkbox-wrapper', {
           [`rc-checkbox-${size}`]: true,
-          "rc-checkbox-auto-height": autoHeight,
-          "rc-checkbox-border": border,
-          "rc-checkbox-disabled": disabled,
-          "rc-checkbox-focus": !focusIcon,
-          "rc-checkbox-hover": !noHoverStyle,
-          "rc-checkbox-rtl": RTL,
+          'rc-checkbox-auto-height': autoHeight,
+          'rc-checkbox-border': border,
+          'rc-checkbox-disabled': disabled,
+          'rc-checkbox-focus': !focusIcon,
+          'rc-checkbox-hover': !noHoverStyle,
+          'rc-checkbox-rtl': RTL,
         }),
       [size, disabled]
     );
@@ -150,6 +150,6 @@ const CheckBox: React.FunctionComponent<CheckboxModel> = React.memo(
   }
 );
 
-CheckBox.displayName = "CheckBox";
+CheckBox.displayName = 'CheckBox';
 
 export { CheckBox };

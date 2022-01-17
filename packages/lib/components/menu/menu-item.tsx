@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import React from "react";
-import "./menu-item.scss";
+import classNames from 'classnames';
+import React from 'react';
+import './menu-item.scss';
 
 export interface MenuItemProps {
   disabled?: boolean;
@@ -17,9 +17,9 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = ({
 }) => {
   return (
     <li
-      className={classNames(["rc-menu-item"], {
-        "rc-menu-item-disabled": disabled,
-        "rc-menu-item-divider": isDivider,
+      className={classNames(['rc-menu-item'], {
+        'rc-menu-item-disabled': disabled,
+        'rc-menu-item-divider': isDivider,
       })}
       onClick={(ev) => {
         ev.preventDefault();

@@ -1,6 +1,6 @@
-import React from "react";
-import { ChevronRightIcon } from "../../icons";
-import { Button } from "../button/button";
+import React from 'react';
+import { ChevronRightIcon } from '../../icons';
+import { Button } from '../button/button';
 
 interface TransferControlModel {
   disableTransferLeft?: boolean;
@@ -18,7 +18,7 @@ const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
       <Button
         type="icon"
         size="md"
-        onClick={() => onTransfer("right")}
+        onClick={() => onTransfer('right')}
         disabled={disableTransferRight}
       >
         <ChevronRightIcon />
@@ -26,9 +26,9 @@ const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
       <Button
         type="icon"
         size="md"
-        onClick={() => onTransfer("left")}
+        onClick={() => onTransfer('left')}
         disabled={disableTransferLeft}
-        style={{ transform: "rotate(180deg)" }}
+        style={{ transform: 'rotate(180deg)' }}
       >
         <ChevronRightIcon />
       </Button>
@@ -36,6 +36,6 @@ const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
   );
 };
 
-TransferControlColumn.displayName = "TransferControlColumn";
+TransferControlColumn.displayName = 'TransferControlColumn';
 
 export { TransferControlColumn };

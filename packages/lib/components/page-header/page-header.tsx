@@ -1,11 +1,11 @@
-import classNames from "classnames";
-import React, { useMemo } from "react";
-import "./page-header.scss";
+import classNames from 'classnames';
+import React, { useMemo } from 'react';
+import './page-header.scss';
 
 export interface PageHeaderProps {
   RTL?: boolean;
   children?: React.ReactNode;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
   title: string;
 }
 
@@ -13,16 +13,16 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   title,
   children,
   RTL = false,
-  size = "sm",
+  size = 'sm',
 }) => {
   const headerClass = useMemo(() => {
-    return classNames("rc-page-header", {
-      "rc-page-header-rtl": RTL,
+    return classNames('rc-page-header', {
+      'rc-page-header-rtl': RTL,
     });
   }, []);
 
   const titleClass = useMemo(() => {
-    return classNames("rc-page-header-title", {
+    return classNames('rc-page-header-title', {
       [`rc-page-header-title-${size}`]: true,
     });
   }, []);

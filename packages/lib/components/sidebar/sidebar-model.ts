@@ -1,4 +1,4 @@
-import { ListOption } from "../list/list-model";
+import { ListOption } from '../list/list-model';
 
 export interface SidebarModel extends SidebarCommonProps {
   backGroundColor?: string;

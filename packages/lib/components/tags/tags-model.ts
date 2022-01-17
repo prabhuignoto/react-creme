@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 export interface TagItemProps {
   disabled?: boolean;
@@ -22,7 +22,7 @@ export interface TagsProps {
   readonly?: boolean;
   style?: CSSProperties;
   suggestions?: string[];
-  tagSize?: "small" | "large";
-  tagStyle?: "default" | "fill";
+  tagSize?: 'small' | 'large';
+  tagStyle?: 'default' | 'fill';
   tagWidth?: number;
 }

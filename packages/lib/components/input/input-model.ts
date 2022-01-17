@@ -1,6 +1,6 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties } from 'react';
 
-export interface InputModel {
+export interface InputProps {
   RTL?: boolean;
   border?: boolean;
   children?: React.ReactNode;
@@ -14,8 +14,8 @@ export interface InputModel {
   onChange?: (val: string) => void;
   onKeyUp?: (ev: React.KeyboardEvent) => void;
   placeholder?: string;
-  state?: "default" | "error" | "success";
+  state?: 'default' | 'error' | 'success';
   style?: CSSProperties;
-  type?: "text" | "password";
+  type?: 'text' | 'password';
   value?: string;
 }

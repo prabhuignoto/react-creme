@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export interface CarouselProps {
   autoPlay?: number;
   children: React.ReactNode | React.ReactNode;
-  direction?: "horizontal" | "vertical";
+  direction?: 'horizontal' | 'vertical';
   enableSwipe?: boolean;
   focusable?: boolean;
   height?: number;
@@ -23,7 +23,7 @@ export interface CarouselItemsProps {
   activePage: number;
   carouselItems: CarouselItemProps[];
   children: React.ReactNode[] | React.ReactNode;
-  direction: "horizontal" | "vertical";
+  direction: 'horizontal' | 'vertical';
   height: number;
   totalItems: number;
   width: number;
@@ -31,7 +31,7 @@ export interface CarouselItemsProps {
 
 export interface CarouselTrackProps {
   activeIndex: number;
-  direction: "horizontal" | "vertical";
+  direction: 'horizontal' | 'vertical';
   focusable?: boolean;
   handleSelection: (index: number) => void;
   hideNext?: boolean;
@@ -42,10 +42,10 @@ export interface CarouselTrackProps {
 }
 
 export interface CarouselButtonProps {
-  direction: "horizontal" | "vertical";
+  direction: 'horizontal' | 'vertical';
   focusable?: boolean;
   hide?: boolean;
   label: string;
   onClick: () => void;
-  position: "left" | "right";
+  position: 'left' | 'right';
 }

@@ -1,10 +1,10 @@
-import { act, render, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import React from "react";
-import { Carousel } from "../carousel";
+import { act, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import React from 'react';
+import { Carousel } from '../carousel';
 
-describe("Carousel", () => {
-  it("should render carousel", async () => {
+describe('Carousel', () => {
+  it('should render carousel', async () => {
     const { getByText } = render(
       <Carousel direction="horizontal">
         <span>one</span>
@@ -13,12 +13,12 @@ describe("Carousel", () => {
     );
 
     await waitFor(() => {
-      expect(getByText("one")).toBeInTheDocument();
-      expect(getByText("two")).toBeInTheDocument();
+      expect(getByText('one')).toBeInTheDocument();
+      expect(getByText('two')).toBeInTheDocument();
     });
   });
 
-  it("should render carousel snapshot", async () => {
+  it('should render carousel snapshot', async () => {
     const { container } = render(
       <Carousel direction="horizontal">
         <span>one</span>
@@ -34,7 +34,7 @@ describe("Carousel", () => {
     );
   });
 
-  it("should render vertical carousel", async () => {
+  it('should render vertical carousel', async () => {
     const { getByText } = render(
       <Carousel direction="vertical">
         <span>one</span>
@@ -44,8 +44,8 @@ describe("Carousel", () => {
 
     await waitFor(
       () => {
-        expect(getByText("one")).toBeInTheDocument();
-        expect(getByText("two")).toBeInTheDocument();
+        expect(getByText('one')).toBeInTheDocument();
+        expect(getByText('two')).toBeInTheDocument();
       },
       { timeout: 2000 }
     );

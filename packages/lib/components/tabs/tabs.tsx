@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   CSSProperties,
   useCallback,
@@ -7,27 +7,27 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import { TabHeaders } from "./tab-headers";
-import { TabPanel } from "./TabPanel";
-import { TabItemModel, TabsModel } from "./tabs-model";
-import "./tabs.scss";
+} from 'react';
+import { TabHeaders } from './tab-headers';
+import { TabPanel } from './TabPanel';
+import { TabItemProps, TabsProps } from './tabs-model';
+import './tabs.scss';
 
-const Tabs: React.FunctionComponent<TabsModel> = ({
+const Tabs: React.FunctionComponent<TabsProps> = ({
   border = false,
   children,
   disabledTabs = [],
   labels,
   style = {},
-  tabStyle = "flat",
-  width = "100%",
+  tabStyle = 'flat',
+  width = '100%',
   focusable = false,
   iconsColor,
   icons,
 }) => {
   const selectionStart = useRef<number>(-1);
 
-  const [items, setItems] = useState<TabItemModel[]>(
+  const [items, setItems] = useState<TabItemProps[]>(
     Array.isArray(children)
       ? children.map((_, index) => {
           const disabled = disabledTabs.includes(labels[index]);
@@ -55,8 +55,8 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
     () =>
       ({
         ...style,
-        "--icons-color": iconsColor,
-        "--min-width": Number.isInteger(width) ? `${width}px` : width,
+        '--icons-color': iconsColor,
+        '--min-width': Number.isInteger(width) ? `${width}px` : width,
       } as CSSProperties),
     []
   );
@@ -72,8 +72,8 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
 
   const rcTabsClass = useMemo(
     () =>
-      classNames("rc-tabs", {
-        "rc-tabs-border": border,
+      classNames('rc-tabs', {
+        'rc-tabs-border': border,
       }),
     []
   );
@@ -86,8 +86,8 @@ const Tabs: React.FunctionComponent<TabsModel> = ({
   );
 
   const rcPanelsClass = useMemo(() => {
-    return classNames("rc-tab-panels", {
-      "rc-panel-border": tabStyle === "rounded",
+    return classNames('rc-tab-panels', {
+      'rc-panel-border': tabStyle === 'rounded',
     });
   }, []);
 

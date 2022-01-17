@@ -1,9 +1,9 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
-import React, { FunctionComponent, useCallback, useState } from "react";
-import { SkeletonBlockProps, SkeletonProps } from "./skeleton-model";
-import { SkeletonRow } from "./skeleton-row";
-import "./skeleton.scss";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
+import React, { FunctionComponent, useCallback, useState } from 'react';
+import { SkeletonBlockProps, SkeletonProps } from './skeleton-model';
+import { SkeletonRow } from './skeleton-row';
+import './skeleton.scss';
 
 const Skeleton: FunctionComponent<SkeletonProps> = ({
   rows = 4,
@@ -55,8 +55,8 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
     >
       {skeletonBlocks.map(({ id, rows }) => (
         <div
-          className={classNames("rc-skeleton-block", {
-            "rc-skeleton-block-rtl": RTL,
+          className={classNames('rc-skeleton-block', {
+            'rc-skeleton-block-rtl': RTL,
           })}
           key={id}
         >

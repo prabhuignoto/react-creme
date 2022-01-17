@@ -1,24 +1,24 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   CSSProperties,
   FunctionComponent,
   useCallback,
   useMemo,
   useRef,
-} from "react";
-import { CloseIcon } from "../../icons";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { useFocus } from "../common/effects/useFocus";
+} from 'react';
+import { CloseIcon } from '../../icons';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { useFocus } from '../common/effects/useFocus';
 // import { useFocus } from "../common/effects/useFocus";
-import { useKey } from "../common/effects/useKey";
-import { TagItemInternalProps } from "./tags-model";
-import "./tags.scss";
+import { useKey } from '../common/effects/useKey';
+import { TagItemInternalProps } from './tags-model';
+import './tags.scss';
 
 type TagItemViewProps = TagItemInternalProps & {
   focusable?: boolean;
   handleRemove: (id: string) => void;
-  tagSize?: "small" | "large";
-  tagStyle?: "default" | "fill";
+  tagSize?: 'small' | 'large';
+  tagStyle?: 'default' | 'fill';
   width?: number;
 };
 
@@ -49,20 +49,20 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     const editable = useMemo(() => !disabled && !readonly, []);
     const tagItemClass = useMemo(
       () =>
-        classNames("rc-tag", {
-          "rc-tag-disabled": disabled,
-          "rc-tag-marked-for-removal":
+        classNames('rc-tag', {
+          'rc-tag-disabled': disabled,
+          'rc-tag-marked-for-removal':
             markedForRemoval && !isFirstRender.current,
           [`rc-tag-style-${tagStyle}`]: true,
           [`rc-tag-${tagSize}`]: true,
-          "rc-tag-readonly": readonly,
+          'rc-tag-readonly': readonly,
         }),
       [markedForRemoval]
     );
 
     const tagIconClass = useMemo(
       () =>
-        classNames("rc-tag-icon", {
+        classNames('rc-tag-icon', {
           [`rc-tag-icon-${tagStyle}`]: true,
         }),
       []
@@ -71,7 +71,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     const style = useMemo(
       () =>
         ({
-          "--width": `${width}px`,
+          '--width': `${width}px`,
         } as CSSProperties),
       []
     );
@@ -82,7 +82,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
 
     return (
       <li key={id} role="listitem" className={tagItemClass} style={style}>
-        <span className={classNames("rc-tag-name", "center")} title={name}>
+        <span className={classNames('rc-tag-name', 'center')} title={name}>
           {name}
         </span>
         {editable && (
@@ -107,6 +107,6 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
   }
 );
 
-TagItem.displayName = "TagItem";
+TagItem.displayName = 'TagItem';
 
 export { TagItem };

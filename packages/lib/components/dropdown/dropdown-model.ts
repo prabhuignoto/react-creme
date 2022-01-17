@@ -1,4 +1,4 @@
-import { OverlayModel } from "../common/overlay-model";
+import { OverlayModel } from '../common/overlay-model';
 
 export type MenuOption = Option & { visible: boolean };
 

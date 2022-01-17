@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 function useFirstRender() {
   const isFirstRender = useRef(true);

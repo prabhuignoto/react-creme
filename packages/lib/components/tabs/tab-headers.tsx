@@ -1,24 +1,24 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { ChevronRightIcon } from "../../icons";
-import { TabHead } from "./tab-head";
-import "./tab-header.scss";
-import { TabHeadersModel } from "./tabs-model";
-import "./tabs.scss";
+} from 'react';
+import { ChevronRightIcon } from '../../icons';
+import { TabHead } from './tab-head';
+import './tab-header.scss';
+import { TabHeadersProps } from './tabs-model';
+import './tabs.scss';
 
-const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
+const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   items,
   tabStyle,
   handleTabSelection,
   focusable,
   icons,
-}: TabHeadersModel) => {
+}: TabHeadersProps) => {
   const tabHeadersRef = useRef<HTMLUListElement | null>(null);
 
   const [disableScrollRight, setDisableScrollRight] = useState(false);
@@ -27,9 +27,9 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   const [headerWidth, setHeaderWidth] = useState<number>(0);
 
   const [scrollLeftCurrent, setScrollLeftCurrent] = useState<{
-    dir: "left" | "right";
+    dir: 'left' | 'right';
     value: number;
-  }>({ dir: "left", value: 0 });
+  }>({ dir: 'left', value: 0 });
 
   const canShowControls = useMemo(() => {
     if (tabHeadersRef.current) {
@@ -47,7 +47,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
       const newLeft = Math.max(0, scrollLeft - (clientWidth * 1) / 2);
 
       tabHeaders.scrollLeft = newLeft;
-      setScrollLeftCurrent({ dir: "left", value: newLeft });
+      setScrollLeftCurrent({ dir: 'left', value: newLeft });
     }
   }, []);
 
@@ -57,7 +57,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
       const { scrollLeft, clientWidth } = tabHeaders;
       const newLeft = scrollLeft + (clientWidth * 1) / 2;
       tabHeaders.scrollLeft = newLeft;
-      setScrollLeftCurrent({ dir: "right", value: newLeft });
+      setScrollLeftCurrent({ dir: 'right', value: newLeft });
     }
   }, []);
 
@@ -67,13 +67,13 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   }, []);
 
   const tabHeadersWrapperClass = useMemo(() => {
-    return classNames("rc-tab-headers-wrapper", {
+    return classNames('rc-tab-headers-wrapper', {
       [`rc-tab-headers-wrapper-${tabStyle}`]: true,
     });
   }, []);
 
   const tabHeadersClass = useMemo(() => {
-    return classNames("rc-tab-headers", {
+    return classNames('rc-tab-headers', {
       [`rc-tab-headers-${tabStyle}`]: true,
     });
   }, []);
@@ -83,12 +83,12 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
       const { dir, value } = scrollLeftCurrent;
       const ref = tabHeadersRef.current;
 
-      if (dir === "left") {
+      if (dir === 'left') {
         setDisableScrollLeft(value === 0);
         setDisableScrollRight(false);
       }
 
-      if (dir === "right") {
+      if (dir === 'right') {
         const { clientWidth, scrollWidth } = ref;
         setDisableScrollRight(value + clientWidth >= scrollWidth);
         setDisableScrollLeft(false);
@@ -139,6 +139,6 @@ const TabHeaders: React.FunctionComponent<TabHeadersModel> = ({
   );
 };
 
-TabHeaders.displayName = "TabHeaders";
+TabHeaders.displayName = 'TabHeaders';
 
 export { TabHeaders };

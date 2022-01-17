@@ -1,9 +1,9 @@
-import { render } from "@testing-library/react";
-import React from "react";
-import { Progress } from "../progress";
+import { render } from '@testing-library/react';
+import React from 'react';
+import { Progress } from '../progress';
 
-describe("Progress", () => {
-  it("should render progressbar", async () => {
+describe('Progress', () => {
+  it('should render progressbar', async () => {
     render(
       <Progress
         type="progressive"

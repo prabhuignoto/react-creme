@@ -1,11 +1,11 @@
-import { nanoid } from "nanoid";
-import React, { useCallback, useEffect, useState } from "react";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { ListOption } from "../list/list-model";
-import { TransferControlColumn } from "./transfer-control-column";
-import { TransferList } from "./transfer-list";
-import { TransferListInternalModel, TransferProps } from "./transfer-model";
-import "./transfer.scss";
+import { nanoid } from 'nanoid';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { ListOption } from '../list/list-model';
+import { TransferControlColumn } from './transfer-control-column';
+import { TransferList } from './transfer-list';
+import { TransferListInternalModel, TransferProps } from './transfer-model';
+import './transfer.scss';
 
 const initMapper = (list: string[]) =>
   list.map((item) => ({
@@ -42,7 +42,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
 
   const transfer = useCallback(
     (dir: string) => {
-      if (dir === "right") {
+      if (dir === 'right') {
         setRightList((prev) => prev.concat(leftSelected));
         const leftSelectedIds = leftSelected.map((item) => item.id);
         setLeftList((prev) =>

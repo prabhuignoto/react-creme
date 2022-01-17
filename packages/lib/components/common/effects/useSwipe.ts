@@ -1,8 +1,8 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from "react";
+import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 
-type SwipeDirection = "LEFT" | "TOP" | "RIGHT" | "BOTTOM" | "NONE";
+type SwipeDirection = 'LEFT' | 'TOP' | 'RIGHT' | 'BOTTOM' | 'NONE';
 
-type SwipeStrength = "low" | "medium" | "high";
+type SwipeStrength = 'low' | 'medium' | 'high';
 
 const SwipeStrengthSettings = {
   high: 0.75,
@@ -20,7 +20,7 @@ type SwipeFunc = (
   swipeStrength?: SwipeStrength
 ) => SwipeState;
 
-const useSwipe: SwipeFunc = (ref, strength = "medium") => {
+const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
   const swipeStarted = useRef<Boolean>(false);
   const rect = useRef<DOMRect | null>(null);
   const startPosition = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -29,7 +29,7 @@ const useSwipe: SwipeFunc = (ref, strength = "medium") => {
   const threshold = SwipeStrengthSettings[strength];
 
   const [swipeState, setSwipeState] = useState<SwipeState>({
-    dir: "NONE",
+    dir: 'NONE',
     offset: -1,
   });
 
@@ -44,7 +44,7 @@ const useSwipe: SwipeFunc = (ref, strength = "medium") => {
     const { clientX, clientY } =
       ev instanceof window.TouchEvent ? ev.touches[0] : ev;
 
-    ref.current?.setAttribute("disabled", "true");
+    ref.current?.setAttribute('disabled', 'true');
 
     if (_rect) {
       startPosition.current = {
@@ -77,8 +77,8 @@ const useSwipe: SwipeFunc = (ref, strength = "medium") => {
       if (left !== null) {
         setSwipeState(
           left
-            ? { dir: "LEFT", offset: Math.abs(diffX) }
-            : { dir: "RIGHT", offset: Math.abs(diffX) }
+            ? { dir: 'LEFT', offset: Math.abs(diffX) }
+            : { dir: 'RIGHT', offset: Math.abs(diffX) }
         );
       }
     } else {
@@ -87,13 +87,13 @@ const useSwipe: SwipeFunc = (ref, strength = "medium") => {
       if (top !== null) {
         setSwipeState(
           top
-            ? { dir: "TOP", offset: Math.abs(diffY) }
-            : { dir: "BOTTOM", offset: Math.abs(diffY) }
+            ? { dir: 'TOP', offset: Math.abs(diffY) }
+            : { dir: 'BOTTOM', offset: Math.abs(diffY) }
         );
       }
     }
 
-    ref.current?.removeAttribute("disabled");
+    ref.current?.removeAttribute('disabled');
   };
 
   const handleMouseMove = (ev: MouseEvent | TouchEvent) => {
@@ -120,13 +120,17 @@ const useSwipe: SwipeFunc = (ref, strength = "medium") => {
     if (_ref) {
       elementRef.current = ref.current;
       rect.current = _ref.getBoundingClientRect();
-      _ref.addEventListener("mousedown", handleMouseDown);
-      _ref.addEventListener("mouseup", handleMouseUp);
-      _ref.addEventListener("mousemove", handleMouseMove);
+      _ref.addEventListener('mousedown', handleMouseDown);
+      _ref.addEventListener('mouseup', handleMouseUp);
+      _ref.addEventListener('mousemove', handleMouseMove);
 
-      _ref.addEventListener("touchstart", handleMouseDown, { passive: false });
-      _ref.addEventListener("touchend", handleMouseUp, { passive: false });
-      _ref.addEventListener("touchmove", handleMouseMove, { passive: false });
+      _ref.addEventListener('touchstart', handleMouseDown, {
+        passive: false,
+      });
+      _ref.addEventListener('touchend', handleMouseUp, { passive: false });
+      _ref.addEventListener('touchmove', handleMouseMove, {
+        passive: false,
+      });
     }
   }, [ref]);
 
@@ -134,13 +138,13 @@ const useSwipe: SwipeFunc = (ref, strength = "medium") => {
     return () => {
       if (elementRef.current) {
         const _ref = elementRef.current;
-        _ref.removeEventListener("mousedown", handleMouseDown);
-        _ref.removeEventListener("mouseup", handleMouseUp);
-        _ref.removeEventListener("mousemove", handleMouseMove);
+        _ref.removeEventListener('mousedown', handleMouseDown);
+        _ref.removeEventListener('mouseup', handleMouseUp);
+        _ref.removeEventListener('mousemove', handleMouseMove);
 
-        _ref.removeEventListener("touchstart", handleMouseDown);
-        _ref.removeEventListener("touchend", handleMouseUp);
-        _ref.removeEventListener("touchmove", handleMouseMove);
+        _ref.removeEventListener('touchstart', handleMouseDown);
+        _ref.removeEventListener('touchend', handleMouseUp);
+        _ref.removeEventListener('touchmove', handleMouseMove);
       }
     };
   }, []);

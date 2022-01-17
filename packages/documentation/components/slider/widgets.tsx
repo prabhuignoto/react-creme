@@ -1,8 +1,8 @@
-import React, { useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, Section, Slider } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, Section, Slider } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 const Widgets = () => {
   const media = useRecoilValue(responsiveState);

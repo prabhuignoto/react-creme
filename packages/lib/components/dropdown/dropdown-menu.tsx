@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import React, { CSSProperties, useEffect, useMemo } from "react";
-import { List } from "../list/list";
-import "./dropdown-menu.scss";
-import { DropdownMenuProps } from "./dropdown-model";
+import classNames from 'classnames';
+import React, { CSSProperties, useEffect, useMemo } from 'react';
+import { List } from '../list/list';
+import './dropdown-menu.scss';
+import { DropdownMenuProps } from './dropdown-model';
 
 const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   allowMultiSelection,
@@ -20,18 +20,18 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   // STYLES
   const menuStyle = useMemo(() => {
     return {
-      "--menu-max-height": `${maxMenuHeight || 0}px`,
-      "--menu-width": `${width || 0}px`,
+      '--menu-max-height': `${maxMenuHeight || 0}px`,
+      '--menu-width': `${width || 0}px`,
     } as CSSProperties;
   }, [top, width]);
 
   const menuClass = useMemo(
     () =>
       classNames([
-        "rc-dropdown-menu-container",
+        'rc-dropdown-menu-container',
         {
-          "rc-dropdown-menu-close": !open || isClosing,
-          "rc-dropdown-menu-open": open && !isClosing,
+          'rc-dropdown-menu-close': !open || isClosing,
+          'rc-dropdown-menu-open': open && !isClosing,
         },
       ]),
     [open, isClosing]
@@ -60,6 +60,6 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   );
 };
 
-DropDownMenu.displayName = "DropDownMenu";
+DropDownMenu.displayName = 'DropDownMenu';
 
 export { DropDownMenu };

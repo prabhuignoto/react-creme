@@ -1,19 +1,19 @@
-import classNames from "classnames";
-import React, { useMemo, useRef } from "react";
-import { useFocus } from "../common/effects/useFocus";
-import { CircularProgress } from "../progress/circular-progress";
-import { ButtonModel } from "./button-model";
-import "./button.scss";
+import classNames from 'classnames';
+import React, { useMemo, useRef } from 'react';
+import { useFocus } from '../common/effects/useFocus';
+import { CircularProgress } from '../progress/circular-progress';
+import { ButtonProps } from './button-model';
+import './button.scss';
 
-const Button: React.FunctionComponent<ButtonModel> = ({
+const Button: React.FunctionComponent<ButtonProps> = ({
   border = true,
   children,
   disabled = false,
   focusable = true,
-  type = "default",
-  label = "",
+  type = 'default',
+  label = '',
   onClick,
-  size = "sm",
+  size = 'sm',
   style = {},
 }) => {
   // classes
@@ -21,11 +21,11 @@ const Button: React.FunctionComponent<ButtonModel> = ({
     () =>
       classNames(
         {
-          "rc-btn-default": type === "progress",
-          "rc-btn-no-border": !border,
-          "rc-disabled": disabled,
+          'rc-btn-default': type === 'progress',
+          'rc-btn-no-border': !border,
+          'rc-disabled': disabled,
         },
-        [`rc-btn-${size}`, `rc-btn-${type}`, "rc-btn"]
+        [`rc-btn-${size}`, `rc-btn-${type}`, 'rc-btn']
       ),
     [disabled]
   );
@@ -58,13 +58,13 @@ const Button: React.FunctionComponent<ButtonModel> = ({
       {...focusableProps}
       aria-label={label}
     >
-      {type === "progress" && !disabled && (
+      {type === 'progress' && !disabled && (
         <span className="rc-btn-progress-wrapper">
-          <CircularProgress size={"xs"} />
+          <CircularProgress size={'xs'} />
         </span>
       )}
       {children && <span className="rc-btn-icon-container">{children}</span>}
-      {label && type !== "icon" && (
+      {label && type !== 'icon' && (
         <span className="rc-btn-label">{label}</span>
       )}
     </button>

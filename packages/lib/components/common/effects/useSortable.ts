@@ -1,5 +1,5 @@
-import { RefObject, useEffect, useRef } from "react";
-import useDraggable from "./useDraggable";
+import { RefObject, useEffect, useRef } from 'react';
+import useDraggable from './useDraggable';
 
 interface Settings {
   rowGap: number;
@@ -14,7 +14,7 @@ const useSortable: (
   const parentRef = useRef<HTMLElement | null>(null);
 
   const test = useDraggable(ref, {
-    dragDirection: "VERTICAL",
+    dragDirection: 'VERTICAL',
     makeChildrenDraggable: true,
   });
 
@@ -25,14 +25,14 @@ const useSortable: (
       parentRef.current = node;
 
       const items = Array.from(
-        node?.querySelectorAll(":scope > *")
+        node?.querySelectorAll(':scope > *')
       ) as HTMLElement[];
 
       if (node && items?.length) {
         totalItems.current = items.length;
 
         node.style.cssText +=
-          ";" +
+          ';' +
           `
           position: relative;
           height: ${items.reduce((a, b) => a + b.clientHeight, 0)}px;
@@ -41,14 +41,14 @@ const useSortable: (
 
         items.forEach((item, index) => {
           const ele = item as HTMLElement;
-          ele.style.position = "absolute";
+          ele.style.position = 'absolute';
 
           if (index > 0) {
             ele.style.top = `${items
               .slice(0, index)
               .reduce((a, b) => a + b.clientHeight, 0)}px`;
           } else {
-            ele.style.top = "0px";
+            ele.style.top = '0px';
           }
         });
       }

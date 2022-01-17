@@ -1,7 +1,7 @@
-import React from "react";
-import { BlockQuote, Rate, Section } from "../../../lib/components";
-import { SearchIcon } from "../../../lib/icons";
-import { DemoWidget } from "../../common/demo-widget";
+import React from 'react';
+import { BlockQuote, Rate, Section } from '../../../lib/components';
+import { SearchIcon } from '../../../lib/icons';
+import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   return (
@@ -28,7 +28,7 @@ function widgets() {
         <DemoWidget>
           <Rate
             onChange={(val) => console.log(val)}
-            ratingValues={["one", "two", "three", "four", "five"]}
+            ratingValues={['one', 'two', 'three', 'four', 'five']}
           />
         </DemoWidget>
       </Section>

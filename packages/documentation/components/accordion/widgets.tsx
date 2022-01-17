@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { Accordion, BlockQuote, Section } from "../../../lib/components";
-import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
+import React, { useEffect } from 'react';
+import { Accordion, BlockQuote, Section } from '../../../lib/components';
+import { DemoWidget } from '../../common/demo-widget';
+import useMedia from '../../common/useMedia';
 
 function widgets() {
   const media = useMedia();
@@ -27,7 +27,7 @@ function widgets() {
 
   return (
     width > 0 && (
-      <div style={{ minHeight: "1200px" }} className="rc-demo-widgets">
+      <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
         <Section title="Default render">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>

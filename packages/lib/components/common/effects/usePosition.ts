@@ -1,18 +1,18 @@
-import React, { CSSProperties, RefObject, useEffect, useState } from "react";
+import React, { CSSProperties, RefObject, useEffect, useState } from 'react';
 
 type Position =
-  | "top left"
-  | "top right"
-  | "top center"
-  | "bottom center"
-  | "bottom left"
-  | "bottom right"
-  | "left center"
-  | "left top"
-  | "left bottom"
-  | "right top"
-  | "right bottom"
-  | "right center";
+  | 'top left'
+  | 'top right'
+  | 'top center'
+  | 'bottom center'
+  | 'bottom left'
+  | 'bottom right'
+  | 'left center'
+  | 'left top'
+  | 'left bottom'
+  | 'right top'
+  | 'right bottom'
+  | 'right center';
 
 interface Settings {
   alignToEdge?: boolean;
@@ -40,8 +40,8 @@ const usePosition: FunctionType = function (
       return;
     }
 
-    const positionX = position.split(" ")[0];
-    const positionY = position.split(" ")[1];
+    const positionX = position.split(' ')[0];
+    const positionY = position.split(' ')[1];
 
     const isPositionX = (match: string) => positionX === match;
 
@@ -54,33 +54,33 @@ const usePosition: FunctionType = function (
     const tooltipHalfWidth = Math.round(tooltipWidth / 2);
 
     const horizontalCenter: React.CSSProperties = {
-      left: "50%",
-      transform: "translateX(-50%)",
+      left: '50%',
+      transform: 'translateX(-50%)',
     };
     const verticalCenter: React.CSSProperties = {
-      top: "50%",
-      transform: "translateY(-50%)",
+      top: '50%',
+      transform: 'translateY(-50%)',
     };
     const heightWithSpace = eleHeight + spacing;
     let cssPosition: React.CSSProperties = {};
 
     switch (position) {
-      case "top center":
-      case "bottom center": {
-        const prop = isPositionX("top") ? "bottom" : "top";
+      case 'top center':
+      case 'bottom center': {
+        const prop = isPositionX('top') ? 'bottom' : 'top';
         cssPosition = {
           ...horizontalCenter,
           [prop]: `${heightWithSpace}px`,
         };
         break;
       }
-      case "top left":
-      case "top right": {
+      case 'top left':
+      case 'top right': {
         const prop = alignToEdge
           ? positionY
-          : isPositionY("left")
-          ? "right"
-          : "left";
+          : isPositionY('left')
+          ? 'right'
+          : 'left';
         const value = alignToEdge ? 0 : `${eleWidth - tooltipHalfWidth}px`;
         cssPosition = {
           bottom: `${heightWithSpace}px`,
@@ -88,13 +88,13 @@ const usePosition: FunctionType = function (
         };
         break;
       }
-      case "bottom left":
-      case "bottom right": {
+      case 'bottom left':
+      case 'bottom right': {
         const prop = alignToEdge
           ? positionY
-          : isPositionY("left")
-          ? "right"
-          : "left";
+          : isPositionY('left')
+          ? 'right'
+          : 'left';
         const value = alignToEdge ? 0 : `${eleWidth - tooltipHalfWidth}px`;
         cssPosition = {
           [prop]: value,
@@ -102,27 +102,27 @@ const usePosition: FunctionType = function (
         };
         break;
       }
-      case "left center":
-      case "right center": {
-        const prop = isPositionX("left") ? "right" : "left";
+      case 'left center':
+      case 'right center': {
+        const prop = isPositionX('left') ? 'right' : 'left';
         cssPosition = {
           ...verticalCenter,
           [prop]: eleWidth + spacing,
         };
         break;
       }
-      case "left top":
-      case "right top": {
-        const prop = isPositionX("left") ? "right" : "left";
+      case 'left top':
+      case 'right top': {
+        const prop = isPositionX('left') ? 'right' : 'left';
         cssPosition = {
           [prop]: eleWidth + spacing,
           top: 0,
         };
         break;
       }
-      case "right bottom":
-      case "left bottom": {
-        const prop = isPositionX("left") ? "right" : "left";
+      case 'right bottom':
+      case 'left bottom': {
+        const prop = isPositionX('left') ? 'right' : 'left';
         cssPosition = {
           bottom: 0,
           [prop]: eleWidth + spacing,

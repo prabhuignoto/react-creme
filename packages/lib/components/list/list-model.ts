@@ -1,4 +1,4 @@
-import { Option } from "../dropdown/dropdown-model";
+import { Option } from '../dropdown/dropdown-model';
 
 interface ListCommonProps {
   RTL?: boolean;
@@ -10,7 +10,7 @@ interface ListCommonProps {
   textColorSelected?: string;
 }
 
-export interface ListModel extends ListCommonProps {
+export interface ListProps extends ListCommonProps {
   backGroundColor?: string;
   border?: boolean;
   enableSearch?: boolean;
@@ -27,7 +27,7 @@ export interface ListModel extends ListCommonProps {
   virtualized?: boolean;
 }
 
-export interface ListItemModel extends ListCommonProps {
+export interface ListItemProps extends ListCommonProps {
   disabled?: boolean;
   id?: string;
   name: string;

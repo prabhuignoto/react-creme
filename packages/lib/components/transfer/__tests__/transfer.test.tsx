@@ -1,27 +1,27 @@
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
-import React from "react";
-import { Transfer } from "../transfer";
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import React from 'react';
+import { Transfer } from '../transfer';
 
 const handler = jest.fn();
 
-describe("Transfer", () => {
-  it("should render transfer view", () => {
+describe('Transfer', () => {
+  it('should render transfer view', () => {
     const { getAllByRole } = render(
       <Transfer
-        list1={["one", "two", "five", "six"]}
-        list2={["three", "four", "seven", "eight"]}
+        list1={['one', 'two', 'five', 'six']}
+        list2={['three', 'four', 'seven', 'eight']}
         onChange={handler}
       />
     );
 
-    expect(getAllByRole("listbox")).toHaveLength(2);
+    expect(getAllByRole('listbox')).toHaveLength(2);
   });
 
-  it("should render transfer snapshot", () => {
+  it('should render transfer snapshot', () => {
     const { container } = render(
       <Transfer
-        list1={["one", "two", "five", "six"]}
-        list2={["three", "four", "seven", "eight"]}
+        list1={['one', 'two', 'five', 'six']}
+        list2={['three', 'four', 'seven', 'eight']}
         onChange={handler}
       />
     );
@@ -29,22 +29,22 @@ describe("Transfer", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("should transfer right work as expected", async () => {
+  it('should transfer right work as expected', async () => {
     const { getByText, container, getAllByRole } = render(
       <Transfer
-        list1={["one", "two", "five", "six"]}
-        list2={["three", "four", "seven", "eight"]}
+        list1={['one', 'two', 'five', 'six']}
+        list2={['three', 'four', 'seven', 'eight']}
         onChange={handler}
       />
     );
 
-    const five = getByText("five");
-    const six = getByText("six");
+    const five = getByText('five');
+    const six = getByText('six');
 
     fireEvent.click(five);
     fireEvent.click(six);
 
-    const btnRight = container.querySelector(".transfer-btn.right");
+    const btnRight = container.querySelector('.transfer-btn.right');
 
     if (btnRight) {
       act(() => {
@@ -54,7 +54,7 @@ describe("Transfer", () => {
       await waitFor(
         async () => {
           expect(
-            getAllByRole("listbox")[1].querySelectorAll("li")
+            getAllByRole('listbox')[1].querySelectorAll('li')
           ).toHaveLength(7);
         },
         {
@@ -64,22 +64,22 @@ describe("Transfer", () => {
     }
   });
 
-  it("should transfer left work as expected", async () => {
+  it('should transfer left work as expected', async () => {
     const { getByText, container, getAllByRole } = render(
       <Transfer
-        list1={["one", "two", "five", "six"]}
-        list2={["three", "four", "seven", "eight"]}
+        list1={['one', 'two', 'five', 'six']}
+        list2={['three', 'four', 'seven', 'eight']}
         onChange={handler}
       />
     );
 
-    const four = getByText("four");
-    const eight = getByText("eight");
+    const four = getByText('four');
+    const eight = getByText('eight');
 
     fireEvent.click(four);
     fireEvent.click(eight);
 
-    const btnLeft = container.querySelector(".transfer-btn.left");
+    const btnLeft = container.querySelector('.transfer-btn.left');
 
     if (btnLeft) {
       act(() => {
@@ -89,7 +89,7 @@ describe("Transfer", () => {
       await waitFor(
         async () => {
           expect(
-            getAllByRole("listbox")[0].querySelectorAll("li")
+            getAllByRole('listbox')[0].querySelectorAll('li')
           ).toHaveLength(7);
         },
         {

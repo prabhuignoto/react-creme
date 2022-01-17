@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   CSSProperties,
   useCallback,
@@ -6,15 +6,15 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import { useDrag } from "../common/effects/useDrag";
-import { SplitterModel } from "./splitter-model";
-import "./splitter.scss";
+} from 'react';
+import { useDrag } from '../common/effects/useDrag';
+import { SplitterProps } from './splitter-model';
+import './splitter.scss';
 
 const round = Math.round;
 
-const Splitter: React.FunctionComponent<SplitterModel> = ({
-  dir = "horizontal",
+const Splitter: React.FunctionComponent<SplitterProps> = ({
+  dir = 'horizontal',
   children,
   minSplitWidth = 200,
   maxSplitWidth = 400,
@@ -43,13 +43,13 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
     onDragStart: () => setDragStarted(true),
   });
 
-  const isHorizontal = useMemo(() => dir === "horizontal", []);
+  const isHorizontal = useMemo(() => dir === 'horizontal', []);
 
   const canSplit = useMemo(() => {
     if (ref.current) {
       const { clientHeight, clientWidth } = ref.current;
 
-      if (dir === "horizontal") {
+      if (dir === 'horizontal') {
         return round(clientWidth * percent) <= maxSplitWidth;
       } else {
         return round(clientHeight * percent) <= maxSplitHeight;
@@ -59,9 +59,9 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
 
   const controlClass = useMemo(
     () =>
-      classNames(["splitter-control", `splitter-control-${dir}`], {
-        "splitter-control-disable": !canSplit,
-        "splitter-control-dragged": dragStarted,
+      classNames(['splitter-control', `splitter-control-${dir}`], {
+        'splitter-control-disable': !canSplit,
+        'splitter-control-dragged': dragStarted,
       }),
     [canSplit, dragStarted]
   );
@@ -74,8 +74,8 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
       const gap = `${handleBarWidth}px`;
 
       return {
-        height: isHorizontal ? "100%" : height,
-        width: isHorizontal ? (width !== 0 ? width : minSplitWidth) : "100%",
+        height: isHorizontal ? '100%' : height,
+        width: isHorizontal ? (width !== 0 ? width : minSplitWidth) : '100%',
         ...(isHorizontal ? { paddingRight: gap } : { paddingBottom: gap }),
       } as CSSProperties;
     }
@@ -91,16 +91,16 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
         const height = round(clientHeight * (1 - percent)) - gapWidthHalf;
 
         return {
-          height: isHorizontal ? "100%" : height,
-          width: isHorizontal ? width : "100%",
+          height: isHorizontal ? '100%' : height,
+          width: isHorizontal ? width : '100%',
           ...(isHorizontal
             ? { paddingLeft: `${gap}px` }
             : { paddingTop: `-${gap}px` }),
         } as CSSProperties;
       } else {
         return {
-          height: isHorizontal ? "100%" : clientHeight - minSplitHeight,
-          width: isHorizontal ? clientWidth - minSplitWidth : "100%",
+          height: isHorizontal ? '100%' : clientHeight - minSplitHeight,
+          width: isHorizontal ? clientWidth - minSplitWidth : '100%',
         } as CSSProperties;
       }
     }
@@ -108,8 +108,8 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
 
   const wrapperClass = useMemo(
     () =>
-      classNames(["splitter-wrapper", `splitter-wrapper-${dir}`], {
-        "splitter-wrapper-border": border,
+      classNames(['splitter-wrapper', `splitter-wrapper-${dir}`], {
+        'splitter-wrapper-border': border,
       }),
     []
   );
@@ -120,9 +120,9 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
       const { clientWidth, clientHeight } = node;
       let percent = 0;
 
-      if (dir === "horizontal") {
+      if (dir === 'horizontal') {
         percent = minSplitWidth ? minSplitWidth / clientWidth : 0.5;
-      } else if (dir === "vertical") {
+      } else if (dir === 'vertical') {
         percent = minSplitHeight ? minSplitHeight / clientHeight : 0.5;
       }
 
@@ -132,7 +132,7 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
 
   useEffect(() => {
     if (controlRef.current) {
-      if (dir === "horizontal") {
+      if (dir === 'horizontal') {
         controlRef.current.style.left = `${minSplitWidth}px`;
       } else {
         controlRef.current.style.top = `${minSplitHeight}px`;
@@ -141,7 +141,7 @@ const Splitter: React.FunctionComponent<SplitterModel> = ({
   }, []);
 
   const handleBarStyle = useMemo(() => {
-    if (dir === "horizontal") {
+    if (dir === 'horizontal') {
       return {
         width: `${handleBarWidth}px`,
       } as CSSProperties;

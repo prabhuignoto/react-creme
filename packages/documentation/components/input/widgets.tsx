@@ -1,14 +1,14 @@
-import React from "react";
-import { BlockQuote, Input, Section } from "../../../lib/components";
-import { ChevronRightIcon } from "../../../lib/icons";
-import { DemoWidget } from "../../common/demo-widget";
+import React from 'react';
+import { BlockQuote, Input, Section } from '../../../lib/components';
+import { ChevronRightIcon } from '../../../lib/icons';
+import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render">
         <DemoWidget>
-          <div style={{ width: "200px" }}>
+          <div style={{ width: '200px' }}>
             <Input enableClear></Input>
           </div>
         </DemoWidget>
@@ -16,7 +16,7 @@ function Widgets() {
       <Section title="Input with a custom Icon">
         <BlockQuote>Use a custom icon inside the input.</BlockQuote>
         <DemoWidget>
-          <div style={{ width: "200px" }}>
+          <div style={{ width: '200px' }}>
             <Input enableClear focusable>
               <ChevronRightIcon />
             </Input>
@@ -26,7 +26,7 @@ function Widgets() {
       <Section title="Input with border">
         <BlockQuote>Use a custom icon inside the input.</BlockQuote>
         <DemoWidget>
-          <div style={{ width: "200px" }}>
+          <div style={{ width: '200px' }}>
             <Input enableClear border>
               <ChevronRightIcon />
             </Input>
@@ -39,19 +39,19 @@ function Widgets() {
           shows input in error and success state
         </BlockQuote>
         <DemoWidget>
-          <div style={{ width: "200px" }}>
+          <div style={{ width: '200px' }}>
             <Input enableClear state="error" focusable></Input>
           </div>
         </DemoWidget>
         <DemoWidget>
-          <div style={{ width: "200px" }}>
+          <div style={{ width: '200px' }}>
             <Input enableClear state="success"></Input>
           </div>
         </DemoWidget>
       </Section>
       <Section title="RTL">
         <DemoWidget>
-          <div style={{ width: "200px" }}>
+          <div style={{ width: '200px' }}>
             <Input enableClear focusable RTL>
               <ChevronRightIcon />
             </Input>

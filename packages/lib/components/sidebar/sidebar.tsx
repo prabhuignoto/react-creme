@@ -1,26 +1,26 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
-import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
-import { SearchIcon } from "../../icons";
-import { isArray } from "../common/utils";
-import { Input } from "../input/input";
-import { ListOption } from "../list/list-model";
-import { SidebarGroups } from "./sidebar-groups";
-import { SidebarGroupModel, SidebarModel } from "./sidebar-model";
-import "./sidebar.scss";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
+import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
+import { SearchIcon } from '../../icons';
+import { isArray } from '../common/utils';
+import { Input } from '../input/input';
+import { ListOption } from '../list/list-model';
+import { SidebarGroups } from './sidebar-groups';
+import { SidebarGroupModel, SidebarModel } from './sidebar-model';
+import './sidebar.scss';
 
 const Sidebar: React.FunctionComponent<SidebarModel> = ({
-  backGroundColor = "#fff",
+  backGroundColor = '#fff',
   border = false,
   enableSearch = false,
   focusable = false,
   groupIconColor,
   groupTitleColor,
   groups,
-  height = "100%",
+  height = '100%',
   listMaxHeight = 750,
   onSelect,
-  searchPlaceholder = "Search ...",
+  searchPlaceholder = 'Search ...',
   sectionsCollapsible = true,
   iconsColor,
 }) => {
@@ -67,7 +67,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
 
   const handleSearch = useCallback(
     (ter: string) => {
-      const tester = new RegExp(`\\b${ter.trim()}`, "i");
+      const tester = new RegExp(`\\b${ter.trim()}`, 'i');
 
       setGroups((prev) =>
         prev.map((group) => {
@@ -87,18 +87,18 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
     [groups.length]
   );
 
-  const sideBarClass = useMemo(() => classNames("rc-sidebar"), []);
+  const sideBarClass = useMemo(() => classNames('rc-sidebar'), []);
 
   const style = useMemo(() => {
     return {
-      "--bg-color": backGroundColor,
-      "--sidebar-height": Number.isInteger(height) ? `${height}px` : "height",
+      '--bg-color': backGroundColor,
+      '--sidebar-height': Number.isInteger(height) ? `${height}px` : 'height',
     } as CSSProperties;
   }, []);
 
   const contentWrapper = useMemo(() => {
-    return classNames("rc-sidebar-content-wrapper", {
-      "rc-sidebar-border": border,
+    return classNames('rc-sidebar-content-wrapper', {
+      'rc-sidebar-border': border,
     });
   }, [border]);
 

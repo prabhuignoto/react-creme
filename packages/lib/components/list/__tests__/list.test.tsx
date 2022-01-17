@@ -1,31 +1,31 @@
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import React from "react";
-import { List } from "../list";
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import React from 'react';
+import { List } from '../list';
 
 const handler = jest.fn();
 
 const options = [
-  { name: "brazil", value: "brazil" },
-  { name: "usa", value: "usa" },
-  { name: "uk", value: "uk" },
-  { name: "germany", value: "germany", disabled: true },
-  { name: "india", value: "india" },
+  { name: 'brazil', value: 'brazil' },
+  { name: 'usa', value: 'usa' },
+  { name: 'uk', value: 'uk' },
+  { name: 'germany', value: 'germany', disabled: true },
+  { name: 'india', value: 'india' },
 ];
 
-describe("List", () => {
-  it("should render list", () => {
+describe('List', () => {
+  it('should render list', () => {
     const { getByRole } = render(<List options={options} />);
 
-    expect(getByRole("listbox")).toBeInTheDocument();
-    expect(getByRole("listbox").querySelectorAll("li")).toHaveLength(5);
+    expect(getByRole('listbox')).toBeInTheDocument();
+    expect(getByRole('listbox').querySelectorAll('li')).toHaveLength(5);
   });
 
-  it("should call handler", async () => {
+  it('should call handler', async () => {
     const { getByRole } = render(
       <List options={options} onSelection={handler} />
     );
-    const target = getByRole("listbox").querySelectorAll("li")[0]
+    const target = getByRole('listbox').querySelectorAll('li')[0]
       .firstChild as HTMLElement;
 
     if (target) {
@@ -39,7 +39,7 @@ describe("List", () => {
     }
   });
 
-  it("should handle search", async () => {
+  it('should handle search', async () => {
     const { container, getByRole } = render(<List options={options} />);
 
     const input = container.querySelector(".rc-input input[type='text'");
@@ -50,14 +50,14 @@ describe("List", () => {
       await act(async () => {
         fireEvent.change(input, {
           target: {
-            value: "usa",
+            value: 'usa',
           },
         });
       });
 
       await waitFor(
         async () => {
-          expect(getByRole("listbox").querySelectorAll("li")).toHaveLength(1);
+          expect(getByRole('listbox').querySelectorAll('li')).toHaveLength(1);
         },
         {
           timeout: 500,
@@ -67,14 +67,14 @@ describe("List", () => {
       await act(async () => {
         fireEvent.change(input, {
           target: {
-            value: "",
+            value: '',
           },
         });
       });
 
       await waitFor(
         async () => {
-          expect(getByRole("listbox").querySelectorAll("li")).toHaveLength(6);
+          expect(getByRole('listbox').querySelectorAll('li')).toHaveLength(6);
         },
         {
           timeout: 500,
@@ -83,15 +83,15 @@ describe("List", () => {
     }
   });
 
-  it("should render multi selection", async () => {
+  it('should render multi selection', async () => {
     const { getByRole, getAllByRole } = render(
       <List options={options} allowMultiSelection onSelection={handler} />
     );
 
-    expect(getByRole("listbox")).toBeInTheDocument();
-    expect(getAllByRole("option")).toHaveLength(5);
+    expect(getByRole('listbox')).toBeInTheDocument();
+    expect(getAllByRole('option')).toHaveLength(5);
 
-    fireEvent.click(getAllByRole("option")[0]);
+    fireEvent.click(getAllByRole('option')[0]);
     expect(handler).toBeCalled();
   });
 });

@@ -1,13 +1,13 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import "../../design/icon.scss";
-import "../../design/layout.scss";
-import "../../design/list.scss";
-import { AutoComplete } from "../auto-complete/auto-complete";
-import { TagItem } from "./tag-item";
-import { TagItemInternalModel, TagsModel } from "./tags-model";
-import "./tags.scss";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import '../../design/icon.scss';
+import '../../design/layout.scss';
+import '../../design/list.scss';
+import { AutoComplete } from '../auto-complete/auto-complete';
+import { TagItem } from './tag-item';
+import { TagItemInternalModel, TagsModel } from './tags-model';
+import './tags.scss';
 
 const Tags: React.FunctionComponent<TagsModel> = ({
   disabled = false,
@@ -15,14 +15,14 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   maxTags = Number.MAX_VALUE,
   onChange,
   readonly = false,
-  tagSize = "large",
-  tagStyle = "default",
+  tagSize = 'large',
+  tagStyle = 'default',
   tagWidth = 50,
   style = {},
   suggestions = [],
   autoComplete = false,
   RTL = false,
-  placeholder = "",
+  placeholder = '',
   focusable = false,
 }) => {
   // STATES
@@ -38,7 +38,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
       .slice(0, maxTags)
   );
 
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
 
   const canAdd = useMemo(
     () => tagItems.length + 1 <= maxTags && !readonly,
@@ -56,7 +56,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
     (value: string) => {
       if (canAdd) {
         setTagItems((prev) => prev.concat({ id: nanoid(), name: value }));
-        setInputValue("");
+        setInputValue('');
       }
     },
     [canAdd]
@@ -64,7 +64,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
 
   const handleKeyUp = useCallback(
     (ev: React.KeyboardEvent) => {
-      if (ev.key === "Enter" && canAdd && inputValue) {
+      if (ev.key === 'Enter' && canAdd && inputValue) {
         handleAdd(inputValue);
       }
     },
@@ -100,9 +100,9 @@ const Tags: React.FunctionComponent<TagsModel> = ({
 
   return (
     <ul
-      className={classNames("rc-tags-wrap", {
-        "rc-tags-disabled": disabled,
-        "rc-tags-rtl": RTL,
+      className={classNames('rc-tags-wrap', {
+        'rc-tags-disabled': disabled,
+        'rc-tags-rtl': RTL,
       })}
       role="list"
       style={style}

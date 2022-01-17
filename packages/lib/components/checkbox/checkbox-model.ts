@@ -1,10 +1,10 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
-export interface CheckboxModel {
+export interface CheckboxProps {
   RTL?: boolean;
   autoHeight?: boolean;
   border?: boolean;
-  checkBoxStyle?: "square" | "round";
+  checkBoxStyle?: 'square' | 'round';
   disabled?: boolean;
   focusIcon?: boolean;
   focusable?: boolean;
@@ -15,6 +15,6 @@ export interface CheckboxModel {
   noHoverStyle?: boolean;
   noUniqueId?: boolean;
   onChange?: (id: string, name: string, selected: boolean) => void;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;
 }

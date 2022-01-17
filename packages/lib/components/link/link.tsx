@@ -1,11 +1,11 @@
-import React, { AnchorHTMLAttributes } from "react";
-import "./link.scss";
+import React, { AnchorHTMLAttributes } from 'react';
+import './link.scss';
 
-export interface LinkModel {
+export interface LinkProps {
   children: React.ReactNode;
 }
 
-const Link: React.FunctionComponent<AnchorHTMLAttributes<LinkModel>> = ({
+const Link: React.FunctionComponent<AnchorHTMLAttributes<LinkProps>> = ({
   children,
   href,
   target,

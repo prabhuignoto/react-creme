@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import React from "react";
-import { CheckBox } from "../checkbox/checkbox";
-import "./transfer-list.scss";
-import { TransferListItemModel } from "./transfer-model";
+import classNames from 'classnames';
+import React from 'react';
+import { CheckBox } from '../checkbox/checkbox';
+import './transfer-list.scss';
+import { TransferListItemModel } from './transfer-model';
 
 const TransferListItem: React.FunctionComponent<TransferListItemModel> =
   React.memo(
@@ -10,8 +10,8 @@ const TransferListItem: React.FunctionComponent<TransferListItemModel> =
       return (
         <li
           className={classNames([
-            "transfer-list-item",
-            selected ? "selected" : "",
+            'transfer-list-item',
+            selected ? 'selected' : '',
           ])}
           key={id}
           role="listitem"
@@ -33,8 +33,8 @@ const TransferListItem: React.FunctionComponent<TransferListItemModel> =
     }
   );
 
-TransferListItem.displayName = "TransferListItem";
+TransferListItem.displayName = 'TransferListItem';
 
-TransferListItem.displayName = "TransferListItem";
+TransferListItem.displayName = 'TransferListItem';
 
 export { TransferListItem };

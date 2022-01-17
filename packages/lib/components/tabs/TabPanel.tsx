@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import React, { useMemo } from "react";
+import classNames from 'classnames';
+import React, { useMemo } from 'react';
 
 export interface TabPanelProps {
   children?: React.ReactNode;
@@ -13,7 +13,7 @@ const TabPanel: React.FunctionComponent<TabPanelProps> = ({
   id,
 }: TabPanelProps) => {
   const tabPanelClass = useMemo(() => {
-    return classNames("rc-tab-panel", { "rc-tab-panel-disabled": disabled });
+    return classNames('rc-tab-panel', { 'rc-tab-panel-disabled': disabled });
   }, []);
   return (
     <div
@@ -27,6 +27,6 @@ const TabPanel: React.FunctionComponent<TabPanelProps> = ({
   );
 };
 
-TabPanel.displayName = "TabPanel";
+TabPanel.displayName = 'TabPanel';
 
 export { TabPanel };

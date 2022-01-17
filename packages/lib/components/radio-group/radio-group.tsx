@@ -1,23 +1,23 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { Radio } from "../radio/radio";
-import { RadioGroupItemProps, RadioGroupProps } from "./radio-group-model";
-import "./radio-group.scss";
+} from 'react';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { Radio } from '../radio/radio';
+import { RadioGroupItemProps, RadioGroupProps } from './radio-group-model';
+import './radio-group.scss';
 
 const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   items,
   disabled,
   onSelected,
   style,
-  layout = "column",
+  layout = 'column',
   RTL = false,
   focusable = false,
 }) => {
@@ -26,7 +26,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
       ? items.map((item) => ({
           id: nanoid(),
           ...item,
-          disabled: typeof disabled !== "undefined" ? disabled : item.disabled,
+          disabled: typeof disabled !== 'undefined' ? disabled : item.disabled,
         }))
       : []
   );
@@ -65,9 +65,9 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
 
   const radioGroupClass = useMemo(
     () =>
-      classNames("rc-radio-group", {
-        "rc-radio-group-column": layout === "column",
-        "rc-radio-group-row": layout === "row",
+      classNames('rc-radio-group', {
+        'rc-radio-group-column': layout === 'column',
+        'rc-radio-group-row': layout === 'row',
       }),
     []
   );
@@ -77,8 +77,8 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
       {_items.map(({ id, disabled, label, checked }) => (
         <li
           key={id}
-          className={classNames("rc-radio-grp-item", {
-            "rc-radio-grp-item-disabled": disabled,
+          className={classNames('rc-radio-grp-item', {
+            'rc-radio-grp-item-disabled': disabled,
           })}
           aria-checked={!!checked}
         >
@@ -91,7 +91,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
             isControlled
             withGroup
             size="sm"
-            fullWidth={layout === "column"}
+            fullWidth={layout === 'column'}
             RTL={RTL}
             focusable={focusable}
           />

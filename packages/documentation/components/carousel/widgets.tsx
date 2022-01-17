@@ -1,8 +1,8 @@
-import React, { useLayoutEffect, useMemo } from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, Carousel, Image, Section } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect, useMemo } from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, Carousel, Image, Section } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -20,20 +20,20 @@ function widgets() {
     } else if (media.isDesktop) {
       setWidth(600);
     } else if (media.isTablet) {
-      setWidth("90%");
+      setWidth('90%');
     } else if (media.isMobile) {
-      setWidth("90%");
+      setWidth('90%');
     }
   }, [media]);
 
   const resolvedWidth = useMemo(
-    () => (typeof width === "string" ? width : `${width}px`),
+    () => (typeof width === 'string' ? width : `${width}px`),
     [width]
   );
 
   return (
     width && (
-      <div className="rc-demo-widgets" style={{ minHeight: "1000px" }}>
+      <div className="rc-demo-widgets" style={{ minHeight: '1000px' }}>
         <Section title="Horizontal layout">
           <BlockQuote>
             Renders the items in a horizontal layout with navigation controls
@@ -42,7 +42,7 @@ function widgets() {
           <DemoWidget fullWidth>
             <div
               style={{
-                height: "350px",
+                height: '350px',
                 width: resolvedWidth,
               }}
             >
@@ -62,7 +62,7 @@ function widgets() {
             displayed to the left
           </BlockQuote>
           <DemoWidget fullWidth>
-            <div style={{ height: "300px", width: resolvedWidth }}>
+            <div style={{ height: '300px', width: resolvedWidth }}>
               <Carousel direction="vertical" focusable>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
@@ -94,7 +94,7 @@ function widgets() {
           <DemoWidget fullWidth>
             <div
               style={{
-                height: "300px",
+                height: '300px',
                 width: resolvedWidth,
               }}
             >

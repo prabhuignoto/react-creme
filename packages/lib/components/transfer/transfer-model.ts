@@ -1,4 +1,4 @@
-import { ListOption } from "../list/list-model";
+import { ListOption } from '../list/list-model';
 
 export interface TransferProps extends TransferCommonProps {
   enableSearch?: boolean;
@@ -14,7 +14,7 @@ export interface TransferListInternalModel {
   visible?: boolean;
 }
 
-export type TransferList = "list1" | "list2";
+export type TransferList = 'list1' | 'list2';
 export interface TransferListItemModel extends TransferCommonProps {
   handleSelection: (l: TransferList, id: string) => void;
   id: string;

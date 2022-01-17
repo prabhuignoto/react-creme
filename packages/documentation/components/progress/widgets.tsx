@@ -1,13 +1,13 @@
-import React from "react";
-import { useTimer } from "use-timer";
+import React from 'react';
+import { useTimer } from 'use-timer';
 import {
   BlockQuote,
   Button,
   CircularProgress,
   Progress,
   Section,
-} from "../../../lib/components";
-import { DemoWidget } from "../../common/demo-widget";
+} from '../../../lib/components';
+import { DemoWidget } from '../../common/demo-widget';
 const Widgets: React.FunctionComponent = () => {
   const { time, start, pause, reset } = useTimer({
     endTime: 50,
@@ -18,13 +18,13 @@ const Widgets: React.FunctionComponent = () => {
     <div className="rc-demo-widgets">
       <Section title="Default rendering">
         <div className="rc-demo-widget">
-          <div style={{ margin: "0 1rem" }}>
+          <div style={{ margin: '0 1rem' }}>
             <Button onClick={start} label="Start"></Button>
           </div>
-          <div style={{ margin: "0 1rem" }}>
+          <div style={{ margin: '0 1rem' }}>
             <Button onClick={pause} label="Pause"></Button>
           </div>
-          <div style={{ margin: "0 1rem" }}>
+          <div style={{ margin: '0 1rem' }}>
             <Button onClick={reset} label="Reset"></Button>
           </div>
         </div>
@@ -108,8 +108,8 @@ const Widgets: React.FunctionComponent = () => {
           Infinite progress is also available in circular mode.
         </BlockQuote>
         <DemoWidget>
-          <div style={{ margin: "0 0.5rem" }}>
-            <CircularProgress size={"md"} />
+          <div style={{ margin: '0 0.5rem' }}>
+            <CircularProgress size={'md'} />
           </div>
         </DemoWidget>
       </Section>

@@ -1,8 +1,8 @@
-import React, { CSSProperties, useLayoutEffect, useMemo } from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, ScrollSpy, Section } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { CSSProperties, useLayoutEffect, useMemo } from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, ScrollSpy, Section } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 const Para = () => (
   <p>
     Nulla congue efficitur massa, at tempor enim mattis vitae. Suspendisse
@@ -42,7 +42,7 @@ function Widgets() {
   }, [media]);
 
   const style = useMemo(() => {
-    return { height: "650px", width: `${width}px` } as CSSProperties;
+    return { height: '650px', width: `${width}px` } as CSSProperties;
   }, [width]);
 
   return (
@@ -57,14 +57,14 @@ function Widgets() {
             <div style={style}>
               <ScrollSpy
                 links={[
-                  "one",
-                  "two",
-                  "three",
-                  "four",
-                  "five",
-                  "six",
-                  "seven",
-                  "eight",
+                  'one',
+                  'two',
+                  'three',
+                  'four',
+                  'five',
+                  'six',
+                  'seven',
+                  'eight',
                 ]}
               >
                 {Array.from({ length: 8 }).map((_, i) => (
@@ -83,7 +83,7 @@ function Widgets() {
             <div style={style}>
               <ScrollSpy
                 linksPosition="right"
-                links={["one", "two", "three", "four", "five"]}
+                links={['one', 'two', 'three', 'four', 'five']}
               >
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Para key={i} />

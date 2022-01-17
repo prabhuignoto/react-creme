@@ -1,34 +1,34 @@
-import React from "react";
-import { BlockQuote, Section, Tree } from "../../../lib/components";
-import { DemoWidget } from "../../common/demo-widget";
+import React from 'react';
+import { BlockQuote, Section, Tree } from '../../../lib/components';
+import { DemoWidget } from '../../common/demo-widget';
 
 const data = [
   {
     child: [
       {
-        name: "two",
+        name: 'two',
       },
       {
         child: [
           {
-            name: "This is a long text that should be truncated",
+            name: 'This is a long text that should be truncated',
           },
-          { name: "four" },
-          { name: "five" },
-          { name: "six" },
-          { name: "seven" },
+          { name: 'four' },
+          { name: 'five' },
+          { name: 'six' },
+          { name: 'seven' },
         ],
-        name: "three",
+        name: 'three',
       },
     ],
-    name: "one",
+    name: 'one',
   },
   {
     disabled: true,
-    name: "sixteen",
+    name: 'sixteen',
   },
-  { child: [{ name: "twenty one" }], name: "twenty" },
-  { name: "twenty two" },
+  { child: [{ name: 'twenty one' }], name: 'twenty' },
+  { name: 'twenty two' },
 ];
 
 function Widgets() {
@@ -36,7 +36,7 @@ function Widgets() {
     <div className="rc-demo-widgets">
       <Section title="Default render">
         <DemoWidget>
-          <div style={{ width: "300px" }}>
+          <div style={{ width: '300px' }}>
             <Tree
               height={400}
               items={data}
@@ -51,7 +51,7 @@ function Widgets() {
           through the checkbox
         </BlockQuote>
         <DemoWidget>
-          <div style={{ width: "300px" }}>
+          <div style={{ width: '300px' }}>
             <Tree height={400} allowSelection items={data} />
           </div>
         </DemoWidget>
@@ -61,7 +61,7 @@ function Widgets() {
           Use a custom icon for the expand and collapse actions.
         </BlockQuote>
         <DemoWidget>
-          <div style={{ width: "300px" }}>
+          <div style={{ width: '300px' }}>
             <Tree height={400} items={data} iconType="plus" />
           </div>
         </DemoWidget>

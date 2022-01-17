@@ -1,19 +1,19 @@
-import React, { RefObject } from "react";
+import React, { RefObject } from 'react';
 
 interface OverlayCommon {
-  align?: "left" | "right";
+  align?: 'left' | 'right';
   onClose?: () => void;
   onClosing?: () => void;
-  placement?: "top" | "bottom";
+  placement?: 'top' | 'bottom';
   placementReference?: RefObject<HTMLElement>;
 }
 
 export interface OverlayModel extends OverlayCommon {
-  align?: "left" | "right";
+  align?: 'left' | 'right';
   containedToParent?: RefObject<HTMLElement>;
   isClosing?: boolean;
   overlayAnimation?: boolean;
-  placement?: "top" | "bottom";
+  placement?: 'top' | 'bottom';
   showClose?: boolean;
 }
 

@@ -1,14 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import ReactDOM from "react-dom";
-import { Overlay } from "./overlay";
-import { OverlayModel } from "./overlay-model";
-import "./overlay.scss";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
+import { Overlay } from './overlay';
+import { OverlayModel } from './overlay-model';
+import './overlay.scss';
 
 type Settings = {
   backdropColor?: string;
   disableAnimation?: boolean;
   disableBackdrop?: boolean;
-  placement?: "bottom" | "top";
+  placement?: 'bottom' | 'top';
 };
 
 type OverlayFunc = <U extends OverlayModel>(
@@ -17,7 +17,7 @@ type OverlayFunc = <U extends OverlayModel>(
 ) => React.FunctionComponent<U>;
 
 export type OverlayContextModel = {
-  align?: "left" | "right";
+  align?: 'left' | 'right';
   childClosing?: boolean;
 };
 
@@ -28,13 +28,13 @@ export const OverlayContext = React.createContext<OverlayContextModel | null>(
 const withOverlay: OverlayFunc = function <T extends OverlayModel>(
   Node: React.FunctionComponent<T>,
   settings: Settings = {
-    backdropColor: "rgba(0,0,0,0.5)",
+    backdropColor: 'rgba(0,0,0,0.5)',
     disableAnimation: false,
     disableBackdrop: false,
   }
 ) {
   return (props: T) => {
-    const classPrefix = useRef("overlay");
+    const classPrefix = useRef('overlay');
     const overlayRef = useRef<HTMLDivElement | null>(null);
     const {
       showClose,
@@ -55,10 +55,10 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     useEffect(() => {
       if (containedToParent?.current) {
         portalContainer.current = containedToParent.current;
-        portalContainer.current.style.position = "relative";
+        portalContainer.current.style.position = 'relative';
         setPortalWrapperCreated(true);
       } else {
-        overlayRef.current = document.createElement("div");
+        overlayRef.current = document.createElement('div');
         overlayRef.current.className = `${classPrefix.current}-portal-wrapper`;
         document.body.appendChild(overlayRef.current);
         portalContainer.current = overlayRef.current;

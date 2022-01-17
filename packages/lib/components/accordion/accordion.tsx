@@ -1,5 +1,5 @@
-import cls from "classnames";
-import { nanoid } from "nanoid";
+import cls from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   CSSProperties,
   useCallback,
@@ -7,11 +7,11 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { AccordionHeader } from "./accordion-header";
-import { AccordionModel } from "./accordion-model";
-import "./accordion.scss";
+} from 'react';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { AccordionHeader } from './accordion-header';
+import { AccordionModel } from './accordion-model';
+import './accordion.scss';
 
 const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
   ({
@@ -21,7 +21,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     children,
     disableCollapse = false,
     disableIcon = false,
-    iconType = "chevron",
+    iconType = 'chevron',
     expanded = null,
     focusable = false,
     iconColor,
@@ -30,8 +30,8 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     onCollapsed,
     onExpanded,
     title,
-    titleColor = "#000",
-    transition = "cubic-bezier(0.19, 1, 0.22, 1)",
+    titleColor = '#000',
+    transition = 'cubic-bezier(0.19, 1, 0.22, 1)',
   }: AccordionModel) => {
     const accordionID = useRef(id || `accordion-${nanoid()}`);
     const accordionBodyId = useRef(`accordion-body-${nanoid()}`);
@@ -54,9 +54,9 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
 
     const accordionBodyClass = useMemo(
       () =>
-        cls("rc-accordion-body", {
-          "rc-accordion-close": !open,
-          "rc-accordion-open": open && !isFirstRender.current,
+        cls('rc-accordion-body', {
+          'rc-accordion-close': !open,
+          'rc-accordion-open': open && !isFirstRender.current,
         }),
       [open]
     );
@@ -64,23 +64,23 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     const style = useMemo(
       () =>
         ({
-          "--icon-color": iconColor,
-          "--max-height": open
+          '--icon-color': iconColor,
+          '--max-height': open
             ? bodyHeight
               ? `${bodyHeight}px`
               : `${100}px`
-            : "0px",
-          "--title-color": titleColor,
-          "--transition": transition,
+            : '0px',
+          '--title-color': titleColor,
+          '--transition': transition,
         } as CSSProperties),
       [open, bodyHeight]
     );
 
     const accordionClass = useMemo(
       () =>
-        cls("rc-accordion", {
-          "rc-accordion-no-border": !border,
-          "rc-accordion-open": open,
+        cls('rc-accordion', {
+          'rc-accordion-no-border': !border,
+          'rc-accordion-open': open,
         }),
       [border, open, alignIconRight]
     );
@@ -146,6 +146,6 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
   }
 );
 
-Accordion.displayName = "Accordion";
+Accordion.displayName = 'Accordion';
 
 export { Accordion };

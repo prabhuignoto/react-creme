@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties } from 'react';
 export interface MenuProps {
   children: React.ReactNode;
   focusable?: boolean;
@@ -8,7 +8,7 @@ export interface MenuProps {
   onClose?: (id?: string) => void;
   onOpen?: (id?: string) => void;
   onSelected?: (val: string) => void;
-  position?: "left" | "right";
+  position?: 'left' | 'right';
   style?: CSSProperties;
 }
 

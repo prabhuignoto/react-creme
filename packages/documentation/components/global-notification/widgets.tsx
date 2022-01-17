@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   BlockQuote,
   Button,
   GlobalNotification,
   RadioGroup,
   Section,
-} from "../../../lib/components";
-import { GlobalNotificationState } from "../../../lib/components/global-notification/global-notification";
-import { DemoWidget } from "../../common/demo-widget";
+} from '../../../lib/components';
+import { GlobalNotificationState } from '../../../lib/components/global-notification/global-notification';
+import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   const [show, setShow] = React.useState(false);
@@ -16,32 +16,32 @@ function widgets() {
     setShow(false);
   };
 
-  const [state, setState] = React.useState<GlobalNotificationState>("info");
+  const [state, setState] = React.useState<GlobalNotificationState>('info');
 
   return (
     <div className="rc-demo-widgets">
       <Section title="Default Render">
         <BlockQuote>
           The global notification component can be configured to be in four
-          states: <code>info</code>, <code>success</code>, <code>warning</code>{" "}
+          states: <code>info</code>, <code>success</code>, <code>warning</code>{' '}
           and <code>error</code>.
         </BlockQuote>
-        <div className="rc-demo-widget" style={{ width: "250px" }}>
+        <div className="rc-demo-widget" style={{ width: '250px' }}>
           <RadioGroup
             items={[
-              { label: "Success", value: "success" },
+              { label: 'Success', value: 'success' },
               {
-                label: "Warning",
-                value: "warning",
+                label: 'Warning',
+                value: 'warning',
               },
               {
-                label: "Error",
-                value: "error",
+                label: 'Error',
+                value: 'error',
               },
               {
                 checked: true,
-                label: "Info",
-                value: "info",
+                label: 'Info',
+                value: 'info',
               },
             ]}
             onSelected={(value) => {

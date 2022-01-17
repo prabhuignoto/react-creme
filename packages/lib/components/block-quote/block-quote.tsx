@@ -1,5 +1,5 @@
-import React from "react";
-import "./block-quote.scss";
+import React from 'react';
+import './block-quote.scss';
 
 export interface BlockQuoteProps {
   children: React.ReactNode;

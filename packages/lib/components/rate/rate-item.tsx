@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import React, { useMemo } from "react";
-import RateIcon from "../../icons/star";
-import { useFocus } from "../common/effects/useFocus";
-import { RateItemViewModel } from "./rate-model";
+import classNames from 'classnames';
+import React, { useMemo } from 'react';
+import RateIcon from '../../icons/star';
+import { useFocus } from '../common/effects/useFocus';
+import { RateItemViewModel } from './rate-model';
 
 const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
   ({
@@ -25,11 +25,11 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
 
     const rateItemClass = useMemo(
       () =>
-        classNames("rc-rate-item", {
-          "rc-rate-item-active": active,
+        classNames('rc-rate-item', {
+          'rc-rate-item-active': active,
           [`rc-rate-item-${size}`]: true,
-          "rc-rate-item-disabled": disabled,
-          "rc-rate-item-hovered": hovered,
+          'rc-rate-item-disabled': disabled,
+          'rc-rate-item-hovered': hovered,
         }),
       [active, hovered, disabled]
     );
@@ -46,7 +46,7 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
     const disabledProps = useMemo(
       () =>
         disabled && {
-          "aria-disabled": disabled,
+          'aria-disabled': disabled,
         },
       [disabled]
     );
@@ -75,6 +75,6 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
   }
 );
 
-RateItem.displayName = "RateItem";
+RateItem.displayName = 'RateItem';
 
 export { RateItem };

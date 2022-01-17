@@ -1,5 +1,5 @@
-import React, { lazy } from "react";
-import DemoPageRenderer from "../../common/demo-page-renderer";
+import React, { lazy } from 'react';
+import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function menuButton() {
   return (
@@ -8,68 +8,68 @@ function menuButton() {
       description="MenuButton allows to choose an action from a list of actions"
       callbacks={[
         {
-          default: "",
+          default: '',
           description: `Callback fired when a menu items is selected`,
-          name: "onSelected",
-          optional: "Yes",
-          type: "Function",
+          name: 'onSelected',
+          optional: 'Yes',
+          type: 'Function',
         },
       ]}
       properties={[
         {
-          default: "choose an option",
+          default: 'choose an option',
           description: `placeholder text for the button`,
-          name: "placeholder",
-          optional: "Yes",
-          type: "String",
+          name: 'placeholder',
+          optional: 'Yes',
+          type: 'String',
         },
         {
-          default: "[]",
+          default: '[]',
           description: `Collection of Menu Items`,
-          name: "items",
-          optional: "Yes",
-          type: "Array",
+          name: 'items',
+          optional: 'Yes',
+          type: 'Array',
         },
         {
-          default: "left",
+          default: 'left',
           description: `Docking position of the menu.
           <br> <em>left</em> | <em>center</em> | <em>right</em>`,
-          name: "position",
-          optional: "Yes",
-          type: "String",
+          name: 'position',
+          optional: 'Yes',
+          type: 'String',
         },
         {
-          default: "",
+          default: '',
           description: `makes the component focusable via keyboard`,
-          name: "focusable",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'focusable',
+          optional: 'Yes',
+          type: 'Boolean',
         },
         {
-          default: "150",
+          default: '150',
           description: `minimum width of the menu button`,
-          name: "width",
-          optional: "Yes",
-          type: "Number",
+          name: 'width',
+          optional: 'Yes',
+          type: 'Number',
         },
         {
-          default: "False",
+          default: 'False',
           description: `Right to Left`,
-          name: "RTL",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'RTL',
+          optional: 'Yes',
+          type: 'Boolean',
         },
         {
-          default: "",
+          default: '',
           description: `color of the chevron icon`,
-          name: "iconColor",
-          optional: "Yes",
-          type: "String",
+          name: 'iconColor',
+          optional: 'Yes',
+          type: 'String',
         },
       ]}
-      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
-      stackBlitzCodes={["react-ts-kdxxkx"]}
-      demoWidget={lazy(() => import("./widgets"))}
+      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      stackBlitzCodes={['react-ts-kdxxkx']}
+      demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>
   );
 }

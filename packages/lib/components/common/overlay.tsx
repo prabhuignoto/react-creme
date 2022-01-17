@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   CSSProperties,
   useCallback,
@@ -6,15 +6,15 @@ import React, {
   useEffect,
   useMemo,
   useRef,
-} from "react";
-import ResizeObserver from "resize-observer-polyfill";
-import { CloseIcon } from "../../icons";
-import { OverlayProps } from "./overlay-model";
-import "./overlay.scss";
-import { OverlayContext, OverlayContextModel } from "./withOverlay";
+} from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
+import { CloseIcon } from '../../icons';
+import { OverlayProps } from './overlay-model';
+import './overlay.scss';
+import { OverlayContext, OverlayContextModel } from './withOverlay';
 
 const Overlay: React.FunctionComponent<OverlayProps> = ({
-  backdropColor = "rgba(0, 0, 0, 0.5)",
+  backdropColor = 'rgba(0, 0, 0, 0.5)',
   children,
   containedToParent = false,
   disableBackdrop,
@@ -30,9 +30,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   const [hideOverlay, setHideOverlay] =
     React.useState<boolean>(overlayAnimation);
   const overlayWrapperClass = useMemo(() => {
-    return classNames(["rc-overlay-wrapper"], {
-      "rc-overlay-contained": containedToParent,
-      "rc-overlay-hide": hideOverlay,
+    return classNames(['rc-overlay-wrapper'], {
+      'rc-overlay-contained': containedToParent,
+      'rc-overlay-hide': hideOverlay,
     });
   }, [hideOverlay]);
 
@@ -60,10 +60,10 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       const { top, left, right } = child.getBoundingClientRect();
       const positionRight = right - overlayContentRef.current.offsetWidth;
       return {
-        [placement === "top" ? "bottom" : "top"]: `${top + contentHeight}px`,
-        left: `${align === "left" ? left : positionRight}px`,
-        pointerEvents: "all",
-        position: "absolute",
+        [placement === 'top' ? 'bottom' : 'top']: `${top + contentHeight}px`,
+        left: `${align === 'left' ? left : positionRight}px`,
+        pointerEvents: 'all',
+        position: 'absolute',
       } as CSSProperties;
     }
   }, [
@@ -79,7 +79,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   // handles closure
   const handleClose = (ev: React.MouseEvent | KeyboardEvent) => {
     const canClose = (ev.target as HTMLElement).classList.contains(
-      "rc-overlay-wrapper"
+      'rc-overlay-wrapper'
     );
 
     if (!canClose) {
@@ -87,7 +87,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     }
 
     if (ev instanceof KeyboardEvent) {
-      if (ev.key === "Escape") {
+      if (ev.key === 'Escape') {
         onClose?.();
       }
     } else {
@@ -124,9 +124,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
   // onMount process
   useEffect(() => {
-    document.addEventListener("scroll", handleWindowScroll);
-    document.addEventListener("keyup", handleClose);
-    document.addEventListener("click", handleCloseOnClick);
+    document.addEventListener('scroll', handleWindowScroll);
+    document.addEventListener('keyup', handleClose);
+    document.addEventListener('click', handleCloseOnClick);
 
     if (overlayAnimation) {
       setHideOverlay(false);
@@ -135,9 +135,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
     // cleanup
     return () => {
-      document.removeEventListener("scroll", handleWindowScroll);
-      document.removeEventListener("keyup", handleClose);
-      document.removeEventListener("click", handleCloseOnClick);
+      document.removeEventListener('scroll', handleWindowScroll);
+      document.removeEventListener('keyup', handleClose);
+      document.removeEventListener('click', handleCloseOnClick);
       observer?.current?.disconnect();
     };
   }, []);

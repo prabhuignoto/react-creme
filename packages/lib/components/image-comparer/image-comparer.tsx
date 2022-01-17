@@ -1,22 +1,22 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   CSSProperties,
   useCallback,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { useDrag } from "../common/effects/useDrag";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { Image } from "../image/image";
-import { CircularProgress } from "../progress/circular-progress";
-import { ImageComparerModel } from "./image-comparer.model";
-import "./image-comparer.scss";
+} from 'react';
+import { useDrag } from '../common/effects/useDrag';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { Image } from '../image/image';
+import { CircularProgress } from '../progress/circular-progress';
+import { ImageComparerProps } from './image-comparer.model';
+import './image-comparer.scss';
 
-const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
+const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   sourceOne,
   sourceTwo,
-  direction = "horizontal",
+  direction = 'horizontal',
 }) => {
   const panelRef = useRef<HTMLDivElement | null>(null);
   const dragRef = useRef<HTMLElement | null>(null);
@@ -47,27 +47,27 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
   // classes
   const dragHandleClass = useMemo(
     () =>
-      classNames("rc-img-comparer-drag-handle", {
-        "rc-comparer-drag-handle-dragged": dragged,
+      classNames('rc-img-comparer-drag-handle', {
+        'rc-comparer-drag-handle-dragged': dragged,
         [`rc-comparer-drag-handle-${direction}`]: true,
-        "rc-comparer-drag-handle-hidden": !imagesLoaded,
-        "rc-comparer-drag-handle-visible": imagesLoaded,
+        'rc-comparer-drag-handle-hidden': !imagesLoaded,
+        'rc-comparer-drag-handle-visible': imagesLoaded,
       }),
     [dragged, direction, imagesLoaded]
   );
 
   const wrapperClass = useMemo(() => {
-    return classNames("rc-img-comparer-wrapper", {
-      "rc-image-comparer-loaded": imagesLoaded,
+    return classNames('rc-img-comparer-wrapper', {
+      'rc-image-comparer-loaded': imagesLoaded,
     });
   }, [imagesLoaded]);
 
   const wrapperStyle = useMemo(() => {
     const { width, height } = wrapperDimensions;
     return {
-      "--height": height ? `${height}px` : "95%",
-      "--width": width ? `${width}px` : "95%",
-      visibility: imagesLoaded ? "visible" : "hidden",
+      '--height': height ? `${height}px` : '95%',
+      '--width': width ? `${width}px` : '95%',
+      visibility: imagesLoaded ? 'visible' : 'hidden',
     } as CSSProperties;
   }, [wrapperDimensions.height, wrapperDimensions.width, imagesLoaded]);
 
@@ -107,7 +107,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerModel> = ({
         : 0;
       return {
         clipPath:
-          direction === "horizontal"
+          direction === 'horizontal'
             ? `polygon(0% 0%, ${percentToUse}% 0%, ${percentToUse}% 100%, 0% 100%)`
             : `polygon(0% 0%, 100% 0%, 100% ${percentToUse}%, 0% ${percentToUse}%)`,
       } as CSSProperties;

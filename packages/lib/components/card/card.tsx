@@ -1,11 +1,11 @@
-import classNames from "classnames";
-import React, { useMemo, useRef } from "react";
-import { CardProps } from "./card-model";
-import "./card.scss";
+import classNames from 'classnames';
+import React, { useMemo, useRef } from 'react';
+import { CardProps } from './card-model';
+import './card.scss';
 
 const Card: React.FunctionComponent<CardProps> = ({
-  alignFooter = "left",
-  alignHeader = "left",
+  alignFooter = 'left',
+  alignHeader = 'left',
   border = false,
   children,
   footer,
@@ -17,28 +17,28 @@ const Card: React.FunctionComponent<CardProps> = ({
 
   const style = useMemo(() => {
     return {
-      gridTemplateRows: `${header ? "50px" : ""} 1fr ${
-        footer ? "50px" : ""
+      gridTemplateRows: `${header ? '50px' : ''} 1fr ${
+        footer ? '50px' : ''
       }`.trim(),
       minHeight: `${minHeight}px`,
     };
   }, [minHeight]);
 
   const cardWrapperClass = useMemo(() => {
-    return classNames("rc-card-wrapper", {
-      "rc-card-border-less": !border,
-      "rc-card-shadow": shadow,
+    return classNames('rc-card-wrapper', {
+      'rc-card-border-less': !border,
+      'rc-card-shadow': shadow,
     });
   }, [border]);
 
   const cardHeaderClass = useMemo(() => {
-    return classNames("rc-card-header", {
+    return classNames('rc-card-header', {
       [`rc-card-align-${alignHeader}`]: true,
     });
   }, []);
 
   const cardFooterClass = useMemo(() => {
-    return classNames("rc-card-footer", {
+    return classNames('rc-card-footer', {
       [`rc-card-align-${alignFooter}`]: true,
     });
   }, []);

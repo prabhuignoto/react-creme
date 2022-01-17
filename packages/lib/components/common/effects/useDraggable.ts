@@ -1,17 +1,17 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useDebounce } from "use-debounce";
-import isTouchDevice from "../utils";
-import { Position, UseDraggable } from "./draggable-model";
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useDebounce } from 'use-debounce';
+import isTouchDevice from '../utils';
+import { Position, UseDraggable } from './draggable-model';
 
 const useDraggable: UseDraggable = (
   targetRef,
   settings = {
     boundTo: null,
-    dragDirection: "BOTH",
+    dragDirection: 'BOTH',
     makeChildrenDraggable: false,
   }
 ) => {
-  const { makeChildrenDraggable, boundTo, dragDirection = "BOTH" } = settings;
+  const { makeChildrenDraggable, boundTo, dragDirection = 'BOTH' } = settings;
   const elementRef = useRef<HTMLElement | null>(null);
 
   const mousePressed = useRef(false);
@@ -149,23 +149,27 @@ const useDraggable: UseDraggable = (
       }
 
       element.style.cssText +=
-        ";" +
+        ';' +
         `
         position: absolute;
         ${
-          dir === "BOTH" || dir === "HORIZONTAL"
+          dir === 'BOTH' || dir === 'HORIZONTAL'
             ? `left: ${newLeft - boundRect?.left}px`
-            : ""
+            : ''
         };
         ${
-          dir === "BOTH" || dir === "VERTICAL"
+          dir === 'BOTH' || dir === 'VERTICAL'
             ? `top: ${newTop - boundRect?.top}px`
-            : ""
+            : ''
         };
         z-index: 999;
       `;
 
-      setPosition({ target: ev.target as HTMLElement, x: newLeft, y: newTop });
+      setPosition({
+        target: ev.target as HTMLElement,
+        x: newLeft,
+        y: newTop,
+      });
     }
   }, []);
 
@@ -173,8 +177,7 @@ const useDraggable: UseDraggable = (
     // set pressed state to false
     mousePressed.current = false;
     window.clearTimeout(tapDetectionTimer.current);
-
-    (ev.target as HTMLElement).style.zIndex = "";
+    (ev.target as HTMLElement).style.zIndex = '';
 
     if (targetRef instanceof HTMLElement) {
       rect.current = targetRef.getBoundingClientRect();
@@ -199,37 +202,39 @@ const useDraggable: UseDraggable = (
         setTimeout(() => {
           boundToRect.current = target.getBoundingClientRect();
         }, 500);
-        Array.from<HTMLElement>(target.querySelectorAll(":scope > *")).forEach(
+        Array.from<HTMLElement>(target.querySelectorAll(':scope > *')).forEach(
           (item) => {
             if (isTouch) {
-              item.addEventListener("touchstart", handleMouseDown);
+              item.addEventListener('touchstart', handleMouseDown);
             } else {
-              item.addEventListener("mousedown", handleMouseDown);
+              item.addEventListener('mousedown', handleMouseDown);
             }
           }
         );
       } else {
         if (isTouch) {
-          target.addEventListener("touchstart", handleMouseDown);
+          target.addEventListener('touchstart', handleMouseDown);
         } else {
-          target.addEventListener("mousedown", handleMouseDown);
+          target.addEventListener('mousedown', handleMouseDown);
         }
       }
 
       if (isTouch) {
-        document.addEventListener("touchend", handleMouseUp, {
+        document.addEventListener('touchend', handleMouseUp, {
           passive: false,
         });
       } else {
-        document.addEventListener("mouseup", handleMouseUp, { passive: false });
+        document.addEventListener('mouseup', handleMouseUp, {
+          passive: false,
+        });
       }
 
       if (isTouch) {
-        document.addEventListener("touchmove", handleMouseMove, {
+        document.addEventListener('touchmove', handleMouseMove, {
           passive: false,
         });
       } else {
-        document.addEventListener("mousemove", handleMouseMove, {
+        document.addEventListener('mousemove', handleMouseMove, {
           passive: false,
         });
       }
@@ -245,13 +250,13 @@ const useDraggable: UseDraggable = (
       // if you want to make a single target draggable within a bound container
       if (bound && !makeChildrenDraggable) {
         boundToRect.current = boundTo.current?.getBoundingClientRect();
-        boundTo.current.style.position = "relative";
+        boundTo.current.style.position = 'relative';
       }
 
       // is we want to make all children's draggable within bounds
       if (makeChildrenDraggable && _targetRef) {
         boundToRect.current = _targetRef.getBoundingClientRect();
-        _targetRef.style.position = "relative";
+        _targetRef.style.position = 'relative';
       }
     }
   }, [boundTo]);
@@ -264,21 +269,21 @@ const useDraggable: UseDraggable = (
       if (eleRef) {
         if (makeChildrenDraggable) {
           Array.from<HTMLElement>(
-            eleRef.querySelectorAll(":scope > *")
+            eleRef.querySelectorAll(':scope > *')
           ).forEach((item) => {
-            item.removeEventListener("mousedown", handleMouseDown);
-            item.removeEventListener("touchstart", handleMouseDown);
+            item.removeEventListener('mousedown', handleMouseDown);
+            item.removeEventListener('touchstart', handleMouseDown);
           });
         } else {
-          eleRef.removeEventListener("mousedown", handleMouseDown);
-          eleRef.removeEventListener("touchstart", handleMouseDown);
+          eleRef.removeEventListener('mousedown', handleMouseDown);
+          eleRef.removeEventListener('touchstart', handleMouseDown);
         }
 
-        document.removeEventListener("mouseup", handleMouseUp);
-        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+        document.removeEventListener('mousemove', handleMouseMove);
 
-        document.removeEventListener("touchend", handleMouseUp);
-        document.removeEventListener("touchmove", handleMouseMove);
+        document.removeEventListener('touchend', handleMouseUp);
+        document.removeEventListener('touchmove', handleMouseMove);
       }
     };
   }, []);
