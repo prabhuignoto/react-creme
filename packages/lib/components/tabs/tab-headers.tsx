@@ -21,6 +21,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   activeTabId,
 }: TabHeadersProps) => {
   const tabHeadersRef = useRef<HTMLUListElement | null>(null);
+  const [hasFocus, setHasFocus] = useState(false);
 
   const [disableScrollRight, setDisableScrollRight] = useState(false);
   const [disableScrollLeft, setDisableScrollLeft] = useState(false);
@@ -69,6 +70,12 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     setHeaderWidth(node?.scrollWidth || 0);
   }, []);
 
+  const onFocus = useCallback(() => {
+    if (!hasFocus) {
+      setHasFocus(true);
+    }
+  }, [hasFocus]);
+
   // style classes
   const tabHeadersWrapperClass = useMemo(() => {
     return classNames('rc-tab-headers-wrapper', {
@@ -115,6 +122,8 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
             disabled={disabled}
             focusable={focusable}
             icon={icons?.[index]}
+            onFocus={onFocus}
+            parentHasFocus={hasFocus}
           />
         ))}
       </div>

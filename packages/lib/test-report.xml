@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="D:\Projects\2020\react-phalladium\packages\lib\components\tabs\__tests__\tabs.test.tsx">
-    <testCase name="Tabs should render tabs" duration="104"/>
-    <testCase name="Tabs should render tab content on selection" duration="39"/>
-    <testCase name="Tabs should render snapshot" duration="43"/>
-    <testCase name="Tabs should render a specific tab on load" duration="10"/>
+    <testCase name="Tabs should render tabs" duration="180"/>
+    <testCase name="Tabs should render tab content on selection" duration="122"/>
+    <testCase name="Tabs should render snapshot" duration="118"/>
+    <testCase name="Tabs should render a specific tab on load" duration="30"/>
   </file>
 </testExecutions>

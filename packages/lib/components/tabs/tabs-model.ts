@@ -35,6 +35,10 @@ export interface TabHeadProps extends TabsCommonProps {
   // name of the tab head
   name?: string;
 
+  onFocus?: () => void;
+
+  parentHasFocus?: boolean;
+
   // selected state of the tab head
   selected?: boolean;
 }

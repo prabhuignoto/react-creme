@@ -14,6 +14,8 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     selected,
     tabStyle,
     icon,
+    onFocus,
+    parentHasFocus,
   }: TabHeadProps) => {
     const ref = useRef<HTMLElement>(null);
 
@@ -45,10 +47,13 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     }, []);
 
     useEffect(() => {
-      if (selected) {
+      if (!selected) {
+        return;
+      }
+      if (selected && parentHasFocus) {
         ref.current?.focus();
       }
-    }, [selected]);
+    }, [selected, parentHasFocus]);
 
     return (
       <div
@@ -59,6 +64,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         aria-selected={selected}
         aria-controls={`rc-tab-panel-${id}`}
         id={`rc-tab-${id}`}
+        onFocus={!parentHasFocus ? onFocus : undefined}
       >
         {icon && <span className={tabHeadIcon}>{icon}</span>}
         <span
