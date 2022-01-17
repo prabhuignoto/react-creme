@@ -49,7 +49,6 @@ function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
   }, []);
 
   const onFocus = (ev: FocusEvent) => {
-    // ev.preventDefault();
     if (ev.target === targetRef.current) {
       const ele = targetRef.current as HTMLElement;
       const classesToAdd = ['rc-focus', 'rc-halo'];

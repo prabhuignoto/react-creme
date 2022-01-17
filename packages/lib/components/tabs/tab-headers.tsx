@@ -18,6 +18,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   icons,
   items,
   tabStyle,
+  activeTabId,
 }: TabHeadersProps) => {
   const tabHeadersRef = useRef<HTMLUListElement | null>(null);
 
@@ -100,19 +101,15 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     }
   }, [scrollLeftCurrent.value]);
 
-  const handleKeyUp = useCallback((ev) => {
-    console.log(ev.key);
-  }, []);
-
   return (
-    <header className={tabHeadersWrapperClass} onKeyUp={handleKeyUp}>
+    <header className={tabHeadersWrapperClass}>
       <div className={tabHeadersClass} ref={onHeadersRef} role="tablist">
         {items.map(({ id, name, selected, disabled }, index) => (
           <TabHead
             key={id}
             id={id}
             name={name}
-            selected={selected}
+            selected={id === activeTabId}
             handleTabSelection={handleTabSelection}
             tabStyle={tabStyle}
             disabled={disabled}

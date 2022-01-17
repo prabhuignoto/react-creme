@@ -52,6 +52,7 @@ export interface TabItemProps {
 /** 🟧 props passed to the tabs header
 ==============================================**/
 export interface TabHeadersProps extends TabsCommonProps {
+  activeTabId: string;
   handleTabSelection: (id: string) => void;
   icons?: ReactNode[];
   items: TabItemProps[];

@@ -1,9 +1,9 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/position.scss";
-@use "../../design/icon.scss";
-@use "../../design/list.scss";
-@use "../../design/animate.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/position.scss';
+@use '../../design/icon.scss';
+@use '../../design/list.scss';
+@use '../../design/animate.scss';
 
 $flat-tabs-height: 45px;
 $rounded-tabs-height: 35px;
@@ -18,10 +18,10 @@ $rounded-tabs-height: 35px;
   }
 
   &::after {
-    @include position.position-abs("bottom center");
+    @include position.position-abs('bottom center');
     background: colors.$platinum;
     bottom: 0;
-    content: "";
+    content: '';
     display: block;
     height: 1px;
     width: 100%;
@@ -73,7 +73,6 @@ $rounded-tabs-height: 35px;
   min-width: 120px;
   position: relative;
   user-select: none;
-  z-index: 2;
 
   &.rc-tab-head-disabled {
     @extend %disabled;
@@ -90,20 +89,20 @@ $rounded-tabs-height: 35px;
 
 .rc-tab-head-flat {
   &.rc-tab-head-selected::after {
-    @include position.position-abs("bottom center");
+    @include position.position-abs('bottom center');
     background: colors.$primary;
     bottom: -2px;
-    content: "";
+    content: '';
     display: block;
     height: 3px;
     width: 100%;
   }
 
   &::after {
-    @include position.position-abs("bottom center");
+    @include position.position-abs('bottom center');
     background: rgba(colors.$primary, 70%);
     bottom: -2px;
-    content: "";
+    content: '';
     display: block;
     height: 3px;
     transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -113,11 +112,12 @@ $rounded-tabs-height: 35px;
 
 .rc-tab-header-label {
   @extend %center;
-  @include animate.halo();
+  @include animate.halo(2px, 2px);
   cursor: pointer;
   height: 100%;
   position: relative;
   text-transform: capitalize;
+  // z-index: 1;
 
   &.rc-tab-header-selected {
     color: colors.$tertiary;
@@ -135,10 +135,10 @@ $rounded-tabs-height: 35px;
 
 .rc-tab-header-flat {
   &::after {
-    @include position.position-abs("bottom center");
+    @include position.position-abs('bottom center');
     // background: rgba(colors.$primary, 70%);
     bottom: -2px;
-    content: "";
+    content: '';
     display: block;
     height: 3px;
     transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -163,13 +163,14 @@ $rounded-tabs-height: 35px;
   // border-color: colors.$white;
 
   &::after {
-    @include position.position-abs("bottom center");
+    @include position.position-abs('bottom center');
     background: colors.$white;
     bottom: -2px;
-    content: "";
+    content: '';
     display: block;
     height: 3px;
     width: 100%;
+    z-index: -1;
   }
 }
 
