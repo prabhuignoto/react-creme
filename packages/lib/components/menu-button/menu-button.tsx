@@ -4,7 +4,7 @@ import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
 import { ChevronDownIcon } from '../../icons';
 import { Button } from '../button/button';
 import { MenuContainer as Menu } from '../menu/menu';
-import { MenuItemModel } from '../menu/menu-item';
+import { MenuItemProps } from '../menu/menu-item';
 import { MenuButtonProps } from './menu-button.model';
 import './menu-button.scss';
 
@@ -17,7 +17,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   RTL = false,
   iconColor,
 }) => {
-  const menuItems = useRef<MenuItemModel[]>(
+  const menuItems = useRef<MenuItemProps[]>(
     items.slice(1).map((item) => ({ id: nanoid(), name: item }))
   );
 

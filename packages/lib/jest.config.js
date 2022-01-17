@@ -1,13 +1,13 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  preset: "ts-jest",
-  testEnvironment: "jsdom",
+  collectCoverage: false,
+  coverageDirectory: "coverage",
   moduleNameMapper: {
     "^.+\\.(css|less|scss)$": "babel-jest",
   },
-  collectCoverage: false,
-  coverageDirectory: "coverage",
+  preset: "ts-jest",
   setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
+  testEnvironment: "jsdom",
   testPathIgnorePatterns: [
     "<rootDir>/node_modules",
     "<rootDir>/src/icons",

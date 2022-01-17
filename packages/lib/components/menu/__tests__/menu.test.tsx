@@ -2,11 +2,11 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { MenuContainer as Menu } from '../menu';
-import { MenuItemModel } from '../menu-model';
+import { MenuItemProps } from '../menu-model';
 
 const onSelected = jest.fn();
 
-const items: MenuItemModel[] = [
+const items: MenuItemProps[] = [
   { name: 'one' },
   { name: 'two' },
   { name: 'three', disabled: true },

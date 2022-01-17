@@ -2,9 +2,9 @@ import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import RateIcon from '../../icons/star';
 import { useFocus } from '../common/effects/useFocus';
-import { RateItemViewModel } from './rate-model';
+import { RateItemViewProps } from './rate-model';
 
-const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
+const RateItem: React.FunctionComponent<RateItemViewProps> = React.memo(
   ({
     active,
     disabled,
@@ -16,7 +16,7 @@ const RateItem: React.FunctionComponent<RateItemViewModel> = React.memo(
     onMouseOver,
     onSelect,
     size,
-  }: RateItemViewModel) => {
+  }: RateItemViewProps) => {
     const ref = React.useRef<HTMLLIElement | null>(null);
 
     if (focusable && !disabled) {

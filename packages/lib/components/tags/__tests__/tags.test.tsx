@@ -1,17 +1,17 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { Tags } from '../tags';
-import { TagItemModel } from '../tags-model';
+import { TagItemProps } from '../tags-model';
 
 const onSelected = jest.fn();
 
-const tags: TagItemModel[] = [
+const tags: TagItemProps[] = [
   { name: 'one' },
   { name: 'two' },
   { name: 'three' },
 ];
 
-const tagsWithDisabled: TagItemModel[] = [
+const tagsWithDisabled: TagItemProps[] = [
   { name: 'one' },
   { name: 'two', disabled: true },
 ];

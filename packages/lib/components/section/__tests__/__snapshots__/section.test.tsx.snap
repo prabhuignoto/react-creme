@@ -12,7 +12,7 @@ exports[`Section should render Section correctly 1`] = `
   </div>
   <div
     class="rc-section-body rc-section-row"
-    style="flex-direction: column; align-items: stretch;"
+    style="align-items: stretch; flex-direction: column;"
   >
     <span />
   </div>

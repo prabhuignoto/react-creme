@@ -8,10 +8,10 @@ import React, {
   useState,
 } from 'react';
 import { TreeItem } from './tree-item';
-import { TreeModel } from './tree-model';
+import { TreeProps } from './tree-model';
 import './tree.scss';
 
-const Tree: React.FunctionComponent<TreeModel> = React.memo(
+const Tree: React.FunctionComponent<TreeProps> = React.memo(
   ({
     allowSelection,
     childrenSelected,
@@ -22,7 +22,7 @@ const Tree: React.FunctionComponent<TreeModel> = React.memo(
     width = 100,
     onChange,
     iconType = 'chevron',
-  }: TreeModel) => {
+  }: TreeProps) => {
     const [_items, setItems] = useState(
       items.map((item) => ({
         id: nanoid(),

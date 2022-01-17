@@ -11,14 +11,14 @@
     "build": "rimraf ./expo_dist && tsc && vite build",
     "ci": "pnpm lint && pnpm build",
     "dev": "vite",
-    "fix-css": "npx stylelint . --fix",
-    "fix-js": "npx eslint ./components/**/*.{tsx,ts} --fix",
+    "fix-css": "stylelint . --fix",
+    "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
     "format": "prettier --write \"components/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "npx eslint \"components/**/*.{js,jsx,ts,tsx}\" && pnpm run lint:css && pnpm run prettier:check",
-    "lint:css": "npx stylelint ./components/**/*.scss",
+    "lint": "eslint \"components/**/*.{js,jsx,ts,tsx}\" && pnpm run lint:css && pnpm run prettier:check",
+    "lint:css": "stylelint ./components/**/*.scss",
     "prettier:check": "prettier --check \"components/**/*.{js,jsx,ts,tsx}\"",
     "serve": "vite preview",
-    "snyk": "npx snyk test"
+    "snyk": "snyk test"
   },
   "dependencies": {
     "@sentry/browser": "^6.16.1",

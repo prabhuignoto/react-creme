@@ -1,3 +1,8 @@
 App.tsx
 __tests__
 *.scss
+icons
+design
+dts
+temp
+typings

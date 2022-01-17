@@ -9,7 +9,7 @@ exports[`CheckboxGroup should match snapshot 1`] = `
     <div
       aria-checked="false"
       aria-labelledby="1"
-      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
+      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-focus rc-checkbox-hover"
       role="checkbox"
       tabindex="0"
     >
@@ -46,7 +46,7 @@ exports[`CheckboxGroup should match snapshot 1`] = `
     <div
       aria-checked="true"
       aria-labelledby="2"
-      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-hover rc-checkbox-focus"
+      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-focus rc-checkbox-hover"
       role="checkbox"
       tabindex="0"
     >
@@ -84,11 +84,11 @@ exports[`CheckboxGroup should match snapshot 1`] = `
       aria-checked="false"
       aria-disabled="true"
       aria-labelledby="3"
-      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-disabled rc-checkbox-hover rc-checkbox-focus"
+      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-disabled rc-checkbox-focus rc-checkbox-hover"
       role="checkbox"
     >
       <div
-        class="rc-checkbox rc-disabled rc-checkbox-sm"
+        class="rc-checkbox rc-checkbox-sm rc-disabled"
       >
         <span
           class="rc-checkbox-icon rc-checkbox-sm rc-checkbox-square"

@@ -20,16 +20,16 @@
   "scripts": {
     "build": "pnpm rollup",
     "ci": "pnpm lint && pnpm test -- --updateSnapshot --coverage",
-    "eslint": "npx eslint ./components/**/*.{tsx,ts}",
-    "fix-js": "npx eslint ./components/**/*.{tsx,ts} --fix",
-    "fix-css": "npx stylelint ./components/**/*.scss ./design/**/*.scss --fix",
+    "eslint": "eslint ./components/**/*.{tsx,ts}",
+    "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
+    "fix-css": "stylelint ./components/**/*.scss ./design/**/*.scss --fix",
     "format": "prettier --write \"components/**/*.{js,jsx,ts,tsx}\"",
     "lint": "pnpm eslint && pnpm lint:css && pnpm prettier:check",
-    "lint:css": "npx stylelint ./components/**/*.scss ./design/**/*.scss",
+    "lint:css": "stylelint ./components/**/*.scss ./design/**/*.scss",
     "prettier:check": "prettier --check \"components/**/*.{ts,tsx}\"",
     "rollup": "rimraf ./dist && rollup -c",
-    "snyk": "npx snyk test",
-    "test": "jest --runInBand --updateSnapshot"
+    "snyk": "snyk test",
+    "test": "jest --updateSnapshot --cache"
   },
   "dependencies": {
     "classnames": "^2.3.1",

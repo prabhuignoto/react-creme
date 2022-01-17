@@ -23,12 +23,12 @@
     "declarationDir": "dist",
     "types": [
       "react",
-      "react-dom"
+      "react-dom",
+      "jest"
     ],
   },
   "include": [
     "./components",
-    "./components/models"
   ],
   "exclude": [
     "./**/*.test.tsx",

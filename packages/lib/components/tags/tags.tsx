@@ -6,10 +6,10 @@ import '../../design/layout.scss';
 import '../../design/list.scss';
 import { AutoComplete } from '../auto-complete/auto-complete';
 import { TagItem } from './tag-item';
-import { TagItemInternalModel, TagsModel } from './tags-model';
+import { TagItemInternalProps, TagsProps } from './tags-model';
 import './tags.scss';
 
-const Tags: React.FunctionComponent<TagsModel> = ({
+const Tags: React.FunctionComponent<TagsProps> = ({
   disabled = false,
   items = [],
   maxTags = Number.MAX_VALUE,
@@ -26,7 +26,7 @@ const Tags: React.FunctionComponent<TagsModel> = ({
   focusable = false,
 }) => {
   // STATES
-  const [tagItems, setTagItems] = useState<TagItemInternalModel[]>(
+  const [tagItems, setTagItems] = useState<TagItemInternalProps[]>(
     items
       .map((item) => ({
         disabled: item.disabled,

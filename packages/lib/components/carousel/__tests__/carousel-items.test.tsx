@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import { CarouselItems } from '../carousel-items';
-import { CarouselItemModel } from './../carousel-model';
+import { CarouselItemProps } from './../carousel-model';
 
-const items: CarouselItemModel[] = [
+const items: CarouselItemProps[] = [
   {
     id: '234',
     height: 300,
