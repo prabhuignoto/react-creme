@@ -1,8 +1,8 @@
 import React, { CSSProperties, ReactNode, useMemo } from "react";
-import { CarouselItemsModel } from "./carousel-model";
+import { CarouselItemsProps } from "./carousel-model";
 import "./carousel.scss";
 
-const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
+const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
   activePage = 0,
   carouselItems,
   children,
@@ -10,7 +10,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
   height,
   totalItems,
   width,
-}: CarouselItemsModel) => {
+}: CarouselItemsProps) => {
   const carouselStyle = useMemo(() => {
     return {
       transform:

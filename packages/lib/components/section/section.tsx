@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import React, { CSSProperties, useMemo } from "react";
-import { SectionModel } from "./section-model";
+import { SectionProps } from "./section-model";
 import "./section.scss";
 
-const Section: React.FC<SectionModel> = ({
+const Section: React.FC<SectionProps> = ({
   children,
   title,
   height = 150,

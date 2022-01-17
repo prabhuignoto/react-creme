@@ -10,10 +10,10 @@ import { useDebouncedCallback } from "use-debounce";
 import { useDrag } from "../common/effects/useDrag";
 import { useFocus } from "../common/effects/useFocus";
 import { Tooltip } from "../tooltip/tooltip";
-import { SliderModel } from "./slider-model";
+import { SliderProps } from "./slider-model";
 import "./slider.scss";
 
-const Slider: React.FunctionComponent<SliderModel> = ({
+const Slider: React.FunctionComponent<SliderProps> = ({
   disableTooltip = false,
   disabled = false,
   end = 10,

@@ -12,7 +12,7 @@ export type ToolTipPosition =
   | "left bottom"
   | "right center";
 
-export interface TooltipModel {
+export interface TooltipProps {
   bgColor?: string;
   children: React.ReactNode[] | React.ReactNode;
   fixedAtCenter?: boolean;

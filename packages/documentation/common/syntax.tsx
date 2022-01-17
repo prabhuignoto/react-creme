@@ -8,7 +8,7 @@ const Code: React.FunctionComponent<{ children?: ReactNode }> = ({
   return (
     <SyntaxHighLighter
       code={reactElementToJSXString(children, {
-        maxInlineAttributesLineLength: 550,
+        maxInlineAttributesLineLength: 950,
         showDefaultProps: true,
         showFunctions: true,
         sortProps: true,

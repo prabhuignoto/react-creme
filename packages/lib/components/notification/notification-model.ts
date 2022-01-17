@@ -9,7 +9,7 @@ export type NotificationPosition =
   | "bottom-center"
   | "top-center";
 
-export interface NotificationModel extends OverlayModel {
+export interface NotificationProps extends OverlayModel {
   autoClose?: number;
   children: React.ReactNode[] | React.ReactNode;
   disableHeader?: boolean;

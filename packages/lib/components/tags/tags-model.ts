@@ -1,21 +1,21 @@
 import { CSSProperties } from "react";
 
-export interface TagItemModel {
+export interface TagItemProps {
   disabled?: boolean;
   name: string;
   readonly?: boolean;
 }
 
-export interface TagItemInternalModel extends TagItemModel {
+export interface TagItemInternalProps extends TagItemProps {
   id?: string;
   markedForRemoval?: boolean;
 }
-export interface TagsModel {
+export interface TagsProps {
   RTL?: boolean;
   autoComplete?: boolean;
   disabled?: boolean;
   focusable?: boolean;
-  items: TagItemModel[];
+  items: TagItemProps[];
   maxTags?: number;
   onChange?: (selected: string[]) => void;
   placeholder?: string;

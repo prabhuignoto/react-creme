@@ -14,13 +14,13 @@ export interface RateProps extends CommonProps {
   value?: 1 | 2 | 3 | 4 | 5;
 }
 
-export interface RateItemModel {
+export interface RateItemProps {
   active: boolean;
   hovered: boolean;
   id: string;
 }
 
-export interface RateItemViewModel extends CommonProps, RateItemModel {
+export interface RateItemViewProps extends CommonProps, RateItemProps {
   disabled?: boolean;
   index: number;
   onMouseOver: (idx: number) => void;

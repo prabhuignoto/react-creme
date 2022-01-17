@@ -5,7 +5,7 @@ import { useDebouncedCallback } from "use-debounce";
 import RateIcon from "../../icons/star";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { RateItem } from "./rate-item";
-import { RateItemModel, RateProps } from "./rate-model";
+import { RateItemProps, RateProps } from "./rate-model";
 import "./rate.scss";
 
 const Rate: React.FunctionComponent<RateProps> = ({
@@ -18,7 +18,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
   value = 0,
   disabled = false,
 }) => {
-  const [items, setItems] = React.useState<RateItemModel[]>(
+  const [items, setItems] = React.useState<RateItemProps[]>(
     Array.from({ length: iconCount }).map(() => ({
       active: false,
       hovered: false,

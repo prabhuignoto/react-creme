@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface CarouselModel {
+export interface CarouselProps {
   autoPlay?: number;
   children: React.ReactNode | React.ReactNode;
   direction?: "horizontal" | "vertical";
@@ -10,7 +10,7 @@ export interface CarouselModel {
   transition?: string;
 }
 
-export interface CarouselItemModel {
+export interface CarouselItemProps {
   height: number;
   id: string;
   left?: string;
@@ -19,9 +19,9 @@ export interface CarouselItemModel {
   width: number;
 }
 
-export interface CarouselItemsModel {
+export interface CarouselItemsProps {
   activePage: number;
-  carouselItems: CarouselItemModel[];
+  carouselItems: CarouselItemProps[];
   children: React.ReactNode[] | React.ReactNode;
   direction: "horizontal" | "vertical";
   height: number;
@@ -29,7 +29,7 @@ export interface CarouselItemsModel {
   width: number;
 }
 
-export interface CarouselTrackModel {
+export interface CarouselTrackProps {
   activeIndex: number;
   direction: "horizontal" | "vertical";
   focusable?: boolean;
@@ -41,7 +41,7 @@ export interface CarouselTrackModel {
   onPrevious: () => void;
 }
 
-export interface CarouselButtonModel {
+export interface CarouselButtonProps {
   direction: "horizontal" | "vertical";
   focusable?: boolean;
   hide?: boolean;

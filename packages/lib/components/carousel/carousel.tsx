@@ -13,11 +13,11 @@ import ResizeObserver from "resize-observer-polyfill";
 import { useDebounce } from "use-debounce";
 import useSwipe from "../common/effects/useSwipe";
 import { CarouselItems } from "./carousel-items";
-import { CarouselItemModel, CarouselModel } from "./carousel-model";
+import { CarouselItemProps, CarouselProps } from "./carousel-model";
 import { CarouselTrack } from "./carousel-track";
 import "./carousel.scss";
 
-const Carousel: React.FunctionComponent<CarouselModel> = ({
+const Carousel: React.FunctionComponent<CarouselProps> = ({
   autoPlay = 0,
   children,
   direction = "horizontal",
@@ -27,7 +27,7 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   focusable = false,
 }) => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
-  const [carouselItems, setCarouselItems] = useState<CarouselItemModel[]>(
+  const [carouselItems, setCarouselItems] = useState<CarouselItemProps[]>(
     Array.isArray(children)
       ? children.map(() => ({
           height: 0,

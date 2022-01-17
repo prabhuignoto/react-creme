@@ -9,10 +9,10 @@ import React, {
 } from "react";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { usePosition } from "../common/effects/usePosition";
-import { TooltipModel } from "./tooltip-model";
+import { TooltipProps } from "./tooltip-model";
 import "./tooltip.scss";
 
-const Tooltip: React.FunctionComponent<TooltipModel> = ({
+const Tooltip: React.FunctionComponent<TooltipProps> = ({
   children,
   fixedAtCenter = false,
   isStatic = false,
@@ -23,7 +23,7 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   maxWidth = 300,
   bgColor = "#fff",
   foreColor = "#000",
-}: TooltipModel) => {
+}: TooltipProps) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
 

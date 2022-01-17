@@ -1,4 +1,4 @@
-export interface SliderModel {
+export interface SliderProps {
   // disables the tooltip
   disableTooltip?: boolean;
 

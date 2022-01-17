@@ -13,15 +13,15 @@ import { useFocus } from "../common/effects/useFocus";
 import { OverlayModel } from "../common/overlay-model";
 import { withOverlay } from "../common/withOverlay";
 import { MenuItem } from "./menu-item";
-import { MenuItemModel, MenuModel } from "./menu-model";
+import { MenuItemProps, MenuProps } from "./menu-model";
 import "./menu.scss";
 
-interface MenuInternalModel extends OverlayModel {
-  items: MenuItemModel[];
+interface MenuInternalProps extends OverlayModel {
+  items: MenuItemProps[];
   onSelection?: (val: string) => void;
 }
 
-const Menu: React.FunctionComponent<MenuInternalModel> = ({
+const Menu: React.FunctionComponent<MenuInternalProps> = ({
   items,
   onSelection,
 }) => {
@@ -41,12 +41,12 @@ const Menu: React.FunctionComponent<MenuInternalModel> = ({
   );
 };
 
-const MenuOverlay = withOverlay<MenuInternalModel>(Menu, {
+const MenuOverlay = withOverlay<MenuInternalProps>(Menu, {
   backdropColor: "transparent",
   placement: "bottom",
 });
 
-const MenuContainer: React.FunctionComponent<MenuModel> = ({
+const MenuContainer: React.FunctionComponent<MenuProps> = ({
   children,
   id,
   items = [],
@@ -56,8 +56,8 @@ const MenuContainer: React.FunctionComponent<MenuModel> = ({
   position = "left",
   focusable = true,
   style,
-}: MenuModel) => {
-  const [menuItems] = useState<MenuItemModel[]>(
+}: MenuProps) => {
+  const [menuItems] = useState<MenuItemProps[]>(
     items.map((item) => ({
       id: nanoid(),
       ...item,

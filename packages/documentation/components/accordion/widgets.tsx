@@ -31,7 +31,7 @@ function widgets() {
         <Section title="Default render">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Accordion title="Lorem Ipsum">
+              <Accordion title="Lorem Ipsum" focusable>
                 <p>
                   Sed laoreet neque eget sem varius, et interdum dui venenatis.
                   Suspendisse in faucibus tortor, nec aliquet arcu. Quisque at

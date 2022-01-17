@@ -9,10 +9,10 @@ import React, {
 } from "react";
 import { useFirstRender } from "../common/effects/useFirstRender";
 import { Radio } from "../radio/radio";
-import { RadioGroupItemModel, RadioGroupModel } from "./radio-group-model";
+import { RadioGroupItemProps, RadioGroupProps } from "./radio-group-model";
 import "./radio-group.scss";
 
-const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
+const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   items,
   disabled,
   onSelected,
@@ -21,7 +21,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupModel> = ({
   RTL = false,
   focusable = false,
 }) => {
-  const [_items, setItems] = useState<RadioGroupItemModel[]>(
+  const [_items, setItems] = useState<RadioGroupItemProps[]>(
     Array.isArray(items)
       ? items.map((item) => ({
           id: nanoid(),

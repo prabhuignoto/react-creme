@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import React, { CSSProperties, FunctionComponent, useMemo } from "react";
-import { SkeletonRowModel } from "./skeleton-model";
+import { SkeletonRowProps } from "./skeleton-model";
 
 const SkeletonRow: FunctionComponent<
-  SkeletonRowModel & { animate?: boolean; rowHeight?: number }
+  SkeletonRowProps & { animate?: boolean; rowHeight?: number }
 > = ({ id, visible, width, animate, rowHeight, disableAnimation }) => {
   const skeletonRowClass = useMemo(
     () =>

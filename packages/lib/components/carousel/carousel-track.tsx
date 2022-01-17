@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import React, { useMemo } from "react";
 import { CarouselButton } from "./carousel-button";
-import { CarouselTrackModel } from "./carousel-model";
+import { CarouselTrackProps } from "./carousel-model";
 import "./carousel-track.scss";
 
-const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
+const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
   length,
   handleSelection,
   activeIndex,
@@ -14,7 +14,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackModel> = ({
   hidePrevious,
   hideNext,
   focusable,
-}: CarouselTrackModel) => {
+}: CarouselTrackProps) => {
   const carouselTrackClass = useMemo(
     () => classNames(["rc-carousel-track", `rc-carousel-track-${direction}`]),
     []

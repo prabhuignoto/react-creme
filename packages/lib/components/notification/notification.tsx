@@ -5,10 +5,10 @@ import { Button } from "../button/button";
 import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
 import useSwipe from "../common/effects/useSwipe";
 import { withOverlay } from "../common/withOverlay";
-import { NotificationModel } from "./notification-model";
+import { NotificationProps } from "./notification-model";
 import "./notification.scss";
 
-const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
+const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   autoClose,
   children,
   height = 150,
@@ -89,7 +89,7 @@ const NotificationComponent: React.FunctionComponent<NotificationModel> = ({
   );
 };
 
-const Notification = withOverlay<NotificationModel>(NotificationComponent, {
+const Notification = withOverlay<NotificationProps>(NotificationComponent, {
   backdropColor: "transparent",
 });
 

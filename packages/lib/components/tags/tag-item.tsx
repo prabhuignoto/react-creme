@@ -11,10 +11,10 @@ import { useFirstRender } from "../common/effects/useFirstRender";
 import { useFocus } from "../common/effects/useFocus";
 // import { useFocus } from "../common/effects/useFocus";
 import { useKey } from "../common/effects/useKey";
-import { TagItemInternalModel } from "./tags-model";
+import { TagItemInternalProps } from "./tags-model";
 import "./tags.scss";
 
-type TagItemViewModel = TagItemInternalModel & {
+type TagItemViewProps = TagItemInternalProps & {
   focusable?: boolean;
   handleRemove: (id: string) => void;
   tagSize?: "small" | "large";
@@ -22,7 +22,7 @@ type TagItemViewModel = TagItemInternalModel & {
   width?: number;
 };
 
-const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
+const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
   ({
     id,
     name,
@@ -34,7 +34,7 @@ const TagItem: FunctionComponent<TagItemViewModel> = React.memo(
     tagSize,
     markedForRemoval,
     focusable,
-  }: TagItemViewModel) => {
+  }: TagItemViewProps) => {
     const ref = useRef(null);
 
     const isFirstRender = useFirstRender();

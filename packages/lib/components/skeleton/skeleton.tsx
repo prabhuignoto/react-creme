@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 import React, { FunctionComponent, useCallback, useState } from "react";
-import { SkeletonBlockModel, SkeletonModel } from "./skeleton-model";
+import { SkeletonBlockProps, SkeletonProps } from "./skeleton-model";
 import { SkeletonRow } from "./skeleton-row";
 import "./skeleton.scss";
 
-const Skeleton: FunctionComponent<SkeletonModel> = ({
+const Skeleton: FunctionComponent<SkeletonProps> = ({
   rows = 4,
   rowHeight = 10,
   blocks = 1,
@@ -14,7 +14,7 @@ const Skeleton: FunctionComponent<SkeletonModel> = ({
   style,
   RTL = false,
 }) => {
-  const [skeletonBlocks, setSkeletonBlocks] = useState<SkeletonBlockModel[]>(
+  const [skeletonBlocks, setSkeletonBlocks] = useState<SkeletonBlockProps[]>(
     Array.from({ length: blocks }).map(() => ({
       id: nanoid(),
       rows: Array.from({ length: rows }).map(() => ({

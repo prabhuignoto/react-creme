@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import React, { useMemo, useRef } from "react";
-import { CardModel } from "./card-model";
+import { CardProps } from "./card-model";
 import "./card.scss";
 
-const Card: React.FunctionComponent<CardModel> = ({
+const Card: React.FunctionComponent<CardProps> = ({
   alignFooter = "left",
   alignHeader = "left",
   border = false,

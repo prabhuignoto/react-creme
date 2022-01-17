@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface SectionModel {
+export interface SectionProps {
   RTL?: boolean;
   children: React.ReactNode | React.ReactNode[];
   height?: number;

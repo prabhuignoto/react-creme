@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export interface CardModel {
+export interface CardProps {
   alignFooter?: "left" | "center" | "right";
   alignHeader?: "left" | "center" | "right";
   border?: boolean;

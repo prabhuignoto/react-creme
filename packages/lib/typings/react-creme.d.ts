@@ -119,9 +119,9 @@ export declare interface ButtonModel {
     focusable?: boolean;
 }
 
-export declare const Card: React_2.FunctionComponent<CardModel>;
+export declare const Card: React_2.FunctionComponent<CardProps>;
 
-export declare interface CardModel {
+export declare interface CardProps {
     header?: ReactNode;
     footer?: ReactNode;
     minHeight?: number;

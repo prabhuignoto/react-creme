@@ -11,13 +11,13 @@ import React, {
 import { ChevronRightIcon, MinusIcon, PlusIcon } from "../../icons";
 import { CheckBox } from "../checkbox/checkbox";
 import "./tree-item.scss";
-import { TreeItemModel } from "./tree-model";
+import { TreeItemProps } from "./tree-model";
 
 const LazyTree = React.lazy(() =>
   import("./tree").then(({ Tree }) => ({ default: Tree }))
 );
 
-const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
+const TreeItem: React.FunctionComponent<TreeItemProps> = React.memo(
   ({
     child,
     expanded,
@@ -31,7 +31,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     onChange,
     disabled,
     iconType,
-  }: TreeItemModel) => {
+  }: TreeItemProps) => {
     const isFirstRender = useRef(true);
     const [totalItems, setTotalItems] = useState(
       Array.isArray(child) ? child.length + 1 : 0

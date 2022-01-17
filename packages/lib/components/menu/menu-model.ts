@@ -1,10 +1,10 @@
 import React, { CSSProperties } from "react";
-export interface MenuModel {
+export interface MenuProps {
   children: React.ReactNode;
   focusable?: boolean;
   id?: string;
   isClosing?: boolean;
-  items: MenuItemModel[];
+  items: MenuItemProps[];
   onClose?: (id?: string) => void;
   onOpen?: (id?: string) => void;
   onSelected?: (val: string) => void;
@@ -12,7 +12,7 @@ export interface MenuModel {
   style?: CSSProperties;
 }
 
-export interface MenuItemModel {
+export interface MenuItemProps {
   disabled?: boolean;
   id?: string;
   isDivider?: boolean;
