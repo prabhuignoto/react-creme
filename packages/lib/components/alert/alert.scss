@@ -1,6 +1,7 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
 @use "../../design/icon.scss";
+@use "../../design/animate.scss";
 
 .rc-alert {
   @extend %border-radius;
@@ -70,6 +71,7 @@
 
 .rc-alert-close-btn {
   @extend %icon-lg;
+  @include animate.halo();
   align-self: flex-start;
   cursor: pointer;
   margin-top: 0.5rem;

@@ -1,6 +1,7 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/icon.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/icon.scss';
+@use '../../design/animate.scss';
 
 .rc-global-notification {
   @extend %center;
@@ -64,6 +65,7 @@
 
 .rc-global-notification-close-btn {
   @extend %center;
+  @include animate.halo();
   color: #fff;
   cursor: pointer;
   display: block;

@@ -4,9 +4,11 @@ import React, {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import { CloseIcon } from '../../icons';
+import { useFocus } from '../common/effects/useFocus';
 import './global-notification.scss';
 
 export type GlobalNotificationState = 'success' | 'error' | 'warning' | 'info';
@@ -14,6 +16,7 @@ export type GlobalNotificationState = 'success' | 'error' | 'warning' | 'info';
 export interface GlobalNotificationProps {
   closeAfter?: number;
   delay?: number;
+  focusable?: boolean;
   height?: number;
   hideAnimationStyle?: 'hide' | 'shrink';
   message: string;
@@ -29,8 +32,15 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   state = 'info',
   onClose,
   hideAnimationStyle = 'hide',
+  focusable = true,
 }) => {
   const [open, setOpen] = useState(false);
+
+  const btnCloseRef = useRef<HTMLSpanElement>(null);
+
+  if (focusable) {
+    useFocus(btnCloseRef, () => setOpen(false));
+  }
 
   useEffect(() => {
     setTimeout(() => setOpen(true), delay);
@@ -76,6 +86,8 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
         className="rc-global-notification-close-btn"
         onClick={handleClose}
         role="button"
+        ref={btnCloseRef}
+        tabIndex={focusable ? 0 : -1}
       >
         {open && <CloseIcon />}
       </span>

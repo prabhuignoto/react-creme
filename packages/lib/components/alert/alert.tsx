@@ -7,6 +7,7 @@ import {
   InfoIcon,
   WarningIcon,
 } from '../../icons';
+import { useFocus } from '../common/effects/useFocus';
 import { AlertProps } from './alert-model';
 import './alert.scss';
 
@@ -18,8 +19,15 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   onDismiss,
   children,
   RTL = false,
+  focusable = true,
 }) => {
   const [close, setClose] = React.useState(false);
+
+  const btnCloseRef = React.useRef<HTMLSpanElement>(null);
+
+  if (focusable) {
+    useFocus(btnCloseRef, () => setClose(true));
+  }
 
   const style = useMemo(
     () =>
@@ -71,7 +79,9 @@ const Alert: React.FunctionComponent<AlertProps> = ({
         <span
           className="rc-alert-close-btn"
           role="button"
+          ref={btnCloseRef}
           onClick={handleClose}
+          tabIndex={focusable ? 0 : -1}
         >
           <CloseIcon />
         </span>
