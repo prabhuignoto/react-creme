@@ -1,6 +1,6 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
-export interface SwitchModel {
+export interface SwitchProps {
   checked?: boolean;
   disabled?: boolean;
   focusable?: boolean;
@@ -8,7 +8,7 @@ export interface SwitchModel {
   labelOutside?: boolean;
   onChange?: (val: boolean) => void;
   showCheckIcon?: boolean;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;
   width?: number;
 }

@@ -1,19 +1,19 @@
-import React, { CSSProperties, useLayoutEffect } from "react";
-import { Image, Reveal } from "../../../lib/components";
-import useMedia from "../../common/useMedia";
+import React, { CSSProperties, useLayoutEffect } from 'react';
+import { Image, Reveal } from '../../../lib/components';
+import useMedia from '../../common/useMedia';
 const blankStyle = {
-  alignItems: "flex-start",
-  display: "flex",
-  fontSize: "1.2rem",
-  justifyContent: "center",
-  minHeight: "1200px",
-  paddingTop: "200px",
+  alignItems: 'flex-start',
+  display: 'flex',
+  fontSize: '1.2rem',
+  justifyContent: 'center',
+  minHeight: '1200px',
+  paddingTop: '200px',
 } as CSSProperties;
 
 const imageWrapStyle = {
-  display: "flex",
-  margin: "0 auto",
-  width: "450px",
+  display: 'flex',
+  margin: '0 auto',
+  width: '450px',
 } as CSSProperties;
 
 function widgets() {
@@ -44,11 +44,11 @@ function widgets() {
       <div className="rc-demo-widget" ref={ref}>
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            height: "750px",
-            overflowX: "hidden",
-            overflowY: "auto",
+            display: 'flex',
+            flexDirection: 'column',
+            height: '750px',
+            overflowX: 'hidden',
+            overflowY: 'auto',
             width: `${width}px`,
           }}
         >

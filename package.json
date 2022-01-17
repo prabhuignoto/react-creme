@@ -23,6 +23,7 @@
     "lint-staged": "^12.1.7",
     "postcss": "^8.4.5",
     "postcss-scss": "^4.0.3",
+    "prettier": "^2.5.1",
     "snyk": "^1.828.0",
     "stylelint": "14.2.0",
     "stylelint-config-prettier": "^9.0.3",
@@ -58,7 +59,12 @@
           "expo_dist"
         ]
       },
-      "test": {},
+      "test": {
+        "outputs": [
+          "coverage",
+          ".jest-cache"
+        ]
+      },
       "dev": {
         "outputs": [
           ".vite_cache"

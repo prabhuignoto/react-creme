@@ -1,5 +1,5 @@
-import React, { lazy } from "react";
-import DemoPageRenderer from "../../common/demo-page-renderer";
+import React, { lazy } from 'react';
+import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function checkbox() {
   return (
@@ -9,67 +9,67 @@ function checkbox() {
       Each checkbox is independent of all other checkboxes in the list, and checking one box doesn’t uncheck the others.`}
       callbacks={[
         {
-          default: "",
+          default: '',
           description: `Callback fired when the state changes`,
-          name: "onChange",
-          optional: "Yes",
-          type: "Function",
+          name: 'onChange',
+          optional: 'Yes',
+          type: 'Function',
         },
       ]}
       properties={[
         {
           default: `""`,
           description: `label for the checkbox`,
-          name: "label",
-          optional: "Yes",
-          type: "String",
+          name: 'label',
+          optional: 'Yes',
+          type: 'String',
         },
         {
-          default: "False",
+          default: 'False',
           description: `disables the button`,
-          name: "disabled",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'disabled',
+          optional: 'Yes',
+          type: 'Boolean',
         },
         {
-          default: "sm",
+          default: 'sm',
           description: `sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
-          name: "size",
-          optional: "Yes",
-          type: "String",
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
         },
         {
-          default: "{}",
+          default: '{}',
           description: `any custom CSS`,
-          name: "style",
-          optional: "Yes",
-          type: "Object",
+          name: 'style',
+          optional: 'Yes',
+          type: 'Object',
         },
         {
-          default: "False",
+          default: 'False',
           description: `makes the component focusable via keyboard`,
-          name: "focusable",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'focusable',
+          optional: 'Yes',
+          type: 'Boolean',
         },
         {
-          default: "true",
+          default: 'true',
           description: `prop for disabling the button border`,
-          name: "border",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'border',
+          optional: 'Yes',
+          type: 'Boolean',
         },
         {
-          default: "False",
+          default: 'False',
           description: `prop to set the checkbox to checked state on load`,
-          name: "isChecked",
-          optional: "Yes",
-          type: "Boolean",
+          name: 'isChecked',
+          optional: 'Yes',
+          type: 'Boolean',
         },
       ]}
-      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
-      stackBlitzCodes={["react-ts-wrjrdy"]}
-      demoWidget={lazy(() => import("./widgets"))}
+      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      stackBlitzCodes={['react-ts-wrjrdy']}
+      demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>
   );
 }

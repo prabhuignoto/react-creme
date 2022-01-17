@@ -1,41 +1,41 @@
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
-import React from "react";
-import { Tree } from "../tree";
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import React from 'react';
+import { Tree } from '../tree';
 
 const items = [
   {
-    name: "Edit",
+    name: 'Edit',
     child: [
-      { name: "Copy" },
+      { name: 'Copy' },
       {
-        name: "Paste",
-        child: [{ name: "Paste Image" }, { name: "Paste Doc" }],
+        name: 'Paste',
+        child: [{ name: 'Paste Image' }, { name: 'Paste Doc' }],
       },
     ],
   },
   {
-    name: "Explorer",
-    child: [{ name: "search" }, { name: "replace" }, { name: "copy" }],
+    name: 'Explorer',
+    child: [{ name: 'search' }, { name: 'replace' }, { name: 'copy' }],
   },
 ];
 
-describe("Tree", () => {
-  it("should render Tree", () => {
+describe('Tree', () => {
+  it('should render Tree', () => {
     const { getByRole, getByText, getAllByRole } = render(
       <Tree items={items} />
     );
 
-    expect(getByRole("tree")).toBeInTheDocument();
+    expect(getByRole('tree')).toBeInTheDocument();
 
-    expect(getByText("Explorer")).toBeInTheDocument();
+    expect(getByText('Explorer')).toBeInTheDocument();
 
-    expect(getAllByRole("treeitem")).toHaveLength(2);
+    expect(getAllByRole('treeitem')).toHaveLength(2);
   });
 
-  it("should render expand and collapse tree", async () => {
+  it('should render expand and collapse tree', async () => {
     const { getAllByRole, getByText } = render(<Tree items={items} />);
 
-    const target = getAllByRole("treeitem")[1].firstChild;
+    const target = getAllByRole('treeitem')[1].firstChild;
 
     if (target) {
       await act(async () => {
@@ -44,7 +44,7 @@ describe("Tree", () => {
 
       await waitFor(
         async () => {
-          expect(getByText("replace")).toBeInTheDocument();
+          expect(getByText('replace')).toBeInTheDocument();
         },
         { timeout: 1500 }
       );

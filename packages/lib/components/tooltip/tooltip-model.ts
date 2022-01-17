@@ -1,18 +1,18 @@
-import React, { RefObject } from "react";
+import React, { RefObject } from 'react';
 
 export type ToolTipPosition =
-  | "top left"
-  | "top right"
-  | "top center"
-  | "bottom center"
-  | "bottom left"
-  | "bottom right"
-  | "left center"
-  | "left top"
-  | "left bottom"
-  | "right center";
+  | 'top left'
+  | 'top right'
+  | 'top center'
+  | 'bottom center'
+  | 'bottom left'
+  | 'bottom right'
+  | 'left center'
+  | 'left top'
+  | 'left bottom'
+  | 'right center';
 
-export interface TooltipModel {
+export interface TooltipProps {
   bgColor?: string;
   children: React.ReactNode[] | React.ReactNode;
   fixedAtCenter?: boolean;

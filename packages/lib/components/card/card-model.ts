@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
-export interface CardModel {
-  alignFooter?: "left" | "center" | "right";
-  alignHeader?: "left" | "center" | "right";
+export interface CardProps {
+  alignFooter?: 'left' | 'center' | 'right';
+  alignHeader?: 'left' | 'center' | 'right';
   border?: boolean;
   children?: ReactNode | ReactNode[];
   footer?: ReactNode;

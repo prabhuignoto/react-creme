@@ -1,7 +1,7 @@
-import React from "react";
-import { CheckCircleIcon } from "../../../lib/icons";
-import { BlockQuote, Button, Menu, Section } from "../../../lib/components";
-import { DemoWidget } from "../../common/demo-widget";
+import React from 'react';
+import { CheckCircleIcon } from '../../../lib/icons';
+import { BlockQuote, Button, Menu, Section } from '../../../lib/components';
+import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
   return (
@@ -11,14 +11,14 @@ function Widgets() {
           The example below shows a menu attached to a button.
         </BlockQuote>
         <DemoWidget>
-          <div style={{ width: "100px" }}>
+          <div style={{ width: '100px' }}>
             <Menu
               position="left"
               items={[
-                { name: "Open" },
-                { name: "Save As" },
-                { name: "Close" },
-                { name: "Exit" },
+                { name: 'Open' },
+                { name: 'Save As' },
+                { name: 'Close' },
+                { name: 'Exit' },
               ]}
               focusable={false}
             >
@@ -34,13 +34,13 @@ function Widgets() {
           to the center of the icon.
         </BlockQuote>
         <DemoWidget>
-          <div style={{ width: "100px" }}>
+          <div style={{ width: '100px' }}>
             <Menu
               items={[
-                { name: "Open" },
-                { name: "Save As" },
-                { name: "Close" },
-                { name: "Exit" },
+                { name: 'Open' },
+                { name: 'Save As' },
+                { name: 'Close' },
+                { name: 'Exit' },
               ]}
               focusable={false}
             >
@@ -56,14 +56,14 @@ function Widgets() {
           The example below shows a menu attached to a native element (button).
         </BlockQuote>
         <DemoWidget>
-          <div style={{ width: "100px" }}>
+          <div style={{ width: '100px' }}>
             <Menu
               position="right"
               items={[
-                { name: "Open" },
-                { name: "Save As" },
-                { name: "Close" },
-                { name: "Exit" },
+                { name: 'Open' },
+                { name: 'Save As' },
+                { name: 'Close' },
+                { name: 'Exit' },
               ]}
               focusable={false}
             >

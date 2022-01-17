@@ -1,5 +1,5 @@
 export function isUndefined(value: any): boolean {
-  return typeof value === "undefined";
+  return typeof value === 'undefined';
 }
 
 export function isArray(value: any): boolean {
@@ -9,19 +9,19 @@ export function isArray(value: any): boolean {
 export default function isTouchDevice() {
   return (
     !!(
-      typeof window !== "undefined" &&
-      ("ontouchstart" in window ||
+      typeof window !== 'undefined' &&
+      ('ontouchstart' in window ||
         ((window as any).DocumentTouch &&
-          typeof document !== "undefined" &&
+          typeof document !== 'undefined' &&
           document instanceof (window as any).DocumentTouch))
     ) ||
     !!(
-      typeof navigator !== "undefined" &&
+      typeof navigator !== 'undefined' &&
       (navigator.maxTouchPoints || (navigator as any).msMaxTouchPoints)
     )
   );
 }
 
 export function isValidString(value: any): boolean {
-  return typeof value === "string" && !isUndefined(value) && value !== null;
+  return typeof value === 'string' && !isUndefined(value) && value !== null;
 }

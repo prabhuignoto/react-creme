@@ -1,21 +1,21 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   CSSProperties,
   useCallback,
   useEffect,
   useMemo,
   useState,
-} from "react";
-import { CloseIcon } from "../../icons";
-import "./global-notification.scss";
+} from 'react';
+import { CloseIcon } from '../../icons';
+import './global-notification.scss';
 
-export type GlobalNotificationState = "success" | "error" | "warning" | "info";
+export type GlobalNotificationState = 'success' | 'error' | 'warning' | 'info';
 
 export interface GlobalNotificationProps {
   closeAfter?: number;
   delay?: number;
   height?: number;
-  hideAnimationStyle?: "hide" | "shrink";
+  hideAnimationStyle?: 'hide' | 'shrink';
   message: string;
   onClose?: () => void;
   state?: GlobalNotificationState;
@@ -26,9 +26,9 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   delay = 0,
   closeAfter = 3000,
   message,
-  state = "info",
+  state = 'info',
   onClose,
-  hideAnimationStyle = "hide",
+  hideAnimationStyle = 'hide',
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -47,9 +47,9 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
 
   const globalNotificationClass = useMemo(
     () =>
-      classNames("rc-global-notification", {
-        "rc-global-notification-close": !open,
-        "rc-global-notification-open": open,
+      classNames('rc-global-notification', {
+        'rc-global-notification-close': !open,
+        'rc-global-notification-open': open,
         [`rc-global-notification-${state}`]: true,
         [`rc-global-notification-animation-${hideAnimationStyle}`]: true,
       }),
@@ -59,7 +59,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   const style = useMemo(
     () =>
       ({
-        "--height": `${height}px`,
+        '--height': `${height}px`,
       } as CSSProperties),
     []
   );

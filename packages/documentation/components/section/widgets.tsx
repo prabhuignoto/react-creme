@@ -1,6 +1,6 @@
-import React from "react";
-import { Section } from "../../../lib/components";
-import { DemoWidget } from "../../common/demo-widget";
+import React from 'react';
+import { Section } from '../../../lib/components';
+import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
   return (

@@ -1,22 +1,22 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   CSSProperties,
   useCallback,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { ProgressModel } from "./progress-model";
-import "./progress.scss";
+} from 'react';
+import { ProgressProps } from './progress-model';
+import './progress.scss';
 
-const Progress: React.FunctionComponent<ProgressModel> = ({
+const Progress: React.FunctionComponent<ProgressProps> = ({
   currentValue = 0,
-  infiniteStyle = "disappear",
+  infiniteStyle = 'disappear',
   maxValue = 100,
   showProgressValue = false,
-  size = "md",
-  status = "default",
-  type = "progressive",
+  size = 'md',
+  status = 'default',
+  type = 'progressive',
   width = 250,
   RTL = false,
 }) => {
@@ -37,8 +37,8 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
     () =>
       showProgressValue &&
       progressPercentValue !== 0 &&
-      type !== "infinite" &&
-      size !== "sm",
+      type !== 'infinite' &&
+      size !== 'sm',
     [progressPercentValue]
   );
 
@@ -53,7 +53,7 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
   const fillStyle = useMemo(
     () =>
       ({
-        "--width": type === "progressive" ? `${fillWidth}px` : "50%",
+        '--width': type === 'progressive' ? `${fillWidth}px` : '50%',
       } as CSSProperties),
     [fillWidth]
   );
@@ -67,10 +67,10 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
     () =>
       classNames(
         [
-          "rc-progress-fill",
+          'rc-progress-fill',
           type,
           infiniteStyle,
-          progressComplete ? "complete" : "",
+          progressComplete ? 'complete' : '',
         ],
         {
           [`rc-progress-fill-${status}`]: true,
@@ -82,16 +82,16 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
   const wrapperStyle = useMemo(
     () =>
       ({
-        "--height":
-          size === "lg" ? `${40}px` : size === "md" ? `${20}px` : `${10}px`,
-        "--width": `${width}px`,
+        '--height':
+          size === 'lg' ? `${40}px` : size === 'md' ? `${20}px` : `${10}px`,
+        '--width': `${width}px`,
       } as CSSProperties),
     []
   );
 
   const wrapperClass = useMemo(
     () =>
-      classNames("rc-progress-wrapper", {
+      classNames('rc-progress-wrapper', {
         [`rc-progress-${status}`]: true,
       }),
     [status]
@@ -99,9 +99,9 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
 
   const progressTrackClass = useMemo(
     () =>
-      classNames("rc-progress-track", {
+      classNames('rc-progress-track', {
         [`rc-progress-track-${status}`]: true,
-        "rc-progress-track-rtl": RTL,
+        'rc-progress-track-rtl': RTL,
       }),
     [status]
   );
@@ -109,7 +109,7 @@ const Progress: React.FunctionComponent<ProgressModel> = ({
   const progressPercentValClass = useMemo(
     () =>
       classNames(
-        "rc-progress-percent-value",
+        'rc-progress-percent-value',
         `rc-progress-percent-value-${size}`
       ),
     []

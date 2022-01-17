@@ -1,10 +1,10 @@
-import React, { CSSProperties, useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { Radio, Section } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { CSSProperties, useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { Radio, Section } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 const style: CSSProperties = {
-  minWidth: "50px",
+  minWidth: '50px',
 };
 
 function widgets() {

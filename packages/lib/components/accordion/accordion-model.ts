@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export interface AccordionModel extends AccordionCommon {
   alignIconRight?: boolean;
@@ -16,7 +16,7 @@ export interface AccordionGroupProps extends AccordionCommon {
   border?: boolean;
   children: ReactNode[];
   expanded?: boolean;
-  iconType?: "chevron" | "plus";
+  iconType?: 'chevron' | 'plus';
   titles?: string[];
 }
 
@@ -40,7 +40,7 @@ export interface AccordionCommon {
   disableIcon?: boolean;
   focusable?: boolean;
   iconColor?: string;
-  iconType?: "chevron" | "plus";
+  iconType?: 'chevron' | 'plus';
   isTitleBold?: boolean;
   title?: string;
   titleColor?: string;

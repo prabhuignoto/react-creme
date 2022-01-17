@@ -1,22 +1,22 @@
-import { nanoid } from "nanoid";
+import { nanoid } from 'nanoid';
 import React, {
   CSSProperties,
   useCallback,
   useEffect,
   useMemo,
   useRef,
-} from "react";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { OverlayModel } from "../common/overlay-model";
-import { isValidString } from "../common/utils";
-import { withOverlay } from "../common/withOverlay";
-import { Option } from "../dropdown/dropdown-model";
-import { Input } from "../input/input";
-import { List } from "../list/list";
-import { ListOption } from "../list/list-model";
-import { AutoCompleteProps } from "./auto-complete.model";
-import "./auto-complete.scss";
-import "../input/input.scss";
+} from 'react';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { OverlayModel } from '../common/overlay-model';
+import { isValidString } from '../common/utils';
+import { withOverlay } from '../common/withOverlay';
+import { Option } from '../dropdown/dropdown-model';
+import { Input } from '../input/input';
+import { List } from '../list/list';
+import { ListOption } from '../list/list-model';
+import { AutoCompleteProps } from './auto-complete.model';
+import './auto-complete.scss';
+import '../input/input.scss';
 
 interface SuggestionsOverlayModel extends OverlayModel {
   id?: string;
@@ -35,7 +35,7 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
     () =>
       width
         ? ({
-            "--suggestions-width": `${width}px`,
+            '--suggestions-width': `${width}px`,
           } as CSSProperties)
         : {},
     [width]
@@ -56,14 +56,14 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
 
 const SuggestionsMenuOverlay = withOverlay<SuggestionsOverlayModel>(
   SuggestionsMenu,
-  { disableBackdrop: true, placement: "bottom" }
+  { disableBackdrop: true, placement: 'bottom' }
 );
 
 const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   onChange,
   onKeyUp,
   onSelection,
-  placeholder = "",
+  placeholder = '',
   suggestions,
   suggestionsWidth,
   value,
@@ -82,11 +82,11 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   const rootRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const [input, setInput] = React.useState<string | undefined>("");
+  const [input, setInput] = React.useState<string | undefined>('');
   const [selected, setSelected] = React.useState<Boolean>(false);
 
   const regexTester = useMemo(
-    () => input && new RegExp(`^${input.trim()}`, "i"),
+    () => input && new RegExp(`^${input.trim()}`, 'i'),
     [input]
   );
 

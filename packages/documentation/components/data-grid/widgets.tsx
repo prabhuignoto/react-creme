@@ -1,41 +1,41 @@
-import React, { useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, DataGrid, Section } from "../../../lib/components";
-import { DataGridColumn } from "../../../lib/components/data-grid/data-grid-model";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, DataGrid, Section } from '../../../lib/components';
+import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 const data = [
   {
     age: 30,
-    dept: "physics",
+    dept: 'physics',
     marks: 100,
-    name: "John",
+    name: 'John',
   },
   {
     age: 25,
-    dept: "chemistry is the toughest job in the world",
+    dept: 'chemistry is the toughest job in the world',
     marks: 80,
-    name: "Jane",
+    name: 'Jane',
   },
   {
     age: 25,
-    dept: "chemistry",
+    dept: 'chemistry',
     marks: 78,
-    name: "Lewis hamilton",
+    name: 'Lewis hamilton',
   },
-  { age: 35, dept: "Physics", marks: 100, name: "Prabhu" },
-  { age: 25, dept: "Biology", marks: 95, name: "Clive" },
+  { age: 35, dept: 'Physics', marks: 100, name: 'Prabhu' },
+  { age: 25, dept: 'Biology', marks: 95, name: 'Clive' },
 ];
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
   const [columns, setColumns] = React.useState<DataGridColumn[]>([
-    { name: "name", type: "string" },
-    { name: "age", type: "number" },
-    { name: "dept", type: "string" },
-    { name: "marks", type: "number" },
+    { name: 'name', type: 'string' },
+    { name: 'age', type: 'number' },
+    { name: 'dept', type: 'string' },
+    { name: 'marks', type: 'number' },
   ]);
 
   useLayoutEffect(() => {
@@ -50,22 +50,22 @@ function widgets() {
     } else if (media.isDesktop) {
       setWidth(650);
       setColumns([
-        { name: "name", type: "string" },
-        { name: "marks", type: "number" },
-        { name: "dept", type: "string" },
+        { name: 'name', type: 'string' },
+        { name: 'marks', type: 'number' },
+        { name: 'dept', type: 'string' },
       ]);
     } else if (media.isTablet) {
       setWidth(580);
       setColumns([
-        { name: "name", type: "string", width: 200 },
-        { name: "dept", type: "string", width: 200 },
-        { name: "marks", type: "number" },
+        { name: 'name', type: 'string', width: 200 },
+        { name: 'dept', type: 'string', width: 200 },
+        { name: 'marks', type: 'number' },
       ]);
     } else if (media.isMobile) {
       setWidth(320);
       setColumns([
-        { name: "name", type: "string" },
-        { name: "marks", type: "number" },
+        { name: 'name', type: 'string' },
+        { name: 'marks', type: 'number' },
       ]);
     }
   }, [media]);
@@ -118,7 +118,7 @@ function widgets() {
                 layoutStyle="comfortable"
                 border
                 columns={columns.map((x) => {
-                  if (x.name === "name") {
+                  if (x.name === 'name') {
                     return { ...x, sortable: true };
                   } else {
                     return x;

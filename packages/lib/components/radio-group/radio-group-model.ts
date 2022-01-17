@@ -1,16 +1,16 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
-export interface RadioGroupModel {
+export interface RadioGroupProps {
   RTL?: boolean;
   disabled?: boolean;
   focusable?: boolean;
-  items: RadioGroupItemModel[];
-  layout?: "row" | "column";
+  items: RadioGroupItemProps[];
+  layout?: 'row' | 'column';
   onSelected?: (selected: string) => void;
   style?: CSSProperties;
 }
 
-export interface RadioGroupItemModel {
+export interface RadioGroupItemProps {
   checked?: boolean | null;
   disabled?: boolean;
   id?: string;

@@ -1,23 +1,23 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import {
   ScrollSpyContent,
   ScrollSpyLinkInternal,
   ScrollSpyProps,
-} from "./scroll-spy.model";
-import "./scroll-spy.scss";
+} from './scroll-spy.model';
+import './scroll-spy.scss';
 
 const ScrollSpy: React.FC<ScrollSpyProps> = ({
   links = [],
   children = [],
-  linksPosition = "left",
+  linksPosition = 'left',
 }) => {
   const scrollSpyContentRef = React.useRef<HTMLDivElement | null>(null);
   const spy = useRef<IntersectionObserver>();
 
   // tracks the scroll direction
-  const scrollDirection = useRef<"up" | "down">();
+  const scrollDirection = useRef<'up' | 'down'>();
 
   // tracks the last selected link index
   const lastSelectedIndex = useRef<number>(0);
@@ -74,7 +74,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
         }
       );
 
-      const items = scrollSpyContentRef.current.querySelectorAll(".rc-header");
+      const items = scrollSpyContentRef.current.querySelectorAll('.rc-header');
 
       if (items) {
         items.forEach((item) => {
@@ -88,7 +88,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
     const found = contents
       .filter((c) => c.active)
       .sort((a, b) =>
-        scrollDirection.current === "up" ? b.hash - a.hash : a.hash - b.hash
+        scrollDirection.current === 'up' ? b.hash - a.hash : a.hash - b.hash
       )[0];
 
     lastSelectedIndex.current = contents.findIndex((x) => x === found);
@@ -105,9 +105,9 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
 
   const handleScrollTo = useCallback((id: string, index: number) => {
     if (lastSelectedIndex.current < index) {
-      scrollDirection.current = "down";
+      scrollDirection.current = 'down';
     } else {
-      scrollDirection.current = "up";
+      scrollDirection.current = 'up';
     }
 
     lastSelectedIndex.current = index;
@@ -120,7 +120,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
 
     if (element && ref) {
       ref.scrollTo({
-        behavior: "smooth",
+        behavior: 'smooth',
         top: element.offsetTop - ref.offsetTop,
       });
     }
@@ -128,14 +128,14 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
 
   const handleScroll = useCallback((ev: React.WheelEvent) => {
     if (ev.deltaY > 0) {
-      scrollDirection.current = "down";
+      scrollDirection.current = 'down';
     } else if (ev.deltaY < 0) {
-      scrollDirection.current = "up";
+      scrollDirection.current = 'up';
     }
   }, []);
 
   const spyWrapperClass = useMemo(() => {
-    return classNames("rc-scroll-spy-wrapper", {
+    return classNames('rc-scroll-spy-wrapper', {
       [`rc-scroll-spy-wrapper-${linksPosition}`]: true,
     });
   }, []);
@@ -149,7 +149,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
               <li
                 key={link.id}
                 className={`rc-scroll-spy-list-item ${
-                  link.active ? "active" : ""
+                  link.active ? 'active' : ''
                 }`}
                 onClick={(ev) => {
                   ev.preventDefault();
@@ -168,7 +168,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
             <div
               key={content.id}
               className={`rc-scroll-spy-content-item ${
-                content.active ? "active" : ""
+                content.active ? 'active' : ''
               }`}
             >
               <h4 className="rc-header" id={content.id}>

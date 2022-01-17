@@ -1,8 +1,8 @@
-import React, { CSSProperties, useMemo } from "react";
-import { AccordionGroup } from "../accordion-group/accordion-group";
-import { List } from "../list/list";
-import { SidebarGroupsModel } from "./sidebar-model";
-import "./sidebar.scss";
+import React, { CSSProperties, useMemo } from 'react';
+import { AccordionGroup } from '../accordion-group/accordion-group';
+import { List } from '../list/list';
+import { SidebarGroupsModel } from './sidebar-model';
+import './sidebar.scss';
 
 const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
   groups,

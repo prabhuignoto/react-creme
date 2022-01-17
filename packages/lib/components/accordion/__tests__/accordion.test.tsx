@@ -1,10 +1,10 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
-import React from "react";
-import { act } from "react-dom/test-utils";
-import { Accordion } from "../accordion";
+import { fireEvent, render, waitFor } from '@testing-library/react';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { Accordion } from '../accordion';
 
-describe("Accordion", () => {
-  it("should render accordion", () => {
+describe('Accordion', () => {
+  it('should render accordion', () => {
     const { container } = render(
       <Accordion>
         <p>this is a test</p>
@@ -12,10 +12,10 @@ describe("Accordion", () => {
     );
 
     expect(container.firstChild).toBeInTheDocument();
-    expect(container.firstChild).toHaveClass("rc-accordion");
+    expect(container.firstChild).toHaveClass('rc-accordion');
   });
 
-  it("should render snapshot", () => {
+  it('should render snapshot', () => {
     const { container } = render(
       <Accordion>
         <p>this is a test</p>
@@ -25,7 +25,7 @@ describe("Accordion", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("should toggle content", async () => {
+  it('should toggle content', async () => {
     const { getByRole, container } = render(
       <Accordion>
         <p>this is a test</p>
@@ -33,15 +33,15 @@ describe("Accordion", () => {
     );
 
     await act(async () => {
-      fireEvent.click(getByRole("button"));
+      fireEvent.click(getByRole('button'));
     });
 
     await waitFor(async () => {
-      expect(container.firstChild).toHaveClass("rc-accordion-open");
+      expect(container.firstChild).toHaveClass('rc-accordion-open');
     });
   });
 
-  it("should call onExpanded", () => {
+  it('should call onExpanded', () => {
     const onExpanded = jest.fn();
 
     const { getByRole } = render(
@@ -50,7 +50,7 @@ describe("Accordion", () => {
       </Accordion>
     );
 
-    fireEvent.click(getByRole("button"));
+    fireEvent.click(getByRole('button'));
 
     expect(onExpanded).toHaveBeenCalled();
   });

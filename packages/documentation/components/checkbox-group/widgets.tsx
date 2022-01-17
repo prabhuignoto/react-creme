@@ -1,6 +1,6 @@
-import React from "react";
-import { CheckBoxGroup, Section } from "../../../lib/components";
-import { DemoWidget } from "../../common/demo-widget";
+import React from 'react';
+import { CheckBoxGroup, Section } from '../../../lib/components';
+import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
   return (
@@ -11,16 +11,16 @@ function Widgets() {
             onChange={(value) => console.log(value)}
             options={[
               {
-                label: "Option 1",
+                label: 'Option 1',
               },
               {
-                label: "Option 2",
+                label: 'Option 2',
               },
               {
-                label: "Option 3",
+                label: 'Option 3',
               },
               {
-                label: "Option 4",
+                label: 'Option 4',
               },
             ]}
           />
@@ -31,14 +31,14 @@ function Widgets() {
           <CheckBoxGroup
             options={[
               {
-                label: "Option 1",
+                label: 'Option 1',
               },
               {
-                label: "Option 2",
+                label: 'Option 2',
               },
               {
                 isChecked: true,
-                label: "This option is preselected",
+                label: 'This option is preselected',
               },
             ]}
           />
@@ -49,16 +49,16 @@ function Widgets() {
           <CheckBoxGroup
             options={[
               {
-                label: "Option 1",
+                label: 'Option 1',
               },
               {
                 disabled: true,
-                label: "This option is disabled",
+                label: 'This option is disabled',
               },
               {
                 disabled: true,
                 isChecked: true,
-                label: "This option is disabled but preselected",
+                label: 'This option is disabled but preselected',
               },
             ]}
           />
@@ -70,16 +70,16 @@ function Widgets() {
             checkboxStyle="round"
             options={[
               {
-                label: "Option 1",
+                label: 'Option 1',
               },
               {
-                label: "Option 2",
+                label: 'Option 2',
               },
               {
-                label: "Option 3",
+                label: 'Option 3',
               },
               {
-                label: "Option 4",
+                label: 'Option 4',
               },
             ]}
           />
@@ -91,16 +91,16 @@ function Widgets() {
             RTL
             options={[
               {
-                label: "Option 1",
+                label: 'Option 1',
               },
               {
-                label: "Option 2",
+                label: 'Option 2',
               },
               {
-                label: "Option 3",
+                label: 'Option 3',
               },
               {
-                label: "Option 4",
+                label: 'Option 4',
               },
             ]}
           />

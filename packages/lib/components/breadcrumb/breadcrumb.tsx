@@ -1,14 +1,14 @@
-import { nanoid } from "nanoid";
-import React, { useRef } from "react";
-import { BreadCrumbItem } from "./breadcrumb-item";
-import { BreadCrumbModel } from "./breadcrumb-model";
-import "./breadcrumb.scss";
+import { nanoid } from 'nanoid';
+import React, { useRef } from 'react';
+import { BreadCrumbItem } from './breadcrumb-item';
+import { BreadCrumbProps } from './breadcrumb-model';
+import './breadcrumb.scss';
 
-const BreadCrumb: React.FunctionComponent<BreadCrumbModel> = ({
+const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
   children,
   onClick,
-  icon = "chevron",
-  size = "sm",
+  icon = 'chevron',
+  size = 'sm',
 }) => {
   const items = useRef(
     Array.isArray(children)

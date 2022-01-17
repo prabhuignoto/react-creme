@@ -1,13 +1,13 @@
-import React, { useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { ImageComparer, Section } from "../../../lib/components";
-import { BlockQuote } from "../../../lib/components/block-quote/block-quote";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { ImageComparer, Section } from '../../../lib/components';
+import { BlockQuote } from '../../../lib/components/block-quote/block-quote';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = React.useState<string | number>("90%");
+  const [width, setWidth] = React.useState<string | number>('90%');
   const [height, setHeight] = React.useState<string | number>(450);
 
   useLayoutEffect(() => {
@@ -23,10 +23,10 @@ function Widgets() {
       setWidth(500);
       setHeight(300);
     } else if (media.isTablet) {
-      setWidth("80%");
+      setWidth('80%');
       setHeight(300);
     } else if (media.isMobile) {
-      setWidth("90%");
+      setWidth('90%');
       setHeight(300);
     }
   }, [media]);

@@ -1,28 +1,28 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   CSSProperties,
   useCallback,
   useEffect,
   useMemo,
   useRef,
-} from "react";
-import { CircularProgress } from "../progress/circular-progress";
-import { ImageProps } from "./image-model";
-import { ImageOverlay } from "./image-overlay";
-import "./image.scss";
+} from 'react';
+import { CircularProgress } from '../progress/circular-progress';
+import { ImageProps } from './image-model';
+import { ImageOverlay } from './image-overlay';
+import './image.scss';
 
 const Image: React.FunctionComponent<ImageProps> = ({
   alt,
   expandImageOnClick = false,
-  height = "100%",
+  height = '100%',
   isOverlay = false,
-  loading = "lazy",
+  loading = 'lazy',
   src,
-  width = "100%",
+  width = '100%',
   fitImage = true,
   onLoad,
   showLoader = true,
-  loaderSize = "sm",
+  loaderSize = 'sm',
 }) => {
   const [loaded, setLoaded] = React.useState(false);
 
@@ -35,8 +35,8 @@ const Image: React.FunctionComponent<ImageProps> = ({
     height: number | string;
     width: number | string;
   }>({
-    height: "100%",
-    width: "100%",
+    height: '100%',
+    width: '100%',
   });
 
   const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -63,24 +63,24 @@ const Image: React.FunctionComponent<ImageProps> = ({
   );
 
   const wrapperClass = useMemo(() => {
-    return classNames("rc-image-wrapper", {
-      "rc-image-clickable": expandImageOnClick,
-      "rc-image-loaded": loaded,
+    return classNames('rc-image-wrapper', {
+      'rc-image-clickable': expandImageOnClick,
+      'rc-image-loaded': loaded,
     });
   }, [loaded]);
 
   const ImageClass = useMemo(() => {
-    return classNames("rc-image", {
-      "rc-image-loaded": loaded,
-      "rc-image-loading": !loaded,
+    return classNames('rc-image', {
+      'rc-image-loaded': loaded,
+      'rc-image-loading': !loaded,
     });
   }, [loaded]);
 
   const style = useMemo(
     () =>
       ({
-        "--height": Number.isInteger(height) ? `${height}px` : "100%",
-        "--width": Number.isInteger(width) ? `${width}px` : "100%",
+        '--height': Number.isInteger(height) ? `${height}px` : '100%',
+        '--width': Number.isInteger(width) ? `${width}px` : '100%',
       } as CSSProperties),
     []
   );
@@ -133,8 +133,8 @@ const Image: React.FunctionComponent<ImageProps> = ({
 
     if (isOverlay && loaded) {
       const { width, height } = image;
-      wrapper.style.setProperty("--width", `${width}px`);
-      wrapper.style.setProperty("--height", `${height}px`);
+      wrapper.style.setProperty('--width', `${width}px`);
+      wrapper.style.setProperty('--height', `${height}px`);
       setImageDimension({
         height,
         width,

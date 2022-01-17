@@ -1,6 +1,6 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
-export interface RadioModel {
+export interface RadioProps {
   RTL?: boolean;
   disabled?: boolean;
   focusable?: boolean;
@@ -14,7 +14,7 @@ export interface RadioModel {
     selected?: boolean;
     value?: string;
   }) => void;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;
   value?: string;
   withGroup?: boolean;

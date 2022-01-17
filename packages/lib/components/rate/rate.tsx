@@ -1,12 +1,12 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
-import React, { useCallback, useEffect, useMemo } from "react";
-import { useDebouncedCallback } from "use-debounce";
-import RateIcon from "../../icons/star";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { RateItem } from "./rate-item";
-import { RateItemModel, RateProps } from "./rate-model";
-import "./rate.scss";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import { useDebouncedCallback } from 'use-debounce';
+import RateIcon from '../../icons/star';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { RateItem } from './rate-item';
+import { RateItemProps, RateProps } from './rate-model';
+import './rate.scss';
 
 const Rate: React.FunctionComponent<RateProps> = ({
   focusable = true,
@@ -14,11 +14,11 @@ const Rate: React.FunctionComponent<RateProps> = ({
   iconCount = 5,
   onChange,
   ratingValues = [],
-  size = "sm",
+  size = 'sm',
   value = 0,
   disabled = false,
 }) => {
-  const [items, setItems] = React.useState<RateItemModel[]>(
+  const [items, setItems] = React.useState<RateItemProps[]>(
     Array.from({ length: iconCount }).map(() => ({
       active: false,
       hovered: false,
@@ -62,7 +62,10 @@ const Rate: React.FunctionComponent<RateProps> = ({
 
   useEffect(() => {
     setItems((prev) =>
-      prev.map((item, index) => ({ ...item, active: index <= selectedIndex }))
+      prev.map((item, index) => ({
+        ...item,
+        active: index <= selectedIndex,
+      }))
     );
   }, [selectedIndex]);
 
@@ -80,8 +83,8 @@ const Rate: React.FunctionComponent<RateProps> = ({
   const isFirstRender = useFirstRender();
 
   const rateWrapperClass = useMemo(() => {
-    return classNames("rc-rate-wrapper", {
-      "rc-rate-disabled": disabled,
+    return classNames('rc-rate-wrapper', {
+      'rc-rate-disabled': disabled,
     });
   }, [disabled]);
 

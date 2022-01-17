@@ -1,18 +1,18 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 
-export interface BreadCrumbModel extends BreadCrumbCommonModel {
+export interface BreadCrumbProps extends BreadCrumbCommonProps {
   children: React.ReactNode;
   onClick?: () => void;
 }
 
-export interface BreadCrumbItemModel extends BreadCrumbCommonModel {
+export interface BreadCrumbItemProps extends BreadCrumbCommonProps {
   child: ReactNode;
   id: string;
   onClick?: () => void;
   showChevron?: boolean;
 }
 
-export interface BreadCrumbCommonModel {
-  icon?: "chevron" | "arrow" | "slash";
-  size?: "sm" | "md" | "lg";
+export interface BreadCrumbCommonProps {
+  icon?: 'chevron' | 'arrow' | 'slash';
+  size?: 'sm' | 'md' | 'lg';
 }

@@ -1,12 +1,12 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect } from 'react';
 import {
   AccordionGroup,
   BlockQuote,
   Image,
   Section,
-} from "../../../lib/components";
-import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
+} from '../../../lib/components';
+import { DemoWidget } from '../../common/demo-widget';
+import useMedia from '../../common/useMedia';
 
 function Widgets() {
   const media = useMedia();
@@ -44,16 +44,16 @@ function Widgets() {
 
   return (
     width > 0 && (
-      <div className="rc-demo-widgets" style={{ minHeight: "1200px" }}>
+      <div className="rc-demo-widgets" style={{ minHeight: '1200px' }}>
         <Section title="Default Render">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <AccordionGroup titles={["one", "two"]}>
+              <AccordionGroup titles={['one', 'two']}>
                 <Para />
                 <div
                   style={{
-                    height: "400px",
-                    width: "100%",
+                    height: '400px',
+                    width: '100%',
                   }}
                 >
                   <Image src="https://images.unsplash.com/photo-1635449586099-3ecb7ef8374d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"></Image>
@@ -71,7 +71,7 @@ function Widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <AccordionGroup
-                titles={["one", "two"]}
+                titles={['one', 'two']}
                 autoClose={false}
                 border={false}
                 expanded
@@ -80,8 +80,8 @@ function Widgets() {
                 <Para />
                 <div
                   style={{
-                    height: "300px",
-                    width: "100%",
+                    height: '300px',
+                    width: '100%',
                   }}
                 >
                   <Image src="https://images.unsplash.com/photo-1635449586099-3ecb7ef8374d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"></Image>
@@ -98,7 +98,7 @@ function Widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <AccordionGroup
-                titles={["one", "two", "three"]}
+                titles={['one', 'two', 'three']}
                 autoClose
                 border={false}
               >
@@ -117,7 +117,7 @@ function Widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <AccordionGroup
-                titles={["one", "two", "three"]}
+                titles={['one', 'two', 'three']}
                 border={false}
                 iconType="plus"
               >

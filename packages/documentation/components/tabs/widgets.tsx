@@ -1,8 +1,8 @@
-import React, { useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, Section, Tabs } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, Section, Tabs } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -38,15 +38,15 @@ function widgets() {
             <div style={{ width: `${width}px` }}>
               <Tabs
                 labels={[
-                  "one",
-                  "two",
-                  "three",
-                  "four",
-                  "five",
-                  "six",
-                  "seven",
-                  "eight",
-                  "nine",
+                  'one',
+                  'two',
+                  'three',
+                  'four',
+                  'five',
+                  'six',
+                  'seven',
+                  'eight',
+                  'nine',
                 ]}
                 tabStyle="flat"
                 border={false}
@@ -73,7 +73,7 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Tabs
-                labels={["one", "two", "three"]}
+                labels={['one', 'two', 'three']}
                 border={false}
                 tabStyle="rounded"
                 focusable
@@ -94,15 +94,15 @@ function widgets() {
             <div style={{ width: `${width}px` }}>
               <Tabs
                 labels={[
-                  "one",
-                  "two",
-                  "three",
-                  "four",
-                  "five",
-                  "six",
-                  "seven",
-                  "eight",
-                  "nine",
+                  'one',
+                  'two',
+                  'three',
+                  'four',
+                  'five',
+                  'six',
+                  'seven',
+                  'eight',
+                  'nine',
                 ]}
                 tabStyle="rounded"
                 border={false}
@@ -128,9 +128,9 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Tabs
-                labels={["one", "two", "three"]}
+                labels={['one', 'two', 'three']}
                 tabStyle="flat"
-                disabledTabs={["two", "one"]}
+                disabledTabs={['two', 'one']}
               >
                 <span>one</span>
                 <span>two</span>
@@ -147,9 +147,9 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Tabs
-                labels={["one", "two"]}
+                labels={['one', 'two']}
                 tabStyle="flat"
-                disabledTabs={["two", "one"]}
+                disabledTabs={['two', 'one']}
                 icons={[]}
               >
                 <span>one</span>

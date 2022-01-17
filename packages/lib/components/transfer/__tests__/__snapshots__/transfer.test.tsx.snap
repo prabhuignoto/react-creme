@@ -9,7 +9,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
   >
     <div
       class="rc-list rc-list-border"
-      style="--min-height: 100px; --max-height: 350px; --list-bg-color: #fff;"
+      style="--list-bg-color: #fff; --max-height: 350px; --min-height: 100px;"
     >
       <div
         class="rc-list-options-wrapper"
@@ -23,7 +23,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
           <li
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
-            style="top: 5px; height: 40px;"
+            style="height: 40px; top: 5px;"
             tabindex="0"
           >
             <div
@@ -63,7 +63,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
           <li
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
-            style="top: 50px; height: 40px;"
+            style="height: 40px; top: 50px;"
             tabindex="0"
           >
             <div
@@ -103,7 +103,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
           <li
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
-            style="top: 95px; height: 40px;"
+            style="height: 40px; top: 95px;"
             tabindex="0"
           >
             <div
@@ -143,7 +143,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
           <li
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
-            style="top: 140px; height: 40px;"
+            style="height: 40px; top: 140px;"
             tabindex="0"
           >
             <div
@@ -244,7 +244,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
   >
     <div
       class="rc-list rc-list-border"
-      style="--min-height: 100px; --max-height: 350px; --list-bg-color: #fff;"
+      style="--list-bg-color: #fff; --max-height: 350px; --min-height: 100px;"
     >
       <div
         class="rc-list-options-wrapper"
@@ -258,7 +258,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
           <li
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
-            style="top: 5px; height: 40px;"
+            style="height: 40px; top: 5px;"
             tabindex="0"
           >
             <div
@@ -298,7 +298,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
           <li
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
-            style="top: 50px; height: 40px;"
+            style="height: 40px; top: 50px;"
             tabindex="0"
           >
             <div
@@ -338,7 +338,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
           <li
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
-            style="top: 95px; height: 40px;"
+            style="height: 40px; top: 95px;"
             tabindex="0"
           >
             <div
@@ -378,7 +378,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
           <li
             class="rc-list-option rc-list-option-multi-selection"
             role="option"
-            style="top: 140px; height: 40px;"
+            style="height: 40px; top: 140px;"
             tabindex="0"
           >
             <div

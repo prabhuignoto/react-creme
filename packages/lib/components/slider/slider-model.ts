@@ -1,4 +1,4 @@
-export interface SliderModel {
+export interface SliderProps {
   // disables the tooltip
   disableTooltip?: boolean;
 
@@ -13,7 +13,7 @@ export interface SliderModel {
   formatter?: (value: number) => string;
 
   // shape of the slide handle
-  knobShape?: "circle" | "square";
+  knobShape?: 'circle' | 'square';
 
   // size of the knob
   knobSize?: number;
@@ -22,7 +22,7 @@ export interface SliderModel {
   onChange?: (value: number) => void;
 
   // tooltip position
-  position?: "top" | "bottom";
+  position?: 'top' | 'bottom';
 
   // when enabled the tooltip will be shown only on hover
   showTooltipOnHover?: boolean;

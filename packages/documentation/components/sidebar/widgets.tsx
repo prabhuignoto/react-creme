@@ -1,8 +1,8 @@
-import React, { useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, Section, Sidebar } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, Section, Sidebar } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -30,16 +30,16 @@ function widgets() {
         <Section title="Default render">
           <BlockQuote>Sections are collapsible by default.</BlockQuote>
           <DemoWidget>
-            <div style={{ height: "400px", width: `${width}px` }}>
+            <div style={{ height: '400px', width: `${width}px` }}>
               <Sidebar
                 groups={[
                   {
-                    items: [{ name: "tester" }, { name: "tester 2" }],
-                    title: "Section 1",
+                    items: [{ name: 'tester' }, { name: 'tester 2' }],
+                    title: 'Section 1',
                   },
                   {
-                    items: [{ name: "tester" }, { name: "tester 2" }],
-                    title: "Section 2",
+                    items: [{ name: 'tester' }, { name: 'tester 2' }],
+                    title: 'Section 2',
                   },
                 ]}
               />
@@ -51,21 +51,21 @@ function widgets() {
             Can optionally include a search bar for filtering the sidebar.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ height: "450px", width: `${width}px` }}>
+            <div style={{ height: '450px', width: `${width}px` }}>
               <Sidebar
                 enableSearch
                 groups={[
                   {
-                    items: [{ name: "tester" }],
-                    title: "Section 1",
+                    items: [{ name: 'tester' }],
+                    title: 'Section 1',
                   },
                   {
-                    items: [{ name: "tester" }, { name: "tester 2" }],
-                    title: "Section 2",
+                    items: [{ name: 'tester' }, { name: 'tester 2' }],
+                    title: 'Section 2',
                   },
                   {
-                    items: [{ name: "tester" }],
-                    title: "Section 3",
+                    items: [{ name: 'tester' }],
+                    title: 'Section 3',
                   },
                 ]}
               />

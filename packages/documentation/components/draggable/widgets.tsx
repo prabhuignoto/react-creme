@@ -1,11 +1,11 @@
-import React from "react";
-import { BlockQuote, Section } from "../../../lib/components";
+import React from 'react';
+import { BlockQuote, Section } from '../../../lib/components';
 import {
   BoundToContainer,
   BoundToContainerHorizontal,
   BoundToContainerVertical,
   DraggableWidgets,
-} from "./draggable-examples";
+} from './draggable-examples';
 
 function Widgets() {
   return (

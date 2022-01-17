@@ -11,14 +11,14 @@ exports[`Carousel should render carousel snapshot 1`] = `
     <ul
       class="rc-carousel"
       role="list"
-      style="width: 0px; transform: translateX(-0px);"
+      style="transform: translateX(-0px); width: 0px;"
     >
       <li
         aria-hidden="false"
         class="rc-carousel-item"
         data-visible="true"
         role="listitem"
-        style="width: 0px; visibility: hidden; top: 0px;"
+        style="top: 0px; visibility: hidden; width: 0px;"
       >
         <div
           class="rc-carousel-item-container"
@@ -33,7 +33,7 @@ exports[`Carousel should render carousel snapshot 1`] = `
         class="rc-carousel-item"
         data-visible="false"
         role="listitem"
-        style="width: 0px; visibility: hidden; top: 0px;"
+        style="top: 0px; visibility: hidden; width: 0px;"
       >
         <div
           class="rc-carousel-item-container"

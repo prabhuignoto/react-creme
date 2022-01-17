@@ -1,40 +1,40 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
-import React, { useCallback, useEffect, useMemo } from "react";
-import { CheckBox } from "../checkbox/checkbox";
-import { CheckboxModel } from "../checkbox/checkbox-model";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import "./checkbox-group.scss";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import { CheckBox } from '../checkbox/checkbox';
+import { CheckboxProps } from '../checkbox/checkbox-model';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import './checkbox-group.scss';
 
 export interface CheckboxGroupProps {
   RTL?: boolean;
   border?: boolean;
-  checkboxStyle?: "square" | "round";
+  checkboxStyle?: 'square' | 'round';
   disabled?: boolean;
-  layout?: "horizontal" | "vertical";
+  layout?: 'horizontal' | 'vertical';
   noUniqueIds?: boolean;
   onChange?: (
     selected: { id?: string; isChecked: boolean; name?: string }[]
   ) => void;
-  options: CheckboxModel[];
+  options: CheckboxProps[];
 }
 
 const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   options = [],
   disabled,
   border,
-  layout = "vertical",
-  checkboxStyle = "square",
+  layout = 'vertical',
+  checkboxStyle = 'square',
   onChange,
   noUniqueIds = false,
   RTL = false,
 }) => {
   const wrapperClass = useMemo(() => {
-    return classNames("rc-checkbox-group", {
-      "rc-checkbox-group-border": border,
-      "rc-checkbox-group-disabled": disabled,
-      "rc-checkbox-group-horizontal": layout === "horizontal",
-      "rc-checkbox-group-vertical": layout === "vertical",
+    return classNames('rc-checkbox-group', {
+      'rc-checkbox-group-border': border,
+      'rc-checkbox-group-disabled': disabled,
+      'rc-checkbox-group-horizontal': layout === 'horizontal',
+      'rc-checkbox-group-vertical': layout === 'vertical',
     });
   }, [layout, disabled]);
 

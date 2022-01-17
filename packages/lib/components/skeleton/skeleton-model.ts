@@ -1,6 +1,6 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
-export interface SkeletonModel {
+export interface SkeletonProps {
   RTL?: boolean;
   animate?: boolean;
   blocks?: number;
@@ -11,14 +11,14 @@ export interface SkeletonModel {
   width?: number;
 }
 
-export interface SkeletonRowModel {
+export interface SkeletonRowProps {
   disableAnimation?: boolean;
   id: string;
   visible?: boolean;
   width?: number;
 }
 
-export interface SkeletonBlockModel {
+export interface SkeletonBlockProps {
   id: string;
-  rows: SkeletonRowModel[];
+  rows: SkeletonRowProps[];
 }

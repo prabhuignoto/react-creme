@@ -1,26 +1,26 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   CSSProperties,
   useCallback,
   useEffect,
   useMemo,
   useRef,
-} from "react";
-import { useDebouncedCallback } from "use-debounce";
-import { useDrag } from "../common/effects/useDrag";
-import { useFocus } from "../common/effects/useFocus";
-import { Tooltip } from "../tooltip/tooltip";
-import { SliderModel } from "./slider-model";
-import "./slider.scss";
+} from 'react';
+import { useDebouncedCallback } from 'use-debounce';
+import { useDrag } from '../common/effects/useDrag';
+import { useFocus } from '../common/effects/useFocus';
+import { Tooltip } from '../tooltip/tooltip';
+import { SliderProps } from './slider-model';
+import './slider.scss';
 
-const Slider: React.FunctionComponent<SliderModel> = ({
+const Slider: React.FunctionComponent<SliderProps> = ({
   disableTooltip = false,
   disabled = false,
   end = 10,
-  knobShape = "circle",
+  knobShape = 'circle',
   knobSize = 16,
   onChange,
-  position = "top",
+  position = 'top',
   showTooltipOnHover = false,
   sliderValue = 0,
   start = 1,
@@ -49,7 +49,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   // setup the slider dragging function
   const [percent] = useDrag(trackerRef, controlRef, {
     currentValue: sliderValue,
-    direction: "horizontal",
+    direction: 'horizontal',
     endValue: end,
     observeContainer: true,
     offsetLeft: start,
@@ -73,13 +73,13 @@ const Slider: React.FunctionComponent<SliderModel> = ({
   const onPlacerRef = useCallback((node) => {
     if (node) {
       placerRef.current = node;
-      node.style.height = "10px";
+      node.style.height = '10px';
     }
   }, []);
 
   const onTooltipRender = useCallback(() => {
     if (placerRef.current) {
-      placerRef.current.style.display = "none";
+      placerRef.current.style.display = 'none';
     }
   }, []);
 
@@ -104,16 +104,16 @@ const Slider: React.FunctionComponent<SliderModel> = ({
 
   const sliderWrapperClass = useMemo(
     () =>
-      classNames("rc-slider-wrapper", {
-        "rc-slider-wrapper-disabled": disabled,
+      classNames('rc-slider-wrapper', {
+        'rc-slider-wrapper-disabled': disabled,
       }),
     []
   );
 
   const knobClass = useMemo(() => {
-    return classNames("rc-slider-control", {
+    return classNames('rc-slider-control', {
       [`rc-slider-control-${knobShape}`]: true,
-      "rc-slider-control-dragging": dragging,
+      'rc-slider-control-dragging': dragging,
     });
   }, [dragging]);
 
@@ -134,9 +134,9 @@ const Slider: React.FunctionComponent<SliderModel> = ({
 
   const tooltipMessage = useMemo(() => {
     if (formatter) {
-      return formatter(value) + "";
+      return formatter(value) + '';
     }
-    return value + "";
+    return value + '';
   }, [value]);
 
   const focusableProps = useMemo(
@@ -165,7 +165,7 @@ const Slider: React.FunctionComponent<SliderModel> = ({
           ref={onControlInit}
           role="slider"
           {...focusableProps}
-          style={{ "--size": `${knobSize}px` } as CSSProperties}
+          style={{ '--size': `${knobSize}px` } as CSSProperties}
           {...(showTooltipOnHover ? { onMouseOver: handleMouseOver } : null)}
         >
           {canShowTooltip && (

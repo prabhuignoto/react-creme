@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   CSSProperties,
   useCallback,
@@ -8,26 +8,26 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import ResizeObserver from "resize-observer-polyfill";
-import { useDebounce } from "use-debounce";
-import useSwipe from "../common/effects/useSwipe";
-import { CarouselItems } from "./carousel-items";
-import { CarouselItemModel, CarouselModel } from "./carousel-model";
-import { CarouselTrack } from "./carousel-track";
-import "./carousel.scss";
+} from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
+import { useDebounce } from 'use-debounce';
+import useSwipe from '../common/effects/useSwipe';
+import { CarouselItems } from './carousel-items';
+import { CarouselItemProps, CarouselProps } from './carousel-model';
+import { CarouselTrack } from './carousel-track';
+import './carousel.scss';
 
-const Carousel: React.FunctionComponent<CarouselModel> = ({
+const Carousel: React.FunctionComponent<CarouselProps> = ({
   autoPlay = 0,
   children,
-  direction = "horizontal",
+  direction = 'horizontal',
   height = 400,
-  transition = "cubic-bezier(0.55, 0.08, 0.68, 0.53)",
+  transition = 'cubic-bezier(0.55, 0.08, 0.68, 0.53)',
   enableSwipe = false,
   focusable = false,
 }) => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
-  const [carouselItems, setCarouselItems] = useState<CarouselItemModel[]>(
+  const [carouselItems, setCarouselItems] = useState<CarouselItemProps[]>(
     Array.isArray(children)
       ? children.map(() => ({
           height: 0,
@@ -82,13 +82,13 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
 
   useLayoutEffect(() => {
     if (slideWidth && slideHeight && Array.isArray(children)) {
-      const prop = direction === "horizontal" ? "left" : "top";
+      const prop = direction === 'horizontal' ? 'left' : 'top';
       setCarouselItems(
         children.map((_, index) => ({
           height: debouncedSlideHeight,
           id: nanoid(),
           [prop]: `${
-            direction === "horizontal"
+            direction === 'horizontal'
               ? index * slideWidth
               : index * slideHeight
           }px`,
@@ -130,10 +130,10 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   const carouselTrackClass = useMemo(
     () =>
       classNames([
-        "rc-carousel-track-wrapper",
+        'rc-carousel-track-wrapper',
         `rc-carousel-track-wrapper-${direction}`,
         {
-          "rc-carousel-track-auto-play": isAutoPlaying,
+          'rc-carousel-track-auto-play': isAutoPlaying,
         },
       ]),
     [isAutoPlaying]
@@ -142,7 +142,7 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   const carouselContainerClass = useMemo(
     () =>
       classNames([
-        "rc-carousel-container",
+        'rc-carousel-container',
         `rc-carousel-container-${direction}`,
       ]),
     []
@@ -151,30 +151,30 @@ const Carousel: React.FunctionComponent<CarouselModel> = ({
   const carouselWrapperStyle = useMemo(
     () =>
       ({
-        "--min-height": `${height}px`,
-        "--transition": transition,
+        '--min-height': `${height}px`,
+        '--transition': transition,
       } as CSSProperties),
     []
   );
 
   const wrapperClass = useMemo(
     () =>
-      classNames(["rc-carousel-wrapper", `rc-carousel-wrapper-${direction}`]),
+      classNames(['rc-carousel-wrapper', `rc-carousel-wrapper-${direction}`]),
     []
   );
 
   if (enableSwipe) {
-    const { dir, offset } = useSwipe(carouselRef, "low");
+    const { dir, offset } = useSwipe(carouselRef, 'low');
 
     useEffect(() => {
       if (
-        (dir === "RIGHT" && direction === "horizontal") ||
-        (dir === "BOTTOM" && direction === "vertical")
+        (dir === 'RIGHT' && direction === 'horizontal') ||
+        (dir === 'BOTTOM' && direction === 'vertical')
       ) {
         handlePrevious();
       } else if (
-        (dir === "LEFT" && direction === "horizontal") ||
-        (dir === "TOP" && direction === "vertical")
+        (dir === 'LEFT' && direction === 'horizontal') ||
+        (dir === 'TOP' && direction === 'vertical')
       ) {
         handleNext();
       }

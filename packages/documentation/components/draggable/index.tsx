@@ -1,16 +1,16 @@
-import React, { lazy } from "react";
-import DemoPageRenderer from "../../common/demo-page-renderer";
-import "./draggable.scss";
+import React, { lazy } from 'react';
+import DemoPageRenderer from '../../common/demo-page-renderer';
+import './draggable.scss';
 
 function Draggable() {
   return (
     <DemoPageRenderer
-      demoWidget={lazy(() => import("./widgets"))}
+      demoWidget={lazy(() => import('./widgets'))}
       title="Draggable"
       description="React Hook to enable draggable functionality"
       properties={[]}
-      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
-      stackBlitzCodes={["react-ts-re75pw"]}
+      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      stackBlitzCodes={['react-ts-re75pw']}
     ></DemoPageRenderer>
   );
 }

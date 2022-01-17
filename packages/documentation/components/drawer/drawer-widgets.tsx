@@ -1,7 +1,7 @@
-import React, { useLayoutEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { Button, Drawer, Section } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
+import React, { useLayoutEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
+import { Button, Drawer, Section } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
 
 const Widget: React.FunctionComponent = () => {
   const [open, setOpen] = useState(false);
@@ -32,7 +32,7 @@ const Widget: React.FunctionComponent = () => {
     <div className="rc-demo-widgets">
       <div className="rc-demo-widget">
         <Section title="Docked to Right" height={100}>
-          <div style={{ width: "100px" }}>
+          <div style={{ width: '100px' }}>
             <Button onClick={() => setOpen(true)} label="Open drawer"></Button>
           </div>
         </Section>
@@ -44,7 +44,7 @@ const Widget: React.FunctionComponent = () => {
       </div>
       <div className="rc-demo-widget">
         <Section title="Docked to Left" height={100}>
-          <div style={{ width: "100px" }}>
+          <div style={{ width: '100px' }}>
             <Button onClick={() => setOpen2(true)} label="Open drawer"></Button>
           </div>
         </Section>
@@ -56,7 +56,7 @@ const Widget: React.FunctionComponent = () => {
       </div>
       <div className="rc-demo-widget">
         <Section title="Docked to Top" height={100}>
-          <div style={{ width: "100px" }}>
+          <div style={{ width: '100px' }}>
             <Button onClick={() => setOpen3(true)} label="Open drawer"></Button>
           </div>
         </Section>
@@ -68,7 +68,7 @@ const Widget: React.FunctionComponent = () => {
       </div>
       <div className="rc-demo-widget">
         <Section title="Docked to Bottom" height={100}>
-          <div style={{ width: "100px" }}>
+          <div style={{ width: '100px' }}>
             <Button onClick={() => setOpen4(true)} label="Open drawer"></Button>
           </div>
         </Section>

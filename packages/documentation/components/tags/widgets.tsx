@@ -1,15 +1,15 @@
-import React, { useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, Section, Tags } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, Section, Tags } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 const items = [
-  { disabled: false, name: "python" },
-  { name: "fortran" },
-  { name: "c sharp" },
-  { name: "Go lang" },
-  { disabled: true, name: "RUST" },
+  { disabled: false, name: 'python' },
+  { name: 'fortran' },
+  { name: 'c sharp' },
+  { name: 'Go lang' },
+  { disabled: true, name: 'RUST' },
 ];
 
 function widgets() {
@@ -28,13 +28,13 @@ function widgets() {
     } else if (media.isDesktop) {
       setWidth(500);
     } else if (media.isTablet) {
-      setWidth("85%");
+      setWidth('85%');
     } else if (media.isMobile) {
-      setWidth("90%");
+      setWidth('90%');
     }
   }, [media]);
 
-  const resolvedWidth = typeof width === "string" ? width : `${width}px`;
+  const resolvedWidth = typeof width === 'string' ? width : `${width}px`;
 
   return (
     width && (
@@ -106,7 +106,7 @@ function widgets() {
                 onChange={(val) => console.log(val)}
                 tagWidth={100}
                 autoComplete
-                suggestions={["one", "two"]}
+                suggestions={['one', 'two']}
               />
             </div>
           </DemoWidget>

@@ -1,5 +1,5 @@
-import React, { lazy } from "react";
-import DemoPageRenderer from "../../common/demo-page-renderer";
+import React, { lazy } from 'react';
+import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function comparer() {
   return (
@@ -8,30 +8,30 @@ function comparer() {
       description="Compare images side by side either horizontally or vertically."
       properties={[
         {
-          defaultValue: "horizontal",
-          description: "The direction of the comparer",
-          name: "direction",
-          optional: "Yes",
-          type: "string",
+          defaultValue: 'horizontal',
+          description: 'The direction of the comparer',
+          name: 'direction',
+          optional: 'Yes',
+          type: 'string',
         },
         {
-          defaultValue: "",
-          description: "Source of the first image. Should be a valid URL.",
-          name: "sourceOne",
-          optional: "Yes",
-          type: "string",
+          defaultValue: '',
+          description: 'Source of the first image. Should be a valid URL.',
+          name: 'sourceOne',
+          optional: 'Yes',
+          type: 'string',
         },
         {
-          defaultValue: "",
-          description: "Source of the second image. Should be a valid URL.",
-          name: "sourceTwo",
-          optional: "Yes",
-          type: "string",
+          defaultValue: '',
+          description: 'Source of the second image. Should be a valid URL.',
+          name: 'sourceTwo',
+          optional: 'Yes',
+          type: 'string',
         },
       ]}
-      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
-      stackBlitzCodes={["react-ts-kgea3r"]}
-      demoWidget={lazy(() => import("./widgets"))}
+      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      stackBlitzCodes={['react-ts-kgea3r']}
+      demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>
   );
 }

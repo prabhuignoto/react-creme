@@ -1,8 +1,8 @@
-import React from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, CheckBox, Section } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, CheckBox, Section } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -10,7 +10,7 @@ function widgets() {
     <div className="rc-demo-widgets">
       <Section title="Default render">
         <DemoWidget>
-          <div style={{ width: "250px" }}>
+          <div style={{ width: '250px' }}>
             <CheckBox
               label="Choose your preferred option"
               onChange={(ele) => console.log(ele)}
@@ -21,7 +21,7 @@ function widgets() {
       </Section>
       <Section title="Disabled State">
         <DemoWidget>
-          <div style={{ width: "250px" }}>
+          <div style={{ width: '250px' }}>
             <CheckBox
               label="This option is disabled"
               onChange={(ele) => console.log(ele)}
@@ -34,7 +34,7 @@ function widgets() {
       <Section title="Large size">
         <BlockQuote>Comes in three sizes: small, medium, large.</BlockQuote>
         <DemoWidget>
-          <div style={{ width: "250px" }}>
+          <div style={{ width: '250px' }}>
             <CheckBox
               label="Choose this option"
               onChange={(ele) => console.log(ele)}
@@ -48,7 +48,7 @@ function widgets() {
       </Section>
       <Section title="Custom Checkbox style">
         <DemoWidget>
-          <div style={{ width: "250px" }}>
+          <div style={{ width: '250px' }}>
             <CheckBox
               onChange={(ele) => console.log(ele)}
               label="Choose this option"

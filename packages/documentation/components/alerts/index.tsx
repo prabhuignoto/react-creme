@@ -1,5 +1,5 @@
-import React, { lazy } from "react";
-import DemoPageRenderer from "../../common/demo-page-renderer";
+import React, { lazy } from 'react';
+import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function index() {
   return (
@@ -8,47 +8,47 @@ function index() {
       description="Alerts are used to notify the user of an important event."
       callbacks={[
         {
-          default: "",
-          description: "The function to call when the alert is dismissed.",
-          name: "onDismiss",
-          optional: "Yes",
-          type: "function",
+          default: '',
+          description: 'The function to call when the alert is dismissed.',
+          name: 'onDismiss',
+          optional: 'Yes',
+          type: 'function',
         },
       ]}
       properties={[
         {
-          default: "",
+          default: '',
           description: `The message to display in the alert.
           can be one of <em>success</em> | <em>error</em> | <em>warning</em> | <em>info</em>`,
-          name: "message",
-          optional: "No",
-          type: "string",
+          name: 'message',
+          optional: 'No',
+          type: 'string',
         },
         {
-          default: "100",
-          description: "The height of the alert box.",
-          name: "height",
-          optional: "No",
-          type: "number",
+          default: '100',
+          description: 'The height of the alert box.',
+          name: 'height',
+          optional: 'No',
+          type: 'number',
         },
         {
-          default: "info",
-          description: "The state of the alert.",
-          name: "state",
-          optional: "Yes",
-          type: "string",
+          default: 'info',
+          description: 'The state of the alert.',
+          name: 'state',
+          optional: 'Yes',
+          type: 'string',
         },
         {
-          default: "true",
-          description: "Whether or not the alert can be dismissed.",
-          name: "canDismiss",
-          optional: "Yes",
-          type: "boolean",
+          default: 'true',
+          description: 'Whether or not the alert can be dismissed.',
+          name: 'canDismiss',
+          optional: 'Yes',
+          type: 'boolean',
         },
       ]}
-      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
-      stackBlitzCodes={["react-ts-fvmzp5"]}
-      demoWidget={lazy(() => import("./widgets"))}
+      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      stackBlitzCodes={['react-ts-fvmzp5']}
+      demoWidget={lazy(() => import('./widgets'))}
     />
   );
 }

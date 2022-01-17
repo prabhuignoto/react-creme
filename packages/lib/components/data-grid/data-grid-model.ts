@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 export type Record = {
   [key: string]: string | number;
@@ -7,7 +7,7 @@ export type Record = {
 export interface DataGridCommon {
   border?: boolean;
   fixedHeight?: boolean;
-  layoutStyle?: "compact" | "comfortable";
+  layoutStyle?: 'compact' | 'comfortable';
   rowHeight?: number;
   zebra?: boolean;
 }
@@ -20,7 +20,7 @@ export interface DataGridColumn {
   name: string;
   sortOrder?: string;
   sortable?: boolean;
-  type?: "string" | "number";
+  type?: 'string' | 'number';
   width?: number;
 }
 
@@ -58,4 +58,4 @@ export interface DataGridHeaderProps extends DataGridCommon {
   style?: CSSProperties;
 }
 
-export type SortDirection = "asc" | "desc" | "none";
+export type SortDirection = 'asc' | 'desc' | 'none';

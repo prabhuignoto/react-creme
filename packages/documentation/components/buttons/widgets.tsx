@@ -1,7 +1,7 @@
-import React from "react";
-import { BlockQuote, Button, Section } from "../../../lib/components";
-import { SearchIcon } from "../../../lib/icons";
-import { DemoWidget } from "../../common/demo-widget";
+import React from 'react';
+import { BlockQuote, Button, Section } from '../../../lib/components';
+import { SearchIcon } from '../../../lib/icons';
+import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   return (
@@ -10,7 +10,7 @@ function widgets() {
         <DemoWidget>
           <Button
             label="save"
-            onClick={() => alert("test")}
+            onClick={() => alert('test')}
             focusable={false}
           />
         </DemoWidget>
@@ -39,7 +39,7 @@ function widgets() {
             border={false}
             label="I am disabled"
             disabled
-            onClick={() => alert("test")}
+            onClick={() => alert('test')}
           />
         </DemoWidget>
       </Section>
@@ -53,7 +53,7 @@ function widgets() {
       </Section>
       <Section title="Button with State (Extra large)">
         <BlockQuote>
-          Buttons can be in different states. Example shows button in{" "}
+          Buttons can be in different states. Example shows button in{' '}
           <code>danger</code> state
         </BlockQuote>
         <DemoWidget>

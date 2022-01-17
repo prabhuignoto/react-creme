@@ -1,7 +1,7 @@
-import cls from "classnames";
-import React, { CSSProperties, useMemo } from "react";
-import { CheckIcon } from "../../icons";
-import { ListItemOptionProps } from "./list-model";
+import cls from 'classnames';
+import React, { CSSProperties, useMemo } from 'react';
+import { CheckIcon } from '../../icons';
+import { ListItemOptionProps } from './list-model';
 
 const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
   ({
@@ -15,15 +15,15 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
   }: ListItemOptionProps) => {
     const ref = React.useRef<HTMLDivElement>(null);
 
-    const listOptionClass = cls("rc-list-option-value-wrapper", {
-      "rc-list-option-no-icon": !showCheck,
-      "rc-list-option-rtl": RTL,
+    const listOptionClass = cls('rc-list-option-value-wrapper', {
+      'rc-list-option-no-icon': !showCheck,
+      'rc-list-option-rtl': RTL,
     });
 
     const style = useMemo(() => {
       return {
-        "--text-color": textColor,
-        "--text-color-selected": textColorSelected,
+        '--text-color': textColor,
+        '--text-color-selected': textColorSelected,
       } as CSSProperties;
     }, []);
 
@@ -31,15 +31,15 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
       <div className={listOptionClass} ref={ref} style={style}>
         {showCheck && (
           <span
-            className={cls("rc-list-option-icon", {
-              "rc-list-option-rtl": RTL,
-              "rc-list-option-selected": selected,
+            className={cls('rc-list-option-icon', {
+              'rc-list-option-rtl': RTL,
+              'rc-list-option-selected': selected,
             })}
           >
             <CheckIcon />
           </span>
         )}
-        <span className={"rc-list-option-value"}>{name}</span>
+        <span className={'rc-list-option-value'}>{name}</span>
       </div>
     );
   },
@@ -48,6 +48,6 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
   }
 );
 
-ListItemOption.displayName = "ListItemOption";
+ListItemOption.displayName = 'ListItemOption';
 
 export { ListItemOption };

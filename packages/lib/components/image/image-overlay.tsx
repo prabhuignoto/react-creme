@@ -1,9 +1,9 @@
-import classNames from "classnames";
-import React, { useEffect, useMemo, useState } from "react";
-import { withOverlay } from "../common/withOverlay";
-import { Image } from "./image";
-import { ImageOverlayProps } from "./image-model";
-import "./image.scss";
+import classNames from 'classnames';
+import React, { useEffect, useMemo, useState } from 'react';
+import { withOverlay } from '../common/withOverlay';
+import { Image } from './image';
+import { ImageOverlayProps } from './image-model';
+import './image.scss';
 
 const ImageOverlayComponent: React.FunctionComponent<ImageOverlayProps> = ({
   src,
@@ -19,9 +19,9 @@ const ImageOverlayComponent: React.FunctionComponent<ImageOverlayProps> = ({
   const [canShow, setCanShow] = useState(false);
 
   const overlayClass = useMemo(() => {
-    return classNames("rc-image-overlay", {
-      "rc-image-overlay-close": isClosing,
-      "rc-image-overlay-open": canShow,
+    return classNames('rc-image-overlay', {
+      'rc-image-overlay-close': isClosing,
+      'rc-image-overlay-open': canShow,
     });
   }, [isClosing, canShow]);
 
@@ -42,7 +42,7 @@ const ImageOverlayComponent: React.FunctionComponent<ImageOverlayProps> = ({
 };
 
 const ImageOverlay = withOverlay(ImageOverlayComponent, {
-  backdropColor: "rgba(0,0,0,0.5)",
+  backdropColor: 'rgba(0,0,0,0.5)',
 });
 
 export { ImageOverlayComponent };

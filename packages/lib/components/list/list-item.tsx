@@ -1,11 +1,11 @@
-import cls from "classnames";
-import React, { useCallback, useMemo, useRef } from "react";
-import { useFocus } from "../common/effects/useFocus";
-import { ListItemOption } from "./list-item-option";
-import "./list-item.scss";
-import { ListItemModel } from "./list-model";
+import cls from 'classnames';
+import React, { useCallback, useMemo, useRef } from 'react';
+import { useFocus } from '../common/effects/useFocus';
+import { ListItemOption } from './list-item-option';
+import './list-item.scss';
+import { ListItemProps } from './list-model';
 
-const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
+const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
   ({
     disabled,
     id,
@@ -20,7 +20,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
     highlightSelection = false,
     textColor,
     RTL,
-  }: ListItemModel) => {
+  }: ListItemProps) => {
     const handleSelection = useCallback(() => {
       onSelection && onSelection({ id, name, selected: !selected, value });
     }, []);
@@ -32,13 +32,13 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
     const listItemClass = useMemo(
       () =>
         cls([
-          "rc-list-option",
+          'rc-list-option',
           {
-            "rc-list-option-disabled": disabled,
-            "rc-list-option-focus": focusable,
-            "rc-list-option-highlight-selection": highlightSelection,
-            "rc-list-option-multi-selection": allowMultiSelection,
-            "rc-list-option-selected": selected,
+            'rc-list-option-disabled': disabled,
+            'rc-list-option-focus': focusable,
+            'rc-list-option-highlight-selection': highlightSelection,
+            'rc-list-option-multi-selection': allowMultiSelection,
+            'rc-list-option-selected': selected,
           },
         ]),
       [selected, disabled, focusable]
@@ -69,7 +69,7 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
         ref={ref}
         {...clickableProps}
       >
-        <div className="rc-list-item-wrapper" style={{ width: "100%" }}>
+        <div className="rc-list-item-wrapper" style={{ width: '100%' }}>
           <ListItemOption
             key={id}
             name={name}
@@ -93,6 +93,6 @@ const ListItem: React.FunctionComponent<ListItemModel> = React.memo(
   }
 );
 
-ListItem.displayName = "ListItem";
+ListItem.displayName = 'ListItem';
 
 export { ListItem };

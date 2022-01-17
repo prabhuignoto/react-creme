@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 interface CommonProps {
   focusable?: boolean;
   icon?: ReactNode;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
 }
 
 export interface RateProps extends CommonProps {
@@ -14,13 +14,13 @@ export interface RateProps extends CommonProps {
   value?: 1 | 2 | 3 | 4 | 5;
 }
 
-export interface RateItemModel {
+export interface RateItemProps {
   active: boolean;
   hovered: boolean;
   id: string;
 }
 
-export interface RateItemViewModel extends CommonProps, RateItemModel {
+export interface RateItemViewProps extends CommonProps, RateItemProps {
   disabled?: boolean;
   index: number;
   onMouseOver: (idx: number) => void;

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export interface AlertProps {
   RTL?: boolean;
@@ -7,5 +7,5 @@ export interface AlertProps {
   height?: number;
   message?: string;
   onDismiss?: () => void;
-  state?: "success" | "error" | "warning" | "info";
+  state?: 'success' | 'error' | 'warning' | 'info';
 }

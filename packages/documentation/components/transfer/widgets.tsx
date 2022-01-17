@@ -1,8 +1,8 @@
-import React, { useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { Section, Transfer } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { Section, Transfer } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -33,8 +33,8 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Transfer
-                list1={["one", "two", "five", "six"]}
-                list2={["three", "four", "seven", "eight"]}
+                list1={['one', 'two', 'five', 'six']}
+                list2={['three', 'four', 'seven', 'eight']}
                 onChange={(val, val2) => console.log(val, val2)}
               />
             </div>
@@ -45,18 +45,18 @@ function widgets() {
             <div style={{ width: `${width}px` }}>
               <Transfer
                 list1={[
-                  "one",
-                  "two",
-                  "five",
-                  "six",
-                  "nine",
-                  "ten",
-                  "thirteen",
-                  "fourteen",
-                  "seventeen",
-                  "eighteen",
+                  'one',
+                  'two',
+                  'five',
+                  'six',
+                  'nine',
+                  'ten',
+                  'thirteen',
+                  'fourteen',
+                  'seventeen',
+                  'eighteen',
                 ]}
-                list2={["three", "four", "seven", "eight"]}
+                list2={['three', 'four', 'seven', 'eight']}
                 onChange={(val, val2) => console.log(val, val2)}
                 enableSearch
                 virtualize

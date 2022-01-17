@@ -1,12 +1,12 @@
-import { fireEvent, render } from "@testing-library/react";
-import React from "react";
-import { Link } from "../../link/link";
-import { BreadCrumb } from "../breadcrumb";
+import { fireEvent, render } from '@testing-library/react';
+import React from 'react';
+import { Link } from '../../link/link';
+import { BreadCrumb } from '../breadcrumb';
 
 const handler = jest.fn();
 
-describe("Breadcrumb", () => {
-  it("should render", () => {
+describe('Breadcrumb', () => {
+  it('should render', () => {
     const { getByRole, getAllByRole } = render(
       <BreadCrumb>
         <Link href="http://google.com" />
@@ -15,11 +15,11 @@ describe("Breadcrumb", () => {
       </BreadCrumb>
     );
 
-    expect(getByRole("navigation")).toBeInTheDocument();
-    expect(getAllByRole("link")).toHaveLength(3);
+    expect(getByRole('navigation')).toBeInTheDocument();
+    expect(getAllByRole('link')).toHaveLength(3);
   });
 
-  it("should onClick is called", () => {
+  it('should onClick is called', () => {
     const { getByText } = render(
       <BreadCrumb onClick={handler}>
         <Link href="http://google.com">google</Link>
@@ -28,13 +28,13 @@ describe("Breadcrumb", () => {
       </BreadCrumb>
     );
 
-    expect(getByText("google")).toBeInTheDocument();
-    fireEvent.click(getByText("google"));
+    expect(getByText('google')).toBeInTheDocument();
+    fireEvent.click(getByText('google'));
 
     expect(handler).toBeCalled();
   });
 
-  it("should render snapshot", () => {
+  it('should render snapshot', () => {
     const { getByRole } = render(
       <BreadCrumb>
         <Link href="http://google.com" />
@@ -43,6 +43,6 @@ describe("Breadcrumb", () => {
       </BreadCrumb>
     );
 
-    expect(getByRole("navigation")).toMatchSnapshot();
+    expect(getByRole('navigation')).toMatchSnapshot();
   });
 });

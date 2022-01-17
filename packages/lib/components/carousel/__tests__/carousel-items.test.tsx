@@ -1,29 +1,29 @@
-import { render } from "@testing-library/react";
-import React from "react";
-import { CarouselItems } from "../carousel-items";
-import { CarouselItemModel } from "./../carousel-model";
+import { render } from '@testing-library/react';
+import React from 'react';
+import { CarouselItems } from '../carousel-items';
+import { CarouselItemProps } from './../carousel-model';
 
-const items: CarouselItemModel[] = [
+const items: CarouselItemProps[] = [
   {
-    id: "234",
+    id: '234',
     height: 300,
     width: 300,
     visible: true,
-    left: "0px",
-    top: "0px",
+    left: '0px',
+    top: '0px',
   },
   {
-    id: "235",
+    id: '235',
     height: 300,
     width: 300,
     visible: true,
-    left: "300px",
-    top: "0px",
+    left: '300px',
+    top: '0px',
   },
 ];
 
-describe("Carousel items", () => {
-  it("Should render carousel items", () => {
+describe('Carousel items', () => {
+  it('Should render carousel items', () => {
     const { getByRole, getAllByRole } = render(
       <CarouselItems
         carouselItems={items}
@@ -37,11 +37,11 @@ describe("Carousel items", () => {
         <span>two</span>
       </CarouselItems>
     );
-    expect(getByRole("list")).toBeInTheDocument();
-    expect(getAllByRole("listitem")).toHaveLength(1);
+    expect(getByRole('list')).toBeInTheDocument();
+    expect(getAllByRole('listitem')).toHaveLength(1);
   });
 
-  it("Should render carousel items snapshot", () => {
+  it('Should render carousel items snapshot', () => {
     const { getByRole } = render(
       <CarouselItems
         carouselItems={items}
@@ -55,6 +55,6 @@ describe("Carousel items", () => {
         <span>two</span>
       </CarouselItems>
     );
-    expect(getByRole("list")).toMatchSnapshot();
+    expect(getByRole('list')).toMatchSnapshot();
   });
 });

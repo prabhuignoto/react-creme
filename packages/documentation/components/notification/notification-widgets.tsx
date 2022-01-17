@@ -1,14 +1,14 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
-import { useRecoilValue } from "recoil";
+import React, { useLayoutEffect, useRef, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import {
   BlockQuote,
   Button,
   Dropdown,
   Notification,
   Section,
-} from "../../../lib/components";
-import { NotificationPosition } from "../../../lib/components/notification/notification-model";
-import { responsiveState } from "../../atoms/home";
+} from '../../../lib/components';
+import { NotificationPosition } from '../../../lib/components/notification/notification-model';
+import { responsiveState } from '../../atoms/home';
 
 const Widgets = () => {
   const ref = useRef();
@@ -37,7 +37,7 @@ const Widgets = () => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
-  const [position, setPosition] = useState<NotificationPosition>("top-left");
+  const [position, setPosition] = useState<NotificationPosition>('top-left');
   return (
     width && (
       <div className="rc-demo-widgets">
@@ -49,12 +49,15 @@ const Widgets = () => {
           <div className="rc-demo-widget" style={{ width: `320px` }}>
             <Dropdown
               options={[
-                { name: "top-left", value: "top-left" },
-                { name: "top-right", value: "top-right" },
-                { name: "bottom-left", value: "bottom-left" },
-                { name: "bottom-right", value: "bottom-right" },
-                { name: "bottom-center", value: "bottom-center" },
-                { name: "top-center", value: "top-center" },
+                { name: 'top-left', value: 'top-left' },
+                { name: 'top-right', value: 'top-right' },
+                { name: 'bottom-left', value: 'bottom-left' },
+                { name: 'bottom-right', value: 'bottom-right' },
+                {
+                  name: 'bottom-center',
+                  value: 'bottom-center',
+                },
+                { name: 'top-center', value: 'top-center' },
               ]}
               onSelected={(val) => setPosition(val as NotificationPosition)}
             ></Dropdown>
@@ -112,9 +115,9 @@ const Widgets = () => {
           <div
             className="rc-demo-widget"
             style={{
-              background: "#f5f5f5",
-              height: "350px",
-              placeContent: "center",
+              background: '#f5f5f5',
+              height: '350px',
+              placeContent: 'center',
               width: `${width}px`,
             }}
             ref={ref}

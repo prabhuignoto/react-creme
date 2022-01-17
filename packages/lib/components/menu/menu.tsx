@@ -1,31 +1,31 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { useCloseOnEscape } from "../common/effects/useCloseOnEsc";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { useFocus } from "../common/effects/useFocus";
-import { OverlayModel } from "../common/overlay-model";
-import { withOverlay } from "../common/withOverlay";
-import { MenuItem } from "./menu-item";
-import { MenuItemModel, MenuModel } from "./menu-model";
-import "./menu.scss";
+} from 'react';
+import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { useFocus } from '../common/effects/useFocus';
+import { OverlayModel } from '../common/overlay-model';
+import { withOverlay } from '../common/withOverlay';
+import { MenuItem } from './menu-item';
+import { MenuItemProps, MenuProps } from './menu-model';
+import './menu.scss';
 
-interface MenuInternalModel extends OverlayModel {
-  items: MenuItemModel[];
+interface MenuInternalProps extends OverlayModel {
+  items: MenuItemProps[];
   onSelection?: (val: string) => void;
 }
 
-const Menu: React.FunctionComponent<MenuInternalModel> = ({
+const Menu: React.FunctionComponent<MenuInternalProps> = ({
   items,
   onSelection,
 }) => {
-  const menuClass = useMemo(() => classNames(["rc-menu"], {}), []);
+  const menuClass = useMemo(() => classNames(['rc-menu'], {}), []);
 
   return (
     <ul className={menuClass} role="menu">
@@ -41,23 +41,23 @@ const Menu: React.FunctionComponent<MenuInternalModel> = ({
   );
 };
 
-const MenuOverlay = withOverlay<MenuInternalModel>(Menu, {
-  backdropColor: "transparent",
-  placement: "bottom",
+const MenuOverlay = withOverlay<MenuInternalProps>(Menu, {
+  backdropColor: 'transparent',
+  placement: 'bottom',
 });
 
-const MenuContainer: React.FunctionComponent<MenuModel> = ({
+const MenuContainer: React.FunctionComponent<MenuProps> = ({
   children,
   id,
   items = [],
   onClose,
   onOpen,
   onSelected,
-  position = "left",
+  position = 'left',
   focusable = true,
   style,
-}: MenuModel) => {
-  const [menuItems] = useState<MenuItemModel[]>(
+}: MenuProps) => {
+  const [menuItems] = useState<MenuItemProps[]>(
     items.map((item) => ({
       id: nanoid(),
       ...item,
@@ -118,8 +118,8 @@ const MenuContainer: React.FunctionComponent<MenuModel> = ({
 
   const menuContentWrapperClass = useMemo(
     () =>
-      classNames(["rc-menu-content-wrapper"], {
-        "rc-menu-not-focusable": !focusable,
+      classNames(['rc-menu-content-wrapper'], {
+        'rc-menu-not-focusable': !focusable,
       }),
     [showMenu, focusable]
   );

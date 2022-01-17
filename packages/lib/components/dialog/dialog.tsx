@@ -1,14 +1,14 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
-import React, { useCallback, useMemo, useRef } from "react";
-import { CheckIcon, CloseIcon } from "../../icons";
-import { Button } from "../button/button";
-import { useFocus } from "../common/effects/useFocus";
-import { withOverlay } from "../common/withOverlay";
-import { DialogModel } from "./dialog-model";
-import "./dialog.scss";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
+import React, { useCallback, useMemo, useRef } from 'react';
+import { CheckIcon, CloseIcon } from '../../icons';
+import { Button } from '../button/button';
+import { useFocus } from '../common/effects/useFocus';
+import { withOverlay } from '../common/withOverlay';
+import { DialogProps } from './dialog-model';
+import './dialog.scss';
 
-const DialogComponent: React.FunctionComponent<DialogModel> = ({
+const DialogComponent: React.FunctionComponent<DialogProps> = ({
   children,
   isClosing,
   onClose,
@@ -16,13 +16,13 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
   title,
   width,
   height = 200,
-}: DialogModel) => {
+}: DialogProps) => {
   const dialogRef = useRef<HTMLDivElement>(null);
   const dialogClass = useMemo(
     () =>
       classNames([
-        "rc-dialog",
-        isClosing ? "rc-dialog-close" : "rc-dialog-open",
+        'rc-dialog',
+        isClosing ? 'rc-dialog-close' : 'rc-dialog-open',
       ]),
     [isClosing]
   );
@@ -30,8 +30,8 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
 
   const style = useMemo(
     () => ({
-      "--min-width": `${width}px`,
-      height: height ? `${height}px` : "auto",
+      '--min-width': `${width}px`,
+      height: height ? `${height}px` : 'auto',
     }),
     [width, height]
   );
@@ -74,7 +74,7 @@ const DialogComponent: React.FunctionComponent<DialogModel> = ({
   );
 };
 
-const Dialog = withOverlay<DialogModel>(DialogComponent, {
+const Dialog = withOverlay<DialogProps>(DialogComponent, {
   disableAnimation: false,
 });
 

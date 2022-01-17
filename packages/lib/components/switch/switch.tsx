@@ -1,19 +1,19 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { useFocus } from "../common/effects/useFocus";
-import { SwitchModel } from "./switch-model";
-import "./switch.scss";
-import { CheckIcon } from "../../icons";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { CheckIcon } from '../../icons';
+import { useFocus } from '../common/effects/useFocus';
+import { SwitchProps } from './switch-model';
+import './switch.scss';
 
-const Switch: React.FunctionComponent<SwitchModel> = ({
+const Switch: React.FunctionComponent<SwitchProps> = ({
   checked = false,
   disabled = false,
   focusable = false,
   label,
   labelOutside = false,
   onChange,
-  size = "sm",
+  size = 'sm',
   style,
   width = 50,
   showCheckIcon = false,
@@ -44,46 +44,46 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   // CSS
   const switchKnobClass = useMemo(
     () =>
-      classNames(["rc-switch-knob"], {
-        "rc-switch-check-icon": showCheckIcon,
-        "rc-switch-disabled": disabled,
-        "rc-switch-off": !state && !isFirstRender.current,
+      classNames(['rc-switch-knob'], {
+        'rc-switch-check-icon': showCheckIcon,
+        'rc-switch-disabled': disabled,
+        'rc-switch-off': !state && !isFirstRender.current,
         [`rc-switch-knob-${size}`]: true,
-        "rc-switch-on": state && !isFirstRender.current,
-        "rc-switch-on-load": state && isFirstRender.current,
+        'rc-switch-on': state && !isFirstRender.current,
+        'rc-switch-on-load': state && isFirstRender.current,
       }),
     [state, size, disabled, showCheckIcon]
   );
 
   const switchClass = useMemo(
     () =>
-      classNames("rc-switch", {
-        "rc-disabled": disabled,
+      classNames('rc-switch', {
+        'rc-disabled': disabled,
         [`rc-switch-${size}`]: true,
-        "rc-switch-label-outside": labelOutside,
+        'rc-switch-label-outside': labelOutside,
       }),
     [size, labelOutside, disabled]
   );
 
   const switchTrackClass = useMemo(
     () =>
-      classNames("rc-switch-track", {
-        "rc-switch-label-outside": labelOutside,
-        "rc-switch-off": !state,
-        "rc-switch-on": state,
+      classNames('rc-switch-track', {
+        'rc-switch-label-outside': labelOutside,
+        'rc-switch-off': !state,
+        'rc-switch-on': state,
         [`rc-switch-${size}`]: true,
-        "rc-switch-track-disabled": disabled,
+        'rc-switch-track-disabled': disabled,
       }),
     [state, size, disabled, labelOutside]
   );
 
   const switchLabelClass = useMemo(
     () =>
-      classNames(["rc-switch-label"], {
-        "rc-switch-label-off": !state,
-        "rc-switch-label-on": state,
+      classNames(['rc-switch-label'], {
+        'rc-switch-label-off': !state,
+        'rc-switch-label-on': state,
         [`rc-switch-label-${size}`]: true,
-        "rc-switch-label-outside": labelOutside,
+        'rc-switch-label-outside': labelOutside,
       }),
     [state, labelOutside]
   );
@@ -91,7 +91,7 @@ const Switch: React.FunctionComponent<SwitchModel> = ({
   const switchStyle = useMemo(
     () =>
       ({
-        "--min-width": `${width}px`,
+        '--min-width': `${width}px`,
         ...style,
       } as React.CSSProperties),
     []

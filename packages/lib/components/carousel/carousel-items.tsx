@@ -1,8 +1,8 @@
-import React, { CSSProperties, ReactNode, useMemo } from "react";
-import { CarouselItemsModel } from "./carousel-model";
-import "./carousel.scss";
+import React, { CSSProperties, ReactNode, useMemo } from 'react';
+import { CarouselItemsProps } from './carousel-model';
+import './carousel.scss';
 
-const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
+const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
   activePage = 0,
   carouselItems,
   children,
@@ -10,11 +10,11 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
   height,
   totalItems,
   width,
-}: CarouselItemsModel) => {
+}: CarouselItemsProps) => {
   const carouselStyle = useMemo(() => {
     return {
       transform:
-        direction === "horizontal"
+        direction === 'horizontal'
           ? `translateX(-${width * activePage}px)`
           : `translateY(-${height * activePage}px)`,
       width: `${width * totalItems}px`,
@@ -22,18 +22,18 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
   }, [width, height, activePage]);
 
   return (
-    <ul className={"rc-carousel"} style={carouselStyle} role="list">
+    <ul className={'rc-carousel'} style={carouselStyle} role="list">
       {carouselItems.map((item, index) => (
         <li
           key={item.id}
-          className={"rc-carousel-item"}
+          className={'rc-carousel-item'}
           role="listitem"
           data-visible={activePage === index}
           aria-hidden={activePage !== index}
           style={{
-            left: direction === "horizontal" ? item.left : 0,
-            top: direction === "horizontal" ? 0 : item.top,
-            visibility: item.width === 0 ? "hidden" : "visible",
+            left: direction === 'horizontal' ? item.left : 0,
+            top: direction === 'horizontal' ? 0 : item.top,
+            visibility: item.width === 0 ? 'hidden' : 'visible',
             width: item.width,
           }}
         >
@@ -46,6 +46,6 @@ const CarouselItems: React.FunctionComponent<CarouselItemsModel> = ({
   );
 };
 
-CarouselItems.displayName = "CarouselItems";
+CarouselItems.displayName = 'CarouselItems';
 
 export { CarouselItems };

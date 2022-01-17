@@ -1,6 +1,6 @@
-import { RefObject } from "react";
+import { RefObject } from 'react';
 
-export type DragDirection = "HORIZONTAL" | "VERTICAL" | "BOTH";
+export type DragDirection = 'HORIZONTAL' | 'VERTICAL' | 'BOTH';
 
 export interface Position {
   target: HTMLElement | null;

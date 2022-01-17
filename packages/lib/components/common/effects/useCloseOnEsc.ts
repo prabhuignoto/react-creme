@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef } from "react";
+import { RefObject, useEffect, useRef } from 'react';
 
 type functionType = (
   handler: (ev: KeyboardEvent) => void,
@@ -18,7 +18,7 @@ const useCloseOnEscape: functionType = (handler, element) => {
 
   useEffect(() => {
     const eventListener = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && savedHandler.current) {
+      if (event.key === 'Escape' && savedHandler.current) {
         savedHandler.current(event);
       }
     };
@@ -28,12 +28,12 @@ const useCloseOnEscape: functionType = (handler, element) => {
     }
 
     // Add event listener
-    element.current.addEventListener("keyup", eventListener);
+    element.current.addEventListener('keyup', eventListener);
     // Remove event listener on cleanup
 
     return () => {
       element.current &&
-        element.current.removeEventListener("keyup", eventListener);
+        element.current.removeEventListener('keyup', eventListener);
     };
   }, [element]);
 };

@@ -1,12 +1,12 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
-import React, { CSSProperties, useCallback, useMemo, useRef } from "react";
-import { ChevronDownIcon } from "../../icons";
-import { Button } from "../button/button";
-import { MenuContainer as Menu } from "../menu/menu";
-import { MenuItemModel } from "../menu/menu-item";
-import { MenuButtonProps } from "./menu-button.model";
-import "./menu-button.scss";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
+import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
+import { ChevronDownIcon } from '../../icons';
+import { Button } from '../button/button';
+import { MenuContainer as Menu } from '../menu/menu';
+import { MenuItemProps } from '../menu/menu-item';
+import { MenuButtonProps } from './menu-button.model';
+import './menu-button.scss';
 
 const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   items = [],
@@ -17,7 +17,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   RTL = false,
   iconColor,
 }) => {
-  const menuItems = useRef<MenuItemModel[]>(
+  const menuItems = useRef<MenuItemProps[]>(
     items.slice(1).map((item) => ({ id: nanoid(), name: item }))
   );
 
@@ -27,21 +27,21 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
 
   const menuButtonClass = useMemo(
     () =>
-      classNames("rc-menu-btn-wrapper", {
-        "rc-menu-btn-disabled": disabled,
-        "rc-menu-btn-rtl": RTL,
+      classNames('rc-menu-btn-wrapper', {
+        'rc-menu-btn-disabled': disabled,
+        'rc-menu-btn-rtl': RTL,
       }),
     [disabled]
   );
 
   const menuPosition = useMemo(() => {
-    return RTL ? "left" : "right";
+    return RTL ? 'left' : 'right';
   }, []);
 
   const menuStyle = useMemo(() => {
     return {
-      "--icon-color": iconColor,
-      "--max-width": `${width}px`,
+      '--icon-color': iconColor,
+      '--max-width': `${width}px`,
     } as CSSProperties;
   }, []);
 

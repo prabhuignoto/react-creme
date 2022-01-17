@@ -1,8 +1,8 @@
-import React, { useLayoutEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { BlockQuote, RadioGroup, Section } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+import React, { useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { BlockQuote, RadioGroup, Section } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
@@ -33,10 +33,10 @@ function Widgets() {
             <div style={{ width: `${width}px` }}>
               <RadioGroup
                 items={[
-                  { disabled: false, label: "John" },
-                  { label: "Doe" },
-                  { label: "Murthy" },
-                  { checked: true, label: "Prabhu" },
+                  { disabled: false, label: 'John' },
+                  { label: 'Doe' },
+                  { label: 'Murthy' },
+                  { checked: true, label: 'Prabhu' },
                 ]}
                 onSelected={(val) => console.log(val)}
               />
@@ -53,9 +53,9 @@ function Widgets() {
               <RadioGroup
                 layout="row"
                 items={[
-                  { disabled: false, label: "John" },
-                  { label: "Doe" },
-                  { checked: true, label: "Prabhu" },
+                  { disabled: false, label: 'John' },
+                  { label: 'Doe' },
+                  { checked: true, label: 'Prabhu' },
                 ]}
                 onSelected={(val) => console.log(val)}
               />
@@ -71,9 +71,9 @@ function Widgets() {
             <div style={{ width: `${width}px` }}>
               <RadioGroup
                 items={[
-                  { disabled: true, label: "John" },
-                  { label: "Doe" },
-                  { checked: true, label: "Prabhu" },
+                  { disabled: true, label: 'John' },
+                  { label: 'Doe' },
+                  { checked: true, label: 'Prabhu' },
                 ]}
                 onSelected={(val) => console.log(val)}
               />
@@ -86,9 +86,9 @@ function Widgets() {
               <RadioGroup
                 RTL
                 items={[
-                  { disabled: true, label: "John" },
-                  { label: "Doe" },
-                  { checked: true, label: "Prabhu" },
+                  { disabled: true, label: 'John' },
+                  { label: 'Doe' },
+                  { checked: true, label: 'Prabhu' },
                 ]}
                 onSelected={(val) => console.log(val)}
               />

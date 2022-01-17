@@ -1,10 +1,10 @@
-import React from "react";
-import { BlockQuote, Image, Section } from "../../../lib/components";
-import { DemoWidget } from "../../common/demo-widget";
+import React from 'react';
+import { BlockQuote, Image, Section } from '../../../lib/components';
+import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   return (
-    <div className={"rc-demo-widgets"}>
+    <div className={'rc-demo-widgets'}>
       <Section title="Default render">
         <DemoWidget>
           <Image

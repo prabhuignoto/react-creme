@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { Accordion, BlockQuote, Section } from "../../../lib/components";
-import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
+import React, { useEffect } from 'react';
+import { Accordion, BlockQuote, Section } from '../../../lib/components';
+import { DemoWidget } from '../../common/demo-widget';
+import useMedia from '../../common/useMedia';
 
 function widgets() {
   const media = useMedia();
@@ -27,11 +27,11 @@ function widgets() {
 
   return (
     width > 0 && (
-      <div style={{ minHeight: "1200px" }} className="rc-demo-widgets">
+      <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
         <Section title="Default render">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Accordion title="Lorem Ipsum">
+              <Accordion title="Lorem Ipsum" focusable>
                 <p>
                   Sed laoreet neque eget sem varius, et interdum dui venenatis.
                   Suspendisse in faucibus tortor, nec aliquet arcu. Quisque at

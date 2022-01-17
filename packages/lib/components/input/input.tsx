@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   useCallback,
   useEffect,
@@ -7,28 +7,28 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import { CloseIcon } from "../../icons";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { InputModel } from "./input-model";
-import "./input.scss";
+} from 'react';
+import { CloseIcon } from '../../icons';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { InputProps } from './input-model';
+import './input.scss';
 
-const Input: React.FunctionComponent<InputModel> = React.forwardRef(
-  (props: InputModel, ref) => {
+const Input: React.FunctionComponent<InputProps> = React.forwardRef(
+  (props: InputProps, ref) => {
     const {
       children,
       disabled = false,
       enableClear = false,
       onChange,
       onKeyUp,
-      placeholder = "Please enter a value ...",
-      state = "default",
+      placeholder = 'Please enter a value ...',
+      state = 'default',
       style,
-      type = "text",
-      value = "",
+      type = 'text',
+      value = '',
       controlled = false,
       noUniqueId = false,
-      id = "",
+      id = '',
       isAutoComplete = false,
       border = false,
       focusable = false,
@@ -54,12 +54,12 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
 
     const handleClear = useCallback((ev: React.MouseEvent) => {
       ev.preventDefault();
-      setInputValue("");
+      setInputValue('');
 
       if (inputRef.current) {
         inputRef.current.focus();
       }
-      onChange?.("");
+      onChange?.('');
     }, []);
 
     const handleInput = useCallback(
@@ -82,19 +82,19 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
     );
 
     const clearClass = useMemo(
-      () => classNames(["rc-input-clear", !inputValue ? "hidden" : ""]),
+      () => classNames(['rc-input-clear', !inputValue ? 'hidden' : '']),
       [inputValue]
     );
 
     const inputClass = useMemo(
       () =>
-        classNames("rc-input", {
+        classNames('rc-input', {
           [`rc-input-${state}`]: true,
-          "rc-input-border": border,
-          "rc-input-disabled": disabled,
-          "rc-input-focus": hasFocus,
-          "rc-input-no-icon": !children,
-          "rc-input-rtl": RTL,
+          'rc-input-border': border,
+          'rc-input-disabled': disabled,
+          'rc-input-focus': hasFocus,
+          'rc-input-no-icon': !children,
+          'rc-input-rtl': RTL,
         }),
       [disabled, hasFocus]
     );
@@ -113,8 +113,8 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
       () =>
         isAutoComplete
           ? {
-              "aria-controls": id,
-              role: "combobox",
+              'aria-controls': id,
+              role: 'combobox',
             }
           : null,
       [isAutoComplete]
@@ -140,7 +140,7 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
         aria-label={placeholder}
         {...autoCompleteProps}
       >
-        <span className={"rc-input-icon"}>{children}</span>
+        <span className={'rc-input-icon'}>{children}</span>
         <input
           type={type}
           placeholder={placeholder}
@@ -159,6 +159,6 @@ const Input: React.FunctionComponent<InputModel> = React.forwardRef(
   }
 );
 
-Input.displayName = "Input";
+Input.displayName = 'Input';
 
 export { Input };

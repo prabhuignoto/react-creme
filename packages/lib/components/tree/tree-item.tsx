@@ -1,4 +1,4 @@
-import cls from "classnames";
+import cls from 'classnames';
 import React, {
   CSSProperties,
   Suspense,
@@ -7,17 +7,17 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import { ChevronRightIcon, MinusIcon, PlusIcon } from "../../icons";
-import { CheckBox } from "../checkbox/checkbox";
-import "./tree-item.scss";
-import { TreeItemModel } from "./tree-model";
+} from 'react';
+import { ChevronRightIcon, MinusIcon, PlusIcon } from '../../icons';
+import { CheckBox } from '../checkbox/checkbox';
+import './tree-item.scss';
+import { TreeItemProps } from './tree-model';
 
 const LazyTree = React.lazy(() =>
-  import("./tree").then(({ Tree }) => ({ default: Tree }))
+  import('./tree').then(({ Tree }) => ({ default: Tree }))
 );
 
-const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
+const TreeItem: React.FunctionComponent<TreeItemProps> = React.memo(
   ({
     child,
     expanded,
@@ -31,7 +31,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     onChange,
     disabled,
     iconType,
-  }: TreeItemModel) => {
+  }: TreeItemProps) => {
     const isFirstRender = useRef(true);
     const [totalItems, setTotalItems] = useState(
       Array.isArray(child) ? child.length + 1 : 0
@@ -43,19 +43,19 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
 
     const itemClass = useMemo(
       () =>
-        cls("rc-tree-item", {
-          "rc-tree-item-collapsed": !expanded,
-          "rc-tree-item-disabled": disabled,
-          "rc-tree-item-exp": expanded,
+        cls('rc-tree-item', {
+          'rc-tree-item-collapsed': !expanded,
+          'rc-tree-item-disabled': disabled,
+          'rc-tree-item-exp': expanded,
         }),
       [expanded, disabled]
     );
 
     const iconClass = useMemo(
       () =>
-        cls("rc-tree-item-icon", {
-          "rc-tree-item-icon-exp": expanded,
-          "rc-tree-item-icon-hide": !child,
+        cls('rc-tree-item-icon', {
+          'rc-tree-item-icon-exp': expanded,
+          'rc-tree-item-icon-hide': !child,
           [`rc-tree-item-icon-${iconType}`]: true,
         }),
       [expanded]
@@ -68,9 +68,9 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
 
     const childContainerClass = useMemo(
       () =>
-        cls("rc-tree-item-child-container", {
-          "rc-tree-item-child-collapsed": !canRenderChild,
-          "rc-tree-item-child-expanded": canRenderChild,
+        cls('rc-tree-item-child-container', {
+          'rc-tree-item-child-collapsed': !canRenderChild,
+          'rc-tree-item-child-expanded': canRenderChild,
         }),
       [canRenderChild]
     );
@@ -82,7 +82,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     }, []);
 
     useEffect(() => {
-      if (typeof selected !== "undefined" && !disabled) {
+      if (typeof selected !== 'undefined' && !disabled) {
         setChecked(selected);
       }
     }, [selected, disabled]);
@@ -90,14 +90,14 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     const itemStyle = useMemo(
       () =>
         ({
-          "--max-height": `${totalItems * 30}px`,
-          "--max-width": `${width}px`,
+          '--max-height': `${totalItems * 30}px`,
+          '--max-width': `${width}px`,
         } as CSSProperties),
       [totalItems, width]
     );
 
     useEffect(() => {
-      if (isFirstRender.current || typeof expanded === "undefined") {
+      if (isFirstRender.current || typeof expanded === 'undefined') {
         return;
       }
 
@@ -108,7 +108,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
 
     const handler = useCallback(
       (expanded: boolean, count: number) => {
-        if (typeof count === "undefined") {
+        if (typeof count === 'undefined') {
           return;
         }
 
@@ -126,7 +126,7 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     };
 
     useEffect(() => {
-      if (typeof expanded === "undefined") {
+      if (typeof expanded === 'undefined') {
         return;
       }
       onChildToggle && onChildToggle(expanded, totalItems);
@@ -158,15 +158,15 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
           className={iconClass}
           onClick={(ev) => id && handleToggle(ev, id)}
         >
-          {iconType === "chevron" && <ChevronRightIcon />}
-          {iconType === "plus" && !expanded && <PlusIcon />}
-          {iconType === "plus" && expanded && <MinusIcon />}
+          {iconType === 'chevron' && <ChevronRightIcon />}
+          {iconType === 'plus' && !expanded && <PlusIcon />}
+          {iconType === 'plus' && expanded && <MinusIcon />}
         </span>
         <div className="rc-tree-item-wrapper">
           {allowSelection ? (
             <span className="rc-tree-item-checkbox-wrapper">
               <CheckBox
-                label={name || ""}
+                label={name || ''}
                 onChange={handleSelection}
                 isChecked={selected && !disabled}
                 border={false}
@@ -205,6 +205,6 @@ const TreeItem: React.FunctionComponent<TreeItemModel> = React.memo(
     prev.width === cur.width
 );
 
-TreeItem.displayName = "TreeItem";
+TreeItem.displayName = 'TreeItem';
 
 export { TreeItem };

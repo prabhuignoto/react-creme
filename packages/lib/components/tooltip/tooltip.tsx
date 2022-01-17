@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   CSSProperties,
   useCallback,
@@ -6,24 +6,24 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { usePosition } from "../common/effects/usePosition";
-import { TooltipModel } from "./tooltip-model";
-import "./tooltip.scss";
+} from 'react';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { usePosition } from '../common/effects/usePosition';
+import { TooltipProps } from './tooltip-model';
+import './tooltip.scss';
 
-const Tooltip: React.FunctionComponent<TooltipModel> = ({
+const Tooltip: React.FunctionComponent<TooltipProps> = ({
   children,
   fixedAtCenter = false,
   isStatic = false,
   message,
   onTooltipRendered,
-  position = "bottom center",
+  position = 'bottom center',
   minWidth = 150,
   maxWidth = 300,
-  bgColor = "#fff",
-  foreColor = "#000",
-}: TooltipModel) => {
+  bgColor = '#fff',
+  foreColor = '#000',
+}: TooltipProps) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
 
@@ -53,11 +53,11 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   const toolTipMessageClass = useMemo(
     () =>
       classNames([
-        "rc-tooltip-message",
+        'rc-tooltip-message',
         {
-          "hide-tooltip": !isFirstRender.current && !showTooltip,
-          "show-tooltip": showTooltip,
-          [`rc-tooltip-${position.split(" ")[0]}-${position.split(" ")[1]}`]:
+          'hide-tooltip': !isFirstRender.current && !showTooltip,
+          'show-tooltip': showTooltip,
+          [`rc-tooltip-${position.split(' ')[0]}-${position.split(' ')[1]}`]:
             true,
         },
       ]),
@@ -67,9 +67,9 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   const tooltipWrapperClass = useMemo(
     () =>
       classNames([
-        "rc-tooltip-wrapper",
+        'rc-tooltip-wrapper',
         {
-          "rc-tooltip-fixed": fixedAtCenter,
+          'rc-tooltip-fixed': fixedAtCenter,
         },
       ]),
     [fixedAtCenter]
@@ -79,13 +79,13 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
     if (cssPosition) {
       return {
         ...cssPosition,
-        "--max-width": `${maxWidth}px`,
-        "--min-width": `${minWidth}px`,
+        '--max-width': `${maxWidth}px`,
+        '--min-width': `${minWidth}px`,
       };
     } else {
       return {
-        "--max-width": `${maxWidth}px`,
-        "--min-width": `${minWidth}px`,
+        '--max-width': `${maxWidth}px`,
+        '--min-width': `${minWidth}px`,
       };
     }
   }, [cssPosition]);
@@ -105,8 +105,8 @@ const Tooltip: React.FunctionComponent<TooltipModel> = ({
   const style = useMemo(
     () =>
       ({
-        "--bg-color": bgColor,
-        "--fore-color": foreColor,
+        '--bg-color': bgColor,
+        '--fore-color': foreColor,
       } as CSSProperties),
     []
   );

@@ -1,22 +1,22 @@
-import cls from "classnames";
-import { nanoid } from "nanoid";
+import cls from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   CSSProperties,
   useCallback,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { ChevronDownIcon } from "../../icons";
-import { useFocus } from "../common/effects/useFocus";
-import { withOverlay } from "../common/withOverlay";
-import { Tags } from "../tags/tags";
-import { DropDownMenu } from "./dropdown-menu";
-import { DropdownMenuProps, DropdownProps, Option } from "./dropdown-model";
-import "./dropdown.scss";
+} from 'react';
+import { ChevronDownIcon } from '../../icons';
+import { useFocus } from '../common/effects/useFocus';
+import { withOverlay } from '../common/withOverlay';
+import { Tags } from '../tags/tags';
+import { DropDownMenu } from './dropdown-menu';
+import { DropdownMenuProps, DropdownProps, Option } from './dropdown-model';
+import './dropdown.scss';
 
 const DropdownMenuOverlay = withOverlay<DropdownMenuProps>(DropDownMenu, {
-  backdropColor: "transparent",
+  backdropColor: 'transparent',
 });
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
@@ -27,7 +27,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     maxMenuHeight = 200,
     onSelected,
     options = [],
-    placeholder = "Choose an option...",
+    placeholder = 'Choose an option...',
     virtualize = false,
     focusable = false,
     RTL = false,
@@ -48,8 +48,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
         ? options
             .filter((opt) => opt.selected)
             .map((t) => t.name)
-            .join(",")
-        : ""
+            .join(',')
+        : ''
     );
 
     // state for showing and hiding the menu
@@ -64,10 +64,10 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
 
     // HANDLERS
     const handleSelection = useCallback((selected: Option[]) => {
-      let _value: string | string[] = "";
+      let _value: string | string[] = '';
 
       if (allowMultiSelection) {
-        _value = selected.map((opt) => opt.value).join(",");
+        _value = selected.map((opt) => opt.value).join(',');
         const selectedIds = selected.map((item) => item.id);
         setValue(_value);
         setDropdownOptions((options) =>
@@ -78,7 +78,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
         );
       } else {
         const { id, value } = selected[0];
-        _value = value || "";
+        _value = value || '';
         setValue(_value);
         setDropdownOptions((options) =>
           options.map((option) => ({
@@ -131,7 +131,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const selectedValue = useMemo(() => {
       if (value !== placeholder && value && allowMultiSelection) {
         return value
-          .split(",")
+          .split(',')
           .filter((f) => !!f)
           .map((t) => ({
             name: t,
@@ -144,18 +144,18 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     // memoized classnames
     const rcDropdownClass = useMemo(
       () =>
-        cls("rc-dropdown", {
-          "rc-dropdown-disabled": disabled,
+        cls('rc-dropdown', {
+          'rc-dropdown-disabled': disabled,
         }),
       [disabled]
     );
 
     const rcDropdownValueClass = useMemo(
       () =>
-        cls("rc-dropdown-value-container", {
-          "rc-dropdown-disabled": disabled,
-          "rc-dropdown-multi": allowMultiSelection,
-          "rc-dropdown-rtl": RTL,
+        cls('rc-dropdown-value-container', {
+          'rc-dropdown-disabled': disabled,
+          'rc-dropdown-multi': allowMultiSelection,
+          'rc-dropdown-rtl': RTL,
         }),
       [disabled]
     );
@@ -163,21 +163,21 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const rcDropdownIconClass = useMemo(
       () =>
         cls(
-          "rc-dropdown-chevron-icon",
-          showMenu && !menuClosing ? "rc-dropdown-chevron-icon-rotate" : ""
+          'rc-dropdown-chevron-icon',
+          showMenu && !menuClosing ? 'rc-dropdown-chevron-icon-rotate' : ''
         ),
       [showMenu, menuClosing]
     );
 
     const iconStyle = useMemo(() => {
       return {
-        "---chevron-icon-color": chevronIconColor,
+        '---chevron-icon-color': chevronIconColor,
       } as CSSProperties;
     }, []);
 
     const valueClass = useMemo(() => {
-      return cls("rc-dropdown-value", {
-        "rc-dropdown-rtl": RTL,
+      return cls('rc-dropdown-value', {
+        'rc-dropdown-rtl': RTL,
       });
     }, []);
 
@@ -197,7 +197,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
                   items={selectedValue}
                   readonly
                   tagStyle="fill"
-                  tagSize={"small"}
+                  tagSize={'small'}
                   tagWidth={100}
                   RTL={RTL}
                 />
@@ -242,6 +242,6 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
   }
 );
 
-Dropdown.displayName = "Dropdown";
+Dropdown.displayName = 'Dropdown';
 
 export { Dropdown };

@@ -119,9 +119,9 @@ export declare interface ButtonModel {
     focusable?: boolean;
 }
 
-export declare const Card: React_2.FunctionComponent<CardModel>;
+export declare const Card: React_2.FunctionComponent<CardProps>;
 
-export declare interface CardModel {
+export declare interface CardProps {
     header?: ReactNode;
     footer?: ReactNode;
     minHeight?: number;
@@ -184,12 +184,12 @@ export declare interface CarouselTrackModel {
     hidePrevious?: boolean;
 }
 
-export declare const CheckBox: React_2.FunctionComponent<CheckboxModel>;
+export declare const CheckBox: React_2.FunctionComponent<CheckboxProps>;
 
 export declare const CheckBoxGroup: React_2.FunctionComponent<CheckboxGroupProps>;
 
 export declare interface CheckboxGroupProps {
-    options: CheckboxModel[];
+    options: CheckboxProps[];
     border?: boolean;
     disabled?: boolean;
     layout?: "horizontal" | "vertical";
@@ -203,7 +203,7 @@ export declare interface CheckboxGroupProps {
     RTL?: boolean;
 }
 
-export declare interface CheckboxModel {
+export declare interface CheckboxProps {
     autoHeight?: boolean;
     border?: boolean;
     checkBoxStyle?: "square" | "round";
@@ -294,9 +294,9 @@ export declare interface DataRow extends DataGridCommon {
     style?: CSSProperties;
 }
 
-export declare const Dialog: React_2.FunctionComponent<DialogModel>;
+export declare const Dialog: React_2.FunctionComponent<DialogProps>;
 
-export declare interface DialogModel extends OverlayModel {
+export declare interface DialogProps extends OverlayModel {
     children?: React_2.ReactNode;
     height?: number;
     onClose?: () => void;
@@ -305,9 +305,9 @@ export declare interface DialogModel extends OverlayModel {
     width?: number;
 }
 
-export declare const Drawer: React_2.FunctionComponent<DrawerModel>;
+export declare const Drawer: React_2.FunctionComponent<DrawerProps>;
 
-export declare interface DrawerModel extends OverlayModel {
+export declare interface DrawerProps extends OverlayModel {
     children?: React_2.ReactNode | React_2.ReactNode[];
     height?: number | string;
     position?: "left" | "right" | "top" | "bottom";
@@ -386,9 +386,9 @@ export declare interface ImageProps extends React_2.ImgHTMLAttributes<HTMLImageE
     alt?: string;
 }
 
-export declare const Input: React_2.FunctionComponent<InputModel>;
+export declare const Input: React_2.FunctionComponent<InputProps>;
 
-export declare interface InputModel {
+export declare interface InputProps {
     border?: boolean;
     children?: React_2.ReactNode;
     controlled?: boolean;
@@ -408,9 +408,9 @@ export declare interface InputModel {
     RTL?: boolean;
 }
 
-export declare const Link: React_2.FunctionComponent<AnchorHTMLAttributes<LinkModel>>;
+export declare const Link: React_2.FunctionComponent<AnchorHTMLAttributes<LinkProps>>;
 
-export declare interface LinkModel {
+export declare interface LinkProps {
     children: React_2.ReactNode;
 }
 
@@ -542,9 +542,9 @@ export declare interface PageHeaderProps {
     size?: "sm" | "md" | "lg";
 }
 
-export declare const Progress: React_2.FunctionComponent<ProgressModel>;
+export declare const Progress: React_2.FunctionComponent<ProgressProps>;
 
-export declare interface ProgressModel {
+export declare interface ProgressProps {
     currentValue?: number;
     infiniteStyle?: "disappear" | "bob";
     maxValue?: number;
@@ -556,7 +556,7 @@ export declare interface ProgressModel {
     RTL?: boolean;
 }
 
-export declare const Radio: React_2.FunctionComponent<RadioModel>;
+export declare const Radio: React_2.FunctionComponent<RadioProps>;
 
 export declare const RadioGroup: React_2.FunctionComponent<RadioGroupModel>;
 
@@ -578,7 +578,7 @@ export declare interface RadioGroupModel {
     focusable?: boolean;
 }
 
-export declare interface RadioModel {
+export declare interface RadioProps {
     disabled?: boolean;
     id?: string;
     isChecked?: boolean | null;
@@ -734,9 +734,9 @@ export declare interface SliderModel {
 
 export declare type SortDirection = "asc" | "desc" | "none";
 
-export declare const Splitter: React_2.FunctionComponent<SplitterModel>;
+export declare const Splitter: React_2.FunctionComponent<SplitterProps>;
 
-export declare interface SplitterModel {
+export declare interface SplitterProps {
     dir: "horizontal" | "vertical";
     children: React_2.ReactNode[];
     minSplitWidth?: number;
@@ -747,9 +747,9 @@ export declare interface SplitterModel {
     handleBarWidth?: number;
 }
 
-export declare const Switch: React_2.FunctionComponent<SwitchModel>;
+export declare const Switch: React_2.FunctionComponent<SwitchProps>;
 
-export declare interface SwitchModel {
+export declare interface SwitchProps {
     checked?: boolean;
     disabled?: boolean;
     focusable?: boolean;

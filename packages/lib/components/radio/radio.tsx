@@ -1,18 +1,18 @@
-import cls from "classnames";
-import { nanoid } from "nanoid";
+import cls from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { useFirstRender } from "../common/effects/useFirstRender";
-import { useFocus } from "../common/effects/useFocus";
-import { RadioModel } from "./radio-model";
-import "./radio.scss";
+} from 'react';
+import { useFirstRender } from '../common/effects/useFirstRender';
+import { useFocus } from '../common/effects/useFocus';
+import { RadioProps } from './radio-model';
+import './radio.scss';
 
-const Radio: React.FunctionComponent<RadioModel> = React.memo(
+const Radio: React.FunctionComponent<RadioProps> = React.memo(
   ({
     disabled,
     id,
@@ -20,13 +20,13 @@ const Radio: React.FunctionComponent<RadioModel> = React.memo(
     label,
     onChange,
     value,
-    size = "sm",
+    size = 'sm',
     style,
     focusable = false,
     withGroup = false,
     fullWidth = true,
     RTL = false,
-  }: RadioModel) => {
+  }: RadioProps) => {
     const idRef = useRef<string>(id || nanoid());
 
     const labelID = useRef(`label-${idRef.current}`);
@@ -60,35 +60,35 @@ const Radio: React.FunctionComponent<RadioModel> = React.memo(
     }
 
     const radioWrapperClass = useMemo(() => {
-      return cls("rc-radio-wrapper", {
+      return cls('rc-radio-wrapper', {
         [`rc-radio-${size}`]: true,
-        "rc-radio-disabled": disabled,
-        "rc-radio-full-width": fullWidth,
-        "rc-radio-rtl": RTL,
+        'rc-radio-disabled': disabled,
+        'rc-radio-full-width': fullWidth,
+        'rc-radio-rtl': RTL,
       });
     }, [disabled, fullWidth]);
 
     const radioClass = useMemo(
       () =>
-        cls(["rc-radio"], {
-          "rc-radio-checked": checked,
-          "rc-radio-disabled": disabled,
+        cls(['rc-radio'], {
+          'rc-radio-checked': checked,
+          'rc-radio-disabled': disabled,
           [`rc-radio-${size}`]: true,
         }),
       [checked, disabled]
     );
 
     const radioIconClass = useMemo(() => {
-      return cls(["rc-radio-icon"], {
-        "rc-radio-ico-checked": checked,
-        "rc-radio-ico-un-checked": !isFirstRender.current && !checked,
+      return cls(['rc-radio-icon'], {
+        'rc-radio-ico-checked': checked,
+        'rc-radio-ico-un-checked': !isFirstRender.current && !checked,
       });
     }, [checked]);
 
     const radioLabelClass = useMemo(() => {
-      return cls(["rc-radio-label", `rc-radio-label-${size}`], {
-        "rc-radio-disabled": disabled,
-        "rc-radio-rtl": RTL,
+      return cls(['rc-radio-label', `rc-radio-label-${size}`], {
+        'rc-radio-disabled': disabled,
+        'rc-radio-rtl': RTL,
       });
     }, [size, disabled]);
 
@@ -100,7 +100,7 @@ const Radio: React.FunctionComponent<RadioModel> = React.memo(
 
     const focusableProps = useMemo(
       () => ({
-        "aria-checked": !!checked,
+        'aria-checked': !!checked,
         onClick: toggleCheck,
         ref: radioRef,
         tabIndex: !disabled && focusable ? 0 : -1,
@@ -135,6 +135,6 @@ const Radio: React.FunctionComponent<RadioModel> = React.memo(
   }
 );
 
-Radio.displayName = "Radio";
+Radio.displayName = 'Radio';
 
 export { Radio };

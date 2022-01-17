@@ -1,19 +1,19 @@
-import React, { lazy } from "react";
-import DemoPageRenderer from "../../common/demo-page-renderer";
+import React, { lazy } from 'react';
+import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function tags() {
   return (
     <DemoPageRenderer
-      tabTitles={["Examples", "Properties", "Type definitions", "Stackblitz"]}
-      stackBlitzCodes={["react-ts-hppcze"]}
+      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      stackBlitzCodes={['react-ts-hppcze']}
       title="Tags"
       description="Tags are used to group related content."
       callbacks={[
         {
           default: ``,
           description: `callback fired on state change`,
-          name: "onChange",
-          optional: "Yes",
+          name: 'onChange',
+          optional: 'Yes',
           type: `Function`,
         },
       ]}
@@ -21,61 +21,61 @@ function tags() {
         {
           default: `small`,
           description: `prop to set the size of the tag.<br> <em>small</em> | <em>large</em>`,
-          name: "tagSize",
-          optional: "Yes",
+          name: 'tagSize',
+          optional: 'Yes',
           type: `String`,
         },
         {
           default: `default`,
           description: `prop to set the style for the tag. <em>default</em> | <em>fill</em>`,
-          name: "tagStyle",
-          optional: "Yes",
+          name: 'tagStyle',
+          optional: 'Yes',
           type: `String`,
         },
         {
           default: `[]`,
           description: `collection of tag items that will be rendered on load`,
-          name: "items",
-          optional: "Yes",
+          name: 'items',
+          optional: 'Yes',
           type: `Array`,
         },
         {
           default: `Number.MAX_VALUE`,
           description: `prop to set the maximum number of tags allowed`,
-          name: "maxTags",
-          optional: "Yes",
+          name: 'maxTags',
+          optional: 'Yes',
           type: `Number`,
         },
         {
-          default: "False",
+          default: 'False',
           description: `disables the button`,
-          name: "disabled",
-          optional: "Yes",
+          name: 'disabled',
+          optional: 'Yes',
           type: `Boolean`,
         },
         {
-          default: "False",
+          default: 'False',
           description: `prop to set the component to readonly state`,
-          name: "readonly",
-          optional: "Yes",
+          name: 'readonly',
+          optional: 'Yes',
           type: `Boolean`,
         },
         {
-          default: "50",
+          default: '50',
           description: `maximum width of the tag`,
-          name: "tagWidth",
-          optional: "Yes",
+          name: 'tagWidth',
+          optional: 'Yes',
           type: `Number`,
         },
         {
           default: `{}`,
           description: `custom CSS that will be applied to the container of the component`,
-          name: "style",
-          optional: "Yes",
+          name: 'style',
+          optional: 'Yes',
           type: `Object`,
         },
       ]}
-      demoWidget={lazy(() => import("./widgets"))}
+      demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>
   );
 }

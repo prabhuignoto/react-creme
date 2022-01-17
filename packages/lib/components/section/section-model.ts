@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-export interface SectionModel {
+export interface SectionProps {
   RTL?: boolean;
   children: React.ReactNode | React.ReactNode[];
   height?: number;
-  layout?: "row" | "column";
-  size?: "sm" | "md" | "lg";
+  layout?: 'row' | 'column';
+  size?: 'sm' | 'md' | 'lg';
   title?: string;
 }

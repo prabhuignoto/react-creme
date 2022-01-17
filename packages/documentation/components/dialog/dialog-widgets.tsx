@@ -1,7 +1,7 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { Button, Dialog, Section } from "../../../lib/components";
-import { responsiveState } from "../../atoms/home";
+import React, { useLayoutEffect, useRef, useState } from 'react';
+import { useRecoilValue } from 'recoil';
+import { Button, Dialog, Section } from '../../../lib/components';
+import { responsiveState } from '../../atoms/home';
 
 const Widget = () => {
   const [open, setOpen] = useState(false);

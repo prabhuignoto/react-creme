@@ -1,11 +1,11 @@
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, ReactNode } from 'react';
 
-export interface TabsCommonModel {
+export interface TabsCommonProps {
   border?: boolean;
   focusable?: boolean;
-  tabStyle?: "flat" | "rounded";
+  tabStyle?: 'flat' | 'rounded';
 }
-export interface TabHeadProps extends TabsCommonModel {
+export interface TabHeadProps extends TabsCommonProps {
   disabled?: boolean;
   handleTabSelection: (id: string) => void;
   icon?: ReactNode;
@@ -14,7 +14,7 @@ export interface TabHeadProps extends TabsCommonModel {
   selected?: boolean;
 }
 
-export interface TabsModel extends TabsCommonModel {
+export interface TabsProps extends TabsCommonProps {
   children: ReactNode[];
   disabledTabs?: string[];
   icons?: ReactNode[];
@@ -24,7 +24,7 @@ export interface TabsModel extends TabsCommonModel {
   width?: number | string;
 }
 
-export interface TabItemModel {
+export interface TabItemProps {
   content?: ReactNode;
   disabled?: boolean;
   id: string;
@@ -32,8 +32,8 @@ export interface TabItemModel {
   selected?: boolean;
 }
 
-export interface TabHeadersModel extends TabsCommonModel {
+export interface TabHeadersProps extends TabsCommonProps {
   handleTabSelection: (id: string) => void;
   icons?: ReactNode[];
-  items: TabItemModel[];
+  items: TabItemProps[];
 }

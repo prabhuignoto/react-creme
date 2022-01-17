@@ -1,13 +1,13 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { RevealProps } from "./reveal-model";
-import "./reveal.scss";
+} from 'react';
+import { RevealProps } from './reveal-model';
+import './reveal.scss';
 
 const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
   const observer = useRef<IntersectionObserver>();
@@ -43,9 +43,9 @@ const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
 
   const revealClass = useMemo(
     () =>
-      classNames("rc-reveal", {
-        "rc-reveal-hide": !visible,
-        "rc-reveal-show": visible,
+      classNames('rc-reveal', {
+        'rc-reveal-hide': !visible,
+        'rc-reveal-show': visible,
       }),
     [visible]
   );

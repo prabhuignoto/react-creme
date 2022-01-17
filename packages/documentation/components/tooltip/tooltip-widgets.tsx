@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
+import React, { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import {
   BlockQuote,
   Card,
@@ -7,13 +7,13 @@ import {
   Image,
   Section,
   Tooltip,
-} from "../../../lib/components";
-import { ToolTipPosition } from "../../../lib/components/tooltip/tooltip-model";
-import { responsiveState } from "../../atoms/home";
-import { DemoWidget } from "../../common/demo-widget";
+} from '../../../lib/components';
+import { ToolTipPosition } from '../../../lib/components/tooltip/tooltip-model';
+import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 const Widgets = () => {
-  const [position, setPosition] = useState<ToolTipPosition>("top center");
+  const [position, setPosition] = useState<ToolTipPosition>('top center');
 
   const media = useRecoilValue(responsiveState);
 
@@ -43,25 +43,28 @@ const Widgets = () => {
           <BlockQuote>
             The Component supports 12 different docking positions.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: "320px" }}>
+          <div className="rc-demo-widget" style={{ width: '320px' }}>
             <Dropdown
               placeholder="choose a position"
               onSelected={(val) => {
                 setPosition(val as ToolTipPosition);
               }}
               options={[
-                { name: "top center", value: "top center" },
-                { name: "top left", value: "top left" },
-                { name: "top right", value: "top right" },
-                { name: "bottom center", value: "bottom center" },
-                { name: "bottom left", value: "bottom left" },
-                { name: "bottom right", value: "bottom right" },
-                { name: "left center", value: "left center" },
-                { name: "left top", value: "left top" },
-                { name: "left bottom", value: "left bottom" },
-                { name: "right center", value: "right center" },
-                { name: "right top", value: "right top" },
-                { name: "right bottom", value: "right bottom" },
+                { name: 'top center', value: 'top center' },
+                { name: 'top left', value: 'top left' },
+                { name: 'top right', value: 'top right' },
+                {
+                  name: 'bottom center',
+                  value: 'bottom center',
+                },
+                { name: 'bottom left', value: 'bottom left' },
+                { name: 'bottom right', value: 'bottom right' },
+                { name: 'left center', value: 'left center' },
+                { name: 'left top', value: 'left top' },
+                { name: 'left bottom', value: 'left bottom' },
+                { name: 'right center', value: 'right center' },
+                { name: 'right top', value: 'right top' },
+                { name: 'right bottom', value: 'right bottom' },
               ]}
             ></Dropdown>
           </div>

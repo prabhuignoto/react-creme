@@ -1,7 +1,7 @@
-import React, { useLayoutEffect } from "react";
-import { Alert, BlockQuote, Button, Section } from "../../../lib/components";
-import { DemoWidget } from "../../common/demo-widget";
-import useMedia from "../../common/useMedia";
+import React, { useLayoutEffect } from 'react';
+import { Alert, BlockQuote, Button, Section } from '../../../lib/components';
+import { DemoWidget } from '../../common/demo-widget';
+import useMedia from '../../common/useMedia';
 
 function Widgets() {
   const media = useMedia();
@@ -30,7 +30,7 @@ function Widgets() {
       <div className="rc-demo-widgets">
         <Section title="Informational Text">
           <BlockQuote>
-            Alerts can be closed or dismissed by default. Use the{" "}
+            Alerts can be closed or dismissed by default. Use the{' '}
             <code>canDismiss</code> prop to change this behavior.
           </BlockQuote>
           <DemoWidget>

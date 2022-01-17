@@ -1,17 +1,18 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  preset: "ts-jest",
-  testEnvironment: "jsdom",
-  moduleNameMapper: {
-    "^.+\\.(css|less|scss)$": "babel-jest",
-  },
+  cacheDirectory: '.jest-cache',
   collectCoverage: false,
-  coverageDirectory: "coverage",
-  setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
+  coverageDirectory: 'coverage',
+  moduleNameMapper: {
+    '^.+\\.(css|less|scss)$': 'babel-jest',
+  },
+  preset: 'ts-jest',
+  setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
-    "<rootDir>/node_modules",
-    "<rootDir>/src/icons",
-    "dist",
+    '<rootDir>/node_modules',
+    '<rootDir>/src/icons',
+    'dist',
   ],
-  testResultsProcessor: "jest-sonar-reporter",
+  testResultsProcessor: 'jest-sonar-reporter',
 };

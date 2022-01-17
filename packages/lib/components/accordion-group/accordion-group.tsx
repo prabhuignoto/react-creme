@@ -1,12 +1,12 @@
-import classNames from "classnames";
-import { nanoid } from "nanoid";
-import React, { useCallback, useLayoutEffect, useMemo } from "react";
-import { Accordion } from "../accordion/accordion";
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
+import React, { useCallback, useLayoutEffect, useMemo } from 'react';
+import { Accordion } from '../accordion/accordion';
 import {
   AccordionGroupProps,
   AccordionItemProps,
-} from "../accordion/accordion-model";
-import "./accordion-group.scss";
+} from '../accordion/accordion-model';
+import './accordion-group.scss';
 
 const AccordionGroup = ({
   alignIconRight = false,
@@ -15,8 +15,8 @@ const AccordionGroup = ({
   children,
   expanded = false,
   iconColor,
-  iconType = "chevron",
-  titleColor = "#000",
+  iconType = 'chevron',
+  titleColor = '#000',
   titles = [],
   isTitleBold = false,
   disableCollapse = false,
@@ -50,8 +50,8 @@ const AccordionGroup = ({
   }, []);
 
   const groupClass = useMemo(() => {
-    return classNames("rc-accordion-group", {
-      "rc-accordion-grp-no-border": !border,
+    return classNames('rc-accordion-group', {
+      'rc-accordion-grp-no-border': !border,
     });
   }, []);
 
@@ -96,6 +96,6 @@ const AccordionGroup = ({
   );
 };
 
-AccordionGroup.displayName = "AccordionGroup";
+AccordionGroup.displayName = 'AccordionGroup';
 
 export { AccordionGroup };

@@ -1,15 +1,15 @@
-import classNames from "classnames";
-import React from "react";
-import "./menu-item.scss";
+import classNames from 'classnames';
+import React from 'react';
+import './menu-item.scss';
 
-export interface MenuItemModel {
+export interface MenuItemProps {
   disabled?: boolean;
   handleSelection?: (name: string) => void;
   isDivider?: boolean;
   name?: string;
 }
 
-const MenuItem: React.FunctionComponent<MenuItemModel> = ({
+const MenuItem: React.FunctionComponent<MenuItemProps> = ({
   disabled,
   name,
   isDivider,
@@ -17,9 +17,9 @@ const MenuItem: React.FunctionComponent<MenuItemModel> = ({
 }) => {
   return (
     <li
-      className={classNames(["rc-menu-item"], {
-        "rc-menu-item-disabled": disabled,
-        "rc-menu-item-divider": isDivider,
+      className={classNames(['rc-menu-item'], {
+        'rc-menu-item-disabled': disabled,
+        'rc-menu-item-divider': isDivider,
       })}
       onClick={(ev) => {
         ev.preventDefault();
