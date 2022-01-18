@@ -17,7 +17,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   border = false,
   children,
   disabledTabs = [],
-  focusable = false,
+  focusable = true,
   icons,
   iconsColor,
   labels,
@@ -29,7 +29,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   const selectionStart = useRef<number>(-1);
   const [activeTabId, setActiveTabId] = useState<string>('');
 
-  // state of tabs
+  // prepare the data for the tabs
   const items = useRef<TabItemProps[]>(
     Array.isArray(children)
       ? children.map((_, index) => {
@@ -58,18 +58,35 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
       : []
   );
 
+  // gets the tab content based on the active selection
+  const getTabContent = useMemo(() => {
+    if (activeTabId) {
+      return items.current.filter(
+        (item) => !item.disabled && item.id === activeTabId
+      )[0].content;
+    } else {
+      return null;
+    }
+  }, [disabledTabs.length, activeTabId]);
+
+  // collection of tab items
+  const tabItems = useMemo(() => {
+    return items.current
+      .filter((tab) => !tab.disabled)
+      .map(
+        ({ id }) =>
+          id === activeTabId && (
+            <TabPanel key={id} id={id}>
+              {getTabContent}
+            </TabPanel>
+          )
+      );
+  }, [activeTabId]);
+
   // handles the tab selection
   const handleTabSelection = useCallback((id) => {
     setActiveTabId(id);
   }, []);
-
-  // retrieves the content of the selected tab
-  const getTabContent = useCallback(
-    (index) => {
-      return items.current.filter((item) => !item.disabled)[index].content;
-    },
-    [disabledTabs.length]
-  );
 
   // styles and classes
   const tabsStyle = useMemo(
@@ -135,18 +152,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         icons={icons}
         activeTabId={activeTabId}
       />
-      <div className={rcPanelsClass}>
-        {items.current
-          .filter((tab) => !tab.disabled)
-          .map(
-            ({ id }, index) =>
-              id === activeTabId && (
-                <TabPanel key={id} id={id}>
-                  {getTabContent(index)}
-                </TabPanel>
-              )
-          )}
-      </div>
+      <div className={rcPanelsClass}>{tabItems}</div>
     </div>
   );
 };
