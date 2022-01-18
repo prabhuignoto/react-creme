@@ -26,13 +26,17 @@ export default function useFocusNew(
     }, 25);
   }, []);
 
-  const blurHandler = useCallback((ev: FocusEvent) => {
+  const removeFocus = useCallback(() => {
     const ele = ring.current;
     if (ele) {
       ele.classList.remove('rc-focus-ring-active');
       ele.classList.add('rc-focus-ring-inactive');
       setTimeout(() => ele?.remove(), 25);
     }
+  }, []);
+
+  const blurHandler = useCallback((ev: FocusEvent) => {
+    removeFocus();
   }, []);
 
   const handleKeyUp = useCallback((ev: KeyboardEvent) => {
@@ -42,11 +46,7 @@ export default function useFocusNew(
   }, []);
 
   const onScroll = useCallback((ev: Event) => {
-    if (ring.current && ref.current) {
-      const { left, top } = ref.current.getBoundingClientRect();
-      ring.current.style.left = `${left - 3}px`;
-      ring.current.style.top = `${top - 3}px`;
-    }
+    removeFocus();
   }, []);
 
   useEffect(() => {

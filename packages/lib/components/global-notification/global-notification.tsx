@@ -9,20 +9,8 @@ import React, {
 } from 'react';
 import { CloseIcon } from '../../icons';
 import { useFocus } from '../common/effects/useFocus';
+import { GlobalNotificationProps } from './global-notification.model';
 import './global-notification.scss';
-
-export type GlobalNotificationState = 'success' | 'error' | 'warning' | 'info';
-
-export interface GlobalNotificationProps {
-  closeAfter?: number;
-  delay?: number;
-  focusable?: boolean;
-  height?: number;
-  hideAnimationStyle?: 'hide' | 'shrink';
-  message: string;
-  onClose?: () => void;
-  state?: GlobalNotificationState;
-}
 
 const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   height = 50,

@@ -37,6 +37,11 @@ function widgets() {
           <Rate size="md" disabled value={3} />
         </DemoWidget>
       </Section>
+      <Section title="RTL">
+        <DemoWidget>
+          <Rate size="md" RTL />
+        </DemoWidget>
+      </Section>
     </div>
   );
 }

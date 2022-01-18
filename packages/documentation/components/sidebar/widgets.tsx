@@ -54,6 +54,7 @@ function widgets() {
             <div style={{ height: '450px', width: `${width}px` }}>
               <Sidebar
                 enableSearch
+                focusable
                 groups={[
                   {
                     items: [{ name: 'tester' }],

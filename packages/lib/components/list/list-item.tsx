@@ -1,6 +1,5 @@
 import cls from 'classnames';
-import React, { useCallback, useMemo, useRef } from 'react';
-import useFocusNew from '../common/effects/useFocusNew';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { ListItemOption } from './list-item-option';
 import './list-item.scss';
 import { ListItemProps } from './list-model';
@@ -20,6 +19,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
     highlightSelection = false,
     textColor,
     RTL,
+    focus,
   }: ListItemProps) => {
     const handleSelection = useCallback(() => {
       onSelection && onSelection({ id, name, selected: !selected, value });
@@ -59,6 +59,12 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
         tabIndex: 0,
       };
     }, []);
+
+    useEffect(() => {
+      if (focus) {
+        ref.current?.focus();
+      }
+    }, [focus]);
 
     return (
       <li

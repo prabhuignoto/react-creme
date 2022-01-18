@@ -17,7 +17,7 @@ const Widgets: React.FunctionComponent = () => {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default rendering">
-        <div className="rc-demo-widget">
+        <div className="rc-demo-widget" style={{ marginBottom: '1rem' }}>
           <div style={{ margin: '0 1rem' }}>
             <Button onClick={start} label="Start"></Button>
           </div>

@@ -1,4 +1,6 @@
 export interface SliderProps {
+  RTL?: boolean;
+
   // disables the tooltip
   disableTooltip?: boolean;
 

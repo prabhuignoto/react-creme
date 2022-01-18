@@ -7,6 +7,7 @@ interface CommonProps {
 }
 
 export interface RateProps extends CommonProps {
+  RTL?: boolean;
   disabled?: boolean;
   iconCount?: number;
   onChange?: (value: number | string) => void;
