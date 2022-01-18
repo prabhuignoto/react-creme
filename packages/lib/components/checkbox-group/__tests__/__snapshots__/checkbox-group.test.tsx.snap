@@ -11,6 +11,7 @@ exports[`CheckboxGroup should match snapshot 1`] = `
       aria-labelledby="1"
       class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-focus rc-checkbox-hover"
       role="checkbox"
+      style="outline: none;"
       tabindex="0"
     >
       <div
@@ -48,6 +49,7 @@ exports[`CheckboxGroup should match snapshot 1`] = `
       aria-labelledby="2"
       class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-focus rc-checkbox-hover"
       role="checkbox"
+      style="outline: none;"
       tabindex="0"
     >
       <div

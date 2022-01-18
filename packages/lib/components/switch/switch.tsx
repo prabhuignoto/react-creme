@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { CheckIcon } from '../../icons';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { SwitchProps } from './switch-model';
 import './switch.scss';
 
@@ -38,7 +38,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
   };
 
   if (focusable) {
-    useFocus(ref, handleToggle);
+    useFocusNew(ref, handleToggle);
   }
 
   // CSS

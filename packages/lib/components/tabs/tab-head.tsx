@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { TabHeadProps } from './tabs-model';
 import './tabs.scss';
 
@@ -18,11 +18,11 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     parentHasFocus,
   }: TabHeadProps) => {
     const ref = useRef<HTMLElement>(null);
-    console.log(selected);
 
     // enable focus outlines
     if (!disabled && focusable) {
-      useFocus(ref, () => handleTabSelection(id));
+      // useFocus(ref, () => handleTabSelection(id));
+      useFocusNew(ref);
       // useKey(ref, () => handleTabSelection(id));
     }
 
@@ -52,7 +52,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         return;
       }
       if (selected && parentHasFocus) {
-        ref.current?.focus();
+        // ref.current?.focus();
       }
     }, [selected, parentHasFocus]);
 

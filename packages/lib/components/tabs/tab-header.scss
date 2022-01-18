@@ -74,6 +74,10 @@ $rounded-tabs-height: 35px;
   position: relative;
   user-select: none;
 
+  &:focus {
+    background-color: colors.$light-bg;
+  }
+
   &.rc-tab-head-disabled {
     @extend %disabled;
   }

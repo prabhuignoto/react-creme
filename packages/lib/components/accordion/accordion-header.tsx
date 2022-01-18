@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React, { useMemo, useRef } from 'react';
 import { ChevronRightIcon, MinusIcon, PlusIcon } from '../../icons';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { AccordionHeaderProps } from './accordion-model';
 
 const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
@@ -76,7 +76,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   }, [iconType, open, disableIcon]);
 
   if (focusable) {
-    useFocus(ref, onToggle);
+    useFocusNew(ref, onToggle);
   }
 
   return (

@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { CheckIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { CheckboxProps } from './checkbox-model';
 import './checkbox.scss';
 
@@ -49,7 +49,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
     }, []);
 
     if (focusable) {
-      useFocus(ref, toggleCheck);
+      useFocusNew(ref, toggleCheck);
     }
 
     const iconClass = useMemo(

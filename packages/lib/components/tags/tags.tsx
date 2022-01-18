@@ -23,7 +23,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   autoComplete = false,
   RTL = false,
   placeholder = '',
-  focusable = false,
+  focusable = true,
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemInternalProps[]>(

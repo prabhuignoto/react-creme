@@ -10,7 +10,7 @@ import React, {
 import { CloseIcon } from '../../icons';
 import { Button } from '../button/button';
 import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { useKey } from '../common/effects/useKey';
 import { withOverlay } from '../common/withOverlay';
 import { DrawerProps } from './drawer-model';
@@ -24,6 +24,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   position = 'left',
   width = 300,
   transition = 'cubic-bezier(0.79, 0.14, 0.15, 0.86)',
+  focusable = true,
 }) => {
   const [activate, setActivate] = useState(false);
   const drawerRef = useRef<HTMLDivElement | null>(null);
@@ -57,7 +58,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
 
   useCloseOnEscape((ev) => onClose?.(), drawerRef);
 
-  useFocus(drawerRef);
+  useFocusNew(drawerRef);
 
   if (onClose) {
     useKey(drawerRef, onClose);
@@ -81,7 +82,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
       aria-modal="true"
     >
       <div className="rc-drawer-close-btn-wrapper">
-        <Button type="icon" size="lg" onClick={onClose}>
+        <Button type="icon" size="lg" onClick={onClose} focusable={focusable}>
           <CloseIcon />
         </Button>
       </div>

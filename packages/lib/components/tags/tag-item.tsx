@@ -8,8 +8,7 @@ import React, {
 } from 'react';
 import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
-import { useFocus } from '../common/effects/useFocus';
-// import { useFocus } from "../common/effects/useFocus";
+import useFocusNew from '../common/effects/useFocusNew';
 import { useKey } from '../common/effects/useKey';
 import { TagItemInternalProps } from './tags-model';
 import './tags.scss';
@@ -77,7 +76,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     );
 
     if (focusable) {
-      useFocus(ref, handleClick);
+      useFocusNew(ref, handleClick);
     }
 
     return (

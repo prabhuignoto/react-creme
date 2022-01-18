@@ -39,6 +39,7 @@ function Widgets() {
                   { checked: true, label: 'Prabhu' },
                 ]}
                 onSelected={(val) => console.log(val)}
+                focusable
               />
             </div>
           </DemoWidget>

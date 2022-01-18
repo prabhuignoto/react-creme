@@ -1,6 +1,6 @@
 import React from 'react';
-import { CheckCircleIcon } from '../../../lib/icons';
 import { BlockQuote, Button, Menu, Section } from '../../../lib/components';
+import { CheckCircleIcon } from '../../../lib/icons';
 import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
@@ -20,7 +20,6 @@ function Widgets() {
                 { name: 'Close' },
                 { name: 'Exit' },
               ]}
-              focusable={false}
             >
               <Button label="File"></Button>
             </Menu>
@@ -42,7 +41,6 @@ function Widgets() {
                 { name: 'Close' },
                 { name: 'Exit' },
               ]}
-              focusable={false}
             >
               <Button type="icon" size="lg">
                 <CheckCircleIcon />

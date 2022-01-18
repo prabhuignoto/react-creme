@@ -3,6 +3,7 @@ import { OverlayModel } from '../common/overlay-model';
 
 export interface DrawerProps extends OverlayModel {
   children?: React.ReactNode | React.ReactNode[];
+  focusable?: boolean;
   height?: number | string;
   position?: 'left' | 'right' | 'top' | 'bottom';
   transition?: string;

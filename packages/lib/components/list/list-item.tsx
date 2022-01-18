@@ -1,6 +1,6 @@
 import cls from 'classnames';
 import React, { useCallback, useMemo, useRef } from 'react';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { ListItemOption } from './list-item-option';
 import './list-item.scss';
 import { ListItemProps } from './list-model';
@@ -27,7 +27,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
 
     const ref = useRef<HTMLLIElement>(null);
 
-    useFocus(ref, handleSelection);
+    // useFocusNew(ref, handleSelection);
 
     const listItemClass = useMemo(
       () =>
