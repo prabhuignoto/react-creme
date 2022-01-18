@@ -17,6 +17,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
   size = 'sm',
   value = 0,
   disabled = false,
+  RTL = false,
 }) => {
   const [items, setItems] = React.useState<RateItemProps[]>(
     Array.from({ length: iconCount }).map(() => ({
@@ -85,6 +86,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
   const rateWrapperClass = useMemo(() => {
     return classNames('rc-rate-wrapper', {
       'rc-rate-disabled': disabled,
+      'rc-rate-rtl': RTL,
     });
   }, [disabled]);
 

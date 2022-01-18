@@ -15,6 +15,10 @@ $sizes: (
   &.rc-rate-disabled {
     @extend %disabled;
   }
+
+  &.rc-rate-rtl {
+    direction: rtl;
+  }
 }
 
 .rc-rate-item {
