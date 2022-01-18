@@ -30,7 +30,7 @@ export type { DrawerProps } from "./components/drawer/drawer-model";
 export { Dropdown } from "./components/dropdown/dropdown";
 export type { DropdownMenuProps, DropdownProps, MenuOption, Option } from "./components/dropdown/dropdown-model";
 export { GlobalNotification } from "./components/global-notification/global-notification";
-export type { GlobalNotificationProps } from "./components/global-notification/global-notification";
+export type { GlobalNotificationProps } from "./components/global-notification/global-notification.model";
 export { ImageComparer } from "./components/image-comparer/image-comparer";
 export type { ImageComparerProps } from "./components/image-comparer/image-comparer.model";
 export { Image } from "./components/image/image";

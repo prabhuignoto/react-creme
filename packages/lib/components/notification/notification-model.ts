@@ -11,7 +11,7 @@ export type NotificationPosition =
 
 /** ✨ Component props */
 export interface NotificationProps extends OverlayModel {
-  /** 🟠 auto closes the tooltip after the duration in Milliseconds *
+  /** 🟠 auto closes the tooltip after the duration in Milliseconds */
   autoClose?: number;
 
   /** 🟠 children elements to be rendered inside the tooltip *
