@@ -11,7 +11,7 @@ import './menu-button.scss';
 const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   items = [],
   onSelected,
-  focusable = false,
+  focusable = true,
   width = 150,
   disabled = false,
   RTL = false,

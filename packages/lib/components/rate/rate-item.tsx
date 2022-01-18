@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import RateIcon from '../../icons/star';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { RateItemViewProps } from './rate-model';
 
 const RateItem: React.FunctionComponent<RateItemViewProps> = React.memo(
@@ -20,7 +20,7 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = React.memo(
     const ref = React.useRef<HTMLLIElement | null>(null);
 
     if (focusable && !disabled) {
-      useFocus(ref, () => onSelect(index));
+      useFocusNew(ref, () => onSelect(index));
     }
 
     const rateItemClass = useMemo(

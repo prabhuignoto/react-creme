@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useMemo, useRef } from 'react';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { CircularProgress } from '../progress/circular-progress';
 import { ButtonProps } from './button-model';
 import './button.scss';
@@ -35,7 +35,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   const ref = useRef(null);
 
   if (focusable) {
-    useFocus(ref, onClick);
+    useFocusNew(ref, onClick);
   }
 
   const focusableProps = useMemo(

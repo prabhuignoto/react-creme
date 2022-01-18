@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 import { useFirstRender } from '../common/effects/useFirstRender';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { RadioProps } from './radio-model';
 import './radio.scss';
 
@@ -56,7 +56,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
     }, [canToggle, checked]);
 
     if (focusable) {
-      useFocus(radioRef, toggleCheck);
+      useFocusNew(radioRef, toggleCheck);
     }
 
     const radioWrapperClass = useMemo(() => {

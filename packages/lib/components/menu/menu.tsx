@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
 import { useFirstRender } from '../common/effects/useFirstRender';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { OverlayModel } from '../common/overlay-model';
 import { withOverlay } from '../common/withOverlay';
 import { MenuItem } from './menu-item';
@@ -80,7 +80,7 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
   }, []);
 
   if (focusable) {
-    useFocus(wrapperRef, () => {
+    useFocusNew(wrapperRef, () => {
       setShowMenu((prev) => !prev);
     });
   }

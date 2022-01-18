@@ -191,6 +191,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
       aria-label=""
       class="rc-disabled rc-btn-md rc-btn-icon rc-btn"
       role="button"
+      style="outline: none;"
       tabindex="0"
     >
       <span
@@ -216,7 +217,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
       aria-label=""
       class="rc-disabled rc-btn-md rc-btn-icon rc-btn"
       role="button"
-      style="transform: rotate(180deg);"
+      style="transform: rotate(180deg); outline: none;"
       tabindex="0"
     >
       <span

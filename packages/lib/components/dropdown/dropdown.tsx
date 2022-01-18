@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 import { ChevronDownIcon } from '../../icons';
-import { useFocus } from '../common/effects/useFocus';
+import useFocusNew from '../common/effects/useFocusNew';
 import { withOverlay } from '../common/withOverlay';
 import { Tags } from '../tags/tags';
 import { DropDownMenu } from './dropdown-menu';
@@ -29,7 +29,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     options = [],
     placeholder = 'Choose an option...',
     virtualize = false,
-    focusable = false,
+    focusable = true,
     RTL = false,
     chevronIconColor,
   }: DropdownProps) => {
@@ -124,7 +124,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     // setup focus
 
     if (focusable) {
-      useFocus(containerRef, handleToggleMenu);
+      useFocusNew(containerRef, handleToggleMenu);
     }
 
     // memoize the selected value

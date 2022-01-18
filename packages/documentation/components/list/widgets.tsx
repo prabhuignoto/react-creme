@@ -101,6 +101,7 @@ function Widgets() {
                 maxHeight={350}
                 virtualized
                 showCheckIcon
+                focusable={false}
                 onSelection={(val) => console.log(val)}
                 options={Array.from({ length: 500 }, (_, i) => ({
                   name: `Item ${i}`,

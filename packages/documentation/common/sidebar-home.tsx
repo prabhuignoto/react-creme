@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Sidebar } from "../../lib/components";
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Sidebar } from '../../lib/components';
 import {
   SidebarGroupModel,
   SidebarItemModel,
-} from "../../lib/components/sidebar/sidebar-model";
+} from '../../lib/components/sidebar/sidebar-model';
 
 interface SideBarHomeProps {
   onSelect?: () => void;
@@ -21,7 +21,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
     item: SidebarItemModel
   ) => {
     onSelect?.();
-    navigate("/" + item.name.trim().toLowerCase().replace(/ /g, "-"));
+    navigate('/' + item.name.trim().toLowerCase().replace(/ /g, '-'));
   };
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
 
   const sideBarMemoized = React.useMemo(() => {
     return (
-      <div style={{ height: "100vh", width: "100%" }}>
+      <div style={{ height: '100vh', width: '100%' }}>
         <Sidebar
           enableSearch
           onSelect={handleSidebarSelect}
@@ -40,79 +40,79 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
           groupIconColor="#0074B7"
           groupTitleColor="#0074B7"
           sectionsCollapsible={false}
-          focusable
+          focusable={false}
           groups={[
             {
               items: [
-                { name: "Splitter" },
-                { name: "Accordion" },
-                { name: "Image" },
-                { name: "Tabs" },
-                { name: "Accordion Group" },
-                { name: "Sidebar" },
-                { name: "image comparer" },
-                { name: "Carousel" },
-                { name: "Reveal" },
-                { name: "scroll spy" },
+                { name: 'Splitter' },
+                { name: 'Accordion' },
+                { name: 'Image' },
+                { name: 'Tabs' },
+                { name: 'Accordion Group' },
+                { name: 'Sidebar' },
+                { name: 'image comparer' },
+                { name: 'Carousel' },
+                { name: 'Reveal' },
+                { name: 'scroll spy' },
               ],
-              title: "Layout",
+              title: 'Layout',
             },
             {
               items: [
-                { name: "section" },
-                { name: "Card" },
-                { name: "page header" },
+                { name: 'section' },
+                { name: 'Card' },
+                { name: 'page header' },
               ],
-              title: "content",
+              title: 'content',
             },
             {
               items: [
-                { name: "Input Text" },
-                { name: "Tags" },
-                { name: "Radio Group" },
-                { name: "Checkbox" },
-                { name: "Checkbox Group" },
-                { name: "Switch" },
-                { name: "Dropdown" },
-                { name: "Rate" },
-                { name: "Button" },
-                { name: "Slider" },
-                { name: "Autocomplete" },
-                { name: "Menu Button" },
+                { name: 'Input Text' },
+                { name: 'Tags' },
+                { name: 'Radio Group' },
+                { name: 'Checkbox' },
+                { name: 'Checkbox Group' },
+                { name: 'Switch' },
+                { name: 'Dropdown' },
+                { name: 'Rate' },
+                { name: 'Button' },
+                { name: 'Slider' },
+                { name: 'Autocomplete' },
+                { name: 'Menu Button' },
               ],
-              title: "Inputs",
+              title: 'Inputs',
             },
             {
               items: [
-                { name: "Progress" },
-                { name: "Skeleton" },
-                { name: "Notification" },
-                { name: "Global Notification" },
-                { name: "Alerts" },
+                { name: 'Progress' },
+                { name: 'Skeleton' },
+                { name: 'Notification' },
+                { name: 'Global Notification' },
+                { name: 'Alerts' },
               ],
-              title: "Feedback",
+              title: 'Feedback',
             },
             {
               items: [
-                { name: "Tree" },
-                { name: "List" },
-                { name: "Data Grid" },
-                { name: "Transfer" },
+                { name: 'Tree' },
+                { name: 'List' },
+                { name: 'Data Grid' },
+                { name: 'Transfer' },
               ],
-              title: "Data",
+              title: 'Data',
             },
             {
               items: [
-                { name: "Dialog" },
-                { name: "Drawer" },
-                { name: "Tooltip" },
-                { name: "Menu" },
+                { name: 'Dialog' },
+                { name: 'Drawer' },
+                { name: 'Tooltip' },
+                { name: 'Menu' },
               ],
-              title: "Overlay",
+              title: 'Overlay',
             },
             {
-              items: [{ name: "draggable" }],
-              title: "Utilities",
+              items: [{ name: 'draggable' }],
+              title: 'Utilities',
             },
           ]}
         />
@@ -120,9 +120,9 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
     );
   }, []);
 
-  return <div style={{ width: "100%" }}>{sideBarMemoized}</div>;
+  return <div style={{ width: '100%' }}>{sideBarMemoized}</div>;
 };
 
-SidebarHome.displayName = "SidebarHome";
+SidebarHome.displayName = 'SidebarHome';
 
 export default SidebarHome;

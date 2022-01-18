@@ -22,7 +22,7 @@ module.exports = {
     'typescript-sort-keys',
   ],
   rules: {
-    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
+    // 'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
     'no-use-before-define': 'off',
     'sort-keys-fix/sort-keys-fix': 'error',
     'typescript-sort-keys/interface': 'error',

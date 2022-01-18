@@ -1,7 +1,7 @@
 @use "../../design/layout.scss";
 @use "../../design/colors.scss";
 @use "../../design/icon.scss";
-@use "../../design/animate.scss";
+// @use "../../design/animate.scss";
 
 $header-height: 35px;
 $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
@@ -22,11 +22,12 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   cursor: pointer;
   height: $header-height;
   justify-items: center;
+  outline: 0;
   position: relative;
   text-transform: capitalize;
 
   &.rc-accordion-focusable {
-    @include animate.halo();
+    // @include animate.halo();
   }
 
   &:not(.rc-accordion-align-icon-rt):not(.rc-accordion-disable-icon):not(.rc-accordion-header-icon) {

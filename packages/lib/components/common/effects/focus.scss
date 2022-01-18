@@ -1,0 +1,17 @@
+.rc-focus-ring {
+  border: 3px solid transparent;
+  border-radius: 4px;
+  display: block;
+  pointer-events: none;
+  position: fixed;
+  transition: border 0.1s ease-in;
+  z-index: 999999999;
+}
+
+.rc-focus-ring-active {
+  border: 3px solid rgba(#2196f3, 0.5);
+}
+
+.rc-focus-ring-inactive {
+  border: 3px solid transparent;
+}
