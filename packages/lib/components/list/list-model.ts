@@ -29,6 +29,7 @@ export interface ListProps extends ListCommonProps {
 
 export interface ListItemProps extends ListCommonProps {
   disabled?: boolean;
+  focus?: boolean;
   id?: string;
   name: string;
   onSelection?: (opt: ListOption) => void;
@@ -38,6 +39,7 @@ export interface ListItemProps extends ListCommonProps {
 }
 
 export interface ListOption extends Option {
+  focus?: boolean;
   group?: string;
   top?: number;
   visible?: boolean;

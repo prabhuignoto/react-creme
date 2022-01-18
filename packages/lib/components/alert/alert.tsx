@@ -49,7 +49,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
 
   const handleClose = useCallback(() => {
     setClose(true);
-    onDismiss && onDismiss();
+    onDismiss?.();
   }, []);
 
   const icon = useMemo(() => {

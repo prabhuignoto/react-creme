@@ -15,7 +15,7 @@ import { isUndefined } from '../common/utils';
 import { Option } from '../dropdown/dropdown-model';
 import { Input } from '../input/input';
 import { ListItem } from './list-item';
-import { ListProps, ListOption } from './list-model';
+import { ListOption, ListProps } from './list-model';
 import './list.scss';
 
 const initOptions = (
@@ -174,6 +174,16 @@ const List: React.FunctionComponent<ListProps> = ({
 
   const handleScroll = useDebouncedCallback(setRange);
 
+  const handleKeyUp = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowUp') {
+    } else if (e.key === 'ArrowDown') {
+    } else if (e.key === 'Enter') {
+      if (onSelection) {
+        // onSelection(selected);
+      }
+    }
+  }, []);
+
   const onListRef = useCallback((el) => {
     if (el) {
       listRef.current = el;
@@ -212,6 +222,7 @@ const List: React.FunctionComponent<ListProps> = ({
         className="rc-list-options-wrapper"
         ref={onListRef}
         onScroll={handleScroll}
+        onKeyUp={handleKeyUp}
       >
         <ul
           className={'rc-list-options'}
@@ -222,33 +233,45 @@ const List: React.FunctionComponent<ListProps> = ({
         >
           {_listOptions
             .filter((item) => item.visible)
-            .map(({ disabled, id, name, value = '', selected, top = 0 }) => {
-              const canShow =
-                !virtualized ||
-                (top + itemHeight >= visibleRange[0] && top <= visibleRange[1]);
-              return canShow ? (
-                <ListItem
-                  allowMultiSelection={allowMultiSelection}
-                  disabled={disabled}
-                  focusable={focusable}
-                  id={id}
-                  key={id}
-                  name={name}
-                  onSelection={handleSelection}
-                  selected={selected}
-                  showCheckIcon={showCheckIcon}
-                  highlightSelection={highlightSelection}
-                  textColor={textColor}
-                  textColorSelected={textColorSelected}
-                  value={value}
-                  RTL={RTL}
-                  style={{
-                    height: `${itemHeight}px`,
-                    top: `${top}px`,
-                  }}
-                />
-              ) : null;
-            })}
+            .map(
+              ({
+                disabled,
+                id,
+                name,
+                value = '',
+                selected,
+                top = 0,
+                focus,
+              }) => {
+                const canShow =
+                  !virtualized ||
+                  (top + itemHeight >= visibleRange[0] &&
+                    top <= visibleRange[1]);
+                return canShow ? (
+                  <ListItem
+                    allowMultiSelection={allowMultiSelection}
+                    disabled={disabled}
+                    focusable={focusable}
+                    id={id}
+                    key={id}
+                    name={name}
+                    onSelection={handleSelection}
+                    selected={selected}
+                    showCheckIcon={showCheckIcon}
+                    highlightSelection={highlightSelection}
+                    textColor={textColor}
+                    textColorSelected={textColorSelected}
+                    value={value}
+                    RTL={RTL}
+                    focus={focus}
+                    style={{
+                      height: `${itemHeight}px`,
+                      top: `${top}px`,
+                    }}
+                  />
+                ) : null;
+              }
+            )}
         </ul>
       </div>
     </div>
