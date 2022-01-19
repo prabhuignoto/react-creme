@@ -8,30 +8,18 @@ export default function useFocusNew(
   const ring = useRef<HTMLSpanElement>();
 
   const focusHandler = useCallback((ev: FocusEvent) => {
-    const ele = document.createElement('span');
-    const { left, top, width, height } = (
-      ev.target as HTMLElement
-    ).getBoundingClientRect();
-    ele.classList.add('rc-focus-ring');
-    ele.style.cssText = `
-      height: ${height + 6}px;
-      left: ${left - 6}px;
-      top: ${top - 6}px;
-      width: ${width + 6}px;
-  `;
-    ring.current = ele;
-    document.body.appendChild(ele);
-    setTimeout(() => {
+    const ele = ring.current;
+    if (ele) {
+      ele.classList.remove('rc-focus-ring-inactive');
       ele.classList.add('rc-focus-ring-active');
-    }, 25);
+    }
   }, []);
 
-  const removeFocus = useCallback(() => {
+  const removeFocus = useCallback((removeImmediate?: boolean) => {
     const ele = ring.current;
     if (ele) {
       ele.classList.remove('rc-focus-ring-active');
       ele.classList.add('rc-focus-ring-inactive');
-      setTimeout(() => ele?.remove(), 25);
     }
   }, []);
 
@@ -45,17 +33,28 @@ export default function useFocusNew(
     }
   }, []);
 
-  const onScroll = useCallback((ev: Event) => {
-    removeFocus();
-  }, []);
+  // const onScroll = useCallback((ev: Event) => removeFocus(true), []);
 
   useEffect(() => {
     const ele = ref.current;
     if (ele) {
+      const focusRing = document.createElement('span');
+      const { clientWidth, clientHeight } = ele;
+
       ele.style.outline = 'none';
+      ele.style.position = 'relative';
+
+      focusRing.classList.add('rc-focus-ring');
+      focusRing.style.cssText = `
+        width: ${clientWidth + 6}px;
+        height: ${clientHeight + 6}px;
+      `;
+      ring.current = ele;
+      ele.appendChild(focusRing);
+      ring.current = focusRing;
+
       ele.addEventListener('focus', focusHandler);
       ele.addEventListener('focusout', blurHandler);
-      window.addEventListener('scroll', onScroll);
       ele.addEventListener('keyup', handleKeyUp);
     }
   }, [ref]);
@@ -65,7 +64,7 @@ export default function useFocusNew(
       if (ref.current) {
         ref.current.removeEventListener('focus', focusHandler);
         ref.current.removeEventListener('focusout', blurHandler);
-        window.removeEventListener('scroll', onScroll);
+        ref.current.removeEventListener('keyup', handleKeyUp);
       }
     };
   }, []);

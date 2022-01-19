@@ -1,7 +1,7 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/animate.scss";
-@use "../../design/position.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/animate.scss';
+@use '../../design/position.scss';
 
 .rc-tooltip-wrapper {
   @extend %center;
@@ -11,7 +11,7 @@
   }
 
   &.rc-tooltip-fixed {
-    @include position.position-abs("center center");
+    @include position.position-abs('center center');
   }
 }
 
@@ -31,7 +31,7 @@
   @extend %center;
   @extend %border-radius;
   @extend %shadow-medium;
-  @include animate.set-animation(0.25s);
+  @include animate.set-settings(0.25s);
 
   @include animate.set-keyframes(animate-tooltip-show, $animation);
   @include animate.set-keyframes(animate-tooltip-close, $animation, true);
@@ -94,7 +94,7 @@
   &::after {
     background: colors.$white;
     border-radius: 1px;
-    content: "";
+    content: '';
     display: block;
     height: $arrow-dim;
     position: absolute;

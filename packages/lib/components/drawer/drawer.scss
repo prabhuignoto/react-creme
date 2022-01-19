@@ -1,19 +1,19 @@
-@use "../../design/layout.scss";
-@use "../../design/button.scss";
-@use "../../design/colors.scss";
-@use "../../design/animate.scss";
-@use "../../design/position.scss";
-@use "../../design/util.scss";
+@use '../../design/layout.scss';
+@use '../../design/button.scss';
+@use '../../design/colors.scss';
+@use '../../design/animate.scss';
+@use '../../design/position.scss';
+@use '../../design/util.scss';
 
 .rc-drawer {
   $min-width: var(--min-width);
   $min-height: var(--min-height);
 
   $positions: (
-    left: "center left",
-    right: "center right",
-    top: "top center",
-    bottom: "bottom center",
+    left: 'center left',
+    right: 'center right',
+    top: 'top center',
+    bottom: 'bottom center',
   );
 
   $slide-left-settings: (
@@ -53,7 +53,7 @@
 
   @extend %shadow-small;
   @extend %top-center;
-  @include animate.set-animation(0.25s, var(--transition));
+  @include animate.set-settings(0.25s, var(--transition));
 
   background-color: colors.$white;
   height: var(--min-height);
@@ -121,7 +121,7 @@
 }
 
 .rc-drawer-close-btn-wrapper {
-  @include position.position-abs("top right");
+  @include position.position-abs('top right');
   right: 0.5rem;
   top: 0.5rem;
 }

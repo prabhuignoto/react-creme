@@ -3,9 +3,16 @@
   border: 3px solid transparent;
   border-radius: 4px;
   display: block;
+  height: 120%;
+  left: 50%;
   pointer-events: none;
-  position: fixed;
-  transition: border 0.05s ease-in, background-color 0.05s ease-in;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: border 0.1s ease-in, background-color 0.1s ease-in,
+    visibility 0.1s ease-in;
+  visibility: hidden;
+  width: 120%;
   z-index: 999999999;
 }
 
@@ -16,11 +23,13 @@
   background-color: rgba(#fff, 0.1);
   border: 3px solid rgba(#2196f3, 0.5);
   box-shadow: 0 0 25px 15px rgba(#ffff, 0.1);
+  visibility: visible;
 }
 
 .rc-focus-ring-inactive {
   background-color: rgba(#2196f3, 0.1);
   border: 3px solid transparent;
+  visibility: hidden;
 }
 
 @keyframes halo {

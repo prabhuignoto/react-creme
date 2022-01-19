@@ -1,8 +1,8 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/animate.scss";
-@use "../../design/list.scss";
-@use "../../design/position.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/animate.scss';
+@use '../../design/list.scss';
+@use '../../design/position.scss';
 
 .rc-skeleton-wrapper {
   @extend %border-radius;
@@ -32,7 +32,7 @@
   }
 
   &:not(.rc-skeleton-disable-animation) {
-    @include animate.set-animation(2s, linear, true);
+    @include animate.set-settings(2s, linear, true);
     @include animate.set-keyframes(animate-skeleton, $settings);
     background: linear-gradient(
       90deg,

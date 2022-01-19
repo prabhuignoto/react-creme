@@ -17,11 +17,11 @@ importers:
       eslint-plugin-sort-keys-fix: ^1.1.2
       eslint-plugin-typescript-sort-keys: ^2.1.0
       husky: ^7.0.4
-      lint-staged: ^12.1.7
+      lint-staged: ^12.2.0
       postcss: ^8.4.5
       postcss-scss: ^4.0.3
       prettier: ^2.5.1
-      snyk: ^1.831.0
+      snyk: ^1.833.0
       stylelint: 14.2.0
       stylelint-config-prettier: ^9.0.3
       stylelint-order: ^5.0.0
@@ -42,11 +42,11 @@ importers:
       eslint-plugin-sort-keys-fix: 1.1.2
       eslint-plugin-typescript-sort-keys: 2.1.0_3b6b276e93ead7cf6063f183a5e18d1f
       husky: 7.0.4
-      lint-staged: 12.1.7
+      lint-staged: 12.2.0
       postcss: 8.4.5
       postcss-scss: 4.0.3_postcss@8.4.5
       prettier: 2.5.1
-      snyk: 1.831.0
+      snyk: 1.833.0
       stylelint: 14.2.0
       stylelint-config-prettier: 9.0.3_stylelint@14.2.0
       stylelint-order: 5.0.0_stylelint@14.2.0
@@ -89,7 +89,7 @@ importers:
       react-dom: ^17.0.2
       react-element-to-jsx-string: ^14.3.4
       react-feather: ^2.0.9
-      react-responsive: ^9.0.0-beta.5
+      react-responsive: ^9.0.0-beta.6
       react-router: ^6.2.1
       react-router-dom: ^6.2.1
       react-syntax-highlighter: ^15.4.5
@@ -97,8 +97,8 @@ importers:
       recoil: ^0.5.2
       resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
-      sass: ^1.48.0
-      snyk: ^1.831.0
+      sass: ^1.49.0
+      snyk: ^1.833.0
       stylelint: 14.2.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -147,25 +147,24 @@ importers:
       postcss-preset-env: 7.2.3_postcss@8.4.5
       prettier: 2.5.1
       react-element-to-jsx-string: 14.3.4_react-dom@17.0.2+react@17.0.2
-      react-responsive: 9.0.0-beta.5_react@17.0.2
+      react-responsive: 9.0.0-beta.6_react@17.0.2
       react-syntax-highlighter: 15.4.5_react@17.0.2
       react-transition-group: 4.4.2_react-dom@17.0.2+react@17.0.2
       recoil: 0.5.2_react-dom@17.0.2+react@17.0.2
       rimraf: 3.0.2
-      sass: 1.48.0
-      snyk: 1.831.0
+      sass: 1.49.0
+      snyk: 1.833.0
       stylelint: 14.2.0
       stylelint-config-prettier: 9.0.3_stylelint@14.2.0
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.5+stylelint@14.2.0
       stylelint-scss: 4.1.0_stylelint@14.2.0
       typescript: 4.5.4
       use-timer: 2.0.1_react-dom@17.0.2+react@17.0.2
-      vite: 2.6.13_sass@1.48.0
+      vite: 2.6.13_sass@1.49.0
       vite-plugin-react-svg: 0.2.0_@babel+core@7.16.7+vite@2.6.13
 
   packages/lib:
     specifiers:
-      '@axe-core/react': ^4.3.2
       '@babel/core': ^7.16.7
       '@babel/plugin-proposal-optional-chaining': ^7.16.7
       '@babel/plugin-transform-runtime': ^7.16.8
@@ -181,7 +180,7 @@ importers:
       '@testing-library/user-event': ^13.5.0
       '@types/bluebird': ^3.5.36
       '@types/jest': ^27.4.0
-      '@types/node': ^17.0.9
+      '@types/node': ^17.0.10
       '@types/react': ^17.0.38
       '@types/react-dom': ^17.0.11
       '@types/react-syntax-highlighter': ^13.5.2
@@ -207,7 +206,7 @@ importers:
       react: ^17.0.2
       react-dom: ^17.0.2
       react-element-to-jsx-string: ^14.3.4
-      react-responsive: ^9.0.0-beta.5
+      react-responsive: ^9.0.0-beta.6
       react-router-dom: ^6.2.1
       react-syntax-highlighter: ^15.4.5
       react-transition-group: ^4.4.2
@@ -221,8 +220,8 @@ importers:
       rollup-plugin-sass: ^1.2.10
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.31.1
-      sass: ^1.48.0
-      snyk: ^1.831.0
+      sass: ^1.49.0
+      snyk: ^1.833.0
       stylelint: 14.2.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -237,7 +236,6 @@ importers:
       resize-observer-polyfill: 1.5.1
       use-debounce: 7.0.1_react@17.0.2
     devDependencies:
-      '@axe-core/react': 4.3.2
       '@babel/core': 7.16.7
       '@babel/plugin-proposal-optional-chaining': 7.16.7_@babel+core@7.16.7
       '@babel/plugin-transform-runtime': 7.16.8_@babel+core@7.16.7
@@ -253,7 +251,7 @@ importers:
       '@testing-library/user-event': 13.5.0_@testing-library+dom@8.11.2
       '@types/bluebird': 3.5.36
       '@types/jest': 27.4.0
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
       '@types/react-syntax-highlighter': 13.5.2
@@ -277,7 +275,7 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-element-to-jsx-string: 14.3.4_react-dom@17.0.2+react@17.0.2
-      react-responsive: 9.0.0-beta.5_react@17.0.2
+      react-responsive: 9.0.0-beta.6_react@17.0.2
       react-router-dom: 6.2.1_react-dom@17.0.2+react@17.0.2
       react-syntax-highlighter: 15.4.5_react@17.0.2
       react-transition-group: 4.4.2_react-dom@17.0.2+react@17.0.2
@@ -289,9 +287,9 @@ importers:
       rollup-plugin-purgecss: 4.1.3
       rollup-plugin-sass: 1.2.10_rollup@2.64.0
       rollup-plugin-terser: 7.0.2_rollup@2.64.0
-      rollup-plugin-typescript2: 0.31.1_305aaaef5d44298b82e967fcd8928ea3
-      sass: 1.48.0
-      snyk: 1.831.0
+      rollup-plugin-typescript2: 0.31.1_8bdcc8cfb15afdc4c44a30c682253294
+      sass: 1.49.0
+      snyk: 1.833.0
       stylelint: 14.2.0
       stylelint-config-prettier: 9.0.3_stylelint@14.2.0
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.5+stylelint@14.2.0
@@ -1615,7 +1613,7 @@ packages:
     dependencies:
       '@csstools/sass-import-resolve': 1.0.0
       postcss: 7.0.39
-      sass: 1.48.0
+      sass: 1.49.0
       source-map: 0.7.3
     dev: true
 
@@ -1718,7 +1716,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       chalk: 4.1.2
       jest-message-util: 27.4.6
       jest-util: 27.4.2
@@ -1739,7 +1737,7 @@ packages:
       '@jest/test-result': 27.4.6
       '@jest/transform': 27.4.6
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.8.1
@@ -1776,7 +1774,7 @@ packages:
     dependencies:
       '@jest/fake-timers': 27.4.6
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       jest-mock: 27.4.6
     dev: true
 
@@ -1786,7 +1784,7 @@ packages:
     dependencies:
       '@jest/types': 27.4.2
       '@sinonjs/fake-timers': 8.1.0
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       jest-message-util: 27.4.6
       jest-mock: 27.4.6
       jest-util: 27.4.2
@@ -1815,7 +1813,7 @@ packages:
       '@jest/test-result': 27.4.6
       '@jest/transform': 27.4.6
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       chalk: 4.1.2
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
@@ -1899,7 +1897,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       '@types/yargs': 16.0.4
       chalk: 4.1.2
     dev: true
@@ -2287,7 +2285,7 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /@ts-type/package-dts/1.0.58_6e436e8f243410e1e9766abd3dd289df:
+  /@ts-type/package-dts/1.0.58_c11a468549e58622fc8f8e311bb736cf:
     resolution: {integrity: sha512-Ry5RPZDAnSz/gyLtjd2a2yNC07CZ/PCOsuDzYj3phOolIgEH68HXRw6SbsDlavnVUEenDYj5GUM10gQ5iVEbVQ==}
     peerDependencies:
       '@types/bluebird': '*'
@@ -2295,10 +2293,10 @@ packages:
       ts-toolbelt: '*'
     dependencies:
       '@types/bluebird': 3.5.36
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       '@types/semver': 7.3.9
       ts-toolbelt: 9.6.0
-      ts-type: 2.1.4_6e436e8f243410e1e9766abd3dd289df
+      ts-type: 2.1.4_c11a468549e58622fc8f8e311bb736cf
     dev: true
 
   /@types/aria-query/4.2.2:
@@ -2349,7 +2347,7 @@ packages:
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
     dependencies:
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
     dev: true
 
   /@types/hast/2.3.4:
@@ -2392,8 +2390,8 @@ packages:
   /@types/minimist/1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
 
-  /@types/node/17.0.9:
-    resolution: {integrity: sha512-5dNBXu/FOER+EXnyah7rn8xlNrfMOQb/qXnw4NQgLkCygKBKhdmF/CA5oXVOKZLBEahw8s2WP9LxIcN/oDDRgQ==}
+  /@types/node/17.0.10:
+    resolution: {integrity: sha512-S/3xB4KzyFxYGCppyDt68yzBU9ysL88lSdIah4D6cptdcltc4NCPCAMc0+PCpg/lLIyC7IPvj2Z52OJWeIUkog==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -2440,7 +2438,7 @@ packages:
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
     dev: true
 
   /@types/scheduler/0.16.2:
@@ -2478,7 +2476,7 @@ packages:
     resolution: {integrity: sha512-8uALY5LTvSuHgloDVUvWP3pIauILm+8/0pDMokuDYIoNsOkSwd5AiHBTSEJjKTDcZr5z8UpgOWZkxBF4iJftoA==}
     requiresBuild: true
     dependencies:
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
     dev: true
     optional: true
 
@@ -2681,16 +2679,16 @@ packages:
       - supports-color
     dev: true
 
-  /@yarn-tool/resolve-package/1.0.42_6e436e8f243410e1e9766abd3dd289df:
+  /@yarn-tool/resolve-package/1.0.42_c11a468549e58622fc8f8e311bb736cf:
     resolution: {integrity: sha512-1BAsoiD6jGAaPc7mRH0UxIVXgRSTv7fnhwfKkaFUYpqsU4ZR7KIigZTMcb2bujtlzKQbNneMPQGjiqe3F8cmlw==}
     peerDependencies:
       '@types/node': '*'
     dependencies:
-      '@ts-type/package-dts': 1.0.58_6e436e8f243410e1e9766abd3dd289df
-      '@types/node': 17.0.9
+      '@ts-type/package-dts': 1.0.58_c11a468549e58622fc8f8e311bb736cf
+      '@types/node': 17.0.10
       pkg-dir: 5.0.0
       tslib: 2.3.1
-      upath2: 3.1.12_@types+node@17.0.9
+      upath2: 3.1.12_@types+node@17.0.10
     transitivePeerDependencies:
       - '@types/bluebird'
       - ts-toolbelt
@@ -5434,7 +5432,7 @@ packages:
       '@jest/environment': 27.4.6
       '@jest/test-result': 27.4.6
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       chalk: 4.1.2
       co: 4.6.0
       dedent: 0.7.0
@@ -5557,7 +5555,7 @@ packages:
       '@jest/environment': 27.4.6
       '@jest/fake-timers': 27.4.6
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       jest-mock: 27.4.6
       jest-util: 27.4.2
       jsdom: 16.7.0_canvas@2.9.0
@@ -5575,7 +5573,7 @@ packages:
       '@jest/environment': 27.4.6
       '@jest/fake-timers': 27.4.6
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       jest-mock: 27.4.6
       jest-util: 27.4.2
     dev: true
@@ -5591,7 +5589,7 @@ packages:
     dependencies:
       '@jest/types': 27.4.2
       '@types/graceful-fs': 4.1.5
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       anymatch: 3.1.2
       fb-watchman: 2.0.1
       graceful-fs: 4.2.9
@@ -5613,7 +5611,7 @@ packages:
       '@jest/source-map': 27.4.0
       '@jest/test-result': 27.4.6
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       chalk: 4.1.2
       co: 4.6.0
       expect: 27.4.6
@@ -5678,7 +5676,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
     dev: true
 
   /jest-pnp-resolver/1.2.2_jest-resolve@27.4.6:
@@ -5734,7 +5732,7 @@ packages:
       '@jest/test-result': 27.4.6
       '@jest/transform': 27.4.6
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       chalk: 4.1.2
       emittery: 0.8.1
       exit: 0.1.2
@@ -5792,7 +5790,7 @@ packages:
     resolution: {integrity: sha512-RDhpcn5f1JYTX2pvJAGDcnsNTnsV9bjYPU8xcV+xPwOXnUPOQwf4ZEuiU6G9H1UztH+OapMgu/ckEVwO87PwnQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       graceful-fs: 4.2.9
     dev: true
 
@@ -5838,7 +5836,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       chalk: 4.1.2
       ci-info: 3.3.0
       graceful-fs: 4.2.9
@@ -5863,7 +5861,7 @@ packages:
     dependencies:
       '@jest/test-result': 27.4.6
       '@jest/types': 27.4.2
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       jest-util: 27.4.2
@@ -5874,7 +5872,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -5883,7 +5881,7 @@ packages:
     resolution: {integrity: sha512-gHWJF/6Xi5CTG5QCvROr6GcmpIqNYpDJyc8A1h/DyXqH1tD6SnRCM0d3U5msV31D2LB/U+E0M+W4oyvKV44oNw==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
@@ -6095,8 +6093,8 @@ packages:
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  /lint-staged/12.1.7:
-    resolution: {integrity: sha512-bltv/ejiLWtowExpjU+s5z8j1Byjg9AlmaAjMmqNbIicY69u6sYIwXGg0dCn0TlkrrY2CphtHIXAkbZ+1VoWQQ==}
+  /lint-staged/12.2.0:
+    resolution: {integrity: sha512-TnNciMBhmEqzqM+RvzqqdvrG4TsI8wCDMX1Vg9+rj2Y9uY70Nq84Mb1WOIiwxW9l5tUlCOqtY5La71RM2fSgfA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -7711,8 +7709,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-responsive/9.0.0-beta.5_react@17.0.2:
-    resolution: {integrity: sha512-Zvikc/28FsabQ4caLP1wIQlRPXBelYMct6dnUEwTRI4P7jH5d9x8RAMb1SbAZ0IdZGQHQ06aSRvhhg/tvqXktA==}
+  /react-responsive/9.0.0-beta.6_react@17.0.2:
+    resolution: {integrity: sha512-Flk6UrnpBBByreva6ja/TsbXiXq4BXOlDEKL6Ur+nshUs3CcN5W0BpGe6ClFWrKcORkMZAAYy7A4N4xlMmpgVw==}
     engines: {node: '>=0.10'}
     peerDependencies:
       react: '>=16.8.0'
@@ -8050,7 +8048,7 @@ packages:
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.64.0
       resolve: 1.21.0
-      sass: 1.48.0
+      sass: 1.49.0
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -8069,14 +8067,14 @@ packages:
       - acorn
     dev: true
 
-  /rollup-plugin-typescript2/0.31.1_305aaaef5d44298b82e967fcd8928ea3:
+  /rollup-plugin-typescript2/0.31.1_8bdcc8cfb15afdc4c44a30c682253294:
     resolution: {integrity: sha512-sklqXuQwQX+stKi4kDfEkneVESPi3YM/2S899vfRdF9Yi40vcC50Oq4A4cSZJNXsAQE/UsBZl5fAOsBLziKmjw==}
     peerDependencies:
       rollup: '>=1.26.3'
       typescript: '>=2.4.0'
     dependencies:
       '@rollup/pluginutils': 4.1.2
-      '@yarn-tool/resolve-package': 1.0.42_6e436e8f243410e1e9766abd3dd289df
+      '@yarn-tool/resolve-package': 1.0.42_c11a468549e58622fc8f8e311bb736cf
       find-cache-dir: 3.3.2
       fs-extra: 8.1.0
       resolve: 1.20.0
@@ -8130,8 +8128,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass/1.48.0:
-    resolution: {integrity: sha512-hQi5g4DcfjcipotoHZ80l7GNJHGqQS5LwMBjVYB/TaT0vcSSpbgM8Ad7cgfsB2M0MinbkEQQPO9+sjjSiwxqmw==}
+  /sass/1.49.0:
+    resolution: {integrity: sha512-TVwVdNDj6p6b4QymJtNtRS2YtLJ/CqZriGg0eIAbAKMlN8Xy6kbv33FsEZSF7FufFFM705SQviHjjThfaQ4VNw==}
     engines: {node: '>=8.9.0'}
     hasBin: true
     dependencies:
@@ -8261,8 +8259,8 @@ packages:
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
     dev: true
 
-  /snyk/1.831.0:
-    resolution: {integrity: sha512-auZtdY07WOhqLsqCE3qjjYPb/iNw60w3pyAV8NuiGfdN5qodl/f7WadvwW8UQGpoloIlPnPytY0KkWxuw8oS0g==}
+  /snyk/1.833.0:
+    resolution: {integrity: sha512-/wAFQIoJDOA17eCOyIZFAGw54dXrSFPLjbBbjV+yXwLBfJpgs8kbc3BuFH/JGoMB663YCYZzoorkymMDbuD6+A==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -8833,7 +8831,7 @@ packages:
     resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
     dev: true
 
-  /ts-type/2.1.4_6e436e8f243410e1e9766abd3dd289df:
+  /ts-type/2.1.4_c11a468549e58622fc8f8e311bb736cf:
     resolution: {integrity: sha512-wnajiiIMhn/RHJ1oPld95siKmMJrOgaT6+rMmC8vO1LORgDFEzKP2nBmEFM5b4XVe7Q0J5KcU9oRJFzju7UzrA==}
     peerDependencies:
       '@types/bluebird': '*'
@@ -8841,7 +8839,7 @@ packages:
       ts-toolbelt: ^9.6.0
     dependencies:
       '@types/bluebird': 3.5.36
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       ts-toolbelt: 9.6.0
       tslib: 2.3.1
       typedarray-dts: 1.0.0
@@ -9086,12 +9084,12 @@ packages:
     resolution: {integrity: sha1-j97XMk7G6IoP+LkF58CYzcCG1UQ=}
     dev: true
 
-  /upath2/3.1.12_@types+node@17.0.9:
+  /upath2/3.1.12_@types+node@17.0.10:
     resolution: {integrity: sha512-yC3eZeCyCXFWjy7Nu4pgjLhXNYjuzuUmJiRgSSw6TJp8Emc+E4951HGPJf+bldFC5SL7oBLeNbtm1fGzXn2gxw==}
     peerDependencies:
       '@types/node': '*'
     dependencies:
-      '@types/node': 17.0.9
+      '@types/node': 17.0.10
       path-is-network-drive: 1.0.13
       path-strip-sep: 1.0.10
       tslib: 2.3.1
@@ -9160,13 +9158,13 @@ packages:
       '@svgr/core': 5.5.0
       '@svgr/plugin-jsx': 5.5.0
       '@svgr/plugin-svgo': 5.5.0
-      vite: 2.6.13_sass@1.48.0
+      vite: 2.6.13_sass@1.49.0
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
     dev: true
 
-  /vite/2.6.13_sass@1.48.0:
+  /vite/2.6.13_sass@1.49.0:
     resolution: {integrity: sha512-+tGZ1OxozRirTudl4M3N3UTNJOlxdVo/qBl2IlDEy/ZpTFcskp+k5ncNjayR3bRYTCbqSOFz2JWGN1UmuDMScA==}
     engines: {node: '>=12.2.0'}
     hasBin: true
@@ -9186,7 +9184,7 @@ packages:
       postcss: 8.4.5
       resolve: 1.21.0
       rollup: 2.64.0
-      sass: 1.48.0
+      sass: 1.49.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
