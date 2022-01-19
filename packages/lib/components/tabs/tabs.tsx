@@ -58,6 +58,14 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
       : []
   );
 
+  if (!items.current.some((item) => item.selected)) {
+    const availItems = items.current.filter((item) => !item.disabled);
+
+    if (availItems) {
+      availItems[0].selected = true;
+    }
+  }
+
   // gets the tab content based on the active selection
   const getTabContent = useMemo(() => {
     if (activeTabId) {

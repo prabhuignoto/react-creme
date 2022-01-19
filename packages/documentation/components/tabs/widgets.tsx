@@ -1,8 +1,15 @@
 import React, { useLayoutEffect } from 'react';
+import { Settings } from 'react-feather';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section, Tabs } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+
+const icons = [
+  <Settings key="1" />,
+  <Settings key="2" />,
+  <Settings key="3" />,
+];
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -149,10 +156,10 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Tabs
-                labels={['one', 'two']}
+                labels={['one', 'two', 'three']}
                 tabStyle="flat"
                 disabledTabs={['two', 'one']}
-                icons={[]}
+                icons={icons}
               >
                 <span>one</span>
                 <span>two</span>

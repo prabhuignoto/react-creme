@@ -37,20 +37,22 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
   return (
     <div className={rowClass} style={style} role="row">
       {columnConfigs?.map((col) => {
-        const { value, id, name } = cellsData.current.find(
-          (cell) => cell.name === col.name
-        )!;
-        const formatter = col.formatter;
-        return (
-          <DataGridCell
-            value={value}
-            key={id}
-            name={name + ''}
-            border={border}
-            fixedHeight={fixedHeight}
-            formatter={formatter}
-          />
-        );
+        const data = cellsData.current.find((cell) => cell.name === col.name)!;
+
+        if (data) {
+          const { value, id, name } = data;
+          const formatter = col.formatter;
+          return (
+            <DataGridCell
+              value={value}
+              key={id}
+              name={name + ''}
+              border={border}
+              fixedHeight={fixedHeight}
+              formatter={formatter}
+            />
+          );
+        }
       })}
     </div>
   );

@@ -21,9 +21,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
 
     // enable focus outlines
     if (!disabled && focusable) {
-      // useFocus(ref, () => handleTabSelection(id));
       useFocusNew(ref);
-      // useKey(ref, () => handleTabSelection(id));
     }
 
     const headerLabelClass = useMemo(() => {
@@ -38,8 +36,9 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         'rc-tab-head-disabled': disabled,
         'rc-tab-head-selected': selected,
         [`rc-tab-head-${tabStyle}`]: true,
+        'rc-tab-head-with-icon': icon,
       });
-    }, [disabled, selected]);
+    }, [disabled, selected, icon]);
 
     const tabHeadIcon = useMemo(() => {
       return classNames('rc-tab-head-icon', {

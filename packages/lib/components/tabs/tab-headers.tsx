@@ -89,6 +89,12 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     });
   }, []);
 
+  const tabHeaderControl = useMemo(() => {
+    return classNames('rc-tab-header-control', {
+      [`rc-tab-header-control-${tabStyle}`]: true,
+    });
+  }, []);
+
   // side effects
   useEffect(() => {
     if (scrollLeftCurrent.value >= 0 && tabHeadersRef.current) {
@@ -128,25 +134,27 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
         ))}
       </div>
       {canShowControls ? (
-        <div className="rc-tab-headers-control">
-          {!disableScrollLeft && (
-            <span
-              className="rc-tab-header-btn rc-tab-header-btn-left"
-              role="button"
-              onClick={scrollLeft}
-            >
-              <ChevronRightIcon />
-            </span>
-          )}
-          {!disableScrollRight && (
-            <span
-              className="rc-tab-header-btn"
-              role="button"
-              onClick={scrollRight}
-            >
-              <ChevronRightIcon />
-            </span>
-          )}
+        <div className={tabHeaderControl}>
+          <span
+            className={classNames(
+              'rc-tab-header-btn',
+              'rc-tab-header-btn-left',
+              { 'rc-tab-header-btn-disabled': disableScrollLeft }
+            )}
+            role="button"
+            onClick={scrollLeft}
+          >
+            <ChevronRightIcon />
+          </span>
+          <span
+            className={classNames('rc-tab-header-btn', {
+              'rc-tab-header-btn-disabled': disableScrollRight,
+            })}
+            role="button"
+            onClick={scrollRight}
+          >
+            <ChevronRightIcon />
+          </span>
         </div>
       ) : null}
     </header>

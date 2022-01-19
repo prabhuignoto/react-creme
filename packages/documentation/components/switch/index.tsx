@@ -22,7 +22,7 @@ function switchComponent() {
           description: `label for the switch`,
           name: 'label',
           optional: 'Yes',
-          typ: 'String',
+          type: 'String',
         },
         {
           default: `False`,

@@ -38,16 +38,16 @@
   @include position.position-abs("top right");
   border-radius: 50%;
   cursor: pointer;
-  right: 3rem;
+  right: 1.5rem;
   top: 1rem;
 
   &:hover::after {
-    background: rgba($color: #000, $alpha: 0.8);
+    background: rgba($color: #000, $alpha: 0.95);
   }
 
   &::after {
     @include position.position-abs("center center");
-    background: rgba($color: #000, $alpha: 0.5);
+    background: rgba($color: #000, $alpha: 0.75);
     border-radius: 50%;
     content: "";
     display: block;
