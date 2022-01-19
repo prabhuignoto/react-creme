@@ -1,11 +1,14 @@
+import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function index() {
   return (
     <DemoPageRenderer
       title="Alerts"
       description="Alerts are used to notify the user of an important event."
+      pageIcon={<FontAwesomeIcon icon={faExclamation} size="2x" />}
       callbacks={[
         {
           default: '',

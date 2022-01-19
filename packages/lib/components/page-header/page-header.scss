@@ -1,8 +1,8 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/list.scss";
-@use "../../design/icon.scss";
-@use "sass:map";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/list.scss';
+@use '../../design/icon.scss';
+@use 'sass:map';
 
 $sizes: (
   sm: 1rem,
@@ -17,18 +17,15 @@ $heights: (
 );
 
 .rc-page-header {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   width: 100%;
 
-  &:not(.rc-page-header-rtl) {
-    @extend %list-left;
-  }
-
   h2 {
-    border-bottom: 1px solid colors.$gray;
+    @extend %left;
     font-size: 1.2rem;
     font-weight: 400;
     height: 35px;
+    margin: 0.5rem 0;
     width: 100%;
   }
 }
@@ -54,4 +51,21 @@ $heights: (
       height: map.get($heights, $key);
     }
   }
+}
+
+.rc-page-header-icon {
+  color: var(--icon-color, colors.$primary);
+  margin-right: 0.5rem;
+
+  @each $key, $val in $sizes {
+    &.rc-page-header-icon-#{$key} {
+      @extend %icon-#{$key};
+    }
+  }
+}
+
+.rc-page-header-title-container {
+  @extend %left;
+  border-bottom: 1px solid colors.$gray;
+  width: 100%;
 }

@@ -1,3 +1,5 @@
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -9,6 +11,7 @@ function sidebar() {
       demoWidget={lazy(() => import('./widgets'))}
       title="Sidebar"
       description="Sidebar is a container for sidebar items. It can be used to display a list of items in a collapsible sidebar."
+      pageIcon={<FontAwesomeIcon icon={faArrowLeft} size="2x" />}
       callbacks={[
         {
           default: '',

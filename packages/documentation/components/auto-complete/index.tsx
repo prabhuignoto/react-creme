@@ -1,3 +1,5 @@
+import { faMagic } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -7,6 +9,7 @@ function index() {
       title="Auto Complete"
       description="Auto Complete is a component that provides a dropdown list of suggestions for the user to select from."
       stackBlitzCodes={['react-ts-hf5mto']}
+      pageIcon={<FontAwesomeIcon icon={faMagic} size="2x" />}
       callbacks={[
         {
           default: '',

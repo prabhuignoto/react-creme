@@ -1,3 +1,5 @@
+import { faWindowMaximize } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -6,6 +8,7 @@ function dialog() {
     <DemoPageRenderer
       title="Dialog"
       description="A dialog is a window that displays content in a modal overlay."
+      pageIcon={<FontAwesomeIcon icon={faWindowMaximize} size="2x" />}
       callbacks={[
         {
           default: '',

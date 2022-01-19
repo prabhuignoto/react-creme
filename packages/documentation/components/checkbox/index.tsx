@@ -1,3 +1,5 @@
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -7,6 +9,7 @@ function checkbox() {
       title="Checkbox"
       description={`Checkboxes are used when there is a list of options and the user may select any number of choices, including zero.
       Each checkbox is independent of all other checkboxes in the list, and checking one box doesn’t uncheck the others.`}
+      pageIcon={<FontAwesomeIcon icon={faCheckSquare} size="2x" />}
       callbacks={[
         {
           default: '',

@@ -1,3 +1,5 @@
+import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -8,6 +10,7 @@ const Accordion = () => {
       title="Accordion"
       tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
       stackBlitzCodes={['react-ts-s9qxmk']}
+      pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}
       callbacks={[
         {
           default: '',

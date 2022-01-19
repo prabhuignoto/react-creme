@@ -1,3 +1,5 @@
+import { faImages } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -6,6 +8,7 @@ function comparer() {
     <DemoPageRenderer
       title="Image Comparer"
       description="Compare images side by side either horizontally or vertically."
+      pageIcon={<FontAwesomeIcon icon={faImages} size="2x" />}
       properties={[
         {
           defaultValue: 'horizontal',

@@ -1,3 +1,5 @@
+import { faThList } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -6,6 +8,7 @@ function dropdown() {
     <DemoPageRenderer
       title="Dropdown"
       description="Dropdown is a component that allows you to select a value from a list of options."
+      pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
       properties={[
         {
           default: 'False',

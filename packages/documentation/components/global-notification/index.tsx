@@ -1,3 +1,5 @@
+import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -6,6 +8,7 @@ function index() {
     <DemoPageRenderer
       title="Global notification"
       description="Grabs the attention of the user by displaying a notification in the top of the screen."
+      pageIcon={<FontAwesomeIcon icon={faBullhorn} size="2x" />}
       callbacks={[
         {
           default: '',

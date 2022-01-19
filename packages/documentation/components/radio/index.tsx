@@ -1,3 +1,5 @@
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -5,6 +7,7 @@ function radio() {
   return (
     <DemoPageRenderer
       demoWidget={lazy(() => import('./widgets'))}
+      pageIcon={<FontAwesomeIcon icon={faCircle} size="2x" />}
       callbacks={[
         {
           default: '',

@@ -1,3 +1,5 @@
+import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -6,6 +8,7 @@ function buttons() {
     <DemoPageRenderer
       title="Buttons"
       description="Buttons are used to perform an action. They can be used in different contexts, such as primary, secondary, danger, or warning."
+      pageIcon={<FontAwesomeIcon icon={faHandPointUp} size="2x" />}
       stackBlitzCodes={['react-ts-uy6jjh']}
       callbacks={[
         {

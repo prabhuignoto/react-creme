@@ -1,3 +1,5 @@
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -9,6 +11,7 @@ function reveal() {
       demoWidget={lazy(() => import('./widgets'))}
       properties={[]}
       tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      pageIcon={<FontAwesomeIcon icon={faEye} size="2x" />}
     ></DemoPageRenderer>
   );
 }

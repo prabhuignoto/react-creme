@@ -1,3 +1,5 @@
+import { faSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -9,6 +11,7 @@ function index() {
       description="Section is a container for other components. It can be used to group components together."
       tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
       stackBlitzCodes={['react-ts-2fdwsf']}
+      pageIcon={<FontAwesomeIcon icon={faSquare} size="2x" />}
       properties={[
         {
           default: '',

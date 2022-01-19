@@ -1,3 +1,5 @@
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -6,6 +8,7 @@ function skeleton() {
     <DemoPageRenderer
       title="Skeleton"
       description="Skeleton is a lightweight component that can be used to display a loading state."
+      pageIcon={<FontAwesomeIcon icon={faSpinner} size="2x" />}
       properties={[
         {
           default: '4',

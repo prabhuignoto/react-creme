@@ -1,3 +1,5 @@
+import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -13,6 +15,7 @@ function slider() {
           type: 'function',
         },
       ]}
+      pageIcon={<FontAwesomeIcon icon={faSlidersH} size="2x" />}
       properties={[
         {
           default: '1',

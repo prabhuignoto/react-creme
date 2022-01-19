@@ -1,3 +1,5 @@
+import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -7,6 +9,7 @@ function transfer() {
       demoWidget={lazy(() => import('./widgets'))}
       title="Transfer"
       description="Transfer is a component that allows you to transfer items between two lists."
+      pageIcon={<FontAwesomeIcon icon={faExchangeAlt} size="2x" />}
       callbacks={[
         {
           default: '',

@@ -1,3 +1,5 @@
+import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -8,6 +10,7 @@ function accordionGroup() {
       stackBlitzCodes={['react-ts-kq6o5l']}
       description={`An accordion group is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them.
       It is one of many ways you can expose content to users`}
+      pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}
       properties={[
         {
           default: 'False',
