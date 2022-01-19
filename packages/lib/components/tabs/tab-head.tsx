@@ -17,7 +17,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     onFocus,
     parentHasFocus,
   }: TabHeadProps) => {
-    const ref = useRef<HTMLElement>(null);
+    const ref = useRef<HTMLDivElement>(null);
 
     // enable focus outlines
     if (!disabled && focusable) {

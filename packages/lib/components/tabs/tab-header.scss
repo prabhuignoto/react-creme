@@ -6,7 +6,7 @@
 @use '../../design/animate.scss';
 
 $flat-tabs-height: 45px;
-$rounded-tabs-height: 35px;
+$rounded-tabs-height: 45px;
 
 .rc-tab-headers-wrapper {
   @extend %left;
@@ -20,29 +20,38 @@ $rounded-tabs-height: 35px;
   &::after {
     @include position.position-abs('bottom center');
     background: colors.$platinum;
-    bottom: 0;
     content: '';
     display: block;
-    height: 1px;
     width: 100%;
+  }
+}
+
+.rc-tab-headers-flat {
+  height: $flat-tabs-height;
+
+  &::after {
+    bottom: 5px;
+    height: 3px;
+  }
+}
+
+.rc-tab-headers-rounded {
+  height: $rounded-tabs-height;
+
+  &::after {
+    bottom: 3px;
+    height: 1px;
   }
 }
 
 .rc-tab-headers {
   @extend %list-horizontal-left;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
   width: 90%;
   z-index: 1;
-
-  &.rc-tab-headers-flat {
-    height: $flat-tabs-height;
-  }
-
-  &.rc-tab-headers-rounded {
-    height: $rounded-tabs-height;
-  }
 }
 
 .rc-tab-headers-control {
@@ -69,10 +78,18 @@ $rounded-tabs-height: 35px;
 
 .rc-tab-head {
   @extend %center;
-  height: calc(100% - 4px);
   min-width: 120px;
   position: relative;
   user-select: none;
+  white-space: nowrap;
+
+  &.rc-tab-head-rounded {
+    height: 80%;
+  }
+
+  &.rc-tab-head-flat {
+    height: 70%;
+  }
 
   &:focus {
     background-color: colors.$light-bg;

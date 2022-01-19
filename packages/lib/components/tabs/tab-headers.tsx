@@ -79,7 +79,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   // style classes
   const tabHeadersWrapperClass = useMemo(() => {
     return classNames('rc-tab-headers-wrapper', {
-      [`rc-tab-headers-wrapper-${tabStyle}`]: true,
+      [`rc-tab-headers-${tabStyle}`]: true,
     });
   }, []);
 
