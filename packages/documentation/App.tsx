@@ -1,26 +1,26 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import React, {
   Suspense,
   useCallback,
   useEffect,
   useMemo,
   useRef,
-} from "react";
-import { useLocation } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import ResizeObserver from "resize-observer-polyfill";
-import { useDebouncedCallback } from "use-debounce";
-import "./App.scss";
-import "../lib/design/colors.scss";
-import "../lib/design/layout.scss";
-import "../lib/design/list.scss";
-import AppRoutes from "./app-routes";
-import { asideState, responsiveState } from "./atoms/home";
-import Footer from "./common/footer";
-import { Header } from "./common/header";
-import SidebarHome from "./common/sidebar-home";
-import useMedia from "./common/useMedia";
-import { Drawer } from "../lib/components";
+} from 'react';
+import { useLocation } from 'react-router-dom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import ResizeObserver from 'resize-observer-polyfill';
+import { useDebouncedCallback } from 'use-debounce';
+import { Drawer } from '../lib/components';
+import '../lib/design/colors.scss';
+import '../lib/design/layout.scss';
+import '../lib/design/list.scss';
+import AppRoutes from './app-routes';
+import './App.scss';
+import { asideState, responsiveState } from './atoms/home';
+import Footer from './common/footer';
+import { Header } from './common/header';
+import SidebarHome from './common/sidebar-home';
+import useMedia from './common/useMedia';
 
 function App() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -37,8 +37,8 @@ function App() {
   const location = useLocation();
 
   const sidebarClass = useMemo(() => {
-    return classNames("app-aside", {
-      "app-aside-visible": left > -1,
+    return classNames('app-aside', {
+      'app-aside-visible': left > -1,
     });
   }, [left]);
 
@@ -85,11 +85,11 @@ function App() {
     }
 
     setResponsiveState({
+      isBigScreen: media.isBigScreen,
+      isDesktop: media.isDesktop,
+      isExtraLargeScreen: media.isExtraLargeScreen,
       isMobile: media.isMobile,
       isTablet: media.isTablet,
-      isDesktop: media.isDesktop,
-      isBigScreen: media.isBigScreen,
-      isExtraLargeScreen: media.isExtraLargeScreen,
     });
   }, [media]);
 
@@ -121,7 +121,7 @@ function App() {
         </Drawer>
       )}
       <section className="app-main-section" ref={onRef}>
-        {location.pathname !== "/" && (
+        {location.pathname !== '/' && (
           <Header isMobile={media && media.isMobile} onOpen={toggleOpen} />
         )}
         <Suspense fallback={<span></span>}>

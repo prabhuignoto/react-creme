@@ -22,8 +22,8 @@
     "declaration": true,
     "declarationDir": "dts",
     "types": [
-      "react",
-      "react-dom",
+      "react/next",
+      "react-dom/next",
       "vite-plugin-svgr/client"
     ],
   },
