@@ -1,3 +1,5 @@
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -8,6 +10,7 @@ function carousel() {
       stackBlitzCodes={['react-ts-kgea3r']}
       title="Carousel"
       description="Carousel is a component that displays a list of items in a carousel."
+      pageIcon={<FontAwesomeIcon icon={faFilm} size="2x" />}
       properties={[
         {
           default: 'horizontal',

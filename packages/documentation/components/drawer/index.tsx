@@ -1,4 +1,5 @@
 import React, { lazy } from 'react';
+import { Sidebar } from 'react-feather';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function drawer() {
@@ -6,6 +7,7 @@ function drawer() {
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
       stackBlitzCodes={['react-ts-jngeyv']}
+      pageIcon={<Sidebar />}
       title="Drawer"
       description={`Drawer is a container that can be opened and closed and can be docked to any side of the screen.
        It can be used as a navigation drawer or a side drawer.`}

@@ -1,3 +1,5 @@
+import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -6,6 +8,7 @@ function tooltip() {
     <DemoPageRenderer
       title="Tooltip"
       description="Tooltip is a small overlay that displays a message when a user hovers over an element."
+      pageIcon={<FontAwesomeIcon icon={faComment} />}
       callbacks={[
         {
           default: '',
