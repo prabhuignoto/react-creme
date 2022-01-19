@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
+import useFocusNew from '../common/effects/useFocusNew';
 import { CircularProgress } from '../progress/circular-progress';
 import { ImageProps } from './image-model';
 import { ImageOverlay } from './image-overlay';
@@ -23,6 +24,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
   onLoad,
   showLoader = true,
   loaderSize = 'sm',
+  focusable = true,
 }) => {
   const [loaded, setLoaded] = React.useState(false);
 
@@ -95,13 +97,9 @@ const Image: React.FunctionComponent<ImageProps> = ({
       : ({} as CSSProperties);
   }, [JSON.stringify(imageDimension), fitImage]);
 
-  const handleOverlayOpen = useCallback(() => {
-    setOpenOverlay(true);
-  }, []);
+  const handleOverlayOpen = useCallback(() => setOpenOverlay(true), []);
 
-  const handleOverlayClose = useCallback(() => {
-    setOpenOverlay(false);
-  }, []);
+  const handleOverlayClose = useCallback(() => setOpenOverlay(false), []);
 
   const imageProps = useMemo(
     () =>
@@ -142,6 +140,15 @@ const Image: React.FunctionComponent<ImageProps> = ({
     }
   }, [loaded]);
 
+  const focusProps = useMemo(
+    () => (focusable && expandImageOnClick ? { tabIndex: 0 } : null),
+    [focusable, expandImageOnClick]
+  );
+
+  if (focusable) {
+    useFocusNew(imageRef, handleOverlayOpen);
+  }
+
   return (
     <div className={wrapperClass} style={style} ref={onWrapperRef}>
       <img
@@ -154,6 +161,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
         loading={loading}
         ref={onImageRef}
         style={imageStyle}
+        {...focusProps}
       />
       {showLoader && !loaded && (
         <span className="rc-image-load-icon-wrapper">

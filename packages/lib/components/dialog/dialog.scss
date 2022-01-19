@@ -1,29 +1,35 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/button.scss";
-@use "../../design/animate.scss";
-@use "../../design/animations.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/button.scss';
+@use '../../design/animate.scss';
+@use '../../design/animations.scss';
 
 .rc-dialog {
+
+  $animations: (pop, drop);
   @extend %col;
   @extend %border;
   @extend %shadow-inset;
-  @include animate.set-animation(0.1s);
+  @include animate.set-settings(0.25s);
+
   @include animations.set-animation(pop, from);
   @include animations.set-animation(pop, to);
+
+  @include animations.set-animation(drop, from);
+  @include animations.set-animation(drop, to);
 
   background-color: colors.$white;
   min-height: 300px;
   min-width: var(--min-width, 300px);
 
-  &.rc-dialog-close {
-    animation-name: animation-pop-close;
-    opacity: 0;
-  }
+  @each $animation in $animations {
+    &.rc-dialog-#{$animation}-enter {
+      animation-name: rc-animation-#{$animation}-enter;
+    }
 
-  &.rc-dialog-open {
-    animation-name: animation-pop-open;
-    opacity: 1;
+    &.rc-dialog-#{$animation}-leave {
+      animation-name: rc-animation-#{$animation}-leave;
+    }
   }
 }
 

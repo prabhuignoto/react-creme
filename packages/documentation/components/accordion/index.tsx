@@ -1,7 +1,7 @@
 import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
-function accordion() {
+const Accordion = () => {
   return (
     <DemoPageRenderer
       description="Accordion is a collapsible component that can be used to hide or expose collapsible content."
@@ -101,6 +101,6 @@ function accordion() {
       demoWidget={React.lazy(() => import('./widgets'))}
     ></DemoPageRenderer>
   );
-}
+};
 
-export default accordion;
+export { Accordion };

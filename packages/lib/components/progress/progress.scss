@@ -1,7 +1,7 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/animate.scss";
-@use "../../design/position.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/animate.scss';
+@use '../../design/position.scss';
 
 .rc-progress-wrapper {
   @extend %center;
@@ -63,8 +63,8 @@
 
   &.infinite {
     @extend %border-radius;
-    @include position.position-abs("top left");
-    @include animate.set-animation(2s, linear, true);
+    @include position.position-abs('top left');
+    @include animate.set-settings(2s, linear, true);
     animation-name: infinite-progress;
     border: 1px solid colors.$primary;
     height: calc(var(--height) - 2px);

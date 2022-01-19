@@ -1,7 +1,7 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/position.scss";
-@use "../../design/animate.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/position.scss';
+@use '../../design/animate.scss';
 
 .rc-image-wrapper {
   @extend %center;
@@ -34,7 +34,7 @@
 
 .rc-image-load-icon-wrapper {
   @extend %center;
-  @include position.position-abs("center center");
+  @include position.position-abs('center center');
 }
 
 .rc-image-overlay {
@@ -48,7 +48,7 @@
       opacity: 1,
     ),
   );
-  @include animate.set-animation(0.25s);
+  @include animate.set-settings(0.25s);
   @include animate.set-keyframes(open-image-overlay, $settings);
   @include animate.set-keyframes(close-image-overlay, $settings, true);
   opacity: 0;

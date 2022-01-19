@@ -14,6 +14,18 @@ $animation-pop: (
   ),
 );
 
+$animation-drop: (
+  from: (
+    opacity: 0,
+    transform: translateY(-600px),
+  ),
+  to: (
+    opacity: 1,
+    top: 50%,
+    transform: translateY(0),
+  ),
+);
+
 @mixin set-animation($type, $key) {
   $animation-setting: ();
 
@@ -22,13 +34,22 @@ $animation-pop: (
     @include setup-pop-animation();
   }
 
+  @if $type == drop {
+    $animation-setting: $animation-drop;
+    @include setup-drop-animation();
+  }
+
   @each $name, $value in map.get($animation-setting, $key) {
     #{$name}: #{$value};
   }
 }
 
 @mixin setup-pop-animation {
-  @include animate.set-keyframes(animation-pop-open, $animation-pop);
+  @include animate.set-keyframes(rc-animation-pop-enter, $animation-pop);
+  @include animate.set-keyframes(rc-animation-pop-leave, $animation-pop, true);
+}
 
-  @include animate.set-keyframes(animation-pop-close, $animation-pop, true);
+@mixin setup-drop-animation {
+  @include animate.set-keyframes(rc-animation-drop-enter, $animation-drop);
+  @include animate.set-keyframes(rc-animation-drop-leave, $animation-drop, true);
 }

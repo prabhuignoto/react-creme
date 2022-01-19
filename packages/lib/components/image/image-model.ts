@@ -11,6 +11,7 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   alt?: string;
   expandImageOnClick?: boolean;
   fitImage?: boolean;
+  focusable?: boolean;
   isOverlay?: boolean;
   loaderSize?: 'xs' | 'sm' | 'md' | 'lg';
   onLoad?: (evt: React.SyntheticEvent) => void;

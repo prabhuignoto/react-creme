@@ -20,11 +20,11 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^2.1.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.1.7",
+    "lint-staged": "^12.2.0",
     "postcss": "^8.4.5",
     "postcss-scss": "^4.0.3",
     "prettier": "^2.5.1",
-    "snyk": "^1.831.0",
+    "snyk": "^1.833.0",
     "stylelint": "14.2.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-order": "^5.0.0",
@@ -45,7 +45,8 @@
     "ci": "turbo run ci",
     "snyk": "turbo run snyk",
     "fix-css": "turbo run fix-css",
-    "fix-js": "turbo run fix-js"
+    "fix-js": "turbo run fix-js",
+    "cleanup": "pnpm fix-css & pnpm fix-js & pnpm format & pnpm lint"
   },
   "turbo": {
     "npmClient": "pnpm",

@@ -19,7 +19,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   style,
   layout = 'column',
   RTL = false,
-  focusable = false,
+  focusable = true,
 }) => {
   const [_items, setItems] = useState<RadioGroupItemProps[]>(
     Array.isArray(items)

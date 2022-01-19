@@ -17,13 +17,16 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   width,
   height = 200,
   focusable = true,
+  animationType = 'drop',
 }: DialogProps) => {
   const dialogRef = useRef<HTMLDivElement>(null);
   const dialogClass = useMemo(
     () =>
       classNames([
         'rc-dialog',
-        isClosing ? 'rc-dialog-close' : 'rc-dialog-open',
+        isClosing
+          ? `rc-dialog-${animationType}-leave`
+          : `rc-dialog-${animationType}-enter`,
       ]),
     [isClosing]
   );
@@ -31,6 +34,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
 
   const style = useMemo(
     () => ({
+      '--animation': animationType,
       '--min-width': `${width}px`,
       height: height ? `${height}px` : 'auto',
     }),

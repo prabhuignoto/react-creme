@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import MenuSVG from "../images/menu.svg?component";
+import {ReactComponent as MenuSVG} from "../images/menu.svg";
 import "./logo.scss";
 
 const Logo: React.FC<{ isMobile: boolean; onMenuClick }> = ({

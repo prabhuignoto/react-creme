@@ -1,7 +1,7 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/list.scss";
-@use "../../design/animate.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/list.scss';
+@use '../../design/animate.scss';
 
 $sizes: (
   sm: 1rem,
@@ -22,7 +22,7 @@ $sizes: (
 }
 
 .rc-rate-item {
-  @include animate.set-animation();
+  @include animate.set-settings();
   cursor: pointer;
   margin: 0 0.5rem;
 

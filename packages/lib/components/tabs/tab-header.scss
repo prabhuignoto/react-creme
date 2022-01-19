@@ -6,7 +6,7 @@
 @use '../../design/animate.scss';
 
 $flat-tabs-height: 45px;
-$rounded-tabs-height: 35px;
+$rounded-tabs-height: 45px;
 
 .rc-tab-headers-wrapper {
   @extend %left;
@@ -20,11 +20,27 @@ $rounded-tabs-height: 35px;
   &::after {
     @include position.position-abs('bottom center');
     background: colors.$platinum;
-    bottom: 0;
     content: '';
     display: block;
-    height: 1px;
     width: 100%;
+  }
+}
+
+.rc-tab-headers-flat {
+  height: $flat-tabs-height;
+
+  &::after {
+    bottom: 5px;
+    height: 3px;
+  }
+}
+
+.rc-tab-headers-rounded {
+  height: $rounded-tabs-height;
+
+  &::after {
+    bottom: 3px;
+    height: 1px;
   }
 }
 
@@ -35,21 +51,25 @@ $rounded-tabs-height: 35px;
   scroll-behavior: smooth;
   width: 90%;
   z-index: 1;
-
-  &.rc-tab-headers-flat {
-    height: $flat-tabs-height;
-  }
-
-  &.rc-tab-headers-rounded {
-    height: $rounded-tabs-height;
-  }
 }
 
-.rc-tab-headers-control {
+.rc-tab-header-control {
   @extend %center;
-  height: 100%;
+  background: colors.$light-bg;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 70%;
   justify-content: space-around;
-  width: 10%;
+  margin-left: auto;
+  width: 5rem;
+
+  &.rc-tab-header-control-flat {
+    height: 70%;
+  }
+
+  &.rc-tab-header-control-rounded {
+    height: 80%;
+  }
 }
 
 .rc-tab-header-btn {
@@ -61,6 +81,10 @@ $rounded-tabs-height: 35px;
   &:hover {
     background: colors.$secondary;
   }
+
+  &.rc-tab-header-btn-disabled {
+    @extend %disabled;
+  }
 }
 
 .rc-tab-header-btn-left {
@@ -68,11 +92,17 @@ $rounded-tabs-height: 35px;
 }
 
 .rc-tab-head {
-  @extend %center;
-  height: calc(100% - 4px);
-  min-width: 120px;
   position: relative;
   user-select: none;
+  white-space: nowrap;
+
+  &.rc-tab-head-rounded {
+    height: 80%;
+  }
+
+  &.rc-tab-head-flat {
+    height: 70%;
+  }
 
   &:focus {
     background-color: colors.$light-bg;
@@ -88,6 +118,17 @@ $rounded-tabs-height: 35px;
 
   &:not(:first-child) {
     margin-left: 0.75rem;
+  }
+
+  &:not(.rc-tab-head-with-icon) {
+    @extend %center;
+    min-width: 120px;
+  }
+
+  &.rc-tab-head-with-icon {
+    display: grid;
+    grid-template-columns: 2.5rem calc(100% - 3rem) 0.5rem;
+    justify-items: center;
   }
 }
 
@@ -112,16 +153,19 @@ $rounded-tabs-height: 35px;
     transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
     width: 0;
   }
+
+  &.rc-tab-header-selected::after {
+    width: 100%;
+  }
 }
 
 .rc-tab-header-label {
-  @extend %center;
   @include animate.halo(2px, 2px);
   cursor: pointer;
-  height: 100%;
+  height: 90%;
   position: relative;
   text-transform: capitalize;
-  // z-index: 1;
+  width: 90%;
 
   &.rc-tab-header-selected {
     color: colors.$tertiary;
@@ -129,27 +173,14 @@ $rounded-tabs-height: 35px;
   }
 
   &.rc-tab-header-label-icon {
+    display: inline-block;
+    min-width: 80px;
     padding-left: 0.5rem;
+    text-align: center;
   }
 
   &:not(.rc-tab-header-label-icon) {
-    width: 100%;
-  }
-}
-
-.rc-tab-header-flat {
-  &::after {
-    @include position.position-abs('bottom center');
-    // background: rgba(colors.$primary, 70%);
-    bottom: -2px;
-    content: '';
-    display: block;
-    height: 3px;
-    transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
-    width: 0;
-  }
-
-  &.rc-tab-header-selected::after {
+    @extend %center;
     width: 100%;
   }
 }
@@ -183,6 +214,7 @@ $rounded-tabs-height: 35px;
   display: flex;
   height: 1.5em;
   justify-content: center;
+  justify-self: flex-end;
   padding-left: 0.2rem;
   width: 1.5em;
 

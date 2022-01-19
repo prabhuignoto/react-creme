@@ -31,11 +31,11 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   );
 
   // setup for focus
-
   const ref = useRef(null);
 
   if (focusable) {
-    useFocusNew(ref, onClick);
+    // useFocusNew(ref, onClick);
+    useFocusNew(ref);
   }
 
   const focusableProps = useMemo(

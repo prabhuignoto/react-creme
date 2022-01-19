@@ -1,8 +1,8 @@
-@use "../../design/layout.scss";
-@use "../../design/list.scss";
-@use "../../design/icon.scss";
-@use "../../design/colors.scss";
-@use "../../design/animate.scss";
+@use '../../design/layout.scss';
+@use '../../design/list.scss';
+@use '../../design/icon.scss';
+@use '../../design/colors.scss';
+@use '../../design/animate.scss';
 
 .rc-tags-wrap {
   @extend %list-wrap;
@@ -27,9 +27,9 @@
       opacity: 1,
     ),
   );
-  @include animate.set-animation(0.1s, linear);
-  @include animate.set-keyframes("tag-fade-in", $settings);
-  @include animate.set-keyframes("tag-fade-out", $settings, true);
+  @include animate.set-settings(0.1s, linear);
+  @include animate.set-keyframes('tag-fade-in', $settings);
+  @include animate.set-keyframes('tag-fade-out', $settings, true);
   max-width: var(--width);
   transform: scale(1);
 

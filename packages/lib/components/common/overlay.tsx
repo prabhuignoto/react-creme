@@ -78,7 +78,6 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
   // handles closure
   const handleClose = (ev: React.MouseEvent | KeyboardEvent) => {
-    debugger;
     const canClose = (ev.target as HTMLElement).classList.contains(
       'rc-overlay-wrapper'
     );
@@ -126,7 +125,6 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   // onMount process
   useEffect(() => {
     document.addEventListener('scroll', handleWindowScroll);
-    document.addEventListener('keyup', handleClose);
     document.addEventListener('click', handleCloseOnClick);
 
     if (overlayAnimation) {
@@ -137,16 +135,18 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     // cleanup
     return () => {
       document.removeEventListener('scroll', handleWindowScroll);
-      document.removeEventListener('keyup', handleClose);
+      overlayRef.current?.removeEventListener('keyup', handleClose);
       document.removeEventListener('click', handleCloseOnClick);
       observer?.current?.disconnect();
     };
   }, []);
 
   const onRef = useCallback((node) => {
-    if (node) {
-      overlayRef.current = node;
-      (node as HTMLElement).focus();
+    const ele = node as HTMLDivElement;
+    if (ele) {
+      overlayRef.current = ele;
+      ele.focus();
+      ele.addEventListener('keyup', handleClose);
     }
   }, []);
 

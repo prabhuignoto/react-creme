@@ -1,21 +1,21 @@
-@use "../../design/layout.scss";
-@use "../../design/position.scss";
-@use "../../design/button.scss";
-@use "../../design/animate.scss";
-@use "../../design/util.scss";
-@use "../../design/icon.scss";
-@use "../../design/colors.scss";
+@use '../../design/layout.scss';
+@use '../../design/position.scss';
+@use '../../design/button.scss';
+@use '../../design/animate.scss';
+@use '../../design/util.scss';
+@use '../../design/icon.scss';
+@use '../../design/colors.scss';
 
 .rc-notification-wrapper {
   $min-width: var(--min-width);
   $min-height: var(--min-height);
   $positions: (
-    "top-left": "top left",
-    "top-right": "top right",
-    "bottom-left": "bottom left",
-    "bottom-right": "bottom right",
-    "bottom-center": "bottom center",
-    "top-center": "top center",
+    'top-left': 'top left',
+    'top-right': 'top right',
+    'bottom-left': 'bottom left',
+    'bottom-right': 'bottom right',
+    'bottom-center': 'bottom center',
+    'top-center': 'top center',
   );
   $slide-pos-horizontal: util.negative($min-width);
   $slide-pos-vertical: util.negative($min-height);
@@ -67,7 +67,7 @@
   @extend %shadow-medium;
   @extend %border-radius;
   @extend %col;
-  @include animate.set-animation(0.25s);
+  @include animate.set-settings(0.25s);
   background: colors.$white;
   min-height: $min-height;
   min-width: $min-width;
@@ -76,15 +76,15 @@
     $new-position: left;
     $slide-settings: ();
 
-    @if $position == "top-left" or $position == "bottom-left" {
+    @if $position == 'top-left' or $position == 'bottom-left' {
       $slide-settings: $slide-left-settings;
-    } @else if $position == "top-right" or $position == "bottom-right" {
+    } @else if $position == 'top-right' or $position == 'bottom-right' {
       $slide-settings: $slide-right-settings;
       $new-position: right;
-    } @else if $position == "top-center" {
+    } @else if $position == 'top-center' {
       $slide-settings: $slide-top-settings;
       $new-position: top;
-    } @else if $position == "bottom-center" {
+    } @else if $position == 'bottom-center' {
       $slide-settings: $slide-bottom-settings;
       $new-position: bottom;
     }

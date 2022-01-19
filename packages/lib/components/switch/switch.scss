@@ -1,9 +1,9 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/animate.scss";
-@use "../../design/position.scss";
-@use "../../design/font.scss";
-@use "sass:map";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/animate.scss';
+@use '../../design/position.scss';
+@use '../../design/font.scss';
+@use 'sass:map';
 
 $sizes: (
   sm: (
@@ -108,8 +108,8 @@ $start-left: 4px;
 }
 
 .rc-switch-knob {
-  @include animate.set-animation(0.2s);
-  @include position.position-abs("center left");
+  @include animate.set-settings(0.2s);
+  @include position.position-abs('center left');
   border-radius: 50%;
   display: block;
   left: $start-left;
@@ -117,7 +117,7 @@ $start-left: 4px;
   z-index: -1;
 
   svg {
-    @include position.position-abs("center center");
+    @include position.position-abs('center center');
     color: colors.$white;
     height: 75%;
     width: 75%;

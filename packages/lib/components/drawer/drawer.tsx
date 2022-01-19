@@ -58,7 +58,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
 
   useCloseOnEscape((ev) => onClose?.(), drawerRef);
 
-  useFocusNew(drawerRef);
+  // useFocusNew(drawerRef);
 
   if (onClose) {
     useKey(drawerRef, onClose);

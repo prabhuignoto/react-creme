@@ -31,7 +31,7 @@
   animation-timing-function: ease-in;
 }
 
-@mixin set-animation($dur: 0.5s, $timing-func: ease-in, $infinite: false) {
+@mixin set-settings($dur: 0.5s, $timing-func: ease-in, $infinite: false) {
   animation-delay: 0;
   animation-duration: $dur;
   animation-timing-function: $timing-func;
@@ -90,7 +90,7 @@
 
   &::before,
   &::after {
-    @include set-animation(0.1s, linear);
+    @include set-settings(0.1s, linear);
     border-radius: $border-radius;
     outline-offset: $outline-offset;
     // z-index: 5;

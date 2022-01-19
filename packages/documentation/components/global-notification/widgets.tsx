@@ -6,7 +6,7 @@ import {
   RadioGroup,
   Section,
 } from '../../../lib/components';
-import { GlobalNotificationState } from '../../../lib/components/global-notification/global-notification';
+import { GlobalNotificationState } from '../../../lib/components/global-notification/global-notification.model';
 import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
