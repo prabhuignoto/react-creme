@@ -1,6 +1,6 @@
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import { defineConfig } from 'vite';
-import reactSVG from "vite-plugin-react-svg";
+import svgr from 'vite-plugin-svgr'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,6 +17,7 @@ export default defineConfig({
   },
   cacheDir: '.vite_cache',
   logLevel: 'info',
-  mode: 'universal',
-  plugins: [reactRefresh(), reactSVG()]
+  
+  // mode: 'universal',
+  plugins: [reactRefresh(), svgr()]
 })

@@ -1,16 +1,16 @@
-import React from "react";
-import "./footer-styles.scss";
-import GithubSVG from "../images/github.svg?component";
+import React from 'react';
+import { ReactComponent as GithubSVG } from '../images/github.svg';
+import './footer-styles.scss';
 
 function Footer() {
   return (
     <div className="rc-demo-footer">
       <div className="rc-demo-footer-content">
-        Made with{" "}
+        Made with{' '}
         <span role="img" aria-label="love">
           ❤️
-        </span>{" "}
-        by{" "}
+        </span>{' '}
+        by{' '}
         <a href="https://www.prabhumurthy.com" target="_new">
           @prabhuignoto
         </a>
