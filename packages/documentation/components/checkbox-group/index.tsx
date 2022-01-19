@@ -1,3 +1,5 @@
+import { faTasks } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -7,6 +9,7 @@ function index() {
       title="Checkbox Group"
       description="Checkbox group is a group of checkboxes that can be used to select multiple options."
       demoWidget={lazy(() => import('./widgets'))}
+      pageIcon={<FontAwesomeIcon icon={faTasks} size="2x" />}
       callbacks={[
         {
           default: '',

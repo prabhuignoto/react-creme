@@ -9,6 +9,12 @@ const icons = [
   <Settings key="1" />,
   <Settings key="2" />,
   <Settings key="3" />,
+  <Settings key="4" />,
+  <Settings key="5" />,
+  <Settings key="6" />,
+  <Settings key="7" />,
+  <Settings key="8" />,
+  <Settings key="9" />,
 ];
 
 function widgets() {
@@ -156,11 +162,27 @@ function widgets() {
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
               <Tabs
-                labels={['one', 'two', 'three']}
+                labels={[
+                  'one',
+                  'two',
+                  'three',
+                  'four',
+                  'five',
+                  'six',
+                  'seven',
+                  'eight',
+                  'nine',
+                ]}
                 tabStyle="flat"
                 disabledTabs={['two', 'one']}
                 icons={icons}
               >
+                <span>one</span>
+                <span>two</span>
+                <span>three</span>
+                <span>one</span>
+                <span>two</span>
+                <span>three</span>
                 <span>one</span>
                 <span>two</span>
                 <span>three</span>

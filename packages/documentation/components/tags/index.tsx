@@ -1,3 +1,5 @@
+import { faTags } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -8,6 +10,7 @@ function tags() {
       stackBlitzCodes={['react-ts-hppcze']}
       title="Tags"
       description="Tags are used to group related content."
+      pageIcon={<FontAwesomeIcon icon={faTags} size="2x" />}
       callbacks={[
         {
           default: ``,

@@ -1,3 +1,5 @@
+import { faTasks } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -9,6 +11,7 @@ function radioGroup() {
       description="Radio group is a group of radio buttons."
       tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
       stackBlitzCodes={['react-ts-m9yskx']}
+      pageIcon={<FontAwesomeIcon icon={faTasks} size="2x" />}
       callbacks={[
         {
           default: '',

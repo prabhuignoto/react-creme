@@ -1,3 +1,5 @@
+import { faHandPointer } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import './draggable.scss';
@@ -11,6 +13,7 @@ function Draggable() {
       properties={[]}
       tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
       stackBlitzCodes={['react-ts-re75pw']}
+      pageIcon={<FontAwesomeIcon icon={faHandPointer} size="2x" />}
     ></DemoPageRenderer>
   );
 }

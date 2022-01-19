@@ -1,3 +1,5 @@
+import { faWindowRestore } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -8,6 +10,7 @@ function tabs() {
       stackBlitzCodes={['react-ts-w7jhzj']}
       title="Tabs"
       description="Tabs are used to group and organize content. They can be used to switch between views or to navigate between pages in a document."
+      pageIcon={<FontAwesomeIcon icon={faWindowRestore} size="2x" />}
       properties={[
         {
           default: 'flat',

@@ -1,3 +1,5 @@
+import { faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -6,6 +8,7 @@ function rate() {
     <DemoPageRenderer
       title="Rate"
       description="Rate is a component that allows users to rate something."
+      pageIcon={<FontAwesomeIcon icon={faStarHalfAlt} size="2x" />}
       callbacks={[
         {
           default: ``,

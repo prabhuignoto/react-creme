@@ -65,15 +65,11 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         aria-controls={`rc-tab-panel-${id}`}
         id={`rc-tab-${id}`}
         onFocus={!parentHasFocus ? onFocus : undefined}
+        ref={ref}
+        tabIndex={!disabled && focusable && selected ? 0 : -1}
       >
         {icon && <span className={tabHeadIcon}>{icon}</span>}
-        <span
-          className={headerLabelClass}
-          ref={ref}
-          tabIndex={!disabled && focusable && selected ? 0 : -1}
-        >
-          {name}
-        </span>
+        <span className={headerLabelClass}>{name}</span>
       </div>
     );
   },

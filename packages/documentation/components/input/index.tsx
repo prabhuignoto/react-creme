@@ -1,3 +1,5 @@
+import { faKeyboard } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -6,6 +8,7 @@ function index() {
     <DemoPageRenderer
       title="Inputs"
       description="Inputs are used to collect user input."
+      pageIcon={<FontAwesomeIcon icon={faKeyboard} size="2x" />}
       callbacks={[
         {
           default: '',

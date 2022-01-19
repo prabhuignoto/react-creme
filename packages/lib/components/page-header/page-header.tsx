@@ -5,6 +5,7 @@ import './page-header.scss';
 export interface PageHeaderProps {
   RTL?: boolean;
   children?: React.ReactNode;
+  icon?: React.ReactNode;
   size?: 'sm' | 'md' | 'lg';
   title: string;
 }
@@ -14,6 +15,7 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   children,
   RTL = false,
   size = 'sm',
+  icon,
 }) => {
   const headerClass = useMemo(() => {
     return classNames('rc-page-header', {
@@ -27,9 +29,18 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
     });
   }, []);
 
+  const headerIconClass = useMemo(() => {
+    return classNames('rc-page-header-icon', {
+      [`rc-page-header-icon-${size}`]: true,
+    });
+  }, []);
+
   return (
     <header className={headerClass}>
-      <h2 className={titleClass}>{title}</h2>
+      <div className="rc-page-header-title-container">
+        {icon && <span className={headerIconClass}>{icon}</span>}
+        <h2 className={titleClass}>{title}</h2>
+      </div>
       <p>{children}</p>
     </header>
   );

@@ -1,3 +1,5 @@
+import { faSquareFull } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -9,6 +11,7 @@ function card() {
       title="Card"
       stackBlitzCodes={['react-ts-3qkmbh']}
       description="Card is a container for displaying content."
+      pageIcon={<FontAwesomeIcon icon={faSquareFull} size="2x" />}
       properties={[
         {
           default: '',

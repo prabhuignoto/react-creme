@@ -1,11 +1,14 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
 
 function menuButton() {
   return (
     <DemoPageRenderer
       title="Menu Button"
       description="MenuButton allows to choose an action from a list of actions"
+      pageIcon={<FontAwesomeIcon icon={faHandPointUp} size="2x" />}
       callbacks={[
         {
           default: '',

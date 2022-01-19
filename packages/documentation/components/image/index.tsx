@@ -1,3 +1,5 @@
+import { faImage } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -8,6 +10,7 @@ function image() {
       description="Embed images in your app with the Image component."
       tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
       stackBlitzCodes={['react-ts-fujyxg']}
+      pageIcon={<FontAwesomeIcon icon={faImage} size="2x" />}
       callbacks={[
         {
           default: '',

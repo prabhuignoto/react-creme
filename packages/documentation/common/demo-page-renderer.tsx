@@ -30,6 +30,7 @@ interface DemoPageRendererProps {
   callbacks?: any[];
   demoWidget: LazyExoticComponent<React.FC>;
   description?: string;
+  pageIcon?: React.ReactNode;
   properties: any[];
   stackBlitzCodes?: string[];
   tabTitles: string[];
@@ -48,6 +49,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
       description,
       typeDefStrings,
       stackBlitzCodes,
+      pageIcon
     }: DemoPageRendererProps) => {
       const media = useMedia();
 
@@ -131,7 +133,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
         width && (
           <div className="rc-demo-page">
             {title && (
-              <PageHeader title={title} size="md">
+              <PageHeader title={title} size="lg" icon={pageIcon}>
                 {description}
               </PageHeader>
             )}

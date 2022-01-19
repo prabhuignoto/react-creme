@@ -1,11 +1,14 @@
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
 
 function notification() {
   return (
     <DemoPageRenderer
       title="Notification"
       description="Notification is a component that can be used to display a message to the user."
+      pageIcon={<FontAwesomeIcon icon={faBell} size="2x" />}
       callbacks={[
         {
           default: '',

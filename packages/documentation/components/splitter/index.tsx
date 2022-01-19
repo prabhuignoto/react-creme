@@ -1,3 +1,5 @@
+import { faColumns } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -8,6 +10,7 @@ function splitter() {
       stackBlitzCodes={['react-ts-blpdcl']}
       description="Splitter is a component that can be used to split the screen into two parts. It can be used to create a left and right panel."
       title="Splitter"
+      pageIcon={<FontAwesomeIcon icon={faColumns} size="2x" />}
       properties={[
         {
           default: 'horizontal',
