@@ -5,7 +5,7 @@ exports[`Button should render button snapshot 1`] = `
   aria-label="My Button"
   class="rc-btn-sm rc-btn-default rc-btn"
   role="button"
-  style="outline: none;"
+  style="outline: none; position: relative;"
   tabindex="0"
 >
   <span
@@ -13,5 +13,9 @@ exports[`Button should render button snapshot 1`] = `
   >
     My Button
   </span>
+  <span
+    class="rc-focus-ring"
+    style="width: 6px; height: 6px;"
+  />
 </button>
 `;

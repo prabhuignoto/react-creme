@@ -191,7 +191,7 @@ exports[`Transfer should render transfer snapshot 1`] = `
       aria-label=""
       class="rc-disabled rc-btn-md rc-btn-icon rc-btn"
       role="button"
-      style="outline: none;"
+      style="outline: none; position: relative;"
       tabindex="0"
     >
       <span
@@ -212,12 +212,16 @@ exports[`Transfer should render transfer snapshot 1`] = `
         </svg>
       </span>
       
+      <span
+        class="rc-focus-ring"
+        style="width: 6px; height: 6px;"
+      />
     </button>
     <button
       aria-label=""
       class="rc-disabled rc-btn-md rc-btn-icon rc-btn"
       role="button"
-      style="transform: rotate(180deg); outline: none;"
+      style="transform: rotate(180deg); outline: none; position: relative;"
       tabindex="0"
     >
       <span
@@ -238,6 +242,10 @@ exports[`Transfer should render transfer snapshot 1`] = `
         </svg>
       </span>
       
+      <span
+        class="rc-focus-ring"
+        style="width: 6px; height: 6px;"
+      />
     </button>
   </section>
   <section
