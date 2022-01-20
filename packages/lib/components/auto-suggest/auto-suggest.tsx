@@ -78,6 +78,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   apiBacked = false,
   icon,
 }) => {
+  debugger;
   const [suggestionItems, setSuggestionItems] = React.useState<Option[]>(
     suggestions.length
       ? suggestions.map(({ name, value }) => ({

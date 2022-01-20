@@ -5,6 +5,7 @@ import '../../design/icon.scss';
 import '../../design/layout.scss';
 import '../../design/list.scss';
 import { AutoComplete } from '../auto-suggest/auto-suggest';
+import { AutoCompleteOption } from '../auto-suggest/auto-suggest.model';
 import { TagItem } from './tag-item';
 import { TagItemInternalProps, TagsProps } from './tags-model';
 import './tags.scss';
@@ -45,6 +46,15 @@ const Tags: React.FunctionComponent<TagsProps> = ({
     [tagItems.length, inputValue]
   );
 
+  const tagSuggestions = useMemo(
+    () =>
+      suggestions.map((suggestion) => ({
+        name: suggestion,
+        value: suggestion,
+      })),
+    []
+  );
+
   // HANDLERS
 
   const handleChange = useCallback(
@@ -53,9 +63,10 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   );
 
   const handleAdd = useCallback(
-    (value: string) => {
+    (value: string | AutoCompleteOption) => {
       if (canAdd) {
-        setTagItems((prev) => prev.concat({ id: nanoid(), name: value }));
+        const _value = typeof value === 'string' ? value : value.name;
+        setTagItems((prev) => prev.concat({ id: nanoid(), name: _value }));
         setInputValue('');
       }
     },
@@ -125,7 +136,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
       {canAdd && (
         <li className="rc-tags-input-wrapper">
           <AutoComplete
-            suggestions={suggestions}
+            suggestions={tagSuggestions}
             onChange={handleChange}
             onSelection={handleAdd}
             onKeyUp={handleKeyUp}
