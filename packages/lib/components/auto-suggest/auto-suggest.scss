@@ -2,12 +2,12 @@
 @use '../../design/colors.scss';
 @use '../../design/position.scss';
 
-.rc-auto-complete-input-wrapper {
+.rc-auto-suggest-input-wrapper {
   @extend %center;
   height: 35px;
 }
 
-.rc-auto-complete-suggestions-wrapper {
+.rc-auto-suggest-suggestions-wrapper {
   @extend %shadow-small;
   @extend %border-radius;
   background: colors.$white;

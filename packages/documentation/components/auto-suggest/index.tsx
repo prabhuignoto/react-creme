@@ -6,8 +6,8 @@ import DemoPageRenderer from '../../common/demo-page-renderer';
 function index() {
   return (
     <DemoPageRenderer
-      title="Auto Complete"
-      description="Auto Complete is a component that provides a dropdown list of suggestions for the user to select from."
+      title="Auto Suggest"
+      description="Auto Suggest is a component that provides a dropdown list of suggestions for the user to select from."
       stackBlitzCodes={['react-ts-hf5mto']}
       pageIcon={<FontAwesomeIcon icon={faMagic} size="2x" />}
       callbacks={[
@@ -62,8 +62,44 @@ function index() {
           optional: 'Yes',
           type: 'string',
         },
+        {
+          default: 'flat',
+          description:
+            'Style accent for the control. Can be <em>Flat</em> or <em>Rounded</em>',
+          name: 'accent',
+          optional: 'Yes',
+          type: 'string',
+        },
+        {
+          default: '250',
+          description: 'Debounce time in milliseconds',
+          name: 'debounce',
+          optional: 'Yes',
+          type: 'number',
+        },
+        {
+          default: 'false',
+          description: 'Whether the suggestions are provided by the API',
+          name: 'apiBacked',
+          optional: 'Yes',
+          type: 'boolean',
+        },
+        {
+          Optional: 'Yes',
+          default: 'false',
+          description:
+            'Whether to show the spinner. This is useful when the suggestions are provided by the API',
+          name: 'showSpinner',
+          type: 'boolean',
+        },
+        {
+          default: 'false',
+          description: 'Whether the input is focusable',
+          name: 'focusable',
+          type: 'boolean',
+        },
       ]}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>
   );

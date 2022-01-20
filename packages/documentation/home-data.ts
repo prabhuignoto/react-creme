@@ -3,14 +3,14 @@ import {
   faEdge,
   faFirefoxBrowser,
   faReact,
-  faSafari,
+  faSafari
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faBolt,
   faCubes,
   faFistRaised,
   faMobile,
-  faTools,
+  faTools
 } from "@fortawesome/free-solid-svg-icons";
 
 export const Features = [
@@ -20,23 +20,23 @@ export const Features = [
   },
   {
     icon: faBolt,
-    title: "Robust, performant, and accessible components",
+    title: "Robust & Performant components",
   },
   {
     icon: faTools,
-    title: "Highly customizable UI components",
+    title: "Highly customizable UI Elements",
   },
   {
     icon: faFistRaised,
-    title: "Built with TypeScript",
+    title: "Built with TypeScript & React",
   },
   {
     icon: faCubes,
-    title: "Highly modular and extensible components",
+    title: "Modular and extensible components",
   },
   {
     icon: faMobile,
-    title: "Built for mobile",
+    title: "Complete support for Touch devices",
   },
 ];
 

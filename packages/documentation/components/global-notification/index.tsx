@@ -64,7 +64,7 @@ function index() {
         },
       ]}
       demoWidget={lazy(() => import('./widgets'))}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-k4qtvk']}
     ></DemoPageRenderer>
   );

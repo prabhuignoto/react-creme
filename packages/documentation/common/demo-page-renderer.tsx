@@ -4,7 +4,7 @@ import React, {
   useLayoutEffect,
   useMemo,
 } from 'react';
-import { BookOpen, Code, Sliders, Tool } from 'react-feather';
+import { BookOpen, Code, Sliders } from 'react-feather';
 import { CSSTransition } from 'react-transition-group';
 import { PageHeader, Section, Tabs } from '../../lib/components';
 import { DataGridColumn } from '../../lib/components/data-grid/data-grid-model';
@@ -22,7 +22,6 @@ const DataGrid = React.lazy(() =>
 const Icons = [
   <BookOpen size={18} key="book-open" />,
   <Sliders size={18} key="settings" />,
-  <Tool size={18} key="tool" />,
   <Code size={18} key="code" />,
 ];
 
@@ -49,7 +48,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
       description,
       typeDefStrings,
       stackBlitzCodes,
-      pageIcon
+      pageIcon,
     }: DemoPageRendererProps) => {
       const media = useMedia();
 

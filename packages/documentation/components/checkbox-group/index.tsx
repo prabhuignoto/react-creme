@@ -59,7 +59,7 @@ function index() {
           type: 'string',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-npfjx5']}
     ></DemoPageRenderer>
   );

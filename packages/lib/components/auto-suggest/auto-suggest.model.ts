@@ -2,9 +2,10 @@ import React from 'react';
 
 export interface AutoCompleteProps {
   accent?: 'rounded' | 'flat';
+  apiBacked?: boolean;
   debounce?: number;
   focusable?: boolean;
-  noFiltering?: boolean;
+  icon?: React.ReactNode;
   onChange?: (value: string) => void;
   onKeyUp?: (ev: React.KeyboardEvent) => void;
   onSelection?: (selected: AutoCompleteOption) => void;

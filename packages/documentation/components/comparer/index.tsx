@@ -32,7 +32,7 @@ function comparer() {
           type: 'string',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-kgea3r']}
       demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>

@@ -34,11 +34,10 @@ async function run() {
       autoGenerateObjectIDIfNotExist: true,
     });
 
-    console.log(result);
     // Wait for the indexing task to complete
     // https://www.algolia.com/doc/api-reference/api-methods/wait-task/
   } catch (error) {
-    console.log(error);
+    console.warn(error);
   }
 }
 

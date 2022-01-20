@@ -7,6 +7,7 @@ import React, {
   useRef,
 } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
+import useDeepCompareEffect from 'use-deep-compare-effect';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { OverlayModel } from '../common/overlay-model';
@@ -17,8 +18,8 @@ import { Input } from '../input/input';
 import '../input/input.scss';
 import { List } from '../list/list';
 import { ListOption } from '../list/list-model';
-import { AutoCompleteProps } from './auto-complete.model';
-import './auto-complete.scss';
+import { AutoCompleteProps } from './auto-suggest.model';
+import './auto-suggest.scss';
 
 interface SuggestionsOverlayModel extends OverlayModel {
   id?: string;
@@ -28,10 +29,10 @@ interface SuggestionsOverlayModel extends OverlayModel {
 }
 
 const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
-  suggestions,
   onSelection,
   id,
   width,
+  data,
 }) => {
   const style = useMemo(
     () =>
@@ -44,9 +45,9 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
   );
 
   return (
-    <div className="rc-auto-complete-suggestions-wrapper" style={style}>
+    <div className="rc-auto-suggest-suggestions-wrapper" style={style}>
       <List
-        options={suggestions}
+        options={data as ListOption[]}
         onSelection={onSelection}
         showCheckIcon={false}
         itemHeight={35}
@@ -68,13 +69,14 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   onSelection,
   placeholder = '',
   suggestions,
-  suggestionsWidth,
+  suggestionsWidth = 250,
   value,
   focusable = false,
-  debounce = 500,
+  debounce = 250,
   showSpinner = false,
   accent = 'flat',
-  noFiltering = false,
+  apiBacked = false,
+  icon,
 }) => {
   const [suggestionItems, setSuggestionItems] = React.useState<Option[]>(
     suggestions.length
@@ -99,23 +101,25 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   }, debounce);
 
   const regexTester = useMemo(
-    () => (input && !noFiltering ? new RegExp(`^${input.trim()}`, 'i') : null),
-    [input, noFiltering]
+    () => (input && !apiBacked ? new RegExp(`^${input.trim()}`, 'i') : null),
+    [input, apiBacked]
   );
 
   const matchFound = useMemo(() => {
-    if (noFiltering && suggestionItems.length) {
+    if (apiBacked && suggestionItems.length) {
       return true;
     } else if (!selected && regexTester) {
       return suggestionItems.some((item) => regexTester.test(item.name));
     }
-  }, [regexTester, selected, isDirty, suggestionItems.length, noFiltering]);
+  }, [regexTester, selected, isDirty, suggestionItems.length, apiBacked]);
 
-  const listItems = useMemo<Option[]>(() => {
-    return regexTester
-      ? suggestionItems.filter((item) => regexTester.test(item.name))
-      : suggestionItems;
-  }, [matchFound, regexTester, isDirty, suggestionItems.length]);
+  const listItems = useMemo<Option[]>(
+    () =>
+      regexTester
+        ? suggestionItems.filter((item) => regexTester.test(item.name))
+        : [],
+    [matchFound, regexTester, isDirty]
+  );
 
   const handleChange = useCallback((value: string) => {
     setInput(value);
@@ -139,8 +143,12 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   const isFirstRender = useFirstRender();
 
   useEffect(() => {
-    if (!isFirstRender.current && input) {
-      onChangeDebounced();
+    if (!isFirstRender.current) {
+      if (input) {
+        onChangeDebounced();
+      } else if (apiBacked) {
+        setSuggestionItems([]);
+      }
     }
   }, [input]);
 
@@ -150,7 +158,7 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
     }
   }, [value]);
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     if (!isFirstRender.current && suggestions.length) {
       setSuggestionItems(
         suggestions.map(({ name, value }) => ({
@@ -160,15 +168,15 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
         }))
       );
     }
-  }, [JSON.stringify(suggestions)]);
+  }, [suggestions]);
 
   return (
     <div
-      className="rc-auto-complete"
-      data-testid="rc-auto-complete"
+      className="rc-auto-suggest"
+      data-testid="rc-auto-suggest"
       ref={rootRef}
     >
-      <div className="rc-auto-complete-input-wrapper">
+      <div className="rc-auto-suggest-input-wrapper">
         <Input
           enableClear
           onChange={handleChange}
@@ -183,18 +191,18 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
           showSpinner={showSpinner}
           accent={accent}
         >
-          <SearchIcon />
+          {icon ? icon : <SearchIcon />}
         </Input>
       </div>
       {matchFound && (
         <SuggestionsMenuOverlay
           id={id.current}
-          suggestions={listItems}
           onSelection={handleSelection}
           placementReference={rootRef}
           align="left"
           placement="bottom"
           width={suggestionsWidth}
+          data={apiBacked ? suggestionItems : listItems}
         />
       )}
     </div>

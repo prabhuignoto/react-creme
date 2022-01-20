@@ -1,7 +1,7 @@
+import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell } from '@fortawesome/free-solid-svg-icons';
 
 function notification() {
   return (
@@ -72,7 +72,7 @@ function notification() {
           type: 'Boolean',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-fwgs9r']}
       demoWidget={lazy(() => import('./notification-widgets'))}
     ></DemoPageRenderer>

@@ -53,7 +53,7 @@ function skeleton() {
           type: 'Boolean',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-1jank5']}
       demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>

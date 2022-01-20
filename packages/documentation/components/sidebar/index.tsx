@@ -6,7 +6,7 @@ import DemoPageRenderer from '../../common/demo-page-renderer';
 function sidebar() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-xhgzf5']}
       demoWidget={lazy(() => import('./widgets'))}
       title="Sidebar"

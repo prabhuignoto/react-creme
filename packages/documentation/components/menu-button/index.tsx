@@ -1,7 +1,7 @@
+import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
-import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
 
 function menuButton() {
   return (
@@ -70,7 +70,7 @@ function menuButton() {
           type: 'String',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-kdxxkx']}
       demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>

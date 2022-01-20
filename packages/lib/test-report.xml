@@ -24,9 +24,9 @@
     <testCase name="List should handle search" duration="86"/>
     <testCase name="List should render multi selection" duration="225"/>
   </file>
-  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\auto-complete\__tests__\auto-complete.test.tsx">
-    <testCase name="AutoComplete should render auto complete" duration="211"/>
-    <testCase name="AutoComplete should render auto complete with placeholder" duration="35"/>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\auto-suggest\__tests__\auto-suggest.test.tsx">
+    <testCase name="AutoComplete should render Auto Suggest" duration="211"/>
+    <testCase name="AutoComplete should render Auto Suggest with placeholder" duration="35"/>
     <testCase name="AutoComplete should render suggestions" duration="630"/>
     <testCase name="AutoComplete should show the selected item" duration="340"/>
     <testCase name="AutoComplete should call onChange with the input" duration="176"/>

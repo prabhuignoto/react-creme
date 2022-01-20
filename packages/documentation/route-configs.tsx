@@ -33,9 +33,9 @@ const routes = [
     path: '/alerts',
   },
   {
-    component: lazy(() => import('./components/auto-complete')),
-    key: 'auto-complete',
-    path: '/autocomplete',
+    component: lazy(() => import('./components/auto-suggest')),
+    key: 'auto-suggest',
+    path: '/auto-suggest',
   },
   {
     component: lazy(() => import('./components/breadcrumb')),
@@ -105,4 +105,3 @@ const routes = [
 ];
 
 export { routes };
-

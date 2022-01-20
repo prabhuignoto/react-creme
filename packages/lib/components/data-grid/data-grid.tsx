@@ -146,7 +146,6 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
 
         return 0;
       } else if (sortData.column) {
-        console.log(a[sortData.column], b[sortData.column]);
         if (a[sortData.column] < b[sortData.column]) {
           return 1;
         } else if (a[sortData.column] > b[sortData.column]) {

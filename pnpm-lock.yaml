@@ -250,11 +250,13 @@ importers:
       ts-toolbelt: ^9.6.0
       typescript: ^4.5.4
       use-debounce: ^7.0.1
+      use-deep-compare-effect: ^1.8.1
     dependencies:
       classnames: 2.3.1
       nanoid: 3.2.0
       resize-observer-polyfill: 1.5.1
       use-debounce: 7.0.1_react@17.0.2
+      use-deep-compare-effect: 1.8.1_react@17.0.2
     devDependencies:
       '@babel/core': 7.16.10
       '@babel/plugin-proposal-optional-chaining': 7.16.7_@babel+core@7.16.10
@@ -4086,6 +4088,11 @@ packages:
   /delegates/1.0.0:
     resolution: {integrity: sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=}
     dev: true
+
+  /dequal/2.0.2:
+    resolution: {integrity: sha512-q9K8BlJVxK7hQYqa6XISGmBZbtQQWVXSrRrWreHC94rMt1QL/Impruc+7p2CYSYuVIUr+YCt6hjrs1kkdJRTug==}
+    engines: {node: '>=6'}
+    dev: false
 
   /detect-libc/1.0.3:
     resolution: {integrity: sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=}
@@ -9517,6 +9524,17 @@ packages:
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
+      react: 17.0.2
+    dev: false
+
+  /use-deep-compare-effect/1.8.1_react@17.0.2:
+    resolution: {integrity: sha512-kbeNVZ9Zkc0RFGpfMN3MNfaKNvcLNyxOAAd9O4CBZ+kCBXXscn9s/4I+8ytUER4RDpEYs5+O6Rs4PqiZ+rHr5Q==}
+    engines: {node: '>=10', npm: '>=6'}
+    peerDependencies:
+      react: '>=16.13'
+    dependencies:
+      '@babel/runtime': 7.16.7
+      dequal: 2.0.2
       react: 17.0.2
     dev: false
 

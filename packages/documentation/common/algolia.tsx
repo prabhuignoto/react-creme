@@ -1,7 +1,9 @@
+import { faAlgolia } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import algoliasearch from 'algoliasearch/lite';
 import React, { useState } from 'react';
-import { AutoComplete } from '../../lib/components/auto-complete/auto-complete';
-import { AutoCompleteOption } from '../../lib/components/auto-complete/auto-complete.model';
+import { AutoComplete } from '../../lib/components/auto-suggest/auto-suggest';
+import { AutoCompleteOption } from '../../lib/components/auto-suggest/auto-suggest.model';
 
 const searchClient = algoliasearch(
   'XGNLLPC19C',
@@ -20,7 +22,7 @@ const AutoCompleteUI: React.FC<{
     const fetchSuggestions = async () => {
       try {
         const results = await index.search(value, {
-          hitsPerPage: 50,
+          hitsPerPage: 10,
         });
         setSuggestions(
           results.hits.map<AutoCompleteOption>((hit: any) => ({
@@ -45,11 +47,11 @@ const AutoCompleteUI: React.FC<{
       suggestions={suggestions}
       suggestionsWidth={250}
       showSpinner={loading}
-      placeholder="Search..."
+      placeholder="Search with Algolia..."
       onSelection={onSelection}
       onChange={handleChange}
-      noFiltering
-      accent="rounded"
+      apiBacked
+      icon={<FontAwesomeIcon icon={faAlgolia} size="2x" />}
     />
   );
 };

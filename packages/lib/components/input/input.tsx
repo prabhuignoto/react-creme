@@ -18,24 +18,24 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
   (props: InputProps, ref) => {
     const {
       children,
+      RTL = false,
+      accent = 'flat',
+      border = false,
+      controlled = false,
       disabled = false,
       enableClear = false,
+      focusable = false,
+      id = '',
+      isAutoComplete = false,
+      noUniqueId = false,
       onChange,
       onKeyUp,
       placeholder = 'Please enter a value ...',
+      showSpinner = false,
       state = 'default',
       style,
       type = 'text',
       value = '',
-      controlled = false,
-      noUniqueId = false,
-      id = '',
-      isAutoComplete = false,
-      border = false,
-      focusable = false,
-      RTL = false,
-      showSpinner = false,
-      accent = 'flat',
     } = props;
     const [inputValue, setInputValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);

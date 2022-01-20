@@ -19,6 +19,7 @@ type OverlayFunc = <U extends OverlayModel>(
 export type OverlayContextModel = {
   align?: 'left' | 'right';
   childClosing?: boolean;
+  data?: any;
 };
 
 export const OverlayContext = React.createContext<OverlayContextModel | null>(
@@ -33,85 +34,93 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     disableBackdrop: false,
   }
 ) {
-  const Component = React.memo((props: T) => {
-    const classPrefix = useRef('overlay');
-    const overlayRef = useRef<HTMLDivElement | null>(null);
-    const {
-      showClose,
-      onClose,
-      containedToParent,
-      placementReference,
-      placement,
-      overlayAnimation,
-      align,
-    } = props;
-    const { backdropColor, disableBackdrop, disableAnimation } = settings;
-    const [portalWrapperCreated, setPortalWrapperCreated] = useState(false);
-    const [isClosing, setIsClosing] = useState(false);
-    const portalContainer = useRef<HTMLElement | null>(null);
+  const Component = React.memo(
+    (props: T) => {
+      const classPrefix = useRef('overlay');
+      const overlayRef = useRef<HTMLDivElement | null>(null);
+      const {
+        showClose,
+        onClose,
+        containedToParent,
+        placementReference,
+        placement,
+        overlayAnimation,
+        align,
+        data,
+      } = props;
 
-    const [childInvokedClose, setChildInvokedClose] = useState(false);
+      const { backdropColor, disableBackdrop, disableAnimation } = settings;
+      const [portalWrapperCreated, setPortalWrapperCreated] = useState(false);
+      const [isClosing, setIsClosing] = useState(false);
+      const portalContainer = useRef<HTMLElement | null>(null);
 
-    useEffect(() => {
-      if (containedToParent?.current) {
-        portalContainer.current = containedToParent.current;
-        portalContainer.current.style.position = 'relative';
-        setPortalWrapperCreated(true);
-      } else {
-        overlayRef.current = document.createElement('div');
-        overlayRef.current.className = `${classPrefix.current}-portal-wrapper`;
-        document.body.appendChild(overlayRef.current);
-        portalContainer.current = overlayRef.current;
-        setPortalWrapperCreated(true);
+      const [childInvokedClose, setChildInvokedClose] = useState(false);
 
-        return () => {
-          document.body.removeChild(overlayRef.current as HTMLElement);
-        };
-      }
-    }, []);
+      useEffect(() => {
+        if (containedToParent?.current) {
+          portalContainer.current = containedToParent.current;
+          portalContainer.current.style.position = 'relative';
+          setPortalWrapperCreated(true);
+        } else {
+          overlayRef.current = document.createElement('div');
+          overlayRef.current.className = `${classPrefix.current}-portal-wrapper`;
+          document.body.appendChild(overlayRef.current);
+          portalContainer.current = overlayRef.current;
+          setPortalWrapperCreated(true);
 
-    const handleClose = useCallback(() => {
-      setIsClosing(true);
+          return () => {
+            document.body.removeChild(overlayRef.current as HTMLElement);
+          };
+        }
+      }, []);
 
-      if (!disableAnimation) {
-        setTimeout(() => {
+      const handleClose = useCallback(() => {
+        setIsClosing(true);
+
+        if (!disableAnimation) {
+          setTimeout(() => {
+            setPortalWrapperCreated(false);
+            onClose && onClose();
+          }, 250);
+        } else {
           setPortalWrapperCreated(false);
           onClose && onClose();
-        }, 250);
-      } else {
-        setPortalWrapperCreated(false);
-        onClose && onClose();
-      }
-    }, []);
+        }
+      }, []);
 
-    const handleChildClose = useCallback(() => setChildInvokedClose(true), []);
+      const handleChildClose = useCallback(
+        () => setChildInvokedClose(true),
+        []
+      );
 
-    return portalWrapperCreated
-      ? ReactDOM.createPortal(
-          <OverlayContext.Provider
-            value={{ align, childClosing: childInvokedClose, ...props }}
-          >
-            <Overlay
-              showCloseButton={showClose}
-              onClose={handleClose}
-              placement={placement}
-              placementReference={placementReference}
-              backdropColor={backdropColor}
-              containedToParent={!!containedToParent}
-              overlayAnimation={overlayAnimation}
-              disableBackdrop={disableBackdrop}
+      return portalWrapperCreated
+        ? ReactDOM.createPortal(
+            <OverlayContext.Provider
+              value={{ align, childClosing: childInvokedClose, data }}
             >
-              <Node
-                {...props}
-                onClose={handleChildClose}
-                isClosing={isClosing}
-              />
-            </Overlay>
-          </OverlayContext.Provider>,
-          portalContainer.current as HTMLElement
-        )
-      : null;
-  });
+              <Overlay
+                showCloseButton={showClose}
+                onClose={handleClose}
+                placement={placement}
+                placementReference={placementReference}
+                backdropColor={backdropColor}
+                containedToParent={!!containedToParent}
+                overlayAnimation={overlayAnimation}
+                disableBackdrop={disableBackdrop}
+              >
+                <Node
+                  {...props}
+                  onClose={handleChildClose}
+                  isClosing={isClosing}
+                />
+              </Overlay>
+            </OverlayContext.Provider>,
+            portalContainer.current as HTMLElement
+          )
+        : null;
+    },
+    (prev, next) => JSON.stringify(prev.data) === JSON.stringify(next.data)
+  );
 
   Component.displayName = `withOverlay(${Node.displayName || Node.name})`;
 

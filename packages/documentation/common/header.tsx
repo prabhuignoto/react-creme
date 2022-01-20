@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoCompleteOption } from '../../lib/components/auto-complete/auto-complete.model';
+import { AutoCompleteOption } from '../../lib/components/auto-suggest/auto-suggest.model';
 import AlgoliaSearch from './algolia';
 import { Badge, GithubLink } from './github-link';
 import './header.scss';

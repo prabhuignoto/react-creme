@@ -11,7 +11,7 @@ function Draggable() {
       title="Draggable"
       description="React Hook to enable draggable functionality"
       properties={[]}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-re75pw']}
       pageIcon={<FontAwesomeIcon icon={faHandPointer} size="2x" />}
     ></DemoPageRenderer>

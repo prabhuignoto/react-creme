@@ -1,7 +1,7 @@
 import { faExclamation } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { lazy } from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function index() {
   return (
@@ -49,7 +49,7 @@ function index() {
           type: 'boolean',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-fvmzp5']}
       demoWidget={lazy(() => import('./widgets'))}
     />

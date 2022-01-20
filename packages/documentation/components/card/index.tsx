@@ -6,7 +6,7 @@ import DemoPageRenderer from '../../common/demo-page-renderer';
 function card() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       demoWidget={lazy(() => import('./widgets'))}
       title="Card"
       stackBlitzCodes={['react-ts-3qkmbh']}

@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import '../../design/icon.scss';
 import '../../design/layout.scss';
 import '../../design/list.scss';
-import { AutoComplete } from '../auto-complete/auto-complete';
+import { AutoComplete } from '../auto-suggest/auto-suggest';
 import { TagItem } from './tag-item';
 import { TagItemInternalProps, TagsProps } from './tags-model';
 import './tags.scss';

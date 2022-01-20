@@ -2,21 +2,24 @@ import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { AutoComplete } from '../auto-complete';
+import { AutoComplete } from '../auto-suggest';
 
-const suggestions = ['one', 'two', 'three', 'four', 'five'];
+const suggestions = ['one', 'two', 'three', 'four', 'five'].map((item) => ({
+  name: item,
+  value: item,
+}));
 
 describe('AutoComplete', () => {
-  it('should render auto complete', () => {
+  it('should render Auto Suggest', () => {
     const { getByTestId } = render(<AutoComplete suggestions={suggestions} />);
-    expect(getByTestId('rc-auto-complete')).toBeInTheDocument();
+    expect(getByTestId('rc-auto-suggest')).toBeInTheDocument();
   });
 
-  it('should render auto complete with placeholder', () => {
+  it('should render Auto Suggest with placeholder', () => {
     const { getByTestId, getByText, getByPlaceholderText } = render(
       <AutoComplete suggestions={suggestions} placeholder="placeholder" />
     );
-    expect(getByTestId('rc-auto-complete')).toBeInTheDocument();
+    expect(getByTestId('rc-auto-suggest')).toBeInTheDocument();
     expect(getByPlaceholderText('placeholder')).toBeInTheDocument();
   });
 
