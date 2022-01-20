@@ -42,8 +42,12 @@
     box-shadow: 0 0 1px 4px rgba(colors.$primary, 0.25);
   }
 
-  &:not(.rc-input-border) {
+  &:not(.rc-input-border):not(.rc-input-rounded) {
     @extend %border-radius;
+  }
+
+  &.rc-input-rounded {
+    @extend %border-radius-high;
   }
 
   &:not(.rc-input-border).rc-input-default {

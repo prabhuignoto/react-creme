@@ -14,7 +14,7 @@ type Settings = {
 type OverlayFunc = <U extends OverlayModel>(
   Node: React.FunctionComponent<U>,
   settings: Settings
-) => React.FunctionComponent<U>;
+) => any;
 
 export type OverlayContextModel = {
   align?: 'left' | 'right';
@@ -33,7 +33,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     disableBackdrop: false,
   }
 ) {
-  return (props: T) => {
+  const Component = React.memo((props: T) => {
     const classPrefix = useRef('overlay');
     const overlayRef = useRef<HTMLDivElement | null>(null);
     const {
@@ -89,7 +89,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     return portalWrapperCreated
       ? ReactDOM.createPortal(
           <OverlayContext.Provider
-            value={{ align, childClosing: childInvokedClose }}
+            value={{ align, childClosing: childInvokedClose, ...props }}
           >
             <Overlay
               showCloseButton={showClose}
@@ -111,7 +111,11 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
           portalContainer.current as HTMLElement
         )
       : null;
-  };
+  });
+
+  Component.displayName = `withOverlay(${Node.displayName || Node.name})`;
+
+  return Component;
 };
 
 export { withOverlay };

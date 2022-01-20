@@ -8,6 +8,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { CircularProgress } from '..';
 import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { InputProps } from './input-model';
@@ -33,6 +34,8 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       border = false,
       focusable = false,
       RTL = false,
+      showSpinner = false,
+      accent = 'flat',
     } = props;
     const [inputValue, setInputValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -95,6 +98,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
           'rc-input-focus': hasFocus,
           'rc-input-no-icon': !children,
           'rc-input-rtl': RTL,
+          [`rc-input-${accent}`]: true,
         }),
       [disabled, hasFocus]
     );
@@ -131,6 +135,10 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       }
     }, [focusable]);
 
+    const inputDisabled = useMemo(() => {
+      return disabled;
+    }, [disabled]);
+
     return (
       <div
         className={inputClass}
@@ -148,12 +156,19 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
           onKeyUp={onKeyUp}
           ref={inputRef}
           id={inputId.current}
-          disabled={disabled}
+          disabled={inputDisabled}
           {...focusProps}
         />
-        <span onMouseDown={handleClear} className={clearClass} role="button">
-          {enableClear && <CloseIcon />}
-        </span>
+        {!showSpinner && (
+          <span onMouseDown={handleClear} className={clearClass} role="button">
+            {enableClear && <CloseIcon />}
+          </span>
+        )}
+        {showSpinner && (
+          <span className={'rc-input-loading'}>
+            <CircularProgress size="xs" />
+          </span>
+        )}
       </div>
     );
   }

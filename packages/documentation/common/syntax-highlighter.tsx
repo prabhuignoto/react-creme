@@ -1,5 +1,5 @@
 import React from "react";
-import { LightAsync as SyntaxHighlighter } from "react-syntax-highlighter";
+import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/light-async";
 import { tomorrowNightBright } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { CopyIcon } from "../../lib/icons";
 import { Notification } from "../../lib/components/notification/notification";
@@ -43,7 +43,8 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
         <CopyIcon />
       </span>
       <SyntaxHighlighter
-        language="typescript"
+        language="javascript"
+        useInlineStyles={true}
         style={{ ...tomorrowNightBright, height: "100%" }}
       >
         {code}

@@ -1,0 +1,17 @@
+{
+  "name": "alogolia_for_react-creme",
+  "version": "0.1.0",
+  "description": "Package for managing Alogolia search for the documentation site",
+  "main": "index.js",
+  "scripts": {
+    "upload": "ts-node index.ts"
+  },
+  "author": "Prabhu Murthy",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^17.0.10",
+    "algoliasearch": "^4.12.0",
+    "dotenv": "^14.2.0",
+    "ts-node": "^10.4.0"
+  }
+}

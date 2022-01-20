@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { routes as otherRoutes } from './route-configs-2';
+import { routes2 as otherRoutes } from './route-configs-2';
 
 const routes = [
   ...otherRoutes,
@@ -105,3 +105,4 @@ const routes = [
 ];
 
 export { routes };
+

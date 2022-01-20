@@ -45,7 +45,10 @@ function Widgets() {
             'Quinn',
             'Peyton',
             'River',
-          ]}
+          ].map((item) => ({
+            name: item,
+            value: item,
+          }))}
         />
       </DemoWidget>
     </Section>

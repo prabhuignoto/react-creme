@@ -24,6 +24,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   placementReference,
   showCloseButton = false,
 }) => {
+  // console.log(useContext(OverlayContext));
   const { align, childClosing } = useContext(
     OverlayContext
   ) as OverlayContextModel;
