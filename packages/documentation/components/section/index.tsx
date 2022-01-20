@@ -9,7 +9,7 @@ function index() {
       demoWidget={lazy(() => import('./widgets'))}
       title="Section"
       description="Section is a container for other components. It can be used to group components together."
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-2fdwsf']}
       pageIcon={<FontAwesomeIcon icon={faSquare} size="2x" />}
       properties={[

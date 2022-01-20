@@ -113,8 +113,16 @@ function index() {
           optional: 'yes',
           type: 'boolean',
         },
+        {
+          default: 'flat',
+          description:
+            'style accent of the input. can be <em>flat</em> or <em>rounded</em>',
+          name: 'accent',
+          optional: 'yes',
+          type: 'string',
+        },
       ]}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-dnneps']}
       demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>

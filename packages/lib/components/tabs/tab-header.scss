@@ -91,9 +91,9 @@ $rounded-tabs-height: 45px;
 }
 
 .rc-tab-head {
+  min-width: 120px;
   position: relative;
   user-select: none;
-  white-space: nowrap;
 
   &.rc-tab-head-rounded {
     height: 80%;
@@ -117,12 +117,11 @@ $rounded-tabs-height: 45px;
 
   &:not(.rc-tab-head-with-icon) {
     @extend %center;
-    min-width: 120px;
   }
 
   &.rc-tab-head-with-icon {
     display: grid;
-    grid-template-columns: 2.5rem calc(100% - 3rem) 0.5rem;
+    grid-template-columns: 2.5rem calc(100% - 2rem) 0.5rem;
     justify-items: center;
   }
 }
@@ -158,20 +157,15 @@ $rounded-tabs-height: 45px;
   @include animate.halo(2px, 2px);
   cursor: pointer;
   height: 90%;
+  justify-self: flex-start;
   position: relative;
   text-transform: capitalize;
+  white-space: nowrap;
   width: 90%;
 
   &.rc-tab-header-selected {
     color: colors.$tertiary;
     position: relative;
-  }
-
-  &.rc-tab-header-label-icon {
-    display: inline-block;
-    min-width: 80px;
-    padding-left: 0.5rem;
-    text-align: center;
   }
 
   &:not(.rc-tab-header-label-icon) {
@@ -190,8 +184,6 @@ $rounded-tabs-height: 45px;
 }
 
 .rc-tab-head-rounded.rc-tab-head-selected {
-  // border-color: colors.$white;
-
   &::after {
     @include position.position-abs('bottom center');
     background: colors.$white;
@@ -209,7 +201,7 @@ $rounded-tabs-height: 45px;
   display: flex;
   height: 1.5em;
   justify-content: center;
-  justify-self: flex-end;
+  justify-self: center;
   padding-left: 0.2rem;
   width: 1.5em;
 

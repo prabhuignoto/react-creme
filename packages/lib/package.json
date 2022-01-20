@@ -35,7 +35,8 @@
     "classnames": "^2.3.1",
     "nanoid": "^3.2.0",
     "resize-observer-polyfill": "^1.5.1",
-    "use-debounce": "^7.0.1"
+    "use-debounce": "^7.0.1",
+    "use-deep-compare-effect": "^1.8.1"
   },
   "peerDependencies": {
     "react": "^17.0.2",

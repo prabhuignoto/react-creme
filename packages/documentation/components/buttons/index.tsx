@@ -71,7 +71,7 @@ function buttons() {
           type: 'Boolean',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       demoWidget={lazy(() => import('./widgets'))}
     ></DemoPageRenderer>
   );

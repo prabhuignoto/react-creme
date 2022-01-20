@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
 import { useDebouncedCallback } from 'use-debounce';
@@ -35,6 +35,7 @@ function App() {
   const appRef = useRef<HTMLDivElement>(null);
   const [openAside, setOpenAside] = React.useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const sidebarClass = useMemo(() => {
     return classNames('app-aside', {
@@ -76,8 +77,6 @@ function App() {
       setOpenAside(true);
     }
   }, [asideValue]);
-
-  useEffect(() => {}, [location]);
 
   useEffect(() => {
     if (!media) {
@@ -122,7 +121,11 @@ function App() {
       )}
       <section className="app-main-section" ref={onRef}>
         {location.pathname !== '/' && (
-          <Header isMobile={media && media.isMobile} onOpen={toggleOpen} />
+          <Header
+            isMobile={media && media.isMobile}
+            onOpen={toggleOpen}
+            onSearchSelection={(path) => navigate(path.value)}
+          />
         )}
         <Suspense fallback={<span></span>}>
           <AppRoutes />

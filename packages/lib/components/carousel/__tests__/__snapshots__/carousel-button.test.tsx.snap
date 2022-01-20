@@ -5,7 +5,7 @@ exports[`Carousel Button should render carousel button snapshot 1`] = `
   aria-label="previous"
   class="rc-btn-sm rc-btn-icon rc-btn"
   role="button"
-  style="outline: none;"
+  style="outline: none; position: relative;"
   tabindex="0"
 >
   <span
@@ -25,5 +25,9 @@ exports[`Carousel Button should render carousel button snapshot 1`] = `
       />
     </svg>
   </span>
+  <span
+    class="rc-focus-ring"
+    style="width: 6px; height: 6px;"
+  />
 </button>
 `;

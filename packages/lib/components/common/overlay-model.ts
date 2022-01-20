@@ -11,6 +11,7 @@ interface OverlayCommon {
 export interface OverlayModel extends OverlayCommon {
   align?: 'left' | 'right';
   containedToParent?: RefObject<HTMLElement>;
+  data?: any;
   isClosing?: boolean;
   overlayAnimation?: boolean;
   placement?: 'top' | 'bottom';

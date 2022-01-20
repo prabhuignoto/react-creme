@@ -8,7 +8,7 @@ const Accordion = () => {
     <DemoPageRenderer
       description="Accordion is a collapsible component that can be used to hide or expose collapsible content."
       title="Accordion"
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-s9qxmk']}
       pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}
       callbacks={[

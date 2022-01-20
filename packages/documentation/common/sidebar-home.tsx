@@ -77,7 +77,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
                 { name: 'Rate' },
                 { name: 'Button' },
                 { name: 'Slider' },
-                { name: 'Autocomplete' },
+                { name: 'Auto Suggest' },
                 { name: 'Menu Button' },
               ],
               title: 'Inputs',

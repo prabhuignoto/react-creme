@@ -5,7 +5,7 @@ import DemoPageRenderer from '../../common/demo-page-renderer';
 function drawer() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Type definitions', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-jngeyv']}
       pageIcon={<Sidebar />}
       title="Drawer"

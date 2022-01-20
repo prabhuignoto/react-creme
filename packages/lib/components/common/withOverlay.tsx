@@ -14,11 +14,12 @@ type Settings = {
 type OverlayFunc = <U extends OverlayModel>(
   Node: React.FunctionComponent<U>,
   settings: Settings
-) => React.FunctionComponent<U>;
+) => any;
 
 export type OverlayContextModel = {
   align?: 'left' | 'right';
   childClosing?: boolean;
+  data?: any;
 };
 
 export const OverlayContext = React.createContext<OverlayContextModel | null>(
@@ -33,7 +34,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     disableBackdrop: false,
   }
 ) {
-  return (props: T) => {
+  const Component = (props: T) => {
     const classPrefix = useRef('overlay');
     const overlayRef = useRef<HTMLDivElement | null>(null);
     const {
@@ -44,7 +45,9 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
       placement,
       overlayAnimation,
       align,
+      data,
     } = props;
+
     const { backdropColor, disableBackdrop, disableAnimation } = settings;
     const [portalWrapperCreated, setPortalWrapperCreated] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
@@ -89,7 +92,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     return portalWrapperCreated
       ? ReactDOM.createPortal(
           <OverlayContext.Provider
-            value={{ align, childClosing: childInvokedClose }}
+            value={{ align, childClosing: childInvokedClose, data }}
           >
             <Overlay
               showCloseButton={showClose}
@@ -112,6 +115,8 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
         )
       : null;
   };
+
+  return Component;
 };
 
 export { withOverlay };

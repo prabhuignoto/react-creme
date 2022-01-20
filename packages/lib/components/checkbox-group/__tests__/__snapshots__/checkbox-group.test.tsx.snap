@@ -11,7 +11,7 @@ exports[`CheckboxGroup should match snapshot 1`] = `
       aria-labelledby="1"
       class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-focus rc-checkbox-hover"
       role="checkbox"
-      style="outline: none;"
+      style="outline: none; position: relative;"
       tabindex="0"
     >
       <div
@@ -43,13 +43,17 @@ exports[`CheckboxGroup should match snapshot 1`] = `
       >
         Option 1
       </label>
+      <span
+        class="rc-focus-ring"
+        style="width: 6px; height: 6px;"
+      />
     </div>
     <div
       aria-checked="true"
       aria-labelledby="2"
       class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-focus rc-checkbox-hover"
       role="checkbox"
-      style="outline: none;"
+      style="outline: none; position: relative;"
       tabindex="0"
     >
       <div
@@ -81,6 +85,10 @@ exports[`CheckboxGroup should match snapshot 1`] = `
       >
         Option 2
       </label>
+      <span
+        class="rc-focus-ring"
+        style="width: 6px; height: 6px;"
+      />
     </div>
     <div
       aria-checked="false"
