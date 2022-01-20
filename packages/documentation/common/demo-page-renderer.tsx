@@ -174,17 +174,6 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                   )}
                 </Suspense>
               </div>
-              <div className="rc-demo-type-definitions">
-                {typeDefStrings && (
-                  <Section title="Type Definitions">
-                    {typeDefStrings.map((typeDefString, index) => (
-                      <div key={index}>
-                        <SyntaxHighLighter code={typeDefString} />
-                      </div>
-                    ))}
-                  </Section>
-                )}
-              </div>
               <div className="rc-demo-stack-blitz-collection">
                 {stackBlitzCodes &&
                   stackBlitzCodes.map((code) => (

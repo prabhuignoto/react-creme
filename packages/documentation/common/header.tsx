@@ -13,10 +13,10 @@ const Header: React.FC<{
   return (
     <header className="app-header">
       <Logo isMobile={isMobile} onMenuClick={onOpen} />
+      <Badge />
       <div className="algolia-container" style={{ width: '250px' }}>
         <AlgoliaSearch onSelection={onSearchSelection} />
       </div>
-      <Badge />
       <GithubLink />
     </header>
   );
