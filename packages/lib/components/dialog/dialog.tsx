@@ -94,4 +94,6 @@ const Dialog = withOverlay<DialogProps>(DialogComponent, {
   disableAnimation: false,
 });
 
+Dialog.displayName = 'Dialog';
+
 export { Dialog };

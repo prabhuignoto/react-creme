@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface AutoCompleteProps {
+export interface AutoSuggestProps {
   accent?: 'rounded' | 'flat';
   apiBacked?: boolean;
   debounce?: number;
@@ -8,12 +8,12 @@ export interface AutoCompleteProps {
   icon?: React.ReactNode;
   onChange?: (value: string) => void;
   onKeyUp?: (ev: React.KeyboardEvent) => void;
-  onSelection?: (selected: AutoCompleteOption) => void;
+  onSelection?: (selected: AutoSuggestOption) => void;
   placeholder?: string;
   showSpinner?: boolean;
-  suggestions: AutoCompleteOption[];
+  suggestions: AutoSuggestOption[];
   suggestionsWidth?: number;
   value?: string;
 }
 
-export type AutoCompleteOption = { name: string; value: string };
+export type AutoSuggestOption = { name: string; value: string };

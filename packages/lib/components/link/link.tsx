@@ -17,4 +17,6 @@ const Link: React.FunctionComponent<AnchorHTMLAttributes<LinkProps>> = ({
   );
 };
 
+Link.displayName = 'Link';
+
 export { Link };

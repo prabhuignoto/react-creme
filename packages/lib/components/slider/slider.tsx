@@ -186,4 +186,6 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   );
 };
 
+Slider.displayName = 'Slider';
+
 export { Slider };

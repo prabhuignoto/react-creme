@@ -144,4 +144,6 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   );
 };
 
+ImageComparer.displayName = 'ImageComparer';
+
 export { ImageComparer };

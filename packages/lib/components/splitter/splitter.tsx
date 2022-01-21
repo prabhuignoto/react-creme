@@ -169,4 +169,6 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
   );
 };
 
+Splitter.displayName = 'Splitter';
+
 export { Splitter };

@@ -136,4 +136,6 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   );
 };
 
+Tooltip.displayName = 'Tooltip';
+
 export { Tooltip };

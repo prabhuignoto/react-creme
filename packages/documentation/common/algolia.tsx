@@ -2,8 +2,8 @@ import { faAlgolia } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import algoliasearch from 'algoliasearch/lite';
 import React, { useState } from 'react';
-import { AutoComplete } from '../../lib/components/auto-suggest/auto-suggest';
-import { AutoCompleteOption } from '../../lib/components/auto-suggest/auto-suggest.model';
+import { AutoSuggest } from '../../lib/components/auto-suggest/auto-suggest';
+import { AutoSuggestOption } from '../../lib/components/auto-suggest/auto-suggest.model';
 
 const searchClient = algoliasearch(
   'XGNLLPC19C',
@@ -12,8 +12,8 @@ const searchClient = algoliasearch(
 
 const index = searchClient.initIndex('react_creme_search');
 
-const AutoCompleteUI: React.FC<{
-  onSelection: ({ name, value }: AutoCompleteOption) => void;
+const AutoSuggestUI: React.FC<{
+  onSelection: ({ name, value }: AutoSuggestOption) => void;
 }> = ({ onSelection }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ const AutoCompleteUI: React.FC<{
           hitsPerPage: 10,
         });
         setSuggestions(
-          results.hits.map<AutoCompleteOption>((hit: any) => ({
+          results.hits.map<AutoSuggestOption>((hit: any) => ({
             name: hit.key,
             value: hit.path,
           }))
@@ -43,7 +43,7 @@ const AutoCompleteUI: React.FC<{
   };
 
   return (
-    <AutoComplete
+    <AutoSuggest
       suggestions={suggestions}
       suggestionsWidth={250}
       showSpinner={loading}
@@ -56,4 +56,4 @@ const AutoCompleteUI: React.FC<{
   );
 };
 
-export default AutoCompleteUI;
+export default AutoSuggestUI;

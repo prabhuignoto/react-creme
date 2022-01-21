@@ -4,8 +4,8 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import '../../design/icon.scss';
 import '../../design/layout.scss';
 import '../../design/list.scss';
-import { AutoComplete } from '../auto-suggest/auto-suggest';
-import { AutoCompleteOption } from '../auto-suggest/auto-suggest.model';
+import { AutoSuggest } from '../auto-suggest/auto-suggest';
+import { AutoSuggestOption } from '../auto-suggest/auto-suggest.model';
 import { TagItem } from './tag-item';
 import { TagItemInternalProps, TagsProps } from './tags-model';
 import './tags.scss';
@@ -63,7 +63,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   );
 
   const handleAdd = useCallback(
-    (value: string | AutoCompleteOption) => {
+    (value: string | AutoSuggestOption) => {
       if (canAdd) {
         const _value = typeof value === 'string' ? value : value.name;
         setTagItems((prev) => prev.concat({ id: nanoid(), name: _value }));
@@ -135,7 +135,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
       ))}
       {canAdd && (
         <li className="rc-tags-input-wrapper">
-          <AutoComplete
+          <AutoSuggest
             suggestions={tagSuggestions}
             onChange={handleChange}
             onSelection={handleAdd}
@@ -149,5 +149,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
     </ul>
   );
 };
+
+Tags.displayName = 'Tags';
 
 export { Tags };

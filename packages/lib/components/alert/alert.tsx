@@ -90,4 +90,6 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   );
 };
 
+Alert.displayName = 'Alert';
+
 export { Alert };

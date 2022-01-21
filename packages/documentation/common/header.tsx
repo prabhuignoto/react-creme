@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoCompleteOption } from '../../lib/components/auto-suggest/auto-suggest.model';
+import { AutoSuggestOption } from '../../lib/components/auto-suggest/auto-suggest.model';
 import AlgoliaSearch from './algolia';
 import { Badge, GithubLink } from './github-link';
 import './header.scss';
@@ -8,7 +8,7 @@ import { Logo } from './logo';
 const Header: React.FC<{
   isMobile?: boolean;
   onOpen?: () => void;
-  onSearchSelection: (selected: AutoCompleteOption) => void;
+  onSearchSelection: (selected: AutoSuggestOption) => void;
 }> = ({ isMobile, onOpen, onSearchSelection }) => {
   return (
     <header className="app-header">
@@ -23,3 +23,4 @@ const Header: React.FC<{
 };
 
 export { Header };
+

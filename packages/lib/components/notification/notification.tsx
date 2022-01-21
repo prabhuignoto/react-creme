@@ -93,4 +93,6 @@ const Notification = withOverlay<NotificationProps>(NotificationComponent, {
   backdropColor: 'transparent',
 });
 
+Notification.displayName = 'Notification';
+
 export { Notification };

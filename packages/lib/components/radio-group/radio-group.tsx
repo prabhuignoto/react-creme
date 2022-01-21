@@ -101,4 +101,6 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   );
 };
 
+RadioGroup.displayName = 'RadioGroup';
+
 export { RadioGroup };

@@ -55,4 +55,6 @@ const Section: React.FC<SectionProps> = ({
   );
 };
 
+Section.displayName = 'Section';
+
 export { Section };
