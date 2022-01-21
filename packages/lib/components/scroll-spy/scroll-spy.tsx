@@ -183,4 +183,6 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
   );
 };
 
+ScrollSpy.displayName = 'ScrollSpy';
+
 export { ScrollSpy };

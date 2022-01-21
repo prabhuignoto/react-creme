@@ -95,4 +95,6 @@ const Drawer = withOverlay<DrawerProps>(DrawerComponent, {
   disableAnimation: false,
 });
 
+Drawer.displayName = 'Drawer';
+
 export { Drawer };

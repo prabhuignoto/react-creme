@@ -38,4 +38,6 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
   );
 };
 
+BreadCrumb.displayName = 'BreadCrumb';
+
 export { BreadCrumb };

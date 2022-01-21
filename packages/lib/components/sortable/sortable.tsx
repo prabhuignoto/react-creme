@@ -22,4 +22,6 @@ const Sortable: React.FunctionComponent<SortableProps> = ({
   );
 };
 
+Sortable.displayName = 'Sortable';
+
 export { Sortable };

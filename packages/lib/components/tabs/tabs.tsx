@@ -165,4 +165,6 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   );
 };
 
+Tabs.displayName = 'Tabs';
+
 export { Tabs };

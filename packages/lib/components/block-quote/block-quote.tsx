@@ -9,4 +9,6 @@ const BlockQuote: React.FC<BlockQuoteProps> = ({ children }) => {
   return <div className="rc-block-quote">{children}</div>;
 };
 
+BlockQuote.displayName = 'BlockQuote';
+
 export { BlockQuote };

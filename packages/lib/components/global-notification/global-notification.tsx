@@ -83,4 +83,6 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   );
 };
 
+GlobalNotification.displayName = 'GlobalNotification';
+
 export { GlobalNotification };

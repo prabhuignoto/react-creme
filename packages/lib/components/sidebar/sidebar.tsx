@@ -143,4 +143,6 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   );
 };
 
+Sidebar.displayName = 'Sidebar';
+
 export { Sidebar };

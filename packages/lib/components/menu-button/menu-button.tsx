@@ -62,4 +62,6 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   );
 };
 
+MenuButton.displayName = 'MenuButton';
+
 export { MenuButton };

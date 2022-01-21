@@ -46,4 +46,6 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   );
 };
 
+PageHeader.displayName = 'PageHeader';
+
 export { PageHeader };

@@ -224,4 +224,6 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   );
 };
 
+Carousel.displayName = 'Carousel';
+
 export { Carousel };

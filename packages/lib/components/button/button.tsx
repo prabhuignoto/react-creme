@@ -71,4 +71,6 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   );
 };
 
+Button.displayName = 'Button';
+
 export { Button };

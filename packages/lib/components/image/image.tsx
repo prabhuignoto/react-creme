@@ -181,4 +181,6 @@ const Image: React.FunctionComponent<ImageProps> = ({
   );
 };
 
+Image.displayName = 'Image';
+
 export { Image };

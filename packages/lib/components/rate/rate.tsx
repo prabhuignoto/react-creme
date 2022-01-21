@@ -117,4 +117,6 @@ const Rate: React.FunctionComponent<RateProps> = ({
   );
 };
 
+Rate.displayName = 'Rate';
+
 export { Rate };

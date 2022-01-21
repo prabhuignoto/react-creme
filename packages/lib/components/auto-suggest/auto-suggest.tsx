@@ -18,7 +18,7 @@ import { Input } from '../input/input';
 import '../input/input.scss';
 import { List } from '../list/list';
 import { ListOption } from '../list/list-model';
-import { AutoCompleteProps } from './auto-suggest.model';
+import { AutoSuggestProps } from './auto-suggest.model';
 import './auto-suggest.scss';
 
 interface SuggestionsOverlayModel extends OverlayModel {
@@ -63,7 +63,7 @@ const SuggestionsMenuOverlay = withOverlay<SuggestionsOverlayModel>(
   { disableBackdrop: true, placement: 'bottom' }
 );
 
-const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
+const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
   onChange,
   onKeyUp,
   onSelection,
@@ -210,4 +210,6 @@ const AutoComplete: React.FunctionComponent<AutoCompleteProps> = ({
   );
 };
 
-export { AutoComplete };
+AutoSuggest.displayName = 'AutoSuggest';
+
+export { AutoSuggest };

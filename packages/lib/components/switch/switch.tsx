@@ -139,4 +139,6 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
   );
 };
 
+Switch.displayName = 'Switch';
+
 export { Switch };

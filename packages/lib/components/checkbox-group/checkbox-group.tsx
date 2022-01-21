@@ -99,4 +99,6 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   );
 };
 
+CheckBoxGroup.displayName = 'CheckBoxGroup';
+
 export { CheckBoxGroup };

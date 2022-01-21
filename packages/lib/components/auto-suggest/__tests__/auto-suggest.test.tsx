@@ -2,22 +2,22 @@ import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { AutoComplete } from '../auto-suggest';
+import { AutoSuggest } from '../auto-suggest';
 
 const suggestions = ['one', 'two', 'three', 'four', 'five'].map((item) => ({
   name: item,
   value: item,
 }));
 
-describe('AutoComplete', () => {
+describe('AutoSuggest', () => {
   it('should render Auto Suggest', () => {
-    const { getByTestId } = render(<AutoComplete suggestions={suggestions} />);
+    const { getByTestId } = render(<AutoSuggest suggestions={suggestions} />);
     expect(getByTestId('rc-auto-suggest')).toBeInTheDocument();
   });
 
   it('should render Auto Suggest with placeholder', () => {
     const { getByTestId, getByText, getByPlaceholderText } = render(
-      <AutoComplete suggestions={suggestions} placeholder="placeholder" />
+      <AutoSuggest suggestions={suggestions} placeholder="placeholder" />
     );
     expect(getByTestId('rc-auto-suggest')).toBeInTheDocument();
     expect(getByPlaceholderText('placeholder')).toBeInTheDocument();
@@ -25,7 +25,7 @@ describe('AutoComplete', () => {
 
   it('should render suggestions', async () => {
     const { getByRole, getByPlaceholderText, getAllByRole } = render(
-      <AutoComplete suggestions={suggestions} placeholder="enter input" />
+      <AutoSuggest suggestions={suggestions} placeholder="enter input" />
     );
 
     userEvent.type(getByPlaceholderText('enter input'), 'o');
@@ -38,7 +38,7 @@ describe('AutoComplete', () => {
 
   it('should show the selected item', async () => {
     const { getByRole, getByPlaceholderText, getByText } = render(
-      <AutoComplete suggestions={suggestions} placeholder="enter input" />
+      <AutoSuggest suggestions={suggestions} placeholder="enter input" />
     );
 
     userEvent.type(getByPlaceholderText('enter input'), 'o');
@@ -57,7 +57,7 @@ describe('AutoComplete', () => {
   it('should call onChange with the input', async () => {
     const onChange = jest.fn();
     const { getByPlaceholderText } = render(
-      <AutoComplete
+      <AutoSuggest
         suggestions={suggestions}
         placeholder="enter input"
         onChange={onChange}

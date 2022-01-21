@@ -68,4 +68,6 @@ const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
   );
 };
 
+Reveal.displayName = 'Reveal';
+
 export { Reveal };

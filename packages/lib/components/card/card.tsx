@@ -52,4 +52,6 @@ const Card: React.FunctionComponent<CardProps> = ({
   );
 };
 
+Card.displayName = 'Card';
+
 export { Card };

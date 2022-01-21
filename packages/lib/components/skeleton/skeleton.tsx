@@ -80,4 +80,6 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
   );
 };
 
+Skeleton.displayName = 'Skeleton';
+
 export { Skeleton };

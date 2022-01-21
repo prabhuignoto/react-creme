@@ -142,4 +142,6 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
   );
 };
 
+Progress.displayName = 'Progress';
+
 export { Progress };

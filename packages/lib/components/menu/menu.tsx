@@ -160,4 +160,6 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
   );
 };
 
+MenuContainer.displayName = 'Menu';
+
 export { MenuContainer };
