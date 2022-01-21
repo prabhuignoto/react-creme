@@ -1,12 +1,12 @@
 import React from 'react';
-import { AutoComplete, Section } from '../../../lib/components';
+import { AutoSuggest, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
   return (
     <Section title="Default Render">
       <DemoWidget>
-        <AutoComplete
+        <AutoSuggest
           focusable
           placeholder="Choose a name"
           suggestions={[
