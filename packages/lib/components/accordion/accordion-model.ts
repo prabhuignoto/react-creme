@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export interface AccordionModel extends AccordionCommon {
+export interface AccordionProps extends AccordionCommon {
   alignIconRight?: boolean;
   border?: boolean;
   children?: ReactNode;

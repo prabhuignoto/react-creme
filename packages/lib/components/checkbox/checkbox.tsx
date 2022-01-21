@@ -1,12 +1,7 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import * as React from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';

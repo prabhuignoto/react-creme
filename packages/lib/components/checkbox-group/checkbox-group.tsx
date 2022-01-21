@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { useCallback, useEffect, useMemo } from 'react';
+import * as React from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { CheckBox } from '../checkbox/checkbox';
 import { CheckboxProps } from '../checkbox/checkbox-model';
 import { useFirstRender } from '../common/effects/useFirstRender';

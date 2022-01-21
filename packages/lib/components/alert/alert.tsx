@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { CSSProperties, useCallback, useMemo } from 'react';
+import * as React from 'react';
+import { CSSProperties, useCallback, useMemo } from 'react';
 import {
   CheckIcon,
   CloseIcon,

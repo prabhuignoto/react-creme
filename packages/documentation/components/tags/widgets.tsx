@@ -1,16 +1,9 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section, Tags } from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-
-const items = [
-  { disabled: false, name: 'python' },
-  { name: 'fortran' },
-  { name: 'c sharp' },
-  { name: 'Go lang' },
-  { disabled: true, name: 'RUST' },
-];
+import { AutoComplete, Default, Disabled, ReadOnly } from './widget-variants';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -46,14 +39,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
-              <Tags
-                placeholder="Choose a language..."
-                items={items}
-                maxTags={15}
-                onChange={(val) => console.log(val)}
-                tagWidth={150}
-                focusable
-              />
+              <Default />
             </div>
           </DemoWidget>
         </Section>
@@ -63,14 +49,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
-              <Tags
-                placeholder="Choose a language..."
-                items={items}
-                maxTags={15}
-                onChange={(val) => console.log(val)}
-                tagWidth={150}
-                tagStyle="fill"
-              />
+              <Disabled />
             </div>
           </DemoWidget>
         </Section>
@@ -81,14 +60,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
-              <Tags
-                placeholder="Choose a language..."
-                items={items}
-                maxTags={15}
-                onChange={(val) => console.log(val)}
-                readonly
-                tagWidth={50}
-              />
+              <ReadOnly />
             </div>
           </DemoWidget>
         </Section>
@@ -99,15 +71,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: resolvedWidth }}>
-              <Tags
-                placeholder="Choose a language..."
-                items={items}
-                maxTags={15}
-                onChange={(val) => console.log(val)}
-                tagWidth={100}
-                autoComplete
-                suggestions={['one', 'two']}
-              />
+              <AutoComplete />
             </div>
           </DemoWidget>
         </Section>

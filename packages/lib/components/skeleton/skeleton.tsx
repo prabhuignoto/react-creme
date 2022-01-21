@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { FunctionComponent, useCallback, useState } from 'react';
+import * as React from 'react';
+import { FunctionComponent, useCallback, useState } from 'react';
 import { SkeletonBlockProps, SkeletonProps } from './skeleton-model';
 import { SkeletonRow } from './skeleton-row';
 import './skeleton.scss';

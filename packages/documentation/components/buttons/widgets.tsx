@@ -1,22 +1,27 @@
 import React from 'react';
-import { BlockQuote, Button, Section } from '../../../lib/components';
-import { SearchIcon } from '../../../lib/icons';
+import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
+import {
+  Default,
+  Disabled,
+  Icon,
+  Large,
+  Medium,
+  SearchingState,
+} from './widget-variants';
 
 function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render">
         <DemoWidget>
-          <Button label="save" onClick={() => alert('test')} />
+          <Default />
         </DemoWidget>
       </Section>
       <Section title="Icon">
         <BlockQuote>Insert a custom icon to the button.</BlockQuote>
         <DemoWidget>
-          <Button label="Search this page" size="sm" focusable>
-            <SearchIcon />
-          </Button>
+          <Icon />
         </DemoWidget>
       </Section>
       <Section title="Loading state">
@@ -25,18 +30,13 @@ function widgets() {
           state.
         </BlockQuote>
         <DemoWidget>
-          <Button label="Searching ..." size="sm" type="progress"></Button>
+          <SearchingState />
         </DemoWidget>
       </Section>
       <Section title="Disabled">
         <BlockQuote>Buttons can be disabled</BlockQuote>
         <DemoWidget>
-          <Button
-            border={false}
-            label="I am disabled"
-            disabled
-            onClick={() => alert('test')}
-          />
+          <Disabled />
         </DemoWidget>
       </Section>
       <Section title="Large sized button">
@@ -44,7 +44,7 @@ function widgets() {
           Customize the size of the button by using the <code>size</code> prop
         </BlockQuote>
         <DemoWidget>
-          <Button label="save as new" type="primary" size="md" border={false} />
+          <Medium />
         </DemoWidget>
       </Section>
       <Section title="Button with State (Extra large)">
@@ -53,7 +53,7 @@ function widgets() {
           <code>danger</code> state
         </BlockQuote>
         <DemoWidget>
-          <Button label="save as new" type="danger" size="lg" />
+          <Large />
         </DemoWidget>
       </Section>
     </div>

@@ -1,109 +1,35 @@
 import React from 'react';
-import { CheckBoxGroup, Section } from '../../../lib/components';
+import { Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
+import { Disabled } from '../buttons/widget-variants';
+import { CustomStyle, Default, PreSelected, RTL } from './widget-variants';
 
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default Render">
         <DemoWidget>
-          <CheckBoxGroup
-            onChange={(value) => console.log(value)}
-            options={[
-              {
-                label: 'Option 1',
-              },
-              {
-                label: 'Option 2',
-              },
-              {
-                label: 'Option 3',
-              },
-              {
-                label: 'Option 4',
-              },
-            ]}
-          />
+          <Default />
         </DemoWidget>
       </Section>
       <Section title="Preselected Option">
         <DemoWidget>
-          <CheckBoxGroup
-            options={[
-              {
-                label: 'Option 1',
-              },
-              {
-                label: 'Option 2',
-              },
-              {
-                isChecked: true,
-                label: 'This option is preselected',
-              },
-            ]}
-          />
+          <PreSelected />
         </DemoWidget>
       </Section>
       <Section title="Disabled Option">
         <DemoWidget>
-          <CheckBoxGroup
-            options={[
-              {
-                label: 'Option 1',
-              },
-              {
-                disabled: true,
-                label: 'This option is disabled',
-              },
-              {
-                disabled: true,
-                isChecked: true,
-                label: 'This option is disabled but preselected',
-              },
-            ]}
-          />
+          <Disabled />
         </DemoWidget>
       </Section>
       <Section title="Checkbox Group - Round style">
         <DemoWidget>
-          <CheckBoxGroup
-            checkboxStyle="round"
-            options={[
-              {
-                label: 'Option 1',
-              },
-              {
-                label: 'Option 2',
-              },
-              {
-                label: 'Option 3',
-              },
-              {
-                label: 'Option 4',
-              },
-            ]}
-          />
+          <CustomStyle />
         </DemoWidget>
       </Section>
       <Section title="Checkbox Group - RTL">
         <DemoWidget>
-          <CheckBoxGroup
-            RTL
-            options={[
-              {
-                label: 'Option 1',
-              },
-              {
-                label: 'Option 2',
-              },
-              {
-                label: 'Option 3',
-              },
-              {
-                label: 'Option 4',
-              },
-            ]}
-          />
+          <RTL />
         </DemoWidget>
       </Section>
     </div>

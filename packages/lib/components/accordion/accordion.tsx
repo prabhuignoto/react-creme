@@ -1,6 +1,7 @@
 import cls from 'classnames';
 import { nanoid } from 'nanoid';
-import React, {
+import * as React from 'react';
+import {
   CSSProperties,
   useCallback,
   useEffect,
@@ -10,10 +11,10 @@ import React, {
 } from 'react';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { AccordionHeader } from './accordion-header';
-import { AccordionModel } from './accordion-model';
+import { AccordionProps } from './accordion-model';
 import './accordion.scss';
 
-const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
+const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
   ({
     customIcon = null,
     alignIconRight = false,
@@ -32,7 +33,7 @@ const Accordion: React.FunctionComponent<AccordionModel> = React.memo(
     title,
     titleColor = '#000',
     transition = 'cubic-bezier(0.19, 1, 0.22, 1)',
-  }: AccordionModel) => {
+  }: AccordionProps) => {
     const accordionID = useRef(id || `accordion-${nanoid()}`);
     const accordionBodyId = useRef(`accordion-body-${nanoid()}`);
 

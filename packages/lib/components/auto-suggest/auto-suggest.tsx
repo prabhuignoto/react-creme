@@ -1,11 +1,6 @@
 import { nanoid } from 'nanoid';
-import React, {
-  CSSProperties,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-} from 'react';
+import * as React from 'react';
+import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import { SearchIcon } from '../../icons';
@@ -78,7 +73,6 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
   apiBacked = false,
   icon,
 }) => {
-  debugger;
   const [suggestionItems, setSuggestionItems] = React.useState<Option[]>(
     suggestions.length
       ? suggestions.map(({ name, value }) => ({
