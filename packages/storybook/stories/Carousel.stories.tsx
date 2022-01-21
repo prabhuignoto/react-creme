@@ -1,3 +1,4 @@
+import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 import {
   Horizontal,
@@ -19,5 +20,12 @@ export const VerticalMode = () => (
 
 export default {
   component: Carousel,
+  decorators: [
+    (Story: () => JSX.Element) => (
+      <div style={{ margin: '0 auto', width: '650px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   title: 'Carousel',
-};
+} as ComponentMeta<typeof Carousel>;

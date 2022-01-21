@@ -1,14 +1,17 @@
 export {
   CustomIcon,
+  CustomIconCount,
+  CustomSize,
   Default,
-  Expanded,
-} from '../../documentation/components/accordion/widgets-variants';
+  Disabled,
+  RTL,
+} from '../../documentation/components/rate/widget-variants';
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { Accordion } from '../../lib/components'; // YourComponent.stories.ts|tsx
+import { Rate } from '../../lib/components';
 
 export default {
-  component: Accordion,
+  component: Rate,
   decorators: [
     (Story: () => JSX.Element) => (
       <div style={{ margin: '0 auto', width: '500px' }}>
@@ -16,5 +19,5 @@ export default {
       </div>
     ),
   ],
-  title: 'Accordion',
-} as ComponentMeta<typeof Accordion>;
+  title: 'Rate',
+} as ComponentMeta<typeof Rate>;

@@ -1,8 +1,14 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, List, Section } from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import {
+  Default,
+  MultiSelection,
+  Search,
+  Virtualized,
+} from './widget-variants';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
@@ -32,14 +38,7 @@ function Widgets() {
         <Section title="Default render">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <List
-                maxHeight={450}
-                onSelection={(val) => console.log(val)}
-                options={Array.from({ length: 5 }, (_, i) => ({
-                  name: `Item ${i + 1}`,
-                  value: `Item ${i + 1}`,
-                }))}
-              />
+              <Default />
             </div>
           </DemoWidget>
         </Section>
@@ -49,25 +48,7 @@ function Widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <List
-                onSelection={(val) => console.log(val)}
-                allowMultiSelection
-                maxHeight={350}
-                options={[
-                  {
-                    name: 'india',
-                    value: 'india',
-                  },
-                  { name: 'usa', value: 'usa' },
-                  { name: 'uk', value: 'uk' },
-                  { name: 'France', value: 'france' },
-                  {
-                    disabled: true,
-                    name: 'germany',
-                    value: 'germany',
-                  },
-                ]}
-              />
+              <MultiSelection />
             </div>
           </DemoWidget>
         </Section>
@@ -77,16 +58,7 @@ function Widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <List
-                maxHeight={400}
-                virtualized
-                enableSearch
-                onSelection={(val) => console.log(val)}
-                options={Array.from({ length: 500 }, (_, i) => ({
-                  name: `Item ${i}`,
-                  value: `Item ${i}`,
-                }))}
-              />
+              <Search />
             </div>
           </DemoWidget>
         </Section>
@@ -97,17 +69,7 @@ function Widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <List
-                maxHeight={350}
-                virtualized
-                showCheckIcon
-                focusable={false}
-                onSelection={(val) => console.log(val)}
-                options={Array.from({ length: 500 }, (_, i) => ({
-                  name: `Item ${i}`,
-                  value: `Item ${i}`,
-                }))}
-              />
+              <Virtualized />
             </div>
           </DemoWidget>
         </Section>
