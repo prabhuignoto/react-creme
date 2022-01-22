@@ -23,16 +23,6 @@ const options_selected = [
 const handler = jest.fn();
 
 describe('Dropdown', () => {
-  // it("should render the dropdown", () => {
-  //   const { getByText, getByTestId } = render(
-  //     <Dropdown options={options} placeholder="select a option" />
-  //   );
-  //   expect(getByText("select a option")).toBeInTheDocument();
-  //   fireEvent.click(getByText("select a option"));
-  //   expect(getByTestId("icon")).toBeInTheDocument();
-  //   expect(getByTestId("icon")).toHaveClass("rc-dropdown-chevron-icon-rotate");
-  // });
-
   it('should handler be called', async () => {
     const handler = jest.fn();
     const { container, getByText, getByRole, getAllByRole } = render(
@@ -113,6 +103,37 @@ describe('Dropdown', () => {
 
     await waitFor(() => {
       expect(getByRole('listbox')).toBeInTheDocument();
+    });
+  });
+
+  it('should clear selection on pressing the clear button', async () => {
+    const { getByText, getByRole, getAllByRole, getByTestId, container } =
+      render(
+        <Dropdown
+          options={options}
+          placeholder="select a option"
+          allowMultiSelection
+        />
+      );
+
+    fireEvent.click(getByText('select a option'));
+
+    expect(getByRole('listbox')).toBeInTheDocument();
+    expect(getAllByRole('option')).toHaveLength(5);
+
+    fireEvent.click(getByText('india'));
+    fireEvent.click(getByText('sri lanka'));
+
+    expect(
+      (container.firstChild as HTMLElement).querySelectorAll('.rc-tag').length
+    ).toBe(2);
+
+    fireEvent.click(getByTestId('clear-icon'));
+
+    await waitFor(() => {
+      expect(
+        (container.firstChild as HTMLElement).querySelectorAll('.rc-tag').length
+      ).toBe(0);
     });
   });
 });

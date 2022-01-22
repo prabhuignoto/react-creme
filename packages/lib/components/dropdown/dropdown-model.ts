@@ -20,6 +20,7 @@ export interface DropdownMenuStyleModel {
   width?: number;
 }
 
+/** Model representing the Dropdown Option */
 export interface Option {
   disabled?: boolean;
   id?: string;
@@ -28,16 +29,41 @@ export interface Option {
   value?: string;
 }
 
+/** ✨Component props */
 export interface DropdownProps {
+  /**🔷 Right to Left */
   RTL?: boolean;
+
+  /**🔷 Allow multiple selection */
   allowMultiSelection?: boolean;
+
+  /**🔷 Color of the chevron color */
   chevronIconColor?: string;
+
+  /**🔷 Disables the control */
   disabled?: boolean;
+
+  /**🔷 Enable search */
   enableSearch?: boolean;
+
+  /**🔷 enables the Focus outlines */
   focusable?: boolean;
+
+  /**🔷 The height of the dropdown menu */
   maxMenuHeight?: number;
+
+  /**🔷 Callback executed on selection */
   onSelected?: (value: string | string[]) => void;
+
+  /**🔷 Options passed down to the dropdown */
   options: Option[];
+
+  /**🔷 Placeholder for the dropdown */
   placeholder?: string;
+
+  /**🔷 Enables the clear button for clearing the selected option */
+  showClearBtn?: boolean;
+
+  /**🔷 Virtualizes the items displayed in the menu */
   virtualize?: boolean;
 }

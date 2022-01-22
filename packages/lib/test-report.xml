@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\tooltip\__tests__\tooltip.test.tsx">
-    <testCase name="Tooltip Should render tooltip" duration="59"/>
-    <testCase name="Tooltip Should show/hide tooltip on hover" duration="27"/>
-    <testCase name="Tooltip should render tooltip statically" duration="24"/>
-    <testCase name="Tooltip should render tooltip bottom center" duration="11"/>
-    <testCase name="Tooltip should render tooltip bottom left" duration="13"/>
-    <testCase name="Tooltip should render tooltip bottom right" duration="8"/>
-    <testCase name="Tooltip should render tooltip top left" duration="10"/>
-    <testCase name="Tooltip should render tooltip top right" duration="11"/>
-    <testCase name="Tooltip should render left center" duration="9"/>
-    <testCase name="Tooltip should render right center" duration="7"/>
-    <testCase name="Tooltip should render left top" duration="8"/>
-    <testCase name="Tooltip should render left bottom" duration="8"/>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\dropdown\__tests__\dropdown-menu.test.tsx">
+    <testCase name="Dropdown menu should render dropdown menu" duration="186"/>
+  </file>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\dropdown\__tests__\dropdown.test.tsx">
+    <testCase name="Dropdown should handler be called" duration="364"/>
+    <testCase name="Dropdown should auto close menu" duration="445"/>
+    <testCase name="Dropdown should render disabled" duration="7"/>
+    <testCase name="Dropdown should render allowMultiSelection mode" duration="50"/>
+    <testCase name="Dropdown should clear selection on pressing the clear button" duration="102"/>
   </file>
 </testExecutions>

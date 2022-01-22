@@ -115,6 +115,7 @@ export const RTL = () => (
     enableSearch
     RTL
     focusable
+    allowMultiSelection
     options={[
       {
         disabled: true,
