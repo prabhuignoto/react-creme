@@ -1,12 +1,13 @@
 import React, { useLayoutEffect } from 'react';
-import {
-  AccordionGroup,
-  BlockQuote,
-  Image,
-  Section,
-} from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
+import {
+  AutoClosingSections,
+  CustomIcon,
+  Default,
+  InitialState,
+} from './widget-variants';
 
 function Widgets() {
   const media = useMedia();
@@ -48,17 +49,7 @@ function Widgets() {
         <Section title="Default Render">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <AccordionGroup titles={['one', 'two']}>
-                <Para />
-                <div
-                  style={{
-                    height: '400px',
-                    width: '100%',
-                  }}
-                >
-                  <Image src="https://images.unsplash.com/photo-1635449586099-3ecb7ef8374d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"></Image>
-                </div>
-              </AccordionGroup>
+              <Default />
             </div>
           </DemoWidget>
         </Section>
@@ -70,23 +61,7 @@ function Widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <AccordionGroup
-                titles={['one', 'two']}
-                autoClose={false}
-                border={false}
-                expanded
-                focusable
-              >
-                <Para />
-                <div
-                  style={{
-                    height: '300px',
-                    width: '100%',
-                  }}
-                >
-                  <Image src="https://images.unsplash.com/photo-1635449586099-3ecb7ef8374d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"></Image>
-                </div>
-              </AccordionGroup>
+              <InitialState />
             </div>
           </DemoWidget>
         </Section>
@@ -97,15 +72,7 @@ function Widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <AccordionGroup
-                titles={['one', 'two', 'three']}
-                autoClose
-                border={false}
-              >
-                {Array.from({ length: 3 }).map((_, i) => (
-                  <Para key={i} />
-                ))}
-              </AccordionGroup>
+              <AutoClosingSections />
             </div>
           </DemoWidget>
         </Section>
@@ -116,15 +83,7 @@ function Widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <AccordionGroup
-                titles={['one', 'two', 'three']}
-                border={false}
-                iconType="plus"
-              >
-                {Array.from({ length: 3 }).map((_, i) => (
-                  <Para key={i} />
-                ))}
-              </AccordionGroup>
+              <CustomIcon />
             </div>
           </DemoWidget>
         </Section>

@@ -1,5 +1,5 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
 
 .rc-card-wrapper {
   @extend %col;
@@ -8,6 +8,7 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
+  min-height: var(--height, 300px);
   width: 100%;
 
   &:not(.rc-card-border-less) {

@@ -1,6 +1,15 @@
 import React from 'react';
-import { BlockQuote, Section, Switch } from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
+import {
+  CheckIcon,
+  Default,
+  Disabled,
+  ExtraLarge,
+  LabelOutside,
+  Large,
+} from './widget-variants';
+
 function widgets() {
   return (
     <div
@@ -10,11 +19,7 @@ function widgets() {
       <Section title="Switch - default">
         <DemoWidget>
           <div style={{ width: '100px' }}>
-            <Switch
-              label="Settings"
-              checked
-              onChange={(val) => console.log(val)}
-            />
+            <Default />
           </div>
         </DemoWidget>
       </Section>
@@ -22,7 +27,7 @@ function widgets() {
         <BlockQuote>The label can be placed outside the switch.</BlockQuote>
         <DemoWidget>
           <div style={{ width: '150px' }}>
-            <Switch label="Settings" labelOutside focusable />
+            <LabelOutside />
           </div>
         </DemoWidget>
       </Section>
@@ -33,7 +38,7 @@ function widgets() {
         </BlockQuote>
         <DemoWidget>
           <div style={{ width: '130px' }}>
-            <Switch label="Enable Setting" showCheckIcon checked />
+            <CheckIcon />
           </div>
         </DemoWidget>
       </Section>
@@ -43,7 +48,7 @@ function widgets() {
         </BlockQuote>
         <DemoWidget>
           <div style={{ width: '100px' }}>
-            <Switch label="setting" disabled />
+            <Disabled />
           </div>
         </DemoWidget>
       </Section>
@@ -54,14 +59,14 @@ function widgets() {
         </BlockQuote>
         <DemoWidget>
           <div style={{ width: '200px' }}>
-            <Switch label="Are you authorized" size="md" />
+            <Large />
           </div>
         </DemoWidget>
       </Section>
       <Section title="Extra large">
         <DemoWidget>
           <div style={{ width: '250px' }}>
-            <Switch label="Show settings" size="lg" labelOutside />
+            <ExtraLarge />
           </div>
         </DemoWidget>
       </Section>

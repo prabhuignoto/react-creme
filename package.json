@@ -24,7 +24,7 @@
     "postcss": "^8.4.5",
     "postcss-scss": "^4.0.3",
     "prettier": "^2.5.1",
-    "snyk": "^1.833.0",
+    "snyk": "^1.834.0",
     "stylelint": "14.2.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-order": "^5.0.0",
@@ -38,6 +38,7 @@
     "build": "turbo run build",
     "prepare": "husky install",
     "dev": "turbo run dev --scope=*docu*",
+    "story": "turbo run dev --scope=*story*",
     "test": "turbo run test",
     "all": "turbo run format lint test build",
     "build:lib": "turbo run build --scope=*lib*",
@@ -46,7 +47,7 @@
     "snyk": "turbo run snyk",
     "fix-css": "turbo run fix-css",
     "fix-js": "turbo run fix-js",
-    "cleanup": "pnpm fix-css & pnpm fix-js & pnpm format & pnpm lint"
+    "clean": "pnpm fix-css & pnpm fix-js & pnpm format & pnpm lint"
   },
   "turbo": {
     "npmClient": "pnpm",

@@ -7,6 +7,6 @@ export interface CardProps {
   children?: ReactNode | ReactNode[];
   footer?: ReactNode;
   header?: ReactNode;
-  minHeight?: number;
+  height?: number;
   shadow?: boolean;
 }

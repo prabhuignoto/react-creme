@@ -1,8 +1,15 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section, Skeleton } from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import {
+  Animate,
+  Circle,
+  CustomBlockCount,
+  CustomRowAndHeight,
+  Default,
+} from './widget-variants';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -31,7 +38,7 @@ function widgets() {
         <Section title="Default rendering">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Skeleton rows={6} rowHeight={6} blocks={1} />
+              <Default />
             </div>
           </DemoWidget>
         </Section>
@@ -41,7 +48,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Skeleton rows={6} rowHeight={6} blocks={1} showCircle />
+              <Circle />
             </div>
           </DemoWidget>
         </Section>
@@ -49,7 +56,7 @@ function widgets() {
           <BlockQuote>The height and row count can be customized.</BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Skeleton rows={8} rowHeight={5} blocks={1} />
+              <CustomRowAndHeight />
             </div>
           </DemoWidget>
         </Section>
@@ -59,15 +66,15 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Skeleton rows={6} rowHeight={8} animate />
+              <Animate />
             </div>
           </DemoWidget>
         </Section>
-        <Section title="Default rendering">
+        <Section title="Custom block count">
           <BlockQuote>Can customize the number of blocks</BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Skeleton rows={4} rowHeight={8} blocks={2} />
+              <CustomBlockCount />
             </div>
           </DemoWidget>
         </Section>

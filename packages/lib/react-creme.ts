@@ -1,6 +1,6 @@
 export { AccordionGroup } from "./components/accordion-group/accordion-group";
 export { Accordion } from "./components/accordion/accordion";
-export type { AccordionCommon, AccordionGroupProps, AccordionHeaderProps, AccordionItemProps, AccordionModel } from "./components/accordion/accordion-model";
+export type { AccordionCommon, AccordionGroupProps, AccordionHeaderProps, AccordionItemProps, AccordionProps } from "./components/accordion/accordion-model";
 export { Alert } from "./components/alert/alert";
 export type { AlertProps } from "./components/alert/alert-model";
 export { AutoSuggest } from "./components/auto-suggest/auto-suggest";

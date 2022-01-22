@@ -1,18 +1,11 @@
 import cls from 'classnames';
 import { nanoid } from 'nanoid';
-import React, {
-  CSSProperties,
-  useCallback,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
-import { ChevronDownIcon } from '../../icons';
-import useFocusNew from '../common/effects/useFocusNew';
+import * as React from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { withOverlay } from '../common/withOverlay';
-import { Tags } from '../tags/tags';
 import { DropDownMenu } from './dropdown-menu';
 import { DropdownMenuProps, DropdownProps, Option } from './dropdown-model';
+import { DropdownValue } from './dropdown-value';
 import './dropdown.scss';
 
 const DropdownMenuOverlay = withOverlay<DropdownMenuProps>(DropDownMenu, {
@@ -32,6 +25,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     focusable = true,
     RTL = false,
     chevronIconColor,
+    showClearBtn = true,
   }: DropdownProps) => {
     // options states
     const [dropdownOptions, setDropdownOptions] = useState(
@@ -121,11 +115,20 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       return {};
     }, [showMenu]);
 
-    // setup focus
-
-    if (focusable) {
-      useFocusNew(containerRef, handleToggleMenu);
-    }
+    const handleClear = useCallback((ev: React.MouseEvent) => {
+      ev.preventDefault();
+      // ev.stopPropagation();
+      setValue('');
+      setDropdownOptions((options) =>
+        options.map((option) => ({
+          ...option,
+          selected: false,
+        }))
+      );
+      if (onSelected) {
+        onSelected('');
+      }
+    }, []);
 
     // memoize the selected value
     const selectedValue = useMemo(() => {
@@ -150,73 +153,28 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       [disabled]
     );
 
-    const rcDropdownValueClass = useMemo(
-      () =>
-        cls('rc-dropdown-value-container', {
-          'rc-dropdown-disabled': disabled,
-          'rc-dropdown-multi': allowMultiSelection,
-          'rc-dropdown-rtl': RTL,
-        }),
-      [disabled]
+    const canHideClearButton = useMemo(
+      () => !showClearBtn || disabled || selectedValue === placeholder,
+      [disabled, selectedValue]
     );
-
-    const rcDropdownIconClass = useMemo(
-      () =>
-        cls(
-          'rc-dropdown-chevron-icon',
-          showMenu && !menuClosing ? 'rc-dropdown-chevron-icon-rotate' : ''
-        ),
-      [showMenu, menuClosing]
-    );
-
-    const iconStyle = useMemo(() => {
-      return {
-        '---chevron-icon-color': chevronIconColor,
-      } as CSSProperties;
-    }, []);
-
-    const valueClass = useMemo(() => {
-      return cls('rc-dropdown-value', {
-        'rc-dropdown-rtl': RTL,
-      });
-    }, []);
 
     return (
       <div className={rcDropdownClass} ref={dropdownRef}>
-        <div
-          className={rcDropdownValueClass}
-          ref={containerRef}
-          onClick={handleToggleMenu}
-          tabIndex={!disabled && focusable ? 0 : -1}
-          aria-disabled={disabled}
-        >
-          {allowMultiSelection ? (
-            Array.isArray(selectedValue) ? (
-              <div className="rc-dropdown-tags-wrapper">
-                <Tags
-                  items={selectedValue}
-                  readonly
-                  tagStyle="fill"
-                  tagSize={'small'}
-                  tagWidth={100}
-                  RTL={RTL}
-                />
-              </div>
-            ) : (
-              <span className={valueClass}>{selectedValue}</span>
-            )
-          ) : (
-            <span className={valueClass}>{selectedValue}</span>
-          )}
-          <span
-            className={rcDropdownIconClass}
-            role="img"
-            data-testid="icon"
-            style={iconStyle}
-          >
-            <ChevronDownIcon />
-          </span>
-        </div>
+        <DropdownValue
+          RTL={RTL}
+          allowMultiSelection={allowMultiSelection}
+          placeholder={placeholder}
+          showClearBtn={showClearBtn}
+          onToggle={handleToggleMenu}
+          onClear={handleClear}
+          showMenu={showMenu}
+          menuClosing={menuClosing}
+          chevronIconColor={chevronIconColor}
+          containerRef={containerRef}
+          disabled={disabled}
+          focusable={focusable}
+          selectedValue={selectedValue}
+        />
 
         {showMenu && (
           <DropdownMenuOverlay

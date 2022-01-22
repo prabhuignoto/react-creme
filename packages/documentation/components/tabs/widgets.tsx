@@ -1,21 +1,9 @@
 import React, { useLayoutEffect } from 'react';
-import { Settings } from 'react-feather';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section, Tabs } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-
-const icons = [
-  <Settings key="1" />,
-  <Settings key="2" />,
-  <Settings key="3" />,
-  <Settings key="4" />,
-  <Settings key="5" />,
-  <Settings key="6" />,
-  <Settings key="7" />,
-  <Settings key="8" />,
-  <Settings key="9" />,
-];
+import { Default, Disabled, Icons, Rounded } from './widget-variants';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -49,33 +37,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Tabs
-                labels={[
-                  'one',
-                  'two',
-                  'three',
-                  'four',
-                  'five',
-                  'six',
-                  'seven',
-                  'eight',
-                  'nine',
-                ]}
-                tabStyle="flat"
-                border={false}
-                activeTab="two"
-                // focusable
-              >
-                <span>one</span>
-                <span>two</span>
-                <span>three</span>
-                <span>four</span>
-                <span>five</span>
-                <span>six</span>
-                <span>seven</span>
-                <span>eight</span>
-                <span>nine</span>
-              </Tabs>
+              <Default />
             </div>
           </DemoWidget>
         </Section>
@@ -86,17 +48,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Tabs
-                labels={['one', 'two', 'three', 'four']}
-                border={false}
-                tabStyle="rounded"
-                focusable
-              >
-                <span>one</span>
-                <span>two</span>
-                <span>three</span>
-                <span>four</span>
-              </Tabs>
+              <Rounded />
             </div>
           </DemoWidget>
         </Section>
@@ -142,15 +94,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Tabs
-                labels={['one', 'two', 'three']}
-                tabStyle="flat"
-                disabledTabs={['two', 'one']}
-              >
-                <span>one</span>
-                <span>two</span>
-                <span>three</span>
-              </Tabs>
+              <Disabled />
             </div>
           </DemoWidget>
         </Section>
@@ -161,32 +105,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Tabs
-                labels={[
-                  'one',
-                  'two',
-                  'three',
-                  'four',
-                  'five',
-                  'six',
-                  'seven',
-                  'eight',
-                  'nine',
-                ]}
-                tabStyle="flat"
-                disabledTabs={['two', 'one']}
-                icons={icons}
-              >
-                <span>one</span>
-                <span>two</span>
-                <span>three</span>
-                <span>one</span>
-                <span>two</span>
-                <span>three</span>
-                <span>one</span>
-                <span>two</span>
-                <span>three</span>
-              </Tabs>
+              <Icons />
             </div>
           </DemoWidget>
         </Section>

@@ -7,7 +7,7 @@ function tooltip() {
   return (
     <DemoPageRenderer
       title="Tooltip"
-      description="Tooltip is a small overlay that displays a message when a user hovers over an element."
+      description={`A tooltip is a brief, informative message that appears when a user interacts with an element in a graphical user interface.`}
       pageIcon={<FontAwesomeIcon icon={faComment} />}
       callbacks={[
         {
@@ -23,7 +23,7 @@ function tooltip() {
           default: 'bottom center',
           description: `Docking position of the tooltip.
           <br> <em>'top left'</em> | <em>top center</em> |
-          <em>top right</em> <em>'bottom left'</em> | <em>bottom center</em> | <em>bottom right</em>`,
+          <em>top right</em> | <em>'bottom left'</em> | <em>bottom center</em> | <em>bottom right</em>`,
           name: 'position',
           optional: 'Yes',
           type: 'String',
@@ -31,21 +31,28 @@ function tooltip() {
         {
           default: '150',
           description: 'Minimum width of the tooltip',
-          name: 'width',
+          name: 'minWidth',
+          optional: 'Yes',
+          type: 'Number',
+        },
+        {
+          default: '300',
+          description: 'Maximum width of the tooltip',
+          name: 'maxWidth',
           optional: 'Yes',
           type: 'Number',
         },
         {
           default: '',
-          description: 'Message to be displayed inside the tooltip',
+          description: 'Message to be displayed in the tooltip',
           name: 'message',
           optional: 'No',
           type: 'String',
         },
         {
           default: 'False',
-          description: `By default the tooltip is shown on hover.
-            This can be overridden by setting <em>isStatic</em>. When true the popup is always shown`,
+          description: `By default the tooltip is shown on hovering over the target.
+            This can be overridden by setting <em>isStatic</em>. When true the tooltip is always shown`,
           name: 'isStatic',
           optional: 'Yes',
           type: 'Boolean',
@@ -63,6 +70,13 @@ function tooltip() {
           name: 'foreColor',
           optional: 'Yes',
           type: 'String',
+        },
+        {
+          default: 'False',
+          description: 'Pins the tooltip to the center of the target',
+          name: 'fixedAtCenter',
+          optional: 'Yes',
+          type: 'Boolean',
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}

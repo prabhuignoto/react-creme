@@ -1,11 +1,6 @@
 import classNames from 'classnames';
-import React, {
-  CSSProperties,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-} from 'react';
+import * as React from 'react';
+import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { CircularProgress } from '../progress/circular-progress';
 import { ImageProps } from './image-model';

@@ -1,8 +1,15 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section, Slider } from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import {
+  Default,
+  Disabled,
+  PreSelected,
+  TooltipFormatted,
+  TooltipOnHover,
+} from './widget-variants';
 
 const Widgets = () => {
   const media = useRecoilValue(responsiveState);
@@ -32,14 +39,7 @@ const Widgets = () => {
         <Section title="Default Render">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Slider
-                start={4}
-                end={13}
-                // onChange={(val) => console.log(val)}
-                position="top"
-                knobShape="square"
-                knobSize={15}
-              />
+              <Default />
             </div>
           </DemoWidget>
         </Section>
@@ -49,22 +49,13 @@ const Widgets = () => {
             slider. The Example here shows the tooltip on the bottom.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Slider start={15} end={70} knobSize={16} position="bottom" />
-            </div>
+            <div style={{ width: `${width}px` }}></div>
           </DemoWidget>
         </Section>
         <Section title="Preselected Value">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Slider
-                start={1}
-                end={20}
-                position="top"
-                knobShape="square"
-                knobSize={15}
-                sliderValue={10}
-              />
+              <PreSelected />
             </div>
           </DemoWidget>
         </Section>
@@ -74,15 +65,7 @@ const Widgets = () => {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Slider
-                start={1}
-                end={20}
-                position="top"
-                knobShape="square"
-                knobSize={15}
-                sliderValue={10}
-                showTooltipOnHover
-              />
+              <TooltipOnHover />
             </div>
           </DemoWidget>
         </Section>
@@ -92,14 +75,7 @@ const Widgets = () => {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Slider
-                start={1}
-                end={20}
-                sliderValue={15}
-                knobSize={16}
-                formatter={(val) => `value: ${val}`}
-                tooltipWidth={70}
-              />
+              <TooltipFormatted />
             </div>
           </DemoWidget>
         </Section>
@@ -109,14 +85,7 @@ const Widgets = () => {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Slider
-                start={5}
-                end={67}
-                disabled
-                knobSize={16}
-                sliderValue={60}
-                position="bottom"
-              />
+              <Disabled />
             </div>
           </DemoWidget>
         </Section>

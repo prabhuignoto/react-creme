@@ -1,8 +1,9 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, RadioGroup, Section } from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { CustomLayout, Default, Disabled, RTL } from './widget-variants';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
@@ -31,16 +32,7 @@ function Widgets() {
         <Section title="Default render">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <RadioGroup
-                items={[
-                  { disabled: false, label: 'John' },
-                  { label: 'Doe' },
-                  { label: 'Murthy' },
-                  { checked: true, label: 'Prabhu' },
-                ]}
-                onSelected={(val) => console.log(val)}
-                focusable
-              />
+              <Default />
             </div>
           </DemoWidget>
         </Section>
@@ -51,15 +43,7 @@ function Widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width * 3}px` }}>
-              <RadioGroup
-                layout="row"
-                items={[
-                  { disabled: false, label: 'John' },
-                  { label: 'Doe' },
-                  { checked: true, label: 'Prabhu' },
-                ]}
-                onSelected={(val) => console.log(val)}
-              />
+              <CustomLayout />
             </div>
           </DemoWidget>
         </Section>
@@ -70,29 +54,14 @@ function Widgets() {
 
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <RadioGroup
-                items={[
-                  { disabled: true, label: 'John' },
-                  { label: 'Doe' },
-                  { checked: true, label: 'Prabhu' },
-                ]}
-                onSelected={(val) => console.log(val)}
-              />
+              <Disabled />
             </div>
           </DemoWidget>
         </Section>
         <Section title="RTL">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <RadioGroup
-                RTL
-                items={[
-                  { disabled: true, label: 'John' },
-                  { label: 'Doe' },
-                  { checked: true, label: 'Prabhu' },
-                ]}
-                onSelected={(val) => console.log(val)}
-              />
+              <RTL />
             </div>
           </DemoWidget>
         </Section>

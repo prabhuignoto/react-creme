@@ -1,11 +1,6 @@
 import classNames from 'classnames';
-import React, {
-  CSSProperties,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-} from 'react';
+import * as React from 'react';
+import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useDrag } from '../common/effects/useDrag';
 import { useFocus } from '../common/effects/useFocus';

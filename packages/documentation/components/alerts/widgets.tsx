@@ -1,7 +1,15 @@
 import React, { useLayoutEffect } from 'react';
-import { Alert, BlockQuote, Button, Section } from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
+import {
+  Custom,
+  Dismiss,
+  Error,
+  Information,
+  Success,
+  Warning,
+} from './widget-variants';
 
 function Widgets() {
   const media = useMedia();
@@ -35,43 +43,39 @@ function Widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Alert message="This is a information text" />
+              <Information />
             </div>
           </DemoWidget>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Alert message="This is a information text" canDismiss={false} />
+              <Dismiss />
             </div>
           </DemoWidget>
         </Section>
         <Section title="Success Message">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Alert message="This is a success text" state="success" />
+              <Success />
             </div>
           </DemoWidget>
         </Section>
         <Section title="Warning Message">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Alert message="This is a warning text" state="warning" />
+              <Warning />
             </div>
           </DemoWidget>
         </Section>
         <Section title="Error Message">
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
-              <Alert message="This is a error text" state="error" />
+              <Error />
             </div>
           </DemoWidget>
         </Section>
         <Section title="Render Custom content">
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Alert message="This is a information text" canDismiss={false}>
-                <Button label="Custom Button" />
-              </Alert>
-            </div>
+            <Custom />
           </DemoWidget>
         </Section>
       </div>

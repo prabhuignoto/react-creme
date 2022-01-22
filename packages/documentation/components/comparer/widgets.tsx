@@ -1,9 +1,10 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { ImageComparer, Section } from '../../../lib/components';
+import { Section } from '../../../lib/components';
 import { BlockQuote } from '../../../lib/components/block-quote/block-quote';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { Horizontal, Vertical } from './widget-variants';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
@@ -45,11 +46,7 @@ function Widgets() {
               width: `${Number.isInteger(width) ? `${width}px` : width}`,
             }}
           >
-            <ImageComparer
-              direction="horizontal"
-              sourceOne="https://i.imgur.com/gypU9cN.jpg"
-              sourceTwo="https://i.imgur.com/LZXFDdq.jpg"
-            ></ImageComparer>
+            <Horizontal />
           </div>
         </DemoWidget>
       </Section>
@@ -65,11 +62,7 @@ function Widgets() {
               width: `${Number.isInteger(width) ? `${width}px` : width}`,
             }}
           >
-            <ImageComparer
-              direction="vertical"
-              sourceOne="https://i.imgur.com/gypU9cN.jpg"
-              sourceTwo="https://i.imgur.com/LZXFDdq.jpg"
-            ></ImageComparer>
+            <Vertical />
           </div>
         </DemoWidget>
       </Section>

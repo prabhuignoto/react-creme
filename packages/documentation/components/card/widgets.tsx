@@ -1,14 +1,9 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import {
-  BlockQuote,
-  Card,
-  Image,
-  Section,
-  Skeleton,
-} from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { CustomImage, Default } from './widget-variants';
 
 function widgets() {
   // const media = useMedia();
@@ -44,20 +39,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ marginTop: '2rem', width: `${width}px` }}>
-              <Card
-                alignHeader="left"
-                header={<h2>header</h2>}
-                footer={<span>footer</span>}
-                minHeight={250}
-              >
-                <Skeleton
-                  animate
-                  rowHeight={7}
-                  rows={responsive.isMobile ? 6 : 10}
-                  style={{ marginTop: '1rem' }}
-                  showCircle
-                ></Skeleton>
-              </Card>
+              <Default />
             </div>
           </DemoWidget>
         </Section>
@@ -65,9 +47,7 @@ function widgets() {
           <BlockQuote>Card with no shadow but with a border.</BlockQuote>
           <DemoWidget>
             <div style={{ margin: '1rem 0', width: `${width}px` }}>
-              <Card alignHeader="left" minHeight={250} shadow={false}>
-                <Image src="https://mmc.tirto.id/image/otf/500x0/2016/07/26/TIRTO-20140522_batman_warner-bros_ratio-16x9.jpg" />
-              </Card>
+              <CustomImage />
             </div>
           </DemoWidget>
         </Section>

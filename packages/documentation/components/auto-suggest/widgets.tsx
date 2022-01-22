@@ -1,55 +1,13 @@
 import React from 'react';
-import { AutoSuggest, Section } from '../../../lib/components';
+import { Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
+import { Default } from './widget-variants';
 
 function Widgets() {
   return (
     <Section title="Default Render">
       <DemoWidget>
-        <AutoSuggest
-          focusable
-          placeholder="Choose a name"
-          suggestions={[
-            'Alex',
-            'Alec Baldwin',
-            'Bob Odenkirk',
-            'Charlie Day',
-            'David Letterman',
-            'Eddie Murphy',
-            'George Carlin',
-            'Harrison Ford',
-            'Jerry Seinfeld',
-            'Jonathan Frakes',
-            'Iggy Azalea',
-            'Kevin James',
-            'Lloyd Banks',
-            'Michael Richards',
-            'Nicole Kidman',
-            'Pamela Anderson',
-            'Richard Pryor',
-            'Steve Martin',
-            'Tina Fey',
-            'Tom Hanks',
-            'Will Ferrell',
-            'Raghu',
-            'Ramesh',
-            'Rajesh',
-            'Xin Zhao',
-            'Zach Galifianakis',
-            'mo shang',
-            'madhu',
-            'Kaylee',
-            'Olivia',
-            'Sophia',
-            'Finn',
-            'Quinn',
-            'Peyton',
-            'River',
-          ].map((item) => ({
-            name: item,
-            value: item,
-          }))}
-        />
+        <Default />
       </DemoWidget>
     </Section>
   );

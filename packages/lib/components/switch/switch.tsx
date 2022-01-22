@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import * as React from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { CheckIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { SwitchProps } from './switch-model';

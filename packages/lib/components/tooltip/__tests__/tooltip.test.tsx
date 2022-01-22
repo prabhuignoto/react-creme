@@ -54,4 +54,129 @@ describe('Tooltip', () => {
       );
     }
   });
+
+  it('should render tooltip statically', async () => {
+    const { getByRole } = render(
+      <Tooltip position="top center" message="this is a test tooltip" isStatic>
+        <span>content</span>
+      </Tooltip>
+    );
+
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip')).toHaveClass('rc-tooltip-static');
+    expect(getByRole('tooltip').firstChild).toHaveClass(
+      'rc-tooltip-top-center'
+    );
+  });
+
+  it('should render tooltip bottom center', () => {
+    const { getByRole } = render(
+      <Tooltip position="bottom center" message="this is a test tooltip">
+        <span>content</span>
+      </Tooltip>
+    );
+
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip').firstChild).toHaveClass(
+      'rc-tooltip-bottom-center'
+    );
+  });
+
+  it('should render tooltip bottom left', () => {
+    const { getByRole } = render(
+      <Tooltip position="bottom left" message="this is a test tooltip">
+        <span>content</span>
+      </Tooltip>
+    );
+
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip').firstChild).toHaveClass(
+      'rc-tooltip-bottom-left'
+    );
+  });
+
+  it('should render tooltip bottom right', () => {
+    const { getByRole } = render(
+      <Tooltip position="bottom right" message="this is a test tooltip">
+        <span>content</span>
+      </Tooltip>
+    );
+
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip').firstChild).toHaveClass(
+      'rc-tooltip-bottom-right'
+    );
+  });
+
+  it('should render tooltip top left', () => {
+    const { getByRole } = render(
+      <Tooltip position="top left" message="this is a test tooltip">
+        <span>content</span>
+      </Tooltip>
+    );
+
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip').firstChild).toHaveClass('rc-tooltip-top-left');
+  });
+
+  it('should render tooltip top right', () => {
+    const { getByRole } = render(
+      <Tooltip position="top right" message="this is a test tooltip">
+        <span>content</span>
+      </Tooltip>
+    );
+
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip').firstChild).toHaveClass('rc-tooltip-top-right');
+  });
+
+  it('should render left center', () => {
+    const { getByRole } = render(
+      <Tooltip position="left center" message="this is a test tooltip">
+        <span>content</span>
+      </Tooltip>
+    );
+
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip').firstChild).toHaveClass(
+      'rc-tooltip-left-center'
+    );
+  });
+
+  it('should render right center', () => {
+    const { getByRole } = render(
+      <Tooltip position="right center" message="this is a test tooltip">
+        <span>content</span>
+      </Tooltip>
+    );
+
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip').firstChild).toHaveClass(
+      'rc-tooltip-right-center'
+    );
+  });
+
+  it('should render left top', () => {
+    const { getByRole } = render(
+      <Tooltip position="left top" message="this is a test tooltip">
+        <span>content</span>
+      </Tooltip>
+    );
+
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip').firstChild).toHaveClass('rc-tooltip-left-top');
+  });
+
+  it('should render left bottom', () => {
+    const { getByRole } = render(
+      <Tooltip position="left bottom" message="this is a test tooltip">
+        <span>content</span>
+      </Tooltip>
+    );
+
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip').firstChild).toHaveClass(
+      'rc-tooltip-left-bottom'
+    );
+  });
 });
