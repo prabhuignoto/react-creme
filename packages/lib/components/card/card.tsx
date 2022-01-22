@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { useMemo, useRef } from 'react';
+import * as React from 'react';
+import { useMemo, useRef } from 'react';
 import { CardProps } from './card-model';
 import './card.scss';
 

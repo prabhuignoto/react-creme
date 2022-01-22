@@ -1,8 +1,9 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section, Sidebar } from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { Default, Searchable } from './widget-variants';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -31,18 +32,7 @@ function widgets() {
           <BlockQuote>Sections are collapsible by default.</BlockQuote>
           <DemoWidget>
             <div style={{ height: '400px', width: `${width}px` }}>
-              <Sidebar
-                groups={[
-                  {
-                    items: [{ name: 'tester' }, { name: 'tester 2' }],
-                    title: 'Section 1',
-                  },
-                  {
-                    items: [{ name: 'tester' }, { name: 'tester 2' }],
-                    title: 'Section 2',
-                  },
-                ]}
-              />
+              <Default />
             </div>
           </DemoWidget>
         </Section>
@@ -52,24 +42,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget>
             <div style={{ height: '450px', width: `${width}px` }}>
-              <Sidebar
-                enableSearch
-                focusable
-                groups={[
-                  {
-                    items: [{ name: 'tester' }],
-                    title: 'Section 1',
-                  },
-                  {
-                    items: [{ name: 'tester' }, { name: 'tester 2' }],
-                    title: 'Section 2',
-                  },
-                  {
-                    items: [{ name: 'tester' }],
-                    title: 'Section 3',
-                  },
-                ]}
-              />
+              <Searchable />
             </div>
           </DemoWidget>
         </Section>

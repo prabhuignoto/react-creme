@@ -1,12 +1,7 @@
 import cls from 'classnames';
 import { nanoid } from 'nanoid';
-import React, {
-  CSSProperties,
-  useCallback,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import * as React from 'react';
+import { CSSProperties, useCallback, useMemo, useRef, useState } from 'react';
 import { ChevronDownIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { withOverlay } from '../common/withOverlay';

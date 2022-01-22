@@ -1,7 +1,11 @@
 import React from 'react';
-import { BlockQuote, Button, Menu, Section } from '../../../lib/components';
-import { CheckCircleIcon } from '../../../lib/icons';
+import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
+import {
+  AttachedToButton,
+  AttachedToIcon,
+  AttachedToNativeElement,
+} from './widget-variants';
 
 function Widgets() {
   return (
@@ -12,17 +16,7 @@ function Widgets() {
         </BlockQuote>
         <DemoWidget>
           <div style={{ width: '100px' }}>
-            <Menu
-              position="left"
-              items={[
-                { name: 'Open' },
-                { name: 'Save As' },
-                { name: 'Close' },
-                { name: 'Exit' },
-              ]}
-            >
-              <Button label="File"></Button>
-            </Menu>
+            <AttachedToButton />
           </div>
         </DemoWidget>
       </Section>
@@ -34,18 +28,7 @@ function Widgets() {
         </BlockQuote>
         <DemoWidget>
           <div style={{ width: '100px' }}>
-            <Menu
-              items={[
-                { name: 'Open' },
-                { name: 'Save As' },
-                { name: 'Close' },
-                { name: 'Exit' },
-              ]}
-            >
-              <Button type="icon" size="lg">
-                <CheckCircleIcon />
-              </Button>
-            </Menu>
+            <AttachedToIcon />
           </div>
         </DemoWidget>
       </Section>
@@ -55,18 +38,7 @@ function Widgets() {
         </BlockQuote>
         <DemoWidget>
           <div style={{ width: '100px' }}>
-            <Menu
-              position="right"
-              items={[
-                { name: 'Open' },
-                { name: 'Save As' },
-                { name: 'Close' },
-                { name: 'Exit' },
-              ]}
-              focusable={false}
-            >
-              <input type="button" value="File" />
-            </Menu>
+            <AttachedToNativeElement />
           </div>
         </DemoWidget>
       </Section>
