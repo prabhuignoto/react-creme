@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1642854433103" clover="3.2.0">
+  <project timestamp="1642854433103" name="All files">
+    <metrics statements="86" coveredstatements="82" conditionals="61" coveredconditionals="40" methods="15" coveredmethods="12" elements="162" coveredelements="134" complexity="0" loc="86" ncloc="86" packages="2" files="3" classes="3"/>
+    <package name="common.effects">
+      <metrics statements="51" coveredstatements="49" conditionals="44" coveredconditionals="29" methods="6" coveredmethods="5"/>
+      <file name="useFirstRender.ts" path="D:\Projects\2020\react-phalladium\packages\lib\components\common\effects\useFirstRender.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="24" type="stmt"/>
+        <line num="6" count="24" type="stmt"/>
+        <line num="7" count="12" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="12" count="24" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+      <file name="usePosition.ts" path="D:\Projects\2020\react-phalladium\packages\lib\components\common\effects\usePosition.ts">
+        <metrics statements="44" coveredstatements="42" conditionals="43" coveredconditionals="28" methods="4" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="35" count="24" type="stmt"/>
+        <line num="36" count="24" type="stmt"/>
+        <line num="38" count="24" type="stmt"/>
+        <line num="39" count="12" type="cond" truecount="1" falsecount="2"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="12" type="stmt"/>
+        <line num="44" count="12" type="stmt"/>
+        <line num="46" count="12" type="stmt"/>
+        <line num="48" count="12" type="stmt"/>
+        <line num="50" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="51" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="54" count="12" type="stmt"/>
+        <line num="56" count="12" type="stmt"/>
+        <line num="60" count="12" type="stmt"/>
+        <line num="64" count="12" type="stmt"/>
+        <line num="65" count="12" type="stmt"/>
+        <line num="67" count="12" type="cond" truecount="11" falsecount="2"/>
+        <line num="70" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="71" count="4" type="stmt"/>
+        <line num="75" count="4" type="stmt"/>
+        <line num="79" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="84" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="85" count="2" type="stmt"/>
+        <line num="89" count="2" type="stmt"/>
+        <line num="93" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="98" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="99" count="2" type="stmt"/>
+        <line num="103" count="2" type="stmt"/>
+        <line num="107" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="108" count="2" type="stmt"/>
+        <line num="112" count="2" type="stmt"/>
+        <line num="116" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="117" count="1" type="stmt"/>
+        <line num="121" count="1" type="stmt"/>
+        <line num="125" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="126" count="1" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="136" count="12" type="stmt"/>
+        <line num="139" count="24" type="stmt"/>
+        <line num="142" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="tooltip">
+      <metrics statements="35" coveredstatements="33" conditionals="17" coveredconditionals="11" methods="9" coveredmethods="7"/>
+      <file name="tooltip.tsx" path="D:\Projects\2020\react-phalladium\packages\lib\components\tooltip\tooltip.tsx">
+        <metrics statements="35" coveredstatements="33" conditionals="17" coveredconditionals="11" methods="9" coveredmethods="7"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="28" count="24" type="stmt"/>
+        <line num="29" count="24" type="stmt"/>
+        <line num="32" count="24" type="stmt"/>
+        <line num="35" count="24" type="stmt"/>
+        <line num="38" count="24" type="stmt"/>
+        <line num="44" count="24" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="48" count="24" type="stmt"/>
+        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="54" count="24" type="stmt"/>
+        <line num="56" count="12" type="stmt"/>
+        <line num="68" count="24" type="stmt"/>
+        <line num="70" count="12" type="stmt"/>
+        <line num="80" count="24" type="stmt"/>
+        <line num="81" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="82" count="12" type="stmt"/>
+        <line num="88" count="12" type="stmt"/>
+        <line num="95" count="24" type="stmt"/>
+        <line num="96" count="24" type="cond" truecount="1" falsecount="0"/>
+        <line num="97" count="12" type="stmt"/>
+        <line num="101" count="24" type="stmt"/>
+        <line num="102" count="24" type="cond" truecount="1" falsecount="0"/>
+        <line num="103" count="12" type="stmt"/>
+        <line num="107" count="24" type="stmt"/>
+        <line num="109" count="12" type="stmt"/>
+        <line num="116" count="24" type="stmt"/>
+        <line num="141" count="1" type="stmt"/>
+        <line num="143" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

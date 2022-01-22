@@ -71,6 +71,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
         'rc-tooltip-wrapper',
         {
           'rc-tooltip-fixed': fixedAtCenter,
+          'rc-tooltip-static': isStatic,
         },
       ]),
     [fixedAtCenter]

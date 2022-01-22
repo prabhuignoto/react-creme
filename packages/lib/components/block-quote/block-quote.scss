@@ -1,6 +1,6 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/position.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/position.scss';
 
 .rc-block-quote {
   background: rgba(colors.$secondary, 0.1);
@@ -8,7 +8,7 @@
   font-weight: 300;
   margin: 0.5rem 0;
   padding-bottom: 1rem;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   padding-top: 1rem;
   text-align: left;
 

@@ -86,6 +86,7 @@
     "react-router-dom": "^6.2.1",
     "react-syntax-highlighter": "^15.4.5",
     "react-transition-group": "^4.4.2",
+    "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rollup": "^2.65.0",
     "rollup-plugin-esbuild": "^4.8.2",

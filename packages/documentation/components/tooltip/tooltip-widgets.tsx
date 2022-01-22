@@ -13,7 +13,7 @@ import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 
 const Widgets = () => {
-  const [position, setPosition] = useState<ToolTipPosition>('top center');
+  const [position, setPosition] = useState<ToolTipPosition>('bottom center');
 
   const media = useRecoilValue(responsiveState);
 
@@ -24,7 +24,7 @@ const Widgets = () => {
       return;
     }
     if (media.isExtraLargeScreen) {
-      setWidth(700);
+      setWidth(650);
     } else if (media.isBigScreen) {
       setWidth(650);
     } else if (media.isDesktop) {
@@ -55,6 +55,7 @@ const Widgets = () => {
                 { name: 'top right', value: 'top right' },
                 {
                   name: 'bottom center',
+                  selected: true,
                   value: 'bottom center',
                 },
                 { name: 'bottom left', value: 'bottom left' },
@@ -82,7 +83,7 @@ const Widgets = () => {
               foreColor="#FF0000"
             >
               <div style={{ width: `${width}px` }}>
-                <Card minHeight={100}>
+                <Card height={200}>
                   Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
                   molestie velit quis volutpat vestibulum. Donec facilisis est
                   ac condimentum aliquet. Nam semper dui eget sagittis sagittis.
@@ -96,7 +97,8 @@ const Widgets = () => {
         </Section>
         <Section title="Static Tooltip">
           <BlockQuote>
-            The Tooltip can also be configured to be static.
+            The Tooltip can also be configured to be static. The Tooltip will be
+            always visible.
           </BlockQuote>
           <DemoWidget>
             <div style={{ width: `${width}px` }}>
@@ -107,7 +109,7 @@ const Widgets = () => {
                 isStatic
               >
                 <div style={{ width: `${width}px` }}>
-                  <Card>
+                  <Card height={300}>
                     <Image
                       height={280}
                       src="https://www.dccomics.com/sites/default/files/Gallery_20210914_BM_THEWORLD_61401312483190.19934149.jpg"

@@ -230,6 +230,7 @@ importers:
       react-router-dom: ^6.2.1
       react-syntax-highlighter: ^15.4.5
       react-transition-group: ^4.4.2
+      reflect-metadata: ^0.1.13
       resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
       rollup: ^2.65.0
@@ -301,6 +302,7 @@ importers:
       react-router-dom: 6.2.1_react-dom@17.0.2+react@17.0.2
       react-syntax-highlighter: 15.4.5_react@17.0.2
       react-transition-group: 4.4.2_react-dom@17.0.2+react@17.0.2
+      reflect-metadata: 0.1.13
       rimraf: 3.0.2
       rollup: 2.65.0
       rollup-plugin-esbuild: 4.8.2_esbuild@0.14.12+rollup@2.65.0
@@ -13952,6 +13954,10 @@ packages:
     dependencies:
       indent-string: 4.0.0
       strip-indent: 3.0.0
+
+  /reflect-metadata/0.1.13:
+    resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
+    dev: true
 
   /refractor/3.5.0:
     resolution: {integrity: sha512-QwPJd3ferTZ4cSPPjdP5bsYHMytwWYnAN5EEnLtGvkqp/FCCnGsBgxrm9EuIDnjUC3Uc/kETtvVi7fSIVC74Dg==}
