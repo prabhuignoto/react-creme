@@ -3,11 +3,11 @@ import React, { ReactNode, useMemo } from "react";
 import "./home-button.scss";
 
 interface HomeButtonProps {
-  size?: "sm" | "md" | "lg";
-  label?: string;
   children?: ReactNode;
+  label?: string;
   link?: string;
   onClick?: () => void;
+  size?: "sm" | "md" | "lg";
 }
 
 const HomeButton: React.FunctionComponent<HomeButtonProps> = ({
@@ -25,8 +25,8 @@ const HomeButton: React.FunctionComponent<HomeButtonProps> = ({
   const linkProps = useMemo(() => {
     return link
       ? {
-          target: "_blank",
           rel: "noreferrer",
+          target: "_blank",
         }
       : {};
   }, []);

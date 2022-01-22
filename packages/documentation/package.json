@@ -12,7 +12,7 @@
     "ci": "pnpm lint && pnpm build",
     "dev": "vite",
     "fix-css": "stylelint . --fix",
-    "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
+    "fix-js": "eslint ./components/**/*.{tsx,ts} ./*.{tsx,ts} --fix",
     "format": "prettier --write \"components/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint \"components/**/*.{js,jsx,ts,tsx}\" && pnpm run lint:css && pnpm run prettier:check",
     "lint:css": "stylelint ./components/**/*.scss",
