@@ -3,7 +3,7 @@ import { CheckBoxGroup } from '../../../lib/components';
 
 export const Default = () => (
   <CheckBoxGroup
-    onChange={(value) => console.log(value)}
+    onChange={value => console.log(value)}
     options={[
       {
         label: 'Option 1',

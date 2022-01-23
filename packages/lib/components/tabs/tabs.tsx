@@ -38,7 +38,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
           const disabled = disabledTabs.includes(labels[index]);
 
           // check if the tab can be selected on load
-          let selected = activeTab
+          const selected = activeTab
             ? activeTab === labels[index]
             : index === 0 && !disabled;
 
@@ -59,8 +59,8 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
       : []
   );
 
-  if (!items.current.some((item) => item.selected)) {
-    const availItems = items.current.filter((item) => !item.disabled);
+  if (!items.current.some(item => item.selected)) {
+    const availItems = items.current.filter(item => !item.disabled);
 
     if (availItems) {
       availItems[0].selected = true;
@@ -71,7 +71,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   const getTabContent = useMemo(() => {
     if (activeTabId) {
       return items.current.filter(
-        (item) => !item.disabled && item.id === activeTabId
+        item => !item.disabled && item.id === activeTabId
       )[0].content;
     } else {
       return null;
@@ -81,7 +81,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   // collection of tab items
   const tabItems = useMemo(() => {
     return items.current
-      .filter((tab) => !tab.disabled)
+      .filter(tab => !tab.disabled)
       .map(
         ({ id }) =>
           id === activeTabId && (
@@ -93,7 +93,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   }, [activeTabId]);
 
   // handles the tab selection
-  const handleTabSelection = useCallback((id) => {
+  const handleTabSelection = useCallback(id => {
     setActiveTabId(id);
   }, []);
 
@@ -123,7 +123,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   }, []);
 
   useEffect(() => {
-    const selected = items.current.find((item) => item.selected);
+    const selected = items.current.find(item => item.selected);
 
     if (selected) {
       setActiveTabId(selected.id);
@@ -137,7 +137,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
       const _items = items.current;
 
       if (key === 'ArrowLeft' || key === 'ArrowRight') {
-        const activeTabIndex = _items.findIndex((item) => {
+        const activeTabIndex = _items.findIndex(item => {
           return item.id === activeTabId;
         });
 

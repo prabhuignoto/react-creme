@@ -19,12 +19,11 @@ const Tree: React.FunctionComponent<TreeProps> = React.memo(
     isChildTree,
     items = [],
     onChildToggle,
-    width = 100,
     onChange,
     iconType = 'chevron',
   }: TreeProps) => {
     const [_items, setItems] = useState(
-      items.map((item) => ({
+      items.map(item => ({
         id: nanoid(),
         ...item,
       }))
@@ -35,8 +34,8 @@ const Tree: React.FunctionComponent<TreeProps> = React.memo(
 
     const toggleItem = useCallback(
       (id?: string) => {
-        setItems((prev) =>
-          prev.map((item) => ({
+        setItems(prev =>
+          prev.map(item => ({
             ...item,
             expanded: id === item.id ? !item.expanded : item.expanded,
           }))
@@ -55,7 +54,7 @@ const Tree: React.FunctionComponent<TreeProps> = React.memo(
       []
     );
 
-    const onRootRef = useCallback((node) => {
+    const onRootRef = useCallback(node => {
       if (node) {
         rootRef.current = node;
         setRootWidth(node.clientWidth);
@@ -64,7 +63,9 @@ const Tree: React.FunctionComponent<TreeProps> = React.memo(
 
     return (
       <div
-        className={classNames({ 'rc-tree-wrapper': !isChildTree })}
+        className={classNames({
+          'rc-tree-wrapper': !isChildTree,
+        })}
         role="tree"
         style={treeStyle}
         ref={onRootRef}

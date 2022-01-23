@@ -46,7 +46,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   // setup the observer for position the overlay content
   const observer = useRef<ResizeObserver>();
   if (placementReference?.current) {
-    observer.current = new ResizeObserver((entries) => {
+    observer.current = new ResizeObserver(entries => {
       const contentHeight = entries[0].contentRect.height;
       setContentHeight(contentHeight);
     });
@@ -94,7 +94,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     } else {
       const classes = Array.from((ev.target as HTMLElement).classList);
 
-      if (classes.some((cls) => cls === `rc-overlay-wrapper`)) {
+      if (classes.some(cls => cls === `rc-overlay-wrapper`)) {
         onClose && onClose();
       }
     }
@@ -130,7 +130,6 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
     if (overlayAnimation) {
       setHideOverlay(false);
-      setTimeout(() => {}, 100);
     }
 
     // cleanup
@@ -142,7 +141,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     };
   }, []);
 
-  const onRef = useCallback((node) => {
+  const onRef = useCallback(node => {
     const ele = node as HTMLDivElement;
     if (ele) {
       overlayRef.current = ele;

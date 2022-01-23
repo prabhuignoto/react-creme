@@ -14,39 +14,39 @@ export type ToolTipPosition =
   | 'right center';
 
 /** ✨ Component props */
-export class TooltipProps {
+export type TooltipProps = {
   //🔷 Background color of the Tooltip
-  public bgColor?: string;
+  bgColor?: string;
 
-  public children: React.ReactNode[] | React.ReactNode;
+  children: React.ReactNode[] | React.ReactNode;
 
   //🔷 pins the Tooltip at the center
-  public fixedAtCenter?: boolean;
+  fixedAtCenter?: boolean;
 
   //🔷 foreground color
-  public foreColor?: string;
+  foreColor?: string;
 
   //🔷 keeps the tooltip visible all the time
-  public isStatic?: boolean;
+  isStatic?: boolean;
 
   //🔷 maximum width of the tooltip
-  public maxWidth?: number;
+  maxWidth?: number;
 
   //🔷 message to be displayed in the tooltip
-  public message: string = '';
+  message: string;
 
   //🔷 minimum width of the tooltip
-  public minWidth?: number;
+  minWidth?: number;
 
   //🔷 callback executed when the tooltip is rendered
-  public onTooltipRendered?: () => void;
+  onTooltipRendered?: () => void;
 
   //🔷 position of the tooltip
-  public position?: ToolTipPosition;
+  position?: ToolTipPosition;
 
   //🔷 reference to the tooltip container
-  public ref?: RefObject<HTMLElement>;
+  ref?: RefObject<HTMLElement>;
 
   //🔷 whether to show the tooltip
-  public show?: boolean;
-}
+  show?: boolean;
+};

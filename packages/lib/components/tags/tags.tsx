@@ -22,7 +22,6 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   tagWidth = 50,
   style = {},
   suggestions = [],
-  autoComplete = false,
   RTL = false,
   placeholder = '',
   focusable = true,
@@ -30,7 +29,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   // STATES
   const [tagItems, setTagItems] = useState<TagItemInternalProps[]>(
     items
-      .map((item) => ({
+      .map(item => ({
         disabled: item.disabled,
         id: nanoid(),
         markedForRemoval: false,
@@ -49,7 +48,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
 
   const tagSuggestions = useMemo(
     () =>
-      suggestions.map((suggestion) => ({
+      suggestions.map(suggestion => ({
         name: suggestion,
         value: suggestion,
       })),
@@ -67,7 +66,12 @@ const Tags: React.FunctionComponent<TagsProps> = ({
     (value: string | AutoSuggestOption) => {
       if (canAdd) {
         const _value = typeof value === 'string' ? value : value.name;
-        setTagItems((prev) => prev.concat({ id: nanoid(), name: _value }));
+        setTagItems(prev =>
+          prev.concat({
+            id: nanoid(),
+            name: _value,
+          })
+        );
         setInputValue('');
       }
     },
@@ -83,25 +87,25 @@ const Tags: React.FunctionComponent<TagsProps> = ({
     [inputValue, canAdd]
   );
 
-  const handleRemove = useCallback((val) => {
-    setTagItems((tags) =>
-      tags.map((tag) =>
+  const handleRemove = useCallback(val => {
+    setTagItems(tags =>
+      tags.map(tag =>
         tag.id === val ? { ...tag, markedForRemoval: true } : tag
       )
     );
-    setTagItems((tags) => tags.filter((tag) => tag.id !== val));
+    setTagItems(tags => tags.filter(tag => tag.id !== val));
   }, []);
 
   // EFFECTS
   useEffect(() => {
     if (onChange) {
-      onChange(tagItems.map((tag) => tag.name));
+      onChange(tagItems.map(tag => tag.name));
     }
   }, [tagItems.length]);
 
   useEffect(() => {
     setTagItems(
-      items.map((item) => ({
+      items.map(item => ({
         disabled: item.disabled,
         id: nanoid(),
         name: item.name,

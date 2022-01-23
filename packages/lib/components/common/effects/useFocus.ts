@@ -8,13 +8,13 @@ function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
     const classesToAdd = ['rc-focus', 'rc-halo'];
     const classesToRemove = ['rc-de-halo'];
 
-    classesToAdd.forEach((c) => {
+    classesToAdd.forEach(c => {
       if (!ele.classList.contains(c)) {
         ele.classList.add(c);
       }
     });
 
-    classesToRemove.forEach((c) => {
+    classesToRemove.forEach(c => {
       if (ele.classList.contains(c)) {
         ele.classList.remove(c);
       }
@@ -54,13 +54,13 @@ function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
       const classesToAdd = ['rc-focus', 'rc-halo'];
       const classesToRemove = ['rc-de-halo'];
 
-      classesToAdd.forEach((c) => {
+      classesToAdd.forEach(c => {
         if (!ele.classList.contains(c)) {
           ele.classList.add(c);
         }
       });
 
-      classesToRemove.forEach((c) => {
+      classesToRemove.forEach(c => {
         if (ele.classList.contains(c)) {
           ele.classList.remove(c);
         }

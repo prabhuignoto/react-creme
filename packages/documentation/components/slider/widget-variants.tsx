@@ -41,7 +41,7 @@ export const TooltipFormatted = () => (
     end={20}
     sliderValue={15}
     knobSize={16}
-    formatter={(val) => `value: ${val}`}
+    formatter={val => `value: ${val}`}
     tooltipWidth={70}
   />
 );

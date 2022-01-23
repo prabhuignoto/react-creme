@@ -8,7 +8,6 @@ export interface LinkProps {
 const Link: React.FunctionComponent<AnchorHTMLAttributes<LinkProps>> = ({
   children,
   href,
-  target,
 }) => {
   return (
     <a className="link" target="" href={href} tabIndex={-1}>

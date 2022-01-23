@@ -110,7 +110,10 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
     }, [value]);
 
     const controlledProps = controlled
-      ? { onChange: handleInput, value: inputValue }
+      ? {
+          onChange: handleInput,
+          value: inputValue,
+        }
       : { onChange: handleUnControlled };
 
     const autoCompleteProps = useMemo(

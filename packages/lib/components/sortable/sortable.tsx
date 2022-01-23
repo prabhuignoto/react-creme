@@ -7,10 +7,7 @@ interface SortableProps {
   direction?: 'horizontal' | 'vertical';
 }
 
-const Sortable: React.FunctionComponent<SortableProps> = ({
-  direction = 'vertical',
-  children,
-}) => {
+const Sortable: React.FunctionComponent<SortableProps> = ({ children }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useSortable(ref, { rowGap: 10 });

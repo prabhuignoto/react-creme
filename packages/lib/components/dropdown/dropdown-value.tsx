@@ -1,132 +1,125 @@
 import cls from 'classnames';
-import React, { CSSProperties, useMemo } from 'react';
+import fastEqual from 'fast-deep-equal';
+import React, { CSSProperties, memo, useMemo } from 'react';
 import { ChevronDownIcon, CloseIcon } from '../../icons';
 import { Tags } from '../tags/tags';
+import { DropdownValueProps } from './dropdown-model';
 
-interface DropdownValueProps {
-  RTL?: boolean;
-  allowMultiSelection?: boolean;
-  chevronIconColor?: string;
-  containerRef?: React.RefObject<HTMLDivElement>;
-  disabled?: boolean;
-  focusable?: boolean;
-  menuClosing?: boolean;
-  onClear?: (ev: React.MouseEvent) => void;
-  onToggle?: () => void;
-  placeholder?: string;
-  selectedValue?: string | { name: string }[];
-  showClearBtn?: boolean;
-  showMenu?: boolean;
-}
+const DropdownValue: React.FunctionComponent<DropdownValueProps> = memo(
+  ({
+    RTL,
+    allowMultiSelection,
+    placeholder,
+    disabled,
+    showClearBtn,
+    onClear,
+    onToggle,
+    selectedValue,
+    focusable,
+    showMenu,
+    menuClosing,
+    chevronIconColor,
+    containerRef,
+  }: DropdownValueProps) => {
+    const rcDropdownValueClass = useMemo(
+      () =>
+        cls('rc-dropdown-value-container', {
+          'rc-dropdown-disabled': disabled,
+          'rc-dropdown-multi': allowMultiSelection,
+          'rc-dropdown-rtl': RTL,
+          'rc-dropdown-single': !allowMultiSelection,
+          'rc-dropdown-with-clear': showClearBtn,
+        }),
+      [disabled]
+    );
 
-const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
-  RTL,
-  allowMultiSelection,
-  placeholder,
-  disabled,
-  showClearBtn,
-  onClear,
-  onToggle,
-  selectedValue,
-  focusable,
-  showMenu,
-  menuClosing,
-  chevronIconColor,
-  containerRef,
-}) => {
-  const rcDropdownValueClass = useMemo(
-    () =>
-      cls('rc-dropdown-value-container', {
-        'rc-dropdown-disabled': disabled,
-        'rc-dropdown-multi': allowMultiSelection,
+    const rcDropdownIconClass = useMemo(
+      () =>
+        cls(
+          'rc-dropdown-chevron-icon',
+          showMenu && !menuClosing ? 'rc-dropdown-chevron-icon-rotate' : ''
+        ),
+      [showMenu, menuClosing]
+    );
+
+    const canHideClearButton = useMemo(
+      () => !showClearBtn || disabled || selectedValue === placeholder,
+      [disabled, selectedValue]
+    );
+
+    const rcDropdownClearClass = useMemo(
+      () =>
+        cls('rc-dropdown-clear-icon', {
+          'rc-dropdown-clear-icon-hidden': canHideClearButton,
+        }),
+      [showClearBtn, canHideClearButton]
+    );
+
+    const iconStyle = useMemo(() => {
+      return {
+        '---chevron-icon-color': chevronIconColor,
+      } as CSSProperties;
+    }, []);
+
+    const valueClass = useMemo(() => {
+      return cls('rc-dropdown-value', {
         'rc-dropdown-rtl': RTL,
-        'rc-dropdown-single': !allowMultiSelection,
-        'rc-dropdown-with-clear': showClearBtn,
-      }),
-    [disabled]
-  );
+      });
+    }, []);
 
-  const rcDropdownIconClass = useMemo(
-    () =>
-      cls(
-        'rc-dropdown-chevron-icon',
-        showMenu && !menuClosing ? 'rc-dropdown-chevron-icon-rotate' : ''
-      ),
-    [showMenu, menuClosing]
-  );
-
-  const canHideClearButton = useMemo(
-    () => !showClearBtn || disabled || selectedValue === placeholder,
-    [disabled, selectedValue]
-  );
-
-  const rcDropdownClearClass = useMemo(
-    () =>
-      cls('rc-dropdown-clear-icon', {
-        'rc-dropdown-clear-icon-hidden': canHideClearButton,
-      }),
-    [showClearBtn, canHideClearButton]
-  );
-
-  const iconStyle = useMemo(() => {
-    return {
-      '---chevron-icon-color': chevronIconColor,
-    } as CSSProperties;
-  }, []);
-
-  const valueClass = useMemo(() => {
-    return cls('rc-dropdown-value', {
-      'rc-dropdown-rtl': RTL,
-    });
-  }, []);
-
-  return (
-    <div
-      className={rcDropdownValueClass}
-      ref={containerRef}
-      onClick={onToggle}
-      tabIndex={!disabled && focusable ? 0 : -1}
-      aria-disabled={disabled}
-    >
-      {allowMultiSelection ? (
-        Array.isArray(selectedValue) ? (
-          <div className="rc-dropdown-tags-wrapper">
-            <Tags
-              items={selectedValue}
-              readonly
-              tagStyle="fill"
-              tagSize={'small'}
-              tagWidth={100}
-              RTL={RTL}
-            />
-          </div>
+    return (
+      <div
+        className={rcDropdownValueClass}
+        ref={containerRef}
+        onClick={onToggle}
+        tabIndex={!disabled && focusable ? 0 : -1}
+        aria-disabled={disabled}
+      >
+        {allowMultiSelection ? (
+          Array.isArray(selectedValue) ? (
+            <div className="rc-dropdown-tags-wrapper">
+              <Tags
+                items={selectedValue}
+                readonly
+                tagStyle="fill"
+                tagSize={'small'}
+                tagWidth={100}
+                RTL={RTL}
+              />
+            </div>
+          ) : (
+            <span className={valueClass}>{selectedValue}</span>
+          )
         ) : (
           <span className={valueClass}>{selectedValue}</span>
-        )
-      ) : (
-        <span className={valueClass}>{selectedValue}</span>
-      )}
-      {
+        )}
+        {
+          <span
+            className={rcDropdownClearClass}
+            role="button"
+            data-testid="clear-icon"
+            style={iconStyle}
+            onClick={onClear}
+          >
+            <CloseIcon />
+          </span>
+        }
         <span
-          className={rcDropdownClearClass}
-          role="button"
-          data-testid="clear-icon"
+          className={rcDropdownIconClass}
+          role="img"
+          data-testid="chevron-icon"
           style={iconStyle}
-          onClick={onClear}
         >
-          <CloseIcon />
+          <ChevronDownIcon />
         </span>
-      }
-      <span
-        className={rcDropdownIconClass}
-        role="img"
-        data-testid="chevron-icon"
-        style={iconStyle}
-      >
-        <ChevronDownIcon />
-      </span>
-    </div>
-  );
-};
+      </div>
+    );
+  },
+  (prev, next) => {
+    return fastEqual(prev.selectedValue, next.selectedValue);
+  }
+);
+
+DropdownValue.displayName = 'DropdownValue';
 
 export { DropdownValue };

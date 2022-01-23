@@ -79,7 +79,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   }, []);
 
   // callback executed when the second image is loaded
-  const onImageLoad2 = (ev: any) => setImageLoaded2(true);
+  const onImageLoad2 = () => setImageLoaded2(true);
 
   // setup the drag effect
   const [percent] = useDrag(panelRef, dragRef, {

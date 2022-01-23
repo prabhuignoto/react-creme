@@ -18,7 +18,10 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   iconColor,
 }) => {
   const menuItems = useRef<MenuItemProps[]>(
-    items.slice(1).map((item) => ({ id: nanoid(), name: item }))
+    items.slice(1).map(item => ({
+      id: nanoid(),
+      name: item,
+    }))
   );
 
   const handleChange = useCallback((item: string) => {

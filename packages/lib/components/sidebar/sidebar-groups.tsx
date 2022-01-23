@@ -23,7 +23,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
   return (
     <div className="rc-sidebar-groups-wrapper" style={groupsWrapperStyle}>
       <AccordionGroup
-        titles={groups.filter((grp) => grp.visible).map((grp) => grp.title)}
+        titles={groups.filter(grp => grp.visible).map(grp => grp.title)}
         expanded
         autoClose={false}
         border={false}
@@ -33,7 +33,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
         disableCollapse={!sectionsCollapsible}
       >
         {groups
-          .filter((grp) => grp.visible)
+          .filter(grp => grp.visible)
           .map(({ id, items, title }) => {
             return (
               <List
@@ -43,7 +43,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
                 rowGap={5}
                 itemHeight={35}
                 maxHeight={listMaxHeight}
-                onSelection={(option) => onSelection(option, id)}
+                onSelection={option => onSelection(option, id)}
                 noUniqueIds
                 focusable={focusable}
                 showCheckIcon={false}

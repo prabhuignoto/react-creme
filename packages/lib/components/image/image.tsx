@@ -23,7 +23,10 @@ const Image: React.FunctionComponent<ImageProps> = ({
 }) => {
   const [loaded, setLoaded] = React.useState(false);
 
-  const imageNaturalDimension = useRef<{ height: number; width: number }>({
+  const imageNaturalDimension = useRef<{
+    height: number;
+    width: number;
+  }>({
     height: 0,
     width: 0,
   });
@@ -104,13 +107,13 @@ const Image: React.FunctionComponent<ImageProps> = ({
     []
   );
 
-  const onWrapperRef = useCallback((node) => {
+  const onWrapperRef = useCallback(node => {
     if (node) {
       wrapperRef.current = node;
     }
   }, []);
 
-  const onImageRef = useCallback((node) => {
+  const onImageRef = useCallback(node => {
     if (node) {
       imageRef.current = node;
     }

@@ -42,7 +42,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
     const toggleCheck = useCallback(() => {
       if (canToggle) {
         if (!withGroup) {
-          setChecked((prev) => !prev);
+          setChecked(prev => !prev);
         } else {
           setChecked(true);
         }

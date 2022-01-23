@@ -1,5 +1,4 @@
 import { RefObject, useEffect, useRef } from 'react';
-import useDraggable from './useDraggable';
 
 interface Settings {
   rowGap: number;
@@ -8,15 +7,10 @@ interface Settings {
 const useSortable: (
   ref: RefObject<HTMLElement>,
   settings?: Settings
-) => void = (ref, settings = { rowGap: 10 }) => {
-  const totalItems = useRef<Number>(0);
+) => void = ref => {
+  const totalItems = useRef<number>(0);
 
   const parentRef = useRef<HTMLElement | null>(null);
-
-  const test = useDraggable(ref, {
-    dragDirection: 'VERTICAL',
-    makeChildrenDraggable: true,
-  });
 
   useEffect(() => {
     const node = ref.current;

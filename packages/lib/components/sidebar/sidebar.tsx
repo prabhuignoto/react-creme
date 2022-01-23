@@ -23,14 +23,13 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   onSelect,
   searchPlaceholder = 'Search ...',
   sectionsCollapsible = true,
-  iconsColor,
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)
-      ? groups.map((item) => ({
+      ? groups.map(item => ({
           ...item,
           id: nanoid(),
-          items: item.items.map((obj) => ({
+          items: item.items.map(obj => ({
             ...obj,
             id: nanoid(),
             selected: false,
@@ -47,16 +46,16 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   const handleSelection = useCallback(
     (option: ListOption[], groupId?: string) => {
       if (option && groupId) {
-        setGroups((prev) => {
-          return prev.map((item) => ({
+        setGroups(prev => {
+          return prev.map(item => ({
             ...item,
-            items: item.items.map((item) => ({
+            items: item.items.map(item => ({
               ...item,
               selected: item.id === option[0].id,
             })),
           }));
         });
-        const grp = _groups.find((grp) => grp.id === groupId);
+        const grp = _groups.find(grp => grp.id === groupId);
 
         if (grp) {
           onSelect?.(grp, option[0]);
@@ -70,13 +69,13 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
     (ter: string) => {
       const tester = new RegExp(`\\b${ter.trim()}`, 'i');
 
-      setGroups((prev) =>
-        prev.map((group) => {
-          const visible = group.items.some((item) => tester.test(item.name));
+      setGroups(prev =>
+        prev.map(group => {
+          const visible = group.items.some(item => tester.test(item.name));
 
           return {
             ...group,
-            items: group.items.map((item) => ({
+            items: group.items.map(item => ({
               ...item,
               visible: tester.test(item.name),
             })),
@@ -103,7 +102,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
     });
   }, [border]);
 
-  const onRef = useCallback((node) => {
+  const onRef = useCallback(node => {
     if (node) {
       ref.current = node;
       setSidebarHeight(

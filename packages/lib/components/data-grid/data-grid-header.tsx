@@ -7,19 +7,21 @@ import { DataGridHeaderProps, SortDirection } from './data-grid-model';
 
 const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
   columns,
-  columnWidth,
   style,
   onSort,
   layoutStyle,
   border,
 }: DataGridHeaderProps) => {
   const [headerColumns, setHeaderColumns] = useState(
-    columns.map((col) => ({ ...col, sortDirection: 'asc' }))
+    columns.map(col => ({
+      ...col,
+      sortDirection: 'asc',
+    }))
   );
 
   const handleSort = (column: string, dir: SortDirection) => {
-    setHeaderColumns((columns) =>
-      columns.map((col) => ({
+    setHeaderColumns(columns =>
+      columns.map(col => ({
         ...col,
         sortDirection: col.name === column ? dir : 'none',
       }))
@@ -42,7 +44,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
 
   return (
     <div className={headerClass} style={style}>
-      {headerColumns.map((column) => (
+      {headerColumns.map(column => (
         <div className={headerCellClass} key={column.name}>
           <DataGridCell
             name={column.name}

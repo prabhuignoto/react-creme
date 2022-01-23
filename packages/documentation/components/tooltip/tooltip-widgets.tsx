@@ -46,7 +46,7 @@ const Widgets = () => {
           <div className="rc-demo-widget" style={{ width: '320px' }}>
             <Dropdown
               placeholder="choose a position"
-              onSelected={(val) => {
+              onSelected={val => {
                 setPosition(val as ToolTipPosition);
               }}
               options={[

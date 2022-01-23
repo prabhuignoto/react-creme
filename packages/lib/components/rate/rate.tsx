@@ -62,7 +62,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
   }, 10);
 
   useEffect(() => {
-    setItems((prev) =>
+    setItems(prev =>
       prev.map((item, index) => ({
         ...item,
         active: index <= selectedIndex,
@@ -72,7 +72,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
 
   useEffect(() => {
     if (!isFirstRender.current) {
-      setItems((prev) =>
+      setItems(prev =>
         prev.map((item, index) => ({
           ...item,
           hovered: index <= hoverIndex,

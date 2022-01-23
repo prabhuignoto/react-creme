@@ -45,7 +45,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
     const toggleAccordion = useCallback(() => {
       enableCallback.current = true;
 
-      setOpen((prev) => {
+      setOpen(prev => {
         return !prev;
       });
     }, []);
@@ -86,7 +86,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
       [border, open, alignIconRight]
     );
 
-    const onInitRef = useCallback((node) => {
+    const onInitRef = useCallback(node => {
       if (node) {
         ref.current = node;
         const height = (node as HTMLElement).scrollHeight;

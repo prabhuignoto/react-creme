@@ -41,7 +41,7 @@ export const Default = () => (
       'Quinn',
       'Peyton',
       'River',
-    ].map((item) => ({
+    ].map(item => ({
       name: item,
       value: item,
     }))}

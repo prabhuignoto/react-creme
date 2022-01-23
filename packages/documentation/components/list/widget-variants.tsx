@@ -4,7 +4,7 @@ import { List } from '../../../lib/components';
 export const Default = () => (
   <List
     maxHeight={450}
-    onSelection={(val) => console.log(val)}
+    onSelection={val => console.log(val)}
     options={Array.from({ length: 5 }, (_, i) => ({
       name: `Item ${i + 1}`,
       value: `Item ${i + 1}`,
@@ -14,7 +14,7 @@ export const Default = () => (
 
 export const MultiSelection = () => (
   <List
-    onSelection={(val) => console.log(val)}
+    onSelection={val => console.log(val)}
     allowMultiSelection
     maxHeight={350}
     options={[
@@ -39,7 +39,7 @@ export const Search = () => (
     maxHeight={400}
     virtualized
     enableSearch
-    onSelection={(val) => console.log(val)}
+    onSelection={val => console.log(val)}
     options={Array.from({ length: 500 }, (_, i) => ({
       name: `Item ${i}`,
       value: `Item ${i}`,
@@ -53,7 +53,7 @@ export const Virtualized = () => (
     virtualized
     showCheckIcon
     focusable={false}
-    onSelection={(val) => console.log(val)}
+    onSelection={val => console.log(val)}
     options={Array.from({ length: 500 }, (_, i) => ({
       name: `Item ${i}`,
       value: `Item ${i}`,

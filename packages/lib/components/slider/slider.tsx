@@ -53,19 +53,19 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     startValue: start,
   });
 
-  const onTrackerInit = useCallback((node) => {
+  const onTrackerInit = useCallback(node => {
     if (node) {
       trackerRef.current = node;
     }
   }, []);
 
-  const onControlInit = useCallback((node) => {
+  const onControlInit = useCallback(node => {
     if (node) {
       controlRef.current = node;
     }
   }, []);
 
-  const onPlacerRef = useCallback((node) => {
+  const onPlacerRef = useCallback(node => {
     if (node) {
       placerRef.current = node;
       node.style.height = '10px';
@@ -160,7 +160,11 @@ const Slider: React.FunctionComponent<SliderProps> = ({
           ref={onControlInit}
           role="slider"
           {...focusableProps}
-          style={{ '--size': `${knobSize}px` } as CSSProperties}
+          style={
+            {
+              '--size': `${knobSize}px`,
+            } as CSSProperties
+          }
           {...(showTooltipOnHover ? { onMouseOver: handleMouseOver } : null)}
         >
           {canShowTooltip && (

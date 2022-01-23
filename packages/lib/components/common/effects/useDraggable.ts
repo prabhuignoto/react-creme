@@ -17,7 +17,10 @@ const useDraggable: UseDraggable = (
   const mousePressed = useRef(false);
   const rect = useRef<DOMRect>();
   const boundToRect = useRef<DOMRect | null>();
-  const start = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const start = useRef<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
   const tapDetectionTimer = useRef<number>();
 
   const dragTarget = useRef<HTMLElement | null>(null);
@@ -98,7 +101,7 @@ const useDraggable: UseDraggable = (
     };
   }, []);
 
-  const handleMouseMove = useCallback((ev: any) => {
+  const handleMouseMove = useCallback((ev: MouseEvent | TouchEvent) => {
     const isMousePressed = mousePressed.current;
     const target =
       targetRef instanceof HTMLElement ? targetRef : targetRef.current;
@@ -109,7 +112,16 @@ const useDraggable: UseDraggable = (
       ev.preventDefault();
       const { x, y } = start.current;
 
-      const event = ev instanceof MouseEvent ? ev : ev.touches[0];
+      const event =
+        ev instanceof MouseEvent
+          ? ev
+          : ev instanceof TouchEvent
+          ? ev.touches[0]
+          : null;
+
+      if (!event) {
+        return;
+      }
 
       let newLeft = event.clientX - x;
       let newTop = event.clientY - y;
@@ -173,7 +185,7 @@ const useDraggable: UseDraggable = (
     }
   }, []);
 
-  const handleMouseUp = useCallback((ev) => {
+  const handleMouseUp = useCallback(ev => {
     // set pressed state to false
     mousePressed.current = false;
     window.clearTimeout(tapDetectionTimer.current);
@@ -203,7 +215,7 @@ const useDraggable: UseDraggable = (
           boundToRect.current = target.getBoundingClientRect();
         }, 500);
         Array.from<HTMLElement>(target.querySelectorAll(':scope > *')).forEach(
-          (item) => {
+          item => {
             if (isTouch) {
               item.addEventListener('touchstart', handleMouseDown);
             } else {
@@ -270,7 +282,7 @@ const useDraggable: UseDraggable = (
         if (makeChildrenDraggable) {
           Array.from<HTMLElement>(
             eleRef.querySelectorAll(':scope > *')
-          ).forEach((item) => {
+          ).forEach(item => {
             item.removeEventListener('mousedown', handleMouseDown);
             item.removeEventListener('touchstart', handleMouseDown);
           });

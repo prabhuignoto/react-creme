@@ -9,7 +9,7 @@ export const Default = () => (
       { label: 'Murthy' },
       { checked: true, label: 'Prabhu' },
     ]}
-    onSelected={(val) => console.log(val)}
+    onSelected={val => console.log(val)}
     focusable
   />
 );
@@ -22,7 +22,7 @@ export const CustomLayout = () => (
       { label: 'Doe' },
       { checked: true, label: 'Prabhu' },
     ]}
-    onSelected={(val) => console.log(val)}
+    onSelected={val => console.log(val)}
   />
 );
 
@@ -33,7 +33,7 @@ export const Disabled = () => (
       { label: 'Doe' },
       { checked: true, label: 'Prabhu' },
     ]}
-    onSelected={(val) => console.log(val)}
+    onSelected={val => console.log(val)}
   />
 );
 
@@ -45,6 +45,6 @@ export const RTL = () => (
       { label: 'Doe' },
       { checked: true, label: 'Prabhu' },
     ]}
-    onSelected={(val) => console.log(val)}
+    onSelected={val => console.log(val)}
   />
 );

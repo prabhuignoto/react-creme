@@ -36,7 +36,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
 
     const toggleCheck = useCallback(() => {
       if (!disabled) {
-        setChecked((prev) => {
+        setChecked(prev => {
           onChange && onChange(checkBoxId.current, label, !prev);
           return !prev;
         });

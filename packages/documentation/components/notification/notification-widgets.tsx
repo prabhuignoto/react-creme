@@ -59,7 +59,7 @@ const Widgets = () => {
                 },
                 { name: 'top-center', value: 'top-center' },
               ]}
-              onSelected={(val) => setPosition(val as NotificationPosition)}
+              onSelected={val => setPosition(val as NotificationPosition)}
             ></Dropdown>
           </div>
         </Section>

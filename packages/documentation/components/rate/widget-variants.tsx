@@ -14,7 +14,7 @@ export const CustomIcon = () => (
 
 export const CustomSize = () => (
   <Rate
-    onChange={(val) => console.log(val)}
+    onChange={val => console.log(val)}
     ratingValues={['one', 'two', 'three', 'four', 'five']}
   />
 );

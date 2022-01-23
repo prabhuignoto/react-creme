@@ -29,7 +29,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
   // handler
   const handleToggle = () => {
     if (!disabled) {
-      setState((prev) => {
+      setState(prev => {
         if (onChange) {
           onChange(!prev);
         }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch } from '../../../lib/components/switch/switch';
 
 export const Default = () => (
-  <Switch label="Settings" checked onChange={(val) => console.log(val)} />
+  <Switch label="Settings" checked onChange={val => console.log(val)} />
 );
 
 export const LabelOutside = () => (
