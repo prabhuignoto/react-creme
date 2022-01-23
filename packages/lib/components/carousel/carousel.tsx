@@ -53,19 +53,19 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   const resizeObserver = useRef<ResizeObserver | null>(null);
 
   const handleNext = useCallback(() => {
-    activePage < trackCount.current - 1 && setActivePage((prev) => prev + 1);
+    activePage < trackCount.current - 1 && setActivePage(prev => prev + 1);
   }, [activePage]);
 
   const handlePrevious = useCallback(() => {
-    setActivePage((prev) => prev - 1);
+    setActivePage(prev => prev - 1);
   }, [activePage]);
 
   const handleActivatePage = useCallback(
-    (pageIndex) => setActivePage(pageIndex),
+    pageIndex => setActivePage(pageIndex),
     []
   );
 
-  const onInitRef = useCallback((node) => {
+  const onInitRef = useCallback(node => {
     if (node) {
       const { clientHeight, clientWidth } = node;
       setSlideWidth(clientWidth);
@@ -113,7 +113,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
     ) {
       setAutoPlaying(true);
       autoPlayRef.current = window.setInterval(() => {
-        setActivePage((page) => {
+        setActivePage(page => {
           if (page === carouselItems.length - 1) {
             clearInterval(autoPlayRef.current);
             setAutoPlaying(false);

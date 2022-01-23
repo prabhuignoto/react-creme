@@ -1,10 +1,10 @@
 import React from 'react';
 import { List } from '../../../lib/components';
 
-export const Default = () => (
+export const Default = (
   <List
     maxHeight={450}
-    onSelection={(val) => console.log(val)}
+    onSelection={val => console.log(val)}
     options={Array.from({ length: 5 }, (_, i) => ({
       name: `Item ${i + 1}`,
       value: `Item ${i + 1}`,
@@ -12,9 +12,9 @@ export const Default = () => (
   />
 );
 
-export const MultiSelection = () => (
+export const MultiSelection = (
   <List
-    onSelection={(val) => console.log(val)}
+    onSelection={val => console.log(val)}
     allowMultiSelection
     maxHeight={350}
     options={[
@@ -34,12 +34,12 @@ export const MultiSelection = () => (
   />
 );
 
-export const Search = () => (
+export const Search = (
   <List
     maxHeight={400}
     virtualized
     enableSearch
-    onSelection={(val) => console.log(val)}
+    onSelection={val => console.log(val)}
     options={Array.from({ length: 500 }, (_, i) => ({
       name: `Item ${i}`,
       value: `Item ${i}`,
@@ -47,13 +47,13 @@ export const Search = () => (
   />
 );
 
-export const Virtualized = () => (
+export const Virtualized = (
   <List
     maxHeight={350}
     virtualized
     showCheckIcon
     focusable={false}
-    onSelection={(val) => console.log(val)}
+    onSelection={val => console.log(val)}
     options={Array.from({ length: 500 }, (_, i) => ({
       name: `Item ${i}`,
       value: `Item ${i}`,

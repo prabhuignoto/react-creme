@@ -1,9 +1,9 @@
 import React from 'react';
 import { CheckBoxGroup } from '../../../lib/components';
 
-export const Default = () => (
+export const Default = (
   <CheckBoxGroup
-    onChange={(value) => console.log(value)}
+    onChange={value => console.log(value)}
     options={[
       {
         label: 'Option 1',
@@ -21,7 +21,7 @@ export const Default = () => (
   />
 );
 
-export const PreSelected = () => (
+export const PreSelected = (
   <CheckBoxGroup
     options={[
       {
@@ -38,7 +38,7 @@ export const PreSelected = () => (
   />
 );
 
-export const Disabled = () => (
+export const Disabled = (
   <CheckBoxGroup
     options={[
       {
@@ -57,7 +57,7 @@ export const Disabled = () => (
   />
 );
 
-export const CustomStyle = () => (
+export const CustomStyle = (
   <CheckBoxGroup
     checkboxStyle="round"
     options={[
@@ -77,7 +77,7 @@ export const CustomStyle = () => (
   />
 );
 
-export const RTL = () => (
+export const RTL = (
   <CheckBoxGroup
     RTL
     options={[

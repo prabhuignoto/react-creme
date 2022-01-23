@@ -25,7 +25,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
   const [scrollSpyLinks, setScrollSpyLinks] = React.useState<
     ScrollSpyLinkInternal[]
   >(
-    links.map((link) => ({
+    links.map(link => ({
       active: false,
       id: `spy-${nanoid()}`,
       name: link,
@@ -39,22 +39,28 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
           hash: 0,
           id: scrollSpyLinks[index].id,
         }))
-      : [{ active: false, hash: 0, id: scrollSpyLinks[0].id }]
+      : [
+          {
+            active: false,
+            hash: 0,
+            id: scrollSpyLinks[0].id,
+          },
+        ]
   );
 
   const onRef = useCallback((node: HTMLDivElement) => {
     if (node) {
       scrollSpyContentRef.current = node;
       spy.current = new IntersectionObserver(
-        (entries) => {
-          const ids = entries.map((entry) => [
+        entries => {
+          const ids = entries.map(entry => [
             entry.target.id,
             entry.isIntersecting,
           ]) as [string, boolean][];
 
-          setContents((prev) =>
-            prev.map((content) => {
-              const found = ids.find((id) => id[0] === content.id) as [
+          setContents(prev =>
+            prev.map(content => {
+              const found = ids.find(id => id[0] === content.id) as [
                 string,
                 boolean
               ];
@@ -77,7 +83,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
       const items = scrollSpyContentRef.current.querySelectorAll('.rc-header');
 
       if (items) {
-        items.forEach((item) => {
+        items.forEach(item => {
           spy.current?.observe(item);
         });
       }
@@ -86,16 +92,16 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
 
   useEffect(() => {
     const found = contents
-      .filter((c) => c.active)
+      .filter(c => c.active)
       .sort((a, b) =>
         scrollDirection.current === 'up' ? b.hash - a.hash : a.hash - b.hash
       )[0];
 
-    lastSelectedIndex.current = contents.findIndex((x) => x === found);
+    lastSelectedIndex.current = contents.findIndex(x => x === found);
 
     if (found) {
-      setScrollSpyLinks((prev) =>
-        prev.map((link, index) => ({
+      setScrollSpyLinks(prev =>
+        prev.map(link => ({
           ...link,
           active: link.id === found.id,
         }))
@@ -151,7 +157,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
                 className={`rc-scroll-spy-list-item ${
                   link.active ? 'active' : ''
                 }`}
-                onClick={(ev) => {
+                onClick={ev => {
                   ev.preventDefault();
                   handleScrollTo(link.id, index);
                 }}

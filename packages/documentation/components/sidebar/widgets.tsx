@@ -30,20 +30,16 @@ function widgets() {
       <div className="rc-demo-widgets">
         <Section title="Default render">
           <BlockQuote>Sections are collapsible by default.</BlockQuote>
-          <DemoWidget>
-            <div style={{ height: '400px', width: `${width}px` }}>
-              <Default />
-            </div>
+          <DemoWidget width={width} height={400}>
+            {Default}
           </DemoWidget>
         </Section>
         <Section title="Search">
           <BlockQuote>
             Can optionally include a search bar for filtering the sidebar.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ height: '450px', width: `${width}px` }}>
-              <Searchable />
-            </div>
+          <DemoWidget width={width} height={400}>
+            {Searchable}
           </DemoWidget>
         </Section>
       </div>

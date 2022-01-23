@@ -67,8 +67,8 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   }, [wrapperDimensions.height, wrapperDimensions.width, imagesLoaded]);
 
   // callback executed on first image load
-  const onImageLoad = useCallback((ev: any) => {
-    const { width, height } = ev.target;
+  const onImageLoad = useCallback((ev: React.SyntheticEvent) => {
+    const { width, height } = ev.target as HTMLImageElement;
 
     setWrapperDimensions({
       height: height,
@@ -79,7 +79,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   }, []);
 
   // callback executed when the second image is loaded
-  const onImageLoad2 = (ev: any) => setImageLoaded2(true);
+  const onImageLoad2 = () => setImageLoaded2(true);
 
   // setup the drag effect
   const [percent] = useDrag(panelRef, dragRef, {

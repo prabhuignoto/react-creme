@@ -1,7 +1,7 @@
 import React from 'react';
 import { ImageComparer } from '../../../lib/components';
 
-export const Horizontal = () => (
+export const Horizontal = (
   <ImageComparer
     direction="horizontal"
     sourceOne="https://i.imgur.com/gypU9cN.jpg"
@@ -9,7 +9,7 @@ export const Horizontal = () => (
   ></ImageComparer>
 );
 
-export const Vertical = () => (
+export const Vertical = (
   <ImageComparer
     direction="vertical"
     sourceOne="https://i.imgur.com/gypU9cN.jpg"

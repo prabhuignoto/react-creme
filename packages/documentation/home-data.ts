@@ -1,60 +1,70 @@
 import {
+  faAccessibleIcon,
   faChrome,
   faEdge,
   faFirefoxBrowser,
   faReact,
-  faSafari
-} from "@fortawesome/free-brands-svg-icons";
+  faSafari,
+} from '@fortawesome/free-brands-svg-icons';
 import {
   faBolt,
   faCubes,
   faFistRaised,
   faMobile,
-  faTools
-} from "@fortawesome/free-solid-svg-icons";
+  faPalette,
+  faTools,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const Features = [
   {
     icon: faReact,
-    title: "Comprehensive UI Toolkit for React",
+    title: 'Comprehensive UI Toolkit for React',
   },
   {
     icon: faBolt,
-    title: "Robust & Performant components",
+    title: 'Robust & Performant components',
   },
   {
     icon: faTools,
-    title: "Highly customizable UI Elements",
+    title: 'Highly customizable UI Elements',
   },
   {
     icon: faFistRaised,
-    title: "Built with TypeScript & React",
+    title: 'Built with TypeScript & React',
   },
   {
     icon: faCubes,
-    title: "Modular and extensible components",
+    title: 'Modular and extensible components',
   },
   {
     icon: faMobile,
-    title: "Complete support for Touch devices",
+    title: 'Complete support for Touch devices',
+  },
+  {
+    icon: faAccessibleIcon,
+    title: 'Accessible UI Components',
+  },
+  {
+    icon: faPalette,
+    title: 'Built for Firefox',
   },
 ];
 
 export const supportedBrowsers = [
   {
     icon: faChrome,
-    title: "Chrome",
+    title: 'Chrome',
   },
   {
     icon: faFirefoxBrowser,
-    title: "Firefox",
+    title: 'Firefox',
   },
   {
     icon: faSafari,
-    title: "Safari",
+    title: 'Safari',
   },
   {
     icon: faEdge,
-    title: "Edge",
+    title: 'Edge',
   },
 ];

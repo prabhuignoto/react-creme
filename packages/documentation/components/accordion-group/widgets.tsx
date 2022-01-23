@@ -47,11 +47,7 @@ function Widgets() {
     width > 0 && (
       <div className="rc-demo-widgets" style={{ minHeight: '1200px' }}>
         <Section title="Default Render">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Default />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="Initial state">
           <BlockQuote>
@@ -59,33 +55,21 @@ function Widgets() {
             if you want to keep the accordions closed or open on load. The
             example shows the accordions open on load
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <InitialState />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{InitialState}</DemoWidget>
         </Section>
         <Section title="Auto Closing Sections">
           <BlockQuote>
             The AccordionGroup can be configured to close all other sections
             when one is open.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <AutoClosingSections />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{AutoClosingSections}</DemoWidget>
         </Section>
         <Section title="Custom Icon">
           <BlockQuote>
             The AccordionGroup can be configured to use custom icons and
             alignment
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <CustomIcon />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{CustomIcon}</DemoWidget>
         </Section>
       </div>
     )

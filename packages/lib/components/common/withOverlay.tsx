@@ -92,7 +92,11 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     return portalWrapperCreated
       ? ReactDOM.createPortal(
           <OverlayContext.Provider
-            value={{ align, childClosing: childInvokedClose, data }}
+            value={{
+              align,
+              childClosing: childInvokedClose,
+              data,
+            }}
           >
             <Overlay
               showCloseButton={showClose}

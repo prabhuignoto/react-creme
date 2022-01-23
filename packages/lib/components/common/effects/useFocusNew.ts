@@ -7,7 +7,7 @@ export default function useFocusNew(
 ) {
   const ring = useRef<HTMLSpanElement>();
 
-  const focusHandler = useCallback((ev: FocusEvent) => {
+  const focusHandler = useCallback(() => {
     const ele = ring.current;
     if (ele) {
       ele.classList.remove('rc-focus-ring-inactive');
@@ -15,7 +15,7 @@ export default function useFocusNew(
     }
   }, []);
 
-  const removeFocus = useCallback((removeImmediate?: boolean) => {
+  const removeFocus = useCallback(() => {
     const ele = ring.current;
     if (ele) {
       ele.classList.remove('rc-focus-ring-active');
@@ -23,7 +23,7 @@ export default function useFocusNew(
     }
   }, []);
 
-  const blurHandler = useCallback((ev: FocusEvent) => {
+  const blurHandler = useCallback(() => {
     removeFocus();
   }, []);
 

@@ -13,7 +13,6 @@ import { useDebouncedCallback } from 'use-debounce';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { isUndefined } from '../common/utils';
-import { Option } from '../dropdown/dropdown-model';
 import { Input } from '../input/input';
 import { ListItem } from './list-item';
 import { ListOption, ListProps } from './list-model';
@@ -27,7 +26,7 @@ const initOptions = (
 ): ListOption[] => {
   return options
     .sort((a, b) => (b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1))
-    .filter((opt) => (!isUndefined(opt.visible) ? opt.visible : true))
+    .filter(opt => (!isUndefined(opt.visible) ? opt.visible : true))
     .map((option, index) => ({
       id: !noUniqueIds ? nanoid() : option.id,
       ...option,
@@ -81,7 +80,7 @@ const List: React.FunctionComponent<ListProps> = ({
   const listStyle = useMemo(() => {
     const style = {
       '--list-height': `${
-        _listOptions.filter((v) => v.visible).length * (itemHeight + rowGap) +
+        _listOptions.filter(v => v.visible).length * (itemHeight + rowGap) +
         rowGap
       }px`,
     } as CSSProperties;
@@ -96,19 +95,19 @@ const List: React.FunctionComponent<ListProps> = ({
       listRef.current.scrollTop = 0;
     }
 
-    setListOptions((prev) => {
+    setListOptions(prev => {
       let updated = [];
 
       if (_val.length) {
         updated = prev
-          .map((opt) => ({
+          .map(opt => ({
             ...opt,
             visible: opt.name.toLowerCase().includes(_val),
           }))
           .sort((a, b) => (a.visible === b.visible ? 0 : a.visible ? -1 : 1));
       } else {
         updated = prev
-          .map((opt) => ({
+          .map(opt => ({
             ...opt,
             visible: true,
           }))
@@ -125,23 +124,23 @@ const List: React.FunctionComponent<ListProps> = ({
     setRenderTrigger(Date.now());
   }, []);
 
-  const handleSelection = (opt: Option) => {
+  const handleSelection = (opt: ListOption) => {
     if (allowMultiSelection) {
-      setListOptions((prev) => {
-        const updated = prev.map((option) => ({
+      setListOptions(prev => {
+        const updated = prev.map(option => ({
           ...option,
           selected: option.id === opt.id ? !option.selected : option.selected,
         }));
-        setSelected(updated.filter((opt) => opt.selected));
+        setSelected(updated.filter(opt => opt.selected));
         return updated;
       });
     } else {
-      setListOptions((prev) => {
-        const updated = prev.map((option) => ({
+      setListOptions(prev => {
+        const updated = prev.map(option => ({
           ...option,
           selected: option.id === opt.id,
         }));
-        setSelected(updated.filter((opt) => opt.selected));
+        setSelected(updated.filter(opt => opt.selected));
         return updated;
       });
     }
@@ -151,7 +150,13 @@ const List: React.FunctionComponent<ListProps> = ({
 
   useEffect(() => {
     if (selected && onSelection) {
-      onSelection(selected);
+      onSelection(
+        selected.map(({ name, value, id }) => ({
+          id,
+          name,
+          value,
+        }))
+      );
     }
   }, [selected]);
 
@@ -175,17 +180,7 @@ const List: React.FunctionComponent<ListProps> = ({
 
   const handleScroll = useDebouncedCallback(setRange);
 
-  const handleKeyUp = useCallback((e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowUp') {
-    } else if (e.key === 'ArrowDown') {
-    } else if (e.key === 'Enter') {
-      if (onSelection) {
-        // onSelection(selected);
-      }
-    }
-  }, []);
-
-  const onListRef = useCallback((el) => {
+  const onListRef = useCallback(el => {
     if (el) {
       listRef.current = el;
 
@@ -223,7 +218,6 @@ const List: React.FunctionComponent<ListProps> = ({
         className="rc-list-options-wrapper"
         ref={onListRef}
         onScroll={handleScroll}
-        onKeyUp={handleKeyUp}
       >
         <ul
           className={'rc-list-options'}
@@ -233,7 +227,7 @@ const List: React.FunctionComponent<ListProps> = ({
           id={id}
         >
           {_listOptions
-            .filter((item) => item.visible)
+            .filter(item => item.visible)
             .map(
               ({
                 disabled,

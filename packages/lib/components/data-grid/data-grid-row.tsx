@@ -7,7 +7,6 @@ import './data-grid.scss';
 
 const DataGridRow: React.FunctionComponent<DataRow> = ({
   data,
-  columnWidth,
   columnConfigs,
   style,
   layoutStyle,
@@ -17,8 +16,8 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
 }: DataRow) => {
   const cellsData = useRef<{ [key: string]: string | number }[]>(
     Object.keys(data)
-      .filter((k) => k !== 'id')
-      .map((key) => ({
+      .filter(k => k !== 'id')
+      .map(key => ({
         id: nanoid(),
         name: key,
         value: data[key],
@@ -36,8 +35,8 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
 
   return (
     <div className={rowClass} style={style} role="row">
-      {columnConfigs?.map((col) => {
-        const data = cellsData.current.find((cell) => cell.name === col.name)!;
+      {columnConfigs?.map(col => {
+        const data = cellsData.current.find(cell => cell.name === col.name);
 
         if (data) {
           const { value, id, name } = data;

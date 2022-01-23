@@ -134,7 +134,7 @@ const useDrag: functionType = (
 
   useEffect(() => {
     if (observeContainer) {
-      resizeObserver.current = new ResizeObserver((observer) => {
+      resizeObserver.current = new ResizeObserver(observer => {
         const { width, height } = observer[0].contentRect;
 
         if (direction === 'horizontal') {

@@ -32,8 +32,8 @@ const AccordionGroup = ({
   );
 
   const handleExpand = useCallback((id: string) => {
-    setItems((prev) =>
-      prev.map((item) => ({
+    setItems(prev =>
+      prev.map(item => ({
         ...item,
         expanded: autoClose ? item.id === id : item.id === id || item.expanded,
       }))
@@ -41,8 +41,8 @@ const AccordionGroup = ({
   }, []);
 
   const handleCollapse = useCallback((id: string) => {
-    setItems((prev) =>
-      prev.map((item) => ({
+    setItems(prev =>
+      prev.map(item => ({
         ...item,
         expanded: autoClose ? false : item.id === id ? false : item.expanded,
       }))

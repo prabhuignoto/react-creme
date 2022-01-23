@@ -16,4 +16,7 @@ export interface AutoSuggestProps {
   value?: string;
 }
 
-export type AutoSuggestOption = { name: string; value: string };
+export type AutoSuggestOption = {
+  name: string;
+  value: string;
+};

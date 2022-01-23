@@ -12,7 +12,7 @@ function skeleton() {
       properties={[
         {
           default: '4',
-          description: 'Number of skeleton rows',
+          description: 'Number of rows',
           name: 'rows',
           optional: 'Yes',
           type: 'Number',
@@ -26,21 +26,21 @@ function skeleton() {
         },
         {
           default: '30',
-          description: 'Height of each row',
+          description: 'Height for each row',
           name: 'rowHeight',
           optional: 'Yes',
           type: 'Number',
         },
         {
           default: 'False',
-          description: 'Animate rows',
+          description: 'Animates the rows',
           name: 'animate',
           optional: 'Yes',
           type: 'Boolean',
         },
         {
           default: '4',
-          description: 'Specifies the number of blocks',
+          description: 'Configures the number of blocks',
           name: 'blocks',
           optional: 'Yes',
           type: 'Number',

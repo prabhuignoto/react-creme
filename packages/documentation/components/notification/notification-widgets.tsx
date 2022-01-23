@@ -9,6 +9,7 @@ import {
 } from '../../../lib/components';
 import { NotificationPosition } from '../../../lib/components/notification/notification-model';
 import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
 
 const Widgets = () => {
   const ref = useRef();
@@ -46,7 +47,7 @@ const Widgets = () => {
             The notification can be positioned in different places on the
             screen.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: `320px` }}>
+          <DemoWidget width={width}>
             <Dropdown
               options={[
                 { name: 'top-left', value: 'top-left' },
@@ -59,9 +60,9 @@ const Widgets = () => {
                 },
                 { name: 'top-center', value: 'top-center' },
               ]}
-              onSelected={(val) => setPosition(val as NotificationPosition)}
+              onSelected={val => setPosition(val as NotificationPosition)}
             ></Dropdown>
-          </div>
+          </DemoWidget>
         </Section>
         {show && (
           <Notification
@@ -103,9 +104,9 @@ const Widgets = () => {
             By default the notification is positioned at the top-left corner of
             the screen relative to the page.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+          <DemoWidget>
             <Button label="Open Notification" onClick={() => setShow2(true)} />
-          </div>
+          </DemoWidget>
         </Section>
         <Section title="Notification - Contained Mode">
           <BlockQuote>
@@ -133,9 +134,9 @@ const Widgets = () => {
             The notification can be closed automatically after a certain time
             using the autoClose property.
           </BlockQuote>
-          <div className="rc-demo-widget" style={{ width: `${width}px` }}>
+          <DemoWidget>
             <Button label="Open Notification" onClick={() => setShow3(true)} />
-          </div>
+          </DemoWidget>
         </Section>
       </div>
     )

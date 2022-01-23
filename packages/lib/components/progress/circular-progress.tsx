@@ -11,7 +11,6 @@ export interface CircularProgressProps {
 const CircularProgress: React.FunctionComponent<CircularProgressProps> = ({
   size = 'sm',
   style = 'default',
-  type = 'infinite',
 }) => {
   const wrapperClass = useMemo(() => {
     return classNames('rc-circular-progress', `rc-circular-progress-${size}`);

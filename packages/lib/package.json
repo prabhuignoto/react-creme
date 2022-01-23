@@ -1,6 +1,6 @@
 {
   "name": "react-creme",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "author": {
     "name": "Prabhu Murthy",
     "email": "prabhu.m.murthy@gmail.com"
@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
+    "fast-deep-equal": "^3.1.3",
     "nanoid": "^3.2.0",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^7.0.1",
@@ -43,7 +44,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.10",
+    "@babel/core": "^7.16.12",
     "@babel/plugin-proposal-optional-chaining": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.16.10",
     "@babel/preset-env": "^7.16.11",
@@ -69,7 +70,7 @@
     "babel-plugin-react-remove-properties": "^0.3.0",
     "canvas": "^2.9.0",
     "cssnano": "^5.0.15",
-    "esbuild": "^0.14.12",
+    "esbuild": "^0.14.13",
     "history": "5.2.0",
     "jest": "^27.4.7",
     "jest-sonar-reporter": "^2.0.0",
@@ -88,7 +89,7 @@
     "react-transition-group": "^4.4.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rollup": "^2.65.0",
+    "rollup": "^2.66.0",
     "rollup-plugin-esbuild": "^4.8.2",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-progress": "^1.1.2",

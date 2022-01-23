@@ -17,58 +17,34 @@ function widgets() {
       className="rc-demo-widgets"
     >
       <Section title="Switch - default">
-        <DemoWidget>
-          <div style={{ width: '100px' }}>
-            <Default />
-          </div>
-        </DemoWidget>
+        <DemoWidget width={100}>{Default}</DemoWidget>
       </Section>
       <Section title="Switch with label outside">
         <BlockQuote>The label can be placed outside the switch.</BlockQuote>
-        <DemoWidget>
-          <div style={{ width: '150px' }}>
-            <LabelOutside />
-          </div>
-        </DemoWidget>
+        <DemoWidget width={150}>{LabelOutside}</DemoWidget>
       </Section>
       <Section title="Switch with Check status">
         <BlockQuote>
           Use <code>showCheckIcon</code> property to display a check icon inside
           the toggle control.
         </BlockQuote>
-        <DemoWidget>
-          <div style={{ width: '130px' }}>
-            <CheckIcon />
-          </div>
-        </DemoWidget>
+        <DemoWidget width={130}>{CheckIcon}</DemoWidget>
       </Section>
       <Section title="Disabled">
         <BlockQuote>
           Use the disabled property to disable the switch.
         </BlockQuote>
-        <DemoWidget>
-          <div style={{ width: '100px' }}>
-            <Disabled />
-          </div>
-        </DemoWidget>
+        <DemoWidget width={100}>{Disabled}</DemoWidget>
       </Section>
       <Section title="Large size">
         <BlockQuote>
           Switch comes in three sizes: small, medium, and large. This example
           shows a large size switch.
         </BlockQuote>
-        <DemoWidget>
-          <div style={{ width: '200px' }}>
-            <Large />
-          </div>
-        </DemoWidget>
+        <DemoWidget width={200}>{Large}</DemoWidget>
       </Section>
       <Section title="Extra large">
-        <DemoWidget>
-          <div style={{ width: '250px' }}>
-            <ExtraLarge />
-          </div>
-        </DemoWidget>
+        <DemoWidget width={250}>{ExtraLarge}</DemoWidget>
       </Section>
     </div>
   );

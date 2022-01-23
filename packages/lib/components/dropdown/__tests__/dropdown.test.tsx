@@ -67,10 +67,9 @@ describe('Dropdown', () => {
     await waitFor(async () => {
       expect(getByRole('listbox')).toBeInTheDocument();
       expect(getAllByRole('option')).toHaveLength(5);
-      expect(screen.getByTestId('rc-overlay')).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId('rc-overlay'));
+    fireEvent.click(document);
 
     await waitFor(async () => {
       expect(queryByRole('listbox')).not.toBeInTheDocument();

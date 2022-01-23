@@ -55,7 +55,7 @@ $rounded-tabs-height: 45px;
 
 .rc-tab-header-control {
   @extend %center;
-  background: colors.$light-bg;
+  // background: colors.$light-bg;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   justify-content: space-around;

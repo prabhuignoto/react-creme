@@ -8,7 +8,6 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
     name,
     selected,
     showCheck,
-    focusable,
     textColor,
     textColorSelected,
     RTL,

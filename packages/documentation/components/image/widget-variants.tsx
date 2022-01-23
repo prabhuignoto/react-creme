@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from '../../../lib/components';
 
-export const Default = () => (
+export const Default = (
   <Image
     width={200}
     height={200}
@@ -9,7 +9,7 @@ export const Default = () => (
   />
 );
 
-export const Expand = () => (
+export const Expand = (
   <Image
     width={300}
     height={200}

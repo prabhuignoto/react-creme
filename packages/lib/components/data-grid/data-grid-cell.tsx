@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { DataGridCell as CellModel } from './data-grid-model';
 
 const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
-  ({ name, value, border, fixedHeight, formatter }: CellModel) => {
+  ({ value, border, fixedHeight, formatter }: CellModel) => {
     const columnClass = useMemo(() => {
       return classNames('rc-data-grid-cell', {
         'rc-data-grid-cell-border': border,

@@ -4,7 +4,6 @@ import { TransferListProps } from './transfer-model';
 
 const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
   ({
-    listId,
     options,
     onSelection,
     enableSearch,
@@ -14,8 +13,8 @@ const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
     return (
       <List
         options={options
-          .filter((i) => i.visible)
-          .map((item) => ({
+          .filter(i => i.visible)
+          .map(item => ({
             ...item,
             name: item.name,
             value: item.name,

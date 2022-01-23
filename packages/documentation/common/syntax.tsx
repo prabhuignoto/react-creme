@@ -1,21 +1,26 @@
-import React, { ReactNode } from "react";
-import reactElementToJSXString from "react-element-to-jsx-string";
-import { SyntaxHighLighter } from "./syntax-highlighter";
+import React, { ReactNode, Suspense } from 'react';
+import jsxToString from 'react-element-to-jsx-string';
+import { SyntaxHighLighter } from './syntax-highlighter';
 
-const Code: React.FunctionComponent<{ children?: ReactNode }> = ({
-  children,
-}) => {
+export const jsxToStringOptions = {
+  maxInlineAttributesLineLength: 250,
+  showDefaultProps: true,
+  showFunctions: true,
+  sortProps: true,
+  tabStop: 4,
+  useBooleanShorthandSyntax: true,
+  useFragmentWithSingleChildren: true,
+};
+
+const Code: React.FunctionComponent<{
+  children?: ReactNode;
+}> = ({ children }) => {
   return (
-    <SyntaxHighLighter
-      code={reactElementToJSXString(children, {
-        maxInlineAttributesLineLength: 950,
-        showDefaultProps: true,
-        showFunctions: true,
-        sortProps: true,
-        tabStop: 4,
-        useBooleanShorthandSyntax: true,
-      })}
-    ></SyntaxHighLighter>
+    <Suspense fallback={<span></span>}>
+      <SyntaxHighLighter
+        code={jsxToString(children, jsxToStringOptions)}
+      ></SyntaxHighLighter>
+    </Suspense>
   );
 };
 

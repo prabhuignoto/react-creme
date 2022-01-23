@@ -1,7 +1,7 @@
 import React from 'react';
 import { CircularProgress, Progress } from '../../../lib/components';
 
-export const Success = () => (
+export const Success = (
   <Progress
     type="progressive"
     maxValue={32}
@@ -11,7 +11,7 @@ export const Success = () => (
   />
 );
 
-export const Error = () => (
+export const Error = (
   <Progress
     type="progressive"
     maxValue={50}
@@ -22,7 +22,7 @@ export const Error = () => (
   />
 );
 
-export const Infinite = () => (
+export const Infinite = (
   <Progress
     type="infinite"
     maxValue={50}
@@ -32,4 +32,4 @@ export const Infinite = () => (
   />
 );
 
-export const Circular = () => <CircularProgress size={'md'} />;
+export const Circular = <CircularProgress size={'md'} />;

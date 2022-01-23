@@ -40,7 +40,7 @@ function Widgets() {
             <Tree
               height={400}
               items={data}
-              onChange={(selected) => console.log(selected, name)}
+              onChange={selected => console.log(selected, name)}
             />
           </div>
         </DemoWidget>

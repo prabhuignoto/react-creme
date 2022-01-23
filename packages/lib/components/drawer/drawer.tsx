@@ -10,7 +10,6 @@ import React, {
 import { CloseIcon } from '../../icons';
 import { Button } from '../button/button';
 import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
-import useFocusNew from '../common/effects/useFocusNew';
 import { useKey } from '../common/effects/useKey';
 import { withOverlay } from '../common/withOverlay';
 import { DrawerProps } from './drawer-model';
@@ -56,7 +55,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
     setActivate(true);
   }, []);
 
-  useCloseOnEscape((ev) => onClose?.(), drawerRef);
+  useCloseOnEscape(() => onClose?.(), drawerRef);
 
   // useFocusNew(drawerRef);
 
@@ -64,7 +63,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
     useKey(drawerRef, onClose);
   }
 
-  const onInitRef = useCallback((node) => {
+  const onInitRef = useCallback(node => {
     if (node) {
       drawerRef.current = node;
 

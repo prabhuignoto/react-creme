@@ -9,45 +9,45 @@ const items = [
   { disabled: true, name: 'RUST' },
 ];
 
-export const Default = () => (
+export const Default = (
   <Tags
     placeholder="Choose a language..."
     items={items}
     maxTags={15}
-    onChange={(val) => console.log(val)}
+    onChange={val => console.log(val)}
     tagWidth={150}
     focusable
   />
 );
 
-export const Disabled = () => (
+export const Disabled = (
   <Tags
     placeholder="Choose a language..."
     items={items}
     maxTags={15}
-    onChange={(val) => console.log(val)}
+    onChange={val => console.log(val)}
     tagWidth={150}
     tagStyle="fill"
   />
 );
 
-export const ReadOnly = () => (
+export const ReadOnly = (
   <Tags
     placeholder="Choose a language..."
     items={items}
     maxTags={15}
-    onChange={(val) => console.log(val)}
+    onChange={val => console.log(val)}
     readonly
     tagWidth={50}
   />
 );
 
-export const AutoComplete = () => (
+export const AutoComplete = (
   <Tags
     placeholder="Choose a language..."
     items={items}
     maxTags={15}
-    onChange={(val) => console.log(val)}
+    onChange={val => console.log(val)}
     tagWidth={100}
     autoComplete
     suggestions={['one', 'two']}

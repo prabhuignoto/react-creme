@@ -30,40 +30,23 @@ function Widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Default />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="Custom layout">
           <BlockQuote>
             The Layout of the RadioGroup can be customized to either row or
             column.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width * 3}px` }}>
-              <CustomLayout />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width * 3}>{CustomLayout}</DemoWidget>
         </Section>
         <Section title="Disabled option">
           <BlockQuote>
             Disable specific option by setting the disabled property to true.
           </BlockQuote>
-
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Disabled />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Disabled}</DemoWidget>
         </Section>
         <Section title="RTL">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <RTL />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{RTL}</DemoWidget>
         </Section>
       </div>
     )

@@ -36,42 +36,26 @@ function Widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Default />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="Multi selection mode">
           <BlockQuote>
             In Multi selection mode you can select multiple items.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <MultiSelection />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{MultiSelection}</DemoWidget>
         </Section>
         <Section title="Searchable list">
           <BlockQuote>
             With searchable list items can be quickly searched.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Search />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Search}</DemoWidget>
         </Section>
         <Section title="Virtualized">
           <BlockQuote>
             The virtualized list is a performance improvement over the default
             rendering. It renders only the visible items
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Virtualized />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Virtualized}</DemoWidget>
         </Section>
       </div>
     )

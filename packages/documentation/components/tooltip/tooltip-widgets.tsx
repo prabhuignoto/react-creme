@@ -46,7 +46,7 @@ const Widgets = () => {
           <div className="rc-demo-widget" style={{ width: '320px' }}>
             <Dropdown
               placeholder="choose a position"
-              onSelected={(val) => {
+              onSelected={val => {
                 setPosition(val as ToolTipPosition);
               }}
               options={[
@@ -74,7 +74,7 @@ const Widgets = () => {
           <BlockQuote>
             The Tooltip is activated by hovering over the target element.
           </BlockQuote>
-          <DemoWidget>
+          <DemoWidget width={width}>
             <Tooltip
               message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
               position={position}
@@ -82,16 +82,14 @@ const Widgets = () => {
               bgColor="#fff"
               foreColor="#FF0000"
             >
-              <div style={{ width: `${width}px` }}>
-                <Card height={200}>
-                  Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
-                  molestie velit quis volutpat vestibulum. Donec facilisis est
-                  ac condimentum aliquet. Nam semper dui eget sagittis sagittis.
-                  Aenean sodales vulputate magna vitae sodales. Phasellus
-                  dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam
-                  diam, at pulvinar
-                </Card>
-              </div>
+              <Card height={200}>
+                Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
+                molestie velit quis volutpat vestibulum. Donec facilisis est ac
+                condimentum aliquet. Nam semper dui eget sagittis sagittis.
+                Aenean sodales vulputate magna vitae sodales. Phasellus
+                dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam
+                diam, at pulvinar
+              </Card>
             </Tooltip>
           </DemoWidget>
         </Section>
@@ -100,24 +98,22 @@ const Widgets = () => {
             The Tooltip can also be configured to be static. The Tooltip will be
             always visible.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Tooltip
-                message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
-                position={position}
-                minWidth={150}
-                isStatic
-              >
-                <div style={{ width: `${width}px` }}>
-                  <Card height={300}>
-                    <Image
-                      height={280}
-                      src="https://www.dccomics.com/sites/default/files/Gallery_20210914_BM_THEWORLD_61401312483190.19934149.jpg"
-                    />
-                  </Card>
-                </div>
-              </Tooltip>
-            </div>
+          <DemoWidget width={width}>
+            <Tooltip
+              message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
+              position={position}
+              minWidth={150}
+              isStatic
+            >
+              <div style={{ width: `${width}px` }}>
+                <Card height={300}>
+                  <Image
+                    height={280}
+                    src="https://www.dccomics.com/sites/default/files/Gallery_20210914_BM_THEWORLD_61401312483190.19934149.jpg"
+                  />
+                </Card>
+              </div>
+            </Tooltip>
           </DemoWidget>
         </Section>
       </div>

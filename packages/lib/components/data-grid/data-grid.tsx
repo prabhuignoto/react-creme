@@ -27,7 +27,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   rowHeight,
   zebra = false,
 }: DataGridProps) => {
-  const sortableColumns = useRef(columns.filter((col) => col.sortable));
+  const sortableColumns = useRef(columns.filter(col => col.sortable));
   const sortableColumnFirst = useRef<DataGridColumn>(
     sortableColumns.current.length ? sortableColumns.current[0] : null
   );
@@ -35,7 +35,10 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   const rowData = useRef<Record[]>(
     sortableColumnFirst.current !== null
       ? data
-          .map((item) => ({ id: nanoid(), ...item }))
+          .map(item => ({
+            id: nanoid(),
+            ...item,
+          }))
           .sort((a: Record, b: Record) => {
             const name = sortableColumnFirst.current?.name;
 
@@ -45,7 +48,10 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
               return 0;
             }
           })
-      : data.map((item) => ({ id: nanoid(), ...item }))
+      : data.map(item => ({
+          id: nanoid(),
+          ...item,
+        }))
   );
 
   const [width, setWidth] = useState(gridWidth);
@@ -55,7 +61,10 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
     dir?: SortDirection;
   }>(
     sortableColumns.current.length > 0
-      ? { column: sortableColumns.current[0].name, dir: 'asc' }
+      ? {
+          column: sortableColumns.current[0].name,
+          dir: 'asc',
+        }
       : {}
   );
   const gridRef = useRef<HTMLDivElement>();
@@ -76,14 +85,14 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   const columnWidth = useMemo(() => {
     if (width) {
       const usedWidth = columns
-        .map((c) => c.width || 0)
+        .map(c => c.width || 0)
         .reduce((a, b) => a + b, 0);
 
       // usedWidth += (columns.length - 2) * 1;
 
       return Math.floor(
         (width - usedWidth) /
-          (columns.length - columns.filter((col) => col.width).length)
+          (columns.length - columns.filter(col => col.width).length)
       );
     }
   }, [width]);
@@ -103,7 +112,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
 
   useEffect(() => {
     if (gridRef.current) {
-      resizeObserver.current = new ResizeObserver((entries) => {
+      resizeObserver.current = new ResizeObserver(() => {
         setWidth((gridRef.current as HTMLElement).offsetWidth);
       });
 
@@ -123,7 +132,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
       width: gridWidth ? `${gridWidth}px` : '100%',
       ...(rowHeight ? { '--row-height': `${rowHeight}px` } : {}),
       gridTemplateColumns: columns
-        .map((column) => {
+        .map(column => {
           if (column.width) {
             return `${column.width}px`;
           } else {
@@ -168,7 +177,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         layoutStyle={layoutStyle}
         border={border}
       />
-      {sortedData.map((row) => {
+      {sortedData.map(row => {
         return (
           <DataGridRow
             data={row}

@@ -1,18 +1,8 @@
 import { OverlayModel } from '../common/overlay-model';
 
-export type MenuOption = Option & { visible: boolean };
-
-export interface DropdownMenuProps extends OverlayModel {
-  RTL?: boolean;
-  allowMultiSelection?: boolean;
-  enableSearch?: boolean;
-  focusable?: boolean;
-  handleSelection: (selected: Option[]) => void;
-  open: boolean;
-  options: MenuOption[];
-  style: DropdownMenuStyleModel;
-  virtualize?: boolean;
-}
+export type MenuOption = Option & {
+  visible: boolean;
+};
 
 export interface DropdownMenuStyleModel {
   maxMenuHeight?: number;
@@ -30,7 +20,7 @@ export interface Option {
 }
 
 /** ✨Component props */
-export interface DropdownProps {
+export type DropdownProps = {
   /**🔷 Right to Left */
   RTL?: boolean;
 
@@ -66,4 +56,39 @@ export interface DropdownProps {
 
   /**🔷 Virtualizes the items displayed in the menu */
   virtualize?: boolean;
-}
+};
+
+export type PickMenuProps<T> = {
+  [P in keyof T as Exclude<
+    P,
+    | 'chevronIconColor'
+    | 'disabled'
+    | 'showClearBtn'
+    | 'maxMenuHeight'
+    | 'onSelected'
+    | 'placeholder'
+  >]: T[P];
+};
+
+export type PickValueProps<T> = {
+  [P in keyof T as Exclude<
+    P,
+    'enableSearch' | 'virtualize' | 'onSelected' | 'maxMenuHeight' | 'options'
+  >]: T[P];
+};
+
+export type DropdownMenuProps = PickMenuProps<DropdownProps> &
+  OverlayModel & {
+    handleSelection: (selected: Option[]) => void;
+    open: boolean;
+    style: DropdownMenuStyleModel;
+  };
+
+export type DropdownValueProps = PickValueProps<DropdownProps> & {
+  containerRef?: React.RefObject<HTMLDivElement>; //
+  menuClosing?: boolean;
+  onClear?: (ev: React.MouseEvent) => void;
+  onToggle?: () => void;
+  selectedValue?: string | { name: string }[];
+  showMenu?: boolean;
+};

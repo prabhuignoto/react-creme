@@ -1,11 +1,11 @@
 import React from 'react';
 import { Dropdown } from '../../../lib/components';
 
-export const SingleSelection = () => (
+export const SingleSelection = (
   <Dropdown
     maxMenuHeight={300}
     placeholder="choose a country"
-    onSelected={(val) => console.log(val)}
+    onSelected={val => console.log(val)}
     options={[
       {
         disabled: true,
@@ -20,9 +20,9 @@ export const SingleSelection = () => (
   />
 );
 
-export const MultiSelection = () => (
+export const MultiSelection = (
   <Dropdown
-    onSelected={(val) => console.log(val)}
+    onSelected={val => console.log(val)}
     placeholder="choose a country"
     allowMultiSelection
     maxMenuHeight={300}
@@ -50,11 +50,11 @@ export const MultiSelection = () => (
   />
 );
 
-export const Searchable = () => (
+export const Searchable = (
   <Dropdown
     maxMenuHeight={300}
     placeholder="choose a country"
-    onSelected={(val) => console.log(val)}
+    onSelected={val => console.log(val)}
     enableSearch
     options={[
       {
@@ -74,11 +74,11 @@ export const Searchable = () => (
   />
 );
 
-export const Virtualized = () => (
+export const Virtualized = (
   <Dropdown
     maxMenuHeight={300}
     placeholder="choose a country"
-    onSelected={(val) => console.log(val)}
+    onSelected={val => console.log(val)}
     virtualize
     enableSearch
     options={[
@@ -107,11 +107,11 @@ export const Virtualized = () => (
   />
 );
 
-export const RTL = () => (
+export const RTL = (
   <Dropdown
     maxMenuHeight={300}
     placeholder="choose a country"
-    onSelected={(val) => console.log(val)}
+    onSelected={val => console.log(val)}
     enableSearch
     RTL
     focusable

@@ -8,7 +8,7 @@ import { TransferListInternalModel, TransferProps } from './transfer-model';
 import './transfer.scss';
 
 const initMapper = (list: string[]) =>
-  list.map((item) => ({
+  list.map(item => ({
     id: nanoid(),
     name: item,
     selected: false,
@@ -43,20 +43,20 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
   const transfer = useCallback(
     (dir: string) => {
       if (dir === 'right') {
-        setRightList((prev) => prev.concat(leftSelected));
-        const leftSelectedIds = leftSelected.map((item) => item.id);
-        setLeftList((prev) =>
-          prev.filter((item) => !leftSelectedIds.includes(item.id))
+        setRightList(prev => prev.concat(leftSelected));
+        const leftSelectedIds = leftSelected.map(item => item.id);
+        setLeftList(prev =>
+          prev.filter(item => !leftSelectedIds.includes(item.id))
         );
-        setRightSelected((prev) => prev.concat(leftSelected));
+        setRightSelected(prev => prev.concat(leftSelected));
         setLeftSelected([]);
       } else {
-        setLeftList((prev) => prev.concat(rightSelected));
-        const rightSelectedIds = rightSelected.map((item) => item.id);
-        setRightList((prev) =>
-          prev.filter((item) => !rightSelectedIds.includes(item.id))
+        setLeftList(prev => prev.concat(rightSelected));
+        const rightSelectedIds = rightSelected.map(item => item.id);
+        setRightList(prev =>
+          prev.filter(item => !rightSelectedIds.includes(item.id))
         );
-        setLeftSelected((prev) => prev.concat(rightSelected));
+        setLeftSelected(prev => prev.concat(rightSelected));
         setRightSelected([]);
       }
     },
@@ -65,9 +65,9 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
 
   const handleListSelectionLeft = useCallback((sel: any[]) => {
     setLeftSelected(sel);
-    const selIds = sel.map((item) => item.id);
-    setLeftList((prev) =>
-      prev.map((item) => ({
+    const selIds = sel.map(item => item.id);
+    setLeftList(prev =>
+      prev.map(item => ({
         ...item,
         selected: selIds.includes(item.id),
       }))
@@ -76,9 +76,9 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
 
   const handleListSelectionRight = useCallback((sel: any[]) => {
     setRightSelected(sel);
-    const selIds = sel.map((item) => item.id);
-    setRightList((prev) =>
-      prev.map((item) => ({
+    const selIds = sel.map(item => item.id);
+    setRightList(prev =>
+      prev.map(item => ({
         ...item,
         selected: selIds.includes(item.id),
       }))
@@ -88,8 +88,8 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
   useEffect(() => {
     if (onChange && !isFirstRender.current) {
       onChange(
-        leftList.map((item) => item.name),
-        rightList.map((item) => item.name)
+        leftList.map(item => item.name),
+        rightList.map(item => item.name)
       );
     }
   }, [leftList.length, rightList.length]);

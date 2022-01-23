@@ -44,14 +44,14 @@ function widgets() {
                 value: 'info',
               },
             ]}
-            onSelected={(value) => {
+            onSelected={value => {
               setState(value as GlobalNotificationState);
             }}
           />
         </div>
         <div className="rc-demo-widget">
           <Button
-            onClick={() => setShow((prev) => !prev)}
+            onClick={() => setShow(prev => !prev)}
             label="Open Global Notification"
           />
         </div>

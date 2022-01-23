@@ -10,6 +10,7 @@ import './dropdown.scss';
 
 const DropdownMenuOverlay = withOverlay<DropdownMenuProps>(DropDownMenu, {
   backdropColor: 'transparent',
+  disableBackdrop: true,
 });
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
@@ -29,7 +30,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
   }: DropdownProps) => {
     // options states
     const [dropdownOptions, setDropdownOptions] = useState(
-      options.map((option) => ({
+      options.map(option => ({
         id: nanoid(),
         ...option,
         visible: true,
@@ -40,8 +41,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const [value, setValue] = useState(
       options.length
         ? options
-            .filter((opt) => opt.selected)
-            .map((t) => t.name)
+            .filter(opt => opt.selected)
+            .map(t => t.name)
             .join(',')
         : ''
     );
@@ -61,11 +62,11 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       let _value: string | string[] = '';
 
       if (allowMultiSelection) {
-        _value = selected.map((opt) => opt.value).join(',');
-        const selectedIds = selected.map((item) => item.id);
+        _value = selected.map(opt => opt.value).join(',');
+        const selectedIds = selected.map(item => item.id);
         setValue(_value);
-        setDropdownOptions((options) =>
-          options.map((option) => ({
+        setDropdownOptions(options =>
+          options.map(option => ({
             ...option,
             selected: selectedIds.indexOf(option.id) > -1,
           }))
@@ -74,8 +75,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
         const { id, value } = selected[0];
         _value = value || '';
         setValue(_value);
-        setDropdownOptions((options) =>
-          options.map((option) => ({
+        setDropdownOptions(options =>
+          options.map(option => ({
             ...option,
             selected: option.id === id,
           }))
@@ -89,10 +90,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     }, []);
 
     // toggles the dropdown menu
-    const handleToggleMenu = useCallback(
-      () => setShowMenu((prev) => !prev),
-      []
-    );
+    const handleToggleMenu = useCallback(() => setShowMenu(prev => !prev), []);
 
     // handles the menu closure
     const handleMenuClose = useCallback(() => {
@@ -119,8 +117,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       ev.preventDefault();
       // ev.stopPropagation();
       setValue('');
-      setDropdownOptions((options) =>
-        options.map((option) => ({
+      setDropdownOptions(options =>
+        options.map(option => ({
           ...option,
           selected: false,
         }))
@@ -135,8 +133,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       if (value !== placeholder && value && allowMultiSelection) {
         return value
           .split(',')
-          .filter((f) => !!f)
-          .map((t) => ({
+          .filter(f => !!f)
+          .map(t => ({
             name: t,
           }));
       } else {
@@ -151,11 +149,6 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
           'rc-dropdown-disabled': disabled,
         }),
       [disabled]
-    );
-
-    const canHideClearButton = useMemo(
-      () => !showClearBtn || disabled || selectedValue === placeholder,
-      [disabled, selectedValue]
     );
 
     return (

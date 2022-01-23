@@ -55,7 +55,10 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
 
 const SuggestionsMenuOverlay = withOverlay<SuggestionsOverlayModel>(
   SuggestionsMenu,
-  { disableBackdrop: true, placement: 'bottom' }
+  {
+    disableBackdrop: true,
+    placement: 'bottom',
+  }
 );
 
 const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
@@ -89,7 +92,7 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [input, setInput] = React.useState<string | undefined>('');
-  const [selected, setSelected] = React.useState<Boolean>(false);
+  const [selected, setSelected] = React.useState<boolean>(false);
 
   const onChangeDebounced = useDebouncedCallback(() => {
     input && onChange?.(input);
@@ -104,14 +107,14 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
     if (apiBacked && suggestionItems.length) {
       return true;
     } else if (!selected && regexTester) {
-      return suggestionItems.some((item) => regexTester.test(item.name));
+      return suggestionItems.some(item => regexTester.test(item.name));
     }
   }, [regexTester, selected, isDirty, suggestionItems.length, apiBacked]);
 
   const listItems = useMemo<Option[]>(
     () =>
       regexTester
-        ? suggestionItems.filter((item) => regexTester.test(item.name))
+        ? suggestionItems.filter(item => regexTester.test(item.name))
         : [],
     [matchFound, regexTester, isDirty]
   );
@@ -129,7 +132,10 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
         const { name, value } = selectedItem;
         setInput(name);
         setSelected(true);
-        onSelection?.({ name, value: value || '' });
+        onSelection?.({
+          name,
+          value: value || '',
+        });
       }
       inputRef.current?.focus();
     }

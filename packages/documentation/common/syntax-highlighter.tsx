@@ -1,9 +1,9 @@
-import React from "react";
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/light-async";
-import { tomorrowNightBright } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { CopyIcon } from "../../lib/icons";
-import { Notification } from "../../lib/components/notification/notification";
-import "./syntax-highlighter.scss";
+import React from 'react';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { Notification } from '../../lib/components/notification/notification';
+import { CopyIcon } from '../../lib/icons';
+import './syntax-highlighter.scss';
 
 interface CodeModel {
   code?: string;
@@ -31,7 +31,7 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
           width={80}
           height={30}
         >
-          <span style={{ padding: "0.5rem" }}>Copied</span>
+          <span style={{ padding: '0.5rem' }}>Copied</span>
         </Notification>
       )}
       <span
@@ -45,7 +45,7 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
       <SyntaxHighlighter
         language="javascript"
         useInlineStyles={true}
-        style={{ ...tomorrowNightBright, height: "100%" }}
+        style={{ ...nightOwl, height: '100%' }}
       >
         {code}
       </SyntaxHighlighter>

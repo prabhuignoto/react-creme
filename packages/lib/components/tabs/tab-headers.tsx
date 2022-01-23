@@ -51,7 +51,10 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
       const newLeft = Math.max(0, scrollLeft - (clientWidth * 1) / 2);
 
       tabHeaders.scrollLeft = newLeft;
-      setScrollLeftCurrent({ dir: 'left', value: newLeft });
+      setScrollLeftCurrent({
+        dir: 'left',
+        value: newLeft,
+      });
     }
   }, []);
 
@@ -61,11 +64,14 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
       const { scrollLeft, clientWidth } = tabHeaders;
       const newLeft = scrollLeft + (clientWidth * 1) / 2;
       tabHeaders.scrollLeft = newLeft;
-      setScrollLeftCurrent({ dir: 'right', value: newLeft });
+      setScrollLeftCurrent({
+        dir: 'right',
+        value: newLeft,
+      });
     }
   }, []);
 
-  const onHeadersRef = useCallback((node) => {
+  const onHeadersRef = useCallback(node => {
     tabHeadersRef.current = node;
     setHeaderWidth(node?.scrollWidth || 0);
   }, []);
@@ -117,7 +123,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   return (
     <header className={tabHeadersWrapperClass}>
       <div className={tabHeadersClass} ref={onHeadersRef} role="tablist">
-        {items.map(({ id, name, selected, disabled }, index) => (
+        {items.map(({ id, name, disabled }, index) => (
           <TabHead
             key={id}
             id={id}
@@ -139,7 +145,9 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
             className={classNames(
               'rc-tab-header-btn',
               'rc-tab-header-btn-left',
-              { 'rc-tab-header-btn-disabled': disableScrollLeft }
+              {
+                'rc-tab-header-btn-disabled': disableScrollLeft,
+              }
             )}
             role="button"
             onClick={scrollLeft}

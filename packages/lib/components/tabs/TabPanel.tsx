@@ -8,7 +8,9 @@ const TabPanel: React.FunctionComponent<TabPanelProps> = ({
   id,
 }: TabPanelProps) => {
   const tabPanelClass = useMemo(() => {
-    return classNames('rc-tab-panel', { 'rc-tab-panel-disabled': disabled });
+    return classNames('rc-tab-panel', {
+      'rc-tab-panel-disabled': disabled,
+    });
   }, []);
   return (
     <div

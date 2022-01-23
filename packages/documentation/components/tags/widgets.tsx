@@ -38,9 +38,7 @@ function widgets() {
             can be removed by clicking on the close icon on the tag.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: resolvedWidth }}>
-              <Default />
-            </div>
+            <div style={{ width: resolvedWidth }}>{Default}</div>
           </DemoWidget>
         </Section>
         <Section title="Tags - Filled style">
@@ -48,9 +46,7 @@ function widgets() {
             Tags can be disabled by setting the disabled property to true.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: resolvedWidth }}>
-              <Disabled />
-            </div>
+            <div style={{ width: resolvedWidth }}>{Disabled}</div>
           </DemoWidget>
         </Section>
         <Section title="Tags - Readonly">
@@ -59,9 +55,7 @@ function widgets() {
             the list.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: resolvedWidth }}>
-              <ReadOnly />
-            </div>
+            <div style={{ width: resolvedWidth }}>{ReadOnly}</div>
           </DemoWidget>
         </Section>
         <Section title="Tags - AutoComplete">
@@ -70,9 +64,7 @@ function widgets() {
             the list.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: resolvedWidth }}>
-              <AutoComplete />
-            </div>
+            <div style={{ width: resolvedWidth }}>{AutoComplete}</div>
           </DemoWidget>
         </Section>
       </div>

@@ -26,15 +26,15 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
     }))
   );
 
-  const onInit = useCallback((node) => {
+  const onInit = useCallback(node => {
     if (node) {
       const width = node.clientWidth - 30;
       const width2 = Math.round(width / 2);
 
-      setSkeletonBlocks((blocks) =>
-        blocks.map((item) => ({
+      setSkeletonBlocks(blocks =>
+        blocks.map(item => ({
           ...item,
-          rows: item.rows.map((row) => ({
+          rows: item.rows.map(row => ({
             ...row,
             visible: true,
             width: Math.max(
@@ -63,7 +63,7 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
         >
           {showCircle && <div className="rc-skeleton-circle" />}
           {rows.map(
-            (row) =>
+            row =>
               row.visible && (
                 <SkeletonRow
                   {...row}

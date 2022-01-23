@@ -18,7 +18,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
 }) => {
   const [_items, setItems] = useState<RadioGroupItemProps[]>(
     Array.isArray(items)
-      ? items.map((item) => ({
+      ? items.map(item => ({
           id: nanoid(),
           ...item,
           disabled: typeof disabled !== 'undefined' ? disabled : item.disabled,
@@ -31,8 +31,8 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   const handleChange = useCallback(
     ({ id }: { checked?: boolean; id?: string }) => {
       if (active.current !== id) {
-        setItems((prev) =>
-          prev.map((item) => ({
+        setItems(prev =>
+          prev.map(item => ({
             ...item,
             checked: item.id === id || false,
             isChecked: item.id === id || false,
@@ -47,7 +47,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
 
   useEffect(() => {
     if (!isFirstRender.current) {
-      const foundItem = _items.find((item) => item.checked);
+      const foundItem = _items.find(item => item.checked);
       const value = foundItem ? foundItem.value : undefined;
 
       if (value && onSelected) {

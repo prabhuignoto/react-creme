@@ -14,7 +14,9 @@ import './tree-item.scss';
 import { TreeItemProps } from './tree-model';
 
 const LazyTree = React.lazy(() =>
-  import('./tree').then(({ Tree }) => ({ default: Tree }))
+  import('./tree').then(({ Tree }) => ({
+    default: Tree,
+  }))
 );
 
 const TreeItem: React.FunctionComponent<TreeItemProps> = React.memo(
@@ -148,16 +150,13 @@ const TreeItem: React.FunctionComponent<TreeItemProps> = React.memo(
       onChange?.(name);
     }, []);
 
-    const handleOnChange = useCallback((_name) => {
+    const handleOnChange = useCallback(_name => {
       onChange?.(`${name} > ${_name}`);
     }, []);
 
     return (
       <div className={itemClass} style={itemStyle} role="treeitem">
-        <span
-          className={iconClass}
-          onClick={(ev) => id && handleToggle(ev, id)}
-        >
+        <span className={iconClass} onClick={ev => id && handleToggle(ev, id)}>
           {iconType === 'chevron' && <ChevronRightIcon />}
           {iconType === 'plus' && !expanded && <PlusIcon />}
           {iconType === 'plus' && expanded && <MinusIcon />}

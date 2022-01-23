@@ -117,7 +117,7 @@ function widgets() {
               <DataGrid
                 layoutStyle="comfortable"
                 border
-                columns={columns.map((x) => {
+                columns={columns.map(x => {
                   if (x.name === 'name') {
                     return { ...x, sortable: true };
                   } else {

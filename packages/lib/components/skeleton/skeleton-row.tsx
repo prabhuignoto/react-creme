@@ -3,8 +3,11 @@ import React, { CSSProperties, FunctionComponent, useMemo } from 'react';
 import { SkeletonRowProps } from './skeleton-model';
 
 const SkeletonRow: FunctionComponent<
-  SkeletonRowProps & { animate?: boolean; rowHeight?: number }
-> = ({ id, visible, width, animate, rowHeight, disableAnimation }) => {
+  SkeletonRowProps & {
+    animate?: boolean;
+    rowHeight?: number;
+  }
+> = ({ id, width, animate, rowHeight, disableAnimation }) => {
   const skeletonRowClass = useMemo(
     () =>
       classNames('rc-skeleton-row', {

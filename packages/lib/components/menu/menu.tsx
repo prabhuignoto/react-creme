@@ -58,7 +58,7 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
   style,
 }: MenuProps) => {
   const [menuItems] = useState<MenuItemProps[]>(
-    items.map((item) => ({
+    items.map(item => ({
       id: nanoid(),
       ...item,
     }))
@@ -70,8 +70,8 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
   const [showMenu, setShowMenu] = useState(false);
 
   // HANDLERS
-  const toggleMenu = useCallback((ev: React.MouseEvent | KeyboardEvent) => {
-    setShowMenu((prev) => {
+  const toggleMenu = useCallback(() => {
+    setShowMenu(prev => {
       if (prev) {
         onClose?.();
       }
@@ -81,7 +81,7 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
 
   if (focusable) {
     useFocusNew(wrapperRef, () => {
-      setShowMenu((prev) => !prev);
+      setShowMenu(prev => !prev);
     });
   }
 
@@ -98,7 +98,7 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
     }
   }, [showMenu]);
 
-  const handleSelection = useCallback((name) => {
+  const handleSelection = useCallback(name => {
     if (onSelected) {
       onSelected(name);
     }
@@ -106,7 +106,7 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
     onClose?.();
   }, []);
 
-  const onInitRef = useCallback((node) => {
+  const onInitRef = useCallback(node => {
     if (node) {
       wrapperRef.current = node;
     }

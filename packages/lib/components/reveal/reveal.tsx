@@ -23,12 +23,12 @@ const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
     }
   }, [parent.current]);
 
-  const onRef = useCallback((node) => {
+  const onRef = useCallback(node => {
     if (node && parent.current) {
       ref.current = node;
       observer.current = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
+        entries => {
+          entries.forEach(entry => {
             setVisible(entry.isIntersecting);
           });
         },

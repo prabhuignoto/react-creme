@@ -15,7 +15,11 @@ export interface CheckboxGroupProps {
   layout?: 'horizontal' | 'vertical';
   noUniqueIds?: boolean;
   onChange?: (
-    selected: { id?: string; isChecked: boolean; name?: string }[]
+    selected: {
+      id?: string;
+      isChecked: boolean;
+      name?: string;
+    }[]
   ) => void;
   options: CheckboxProps[];
 }
@@ -41,7 +45,7 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
 
   const [items, setItems] = React.useState(
     options
-      ? options.map((option) => ({
+      ? options.map(option => ({
           ...(!noUniqueIds ? { id: nanoid() } : { id: option.id }),
           ...option,
           isChecked: option.isChecked || false,
@@ -51,8 +55,8 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
 
   const handleChange = useCallback(
     (id: string, name: string, selected: boolean) => {
-      setItems((items) => {
-        const _newItems = items.map((item) => {
+      setItems(items => {
+        const _newItems = items.map(item => {
           return {
             ...item,
             isChecked: item.id === id ? selected : !!item.isChecked,
@@ -68,20 +72,20 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   useEffect(() => {
     if (!isFirstRender.current) {
       onChange?.(
-        items.map((item) => ({
+        items.map(item => ({
           id: item.id,
           isChecked: item.isChecked,
           name: item.label,
         }))
       );
     }
-  }, [JSON.stringify(items.map((i) => i.isChecked))]);
+  }, [JSON.stringify(items.map(i => i.isChecked))]);
 
   const isFirstRender = useFirstRender();
 
   return (
     <div className={wrapperClass} role="group">
-      {items.map((item) => {
+      {items.map(item => {
         const { id, ...rest } = item;
         return (
           <CheckBox

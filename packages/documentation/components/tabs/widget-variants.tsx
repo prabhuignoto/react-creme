@@ -14,7 +14,7 @@ const icons = [
   <Settings key="9" />,
 ];
 
-export const Default = () => (
+export const Default = (
   <Tabs
     labels={[
       'one',
@@ -44,7 +44,7 @@ export const Default = () => (
   </Tabs>
 );
 
-export const Rounded = () => (
+export const Rounded = (
   <Tabs
     labels={['one', 'two', 'three', 'four']}
     border={false}
@@ -58,7 +58,7 @@ export const Rounded = () => (
   </Tabs>
 );
 
-export const Disabled = () => (
+export const Disabled = (
   <Tabs
     labels={['one', 'two', 'three']}
     tabStyle="flat"
@@ -70,7 +70,7 @@ export const Disabled = () => (
   </Tabs>
 );
 
-export const Icons = () => (
+export const Icons = (
   <Tabs
     labels={[
       'one',

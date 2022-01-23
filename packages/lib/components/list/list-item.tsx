@@ -22,7 +22,13 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
     focus,
   }: ListItemProps) => {
     const handleSelection = useCallback(() => {
-      onSelection && onSelection({ id, name, selected: !selected, value });
+      onSelection &&
+        onSelection({
+          id,
+          name,
+          selected: !selected,
+          value,
+        });
     }, []);
 
     const ref = useRef<HTMLLIElement>(null);

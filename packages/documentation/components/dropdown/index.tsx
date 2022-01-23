@@ -59,6 +59,27 @@ function dropdown() {
           optional: 'Yes',
           type: 'Boolean',
         },
+        {
+          default: 'False',
+          description: 'Right to left support',
+          name: 'RTL',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: '',
+          description: 'Color of the Chevron icon',
+          name: 'chevronIconColor',
+          optional: 'Yes',
+          type: 'String',
+        },
+        {
+          default: 'true',
+          description: 'Shows the  clear button',
+          name: 'showClearBtn',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-b9syfa']}

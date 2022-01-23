@@ -21,10 +21,16 @@ type SwipeFunc = (
 ) => SwipeState;
 
 const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
-  const swipeStarted = useRef<Boolean>(false);
+  const swipeStarted = useRef<boolean>(false);
   const rect = useRef<DOMRect | null>(null);
-  const startPosition = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-  const endPosition = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const startPosition = useRef<{
+    x: number;
+    y: number;
+  }>({ x: 0, y: 0 });
+  const endPosition = useRef<{
+    x: number;
+    y: number;
+  }>({ x: 0, y: 0 });
 
   const threshold = SwipeStrengthSettings[strength];
 
@@ -77,8 +83,14 @@ const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
       if (left !== null) {
         setSwipeState(
           left
-            ? { dir: 'LEFT', offset: Math.abs(diffX) }
-            : { dir: 'RIGHT', offset: Math.abs(diffX) }
+            ? {
+                dir: 'LEFT',
+                offset: Math.abs(diffX),
+              }
+            : {
+                dir: 'RIGHT',
+                offset: Math.abs(diffX),
+              }
         );
       }
     } else {
@@ -87,8 +99,14 @@ const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
       if (top !== null) {
         setSwipeState(
           top
-            ? { dir: 'TOP', offset: Math.abs(diffY) }
-            : { dir: 'BOTTOM', offset: Math.abs(diffY) }
+            ? {
+                dir: 'TOP',
+                offset: Math.abs(diffY),
+              }
+            : {
+                dir: 'BOTTOM',
+                offset: Math.abs(diffY),
+              }
         );
       }
     }

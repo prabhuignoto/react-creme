@@ -21,7 +21,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = ({
         'rc-menu-item-disabled': disabled,
         'rc-menu-item-divider': isDivider,
       })}
-      onClick={(ev) => {
+      onClick={ev => {
         ev.preventDefault();
         ev.stopPropagation();
         if (!disabled && name) {

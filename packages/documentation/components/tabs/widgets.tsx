@@ -35,56 +35,46 @@ function widgets() {
             In flat mode, the tabs are rendered as a horizontal list of tabs
             with a flat accent.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Default />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="Rounded tabs">
           <BlockQuote>
             In rounded mode, the tabs are rendered as a horizontal list of tabs
             with rounded borders.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Rounded />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Rounded}</DemoWidget>
         </Section>
         <Section title="Rounded tabs with scroll">
           <BlockQuote>
             When the tabs are too long to fit in the available space, they can
             be scrolled with the help of the buttons to the right.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Tabs
-                labels={[
-                  'one',
-                  'two',
-                  'three',
-                  'four',
-                  'five',
-                  'six',
-                  'seven',
-                  'eight',
-                  'nine',
-                ]}
-                tabStyle="rounded"
-                border={false}
-              >
-                <span>one</span>
-                <span>two</span>
-                <span>three</span>
-                <span>four</span>
-                <span>five</span>
-                <span>six</span>
-                <span>seven</span>
-                <span>eight</span>
-                <span>nine</span>
-              </Tabs>
-            </div>
+          <DemoWidget width={width}>
+            <Tabs
+              labels={[
+                'one',
+                'two',
+                'three',
+                'four',
+                'five',
+                'six',
+                'seven',
+                'eight',
+                'nine',
+              ]}
+              tabStyle="rounded"
+              border={false}
+            >
+              <span>one</span>
+              <span>two</span>
+              <span>three</span>
+              <span>four</span>
+              <span>five</span>
+              <span>six</span>
+              <span>seven</span>
+              <span>eight</span>
+              <span>nine</span>
+            </Tabs>
           </DemoWidget>
         </Section>
         <Section title="Flat tabs (Disabled)">
@@ -92,22 +82,14 @@ function widgets() {
             Specific tabs can be disabled by passing an array of tab labels to
             the <em>disabledTabs</em> array
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Disabled />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Disabled}</DemoWidget>
         </Section>
         <Section title="Tabs with Icons">
           <BlockQuote>
             Specific tabs can be disabled by passing an array of tab labels to
             the <em>disabledTabs</em> array
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Icons />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Icons}</DemoWidget>
         </Section>
       </div>
     )
