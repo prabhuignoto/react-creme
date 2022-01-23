@@ -1,41 +1,46 @@
-import React from "react";
-import { CodeIcon } from "../../lib/icons";
-import { Accordion } from "../../lib/components";
-import "./demo-widget.scss";
-import { Code } from "./syntax";
+import React, { CSSProperties } from 'react';
+import { Accordion } from '../../lib/components';
+import { CodeIcon } from '../../lib/icons';
+import './demo-widget.scss';
+import { Code } from './syntax';
 
 interface WidgetProps {
   children: React.ReactNode;
-  layout?: "horizontal" | "vertical";
-  width?: string | number;
-  fullWidth?: boolean;
-  showCodeByDefault?: boolean;
+  component?: React.ReactNode;
   customTitle?: string;
+  fullWidth?: boolean;
+  layout?: 'horizontal' | 'vertical';
+  showCodeByDefault?: boolean;
+  style?: CSSProperties;
+  width?: string | number;
 }
 
 const DemoWidget: React.FC<WidgetProps> = React.memo(
   ({
     children,
-    layout = "vertical",
-    width,
+    layout = 'vertical',
     fullWidth = false,
     showCodeByDefault = false,
-    customTitle = "Show Code",
+    customTitle = 'Show Code',
+    component,
+    width,
   }: WidgetProps) => {
     return (
       <div
         className="rc-demo-widget"
         style={{
-          alignItems: "flex-start",
-          display: "flex",
-          flexDirection: layout === "horizontal" ? "row" : "column",
-          justifyContent: "flex-start",
+          alignItems: 'flex-start',
+          display: 'flex',
+          flexDirection: layout === 'horizontal' ? 'row' : 'column',
+          justifyContent: 'flex-start',
         }}
       >
-        <div style={{ margin: "0.5rem 0", width: fullWidth ? "100%" : "" }}>
+        <div
+          style={{ margin: '0.5rem 0', width: width ? `${width}px` : '100%' }}
+        >
           {children}
         </div>
-        <div style={{ width: "100%" }}>
+        <div style={{ width: '100%' }}>
           <Accordion
             title={customTitle}
             border={false}
@@ -53,7 +58,6 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
   }
 );
 
-DemoWidget.displayName = "DemoWidget";
+DemoWidget.displayName = 'DemoWidget';
 
 export { DemoWidget };
-

@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckBox } from '../../../lib/components';
 
-export const Default = () => (
+export const Default = (
   <CheckBox
     label="Choose your preferred option"
     onChange={ele => console.log(ele)}
@@ -9,7 +9,7 @@ export const Default = () => (
   />
 );
 
-export const Disabled = () => (
+export const Disabled = (
   <CheckBox
     label="This option is disabled"
     onChange={ele => console.log(ele)}
@@ -18,7 +18,7 @@ export const Disabled = () => (
   />
 );
 
-export const Large = () => (
+export const Large = (
   <CheckBox
     label="Choose this option"
     onChange={ele => console.log(ele)}
@@ -29,7 +29,7 @@ export const Large = () => (
   />
 );
 
-export const CustomStyle = () => (
+export const CustomStyle = (
   <CheckBox
     onChange={ele => console.log(ele)}
     label="Choose this option"

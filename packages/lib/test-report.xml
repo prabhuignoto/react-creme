@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\dropdown\__tests__\dropdown-menu.test.tsx">
-    <testCase name="Dropdown menu should render dropdown menu" duration="204"/>
-  </file>
-  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\dropdown\__tests__\dropdown.test.tsx">
-    <testCase name="Dropdown should handler be called" duration="343"/>
-    <testCase name="Dropdown should auto close menu" duration="330"/>
-    <testCase name="Dropdown should render disabled" duration="8"/>
-    <testCase name="Dropdown should render allowMultiSelection mode" duration="44"/>
-    <testCase name="Dropdown should clear selection on pressing the clear button" duration="120"/>
+  <file path="D:\Projects\2020\react-phalladium\packages\lib\components\list\__tests__\list.test.tsx">
+    <testCase name="List should render list" duration="111"/>
+    <testCase name="List should call handler" duration="109"/>
+    <testCase name="List should handle search" duration="37"/>
+    <testCase name="List should render multi selection" duration="117"/>
   </file>
 </testExecutions>

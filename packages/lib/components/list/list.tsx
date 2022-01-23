@@ -13,7 +13,6 @@ import { useDebouncedCallback } from 'use-debounce';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { isUndefined } from '../common/utils';
-import { Option } from '../dropdown/dropdown-model';
 import { Input } from '../input/input';
 import { ListItem } from './list-item';
 import { ListOption, ListProps } from './list-model';
@@ -125,7 +124,7 @@ const List: React.FunctionComponent<ListProps> = ({
     setRenderTrigger(Date.now());
   }, []);
 
-  const handleSelection = (opt: Option) => {
+  const handleSelection = (opt: ListOption) => {
     if (allowMultiSelection) {
       setListOptions(prev => {
         const updated = prev.map(option => ({
@@ -151,7 +150,13 @@ const List: React.FunctionComponent<ListProps> = ({
 
   useEffect(() => {
     if (selected && onSelection) {
-      onSelection(selected);
+      onSelection(
+        selected.map(({ name, value, id }) => ({
+          id,
+          name,
+          value,
+        }))
+      );
     }
   }, [selected]);
 

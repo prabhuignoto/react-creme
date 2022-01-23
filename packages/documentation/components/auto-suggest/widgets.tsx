@@ -6,9 +6,7 @@ import { Default } from './widget-variants';
 function Widgets() {
   return (
     <Section title="Default Render">
-      <DemoWidget>
-        <Default />
-      </DemoWidget>
+      <DemoWidget width={300}>{Default}</DemoWidget>
     </Section>
   );
 }

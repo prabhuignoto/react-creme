@@ -14,37 +14,25 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Rating default">
-        <DemoWidget>
-          <Default />
-        </DemoWidget>
+        <DemoWidget>{Default}</DemoWidget>
       </Section>
       <Section title="Custom icon count">
         <BlockQuote>You can choose the number of icons to display.</BlockQuote>
-        <DemoWidget>
-          <CustomIconCount />
-        </DemoWidget>
+        <DemoWidget>{CustomIconCount}</DemoWidget>
       </Section>
       <Section title="Custom Icon">
         <BlockQuote>You can set the custom icon.</BlockQuote>
-        <DemoWidget>
-          <CustomIcon />
-        </DemoWidget>
+        <DemoWidget>{CustomIcon}</DemoWidget>
       </Section>
       <Section title="Custom size">
         <BlockQuote>The size of the icon can be customized too</BlockQuote>
-        <DemoWidget>
-          <CustomSize />
-        </DemoWidget>
+        <DemoWidget>{CustomSize}</DemoWidget>
       </Section>
       <Section title="Disabled state">
-        <DemoWidget>
-          <Disabled />
-        </DemoWidget>
+        <DemoWidget>{Disabled}</DemoWidget>
       </Section>
       <Section title="RTL">
-        <DemoWidget>
-          <RTL />
-        </DemoWidget>
+        <DemoWidget>{RTL}</DemoWidget>
       </Section>
     </div>
   );

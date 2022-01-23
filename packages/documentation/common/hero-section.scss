@@ -12,12 +12,12 @@
   column-gap: 1rem;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: repeat(3, 100px);
+  grid-template-rows: repeat(4, 80px);
   justify-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
-  row-gap: 1rem;
+  row-gap: 1.5rem;
 
   @media (max-width: 480px) {
     align-items: center;

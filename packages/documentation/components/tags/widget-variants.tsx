@@ -9,7 +9,7 @@ const items = [
   { disabled: true, name: 'RUST' },
 ];
 
-export const Default = () => (
+export const Default = (
   <Tags
     placeholder="Choose a language..."
     items={items}
@@ -20,7 +20,7 @@ export const Default = () => (
   />
 );
 
-export const Disabled = () => (
+export const Disabled = (
   <Tags
     placeholder="Choose a language..."
     items={items}
@@ -31,7 +31,7 @@ export const Disabled = () => (
   />
 );
 
-export const ReadOnly = () => (
+export const ReadOnly = (
   <Tags
     placeholder="Choose a language..."
     items={items}
@@ -42,7 +42,7 @@ export const ReadOnly = () => (
   />
 );
 
-export const AutoComplete = () => (
+export const AutoComplete = (
   <Tags
     placeholder="Choose a language..."
     items={items}

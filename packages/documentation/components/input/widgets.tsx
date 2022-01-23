@@ -7,30 +7,24 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render">
-        <DemoWidget>
-          <div style={{ width: '200px' }}>
-            <Input enableClear></Input>
-          </div>
+        <DemoWidget width={200}>
+          <Input enableClear></Input>
         </DemoWidget>
       </Section>
       <Section title="Input with a custom Icon">
         <BlockQuote>Use a custom icon inside the input.</BlockQuote>
-        <DemoWidget>
-          <div style={{ width: '200px' }}>
-            <Input enableClear focusable>
-              <ChevronRightIcon />
-            </Input>
-          </div>
+        <DemoWidget width={200}>
+          <Input enableClear focusable>
+            <ChevronRightIcon />
+          </Input>
         </DemoWidget>
       </Section>
       <Section title="Input with border">
         <BlockQuote>Use a custom icon inside the input.</BlockQuote>
-        <DemoWidget>
-          <div style={{ width: '200px' }}>
-            <Input enableClear border>
-              <ChevronRightIcon />
-            </Input>
-          </div>
+        <DemoWidget width={200}>
+          <Input enableClear border>
+            <ChevronRightIcon />
+          </Input>
         </DemoWidget>
       </Section>
       <Section title="States">
@@ -38,24 +32,18 @@ function Widgets() {
           Inputs can be configured to have different states. The example below
           shows input in error and success state
         </BlockQuote>
-        <DemoWidget>
-          <div style={{ width: '200px' }}>
-            <Input enableClear state="error" focusable></Input>
-          </div>
+        <DemoWidget width={200}>
+          <Input enableClear state="error" focusable></Input>
         </DemoWidget>
-        <DemoWidget>
-          <div style={{ width: '200px' }}>
-            <Input enableClear state="success"></Input>
-          </div>
+        <DemoWidget width={200}>
+          <Input enableClear state="success"></Input>
         </DemoWidget>
       </Section>
       <Section title="RTL">
-        <DemoWidget>
-          <div style={{ width: '200px' }}>
-            <Input enableClear focusable RTL>
-              <ChevronRightIcon />
-            </Input>
-          </div>
+        <DemoWidget width={200}>
+          <Input enableClear focusable RTL>
+            <ChevronRightIcon />
+          </Input>
         </DemoWidget>
       </Section>
     </div>

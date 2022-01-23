@@ -67,8 +67,8 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   }, [wrapperDimensions.height, wrapperDimensions.width, imagesLoaded]);
 
   // callback executed on first image load
-  const onImageLoad = useCallback((ev: any) => {
-    const { width, height } = ev.target;
+  const onImageLoad = useCallback((ev: React.SyntheticEvent) => {
+    const { width, height } = ev.target as HTMLImageElement;
 
     setWrapperDimensions({
       height: height,

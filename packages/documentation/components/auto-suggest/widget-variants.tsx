@@ -1,7 +1,7 @@
 import React from 'react';
 import { AutoSuggest } from '../../../lib/components';
 
-export const Default = () => (
+export const Default = (
   <AutoSuggest
     focusable
     placeholder="Choose a name"

@@ -3,7 +3,7 @@ import { RefObject, useCallback, useEffect, useRef } from 'react';
 function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
   const targetRef = useRef<HTMLElement | null>(null);
 
-  const addClass = (ev: FocusEvent | KeyboardEvent) => {
+  const addClass = () => {
     const ele = targetRef.current as HTMLElement;
     const classesToAdd = ['rc-focus', 'rc-halo'];
     const classesToRemove = ['rc-de-halo'];
@@ -40,7 +40,7 @@ function useFocus(element: RefObject<HTMLElement>, cb?: () => void) {
   const handleKeyboard = useCallback((ev: KeyboardEvent) => {
     if (ev.key === 'Enter' || ev.key === ' ' || ev.key === 'Spacebar') {
       ev.preventDefault();
-      addClass(ev);
+      addClass();
 
       if (cb) {
         cb();

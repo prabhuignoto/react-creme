@@ -5,10 +5,10 @@ import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {
   MultiSelection,
+  RTL,
   Searchable,
   SingleSelection,
   Virtualized,
-  RTL,
 } from './widget-variants';
 
 function Widgets() {
@@ -37,52 +37,34 @@ function Widgets() {
       <div className="rc-demo-widgets">
         <Section title="Single selection">
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <SingleSelection />
-            </div>
+            <div style={{ width: `${width}px` }}>{SingleSelection}</div>
           </DemoWidget>
         </Section>
         <Section title="Multi selection">
           <BlockQuote>
             With multi selection, you can select multiple options.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <MultiSelection />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{MultiSelection}</DemoWidget>
         </Section>
         <Section title="Search">
           <BlockQuote>
             Available options can be filtered by typing in the search box.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Searchable />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Searchable}</DemoWidget>
         </Section>
         <Section title="Virtualized">
           <BlockQuote>
             With virtualized, the options are rendered only when they are in the
             viewport of the menu.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Virtualized />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Virtualized}</DemoWidget>
         </Section>
         <Section title="RTL">
           <BlockQuote>
             With virtualized, the options are rendered only when they are in the
             viewport of the menu.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <RTL />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{RTL}</DemoWidget>
         </Section>
       </div>
     )

@@ -36,47 +36,27 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default rendering">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Default />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="With Circle">
           <BlockQuote>
             A circle can be added to the Skeleton to make it more visible.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Circle />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Circle}</DemoWidget>
         </Section>
         <Section title="Custom row count and height">
           <BlockQuote>The height and row count can be customized.</BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <CustomRowAndHeight />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{CustomRowAndHeight}</DemoWidget>
         </Section>
         <Section title="Animated rows">
           <BlockQuote>
             The rows can be animated by setting the <code>animate</code> prop
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Animate />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Animate}</DemoWidget>
         </Section>
         <Section title="Custom block count">
           <BlockQuote>Can customize the number of blocks</BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <CustomBlockCount />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{CustomBlockCount}</DemoWidget>
         </Section>
       </div>
     )

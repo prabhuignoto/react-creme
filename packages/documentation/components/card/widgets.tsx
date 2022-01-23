@@ -37,19 +37,11 @@ function widgets() {
           <BlockQuote>
             There are slots for header, footer and the main content.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ marginTop: '2rem', width: `${width}px` }}>
-              <Default />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="Card without shadow">
           <BlockQuote>Card with no shadow but with a border.</BlockQuote>
-          <DemoWidget>
-            <div style={{ margin: '1rem 0', width: `${width}px` }}>
-              <CustomImage />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{CustomImage}</DemoWidget>
         </Section>
       </div>
     )

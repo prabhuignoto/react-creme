@@ -4,6 +4,7 @@ import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {
+  CustomTooltipPosition,
   Default,
   Disabled,
   PreSelected,
@@ -37,57 +38,35 @@ const Widgets = () => {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default Render">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Default />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="Positioning the Tooltip">
           <BlockQuote>
             Can also position the tooltip to be on the top or bottom of the
             slider. The Example here shows the tooltip on the bottom.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}></div>
-          </DemoWidget>
+          <DemoWidget width={width}>{CustomTooltipPosition}</DemoWidget>
         </Section>
         <Section title="Preselected Value">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <PreSelected />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{PreSelected}</DemoWidget>
         </Section>
         <Section title="Show Tooltip on Hover">
           <BlockQuote>
             The tooltip will only show when the user hovers over the slider.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <TooltipOnHover />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{TooltipOnHover}</DemoWidget>
         </Section>
         <Section title="Formatted value">
           <BlockQuote>
             The slider can also display the value in a formatted way.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <TooltipFormatted />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{TooltipFormatted}</DemoWidget>
         </Section>
         <Section title="Disabled state">
           <BlockQuote>
             The slide can be disabled via the <code>disabled</code> prop.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Disabled />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Disabled}</DemoWidget>
         </Section>
       </div>
     )

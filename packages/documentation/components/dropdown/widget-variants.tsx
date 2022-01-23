@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dropdown } from '../../../lib/components';
 
-export const SingleSelection = () => (
+export const SingleSelection = (
   <Dropdown
     maxMenuHeight={300}
     placeholder="choose a country"
@@ -20,7 +20,7 @@ export const SingleSelection = () => (
   />
 );
 
-export const MultiSelection = () => (
+export const MultiSelection = (
   <Dropdown
     onSelected={val => console.log(val)}
     placeholder="choose a country"
@@ -50,7 +50,7 @@ export const MultiSelection = () => (
   />
 );
 
-export const Searchable = () => (
+export const Searchable = (
   <Dropdown
     maxMenuHeight={300}
     placeholder="choose a country"
@@ -74,7 +74,7 @@ export const Searchable = () => (
   />
 );
 
-export const Virtualized = () => (
+export const Virtualized = (
   <Dropdown
     maxMenuHeight={300}
     placeholder="choose a country"
@@ -107,7 +107,7 @@ export const Virtualized = () => (
   />
 );
 
-export const RTL = () => (
+export const RTL = (
   <Dropdown
     maxMenuHeight={300}
     placeholder="choose a country"

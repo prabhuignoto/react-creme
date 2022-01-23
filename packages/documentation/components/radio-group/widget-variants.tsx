@@ -1,7 +1,7 @@
 import React from 'react';
 import { RadioGroup } from '../../../lib/components';
 
-export const Default = () => (
+export const Default = (
   <RadioGroup
     items={[
       { disabled: false, label: 'John' },
@@ -14,7 +14,7 @@ export const Default = () => (
   />
 );
 
-export const CustomLayout = () => (
+export const CustomLayout = (
   <RadioGroup
     layout="row"
     items={[
@@ -26,7 +26,7 @@ export const CustomLayout = () => (
   />
 );
 
-export const Disabled = () => (
+export const Disabled = (
   <RadioGroup
     items={[
       { disabled: true, label: 'John' },
@@ -37,7 +37,7 @@ export const Disabled = () => (
   />
 );
 
-export const RTL = () => (
+export const RTL = (
   <RadioGroup
     RTL
     items={[

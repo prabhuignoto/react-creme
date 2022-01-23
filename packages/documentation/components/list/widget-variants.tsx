@@ -1,7 +1,7 @@
 import React from 'react';
 import { List } from '../../../lib/components';
 
-export const Default = () => (
+export const Default = (
   <List
     maxHeight={450}
     onSelection={val => console.log(val)}
@@ -12,7 +12,7 @@ export const Default = () => (
   />
 );
 
-export const MultiSelection = () => (
+export const MultiSelection = (
   <List
     onSelection={val => console.log(val)}
     allowMultiSelection
@@ -34,7 +34,7 @@ export const MultiSelection = () => (
   />
 );
 
-export const Search = () => (
+export const Search = (
   <List
     maxHeight={400}
     virtualized
@@ -47,7 +47,7 @@ export const Search = () => (
   />
 );
 
-export const Virtualized = () => (
+export const Virtualized = (
   <List
     maxHeight={350}
     virtualized
