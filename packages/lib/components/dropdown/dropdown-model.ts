@@ -73,7 +73,7 @@ export type PickMenuProps<T> = {
 export type PickValueProps<T> = {
   [P in keyof T as Exclude<
     P,
-    'enableSearch' | 'virtualize' | 'onSelected' | 'maxMenuHeight'
+    'enableSearch' | 'virtualize' | 'onSelected' | 'maxMenuHeight' | 'options'
   >]: T[P];
 };
 

@@ -4,6 +4,7 @@ import React, { CSSProperties, memo, useMemo } from 'react';
 import { ChevronDownIcon, CloseIcon } from '../../icons';
 import { Tags } from '../tags/tags';
 import { DropdownValueProps } from './dropdown-model';
+import './dropdown-value.scss';
 
 const DropdownValue: React.FunctionComponent<DropdownValueProps> = memo(
   ({
@@ -116,7 +117,11 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = memo(
     );
   },
   (prev, next) => {
-    return fastEqual(prev.selectedValue, next.selectedValue);
+    return (
+      fastEqual(prev.selectedValue, next.selectedValue) &&
+      prev.showMenu === next.showMenu &&
+      prev.menuClosing === next.menuClosing
+    );
   }
 );
 

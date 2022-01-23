@@ -14,45 +14,6 @@
   }
 }
 
-.rc-dropdown-value-container {
-  @extend %border;
-
-  align-items: center;
-  cursor: pointer;
-  font-size: 14px;
-  height: 100%;
-  padding: 0.1rem 0;
-  width: 100%;
-
-  &:not(.rc-dropdown-disabled) {
-    @include animate.halo(4px, 4px);
-  }
-
-  &.rc-dropdown-disabled {
-    @extend %disabled;
-  }
-
-  &:not(.rc-dropdown-multi) {
-    @extend %center;
-    height: 35px;
-  }
-
-  &.rc-dropdown-rtl:not(.rc-dropdown-multi) {
-    display: grid;
-    grid-template-columns: 2rem 1rem calc(100% - 3rem);
-  }
-
-  &:not(.rc-dropdown-rtl):not(.rc-dropdown-multi):not(.rc-dropdown-with-clear) {
-    display: grid;
-    grid-template-columns: calc(100% - 2rem) 2rem;
-  }
-
-  &:not(.rc-dropdown-rtl):not(.rc-dropdown-multi).rc-dropdown-with-clear {
-    display: grid;
-    grid-template-columns: calc(100% - 3rem) 1rem 2rem;
-  }
-}
-
 .rc-dropdown-multi {
   display: flex;
   max-height: 400px;
@@ -95,63 +56,4 @@
   .rc-dropdown-tags-wrapper {
     order: 3;
   }
-}
-
-.rc-dropdown-value-container:not(.rc-dropdown-rtl) {
-  .rc-dropdown-value {
-    padding-left: 1rem;
-  }
-
-  .rc-dropdown-chevron-icon {
-    margin-right: 4px;
-  }
-}
-
-.rc-dropdown-value-container.rc-dropdown-rtl {
-  .rc-dropdown-value {
-    padding-right: 1rem;
-  }
-
-  .rc-dropdown-chevron-icon {
-    margin-left: 4px;
-  }
-}
-
-.rc-dropdown-value {
-  @extend %text-no-wrap;
-  height: 20px;
-  line-height: 20px;
-
-  &.rc-dropdown-rtl {
-    text-align: right;
-  }
-}
-
-.rc-dropdown-chevron-icon {
-  @extend %icon-lg;
-  color: var(--chevron-icon-color, colors.$primary);
-  order: 4;
-  transition: transform 0.2s ease-in;
-}
-
-.rc-dropdown-clear-icon {
-  @extend %icon-sm;
-
-  &:hover {
-    color: var(--clear-icon-color, colors.$primary);
-  }
-
-  &.rc-dropdown-clear-icon-hidden {
-    pointer-events: none;
-    visibility: hidden;
-  }
-}
-
-.rc-dropdown-chevron-icon-rotate {
-  transform: rotate(180deg);
-  transition: transform 0.2s ease-in;
-}
-
-.rc-dropdown-tags-wrapper {
-  padding-left: 0.25rem;
 }
