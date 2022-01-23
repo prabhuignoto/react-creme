@@ -10,8 +10,8 @@ import {
   faBolt,
   faCubes,
   faFistRaised,
+  faGlobe,
   faMobile,
-  faPalette,
   faTools,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -42,11 +42,11 @@ export const Features = [
   },
   {
     icon: faAccessibleIcon,
-    title: 'Accessible UI Components',
+    title: 'Fully Accessible UI Components',
   },
   {
-    icon: faPalette,
-    title: 'Built for Firefox',
+    icon: faGlobe,
+    title: 'Built for Modern web browsers',
   },
 ];
 

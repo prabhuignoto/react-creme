@@ -17,7 +17,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  row-gap: 1.5rem;
+  row-gap: 1rem;
 
   @media (max-width: 480px) {
     align-items: center;
@@ -55,7 +55,7 @@
 .rc-demo-app-feature {
   align-items: center;
   background: rgba($color: #fff, $alpha: 0.25);
-  border-radius: 2px;
+  border-radius: 4px;
   box-shadow: inset 0 0 10px 5px rgba(#fff, 0.1);
   display: grid;
   grid-template-columns: 60px calc(100% - 60px);

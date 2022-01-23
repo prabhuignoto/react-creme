@@ -34,7 +34,7 @@
   &::after {
     background-color: rgba($color: #003b73, $alpha: 0.95);
     border-radius: 50%;
-    content: "";
+    content: '';
     display: block;
     height: 40px;
     left: 50%;
@@ -57,8 +57,8 @@
 
 .rc-demo-app-feature-name {
   color: #003b73;
-  font-size: 1.2rem;
-  font-weight: 300;
+  font-size: 1.1rem;
+  font-weight: 400;
   margin-left: 0.2rem;
   @media (max-width: 480px) {
     font-size: 1rem;
@@ -82,7 +82,7 @@
 
 .rc-demo-app-hero {
   align-items: center;
-  background-image: url("./images/adrian.jpg");
+  background-image: url('./images/adrian.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -116,7 +116,7 @@
 
 .rc-demo-app-icon {
   align-items: center;
-  background-image: url("./images/cafe.svg");
+  background-image: url('./images/cafe.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
