@@ -11,7 +11,6 @@ import {
   faCubes,
   faFistRaised,
   faMobile,
-  faPaintBrush,
   faPalette,
   faTools,
 } from '@fortawesome/free-solid-svg-icons';

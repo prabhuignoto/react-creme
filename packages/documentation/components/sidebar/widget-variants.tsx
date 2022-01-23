@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sidebar } from '../../../lib/components';
 
-export const Default = () => (
+export const Default = (
   <Sidebar
     groups={[
       {
@@ -16,7 +16,7 @@ export const Default = () => (
   />
 );
 
-export const Searchable = () => (
+export const Searchable = (
   <Sidebar
     enableSearch
     focusable

@@ -30,29 +30,17 @@ function widgets() {
     width > 0 && (
       <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
         <Section title="Default render">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Default />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="Custom Icon alignment">
           <BlockQuote>The icon can be aligned to the right</BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <CustomIcon />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{CustomIcon}</DemoWidget>
         </Section>
         <Section title="Expanded by default">
           <BlockQuote>
             Accordions can be expanded or collapsed by default
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Expanded />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Expanded}</DemoWidget>
         </Section>
       </div>
     )

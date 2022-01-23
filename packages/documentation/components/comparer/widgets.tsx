@@ -39,15 +39,8 @@ function Widgets() {
           Compare two images side by side horizontally. The drag handle guides
           the user to the correct position.
         </BlockQuote>
-        <DemoWidget fullWidth>
-          <div
-            style={{
-              height: `${height}px`,
-              width: `${Number.isInteger(width) ? `${width}px` : width}`,
-            }}
-          >
-            <Horizontal />
-          </div>
+        <DemoWidget height={height} width={width}>
+          {Horizontal}
         </DemoWidget>
       </Section>
       <Section title="Vertical comparison">
@@ -55,15 +48,8 @@ function Widgets() {
           Compare two images side by side vertically. The drag handle guides the
           user to the correct position.
         </BlockQuote>
-        <DemoWidget fullWidth>
-          <div
-            style={{
-              height: `${height}px`,
-              width: `${Number.isInteger(width) ? `${width}px` : width}`,
-            }}
-          >
-            <Vertical />
-          </div>
+        <DemoWidget height={height} width={width}>
+          {Vertical}
         </DemoWidget>
       </Section>
     </div>

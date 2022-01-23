@@ -13,7 +13,7 @@ const Para = () => (
   </p>
 );
 
-export const Default = () => (
+export const Default = (
   <AccordionGroup titles={['one', 'two']}>
     <Para />
     <div
@@ -27,7 +27,7 @@ export const Default = () => (
   </AccordionGroup>
 );
 
-export const InitialState = () => (
+export const InitialState = (
   <AccordionGroup
     titles={['one', 'two']}
     autoClose={false}
@@ -47,7 +47,7 @@ export const InitialState = () => (
   </AccordionGroup>
 );
 
-export const AutoClosingSections = () => (
+export const AutoClosingSections = (
   <AccordionGroup titles={['one', 'two', 'three']} autoClose border={false}>
     {Array.from({ length: 3 }).map((_, i) => (
       <Para key={i} />
@@ -55,7 +55,7 @@ export const AutoClosingSections = () => (
   </AccordionGroup>
 );
 
-export const CustomIcon = () => (
+export const CustomIcon = (
   <AccordionGroup
     titles={['one', 'two', 'three']}
     border={false}

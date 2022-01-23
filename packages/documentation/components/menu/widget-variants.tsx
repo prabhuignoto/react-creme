@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Menu } from '../../../lib/components';
 import { CheckCircleIcon } from '../../../lib/icons';
 
-export const AttachedToButton = () => (
+export const AttachedToButton = (
   <Menu
     position="left"
     items={[
@@ -16,7 +16,7 @@ export const AttachedToButton = () => (
   </Menu>
 );
 
-export const AttachedToIcon = () => (
+export const AttachedToIcon = (
   <Menu
     items={[
       { name: 'Open' },
@@ -31,7 +31,7 @@ export const AttachedToIcon = () => (
   </Menu>
 );
 
-export const AttachedToNativeElement = () => (
+export const AttachedToNativeElement = (
   <Menu
     position="right"
     items={[

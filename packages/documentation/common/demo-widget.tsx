@@ -6,9 +6,9 @@ import { Code } from './syntax';
 
 interface WidgetProps {
   children: React.ReactNode;
-  component?: React.ReactNode;
   customTitle?: string;
   fullWidth?: boolean;
+  height?: string | number;
   layout?: 'horizontal' | 'vertical';
   showCodeByDefault?: boolean;
   style?: CSSProperties;
@@ -19,11 +19,10 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
   ({
     children,
     layout = 'vertical',
-    fullWidth = false,
     showCodeByDefault = false,
     customTitle = 'Show Code',
-    component,
     width,
+    height,
   }: WidgetProps) => {
     return (
       <div
@@ -36,7 +35,11 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
         }}
       >
         <div
-          style={{ margin: '0.5rem 0', width: width ? `${width}px` : '100%' }}
+          style={{
+            height: height ? `${height}px` : '100%',
+            margin: '0.5rem 0',
+            width: width ? `${width}px` : '100%',
+          }}
         >
           {children}
         </div>

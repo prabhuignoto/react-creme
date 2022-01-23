@@ -14,11 +14,7 @@ function Widgets() {
         <BlockQuote>
           The example below shows a menu attached to a button.
         </BlockQuote>
-        <DemoWidget>
-          <div style={{ width: '100px' }}>
-            <AttachedToButton />
-          </div>
-        </DemoWidget>
+        <DemoWidget width={100}>{AttachedToButton}</DemoWidget>
       </Section>
       <Section title="Menu attached to a Icon">
         <BlockQuote>
@@ -26,21 +22,13 @@ function Widgets() {
           right, and center. The example below shows a menu docked and aligned
           to the center of the icon.
         </BlockQuote>
-        <DemoWidget>
-          <div style={{ width: '100px' }}>
-            <AttachedToIcon />
-          </div>
-        </DemoWidget>
+        <DemoWidget width={100}>{AttachedToIcon}</DemoWidget>
       </Section>
       <Section title="Menu attached to a native Element">
         <BlockQuote>
           The example below shows a menu attached to a native element (button).
         </BlockQuote>
-        <DemoWidget>
-          <div style={{ width: '100px' }}>
-            <AttachedToNativeElement />
-          </div>
-        </DemoWidget>
+        <DemoWidget width={100}>{AttachedToNativeElement}</DemoWidget>
       </Section>
     </div>
   );
