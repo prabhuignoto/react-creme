@@ -10,7 +10,6 @@ import './dropdown.scss';
 
 const DropdownMenuOverlay = withOverlay<DropdownMenuProps>(DropDownMenu, {
   backdropColor: 'transparent',
-  disableBackdrop: true,
 });
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
