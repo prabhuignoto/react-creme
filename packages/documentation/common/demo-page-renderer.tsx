@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {
   LazyExoticComponent,
   Suspense,
@@ -10,7 +11,6 @@ import { PageHeader, Section, Tabs } from '../../lib/components';
 import { DataGridColumn } from '../../lib/components/data-grid/data-grid-model';
 import './demo-page-renderer.scss';
 import StackBlitz from './stackblitz';
-import { SyntaxHighLighter } from './syntax-highlighter';
 import useMedia from './useMedia';
 
 const DataGrid = React.lazy(() =>
@@ -28,7 +28,7 @@ const Icons = [
 interface DemoPageRendererProps {
   callbacks?: any[];
   demoWidget: LazyExoticComponent<React.FC>;
-  description?: string;
+  description?: string | React.ReactNode;
   pageIcon?: React.ReactNode;
   properties: any[];
   stackBlitzCodes?: string[];
@@ -46,7 +46,6 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
       callbacks,
       title,
       description,
-      typeDefStrings,
       stackBlitzCodes,
       pageIcon,
     }: DemoPageRendererProps) => {
@@ -82,7 +81,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
         if (media.isMobile) {
           return [
             {
-              formatter: (val) => (val ? `<em>${val}</em>` : ''),
+              formatter: val => (val ? `<em>${val}</em>` : ''),
               name: 'name',
               sortable: true,
               type: 'string',
@@ -92,7 +91,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
         } else if (media.isBigScreen || media.isExtraLargeScreen) {
           return [
             {
-              formatter: (val) => (val ? `<em>${val}</em>` : ''),
+              formatter: val => (val ? `<em>${val}</em>` : ''),
               name: 'name',
               sortable: true,
               type: 'string',
@@ -100,7 +99,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
             },
             { name: 'description', type: 'string', width: width[1] },
             {
-              formatter: (val) => (val ? `<em>${val}</em>` : ''),
+              formatter: val => (val ? `<em>${val}</em>` : ''),
               name: 'default',
               type: 'string',
               width: width[2],
@@ -111,7 +110,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
         } else {
           return [
             {
-              formatter: (val) => (val ? `<em>${val}</em>` : ''),
+              formatter: val => (val ? `<em>${val}</em>` : ''),
               name: 'name',
               sortable: true,
               type: 'string',
@@ -119,7 +118,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
             },
             { name: 'description', type: 'string' },
             {
-              formatter: (val) => (val ? `<em>${val}</em>` : ''),
+              formatter: val => (val ? `<em>${val}</em>` : ''),
               name: 'default',
               type: 'string',
               width: 150,
@@ -176,7 +175,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
               </div>
               <div className="rc-demo-stack-blitz-collection">
                 {stackBlitzCodes &&
-                  stackBlitzCodes.map((code) => (
+                  stackBlitzCodes.map(code => (
                     <div className="rc-demo-stack-blitz" key={code}>
                       <StackBlitz id={code} />
                     </div>

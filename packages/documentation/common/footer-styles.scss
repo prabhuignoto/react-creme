@@ -5,8 +5,8 @@
   color: #fff;
   display: flex;
   font-size: 14px;
-  height: 65px;
   margin-top: auto;
+  min-height: 65px;
   width: 100%;
 
   a {
@@ -20,6 +20,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    > * {
+      margin: 10px 0;
+    }
+  }
+}
+
+.rc-demo-footer > * {
+  padding: 0.5rem;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    cursor: pointer;
   }
 }
 
@@ -28,7 +42,7 @@
 }
 
 .github-link {
-  margin-left: auto;
+  // margin-left: auto;
   margin-right: 1rem;
 
   a {
