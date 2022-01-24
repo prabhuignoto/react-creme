@@ -51,7 +51,7 @@
 
   &.rc-tag-style-fill {
     @extend %border-radius;
-    background: colors.$primary;
+    background: colors.$secondary;
     color: colors.$white;
   }
 
@@ -61,8 +61,8 @@
 
   &.rc-tag-readonly {
     @extend %border-radius;
-    background: rgba(colors.$primary-rgb, 1);
-    color: colors.$white;
+    background: rgba(colors.$secondary-rgb, 1);
+    color: colors.$tertiary;
   }
 
   &.rc-tag-readonly {

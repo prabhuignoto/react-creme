@@ -112,6 +112,7 @@
 
 .rc-input-clear {
   @extend %icon-md;
+  color: colors.$tertiary;
   cursor: pointer;
   display: block;
   width: 100%;

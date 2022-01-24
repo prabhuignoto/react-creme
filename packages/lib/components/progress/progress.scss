@@ -23,7 +23,7 @@
   }
 
   &.rc-progress-track-default {
-    background: colors.$secondary;
+    background: rgba(colors.$secondary-rgb, 0.25);
   }
 
   &.rc-progress-track-success {

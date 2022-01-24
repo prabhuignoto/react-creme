@@ -169,7 +169,7 @@ $start-left: 4px;
   @extend %text-no-wrap;
 
   &.rc-switch-label-on {
-    color: colors.$primary;
+    color: colors.$tertiary;
   }
 
   @each $key, $val in $sizes {

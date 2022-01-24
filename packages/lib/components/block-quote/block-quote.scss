@@ -2,7 +2,7 @@
 @use '../../design/colors.scss';
 @use '../../design/position.scss';
 @use '../../design/icon.scss';
-@use "sass:color";
+@use 'sass:color';
 
 .rc-block-quote {
   align-items: center;
@@ -20,7 +20,7 @@
 
   code {
     @extend %border-radius;
-    background: rgba(colors.$secondary-rgb, 0.75);
+    background: rgba(colors.$secondary-rgb, 0.25);
     color: colors.$tertiary;
     display: inline-block;
     font-style: normal;
@@ -35,7 +35,7 @@
 
 .rc-block-quote-icon {
   @extend %icon-lg;
-  color: rgba(colors.$primary-rgb, 0.75);
+  color: rgba(colors.$primary-rgb, 1);
   margin-right: 0.5rem;
 }
 

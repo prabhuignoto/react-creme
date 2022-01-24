@@ -1,5 +1,7 @@
+@use '../../../design/colors.scss';
+
 .rc-focus-ring {
-  background-color: rgba(#2196f3, 0.1);
+  background-color: rgba(colors.$primary-rgb, 0.1);
   border: 3px solid transparent;
   border-radius: 4px;
   display: block;
@@ -21,20 +23,20 @@
   animation-name: halo;
   animation-timing-function: ease-in;
   background-color: rgba(#fff, 0.1);
-  border: 3px solid rgba(#2196f3, 0.5);
+  border: 3px solid rgba(colors.$primary-rgb, 0.5);
   box-shadow: 0 0 25px 15px rgba(#ffff, 0.1);
   visibility: visible;
 }
 
 .rc-focus-ring-inactive {
-  background-color: rgba(#2196f3, 0.1);
+  background-color: rgba(colors.$primary-rgb, 0.1);
   border: 3px solid transparent;
   visibility: hidden;
 }
 
 @keyframes halo {
   0% {
-    box-shadow: 0 0 0 0 rgba(#bfd7ed, 0.2);
+    box-shadow: 0 0 0 0 rgba(colors.$secondary, 0.2);
   }
 
   100% {

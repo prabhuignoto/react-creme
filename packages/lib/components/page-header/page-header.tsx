@@ -41,7 +41,7 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
         {icon && <span className={headerIconClass}>{icon}</span>}
         <h2 className={titleClass}>{title}</h2>
       </div>
-      <div>{children}</div>
+      <div className="rc-page-header-content">{children}</div>
     </header>
   );
 };

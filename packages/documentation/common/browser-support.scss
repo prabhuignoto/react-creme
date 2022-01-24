@@ -15,7 +15,7 @@
   }
 
   .browser-support-name {
-    color: #0074b7;
+    color: var(--rc-primary-color-hex);
     font-size: 1rem;
     font-weight: 500;
     margin-top: 0.5rem;
@@ -24,7 +24,7 @@
   .browser-support-icon {
     align-items: center;
     background: #fff;
-    color: rgba(#0074b7, 1);
+    color: var(--rc-primary-color-hex);
     display: flex;
     justify-content: center;
   }

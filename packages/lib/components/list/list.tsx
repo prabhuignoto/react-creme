@@ -53,7 +53,7 @@ const List: React.FunctionComponent<ListProps> = ({
   focusable = true,
   highlightSelection = false,
   textColor = '#000',
-  textColorSelected = '#000',
+  textColorSelected = '#fff',
   backGroundColor = '#fff',
   RTL = false,
   id,

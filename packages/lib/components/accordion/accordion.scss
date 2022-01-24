@@ -19,7 +19,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 .rc-accordion-header {
   @extend %left;
   align-items: center;
-  color: var(--title-color);
+  color: colors.$primary;
   height: $header-height;
   justify-items: center;
   justify-items: center;
