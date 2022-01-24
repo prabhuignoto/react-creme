@@ -1,11 +1,11 @@
-@use "../../design/layout.scss";
-@use "../../design/position.scss";
-@use "../../design/icon.scss";
-@use "../../design/colors.scss";
-@use "../../design/animate.scss";
-@use "../../design/animations.scss";
-@use "../../design/font.scss";
-@use "sass:map";
+@use '../../design/layout.scss';
+@use '../../design/position.scss';
+@use '../../design/icon.scss';
+@use '../../design/colors.scss';
+@use '../../design/animate.scss';
+@use '../../design/animations.scss';
+@use '../../design/font.scss';
+@use 'sass:map';
 
 $sizes: (
   sm: 16px,
@@ -50,7 +50,7 @@ $heights: (
 
   &:hover:not(.rc-radio-disabled) {
     @extend %border-radius;
-    background: rgba(colors.$secondary, 0.25);
+    background: rgba(colors.$secondary-rgb, 0.25);
   }
 
   @each $key, $val in $heights {
@@ -80,10 +80,10 @@ $heights: (
         width: $val;
 
         &.rc-radio-ico-checked::after {
-          @include position.position-abs("center center");
+          @include position.position-abs('center center');
           background: colors.$primary;
           border-radius: 100%;
-          content: "";
+          content: '';
           display: block;
           height: 65%;
           width: 65%;
@@ -96,12 +96,12 @@ $heights: (
 %pseudo-common {
   background-color: colors.$primary;
   border-radius: 50%;
-  content: "";
+  content: '';
   display: block;
 }
 
 .rc-radio-icon {
-  border: 1px solid rgba(colors.$primary, 0.25);
+  border: 1px solid rgba(colors.$primary-rgb, 0.25);
   border-radius: 50%;
   display: block;
   position: relative;
@@ -111,7 +111,7 @@ $heights: (
   }
 
   &.rc-radio-ico-checked {
-    background-color: rgba(colors.$secondary, 0.5);
+    background-color: rgba(colors.$secondary-rgb, 0.5);
   }
 }
 

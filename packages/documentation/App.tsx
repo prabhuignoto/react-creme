@@ -11,12 +11,13 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
 import { useDebouncedCallback } from 'use-debounce';
 import { Drawer } from '../lib/components';
+import { ThemeProvider } from '../lib/components/common/theme-provider';
 import '../lib/design/colors.scss';
 import '../lib/design/layout.scss';
 import '../lib/design/list.scss';
 import AppRoutes from './app-routes';
 import './App.scss';
-import { asideState, responsiveState } from './atoms/home';
+import { asideState, responsiveState, themeState } from './atoms/home';
 import Footer from './common/footer';
 import { Header } from './common/header';
 import SidebarHome from './common/sidebar-home';
@@ -36,6 +37,8 @@ function App() {
   const [openAside, setOpenAside] = React.useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [theme, setTheme] = useRecoilState(themeState);
 
   const sidebarClass = useMemo(() => {
     return classNames('app-aside', {
@@ -92,7 +95,7 @@ function App() {
     });
   }, [media]);
 
-  const toggleOpen = useCallback(() => setOpenAside((prev) => !prev), []);
+  const toggleOpen = useCallback(() => setOpenAside(prev => !prev), []);
 
   const canRenderAside = useMemo(() => {
     return media && media.isMobile && openAside;
@@ -104,35 +107,37 @@ function App() {
   }, []);
 
   return (
-    <div className="app" ref={appRef}>
-      {media && !media.isMobile && (
-        <aside
-          className={sidebarClass}
-          ref={asideRef}
-          style={{ left: `${left}px` }}
-        >
-          <SidebarHome />
-        </aside>
-      )}
-      {canRenderAside && (
-        <Drawer onClose={onClose} showClose>
-          <SidebarHome />
-        </Drawer>
-      )}
-      <section className="app-main-section" ref={onRef}>
-        {location.pathname !== '/' && (
-          <Header
-            isMobile={media && media.isMobile}
-            onOpen={toggleOpen}
-            onSearchSelection={(path) => navigate(path.value)}
-          />
+    <ThemeProvider theme={theme} name="red">
+      <div className="app" ref={appRef}>
+        {media && !media.isMobile && (
+          <aside
+            className={sidebarClass}
+            ref={asideRef}
+            style={{ left: `${left}px` }}
+          >
+            <SidebarHome />
+          </aside>
         )}
-        <Suspense fallback={<span></span>}>
-          <AppRoutes />
-        </Suspense>
-        <Footer />
-      </section>
-    </div>
+        {canRenderAside && (
+          <Drawer onClose={onClose} showClose>
+            <SidebarHome />
+          </Drawer>
+        )}
+        <section className="app-main-section" ref={onRef}>
+          {location.pathname !== '/' && (
+            <Header
+              isMobile={media && media.isMobile}
+              onOpen={toggleOpen}
+              onSearchSelection={path => navigate(path.value)}
+            />
+          )}
+          <Suspense fallback={<span></span>}>
+            <AppRoutes />
+          </Suspense>
+          <Footer />
+        </section>
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -1,9 +1,9 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/icon.scss";
-@use "../../design/button.scss";
-@use "../../design/animate.scss";
-@use "../../design/position.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/icon.scss';
+@use '../../design/button.scss';
+@use '../../design/animate.scss';
+@use '../../design/position.scss';
 
 .rc-input {
   align-items: center;
@@ -26,10 +26,10 @@
   }
 
   &::after {
-    @include position.position-abs("center center");
+    @include position.position-abs('center center');
     border: 2px solid transparent;
     border-radius: 4px;
-    content: "";
+    content: '';
     display: block;
     height: 98%;
     transition: border 0.1s ease-in, box-shadow 0.1s ease-in;
@@ -39,7 +39,7 @@
 
   &.rc-input-focus::after {
     border: 2px solid colors.$primary;
-    box-shadow: 0 0 1px 4px rgba(colors.$primary, 0.25);
+    box-shadow: 0 0 1px 4px rgba(colors.$primary-rgb, 0.25);
   }
 
   &:not(.rc-input-border):not(.rc-input-rounded) {

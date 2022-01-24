@@ -61,7 +61,7 @@
 
   &.rc-tag-readonly {
     @extend %border-radius;
-    background: rgba(colors.$primary, 1);
+    background: rgba(colors.$primary-rgb, 1);
     color: colors.$white;
   }
 

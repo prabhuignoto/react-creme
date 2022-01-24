@@ -146,7 +146,7 @@ $rounded-tabs-height: 45px;
 
   &::after {
     @include position.position-abs('bottom center');
-    background: rgba(colors.$primary, 70%);
+    background: rgba(colors.$primary-rgb, 70%);
     bottom: -2px;
     content: '';
     display: block;

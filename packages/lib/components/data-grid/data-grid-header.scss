@@ -1,10 +1,10 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/icon.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/icon.scss';
 
 .rc-data-grid-header-cell {
   @extend %left;
-  background: rgba(colors.$primary, 0.1);
+  background: rgba(colors.$primary-rgb, 0.1);
   color: colors.$black;
   height: 100%;
   text-transform: capitalize;
@@ -43,7 +43,7 @@
   cursor: pointer;
 
   svg {
-    fill: rgba(colors.$primary, 0.25);
+    fill: rgba(colors.$primary-rgb, 0.25);
     stroke: none;
   }
 }

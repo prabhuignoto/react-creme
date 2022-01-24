@@ -1,9 +1,9 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/icon.scss";
-@use "../../design/button.scss";
-@use "../../design/font.scss";
-@use "../../design/animate.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/icon.scss';
+@use '../../design/button.scss';
+@use '../../design/font.scss';
+@use '../../design/animate.scss';
 
 $types: (primary, default, danger);
 $sizes: (sm, md, lg);
@@ -29,6 +29,7 @@ $sizes: (sm, md, lg);
 
     &.rc-disabled {
       @extend %disabled;
+      border: 1px solid colors.$chinese-gray;
     }
   }
 }

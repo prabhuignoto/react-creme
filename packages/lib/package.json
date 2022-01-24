@@ -34,6 +34,7 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "fast-deep-equal": "^3.1.3",
+    "hex-rgb": "^5.0.0",
     "nanoid": "^3.2.0",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^7.0.1",

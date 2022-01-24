@@ -85,17 +85,18 @@ function index() {
           type: 'boolean',
         },
         {
-          Optional: 'Yes',
           default: 'false',
           description:
             'Whether to show the spinner. This is useful when the suggestions are provided by the API',
           name: 'showSpinner',
+          optional: 'Yes',
           type: 'boolean',
         },
         {
           default: 'false',
           description: 'Whether the input is focusable',
           name: 'focusable',
+          optional: 'Yes',
           type: 'boolean',
         },
       ]}

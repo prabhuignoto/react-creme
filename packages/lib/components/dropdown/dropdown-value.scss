@@ -23,7 +23,7 @@
 
   &:not(.rc-dropdown-multi) {
     @extend %center;
-    height: 35px;
+    height: 30px;
   }
 
   &.rc-dropdown-rtl:not(.rc-dropdown-multi) {
