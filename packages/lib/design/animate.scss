@@ -68,7 +68,7 @@
       border: 1px solid rgba(colors.$white, 0.1),
     ),
     to: (
-      border: 2px solid rgba(colors.$primary, 0.75),
+      border: 2px solid rgba(colors.$primary-rgb, 0.75),
     ),
   );
   $halo-settings: (
@@ -76,7 +76,7 @@
       box-shadow: 0 0 1px 1px rgba(colors.$white, 0.1),
     ),
     to: (
-      box-shadow: 0 0 1px 7px rgba(colors.$primary, 0.25),
+      box-shadow: 0 0 1px 7px rgba(colors.$primary-rgb, 0.25),
     ),
   );
   z-index: 1;
@@ -104,9 +104,9 @@
     }
     @include set-keyframes(outline-focus, $focus-settings);
     animation-name: outline-focus;
-    border: 2px solid rgba(colors.$primary, 0.75);
+    border: 2px solid rgba(colors.$primary-rgb, 0.75);
     border-radius: 4px;
-    box-shadow: inset 0 0 6px 2px rgba(colors.$secondary, 0.5);
+    box-shadow: inset 0 0 6px 2px rgba(colors.$secondary-rgb, 0.5);
   }
 
   &.rc-lost-focus:not(.rc-disabled)::before {
@@ -130,7 +130,7 @@
     }
     @include set-keyframes(halo-focus, $halo-settings);
     animation-name: halo-focus;
-    box-shadow: 0 0 1px 7px rgba(colors.$primary, 0.25);
+    box-shadow: 0 0 1px 7px rgba(colors.$primary-rgb, 0.25);
     z-index: -1;
   }
 

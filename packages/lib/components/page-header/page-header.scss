@@ -54,7 +54,7 @@ $heights: (
 }
 
 .rc-page-header-icon {
-  color: var(--icon-color, colors.$primary);
+  color: colors.$primary;
   margin-right: 0.5rem;
 
   @each $key, $val in $sizes {

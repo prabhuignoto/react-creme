@@ -24,7 +24,7 @@
     "postcss": "^8.4.5",
     "postcss-scss": "^4.0.3",
     "prettier": "^2.5.1",
-    "snyk": "^1.834.0",
+    "snyk": "^1.835.0",
     "stylelint": "14.3.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-order": "^5.0.0",

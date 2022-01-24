@@ -1,6 +1,6 @@
-@use "../../design/layout.scss";
-@use "../../design/position.scss";
-@use "../../design/colors.scss";
+@use '../../design/layout.scss';
+@use '../../design/position.scss';
+@use '../../design/colors.scss';
 
 .splitter-wrapper {
   @extend %border;
@@ -23,19 +23,19 @@
   transition: background 0.1s linear;
 
   &.splitter-control-horizontal {
-    @include position.position-abs("center left");
+    @include position.position-abs('center left');
     cursor: ew-resize;
     height: 100%;
   }
 
   &.splitter-control-vertical {
-    @include position.position-abs("top left");
+    @include position.position-abs('top left');
     cursor: ns-resize;
     width: 100%;
   }
 
   &.splitter-control-dragged {
-    background: rgba(colors.$primary, 75%);
+    background: rgba(colors.$primary-rgb, 75%);
   }
 }
 

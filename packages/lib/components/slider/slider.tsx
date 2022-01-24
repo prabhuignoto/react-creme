@@ -20,7 +20,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   sliderValue = 0,
   start = 1,
   tooltipWidth = 40,
-  focusable = false,
+  focusable = true,
   formatter,
 }) => {
   const [dragging, setDragging] = React.useState(false);

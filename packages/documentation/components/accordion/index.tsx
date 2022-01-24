@@ -3,10 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
+const Description = (
+  <div>
+    <p>
+      An accordion is a design element that expands in place to expose some
+      hidden information. Unlike overlays, accordions push the page content down
+      instead of being superposed on top of page content.
+    </p>
+  </div>
+);
+
 const Accordion = () => {
   return (
     <DemoPageRenderer
-      description="Accordion is a collapsible component that can be used to hide or expose collapsible content."
+      description={Description}
       title="Accordion"
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-s9qxmk']}

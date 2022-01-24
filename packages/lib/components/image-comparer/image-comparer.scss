@@ -1,7 +1,7 @@
-@use "../../design/layout.scss";
-@use "../../design/position.scss";
-@use "../../design/colors.scss";
-@use "../../design/icon.scss";
+@use '../../design/layout.scss';
+@use '../../design/position.scss';
+@use '../../design/colors.scss';
+@use '../../design/icon.scss';
 
 .rc-img-comparer-wrapper {
   position: relative;
@@ -18,20 +18,20 @@
 }
 
 .rc-img-comparer-drag-handle {
-  background: rgba(colors.$primary, 0.95);
+  background: rgba(colors.$primary-rgb, 0.95);
   z-index: 2;
 
   &.rc-comparer-drag-handle-dragged {
-    background: rgba(colors.$primary, 1);
+    background: rgba(colors.$primary-rgb, 1);
   }
 
   .rc-drag-handle-square {
     @extend %shadow-small;
     @extend %border-radius;
     @extend %center;
-    @include position.position-abs("center center");
+    @include position.position-abs('center center');
     background: colors.$secondary;
-    content: "";
+    content: '';
     display: block;
     pointer-events: none;
   }
@@ -46,7 +46,7 @@
 }
 
 .rc-comparer-drag-handle-horizontal {
-  @include position.position-abs("center center");
+  @include position.position-abs('center center');
   cursor: ew-resize;
   height: 100%;
   width: 6px;
@@ -58,7 +58,7 @@
 }
 
 .rc-comparer-drag-handle-vertical {
-  @include position.position-abs("center center");
+  @include position.position-abs('center center');
   cursor: ns-resize;
   height: 6px;
   width: 100%;
@@ -76,7 +76,7 @@
 }
 
 .img-comparer-panel {
-  @include position.position-abs("left center");
+  @include position.position-abs('left center');
   height: 100%;
   overflow: hidden;
   width: 100%;
@@ -96,7 +96,7 @@
 }
 
 .rc-circular-loader-wrapper {
-  @include position.position-abs("center center");
+  @include position.position-abs('center center');
   height: 30px;
   width: 30px;
 }

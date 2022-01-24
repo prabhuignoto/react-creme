@@ -9,7 +9,8 @@ function carousel() {
       demoWidget={lazy(() => import('./widgets'))}
       stackBlitzCodes={['react-ts-kgea3r']}
       title="Carousel"
-      description="Carousel is a component that displays a list of items in a carousel."
+      description={`Carousels allow multiple pieces of content to occupy a single, coveted space.
+      This may placate corporate infighting, but on large or small viewports, people often scroll past carousels.`}
       pageIcon={<FontAwesomeIcon icon={faFilm} size="2x" />}
       properties={[
         {

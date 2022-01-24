@@ -1,5 +1,5 @@
-@use "colors.scss";
-@use "position.scss";
+@use 'colors.scss';
+@use 'position.scss';
 
 %flex {
   align-items: center;
@@ -75,11 +75,11 @@
 }
 
 %shadow-inset-strong {
-  box-shadow: inset 0 0 5px 2px rgba(colors.$secondary, 0.75);
+  box-shadow: inset 0 0 5px 2px rgba(colors.$secondary-rgb, 0.75);
 }
 
 %shadow-inset {
-  box-shadow: inset 0 0 4px 1px rgba(colors.$secondary, 0.4);
+  box-shadow: inset 0 0 4px 1px rgba(colors.$secondary-rgb, 0.4);
 }
 
 %shadow-small {
@@ -108,7 +108,7 @@
 
 %disabled {
   box-shadow: none;
-  color: #9d9d9d;
+  color: colors.$chinese-gray;
   cursor: not-allowed;
   filter: grayscale(90%);
   opacity: 0.65;

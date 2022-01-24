@@ -69,7 +69,7 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
   suggestions,
   suggestionsWidth = 250,
   value,
-  focusable = false,
+  focusable = true,
   debounce = 250,
   showSpinner = false,
   accent = 'flat',

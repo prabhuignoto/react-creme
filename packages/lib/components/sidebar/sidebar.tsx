@@ -14,7 +14,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   backGroundColor = '#fff',
   border = false,
   enableSearch = false,
-  focusable = false,
+  focusable = true,
   groupIconColor,
   groupTitleColor,
   groups,

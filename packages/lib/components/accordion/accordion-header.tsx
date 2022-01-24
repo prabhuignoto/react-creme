@@ -22,6 +22,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     () =>
       classnames('rc-accordion-header', {
         'rc-accordion-align-icon-rt': alignIconRight,
+        'rc-accordion-disable-collapse': disableCollapse,
         'rc-accordion-disable-icon': disableIcon,
         'rc-accordion-focusable': focusable,
       }),

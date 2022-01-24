@@ -20,7 +20,6 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   @extend %left;
   align-items: center;
   color: var(--title-color);
-  cursor: pointer;
   height: $header-height;
   justify-items: center;
   justify-items: center;
@@ -28,9 +27,10 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   position: relative;
   text-transform: capitalize;
 
-  &:hover {
+  &:not(.rc-accordion-disable-collapse):hover {
     @extend %border-radius;
-    background: rgba(colors.$secondary, 0.25);
+    background: rgba(colors.$secondary-rgb, 0.25);
+    cursor: pointer;
   }
 
   &:not(.rc-accordion-disable-icon):not(.rc-accordion-header-icon) {
@@ -65,7 +65,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   @extend %left;
   display: block;
   font-size: 1rem;
-  // padding-left: 0.5rem;
+  padding-left: 0.5rem;
   white-space: nowrap;
 
   &:not(.rc-accordion-title-bold) {

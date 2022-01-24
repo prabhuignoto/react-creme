@@ -75,7 +75,7 @@ $start-left: 4px;
   z-index: 0;
 
   &.rc-switch-on {
-    background-color: rgba(colors.$secondary, 0.5);
+    background-color: rgba(colors.$secondary-rgb, 0.5);
   }
 
   &.rc-switch-off {

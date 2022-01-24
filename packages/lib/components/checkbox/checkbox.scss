@@ -1,9 +1,9 @@
-@use "../../design/layout.scss";
-@use "../../design/icon.scss";
-@use "../../design/font.scss";
-@use "../../design/animate.scss";
-@use "../../design/colors.scss";
-@use "sass:map";
+@use '../../design/layout.scss';
+@use '../../design/icon.scss';
+@use '../../design/font.scss';
+@use '../../design/animate.scss';
+@use '../../design/colors.scss';
+@use 'sass:map';
 
 $sizes: (sm, md, lg);
 
@@ -45,7 +45,7 @@ $heights: (
 
   &.rc-checkbox-hover:hover {
     @extend %border-radius;
-    background: rgba(colors.$secondary, 0.25);
+    background: rgba(colors.$secondary-rgb, 0.25);
   }
 
   &.rc-checkbox-border {

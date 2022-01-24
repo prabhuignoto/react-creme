@@ -27,7 +27,7 @@ $height: 40px;
   z-index: 1;
 
   &:hover:not(.rc-list-option-disabled) {
-    background: rgba(colors.$secondary, 0.25);
+    background: rgba(colors.$secondary-rgb, 0.25);
   }
 
   &.rc-list-option-disabled {
@@ -35,7 +35,7 @@ $height: 40px;
   }
 
   &.rc-list-option-selected.rc-list-option-highlight-selection {
-    background: rgba(colors.$secondary, 50%);
+    background: rgba(colors.$secondary-rgb, 50%);
   }
 }
 
@@ -56,7 +56,7 @@ $height: 40px;
 
 .rc-list-option-focus:focus {
   &::after {
-    border: 2px solid rgba(colors.$primary, 0.5);
+    border: 2px solid rgba(colors.$primary-rgb, 0.5);
   }
 }
 
