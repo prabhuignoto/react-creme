@@ -1,11 +1,11 @@
-export {
+import { ComponentMeta } from '@storybook/react';
+import React from 'react';
+import {
   AutoClosingSections,
   CustomIcon,
   Default,
   InitialState,
 } from '../../documentation/components/accordion-group/widget-variants';
-import { ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { AccordionGroup } from '../../lib/components';
 
 export default {
@@ -19,3 +19,8 @@ export default {
   ],
   title: 'Accordion Group',
 } as ComponentMeta<typeof AccordionGroup>;
+
+export const AutoClosing = () => <>{AutoClosingSections}</>;
+export const CustomIconExample = () => <>{CustomIcon}</>;
+export const InitialStateExample = () => <>{InitialState}</>;
+export const DefaultExample = () => <>{Default}</>;

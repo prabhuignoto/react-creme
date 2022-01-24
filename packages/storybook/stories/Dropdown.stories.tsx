@@ -1,13 +1,13 @@
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { Dropdown } from '../../lib/components';
-export {
+import {
   MultiSelection,
   RTL,
   Searchable,
   SingleSelection,
   Virtualized,
 } from '../../documentation/components/dropdown/widget-variants';
+import { Dropdown } from '../../lib/components';
 
 export default {
   component: Dropdown,
@@ -20,3 +20,9 @@ export default {
   ],
   title: 'Dropdown',
 } as ComponentMeta<typeof Dropdown>;
+
+export const MultiSelectionDropdown = () => <>{MultiSelection}</>;
+export const RTLDropdown = () => <>{RTL}</>;
+export const SearchableDropdown = () => <>{Searchable}</>;
+export const SingleSelectionDropdown = () => <>{SingleSelection}</>;
+export const VirtualizedDropdown = () => <>{Virtualized}</>;

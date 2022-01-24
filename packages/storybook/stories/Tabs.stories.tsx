@@ -1,11 +1,11 @@
-export {
+import { ComponentMeta } from '@storybook/react';
+import React from 'react';
+import {
   Default,
   Disabled,
   Icons,
   Rounded,
 } from '../../documentation/components/tabs/widget-variants';
-import { ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { Tabs } from '../../lib/components';
 
 export default {
@@ -19,3 +19,8 @@ export default {
   ],
   title: 'Tabs',
 } as ComponentMeta<typeof Tabs>;
+
+export const DefaultTabs = () => <>{Default}</>;
+export const DisabledTabs = () => <>{Disabled}</>;
+export const IconsTabs = () => <>{Icons}</>;
+export const RoundedTabs = () => <>{Rounded}</>;

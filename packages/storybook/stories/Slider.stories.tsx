@@ -1,7 +1,6 @@
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { Slider } from '../../lib/components';
-export {
+import {
   CustomTooltipPosition,
   Default,
   Disabled,
@@ -9,6 +8,7 @@ export {
   TooltipFormatted,
   TooltipOnHover,
 } from '../../documentation/components/slider/widget-variants';
+import { Slider } from '../../lib/components';
 
 export default {
   component: Slider,
@@ -21,3 +21,10 @@ export default {
   ],
   title: 'Slider',
 } as ComponentMeta<typeof Slider>;
+
+export const CustomTooltipPositionExample = () => <>{CustomTooltipPosition}</>;
+export const DefaultExample = () => <>{Default}</>;
+export const DisabledExample = () => <>{Disabled}</>;
+export const PreSelectedExample = () => <>{PreSelected}</>;
+export const TooltipFormattedExample = () => <>{TooltipFormatted}</>;
+export const TooltipOnHoverExample = () => <>{TooltipOnHover}</>;

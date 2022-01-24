@@ -6,26 +6,17 @@ import {
 } from '../../documentation/components/carousel/widget-variants';
 import { Carousel } from '../../lib/components';
 
-export const HorizontalMode = () => (
-  <div style={{ height: '450px', width: '650px' }}>
-    <Horizontal />
-  </div>
-);
-
-export const VerticalMode = () => (
-  <div style={{ height: '450px', width: '650px' }}>
-    <Vertical />
-  </div>
-);
-
 export default {
   component: Carousel,
   decorators: [
     (Story: () => JSX.Element) => (
-      <div style={{ margin: '0 auto', width: '650px' }}>
+      <div style={{ margin: '0 auto', width: '650px', height: '450px' }}>
         <Story />
       </div>
     ),
   ],
   title: 'Carousel',
 } as ComponentMeta<typeof Carousel>;
+
+export const HorizontalCarousel = () => <>{Horizontal}</>;
+export const VerticalCarousel = () => <>{Vertical}</>;

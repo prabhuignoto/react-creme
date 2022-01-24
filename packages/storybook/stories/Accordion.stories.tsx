@@ -1,10 +1,10 @@
-export {
+import { ComponentMeta } from '@storybook/react';
+import React from 'react';
+import {
   CustomIcon,
   Default,
   Expanded,
 } from '../../documentation/components/accordion/widgets-variants';
-import { ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { Accordion } from '../../lib/components'; // YourComponent.stories.ts|tsx
 
 export default {
@@ -18,3 +18,7 @@ export default {
   ],
   title: 'Accordion',
 } as ComponentMeta<typeof Accordion>;
+
+export const CustomIconExample = () => <>{CustomIcon}</>;
+export const DefaultExample = () => <>{Default}</>;
+export const ExpandedExample = () => <>{Expanded}</>;

@@ -42,41 +42,29 @@ function Widgets() {
             <code>canDismiss</code> prop to change this behavior.
           </BlockQuote>
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Information />
-            </div>
+            <div style={{ width: `${width}px` }}>{Information}</div>
           </DemoWidget>
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Dismiss />
-            </div>
+            <div style={{ width: `${width}px` }}>{Dismiss}</div>
           </DemoWidget>
         </Section>
         <Section title="Success Message">
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Success />
-            </div>
+            <div style={{ width: `${width}px` }}>{Success}</div>
           </DemoWidget>
         </Section>
         <Section title="Warning Message">
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Warning />
-            </div>
+            <div style={{ width: `${width}px` }}>{Warning}</div>
           </DemoWidget>
         </Section>
         <Section title="Error Message">
           <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Error />
-            </div>
+            <div style={{ width: `${width}px` }}>{Error}</div>
           </DemoWidget>
         </Section>
         <Section title="Render Custom content">
-          <DemoWidget>
-            <Custom />
-          </DemoWidget>
+          <DemoWidget>{Custom}</DemoWidget>
         </Section>
       </div>
     )

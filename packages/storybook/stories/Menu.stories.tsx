@@ -1,11 +1,11 @@
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { Menu } from '../../lib/components';
-export {
+import {
   AttachedToButton,
   AttachedToIcon,
   AttachedToNativeElement,
 } from '../../documentation/components/menu/widget-variants';
+import { Menu } from '../../lib/components';
 
 export default {
   component: Menu,
@@ -18,3 +18,9 @@ export default {
   ],
   title: 'Menu',
 } as ComponentMeta<typeof Menu>;
+
+export const AttachedToButtonExample = () => <>{AttachedToButton}</>;
+export const AttachedToIconExample = () => <>{AttachedToIcon}</>;
+export const AttachedToNativeElementExample = () => (
+  <>{AttachedToNativeElement}</>
+);

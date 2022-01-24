@@ -78,16 +78,14 @@ function widgets() {
             In Comfortable mode, the display density is set to high and is
             preferable for better readability.
           </BlockQuote>
-          <DemoWidget>
-            <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-              <DataGrid
-                layoutStyle="comfortable"
-                border
-                gridWidth={width}
-                columns={columns}
-                data={data}
-              />
-            </div>
+          <DemoWidget width={width}>
+            <DataGrid
+              layoutStyle="comfortable"
+              border
+              gridWidth={width}
+              columns={columns}
+              data={data}
+            />
           </DemoWidget>
         </Section>
         <Section title="Compact View">
@@ -96,37 +94,33 @@ function widgets() {
             for smaller viewport and when you want to cramp in more rows in the
             grid.
           </BlockQuote>
-          <DemoWidget>
-            <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-              <DataGrid
-                layoutStyle="compact"
-                fixedHeight
-                border
-                columns={columns}
-                data={data}
-              />
-            </div>
+          <DemoWidget width={width}>
+            <DataGrid
+              layoutStyle="compact"
+              fixedHeight
+              border
+              columns={columns}
+              data={data}
+            />
           </DemoWidget>
         </Section>
         <Section title="Sortable">
           <BlockQuote>
             Individual columns can be configured to be sortable.
           </BlockQuote>
-          <DemoWidget>
-            <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-              <DataGrid
-                layoutStyle="comfortable"
-                border
-                columns={columns.map(x => {
-                  if (x.name === 'name') {
-                    return { ...x, sortable: true };
-                  } else {
-                    return x;
-                  }
-                })}
-                data={data}
-              />
-            </div>
+          <DemoWidget width={width}>
+            <DataGrid
+              layoutStyle="comfortable"
+              border
+              columns={columns.map(x => {
+                if (x.name === 'name') {
+                  return { ...x, sortable: true };
+                } else {
+                  return x;
+                }
+              })}
+              data={data}
+            />
           </DemoWidget>
         </Section>
         <Section title="Custom Table outlook">
@@ -134,15 +128,13 @@ function widgets() {
             Use the <code>zebra</code> property to alternate the background
             color of the rows.
           </BlockQuote>
-          <DemoWidget>
-            <div className="rc-demo-widget" style={{ width: `${width}px` }}>
-              <DataGrid
-                layoutStyle="comfortable"
-                zebra
-                columns={columns}
-                data={data}
-              />
-            </div>
+          <DemoWidget width={width}>
+            <DataGrid
+              layoutStyle="comfortable"
+              zebra
+              columns={columns}
+              data={data}
+            />
           </DemoWidget>
         </Section>
       </div>

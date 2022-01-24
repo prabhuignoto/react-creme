@@ -1,4 +1,6 @@
-export {
+import { ComponentMeta } from '@storybook/react';
+import React from 'react';
+import {
   Custom,
   Dismiss,
   Error,
@@ -6,8 +8,6 @@ export {
   Success,
   Warning,
 } from '../../documentation/components/alerts/widget-variants';
-import { ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { Alert } from '../../lib/components';
 
 export default {
@@ -21,3 +21,10 @@ export default {
   ],
   title: 'Alert',
 } as ComponentMeta<typeof Alert>;
+
+export const CustomAlert = () => <>{Custom}</>;
+export const DismissAlert = () => <>{Dismiss}</>;
+export const ErrorAlert = () => <>{Error}</>;
+export const InformationAlert = () => <>{Information}</>;
+export const SuccessAlert = () => <>{Success}</>;
+export const WarningAlert = () => <>{Warning}</>;

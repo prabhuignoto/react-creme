@@ -1,6 +1,6 @@
-export { Default } from '../../documentation/components/auto-suggest/widget-variants';
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
+import { Default } from '../../documentation/components/auto-suggest/widget-variants';
 import { AutoSuggest } from '../../lib/components';
 
 export default {
@@ -14,3 +14,5 @@ export default {
   ],
   title: 'AutoSuggest',
 } as ComponentMeta<typeof AutoSuggest>;
+
+export const DefaultExample = () => <>{Default}</>;

@@ -1,12 +1,12 @@
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { Progress } from '../../lib/components';
-export {
+import {
   Circular,
   Error,
   Infinite,
   Success,
 } from '../../documentation/components/progress/widget-variants';
+import { Progress } from '../../lib/components';
 
 export default {
   component: Progress,
@@ -19,3 +19,8 @@ export default {
   ],
   title: 'Progress',
 } as ComponentMeta<typeof Progress>;
+
+export const CircularProgress = () => <>{Circular}</>;
+export const ErrorProgress = () => <>{Error}</>;
+export const InfiniteProgress = () => <>{Infinite}</>;
+export const SuccessProgress = () => <>{Success}</>;
