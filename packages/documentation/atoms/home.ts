@@ -24,6 +24,7 @@ const themeState = atom<Theme>({
     primary: '#0074B7',
     secondary: '#BFD7ED',
     tertiary: '#003B73',
+    textSelection: '#003B73',
   },
   key: 'themeState',
 });

@@ -1,12 +1,12 @@
 .rc-demo-logo {
-  background-image: url("../images/cafe.svg");
+  background-image: url('../images/cafe.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
-  height: 25px;
+  height: 20px;
   margin-right: 0.5rem;
-  width: 25px;
+  width: 20px;
 }
 
 .rc-demo-app-logo-container {
@@ -17,7 +17,7 @@
   padding: 0.5rem;
 
   &:hover {
-    background-color: rgba($color: #003b73, $alpha: 0.1);
+    background-color: rgba(var(--rc-primary-color-rgb), 0.1);
   }
 }
 
@@ -30,15 +30,19 @@
 
 .rc-demo-menu-icon {
   align-items: center;
-  color: #0074b7;
   display: flex;
-  height: 2rem;
+  height: 1.2rem;
   justify-content: center;
   margin-right: 0.5rem;
-  width: 2rem;
+  width: 1.2rem;
 
   svg {
     height: 100%;
     width: 100%;
   }
+}
+
+.rc-demo-logo-text {
+  font-size: 1.2rem;
+  font-weight: 500;
 }

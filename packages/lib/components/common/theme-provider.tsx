@@ -6,6 +6,7 @@ export type Theme = {
   primary: string;
   secondary: string;
   tertiary: string;
+  textSelection: string;
 };
 
 interface ThemeProviderProps {
@@ -56,11 +57,11 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   }, [theme, currentTheme]);
 
   return (
-    <div>
-      <ThemeContext.Provider value={currentTheme}>
-        {children}
-      </ThemeContext.Provider>
-    </div>
+    // <div>
+    <ThemeContext.Provider value={currentTheme}>
+      {children}
+    </ThemeContext.Provider>
+    // </div>
   );
 };
 

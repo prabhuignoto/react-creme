@@ -38,7 +38,13 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
             <CheckIcon />
           </span>
         )}
-        <span className={'rc-list-option-value'}>{name}</span>
+        <span
+          className={cls('rc-list-option-value', {
+            'rc-list-option-value-selected': selected,
+          })}
+        >
+          {name}
+        </span>
       </div>
     );
   },

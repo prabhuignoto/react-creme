@@ -37,8 +37,6 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
           enableSearch
           onSelect={handleSidebarSelect}
           searchPlaceholder="Search Components ..."
-          groupIconColor="#0074B7"
-          groupTitleColor="#0074B7"
           sectionsCollapsible={false}
           focusable={false}
           groups={[

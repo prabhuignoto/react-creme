@@ -1,6 +1,6 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/icon.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/icon.scss';
 
 $compact-row-height: 35px;
 $comfortable-row-height: 50px;
@@ -69,10 +69,10 @@ $comfortable-row-height: 50px;
 
   em {
     @extend %border-radius;
-    background-color: rgba(colors.$light-bg, 1);
+    background-color: rgba(colors.$secondary-rgb, 0.1);
     color: colors.$primary;
     font-style: normal;
     font-weight: 400;
-    padding: 0.1rem 0.2rem;
+    padding: 0.1rem 0.25rem;
   }
 }

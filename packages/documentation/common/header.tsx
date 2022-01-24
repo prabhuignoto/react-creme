@@ -1,7 +1,7 @@
 import React from 'react';
 import { AutoSuggestOption } from '../../lib/components/auto-suggest/auto-suggest.model';
 import AlgoliaSearch from './algolia';
-import { Badge, GithubLink } from './github-link';
+import { GithubLink } from './github-link';
 import './header.scss';
 import { Logo } from './logo';
 import { ThemeSwitcher } from './theme-switcher';
@@ -14,10 +14,10 @@ const Header: React.FC<{
   return (
     <header className="app-header">
       <Logo isMobile={isMobile} onMenuClick={onOpen} />
-      <Badge />
+      {/* <Badge /> */}
       <ThemeSwitcher />
       {!isMobile && (
-        <div className="algolia-container" style={{ width: '250px' }}>
+        <div className="algolia-container" style={{ width: '200px' }}>
           <AlgoliaSearch onSelection={onSearchSelection} />
         </div>
       )}

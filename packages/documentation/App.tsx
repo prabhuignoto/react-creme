@@ -107,37 +107,37 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={theme} name="red">
-      <div className="app" ref={appRef}>
-        {media && !media.isMobile && (
-          <aside
-            className={sidebarClass}
-            ref={asideRef}
-            style={{ left: `${left}px` }}
-          >
-            <SidebarHome />
-          </aside>
+    <div className="app" ref={appRef}>
+      {media && !media.isMobile && (
+        <aside
+          className={sidebarClass}
+          ref={asideRef}
+          style={{ left: `${left}px` }}
+        >
+          <SidebarHome />
+        </aside>
+      )}
+      {canRenderAside && (
+        <Drawer onClose={onClose} showClose>
+          <SidebarHome />
+        </Drawer>
+      )}
+      <section className="app-main-section" ref={onRef}>
+        {location.pathname !== '/' && (
+          <Header
+            isMobile={media && media.isMobile}
+            onOpen={toggleOpen}
+            onSearchSelection={path => navigate(path.value)}
+          />
         )}
-        {canRenderAside && (
-          <Drawer onClose={onClose} showClose>
-            <SidebarHome />
-          </Drawer>
-        )}
-        <section className="app-main-section" ref={onRef}>
-          {location.pathname !== '/' && (
-            <Header
-              isMobile={media && media.isMobile}
-              onOpen={toggleOpen}
-              onSearchSelection={path => navigate(path.value)}
-            />
-          )}
-          <Suspense fallback={<span></span>}>
+        <Suspense fallback={<span></span>}>
+          <ThemeProvider theme={theme} name="red">
             <AppRoutes />
-          </Suspense>
-          <Footer />
-        </section>
-      </div>
-    </ThemeProvider>
+          </ThemeProvider>
+        </Suspense>
+        <Footer />
+      </section>
+    </div>
   );
 }
 

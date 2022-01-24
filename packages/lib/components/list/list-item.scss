@@ -35,7 +35,7 @@ $height: 40px;
   }
 
   &.rc-list-option-selected.rc-list-option-highlight-selection {
-    background: rgba(colors.$secondary-rgb, 50%);
+    background: rgba(colors.$secondary-rgb, 30%);
   }
 }
 
@@ -113,6 +113,10 @@ $height: 40px;
   pointer-events: none;
   text-transform: capitalize;
   width: 100%;
+
+  &.rc-list-option-value-selected {
+    color: colors.$text-color-on-selection;
+  }
 }
 
 .rc-list-option-icon {

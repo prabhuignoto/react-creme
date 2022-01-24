@@ -13,19 +13,19 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default Render">
-        <DemoWidget>{Default}</DemoWidget>
+        <DemoWidget width={200}>{Default}</DemoWidget>
       </Section>
       <Section title="Preselected Option">
-        <DemoWidget>{PreSelected}</DemoWidget>
+        <DemoWidget width={200}>{PreSelected}</DemoWidget>
       </Section>
       <Section title="Disabled Option">
-        <DemoWidget>{Disabled}</DemoWidget>
+        <DemoWidget width={200}>{Disabled}</DemoWidget>
       </Section>
       <Section title="Checkbox Group - Round style">
-        <DemoWidget>{CustomStyle}</DemoWidget>
+        <DemoWidget width={200}>{CustomStyle}</DemoWidget>
       </Section>
       <Section title="Checkbox Group - RTL">
-        <DemoWidget>{RTL}</DemoWidget>
+        <DemoWidget width={200}>{RTL}</DemoWidget>
       </Section>
     </div>
   );

@@ -169,29 +169,11 @@ span {
 
 .rc-demo-app-logo {
   align-items: center;
-  color: #0074b7;
+  color: var(--rc-primary-color-hex);
   display: flex;
   font-size: 1.5rem;
   font-weight: 500;
   text-transform: uppercase;
-}
-
-.rc-demo-app-logo a {
-  display: block;
-  height: 2rem;
-  text-decoration: none;
-  width: 2rem;
-}
-
-.rc-demo-logo-text {
-  font-size: 1.4rem;
-  font-weight: 500;
-}
-
-.rc-demo-logo-icon-wrapper {
-  display: flex;
-  height: 2rem;
-  width: 2rem;
 }
 
 .rc-demo-logo-icon-wrapper svg {
@@ -216,7 +198,7 @@ span {
 
 .rc-demo-app-github-link a {
   align-items: center;
-  color: #000;
+  color: var(--rc-primary-color-hex);
   display: flex;
   height: 2.5rem;
   justify-content: center;
@@ -231,7 +213,7 @@ span {
 
 .rc-demo-alpha-badge {
   align-items: center;
-  background: #0074b7;
+  background: var(--rc-primary-color-hex);
   border-radius: 20px;
   color: #fff;
   display: inline;
