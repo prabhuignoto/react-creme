@@ -1,15 +1,15 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { BlockQuote, Section } from "../../lib/components";
-import { supportedBrowsers } from "../home-data";
-import "./browser-support.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { BlockQuote, Section } from '../../lib/components';
+import { supportedBrowsers } from '../home-data';
+import './browser-support.scss';
 
 function BrowserSupport() {
   return (
     <Section title="Browser Support" size="md">
       <BlockQuote>
-        react-creme is a modern UI library that is designed to work with the
-        most popular web browsers.
+        react-creme is a modern UI Toolkit that is designed to work with the
+        most popular & modern web browsers.
       </BlockQuote>
       <ul className="browser-support-list">
         {supportedBrowsers.map((browser, index) => (

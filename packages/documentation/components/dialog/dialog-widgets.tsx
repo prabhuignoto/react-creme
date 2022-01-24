@@ -2,9 +2,12 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Button, Dialog, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
+import { DemoWidget } from '../../common/demo-widget';
+import { Default, Drop } from './widget-variants';
 
 const Widget = () => {
   const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
   const ref = useRef();
 
   const media = useRecoilValue(responsiveState);
@@ -33,7 +36,7 @@ const Widget = () => {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
-          <div className="rc-demo-widget">
+          <DemoWidget component={Default}>
             <Button
               size="sm"
               onClick={() => setOpen(true)}
@@ -49,7 +52,27 @@ const Widget = () => {
                 <span>Test dialog content</span>
               </Dialog>
             )}
-          </div>
+          </DemoWidget>
+        </Section>
+        <Section title="Custom animation">
+          <DemoWidget component={Drop}>
+            <Button
+              size="sm"
+              onClick={() => setOpen2(true)}
+              label="Open dialog"
+            ></Button>
+            {open2 && (
+              <Dialog
+                onClose={() => setOpen2(false)}
+                containedToParent={ref}
+                width={width}
+                height={250}
+                animationType="drop"
+              >
+                <span>Test dialog content</span>
+              </Dialog>
+            )}
+          </DemoWidget>
         </Section>
       </div>
     )

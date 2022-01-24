@@ -1,13 +1,12 @@
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { CheckBox } from '../../lib/components';
-
-export {
+import {
   CustomStyle,
   Default,
   Disabled,
   Large,
 } from '../../documentation/components/checkbox/widget-variants';
+import { CheckBox } from '../../lib/components';
 
 export default {
   component: CheckBox,
@@ -20,3 +19,8 @@ export default {
   ],
   title: 'CheckBox',
 } as ComponentMeta<typeof CheckBox>;
+
+export const CustomStyleExample = () => <>{CustomStyle}</>;
+export const DefaultExample = () => <>{Default}</>;
+export const DisabledExample = () => <>{Disabled}</>;
+export const LargeExample = () => <>{Large}</>;

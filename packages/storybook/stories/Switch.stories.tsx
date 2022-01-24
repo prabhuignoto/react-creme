@@ -1,4 +1,6 @@
-export {
+import { ComponentMeta } from '@storybook/react';
+import React from 'react';
+import {
   CheckIcon,
   Default,
   Disabled,
@@ -6,8 +8,6 @@ export {
   LabelOutside,
   Large,
 } from '../../documentation/components/switch/widget-variants';
-import { ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { Switch } from '../../lib/components';
 
 export default {
@@ -21,3 +21,10 @@ export default {
   ],
   title: 'Switch',
 } as ComponentMeta<typeof Switch>;
+
+export const DefaultSwitch = () => <>{Default}</>;
+export const DisabledSwitch = () => <>{Disabled}</>;
+export const LargeSwitch = () => <>{Large}</>;
+export const ExtraLargeSwitch = () => <>{ExtraLarge}</>;
+export const LabelOutsideSwitch = () => <>{LabelOutside}</>;
+export const CheckIconSwitch = () => <>{CheckIcon}</>;

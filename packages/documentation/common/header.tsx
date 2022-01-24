@@ -14,13 +14,14 @@ const Header: React.FC<{
     <header className="app-header">
       <Logo isMobile={isMobile} onMenuClick={onOpen} />
       <Badge />
-      <div className="algolia-container" style={{ width: '250px' }}>
-        <AlgoliaSearch onSelection={onSearchSelection} />
-      </div>
+      {!isMobile && (
+        <div className="algolia-container" style={{ width: '250px' }}>
+          <AlgoliaSearch onSelection={onSearchSelection} />
+        </div>
+      )}
       <GithubLink />
     </header>
   );
 };
 
 export { Header };
-

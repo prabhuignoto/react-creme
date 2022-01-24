@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, {
+import * as React from 'react';
+import {
   CSSProperties,
   useCallback,
   useEffect,

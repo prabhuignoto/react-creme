@@ -2,7 +2,7 @@ import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 import { CheckBoxGroup } from '../../lib/components';
 
-export {
+import {
   CustomStyle,
   Default,
   Disabled,
@@ -21,3 +21,9 @@ export default {
   ],
   title: 'CheckBox Group',
 } as ComponentMeta<typeof CheckBoxGroup>;
+
+export const CustomStyleExample = () => <>{CustomStyle}</>;
+export const DefaultExample = () => <>{Default}</>;
+export const DisabledExample = () => <>{Disabled}</>;
+export const PreSelectedExample = () => <>{PreSelected}</>;
+export const RTLExample = () => <>{RTL}</>;

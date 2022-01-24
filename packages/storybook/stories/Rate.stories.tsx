@@ -1,4 +1,6 @@
-export {
+import { ComponentMeta } from '@storybook/react';
+import React from 'react';
+import {
   CustomIcon,
   CustomIconCount,
   CustomSize,
@@ -6,8 +8,6 @@ export {
   Disabled,
   RTL,
 } from '../../documentation/components/rate/widget-variants';
-import { ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { Rate } from '../../lib/components';
 
 export default {
@@ -21,3 +21,10 @@ export default {
   ],
   title: 'Rate',
 } as ComponentMeta<typeof Rate>;
+
+export const CustomIconExample = () => <>{CustomIcon}</>;
+export const CustomIconCountExample = () => <>{CustomIconCount}</>;
+export const CustomSizeExample = () => <>{CustomSize}</>;
+export const DefaultExample = () => <>{Default}</>;
+export const DisabledExample = () => <>{Disabled}</>;
+export const RTLExample = () => <>{RTL}</>;

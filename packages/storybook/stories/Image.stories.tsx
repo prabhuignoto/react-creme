@@ -1,9 +1,9 @@
-export {
+import { ComponentMeta } from '@storybook/react';
+import React from 'react';
+import {
   Default,
   Expand,
 } from '../../documentation/components/image/widget-variants';
-import { ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { Image } from '../../lib/components';
 
 export default {
@@ -17,3 +17,6 @@ export default {
   ],
   title: 'Image',
 } as ComponentMeta<typeof Image>;
+
+export const DefaultImage = () => <>{Default}</>;
+export const ExpandImage = () => <>{Expand}</>;

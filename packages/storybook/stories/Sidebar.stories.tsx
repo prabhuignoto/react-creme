@@ -1,10 +1,10 @@
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { Sidebar } from '../../lib/components';
-export {
+import {
   Default,
   Searchable,
 } from '../../documentation/components/sidebar/widget-variants';
+import { Sidebar } from '../../lib/components';
 
 export default {
   component: Sidebar,
@@ -17,3 +17,6 @@ export default {
   ],
   title: 'Sidebar',
 } as ComponentMeta<typeof Sidebar>;
+
+export const DefaultSidebar = () => <>{Default}</>;
+export const SearchableSidebar = () => <>{Searchable}</>;

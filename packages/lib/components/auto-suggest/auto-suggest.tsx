@@ -19,7 +19,7 @@ import './auto-suggest.scss';
 interface SuggestionsOverlayModel extends OverlayModel {
   id?: string;
   onSelection: (option: ListOption[]) => void;
-  suggestions: Option[];
+  // suggestions: Option[];
   width?: number;
 }
 

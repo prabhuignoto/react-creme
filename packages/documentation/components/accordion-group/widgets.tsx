@@ -31,18 +31,6 @@ function Widgets() {
     }
   }, [media]);
 
-  const Para = () => (
-    <p>
-      Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit amet justo
-      vel, convallis volutpat neque. Morbi semper odio sed diam tristique, nec
-      tempor neque tempus. Praesent quis ultrices odio. Nulla vestibulum nulla
-      sed massa molestie, quis vulputate risus semper. Phasellus elementum,
-      metus in iaculis sollicitudin, risus elit pulvinar neque, eget pulvinar
-      odio libero eu mi. Vivamus id leo facilisis, tincidunt lacus semper,
-      condimentum est. Nam euismod non eros a lacinia.
-    </p>
-  );
-
   return (
     width > 0 && (
       <div className="rc-demo-widgets" style={{ minHeight: '1200px' }}>

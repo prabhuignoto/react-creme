@@ -1,7 +1,7 @@
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 import { ImageComparer } from '../../lib/components';
-export {
+import {
   Horizontal,
   Vertical,
 } from '../../documentation/components/comparer/widget-variants';
@@ -17,3 +17,7 @@ export default {
   ],
   title: 'ImageComparer',
 } as ComponentMeta<typeof ImageComparer>;
+
+
+export const HorizontalComparer = () => <>{Horizontal}</>;
+export const VerticalComparer = () => <>{Vertical}</>;

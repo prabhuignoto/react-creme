@@ -14,7 +14,7 @@ type Settings = {
 type OverlayFunc = <U extends OverlayModel>(
   Node: React.FunctionComponent<U>,
   settings: Settings
-) => any;
+) => React.FunctionComponent<U>;
 
 export type OverlayContextModel = {
   align?: 'left' | 'right';

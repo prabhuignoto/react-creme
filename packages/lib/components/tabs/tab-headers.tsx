@@ -98,8 +98,9 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   const tabHeaderControl = useMemo(() => {
     return classNames('rc-tab-header-control', {
       [`rc-tab-header-control-${tabStyle}`]: true,
+      'rc-tab-header-control-icon': icons?.length,
     });
-  }, []);
+  }, [icons?.length]);
 
   // side effects
   useEffect(() => {
