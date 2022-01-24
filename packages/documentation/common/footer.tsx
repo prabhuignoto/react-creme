@@ -15,6 +15,10 @@ function Footer() {
           @prabhuignoto
         </a>
       </div>
+      <div className='rc-footer-credit'>
+        💪 Proudly built with{' '}
+        <a href="https://github.com/prabhuignoto/react-creme/">@react-creme</a>
+      </div>
       <div className="github-link">
         <a
           href="https://github.com/prabhuignoto"

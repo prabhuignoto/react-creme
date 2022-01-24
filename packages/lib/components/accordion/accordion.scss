@@ -1,6 +1,6 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/icon.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/icon.scss';
 // @use "../../design/animate.scss";
 
 $header-height: 35px;
@@ -18,36 +18,29 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
 .rc-accordion-header {
   @extend %left;
+  align-items: center;
   color: var(--title-color);
   cursor: pointer;
   height: $header-height;
+  justify-items: center;
   justify-items: center;
   outline: 0;
   position: relative;
   text-transform: capitalize;
 
-  &.rc-accordion-focusable {
-    // @include animate.halo();
+  &:hover {
+    @extend %border-radius;
+    background: rgba(colors.$secondary, 0.25);
   }
 
-  &:not(.rc-accordion-align-icon-rt):not(.rc-accordion-disable-icon):not(.rc-accordion-header-icon) {
+  &:not(.rc-accordion-disable-icon):not(.rc-accordion-header-icon) {
     display: grid;
-    grid-template-columns: 2rem calc(100% - 2rem);
+    grid-template-columns: 2rem calc(100% - 2.5rem) 0.5rem;
   }
 }
 
 .rc-accordion-align-icon-rt {
-  display: grid;
-  grid-template-columns: calc(100% - 2rem) 2rem;
-  justify-items: center;
-
-  > :nth-of-type(1) {
-    order: 2;
-  }
-
-  > :nth-of-type(2) {
-    order: 1;
-  }
+  direction: rtl;
 }
 
 .rc-accordion-body {
@@ -72,7 +65,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   @extend %left;
   display: block;
   font-size: 1rem;
-  padding-left: 0.5rem;
+  // padding-left: 0.5rem;
   white-space: nowrap;
 
   &:not(.rc-accordion-title-bold) {

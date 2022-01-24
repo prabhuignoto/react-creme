@@ -208,6 +208,10 @@ span {
   align-items: center;
   display: flex;
   justify-content: center;
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    margin-left: auto;
+  }
 }
 
 .rc-demo-app-github-link a {

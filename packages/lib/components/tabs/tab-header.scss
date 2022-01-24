@@ -55,7 +55,6 @@ $rounded-tabs-height: 45px;
 
 .rc-tab-header-control {
   @extend %center;
-  // background: colors.$light-bg;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   justify-content: space-around;
@@ -68,6 +67,10 @@ $rounded-tabs-height: 45px;
 
   &.rc-tab-header-control-rounded {
     height: 80%;
+  }
+
+  &.rc-tab-header-control-icon {
+    margin-bottom: 1rem;
   }
 }
 
@@ -157,7 +160,7 @@ $rounded-tabs-height: 45px;
   @include animate.halo(2px, 2px);
   cursor: pointer;
   height: 90%;
-  justify-self: flex-start;
+  justify-self: center;
   position: relative;
   text-transform: capitalize;
   white-space: nowrap;

@@ -2,22 +2,29 @@
   align-items: center;
   background: #0074b7;
   border-radius: 2px;
+  color: #fff;
   display: flex;
+  font-size: 14px;
   height: 65px;
   margin-top: auto;
   width: 100%;
-}
-
-.rc-demo-footer-content {
-  color: #fff;
-  font-size: 14px;
-  margin-left: 1rem;
 
   a {
     color: #fff;
     font-size: 14px;
     text-decoration: none;
   }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.rc-demo-footer-content {
+  margin-left: 1rem;
 }
 
 .github-link {
@@ -38,4 +45,9 @@
     margin-right: 0.25rem;
     width: 14px;
   }
+}
+
+.rc-footer-credit {
+  margin-left: auto;
+  margin-right: auto;
 }

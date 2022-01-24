@@ -107,7 +107,7 @@ function index() {
           type: 'boolean',
         },
         {
-          default: 'false',
+          default: 'true',
           description: 'enables focus outlines',
           name: 'focusable',
           optional: 'yes',
