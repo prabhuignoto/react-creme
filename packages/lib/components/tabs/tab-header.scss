@@ -98,6 +98,10 @@ $rounded-tabs-height: 45px;
   position: relative;
   user-select: none;
 
+  &:hover {
+    color: colors.$primary;
+  }
+
   &.rc-tab-head-rounded {
     height: 80%;
   }

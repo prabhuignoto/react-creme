@@ -13,12 +13,10 @@ const BlockQuote: React.FC<BlockQuoteProps> = ({
 }) => {
   return (
     <div className="rc-block-quote">
-      {showInfoIcon && (
-        <span className="rc-block-quote-icon">
-          <InfoIcon />
-        </span>
-      )}
-      {children}
+      <span className="rc-block-quote-icon">
+        {showInfoIcon && <InfoIcon />}
+      </span>
+      <div className="rc-block-quote-child-content">{children}</div>
     </div>
   );
 };

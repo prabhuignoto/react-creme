@@ -10,7 +10,7 @@ import './switch.scss';
 const Switch: React.FunctionComponent<SwitchProps> = ({
   checked = false,
   disabled = false,
-  focusable = false,
+  focusable = true,
   label,
   labelOutside = false,
   onChange,

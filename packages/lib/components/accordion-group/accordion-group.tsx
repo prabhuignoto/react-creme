@@ -20,7 +20,7 @@ const AccordionGroup = ({
   titles = [],
   isTitleBold = false,
   disableCollapse = false,
-  focusable = false,
+  focusable = true,
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)

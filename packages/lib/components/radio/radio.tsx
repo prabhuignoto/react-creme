@@ -22,7 +22,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
     value,
     size = 'sm',
     style,
-    focusable = false,
+    focusable = true,
     withGroup = false,
     fullWidth = true,
     RTL = false,

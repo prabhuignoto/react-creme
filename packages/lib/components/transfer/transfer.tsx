@@ -21,7 +21,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
   onChange,
   enableSearch = false,
   virtualize = false,
-  focusable = false,
+  focusable = true,
 }) => {
   const [leftList, setLeftList] = useState<TransferListInternalModel[]>(
     initMapper(list1)
