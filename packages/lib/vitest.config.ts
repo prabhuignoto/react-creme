@@ -17,10 +17,10 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     include: ['./components/**/*.test.tsx'],
-    maxThreads: 12,
-    minThreads: 5,
-    setupFiles: './jest-setup.ts',
+    maxThreads: 20,
+    minThreads: 10,
+    setupFiles: './test-setup.ts',
     threads: true,
-    update: true
+    update: true,
   },
 });
