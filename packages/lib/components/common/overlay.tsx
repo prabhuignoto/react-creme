@@ -151,10 +151,6 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       overlayRef.current = ele;
       ele.focus();
       ele.addEventListener('keyup', handleClose);
-
-      setTimeout(() => {
-        document.body.style.overflow = 'hidden';
-      }, 6000);
     }
   }, []);
 
