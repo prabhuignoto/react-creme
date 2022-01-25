@@ -13,8 +13,11 @@ export const jsxToStringOptions = {
 
 const Code: React.FunctionComponent<{
   children?: ReactNode;
-}> = ({ children }) => {
-  return (
+  code?: string;
+}> = ({ children, code }) => {
+  return code ? (
+    <SyntaxHighLighter code={code}></SyntaxHighLighter>
+  ) : (
     <SyntaxHighLighter
       code={jsxToString(children, jsxToStringOptions)}
     ></SyntaxHighLighter>

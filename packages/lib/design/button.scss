@@ -23,11 +23,11 @@
   }
 
   &:hover:not(.rc-disabled) {
-    background-color: rgba(colors.$secondary-rgb, 0.1);
+    background-color: rgba(colors.$secondary-rgb, 0.25);
     color: colors.$tertiary;
 
     svg {
-      color: $color-hover;
+      // color: $color-hover;
     }
   }
 }
@@ -64,8 +64,6 @@
     colors.$primary,
     colors.$secondary
   );
-  // border: 1px solid colors.$secondary;
-  // box-shadow: inset 0 0 3px 1px rgba(colors.$primary-rgb, 0.85);
 }
 
 %button-icon {

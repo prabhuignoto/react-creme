@@ -83,7 +83,7 @@
 }
 
 %shadow-inset-small {
-  box-shadow: inset 0 0 8px 1px rgba(colors.$secondary-rgb, 0.1);
+  box-shadow: inset 0 0 8px 2px rgba(colors.$secondary-rgb, 0.25);
 }
 
 %shadow-small {
@@ -112,7 +112,7 @@
 
 %disabled {
   box-shadow: none;
-  color: colors.$chinese-gray;
+  // color: colors.$chinese-gray;
   cursor: not-allowed;
   filter: grayscale(90%);
   opacity: 0.65;
@@ -126,7 +126,7 @@
   }
 
   &:hover {
-    // background: none;
+    background: none;
   }
 }
 

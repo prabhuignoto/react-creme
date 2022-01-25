@@ -6,7 +6,6 @@
 .rc-dropdown-value-container {
   @extend %border;
   @extend %shadow-inset-small;
-  // @extend %border-radius;
 
   align-items: center;
   cursor: pointer;
@@ -14,6 +13,11 @@
   height: 100%;
   padding: 0.1rem 0;
   width: 100%;
+
+  // @extend %border-radius;
+  &.rc-dropdown-menu-open {
+    box-shadow: none;
+  }
 
   &:not(.rc-dropdown-disabled) {
     @include animate.halo(4px, 4px);
@@ -25,7 +29,7 @@
 
   &:not(.rc-dropdown-multi) {
     @extend %center;
-    height: 30px;
+    height: 35px;
   }
 
   &.rc-dropdown-rtl:not(.rc-dropdown-multi) {

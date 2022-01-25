@@ -40,7 +40,7 @@ export const Search = (
     virtualized
     enableSearch
     onSelection={val => console.log(val)}
-    options={Array.from({ length: 500 }, (_, i) => ({
+    options={Array.from({ length: 30 }, (_, i) => ({
       name: `Item ${i}`,
       value: `Item ${i}`,
     }))}
@@ -54,7 +54,7 @@ export const Virtualized = (
     showCheckIcon
     focusable={false}
     onSelection={val => console.log(val)}
-    options={Array.from({ length: 500 }, (_, i) => ({
+    options={Array.from({ length: 30 }, (_, i) => ({
       name: `Item ${i}`,
       value: `Item ${i}`,
     }))}

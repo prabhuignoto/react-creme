@@ -45,24 +45,25 @@
   }
 
   &.rc-tag-disabled {
-    // opacity: 0.75;
     pointer-events: none;
   }
 
   &.rc-tag-style-fill {
     @extend %border-radius;
-    background: colors.$secondary;
+    background: colors.$primary;
     color: colors.$white;
   }
 
   &.rc-tag-style-default {
     @extend %border;
+    @extend %shadow-inset-small;
   }
 
   &.rc-tag-readonly {
-    @extend %border-radius;
-    background: rgba(colors.$secondary-rgb, 1);
-    color: colors.$tertiary;
+    @extend %shadow-inset-small;
+    // @extend %border-radius;
+    // background: rgba(colors.$secondary-rgb, 1);
+    // color: colors.$tertiary;
   }
 
   &.rc-tag-readonly {
@@ -97,10 +98,10 @@
 }
 
 .rc-tag-icon-default {
-  color: colors.$gunmetal-gray;
+  color: colors.$tertiary;
 
   &:hover {
-    background: colors.$light-bg;
+    background: colors.$primary;
   }
 }
 
