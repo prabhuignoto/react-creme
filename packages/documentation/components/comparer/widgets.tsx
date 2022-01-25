@@ -24,10 +24,10 @@ function Widgets() {
       setWidth(500);
       setHeight(300);
     } else if (media.isTablet) {
-      setWidth('80%');
+      setWidth(450);
       setHeight(300);
     } else if (media.isMobile) {
-      setWidth('90%');
+      setWidth(320);
       setHeight(300);
     }
   }, [media]);

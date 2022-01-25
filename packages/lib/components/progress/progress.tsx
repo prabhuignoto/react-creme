@@ -6,12 +6,12 @@ import './progress.scss';
 
 const Progress: React.FunctionComponent<ProgressProps> = ({
   currentValue = 0,
-  infiniteStyle = 'disappear',
+  indeterminateStyle = 'disappear',
   maxValue = 100,
   showProgressValue = false,
   size = 'md',
   status = 'default',
-  type = 'progressive',
+  type = 'determinate',
   width = 250,
   RTL = false,
 }) => {
@@ -32,7 +32,7 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
     () =>
       showProgressValue &&
       progressPercentValue !== 0 &&
-      type !== 'infinite' &&
+      type !== 'indeterminate' &&
       size !== 'sm',
     [progressPercentValue]
   );
@@ -48,7 +48,7 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
   const fillStyle = useMemo(
     () =>
       ({
-        '--width': type === 'progressive' ? `${fillWidth}px` : '50%',
+        '--width': type === 'determinate' ? `${fillWidth}px` : '50%',
       } as CSSProperties),
     [fillWidth]
   );
@@ -64,7 +64,7 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
         [
           'rc-progress-fill',
           type,
-          infiniteStyle,
+          indeterminateStyle,
           progressComplete ? 'complete' : '',
         ],
         {

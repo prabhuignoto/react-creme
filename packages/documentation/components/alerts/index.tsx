@@ -21,8 +21,7 @@ function index() {
       properties={[
         {
           default: '',
-          description: `The message to display in the alert.
-          can be one of <em>success</em> | <em>error</em> | <em>warning</em> | <em>info</em>`,
+          description: `The message to display in the alert.`,
           name: 'message',
           optional: 'No',
           type: 'string',
@@ -36,7 +35,8 @@ function index() {
         },
         {
           default: 'info',
-          description: 'The state of the alert.',
+          description:
+            'The state of the alert. can be one of <em>success</em> | <em>error</em> | <em>warning</em> | <em>info</em>',
           name: 'state',
           optional: 'Yes',
           type: 'string',

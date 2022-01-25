@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
+import { vi } from 'vitest';
 import { Sidebar } from '../sidebar';
 
 describe('Sidebar', () => {
@@ -29,7 +30,7 @@ describe('Sidebar', () => {
   });
 
   it('should call handler', () => {
-    const handler = jest.fn();
+    const handler = vi.fn();
     const { getByText } = render(
       <Sidebar
         groups={[

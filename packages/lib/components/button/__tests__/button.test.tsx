@@ -1,9 +1,10 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { vi } from 'vitest';
 import { Button } from '../button';
 
-const handler = jest.fn();
+const handler = vi.fn();
 
 describe('Button', () => {
   it('should render default', () => {
@@ -32,7 +33,7 @@ describe('Button', () => {
   });
 
   it('should render disabled button', () => {
-    const handler = jest.fn();
+    const handler = vi.fn();
 
     const { getByRole } = render(
       <Button label="My Button" disabled onClick={handler} />

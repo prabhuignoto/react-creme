@@ -13,35 +13,35 @@ function progress() {
       properties={[
         {
           default: 'progressive',
-          description: `type of progress. can be <em>progressive</em> | <em>infinite</em>`,
+          description: `Type of progress. can be <em>determinate</em> | <em>indeterminate</em>`,
           name: 'type',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: '100',
-          description: `max value of the progress in numeric`,
+          description: `Max value of the progress in numeric`,
           name: 'maxValue',
           optional: 'Yes',
           type: 'Number',
         },
         {
           default: '0',
-          description: `current value of the progress in numeric`,
+          description: `Current value of the progress in numeric`,
           name: 'currentValue',
           optional: 'Yes',
           type: 'Number',
         },
         {
           default: 'sm',
-          description: `size of the progress bar`,
+          description: `Size of the progress bar`,
           name: 'size',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: 'sm',
-          description: `status of the progress.
+          description: `Status of the progress.
           <em>success</em> | <em>error</em> | <em>default</em>`,
           name: 'status',
           optional: 'Yes',
@@ -49,10 +49,18 @@ function progress() {
         },
         {
           default: 'false',
-          description: `show the progress percentage`,
+          description: `Show the progress percentage`,
           name: 'showProgressValue',
           optional: 'Yes',
           type: 'Boolean',
+        },
+        {
+          default: 'disappear',
+          description:
+            'Style to use when indeterminate mode is set. Can be <em>bob</em> or <em>disappear</em>',
+          name: 'inDeterminateStyle',
+          optional: 'Yes',
+          type: `'disappear' | 'bob'`,
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}

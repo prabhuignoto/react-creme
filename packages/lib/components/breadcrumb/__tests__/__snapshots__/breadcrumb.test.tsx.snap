@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Breadcrumb should render snapshot 1`] = `
+exports[`Breadcrumb > should render snapshot 1`] = `
 <ul
   aria-label="breadcrumbs"
   class="bread-crumbs-wrapper"

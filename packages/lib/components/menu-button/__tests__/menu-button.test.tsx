@@ -1,5 +1,6 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { MenuButton } from '../menu-button';
 
 describe('Menu Button', () => {
@@ -12,7 +13,7 @@ describe('Menu Button', () => {
   });
 
   it('should open menu on click', async () => {
-    const handler = jest.fn();
+    const handler = vi.fn();
     const { getByRole, getByText } = render(
       <MenuButton
         items={['save', 'cancel', 'delete']}

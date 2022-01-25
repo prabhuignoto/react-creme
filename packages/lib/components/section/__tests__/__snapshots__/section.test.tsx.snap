@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Section should render Section correctly 1`] = `
+exports[`Section > should render Section correctly 1`] = `
 <div
   class="rc-section"
   style="min-height: 150px;"

@@ -1,9 +1,10 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
+import { vi } from 'vitest';
 import { List } from '../list';
 
-const handler = jest.fn();
+const handler = vi.fn();
 
 const options = [
   { name: 'brazil', value: 'brazil' },

@@ -57,15 +57,15 @@
     @extend %border-radius-left;
   }
 
-  &:not(.infinite) {
+  &:not(.indeterminate) {
     height: 100%;
   }
 
-  &.infinite {
+  &.indeterminate {
     @extend %border-radius;
     @include position.position-abs('top left');
     @include animate.set-settings(2s, linear, true);
-    animation-name: infinite-progress;
+    animation-name: indeterminate-progress;
     border: 1px solid colors.$primary;
     height: calc(var(--height) - 2px);
   }
@@ -95,7 +95,7 @@
   }
 }
 
-$infinite-anim-settings: (
+$indeterminate-anim-settings: (
   from: (
     left: -50%,
   ),
@@ -113,5 +113,5 @@ $bob-anim-settings: (
   ),
 );
 
-@include animate.set-keyframes(infinite-progress, $infinite-anim-settings);
-@include animate.set-keyframes(infinite-bob, $bob-anim-settings);
+@include animate.set-keyframes(indeterminate-progress, $indeterminate-anim-settings);
+@include animate.set-keyframes(indeterminate-bob, $bob-anim-settings);

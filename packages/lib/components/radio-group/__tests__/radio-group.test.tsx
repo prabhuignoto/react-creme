@@ -1,5 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { RadioGroup } from '../radio-group';
 
 const items = [
@@ -7,7 +8,7 @@ const items = [
   { label: 'two', id: '45', value: 'two' },
 ];
 
-const handler = jest.fn();
+const handler = vi.fn();
 
 describe('Radio Group', () => {
   it('should render the radio group', () => {

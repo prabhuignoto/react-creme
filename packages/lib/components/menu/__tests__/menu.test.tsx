@@ -1,10 +1,11 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { vi } from 'vitest';
 import { MenuContainer as Menu } from '../menu';
 import { MenuItemProps } from '../menu-model';
 
-const onSelected = jest.fn();
+const onSelected = vi.fn();
 
 const items: MenuItemProps[] = [
   { name: 'one' },
@@ -24,7 +25,7 @@ describe('Menu', () => {
   });
 
   it('should onSelection work as expected', async () => {
-    const onSelected = jest.fn();
+    const onSelected = vi.fn();
     const { getByText } = render(
       <Menu items={items} onSelected={onSelected}>
         <span>icon</span>
@@ -61,7 +62,7 @@ describe('Menu', () => {
   });
 
   it('should not select the disabled item', async () => {
-    const handler = jest.fn();
+    const handler = vi.fn();
 
     const { getByText } = render(
       <Menu items={items} onSelected={handler}>

@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Tabs should render snapshot 1`] = `
+exports[`Tabs > should render snapshot 1`] = `
 <div
   class="rc-tab-headers rc-tab-headers-flat"
   role="tablist"
 >
   <div
-    aria-controls="rc-tab-panel-y1PIL1YGmocpbobyPZYYz"
+    aria-controls="rc-tab-panel-CkI-NaAXjWc2Vi-Wr0qxJ"
     aria-selected="true"
     class="rc-tab-head rc-tab-head-selected rc-tab-head-flat"
-    id="rc-tab-y1PIL1YGmocpbobyPZYYz"
+    id="rc-tab-CkI-NaAXjWc2Vi-Wr0qxJ"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="0"
@@ -25,10 +25,10 @@ exports[`Tabs should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-KkWyhO_ZSjpnbV-Z7L3ON"
+    aria-controls="rc-tab-panel-U8Wt0gnH5szVuI1n_qWrh"
     aria-selected="false"
     class="rc-tab-head rc-tab-head-flat"
-    id="rc-tab-KkWyhO_ZSjpnbV-Z7L3ON"
+    id="rc-tab-U8Wt0gnH5szVuI1n_qWrh"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
@@ -44,10 +44,10 @@ exports[`Tabs should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-MPKuJu0RYHZqdvgEXcFMG"
+    aria-controls="rc-tab-panel-riVyG6VgQ9yJ7G73mBhsV"
     aria-selected="false"
     class="rc-tab-head rc-tab-head-flat"
-    id="rc-tab-MPKuJu0RYHZqdvgEXcFMG"
+    id="rc-tab-riVyG6VgQ9yJ7G73mBhsV"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"

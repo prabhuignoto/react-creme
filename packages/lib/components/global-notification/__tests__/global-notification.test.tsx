@@ -1,5 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { GlobalNotification } from '../global-notification';
 
 describe('GlobalNotification', () => {
@@ -65,7 +66,7 @@ describe('GlobalNotification', () => {
   });
 
   it('should call onClose on dismissed', async () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const { getByRole } = render(
       <GlobalNotification message="Global Notification" onClose={onClose} />
     );

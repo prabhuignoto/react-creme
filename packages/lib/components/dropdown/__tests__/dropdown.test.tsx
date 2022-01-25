@@ -1,7 +1,8 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { fn, vi } from "vitest";
 import { Dropdown } from '../dropdown';
 
 const options = [
@@ -20,11 +21,11 @@ const options_selected = [
   { name: 'sri lanka', value: 'sri lanka', selected: true },
 ];
 
-const handler = jest.fn();
+const handler = fn();
 
 describe('Dropdown', () => {
   it('should handler be called', async () => {
-    const handler = jest.fn();
+    const handler = vi.fn();
     const { container, getByText, getByRole, getAllByRole } = render(
       <Dropdown
         options={options}

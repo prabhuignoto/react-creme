@@ -5,7 +5,7 @@ import './demo-widget.scss';
 import { Code } from './syntax';
 
 interface WidgetProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   component?: React.ReactElement;
   customTitle?: string;
   fullWidth?: boolean;
@@ -54,6 +54,7 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
             disableCollapse={showCodeByDefault}
             disableIcon={showCodeByDefault}
             customIcon={<CodeIcon />}
+            
           >
             <Code>{component ? component : children}</Code>
           </Accordion>

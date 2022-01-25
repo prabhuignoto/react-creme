@@ -1,4 +1,4 @@
-import React, { ReactNode, Suspense } from 'react';
+import React, { ReactNode } from 'react';
 import jsxToString from 'react-element-to-jsx-string';
 import { SyntaxHighLighter } from './syntax-highlighter';
 
@@ -8,7 +8,6 @@ export const jsxToStringOptions = {
   showFunctions: true,
   sortProps: true,
   tabStop: 4,
-  useBooleanShorthandSyntax: true,
   useFragmentWithSingleChildren: true,
 };
 
@@ -16,11 +15,9 @@ const Code: React.FunctionComponent<{
   children?: ReactNode;
 }> = ({ children }) => {
   return (
-    <Suspense fallback={<span></span>}>
-      <SyntaxHighLighter
-        code={jsxToString(children, jsxToStringOptions)}
-      ></SyntaxHighLighter>
-    </Suspense>
+    <SyntaxHighLighter
+      code={jsxToString(children, jsxToStringOptions)}
+    ></SyntaxHighLighter>
   );
 };
 

@@ -7,7 +7,7 @@ import React, {
   useRef,
 } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
 import { useDebouncedCallback } from 'use-debounce';
 import { Drawer } from '../lib/components';
@@ -38,7 +38,7 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [theme, setTheme] = useRecoilState(themeState);
+  const theme = useRecoilValue(themeState);
 
   const sidebarClass = useMemo(() => {
     return classNames('app-aside', {

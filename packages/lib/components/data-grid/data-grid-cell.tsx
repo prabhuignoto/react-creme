@@ -21,7 +21,9 @@ const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
         <span
           className={cellClass}
           dangerouslySetInnerHTML={{
-            __html: formatter ? formatter(value) : value,
+            __html: formatter
+              ? (formatter(value) as string)
+              : (value as string),
           }}
         ></span>
       </div>

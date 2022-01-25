@@ -1,8 +1,9 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { vi, describe, it } from 'vitest';
 import { Transfer } from '../transfer';
 
-const handler = jest.fn();
+const handler = vi.fn();
 
 describe('Transfer', () => {
   it('should render transfer view', () => {

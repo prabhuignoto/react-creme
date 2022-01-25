@@ -63,8 +63,15 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
     [leftSelected.length, rightSelected.length]
   );
 
-  const handleListSelectionLeft = useCallback((sel: any[]) => {
-    setLeftSelected(sel);
+  const handleListSelectionLeft = useCallback((sel: ListOption[]) => {
+    setLeftSelected(
+      sel.map(item => ({
+        id: item.id,
+        name: item.name,
+        selected: true,
+        visible: true,
+      }))
+    );
     const selIds = sel.map(item => item.id);
     setLeftList(prev =>
       prev.map(item => ({
@@ -74,7 +81,15 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
     );
   }, []);
 
-  const handleListSelectionRight = useCallback((sel: any[]) => {
+  const handleListSelectionRight = useCallback((sel: ListOption[]) => {
+    setRightSelected(
+      sel.map(item => ({
+        id: item.id,
+        name: item.name,
+        selected: true,
+        visible: true,
+      }))
+    );
     setRightSelected(sel);
     const selIds = sel.map(item => item.id);
     setRightList(prev =>
@@ -88,8 +103,8 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
   useEffect(() => {
     if (onChange && !isFirstRender.current) {
       onChange(
-        leftList.map(item => item.name),
-        rightList.map(item => item.name)
+        leftList.map(item => item.name as string),
+        rightList.map(item => item.name as string)
       );
     }
   }, [leftList.length, rightList.length]);

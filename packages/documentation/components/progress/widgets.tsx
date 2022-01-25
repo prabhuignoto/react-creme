@@ -30,7 +30,7 @@ const Widgets: React.FunctionComponent = () => {
         </div>
         <DemoWidget>
           <Progress
-            type="progressive"
+            type="determinate"
             // width={300}
             maxValue={50}
             currentValue={time * 1}
@@ -40,7 +40,7 @@ const Widgets: React.FunctionComponent = () => {
         </DemoWidget>
         <DemoWidget>
           <Progress
-            type="progressive"
+            type="determinate"
             // width={300}
             maxValue={50}
             currentValue={time * 1}
@@ -54,7 +54,7 @@ const Widgets: React.FunctionComponent = () => {
         </BlockQuote>
         <DemoWidget>
           <Progress
-            type="progressive"
+            type="determinate"
             // width={300}
             maxValue={32}
             currentValue={31}
@@ -64,7 +64,7 @@ const Widgets: React.FunctionComponent = () => {
         </DemoWidget>
         <DemoWidget>
           <Progress
-            type="progressive"
+            type="determinate"
             // width={300}
             maxValue={50}
             currentValue={25}
@@ -79,28 +79,13 @@ const Widgets: React.FunctionComponent = () => {
           Useful for operations that take a long time to complete.
         </BlockQuote>
         <DemoWidget>
-          <Progress
-            type="infinite"
-            // width={350}
-            maxValue={50}
-            currentValue={time * 1}
-            showProgressValue
-            size="sm"
-          />
+          <Progress type="indeterminate" showProgressValue size="sm" />
         </DemoWidget>
       </Section>
       <Section title="Infinite Progress - Bob">
         <BlockQuote>Infinite progress with a bob animation</BlockQuote>
         <DemoWidget>
-          <Progress
-            type="infinite"
-            // width={400}
-            maxValue={50}
-            currentValue={time * 1}
-            showProgressValue
-            size="md"
-            infiniteStyle="bob"
-          />
+          <Progress type="indeterminate" size="md" indeterminateStyle="bob" />
         </DemoWidget>
       </Section>
       <Section title="Circular Progress">

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Carousel should render carousel snapshot 1`] = `
+exports[`Carousel > should render carousel snapshot 1`] = `
 <div
   class="rc-carousel-container rc-carousel-container-horizontal"
 >

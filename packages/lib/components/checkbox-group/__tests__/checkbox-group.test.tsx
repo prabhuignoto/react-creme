@@ -1,5 +1,6 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { CheckBoxGroup } from '../checkbox-group';
 
 const options = [
@@ -56,7 +57,7 @@ describe('CheckboxGroup', () => {
   });
 
   it('should handle on change', async () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const { getAllByRole } = render(
       <CheckBoxGroup options={options} onChange={handleChange} noUniqueIds />
     );
