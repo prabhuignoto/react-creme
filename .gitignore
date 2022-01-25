@@ -18,3 +18,4 @@ cache
 .jest-cache
 
 .env*
+bundle-analysis**

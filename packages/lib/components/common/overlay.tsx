@@ -4,6 +4,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
 } from 'react';
@@ -24,7 +25,6 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   placementReference,
   showCloseButton = false,
 }) => {
-  // console.log(useContext(OverlayContext));
   const { align, childClosing } = useContext(
     OverlayContext
   ) as OverlayContextModel;
@@ -123,6 +123,10 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     []
   );
 
+  useLayoutEffect(() => {
+    // window.s;
+  }, []);
+
   // onMount process
   useEffect(() => {
     document.addEventListener('scroll', handleWindowScroll);
@@ -147,6 +151,10 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       overlayRef.current = ele;
       ele.focus();
       ele.addEventListener('keyup', handleClose);
+
+      setTimeout(() => {
+        document.body.style.overflow = 'hidden';
+      }, 6000);
     }
   }, []);
 

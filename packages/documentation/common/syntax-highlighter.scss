@@ -6,7 +6,7 @@
   justify-content: flex-start;
   margin: 0.5rem 0;
   max-height: 500px;
-  min-height: 70px;
+  min-height: 50px;
   overflow-y: auto;
   position: relative;
   width: 100%;
@@ -40,7 +40,7 @@
   justify-content: center;
   position: absolute;
   right: 1rem;
-  top: 1rem;
+  top: 0.5rem;
   width: 2rem;
 
   &:hover {
