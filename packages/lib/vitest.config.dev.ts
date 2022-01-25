@@ -12,6 +12,7 @@ export default defineConfig({
     include: ['./components/**/*.test.tsx'],
     maxThreads: 12,
     minThreads: 5,
+    reporters: ['default', 'json'],
     setupFiles: './test-setup.ts',
     threads: true,
     update: true,
