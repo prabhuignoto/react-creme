@@ -4,7 +4,6 @@ import AlgoliaSearch from './algolia';
 import { GithubLink } from './github-link';
 import './header.scss';
 import { Logo } from './logo';
-import { ThemeSwitcher } from './theme-switcher';
 
 const Header: React.FC<{
   isMobile?: boolean;
