@@ -8,8 +8,8 @@ export interface TransferProps extends TransferCommonProps {
 }
 
 export interface TransferListInternalModel {
-  id: string;
-  name: string;
+  id?: string;
+  name?: string;
   selected?: boolean;
   visible?: boolean;
 }

@@ -18,7 +18,7 @@ export const Coffee: Theme = {
   primary: '#b38867',
   secondary: '#ddbc95',
   tertiary: '#231912',
-  textSelection: '#b38867',
+  textSelection: '#231912',
 };
 
 export const Tangerine: Theme = {

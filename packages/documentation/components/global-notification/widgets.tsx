@@ -55,14 +55,23 @@ function widgets() {
             label="Open Global Notification"
           />
         </div>
-        <DemoWidget>
-          <GlobalNotification message="This is a test message" delay={0} />
-        </DemoWidget>
+        <DemoWidget
+          component={
+            <GlobalNotification
+              message="This is a test message"
+              onClose={onClose}
+              delay={500}
+              closeAfter={4000}
+              state={state}
+            />
+          }
+        ></DemoWidget>
         {show && (
           <GlobalNotification
             message="This is a test message"
             onClose={onClose}
-            delay={0}
+            delay={500}
+            closeAfter={4000}
             state={state}
           />
         )}

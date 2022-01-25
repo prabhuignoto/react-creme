@@ -15,7 +15,7 @@ export interface DataGridCommon {
 export interface DataGridColumn {
   align?: string;
   format?: string;
-  formatter?: (value: any) => any;
+  formatter?: (value: string | number) => string | number;
   id?: string;
   name: string;
   sortOrder?: string;
@@ -27,7 +27,7 @@ export interface DataGridColumn {
 export interface DataGridCell {
   border?: boolean;
   fixedHeight?: boolean;
-  formatter?: (value: any) => any;
+  formatter?: (value: string | number) => string | number;
   name: string;
   value: string | number;
 }

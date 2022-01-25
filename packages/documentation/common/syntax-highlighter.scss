@@ -1,11 +1,13 @@
 .rc-demo-code-block {
-  align-items: center;
+  align-items: flex-start;
   background: rgb(1, 22, 39);
   border-radius: 4px;
   display: flex;
   justify-content: flex-start;
   margin: 0.5rem 0;
+  max-height: 500px;
   min-height: 70px;
+  overflow-y: auto;
   position: relative;
   width: 100%;
 

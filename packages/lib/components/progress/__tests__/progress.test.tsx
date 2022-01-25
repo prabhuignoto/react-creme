@@ -3,15 +3,47 @@ import React from 'react';
 import { Progress } from '../progress';
 
 describe('Progress', () => {
-  it('should render progressbar', async () => {
-    render(
+  it('should render progressbar in indeterminate mode', async () => {
+    const { getByRole } = render(
       <Progress
-        type="progressive"
+        type="indeterminate"
         maxValue={200}
         size="sm"
         width={300}
         currentValue={120}
       />
     );
+
+    expect(getByRole('progressbar')).toBeInTheDocument();
   });
+
+  it('should render in determinate mode', () => {
+    const { getByRole } = render(
+      <Progress
+        type="determinate"
+        maxValue={200}
+        size="sm"
+        width={300}
+        currentValue={120}
+      />
+    );
+
+    expect(getByRole('progressbar')).toBeInTheDocument();
+  });
+
+  it("should have all aria values", () => {
+    const { getByRole } = render(
+      <Progress
+        type="determinate"
+        maxValue={200}
+        size="sm"
+        width={300}
+        currentValue={120}
+      />
+    );
+
+    expect(getByRole('progressbar')).toHaveAttribute('aria-valuemin', '0');
+    expect(getByRole('progressbar')).toHaveAttribute('aria-valuemax', '200');
+    expect(getByRole('progressbar')).toHaveAttribute('aria-valuenow', '120');
+  })
 });
