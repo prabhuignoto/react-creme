@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "pnpm rollup",
-    "ci": "pnpm lint && pnpm test -- --updateSnapshot --coverage",
+    "ci": "pnpm lint && pnpm vi-test",
     "eslint": "eslint ./components/**/*.{tsx,ts}",
     "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
     "fix-css": "stylelint ./components/**/*.scss ./design/**/*.scss --fix",
@@ -30,7 +30,7 @@
     "rollup": "rimraf ./dist && rollup -c",
     "snyk": "snyk test",
     "test": "jest --updateSnapshot --cache",
-    "vi-test": "vitest --config ./vitest.config.ts"
+    "vi-test": "npx vitest --config ./vitest.config.ts"
   },
   "dependencies": {
     "classnames": "^2.3.1",
