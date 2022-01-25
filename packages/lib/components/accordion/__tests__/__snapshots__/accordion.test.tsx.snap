@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Accordion should render snapshot 1`] = `
+exports[`Accordion > should render snapshot 1`] = `
 <div
   class="rc-accordion rc-accordion-no-border"
   style="--max-height: 0px; --title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1);"
 >
   <div
-    aria-controls="accordion-body-PloV95CHlnBh-pshXCOmf"
+    aria-controls="accordion-body-BvN50gDXEGOK7GI6ug8wI"
     aria-expanded="false"
     class="rc-accordion-header"
-    id="accordion-Oplf1DyfpEpo_Vs2oDDBu"
+    id="accordion-9yze4TQtqliO3P5RGs8R8"
     role="button"
   >
     <span
@@ -34,9 +34,9 @@ exports[`Accordion should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-labelledby="accordion-Oplf1DyfpEpo_Vs2oDDBu"
+    aria-labelledby="accordion-9yze4TQtqliO3P5RGs8R8"
     class="rc-accordion-body rc-accordion-close"
-    id="accordion-body-PloV95CHlnBh-pshXCOmf"
+    id="accordion-body-BvN50gDXEGOK7GI6ug8wI"
     style="--max-height: 0px; --title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1);"
   >
     <p>

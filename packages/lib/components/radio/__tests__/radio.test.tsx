@@ -1,8 +1,9 @@
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { Radio } from '../radio';
 
-const onChange = jest.fn();
+const onChange = vi.fn();
 
 describe('Radio', () => {
   it('should render the radio component', () => {

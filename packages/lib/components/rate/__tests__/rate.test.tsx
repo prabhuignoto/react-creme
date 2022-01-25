@@ -1,5 +1,6 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { Rate } from '../rate';
 
 describe('Rate', () => {
@@ -25,7 +26,7 @@ describe('Rate', () => {
   });
 
   it('should call onChange', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getAllByRole } = render(<Rate onChange={onChange} />);
 
     const image = getAllByRole('radio')[0]?.querySelector("span[role='img']");
@@ -37,7 +38,7 @@ describe('Rate', () => {
   });
 
   it('should change on hover', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getAllByRole } = render(<Rate onChange={onChange} />);
 
     await act(async () => {
@@ -47,13 +48,13 @@ describe('Rate', () => {
     await waitFor(() => {
       const radios = getAllByRole('radio').slice(0, 3);
 
-      radios.forEach((radio) => {
+      radios.forEach(radio => {
         expect(radio).toHaveClass('rc-rate-item-hovered');
       });
 
       const radios2 = getAllByRole('radio').slice(3, radios.length);
 
-      radios2.forEach((radio) => {
+      radios2.forEach(radio => {
         expect(radio).not.toHaveClass('rc-rate-item-hovered');
       });
     });
@@ -62,7 +63,7 @@ describe('Rate', () => {
   it('check disabled state', () => {
     const { getAllByRole } = render(<Rate disabled />);
 
-    getAllByRole('radio').forEach((radio) => {
+    getAllByRole('radio').forEach(radio => {
       expect(radio).toHaveAttribute('aria-disabled', 'true');
     });
   });

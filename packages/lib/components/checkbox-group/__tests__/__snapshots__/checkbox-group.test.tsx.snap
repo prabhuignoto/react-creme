@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`CheckboxGroup should match snapshot 1`] = `
+exports[`CheckboxGroup > should match snapshot 1`] = `
 <div>
   <div
     class="rc-checkbox-group rc-checkbox-group-vertical"

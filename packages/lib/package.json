@@ -29,7 +29,8 @@
     "prettier:check": "prettier --check \"components/**/*.{ts,tsx}\"",
     "rollup": "rimraf ./dist && rollup -c",
     "snyk": "snyk test",
-    "test": "jest --updateSnapshot --cache"
+    "test": "jest --updateSnapshot --cache",
+    "vi-test": "vitest --config ./vitest.config.ts"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -65,11 +66,12 @@
     "@types/react-dom": "^17.0.11",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/react-transition-group": "^4.4.4",
+    "@vitejs/plugin-react": "1.1.4",
     "@vitejs/plugin-react-refresh": "^1.3.6",
+    "@vitest/ui": "^0.2.1",
     "autoprefixer": "^10.4.2",
     "babel-jest": "^27.4.6",
     "babel-plugin-react-remove-properties": "^0.3.0",
-    "canvas": "^2.9.0",
     "cssnano": "^5.0.16",
     "esbuild": "^0.14.13",
     "history": "5.2.0",
@@ -106,7 +108,9 @@
     "stylelint-scss": "^4.1.0",
     "ts-jest": "^27.1.3",
     "ts-toolbelt": "^9.6.0",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "vite": "^2.7.13",
+    "vitest": "^0.2.1"
   },
   "browserslist": [
     "last 3 versions",

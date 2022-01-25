@@ -1,5 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { Alert } from '../alert';
 
 describe('Alert', () => {
@@ -33,7 +34,7 @@ describe('Alert', () => {
   });
 
   it('should call onDismiss', () => {
-    const onDismiss = jest.fn();
+    const onDismiss = vi.fn();
     const { getByRole } = render(
       <Alert message="test" state="info" onDismiss={onDismiss} />
     );

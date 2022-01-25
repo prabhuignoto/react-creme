@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Carousel Track Should render the track snapshot 1`] = `
+exports[`Carousel Track > Should render the track snapshot 1`] = `
 <ul
   class="rc-carousel-track rc-carousel-track-horizontal"
   role="list"

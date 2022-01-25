@@ -1,8 +1,9 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { Input } from '../input';
 
-const handler = jest.fn();
+const handler = vi.fn();
 
 describe('Input', () => {
   it('should render default', () => {
@@ -43,7 +44,7 @@ describe('Input', () => {
   });
 
   it('should clear work', async () => {
-    const handler = jest.fn();
+    const handler = vi.fn();
     const { getByRole } = render(<Input onChange={handler} enableClear />);
 
     await act(async () => {

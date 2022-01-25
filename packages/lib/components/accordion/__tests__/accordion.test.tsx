@@ -1,6 +1,7 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { vi } from 'vitest';
 import { Accordion } from '../accordion';
 
 describe('Accordion', () => {
@@ -42,7 +43,7 @@ describe('Accordion', () => {
   });
 
   it('should call onExpanded', () => {
-    const onExpanded = jest.fn();
+    const onExpanded = vi.fn();
 
     const { getByRole } = render(
       <Accordion onExpanded={onExpanded}>

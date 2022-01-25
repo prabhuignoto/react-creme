@@ -1,8 +1,9 @@
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { CheckBox } from '../checkbox';
 
-const handler = jest.fn();
+const handler = vi.fn();
 
 describe('Checkbox', () => {
   it('should render default', () => {

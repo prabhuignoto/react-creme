@@ -1,9 +1,10 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { Tags } from '../tags';
 import { TagItemProps } from '../tags-model';
 
-const onSelected = jest.fn();
+const onSelected = vi.fn();
 
 const tags: TagItemProps[] = [
   { name: 'one' },
@@ -45,7 +46,7 @@ describe('Tags', () => {
       });
     });
 
-    await act(async () => new Promise((resolve) => setTimeout(resolve, 500)));
+    await act(async () => new Promise(resolve => setTimeout(resolve, 500)));
 
     await act(async () => {
       fireEvent.keyUp(input, {
@@ -101,7 +102,7 @@ describe('Tags', () => {
       });
     });
 
-    await act(async () => new Promise((resolve) => setTimeout(resolve, 500)));
+    await act(async () => new Promise(resolve => setTimeout(resolve, 500)));
 
     await act(async () => {
       fireEvent.keyUp(input, {

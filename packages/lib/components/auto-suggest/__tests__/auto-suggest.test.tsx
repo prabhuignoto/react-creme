@@ -2,6 +2,7 @@ import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { vi } from 'vitest';
 import { AutoSuggest } from '../auto-suggest';
 
 const suggestions = ['one', 'two', 'three', 'four', 'five'].map((item) => ({
@@ -55,7 +56,7 @@ describe('AutoSuggest', () => {
   });
 
   it('should call onChange with the input', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { getByPlaceholderText } = render(
       <AutoSuggest
         suggestions={suggestions}

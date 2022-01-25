@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { DropDownMenu } from '../dropdown-menu';
 import { MenuOption } from '../dropdown-model';
 import { DropdownMenuStyleModel } from './../dropdown-model';
@@ -9,7 +10,7 @@ const options: MenuOption[] = [
   { name: 'option2', value: 'option2', visible: true, id: '345' },
 ];
 
-const handler = jest.fn();
+const handler = vi.fn();
 
 const menuStyle: DropdownMenuStyleModel = {
   maxMenuHeight: 300,

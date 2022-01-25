@@ -1,9 +1,10 @@
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { Link } from '../../link/link';
 import { BreadCrumb } from '../breadcrumb';
 
-const handler = jest.fn();
+const handler = vi.fn();
 
 describe('Breadcrumb', () => {
   it('should render', () => {

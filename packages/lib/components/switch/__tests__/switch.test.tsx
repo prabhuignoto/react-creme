@@ -1,9 +1,10 @@
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
+import { vi } from 'vitest';
 import { Switch } from '../switch';
 
-const handler = jest.fn();
+const handler = vi.fn();
 
 describe('Switch', () => {
   it('should render default', () => {
