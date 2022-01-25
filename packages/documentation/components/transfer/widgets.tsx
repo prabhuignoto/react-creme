@@ -1,8 +1,9 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { Section, Transfer } from '../../../lib/components';
+import { Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { Default, Searchable } from './widget-variants';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -30,40 +31,10 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Transfer
-                list1={['one', 'two', 'five', 'six']}
-                list2={['three', 'four', 'seven', 'eight']}
-                onChange={(val, val2) => console.log(val, val2)}
-              />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="Search">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>
-              <Transfer
-                list1={[
-                  'one',
-                  'two',
-                  'five',
-                  'six',
-                  'nine',
-                  'ten',
-                  'thirteen',
-                  'fourteen',
-                  'seventeen',
-                  'eighteen',
-                ]}
-                list2={['three', 'four', 'seven', 'eight']}
-                onChange={(val, val2) => console.log(val, val2)}
-                enableSearch
-                virtualize
-                focusable
-              />
-            </div>
-          </DemoWidget>
+          <DemoWidget width={width}>{Searchable}</DemoWidget>
         </Section>
       </div>
     )

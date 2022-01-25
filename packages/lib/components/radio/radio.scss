@@ -111,7 +111,8 @@ $heights: (
   }
 
   &.rc-radio-ico-checked {
-    background-color: rgba(colors.$secondary-rgb, 0.5);
+    // background-color: rgba(colors.$secondary-rgb, 0.25);
+    @extend %shadow-inset-small;
   }
 }
 

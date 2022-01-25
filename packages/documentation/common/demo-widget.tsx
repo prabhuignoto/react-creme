@@ -6,6 +6,7 @@ import { Code } from './syntax';
 
 interface WidgetProps {
   children?: React.ReactNode;
+  codeString?: string;
   component?: React.ReactElement;
   customTitle?: string;
   fullWidth?: boolean;
@@ -25,6 +26,7 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
     width,
     height,
     component,
+    codeString,
   }: WidgetProps) => {
     return (
       <div
@@ -54,9 +56,12 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
             disableCollapse={showCodeByDefault}
             disableIcon={showCodeByDefault}
             customIcon={<CodeIcon />}
-            
           >
-            <Code>{component ? component : children}</Code>
+            {codeString ? (
+              <Code code={codeString} />
+            ) : (
+              <Code>{component ? component : children}</Code>
+            )}
           </Accordion>
         </div>
       </div>

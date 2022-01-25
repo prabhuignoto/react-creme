@@ -14,7 +14,7 @@ export default {
   component: Switch,
   decorators: [
     (Story: () => JSX.Element) => (
-      <div style={{ margin: '0 auto', width: '125px' }}>
+      <div style={{ margin: '0 auto', width: '200px' }}>
         <Story />
       </div>
     ),

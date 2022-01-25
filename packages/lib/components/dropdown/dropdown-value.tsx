@@ -24,12 +24,13 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
     () =>
       cls('rc-dropdown-value-container', {
         'rc-dropdown-disabled': disabled,
+        'rc-dropdown-menu-open': showMenu,
         'rc-dropdown-multi': allowMultiSelection,
         'rc-dropdown-rtl': RTL,
         'rc-dropdown-single': !allowMultiSelection,
         'rc-dropdown-with-clear': showClearBtn,
       }),
-    [disabled]
+    [disabled, showMenu]
   );
 
   const rcDropdownIconClass = useMemo(

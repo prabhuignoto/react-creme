@@ -15,7 +15,7 @@ const Header: React.FC<{
     <header className="app-header">
       <Logo isMobile={isMobile} onMenuClick={onOpen} />
       {/* <Badge /> */}
-      <ThemeSwitcher />
+      {/* <ThemeSwitcher /> */}
       {!isMobile && (
         <div className="algolia-container" style={{ width: '200px' }}>
           <AlgoliaSearch onSelection={onSearchSelection} />

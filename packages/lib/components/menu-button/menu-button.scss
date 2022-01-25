@@ -1,12 +1,12 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/icon.scss";
-@use "../../design/position.scss";
-@use "../../design/animate.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/icon.scss';
+@use '../../design/position.scss';
+@use '../../design/animate.scss';
 
 .rc-menu-btn-wrapper {
   @extend %border;
-  // @extend %shadow-inset;
+  @extend %shadow-inset-small;
   column-gap: 0.25rem;
   display: grid;
   height: 35px;

@@ -75,11 +75,14 @@ $start-left: 4px;
   z-index: 0;
 
   &.rc-switch-on {
-    background-color: rgba(colors.$secondary-rgb, 0.5);
+    // background-color: rgba(colors.$primary-rgb, 0.25);
+    @extend %shadow-inset-small;
+    @extend %border;
   }
 
   &.rc-switch-off {
-    background-color: colors.$light-gray;
+    background-color: colors.$mercury;
+    border: 1px solid transparent;
   }
 
   @each $key, $val in $sizes {
@@ -133,6 +136,7 @@ $start-left: 4px;
           left: calc(100% - $val - 4px),
         ),
       );
+      background-color: colors.$white;
       height: $val;
       width: $val;
 
@@ -157,8 +161,6 @@ $start-left: 4px;
       &.rc-switch-off {
         @include animate.set-keyframes(slide-left-#{$key}, $settings, true);
         animation-name: slide-left-#{$key};
-        background-color: colors.$white;
-        background-color: colors.$white;
         right: calc(100% - $val - 4px);
       }
     }
@@ -169,7 +171,7 @@ $start-left: 4px;
   @extend %text-no-wrap;
 
   &.rc-switch-label-on {
-    color: colors.$tertiary;
+    color: colors.$primary;
   }
 
   @each $key, $val in $sizes {

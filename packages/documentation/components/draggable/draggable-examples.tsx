@@ -158,3 +158,5 @@ export function DraggableWidgets() {
     </div>
   );
 }
+
+// console.log(ReactDOMServer.renderToString(<BoundToContainer />));
