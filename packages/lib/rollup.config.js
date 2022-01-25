@@ -1,16 +1,18 @@
 import babel from '@rollup/plugin-babel';
 import common from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
+// import svgr from '@svgr/rollup';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import BemLinter from 'postcss-bem-linter';
 import PostCSSPreset from 'postcss-preset-env';
-// import esbuild from "rollup-plugin-esbuild";
+import peerDeps from 'rollup-plugin-peer-deps-external';
+// import esbuild from 'rollup-plugin-esbuild';
 import postcss from 'rollup-plugin-postcss';
-import progress from 'rollup-plugin-progress';
 import purgecss from 'rollup-plugin-purgecss';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+import visualizer from 'rollup-plugin-visualizer';
 import sass from 'sass';
 import pkg from './package.json';
 
@@ -25,7 +27,6 @@ const banner = `/*
 const OUTPUT_NAME = 'ReactCreme';
 
 export default {
-  external: ['react', 'react-dom', '@babel/runtime'],
   input: 'react-creme.ts',
   output: [
     {
@@ -38,6 +39,7 @@ export default {
         'react-dom': 'ReactDOM',
       },
       name: OUTPUT_NAME,
+      sourcemap: true,
       strict: true,
     },
     {
@@ -50,6 +52,7 @@ export default {
         'react-dom': 'ReactDOM',
       },
       name: OUTPUT_NAME,
+      sourcemap: true,
       strict: true,
     },
     {
@@ -62,21 +65,38 @@ export default {
         'react-dom': 'ReactDOM',
       },
       name: OUTPUT_NAME,
+      sourcemap: true,
       strict: true,
     },
   ],
   plugins: [
-    progress({
-      clearLine: false,
+    peerDeps(),
+    // esbuild(),
+    typescript({
+      useTsconfigDeclarationDir: true,
     }),
-    typescript(),
+    resolve({
+      browser: true,
+    }),
+    common(),
     babel({
-      babelHelpers: 'runtime',
+      babelHelpers: 'bundled',
+      exclude: 'node_modules/**',
       plugins: [
-        '@babel/plugin-transform-runtime',
+        // '@babel/plugin-transform-runtime',
         '@babel/plugin-proposal-optional-chaining',
       ],
-      presets: ['@babel/preset-env', '@babel/preset-react'],
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            targets: {
+              esmodules: true,
+            },
+          },
+        ],
+        '@babel/preset-react',
+      ],
     }),
     purgecss({
       content: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
@@ -92,17 +112,13 @@ export default {
           preset: 'default',
         }),
       ],
-      preprocessor: (content, id) =>
-        new Promise((resolve, reject) => {
+      preprocessor: (_, id) =>
+        new Promise(resolve => {
           const result = sass.compileString({ file: id });
           resolve({ code: result.css.toString() });
         }),
-      sourceMap: false,
+      sourceMap: true,
     }),
-    resolve({
-      browser: true,
-    }),
-    common(),
     terser({
       compress: {
         drop_console: true,
@@ -111,6 +127,9 @@ export default {
       format: {
         comments: false,
       },
+    }),
+    visualizer({
+      filename: 'bundle-analysis.html',
     }),
   ],
 };

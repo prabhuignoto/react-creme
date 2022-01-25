@@ -87,7 +87,7 @@ export type ListItemProps = PickListItemProps<ListProps> & {
   name: string;
   onSelection?: (opt: ListOption) => void;
   selected?: boolean;
-  style?: React.CSSProperties;
+  style?: { height?: string | number; top?: string | number };
   value: string;
 };
 

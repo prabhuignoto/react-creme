@@ -24,7 +24,6 @@ jobs:
           -Dsonar.sources=packages/lib/
           -Dsonar.coverage
           -Dsonar.test.exclusions=tests/**
-          -Dsonar.testExecutionReportPaths=packages/lib/test-report.xml
           -Dsonar.typescript.lcov.reportPaths=packages/lib/coverage/lcov.info
           -Dsonar.verbose=true
       env:

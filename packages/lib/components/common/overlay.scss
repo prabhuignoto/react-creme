@@ -23,7 +23,8 @@
   }
 
   &:not(.rc-overlay-contained) {
-    height: 100%;
+    height: 100vh;
+    overflow: hidden;
     position: fixed;
     width: 100vw;
   }
