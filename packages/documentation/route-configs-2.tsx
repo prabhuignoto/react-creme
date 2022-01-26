@@ -121,6 +121,11 @@ export const routes = [
     key: "tree",
     path: "/tree",
   },
+  {
+    component: lazy(() => import("./components/position")),
+    key: "position",
+    path: "/position",
+  },
 ];
 
 export { routes as routes2 };

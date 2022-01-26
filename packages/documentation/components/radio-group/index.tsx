@@ -8,7 +8,9 @@ function radioGroup() {
     <DemoPageRenderer
       demoWidget={lazy(() => import('./widgets'))}
       title="Radio Group"
-      description="Radio group is a group of radio buttons."
+      description={`Radio buttons are an essential element of forms.
+      They are used when there is a list of two or more options that are mutually exclusive and the user must select exactly one choice.
+      Clicking a non-selected radio button will deselect whatever other button was previously selected in the list.`}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-m9yskx']}
       pageIcon={<FontAwesomeIcon icon={faTasks} size="2x" />}

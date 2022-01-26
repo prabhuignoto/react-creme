@@ -100,7 +100,9 @@ function slider() {
       stackBlitzCodes={['react-ts-acenzu']}
       demoWidget={lazy(() => import('./widgets'))}
       title="Slider"
-      description="Slider is a component that allows you to select a value from a range of values."
+      description="Slider is a control that allows users to select a specific value (or range of values).
+      All too often users get the information of what the value is all about by reading the label on a slider.
+      At the same time, it's possible to create a much better user experience by visualizing the data connected to the slider"
     ></DemoPageRenderer>
   );
 }

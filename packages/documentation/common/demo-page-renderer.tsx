@@ -149,7 +149,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
               </div>
               <div className="rc-demo-prop-section">
                 <Suspense fallback={<div></div>}>
-                  {properties && (
+                  {properties && properties.length ? (
                     <Section title="Properties">
                       <DataGrid
                         layoutStyle={'comfortable'}
@@ -159,7 +159,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                         rowHeight={68}
                       />
                     </Section>
-                  )}
+                  ) : null}
                   {callbacks && (
                     <Section title="Callbacks">
                       <DataGrid

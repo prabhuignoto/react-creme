@@ -9,7 +9,7 @@ function tags() {
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-hppcze']}
       title="Tags"
-      description="Tags are used to group related content."
+      description="Tags are used to group and categorize content. They can be used to filter content, or to display additional information."
       pageIcon={<FontAwesomeIcon icon={faTags} size="2x" />}
       callbacks={[
         {

@@ -8,7 +8,7 @@ function Draggable() {
   return (
     <DemoPageRenderer
       demoWidget={lazy(() => import('./widgets'))}
-      title="Draggable"
+      title="useDraggable"
       description="React Hook to enable draggable functionality"
       properties={[]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}

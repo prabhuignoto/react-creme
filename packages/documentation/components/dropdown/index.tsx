@@ -7,7 +7,7 @@ function dropdown() {
   return (
     <DemoPageRenderer
       title="Dropdown"
-      description="Dropdown is a component that allows you to select a value from a list of options."
+      description="Dropdown is a component that allows the user to select a value from a list of options."
       pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
       properties={[
         {

@@ -34,14 +34,14 @@ function Widgets() {
         </Section>
         <Section title="Custom layout">
           <BlockQuote>
-            The Layout of the RadioGroup can be customized to either row or
-            column.
+            The Layout of the RadioGroup can be customized to be either{' '}
+            <code>row</code> or <code>column</code>.
           </BlockQuote>
           <DemoWidget width={width * 3}>{CustomLayout}</DemoWidget>
         </Section>
         <Section title="Disabled option">
           <BlockQuote>
-            Disable specific option by setting the disabled property to true.
+            Disable a specific option by setting the disabled property to true.
           </BlockQuote>
           <DemoWidget width={width}>{Disabled}</DemoWidget>
         </Section>

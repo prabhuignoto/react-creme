@@ -109,7 +109,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
               title: 'Overlay',
             },
             {
-              items: [{ name: 'draggable' }],
+              items: [{ name: 'draggable' }, { name: 'position' }],
               title: 'Utilities',
             },
           ]}
