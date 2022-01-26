@@ -5,10 +5,11 @@ function Position() {
   return (
     <DemoPageRenderer
       title="usePosition"
-      description="A Custom hook to calculate the position of an element relative to another element"
+      description="A Custom hook to position of target element relative to a container element."
       properties={[]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Stackblitz']}
       demoWidget={lazy(() => import('./widgets'))}
+      stackBlitzCodes={['red']}
     ></DemoPageRenderer>
   );
 }

@@ -56,11 +56,11 @@
 
   &.rc-tag-style-default {
     @extend %border;
-    @extend %shadow-inset-small;
+    // @extend %shadow-inset-small;
   }
 
   &.rc-tag-readonly {
-    @extend %shadow-inset-small;
+    // @extend %shadow-inset-small;
     // @extend %border-radius;
     // background: rgba(colors.$secondary-rgb, 1);
     // color: colors.$tertiary;

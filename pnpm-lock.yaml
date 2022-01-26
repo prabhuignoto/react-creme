@@ -84,7 +84,7 @@ importers:
       '@playwright/test': ^1.18.0
       '@sentry/browser': ^6.17.2
       '@sentry/tracing': ^6.17.2
-      '@stackblitz/sdk': ^1.5.4
+      '@stackblitz/sdk': ^1.5.5
       '@types/react': ^17.0.38
       '@types/react-dom': ^17.0.11
       '@types/react-instantsearch-dom': ^6.12.2
@@ -130,7 +130,7 @@ importers:
     dependencies:
       '@sentry/browser': 6.17.2
       '@sentry/tracing': 6.17.2
-      '@stackblitz/sdk': 1.5.4
+      '@stackblitz/sdk': 1.5.5
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
       algoliasearch: 4.12.0
@@ -2549,8 +2549,8 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@stackblitz/sdk/1.5.4:
-    resolution: {integrity: sha512-G6wbItDN1cbEeYYIhTvV27SjvWeEmNnYvoYFmmUGIAn6YQyRU5Ish45snpfF6MWQblyFijo4NwM4WF6whPwH0A==}
+  /@stackblitz/sdk/1.5.5:
+    resolution: {integrity: sha512-ywcFDxrwfddW3sJpOFBlu7RtGT6X3DjGBuBUouegCovXijeBguRVSz8J4s0sRsbVYe1e1nI0b/kVWcWgzvMaAQ==}
     dev: false
 
   /@storybook/addon-a11y/6.4.14_react-dom@17.0.2+react@17.0.2:

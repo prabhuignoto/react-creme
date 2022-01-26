@@ -1,29 +1,77 @@
 import React from 'react';
-import { Section } from '../../../lib/components';
+import { BlockQuote, Section, Tags } from '../../../lib/components';
+import { Position } from '../../../lib/components/common/effects/usePosition';
 import { DemoWidget } from '../../common/demo-widget';
-import { PositionLeft, PositionRight, PositionTop } from './position-examples';
 import {
+  PositionLeft,
+  PositionLeftBottom,
+  PositionLeftTop,
+  PositionRightBottom,
+  PositionRightTop,
+} from './position-examples';
+import {
+  PositionLeftBottomCode,
   PositionLeftCode,
   PositionRightCode,
+  PositionRightTopCode,
   PositionTopCode,
 } from './widget-variants';
+
+const positions: Position[] = [
+  'top left',
+  'top right',
+  'top center',
+  'bottom center',
+  'bottom left',
+  'bottom right',
+  'left center',
+  'left top',
+  'left bottom',
+  'right top',
+  'right bottom',
+  'right center',
+];
 
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section>
+      <Section noPadding>
+        <BlockQuote>
+          The below examples show how to use the <code>usePosition</code> hook
+          to position an element relative to a container element. The hook
+          support 12 different positions.
+        </BlockQuote>
+        <div style={{ width: '70%' }}>
+          <Tags
+            tagWidth={100}
+            readonly
+            items={positions.map(position => ({ name: position }))}
+          />
+        </div>
+      </Section>
+      <Section title="Positioned Left center">
         <DemoWidget codeString={PositionLeftCode}>
           <PositionLeft />
         </DemoWidget>
       </Section>
-      <Section>
+      <Section title="Positioned Right Bottom">
         <DemoWidget codeString={PositionRightCode}>
-          <PositionRight />
+          <PositionRightBottom />
         </DemoWidget>
       </Section>
-      <Section>
+      <Section title="Positioned Left Top">
         <DemoWidget codeString={PositionTopCode}>
-          <PositionTop />
+          <PositionLeftTop />
+        </DemoWidget>
+      </Section>
+      <Section title="Positioned Right Top">
+        <DemoWidget codeString={PositionRightTopCode}>
+          <PositionRightTop />
+        </DemoWidget>
+      </Section>
+      <Section title="Positioned Left Bottom">
+        <DemoWidget codeString={PositionLeftBottomCode}>
+          <PositionLeftBottom />
         </DemoWidget>
       </Section>
     </div>

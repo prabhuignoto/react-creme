@@ -1,6 +1,6 @@
 import React, { CSSProperties, RefObject, useEffect, useState } from 'react';
 
-type Position =
+export type Position =
   | 'top left'
   | 'top right'
   | 'top center'
