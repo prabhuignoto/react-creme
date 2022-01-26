@@ -100,6 +100,10 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
               title: 'Data',
             },
             {
+              items: [{ name: 'Bread Crumb' }],
+              title: 'Navigation',
+            },
+            {
               items: [
                 { name: 'Dialog' },
                 { name: 'Drawer' },
@@ -109,7 +113,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
               title: 'Overlay',
             },
             {
-              items: [{ name: 'draggable' }],
+              items: [{ name: 'draggable' }, { name: 'position' }],
               title: 'Utilities',
             },
           ]}

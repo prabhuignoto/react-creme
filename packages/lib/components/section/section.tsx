@@ -10,6 +10,7 @@ const Section: React.FC<SectionProps> = ({
   layout = 'row',
   RTL = false,
   size = 'sm',
+  noPadding = false,
 }) => {
   const sectionStyle = useMemo(
     () =>
@@ -28,10 +29,11 @@ const Section: React.FC<SectionProps> = ({
     []
   );
 
-  const sectionClass = useMemo(
+  const bodyClass = useMemo(
     () =>
       classNames('rc-section-body', {
         [`rc-section-${layout}`]: true,
+        'rc-section-no-padding': noPadding,
         'rc-section-no-title': !title,
         'rc-section-rtl': RTL,
       }),
@@ -48,7 +50,7 @@ const Section: React.FC<SectionProps> = ({
   return (
     <div style={sectionStyle} className={'rc-section'}>
       {title && <div className={headerClass}>{title}</div>}
-      <div style={bodyStyle} className={sectionClass}>
+      <div style={bodyStyle} className={bodyClass}>
         {children}
       </div>
     </div>

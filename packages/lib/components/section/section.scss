@@ -1,7 +1,7 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/list.scss";
-@use "sass:map";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/list.scss';
+@use 'sass:map';
 
 $sizes: (
   sm: 1rem,
@@ -39,8 +39,15 @@ $heights: (
 }
 
 .rc-section-body {
-  padding: 1.5rem 1rem 1rem;
   width: calc(100% - 2rem);
+
+  &.rc-section-no-padding {
+    padding: 0;
+  }
+
+  &:not(.rc-section-no-padding) {
+    padding: 1.5rem 1rem 1rem;
+  }
 
   &:not(.rc-section-rtl) {
     @extend %left;

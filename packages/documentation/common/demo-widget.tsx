@@ -41,7 +41,7 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
         <div
           style={{
             height: height ? `${height}px` : '100%',
-            margin: '0.5rem 0',
+            margin: '1rem 0',
             width: width ? `${width}px` : '100%',
           }}
         >

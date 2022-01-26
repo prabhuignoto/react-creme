@@ -1,14 +1,16 @@
-@use "../../design/layout.scss";
-@use "../../design/list.scss";
-@use "../../design/icon.scss";
-@use "../../design/colors.scss";
-@use "../../design/animate.scss";
-@use "../../design/font.scss";
+@use '../../design/layout.scss';
+@use '../../design/list.scss';
+@use '../../design/icon.scss';
+@use '../../design/colors.scss';
+@use '../../design/animate.scss';
+@use '../../design/font.scss';
 
 $sizes: (sm, md, lg);
 
 .bread-crumbs-wrapper {
-  @extend %list-horizontal;
+  @extend %left;
+  margin: 0;
+  padding: 0;
 }
 
 .bread-crumb {

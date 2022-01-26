@@ -7,7 +7,7 @@ function index() {
   return (
     <DemoPageRenderer
       title="Auto Suggest"
-      description="Auto Suggest is a component that provides a dropdown list of suggestions for the user to select from."
+      description="Auto Suggest is a component that allows the user to type in a value and get a list of suggestions. The user can then select a suggestion from the list."
       stackBlitzCodes={['react-ts-hf5mto']}
       pageIcon={<FontAwesomeIcon icon={faMagic} size="2x" />}
       callbacks={[

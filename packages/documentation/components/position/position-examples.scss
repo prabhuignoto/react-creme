@@ -1,0 +1,19 @@
+@use '../../../lib/design/colors.scss';
+@use '../../../lib/design/layout.scss';
+
+.rc-demo-position-outer-box {
+  @extend %border-radius;
+  background: colors.$light-bg;
+  height: 200px;
+  position: relative;
+  width: 200px;
+}
+
+.rc-demo-position-inner-box {
+  @extend %border-radius;
+  background: var(--rc-primary-color-hex);
+  display: block;
+  height: 50px;
+  position: absolute;
+  width: 50px;
+}

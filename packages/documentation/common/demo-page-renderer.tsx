@@ -25,6 +25,11 @@ const Icons = [
   <Code size={18} key="code" />,
 ];
 
+const IconsWithoutProperties = [
+  <BookOpen size={18} key="book-open" />,
+  <Code size={18} key="code" />,
+];
+
 interface DemoPageRendererProps {
   callbacks?: any[];
   demoWidget: LazyExoticComponent<React.FC>;
@@ -72,6 +77,10 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
           setWidth([120, 120, 120]);
         }
       }, [media]);
+
+      const canShowProperties = useMemo(() => {
+        return properties && properties.length;
+      }, [properties.length]);
 
       const columns: DataGridColumn[] = useMemo(() => {
         if (!width || !media) {
@@ -135,7 +144,11 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                 {description}
               </PageHeader>
             )}
-            <Tabs labels={tabTitles} icons={Icons} focusable={false}>
+            <Tabs
+              labels={tabTitles}
+              icons={canShowProperties ? Icons : IconsWithoutProperties}
+              focusable={false}
+            >
               <div className="rc-demo-widgets-wrapper">
                 <Suspense fallback={<span>Loading Widgets...</span>}>
                   <CSSTransition
@@ -147,9 +160,9 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                   </CSSTransition>
                 </Suspense>
               </div>
-              <div className="rc-demo-prop-section">
-                <Suspense fallback={<div></div>}>
-                  {properties && (
+              {canShowProperties && (
+                <div className="rc-demo-prop-section">
+                  <Suspense fallback={<div></div>}>
                     <Section title="Properties">
                       <DataGrid
                         layoutStyle={'comfortable'}
@@ -159,20 +172,20 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                         rowHeight={68}
                       />
                     </Section>
-                  )}
-                  {callbacks && (
-                    <Section title="Callbacks">
-                      <DataGrid
-                        layoutStyle={'comfortable'}
-                        columns={columns}
-                        data={callbacks}
-                        border
-                        rowHeight={68}
-                      />
-                    </Section>
-                  )}
-                </Suspense>
-              </div>
+                    {callbacks && (
+                      <Section title="Callbacks">
+                        <DataGrid
+                          layoutStyle={'comfortable'}
+                          columns={columns}
+                          data={callbacks}
+                          border
+                          rowHeight={68}
+                        />
+                      </Section>
+                    )}
+                  </Suspense>
+                </div>
+              )}
               <div className="rc-demo-stack-blitz-collection">
                 {stackBlitzCodes &&
                   stackBlitzCodes.map(code => (

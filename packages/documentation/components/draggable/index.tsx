@@ -8,10 +8,10 @@ function Draggable() {
   return (
     <DemoPageRenderer
       demoWidget={lazy(() => import('./widgets'))}
-      title="Draggable"
-      description="React Hook to enable draggable functionality"
+      title="useDraggable"
       properties={[]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      description="React Hook to enable draggable functionality"
+      tabTitles={['Examples', 'Stackblitz']}
       stackBlitzCodes={['react-ts-re75pw']}
       pageIcon={<FontAwesomeIcon icon={faHandPointer} size="2x" />}
     ></DemoPageRenderer>

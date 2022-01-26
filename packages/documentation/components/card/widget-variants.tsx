@@ -23,3 +23,9 @@ export const CustomImage = (
     <Image src="https://mmc.tirto.id/image/otf/500x0/2016/07/26/TIRTO-20140522_batman_warner-bros_ratio-16x9.jpg" />
   </Card>
 );
+
+export const CustomImageCode = `
+  <Card alignHeader="left" height={250} shadow={false}>
+    <Image src="https://mmc.tirto.id/image/otf/500x0/2016/07/26/TIRTO-20140522_batman_warner-bros_ratio-16x9.jpg" />
+  </Card>
+`;
