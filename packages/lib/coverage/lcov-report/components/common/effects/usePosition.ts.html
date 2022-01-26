@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.18% </span>
+                <span class="strong">95.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>138/142</span>
+                <span class='fraction'>136/142</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.18% </span>
+                <span class="strong">95.77% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>138/142</span>
+                <span class='fraction'>136/142</span>
             </div>
         
             
@@ -244,9 +244,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -276,7 +276,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -349,7 +349,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { CSSProperties, RefObject, useEffect, useState } from 'react';
 &nbsp;
-type Position =
+export type Position =
   | 'top left'
   | 'top right'
   | 'top center'
@@ -378,15 +378,15 @@ type FunctionType = (
 const usePosition: FunctionType = function (
   element,
   tooltip,
-  position,
-<span class="branch-0 cbranch-no" title="branch not covered" >  settings = { spacin</span>g<span class="branch-0 cbranch-no" title="branch not covered" >: 15 }</span>
+  posi<span class="branch-0 cbranch-no" title="branch not covered" >tion,</span>
+  settings = { <span class="branch-0 cbranch-no" title="branch not covered" >spacing: 15 }</span>
 <span class="cstat-no" title="statement not covered" >) {</span>
   const [_position, setPosition] = useState&lt;React.CSSProperties&gt;();
   const { spacing, alignToEdge } = settings;
 &nbsp;
   useEffect(() =&gt; {
-    if (!element.current &amp;&amp; !tooltip.current) {
-<span class="fstat-no" title="function not covered" >      return;</span>
+    if (!element.current &amp;&amp; !tooltip.curre<span class="fstat-no" title="function not covered" >nt) {</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
     const positionX = position.split(' ')[0];
@@ -415,10 +415,10 @@ const usePosition: FunctionType = function (
 &nbsp;
     switch (position) {
       case 'top center':
-      case 'bottom center': {
-<span class="branch-0 cbranch-no" title="branch not covered" >        const prop = isPositionX('top') ? 'bot</span>tom' : 'top';
-        cssPosition = {
-<span class="branch-0 cbranch-no" title="branch not covered" >          ...horizontalCenter,</span>
+      case 'bottom center': <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+        const prop = isPositionX('top') ? 'bottom' : 'top';
+        cssPositio<span class="branch-0 cbranch-no" title="branch not covered" >n = {</span>
+<span class="cstat-no" title="statement not covered" >          ...horizontalCenter,</span>
           [prop]: `${heightWithSpace}px`,
         };
         break;
@@ -428,9 +428,9 @@ const usePosition: FunctionType = function (
         const prop = alignToEdge
           ? positionY
           : isPositionY('left')
-          ? 'right'
-<span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >          : 'left';</span></span>
-        const value = alignToEdge ? 0 : `${eleWidth - toolti<span class="branch-0 cbranch-no" title="branch not covered" >pHalfWidth}px`;</span>
+          ? '<span class="branch-0 cbranch-no" title="branch not covered" >right'</span>
+<span class="cstat-no" title="statement not covered" >          : 'left';</span>
+        const value = alignToEdge ? 0 : `${eleWidth -<span class="branch-0 cbranch-no" title="branch not covered" > tooltipHalfWidth}px`;</span>
         cssPosition = {
           bottom: `${heightWithSpace}px`,
           [prop]: value,
@@ -448,21 +448,21 @@ const usePosition: FunctionType = function (
         cssPosition = {
           [prop]: value,
           top: `${heightWithSpace}px`,
-        };
-<span class="branch-0 cbranch-no" title="branch not covered" >        br</span>eak;
+<span class="branch-0 cbranch-no" title="branch not covered" >        };</span>
+        break;
       }
       case 'left center':
       case 'right center': {
-        const prop = isPositionX('left') ? 'right' :<span class="branch-0 cbranch-no" title="branch not covered" > 'left';</span>
+        const prop = isPositionX('left') ? 'r<span class="branch-0 cbranch-no" title="branch not covered" >ight' : 'left';</span>
         cssPosition = {
           ...verticalCenter,
-          [prop]: eleWidth + spacing,
-<span class="branch-0 cbranch-no" title="branch not covered" >        }</span>;
+          [prop]: eleWidth + sp<span class="branch-0 cbranch-no" title="branch not covered" >acing,</span>
+        };
         break;
       }
       case 'left top':
       case 'right top': {
-        const prop = isPositionX('left') ? 'right<span class="branch-0 cbranch-no" title="branch not covered" >' : 'left';</span>
+        const prop = isPositionX('left') ?<span class="branch-0 cbranch-no" title="branch not covered" > 'right' : 'left';</span>
         cssPosition = {
           [prop]: eleWidth + spacing,
           top: 0,
@@ -496,7 +496,7 @@ export { usePosition };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Jan 25 2022 20:43:39 GMT+0530 (India Standard Time)
+                at Wed Jan 26 2022 19:20:09 GMT+0530 (India Standard Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

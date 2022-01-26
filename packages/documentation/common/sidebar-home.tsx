@@ -100,6 +100,10 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
               title: 'Data',
             },
             {
+              items: [{ name: 'Bread Crumb' }],
+              title: 'Navigation',
+            },
+            {
               items: [
                 { name: 'Dialog' },
                 { name: 'Drawer' },

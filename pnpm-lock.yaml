@@ -21,7 +21,7 @@ importers:
       postcss: ^8.4.5
       postcss-scss: ^4.0.3
       prettier: ^2.5.1
-      snyk: ^1.836.0
+      snyk: ^1.838.0
       stylelint: 14.3.0
       stylelint-config-prettier: ^9.0.3
       stylelint-order: ^5.0.0
@@ -46,7 +46,7 @@ importers:
       postcss: 8.4.5
       postcss-scss: 4.0.3_postcss@8.4.5
       prettier: 2.5.1
-      snyk: 1.836.0
+      snyk: 1.838.0
       stylelint: 14.3.0
       stylelint-config-prettier: 9.0.3_stylelint@14.3.0
       stylelint-order: 5.0.0_stylelint@14.3.0
@@ -116,7 +116,7 @@ importers:
       resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
       sass: ^1.49.0
-      snyk: ^1.836.0
+      snyk: ^1.838.0
       stylelint: 14.3.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -176,7 +176,7 @@ importers:
       recoil: 0.5.2_react-dom@17.0.2+react@17.0.2
       rimraf: 3.0.2
       sass: 1.49.0
-      snyk: 1.836.0
+      snyk: 1.838.0
       stylelint: 14.3.0
       stylelint-config-prettier: 9.0.3_stylelint@14.3.0
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.5+stylelint@14.3.0
@@ -248,7 +248,7 @@ importers:
       rollup-plugin-typescript2: ^0.31.1
       rollup-plugin-visualizer: ^5.5.4
       sass: ^1.49.0
-      snyk: ^1.836.0
+      snyk: ^1.838.0
       stylelint: 14.3.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -322,7 +322,7 @@ importers:
       rollup-plugin-typescript2: 0.31.1_264f3a746cf4b5ff1990a11c293c6e4e
       rollup-plugin-visualizer: 5.5.4_rollup@2.66.1
       sass: 1.49.0
-      snyk: 1.836.0
+      snyk: 1.838.0
       stylelint: 14.3.0
       stylelint-config-prettier: 9.0.3_stylelint@14.3.0
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.5+stylelint@14.3.0
@@ -11150,7 +11150,6 @@ packages:
 
   /nan/2.15.0:
     resolution: {integrity: sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==}
-    requiresBuild: true
     dev: true
     optional: true
 
@@ -14190,8 +14189,8 @@ packages:
       use: 3.1.1
     dev: true
 
-  /snyk/1.836.0:
-    resolution: {integrity: sha512-iPJ4SCAEArquqo1Aq11KbHOWEu0OFauRn/4Acoq+hDqgTYN9IV8i5d6uHPAo3ePV2g24nF0Pb9N0sxIGgp833w==}
+  /snyk/1.838.0:
+    resolution: {integrity: sha512-ulCiJ3YbATu0dRtVknYric9EDiPkrZ5qRzwVDHFkcfCzyleV64QfNmO72y6cWI4WRmPha25V/qdYa+4Kl3MzuQ==}
     engines: {node: '>=10'}
     hasBin: true
 

@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import React, { FunctionComponent, useMemo, useRef } from 'react';
 import { ArrowRightIcon, ChevronRightIcon } from '../../icons';
-import { useFocus } from '../common/effects/useFocus';
-import { useKey } from '../common/effects/useKey';
+import useFocusNew from '../common/effects/useFocusNew';
 import { BreadCrumbItemProps } from './breadcrumb-model';
 
 const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
@@ -15,13 +14,7 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
     size = 'sm',
   }: BreadCrumbItemProps) => {
     const ref = useRef<HTMLSpanElement>(null);
-    useFocus(ref);
-
-    useKey(ref, () => {
-      if (ref.current) {
-        ref.current.querySelector('a')?.click();
-      }
-    });
+    useFocusNew(ref);
 
     const breadCrumbIcon = useMemo(() => {
       return classNames('bread-crumb-icon', {
