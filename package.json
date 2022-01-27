@@ -43,7 +43,7 @@
     "story": "turbo run dev --scope=*story*",
     "test": "turbo run vi-test",
     "all": "turbo run format lint test build",
-    "build:lib": "turbo run build --scope=*lib*",
+    "build:lib": "turbo run build --scope=lib",
     "build:doc": "turbo run build --scope=*docu*",
     "ci": "turbo run ci",
     "snyk": "turbo run snyk",
