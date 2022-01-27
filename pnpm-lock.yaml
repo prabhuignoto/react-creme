@@ -198,6 +198,7 @@ importers:
       '@babel/plugin-transform-runtime': ^7.16.10
       '@babel/preset-env': ^7.16.11
       '@babel/preset-react': ^7.16.7
+      '@babel/preset-typescript': ^7.16.7
       '@csstools/postcss-sass': ^4.0.0
       '@rollup/plugin-babel': ^5.3.0
       '@rollup/plugin-commonjs': ^21.0.1
@@ -271,6 +272,7 @@ importers:
       '@babel/plugin-transform-runtime': 7.16.10_@babel+core@7.16.12
       '@babel/preset-env': 7.16.11_@babel+core@7.16.12
       '@babel/preset-react': 7.16.7_@babel+core@7.16.12
+      '@babel/preset-typescript': 7.16.7_@babel+core@7.16.12
       '@csstools/postcss-sass': 4.0.0
       '@rollup/plugin-babel': 5.3.0_9997319ace8bca27de532a1e218e7823
       '@rollup/plugin-commonjs': 21.0.1_rollup@2.66.1

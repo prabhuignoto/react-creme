@@ -1,13 +1,10 @@
 import babel from '@rollup/plugin-babel';
 import common from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-// import svgr from '@svgr/rollup';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import BemLinter from 'postcss-bem-linter';
 import PostCSSPreset from 'postcss-preset-env';
-import peerDeps from 'rollup-plugin-peer-deps-external';
-// import esbuild from 'rollup-plugin-esbuild';
 import postcss from 'rollup-plugin-postcss';
 import purgecss from 'rollup-plugin-purgecss';
 import { terser } from 'rollup-plugin-terser';
@@ -27,6 +24,7 @@ const banner = `/*
 const OUTPUT_NAME = 'ReactCreme';
 
 export default {
+  external: [...Object.keys(pkg.peerDependencies || {})],
   input: 'react-creme.ts',
   output: [
     {
@@ -55,22 +53,8 @@ export default {
       sourcemap: true,
       strict: true,
     },
-    {
-      banner,
-      exports: 'named',
-      file: pkg.umd,
-      format: 'umd',
-      globals: {
-        react: 'React',
-        'react-dom': 'ReactDOM',
-      },
-      name: OUTPUT_NAME,
-      sourcemap: true,
-      strict: true,
-    },
   ],
   plugins: [
-    peerDeps(),
     // esbuild(),
     typescript({
       useTsconfigDeclarationDir: true,
@@ -80,10 +64,10 @@ export default {
     }),
     common(),
     babel({
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
       exclude: 'node_modules/**',
       plugins: [
-        // '@babel/plugin-transform-runtime',
+        '@babel/plugin-transform-runtime',
         '@babel/plugin-proposal-optional-chaining',
       ],
       presets: [
@@ -96,6 +80,7 @@ export default {
           },
         ],
         '@babel/preset-react',
+        '@babel/preset-typescript',
       ],
     }),
     purgecss({
@@ -117,7 +102,7 @@ export default {
           const result = sass.compileString({ file: id });
           resolve({ code: result.css.toString() });
         }),
-      sourceMap: true,
+      sourceMap: false,
     }),
     terser({
       compress: {
