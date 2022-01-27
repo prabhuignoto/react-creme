@@ -102,6 +102,11 @@ const routes = [
     key: 'page-header',
     path: '/page-header',
   },
+  {
+    component: React.lazy(() => import('./components/link')),
+    key: 'link',
+    path: '/link',
+  },
 ];
 
 export { routes };

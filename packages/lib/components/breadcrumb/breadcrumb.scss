@@ -34,6 +34,7 @@ $sizes: (sm, md, lg);
 .bread-crumb-node {
   @extend %center;
   @include animate.halo();
+  min-width: 50px;
   padding-bottom: 0.2rem;
 
   @each $size in $sizes {

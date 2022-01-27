@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Sidebar } from '../../lib/components';
 import {
   SidebarGroupModel,
-  SidebarItemModel,
+  SidebarItemModel
 } from '../../lib/components/sidebar/sidebar-model';
 
 interface SideBarHomeProps {
@@ -100,7 +100,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
               title: 'Data',
             },
             {
-              items: [{ name: 'Bread Crumb' }],
+              items: [{ name: 'Bread Crumb' }, {name: 'Link'}],
               title: 'Navigation',
             },
             {

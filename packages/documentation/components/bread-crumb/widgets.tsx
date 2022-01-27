@@ -6,7 +6,7 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render">
-        <DemoWidget width={300}>
+        <DemoWidget width={450}>
           <BreadCrumb>
             <Link href="#">Home</Link>
             <Link href="#">Features</Link>
@@ -20,7 +20,7 @@ function Widgets() {
           any of the values <code>slash</code> <code>arrow</code> or{' '}
           <code>chevron</code>.
         </BlockQuote>
-        <DemoWidget width={300}>
+        <DemoWidget width={450}>
           <BreadCrumb icon="slash">
             <Link href="#">Home</Link>
             <Link href="#">Features</Link>
@@ -29,7 +29,7 @@ function Widgets() {
         </DemoWidget>
       </Section>
       <Section title="Custom Icon - arrow">
-        <DemoWidget width={300}>
+        <DemoWidget width={450}>
           <BreadCrumb icon="arrow">
             <Link href="#">Home</Link>
             <Link href="#">Features</Link>
@@ -42,7 +42,7 @@ function Widgets() {
           The size can be changed by setting the <code>size</code> property to{' '}
           <code>sm</code> <code>md</code> or <code>lg</code>.
         </BlockQuote>
-        <DemoWidget width={300}>
+        <DemoWidget width={450}>
           <BreadCrumb icon="arrow" size="md">
             <Link href="#">Home</Link>
             <Link href="#">Features</Link>
