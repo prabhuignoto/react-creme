@@ -1,5 +1,5 @@
 import React from 'react';
-import { BlockQuote, BreadCrumb, Link, Section } from '../../../lib/components';
+import { BlockQuote, BreadCrumb, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {
@@ -8,9 +8,9 @@ function Widgets() {
       <Section title="Default render">
         <DemoWidget width={450}>
           <BreadCrumb>
-            <Link href="#">Home</Link>
-            <Link href="#">Features</Link>
-            <Link href="#">Bread Crumb</Link>
+            <span>Home</span>
+            <span>Features</span>
+            <span>Bread Crumb</span>
           </BreadCrumb>
         </DemoWidget>
       </Section>
@@ -22,18 +22,18 @@ function Widgets() {
         </BlockQuote>
         <DemoWidget width={450}>
           <BreadCrumb icon="slash">
-            <Link href="#">Home</Link>
-            <Link href="#">Features</Link>
-            <Link href="#">Bread Crumb</Link>
+            <span>Home</span>
+            <span>Features</span>
+            <span>Bread Crumb</span>
           </BreadCrumb>
         </DemoWidget>
       </Section>
       <Section title="Custom Icon - arrow">
         <DemoWidget width={450}>
           <BreadCrumb icon="arrow">
-            <Link href="#">Home</Link>
-            <Link href="#">Features</Link>
-            <Link href="#">Bread Crumb</Link>
+            <span>Home</span>
+            <span>Features</span>
+            <span>Bread Crumb</span>
           </BreadCrumb>
         </DemoWidget>
       </Section>
@@ -44,18 +44,18 @@ function Widgets() {
         </BlockQuote>
         <DemoWidget width={450}>
           <BreadCrumb icon="arrow" size="md">
-            <Link href="#">Home</Link>
-            <Link href="#">Features</Link>
-            <Link href="#">Bread Crumb</Link>
+            <span>Home</span>
+            <span>Features</span>
+            <span>Bread Crumb</span>
           </BreadCrumb>
         </DemoWidget>
       </Section>
       <Section title="Custom Size - Large">
         <DemoWidget width={400}>
           <BreadCrumb icon="arrow" size="lg">
-            <Link href="#">Home</Link>
-            <Link href="#">Features</Link>
-            <Link href="#">Bread Crumb</Link>
+            <span>Home</span>
+            <span>Features</span>
+            <span>Bread Crumb</span>
           </BreadCrumb>
         </DemoWidget>
       </Section>

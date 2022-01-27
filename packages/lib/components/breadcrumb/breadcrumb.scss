@@ -7,21 +7,22 @@
 
 $sizes: (sm, md, lg);
 
-.bread-crumbs-wrapper {
+.rc-bread-crumbs-wrapper {
   @extend %left;
   margin: 0;
   padding: 0;
 }
 
-.bread-crumb {
+.rc-bread-crumb {
   @extend %list-item;
+  cursor: pointer;
 }
 
-.bread-crumb-icon {
+.rc-bread-crumb-icon {
   margin-left: 0.5rem;
 
   @each $size in $sizes {
-    &.bread-crumb-icon-#{$size} {
+    &.rc-bread-crumb-icon-#{$size} {
       @extend %icon-#{$size};
     }
   }
@@ -31,19 +32,29 @@ $sizes: (sm, md, lg);
   }
 }
 
-.bread-crumb-node {
+.rc-bread-crumb-node {
   @extend %center;
+  @extend %border-radius;
   @include animate.halo();
-  min-width: 50px;
-  padding-bottom: 0.2rem;
+  padding: 0.25rem;
 
-  @each $size in $sizes {
-    &.bread-crumb-node-#{$size} {
-      @extend %font-#{$size};
-    }
+  &:hover {
+    background-color: rgba(colors.$secondary-rgb, 0.25);
+    color: colors.$tertiary;
   }
 
   a {
     color: colors.$black;
+  }
+
+  &.rc-bread-crumb-node-selected {
+    background-color: rgba(colors.$secondary-rgb, 0.5);
+    color: colors.$primary;
+  }
+
+  @each $size in $sizes {
+    &.rc-bread-crumb-node-#{$size} {
+      @extend %font-#{$size};
+    }
   }
 }

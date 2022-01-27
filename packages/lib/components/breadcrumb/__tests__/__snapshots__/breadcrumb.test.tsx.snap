@@ -3,36 +3,28 @@
 exports[`Breadcrumb > should render snapshot 1`] = `
 <ul
   aria-label="breadcrumbs"
-  class="bread-crumbs-wrapper"
+  class="rc-bread-crumbs-wrapper"
   role="navigation"
 >
   <li
-    class="bread-crumb"
+    class="rc-bread-crumb"
   >
     <span
-      class="bread-crumb-node bread-crumb-node-sm"
+      class="rc-bread-crumb-node rc-bread-crumb-node-sm rc-bread-crumb-node-selected"
+      role="button"
       style="outline: none; position: relative;"
       tabindex="0"
     >
-      <a
-        class="rc-link"
-        href="http://google.com"
-        tabindex="-1"
-        target=""
-      >
-        <span
-          class="rc-link-text"
-        >
-          google
-        </span>
-      </a>
+      <span>
+        google
+      </span>
       <span
         class="rc-focus-ring"
         style="width: 6px; height: 6px;"
       />
     </span>
     <span
-      class="bread-crumb-icon bread-crumb-icon-sm"
+      class="rc-bread-crumb-icon rc-bread-crumb-icon-sm"
     >
       <svg
         fill="none"
@@ -50,32 +42,24 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     </span>
   </li>
   <li
-    class="bread-crumb"
+    class="rc-bread-crumb"
   >
     <span
-      class="bread-crumb-node bread-crumb-node-sm"
+      class="rc-bread-crumb-node rc-bread-crumb-node-sm"
+      role="button"
       style="outline: none; position: relative;"
       tabindex="0"
     >
-      <a
-        class="rc-link"
-        href="http://yahoo.com"
-        tabindex="-1"
-        target=""
-      >
-        <span
-          class="rc-link-text"
-        >
-          yahoo
-        </span>
-      </a>
+      <span>
+        yahoo
+      </span>
       <span
         class="rc-focus-ring"
         style="width: 6px; height: 6px;"
       />
     </span>
     <span
-      class="bread-crumb-icon bread-crumb-icon-sm"
+      class="rc-bread-crumb-icon rc-bread-crumb-icon-sm"
     >
       <svg
         fill="none"
@@ -93,25 +77,17 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     </span>
   </li>
   <li
-    class="bread-crumb"
+    class="rc-bread-crumb"
   >
     <span
-      class="bread-crumb-node bread-crumb-node-sm"
+      class="rc-bread-crumb-node rc-bread-crumb-node-sm"
+      role="button"
       style="outline: none; position: relative;"
       tabindex="0"
     >
-      <a
-        class="rc-link"
-        href="http://amazon.com"
-        tabindex="-1"
-        target=""
-      >
-        <span
-          class="rc-link-text"
-        >
-          amazon
-        </span>
-      </a>
+      <span>
+        amazon
+      </span>
       <span
         class="rc-focus-ring"
         style="width: 6px; height: 6px;"
