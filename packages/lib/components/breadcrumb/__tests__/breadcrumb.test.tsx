@@ -8,16 +8,19 @@ const handler = vi.fn();
 
 describe('Breadcrumb', () => {
   it('should render', () => {
-    const { getByRole, getAllByRole } = render(
+    const { getByRole, getAllByRole, getByText } = render(
       <BreadCrumb>
-        <Link href="http://google.com" />
-        <Link href="http://yahoo.com" />
-        <Link href="http://amazon.com" />
+        <Link href="http://google.com">google</Link>
+        <Link href="http://yahoo.com">yahoo</Link>
+        <Link href="http://amazon.com">amazon</Link>
       </BreadCrumb>
     );
 
     expect(getByRole('navigation')).toBeInTheDocument();
     expect(getAllByRole('link')).toHaveLength(3);
+
+    expect(getByText('google')).toBeInTheDocument();
+    expect(getByText('yahoo')).toBeInTheDocument();
   });
 
   it('should onClick is called', () => {
@@ -38,9 +41,9 @@ describe('Breadcrumb', () => {
   it('should render snapshot', () => {
     const { getByRole } = render(
       <BreadCrumb>
-        <Link href="http://google.com" />
-        <Link href="http://yahoo.com" />
-        <Link href="http://amazon.com" />
+        <Link href="http://google.com">google</Link>
+        <Link href="http://yahoo.com">yahoo</Link>
+        <Link href="http://amazon.com">amazon</Link>
       </BreadCrumb>
     );
 

@@ -15,11 +15,17 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       tabindex="0"
     >
       <a
-        class="link"
+        class="rc-link"
         href="http://google.com"
         tabindex="-1"
         target=""
-      />
+      >
+        <span
+          class="rc-link-text"
+        >
+          google
+        </span>
+      </a>
       <span
         class="rc-focus-ring"
         style="width: 6px; height: 6px;"
@@ -52,11 +58,17 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       tabindex="0"
     >
       <a
-        class="link"
+        class="rc-link"
         href="http://yahoo.com"
         tabindex="-1"
         target=""
-      />
+      >
+        <span
+          class="rc-link-text"
+        >
+          yahoo
+        </span>
+      </a>
       <span
         class="rc-focus-ring"
         style="width: 6px; height: 6px;"
@@ -89,11 +101,17 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       tabindex="0"
     >
       <a
-        class="link"
+        class="rc-link"
         href="http://amazon.com"
         tabindex="-1"
         target=""
-      />
+      >
+        <span
+          class="rc-link-text"
+        >
+          amazon
+        </span>
+      </a>
       <span
         class="rc-focus-ring"
         style="width: 6px; height: 6px;"
