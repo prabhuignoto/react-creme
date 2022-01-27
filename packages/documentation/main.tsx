@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import App from './App';
 
+const Root = ReactDOM.createRoot(document.getElementById('root'));
+
 // Sentry.init({
 //   dsn: "https://f95fae83de7c42e48df3691166d06de0@o1116896.ingest.sentry.io/6150784",
 
@@ -18,7 +20,7 @@ import App from './App';
 //   tracesSampleRate: 1.0,
 // });
 
-ReactDOM.render(
+Root.render(
   <BrowserRouter>
     <RecoilRoot>
       <StrictMode>

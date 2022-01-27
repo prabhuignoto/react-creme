@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.77% </span>
+                <span class="strong">97.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>136/142</span>
+                <span class='fraction'>139/142</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.89% </span>
+                <span class="strong">59.09% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/19</span>
+                <span class='fraction'>13/22</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.77% </span>
+                <span class="strong">97.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>136/142</span>
+                <span class='fraction'>139/142</span>
             </div>
         
             
@@ -257,13 +257,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -273,7 +268,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -306,8 +302,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -394,29 +394,29 @@ const Progress: React.FunctionComponent&lt;ProgressProps&gt; = ({
     return 0;
   }, [currentValue, progressPercent, loaded]);
 &nbsp;
-  const fillStyle = useMemo(
+  const fillStyle = use<span class="branch-0 cbranch-no" title="branch not covered" >Memo</span>(
     () =&gt;
       ({
         '--width': type === 'determinate' ? `${fillWidth}px` : '50%',
-      } as <span class="branch-0 cbranch-no" title="branch not covered" >CSSP</span>roperties),
+      } as CSSPr<span class="branch-0 cbranch-no" title="branch not covered" >operties),</span>
+<span class="cstat-no" title="statement not covered" >    [fillWidth]</span>
+<span class="branch-0 cbranch-no" title="branch not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" ></span>
+  const progressCompl<span class="branch-0 cbranch-no" title="branch not covered" >ete = useMemo(</span>
+    () =&gt; fillWidth === progressTrackRef.current?.clientWidth,
     [fillWidth]
   );
 &nbsp;
-  const progressComplete = useMemo(
-    () =&gt; fillWidth === progressTrac<span class="branch-0 cbranch-no" title="branch not covered" >kRef.current?.clientWidth,</span>
-<span class="branch-0 cbranch-no" title="branch not covered" >    [fillWidth]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" ></span>
-  con<span class="branch-0 cbranch-no" title="branch not covered" >st fillClass = us</span>eMemo(
+  const fillClass = useMemo(
     () =&gt;
       classNames(
         [
-          'rc-progress-fill',
-          type,
+<span class="branch-0 cbranch-no" title="branch not covered" >          'rc-progress-fill',</span>
+<span class="cstat-no" title="statement not covered" >          type,</span>
           indeterminateStyle,
-          progressComplete ? 'complete<span class="branch-0 cbranch-no" title="branch not covered" >' : '',</span>
-<span class="cstat-no" title="statement not covered" >        ],</span>
-<span class="cstat-no" title="statement not covered" >        {</span>
+          progressComplete ? 'complete' : '',
+        ],
+        {
           [`rc-progress-fill-${status}`]: true,
         }
       ),
@@ -427,7 +427,7 @@ const Progress: React.FunctionComponent&lt;ProgressProps&gt; = ({
     () =&gt;
       ({
         '--height':
-          size === 'lg' ? `${40}px` : size === 'md' ? `${20}px` : `${10}px`,
+          size === 'lg' ? `${40}px` : size<span class="branch-0 cbranch-no" title="branch not covered" > === 'md' ? `$</span>{20}px` : `${10}px`,
         '--width': `${width}px`,
       } as CSSProperties),
     []
@@ -435,22 +435,22 @@ const Progress: React.FunctionComponent&lt;ProgressProps&gt; = ({
 &nbsp;
   const wrapperClass = useMemo(
     () =&gt;
-      classNames('rc-progress-wrapper', {
+      classNames('rc-progress-wrapper'<span class="branch-0 cbranch-no" title="branch not covered" >, {</span>
         [`rc-progress-${status}`]: true,
       }),
     [status]
   );
 &nbsp;
-  const progr<span class="branch-0 cbranch-no" title="branch not covered" >essTrackClass</span> = useMemo(
+  const progressTrackClass = useMemo(
     () =&gt;
       classNames('rc-progress-track', {
-        [`rc-progress-track-${status}`]: true,
-        'rc-progress-track-rtl': RTL,
+        [`rc-progress-<span class="branch-0 cbranch-no" title="branch not covered" >track-${stat</span>us}`]: true,
+<span class="branch-0 cbranch-no" title="branch not covered" >        'rc-pr</span>ogress-track-rtl': RTL,
       }),
     [status]
-<span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >  );</span></span>
-<span class="cstat-no" title="statement not covered" ></span>
-  const progressPerc<span class="branch-0 cbranch-no" title="branch not covered" >entValClass </span>= useMemo(
+  );
+&nbsp;
+  const progressPercentValClass = useMemo(
     () =&gt;
       classNames(
         'rc-progress-percent-value',
@@ -496,7 +496,7 @@ export { Progress };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jan 26 2022 19:20:09 GMT+0530 (India Standard Time)
+                at Thu Jan 27 2022 10:28:03 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

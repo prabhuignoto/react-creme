@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.38% </span>
+                <span class="strong">88.99% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>191/209</span>
+                <span class='fraction'>186/209</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">59.09% </span>
+                <span class="strong">56% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>13/22</span>
+                <span class='fraction'>14/25</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.38% </span>
+                <span class="strong">88.99% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>191/209</span>
+                <span class='fraction'>186/209</span>
             </div>
         
             
@@ -387,31 +387,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -428,6 +409,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -436,6 +418,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -463,11 +451,23 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -586,7 +586,7 @@ const TreeItem: React.FunctionComponent&lt;TreeItemProps&gt; = React.memo(
         return;
       }
 &nbsp;
-      if (onChildToggle &amp;&amp; Array.isArray(child)) {
+      if <span class="branch-0 cbranch-no" title="branch not covered" >(onChildToggl</span>e<span class="branch-0 cbranch-no" title="branch not covered" > &amp;&amp; Array.isArray(child)) {</span>
         onChildToggle(expanded, child.length);
       }
     }, [expanded]);
@@ -595,17 +595,17 @@ const TreeItem: React.FunctionComponent&lt;TreeItemProps&gt; = React.memo(
       (expanded: boolean, count: number) =&gt; {
         if (typeof count === 'undefined') {
           return;
-<span class="branch-0 cbranch-no" title="branch not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="branch-0 cbranch-no" title="branch not covered" >        if (expanded) {</span>
+        }
+&nbsp;
+        if (expanded) {
           setTotalItems(totalItems + count);
         } else {
-          setTotalItems(totalItems - count);
-        }
-      },
-      [totalItems]
-    );
-&nbsp;
+          setTotalItems<span class="branch-0 cbranch-no" title="branch not covered" >(totalItems - count);</span>
+<span class="branch-0 cbranch-no" title="branch not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >      [totalItems]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" ></span>
     const handleSelection = (id: string, label: string, val: boolean) =&gt; {
       setChecked(val);
     };
@@ -613,33 +613,33 @@ const TreeItem: React.FunctionComponent&lt;TreeItemProps&gt; = React.memo(
     useEffect(() =&gt; {
       if (typeof expanded === 'undefined') {
         return;
-<span class="branch-0 cbranch-no" title="branch not covered" >      }</span>
-      onChildToggle <span class="branch-0 cbranch-no" title="branch not covered" >&amp;&amp; onChildToggle(expanded, totalItems);</span>
-<span class="cstat-no" title="statement not covered" ></span>
+      }
+      onChildToggle &amp;&amp; onChildToggle(expanded, totalItems);
+&nbsp;
       if (expanded) {
-        setControlledExpanded(expanded);
-      } else {
-<span class="cstat-no" title="statement not covered" >        setTimeout(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          setControlledExpanded(expanded);</span>
-<span class="cstat-no" title="statement not covered" >        }, 500);</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" >    }, [totalItems, expanded]);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-    const handleToggle = useCallback((ev: React.MouseEvent, id: string) =&gt; {
+        setControlledExpanded(expan<span class="fstat-no" title="function not covered" >ded);</span>
+<span class="cstat-no" title="statement not covered" >      } else {</span>
+        setTimeout(() =&gt; {
+          setControlledExpanded(expanded);
+        }, 500);
+      }
+    }, [totalItems, expanded]);
+&nbsp;
+    const handl<span class="branch-0 cbranch-no" title="branch not covered" >eToggle = useCallback((ev: React.MouseE</span>vent, id: string) =&gt; {
       onToggle?.(id);
     }, []);
 &nbsp;
-<span class="fstat-no" title="function not covered" >    const onSelect = useCallback(() =&gt; {</span>
-      onChange?.(name);
-    }, []);
-&nbsp;
+<span class="branch-0 cbranch-no" title="branch not covered" >    const onSelect = useCallback(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      onChange?.(name);</span>
+<span class="cstat-no" title="statement not covered" >    }, []);</span>
+<span class="cstat-no" title="statement not covered" ></span>
     const handleOnChange = useCallback(_name =&gt; {
       onChange?.(`${name} &gt; ${_name}`);
     }, []);
 &nbsp;
     return (
       &lt;div className={itemClass} style={itemStyle} role="treeitem"&gt;
-<span class="branch-0 cbranch-no" title="branch not covered" >        &lt;span className={iconClass} onClick={ev =&gt; id &amp;&amp; handleToggle(ev, id)}&gt;</span>
+        &lt;span className={iconClass} onClick={ev =&gt; id &amp;&amp; handleToggle(ev, id)}&gt;
           {iconType === 'chevron' &amp;&amp; &lt;ChevronRightIcon /&gt;}
           {iconType === 'plus' &amp;&amp; !expanded &amp;&amp; &lt;PlusIcon /&gt;}
           {iconType === 'plus' &amp;&amp; expanded &amp;&amp; &lt;MinusIcon /&gt;}
@@ -652,31 +652,31 @@ const TreeItem: React.FunctionComponent&lt;TreeItemProps&gt; = React.memo(
                 onChange={handleSelection}
                 isChecked={selected &amp;&amp; !disabled}
                 border={false}
-                autoHeight
-                noHoverStyle
-                focusIcon
-              /&gt;
-            &lt;/span&gt;
+<span class="branch-0 cbranch-no" title="branch not covered" >                autoHeight</span>
+<span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >                noHoverStyle</span></span>
+<span class="cstat-no" title="statement not covered" >                focusIcon</span>
+<span class="cstat-no" title="statement not covered" >              /&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/span&gt;</span>
           ) : (
-            &lt;span className="rc-tree-item-name" onClick={onSelect} tabIndex={0}&gt;
-              {name}
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;span cla<span class="branch-0 cbranch-no" title="branch not covered" ></span>ssName="rc-tree-item-name" onClick={onSelect} tabIndex={0}&gt;</span>
+<span class="cstat-no" title="statement not covered" >              {name}</span>
             &lt;/span&gt;
           )}
           &lt;div className={childContainerClass}&gt;
             {controlledExpanded &amp;&amp; (
-              &lt;Su<span class="branch-0 cbranch-no" title="branch not covered" >spense fallba<span class="branch-0 cbranch-no" title="branch not covered" ></span>ck={&lt;span&gt;&lt;/span&gt;}&gt;</span>
+              &lt;Suspense fa<span class="branch-0 cbranch-no" title="branch not covered" >llback={&lt;span&gt;&lt;/span&gt;}&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;LazyTree</span>
 <span class="cstat-no" title="statement not covered" >                  items={child || []}</span>
 <span class="cstat-no" title="statement not covered" >                  isChildTree</span>
 <span class="cstat-no" title="statement not covered" >                  onChildToggle={handler}</span>
-                  allowSelection={allowSelection}
-<span class="branch-0 cbranch-no" title="branch not covered" >                  c<span class="branch-0 cbranch-no" title="branch not covered" ></span>hildrenSelected={checked}</span>
+<span class="cstat-no" title="statement not covered" >                  allowSelection={allowSelection}</span>
+<span class="cstat-no" title="statement not covered" >                  childrenSelected={checked}</span>
 <span class="cstat-no" title="statement not covered" >                  onChange={handleOnChange}</span>
 <span class="cstat-no" title="statement not covered" >                  iconType={iconType}</span>
 <span class="cstat-no" title="statement not covered" >                /&gt;</span>
 <span class="cstat-no" title="statement not covered" >              &lt;/Suspense&gt;</span>
-<span class="cstat-no" title="statement not covered" >            )}</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/div&gt;</span>
+            )}
+          &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     );
@@ -697,7 +697,7 @@ export { TreeItem };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jan 26 2022 19:20:09 GMT+0530 (India Standard Time)
+                at Thu Jan 27 2022 10:28:03 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

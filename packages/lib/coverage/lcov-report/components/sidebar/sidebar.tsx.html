@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.21% </span>
+                <span class="strong">87.16% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>135/148</span>
+                <span class='fraction'>129/148</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">73.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>12/15</span>
+                <span class='fraction'>11/15</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.21% </span>
+                <span class="strong">87.16% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>135/148</span>
+                <span class='fraction'>129/148</span>
             </div>
         
             
@@ -306,16 +306,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -350,15 +341,24 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
@@ -427,7 +427,7 @@ const Sidebar: React.FunctionComponent&lt;SidebarModel&gt; = ({
   );
 &nbsp;
   const handleSearch = useCallback(
-    (ter: string) =&gt; {
+    (te<span class="branch-0 cbranch-no" title="branch not covered" >r: st</span>ring) =&gt; {
       const tester = new RegExp(`\\b${ter.trim()}`, 'i');
 &nbsp;
       setGroups(prev =&gt;
@@ -436,7 +436,7 @@ const Sidebar: React.FunctionComponent&lt;SidebarModel&gt; = ({
 &nbsp;
           return {
             ...group,
-            it<span class="branch-0 cbranch-no" title="branch not covered" >ems: </span>group.items.map(item =&gt; ({
+            items: group.items.map(item =&gt; ({
               ...item,
               visible: tester.test(item.name),
             })),
@@ -454,30 +454,30 @@ const Sidebar: React.FunctionComponent&lt;SidebarModel&gt; = ({
     return {
       '--bg-color': backGroundColor,
       '--sidebar-height': Number.isInteger(height) ? `${height}px` : 'height',
-    } as CSSProperties;
-  }, []);
-&nbsp;
-  const contentWrapper = useMemo(() =&gt; {
-    return classNames('rc-sidebar-content-wrapper', {
-      'rc-sidebar-border': border,
-    });
-  }, [border]);
-&nbsp;
-  const onRef = useCallback(node =&gt; {
+<span class="cstat-no" title="statement not covered" >    } as CSSProperties;</span>
+<span class="cstat-no" title="statement not covered" >  }, []);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const contentWrapper = useMemo(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return classNames('rc-sidebar-content-wrapper', {</span>
+<span class="cstat-no" title="statement not covered" >      'rc-sidebar-border': border,</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >  }, [border]);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const onRef = useCallback(node =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (node) {</span>
 <span class="cstat-no" title="statement not covered" >      ref.current = node;</span>
 <span class="cstat-no" title="statement not covered" >      setSidebarHeight(</span>
-<span class="cstat-no" title="statement not covered" >        node.clientHeight ? node.clientHeight - 40 : window.innerHeight</span>
-<span class="cstat-no" title="statement not covered" >      );</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >  }, []);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div className={sideBarClass} style={style} ref={onRef}&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className={contentWrapper}&gt;</span>
-<span class="cstat-no" title="statement not covered" >        {enableSearch &amp;&amp; (</span>
+        node.clientHeight ? node.clientHeight - 40 : window.innerHeight
+      );
+    }
+  }, []);
+&nbsp;
+  return (
+    &lt;div className={sideBarClass} style={style} ref={onRef}&gt;
+      &lt;div className={contentWrapper}&gt;
+        {enableSearch &amp;&amp; (
           &lt;div className="rc-sidebar-search-wrapper"&gt;
-            &lt;Input
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;Input</span>
               type="text"
               enableClear
               onChange={handleSearch}
@@ -486,27 +486,27 @@ const Sidebar: React.FunctionComponent&lt;SidebarModel&gt; = ({
               focusable={focusable}
             &gt;
               &lt;SearchIcon /&gt;
-<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;/Input&gt;</span>
+            &lt;/Input&gt;
           &lt;/div&gt;
         )}
         &lt;SidebarGroups
           groups={_groups}
-          focusable={focusable}
+          focusable={fo<span class="branch-0 cbranch-no" title="branch not covered" >cusable}</span>
           onSelection={handleSelection}
           groupIconColor={groupIconColor}
           groupTitleColor={groupTitleColor}
           sideBarHeight={sidebarHeight}
           listMaxHeight={listMaxHeight}
-          sectionsCollapsible={sectionsCollapsi<span class="branch-0 cbranch-no" title="branch not covered" >ble}</span>
-<span class="cstat-no" title="statement not covered" >        /&gt;</span>
+          sectionsCollapsible={sectionsCollapsible}
+        /&gt;
       &lt;/div&gt;
-    &lt;/div&gt;
-  );
-};
-&nbsp;
-Sidebar.displayName = 'Sidebar';
-&nbsp;
-export { Sidebar };
+<span class="branch-0 cbranch-no" title="branch not covered" >    &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" >};</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Sidebar.displayName = 'Sidebar';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export { Sidebar };</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -514,7 +514,7 @@ export { Sidebar };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jan 26 2022 19:20:09 GMT+0530 (India Standard Time)
+                at Thu Jan 27 2022 10:28:03 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">95.91% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>98/98</span>
+                <span class='fraction'>94/98</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.9% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>10/11</span>
+                <span class='fraction'>9/12</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">95.91% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>98/98</span>
+                <span class='fraction'>94/98</span>
             </div>
         
             
@@ -186,16 +186,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -257,8 +247,18 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classnames from 'classnames';
 import React, { useMemo, useRef } from 'react';
 import { ChevronRightIcon, MinusIcon, PlusIcon } from '../../icons';
@@ -317,7 +317,7 @@ const AccordionHeader: React.FunctionComponent&lt;AccordionHeaderProps&gt; = ({
     const classes: string[] = [];
 &nbsp;
     return classnames([...classes, 'rc-accordion-icon'], {
-      'rc-accordion-custom-icon': customIcon,
+      'rc-accordion-custom-icon': customIc<span class="branch-0 cbranch-no" title="branch not covered" >on,</span>
       [`rc-accordion-icon-${iconType}`]: true,
       'rc-accordion-icon-open': open,
     });
@@ -330,7 +330,7 @@ const AccordionHeader: React.FunctionComponent&lt;AccordionHeaderProps&gt; = ({
 &nbsp;
     if (customIcon) {
       return customIcon;
-    } else if (iconType ==<span class="branch-0 cbranch-no" title="branch not covered" >= 'chev</span>ron') {
+    } else if (iconType === 'chevron') {
       return &lt;ChevronRightIcon /&gt;;
     } else if (iconType === 'plus') {
       return open ? &lt;MinusIcon /&gt; : &lt;PlusIcon /&gt;;
@@ -344,8 +344,8 @@ const AccordionHeader: React.FunctionComponent&lt;AccordionHeaderProps&gt; = ({
   return (
     &lt;div
       className={accordionHeaderClass}
-      id={accordionId}
-      ref={ref}
+      id={acc<span class="branch-0 cbranch-no" title="branch not covered" >ordionId}</span>
+<span class="cstat-no" title="statement not covered" >      ref={ref}</span>
       role="button"
       {...focusProps}
       {...collapsibleProps}
@@ -353,10 +353,10 @@ const AccordionHeader: React.FunctionComponent&lt;AccordionHeaderProps&gt; = ({
       {!disableIcon &amp;&amp; &lt;span className={iconClass}&gt;{icon}&lt;/span&gt;}
       &lt;span className={titleClass}&gt;{title}&lt;/span&gt;
     &lt;/div&gt;
-  );
-};
-&nbsp;
-export { AccordionHeader };
+<span class="branch-0 cbranch-no" title="branch not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" >};</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export { AccordionHeader };</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -364,7 +364,7 @@ export { AccordionHeader };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jan 26 2022 19:20:09 GMT+0530 (India Standard Time)
+                at Thu Jan 27 2022 10:28:03 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
