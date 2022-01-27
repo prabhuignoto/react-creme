@@ -11,7 +11,7 @@ export default defineConfig({
     coverage: {
       clean: true,
       enabled: true,
-      reporter: ['html', 'lcov'],
+      reporter: ['html', 'lcov', 'cobertura'],
       reportsDirectory: './coverage',
     },
     environment: 'jsdom',
@@ -22,6 +22,6 @@ export default defineConfig({
     setupFiles: './test-setup.ts',
     threads: true,
     update: true,
-    watch: false
+    watch: false,
   },
 });

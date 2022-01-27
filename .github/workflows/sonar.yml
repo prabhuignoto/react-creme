@@ -24,7 +24,7 @@ jobs:
           -Dsonar.sources=packages/lib/
           -Dsonar.coverage
           -Dsonar.typescript.lcov.reportPaths=packages/lib/coverage/lcov-report
-          -Dsonar.javascript.lcov.reportPaths=packages/lib/coverage/lcov-report
+          -Dsonar.genericcoverage.unitTestReportPaths=packages/lib/coverage/cobertura-coverage.xml
           -Dsonar.test.exclusions=tests/**
           -Dsonar.exclusions=packages/lib/coverage/**
           -Dsonar.typescript.lcov.reportPaths=packages/lib/coverage/lcov.info
