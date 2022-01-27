@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.66% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/12</span>
+                <span class='fraction'>12/16</span>
             </div>
         
             
@@ -274,29 +274,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -325,8 +302,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -358,6 +335,29 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -501,7 +501,7 @@ const MenuContainer: React.FunctionComponent&lt;MenuProps&gt; = ({
     onClose?.();
   }, []);
 &nbsp;
-  const onInitRef = useCallback(node =&gt; {
+<span class="branch-0 cbranch-no" title="branch not covered" >  c</span>onst onInitRef = useCallback(node =&gt; {
     if (node) {
       wrapperRef.current = node;
     }
@@ -514,13 +514,13 @@ const MenuContainer: React.FunctionComponent&lt;MenuProps&gt; = ({
   const menuContentWrapperClass = useMemo(
     () =&gt;
       classNames(['rc-menu-content-wrapper'], {
-        'rc-menu-not-focusable': !focusable,
+        'rc-menu-not-focusa<span class="branch-0 cbranch-no" title="branch not covered" >ble': !focusable,</span>
       }),
     [showMenu, focusable]
   );
 &nbsp;
   const contentWrapperProps = useMemo(
-    () =&gt;
+    ()<span class="branch-0 cbranch-no" title="branch not covered" > =&gt;</span>
       focusable
         ? {
             tabIndex: 0,
@@ -541,7 +541,7 @@ const MenuContainer: React.FunctionComponent&lt;MenuProps&gt; = ({
       &lt;/div&gt;
       {showMenu &amp;&amp; (
         &lt;div className="rc-menu-overlay-wrapper"&gt;
-<span class="branch-0 cbranch-no" title="branch not covered" >          &lt;MenuO</span>verlay
+          &lt;MenuOverlay
             items={menuItems}
             onSelection={handleSelection}
             placementReference={containerRef}
@@ -551,7 +551,7 @@ const MenuContainer: React.FunctionComponent&lt;MenuProps&gt; = ({
           /&gt;
         &lt;/div&gt;
       )}
-    &lt;/div&gt;
+<span class="branch-0 cbranch-no" title="branch not covered" >    &lt;/d</span>iv&gt;
   );
 };
 &nbsp;
@@ -565,7 +565,7 @@ export { MenuContainer };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jan 26 2022 19:20:09 GMT+0530 (India Standard Time)
+                at Thu Jan 27 2022 10:28:03 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

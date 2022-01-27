@@ -6,7 +6,7 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react],
   test: {
     coverage: {
       clean: true,
@@ -22,5 +22,6 @@ export default defineConfig({
     setupFiles: './test-setup.ts',
     threads: true,
     update: true,
+    watch: false
   },
 });

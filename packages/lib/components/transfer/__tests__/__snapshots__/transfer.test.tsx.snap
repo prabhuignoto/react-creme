@@ -211,7 +211,6 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           />
         </svg>
       </span>
-      
       <span
         class="rc-focus-ring"
         style="width: 6px; height: 6px;"
@@ -241,7 +240,6 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           />
         </svg>
       </span>
-      
       <span
         class="rc-focus-ring"
         style="width: 6px; height: 6px;"

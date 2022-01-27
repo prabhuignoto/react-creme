@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">82.35% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/16</span>
+                <span class='fraction'>14/17</span>
             </div>
         
             
@@ -258,16 +258,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -286,8 +276,6 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -355,6 +343,18 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -425,10 +425,10 @@ const CheckBox: React.FunctionComponent&lt;CheckboxProps&gt; = React.memo(
     const labelClass = useMemo(
       () =&gt;
         classNames('rc-checkbox-label', {
-          [`rc-checkbox-label-${size}`]: true,
-          'rc-checkbox-label-rtl': RTL,
-        }),
-      []
+          [`rc-checkbox-label-${size}`]:<span class="branch-0 cbranch-no" title="branch not covered" > true,</span>
+<span class="cstat-no" title="statement not covered" >          'rc-checkbox-label-rtl': RTL,</span>
+<span class="cstat-no" title="statement not covered" >        }),</span>
+<span class="cstat-no" title="statement not covered" >      []</span>
     );
 &nbsp;
     const checkBoxClass = useMemo(
@@ -436,11 +436,11 @@ const CheckBox: React.FunctionComponent&lt;CheckboxProps&gt; = React.memo(
         classNames('rc-checkbox', {
           'rc-checkbox-focus': focusIcon,
           [`rc-checkbox-${size}`]: true,
-          'rc-dis<span class="branch-0 cbranch-no" title="branch not covered" >abled': disabled,</span>
-<span class="cstat-no" title="statement not covered" >        }),</span>
-<span class="cstat-no" title="statement not covered" >      [disabled]</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
-<span class="cstat-no" title="statement not covered" ></span>
+          'rc-disabled': disabled,
+        }),
+      [disabled]
+    );
+&nbsp;
     const wrapperClass = useMemo(
       () =&gt;
         classNames('rc-checkbox-wrapper', {
@@ -486,7 +486,7 @@ const CheckBox: React.FunctionComponent&lt;CheckboxProps&gt; = React.memo(
     return (
       &lt;div
         aria-checked={checked}
-        aria-labelledby={checkBoxId.current}
+        aria-labelledby={checkBoxI<span class="branch-0 cbranch-no" title="branch not covered" >d.current}</span>
         className={wrapperClass}
         onClick={toggleCheck}
         role="checkbox"
@@ -495,7 +495,7 @@ const CheckBox: React.FunctionComponent&lt;CheckboxProps&gt; = React.memo(
         {...wrapperProps}
       &gt;
         &lt;div className={checkBoxClass} {...iconProps}&gt;
-          &lt;span cla<span class="branch-0 cbranch-no" title="branch not covered" >ssName={iconClass} role="img"&gt;</span>
+          &lt;span className={iconClass} role="img"&gt;
             &lt;CheckIcon /&gt;
           &lt;/span&gt;
         &lt;/div&gt;
@@ -503,8 +503,8 @@ const CheckBox: React.FunctionComponent&lt;CheckboxProps&gt; = React.memo(
           {label}
         &lt;/label&gt;
       &lt;/div&gt;
-    );
-  },
+<span class="branch-0 cbranch-no" title="branch not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
   (prev, next) =&gt; {
     return prev.isChecked === next.isChecked &amp;&amp; prev.disabled === next.disabled;
   }
@@ -520,7 +520,7 @@ export { CheckBox };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jan 26 2022 19:20:09 GMT+0530 (India Standard Time)
+                at Thu Jan 27 2022 10:28:03 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

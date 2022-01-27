@@ -80,7 +80,8 @@
           "dist/**",
           "dts/**",
           "typings/**",
-          "expo_dist"
+          "expo_dist",
+          "coverage"
         ]
       },
       "snyk": {},

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.72% </span>
+                <span class="strong">95.9% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>118/122</span>
+                <span class='fraction'>117/122</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/10</span>
+                <span class='fraction'>9/12</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.72% </span>
+                <span class="strong">95.9% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>118/122</span>
+                <span class='fraction'>117/122</span>
             </div>
         
             
@@ -264,6 +264,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -279,20 +281,18 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -372,7 +372,7 @@ const Rate: React.FunctionComponent&lt;RateProps&gt; = ({
 &nbsp;
   useEffect(() =&gt; {
     setItems(prev =&gt;
-      prev.map((item, index) =&gt; ({
+      prev.map((item, ind<span class="branch-0 cbranch-no" title="branch not covered" >ex) =&gt; ({</span>
         ...item,
         active: index &lt;= selectedIndex,
       }))
@@ -384,10 +384,10 @@ const Rate: React.FunctionComponent&lt;RateProps&gt; = ({
       setItems(prev =&gt;
         prev.map((item, index) =&gt; ({
           ...item,
-          hovered: index &lt;= hover<span class="branch-0 cbranch-no" title="branch not covered" >Index,</span>
-        }))
-      );
-    }
+<span class="branch-0 cbranch-no" title="branch not covered" >          hovere</span>d: index &lt;= hoverIndex,
+<span class="branch-0 cbranch-no" title="branch not covered" >        }))</span>
+<span class="cstat-no" title="statement not covered" >      );</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
   }, [hoverIndex]);
 &nbsp;
   const isFirstRender = useFirstRender();
@@ -396,15 +396,15 @@ const Rate: React.FunctionComponent&lt;RateProps&gt; = ({
     return classNames('rc-rate-wrapper', {
       'rc-rate-disabled': disabled,
       'rc-rate-rtl': RTL,
-<span class="branch-0 cbranch-no" title="branch not covered" >    });</span>
+    });
   }, [disabled]);
 &nbsp;
   return (
-<span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >    &lt;ul</span></span>
+    &lt;ul
       className={rateWrapperClass}
-      role="radiogroup"
-      onMouseLeave={handleLeave}
-    &gt;
+<span class="cstat-no" title="statement not covered" >      role="radiogroup"</span>
+<span class="cstat-no" title="statement not covered" >      onMouseLeave={handleLeave}</span>
+<span class="cstat-no" title="statement not covered" >    &gt;</span>
       {items.map(({ id, active, hovered }, index) =&gt; {
         return (
           &lt;RateItem
@@ -412,9 +412,9 @@ const Rate: React.FunctionComponent&lt;RateProps&gt; = ({
             active={active}
             hovered={hovered}
             icon={icon || &lt;RateIcon /&gt;}
-<span class="cstat-no" title="statement not covered" >            id={id}</span>
-<span class="cstat-no" title="statement not covered" >            index={index}</span>
-<span class="cstat-no" title="statement not covered" >            onSelect={handleSelection}</span>
+            id={id}
+            index={index}
+            onSelect={handleSelection}
             onMouseOver={handleHover}
             size={size}
             focusable={focusable}
@@ -436,7 +436,7 @@ export { Rate };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jan 26 2022 19:20:09 GMT+0530 (India Standard Time)
+                at Thu Jan 27 2022 10:28:03 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">93.87% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>98/98</span>
+                <span class='fraction'>92/98</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">45.45% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/9</span>
+                <span class='fraction'>5/11</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">93.87% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>98/98</span>
+                <span class='fraction'>92/98</span>
             </div>
         
             
@@ -221,6 +221,17 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -238,20 +249,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -319,7 +319,7 @@ const NotificationComponent: React.FunctionComponent&lt;NotificationProps&gt; = 
   const state = swipeToClose ? useSwipe(ref, 'medium') : null;
 &nbsp;
   useEffect(() =&gt; {
-    if (state) {
+<span class="cstat-no" title="statement not covered" >    if (state) {</span>
       const xPosition = position?.split('-')[1] || '';
       if (state.offset &gt; 0 &amp;&amp; state.dir.toLowerCase() === xPosition) {
         onClose &amp;&amp; onClose();
@@ -327,31 +327,31 @@ const NotificationComponent: React.FunctionComponent&lt;NotificationProps&gt; = 
     }
   }, [state, canSwipeToClose, position]);
 &nbsp;
-  return (
-    &lt;div
-      className={wrapperClass}
+  return<span class="branch-0 cbranch-no" title="branch not covered" > (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;div</span>
+<span class="cstat-no" title="statement not covered" >      className={wrapperClass}</span>
       style={wrapperStyle}
       role="dialog"
       aria-modal="true"
       ref={ref}
     &gt;
       {!disableHeader &amp;&amp; (
-        &lt;header className="rc-notification-header"&gt;
-          &lt;span className="rc-notification-title"&gt;<span class="branch-0 cbranch-no" title="branch not covered" >{title}&lt;/span&gt;</span>
+        &lt;header classN<span class="branch-0 cbranch-no" title="branch not covered" >ame="r</span>c-notification-header"&gt;
+          &lt;span class<span class="branch-0 cbranch-no" title="branch not covered" >Name="rc-notification-tit</span>le"&gt;{title}&lt;/span&gt;
           &lt;span className="rc-notification-close-btn"&gt;
             &lt;Button type="icon" size="md" onClick={onClose}&gt;
               &lt;CloseIcon /&gt;
             &lt;/Button&gt;
-<span class="branch-0 cbranch-no" title="branch not covered" ></span>          &lt;/span&gt;
+          &lt;/span&gt;
         &lt;/header&gt;
       )}
-      &lt;sec<span class="branch-0 cbranch-no" title="branch not covered" >tion className="rc-notifi</span>cation-content"&gt;{children}&lt;/section&gt;
-    &lt;/div&gt;
-  );
-};
-&nbsp;
-const Notification = withOverlay&lt;NotificationProps&gt;(NotificationComponent, {
-  backdropColor: 'transparen<span class="branch-0 cbranch-no" title="branch not covered" >t',</span>
+      &lt;section className="rc-notification-conte<span class="branch-0 cbranch-no" title="branch not covered" >nt"&gt;{c</span>hildren}&lt;/section&gt;
+    &lt;/div<span class="branch-0 cbranch-no" title="branch not covered" >&gt;</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" >};</span>
+<span class="cstat-no" title="statement not covered" ></span>
+const Notification = withOverla<span class="branch-0 cbranch-no" title="branch not covered" >y&lt;NotificationProps&gt;(NotificationCompone</span>nt, {
+  backdropColor: 'transparent',
 });
 &nbsp;
 Notification.displayName = 'Notification';
@@ -364,7 +364,7 @@ export { Notification };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jan 26 2022 19:20:09 GMT+0530 (India Standard Time)
+                at Thu Jan 27 2022 10:28:03 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
