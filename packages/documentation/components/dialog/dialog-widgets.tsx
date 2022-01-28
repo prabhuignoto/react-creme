@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { Button, Dialog, Section } from '../../../lib/components';
-import { responsiveState } from '../../atoms/home';
+import { asideState, responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { Default, Drop } from './widget-variants';
 
@@ -12,6 +12,8 @@ const Widget = () => {
 
   const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
+
+  const setAside = useSetRecoilState(asideState);
 
   useLayoutEffect(() => {
     if (!media) {
@@ -31,6 +33,20 @@ const Widget = () => {
     }
   }, [media]);
 
+  const handleOnOpen = () => {
+    setAside({
+      isAnyOverlayOpen: true,
+      isOpen: false,
+    });
+  };
+
+  const handleOnClose = () => {
+    setAside({
+      isAnyOverlayOpen: false,
+      isOpen: false,
+    });
+  };
+
   return (
     media &&
     width > 0 && (
@@ -44,7 +60,11 @@ const Widget = () => {
             ></Button>
             {open && (
               <Dialog
-                onClose={() => setOpen(false)}
+                onClose={() => {
+                  setOpen(false);
+                  handleOnClose();
+                }}
+                onOpen={handleOnOpen}
                 containedToParent={ref}
                 width={width}
                 height={250}
@@ -63,7 +83,11 @@ const Widget = () => {
             ></Button>
             {open2 && (
               <Dialog
-                onClose={() => setOpen2(false)}
+                onClose={() => {
+                  setOpen2(false);
+                  handleOnClose();
+                }}
+                onOpen={handleOnOpen}
                 containedToParent={ref}
                 width={width}
                 height={250}

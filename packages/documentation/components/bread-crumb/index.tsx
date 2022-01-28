@@ -19,6 +19,27 @@ function BreadCrumb() {
           optional: 'Yes',
           type: 'string',
         },
+        {
+          default: 'sm',
+          description: 'The size of the breadcrumb',
+          name: 'size',
+          optional: 'Yes',
+          type: 'string',
+        },
+        {
+          default: '',
+          description: 'The callback to call when a breadcrumb is selected',
+          name: 'onSelected',
+          optional: 'Yes',
+          type: 'function',
+        },
+        {
+          default: '0',
+          description: 'index of the selected crumb',
+          name: 'selectedCrumbIndex',
+          optional: 'Yes',
+          type: 'number',
+        },
       ]}
       tabTitles={['Examples', 'properties', 'StackBlitz']}
       demoWidget={lazy(() => import('./widgets'))}

@@ -113,6 +113,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   useEffect(() => {
     if (gridRef.current) {
       resizeObserver.current = new ResizeObserver(() => {
+        // alert('grid here');
         setWidth((gridRef.current as HTMLElement).offsetWidth);
       });
 

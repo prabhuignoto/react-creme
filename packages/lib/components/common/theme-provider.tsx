@@ -10,14 +10,18 @@ export type Theme = {
 };
 
 interface ThemeProviderProps {
-  name: string;
-  theme: Theme;
+  theme?: Theme;
 }
 
 type ThemeColor = keyof Theme;
 
 const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
-  theme,
+  theme = {
+    primary: '#0074B7',
+    secondary: '#BFD7ED',
+    tertiary: '#003B73',
+    textSelection: '#0074B7',
+  },
   children,
 }) => {
   const [currentTheme, setCurrentTheme] = useState<Theme>(theme);
@@ -57,11 +61,9 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   }, [theme, currentTheme]);
 
   return (
-    // <div>
     <ThemeContext.Provider value={currentTheme}>
       {children}
     </ThemeContext.Provider>
-    // </div>
   );
 };
 

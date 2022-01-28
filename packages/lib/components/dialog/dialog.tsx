@@ -12,6 +12,7 @@ import './dialog.scss';
 const DialogComponent: React.FunctionComponent<DialogProps> = ({
   children,
   isClosing,
+  onOpen,
   onClose,
   onSuccess,
   title,
@@ -20,7 +21,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   focusable = true,
   animationType = 'pop',
 }: DialogProps) => {
-  const dialogRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
   const dialogClass = useMemo(
     () =>
       classNames([
@@ -47,12 +48,19 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     onClose?.();
   }, []);
 
-  useFocus(dialogRef);
+  const onDialogRef = useCallback((node: HTMLDivElement) => {
+    dialogRef.current = node;
+    onOpen?.();
+  }, []);
+
+  if (focusable) {
+    useFocus(dialogRef);
+  }
 
   return (
     <div
       className={dialogClass}
-      ref={dialogRef}
+      ref={onDialogRef}
       role="dialog"
       aria-labelledby={id.current}
       style={style}
@@ -93,6 +101,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
 
 const Dialog = withOverlay<DialogProps>(DialogComponent, {
   disableAnimation: false,
+  hideDocumentOverflow: true,
 });
 
 Dialog.displayName = 'Dialog';

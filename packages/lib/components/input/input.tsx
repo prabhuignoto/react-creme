@@ -45,15 +45,15 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const inputId = useRef(noUniqueId ? id : nanoid());
   const [hasFocus, setHasFocus] = useState(false);
 
-  useImperativeHandle(ref, () => {
-    return {
-      focus: () => {
-        if (inputRef.current) {
-          inputRef.current.focus();
-        }
-      },
-    };
-  });
+  useImperativeHandle(
+    ref,
+    () =>
+      ({
+        focus() {
+          inputRef.current?.focus();
+        },
+      } as HTMLInputElement)
+  );
 
   const handleClear = useCallback((ev: React.MouseEvent) => {
     ev.preventDefault();

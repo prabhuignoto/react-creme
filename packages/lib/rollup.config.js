@@ -55,14 +55,13 @@ export default {
     },
   ],
   plugins: [
-    // esbuild(),
     typescript({
       useTsconfigDeclarationDir: true,
     }),
     resolve({
       browser: true,
     }),
-    common(),
+    common({}),
     babel({
       babelHelpers: 'runtime',
       exclude: 'node_modules/**',
@@ -79,7 +78,12 @@ export default {
             },
           },
         ],
-        '@babel/preset-react',
+        [
+          '@babel/preset-react',
+          {
+            runtime: 'automatic',
+          },
+        ],
         '@babel/preset-typescript',
       ],
     }),

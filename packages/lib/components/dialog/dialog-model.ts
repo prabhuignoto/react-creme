@@ -7,6 +7,7 @@ export interface DialogProps extends OverlayModel {
   focusable?: boolean;
   height?: number;
   onClose?: () => void;
+  onOpen?: () => void;
   onSuccess?: () => void;
   title?: string;
   width?: number;

@@ -1,5 +1,6 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { Dialog } from '../dialog';
 
 describe('Dialog', () => {
@@ -43,4 +44,28 @@ describe('Dialog', () => {
       }
     );
   });
+
+  it('should call onOpen', async () => {
+    const onOpen = vi.fn();
+    const { queryByRole } = render(
+      <Dialog title="test title" onOpen={onOpen}>
+        <span>dialog content</span>
+      </Dialog>
+    );
+
+    await waitFor(async () => {
+      expect(queryByRole('dialog')).toBeInTheDocument();
+      expect(onOpen).toHaveBeenCalled();
+    });
+  });
+
+  it("should render children", () => {
+    const { getByText } = render(
+      <Dialog title="test title">
+        <span>dialog content</span>
+      </Dialog>
+    );
+
+    expect(getByText("dialog content")).toBeInTheDocument();
+  })
 });
