@@ -8,7 +8,7 @@ function Widgets() {
     <div className="rc-demo-widgets">
       <Section title="Default Render">
         <DemoWidget width={100}>
-          <Link href="http://www.google.com">Mulugu</Link>
+          <Link href="http://www.google.com">google.com</Link>
         </DemoWidget>
       </Section>
       <Section title="Link with Icon">

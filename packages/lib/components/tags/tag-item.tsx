@@ -37,7 +37,6 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     const ref = useRef(null);
 
     const isFirstRender = useFirstRender();
-    // useFocus(ref);
 
     const handleClick = useCallback(() => {
       id && handleRemove(id);

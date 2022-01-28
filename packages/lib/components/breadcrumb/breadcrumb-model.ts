@@ -2,13 +2,16 @@ import React, { ReactNode } from 'react';
 
 export interface BreadCrumbProps extends BreadCrumbCommonProps {
   children: React.ReactNode;
-  onClick?: () => void;
+  onSelected?: (selectedIndex?: string) => void;
+  selectedCrumbIndex?: number;
 }
 
 export interface BreadCrumbItemProps extends BreadCrumbCommonProps {
   child: ReactNode;
   id: string;
-  onClick?: () => void;
+  index: number;
+  onSelected?: (id: string, index: number) => void;
+  selected?: boolean;
   showChevron?: boolean;
 }
 

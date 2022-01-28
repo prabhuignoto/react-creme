@@ -57,10 +57,9 @@ const Tags: React.FunctionComponent<TagsProps> = ({
 
   // HANDLERS
 
-  const handleChange = useCallback(
-    (val: string) => setInputValue(val.trim()),
-    []
-  );
+  const handleChange = useCallback((val: string) => {
+    setInputValue(val.trim());
+  }, []);
 
   const handleAdd = useCallback(
     (value: string | AutoSuggestOption) => {

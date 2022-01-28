@@ -1,49 +1,48 @@
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
-import { Link } from '../../link/link';
 import { BreadCrumb } from '../breadcrumb';
 
-const handler = vi.fn();
 
 describe('Breadcrumb', () => {
   it('should render', () => {
     const { getByRole, getAllByRole, getByText } = render(
       <BreadCrumb>
-        <Link href="http://google.com">google</Link>
-        <Link href="http://yahoo.com">yahoo</Link>
-        <Link href="http://amazon.com">amazon</Link>
+        <span>google</span>
+        <span>yahoo</span>
+        <span>amazon</span>
       </BreadCrumb>
     );
-
+    
     expect(getByRole('navigation')).toBeInTheDocument();
-    expect(getAllByRole('link')).toHaveLength(3);
-
+    expect(getAllByRole('button')).toHaveLength(3);
+    
     expect(getByText('google')).toBeInTheDocument();
     expect(getByText('yahoo')).toBeInTheDocument();
   });
-
+  
   it('should onClick is called', () => {
+    const handler = vi.fn();
     const { getByText } = render(
-      <BreadCrumb onClick={handler}>
-        <Link href="http://google.com">google</Link>
-        <Link href="http://yahoo.com">yahoo</Link>
-        <Link href="http://amazon.com">amazon</Link>
+      <BreadCrumb onSelected={handler}>
+        <span>google</span>
+        <span>yahoo</span>
+        <span>amazon</span>
       </BreadCrumb>
     );
 
     expect(getByText('google')).toBeInTheDocument();
     fireEvent.click(getByText('google'));
 
-    expect(handler).toBeCalled();
+    expect(handler).toBeCalledWith(0);
   });
 
   it('should render snapshot', () => {
     const { getByRole } = render(
       <BreadCrumb>
-        <Link href="http://google.com">google</Link>
-        <Link href="http://yahoo.com">yahoo</Link>
-        <Link href="http://amazon.com">amazon</Link>
+        <span>google</span>
+        <span>yahoo</span>
+        <span>amazon</span>
       </BreadCrumb>
     );
 
