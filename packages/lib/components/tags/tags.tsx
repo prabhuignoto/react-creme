@@ -57,6 +57,15 @@ const Tags: React.FunctionComponent<TagsProps> = ({
 
   // HANDLERS
 
+  const handleKeyUp = useCallback(
+    (ev: React.KeyboardEvent) => {
+      if (ev.key === 'Enter' && canAdd && inputValue) {
+        handleAdd(inputValue);
+      }
+    },
+    [canAdd, inputValue]
+  );
+
   const handleChange = useCallback((val: string) => {
     setInputValue(val.trim());
   }, []);
@@ -75,15 +84,6 @@ const Tags: React.FunctionComponent<TagsProps> = ({
       }
     },
     [canAdd]
-  );
-
-  const handleKeyUp = useCallback(
-    (ev: React.KeyboardEvent) => {
-      if (ev.key === 'Enter' && canAdd && inputValue) {
-        handleAdd(inputValue);
-      }
-    },
-    [inputValue, canAdd]
   );
 
   const handleRemove = useCallback(val => {

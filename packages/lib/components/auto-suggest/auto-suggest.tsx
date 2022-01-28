@@ -2,6 +2,7 @@ import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
+// import { useDebouncedCallback } from 'use-debounce';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
@@ -70,7 +71,7 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
   suggestionsWidth = 250,
   value,
   focusable = true,
-  debounce = 250,
+  debounce = 100,
   showSpinner = false,
   accent = 'flat',
   apiBacked = false,
@@ -94,9 +95,12 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
   const [input, setInput] = React.useState<string | undefined>('');
   const [selected, setSelected] = React.useState<boolean>(false);
 
-  const onChangeDebounced = useDebouncedCallback(() => {
-    input && onChange?.(input);
-  }, debounce);
+  const onChangeDebounced = useDebouncedCallback(
+    useCallback(() => {
+      input && onChange?.(input);
+    }, [input]),
+    debounce
+  );
 
   const regexTester = useMemo(
     () => (input && !apiBacked ? new RegExp(`^${input.trim()}`, 'i') : null),

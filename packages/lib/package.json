@@ -96,7 +96,7 @@
     "rollup-plugin-typescript2": "^0.31.1",
     "rollup-plugin-visualizer": "^5.5.4",
     "sass": "^1.49.0",
-    "snyk": "^1.839.0",
+    "snyk": "^1.840.0",
     "stylelint": "14.3.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
