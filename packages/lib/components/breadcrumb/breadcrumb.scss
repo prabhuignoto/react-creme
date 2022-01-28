@@ -49,12 +49,14 @@ $sizes: (sm, md, lg);
 
   &.rc-bread-crumb-node-selected {
     background-color: rgba(colors.$secondary-rgb, 0.5);
-    color: colors.$primary;
+    color: colors.$tertiary;
   }
 
   @each $size in $sizes {
     &.rc-bread-crumb-node-#{$size} {
-      @extend %font-#{$size};
+      > * {
+        @extend %font-#{$size};
+      }
     }
   }
 }

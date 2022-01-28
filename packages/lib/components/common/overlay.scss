@@ -1,9 +1,9 @@
-@use "../../design/animate.scss";
-@use "../../design/button.scss";
-@use "../../design/colors.scss";
-@use "../../design/layout.scss";
-@use "../../design/position.scss";
-@use "../../design/icon.scss";
+@use '../../design/animate.scss';
+@use '../../design/button.scss';
+@use '../../design/colors.scss';
+@use '../../design/layout.scss';
+@use '../../design/position.scss';
+@use '../../design/icon.scss';
 
 .rc-overlay-wrapper {
   @extend %center;
@@ -36,7 +36,7 @@
 
 .rc-overlay-close-btn {
   @extend %icon-xl;
-  @include position.position-abs("top right");
+  @include position.position-abs('top right');
   border-radius: 50%;
   cursor: pointer;
   right: 1.5rem;
@@ -47,10 +47,10 @@
   }
 
   &::after {
-    @include position.position-abs("center center");
+    @include position.position-abs('center center');
     background: rgba($color: #000, $alpha: 0.75);
     border-radius: 50%;
-    content: "";
+    content: '';
     display: block;
     height: 120%;
     width: 120%;

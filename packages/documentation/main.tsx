@@ -1,8 +1,11 @@
-import React, { StrictMode } from 'react';
+import 'normalize.css';
+import React, { StrictMode, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { RecoilRoot } from 'recoil';
+import { RecoilRoot, useSetRecoilState } from 'recoil';
 import App from './App';
+import { responsiveState } from './atoms/home';
+import useMedia from './common/useMedia';
 
 const Root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -20,11 +23,34 @@ const Root = ReactDOM.createRoot(document.getElementById('root'));
 //   tracesSampleRate: 1.0,
 // });
 
+const AppBootStrap = () => {
+  const media = useMedia();
+  const setResponsiveState = useSetRecoilState(responsiveState);
+  const [canLoad, setCanLoad] = React.useState(false);
+
+  useEffect(() => {
+    if (!media) {
+      return;
+    }
+
+    setResponsiveState({
+      isBigScreen: media.isBigScreen,
+      isDesktop: media.isDesktop,
+      isExtraLargeScreen: media.isExtraLargeScreen,
+      isMobile: media.isMobile,
+      isTablet: media.isTablet,
+    });
+    setCanLoad(true);
+  }, [media]);
+
+  return canLoad ? <App media={media} /> : null;
+};
+
 Root.render(
   <BrowserRouter>
     <RecoilRoot>
       <StrictMode>
-        <App />
+        <AppBootStrap />
       </StrictMode>
     </RecoilRoot>
   </BrowserRouter>,

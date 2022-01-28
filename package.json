@@ -26,12 +26,12 @@
     "prettier": "^2.5.1",
     "react": "^18.0.0-rc.0",
     "react-dom": "^18.0.0-rc.0",
-    "snyk": "^1.839.0",
+    "snyk": "^1.840.0",
     "stylelint": "14.3.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.1.0",
-    "turbo": "^1.0.29",
+    "turbo": "^1.1.1",
     "typescript": "^4.5.5"
   },
   "scripts": {
@@ -50,45 +50,6 @@
     "fix-css": "turbo run fix-css",
     "fix-js": "turbo run fix-js",
     "clean": "pnpm fix-css & pnpm fix-js & pnpm format & pnpm lint"
-  },
-  "turbo": {
-    "npmClient": "pnpm",
-    "pipeline": {
-      "format": {},
-      "lint": {},
-      "build": {
-        "outputs": [
-          "dist/**",
-          "dts/**",
-          "typings/**",
-          "expo_dist"
-        ]
-      },
-      "test": {
-        "outputs": [
-          "coverage",
-          ".jest-cache"
-        ]
-      },
-      "dev": {
-        "outputs": [
-          ".vite_cache"
-        ]
-      },
-      "ci": {
-        "outputs": [
-          "dist/**",
-          "dts/**",
-          "typings/**",
-          "expo_dist",
-          "coverage"
-        ]
-      },
-      "snyk": {},
-      "fix-css": {},
-      "fix-js": {},
-      "vi-test": {}
-    }
   },
   "repository": {
     "type": "git",
@@ -114,5 +75,6 @@
       "npx stylelint",
       "git add"
     ]
-  }
+  },
+  "packageManager": "pnpm@6.27.1"
 }

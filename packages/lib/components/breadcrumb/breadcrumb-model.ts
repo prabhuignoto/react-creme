@@ -1,21 +1,21 @@
 import React, { ReactNode } from 'react';
 
-export interface BreadCrumbProps extends BreadCrumbCommonProps {
+export type BreadCrumbProps = {
   children: React.ReactNode;
+  icon?: 'chevron' | 'arrow' | 'slash';
   onSelected?: (selectedIndex?: string) => void;
   selectedCrumbIndex?: number;
-}
+  size?: 'sm' | 'md' | 'lg';
+};
 
-export interface BreadCrumbItemProps extends BreadCrumbCommonProps {
+export type BreadCrumbItemProps = Pick<
+  BreadCrumbProps,
+  'icon' | 'selectedCrumbIndex' | 'size'
+> & {
   child: ReactNode;
   id: string;
   index: number;
   onSelected?: (id: string, index: number) => void;
   selected?: boolean;
   showChevron?: boolean;
-}
-
-export interface BreadCrumbCommonProps {
-  icon?: 'chevron' | 'arrow' | 'slash';
-  size?: 'sm' | 'md' | 'lg';
-}
+};

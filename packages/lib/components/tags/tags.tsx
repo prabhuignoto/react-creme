@@ -17,7 +17,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   maxTags = Number.MAX_VALUE,
   onChange,
   readonly = false,
-  tagSize = 'large',
+  tagSize = 'md',
   tagStyle = 'default',
   tagWidth = 50,
   style = {},
@@ -57,6 +57,15 @@ const Tags: React.FunctionComponent<TagsProps> = ({
 
   // HANDLERS
 
+  const handleKeyUp = useCallback(
+    (ev: React.KeyboardEvent) => {
+      if (ev.key === 'Enter' && canAdd && inputValue) {
+        handleAdd(inputValue);
+      }
+    },
+    [canAdd, inputValue]
+  );
+
   const handleChange = useCallback((val: string) => {
     setInputValue(val.trim());
   }, []);
@@ -75,15 +84,6 @@ const Tags: React.FunctionComponent<TagsProps> = ({
       }
     },
     [canAdd]
-  );
-
-  const handleKeyUp = useCallback(
-    (ev: React.KeyboardEvent) => {
-      if (ev.key === 'Enter' && canAdd && inputValue) {
-        handleAdd(inputValue);
-      }
-    },
-    [inputValue, canAdd]
   );
 
   const handleRemove = useCallback(val => {

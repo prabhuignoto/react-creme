@@ -9,12 +9,12 @@ function tags() {
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-hppcze']}
       title="Tags"
-      description="Tags are used to group and categorize content. They can be used to filter content, or to display additional information."
+      description="Tags are used to group and categorize content. They can be used to filter content, or to display additional information.."
       pageIcon={<FontAwesomeIcon icon={faTags} size="2x" />}
       callbacks={[
         {
           default: ``,
-          description: `callback fired on state change`,
+          description: `Function executed on Change.`,
           name: 'onChange',
           optional: 'Yes',
           type: `Function`,
@@ -23,56 +23,56 @@ function tags() {
       properties={[
         {
           default: `small`,
-          description: `prop to set the size of the tag.<br> <em>small</em> | <em>large</em>`,
+          description: `Sets the size of the tag.<br> <em>small</em> | <em>large</em>.`,
           name: 'tagSize',
           optional: 'Yes',
           type: `String`,
         },
         {
           default: `default`,
-          description: `prop to set the style for the tag. <em>default</em> | <em>fill</em>`,
+          description: `Sets the style for the tag. <em>default</em> | <em>fill</em>.`,
           name: 'tagStyle',
           optional: 'Yes',
           type: `String`,
         },
         {
           default: `[]`,
-          description: `collection of tag items that will be rendered on load`,
+          description: `Collection of tag items that will be rendered on load.`,
           name: 'items',
           optional: 'Yes',
           type: `Array`,
         },
         {
           default: `Number.MAX_VALUE`,
-          description: `prop to set the maximum number of tags allowed`,
+          description: `Maximum tags allowed.`,
           name: 'maxTags',
           optional: 'Yes',
           type: `Number`,
         },
         {
           default: 'False',
-          description: `disables the button`,
+          description: `Disables the control.`,
           name: 'disabled',
           optional: 'Yes',
           type: `Boolean`,
         },
         {
           default: 'False',
-          description: `prop to set the component to readonly state`,
+          description: `Sets the control to readonly.`,
           name: 'readonly',
           optional: 'Yes',
           type: `Boolean`,
         },
         {
           default: '50',
-          description: `maximum width of the tag`,
+          description: `Maximum width of the tag.`,
           name: 'tagWidth',
           optional: 'Yes',
           type: `Number`,
         },
         {
           default: `{}`,
-          description: `custom CSS that will be applied to the container of the component`,
+          description: `Custom CSS that will be applied to the container.`,
           name: 'style',
           optional: 'Yes',
           type: `Object`,

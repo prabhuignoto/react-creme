@@ -22,7 +22,7 @@ export interface TagsProps {
   readonly?: boolean;
   style?: CSSProperties;
   suggestions?: string[];
-  tagSize?: 'small' | 'large';
+  tagSize?: 'sm' | 'md' | 'lg';
   tagStyle?: 'default' | 'fill';
   tagWidth?: number;
 }

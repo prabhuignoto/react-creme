@@ -2,6 +2,7 @@ import React, { RefObject } from 'react';
 
 interface OverlayCommon {
   align?: 'left' | 'right';
+  hideDocumentOverflow?: boolean;
   onClose?: () => void;
   onClosing?: () => void;
   placement?: 'top' | 'bottom';

@@ -17,6 +17,7 @@ export const Default = (
     onChange={val => console.log(val)}
     tagWidth={150}
     focusable
+    tagSize="md"
   />
 );
 
@@ -51,5 +52,6 @@ export const AutoComplete = (
     tagWidth={100}
     autoComplete
     suggestions={['one', 'two']}
+    tagSize="lg"
   />
 );

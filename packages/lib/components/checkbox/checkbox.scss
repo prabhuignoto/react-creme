@@ -129,11 +129,10 @@ $heights: (
   }
 }
 
-@each $key, $val in $grid {
-  .rc-checkbox-#{$key} {
+@each $size in $sizes {
+  .rc-checkbox-#{$size} {
     &.rc-checkbox-icon {
-      height: $val;
-      width: $val;
+      @extend %icon-#{$size};
     }
   }
 }

@@ -21,7 +21,7 @@ function Widgets() {
           <code>chevron</code>.
         </BlockQuote>
         <DemoWidget width={450}>
-          <BreadCrumb icon="slash">
+          <BreadCrumb icon="slash" selectedCrumbIndex={1}>
             <span>Home</span>
             <span>Features</span>
             <span>Bread Crumb</span>
@@ -43,7 +43,7 @@ function Widgets() {
           <code>sm</code> <code>md</code> or <code>lg</code>.
         </BlockQuote>
         <DemoWidget width={450}>
-          <BreadCrumb icon="arrow" size="md">
+          <BreadCrumb icon="arrow" size="md" selectedCrumbIndex={2}>
             <span>Home</span>
             <span>Features</span>
             <span>Bread Crumb</span>

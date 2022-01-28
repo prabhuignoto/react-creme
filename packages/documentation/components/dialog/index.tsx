@@ -19,7 +19,7 @@ function dialog() {
         },
         {
           default: '',
-          description: 'callback invoked when ok is pressed',
+          description: 'Callback invoked when Ok is pressed',
           name: 'onSuccess',
           optional: 'Yes',
           type: 'Function',
@@ -35,17 +35,32 @@ function dialog() {
         },
         {
           default: '300',
-          description: 'width of the dialog',
+          description: 'Minimum width of the dialog',
           name: 'width',
           optional: 'Yes',
           type: 'Number',
         },
         {
           default: '200',
-          description: 'height of the dialog',
+          description: 'Height of the dialog',
           name: 'height',
           optional: 'Yes',
           type: 'Number',
+        },
+        {
+          default: 'true',
+          description: 'Whether the dialog should be focusable',
+          name: 'focusable',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'pop',
+          description:
+            'The animation type to use for the dialog. Can be <code>pop</code> or <code>drop</code>',
+          name: 'animationType',
+          optional: 'Yes',
+          type: 'String',
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}

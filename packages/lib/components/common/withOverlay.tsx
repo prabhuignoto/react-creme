@@ -8,6 +8,7 @@ type Settings = {
   backdropColor?: string;
   disableAnimation?: boolean;
   disableBackdrop?: boolean;
+  hideDocumentOverflow?: boolean;
   placement?: 'bottom' | 'top';
 };
 
@@ -33,6 +34,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     backdropColor: 'rgba(0,0,0,0.5)',
     disableAnimation: false,
     disableBackdrop: false,
+    hideDocumentOverflow: false,
   }
 ) {
   const Component = (props: T) => {
@@ -49,7 +51,12 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
       data,
     } = props;
 
-    const { backdropColor, disableBackdrop, disableAnimation } = settings;
+    const {
+      backdropColor,
+      disableBackdrop,
+      disableAnimation,
+      hideDocumentOverflow,
+    } = settings;
     const [portalWrapperCreated, setPortalWrapperCreated] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const portalContainer = useRef<HTMLElement | null>(null);
@@ -108,6 +115,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
               containedToParent={!!containedToParent}
               overlayAnimation={overlayAnimation}
               disableBackdrop={disableBackdrop}
+              hideDocumentOverflow={hideDocumentOverflow}
             >
               <Node
                 {...props}

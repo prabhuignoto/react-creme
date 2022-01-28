@@ -16,7 +16,7 @@ import './tags.scss';
 type TagItemViewProps = TagItemInternalProps & {
   focusable?: boolean;
   handleRemove: (id: string) => void;
-  tagSize?: 'small' | 'large';
+  tagSize?: 'sm' | 'md' | 'lg';
   tagStyle?: 'default' | 'fill';
   width?: number;
 };
@@ -62,6 +62,15 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
       () =>
         classNames('rc-tag-icon', {
           [`rc-tag-icon-${tagStyle}`]: true,
+          [`rc-tag-icon-${tagSize}`]: true,
+        }),
+      []
+    );
+
+    const tagName = useMemo(
+      () =>
+        classNames('rc-tag-name', {
+          [`rc-tag-name-${tagSize}`]: true,
         }),
       []
     );
@@ -80,7 +89,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
 
     return (
       <li key={id} role="listitem" className={tagItemClass} style={style}>
-        <span className={classNames('rc-tag-name', 'center')} title={name}>
+        <span className={tagName} title={name}>
           {name}
         </span>
         {editable && (

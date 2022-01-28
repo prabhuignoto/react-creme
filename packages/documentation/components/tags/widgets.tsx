@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section } from '../../../lib/components';
+import { BlockQuote, Link, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { AutoComplete, Default, Disabled, ReadOnly } from './widget-variants';
@@ -34,38 +34,31 @@ function widgets() {
       <div className="rc-demo-widgets">
         <Section title="Tags - default">
           <BlockQuote>
-            New tags can be added to the list by typing in the input field.Tags
-            can be removed by clicking on the close icon on the tag.
+            New tags can be added to the list by typing in the input field and
+            pressing enter.Tags can be easily removed by clicking on the close
+            icon on the tag.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: resolvedWidth }}>{Default}</div>
-          </DemoWidget>
+          <DemoWidget width={resolvedWidth}>{Default}</DemoWidget>
         </Section>
         <Section title="Tags - Filled style">
           <BlockQuote>
-            Tags can be disabled by setting the disabled property to true.
+            Tags can be disabled by setting the <code>disabled</code>property to
+            true.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: resolvedWidth }}>{Disabled}</div>
-          </DemoWidget>
+          <DemoWidget width={resolvedWidth}>{Disabled}</DemoWidget>
         </Section>
         <Section title="Tags - Readonly">
           <BlockQuote>
-            In readonly mode, you can only select the tags that are already in
-            the list.
+            In readonly mode we can display a list of non editable tags.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: resolvedWidth }}>{ReadOnly}</div>
-          </DemoWidget>
+          <DemoWidget width={resolvedWidth}>{ReadOnly}</DemoWidget>
         </Section>
         <Section title="Tags - AutoComplete">
           <BlockQuote>
-            In readonly mode, you can only select the tags that are already in
-            the list.
+            Tags can also be configured to use the{' '}
+            <Link href="/auto-suggest">AutoSuggest</Link> control.
           </BlockQuote>
-          <DemoWidget>
-            <div style={{ width: resolvedWidth }}>{AutoComplete}</div>
-          </DemoWidget>
+          <DemoWidget width={resolvedWidth}>{AutoComplete}</DemoWidget>
         </Section>
       </div>
     )

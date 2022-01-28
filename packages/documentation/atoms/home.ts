@@ -1,14 +1,23 @@
 import { atom } from 'recoil';
 import { Theme } from '../../lib/components/common/theme-provider';
 
+export type MediaState = {
+  isBigScreen: boolean;
+  isDesktop: boolean;
+  isExtraLargeScreen: boolean;
+  isMobile: boolean;
+  isTablet: boolean;
+};
+
 const asideState = atom({
   default: {
+    isAnyOverlayOpen: false,
     isOpen: false,
   },
   key: 'asideState',
 });
 
-const responsiveState = atom({
+const responsiveState = atom<MediaState>({
   default: {
     isBigScreen: false,
     isDesktop: false,
