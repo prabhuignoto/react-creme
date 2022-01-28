@@ -7,34 +7,38 @@ import { BreadCrumbItemProps } from './breadcrumb-model';
 const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
   ({
     id,
-    onClick,
+    onSelected,
     child,
     showChevron,
     icon = 'chevron',
     size = 'sm',
+    selected,
+    index,
   }: BreadCrumbItemProps) => {
     const ref = useRef<HTMLSpanElement>(null);
     useFocusNew(ref);
 
     const breadCrumbIcon = useMemo(() => {
-      return classNames('bread-crumb-icon', {
-        [`bread-crumb-icon-${size}`]: true,
+      return classNames('rc-bread-crumb-icon', {
+        [`rc-bread-crumb-icon-${size}`]: true,
       });
     }, []);
 
     const breadCrumbNode = useMemo(() => {
-      return classNames('bread-crumb-node', {
-        [`bread-crumb-node-${size}`]: true,
+      return classNames('rc-bread-crumb-node', {
+        [`rc-bread-crumb-node-${size}`]: true,
+        'rc-bread-crumb-node-selected': selected,
       });
-    }, []);
+    }, [selected]);
 
     return (
-      <li className="bread-crumb" key={id}>
+      <li className="rc-bread-crumb" key={id}>
         <span
           className={breadCrumbNode}
           ref={ref}
           tabIndex={0}
-          onClick={onClick}
+          onClick={() => onSelected?.(id, index)}
+          role="button"
         >
           {child}
         </span>

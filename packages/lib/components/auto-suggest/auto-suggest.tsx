@@ -191,6 +191,7 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
           focusable={focusable}
           showSpinner={showSpinner}
           accent={accent}
+          ref={inputRef}
         >
           {icon ? icon : <SearchIcon />}
         </Input>
