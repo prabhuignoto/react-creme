@@ -51,45 +51,6 @@
     "fix-js": "turbo run fix-js",
     "clean": "pnpm fix-css & pnpm fix-js & pnpm format & pnpm lint"
   },
-  "turbo": {
-    "npmClient": "pnpm",
-    "pipeline": {
-      "format": {},
-      "lint": {},
-      "build": {
-        "outputs": [
-          "dist/**",
-          "dts/**",
-          "typings/**",
-          "expo_dist"
-        ]
-      },
-      "test": {
-        "outputs": [
-          "coverage",
-          ".jest-cache"
-        ]
-      },
-      "dev": {
-        "outputs": [
-          ".vite_cache"
-        ]
-      },
-      "ci": {
-        "outputs": [
-          "dist/**",
-          "dts/**",
-          "typings/**",
-          "expo_dist",
-          "coverage"
-        ]
-      },
-      "snyk": {},
-      "fix-css": {},
-      "fix-js": {},
-      "vi-test": {}
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prabhuignoto/react-creme.git"
