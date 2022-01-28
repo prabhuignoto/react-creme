@@ -100,6 +100,7 @@ importers:
       classnames: ^2.3.1
       cssnano: ^5.0.16
       esbuild: ^0.14.14
+      fast-deep-equal: ^3.1.3
       jsx-to-string: ^1.4.0
       postcss: ^8.4.5
       postcss-bem-linter: ^3.3.0
@@ -139,6 +140,7 @@ importers:
       '@types/react-dom': 17.0.11
       algoliasearch: 4.12.0
       classnames: 2.3.1
+      fast-deep-equal: 3.1.3
       jsx-to-string: 1.4.0
       react: 18.0.0-rc.0
       react-dom: 18.0.0-rc.0_react@18.0.0-rc.0
