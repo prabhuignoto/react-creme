@@ -17,7 +17,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   maxTags = Number.MAX_VALUE,
   onChange,
   readonly = false,
-  tagSize = 'large',
+  tagSize = 'md',
   tagStyle = 'default',
   tagWidth = 50,
   style = {},

@@ -87,6 +87,7 @@
 
 .rc-dropdown-clear-icon {
   @extend %icon-sm;
+  color: colors.$gunmetal-gray;
 
   &:hover {
     color: var(--clear-icon-color, colors.$primary);

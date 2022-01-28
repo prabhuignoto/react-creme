@@ -102,6 +102,7 @@ importers:
       esbuild: ^0.14.14
       fast-deep-equal: ^3.1.3
       jsx-to-string: ^1.4.0
+      normalize.css: ^8.0.1
       postcss: ^8.4.5
       postcss-bem-linter: ^3.3.0
       postcss-prefixer: ^2.1.3
@@ -142,6 +143,7 @@ importers:
       classnames: 2.3.1
       fast-deep-equal: 3.1.3
       jsx-to-string: 1.4.0
+      normalize.css: 8.0.1
       react: 18.0.0-rc.0
       react-dom: 18.0.0-rc.0_react@18.0.0-rc.0
       react-feather: 2.0.9_react@18.0.0-rc.0
@@ -11304,6 +11306,10 @@ packages:
     resolution: {integrity: sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==}
     engines: {node: '>=10'}
     dev: true
+
+  /normalize.css/8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
+    dev: false
 
   /npm-run-path/2.0.2:
     resolution: {integrity: sha1-NakjLfo11wZ7TLLd8jV7GHFTbF8=}

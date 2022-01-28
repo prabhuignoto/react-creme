@@ -1,24 +1,25 @@
-@use "layout.scss";
-@use "colors.scss";
+@use 'layout.scss';
+@use 'colors.scss';
 
 @mixin get-icon($size, $color) {
   @extend %center;
+  display: block;
 
   @if $size == small {
-    height: 1rem;
-    width: 1rem;
+    height: 16px;
+    width: 16px;
   } @else if $size == medium {
-    height: 1.25rem;
-    width: 1.25rem;
+    height: 20px;
+    width: 20px;
   } @else if $size == large {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 24px;
+    width: 24px;
   } @else if $size == extra-small {
-    height: 0.7rem;
-    width: 0.7rem;
+    height: 14px;
+    width: 14px;
   } @else if $size == extra-large {
-    height: 2rem;
-    width: 2rem;
+    height: 28px;
+    width: 28px;
   }
 
   svg {

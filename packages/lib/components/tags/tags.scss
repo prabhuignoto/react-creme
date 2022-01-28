@@ -3,9 +3,18 @@
 @use '../../design/icon.scss';
 @use '../../design/colors.scss';
 @use '../../design/animate.scss';
+@use '../../design/font.scss';
+
+$sizes: (sm, md, lg);
+$padding-sizes: (
+  sm: 0.25rem,
+  md: 0.5rem,
+  lg: 1rem,
+);
 
 .rc-tags-wrap {
   @extend %list-wrap;
+  justify-content: space-between;
 
   &.rc-tags-rtl {
     direction: rtl;
@@ -27,22 +36,17 @@
       opacity: 1,
     ),
   );
+
+  @extend %center;
   @include animate.set-settings(0.1s, linear);
   @include animate.set-keyframes('tag-fade-in', $settings);
   @include animate.set-keyframes('tag-fade-out', $settings, true);
+  margin: 0 0.25rem;
   max-width: var(--width);
   transform: scale(1);
 
   user-select: none;
   visibility: visible;
-
-  &.rc-tag:not(.rc-tag-disabled):not(.rc-tag-readonly) {
-    align-items: center;
-    column-gap: 0.2rem;
-    display: grid;
-    grid-template-columns: calc(100% - 1.5rem) 1.5rem;
-    justify-items: center;
-  }
 
   &.rc-tag-disabled {
     pointer-events: none;
@@ -56,29 +60,10 @@
 
   &.rc-tag-style-default {
     @extend %border;
-    // @extend %shadow-inset-small;
-  }
-
-  &.rc-tag-readonly {
-    // @extend %shadow-inset-small;
-    // @extend %border-radius;
-    // background: rgba(colors.$secondary-rgb, 1);
-    // color: colors.$tertiary;
   }
 
   &.rc-tag-readonly {
     @extend %center;
-  }
-
-  &.rc-tag-small {
-    margin: 0.2rem;
-    padding: 0.2rem 0.5rem;
-  }
-
-  &.rc-tag-large {
-    margin: 0.25rem;
-    padding: calc(100% * 0.25);
-    padding: 0.5rem;
   }
 
   &.rc-tag-marked-for-removal {
@@ -87,43 +72,29 @@
     transform: scale(0.98);
     visibility: hidden;
   }
+
+  @each $key, $val in $padding-sizes {
+    &.rc-tag-#{$key} {
+      padding: $val;
+    }
+  }
 }
 
 .rc-tag-icon {
-  @extend %icon-md;
   @include animate.halo();
   border-radius: 50%;
   cursor: pointer;
+  display: block;
   margin-left: auto;
-}
 
-.rc-tag-icon-default {
-  color: colors.$tertiary;
-
-  &:hover {
-    background: colors.$primary;
+  &::after {
+    content: '';
   }
-}
 
-.rc-tag-icon-fill {
-  svg {
-    color: colors.$white;
-  }
-}
-
-.rc-tag-icon-fill:hover {
-  background: colors.$light-bg;
-
-  svg {
-    color: colors.$primary;
-  }
-}
-
-.rc-tag-icon-default:hover {
-  background: colors.$primary;
-
-  svg {
-    color: colors.$white;
+  @each $size in $sizes {
+    &.rc-tag-icon-#{$size} {
+      @extend %icon-#{$size};
+    }
   }
 }
 
@@ -137,4 +108,10 @@
   display: block;
   text-align: center;
   width: 100%;
+
+  @each $size in $sizes {
+    &.rc-tag-name-#{$size} {
+      @extend %font-#{$size};
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import 'normalize.css';
 import React, { StrictMode, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
