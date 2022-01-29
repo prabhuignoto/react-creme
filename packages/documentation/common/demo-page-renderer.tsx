@@ -5,9 +5,9 @@ import React, {
   useLayoutEffect,
   useMemo,
 } from 'react';
-import { BookOpen, Code, Sliders } from 'react-feather';
+import { BookOpen, Code, Edit, Sliders } from 'react-feather';
 import { CSSTransition } from 'react-transition-group';
-import { PageHeader, Section, Tabs } from '../../lib/components';
+import { Link, PageHeader, Section, Tabs } from '../../lib/components';
 import { DataGridColumn } from '../../lib/components/data-grid/data-grid-model';
 import './demo-page-renderer.scss';
 import StackBlitz from './stackblitz';
@@ -34,8 +34,10 @@ interface DemoPageRendererProps {
   callbacks?: any[];
   demoWidget: LazyExoticComponent<React.FC>;
   description?: string | React.ReactNode;
+  editId?: string;
   pageIcon?: React.ReactNode;
   properties: any[];
+  sourceId?: string;
   stackBlitzCodes?: string[];
   tabTitles: string[];
   title?: string;
@@ -53,6 +55,8 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
       description,
       stackBlitzCodes,
       pageIcon,
+      sourceId,
+      editId,
     }: DemoPageRendererProps) => {
       const media = useMedia();
 
@@ -141,7 +145,29 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
           <div className="rc-demo-page">
             {title && (
               <PageHeader title={title} size="lg" icon={pageIcon}>
-                {description}
+                <p>{description}</p>
+                <div className="rc-demo-page-links-container">
+                  {sourceId && (
+                    <Link
+                      target="_blank"
+                      accent="button"
+                      icon={<Code />}
+                      href={`https://github.com/prabhuignoto/react-creme/tree/master/packages/lib/components/${sourceId}`}
+                    >
+                      View Source
+                    </Link>
+                  )}
+                  {editId && (
+                    <Link
+                      target="_blank"
+                      accent="button"
+                      icon={<Edit />}
+                      href={`https://github.com/prabhuignoto/react-creme/tree/master/packages/documentation/components/${editId}/index.tsx`}
+                    >
+                      Edit this Page
+                    </Link>
+                  )}
+                </div>
               </PageHeader>
             )}
             <Tabs

@@ -20,3 +20,9 @@ export const RTL = (
     <ChevronRightIcon />
   </Input>
 );
+
+export const Accent = (
+  <Input enableClear focusable accent="rounded">
+    <ChevronRightIcon />
+  </Input>
+);

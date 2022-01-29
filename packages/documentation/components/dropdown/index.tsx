@@ -9,6 +9,8 @@ function dropdown() {
       title="Dropdown"
       description="Dropdown is a component that allows the user to select a value from a list of options."
       pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
+      sourceId="dropdown/dropdown.tsx"
+      editId="dropdown"
       properties={[
         {
           default: 'False',

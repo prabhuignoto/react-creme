@@ -12,6 +12,8 @@ function carousel() {
       description={`Carousels allow multiple pieces of content to occupy a single, coveted space.
       This may placate corporate infighting, but on large or small viewports, people often scroll past carousels.`}
       pageIcon={<FontAwesomeIcon icon={faFilm} size="2x" />}
+      editId="carousel"
+      sourceId="carousel/carousel.tsx"
       properties={[
         {
           default: 'horizontal',

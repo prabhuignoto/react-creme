@@ -2,6 +2,7 @@ import React from 'react';
 import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import {
+  Accent,
   Default,
   Error,
   RTL,
@@ -34,6 +35,13 @@ function Widgets() {
       </Section>
       <Section title="RTL">
         <DemoWidget width={200}>{RTL}</DemoWidget>
+      </Section>
+      <Section title="Accent">
+        <BlockQuote>
+          Inputs can be configured to have different accents. The example below
+          shows input in rounded accent.
+        </BlockQuote>
+        <DemoWidget width={200}>{Accent}</DemoWidget>
       </Section>
     </div>
   );

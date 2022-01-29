@@ -9,6 +9,8 @@ function index() {
       title="Global notification"
       description="Grabs the attention of the user by displaying a notification in the top of the screen."
       pageIcon={<FontAwesomeIcon icon={faBullhorn} size="2x" />}
+      sourceId="global-notification/global-notification.tsx"
+      editId="global-notification"
       callbacks={[
         {
           default: '',

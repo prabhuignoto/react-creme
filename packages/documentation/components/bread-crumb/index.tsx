@@ -44,6 +44,8 @@ function BreadCrumb() {
       tabTitles={['Examples', 'properties', 'StackBlitz']}
       demoWidget={lazy(() => import('./widgets'))}
       title="Bread Crumb"
+      sourceId="breadcrumb/breadcrumb.tsx"
+      editId="bread-crumb"
       description="Breadcrumbs are a list of links representing the current page and its “ancestors” (parent page, grandparent page, and so on), typically going all the way back to the site homepage."
     ></DemoPageRenderer>
   );

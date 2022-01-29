@@ -53,3 +53,14 @@ export const AutoComplete = (
     suggestions={['one', 'two']}
   />
 );
+
+export const LargeSize = (
+  <Tags
+    placeholder="Choose a language..."
+    items={items}
+    maxTags={15}
+    onChange={val => console.log(val)}
+    tagWidth={100}
+    tagSize="lg"
+  />
+);

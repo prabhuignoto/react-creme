@@ -9,6 +9,8 @@ function tooltip() {
       title="Tooltip"
       description={`A tooltip is a brief, informative message that appears when a user interacts with an element in a graphical user interface.`}
       pageIcon={<FontAwesomeIcon icon={faComment} />}
+      sourceId="tooltip/tooltip.tsx"
+      editId="tooltip"
       callbacks={[
         {
           default: '',

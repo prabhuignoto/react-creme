@@ -11,6 +11,8 @@ function tabs() {
       title="Tabs"
       description="Tabs are used to group and organize content. They can be used to switch between views or to navigate between pages in a document."
       pageIcon={<FontAwesomeIcon icon={faWindowRestore} size="2x" />}
+      sourceId="tabs/tabs.tsx"
+      editId="tabs"
       properties={[
         {
           default: 'flat',

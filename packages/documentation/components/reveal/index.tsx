@@ -12,6 +12,8 @@ function reveal() {
       properties={[]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       pageIcon={<FontAwesomeIcon icon={faEye} size="2x" />}
+      sourceId="reveal/reveal.tsx"
+      editId="reveal"
     ></DemoPageRenderer>
   );
 }

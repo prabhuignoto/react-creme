@@ -9,6 +9,8 @@ function notification() {
       title="Notification"
       description="Notification is a component that can be used to display a message to the user."
       pageIcon={<FontAwesomeIcon icon={faBell} size="2x" />}
+      sourceId="notification/notification.tsx"
+      editId="notification"
       callbacks={[
         {
           default: '',

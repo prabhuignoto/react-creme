@@ -20,6 +20,8 @@ const Accordion = () => {
       title="Accordion"
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-s9qxmk']}
+      sourceId="accordion/accordion.tsx"
+      editId="accordion"
       pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}
       callbacks={[
         {

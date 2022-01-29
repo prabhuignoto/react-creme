@@ -8,6 +8,8 @@ function radio() {
     <DemoPageRenderer
       demoWidget={lazy(() => import('./widgets'))}
       pageIcon={<FontAwesomeIcon icon={faCircle} size="2x" />}
+      sourceId="radio/radio.tsx"
+      editId="radio"
       callbacks={[
         {
           default: '',

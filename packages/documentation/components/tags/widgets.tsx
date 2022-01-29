@@ -3,11 +3,17 @@ import { useRecoilValue } from 'recoil';
 import { BlockQuote, Link, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { AutoComplete, Default, Disabled, ReadOnly } from './widget-variants';
+import {
+  AutoComplete,
+  Default,
+  Disabled,
+  LargeSize,
+  ReadOnly,
+} from './widget-variants';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = React.useState<string | number>(null);
+  const [width, setWidth] = React.useState<string | number>();
 
   useLayoutEffect(() => {
     if (!media) {
@@ -57,6 +63,9 @@ function widgets() {
             <Link href="/auto-suggest">AutoSuggest</Link> control.
           </BlockQuote>
           <DemoWidget width={width}>{AutoComplete}</DemoWidget>
+        </Section>
+        <Section title="Tags - Custom Size">
+          <DemoWidget width={width}>{LargeSize}</DemoWidget>
         </Section>
       </div>
     )

@@ -11,6 +11,8 @@ const DataGridDemo: React.FunctionComponent = () => {
       title="Data Grid"
       description="Data Grid is a component that displays data in a table format."
       pageIcon={<FontAwesomeIcon icon={faTable} size="2x" />}
+      editId="data-grid"
+      sourceId="data-grid/data-grid.tsx"
       properties={[
         {
           default: 'comfortable',

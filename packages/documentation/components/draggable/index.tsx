@@ -13,6 +13,8 @@ function Draggable() {
       description="React Hook to enable draggable functionality"
       tabTitles={['Examples', 'Stackblitz']}
       stackBlitzCodes={['react-ts-re75pw']}
+      sourceId="common/effects/useDraggable.ts"
+      editId="draggable"
       pageIcon={<FontAwesomeIcon icon={faHandPointer} size="2x" />}
     ></DemoPageRenderer>
   );

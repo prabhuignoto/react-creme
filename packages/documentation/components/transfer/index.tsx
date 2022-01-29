@@ -10,6 +10,8 @@ function transfer() {
       title="Transfer"
       description="Transfer is a component that allows you to transfer items between two lists."
       pageIcon={<FontAwesomeIcon icon={faExchangeAlt} size="2x" />}
+      sourceId="transfer/transfer.tsx"
+      editId="transfer"
       callbacks={[
         {
           default: '',

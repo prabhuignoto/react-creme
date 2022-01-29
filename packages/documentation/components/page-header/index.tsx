@@ -35,6 +35,8 @@ function PageHeader() {
       description="Page header can be used to display the title of the page."
       title="Page Header"
       stackBlitzCodes={['react-ts-wo1xvm']}
+      sourceId="page-header/index.tsx"
+      editId="page-header"
       pageIcon={<FontAwesomeIcon icon={faHeading} size="2x" />}
     />
   );
