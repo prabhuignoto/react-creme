@@ -12,6 +12,8 @@ function card() {
       stackBlitzCodes={['react-ts-3qkmbh']}
       description="Card is a container for displaying content."
       pageIcon={<FontAwesomeIcon icon={faSquareFull} size="2x" />}
+      sourceId="card/card.tsx"
+      editId="card"
       properties={[
         {
           default: '',

@@ -38,11 +38,6 @@ const routes = [
     path: '/auto-suggest',
   },
   {
-    component: lazy(() => import('./components/breadcrumb')),
-    key: 'breadcrumb',
-    path: '/breadcrumb',
-  },
-  {
     component: lazy(() => import('./components/buttons')),
     key: 'buttons',
     path: '/button',

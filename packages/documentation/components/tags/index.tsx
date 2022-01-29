@@ -11,6 +11,8 @@ function tags() {
       title="Tags"
       description="Tags are used to group and categorize content. They can be used to filter content, or to display additional information.."
       pageIcon={<FontAwesomeIcon icon={faTags} size="2x" />}
+      sourceId="tags/tags.tsx"
+      editId="tags"
       callbacks={[
         {
           default: ``,
@@ -23,7 +25,7 @@ function tags() {
       properties={[
         {
           default: `small`,
-          description: `Sets the size of the tag.<br> <em>small</em> | <em>large</em>.`,
+          description: `Sets the size of the tag.<br> <em>sm</em> | <em>md</em> | <em>lg</em>.`,
           name: 'tagSize',
           optional: 'Yes',
           type: `String`,

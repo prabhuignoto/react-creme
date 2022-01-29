@@ -71,6 +71,8 @@ function buttons() {
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       demoWidget={lazy(() => import('./widgets'))}
+      sourceId="button/button.tsx"
+      editId="buttons"
     ></DemoPageRenderer>
   );
 }

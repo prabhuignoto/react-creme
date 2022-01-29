@@ -4,7 +4,7 @@ import './page-header.scss';
 
 export interface PageHeaderProps {
   RTL?: boolean;
-  children?: React.ReactNode;
+  children?: React.ReactNode | React.ReactNode[];
   icon?: React.ReactNode;
   size?: 'sm' | 'md' | 'lg';
   title: string;

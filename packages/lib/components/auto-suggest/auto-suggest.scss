@@ -14,3 +14,9 @@
   width: var(--suggestions-width, 200px);
   z-index: 999;
 }
+
+.rc-auto-suggest {
+  &.rc-auto-suggest-rtl {
+    direction: rtl;
+  }
+}

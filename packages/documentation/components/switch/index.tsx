@@ -10,6 +10,8 @@ function switchComponent() {
       pageIcon={<FontAwesomeIcon icon={faToggleOn} size="2x" />}
       description={`Toggle switch (known as “toggles”) is a UI control that has two mutually-exclusive states, such as ON and OFF.
       The design and functionality of this control is based on a physical switch that allows users to turn things ON or OFF`}
+      sourceId="switch/switch.tsx"
+      editId="switch"
       callbacks={[
         {
           default: ``,

@@ -63,8 +63,9 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
         classNames('rc-tag-icon', {
           [`rc-tag-icon-${tagStyle}`]: true,
           [`rc-tag-icon-${tagSize}`]: true,
+          'rc-tag-icon-editable': editable,
         }),
-      []
+      [editable]
     );
 
     const tagName = useMemo(
@@ -92,17 +93,15 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
         <span className={tagName} title={name}>
           {name}
         </span>
-        {editable && (
-          <span
-            className={tagIconClass}
-            onClick={handleClick}
-            ref={ref}
-            role="button"
-            tabIndex={focusable ? 0 : -1}
-          >
-            <CloseIcon />
-          </span>
-        )}
+        <span
+          className={tagIconClass}
+          onClick={handleClick}
+          ref={ref}
+          role="button"
+          tabIndex={focusable ? 0 : -1}
+        >
+          <CloseIcon />
+        </span>
       </li>
     );
   },

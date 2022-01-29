@@ -9,6 +9,8 @@ function index() {
       title="Inputs"
       description="Inputs are used to collect user input."
       pageIcon={<FontAwesomeIcon icon={faKeyboard} size="2x" />}
+      sourceId="input/input.tsx"
+      editId="input"
       callbacks={[
         {
           default: '',

@@ -6,6 +6,8 @@ function tree() {
     <DemoPageRenderer
       title="Tree"
       description="Tree is a component that displays a hierarchical data structure with expandable/collapsible nodes."
+      sourceId="tree/tree.tsx"
+      editId="tree"
       properties={[
         {
           defaultValue: '200',

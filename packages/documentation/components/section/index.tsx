@@ -12,6 +12,8 @@ function index() {
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-2fdwsf']}
       pageIcon={<FontAwesomeIcon icon={faSquare} size="2x" />}
+      sourceId="section/section.tsx"
+      editId="section"
       properties={[
         {
           default: '',

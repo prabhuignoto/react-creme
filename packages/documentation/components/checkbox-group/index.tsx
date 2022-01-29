@@ -10,6 +10,8 @@ function index() {
       description="Checkbox group is a group of checkboxes that can be used to select multiple options."
       demoWidget={lazy(() => import('./widgets'))}
       pageIcon={<FontAwesomeIcon icon={faTasks} size="2x" />}
+      editId="checkbox-group"
+      sourceId="checkbox-group/checkbox-group.tsx"
       callbacks={[
         {
           default: '',

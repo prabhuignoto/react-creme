@@ -9,6 +9,8 @@ function dialog() {
       title="Dialog"
       description="A dialog is a window that displays content in a modal overlay."
       pageIcon={<FontAwesomeIcon icon={faWindowMaximize} size="2x" />}
+      sourceId="dialog/dialog.tsx"
+      editId="dialog"
       callbacks={[
         {
           default: '',

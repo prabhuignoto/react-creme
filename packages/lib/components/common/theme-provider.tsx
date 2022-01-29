@@ -17,10 +17,10 @@ type ThemeColor = keyof Theme;
 
 const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   theme = {
-    primary: '#0074B7',
-    secondary: '#BFD7ED',
-    tertiary: '#003B73',
-    textSelection: '#0074B7',
+    primary: '#3282B8',
+    secondary: '#BBE1FA',
+    tertiary: '#0F4C75',
+    textSelection: '#3282B8',
   },
   children,
 }) => {

@@ -9,6 +9,8 @@ function menuButton() {
       title="Menu Button"
       description="MenuButton allows to choose an action from a list of actions"
       pageIcon={<FontAwesomeIcon icon={faHandPointUp} size="2x" />}
+      sourceId="menu-button/menu-button.tsx"
+      editId="menu-button"
       callbacks={[
         {
           default: '',

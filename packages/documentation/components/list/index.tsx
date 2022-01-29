@@ -10,6 +10,8 @@ function list() {
       title="List"
       description="List is a component that displays a list of items."
       pageIcon={<FontAwesomeIcon icon={faList} size="2x" />}
+      sourceId="list/list.tsx"
+      editId="list"
       callbacks={[
         {
           default: 'undefined',

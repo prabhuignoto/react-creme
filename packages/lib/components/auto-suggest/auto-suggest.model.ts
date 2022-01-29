@@ -10,6 +10,7 @@ export interface AutoSuggestProps {
   onKeyUp?: (ev: React.KeyboardEvent) => void;
   onSelection?: (selected: AutoSuggestOption) => void;
   placeholder?: string;
+  rtl?: boolean;
   showSpinner?: boolean;
   suggestions: AutoSuggestOption[];
   suggestionsWidth?: number;

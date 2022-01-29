@@ -3,11 +3,17 @@ import { useRecoilValue } from 'recoil';
 import { BlockQuote, Link, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { AutoComplete, Default, Disabled, ReadOnly } from './widget-variants';
+import {
+  AutoComplete,
+  Default,
+  Disabled,
+  LargeSize,
+  ReadOnly,
+} from './widget-variants';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = React.useState<string | number>(null);
+  const [width, setWidth] = React.useState<string | number>();
 
   useLayoutEffect(() => {
     if (!media) {
@@ -21,13 +27,11 @@ function widgets() {
     } else if (media.isDesktop) {
       setWidth(500);
     } else if (media.isTablet) {
-      setWidth('85%');
+      setWidth(450);
     } else if (media.isMobile) {
-      setWidth('90%');
+      setWidth(320);
     }
   }, [media]);
-
-  const resolvedWidth = typeof width === 'string' ? width : `${width}px`;
 
   return (
     width && (
@@ -38,27 +42,30 @@ function widgets() {
             pressing enter.Tags can be easily removed by clicking on the close
             icon on the tag.
           </BlockQuote>
-          <DemoWidget width={resolvedWidth}>{Default}</DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="Tags - Filled style">
           <BlockQuote>
             Tags can be disabled by setting the <code>disabled</code>property to
             true.
           </BlockQuote>
-          <DemoWidget width={resolvedWidth}>{Disabled}</DemoWidget>
+          <DemoWidget width={width}>{Disabled}</DemoWidget>
         </Section>
         <Section title="Tags - Readonly">
           <BlockQuote>
             In readonly mode we can display a list of non editable tags.
           </BlockQuote>
-          <DemoWidget width={resolvedWidth}>{ReadOnly}</DemoWidget>
+          <DemoWidget width={width}>{ReadOnly}</DemoWidget>
         </Section>
         <Section title="Tags - AutoComplete">
           <BlockQuote>
             Tags can also be configured to use the{' '}
             <Link href="/auto-suggest">AutoSuggest</Link> control.
           </BlockQuote>
-          <DemoWidget width={resolvedWidth}>{AutoComplete}</DemoWidget>
+          <DemoWidget width={width}>{AutoComplete}</DemoWidget>
+        </Section>
+        <Section title="Tags - Custom Size">
+          <DemoWidget width={width}>{LargeSize}</DemoWidget>
         </Section>
       </div>
     )

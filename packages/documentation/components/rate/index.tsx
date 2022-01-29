@@ -9,6 +9,8 @@ function rate() {
       title="Rate"
       description="Rate component allows users to rate an item. It can be used to rate a product, a service, or any other item."
       pageIcon={<FontAwesomeIcon icon={faStarHalfAlt} size="2x" />}
+      sourceId="rate/rate.tsx"
+      editId="rate"
       callbacks={[
         {
           default: ``,

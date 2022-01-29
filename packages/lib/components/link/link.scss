@@ -3,7 +3,7 @@
 @use '../../design/icon.scss';
 
 .rc-link {
-  @extend %border-radius;
+  // @extend %border-radius;
   @extend %center;
   align-items: center;
   color: colors.$primary;
@@ -11,6 +11,21 @@
   padding: 0.5rem;
   text-decoration: none;
   white-space: nowrap;
+
+  &.rc-link-btn {
+    @extend %shadow-inset-small;
+    @extend %border;
+  }
+
+  &.rc-link-btn:hover {
+    background:rgba(colors.$primary-rgb, 1);
+    box-shadow: none;
+    color: colors.$white;
+  }
+
+  &:not(.rc-link-btn) {
+    @extend %border;
+  }
 
   &:hover {
     background-color: rgba(colors.$secondary-rgb, 0.5);

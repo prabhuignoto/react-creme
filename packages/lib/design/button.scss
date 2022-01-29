@@ -25,10 +25,6 @@
   &:hover:not(.rc-disabled) {
     background-color: rgba(colors.$secondary-rgb, 0.25);
     color: colors.$tertiary;
-
-    svg {
-      // color: $color-hover;
-    }
   }
 }
 
@@ -39,7 +35,6 @@
     colors.$white,
     colors.$primary
   );
-  // border: 1px solid colors.$primary;
 
   svg {
     color: colors.$white !important;

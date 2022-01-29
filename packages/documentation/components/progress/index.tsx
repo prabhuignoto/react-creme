@@ -10,6 +10,8 @@ function progress() {
       description={`Progress bars are used to show the completion status of an operation.
       They can be used to show the progress of a task, or the progress of a process.`}
       pageIcon={<FontAwesomeIcon icon={faSpinner} size="2x" />}
+      editId="progress"
+      sourceId="progress/progress.tsx"
       properties={[
         {
           default: 'progressive',

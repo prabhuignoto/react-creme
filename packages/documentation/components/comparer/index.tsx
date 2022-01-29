@@ -9,6 +9,8 @@ function comparer() {
       title="Image Comparer"
       description="Compare images side by side either horizontally or vertically."
       pageIcon={<FontAwesomeIcon icon={faImages} size="2x" />}
+      editId="comparer"
+      sourceId="image-comparer/image-comparer.tsx"
       properties={[
         {
           defaultValue: 'horizontal',

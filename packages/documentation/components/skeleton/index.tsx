@@ -9,6 +9,8 @@ function skeleton() {
       title="Skeleton"
       description="Skeleton is a lightweight component that can be used to display a loading state."
       pageIcon={<FontAwesomeIcon icon={faSpinner} size="2x" />}
+      sourceId="skeleton/skeleton.tsx"
+      editId="skeleton"
       properties={[
         {
           default: '4',

@@ -16,6 +16,8 @@ function slider() {
         },
       ]}
       pageIcon={<FontAwesomeIcon icon={faSlidersH} size="2x" />}
+      sourceId="slider/slider.tsx"
+      editId="slider"
       properties={[
         {
           default: '1',

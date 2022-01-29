@@ -114,8 +114,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
 
     const handleClear = useCallback((ev: React.MouseEvent) => {
       ev.preventDefault();
-      // ev.stopPropagation();
       setValue('');
+      //red
       setDropdownOptions(options =>
         options.map(option => ({
           ...option,

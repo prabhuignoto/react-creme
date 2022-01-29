@@ -10,6 +10,8 @@ function Position() {
       tabTitles={['Examples', 'Stackblitz']}
       demoWidget={lazy(() => import('./widgets'))}
       stackBlitzCodes={['red']}
+      sourceId="common/effects/usePosition.ts"
+      editId="position"
     ></DemoPageRenderer>
   );
 }

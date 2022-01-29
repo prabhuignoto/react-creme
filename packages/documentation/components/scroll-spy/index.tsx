@@ -8,6 +8,8 @@ function index() {
     <DemoPageRenderer
       demoWidget={lazy(() => import('./widgets'))}
       pageIcon={<FontAwesomeIcon icon={faListUl} size="2x" />}
+      sourceId="scroll-spy/scroll-spy.tsx"
+      editId="scroll-spy"
       properties={[
         {
           default: '[]',

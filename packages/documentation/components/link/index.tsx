@@ -11,6 +11,8 @@ function Link() {
       stackBlitzCodes={['red']}
       callbacks={[]}
       demoWidget={lazy(() => import('./widgets'))}
+      sourceId="link/link.tsx"
+      editId="link"
     ></DemoPageRenderer>
   );
 }

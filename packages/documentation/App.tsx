@@ -3,7 +3,6 @@ import deepEqual from 'fast-deep-equal';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useRecoilState } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
-import { useDebouncedCallback } from 'use-debounce';
 import { Drawer } from '../lib/components';
 import '../lib/design/colors.scss';
 import '../lib/design/layout.scss';
@@ -45,10 +44,6 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
       }
     }, [media]);
 
-    const debouncedPositionAside = useDebouncedCallback(positionAside, 50, {
-      trailing: true,
-    });
-
     const onAppRef = (el: HTMLDivElement) => {
       if (el) {
         appRef.current = el;
@@ -58,7 +53,7 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
 
     useEffect(() => {
       resizeObserver.current = new ResizeObserver(() =>
-        debouncedPositionAside()
+        positionAside()
       );
       resizeObserver.current.observe(document.body);
       return () => {

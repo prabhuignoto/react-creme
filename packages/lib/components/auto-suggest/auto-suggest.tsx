@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
@@ -76,6 +77,7 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
   accent = 'flat',
   apiBacked = false,
   icon,
+  rtl,
 }) => {
   const [suggestionItems, setSuggestionItems] = React.useState<Option[]>(
     suggestions.length
@@ -121,6 +123,14 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
         ? suggestionItems.filter(item => regexTester.test(item.name))
         : [],
     [matchFound, regexTester, isDirty]
+  );
+
+  const autoSuggestClass = useMemo(
+    () =>
+      classNames('rc-auto-suggest', {
+        'rc-auto-suggest-rtl': rtl,
+      }),
+    []
   );
 
   const handleChange = useCallback((value: string) => {
@@ -177,7 +187,7 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
 
   return (
     <div
-      className="rc-auto-suggest"
+      className={autoSuggestClass}
       data-testid="rc-auto-suggest"
       ref={rootRef}
     >

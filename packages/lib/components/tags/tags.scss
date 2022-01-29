@@ -4,17 +4,18 @@
 @use '../../design/colors.scss';
 @use '../../design/animate.scss';
 @use '../../design/font.scss';
+@use '../../design/position.scss';
 
 $sizes: (sm, md, lg);
 $padding-sizes: (
   sm: 0.25rem,
   md: 0.5rem,
-  lg: 1rem,
+  lg: 0.75rem,
 );
 
 .rc-tags-wrap {
   @extend %list-wrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
 
   &.rc-tags-rtl {
     direction: rtl;
@@ -36,17 +37,28 @@ $padding-sizes: (
       opacity: 1,
     ),
   );
-
-  @extend %center;
   @include animate.set-settings(0.1s, linear);
   @include animate.set-keyframes('tag-fade-in', $settings);
   @include animate.set-keyframes('tag-fade-out', $settings, true);
-  margin: 0 0.25rem;
+
+  // @extend %center;
+  justify-items: center;
+  margin: 0.25rem;
   max-width: var(--width);
   transform: scale(1);
 
   user-select: none;
   visibility: visible;
+
+  &:not(.rc-tag-disabled):not(.rc-tag-readonly) {
+    display: grid;
+    grid-template-columns: calc(var(--width) - 1rem) 1rem;
+  }
+
+  &.rc-tag-disabled,
+  &.rc-tag-readonly {
+    @extend %center;
+  }
 
   &.rc-tag-disabled {
     pointer-events: none;
@@ -85,16 +97,50 @@ $padding-sizes: (
   border-radius: 50%;
   cursor: pointer;
   display: block;
-  margin-left: auto;
 
-  &::after {
+  &.rc-tag-icon-editable {
+    visibility: visible;
+  }
+
+  &:not(.rc-tag-icon-editable) {
+    visibility: hidden;
+    width: 0;
+  }
+
+  &:hover::after {
+    @include position.position-abs('center center');
+    border-radius: 50%;
     content: '';
+    display: block;
+    height: 110%;
+    width: 110%;
+    z-index: -1;
   }
 
   @each $size in $sizes {
     &.rc-tag-icon-#{$size} {
       @extend %icon-#{$size};
     }
+  }
+}
+
+.rc-tag-icon-fill {
+  &:hover::after {
+    background: rgba(colors.$white, 1);
+  }
+
+  &:hover {
+    color: colors.$primary;
+  }
+}
+
+.rc-tag-icon-default {
+  &:hover::after {
+    background: colors.$primary;
+  }
+
+  &:hover {
+    color: colors.$white;
   }
 }
 
