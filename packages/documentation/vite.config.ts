@@ -17,7 +17,6 @@ export default defineConfig({
   },
   cacheDir: '.vite_cache',
   logLevel: 'info',
-  
-  // mode: 'universal',
+  mode: 'universal',
   plugins: [reactRefresh(), svgr()]
 })

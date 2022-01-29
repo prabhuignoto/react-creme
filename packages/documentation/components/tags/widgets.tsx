@@ -21,13 +21,11 @@ function widgets() {
     } else if (media.isDesktop) {
       setWidth(500);
     } else if (media.isTablet) {
-      setWidth('85%');
+      setWidth(450);
     } else if (media.isMobile) {
-      setWidth('90%');
+      setWidth(320);
     }
   }, [media]);
-
-  const resolvedWidth = typeof width === 'string' ? width : `${width}px`;
 
   return (
     width && (
@@ -38,27 +36,27 @@ function widgets() {
             pressing enter.Tags can be easily removed by clicking on the close
             icon on the tag.
           </BlockQuote>
-          <DemoWidget width={resolvedWidth}>{Default}</DemoWidget>
+          <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
         <Section title="Tags - Filled style">
           <BlockQuote>
             Tags can be disabled by setting the <code>disabled</code>property to
             true.
           </BlockQuote>
-          <DemoWidget width={resolvedWidth}>{Disabled}</DemoWidget>
+          <DemoWidget width={width}>{Disabled}</DemoWidget>
         </Section>
         <Section title="Tags - Readonly">
           <BlockQuote>
             In readonly mode we can display a list of non editable tags.
           </BlockQuote>
-          <DemoWidget width={resolvedWidth}>{ReadOnly}</DemoWidget>
+          <DemoWidget width={width}>{ReadOnly}</DemoWidget>
         </Section>
         <Section title="Tags - AutoComplete">
           <BlockQuote>
             Tags can also be configured to use the{' '}
             <Link href="/auto-suggest">AutoSuggest</Link> control.
           </BlockQuote>
-          <DemoWidget width={resolvedWidth}>{AutoComplete}</DemoWidget>
+          <DemoWidget width={width}>{AutoComplete}</DemoWidget>
         </Section>
       </div>
     )

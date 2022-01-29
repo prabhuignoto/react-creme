@@ -54,7 +54,7 @@ export type DropdownProps = {
   /**🔷 Enables the clear button for clearing the selected option */
   showClearBtn?: boolean;
 
-  /**🔷 Virtualizes the items displayed in the menu */
+  /**🔷 Virtualises the items displayed in the menu */
   virtualize?: boolean;
 };
 

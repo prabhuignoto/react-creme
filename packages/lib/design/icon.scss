@@ -6,20 +6,20 @@
   display: block;
 
   @if $size == small {
-    height: 16px;
-    width: 16px;
-  } @else if $size == medium {
-    height: 20px;
-    width: 20px;
-  } @else if $size == large {
-    height: 24px;
-    width: 24px;
-  } @else if $size == extra-small {
     height: 14px;
     width: 14px;
+  } @else if $size == medium {
+    height: 16px;
+    width: 16px;
+  } @else if $size == large {
+    height: 20px;
+    width: 20px;
+  } @else if $size == extra-small {
+    height: 12px;
+    width: 12px;
   } @else if $size == extra-large {
-    height: 28px;
-    width: 28px;
+    height: 24px;
+    width: 24px;
   }
 
   svg {

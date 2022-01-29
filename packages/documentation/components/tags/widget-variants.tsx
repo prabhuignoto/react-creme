@@ -15,7 +15,7 @@ export const Default = (
     items={items}
     maxTags={15}
     onChange={val => console.log(val)}
-    tagWidth={150}
+    tagWidth={70}
     focusable
     tagSize="md"
   />
@@ -27,7 +27,7 @@ export const Disabled = (
     items={items}
     maxTags={15}
     onChange={val => console.log(val)}
-    tagWidth={150}
+    tagWidth={70}
     tagStyle="fill"
   />
 );
@@ -49,9 +49,7 @@ export const AutoComplete = (
     items={items}
     maxTags={15}
     onChange={val => console.log(val)}
-    tagWidth={100}
     autoComplete
     suggestions={['one', 'two']}
-    tagSize="lg"
   />
 );

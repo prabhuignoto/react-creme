@@ -32,6 +32,8 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
     sortableColumns.current.length ? sortableColumns.current[0] : null
   );
 
+  //reddit
+
   const rowData = useRef<Record[]>(
     sortableColumnFirst.current !== null
       ? data
