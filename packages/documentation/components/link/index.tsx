@@ -1,5 +1,6 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from './../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function Link() {
   return (
@@ -10,7 +11,7 @@ function Link() {
       properties={[]}
       stackBlitzCodes={['red']}
       callbacks={[]}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       sourceId="link/link.tsx"
       editId="link"
     ></DemoPageRenderer>

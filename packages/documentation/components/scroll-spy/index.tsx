@@ -1,12 +1,13 @@
 import { faListUl } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
+import Widgets from './widgets';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function index() {
   return (
     <DemoPageRenderer
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       pageIcon={<FontAwesomeIcon icon={faListUl} size="2x" />}
       sourceId="scroll-spy/scroll-spy.tsx"
       editId="scroll-spy"

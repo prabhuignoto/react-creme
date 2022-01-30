@@ -4,6 +4,7 @@ import { BlockQuote, Link, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {
+  Accent,
   AutoComplete,
   Default,
   Disabled,
@@ -63,6 +64,14 @@ function widgets() {
             <Link href="/auto-suggest">AutoSuggest</Link> control.
           </BlockQuote>
           <DemoWidget width={width}>{AutoComplete}</DemoWidget>
+        </Section>
+        <Section title="Tags - Accent">
+          <BlockQuote>
+            Use the <code>accent</code> property to change the outlook of the
+            tags. Can be one of the following: <code>flat</code>,{' '}
+            <code>rounded</code>.
+          </BlockQuote>
+          <DemoWidget width={width}>{Accent}</DemoWidget>
         </Section>
         <Section title="Tags - Custom Size">
           <DemoWidget width={width}>{LargeSize}</DemoWidget>

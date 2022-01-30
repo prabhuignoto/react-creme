@@ -3,7 +3,7 @@
 exports[`Carousel Button > should render carousel button snapshot 1`] = `
 <button
   aria-label="previous"
-  class="rc-btn-sm rc-btn-icon rc-btn"
+  class="rc-btn-md rc-btn-icon rc-btn"
   role="button"
   style="outline: none; position: relative;"
   tabindex="0"

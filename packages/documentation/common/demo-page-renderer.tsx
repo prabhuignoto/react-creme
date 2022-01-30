@@ -1,10 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {
-  LazyExoticComponent,
-  Suspense,
-  useLayoutEffect,
-  useMemo,
-} from 'react';
+import React, { useLayoutEffect, useMemo } from 'react';
 import { BookOpen, Code, Edit, Sliders } from 'react-feather';
 import { CSSTransition } from 'react-transition-group';
 import { Link, PageHeader, Section, Tabs } from '../../lib/components';
@@ -32,7 +27,7 @@ const IconsWithoutProperties = [
 
 interface DemoPageRendererProps {
   callbacks?: any[];
-  demoWidget: LazyExoticComponent<React.FC>;
+  demoWidget: React.ReactNode;
   description?: string | React.ReactNode;
   editId?: string;
   pageIcon?: React.ReactNode;
@@ -145,7 +140,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
           <div className="rc-demo-page">
             {title && (
               <PageHeader title={title} size="lg" icon={pageIcon}>
-                <p>{description}</p>
+                <div>{description}</div>
                 <div className="rc-demo-page-links-container">
                   {sourceId && (
                     <Link
@@ -176,40 +171,40 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
               focusable={false}
             >
               <div className="rc-demo-widgets-wrapper">
-                <Suspense fallback={<span>Loading Widgets...</span>}>
-                  <CSSTransition
-                    key={tabTitles.join('')}
-                    classNames="widget-fade"
-                    timeout={300}
-                  >
-                    <Demo />
-                  </CSSTransition>
-                </Suspense>
+                {/* <Suspense fallback={<span>Loading Widgets...</span>}> */}
+                <CSSTransition
+                  key={tabTitles.join('')}
+                  classNames="widget-fade"
+                  timeout={300}
+                >
+                  {Demo}
+                </CSSTransition>
+                {/* </Suspense> */}
               </div>
               {canShowProperties && (
                 <div className="rc-demo-prop-section">
-                  <Suspense fallback={<div></div>}>
-                    <Section title="Properties">
+                  {/* <Suspense fallback={<div></div>}> */}
+                  <Section title="Properties">
+                    <DataGrid
+                      layoutStyle={'comfortable'}
+                      columns={columns}
+                      data={properties}
+                      border
+                      rowHeight={68}
+                    />
+                  </Section>
+                  {callbacks && (
+                    <Section title="Callbacks">
                       <DataGrid
                         layoutStyle={'comfortable'}
                         columns={columns}
-                        data={properties}
+                        data={callbacks}
                         border
                         rowHeight={68}
                       />
                     </Section>
-                    {callbacks && (
-                      <Section title="Callbacks">
-                        <DataGrid
-                          layoutStyle={'comfortable'}
-                          columns={columns}
-                          data={callbacks}
-                          border
-                          rowHeight={68}
-                        />
-                      </Section>
-                    )}
-                  </Suspense>
+                  )}
+                  {/* </Suspense> */}
                 </div>
               )}
               <div className="rc-demo-stack-blitz-collection">
@@ -223,13 +218,6 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
             </Tabs>
           </div>
         )
-      );
-    },
-    (prev, next) => {
-      return (
-        prev.title === next.title &&
-        prev.description === next.description &&
-        prev.demoWidget === next.demoWidget
       );
     }
   );

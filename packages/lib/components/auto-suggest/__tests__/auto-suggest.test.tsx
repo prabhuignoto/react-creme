@@ -1,11 +1,11 @@
-import { render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { vi } from 'vitest';
 import { AutoSuggest } from '../auto-suggest';
 
-const suggestions = ['one', 'two', 'three', 'four', 'five'].map((item) => ({
+const suggestions = ['one', 'two', 'three', 'four', 'five'].map(item => ({
   name: item,
   value: item,
 }));
@@ -65,10 +65,17 @@ describe('AutoSuggest', () => {
       />
     );
 
-    userEvent.type(getByPlaceholderText('enter input'), 'open');
-
-    await waitFor(() => {
-      expect(onChange).toHaveBeenCalledWith('open');
+    fireEvent.change(getByPlaceholderText('enter input'), {
+      target: { value: 'open' },
     });
+
+    await waitFor(
+      () => {
+        expect(onChange).toHaveBeenCalledWith('open');
+      },
+      {
+        timeout: 2000,
+      }
+    );
   });
 });

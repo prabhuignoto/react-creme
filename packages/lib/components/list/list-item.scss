@@ -36,7 +36,7 @@ $height: 40px;
   }
 
   &.rc-list-option-selected.rc-list-option-highlight-selection {
-    background: rgba(colors.$secondary-rgb, 30%);
+    background: rgba(colors.$secondary-rgb, 0.5);
   }
 }
 
@@ -50,7 +50,7 @@ $height: 40px;
     height: 100%;
     transform: translate(-50%, -50%);
     transition: border 0.1s ease-in;
-    width: 98%;
+    width: 100%;
     z-index: -1;
   }
 }
@@ -81,6 +81,11 @@ $height: 40px;
 
   &:not(.rc-list-option-no-icon):not(.rc-list-option-rtl) {
     grid-template-columns: 24px calc(100% - 24px);
+  }
+
+  &.rc-list-option-selected {
+    background: rgba(colors.$secondary-rgb, 0.5);
+    color: colors.$primary;
   }
 }
 

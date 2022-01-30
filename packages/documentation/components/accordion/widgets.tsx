@@ -4,7 +4,7 @@ import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
 import { CustomIcon, Default, Expanded } from './widgets-variants';
 
-function widgets() {
+function Widgets() {
   const media = useMedia();
   const [width, setWidth] = React.useState(0);
 
@@ -36,9 +36,10 @@ function widgets() {
           <BlockQuote>The icon can be aligned to the right</BlockQuote>
           <DemoWidget width={width}>{CustomIcon}</DemoWidget>
         </Section>
-        <Section title="Expanded by default">
+        <Section title="Accordion expanded by default">
           <BlockQuote>
-            Accordions can be expanded or collapsed by default
+            Accordions can be expanded or collapsed by default. The example
+            shows a accordion expanded by default.
           </BlockQuote>
           <DemoWidget width={width}>{Expanded}</DemoWidget>
         </Section>
@@ -47,4 +48,4 @@ function widgets() {
   );
 }
 
-export default widgets;
+export { Widgets };

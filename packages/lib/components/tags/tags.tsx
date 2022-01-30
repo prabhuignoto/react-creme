@@ -8,7 +8,7 @@ import '../../design/list.scss';
 import { AutoSuggest } from '../auto-suggest/auto-suggest';
 import { AutoSuggestOption } from '../auto-suggest/auto-suggest.model';
 import { TagItem } from './tag-item';
-import { TagItemInternalProps, TagsProps } from './tags-model';
+import { TagItemProps, TagsProps } from './tags-model';
 import './tags.scss';
 
 const Tags: React.FunctionComponent<TagsProps> = ({
@@ -25,16 +25,18 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   RTL = false,
   placeholder = '',
   focusable = true,
+  accent = 'flat',
 }) => {
   // STATES
-  const [tagItems, setTagItems] = useState<TagItemInternalProps[]>(
+  const [tagItems, setTagItems] = useState<TagItemProps[]>(
     items
-      .map(item => ({
-        disabled: item.disabled,
+      .map(({ name, disabled }) => ({
+        accent,
+        disabled: disabled,
         id: nanoid(),
         markedForRemoval: false,
-        name: item.name,
-        readonly: readonly,
+        name: name,
+        readonly,
       }))
       .slice(0, maxTags)
   );
@@ -76,6 +78,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
         const _value = typeof value === 'string' ? value : value.name;
         setTagItems(prev =>
           prev.concat({
+            accent,
             id: nanoid(),
             name: _value,
           })
@@ -105,6 +108,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   useEffect(() => {
     setTagItems(
       items.map(item => ({
+        accent,
         disabled: item.disabled,
         id: nanoid(),
         name: item.name,
@@ -130,11 +134,12 @@ const Tags: React.FunctionComponent<TagsProps> = ({
           handleRemove={handleRemove}
           key={id}
           name={name}
-          width={tagWidth}
+          tagWidth={tagWidth}
           tagStyle={tagStyle}
           tagSize={tagSize}
           markedForRemoval={markedForRemoval}
           focusable={focusable}
+          accent={accent}
         />
       ))}
       {canAdd && (
@@ -147,6 +152,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
             value={inputValue}
             placeholder={placeholder}
             focusable={focusable}
+            accent={accent}
           />
         </li>
       )}

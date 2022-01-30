@@ -2,6 +2,7 @@ import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import { Widgets } from './widgets';
 
 const Description = (
   <div>
@@ -27,7 +28,7 @@ const Accordion = () => {
         {
           default: '',
           description:
-            'callback function called when the accordion is collapsed',
+            'Callback function executed when the accordion is collapsed.',
           name: 'onCollapsed',
           optional: 'Yes',
           type: 'Function',
@@ -35,7 +36,7 @@ const Accordion = () => {
         {
           default: '',
           description:
-            'callback function called when the accordion is expanded',
+            'Callback function executed when the accordion is expanded.',
           name: 'onExpanded',
           optional: 'Yes',
           type: 'Function',
@@ -44,7 +45,7 @@ const Accordion = () => {
       properties={[
         {
           default: 'auto generated',
-          description: 'unique id for the accordion',
+          description: 'Unique id for the accordion',
           name: 'id',
           optional: 'Yes',
           type: 'String',
@@ -65,7 +66,7 @@ const Accordion = () => {
         },
         {
           default: 'chevron',
-          description: `prop to change the icon type. <br> <em>chevron</em> | <em>plus</em>`,
+          description: `Prop to change the icon type. <br> <em>chevron</em> | <em>plus</em>`,
           name: 'iconType',
           optional: 'Yes',
           type: 'String',
@@ -79,43 +80,43 @@ const Accordion = () => {
         },
         {
           default: 'cubic-bezier(0.19, 1, 0.22, 1)',
-          description: 'custom transition function.',
+          description: 'Custom transition function.',
           name: 'transition',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: 'false',
-          description: 'enables keyboard focus outline',
+          description: 'Enables focus outline.',
           name: 'focusable',
           optional: 'Yes',
           type: 'Boolean',
         },
         {
           default: '#000',
-          description: 'color of the title',
+          description: 'Color of the title',
           name: 'titleColor',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: '#000',
-          description: 'color of the icon',
+          description: 'Color of the icons',
           name: 'iconColor',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: 'false',
-          description: 'expand the accordion on load',
+          description: 'Expands the accordion on load',
           name: 'expanded',
           optional: 'Yes',
           type: 'Boolean',
         },
       ]}
-      demoWidget={React.lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 };
 
-export { Accordion };
+export default Accordion;

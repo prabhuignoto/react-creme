@@ -1,7 +1,8 @@
 import { faColumns } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function splitter() {
   return (
@@ -65,7 +66,7 @@ function splitter() {
           type: 'Number',
         },
       ]}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
     />
   );
 }

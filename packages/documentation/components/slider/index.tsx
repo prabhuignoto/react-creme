@@ -1,7 +1,8 @@
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function slider() {
   return (
@@ -100,7 +101,7 @@ function slider() {
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-acenzu']}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       title="Slider"
       description="Slider is a control that allows users to select a specific value (or range of values).
       All too often users get the information of what the value is all about by reading the label on a slider.

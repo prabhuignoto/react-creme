@@ -14,7 +14,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   type = 'default',
   label = '',
   onClick,
-  size = 'sm',
+  size = 'md',
   style = {},
 }) => {
   // classes

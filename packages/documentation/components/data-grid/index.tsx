@@ -1,13 +1,14 @@
 import { faTable } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import './data-grid.scss';
+import Widgets from './widgets';
 
 const DataGridDemo: React.FunctionComponent = () => {
   return (
     <DemoPageRenderer
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       title="Data Grid"
       description="Data Grid is a component that displays data in a table format."
       pageIcon={<FontAwesomeIcon icon={faTable} size="2x" />}

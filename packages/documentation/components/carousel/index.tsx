@@ -1,12 +1,13 @@
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function carousel() {
   return (
     <DemoPageRenderer
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       stackBlitzCodes={['react-ts-kgea3r']}
       title="Carousel"
       description={`Carousels allow multiple pieces of content to occupy a single, coveted space.

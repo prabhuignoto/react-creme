@@ -3,7 +3,7 @@
 exports[`Button > should render button snapshot 1`] = `
 <button
   aria-label="My Button"
-  class="rc-btn-sm rc-btn-default rc-btn"
+  class="rc-btn-md rc-btn-default rc-btn"
   role="button"
   style="outline: none; position: relative;"
   tabindex="0"

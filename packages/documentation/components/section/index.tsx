@@ -1,12 +1,13 @@
 import { faSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function index() {
   return (
     <DemoPageRenderer
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       title="Section"
       description="Section is a container for other components. It can be used to group components together."
       tabTitles={['Examples', 'Properties', 'Stackblitz']}

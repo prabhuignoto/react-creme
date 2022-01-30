@@ -5,13 +5,13 @@ import { SearchIcon } from '../../../lib/icons';
 export const Default = <Button label="save" onClick={() => alert('test')} />;
 
 export const Icon = (
-  <Button label="Search this page" size="sm" focusable>
+  <Button label="Search this page" focusable>
     <SearchIcon />
   </Button>
 );
 
 export const SearchingState = (
-  <Button label="Searching ..." size="sm" type="progress"></Button>
+  <Button label="Searching ..." type="progress"></Button>
 );
 
 export const Disabled = (

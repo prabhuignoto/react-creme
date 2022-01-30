@@ -1,14 +1,15 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function sidebar() {
   return (
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-xhgzf5']}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       title="Sidebar"
       description="Sidebar is a container for sidebar items. It can be used to display a list of items in a collapsible sidebar."
       sourceId="sidebar/sidebar.tsx"

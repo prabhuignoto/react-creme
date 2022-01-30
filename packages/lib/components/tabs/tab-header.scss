@@ -22,17 +22,13 @@ $rounded-tabs-height: 45px;
     background: colors.$platinum;
     content: '';
     display: block;
+    height: 4px;
     width: 100%;
   }
 }
 
 .rc-tab-headers-flat {
   height: $flat-tabs-height;
-
-  &::after {
-    bottom: 4px;
-    height: 4px;
-  }
 }
 
 .rc-tab-headers-rounded {
@@ -57,21 +53,10 @@ $rounded-tabs-height: 45px;
   @extend %center;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+  height: 100%;
   justify-content: space-around;
   margin-left: auto;
   width: 5rem;
-
-  &.rc-tab-header-control-flat {
-    height: 100%;
-  }
-
-  &.rc-tab-header-control-rounded {
-    height: 70%;
-  }
-
-  &.rc-tab-header-control-icon {
-    margin-bottom: 1rem;
-  }
 }
 
 .rc-tab-header-btn {
@@ -138,7 +123,7 @@ $rounded-tabs-height: 45px;
   &.rc-tab-head-selected::after {
     @include position.position-abs('bottom center');
     background: colors.$primary;
-    bottom: 0;
+    bottom: -4px;
     content: '';
     display: block;
     height: 3px;
@@ -148,10 +133,10 @@ $rounded-tabs-height: 45px;
   &::after {
     @include position.position-abs('bottom center');
     background: rgba(colors.$primary-rgb, 70%);
-    bottom: 0;
+    // bottom: 0;
     content: '';
     display: block;
-    height: 3px;
+    // height: 3px;
     transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
     width: 0;
   }
@@ -166,7 +151,6 @@ $rounded-tabs-height: 45px;
   @include animate.halo(2px, 2px);
   cursor: pointer;
   height: 90%;
-  // justify-self: center;
   position: relative;
   text-transform: capitalize;
   white-space: nowrap;

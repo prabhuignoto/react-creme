@@ -81,17 +81,11 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
           label="okay"
           type="primary"
           onClick={handleSuccess}
-          size="sm"
           focusable={focusable}
         >
           <CheckIcon />
         </Button>
-        <Button
-          label="cancel"
-          onClick={onClose}
-          size="sm"
-          focusable={focusable}
-        >
+        <Button label="cancel" onClick={onClose} focusable={focusable}>
           <CloseIcon />
         </Button>
       </footer>

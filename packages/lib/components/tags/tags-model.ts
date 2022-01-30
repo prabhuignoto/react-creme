@@ -1,17 +1,12 @@
 import { CSSProperties } from 'react';
 
-export interface TagItemProps {
-  disabled?: boolean;
-  name: string;
-  readonly?: boolean;
-}
-
-export interface TagItemInternalProps extends TagItemProps {
-  id?: string;
-  markedForRemoval?: boolean;
-}
+// export interface TagItemInternalProps extends TagItemProps {
+//   id?: string;
+//   markedForRemoval?: boolean;
+// }
 export interface TagsProps {
   RTL?: boolean;
+  accent?: 'rounded' | 'flat';
   autoComplete?: boolean;
   disabled?: boolean;
   focusable?: boolean;
@@ -26,3 +21,18 @@ export interface TagsProps {
   tagStyle?: 'default' | 'fill';
   tagWidth?: number;
 }
+
+export type TagItemProps = Pick<
+  TagsProps,
+  | 'disabled'
+  | 'readonly'
+  | 'accent'
+  | 'focusable'
+  | 'tagStyle'
+  | 'tagSize'
+  | 'tagWidth'
+> & {
+  id?: string;
+  markedForRemoval?: boolean;
+  name: string;
+};

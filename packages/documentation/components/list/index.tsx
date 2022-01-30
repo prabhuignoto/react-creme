@@ -1,12 +1,13 @@
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function list() {
   return (
     <DemoPageRenderer
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       title="List"
       description="List is a component that displays a list of items."
       pageIcon={<FontAwesomeIcon icon={faList} size="2x" />}

@@ -1,13 +1,14 @@
 import { faSquareFull } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function card() {
   return (
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       title="Card"
       stackBlitzCodes={['react-ts-3qkmbh']}
       description="Card is a container for displaying content."
@@ -46,7 +47,7 @@ function card() {
         {
           default: 'left',
           description: `aligns the footer element to <em>left</em> | <em>right</em> | <em>center</em>`,
-          name: 'alignHeader',
+          name: 'alignFooter',
           optional: 'Yes',
           type: 'string',
         },

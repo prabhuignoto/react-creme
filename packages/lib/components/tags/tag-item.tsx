@@ -10,15 +10,11 @@ import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
 import { useKey } from '../common/effects/useKey';
-import { TagItemInternalProps } from './tags-model';
+import { TagItemProps } from './tags-model';
 import './tags.scss';
 
-type TagItemViewProps = TagItemInternalProps & {
-  focusable?: boolean;
+type TagItemViewProps = TagItemProps & {
   handleRemove: (id: string) => void;
-  tagSize?: 'sm' | 'md' | 'lg';
-  tagStyle?: 'default' | 'fill';
-  width?: number;
 };
 
 const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
@@ -28,11 +24,12 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     disabled,
     handleRemove,
     readonly,
-    width,
+    tagWidth,
     tagStyle,
     tagSize,
     markedForRemoval,
     focusable,
+    accent,
   }: TagItemViewProps) => {
     const ref = useRef(null);
 
@@ -54,6 +51,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
           [`rc-tag-style-${tagStyle}`]: true,
           [`rc-tag-${tagSize}`]: true,
           'rc-tag-readonly': readonly,
+          [`rc-tag-accent-${accent}`]: true,
         }),
       [markedForRemoval]
     );
@@ -79,7 +77,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     const style = useMemo(
       () =>
         ({
-          '--width': `${width}px`,
+          '--width': `${tagWidth}px`,
         } as CSSProperties),
       []
     );

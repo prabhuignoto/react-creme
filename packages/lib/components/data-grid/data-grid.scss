@@ -8,11 +8,12 @@ $comfortable-row-height: 50px;
 .rc-data-grid {
   @extend %col;
   overflow: hidden;
+  padding: 0;
   width: 100%;
 
   &.rc-data-grid-border {
     @extend %border-radius;
-    border: 1px solid colors.$secondary;
+    @extend %shadow-small;
   }
 }
 

@@ -1,5 +1,6 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function BreadCrumb() {
   return (
@@ -42,7 +43,7 @@ function BreadCrumb() {
         },
       ]}
       tabTitles={['Examples', 'properties', 'StackBlitz']}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       title="Bread Crumb"
       sourceId="breadcrumb/breadcrumb.tsx"
       editId="bread-crumb"

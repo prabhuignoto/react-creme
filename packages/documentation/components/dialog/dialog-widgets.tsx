@@ -53,11 +53,7 @@ const Widget = () => {
       <div className="rc-demo-widgets">
         <Section title="Default render">
           <DemoWidget component={Default}>
-            <Button
-              size="sm"
-              onClick={() => setOpen(true)}
-              label="Open dialog"
-            ></Button>
+            <Button onClick={() => setOpen(true)} label="Open dialog"></Button>
             {open && (
               <Dialog
                 onClose={() => {
@@ -76,11 +72,7 @@ const Widget = () => {
         </Section>
         <Section title="Custom animation">
           <DemoWidget component={Drop}>
-            <Button
-              size="sm"
-              onClick={() => setOpen2(true)}
-              label="Open dialog"
-            ></Button>
+            <Button onClick={() => setOpen2(true)} label="Open dialog"></Button>
             {open2 && (
               <Dialog
                 onClose={() => {

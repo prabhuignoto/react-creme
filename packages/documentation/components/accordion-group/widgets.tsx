@@ -54,8 +54,8 @@ function Widgets() {
         </Section>
         <Section title="Custom Icon">
           <BlockQuote>
-            The AccordionGroup can be configured to use custom icons and
-            alignment
+            The AccordionGroup can be configured to use custom icons and the
+            alignment of the icon can be changed.
           </BlockQuote>
           <DemoWidget width={width}>{CustomIcon}</DemoWidget>
         </Section>

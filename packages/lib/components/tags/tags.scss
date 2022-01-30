@@ -45,6 +45,7 @@ $padding-sizes: (
   justify-items: center;
   margin: 0.25rem;
   max-width: var(--width);
+  min-width: 40px;
   transform: scale(1);
 
   user-select: none;
@@ -66,12 +67,17 @@ $padding-sizes: (
 
   &.rc-tag-style-fill {
     @extend %border-radius;
-    background: colors.$primary;
+    background: rgba(colors.$primary-rgb, 1);
     color: colors.$white;
   }
 
   &.rc-tag-style-default {
     @extend %border;
+    @extend %shadow-inset-small;
+  }
+
+  &.rc-tag-accent-rounded {
+    border-radius: 40px;
   }
 
   &.rc-tag-readonly {

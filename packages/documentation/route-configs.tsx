@@ -14,11 +14,7 @@ const routes = [
     path: '/',
   },
   {
-    component: lazy(() =>
-      import('./components/accordion').then(({ Accordion }) => ({
-        default: Accordion,
-      }))
-    ),
+    component: lazy(() => import('./components/accordion')),
     key: 'accordion',
     path: '/accordion',
   },
