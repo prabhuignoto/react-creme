@@ -194,10 +194,6 @@ span {
   display: flex;
   justify-content: center;
 
-  @media (min-width: 320px) and (max-width: 480px) {
-    margin-left: auto;
-  }
-
   svg {
     height: 100%;
     width: 100%;
