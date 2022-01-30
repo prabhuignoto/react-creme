@@ -11,6 +11,8 @@ function accordionGroup() {
       stackBlitzCodes={['react-ts-kq6o5l']}
       description={`An Accordion group is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them.
       It is one of many ways you can expose content to users`}
+      sourceId="accordion-group/accordion-group.tsx"
+      editId="accordion-group"
       pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}
       properties={[
         {

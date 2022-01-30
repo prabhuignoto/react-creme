@@ -1,7 +1,8 @@
 import { faComment } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './tooltip-widgets';
 
 function tooltip() {
   return (
@@ -83,7 +84,7 @@ function tooltip() {
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-pwaial']}
-      demoWidget={lazy(() => import('./tooltip-widgets'))}
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }

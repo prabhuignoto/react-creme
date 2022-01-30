@@ -1,7 +1,8 @@
 import { faWindowMaximize } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './dialog-widgets';
 
 function dialog() {
   return (
@@ -67,7 +68,7 @@ function dialog() {
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-9dnouy']}
-      demoWidget={lazy(() => import('./dialog-widgets'))}
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }

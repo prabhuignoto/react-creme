@@ -1,6 +1,7 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { Sidebar } from 'react-feather';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './drawer-widgets';
 
 function drawer() {
   return (
@@ -44,7 +45,7 @@ function drawer() {
           type: 'String',
         },
       ]}
-      demoWidget={lazy(() => import('./drawer-widgets'))}
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }
