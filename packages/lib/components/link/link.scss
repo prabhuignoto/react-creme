@@ -4,6 +4,7 @@
 
 .rc-link {
   @extend %center;
+  @extend %border-radius;
   align-items: center;
   color: colors.$primary;
   margin: 0;

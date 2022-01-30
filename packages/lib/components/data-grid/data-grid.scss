@@ -68,9 +68,9 @@ $comfortable-row-height: 50px;
     overflow-wrap: anywhere;
   }
 
-  em {
+  em,code {
     @extend %border-radius;
-    background-color: rgba(colors.$secondary-rgb, 0.1);
+    background-color: rgba(colors.$secondary-rgb, 0.5);
     color: colors.$primary;
     font-style: normal;
     font-weight: 400;

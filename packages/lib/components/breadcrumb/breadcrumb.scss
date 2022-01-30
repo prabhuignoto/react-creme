@@ -49,7 +49,7 @@ $sizes: (sm, md, lg);
 
   &.rc-bread-crumb-node-selected {
     background-color: rgba(colors.$secondary-rgb, 0.5);
-    color: colors.$white;
+    color: colors.$tertiary;
   }
 
   @each $size in $sizes {
