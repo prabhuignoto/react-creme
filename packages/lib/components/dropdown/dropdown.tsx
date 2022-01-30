@@ -26,6 +26,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     RTL = false,
     chevronIconColor,
     showClearBtn = true,
+    label = 'dropdown',
   }: DropdownProps) => {
     // options states
     const [dropdownOptions, setDropdownOptions] = useState(
@@ -166,6 +167,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
           disabled={disabled}
           focusable={focusable}
           selectedValue={selectedValue}
+          label={label}
         />
 
         {showMenu && (

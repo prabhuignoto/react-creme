@@ -151,6 +151,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
               }
             )}
             role="button"
+            aria-label="scroll left"
             onClick={scrollLeft}
           >
             <ChevronRightIcon />
@@ -160,6 +161,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
               'rc-tab-header-btn-disabled': disableScrollRight,
             })}
             role="button"
+            aria-label="scroll right"
             onClick={scrollRight}
           >
             <ChevronRightIcon />

@@ -68,7 +68,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   }, []);
 
   return (
-    <div className={globalNotificationClass} style={style} role="alertdialog">
+    <div className={globalNotificationClass} style={style} role="alert">
       <span className="rc-global-notification-message">{open && message}</span>
       <span
         className="rc-global-notification-close-btn"

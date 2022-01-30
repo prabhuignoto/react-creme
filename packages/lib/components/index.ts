@@ -40,3 +40,4 @@ export { Tags } from './tags/tags';
 export { Tooltip } from './tooltip/tooltip';
 export { Transfer } from './transfer/transfer';
 export { Tree } from './tree/tree';
+export { ThemeProvider } from './common/theme-provider';

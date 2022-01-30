@@ -58,9 +58,10 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = React.memo(
         onMouseOver={() => onMouseOver(index)}
         aria-checked={active}
         role="radio"
+        {...focusableProps}
         {...disabledProps}
       >
-        <span role="img" onClick={() => onSelect(index)} {...focusableProps}>
+        <span role="img" onClick={() => onSelect(index)} aria-label="star">
           {icon || <RateIcon />}
         </span>
       </li>

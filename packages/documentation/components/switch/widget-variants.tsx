@@ -2,7 +2,12 @@ import React from 'react';
 import { Switch } from '../../../lib/components/switch/switch';
 
 export const Default = (
-  <Switch label="Settings" checked onChange={val => console.log(val)} />
+  <Switch
+    label="Settings"
+    checked
+    onChange={val => console.log(val)}
+    size="sm"
+  />
 );
 
 export const LabelOutside = <Switch label="Settings" labelOutside focusable />;
@@ -13,8 +18,6 @@ export const CheckIcon = (
 
 export const Disabled = <Switch label="setting" disabled />;
 
-export const Large = <Switch label="Are you authorized" size="md" />;
+export const Medium = <Switch label="Are you authorized" size="md" />;
 
-export const ExtraLarge = (
-  <Switch label="Show settings" size="lg" labelOutside />
-);
+export const Large = <Switch label="Show settings" size="lg" labelOutside />;

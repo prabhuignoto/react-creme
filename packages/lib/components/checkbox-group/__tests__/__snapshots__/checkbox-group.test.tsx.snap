@@ -18,6 +18,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         class="rc-checkbox rc-checkbox-md"
       >
         <span
+          aria-label="checkbox icon"
           class="rc-checkbox-icon rc-checkbox-md rc-checkbox-square"
           role="img"
         >
@@ -60,6 +61,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         class="rc-checkbox rc-checkbox-md"
       >
         <span
+          aria-label="checkbox icon"
           class="rc-checkbox-icon rc-checkbox-checked rc-checkbox-md rc-checkbox-square"
           role="img"
         >
@@ -101,6 +103,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         class="rc-checkbox rc-checkbox-md rc-disabled"
       >
         <span
+          aria-label="checkbox icon"
           class="rc-checkbox-icon rc-checkbox-md rc-checkbox-square"
           role="img"
         >

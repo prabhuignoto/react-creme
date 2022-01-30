@@ -16,14 +16,14 @@ function progress() {
       properties={[
         {
           default: 'progressive',
-          description: `Type of progress. can be <em>determinate</em> | <em>indeterminate</em>`,
+          description: `prop to set the type of progress bar. can be <em>determinate</em> | <em>indeterminate</em>`,
           name: 'type',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: '100',
-          description: `Max value of the progress in numeric`,
+          description: `Max value of the progress in numeric.`,
           name: 'maxValue',
           optional: 'Yes',
           type: 'Number',
@@ -64,6 +64,14 @@ function progress() {
           name: 'inDeterminateStyle',
           optional: 'Yes',
           type: `'disappear' | 'bob'`,
+        },
+        {
+          default: '',
+          description:
+            'This prop can be used to set the <code>aria-valuetext</code> html attribute for the element.',
+          name: 'statusText',
+          optional: 'Yes',
+          type: 'String',
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}

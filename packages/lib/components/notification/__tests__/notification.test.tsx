@@ -12,9 +12,9 @@ describe('Notification', () => {
 
     await waitFor(
       () => {
-        expect(getByRole('dialog')).toBeInTheDocument();
+        expect(getByRole('alert')).toBeInTheDocument();
         expect(getByText('content')).toBeInTheDocument();
-        expect(getByRole('dialog')).toHaveStyle('--min-width: 400px');
+        expect(getByRole('alert')).toHaveStyle('--min-width: 400px');
       },
       {
         timeout: 1500,

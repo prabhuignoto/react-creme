@@ -71,7 +71,11 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   return (
     <div className={messageClass} style={style} role="alert">
       <div className="rc-alert-icon-wrapper">
-        <span className="rc-alert-icon" role="img">
+        <span
+          className="rc-alert-icon"
+          role="img"
+          aria-label={`alert-icon-${state}`}
+        >
           {icon}
         </span>
       </div>
@@ -80,6 +84,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
         <span
           className="rc-alert-close-btn"
           role="button"
+          aria-label="close alert"
           ref={btnCloseRef}
           onClick={handleClose}
           tabIndex={focusable ? 0 : -1}

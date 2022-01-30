@@ -1,5 +1,7 @@
 import { Theme } from '../../lib/components/common/theme-provider';
 
+export type AppTheme = 'Default' | 'Glacier' | 'Coffee' | 'Blueberry';
+
 export const Default: Theme = {
   primary: '#0074B7',
   secondary: '#BFD7ED',
@@ -26,4 +28,11 @@ export const Tangerine: Theme = {
   secondary: '#864879',
   tertiary: '#1F1D36',
   textSelection: '#864879',
+};
+
+export const Blueberry: Theme = {
+  primary: '#47597E',
+  secondary: '#DBE6FD',
+  tertiary: '#293B5F',
+  textSelection: '#293B5F',
 };

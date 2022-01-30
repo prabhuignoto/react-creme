@@ -81,7 +81,8 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
             <Tags
               items={selectedValue}
               readonly
-              tagSize={'sm'}
+              tagSize={'md'}
+              accent="rounded"
               tagWidth={100}
               RTL={RTL}
             />
@@ -97,6 +98,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
           className={rcDropdownClearClass}
           role="button"
           data-testid="clear-icon"
+          aria-label="clear selection"
           style={iconStyle}
           onClick={onClear}
         >
@@ -106,6 +108,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
       <span
         className={rcDropdownIconClass}
         role="img"
+        aria-label="clear selection"
         data-testid="chevron-icon"
         style={iconStyle}
       >

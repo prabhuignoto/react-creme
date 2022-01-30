@@ -19,8 +19,8 @@ describe('GlobalNotification', () => {
       <GlobalNotification message="Global Notification" state="success" />
     );
     await waitFor(() => {
-      expect(getByRole('alertdialog')).toBeInTheDocument();
-      expect(getByRole('alertdialog')).toHaveClass(
+      expect(getByRole('alert')).toBeInTheDocument();
+      expect(getByRole('alert')).toHaveClass(
         'rc-global-notification-success'
       );
     });
@@ -32,8 +32,8 @@ describe('GlobalNotification', () => {
     );
 
     await waitFor(() => {
-      expect(getByRole('alertdialog')).toBeInTheDocument();
-      expect(getByRole('alertdialog')).toHaveClass(
+      expect(getByRole('alert')).toBeInTheDocument();
+      expect(getByRole('alert')).toHaveClass(
         'rc-global-notification-error'
       );
     });
@@ -45,8 +45,8 @@ describe('GlobalNotification', () => {
     );
 
     await waitFor(() => {
-      expect(getByRole('alertdialog')).toBeInTheDocument();
-      expect(getByRole('alertdialog')).toHaveClass(
+      expect(getByRole('alert')).toBeInTheDocument();
+      expect(getByRole('alert')).toHaveClass(
         'rc-global-notification-warning'
       );
     });
@@ -58,8 +58,8 @@ describe('GlobalNotification', () => {
     );
 
     await waitFor(() => {
-      expect(getByRole('alertdialog')).toBeInTheDocument();
-      expect(getByRole('alertdialog')).toHaveClass(
+      expect(getByRole('alert')).toBeInTheDocument();
+      expect(getByRole('alert')).toHaveClass(
         'rc-global-notification-info'
       );
     });
@@ -72,7 +72,7 @@ describe('GlobalNotification', () => {
     );
 
     await waitFor(() => {
-      expect(getByRole('alertdialog')).toBeInTheDocument();
+      expect(getByRole('alert')).toBeInTheDocument();
 
       const closeButton = getByRole('button');
       fireEvent.click(closeButton);

@@ -31,7 +31,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
 
     const labelID = useRef(`label-${idRef.current}`);
 
-    const radioRef = useRef<HTMLDivElement | null>(null);
+    const radioRef = useRef<HTMLLIElement | null>(null);
 
     const [checked, setChecked] = useState<boolean | null>(isChecked);
 
@@ -111,7 +111,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
     const wrapperProps = useMemo(() => focusableProps, []);
 
     return (
-      <div
+      <li
         className={radioWrapperClass}
         aria-labelledby={labelID.current}
         role="radio"
@@ -124,7 +124,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
         <label className={radioLabelClass} id={labelID.current}>
           {label}
         </label>
-      </div>
+      </li>
     );
   },
   (prevProps, nextProps) => {
