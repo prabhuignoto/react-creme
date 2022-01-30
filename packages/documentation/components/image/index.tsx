@@ -1,7 +1,8 @@
 import { faImage } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function image() {
   return (
@@ -75,7 +76,7 @@ function image() {
           type: 'String',
         },
       ]}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }

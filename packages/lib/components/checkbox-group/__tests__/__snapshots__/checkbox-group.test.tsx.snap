@@ -9,16 +9,16 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
     <div
       aria-checked="false"
       aria-labelledby="1"
-      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-focus rc-checkbox-hover"
+      class="rc-checkbox-wrapper rc-checkbox-md rc-checkbox-focus rc-checkbox-hover"
       role="checkbox"
       style="outline: none; position: relative;"
       tabindex="0"
     >
       <div
-        class="rc-checkbox rc-checkbox-sm"
+        class="rc-checkbox rc-checkbox-md"
       >
         <span
-          class="rc-checkbox-icon rc-checkbox-sm rc-checkbox-square"
+          class="rc-checkbox-icon rc-checkbox-md rc-checkbox-square"
           role="img"
         >
           <svg
@@ -38,7 +38,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         </span>
       </div>
       <label
-        class="rc-checkbox-label rc-checkbox-label-sm"
+        class="rc-checkbox-label rc-checkbox-label-md"
         id="1"
       >
         Option 1
@@ -51,16 +51,16 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
     <div
       aria-checked="true"
       aria-labelledby="2"
-      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-focus rc-checkbox-hover"
+      class="rc-checkbox-wrapper rc-checkbox-md rc-checkbox-focus rc-checkbox-hover"
       role="checkbox"
       style="outline: none; position: relative;"
       tabindex="0"
     >
       <div
-        class="rc-checkbox rc-checkbox-sm"
+        class="rc-checkbox rc-checkbox-md"
       >
         <span
-          class="rc-checkbox-icon rc-checkbox-checked rc-checkbox-sm rc-checkbox-square"
+          class="rc-checkbox-icon rc-checkbox-checked rc-checkbox-md rc-checkbox-square"
           role="img"
         >
           <svg
@@ -80,7 +80,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         </span>
       </div>
       <label
-        class="rc-checkbox-label rc-checkbox-label-sm"
+        class="rc-checkbox-label rc-checkbox-label-md"
         id="2"
       >
         Option 2
@@ -94,14 +94,14 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
       aria-checked="false"
       aria-disabled="true"
       aria-labelledby="3"
-      class="rc-checkbox-wrapper rc-checkbox-sm rc-checkbox-disabled rc-checkbox-focus rc-checkbox-hover"
+      class="rc-checkbox-wrapper rc-checkbox-md rc-checkbox-disabled rc-checkbox-focus rc-checkbox-hover"
       role="checkbox"
     >
       <div
-        class="rc-checkbox rc-checkbox-sm rc-disabled"
+        class="rc-checkbox rc-checkbox-md rc-disabled"
       >
         <span
-          class="rc-checkbox-icon rc-checkbox-sm rc-checkbox-square"
+          class="rc-checkbox-icon rc-checkbox-md rc-checkbox-square"
           role="img"
         >
           <svg
@@ -121,7 +121,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         </span>
       </div>
       <label
-        class="rc-checkbox-label rc-checkbox-label-sm"
+        class="rc-checkbox-label rc-checkbox-label-md"
         id="3"
       >
         Option 3

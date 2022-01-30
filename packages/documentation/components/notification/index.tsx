@@ -1,7 +1,8 @@
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './notification-widgets';
 
 function notification() {
   return (
@@ -76,7 +77,7 @@ function notification() {
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-fwgs9r']}
-      demoWidget={lazy(() => import('./notification-widgets'))}
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }

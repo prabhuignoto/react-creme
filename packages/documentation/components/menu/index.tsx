@@ -1,5 +1,6 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function menu() {
   return (
@@ -64,7 +65,7 @@ function menu() {
           type: 'Boolean',
         },
       ]}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }

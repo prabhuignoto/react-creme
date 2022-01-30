@@ -1,7 +1,8 @@
 import { faMagic } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function index() {
   return (
@@ -10,6 +11,8 @@ function index() {
       description="Auto Suggest is a component that allows the user to type in a value and get a list of suggestions. The user can then select a suggestion from the list."
       stackBlitzCodes={['react-ts-hf5mto']}
       pageIcon={<FontAwesomeIcon icon={faMagic} size="2x" />}
+      sourceId="auto-suggest/auto-suggest.tsx"
+      editId="auto-suggest"
       callbacks={[
         {
           default: '',
@@ -101,7 +104,7 @@ function index() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }

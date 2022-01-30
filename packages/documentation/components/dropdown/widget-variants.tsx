@@ -8,7 +8,6 @@ export const SingleSelection = (
     onSelected={val => console.log(val)}
     options={[
       {
-        disabled: true,
         name: 'germany',
         value: 'germany',
       },
@@ -29,7 +28,6 @@ export const MultiSelection = (
     focusable
     options={[
       {
-        disabled: true,
         name: 'germany',
         value: 'germany',
       },

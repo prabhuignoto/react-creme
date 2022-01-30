@@ -1,7 +1,8 @@
 import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function index() {
   return (
@@ -15,7 +16,7 @@ function index() {
         {
           default: '',
           description:
-            'The callback function to be called when the notification is closed.',
+            'The callback function to be executed when the notification is closed.',
           name: 'onClose',
           optional: 'Yes',
           type: 'function',
@@ -24,48 +25,49 @@ function index() {
       properties={[
         {
           default: '50',
-          description: 'The height of the notification.',
+          description: 'Height of the notification.',
           name: 'height',
           optional: 'Yes',
           type: 'number',
         },
         {
           default: '0',
-          description: 'The delay before the notification appears.',
+          description: 'Delay in ms before the notification appears.',
           name: 'delay',
           optional: 'Yes',
           type: 'number',
         },
         {
           default: '3000',
-          description: 'The delay before the notification disappears.',
+          description: 'Delay in ms before the notification disappears.',
           name: 'closeAfter',
           optional: 'Yes',
           type: 'number',
         },
         {
           default: 'info',
-          description: 'The state of the notification.',
+          description:
+            'State of the notification. Can be any one of the following: <br> <em>info</em> | <em>success</em> | <em>warning</em> | <em>error</em>',
           name: 'state',
           optional: 'Yes',
           type: 'string',
         },
         {
           default: '',
-          description: 'The message of the notification.',
+          description: 'Message to be displayed in the notification.',
           name: 'message',
           optional: 'Yes',
           type: 'string',
         },
         {
           default: 'hide',
-          description: `The animation style used while showing and hiding the notification. can be <em>hide</em> or <em>shrink</em>`,
+          description: `Animation style to be used while showing / hiding the notification. can be <em>hide</em> or <em>shrink</em>`,
           name: 'hideAnimationStyle',
           optional: 'Yes',
           type: 'string',
         },
       ]}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-k4qtvk']}
     ></DemoPageRenderer>

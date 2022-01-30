@@ -3,8 +3,8 @@
 @use '../../design/icon.scss';
 
 .rc-link {
-  // @extend %border-radius;
   @extend %center;
+  @extend %border-radius;
   align-items: center;
   color: colors.$primary;
   margin: 0;
@@ -21,10 +21,6 @@
     background:rgba(colors.$primary-rgb, 1);
     box-shadow: none;
     color: colors.$white;
-  }
-
-  &:not(.rc-link-btn) {
-    @extend %border;
   }
 
   &:hover {

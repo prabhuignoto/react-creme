@@ -54,6 +54,18 @@ export const AutoComplete = (
   />
 );
 
+export const Accent = (
+  <Tags
+    placeholder="Choose a language..."
+    items={items}
+    maxTags={15}
+    onChange={val => console.log(val)}
+    tagWidth={70}
+    tagStyle="fill"
+    accent="rounded"
+  />
+);
+
 export const LargeSize = (
   <Tags
     placeholder="Choose a language..."

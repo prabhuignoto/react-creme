@@ -1,5 +1,6 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function Position() {
   return (
@@ -8,7 +9,7 @@ function Position() {
       description="A Custom hook to position of target element relative to a container element."
       properties={[]}
       tabTitles={['Examples', 'Stackblitz']}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
       stackBlitzCodes={['red']}
       sourceId="common/effects/usePosition.ts"
       editId="position"

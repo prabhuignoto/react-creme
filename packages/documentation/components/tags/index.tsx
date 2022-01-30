@@ -1,6 +1,7 @@
 import { faTags } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
+import Widgets from './widgets';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
 function tags() {
@@ -80,7 +81,7 @@ function tags() {
           type: `Object`,
         },
       ]}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }

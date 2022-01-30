@@ -1,7 +1,8 @@
 import { faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy } from 'react';
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function rate() {
   return (
@@ -60,7 +61,7 @@ function rate() {
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-lqtbt6']}
-      demoWidget={lazy(() => import('./widgets'))}
+      demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );
 }

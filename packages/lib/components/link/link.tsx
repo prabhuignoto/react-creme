@@ -1,10 +1,12 @@
 import classNames from 'classnames';
-import React, { AnchorHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, useRef } from 'react';
+import useFocusNew from '../common/effects/useFocusNew';
 import './link.scss';
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   accent?: 'default' | 'button';
   children: React.ReactNode;
+  focusable?: boolean;
   icon?: React.ReactNode;
 }
 
@@ -14,7 +16,18 @@ const Link: React.FunctionComponent<LinkProps> = ({
   icon,
   target,
   accent,
+  focusable = true,
 }) => {
+  const ref = useRef(null);
+  let focusProps = null;
+
+  if (focusable) {
+    useFocusNew(ref);
+    focusProps = {
+      tabIndex: 0,
+    };
+  }
+
   return (
     <a
       className={classNames('rc-link', {
@@ -22,7 +35,8 @@ const Link: React.FunctionComponent<LinkProps> = ({
       })}
       target={target}
       href={href}
-      tabIndex={-1}
+      {...focusProps}
+      ref={ref}
     >
       {icon && <span className="rc-link-icon">{icon}</span>}
       <span className="rc-link-text">{children}</span>

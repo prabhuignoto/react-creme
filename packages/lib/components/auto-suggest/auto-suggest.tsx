@@ -58,7 +58,7 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
 const SuggestionsMenuOverlay = withOverlay<SuggestionsOverlayModel>(
   SuggestionsMenu,
   {
-    disableBackdrop: true,
+    backdropColor: 'transparent',
     placement: 'bottom',
   }
 );

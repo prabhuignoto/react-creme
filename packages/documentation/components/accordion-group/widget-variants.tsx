@@ -57,11 +57,11 @@ export const AutoClosingSections = (
 
 export const CustomIcon = (
   <AccordionGroup
-    titles={['one', 'two', 'three']}
+    titles={['one', 'two', 'three', 'four']}
     border={false}
     iconType="plus"
   >
-    {Array.from({ length: 3 }).map((_, i) => (
+    {Array.from({ length: 4 }).map((_, i) => (
       <Para key={i} />
     ))}
   </AccordionGroup>
