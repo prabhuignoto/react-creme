@@ -11,7 +11,7 @@ const Header: React.FC<{
   onOpen?: () => void;
   onSearchSelection: (selected: AutoSuggestOption) => void;
   onThemeSelection: (selected: Theme) => void;
-}> = ({ isMobile, onOpen, onSearchSelection, onThemeSelection }) => {
+}> = ({ isMobile, onOpen, onThemeSelection }) => {
   return (
     <header className="app-header">
       <Logo isMobile={isMobile} onMenuClick={onOpen} />
