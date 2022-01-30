@@ -94,14 +94,14 @@ const Accordion = () => {
         },
         {
           default: '#000',
-          description: 'Color of the title',
+          description: 'Color of the title.',
           name: 'titleColor',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: '#000',
-          description: 'Color of the icons',
+          description: 'Color of the icons.',
           name: 'iconColor',
           optional: 'Yes',
           type: 'String',

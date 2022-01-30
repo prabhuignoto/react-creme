@@ -31,7 +31,7 @@ function accordionGroup() {
         },
         {
           default: '[]',
-          description: 'Title for each accordion group',
+          description: 'Title for each accordion group.',
           name: 'titles',
           optional: 'Yes',
           type: 'Array',
