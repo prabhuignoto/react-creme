@@ -14,6 +14,8 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
   type = 'determinate',
   width = 250,
   RTL = false,
+  statusText = '',
+  label = 'progress bar',
 }) => {
   const progressTrackRef = useRef<HTMLDivElement | null>(null);
   const [loaded, setLoaded] = useState(false);
@@ -115,14 +117,37 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
     setLoaded(true);
   }, []);
 
+  const ariaDefaultProps = useMemo(() => {
+    const props: { [k: string]: string } = {};
+
+    if (label) {
+      props['aria-label'] = label;
+    }
+
+    if (statusText) {
+      props['aria-valuetext'] = statusText;
+    }
+
+    return props;
+  }, [statusText]);
+
+  const ariaProps = useMemo(
+    () =>
+      type === 'determinate' && {
+        'aria-valuemax': maxValue,
+        'aria-valuemin': 0,
+        'aria-valuenow': Math.round(progressPercent * maxValue),
+      },
+    [maxValue, progressPercent, statusText]
+  );
+
   return (
     <div
-      aria-valuemin={0}
-      aria-valuemax={maxValue}
-      aria-valuenow={Math.round(progressPercent * maxValue)}
       className={wrapperClass}
       role="progressbar"
       style={wrapperStyle}
+      {...ariaProps}
+      {...ariaDefaultProps}
     >
       <div className={progressTrackClass} ref={onRef}>
         <span className={fillClass} style={fillStyle}>

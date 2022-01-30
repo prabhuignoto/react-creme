@@ -31,7 +31,7 @@ const Widgets: React.FunctionComponent = () => {
         <DemoWidget>
           <Progress
             type="determinate"
-            // width={300}
+            width={300}
             maxValue={50}
             currentValue={time * 1}
             size="md"
@@ -41,7 +41,6 @@ const Widgets: React.FunctionComponent = () => {
         <DemoWidget>
           <Progress
             type="determinate"
-            // width={300}
             maxValue={50}
             currentValue={time * 1}
             size="sm"

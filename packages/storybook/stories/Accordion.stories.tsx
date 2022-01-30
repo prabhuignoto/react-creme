@@ -5,7 +5,7 @@ import {
   Default,
   Expanded,
 } from '../../documentation/components/accordion/widgets-variants';
-import { Accordion } from '../../lib/components'; // YourComponent.stories.ts|tsx
+import { Accordion } from '../../lib/components';
 
 export default {
   component: Accordion,

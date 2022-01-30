@@ -5,9 +5,9 @@ import {
   CheckIcon,
   Default,
   Disabled,
-  ExtraLarge,
   LabelOutside,
   Large,
+  Medium,
 } from './widget-variants';
 
 function widgets() {
@@ -17,7 +17,7 @@ function widgets() {
       className="rc-demo-widgets"
     >
       <Section title="Switch - default">
-        <DemoWidget width={100}>{Default}</DemoWidget>
+        <DemoWidget width={80}>{Default}</DemoWidget>
       </Section>
       <Section title="Switch with label outside">
         <BlockQuote>The label can be placed outside the switch.</BlockQuote>
@@ -28,7 +28,7 @@ function widgets() {
           Use <code>showCheckIcon</code> property to display a check icon inside
           the toggle control.
         </BlockQuote>
-        <DemoWidget width={130}>{CheckIcon}</DemoWidget>
+        <DemoWidget width={120}>{CheckIcon}</DemoWidget>
       </Section>
       <Section title="Disabled">
         <BlockQuote>
@@ -41,10 +41,10 @@ function widgets() {
           Switch comes in three sizes: small, medium, and large. This example
           shows a large size switch.
         </BlockQuote>
-        <DemoWidget width={200}>{Large}</DemoWidget>
+        <DemoWidget width={180}>{Medium}</DemoWidget>
       </Section>
       <Section title="Extra large">
-        <DemoWidget width={250}>{ExtraLarge}</DemoWidget>
+        <DemoWidget width={240}>{Large}</DemoWidget>
       </Section>
     </div>
   );

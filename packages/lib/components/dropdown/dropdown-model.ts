@@ -39,6 +39,8 @@ export type DropdownProps = {
   /**🔷 enables the Focus outlines */
   focusable?: boolean;
 
+  label?: string;
+
   /**🔷 The height of the dropdown menu */
   maxMenuHeight?: number;
 

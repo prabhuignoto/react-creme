@@ -68,7 +68,11 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         ref={ref}
         tabIndex={!disabled && focusable && selected ? 0 : -1}
       >
-        {icon && <span className={tabHeadIcon}>{icon}</span>}
+        {icon && (
+          <span className={tabHeadIcon} role="img" aria-label="tab-icon">
+            {icon}
+          </span>
+        )}
         <span className={headerLabelClass}>{name}</span>
       </div>
     );

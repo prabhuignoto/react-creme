@@ -70,7 +70,7 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
     <div
       className={wrapperClass}
       style={wrapperStyle}
-      role="dialog"
+      role="alert"
       aria-modal="true"
       ref={ref}
     >

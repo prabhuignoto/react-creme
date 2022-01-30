@@ -130,7 +130,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
         {...wrapperProps}
       >
         <div className={checkBoxClass} {...iconProps}>
-          <span className={iconClass} role="img">
+          <span className={iconClass} role="img" aria-label="checkbox icon">
             <CheckIcon />
           </span>
         </div>

@@ -1,3 +1,5 @@
+import { ThemeProvider } from '../../lib/components';
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -7,3 +9,13 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  Story => (
+    <ThemeProvider>
+      <div style={{ margin: '3em' }}>
+        <Story />
+      </div>
+    </ThemeProvider>
+  ),
+];

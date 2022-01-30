@@ -1,0 +1,13 @@
+.rc-document-theme-ui {
+  color: var(--rc-primary-color-hex);
+  cursor: pointer;
+  height: 2rem;
+  margin-left: auto;
+  margin-right: 1rem;
+  width: 2rem;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
