@@ -19,6 +19,7 @@ import './auto-suggest.scss';
 
 interface SuggestionsOverlayModel extends OverlayModel {
   id?: string;
+  // eslint-disable-next-line no-unused-vars
   onSelection: (option: ListOption[]) => void;
   // suggestions: Option[];
   width?: number;

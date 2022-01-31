@@ -6,7 +6,6 @@ import { CircularProgress } from '../progress/circular-progress';
 import { ImageProps } from './image-model';
 import { ImageOverlay } from './image-overlay';
 import './image.scss';
-import deepEqual from 'fast-deep-equal';
 
 const Image: React.FunctionComponent<ImageProps> = ({
   alt,
