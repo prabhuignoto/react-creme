@@ -15,7 +15,7 @@ const Link: React.FunctionComponent<LinkProps> = ({
   href,
   icon,
   target,
-  accent,
+  accent = 'default',
   focusable = true,
 }) => {
   const ref = useRef(null);

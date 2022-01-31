@@ -6,10 +6,10 @@ exports[`Accordion > should render snapshot 1`] = `
   style="--max-height: 0px; --title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1);"
 >
   <div
-    aria-controls="accordion-body-_fXe6cVmjvvJRxBobnr05"
+    aria-controls="accordion-body-FDoshGQgs311Z3iKKNV91"
     aria-expanded="false"
     class="rc-accordion-header"
-    id="accordion-eK5T9EO0EG-nRvLujUKst"
+    id="accordion-DE-ZFW7elGhGkjf0g9PQw"
     role="button"
   >
     <span
@@ -34,9 +34,9 @@ exports[`Accordion > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-labelledby="accordion-eK5T9EO0EG-nRvLujUKst"
+    aria-labelledby="accordion-DE-ZFW7elGhGkjf0g9PQw"
     class="rc-accordion-body rc-accordion-close"
-    id="accordion-body-_fXe6cVmjvvJRxBobnr05"
+    id="accordion-body-FDoshGQgs311Z3iKKNV91"
     style="--max-height: 0px; --title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1);"
   >
     <p>

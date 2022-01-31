@@ -8,9 +8,38 @@ function Link() {
       title="Link"
       description="Link is a component that can be used to create a link."
       tabTitles={['examples', 'properties', 'stackblitz']}
-      properties={[]}
+      properties={[
+        {
+          default: '',
+          description: 'The URL of the link.',
+          name: 'href',
+          optional: 'Yes',
+          type: 'string',
+        },
+        {
+          default: '',
+          description: 'The icon to display.',
+          name: 'icon',
+          optional: 'Yes',
+          type: 'ReactNode',
+        },
+        {
+          default: 'link',
+          description:
+            'The accent style of the link. Can be <code>default</code> or <code>button</code>.',
+          name: 'accent',
+          optional: 'Yes',
+          type: 'string',
+        },
+        {
+          default: 'true',
+          description: 'Whether the link is focusable.',
+          name: 'focusable',
+          optional: 'Yes',
+          type: 'boolean',
+        },
+      ]}
       stackBlitzCodes={['red']}
-      callbacks={[]}
       demoWidget={<Widgets />}
       sourceId="link/link.tsx"
       editId="link"

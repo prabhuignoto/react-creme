@@ -2,7 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { fn, vi } from "vitest";
+import { fn, vi } from 'vitest';
 import { Dropdown } from '../dropdown';
 
 const options = [
@@ -70,7 +70,9 @@ describe('Dropdown', () => {
       expect(getAllByRole('option')).toHaveLength(5);
     });
 
-    fireEvent.click(document);
+    fireEvent.keyUp(getByRole('listbox'), {
+      key: 'Escape',
+    });
 
     await waitFor(async () => {
       expect(queryByRole('listbox')).not.toBeInTheDocument();
