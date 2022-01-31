@@ -70,7 +70,7 @@ $comfortable-row-height: 50px;
 
   em,code {
     @extend %border-radius;
-    background-color: rgba(colors.$secondary-rgb, 0.5);
+    background-color: rgba(colors.$secondary-rgb, 0.25);
     color: colors.$primary;
     font-style: normal;
     font-weight: 400;

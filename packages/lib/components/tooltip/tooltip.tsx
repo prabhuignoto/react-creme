@@ -119,6 +119,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
       ref={onRef}
       role="tooltip"
       style={style}
+      aria-label="tooltip"
     >
       <span
         className={toolTipMessageClass}

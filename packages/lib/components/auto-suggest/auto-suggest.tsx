@@ -3,7 +3,6 @@ import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-// import { useDebouncedCallback } from 'use-debounce';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
@@ -20,6 +19,7 @@ import './auto-suggest.scss';
 
 interface SuggestionsOverlayModel extends OverlayModel {
   id?: string;
+  // eslint-disable-next-line no-unused-vars
   onSelection: (option: ListOption[]) => void;
   // suggestions: Option[];
   width?: number;
@@ -58,7 +58,7 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
 const SuggestionsMenuOverlay = withOverlay<SuggestionsOverlayModel>(
   SuggestionsMenu,
   {
-    backdropColor: 'transparent',
+    disableBackdrop: true,
     placement: 'bottom',
   }
 );

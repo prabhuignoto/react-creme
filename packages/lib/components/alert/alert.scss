@@ -1,7 +1,7 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/icon.scss";
-@use "../../design/animate.scss";
+@use '../../design/layout.scss';
+@use '../../design/colors.scss';
+@use '../../design/icon.scss';
+@use '../../design/animate.scss';
 
 .rc-alert {
   @extend %border-radius;
@@ -16,39 +16,45 @@
   transition: height 0.25s ease-in-out, opacity 0.25s ease-in-out;
   width: 100%;
 
-  &.rc-alert-success {
-    background-color: colors.$success-green;
-  }
-
-  &.rc-alert-error {
-    background-color: colors.$crimson;
-  }
-
-  &.rc-alert-warning {
-    background-color: colors.$amber;
-  }
-
-  &.rc-alert-info {
-    background-color: colors.$blue;
-  }
-
+  
   &:not(.rc-alert-close) {
     height: var(--height);
   }
-
+  
   &.rc-alert-close {
     height: 0;
     opacity: 0;
   }
-
+  
   &.rc-alert-rtl {
     direction: rtl;
   }
 }
 
+.rc-alert-success {
+  background-color: colors.$success-green;
+}
+
+.rc-alert-error {
+  background-color: colors.$crimson;
+}
+
+.rc-alert-warning {
+  background-color: colors.$amber;
+  color: colors.$black;
+
+  svg {
+    color: colors.$black;
+  }
+}
+
+.rc-alert-info {
+  background-color: colors.$blue;
+}
+
 .rc-alert-icon-wrapper {
   @extend %center;
-  background: rgba($color: #fff, $alpha: 0.1);
+  background: rgba($color: #fff, $alpha: 0.2);
   height: 100%;
   width: 100%;
 }

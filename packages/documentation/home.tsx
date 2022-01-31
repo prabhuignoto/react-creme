@@ -49,7 +49,7 @@ const Home: React.FunctionComponent = () => {
             create a simple component that renders a button.
           </BlockQuote>
           <SyntaxHighLighter
-            code={`import React from "react";\nimport { Button } from "react-creme";\nimport "react-creme/dist/react-creme.css";\n\nconst App = () => {\n  return (\n    <div>\n      <Button>Click Me</Button>\n    </div>\n  );\n};\n\nexport default App;`}
+            code={`import React from "react";\nimport { Button, ThemeProvider } from "react-creme";\nimport "react-creme/dist/react-creme.css";\n\nconst App = () => {\n  return (\n    <ThemeProvider>\n      <Button>Click Me</Button>\n    </ThemeProvider>\n  );\n};\n\nexport default App;`}
           ></SyntaxHighLighter>
 
           <div style={{ width: '100px' }}>

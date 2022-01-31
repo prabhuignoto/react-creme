@@ -49,7 +49,7 @@ function widgets() {
             }}
           />
         </div>
-        <div className="rc-demo-widget">
+        <div className="rc-demo-widget" style={{ margin: '1rem 0' }}>
           <Button
             onClick={() => setShow(prev => !prev)}
             label="Open Global Notification"

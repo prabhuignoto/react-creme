@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid';
+import { isUndefined } from '../common/utils';
 import { Option } from '../dropdown/dropdown-model';
 
 /** ✨ Component props */
@@ -63,7 +65,7 @@ export type ListProps = {
   virtualized?: boolean;
 };
 
-type PickListItemProps<T> = {
+type SelectListItemProps<T> = {
   [K in keyof T as Exclude<
     K,
     | 'virtualized'
@@ -81,7 +83,7 @@ type PickListItemProps<T> = {
   >]: T[K];
 };
 
-export type ListItemProps = PickListItemProps<ListProps> & {
+export type ListItemProps = SelectListItemProps<ListProps> & {
   disabled?: boolean;
   focus?: boolean;
   name: string;
@@ -104,4 +106,39 @@ export interface ListOption extends Option {
   group?: string;
   top?: number;
   visible?: boolean;
+}
+
+export type ListOptionsProps = Omit<
+  ListProps,
+  | 'backGroundColor'
+  | 'border'
+  | 'enableSearch'
+  | 'maxHeight'
+  | 'minHeight'
+  | 'noUniqueIds'
+> & {
+  handleSelection: (opt: ListOption) => void;
+  id?: string;
+  renderHash?: number;
+  selectedIndex?: number;
+  visibleRange: [number, number];
+};
+
+export function ParseOptions(
+  options: ListOption[],
+  rowGap: number,
+  itemHeight: number,
+  noUniqueIds: boolean
+): ListOption[] {
+  return options
+    .sort((a, b) => (b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1))
+    .filter(opt => (!isUndefined(opt.visible) ? opt.visible : true))
+    .map((option, index) => ({
+      id: !noUniqueIds ? nanoid() : option.id,
+      ...option,
+      selected: !isUndefined(option.selected) ? option.selected : false,
+      top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
+      value: option.value || option.name,
+      visible: true,
+    }));
 }

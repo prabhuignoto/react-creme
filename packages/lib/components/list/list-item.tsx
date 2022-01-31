@@ -33,21 +33,19 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
 
     const ref = useRef<HTMLLIElement>(null);
 
-    // useFocusNew(ref, handleSelection);
-
     const listItemClass = useMemo(
       () =>
         cls([
           'rc-list-option',
           {
             'rc-list-option-disabled': disabled,
-            'rc-list-option-focus': focusable,
+            'rc-list-option-focus': focus,
             'rc-list-option-highlight-selection': highlightSelection,
             'rc-list-option-multi-selection': allowMultiSelection,
             'rc-list-option-selected': selected,
           },
         ]),
-      [selected, disabled, focusable]
+      [selected, disabled, focus]
     );
 
     const handleMouseDown = useCallback((e: React.MouseEvent) => {
@@ -62,6 +60,11 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
 
       return {
         onClick: handleMouseDown,
+        onKeyUp: (ev: React.KeyboardEvent) => {
+          if (ev.key === 'Enter') {
+            handleSelection();
+          }
+        },
         tabIndex: 0,
       };
     }, []);
@@ -100,7 +103,8 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
     return (
       prevProps.disabled === nextProps.disabled &&
       prevProps.selected === nextProps.selected &&
-      prevProps.style?.top === nextProps.style?.top
+      prevProps.style?.top === nextProps.style?.top &&
+      prevProps.focus === nextProps.focus
     );
   }
 );

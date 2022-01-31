@@ -21,6 +21,8 @@
     "noEmit": true,
     "declaration": true,
     "declarationDir": "dts",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "types": [
       "react/next",
       "react-dom/next",

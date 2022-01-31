@@ -3,9 +3,9 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { asideState, responsiveState } from "../atoms/home";
-import { HomeButton } from "../home-button";
-import { Features } from "./../home-data";
+import { asideState, responsiveState } from "../../atoms/home";
+import { HomeButton } from "../../home-button";
+import { Features } from "../../home-data";
 import "./hero-section.scss";
 
 function HeroSection() {
@@ -13,7 +13,7 @@ function HeroSection() {
   const setAsideState = useSetRecoilState(asideState);
 
   const handleOpenSidebar = useCallback(() => {
-    setAsideState({ isOpen: true });
+    setAsideState({ isAnyOverlayOpen: false, isOpen: true });
   }, []);
 
   return (
