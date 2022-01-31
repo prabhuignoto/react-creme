@@ -96,6 +96,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
           onClick={handleClick}
           ref={ref}
           role="button"
+          aria-label="delete tag"
           tabIndex={focusable ? 0 : -1}
         >
           <CloseIcon />

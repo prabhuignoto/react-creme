@@ -2,14 +2,14 @@
 import React, { useLayoutEffect, useMemo } from 'react';
 import { BookOpen, Code, Edit, Sliders } from 'react-feather';
 import { CSSTransition } from 'react-transition-group';
-import { Link, PageHeader, Section, Tabs } from '../../lib/components';
-import { DataGridColumn } from '../../lib/components/data-grid/data-grid-model';
+import { Link, PageHeader, Section, Tabs } from '../../../lib/components';
+import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
 import './demo-page-renderer.scss';
-import StackBlitz from './stackblitz';
-import useMedia from './useMedia';
+import StackBlitz from '../stackblitz';
+import useMedia from '../useMedia';
 
 const DataGrid = React.lazy(() =>
-  import('../../lib/components/data-grid/data-grid').then(({ DataGrid }) => ({
+  import('../../../lib/components/data-grid/data-grid').then(({ DataGrid }) => ({
     default: DataGrid,
   }))
 );

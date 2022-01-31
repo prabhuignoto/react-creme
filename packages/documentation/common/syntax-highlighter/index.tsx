@@ -1,8 +1,8 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { Notification } from '../../lib/components/notification/notification';
-import { CopyIcon } from '../../lib/icons';
+import { Notification } from '../../../lib/components/notification/notification';
+import { CopyIcon } from '../../../lib/icons';
 import './syntax-highlighter.scss';
 
 interface CodeModel {

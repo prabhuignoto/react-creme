@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil';
 import { Theme, ThemeProvider } from '../lib/components/common/theme-provider';
 import AppRoutes from './app-routes';
 import { MediaState, themeState } from './atoms/home';
-import Footer from './common/footer';
+import Footer from './common/footer/footer';
 import { Header } from './common/header';
 
 const Main = React.forwardRef<

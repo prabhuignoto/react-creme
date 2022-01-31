@@ -1,10 +1,10 @@
 import React from 'react';
-import { AutoSuggestOption } from '../../lib/components/auto-suggest/auto-suggest.model';
-import { Theme } from '../../lib/components/common/theme-provider';
-import { GithubLink } from './github-link';
+import { AutoSuggestOption } from '../../../lib/components/auto-suggest/auto-suggest.model';
+import { Theme } from '../../../lib/components/common/theme-provider';
+import { GithubLink } from '../github-link';
 import './header.scss';
-import { Logo } from './logo';
-import { ThemeSwitcherUI } from './theme-ui';
+import { Logo } from '../logo';
+import { ThemeSwitcherUI } from '../theme-ui';
 
 const Header: React.FC<{
   isMobile?: boolean;

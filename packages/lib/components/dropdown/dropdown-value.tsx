@@ -1,6 +1,7 @@
 import cls from 'classnames';
 import React, { CSSProperties, useMemo } from 'react';
 import { ChevronDownIcon, CloseIcon } from '../../icons';
+import useFocusNew from '../common/effects/useFocusNew';
 import { Tags } from '../tags/tags';
 import { DropdownValueProps } from './dropdown-model';
 import './dropdown-value.scss';
@@ -66,6 +67,10 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
       'rc-dropdown-rtl': RTL,
     });
   }, []);
+
+  if (focusable && containerRef) {
+    useFocusNew(containerRef, onToggle);
+  }
 
   return (
     <div

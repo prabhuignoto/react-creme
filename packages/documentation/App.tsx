@@ -31,7 +31,6 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
     }, [left]);
 
     const positionAside = useCallback(() => {
-      console.log('positionAside');
       if (sectionRef.current && asideRef.current && !media.isMobile) {
         const asideWidth = asideRef.current.offsetWidth;
         const { left: sectionLeft } =
@@ -52,9 +51,7 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
     };
 
     useEffect(() => {
-      resizeObserver.current = new ResizeObserver(() =>
-        positionAside()
-      );
+      resizeObserver.current = new ResizeObserver(() => positionAside());
       resizeObserver.current.observe(document.body);
       return () => {
         resizeObserver.current.disconnect();

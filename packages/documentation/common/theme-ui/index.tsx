@@ -1,9 +1,9 @@
 import { faPalette } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Menu } from '../../lib/components';
-import { Theme } from '../../lib/components/common/theme-provider';
-import { Blueberry, Default, Glacier } from './app-themes';
+import { Menu } from '../../../lib/components';
+import { Theme } from '../../../lib/components/common/theme-provider';
+import { Blueberry, Default, Glacier } from '../app-themes';
 import './theme-ui.scss';
 
 interface ThemeSwitcherProps {

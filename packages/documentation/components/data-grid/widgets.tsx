@@ -4,39 +4,12 @@ import { BlockQuote, DataGrid, Section } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-
-const data = [
-  {
-    age: 30,
-    dept: 'physics',
-    marks: 100,
-    name: 'John',
-  },
-  {
-    age: 25,
-    dept: 'chemistry is the toughest job in the world',
-    marks: 80,
-    name: 'Jane',
-  },
-  {
-    age: 25,
-    dept: 'chemistry',
-    marks: 78,
-    name: 'Lewis hamilton',
-  },
-  { age: 35, dept: 'Physics', marks: 100, name: 'Prabhu' },
-  { age: 25, dept: 'Biology', marks: 95, name: 'Clive' },
-];
+import { columnsConfig, data } from './grids-data';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
-  const [columns, setColumns] = React.useState<DataGridColumn[]>([
-    { name: 'name', type: 'string' },
-    { name: 'age', type: 'number' },
-    { name: 'dept', type: 'string' },
-    { name: 'marks', type: 'number' },
-  ]);
+  const [columns, setColumns] = React.useState<DataGridColumn[]>(columnsConfig);
 
   useLayoutEffect(() => {
     if (!media) {

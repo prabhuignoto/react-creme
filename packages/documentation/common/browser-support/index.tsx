@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { BlockQuote, Section } from '../../lib/components';
-import { supportedBrowsers } from '../home-data';
+import { BlockQuote, Section } from '../../../lib/components';
+import { supportedBrowsers } from '../../home-data';
 import './browser-support.scss';
 
 function BrowserSupport() {

@@ -78,7 +78,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   // event handlers
 
   // handles closure
-  const handleClose = (ev: React.MouseEvent | KeyboardEvent) => {
+  const handleClose = (
+    ev: React.MouseEvent | KeyboardEvent | React.KeyboardEvent
+  ) => {
     const canClose = (ev.target as HTMLElement).classList.contains(
       'rc-overlay-wrapper'
     );
@@ -162,6 +164,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     <div
       className={overlayWrapperClass}
       onClick={handleClose}
+      onKeyUp={handleClose}
       data-testid="rc-overlay"
       ref={onRef}
       tabIndex={0}

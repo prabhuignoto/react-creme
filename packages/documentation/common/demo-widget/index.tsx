@@ -1,8 +1,8 @@
 import React, { CSSProperties } from 'react';
-import { Accordion } from '../../lib/components';
-import { CodeIcon } from '../../lib/icons';
+import { Accordion } from '../../../lib/components';
+import { CodeIcon } from '../../../lib/icons';
 import './demo-widget.scss';
-import { Code } from './syntax';
+import { Code } from '../syntax';
 
 interface WidgetProps {
   children?: React.ReactNode;
