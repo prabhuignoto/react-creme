@@ -14,8 +14,8 @@ import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { isUndefined } from '../common/utils';
 import { Input } from '../input/input';
-import { ListItem } from './list-item';
 import { ListOption, ListProps } from './list-model';
+import { ListOptions } from './list-options';
 import './list.scss';
 
 const initOptions = (
@@ -38,10 +38,16 @@ const initOptions = (
 };
 
 const List: React.FunctionComponent<ListProps> = ({
+  RTL = false,
   allowMultiSelection = false,
+  backGroundColor = '#fff',
   border = true,
   enableSearch = false,
+  focusable = true,
+  highlightSelection = false,
+  id,
   itemHeight = 40,
+  label,
   maxHeight = 600,
   minHeight = 100,
   noUniqueIds = false,
@@ -49,15 +55,9 @@ const List: React.FunctionComponent<ListProps> = ({
   options = [],
   rowGap = 5,
   showCheckIcon = true,
-  virtualized = false,
-  focusable = true,
-  highlightSelection = false,
   textColor = '#000',
   textColorSelected = '#fff',
-  backGroundColor = '#fff',
-  RTL = false,
-  id,
-  label,
+  virtualized = false,
 }: ListProps) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     initOptions(options, rowGap, itemHeight, noUniqueIds)
@@ -65,8 +65,7 @@ const List: React.FunctionComponent<ListProps> = ({
 
   const listRef = useRef<HTMLUListElement | null>(null);
   const [selected, setSelected] = useState<ListOption[]>();
-  const [visibleRange, setVisibleRange] = useState<number[]>([0, 0]);
-  const [renderTrigger, setRenderTrigger] = useState(0);
+  const [visibleRange, setVisibleRange] = useState<[number, number]>([0, 0]);
 
   const rcListClass = useMemo(
     () =>
@@ -76,17 +75,6 @@ const List: React.FunctionComponent<ListProps> = ({
       }),
     []
   );
-
-  const listStyle = useMemo(() => {
-    const style = {
-      '--list-height': `${
-        _listOptions.filter(v => v.visible).length * (itemHeight + rowGap) +
-        rowGap
-      }px`,
-    } as CSSProperties;
-
-    return style;
-  }, [_listOptions.length, renderTrigger]);
 
   const handleSearch = useCallback((val: string) => {
     const _val = val.trim().toLowerCase();
@@ -121,7 +109,6 @@ const List: React.FunctionComponent<ListProps> = ({
         top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
       }));
     });
-    setRenderTrigger(Date.now());
   }, []);
 
   const handleSelection = (opt: ListOption) => {
@@ -144,8 +131,6 @@ const List: React.FunctionComponent<ListProps> = ({
         return updated;
       });
     }
-
-    setRenderTrigger(Date.now());
   };
 
   useEffect(() => {
@@ -164,7 +149,7 @@ const List: React.FunctionComponent<ListProps> = ({
     if (!isFirstRender.current) {
       setListOptions(initOptions(options, rowGap, itemHeight, noUniqueIds));
     }
-  }, [JSON.stringify(options)]);
+  }, [JSON.stringify(options.map(({ name, value }) => `${name}-${value}`))]);
 
   const isFirstRender = useFirstRender();
 
@@ -219,55 +204,24 @@ const List: React.FunctionComponent<ListProps> = ({
         ref={onListRef}
         onScroll={handleScroll}
       >
-        <ul
-          className={'rc-list-options'}
-          role="listbox"
-          aria-label={`rc-list-label-${label}`}
-          style={listStyle}
+        <ListOptions
+          RTL={RTL}
+          allowMultiSelection={allowMultiSelection}
+          focusable={focusable}
+          handleSelection={handleSelection}
+          highlightSelection={highlightSelection}
           id={id}
-        >
-          {_listOptions
-            .filter(item => item.visible)
-            .map(
-              ({
-                disabled,
-                id,
-                name,
-                value = '',
-                selected,
-                top = 0,
-                focus,
-              }) => {
-                const canShow =
-                  !virtualized ||
-                  (top + itemHeight >= visibleRange[0] &&
-                    top <= visibleRange[1]);
-                return canShow ? (
-                  <ListItem
-                    allowMultiSelection={allowMultiSelection}
-                    disabled={disabled}
-                    focusable={focusable}
-                    id={id}
-                    key={id}
-                    name={name}
-                    onSelection={handleSelection}
-                    selected={selected}
-                    showCheckIcon={showCheckIcon}
-                    highlightSelection={highlightSelection}
-                    textColor={textColor}
-                    textColorSelected={textColorSelected}
-                    value={value}
-                    RTL={RTL}
-                    focus={focus}
-                    style={{
-                      height: `${itemHeight}px`,
-                      top: `${top}px`,
-                    }}
-                  />
-                ) : null;
-              }
-            )}
-        </ul>
+          rowGap={rowGap}
+          showCheckIcon={showCheckIcon}
+          textColor={textColor}
+          textColorSelected={textColorSelected}
+          visibleRange={visibleRange}
+          options={_listOptions}
+          itemHeight={itemHeight}
+          label={label}
+          // renderHash={renderTrigger}
+          virtualized={virtualized}
+        />
       </div>
     </div>
   );

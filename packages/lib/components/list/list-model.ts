@@ -63,7 +63,7 @@ export type ListProps = {
   virtualized?: boolean;
 };
 
-type PickListItemProps<T> = {
+type SelectListItemProps<T> = {
   [K in keyof T as Exclude<
     K,
     | 'virtualized'
@@ -81,7 +81,7 @@ type PickListItemProps<T> = {
   >]: T[K];
 };
 
-export type ListItemProps = PickListItemProps<ListProps> & {
+export type ListItemProps = SelectListItemProps<ListProps> & {
   disabled?: boolean;
   focus?: boolean;
   name: string;
@@ -105,3 +105,18 @@ export interface ListOption extends Option {
   top?: number;
   visible?: boolean;
 }
+
+export type ListOptionsProps = Omit<
+  ListProps,
+  | 'backGroundColor'
+  | 'border'
+  | 'enableSearch'
+  | 'maxHeight'
+  | 'minHeight'
+  | 'noUniqueIds'
+> & {
+  handleSelection: (opt: ListOption) => void;
+  id?: string;
+  renderHash?: number;
+  visibleRange: [number, number];
+};

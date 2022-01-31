@@ -41,7 +41,7 @@
     "prepare": "husky install",
     "dev": "turbo run dev --scope=*docu*",
     "story": "turbo run dev --scope=*story*",
-    "test": "turbo run vi-test",
+    "test": "turbo run test",
     "all": "turbo run format lint test build",
     "build:lib": "turbo run build --scope=lib",
     "build:doc": "turbo run build --scope=*docu*",

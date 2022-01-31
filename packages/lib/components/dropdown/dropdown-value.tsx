@@ -86,9 +86,9 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
             <Tags
               items={selectedValue}
               readonly
-              tagSize={'md'}
-              accent="rounded"
-              tagWidth={100}
+              tagSize={'sm'}
+              tagStyle="fill"
+              tagWidth={60}
               RTL={RTL}
             />
           </div>

@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "pnpm rollup",
-    "ci": "pnpm lint && pnpm vi-test-ci",
+    "ci": "pnpm lint && pnpm test-ci",
     "eslint": "eslint ./components/**/*.{tsx,ts}",
     "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
     "fix-css": "stylelint ./components/**/*.scss ./design/**/*.scss --fix",
@@ -29,9 +29,8 @@
     "prettier:check": "prettier --check \"components/**/*.{ts,tsx}\"",
     "rollup": "rimraf ./dist && rollup -c",
     "snyk": "snyk test",
-    "test": "jest --updateSnapshot --cache",
-    "vi-test-ci": "vitest --config ./vitest.config.ts",
-    "vi-test": "vitest --config ./vitest.config.dev.ts"
+    "test-ci": "vitest --config ./vitest.config.ts",
+    "test": "vitest --config ./vitest.config.dev.ts --ui"
   },
   "dependencies": {
     "classnames": "^2.3.1",
