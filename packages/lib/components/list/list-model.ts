@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid';
+import { isUndefined } from '../common/utils';
 import { Option } from '../dropdown/dropdown-model';
 
 /** ✨ Component props */
@@ -118,5 +120,25 @@ export type ListOptionsProps = Omit<
   handleSelection: (opt: ListOption) => void;
   id?: string;
   renderHash?: number;
+  selectedIndex?: number;
   visibleRange: [number, number];
 };
+
+export function ParseOptions(
+  options: ListOption[],
+  rowGap: number,
+  itemHeight: number,
+  noUniqueIds: boolean
+): ListOption[] {
+  return options
+    .sort((a, b) => (b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1))
+    .filter(opt => (!isUndefined(opt.visible) ? opt.visible : true))
+    .map((option, index) => ({
+      id: !noUniqueIds ? nanoid() : option.id,
+      ...option,
+      selected: !isUndefined(option.selected) ? option.selected : false,
+      top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
+      value: option.value || option.name,
+      visible: true,
+    }));
+}

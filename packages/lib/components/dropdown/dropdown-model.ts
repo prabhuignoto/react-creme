@@ -87,7 +87,8 @@ export type DropdownMenuProps = PickMenuProps<DropdownProps> &
   };
 
 export type DropdownValueProps = PickValueProps<DropdownProps> & {
-  containerRef?: React.RefObject<HTMLDivElement>; //
+  containerRef?: React.RefObject<HTMLDivElement>;
+  focus?: boolean;
   menuClosing?: boolean;
   onClear?: (ev: React.MouseEvent) => void;
   onToggle?: () => void;

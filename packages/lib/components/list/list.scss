@@ -1,8 +1,8 @@
-@use "../../design/layout.scss";
-@use "../../design/animate.scss";
-@use "../../design/colors.scss";
-@use "../../design/list.scss";
-@use "../../design/position.scss";
+@use '../../design/layout.scss';
+@use '../../design/animate.scss';
+@use '../../design/colors.scss';
+@use '../../design/list.scss';
+@use '../../design/position.scss';
 
 .rc-list {
   @extend %border-radius;
@@ -23,10 +23,6 @@
 
   &.rc-list-border {
     @extend %border;
-  }
-
-  &:not(.rc-list-border) {
-    // @extend %shadow-small;
   }
 }
 

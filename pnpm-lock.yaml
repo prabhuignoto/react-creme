@@ -23,7 +23,7 @@ importers:
       prettier: ^2.5.1
       react: ^18.0.0-rc.0
       react-dom: ^18.0.0-rc.0
-      snyk: ^1.840.0
+      snyk: ^1.841.0
       stylelint: 14.3.0
       stylelint-config-prettier: ^9.0.3
       stylelint-order: ^5.0.0
@@ -50,7 +50,7 @@ importers:
       prettier: 2.5.1
       react: 18.0.0-rc.0
       react-dom: 18.0.0-rc.0_react@18.0.0-rc.0
-      snyk: 1.840.0
+      snyk: 1.841.0
       stylelint: 14.3.0
       stylelint-config-prettier: 9.0.3_stylelint@14.3.0
       stylelint-order: 5.0.0_stylelint@14.3.0
@@ -122,7 +122,7 @@ importers:
       resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
       sass: ^1.49.0
-      snyk: ^1.840.0
+      snyk: ^1.841.0
       stylelint: 14.3.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -184,7 +184,7 @@ importers:
       recoil: 0.6.1_757a802188413a36d4f24237d13b8e90
       rimraf: 3.0.2
       sass: 1.49.0
-      snyk: 1.840.0
+      snyk: 1.841.0
       stylelint: 14.3.0
       stylelint-config-prettier: 9.0.3_stylelint@14.3.0
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.5+stylelint@14.3.0
@@ -251,7 +251,7 @@ importers:
       rollup-plugin-typescript2: ^0.31.1
       rollup-plugin-visualizer: ^5.5.4
       sass: ^1.49.0
-      snyk: ^1.840.0
+      snyk: ^1.841.0
       stylelint: 14.3.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -320,7 +320,7 @@ importers:
       rollup-plugin-typescript2: 0.31.1_6cf6dc7e0f2a059bfbcf3818539e4e56
       rollup-plugin-visualizer: 5.5.4_rollup@2.66.1
       sass: 1.49.0
-      snyk: 1.840.0
+      snyk: 1.841.0
       stylelint: 14.3.0
       stylelint-config-prettier: 9.0.3_stylelint@14.3.0
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.5+stylelint@14.3.0
@@ -14271,8 +14271,8 @@ packages:
       use: 3.1.1
     dev: true
 
-  /snyk/1.840.0:
-    resolution: {integrity: sha512-yA74ZvbptsB88RWVN8sBdZRJIAFeRBNYxuASs3JNwTh77Am3LeWoxrLvCZ2TEwMlwKR/uQEyrqFXzNG/ss/5ig==}
+  /snyk/1.841.0:
+    resolution: {integrity: sha512-lCrl/lL74hUoR+6G8hqwOtfOuGvZ3pFA2roRPLQn6Q2E4F5BUo4+DvNW5RVmauJERz1PPagFBgG9p18DAabQ6g==}
     engines: {node: '>=10'}
     hasBin: true
 

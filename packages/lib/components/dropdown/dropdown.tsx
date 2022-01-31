@@ -57,6 +57,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const containerRef = useRef(null);
     const dropdownRef = useRef(null);
 
+    const [focusManual, setFocusManual] = useState(false);
+
     // HANDLERS
     const handleSelection = useCallback((selected: Option[]) => {
       let _value: string | string[] = '';
@@ -82,6 +84,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
           }))
         );
         setShowMenu(false);
+        setFocusManual(true);
       }
 
       if (onSelected) {
@@ -96,10 +99,13 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const handleMenuClose = useCallback(() => {
       setShowMenu(false);
       setMenuClosing(false);
+      setFocusManual(true);
     }, []);
 
     // handles the menu closing
-    const handleMenuClosing = useCallback(() => setMenuClosing(true), []);
+    const handleMenuClosing = useCallback(() => {
+      setMenuClosing(true);
+    }, []);
 
     // styles
     const menuStyle = useMemo(() => {
@@ -152,7 +158,11 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     );
 
     return (
-      <div className={rcDropdownClass} ref={dropdownRef}>
+      <div
+        className={rcDropdownClass}
+        ref={dropdownRef}
+        onBlur={() => setFocusManual(false)}
+      >
         <DropdownValue
           RTL={RTL}
           allowMultiSelection={allowMultiSelection}
@@ -168,6 +178,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
           focusable={focusable}
           selectedValue={selectedValue}
           label={label}
+          focus={focusManual}
         />
 
         {showMenu && (

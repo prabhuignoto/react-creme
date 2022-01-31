@@ -1,5 +1,4 @@
 import cls from 'classnames';
-import { nanoid } from 'nanoid';
 import * as React from 'react';
 import {
   CSSProperties,
@@ -12,30 +11,11 @@ import {
 import { useDebouncedCallback } from 'use-debounce';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
-import { isUndefined } from '../common/utils';
+import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { Input } from '../input/input';
-import { ListOption, ListProps } from './list-model';
+import { ListOption, ListProps, ParseOptions } from './list-model';
 import { ListOptions } from './list-options';
 import './list.scss';
-
-const initOptions = (
-  options: ListOption[],
-  rowGap: number,
-  itemHeight: number,
-  noUniqueIds: boolean
-): ListOption[] => {
-  return options
-    .sort((a, b) => (b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1))
-    .filter(opt => (!isUndefined(opt.visible) ? opt.visible : true))
-    .map((option, index) => ({
-      id: !noUniqueIds ? nanoid() : option.id,
-      ...option,
-      selected: !isUndefined(option.selected) ? option.selected : false,
-      top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
-      value: option.value || option.name,
-      visible: true,
-    }));
-};
 
 const List: React.FunctionComponent<ListProps> = ({
   RTL = false,
@@ -60,12 +40,14 @@ const List: React.FunctionComponent<ListProps> = ({
   virtualized = false,
 }: ListProps) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
-    initOptions(options, rowGap, itemHeight, noUniqueIds)
+    ParseOptions(options, rowGap, itemHeight, noUniqueIds)
   );
 
   const listRef = useRef<HTMLUListElement | null>(null);
   const [selected, setSelected] = useState<ListOption[]>();
   const [visibleRange, setVisibleRange] = useState<[number, number]>([0, 0]);
+
+  const { selection, setSelection } = useKeyNavigation(listRef, options.length);
 
   const rcListClass = useMemo(
     () =>
@@ -118,6 +100,8 @@ const List: React.FunctionComponent<ListProps> = ({
           ...option,
           selected: option.id === opt.id ? !option.selected : option.selected,
         }));
+        const index = updated.findIndex(opt => opt.selected);
+        setSelection(index);
         setSelected(updated.filter(opt => opt.selected));
         return updated;
       });
@@ -127,6 +111,8 @@ const List: React.FunctionComponent<ListProps> = ({
           ...option,
           selected: option.id === opt.id,
         }));
+        const index = updated.findIndex(opt => opt.selected);
+        setSelection(index);
         setSelected(updated.filter(opt => opt.selected));
         return updated;
       });
@@ -147,9 +133,9 @@ const List: React.FunctionComponent<ListProps> = ({
 
   useEffect(() => {
     if (!isFirstRender.current) {
-      setListOptions(initOptions(options, rowGap, itemHeight, noUniqueIds));
+      setListOptions(ParseOptions(options, rowGap, itemHeight, noUniqueIds));
     }
-  }, [JSON.stringify(options.map(({ name, value }) => `${name}-${value}`))]);
+  }, [JSON.stringify(options)]);
 
   const isFirstRender = useFirstRender();
 
@@ -219,7 +205,7 @@ const List: React.FunctionComponent<ListProps> = ({
           options={_listOptions}
           itemHeight={itemHeight}
           label={label}
-          // renderHash={renderTrigger}
+          selectedIndex={selection}
           virtualized={virtualized}
         />
       </div>

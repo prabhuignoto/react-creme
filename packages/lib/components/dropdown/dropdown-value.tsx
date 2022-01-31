@@ -1,5 +1,5 @@
 import cls from 'classnames';
-import React, { CSSProperties, useMemo } from 'react';
+import React, { CSSProperties, useEffect, useMemo } from 'react';
 import { ChevronDownIcon, CloseIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { Tags } from '../tags/tags';
@@ -20,6 +20,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   menuClosing,
   chevronIconColor,
   containerRef,
+  focus,
 }: DropdownValueProps) => {
   const rcDropdownValueClass = useMemo(
     () =>
@@ -72,6 +73,12 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
     useFocusNew(containerRef, onToggle);
   }
 
+  useEffect(() => {
+    if (focus) {
+      containerRef?.current?.focus();
+    }
+  }, [focus]);
+
   return (
     <div
       className={rcDropdownValueClass}
@@ -86,7 +93,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
             <Tags
               items={selectedValue}
               readonly
-              tagSize={'sm'}
+              tagSize={'md'}
               tagStyle="fill"
               tagWidth={60}
               RTL={RTL}

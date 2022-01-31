@@ -61,7 +61,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       const positionRight = right - overlayContentRef.current.offsetWidth;
       return {
         [placement === 'top' ? 'bottom' : 'top']: `${top + contentHeight}px`,
-        left: `${context.align === 'left' ? left : positionRight}px`,
+        left: `${context?.align === 'left' ? left : positionRight}px`,
         pointerEvents: 'all',
         position: 'absolute',
       } as CSSProperties;
@@ -85,7 +85,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   };
 
   useEffect(() => {
-    if (context.childClosing) {
+    if (context?.childClosing) {
       setHideOverlay(true);
       onClose?.();
 
@@ -93,7 +93,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         document.body.style.overflow = 'auto';
       }
     }
-  }, [context.childClosing]);
+  }, [context?.childClosing]);
 
   // closes the overlay when clicked on the document
   const handleCloseOnClick = useCallback((ev: React.MouseEvent) => {
@@ -125,15 +125,26 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     };
   }, []);
 
-  const onRef = useCallback(node => {
+  const onRef = useCallback(
+    node => {
+      const ele = node as HTMLDivElement;
+      if (ele) {
+        overlayRef.current = ele;
+
+        ele.focus();
+
+        if (hideDocumentOverflow) {
+          document.body.style.overflow = 'hidden';
+        }
+      }
+    },
+    [overlayContentRef]
+  );
+
+  const onOverlayContentRef = useCallback(node => {
     const ele = node as HTMLDivElement;
     if (ele) {
-      overlayRef.current = ele;
-      ele.focus();
-
-      if (hideDocumentOverflow) {
-        document.body.style.overflow = 'hidden';
-      }
+      overlayContentRef.current = ele;
     }
   }, []);
 
@@ -151,7 +162,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         <div
           style={placementStyle}
           className="rc-overlay-content-wrapper"
-          ref={overlayContentRef}
+          ref={onOverlayContentRef}
         >
           {children}
         </div>

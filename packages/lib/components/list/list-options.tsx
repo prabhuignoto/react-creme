@@ -20,6 +20,7 @@ const ListOptions: React.FunctionComponent<ListOptionsProps> = ({
   virtualized,
   visibleRange,
   renderHash,
+  selectedIndex,
 }: ListOptionsProps) => {
   const listStyle = useMemo(() => {
     const style = {
@@ -39,9 +40,8 @@ const ListOptions: React.FunctionComponent<ListOptionsProps> = ({
       style={listStyle}
       id={id}
     >
-      {options
-        .filter(item => item.visible)
-        .map(({ disabled, id, name, value = '', selected, top = 0, focus }) => {
+      {options.map(
+        ({ disabled, id, name, value = '', selected, top = 0 }, index) => {
           const canShow =
             !virtualized ||
             (top + itemHeight >= visibleRange[0] && top <= visibleRange[1]);
@@ -61,14 +61,15 @@ const ListOptions: React.FunctionComponent<ListOptionsProps> = ({
               textColorSelected={textColorSelected}
               value={value}
               RTL={RTL}
-              focus={focus}
+              focus={selectedIndex === index}
               style={{
                 height: `${itemHeight}px`,
                 top: `${top}px`,
               }}
             />
           ) : null;
-        })}
+        }
+      )}
     </ul>
   );
 };
