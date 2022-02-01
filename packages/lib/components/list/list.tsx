@@ -11,10 +11,9 @@ import {
 import { useDebouncedCallback } from 'use-debounce';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
-import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { Input } from '../input/input';
+import { ListItems } from './list-items';
 import { ListOption, ListProps, ParseOptions } from './list-model';
-import { ListOptions } from './list-options';
 import './list.scss';
 
 const List: React.FunctionComponent<ListProps> = ({
@@ -38,16 +37,16 @@ const List: React.FunctionComponent<ListProps> = ({
   textColor = '#000',
   textColorSelected = '#fff',
   virtualized = false,
+  selectedIndex = -1,
 }: ListProps) => {
   const [_listOptions, setListOptions] = useState<ListOption[]>(
     ParseOptions(options, rowGap, itemHeight, noUniqueIds)
   );
 
-  const listRef = useRef<HTMLUListElement | null>(null);
+  const listRef = useRef<HTMLDivElement | null>(null);
   const [selected, setSelected] = useState<ListOption[]>();
   const [visibleRange, setVisibleRange] = useState<[number, number]>([0, 0]);
-
-  const { selection, setSelection } = useKeyNavigation(listRef, options.length);
+  const [scrollable, setScrollable] = useState(false);
 
   const rcListClass = useMemo(
     () =>
@@ -64,7 +63,6 @@ const List: React.FunctionComponent<ListProps> = ({
     if (listRef.current) {
       listRef.current.scrollTop = 0;
     }
-
     setListOptions(prev => {
       let updated = [];
 
@@ -100,8 +98,6 @@ const List: React.FunctionComponent<ListProps> = ({
           ...option,
           selected: option.id === opt.id ? !option.selected : option.selected,
         }));
-        const index = updated.findIndex(opt => opt.selected);
-        setSelection(index);
         setSelected(updated.filter(opt => opt.selected));
         return updated;
       });
@@ -111,8 +107,6 @@ const List: React.FunctionComponent<ListProps> = ({
           ...option,
           selected: option.id === opt.id,
         }));
-        const index = updated.findIndex(opt => opt.selected);
-        setSelection(index);
         setSelected(updated.filter(opt => opt.selected));
         return updated;
       });
@@ -144,22 +138,40 @@ const List: React.FunctionComponent<ListProps> = ({
       const list = listRef.current;
       const scrollTop = Math.round(list.scrollTop);
       const height = Math.round(list.clientHeight);
-
       setVisibleRange([scrollTop, scrollTop + height]);
     }
   }, []);
 
   const handleScroll = useDebouncedCallback(setRange);
 
-  const onListRef = useCallback(el => {
+  const onListRef = useCallback((el: HTMLDivElement) => {
     if (el) {
       listRef.current = el;
+
+      if (el.scrollHeight > el.clientHeight) {
+        setScrollable(true);
+      }
 
       if (virtualized) {
         setRange();
       }
     }
   }, []);
+
+  const wrapperProps = useMemo(
+    () =>
+      !scrollable
+        ? {
+            onKeyDown: (ev: React.KeyboardEvent) => {
+              if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+                ev.preventDefault();
+                ev.stopPropagation();
+              }
+            },
+          }
+        : null,
+    [scrollable]
+  );
 
   return (
     <div
@@ -189,8 +201,9 @@ const List: React.FunctionComponent<ListProps> = ({
         className="rc-list-options-wrapper"
         ref={onListRef}
         onScroll={handleScroll}
+        {...wrapperProps}
       >
-        <ListOptions
+        <ListItems
           RTL={RTL}
           allowMultiSelection={allowMultiSelection}
           focusable={focusable}
@@ -205,7 +218,7 @@ const List: React.FunctionComponent<ListProps> = ({
           options={_listOptions}
           itemHeight={itemHeight}
           label={label}
-          selectedIndex={selection}
+          selectedIndex={selectedIndex}
           virtualized={virtualized}
         />
       </div>

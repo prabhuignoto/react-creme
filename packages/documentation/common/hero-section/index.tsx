@@ -1,12 +1,12 @@
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useCallback } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { asideState, responsiveState } from "../../atoms/home";
-import { HomeButton } from "../../home-button";
-import { Features } from "../../home-data";
-import "./hero-section.scss";
+import { faGithub, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
+import { faBars, faBookOpen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useCallback } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { asideState, responsiveState } from '../../atoms/home';
+import { HomeButton } from '../../home-button';
+import { Features } from '../../home-data';
+import './hero-section.scss';
 
 function HeroSection() {
   const media = useRecoilValue(responsiveState);
@@ -44,9 +44,30 @@ function HeroSection() {
         <div className="github-home-btn">
           <HomeButton
             label="Github"
+            size="md"
             link="https://github.com/prabhuignoto/react-creme"
           >
             <FontAwesomeIcon icon={faGithub} />
+          </HomeButton>
+        </div>
+        <div className="rc-home-buttons">
+          <HomeButton
+            label="Explore Storybook"
+            size="md"
+            accent="round"
+            fillStyle="solid"
+            link=""
+          >
+            <FontAwesomeIcon icon={faBookOpen} />
+          </HomeButton>
+          <HomeButton
+            label="Star this Project"
+            size="md"
+            accent="round"
+            fillStyle="solid"
+            link="https://github.com/prabhuignoto/react-creme/stargazers"
+          >
+            <FontAwesomeIcon icon={faGithubAlt} />
           </HomeButton>
         </div>
       </section>

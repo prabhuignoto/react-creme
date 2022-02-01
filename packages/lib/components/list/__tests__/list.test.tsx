@@ -7,11 +7,11 @@ import { List } from '../list';
 const handler = vi.fn();
 
 const options = [
-  { name: 'brazil', value: 'brazil' },
-  { name: 'usa', value: 'usa' },
-  { name: 'uk', value: 'uk' },
-  { name: 'germany', value: 'germany', disabled: true },
-  { name: 'india', value: 'india' },
+  { name: 'brazil', value: 'brazil', id: 'brazil' },
+  { name: 'usa', value: 'usa', id: 'usa' },
+  { name: 'uk', value: 'uk', id: 'uk' },
+  { name: 'germany', value: 'germany', disabled: true, id: 'germany' },
+  { name: 'india', value: 'india', id: 'india' },
 ];
 
 describe('List', () => {
@@ -94,5 +94,97 @@ describe('List', () => {
 
     fireEvent.click(getAllByRole('option')[0]);
     expect(handler).toBeCalled();
+  });
+
+  it('should list items get focus on keyboard interaction', async () => {
+    const handler = vi.fn();
+
+    const { getByRole, getAllByRole } = render(
+      <List options={options} onSelection={handler} />
+    );
+
+    expect(getByRole('listbox')).toBeInTheDocument();
+
+    fireEvent.click(getAllByRole('option')[0]);
+
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
+
+    fireEvent.keyUp(getByRole('listbox'), {
+      key: 'ArrowDown',
+    });
+
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
+
+    fireEvent.keyUp(getByRole('listbox'), {
+      key: 'ArrowUp',
+    });
+
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
+
+    fireEvent.keyPress(getAllByRole('option')[0], {
+      key: 'Enter',
+    });
+
+    await waitFor(() => {
+      expect(handler).toBeCalled();
+    });
+  });
+
+  it('should handle selection for single selection mode', async () => {
+    const handler = vi.fn();
+    const { getByRole, getAllByRole } = render(
+      <List options={options} onSelection={handler} noUniqueIds />
+    );
+
+    expect(getByRole('listbox')).toBeInTheDocument();
+    expect(getAllByRole('option')).toHaveLength(5);
+
+    fireEvent.click(getAllByRole('option')[0]);
+
+    await waitFor(() => {
+      expect(handler).toBeCalledWith([
+        {
+          id: 'brazil',
+          name: 'brazil',
+          value: 'brazil',
+        },
+      ]);
+    });
+  });
+
+  it('should handle selection for multi selection mode', async () => {
+    const handler = vi.fn();
+    const { getByRole, getAllByRole } = render(
+      <List
+        options={options}
+        allowMultiSelection={true}
+        onSelection={handler}
+        noUniqueIds
+      />
+    );
+
+    expect(getByRole('listbox')).toBeInTheDocument();
+    expect(getAllByRole('option')).toHaveLength(5);
+
+    fireEvent.click(getAllByRole('option')[0]);
+
+    await waitFor(
+      () => {
+        expect(handler).toBeCalledWith([
+          {
+            id: 'brazil',
+            name: 'brazil',
+            value: 'brazil',
+          },
+        ]);
+      },
+      { timeout: 1000 }
+    );
   });
 });

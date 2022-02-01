@@ -34,10 +34,6 @@ $height: 40px;
   &.rc-list-option-disabled {
     @extend %disabled;
   }
-
-  &.rc-list-option-selected.rc-list-option-highlight-selection {
-    background: rgba(colors.$secondary-rgb, 0.5);
-  }
 }
 
 .rc-list-option-focus {
@@ -83,7 +79,7 @@ $height: 40px;
     grid-template-columns: 24px calc(100% - 24px);
   }
 
-  &.rc-list-option-selected {
+  &.rc-list-option-selected.rc-list-option-highlight-selection {
     background: rgba(colors.$secondary-rgb, 0.5);
     color: colors.$primary;
   }

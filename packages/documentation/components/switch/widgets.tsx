@@ -36,14 +36,14 @@ function widgets() {
         </BlockQuote>
         <DemoWidget width={100}>{Disabled}</DemoWidget>
       </Section>
-      <Section title="Large size">
+      <Section title="Medium">
         <BlockQuote>
           Switch comes in three sizes: small, medium, and large. This example
           shows a large size switch.
         </BlockQuote>
         <DemoWidget width={180}>{Medium}</DemoWidget>
       </Section>
-      <Section title="Extra large">
+      <Section title="Large">
         <DemoWidget width={240}>{Large}</DemoWidget>
       </Section>
     </div>

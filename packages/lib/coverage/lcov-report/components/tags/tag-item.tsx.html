@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">99.14% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>111/111</span>
+                <span class='fraction'>116/117</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">99.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>111/111</span>
+                <span class='fraction'>116/117</span>
             </div>
         
             
@@ -174,7 +174,13 @@
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
 <a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -238,6 +244,7 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -279,12 +286,17 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from 'classnames';
 import React, {
   CSSProperties,
@@ -297,15 +309,11 @@ import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
 import { useKey } from '../common/effects/useKey';
-import { TagItemInternalProps } from './tags-model';
+import { TagItemProps } from './tags-model';
 import './tags.scss';
 &nbsp;
-type TagItemViewProps = TagItemInternalProps &amp; {
-  focusable?: boolean;
+type TagItemViewProps = TagItemProps &amp; {
   handleRemove: (id: string) =&gt; void;
-  tagSize?: 'small' | 'large';
-  tagStyle?: 'default' | 'fill';
-  width?: number;
 };
 &nbsp;
 const TagItem: FunctionComponent&lt;TagItemViewProps&gt; = React.memo(
@@ -315,16 +323,16 @@ const TagItem: FunctionComponent&lt;TagItemViewProps&gt; = React.memo(
     disabled,
     handleRemove,
     readonly,
-    width,
+    tagWidth,
     tagStyle,
     tagSize,
     markedForRemoval,
     focusable,
+    accent,
   }: TagItemViewProps) =&gt; {
     const ref = useRef(null);
 &nbsp;
     const isFirstRender = useFirstRender();
-    // useFocus(ref);
 &nbsp;
     const handleClick = useCallback(() =&gt; {
       id &amp;&amp; handleRemove(id);
@@ -342,6 +350,7 @@ const TagItem: FunctionComponent&lt;TagItemViewProps&gt; = React.memo(
           [`rc-tag-style-${tagStyle}`]: true,
           [`rc-tag-${tagSize}`]: true,
           'rc-tag-readonly': readonly,
+          [`rc-tag-accent-${accent}`]: true,
         }),
       [markedForRemoval]
     );
@@ -350,6 +359,16 @@ const TagItem: FunctionComponent&lt;TagItemViewProps&gt; = React.memo(
       () =&gt;
         classNames('rc-tag-icon', {
           [`rc-tag-icon-${tagStyle}`]: true,
+          [`rc-tag-icon-${tagSize}`]: true,
+          'rc-tag-icon-editable': editable,
+<span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >        }),</span></span>
+      [editable]
+    );
+&nbsp;
+    const tagName = useMemo(
+      () =&gt;
+        classNames('rc-tag-name', {
+          [`rc-tag-name-${tagSize}`]: true,
         }),
       []
     );
@@ -357,7 +376,7 @@ const TagItem: FunctionComponent&lt;TagItemViewProps&gt; = React.memo(
     const style = useMemo(
       () =&gt;
         ({
-          '--width': `${width}px`,
+          '--width': `${tagWidth}px`,
         } as CSSProperties),
       []
     );
@@ -368,20 +387,19 @@ const TagItem: FunctionComponent&lt;TagItemViewProps&gt; = React.memo(
 &nbsp;
     return (
       &lt;li key={id} role="listitem" className={tagItemClass} style={style}&gt;
-        &lt;span className={classNames('rc-tag-name', 'center')} title={name}&gt;
+        &lt;span className={tagName} title={name}&gt;
           {name}
         &lt;/span&gt;
-        {editable &amp;&amp; (
-          &lt;span
-            className={tagIconClass}
-            onClick={handleClick}
-            ref={ref}
-            role="button"
-            tabIndex={focusable ? 0 : -1}
-          &gt;
-            &lt;CloseIcon /&gt;
-          &lt;/span&gt;
-        )}
+        &lt;span
+          className={tagIconClass}
+          onClick={handleClick}
+          ref={ref}
+          role="button"
+          aria-label="delete tag"
+          tabIndex={focusable ? 0 : -1}
+        &gt;
+          &lt;CloseIcon /&gt;
+        &lt;/span&gt;
       &lt;/li&gt;
     );
   },
@@ -403,7 +421,7 @@ export { TagItem };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jan 27 2022 10:28:03 GMT+0530 (India Standard Time)
+                at Tue Feb 01 2022 12:45:11 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -1,6 +1,6 @@
 import cls from 'classnames';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-import { ListItemOption } from './list-item-option';
+import { ListItemContent } from './list-item-content';
 import './list-item.scss';
 import { ListItemProps } from './list-model';
 
@@ -11,7 +11,6 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
     name,
     value,
     selected,
-    allowMultiSelection,
     onSelection,
     style,
     showCheckIcon,
@@ -40,9 +39,6 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
           {
             'rc-list-option-disabled': disabled,
             'rc-list-option-focus': focus,
-            'rc-list-option-highlight-selection': highlightSelection,
-            'rc-list-option-multi-selection': allowMultiSelection,
-            'rc-list-option-selected': selected,
           },
         ]),
       [selected, disabled, focus]
@@ -69,6 +65,14 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
       };
     }, []);
 
+    const ariaProps = useMemo(
+      () => ({
+        'aria-checked': selected,
+        'aria-disabled': disabled,
+      }),
+      [selected, disabled]
+    );
+
     useEffect(() => {
       if (focus) {
         ref.current?.focus();
@@ -83,17 +87,18 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
         style={style}
         ref={ref}
         {...clickableProps}
+        {...ariaProps}
       >
         <div className="rc-list-item-wrapper" style={{ width: '100%' }}>
-          <ListItemOption
+          <ListItemContent
             key={id}
             name={name}
             selected={selected}
             showCheck={showCheckIcon}
-            tabIndex={!disabled ? 0 : -1}
             focusable={focusable}
             textColor={textColor}
             RTL={RTL}
+            highlightSelection={highlightSelection}
           />
         </div>
       </li>

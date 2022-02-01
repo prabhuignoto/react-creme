@@ -5,6 +5,7 @@ interface OverlayCommon {
   hideDocumentOverflow?: boolean;
   onClose?: () => void;
   onClosing?: () => void;
+  onOpen?: () => void;
   placement?: 'top' | 'bottom';
   placementReference?: RefObject<HTMLElement>;
 }

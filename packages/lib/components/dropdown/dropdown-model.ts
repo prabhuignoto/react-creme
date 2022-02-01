@@ -83,6 +83,7 @@ export type DropdownMenuProps = PickMenuProps<DropdownProps> &
   OverlayModel & {
     handleSelection: (selected: Option[]) => void;
     open: boolean;
+    selectedIndex?: number;
     style: DropdownMenuStyleModel;
   };
 

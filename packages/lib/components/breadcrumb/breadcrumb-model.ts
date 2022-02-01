@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 
 export type BreadCrumbProps = {
   children: React.ReactNode;
+  focusable?: boolean;
   icon?: 'chevron' | 'arrow' | 'slash';
   onSelected?: (selectedIndex?: string) => void;
   selectedCrumbIndex?: number;
@@ -10,7 +11,7 @@ export type BreadCrumbProps = {
 
 export type BreadCrumbItemProps = Pick<
   BreadCrumbProps,
-  'icon' | 'selectedCrumbIndex' | 'size'
+  'icon' | 'selectedCrumbIndex' | 'size' | 'focusable'
 > & {
   child: ReactNode;
   id: string;

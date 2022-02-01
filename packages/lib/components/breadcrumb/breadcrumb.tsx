@@ -14,6 +14,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
   onSelected,
   icon = 'chevron',
   size = 'sm',
+  focusable = true,
   selectedCrumbIndex = 0,
 }) => {
   const [items, setItems] = useState<BreadCrumbItemModel[]>(
@@ -53,6 +54,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
           size={size}
           selected={selected}
           index={index}
+          focusable={focusable}
         />
       ))}
     </ul>

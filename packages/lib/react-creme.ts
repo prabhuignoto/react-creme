@@ -72,7 +72,7 @@ export { Link } from './components/link/link';
 export type { LinkProps } from './components/link/link';
 export { List } from './components/list/list';
 export type {
-  ListItemOptionProps,
+  ListItemContentProps,
   ListItemProps,
   ListOption,
   ListProps,

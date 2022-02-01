@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>43/43</span>
+                <span class='fraction'>66/66</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>43/43</span>
+                <span class='fraction'>66/66</span>
             </div>
         
             
@@ -106,7 +106,53 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -150,46 +196,69 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { nanoid } from 'nanoid';
-import React, { useRef } from 'react';
+import React, { useCallback, useState } from 'react';
 import { BreadCrumbItem } from './breadcrumb-item';
 import { BreadCrumbProps } from './breadcrumb-model';
 import './breadcrumb.scss';
 &nbsp;
+interface BreadCrumbItemModel {
+  id: string;
+  selected: boolean;
+}
+&nbsp;
 const BreadCrumb: React.FunctionComponent&lt;BreadCrumbProps&gt; = ({
   children,
-  onClick,
+  onSelected,
   icon = 'chevron',
   size = 'sm',
+  focusable = true,
+  selectedCrumbIndex = 0,
 }) =&gt; {
-  const items = useRef(
+  const [items, setItems] = useState&lt;BreadCrumbItemModel[]&gt;(
     Array.isArray(children)
-      ? children.map(() =&gt; ({
+      ? children.map((_, index) =&gt; ({
           id: nanoid(),
+          selected: selectedCrumbIndex === index,
         }))
       : []
   );
+&nbsp;
+  const handleSelection = useCallback((id, index) =&gt; {
+    setItems(prev =&gt;
+      prev.map(item =&gt; ({
+        ...item,
+        selected: item.id === id,
+      }))
+    );
+&nbsp;
+    onSelected?.(index);
+  }, []);
+&nbsp;
   return (
     &lt;ul
-      className="bread-crumbs-wrapper"
+      className="rc-bread-crumbs-wrapper"
       role="navigation"
-      aria-label="breadcrumbs"
+      aria-label="breadc<span class="branch-0 cbranch-no" title="branch not covered" >rumbs</span>"
     &gt;
-      {items.current.map((item, index) =&gt; (
+      {items.map(({ id, selected }, index) =&gt; (
         &lt;BreadCrumbItem
           child={Array.isArray(children) &amp;&amp; children[index]}
-          id={item.id}
-          onClick={onClick}
-          showChevron={index &lt; items.current.length - 1}
-          key={item.id}
+          id={id}
+          onSelected={handleSelection}
+          showChevron={index &lt; items.length - 1}
+          key={id}
           icon={icon}
           size={size}
+          selected={selected}
+          index={index}
+          focusable={focusable}
         /&gt;
       ))}
     &lt;/ul&gt;
   );
 };
 &nbsp;
-BreadCrumb<span class="branch-0 cbranch-no" title="branch not covered" >.disp</span>layName = 'BreadCrumb';
+BreadCrumb.displayName = 'BreadCrumb';
 &nbsp;
 export { BreadCrumb };
 &nbsp;</pre></td></tr></table></pre>
@@ -199,7 +268,7 @@ export { BreadCrumb };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jan 27 2022 10:28:03 GMT+0530 (India Standard Time)
+                at Tue Feb 01 2022 12:45:11 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
