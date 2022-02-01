@@ -123,7 +123,7 @@ const TreeItem: React.FunctionComponent<TreeItemProps> = React.memo(
       [totalItems]
     );
 
-    const handleSelection = (id: string, label: string, val: boolean) => {
+    const handleSelection = (_id?: string, val?: boolean) => {
       setChecked(val);
     };
 
@@ -142,7 +142,7 @@ const TreeItem: React.FunctionComponent<TreeItemProps> = React.memo(
       }
     }, [totalItems, expanded]);
 
-    const handleToggle = useCallback((ev: React.MouseEvent, id: string) => {
+    const handleToggle = useCallback((_ev: React.MouseEvent, id: string) => {
       onToggle?.(id);
     }, []);
 

@@ -32,12 +32,12 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
       ? id
         ? useRef(id)
         : useRef(`label-${nanoid()}`)
-      : useRef('');
+      : useRef(`label-${nanoid()}`);
 
     const toggleCheck = useCallback(() => {
       if (!disabled) {
         setChecked(prev => {
-          onChange && onChange(checkBoxId.current, label, !prev);
+          onChange && onChange(checkBoxId.current, !prev);
           return !prev;
         });
       }

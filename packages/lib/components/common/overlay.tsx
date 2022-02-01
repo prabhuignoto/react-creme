@@ -97,13 +97,19 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   }, [context?.childClosing]);
 
   // closes the overlay when clicked on the document
-  const handleCloseOnClick = useCallback((ev: React.MouseEvent) => {
-    const overlayContent = overlayContentRef.current;
-    if (overlayContent && !overlayContent.contains(ev.target as HTMLElement)) {
-      setHideOverlay(true);
-      onClose?.();
-    }
-  }, []);
+  const handleCloseOnClick = useCallback(
+    (ev: React.MouseEvent) => {
+      const overlayContent = overlayContentRef.current;
+      if (
+        overlayContent &&
+        !overlayContent.contains(ev.target as HTMLElement)
+      ) {
+        setHideOverlay(true);
+        onClose?.();
+      }
+    },
+    [overlayContentRef]
+  );
 
   // sync the position on scroll
   const handleWindowScroll = useCallback(
@@ -126,31 +132,30 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     };
   }, []);
 
-  const onRef = useCallback(
-    node => {
-      const ele = node as HTMLDivElement;
-      if (ele) {
-        overlayRef.current = ele;
-
-        setTimeout(() => {
-          console.log('calling open');
-          onOpen?.();
-        }, 50);
-
-        if (hideDocumentOverflow) {
-          document.body.style.overflow = 'hidden';
-        }
-      }
-    },
-    [overlayContentRef]
-  );
-
-  const onOverlayContentRef = useCallback(node => {
+  const onRef = useCallback(node => {
     const ele = node as HTMLDivElement;
     if (ele) {
-      overlayContentRef.current = ele;
+      overlayRef.current = ele;
+
+      setTimeout(() => onOpen?.(), 50);
+
+      if (hideDocumentOverflow) {
+        document.body.style.overflow = 'hidden';
+      }
     }
   }, []);
+
+  const customPlacementStyle = useMemo(() => {
+    if (placement && placementStyle) {
+      return placementStyle;
+    }
+
+    if (placement && !placementStyle) {
+      return {
+        display: 'none',
+      };
+    }
+  }, [JSON.stringify(placementStyle), placement]);
 
   return !disableBackdrop ? (
     <div
@@ -162,17 +167,13 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       tabIndex={0}
       style={{ backgroundColor: backdropColor }}
     >
-      {placement ? (
-        <div
-          style={placementStyle}
-          className="rc-overlay-content-wrapper"
-          ref={onOverlayContentRef}
-        >
-          {children}
-        </div>
-      ) : (
-        children
-      )}
+      <div
+        style={customPlacementStyle}
+        className="rc-overlay-content-wrapper"
+        ref={overlayContentRef}
+      >
+        {children}
+      </div>
       {showCloseButton && (
         <span className={`rc-overlay-close-btn`} onClick={onClose}>
           <CloseIcon />
@@ -181,7 +182,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     </div>
   ) : (
     <div
-      style={placementStyle}
+      style={customPlacementStyle}
       className="rc-overlay-content-wrapper"
       ref={overlayContentRef}
     >

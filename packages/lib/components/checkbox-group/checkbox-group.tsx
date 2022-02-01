@@ -53,21 +53,22 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
       : []
   );
 
-  const handleChange = useCallback(
-    (id: string, name: string, selected: boolean) => {
-      setItems(items => {
-        const _newItems = items.map(item => {
-          return {
-            ...item,
-            isChecked: item.id === id ? selected : !!item.isChecked,
-          };
-        });
+  const handleChange = useCallback((id?: string, selected?: boolean) => {
+    if (!id || !selected) {
+      return;
+    }
 
-        return _newItems;
+    setItems(items => {
+      const _newItems = items.map(item => {
+        return {
+          ...item,
+          isChecked: item.id === id ? selected : !!item.isChecked,
+        };
       });
-    },
-    []
-  );
+
+      return _newItems;
+    });
+  }, []);
 
   useEffect(() => {
     if (!isFirstRender.current) {

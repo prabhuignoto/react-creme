@@ -14,7 +14,7 @@ export interface CheckboxProps {
   label: string;
   noHoverStyle?: boolean;
   noUniqueId?: boolean;
-  onChange?: (id: string, name: string, selected: boolean) => void;
+  onChange?: (id?: string, selected?: boolean) => void;
   size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;
 }

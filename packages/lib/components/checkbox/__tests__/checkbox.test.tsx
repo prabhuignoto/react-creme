@@ -35,7 +35,7 @@ describe('Checkbox', () => {
     fireEvent.click(getByRole('checkbox'));
 
     expect(handler).toBeCalled();
-    expect(handler).toHaveBeenCalledWith('12445', 'My Checkbox', true);
+    expect(handler).toHaveBeenCalledWith('12445', true);
   });
 
   it('should receive focus', () => {
