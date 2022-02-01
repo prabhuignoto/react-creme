@@ -7,10 +7,10 @@ import React, {
 } from 'react';
 import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { ListItem } from './list-item';
-import { ListOption, ListOptionsProps } from './list-model';
+import { ListOption, ListItemsProps } from './list-model';
 import './list.scss';
 
-const ListOptions: React.FunctionComponent<ListOptionsProps> = ({
+const ListItems: React.FunctionComponent<ListItemsProps> = ({
   RTL,
   allowMultiSelection,
   focusable,
@@ -28,7 +28,7 @@ const ListOptions: React.FunctionComponent<ListOptionsProps> = ({
   visibleRange,
   renderHash,
   selectedIndex = -1,
-}: ListOptionsProps) => {
+}: ListItemsProps) => {
   const listStyle = useMemo(() => {
     const style = {
       '--list-height': `${
@@ -101,6 +101,6 @@ const ListOptions: React.FunctionComponent<ListOptionsProps> = ({
   );
 };
 
-ListOptions.displayName = 'ListOptions';
+ListItems.displayName = 'ListItems';
 
-export { ListOptions };
+export { ListItems };

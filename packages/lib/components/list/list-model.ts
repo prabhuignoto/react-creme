@@ -95,7 +95,7 @@ export type ListItemProps = SelectListItemProps<ListProps> & {
   value: string;
 };
 
-export type ListItemOptionProps = Pick<
+export type ListItemContentProps = Pick<
   ListItemProps,
   | 'focusable'
   | 'name'
@@ -116,7 +116,7 @@ export interface ListOption extends Option {
   visible?: boolean;
 }
 
-export type ListOptionsProps = Omit<
+export type ListItemsProps = Omit<
   ListProps,
   | 'backGroundColor'
   | 'border'

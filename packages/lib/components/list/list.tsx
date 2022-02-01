@@ -12,8 +12,8 @@ import { useDebouncedCallback } from 'use-debounce';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { Input } from '../input/input';
+import { ListItems } from './list-items';
 import { ListOption, ListProps, ParseOptions } from './list-model';
-import { ListOptions } from './list-options';
 import './list.scss';
 
 const List: React.FunctionComponent<ListProps> = ({
@@ -203,7 +203,7 @@ const List: React.FunctionComponent<ListProps> = ({
         onScroll={handleScroll}
         {...wrapperProps}
       >
-        <ListOptions
+        <ListItems
           RTL={RTL}
           allowMultiSelection={allowMultiSelection}
           focusable={focusable}

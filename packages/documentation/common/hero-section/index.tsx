@@ -56,6 +56,7 @@ function HeroSection() {
             size="md"
             accent="round"
             fillStyle="solid"
+            link=""
           >
             <FontAwesomeIcon icon={faBookOpen} />
           </HomeButton>
@@ -64,6 +65,7 @@ function HeroSection() {
             size="md"
             accent="round"
             fillStyle="solid"
+            link="https://github.com/prabhuignoto/react-creme/stargazers"
           >
             <FontAwesomeIcon icon={faGithubAlt} />
           </HomeButton>

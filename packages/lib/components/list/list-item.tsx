@@ -1,6 +1,6 @@
 import cls from 'classnames';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-import { ListItemOption } from './list-item-option';
+import { ListItemContent } from './list-item-content';
 import './list-item.scss';
 import { ListItemProps } from './list-model';
 
@@ -90,12 +90,11 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
         {...ariaProps}
       >
         <div className="rc-list-item-wrapper" style={{ width: '100%' }}>
-          <ListItemOption
+          <ListItemContent
             key={id}
             name={name}
             selected={selected}
             showCheck={showCheckIcon}
-            // tabIndex={!disabled ? 0 : -1}
             focusable={focusable}
             textColor={textColor}
             RTL={RTL}

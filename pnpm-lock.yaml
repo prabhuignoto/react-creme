@@ -348,6 +348,7 @@ importers:
       '@types/node': ^17.0.13
       acorn: ^8.7.0
       babel-loader: ^8.2.3
+      chromatic: ^6.4.3
       css-loader: 5.2.6
       postcss: ^8.4.5
       postcss-loader: 4.2.0
@@ -379,6 +380,7 @@ importers:
       '@types/node': 17.0.13
       acorn: 8.7.0
       babel-loader: 8.2.3_98f66c8858fdf744c6027fec1502e530
+      chromatic: 6.4.3
       css-loader: 5.2.6_webpack@5.68.0
       postcss: 8.4.5
       postcss-loader: 4.2.0_postcss@8.4.5+webpack@5.68.0
@@ -6580,6 +6582,11 @@ packages:
   /chownr/2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
+    dev: true
+
+  /chromatic/6.4.3:
+    resolution: {integrity: sha512-Hxd85QNWwVo2VS9bIGa5bL06wjSt+EUT8ed48jnkOw7cnkkIQfnEVpwjOoZ/91C4rtRPw8w/2EwCHq+eWD4NNg==}
+    hasBin: true
     dev: true
 
   /chrome-trace-event/1.0.3:
