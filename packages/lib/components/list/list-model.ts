@@ -52,6 +52,8 @@ export type ListProps = {
   // 🔷 gap between each row
   rowGap?: number;
 
+  selectedIndex?: number;
+
   // 🔷 Shows a check icon on selection
   showCheckIcon?: boolean;
 
@@ -95,10 +97,16 @@ export type ListItemProps = SelectListItemProps<ListProps> & {
 
 export type ListItemOptionProps = Pick<
   ListItemProps,
-  'focusable' | 'name' | 'textColor' | 'textColorSelected' | 'RTL' | 'selected'
+  | 'focusable'
+  | 'name'
+  | 'textColor'
+  | 'textColorSelected'
+  | 'RTL'
+  | 'selected'
+  | 'highlightSelection'
 > & {
   showCheck?: boolean;
-  tabIndex: number;
+  // tabIndex: number;
 };
 
 export interface ListOption extends Option {

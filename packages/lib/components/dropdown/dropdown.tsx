@@ -28,7 +28,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     showClearBtn = true,
     label = 'dropdown',
   }: DropdownProps) => {
-    // options states
+    /**
+     * The state of the dropdown.
+     */
     const [dropdownOptions, setDropdownOptions] = useState(
       options.map(option => ({
         id: nanoid(),
@@ -37,7 +39,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       }))
     );
 
-    // state for the selected value
+    /**
+     * State of the selected value
+     */
     const [value, setValue] = useState(
       options.length
         ? options
@@ -57,9 +61,15 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const containerRef = useRef(null);
     const dropdownRef = useRef(null);
 
+    // state to set the focus manually
     const [focusManual, setFocusManual] = useState(false);
 
-    // HANDLERS
+    // tracks the focus index of the options
+    const [focusIndex, setFocusIndex] = useState(-1);
+
+    /**
+     * Handles the selection of an option
+     */
     const handleSelection = useCallback((selected: Option[]) => {
       let _value: string | string[] = '';
 
@@ -87,6 +97,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
         setFocusManual(true);
       }
 
+      setFocusIndex(-1);
+
       if (onSelected) {
         onSelected(_value);
       }
@@ -95,11 +107,24 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     // toggles the dropdown menu
     const handleToggleMenu = useCallback(() => setShowMenu(prev => !prev), []);
 
-    // handles the menu closure
+    /**
+     * Handler executed when the menu is closed
+     */
     const handleMenuClose = useCallback(() => {
       setShowMenu(false);
       setMenuClosing(false);
       setFocusManual(true);
+      setFocusIndex(-1);
+    }, []);
+
+    /**
+     * Handler executed when the menu is opened
+     */
+    const handleMenuOpen = useCallback(() => {
+      const focusableIndex = dropdownOptions.findIndex(
+        option => !option.disabled
+      );
+      setFocusIndex(focusableIndex);
     }, []);
 
     // handles the menu closing
@@ -107,7 +132,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       setMenuClosing(true);
     }, []);
 
-    // styles
+    /**
+     * Memoized styles
+     */
     const menuStyle = useMemo(() => {
       if (containerRef.current) {
         const { clientWidth } = containerRef.current;
@@ -119,6 +146,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       return {};
     }, [showMenu]);
 
+    /**
+     * Clears the selection
+     */
     const handleClear = useCallback((ev: React.MouseEvent) => {
       ev.preventDefault();
       setValue('');
@@ -191,6 +221,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
             placementReference={dropdownRef}
             placement="bottom"
             onClose={handleMenuClose}
+            onOpen={handleMenuOpen}
             onClosing={handleMenuClosing}
             enableSearch={enableSearch}
             virtualize={virtualize}
@@ -198,6 +229,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
             RTL={RTL}
             focusable={focusable}
             align="left"
+            selectedIndex={focusIndex}
           />
         )}
       </div>

@@ -95,4 +95,44 @@ describe('List', () => {
     fireEvent.click(getAllByRole('option')[0]);
     expect(handler).toBeCalled();
   });
+
+  it('should list items get focus on keyboard interaction', async () => {
+    const handler = vi.fn();
+
+    const { getByRole, getAllByRole } = render(
+      <List options={options} onSelection={handler} />
+    );
+
+    expect(getByRole('listbox')).toBeInTheDocument();
+
+    fireEvent.click(getAllByRole('option')[0]);
+
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
+
+    fireEvent.keyUp(getByRole('listbox'), {
+      key: 'ArrowDown',
+    });
+
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
+
+    fireEvent.keyUp(getByRole('listbox'), {
+      key: 'ArrowUp',
+    });
+
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
+
+    fireEvent.keyPress(getAllByRole('option')[0], {
+      key: 'Enter',
+    });
+
+    await waitFor(() => {
+      expect(handler).toBeCalled();
+    });
+  });
 });

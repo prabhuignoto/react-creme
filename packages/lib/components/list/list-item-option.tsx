@@ -11,12 +11,14 @@ const ListItemOption: React.FunctionComponent<ListItemOptionProps> = React.memo(
     textColor,
     textColorSelected,
     RTL,
+    highlightSelection,
   }: ListItemOptionProps) => {
     const ref = React.useRef<HTMLDivElement>(null);
 
     const listOptionClass = cls(
       'rc-list-option-value-wrapper',
       {
+        'rc-list-option-highlight-selection': highlightSelection,
         'rc-list-option-no-icon': !showCheck,
         'rc-list-option-rtl': RTL,
         'rc-list-option-selected': selected,

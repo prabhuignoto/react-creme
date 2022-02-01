@@ -43,6 +43,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     const {
       showClose,
       onClose,
+      onOpen,
       containedToParent,
       placementReference,
       placement,
@@ -109,6 +110,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
             <Overlay
               showCloseButton={showClose}
               onClose={handleClose}
+              onOpen={onOpen}
               placement={placement}
               placementReference={placementReference}
               backdropColor={backdropColor}

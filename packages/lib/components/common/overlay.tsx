@@ -19,6 +19,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   containedToParent = false,
   disableBackdrop,
   onClose,
+  onOpen,
   overlayAnimation = true,
   placement,
   placementReference,
@@ -131,7 +132,10 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       if (ele) {
         overlayRef.current = ele;
 
-        ele.focus();
+        setTimeout(() => {
+          console.log('calling open');
+          onOpen?.();
+        }, 50);
 
         if (hideDocumentOverflow) {
           document.body.style.overflow = 'hidden';

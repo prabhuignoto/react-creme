@@ -2,10 +2,11 @@ import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 
 function useKeyNavigation(
   ref: RefObject<HTMLElement>,
+  startIndex = -1,
   collectionLength: number,
   scrollOffset = 50
 ) {
-  const [selection, setSelection] = useState(-1);
+  const [selection, setSelection] = useState(startIndex);
 
   const listRef = useRef<HTMLElement | null>(null);
 
@@ -14,9 +15,6 @@ function useKeyNavigation(
       if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') {
         return;
       }
-
-      e.preventDefault();
-      e.stopPropagation();
 
       const _listRef = listRef.current;
 

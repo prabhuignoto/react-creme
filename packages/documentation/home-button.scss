@@ -1,24 +1,54 @@
+@use 'sass:map';
+
 $heights: (
-  sm: 40px,
-  md: 60px,
-  lg: 80px,
+  sm: 20px,
+  md: 30px,
+  lg: 40px,
+);
+
+$fonts: (
+  sm: 12px,
+  md: 16px,
+  lg: 20px,
+);
+
+$icons: (
+  sm: 12px,
+  md: 18px,
+  lg: 24px,
 );
 
 .rc-demo-home-btn {
   align-items: center;
   background: rgba($color: #434343, $alpha: 0.1);
-  border-radius: 6px;
   color: #fff;
   cursor: pointer;
   display: flex;
   justify-content: center;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
   text-decoration: none;
 
+  &.rc-demo-home-btn-round {
+    border-radius: 30px;
+  }
+
+  &:not(.rc-demo-home-btn-round) {
+    border-radius: 6px;
+  }
+
   @each $key, $val in $heights {
-    &.rc-demo-home-btn-height-#{$key} {
+    &.rc-demo-home-btn-#{$key} {
       height: $val;
     }
+  }
+
+  &.rc-demo-home-btn-solid {
+    background: rgba(#003b73, 0.75);
+  }
+
+  &.rc-demo-home-btn-solid:hover {
+    background: #fff;
+    color: rgba(#003b73, 0.75);
   }
 
   &:hover {
@@ -30,8 +60,13 @@ $heights: (
 
 .rc-home-button-icon {
   display: block;
-  height: 1.5rem;
-  width: 1.5rem;
+
+  @each $key, $val in $icons {
+    &.rc-home-button-icon-#{$key} {
+      height: $val;
+      width: $val;
+    }
+  }
 
   svg {
     height: 100% !important;
@@ -40,7 +75,12 @@ $heights: (
 }
 
 .rc-home-button-label {
-  font-size: 1rem;
   font-weight: 300;
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
+
+  @each $key, $val in $fonts {
+    &.rc-home-button-label-#{$key} {
+      font-size: $val;
+    }
+  }
 }

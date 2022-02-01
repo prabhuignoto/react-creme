@@ -16,6 +16,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   virtualize,
   RTL,
   focusable,
+  selectedIndex,
 }: DropdownMenuProps) => {
   // STYLES
   const menuStyle = useMemo(() => {
@@ -55,6 +56,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
         virtualized={virtualize}
         RTL={RTL}
         focusable={focusable}
+        selectedIndex={selectedIndex}
       />
     </div>
   );
