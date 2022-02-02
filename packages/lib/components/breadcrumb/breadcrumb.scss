@@ -35,7 +35,7 @@ $sizes: (sm, md, lg);
 .rc-bread-crumb-node {
   @extend %center;
   @extend %border-radius;
-  @include animate.halo();
+  // // @include animate.halo();
   padding: 0.25rem;
 
   &:hover {

@@ -99,7 +99,7 @@ $padding-sizes: (
 }
 
 .rc-tag-icon {
-  @include animate.halo();
+  // // @include animate.halo();
   border-radius: 50%;
   cursor: pointer;
   display: block;

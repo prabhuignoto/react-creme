@@ -36,11 +36,11 @@ $heights: (
   }
 
   &.rc-checkbox-rtl.rc-checkbox-focus {
-    @include animate.halo(4px, 1px, true, true);
+    // @include animate.halo(4px, 1px, true, true);
   }
 
   &.rc-checkbox-focus:not(.rc-checkbox-rtl) {
-    @include animate.halo(4px, 1px);
+    // @include animate.halo(4px, 1px);
   }
 
   &.rc-checkbox-hover:hover {
@@ -73,7 +73,7 @@ $heights: (
   z-index: 1;
 
   &.rc-checkbox-focus {
-    @include animate.halo(4px, 3px);
+    // @include animate.halo(4px, 3px);
   }
 
   * {

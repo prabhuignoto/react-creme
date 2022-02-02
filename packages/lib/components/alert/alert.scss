@@ -16,16 +16,15 @@
   transition: height 0.25s ease-in-out, opacity 0.25s ease-in-out;
   width: 100%;
 
-  
   &:not(.rc-alert-close) {
     height: var(--height);
   }
-  
+
   &.rc-alert-close {
     height: 0;
     opacity: 0;
   }
-  
+
   &.rc-alert-rtl {
     direction: rtl;
   }
@@ -77,7 +76,7 @@
 
 .rc-alert-close-btn {
   @extend %icon-lg;
-  @include animate.halo();
+  // @include animate.halo();
   align-self: flex-start;
   cursor: pointer;
   margin-top: 0.5rem;
