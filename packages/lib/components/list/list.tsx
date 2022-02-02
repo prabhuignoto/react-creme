@@ -47,6 +47,7 @@ const List: React.FunctionComponent<ListProps> = ({
   const [selected, setSelected] = useState<ListOption[]>();
   const [visibleRange, setVisibleRange] = useState<[number, number]>([0, 0]);
   const [scrollable, setScrollable] = useState(false);
+  const [resetState, setResetState] = useState(0);
 
   const rcListClass = useMemo(
     () =>
@@ -194,6 +195,9 @@ const List: React.FunctionComponent<ListProps> = ({
             RTL={RTL}
             focusable={focusable}
             placeholder="Search ..."
+            onFocus={() => {
+              setResetState(new Date().getTime());
+            }}
           >
             <SearchIcon />
           </Input>
@@ -222,6 +226,7 @@ const List: React.FunctionComponent<ListProps> = ({
           label={label}
           selectedIndex={selectedIndex}
           virtualized={virtualized}
+          resetState={resetState}
         />
       </div>
     </div>

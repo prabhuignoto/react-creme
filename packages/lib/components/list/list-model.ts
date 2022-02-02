@@ -128,6 +128,7 @@ export type ListItemsProps = Omit<
   handleSelection: (opt: ListOption) => void;
   id?: string;
   renderHash?: number;
+  resetState?: number;
   selectedIndex?: number;
   visibleRange: [number, number];
 };
