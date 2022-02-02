@@ -1,6 +1,5 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-// import { act } from 'react-dom/test-utils';
 import { vi } from 'vitest';
 import { Accordion } from '../accordion';
 
@@ -34,8 +33,6 @@ describe('Accordion', () => {
     );
 
     fireEvent.click(getByRole('button'));
-    // await act(async () => {
-    // });
 
     await waitFor(async () => {
       expect(container.firstChild).toHaveClass('rc-accordion-open');

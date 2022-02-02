@@ -6,11 +6,13 @@ exports[`Accordion > should render snapshot 1`] = `
   style="--max-height: 0px; --title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1);"
 >
   <div
-    aria-controls="accordion-body-3hkRbtypxxscak6RLahBJ"
+    aria-controls="accordion-body-Mxr0SCa2UQ55J6K-YbiVt"
     aria-expanded="false"
-    class="rc-accordion-header"
-    id="accordion-DdhIpyspmX-G9qGrmA7G3"
+    class="rc-accordion-header rc-accordion-focusable"
+    id="accordion-aFbGevJWrFeF5mJeGNH4L"
     role="button"
+    style="outline: none; position: relative;"
+    tabindex="0"
   >
     <span
       class="rc-accordion-icon rc-accordion-icon-chevron"
@@ -32,11 +34,15 @@ exports[`Accordion > should render snapshot 1`] = `
     <span
       class="rc-accordion-title"
     />
+    <span
+      class="rc-focus-ring"
+      style="width: 6px; height: 6px;"
+    />
   </div>
   <div
-    aria-labelledby="accordion-DdhIpyspmX-G9qGrmA7G3"
+    aria-labelledby="accordion-aFbGevJWrFeF5mJeGNH4L"
     class="rc-accordion-body rc-accordion-close"
-    id="accordion-body-3hkRbtypxxscak6RLahBJ"
+    id="accordion-body-Mxr0SCa2UQ55J6K-YbiVt"
     style="--max-height: 0px; --title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1);"
   >
     <p>

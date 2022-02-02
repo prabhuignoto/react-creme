@@ -1,9 +1,8 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { CheckIcon } from '../../icons';
-import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
 import { CheckboxProps } from './checkbox-model';
 import './checkbox.scss';
@@ -36,15 +35,13 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
 
     const toggleCheck = useCallback(() => {
       if (!disabled) {
-        setChecked(prev => {
-          onChange && onChange(checkBoxId.current, !prev);
-          return !prev;
-        });
+        setChecked(!checked);
+        onChange && onChange(checkBoxId.current, !checked);
       }
-    }, []);
+    }, [checked]);
 
     if (focusable) {
-      useFocusNew(ref, toggleCheck);
+      useFocusNew(ref);
     }
 
     const iconClass = useMemo(
@@ -90,18 +87,6 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
       [size, disabled]
     );
 
-    useEffect(() => {
-      if (!isFirstRender.current && !disabled && isChecked !== checked) {
-        setChecked(isChecked);
-      }
-    }, [isChecked, disabled]);
-
-    useEffect(() => {
-      if (!isFirstRender.current) {
-        // onChange && onChange(checked);
-      }
-    }, [checked]);
-
     const focusProps = useMemo(
       () => ({
         ref: ref,
@@ -115,8 +100,6 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
       [disabled]
     );
     const iconProps = useMemo(() => (focusIcon ? focusProps : null), []);
-
-    const isFirstRender = useFirstRender();
 
     return (
       <div

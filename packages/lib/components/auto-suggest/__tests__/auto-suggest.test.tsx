@@ -1,7 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { vi } from 'vitest';
 import { AutoSuggest } from '../auto-suggest';
 
@@ -25,34 +24,44 @@ describe('AutoSuggest', () => {
   });
 
   it('should render suggestions', async () => {
-    const { getByRole, getByPlaceholderText, getAllByRole } = render(
-      <AutoSuggest suggestions={suggestions} placeholder="enter input" />
+    const { queryByRole, getByPlaceholderText, getAllByRole, getByTestId } =
+      render(
+        <AutoSuggest suggestions={suggestions} placeholder="enter input" />
+      );
+
+    expect(getByPlaceholderText('enter input')).toBeInTheDocument();
+
+    userEvent.type(getByPlaceholderText('enter input'), 'one');
+
+    await waitFor(
+      () => {
+        expect(getByTestId('rc-overlay')).toBeInTheDocument();
+        expect(getByTestId('rc-overlay').querySelectorAll('li')).toHaveLength(
+          1
+        );
+      },
+      {
+        timeout: 1000,
+      }
     );
-
-    userEvent.type(getByPlaceholderText('enter input'), 'o');
-
-    await waitFor(() => {
-      expect(getByRole('listbox')).toBeInTheDocument();
-      expect(getAllByRole('option')).toHaveLength(1);
-    });
   });
 
   it('should show the selected item', async () => {
-    const { getByRole, getByPlaceholderText, getByText } = render(
+    const { getByRole, getByPlaceholderText, getByText, getByTestId } = render(
       <AutoSuggest suggestions={suggestions} placeholder="enter input" />
     );
 
     userEvent.type(getByPlaceholderText('enter input'), 'o');
 
     await waitFor(() => {
-      expect(getByRole('listbox')).toBeInTheDocument();
-      expect(getByText('one')).toBeInTheDocument();
+      expect(getByTestId('rc-overlay')).toBeInTheDocument();
     });
 
-    await act(async () => {
-      userEvent.click(getByText('one'));
+    userEvent.click(getByTestId('rc-overlay').querySelectorAll('li')[0]);
+
+    await waitFor(() => {
+      expect(getByPlaceholderText('enter input')).toHaveValue('one');
     });
-    expect(getByPlaceholderText('enter input')).toHaveValue('one');
   });
 
   it('should call onChange with the input', async () => {

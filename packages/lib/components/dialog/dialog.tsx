@@ -22,6 +22,8 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   animationType = 'pop',
 }: DialogProps) => {
   const dialogRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
   const dialogClass = useMemo(
     () =>
       classNames([
@@ -51,6 +53,12 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   const onDialogRef = useCallback((node: HTMLDivElement) => {
     dialogRef.current = node;
     onOpen?.();
+
+    setTimeout(() => {
+      if (focusable) {
+        buttonRef.current?.focus();
+      }
+    }, 100);
   }, []);
 
   if (focusable) {
@@ -70,7 +78,13 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
           {title}
         </h2>
         <div className="rc-dialog-button-wrapper">
-          <Button type="icon" onClick={onClose} size="md" focusable={focusable}>
+          <Button
+            type="icon"
+            onClick={onClose}
+            size="md"
+            focusable={focusable}
+            ref={buttonRef}
+          >
             <CloseIcon />
           </Button>
         </div>

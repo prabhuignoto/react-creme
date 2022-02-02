@@ -61,7 +61,6 @@ const Widget = () => {
                   handleOnClose();
                 }}
                 onOpen={handleOnOpen}
-                containedToParent={ref}
                 width={width}
                 height={250}
               >
@@ -80,7 +79,6 @@ const Widget = () => {
                   handleOnClose();
                 }}
                 onOpen={handleOnOpen}
-                containedToParent={ref}
                 width={width}
                 height={250}
                 animationType="drop"

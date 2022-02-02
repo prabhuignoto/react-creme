@@ -10,7 +10,6 @@ import {
 } from 'react';
 import { CloseIcon } from '../../icons';
 import { Button } from '../button/button';
-import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
 import { useKey } from '../common/effects/useKey';
 import { withOverlay } from '../common/withOverlay';
 import { DrawerProps } from './drawer-model';
@@ -28,6 +27,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
 }) => {
   const [activate, setActivate] = useState(false);
   const drawerRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const style = useMemo<CSSProperties>(() => {
     let newHeight: string | number = '100%';
@@ -56,10 +56,6 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
     setActivate(true);
   }, []);
 
-  useCloseOnEscape(() => onClose?.(), drawerRef);
-
-  // useFocusNew(drawerRef);
-
   if (onClose) {
     useKey(drawerRef, onClose);
   }
@@ -67,8 +63,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   const onInitRef = useCallback(node => {
     if (node) {
       drawerRef.current = node;
-
-      setTimeout(() => node.focus(), 500);
+      setTimeout(() => buttonRef.current?.focus(), 200);
     }
   }, []);
 
@@ -82,7 +77,13 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
       aria-modal="true"
     >
       <div className="rc-drawer-close-btn-wrapper">
-        <Button type="icon" size="lg" onClick={onClose} focusable={focusable}>
+        <Button
+          type="icon"
+          size="lg"
+          onClick={onClose}
+          focusable={focusable}
+          ref={buttonRef}
+        >
           <CloseIcon />
         </Button>
       </div>

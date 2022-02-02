@@ -57,34 +57,37 @@ describe('CheckboxGroup', () => {
   });
 
   it('should handle on change', async () => {
-    const handleChange = vi.fn();
+    const optionsData = [
+      {
+        label: 'Option 1',
+        id: '1',
+      },
+      {
+        label: 'Option 2',
+        isChecked: true,
+        id: '2',
+      },
+      {
+        label: 'Option 3',
+        disabled: true,
+        id: '3',
+      },
+    ];
+    const handler = vi.fn();
     const { getAllByRole } = render(
-      <CheckBoxGroup options={options} onChange={handleChange} noUniqueIds />
+      <CheckBoxGroup options={optionsData} onChange={handler} />
     );
 
-    await act(async () => {
-      fireEvent.click(getAllByRole('checkbox')[1]);
+    await waitFor(() => {
+      expect(getAllByRole('checkbox')).toHaveLength(3);
+    });
+
+    act(() => {
+      fireEvent.click(getAllByRole('checkbox')[0]);
     });
 
     await waitFor(() => {
-      expect(handleChange).toHaveBeenCalledTimes(1);
-      expect(handleChange).toHaveBeenCalledWith([
-        {
-          name: 'Option 1',
-          id: '1',
-          isChecked: false,
-        },
-        {
-          name: 'Option 2',
-          isChecked: false,
-          id: '2',
-        },
-        {
-          name: 'Option 3',
-          isChecked: false,
-          id: '3',
-        },
-      ]);
+      expect(handler).toHaveBeenCalled();
     });
   });
 });

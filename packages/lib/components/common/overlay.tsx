@@ -30,12 +30,6 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
   const [hideOverlay, setHideOverlay] =
     React.useState<boolean>(overlayAnimation);
-  const overlayWrapperClass = useMemo(() => {
-    return classNames(['rc-overlay-wrapper'], {
-      'rc-overlay-contained': containedToParent,
-      'rc-overlay-hide': hideOverlay,
-    });
-  }, [hideOverlay]);
 
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const overlayContentRef = useRef<HTMLDivElement | null>(null);
@@ -43,7 +37,16 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   const [contentHeight, setContentHeight] = React.useState<number>(0);
   const [scrollPosition, setScrollPosition] = React.useState<number>(0);
 
-  // setup the observer for position the overlay content
+  const overlayWrapperClass = useMemo(() => {
+    return classNames(['rc-overlay-wrapper'], {
+      'rc-overlay-contained': containedToParent,
+      'rc-overlay-hide': hideOverlay,
+    });
+  }, [hideOverlay]);
+
+  /**
+   * Observer for managing the position of the overlay content
+   */
   const observer = useRef<ResizeObserver>();
   if (placementReference?.current) {
     observer.current = new ResizeObserver(entries => {
@@ -54,7 +57,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     observer.current.observe(placementReference?.current as HTMLElement);
   }
 
-  // computes the style for the overlay content
+  /**
+   * Computes the placement style for the overlay content
+   */
   const placementStyle = useMemo(() => {
     if (placementReference?.current && placement && overlayContentRef.current) {
       const child = placementReference?.current.firstChild as HTMLElement;
@@ -77,7 +82,10 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
   // event handlers
 
-  // handles closure
+  /**
+   *
+   * Handles the overlay closure via Escape key
+   */
   const handleClose = (ev: React.KeyboardEvent) => {
     if (ev.key === 'Escape') {
       onClose?.();
@@ -85,6 +93,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     }
   };
 
+  /**
+   * checks if the child content has initiated a close operation
+   */
   useEffect(() => {
     if (context?.childClosing) {
       setHideOverlay(true);
@@ -96,7 +107,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     }
   }, [context?.childClosing]);
 
-  // closes the overlay when clicked on the document
+  /**
+   * Closes the overlay when click outside of the overlay content
+   */
   const handleCloseOnClick = useCallback(
     (ev: React.MouseEvent) => {
       const overlayContent = overlayContentRef.current;
@@ -106,12 +119,15 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       ) {
         setHideOverlay(true);
         onClose?.();
+        document.body.style.overflow = 'auto';
       }
     },
     [overlayContentRef]
   );
 
-  // sync the position on scroll
+  /**
+   * Synchronizes the position of the overlay content with the scroll position
+   */
   const handleWindowScroll = useCallback(
     () => setScrollPosition(window.scrollY),
     []
@@ -137,7 +153,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     if (ele) {
       overlayRef.current = ele;
 
-      setTimeout(() => onOpen?.(), 50);
+      setTimeout(() => {
+        onOpen?.();
+      }, 200);
 
       if (hideDocumentOverflow) {
         document.body.style.overflow = 'hidden';
@@ -145,6 +163,10 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     }
   }, []);
 
+  /**
+   * Custom placement style. Fixes an edge case where the overlay content is not yet positioned correctly.
+   * we would want to hide the overlay content until the overlay is positioned correctly.
+   */
   const customPlacementStyle = useMemo(() => {
     if (placement && placementStyle) {
       return placementStyle;
@@ -161,11 +183,10 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     <div
       className={overlayWrapperClass}
       onClick={handleCloseOnClick}
-      onKeyUp={handleClose}
       data-testid="rc-overlay"
       ref={onRef}
-      tabIndex={0}
       style={{ backgroundColor: backdropColor }}
+      onKeyUp={handleClose}
     >
       <div
         style={customPlacementStyle}
@@ -183,7 +204,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   ) : (
     <div
       style={customPlacementStyle}
+      data-testid="rc-overlay"
       className="rc-overlay-content-wrapper"
+      onKeyUp={handleClose}
       ref={overlayContentRef}
     >
       {children}

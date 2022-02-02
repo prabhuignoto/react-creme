@@ -1,6 +1,5 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { vi } from 'vitest';
 import { MenuContainer as Menu } from '../menu';
 import { MenuItemProps } from '../menu-model';
@@ -72,7 +71,7 @@ describe('Menu', () => {
 
     fireEvent.click(getByText('icon'));
 
-    await act(async () => {
+    await waitFor(() => {
       expect(getByText('three')).toBeInTheDocument();
       fireEvent.click(getByText('three'));
       expect(handler).not.toBeCalled();

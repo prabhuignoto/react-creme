@@ -14,7 +14,7 @@ describe('Menu Button', () => {
 
   it('should open menu on click', async () => {
     const handler = vi.fn();
-    const { getByRole, getByText } = render(
+    const { getByRole, getByText, getByTestId } = render(
       <MenuButton
         items={['save', 'cancel', 'delete']}
         width={150}
@@ -26,14 +26,23 @@ describe('Menu Button', () => {
       fireEvent.click(getByRole('img'));
     });
 
-    await waitFor(async () => {
-      expect(getByRole('menu')).toBeInTheDocument();
-      expect(getByText('cancel')).toBeInTheDocument();
-      expect(getByText('delete')).toBeInTheDocument();
-    });
+    await waitFor(
+      () => {
+        expect(getByTestId('rc-overlay')).toBeInTheDocument();
+        expect(getByText('save')).toBeInTheDocument();
+        expect(getByText('cancel')).toBeInTheDocument();
+        expect(getByText('delete')).toBeInTheDocument();
+      },
+      {
+        timeout: 2000,
+      }
+    );
 
     await act(async () => {
       fireEvent.click(getByText('cancel'));
+    });
+
+    await waitFor(async () => {
       expect(handler).toBeCalledWith('cancel');
     });
   });
