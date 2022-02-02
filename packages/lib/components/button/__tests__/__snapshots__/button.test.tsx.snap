@@ -1,7 +1,7 @@
 // Vitest Snapshot v1
 
 exports[`Button > should render button snapshot 1`] = `
-<button
+<div
   aria-label="My Button"
   class="rc-btn-md rc-btn-default rc-btn"
   role="button"
@@ -17,5 +17,5 @@ exports[`Button > should render button snapshot 1`] = `
     class="rc-focus-ring"
     style="width: 6px; height: 6px;"
   />
-</button>
+</div>
 `;

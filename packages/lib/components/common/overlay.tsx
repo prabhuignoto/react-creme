@@ -6,8 +6,8 @@ import React, {
   useEffect,
   useMemo,
   useRef,
+  useState,
 } from 'react';
-import ResizeObserver from 'resize-observer-polyfill';
 import { CloseIcon } from '../../icons';
 import { OverlayProps } from './overlay-model';
 import './overlay.scss';
@@ -28,13 +28,27 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 }) => {
   const context = useContext(OverlayContext) as OverlayContextModel;
 
+  /**
+   * State that controls the visibility of the overlay.
+   */
   const [hideOverlay, setHideOverlay] =
     React.useState<boolean>(overlayAnimation);
 
+  /**
+   * Refs
+   */
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const overlayContentRef = useRef<HTMLDivElement | null>(null);
 
-  const [contentHeight, setContentHeight] = React.useState<number>(0);
+  /**
+   * State to store the dimensions of the overlay content
+   */
+  const [overlayDimensions, setOverlayDimensions] = useState<{
+    height: number;
+    width: number;
+  } | null>(null);
+
+  // const [contentHeight, setContentHeight] = React.useState<number>(0);
   const [scrollPosition, setScrollPosition] = React.useState<number>(0);
 
   const overlayWrapperClass = useMemo(() => {
@@ -45,40 +59,22 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   }, [hideOverlay]);
 
   /**
-   * Observer for managing the position of the overlay content
-   */
-  const observer = useRef<ResizeObserver>();
-  if (placementReference?.current) {
-    observer.current = new ResizeObserver(entries => {
-      const contentHeight = entries[0].contentRect.height;
-      setContentHeight(contentHeight);
-    });
-
-    observer.current.observe(placementReference?.current as HTMLElement);
-  }
-
-  /**
    * Computes the placement style for the overlay content
    */
   const placementStyle = useMemo(() => {
-    if (placementReference?.current && placement && overlayContentRef.current) {
+    if (placementReference?.current && placement && overlayDimensions) {
       const child = placementReference?.current.firstChild as HTMLElement;
-      const { top, left, right } = child.getBoundingClientRect();
-      const positionRight = right - overlayContentRef.current.offsetWidth;
+      const { top, left, right, height } = child.getBoundingClientRect();
+      const positionRight = right - overlayDimensions.width;
+
       return {
-        [placement === 'top' ? 'bottom' : 'top']: `${top + contentHeight}px`,
+        [placement === 'top' ? 'bottom' : 'top']: `${top + height}px`,
         left: `${context?.align === 'left' ? left : positionRight}px`,
         pointerEvents: 'all',
         position: 'absolute',
       } as CSSProperties;
     }
-  }, [
-    placementReference,
-    placement,
-    contentHeight,
-    scrollPosition,
-    overlayContentRef,
-  ]);
+  }, [placementReference, scrollPosition, overlayDimensions?.width]);
 
   // event handlers
 
@@ -144,7 +140,6 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     // cleanup
     return () => {
       document.removeEventListener('scroll', handleWindowScroll);
-      observer?.current?.disconnect();
     };
   }, []);
 
@@ -163,20 +158,33 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     }
   }, []);
 
+  const onOverlayRef = useCallback(node => {
+    const ele = node as HTMLDivElement;
+    if (ele) {
+      overlayContentRef.current = ele;
+      setOverlayDimensions({
+        height: ele.clientHeight,
+        width: ele.clientWidth,
+      });
+    }
+  }, []);
+
   /**
    * Custom placement style. Fixes an edge case where the overlay content is not yet positioned correctly.
    * we would want to hide the overlay content until the overlay is positioned correctly.
    */
-  const customPlacementStyle = useMemo(() => {
+  const customPlacementStyle = useMemo<CSSProperties>(() => {
     if (placement && placementStyle) {
       return placementStyle;
     }
 
     if (placement && !placementStyle) {
       return {
-        display: 'none',
+        visibility: 'hidden',
       };
     }
+
+    return {};
   }, [JSON.stringify(placementStyle), placement]);
 
   return !disableBackdrop ? (
@@ -191,7 +199,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       <div
         style={customPlacementStyle}
         className="rc-overlay-content-wrapper"
-        ref={overlayContentRef}
+        ref={onOverlayRef}
       >
         {children}
       </div>
@@ -207,7 +215,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       data-testid="rc-overlay"
       className="rc-overlay-content-wrapper"
       onKeyUp={handleClose}
-      ref={overlayContentRef}
+      ref={onOverlayRef}
     >
       {children}
     </div>

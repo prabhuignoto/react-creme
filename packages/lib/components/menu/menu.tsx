@@ -149,7 +149,7 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
           <MenuOverlay
             items={menuItems}
             onSelection={handleSelection}
-            placementReference={containerRef}
+            placementReference={wrapperRef}
             placement="bottom"
             onClose={closeMenu}
             align={position}

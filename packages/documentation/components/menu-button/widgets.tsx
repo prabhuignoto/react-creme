@@ -15,7 +15,7 @@ function widgets() {
         <DemoWidget>
           <MenuButton
             items={['save', 'save as new', 'discard']}
-            width={200}
+            width={150}
             RTL
           />
         </DemoWidget>

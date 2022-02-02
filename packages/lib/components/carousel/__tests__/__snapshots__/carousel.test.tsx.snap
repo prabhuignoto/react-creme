@@ -54,7 +54,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
       <span
         class="rc-carousel-btn rc-carousel-btn-left rc-carousel-btn-horizontal rc-carousel-btn-hide"
       >
-        <button
+        <div
           aria-label="Previous"
           class="rc-btn-md rc-btn-icon rc-btn"
           role="button"
@@ -82,7 +82,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
             class="rc-focus-ring"
             style="width: 6px; height: 6px;"
           />
-        </button>
+        </div>
       </span>
       <ul
         class="rc-carousel-track rc-carousel-track-horizontal"
@@ -100,7 +100,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
       <span
         class="rc-carousel-btn rc-carousel-btn-right rc-carousel-btn-horizontal"
       >
-        <button
+        <div
           aria-label="Next"
           class="rc-btn-md rc-btn-icon rc-btn"
           role="button"
@@ -128,7 +128,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
             class="rc-focus-ring"
             style="width: 6px; height: 6px;"
           />
-        </button>
+        </div>
       </span>
     </div>
   </div>

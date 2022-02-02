@@ -50,7 +50,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
 
   return (
     <div className={menuButtonClass} style={menuStyle}>
-      <Button label={items[0]} border={false} focusable={focusable} />
+      <Button label={items[0]} border={false} focusable={focusable} size="sm" />
       <Menu
         items={menuItems.current}
         focusable={focusable}
