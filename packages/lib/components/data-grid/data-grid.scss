@@ -12,8 +12,9 @@ $comfortable-row-height: 50px;
   width: 100%;
 
   &.rc-data-grid-border {
-    @extend %border-radius;
-    @extend %shadow-small;
+    // @extend %border-radius;
+    @extend %border;
+    // @extend %shadow-small;
   }
 }
 

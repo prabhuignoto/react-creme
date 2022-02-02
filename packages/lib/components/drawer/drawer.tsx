@@ -1,16 +1,10 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import {
-  CSSProperties,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
 import { CloseIcon } from '../../icons';
 import { Button } from '../button/button';
 import { useKey } from '../common/effects/useKey';
+import useTrapFocus from '../common/effects/useTrapFocus';
 import { withOverlay } from '../common/withOverlay';
 import { DrawerProps } from './drawer-model';
 import './drawer.scss';
@@ -26,8 +20,13 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   focusable = true,
 }) => {
   const [activate, setActivate] = useState(false);
-  const drawerRef = useRef<HTMLDivElement | null>(null);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
+
+  const {
+    onInit,
+    targetRef: drawerRef,
+    handleKeyDown,
+  } = useTrapFocus<HTMLDivElement>(200);
 
   const style = useMemo<CSSProperties>(() => {
     let newHeight: string | number = '100%';
@@ -60,21 +59,15 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
     useKey(drawerRef, onClose);
   }
 
-  const onInitRef = useCallback(node => {
-    if (node) {
-      drawerRef.current = node;
-      setTimeout(() => buttonRef.current?.focus(), 200);
-    }
-  }, []);
-
   return (
     <div
       className={drawerClass}
       style={style}
-      ref={onInitRef}
+      ref={onInit}
       tabIndex={0}
       role="dialog"
       aria-modal="true"
+      onKeyDown={handleKeyDown}
     >
       <div className="rc-drawer-close-btn-wrapper">
         <Button

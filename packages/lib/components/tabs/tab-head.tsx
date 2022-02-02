@@ -51,7 +51,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         return;
       }
       if (selected && parentHasFocus) {
-        // ref.current?.focus();
+        ref.current?.focus();
       }
     }, [selected, parentHasFocus]);
 

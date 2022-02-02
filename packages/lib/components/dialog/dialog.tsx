@@ -5,6 +5,7 @@ import { useCallback, useMemo, useRef } from 'react';
 import { CheckIcon, CloseIcon } from '../../icons';
 import { Button } from '../button/button';
 import { useFocus } from '../common/effects/useFocus';
+import useTrapFocus from '../common/effects/useTrapFocus';
 import { withOverlay } from '../common/withOverlay';
 import { DialogProps } from './dialog-model';
 import './dialog.scss';
@@ -21,8 +22,14 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   focusable = true,
   animationType = 'pop',
 }: DialogProps) => {
-  const dialogRef = useRef<HTMLDivElement | null>(null);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  // const dialogRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
+
+  const {
+    onInit,
+    handleKeyDown,
+    targetRef: dialogRef,
+  } = useTrapFocus<HTMLDivElement>(200, onOpen);
 
   const dialogClass = useMemo(
     () =>
@@ -50,16 +57,16 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     onClose?.();
   }, []);
 
-  const onDialogRef = useCallback((node: HTMLDivElement) => {
-    dialogRef.current = node;
-    onOpen?.();
+  // const onDialogRef = useCallback((node: HTMLDivElement) => {
+  //   dialogRef.current = node;
+  //   onOpen?.();
 
-    setTimeout(() => {
-      if (focusable) {
-        buttonRef.current?.focus();
-      }
-    }, 100);
-  }, []);
+  //   setTimeout(() => {
+  //     if (focusable) {
+  //       buttonRef.current?.focus();
+  //     }
+  //   }, 100);
+  // }, []);
 
   if (focusable) {
     useFocus(dialogRef);
@@ -68,10 +75,12 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   return (
     <div
       className={dialogClass}
-      ref={onDialogRef}
+      // ref={onDialogRef}
+      ref={onInit}
       role="dialog"
       aria-labelledby={id.current}
       style={style}
+      onKeyDown={handleKeyDown}
     >
       <header className="rc-dialog-header">
         <h2 className="rc-dialog-title" id={id.current}>
