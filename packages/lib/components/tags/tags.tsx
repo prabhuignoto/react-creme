@@ -26,6 +26,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   placeholder = '',
   focusable = true,
   accent = 'flat',
+  wrap = true,
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemProps[]>(
@@ -119,9 +120,10 @@ const Tags: React.FunctionComponent<TagsProps> = ({
 
   return (
     <ul
-      className={classNames('rc-tags-wrap', {
+      className={classNames('rc-tags-wrapper', {
         'rc-tags-disabled': disabled,
         'rc-tags-rtl': RTL,
+        'rc-tags-wrap': wrap,
       })}
       role="list"
       style={style}

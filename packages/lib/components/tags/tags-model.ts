@@ -20,6 +20,7 @@ export interface TagsProps {
   tagSize?: 'sm' | 'md' | 'lg';
   tagStyle?: 'default' | 'fill';
   tagWidth?: number;
+  wrap?: boolean;
 }
 
 export type TagItemProps = Pick<

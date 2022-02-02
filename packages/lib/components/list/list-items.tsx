@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { ListItem } from './list-item';
-import { ListOption, ListItemsProps } from './list-model';
+import { ListItemsProps, ListOption } from './list-model';
 import './list.scss';
 
 const ListItems: React.FunctionComponent<ListItemsProps> = ({

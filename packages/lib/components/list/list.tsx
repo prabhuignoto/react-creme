@@ -63,6 +63,7 @@ const List: React.FunctionComponent<ListProps> = ({
     if (listRef.current) {
       listRef.current.scrollTop = 0;
     }
+
     setListOptions(prev => {
       let updated = [];
 
@@ -192,6 +193,7 @@ const List: React.FunctionComponent<ListProps> = ({
             controlled
             RTL={RTL}
             focusable={focusable}
+            placeholder="Search ..."
           >
             <SearchIcon />
           </Input>

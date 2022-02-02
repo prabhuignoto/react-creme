@@ -21,18 +21,6 @@
   transition: max-height 0.5s ease-in;
 }
 
-.rc-dropdown-multi.rc-dropdown-rtl {
-  .rc-dropdown-clear-icon {
-    margin-right: auto;
-  }
-}
-
-.rc-dropdown-multi:not(.rc-dropdown-rtl) {
-  .rc-dropdown-clear-icon {
-    margin-left: auto;
-  }
-}
-
 .rc-dropdown-single {
   .rc-dropdown-chevron-icon {
     margin-left: auto;

@@ -8,8 +8,6 @@
   @extend %shadow-inset-small;
 
   align-items: center;
-
-  align-items: center;
   cursor: pointer;
   font-size: 14px;
   height: 100%;
@@ -34,17 +32,17 @@
     height: 35px;
   }
 
-  &.rc-dropdown-rtl:not(.rc-dropdown-multi) {
+  &.rc-dropdown-rtl {
     display: grid;
-    grid-template-columns: 2rem 1rem calc(100% - 3rem);
+    grid-template-columns: 2rem 2rem calc(100% - 4rem);
   }
 
-  &:not(.rc-dropdown-rtl):not(.rc-dropdown-multi):not(.rc-dropdown-with-clear) {
+  &:not(.rc-dropdown-rtl):not(.rc-dropdown-with-clear) {
     display: grid;
     grid-template-columns: calc(100% - 2rem) 2rem;
   }
 
-  &:not(.rc-dropdown-rtl):not(.rc-dropdown-multi).rc-dropdown-with-clear {
+  &:not(.rc-dropdown-rtl).rc-dropdown-with-clear {
     display: grid;
     grid-template-columns: calc(100% - 4rem) 2rem 2rem;
   }
@@ -108,5 +106,6 @@
 }
 
 .rc-dropdown-tags-wrapper {
+  overflow: hidden;
   padding-left: 0.25rem;
 }

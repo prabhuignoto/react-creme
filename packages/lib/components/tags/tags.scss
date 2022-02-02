@@ -13,16 +13,21 @@ $padding-sizes: (
   lg: 0.75rem,
 );
 
-.rc-tags-wrap {
-  @extend %list-wrap;
-  flex-wrap: wrap;
-
+.rc-tags-wrapper {
   &.rc-tags-rtl {
     direction: rtl;
   }
 
   &.rc-tags-disabled {
     @extend %disabled;
+  }
+
+  &.rc-tags-wrap {
+    @extend %list-wrap;
+  }
+
+  &:not(.rc-tags-wrap) {
+    @extend %list-horizontal-left;
   }
 }
 

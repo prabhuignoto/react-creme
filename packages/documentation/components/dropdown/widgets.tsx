@@ -21,7 +21,7 @@ function Widgets() {
     }
 
     if (media.isExtraLargeScreen) {
-      setWidth(400);
+      setWidth(500);
     } else if (media.isTablet) {
       setWidth(400);
     } else if (media.isMobile) {
@@ -29,16 +29,14 @@ function Widgets() {
     } else if (media.isBigScreen) {
       setWidth(350);
     } else if (media.isDesktop) {
-      setWidth(350);
+      setWidth(400);
     }
   }, [media]);
   return (
     width && (
       <div className="rc-demo-widgets">
         <Section title="Single selection">
-          <DemoWidget>
-            <div style={{ width: `${width}px` }}>{SingleSelection}</div>
-          </DemoWidget>
+          <DemoWidget width={width}>{SingleSelection}</DemoWidget>
         </Section>
         <Section title="Multi selection">
           <BlockQuote>
