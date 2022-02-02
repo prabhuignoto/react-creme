@@ -10,6 +10,7 @@ import './dropdown.scss';
 
 const DropdownMenuOverlay = withOverlay<DropdownMenuProps>(DropDownMenu, {
   backdropColor: 'transparent',
+  // disableBackdrop: true,
 });
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
@@ -113,7 +114,6 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const handleMenuClose = useCallback(() => {
       setShowMenu(false);
       setMenuClosing(false);
-      setFocusManual(true);
       setFocusIndex(-1);
     }, []);
 
@@ -130,6 +130,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     // handles the menu closing
     const handleMenuClosing = useCallback(() => {
       setMenuClosing(true);
+      setFocusManual(true);
     }, []);
 
     /**

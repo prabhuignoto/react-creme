@@ -24,7 +24,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
     disableIcon = false,
     iconType = 'chevron',
     expanded = null,
-    focusable = false,
+    focusable = true,
     iconColor,
     id,
     isTitleBold = false,

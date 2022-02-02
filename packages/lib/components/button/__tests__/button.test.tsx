@@ -1,6 +1,5 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { vi } from 'vitest';
 import { Button } from '../button';
 
@@ -61,9 +60,7 @@ describe('Button', () => {
       <Button label="My Button" onClick={handler} />
     );
 
-    await act(async () => {
-      fireEvent.keyDown(getByText('My Button'), { key: 'Enter' });
-    });
+    fireEvent.keyDown(getByText('My Button'), { key: 'Enter' });
 
     await waitFor(() => {
       expect(handler).toBeCalled();

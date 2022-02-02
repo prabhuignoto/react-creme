@@ -1,4 +1,4 @@
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { vi } from 'vitest';
@@ -30,9 +30,7 @@ describe('List', () => {
       .firstChild as HTMLElement;
 
     if (target) {
-      await act(async () => {
-        userEvent.click(target);
-      });
+      userEvent.click(target);
 
       await waitFor(async () => {
         expect(handler).toBeCalled();
@@ -48,12 +46,10 @@ describe('List', () => {
     if (input) {
       expect(input).toBeInTheDocument();
 
-      await act(async () => {
-        fireEvent.change(input, {
-          target: {
-            value: 'usa',
-          },
-        });
+      fireEvent.change(input, {
+        target: {
+          value: 'usa',
+        },
       });
 
       await waitFor(
@@ -65,12 +61,10 @@ describe('List', () => {
         }
       );
 
-      await act(async () => {
-        fireEvent.change(input, {
-          target: {
-            value: '',
-          },
-        });
+      fireEvent.change(input, {
+        target: {
+          value: '',
+        },
       });
 
       await waitFor(

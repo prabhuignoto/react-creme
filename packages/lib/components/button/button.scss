@@ -4,6 +4,7 @@
 @use '../../design/button.scss';
 @use '../../design/font.scss';
 @use '../../design/animate.scss';
+@use 'sass:map';
 
 $types: (primary, default, danger);
 $sizes: (sm, md, lg);
@@ -20,6 +21,10 @@ $sizes: (sm, md, lg);
   &.rc-btn-no-border {
     border: 0;
     box-shadow: none;
+  }
+
+  &:not(.rc-btn-icon) {
+    min-width: 50px;
   }
 }
 

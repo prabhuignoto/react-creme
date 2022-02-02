@@ -5,7 +5,6 @@
 @use '../../design/animations.scss';
 
 .rc-dialog {
-
   $animations: (pop, drop);
   @extend %col;
   @extend %border;
@@ -50,7 +49,7 @@
   margin-top: auto;
   width: 100%;
 
-  button:first-of-type {
+  [role='button']:first-of-type {
     margin-right: 0.5rem;
   }
 }

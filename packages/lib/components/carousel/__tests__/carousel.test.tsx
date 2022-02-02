@@ -1,5 +1,4 @@
-import { act, render, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { Carousel } from '../carousel';
 

@@ -1,10 +1,9 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { CheckBox } from '../checkbox/checkbox';
 import { CheckboxProps } from '../checkbox/checkbox-model';
-import { useFirstRender } from '../common/effects/useFirstRender';
 import './checkbox-group.scss';
 
 export interface CheckboxGroupProps {
@@ -54,7 +53,11 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   );
 
   const handleChange = useCallback(
-    (id: string, name: string, selected: boolean) => {
+    (id?: string, selected = false) => {
+      if (!id) {
+        return;
+      }
+
       setItems(items => {
         const _newItems = items.map(item => {
           return {
@@ -63,25 +66,19 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
           };
         });
 
+        onChange?.(
+          _newItems.map(item => ({
+            id: item.id,
+            isChecked: item.isChecked,
+            name: item.label,
+          }))
+        );
+
         return _newItems;
       });
     },
-    []
+    [items.length]
   );
-
-  useEffect(() => {
-    if (!isFirstRender.current) {
-      onChange?.(
-        items.map(item => ({
-          id: item.id,
-          isChecked: item.isChecked,
-          name: item.label,
-        }))
-      );
-    }
-  }, [JSON.stringify(items.map(i => i.isChecked))]);
-
-  const isFirstRender = useFirstRender();
 
   return (
     <div className={wrapperClass} role="group">

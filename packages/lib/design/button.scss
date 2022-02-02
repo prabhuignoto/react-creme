@@ -78,14 +78,14 @@
 
   &:not(.rc-btn-icon) {
     @if $size == small {
-      height: 35px;
-      padding: calc(35px * 0.25);
+      height: 20px;
+      padding: calc(20px * 0.25);
     } @else if $size == large {
-      height: 45px;
-      padding: calc(55px * 0.25);
+      height: 30px;
+      padding: calc(30px * 0.25);
     } @else if $size == medium {
-      height: 40px;
-      padding: calc(45px * 0.25);
+      height: 25px;
+      padding: calc(25px * 0.25);
     }
   }
 

@@ -75,7 +75,6 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
 
   useEffect(() => {
     if (focus) {
-      console.log('setting focus');
       containerRef?.current?.focus();
     }
   }, [focus]);

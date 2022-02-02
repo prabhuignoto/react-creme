@@ -1,5 +1,6 @@
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
+import vi from 'vitest';
 import { Drawer } from '../drawer';
 
 describe('Drawer', () => {
@@ -54,12 +55,12 @@ describe('Drawer', () => {
       </Drawer>
     );
 
-    await act(async () => {
-      fireEvent.keyUp(getByRole('dialog'), {
-        key: 'Escape',
-        keyCode: 'Escape',
-      });
+    fireEvent.keyUp(getByRole('dialog'), {
+      key: 'Escape',
+      keyCode: 'Escape',
     });
+    // await act(async () => {
+    // });
 
     await waitFor(
       async () => {
@@ -69,5 +70,17 @@ describe('Drawer', () => {
         timeout: 1000,
       }
     );
+  });
+
+  it('should close button has focus on load', async () => {
+    const { getAllByRole } = render(
+      <Drawer>
+        <span>content</span>
+      </Drawer>
+    );
+
+    await waitFor(() => {
+      expect(getAllByRole('button')[0]).toHaveFocus();
+    });
   });
 });

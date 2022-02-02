@@ -31,7 +31,7 @@ export const MultiSelection = (
         name: 'germany',
         value: 'germany',
       },
-      { name: 'india', value: 'india' },
+      { name: 'india', selected: true, value: 'india' },
       { name: 'usa', value: 'usa' },
       { name: 'uk', selected: true, value: 'uk' },
       {

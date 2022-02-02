@@ -1,6 +1,5 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { Tabs } from '../tabs';
 
 describe('Tabs', () => {
@@ -27,9 +26,7 @@ describe('Tabs', () => {
 
     expect(getByText('one content')).toBeInTheDocument();
 
-    await act(async () => {
-      fireEvent.click(getByText('two'));
-    });
+    fireEvent.click(getByText('two'));
 
     await waitFor(async () => {
       expect(getByText('two')).toBeInTheDocument();

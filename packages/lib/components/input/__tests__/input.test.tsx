@@ -1,4 +1,4 @@
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { Input } from '../input';
@@ -24,20 +24,14 @@ describe('Input', () => {
     const { getByPlaceholderText } = render(<Input onChange={handler} />);
     const input = getByPlaceholderText('Please enter a value ...');
 
-    await act(async () => {
-      fireEvent.change(input, {
-        target: {
-          value: 'test',
-        },
-      });
+    fireEvent.change(input, {
+      target: {
+        value: 'test',
+      },
     });
 
-    await act(async () => new Promise((resolve) => setTimeout(resolve, 100)));
-
-    await act(async () => {
-      fireEvent.keyUp(input, {
-        key: 'E',
-      });
+    fireEvent.keyUp(input, {
+      key: 'E',
     });
 
     await waitFor(() => expect(handler).toBeCalled());
@@ -47,9 +41,7 @@ describe('Input', () => {
     const handler = vi.fn();
     const { getByRole } = render(<Input onChange={handler} enableClear />);
 
-    await act(async () => {
-      fireEvent.mouseDown(getByRole('button'));
-    });
+    fireEvent.mouseDown(getByRole('button'));
 
     await waitFor(async () => expect(handler).toBeCalledWith(''));
   });

@@ -37,7 +37,6 @@ export default {
         'react-dom': 'ReactDOM',
       },
       name: OUTPUT_NAME,
-      sourcemap: true,
       strict: true,
     },
     {
@@ -50,7 +49,6 @@ export default {
         'react-dom': 'ReactDOM',
       },
       name: OUTPUT_NAME,
-      sourcemap: true,
       strict: true,
     },
   ],

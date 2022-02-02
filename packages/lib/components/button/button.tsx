@@ -1,22 +1,24 @@
+/* eslint-disable react/prop-types */
 import classNames from 'classnames';
 import * as React from 'react';
-import { useMemo, useRef } from 'react';
+import { useImperativeHandle, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { CircularProgress } from '../progress/circular-progress';
 import { ButtonProps } from './button-model';
 import './button.scss';
 
-const Button: React.FunctionComponent<ButtonProps> = ({
-  border = true,
-  children,
-  disabled = false,
-  focusable = true,
-  type = 'default',
-  label = '',
-  onClick,
-  size = 'md',
-  style = {},
-}) => {
+const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
+  const {
+    border = true,
+    children,
+    disabled = false,
+    focusable = true,
+    type = 'default',
+    label = '',
+    onClick,
+    size = 'md',
+    style = {},
+  } = props;
   // classes
   const buttonClass = useMemo(
     () =>
@@ -32,11 +34,21 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   );
 
   // setup for focus
-  const ref = useRef(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
+
+  useImperativeHandle(
+    ref,
+    () =>
+      ({
+        focus: () => {
+          buttonRef.current?.focus();
+        },
+      } as HTMLDivElement)
+  );
 
   if (focusable) {
     // useFocusNew(ref, onClick);
-    useFocusNew(ref);
+    useFocusNew(buttonRef);
   }
 
   const focusableProps = useMemo(
@@ -49,11 +61,15 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   // handler for button click
   const handleClick = () => !disabled && onClick?.();
 
+  const handleKeyUp = (ev: React.KeyboardEvent) =>
+    ev.key === 'Enter' && handleClick();
+
   return (
-    <button
+    <div
       className={buttonClass}
       onClick={handleClick}
-      ref={ref}
+      onKeyUp={handleKeyUp}
+      ref={buttonRef}
       role="button"
       style={style}
       {...focusableProps}
@@ -68,9 +84,9 @@ const Button: React.FunctionComponent<ButtonProps> = ({
       {label && type !== 'icon' && (
         <span className="rc-btn-label">{label}</span>
       )}
-    </button>
+    </div>
   );
-};
+});
 
 Button.displayName = 'Button';
 

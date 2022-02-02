@@ -14,7 +14,7 @@
   overflow: hidden;
   top: 0;
   transition: opacity 0.25s ease;
-  z-index: 99999;
+  z-index: 9999;
 
   &.rc-overlay-contained {
     height: 100%;
@@ -32,6 +32,10 @@
   &.rc-overlay-hide {
     opacity: 0;
   }
+}
+
+.rc-overlay-content-wrapper {
+  z-index: 99999;
 }
 
 .rc-overlay-close-btn {

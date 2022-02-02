@@ -1,4 +1,4 @@
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { Rate } from '../rate';
@@ -41,9 +41,7 @@ describe('Rate', () => {
     const onChange = vi.fn();
     const { getAllByRole } = render(<Rate onChange={onChange} />);
 
-    await act(async () => {
-      fireEvent.mouseOver(getAllByRole('radio')[2]);
-    });
+    fireEvent.mouseOver(getAllByRole('radio')[2]);
 
     await waitFor(() => {
       const radios = getAllByRole('radio').slice(0, 3);

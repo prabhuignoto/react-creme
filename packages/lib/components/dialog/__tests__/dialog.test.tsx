@@ -1,4 +1,4 @@
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { Dialog } from '../dialog';
@@ -31,9 +31,7 @@ describe('Dialog', () => {
 
     expect(queryByRole('dialog')).toBeInTheDocument();
 
-    await act(async () => {
-      fireEvent.click(getByText('cancel'));
-    });
+    fireEvent.click(getByText('cancel'));
 
     await waitFor(
       async () => {
