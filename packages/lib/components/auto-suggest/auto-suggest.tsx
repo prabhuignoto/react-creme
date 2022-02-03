@@ -3,7 +3,6 @@ import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import useDeepCompareEffect from 'use-deep-compare-effect';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { OverlayModel } from '../common/overlay-model';
@@ -58,7 +57,8 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
 const SuggestionsMenuOverlay = withOverlay<SuggestionsOverlayModel>(
   SuggestionsMenu,
   {
-    disableBackdrop: true,
+    backdropColor: 'transparent',
+    // disableBackdrop: true,
     placement: 'bottom',
   }
 );
@@ -173,7 +173,7 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
     }
   }, [value]);
 
-  useDeepCompareEffect(() => {
+  useEffect(() => {
     if (!isFirstRender.current && suggestions.length) {
       setSuggestionItems(
         suggestions.map(({ name, value }) => ({
@@ -183,7 +183,7 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
         }))
       );
     }
-  }, [suggestions]);
+  }, [suggestions.length]);
 
   return (
     <div

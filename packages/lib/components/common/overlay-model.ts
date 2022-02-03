@@ -18,6 +18,7 @@ export interface OverlayModel extends OverlayCommon {
   isClosing?: boolean;
   overlayAnimation?: boolean;
   placement?: 'top' | 'bottom';
+  ref?: RefObject<HTMLElement | null>;
   showClose?: boolean;
 }
 

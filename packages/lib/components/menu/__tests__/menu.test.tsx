@@ -8,8 +8,8 @@ const onSelected = vi.fn();
 
 const items: MenuItemProps[] = [
   { name: 'one' },
-  { name: 'two' },
-  { name: 'three', disabled: true },
+  { name: 'two', disabled: true },
+  { name: 'three' },
 ];
 
 describe('Menu', () => {
@@ -72,9 +72,24 @@ describe('Menu', () => {
     fireEvent.click(getByText('icon'));
 
     await waitFor(() => {
-      expect(getByText('three')).toBeInTheDocument();
-      fireEvent.click(getByText('three'));
+      expect(getByText('two')).toBeInTheDocument();
+      fireEvent.click(getByText('two'));
       expect(handler).not.toBeCalled();
+    });
+  });
+
+  it('should focus on keyboard interactions', async () => {
+    const { getByText, getByRole } = render(
+      <Menu items={items} onSelected={onSelected}>
+        <span>icon</span>
+      </Menu>
+    );
+
+    fireEvent.click(getByText('icon'));
+
+    await waitFor(() => {
+      expect(getByRole('menu')).toBeInTheDocument();
+      // expect(getByText('one')).toHaveFocus();
     });
   });
 });

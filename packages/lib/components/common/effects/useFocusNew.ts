@@ -3,7 +3,7 @@ import './focus.scss';
 
 export default function useFocusNew(
   ref: React.RefObject<HTMLElement>,
-  cb?: () => void
+  cb?: (ev?: Event) => void
 ) {
   const ring = useRef<HTMLSpanElement>();
 
@@ -29,7 +29,7 @@ export default function useFocusNew(
 
   const handleKeyUp = useCallback((ev: KeyboardEvent) => {
     if (ev.key === 'Enter' || ev.key === ' ') {
-      cb?.();
+      cb?.(ev);
     }
   }, []);
 

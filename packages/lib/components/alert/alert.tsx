@@ -8,7 +8,7 @@ import {
   InfoIcon,
   WarningIcon,
 } from '../../icons';
-import { useFocus } from '../common/effects/useFocus';
+import useFocus from '../common/effects/useFocusNew';
 import { AlertProps } from './alert-model';
 import './alert.scss';
 

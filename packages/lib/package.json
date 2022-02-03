@@ -37,8 +37,7 @@
     "fast-deep-equal": "^3.1.3",
     "hex-rgb": "^5.0.0",
     "nanoid": "^3.2.0",
-    "use-debounce": "^7.0.1",
-    "use-deep-compare-effect": "^1.8.1"
+    "use-debounce": "^7.0.1"
   },
   "peerDependencies": {
     "react": "^17.0.2",

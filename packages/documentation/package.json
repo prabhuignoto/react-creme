@@ -36,8 +36,7 @@
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
     "resize-observer-polyfill": "^1.5.1",
-    "use-debounce": "^7.0.1",
-    "vite": "^2.7.13"
+    "use-debounce": "^7.0.1"
   },
   "devDependencies": {
     "@axe-core/react": "^4.3.2",
@@ -80,6 +79,7 @@
     "stylelint-scss": "^4.1.0",
     "typescript": "^4.5.5",
     "use-timer": "^2.0.1",
+    "vite": "2.6.13",
     "vite-plugin-react-svg": "^0.2.0",
     "vite-plugin-svgr": "^1.0.1"
   },

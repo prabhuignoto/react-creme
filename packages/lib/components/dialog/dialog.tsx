@@ -4,7 +4,6 @@ import * as React from 'react';
 import { useCallback, useMemo, useRef } from 'react';
 import { CheckIcon, CloseIcon } from '../../icons';
 import { Button } from '../button/button';
-import { useFocus } from '../common/effects/useFocus';
 import useTrapFocus from '../common/effects/useTrapFocus';
 import { withOverlay } from '../common/withOverlay';
 import { DialogProps } from './dialog-model';
@@ -22,7 +21,6 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   focusable = true,
   animationType = 'pop',
 }: DialogProps) => {
-  // const dialogRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
   const {
@@ -57,25 +55,9 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     onClose?.();
   }, []);
 
-  // const onDialogRef = useCallback((node: HTMLDivElement) => {
-  //   dialogRef.current = node;
-  //   onOpen?.();
-
-  //   setTimeout(() => {
-  //     if (focusable) {
-  //       buttonRef.current?.focus();
-  //     }
-  //   }, 100);
-  // }, []);
-
-  if (focusable) {
-    useFocus(dialogRef);
-  }
-
   return (
     <div
       className={dialogClass}
-      // ref={onDialogRef}
       ref={onInit}
       role="dialog"
       aria-labelledby={id.current}

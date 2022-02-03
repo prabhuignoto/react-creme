@@ -162,4 +162,52 @@ describe('Dropdown', () => {
       expect(container.querySelectorAll('.rc-tag').length).toBe(0);
     });
   });
+
+  it('should first element have the focus', async () => {
+    const { getByText, getByRole, getAllByRole } = render(
+      <Dropdown
+        options={options}
+        placeholder="select a option"
+        allowMultiSelection={true}
+      />
+    );
+
+    fireEvent.click(getByText('select a option'));
+
+    await waitFor(() => {
+      expect(getByRole('listbox')).toBeInTheDocument();
+      expect(getAllByRole('option')).toHaveLength(5);
+      expect(getAllByRole('option')[1]).toHaveFocus();
+    });
+  });
+
+  it('should focus change on keyboard interaction', async () => {
+    const { getByText, getByRole, getAllByRole } = render(
+      <Dropdown
+        options={options}
+        placeholder="select a option"
+        allowMultiSelection={true}
+      />
+    );
+
+    fireEvent.click(getByText('select a option'));
+
+    await waitFor(() => {
+      expect(getByRole('listbox')).toBeInTheDocument();
+      expect(getAllByRole('option')).toHaveLength(5);
+      expect(getAllByRole('option')[1]).toHaveFocus();
+    });
+
+    fireEvent.keyDown(getByRole('listbox'), {
+      key: 'ArrowDown',
+    });
+
+    expect(getAllByRole('option')[2]).toHaveFocus();
+
+    fireEvent.keyDown(getByRole('listbox'), {
+      key: 'ArrowUp',
+    });
+
+    expect(getAllByRole('option')[1]).toHaveFocus();
+  });
 });

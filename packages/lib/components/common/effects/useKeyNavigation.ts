@@ -17,6 +17,7 @@ function useKeyNavigation(
       }
 
       const _listRef = listRef.current;
+      e.preventDefault();
 
       if (e.key === 'ArrowDown') {
         setSelection(prev => {

@@ -16,9 +16,9 @@
   height: 100%;
   position: relative;
 
-  &.rc-menu-not-focusable {
-    outline: 0;
-  }
+  // &.rc-menu-not-focusable {
+  //   outline: 0;
+  // }
 }
 
 .rc-menu {
@@ -28,6 +28,7 @@
   background: colors.$white;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   min-width: 150px;
+  outline: none;
 }
 
 .rc-menu-overlay-wrapper {

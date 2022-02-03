@@ -1,4 +1,4 @@
-import "@testing-library/jest-dom";
+import '@testing-library/jest-dom';
+import ResizeObserver from 'resize-observer-polyfill';
 
-import ResizeObserver from "resize-observer-polyfill";
-window.ResizeObserver = ResizeObserver;
+global.ResizeObserver = ResizeObserver;

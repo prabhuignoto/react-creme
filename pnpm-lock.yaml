@@ -130,7 +130,7 @@ importers:
       typescript: ^4.5.5
       use-debounce: ^7.0.1
       use-timer: ^2.0.1
-      vite: ^2.7.13
+      vite: 2.6.13
       vite-plugin-react-svg: ^0.2.0
       vite-plugin-svgr: ^1.0.1
     dependencies:
@@ -150,7 +150,6 @@ importers:
       react-router-dom: 6.2.1_757a802188413a36d4f24237d13b8e90
       resize-observer-polyfill: 1.5.1
       use-debounce: 7.0.1_react@18.0.0-rc.0
-      vite: 2.7.13_sass@1.49.7
     devDependencies:
       '@axe-core/react': 4.3.2
       '@babel/core': 7.17.0
@@ -192,8 +191,9 @@ importers:
       stylelint-scss: 4.1.0_stylelint@14.3.0
       typescript: 4.5.5
       use-timer: 2.0.1_757a802188413a36d4f24237d13b8e90
-      vite-plugin-react-svg: 0.2.0_@babel+core@7.17.0+vite@2.7.13
-      vite-plugin-svgr: 1.0.1_vite@2.7.13
+      vite: 2.6.13_sass@1.49.7
+      vite-plugin-react-svg: 0.2.0_@babel+core@7.17.0+vite@2.6.13
+      vite-plugin-svgr: 1.0.1_vite@2.6.13
 
   packages/lib:
     specifiers:
@@ -259,7 +259,6 @@ importers:
       ts-toolbelt: ^9.6.0
       typescript: ^4.5.5
       use-debounce: ^7.0.1
-      use-deep-compare-effect: ^1.8.1
       vite: ^2.7.13
       vitest: ^0.2.6
     dependencies:
@@ -268,7 +267,6 @@ importers:
       hex-rgb: 5.0.0
       nanoid: 3.2.0
       use-debounce: 7.0.1
-      use-deep-compare-effect: 1.8.1
     devDependencies:
       '@babel/core': 7.17.0
       '@babel/plugin-proposal-optional-chaining': 7.16.7_@babel+core@7.17.0
@@ -7588,11 +7586,6 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /dequal/2.0.2:
-    resolution: {integrity: sha512-q9K8BlJVxK7hQYqa6XISGmBZbtQQWVXSrRrWreHC94rMt1QL/Impruc+7p2CYSYuVIUr+YCt6hjrs1kkdJRTug==}
-    engines: {node: '>=6'}
-    dev: false
-
   /des.js/1.0.1:
     resolution: {integrity: sha512-Q0I4pfFrv2VPd34/vfLrFOoRmlYj3OV50i7fskps1jZWK1kApMWWT9G6RRUeYedLcBDIhnSDaUvJMb3AhUlaEA==}
     dependencies:
@@ -7989,6 +7982,7 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-android-arm64/0.14.18:
@@ -8005,6 +7999,7 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-darwin-64/0.14.18:
@@ -8021,6 +8016,7 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-darwin-arm64/0.14.18:
@@ -8037,6 +8033,7 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-freebsd-64/0.14.18:
@@ -8053,6 +8050,7 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-freebsd-arm64/0.14.18:
@@ -8069,6 +8067,7 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-32/0.14.18:
@@ -8085,6 +8084,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-64/0.14.18:
@@ -8101,6 +8101,7 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-arm/0.14.18:
@@ -8117,6 +8118,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-arm64/0.14.18:
@@ -8133,6 +8135,7 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-mips64le/0.14.18:
@@ -8149,6 +8152,7 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-ppc64le/0.14.18:
@@ -8174,6 +8178,7 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-netbsd-64/0.14.18:
@@ -8190,6 +8195,7 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-openbsd-64/0.14.18:
@@ -8206,6 +8212,7 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-sunos-64/0.14.18:
@@ -8222,6 +8229,7 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-32/0.14.18:
@@ -8238,6 +8246,7 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-64/0.14.18:
@@ -8254,6 +8263,7 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-arm64/0.14.18:
@@ -8287,6 +8297,7 @@ packages:
       esbuild-windows-32: 0.13.15
       esbuild-windows-64: 0.13.15
       esbuild-windows-arm64: 0.13.15
+    dev: true
 
   /esbuild/0.14.18:
     resolution: {integrity: sha512-vCUoISSltnX7ax01w70pWOSQT+e55o+2P/a+A9MSTukJAt3T4aDZajcjeG4fnZbkvOEv+dkKgdkvljz6vVQD4A==}
@@ -9267,6 +9278,7 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -14065,6 +14077,7 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /rsvp/4.8.5:
     resolution: {integrity: sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==}
@@ -15890,16 +15903,6 @@ packages:
       react: 18.0.0-rc.0
     dev: false
 
-  /use-deep-compare-effect/1.8.1:
-    resolution: {integrity: sha512-kbeNVZ9Zkc0RFGpfMN3MNfaKNvcLNyxOAAd9O4CBZ+kCBXXscn9s/4I+8ytUER4RDpEYs5+O6Rs4PqiZ+rHr5Q==}
-    engines: {node: '>=10', npm: '>=6'}
-    peerDependencies:
-      react: '>=16.13'
-    dependencies:
-      '@babel/runtime': 7.16.7
-      dequal: 2.0.2
-    dev: false
-
   /use-isomorphic-layout-effect/1.1.1_react@17.0.2:
     resolution: {integrity: sha512-L7Evj8FGcwo/wpbv/qvSfrkHFtOpCzvM5yl2KVyDJoylVuSvzphiiasmjgQPttIGBAy2WKiBNR98q8w7PiNgKQ==}
     peerDependencies:
@@ -16033,7 +16036,7 @@ packages:
       vfile-message: 2.0.4
     dev: true
 
-  /vite-plugin-react-svg/0.2.0_@babel+core@7.17.0+vite@2.7.13:
+  /vite-plugin-react-svg/0.2.0_@babel+core@7.17.0+vite@2.6.13:
     resolution: {integrity: sha512-Qza30GSMb9SBp9Ma5Bq1O/GmZzkB97Tn6JJGPonuJ2h8NRZWESK69ux9lZHcdqekLnVxvDxabcJVOrygAeSyxQ==}
     peerDependencies:
       vite: ^2.0.0-beta.61
@@ -16042,21 +16045,46 @@ packages:
       '@svgr/core': 5.5.0
       '@svgr/plugin-jsx': 5.5.0
       '@svgr/plugin-svgo': 5.5.0
-      vite: 2.7.13_sass@1.49.7
+      vite: 2.6.13_sass@1.49.7
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
     dev: true
 
-  /vite-plugin-svgr/1.0.1_vite@2.7.13:
+  /vite-plugin-svgr/1.0.1_vite@2.6.13:
     resolution: {integrity: sha512-7jHIC2Bi83KRwBB/b5FLcQdqWfzOSDVy7BtE9g4GXoY1axTZRKeqyWMEK3LCySQ70+BSYFtoSwHJaNLeqxjYlg==}
     peerDependencies:
       vite: ^2.6.0
     dependencies:
       '@svgr/core': 6.2.0
-      vite: 2.7.13_sass@1.49.7
+      vite: 2.6.13_sass@1.49.7
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vite/2.6.13_sass@1.49.7:
+    resolution: {integrity: sha512-+tGZ1OxozRirTudl4M3N3UTNJOlxdVo/qBl2IlDEy/ZpTFcskp+k5ncNjayR3bRYTCbqSOFz2JWGN1UmuDMScA==}
+    engines: {node: '>=12.2.0'}
+    hasBin: true
+    peerDependencies:
+      less: '*'
+      sass: '*'
+      stylus: '*'
+    peerDependenciesMeta:
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+    dependencies:
+      esbuild: 0.13.15
+      postcss: 8.4.6
+      resolve: 1.22.0
+      rollup: 2.67.0
+      sass: 1.49.7
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /vite/2.7.13_sass@1.49.7:
@@ -16082,6 +16110,7 @@ packages:
       sass: 1.49.7
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /vitest/0.2.6_d35042e26d0cbaa89a6e56c07f54c787:
     resolution: {integrity: sha512-qjjWJm+rpmqOmG3uSoFAh/8m9iZWzYmoWJTqqLKZYKRZSo0P+ibC05Atu8l1JRUrEgsgJIGot4JcPO4N42TX9Q==}

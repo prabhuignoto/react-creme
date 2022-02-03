@@ -1,8 +1,10 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, {
+  RefObject,
   useCallback,
   useEffect,
+  useImperativeHandle,
   useMemo,
   useRef,
   useState,
@@ -10,6 +12,7 @@ import React, {
 import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
+import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { OverlayModel } from '../common/overlay-model';
 import { withOverlay } from '../common/withOverlay';
 import { MenuItem } from './menu-item';
@@ -19,42 +22,69 @@ import './menu.scss';
 interface MenuInternalProps extends OverlayModel {
   items: MenuItemProps[];
   onSelection?: (val: string) => void;
+  ref?: RefObject<HTMLUListElement | null>;
 }
 
-const Menu: React.FunctionComponent<MenuInternalProps> = ({
-  items,
-  onSelection,
-}) => {
-  const menuClass = useMemo(() => classNames(['rc-menu'], {}), []);
+const Menu = React.forwardRef<HTMLUListElement, MenuInternalProps>(
+  (props, ref) => {
+    const { items, onSelection } = props;
+    const menuClass = useMemo(() => classNames(['rc-menu'], {}), []);
 
-  return (
-    <ul className={menuClass} role="menu">
-      {items.map(({ name, id, disabled }) => (
-        <MenuItem
-          name={name}
-          disabled={disabled}
-          handleSelection={onSelection}
-          key={id}
-        />
-      ))}
-    </ul>
-  );
-};
+    const listRef = useRef<HTMLUListElement | null>(null);
 
-const MenuOverlay = withOverlay<MenuInternalProps>(Menu, {
-  backdropColor: 'transparent',
-  placement: 'bottom',
-});
+    const { selection, setSelection } = useKeyNavigation(
+      listRef,
+      -1,
+      items.length
+    );
+
+    useImperativeHandle(ref, () => {
+      return {
+        focus: () => {
+          listRef.current?.focus();
+        },
+      } as HTMLUListElement;
+    });
+
+    useEffect(() => {
+      setSelection(0);
+    }, []);
+
+    return (
+      <ul className={menuClass} role="menu" ref={listRef} tabIndex={0}>
+        {items.map(({ name, id, disabled }, index) => (
+          <MenuItem
+            name={name}
+            disabled={disabled}
+            handleSelection={onSelection}
+            key={id}
+            focus={selection > -1 ? selection === index : index === 0}
+          />
+        ))}
+      </ul>
+    );
+  }
+);
+
+Menu.displayName = 'Menu';
+
+const MenuOverlay = withOverlay<MenuInternalProps>(
+  Menu as React.ForwardRefExoticComponent<MenuInternalProps>,
+  {
+    backdropColor: 'transparent',
+    placement: 'bottom',
+  }
+);
 
 const MenuContainer: React.FunctionComponent<MenuProps> = ({
   children,
+  focusable = true,
   id,
   items = [],
   onClose,
   onOpen,
   onSelected,
   position = 'left',
-  focusable = true,
   style,
 }: MenuProps) => {
   const [menuItems] = useState<MenuItemProps[]>(
@@ -65,7 +95,8 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
   );
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isFirstRender = useFirstRender();
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLUListElement | null>(null);
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -104,6 +135,7 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
     }
     setShowMenu(false);
     onClose?.();
+    wrapperRef.current?.focus();
   }, []);
 
   const onInitRef = useCallback(node => {
@@ -114,6 +146,7 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
 
   const closeMenu = useCallback(() => {
     setShowMenu(false);
+    wrapperRef.current?.focus();
   }, []);
 
   const menuContentWrapperClass = useMemo(
@@ -134,6 +167,12 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
     [focusable]
   );
 
+  const handleOnOpen = useCallback(() => {
+    if (containerRef) {
+      menuRef.current?.focus();
+    }
+  }, []);
+
   return (
     <div className="rc-menu-wrapper" style={style} ref={containerRef}>
       <div
@@ -152,7 +191,9 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
             placementReference={wrapperRef}
             placement="bottom"
             onClose={closeMenu}
+            onOpen={handleOnOpen}
             align={position}
+            ref={menuRef}
           />
         </div>
       )}

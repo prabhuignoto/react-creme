@@ -76,7 +76,7 @@
 
 .rc-alert-close-btn {
   @extend %icon-lg;
-  // @include animate.halo();
+
   align-self: flex-start;
   cursor: pointer;
   margin-top: 0.5rem;

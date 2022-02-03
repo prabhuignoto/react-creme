@@ -34,11 +34,6 @@
   }
 }
 
-.rc-overlay-content-wrapper {
-  // z-index: 99999;
-  // border: 1px solid red;
-}
-
 .rc-overlay-close-btn {
   @extend %icon-xl;
   @include position.position-abs('top right');
