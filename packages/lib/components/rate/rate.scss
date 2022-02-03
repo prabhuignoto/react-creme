@@ -31,7 +31,7 @@ $sizes: (
   }
 
   span {
-    @include animate.halo();
+    // // @include animate.halo();
     display: block;
     height: 100%;
     outline: 0;

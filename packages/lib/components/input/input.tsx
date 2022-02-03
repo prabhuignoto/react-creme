@@ -36,6 +36,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     style,
     type = 'text',
     value = '',
+    onFocus,
   } = props;
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -131,7 +132,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     if (focusable) {
       return {
         onBlur: () => setHasFocus(false),
-        onFocus: () => setHasFocus(true),
+        onFocus: (ev: React.FocusEvent) => {
+          setHasFocus(true);
+          onFocus?.(ev);
+        },
       };
     } else {
       return {};

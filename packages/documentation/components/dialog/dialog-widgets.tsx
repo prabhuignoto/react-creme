@@ -64,6 +64,7 @@ const Widget = () => {
                 height={250}
               >
                 <span>Test dialog content</span>
+                <Button label="test"></Button>
               </Dialog>
             )}
           </DemoWidget>

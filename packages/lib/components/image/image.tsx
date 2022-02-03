@@ -139,16 +139,22 @@ const Image: React.FunctionComponent<ImageProps> = ({
   }, [loaded]);
 
   const focusProps = useMemo(
-    () => (focusable && expandImageOnClick ? { tabIndex: 0 } : null),
+    () => (focusable && expandImageOnClick ? { tabindex: 0 } : {}),
     [focusable, expandImageOnClick]
   );
 
   if (focusable) {
-    useFocusNew(imageRef, handleOverlayOpen);
+    useFocusNew(wrapperRef, handleOverlayOpen);
   }
 
   return (
-    <div className={wrapperClass} style={style} ref={onWrapperRef}>
+    <div
+      className={wrapperClass}
+      style={style}
+      ref={onWrapperRef}
+      {...focusProps}
+      {...imageProps}
+    >
       <img
         src={src}
         onLoad={handleLoad}
@@ -159,7 +165,6 @@ const Image: React.FunctionComponent<ImageProps> = ({
         loading={loading}
         ref={onImageRef}
         style={imageStyle}
-        {...focusProps}
       />
       {showLoader && !loaded && (
         <span className="rc-image-load-icon-wrapper">

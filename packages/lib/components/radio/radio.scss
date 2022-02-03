@@ -41,11 +41,11 @@ $heights: (
   }
 
   &:not(.rc-radio-disabled):not(.rc-radio-rtl) {
-    @include animate.halo();
+    // // @include animate.halo();
   }
 
   &.rc-radio-rtl:not(.rc-radio-disabled) {
-    @include animate.halo(2px, 1px, true, true);
+    // @include animate.halo(2px, 1px, true, true);
   }
 
   &:hover:not(.rc-radio-disabled) {

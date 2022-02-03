@@ -148,7 +148,7 @@ $rounded-tabs-height: 45px;
 
 .rc-tab-header-label {
   @extend %left;
-  @include animate.halo(2px, 2px);
+  // @include animate.halo(2px, 2px);
   cursor: pointer;
   height: 90%;
   position: relative;

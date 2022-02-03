@@ -150,7 +150,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
       setTimeout(() => {
         onOpen?.();
-      }, 200);
+      }, 50);
 
       if (hideDocumentOverflow) {
         document.body.style.overflow = 'hidden';

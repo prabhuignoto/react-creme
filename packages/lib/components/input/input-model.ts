@@ -61,6 +61,8 @@ export interface InputProps {
    */
   onChange?: (val: string) => void;
 
+  onFocus?: (ev: React.FocusEvent) => void;
+
   /**
    * 🔴 callback executed on every keystroke
    */

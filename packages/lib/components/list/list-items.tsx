@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { ListItem } from './list-item';
-import { ListOption, ListItemsProps } from './list-model';
+import { ListItemsProps, ListOption } from './list-model';
 import './list.scss';
 
 const ListItems: React.FunctionComponent<ListItemsProps> = ({
@@ -28,6 +28,7 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
   visibleRange,
   renderHash,
   selectedIndex = -1,
+  resetState,
 }: ListItemsProps) => {
   const listStyle = useMemo(() => {
     const style = {
@@ -48,6 +49,7 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
   );
 
   const onSelection = useCallback((opt: ListOption, index) => {
+    console.log(index);
     setSelection(index);
     handleSelection(opt);
   }, []);
@@ -57,6 +59,12 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
       setSelection(selectedIndex);
     }
   }, [selectedIndex]);
+
+  useEffect(() => {
+    if (resetState) {
+      setSelection(-1);
+    }
+  }, [resetState]);
 
   return (
     <ul

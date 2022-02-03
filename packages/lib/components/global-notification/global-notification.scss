@@ -65,7 +65,7 @@
 
 .rc-global-notification-close-btn {
   @extend %center;
-  @include animate.halo();
+  // // @include animate.halo();
   color: #fff;
   cursor: pointer;
   display: block;

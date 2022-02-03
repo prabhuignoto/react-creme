@@ -67,7 +67,7 @@
   }
 
   &:not(.rc-input-disabled) {
-    @include animate.halo(4px, 5px);
+    // @include animate.halo(4px, 5px);
   }
 
   &.rc-input-error.rc-input-border {

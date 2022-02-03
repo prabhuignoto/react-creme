@@ -35,7 +35,7 @@ $switch-width: (
 $start-left: 4px;
 
 .rc-switch {
-  @include animate.halo(40px);
+  // @include animate.halo(40px);
   cursor: pointer;
 
   min-width: 50px;
@@ -48,7 +48,7 @@ $start-left: 4px;
   }
 
   &.rc-switch-label-outside {
-    @include animate.halo(20px);
+    // @include animate.halo(20px);
     align-items: center;
     display: grid;
 
