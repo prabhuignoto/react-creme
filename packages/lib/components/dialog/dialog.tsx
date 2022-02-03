@@ -23,11 +23,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
 }: DialogProps) => {
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
-  const {
-    onInit,
-    handleKeyDown,
-    targetRef: dialogRef,
-  } = useTrapFocus<HTMLDivElement>(200, onOpen);
+  const { onInit, handleKeyDown } = useTrapFocus<HTMLDivElement>(200, onOpen);
 
   const dialogClass = useMemo(
     () =>
