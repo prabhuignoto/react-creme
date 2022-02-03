@@ -17,6 +17,7 @@ const ThemeSwitcherUI: React.FunctionComponent<ThemeSwitcherProps> = ({
     <div className="rc-document-theme-ui">
       <Menu
         position="right"
+        focusable={false}
         onSelected={selected => {
           if (selected === 'Default') {
             onSelection(Default);

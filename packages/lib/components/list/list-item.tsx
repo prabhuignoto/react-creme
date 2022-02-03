@@ -38,7 +38,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
           'rc-list-option',
           {
             'rc-list-option-disabled': disabled,
-            'rc-list-option-focus': focus,
+            'rc-list-option-focus': focusable && focus,
           },
         ]),
       [selected, disabled, focus]

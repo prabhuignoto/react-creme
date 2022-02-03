@@ -1,17 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useLayoutEffect, useMemo } from 'react';
+import React, { Suspense, useLayoutEffect, useMemo } from 'react';
 import { BookOpen, Code, Edit, Sliders } from 'react-feather';
 import { CSSTransition } from 'react-transition-group';
 import { Link, PageHeader, Section, Tabs } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
-import './demo-page-renderer.scss';
 import StackBlitz from '../stackblitz';
 import useMedia from '../useMedia';
+import './demo-page-renderer.scss';
 
 const DataGrid = React.lazy(() =>
-  import('../../../lib/components/data-grid/data-grid').then(({ DataGrid }) => ({
-    default: DataGrid,
-  }))
+  import('../../../lib/components/data-grid/data-grid').then(
+    ({ DataGrid }) => ({
+      default: DataGrid,
+    })
+  )
 );
 
 const Icons = [
@@ -171,40 +173,40 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
               focusable={false}
             >
               <div className="rc-demo-widgets-wrapper">
-                {/* <Suspense fallback={<span>Loading Widgets...</span>}> */}
-                <CSSTransition
-                  key={tabTitles.join('')}
-                  classNames="widget-fade"
-                  timeout={300}
-                >
-                  {Demo}
-                </CSSTransition>
-                {/* </Suspense> */}
+                <Suspense fallback={<span>Loading Widgets...</span>}>
+                  <CSSTransition
+                    key={tabTitles.join('')}
+                    classNames="widget-fade"
+                    timeout={300}
+                  >
+                    {Demo}
+                  </CSSTransition>
+                </Suspense>
               </div>
               {canShowProperties && (
                 <div className="rc-demo-prop-section">
-                  {/* <Suspense fallback={<div></div>}> */}
-                  <Section title="Properties">
-                    <DataGrid
-                      layoutStyle={'comfortable'}
-                      columns={columns}
-                      data={properties}
-                      border
-                      rowHeight={68}
-                    />
-                  </Section>
-                  {callbacks && (
-                    <Section title="Callbacks">
+                  <Suspense fallback={<div></div>}>
+                    <Section title="Properties">
                       <DataGrid
                         layoutStyle={'comfortable'}
                         columns={columns}
-                        data={callbacks}
+                        data={properties}
                         border
                         rowHeight={68}
                       />
                     </Section>
-                  )}
-                  {/* </Suspense> */}
+                    {callbacks && (
+                      <Section title="Callbacks">
+                        <DataGrid
+                          layoutStyle={'comfortable'}
+                          columns={columns}
+                          data={callbacks}
+                          border
+                          rowHeight={68}
+                        />
+                      </Section>
+                    )}
+                  </Suspense>
                 </div>
               )}
               <div className="rc-demo-stack-blitz-collection">

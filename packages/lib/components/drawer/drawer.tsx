@@ -3,7 +3,6 @@ import * as React from 'react';
 import { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
 import { CloseIcon } from '../../icons';
 import { Button } from '../button/button';
-import { useKey } from '../common/effects/useKey';
 import useTrapFocus from '../common/effects/useTrapFocus';
 import { withOverlay } from '../common/withOverlay';
 import { DrawerProps } from './drawer-model';
@@ -11,23 +10,42 @@ import './drawer.scss';
 
 const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   children,
+  focusable = true,
   height = 300,
   isClosing,
   onClose,
   position = 'left',
-  width = 300,
   transition = 'cubic-bezier(0.79, 0.14, 0.15, 0.86)',
-  focusable = true,
+  width = 300,
 }) => {
+  /**
+   * state for activating the drawer
+   */
   const [activate, setActivate] = useState(false);
+
+  /**
+   * Ref for the close button
+   */
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
-  const {
-    onInit,
-    targetRef: drawerRef,
-    handleKeyDown,
-  } = useTrapFocus<HTMLDivElement>(200);
+  /**
+   * Focus specific props will be stored in this ref
+   */
+  const focusProps = useRef({});
 
+  /**
+   * Trap and cycle focus within the Drawer
+   */
+  if (focusable) {
+    const { onInit, handleKeyDown } = useTrapFocus<HTMLDivElement>(200);
+    focusProps.current = { onKeyDown: handleKeyDown, ref: onInit, tabIndex: 0 };
+  } else {
+    focusProps.current = { tabIndex: 0 };
+  }
+
+  /**
+   * memoized styles for the drawer
+   */
   const style = useMemo<CSSProperties>(() => {
     let newHeight: string | number = '100%';
 
@@ -42,6 +60,9 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
     } as CSSProperties;
   }, []);
 
+  /**
+   * memoized classnames for the drawer
+   */
   const drawerClass = useMemo(
     () =>
       classNames(['rc-drawer', `rc-drawer-${position}`], {
@@ -51,23 +72,20 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
     [activate, isClosing]
   );
 
+  /**
+   * Activate the drawer on load
+   */
   useEffect(() => {
     setActivate(true);
   }, []);
-
-  if (onClose) {
-    useKey(drawerRef, onClose);
-  }
 
   return (
     <div
       className={drawerClass}
       style={style}
-      ref={onInit}
-      tabIndex={0}
       role="dialog"
       aria-modal="true"
-      onKeyDown={handleKeyDown}
+      {...focusProps.current}
     >
       <div className="rc-drawer-close-btn-wrapper">
         <Button

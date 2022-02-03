@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { Button, Dialog, Section } from '../../../lib/components';
+import { BlockQuote, Button, Dialog, Section } from '../../../lib/components';
 import { asideState, responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { Default, Drop } from './widget-variants';
@@ -63,13 +63,17 @@ const Widget = () => {
                 width={width}
                 height={250}
               >
-                <span>Test dialog content</span>
-                <Button label="test"></Button>
+                <span>Your content here !</span>
               </Dialog>
             )}
           </DemoWidget>
         </Section>
         <Section title="Custom animation">
+          <BlockQuote>
+            Dialog comes with two animations: <code>pop</code> and{' '}
+            <code>drop</code>. The example below shows dialog with drop
+            animation.
+          </BlockQuote>
           <DemoWidget width={100} component={Drop}>
             <Button onClick={() => setOpen2(true)} label="Open dialog"></Button>
             {open2 && (
@@ -83,7 +87,7 @@ const Widget = () => {
                 height={250}
                 animationType="drop"
               >
-                <span>Test dialog content</span>
+                <span>Your content here!</span>
               </Dialog>
             )}
           </DemoWidget>

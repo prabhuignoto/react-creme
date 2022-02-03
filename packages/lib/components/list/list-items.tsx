@@ -49,7 +49,6 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
   );
 
   const onSelection = useCallback((opt: ListOption, index) => {
-    console.log(index);
     setSelection(index);
     handleSelection(opt);
   }, []);

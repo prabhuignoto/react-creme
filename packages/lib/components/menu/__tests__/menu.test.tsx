@@ -1,7 +1,7 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
-import { MenuContainer as Menu } from '../menu';
+import { Menu } from '../menu';
 import { MenuItemProps } from '../menu-model';
 
 const onSelected = vi.fn();

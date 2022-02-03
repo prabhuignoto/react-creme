@@ -16,14 +16,21 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   onClose,
   onSuccess,
   title,
-  width,
+  width = 300,
   height = 200,
   focusable = true,
   animationType = 'pop',
 }: DialogProps) => {
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
-  const { onInit, handleKeyDown } = useTrapFocus<HTMLDivElement>(200, onOpen);
+  const focusProps = useRef({});
+
+  if (focusable) {
+    const { onInit, handleKeyDown } = useTrapFocus<HTMLDivElement>(200, onOpen);
+    focusProps.current = { onKeyDown: handleKeyDown, ref: onInit, tabIndex: 0 };
+  } else {
+    focusProps.current = { tabIndex: 0 };
+  }
 
   const dialogClass = useMemo(
     () =>
@@ -54,11 +61,10 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   return (
     <div
       className={dialogClass}
-      ref={onInit}
       role="dialog"
       aria-labelledby={id.current}
       style={style}
-      onKeyDown={handleKeyDown}
+      {...focusProps.current}
     >
       <header className="rc-dialog-header">
         <h2 className="rc-dialog-title" id={id.current}>

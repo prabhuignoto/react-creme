@@ -4,7 +4,8 @@ function useKeyNavigation(
   ref: RefObject<HTMLElement>,
   startIndex = -1,
   collectionLength: number,
-  scrollOffset = 50
+  scrollOffset = 50,
+  focusable = true
 ) {
   const [selection, setSelection] = useState(startIndex);
 
@@ -12,7 +13,7 @@ function useKeyNavigation(
 
   const handleKey = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') {
+      if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown' && !focusable) {
         return;
       }
 
@@ -46,7 +47,7 @@ function useKeyNavigation(
   );
 
   useEffect(() => {
-    if (ref) {
+    if (ref && focusable) {
       listRef.current = ref.current;
       listRef.current?.addEventListener('keydown', handleKey);
     }
@@ -54,7 +55,7 @@ function useKeyNavigation(
 
   useEffect(() => {
     return () => {
-      if (listRef) {
+      if (listRef && focusable) {
         listRef.current?.removeEventListener('keydown', handleKey);
       }
     };

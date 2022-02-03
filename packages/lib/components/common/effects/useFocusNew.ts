@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useRef } from 'react';
 import './focus.scss';
 
+/**
+ * @param  {React.RefObject<HTMLElement>} ref
+ * @param  {(ev?:Event)=>void} cb?
+ */
 export default function useFocusNew(
   ref: React.RefObject<HTMLElement>,
   cb?: (ev?: Event) => void
