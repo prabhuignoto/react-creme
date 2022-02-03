@@ -23,7 +23,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     border = false,
     controlled = false,
     disabled = false,
-    enableClear = false,
+    enableClear = true,
     focusable = true,
     id = '',
     isAutoComplete = false,

@@ -8,7 +8,8 @@ function dialog() {
   return (
     <DemoPageRenderer
       title="Dialog"
-      description="A dialog is a window that displays content in a modal overlay."
+      description={`A dialog is an overlay that requires the user to interact with it and designed to elicit a response from the user.
+      Dialogs inform users about critical information, require users to make decisions, or involve multiple tasks`}
       pageIcon={<FontAwesomeIcon icon={faWindowMaximize} size="2x" />}
       sourceId="dialog/dialog.tsx"
       editId="dialog"

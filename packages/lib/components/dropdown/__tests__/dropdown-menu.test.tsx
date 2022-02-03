@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { DropDownMenu } from '../dropdown-menu';
@@ -18,7 +18,7 @@ const menuStyle: DropdownMenuStyleModel = {
   width: 200,
 };
 
-describe('Dropdown menu', () => {
+describe('DropdownMenu', () => {
   it('should render dropdown menu', async () => {
     const { getByRole, container } = render(
       <DropDownMenu
@@ -29,6 +29,8 @@ describe('Dropdown menu', () => {
       />
     );
 
-    expect(getByRole('listbox')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(getByRole('listbox')).toBeInTheDocument();
+    });
   });
 });

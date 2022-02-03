@@ -3,7 +3,7 @@ import * as React from 'react';
 import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useDrag } from '../common/effects/useDrag';
-import { useFocus } from '../common/effects/useFocus';
+import useFocus from '../common/effects/useFocusNew';
 import { Tooltip } from '../tooltip/tooltip';
 import { SliderProps } from './slider-model';
 import './slider.scss';

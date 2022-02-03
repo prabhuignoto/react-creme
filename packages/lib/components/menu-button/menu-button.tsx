@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
 import { ChevronDownIcon } from '../../icons';
 import { Button } from '../button/button';
-import { MenuContainer as Menu } from '../menu/menu';
+import { Menu } from '../menu/menu';
 import { MenuItemProps } from '../menu/menu-item';
 import { MenuButtonProps } from './menu-button.model';
 import './menu-button.scss';
@@ -50,7 +50,13 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
 
   return (
     <div className={menuButtonClass} style={menuStyle}>
-      <Button label={items[0]} border={false} focusable={focusable} size="sm" />
+      <Button
+        label={items[0]}
+        border={false}
+        focusable={focusable}
+        size="sm"
+        onClick={() => handleChange(items[0])}
+      />
       <Menu
         items={menuItems.current}
         focusable={focusable}

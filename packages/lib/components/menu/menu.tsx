@@ -10,51 +10,19 @@ import React, {
 import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
-import { OverlayModel } from '../common/overlay-model';
-import { withOverlay } from '../common/withOverlay';
-import { MenuItem } from './menu-item';
 import { MenuItemProps, MenuProps } from './menu-model';
+import { MenuOverlay } from './menu-overlay';
 import './menu.scss';
 
-interface MenuInternalProps extends OverlayModel {
-  items: MenuItemProps[];
-  onSelection?: (val: string) => void;
-}
-
-const Menu: React.FunctionComponent<MenuInternalProps> = ({
-  items,
-  onSelection,
-}) => {
-  const menuClass = useMemo(() => classNames(['rc-menu'], {}), []);
-
-  return (
-    <ul className={menuClass} role="menu">
-      {items.map(({ name, id, disabled }) => (
-        <MenuItem
-          name={name}
-          disabled={disabled}
-          handleSelection={onSelection}
-          key={id}
-        />
-      ))}
-    </ul>
-  );
-};
-
-const MenuOverlay = withOverlay<MenuInternalProps>(Menu, {
-  backdropColor: 'transparent',
-  placement: 'bottom',
-});
-
-const MenuContainer: React.FunctionComponent<MenuProps> = ({
+const Menu: React.FunctionComponent<MenuProps> = ({
   children,
+  focusable = true,
   id,
   items = [],
   onClose,
   onOpen,
   onSelected,
   position = 'left',
-  focusable = true,
   style,
 }: MenuProps) => {
   const [menuItems] = useState<MenuItemProps[]>(
@@ -65,11 +33,13 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
   );
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isFirstRender = useFirstRender();
-  const containerRef = useRef(null);
-
+  const containerRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLUListElement | null>(null);
   const [showMenu, setShowMenu] = useState(false);
 
-  // HANDLERS
+  /**
+   * Handle the menu opening and closing
+   */
   const toggleMenu = useCallback(() => {
     setShowMenu(prev => {
       if (prev) {
@@ -79,12 +49,47 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
     });
   }, []);
 
+  /**
+   * Handles the menu selection
+   */
+  const handleSelection = useCallback(name => {
+    if (onSelected) {
+      onSelected(name);
+    }
+    setShowMenu(false);
+    onClose?.();
+    wrapperRef.current?.focus();
+  }, []);
+
+  /**
+   * Handles menu closure
+   */
+  const closeMenu = useCallback(() => {
+    setShowMenu(false);
+    wrapperRef.current?.focus();
+  }, []);
+
+  /**
+   * Handler executed when the menu is rendered the first time
+   */
+  const handleOnOpen = useCallback(() => {
+    if (containerRef) {
+      menuRef.current?.focus();
+    }
+  }, []);
+
+  /**
+   * Setups focus
+   */
   if (focusable) {
     useFocusNew(wrapperRef, () => {
       setShowMenu(prev => !prev);
     });
   }
 
+  /**
+   * Close menu on esc key
+   */
   useCloseOnEscape(() => setShowMenu(false), wrapperRef);
 
   useEffect(() => {
@@ -98,24 +103,15 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
     }
   }, [showMenu]);
 
-  const handleSelection = useCallback(name => {
-    if (onSelected) {
-      onSelected(name);
-    }
-    setShowMenu(false);
-    onClose?.();
-  }, []);
-
   const onInitRef = useCallback(node => {
     if (node) {
       wrapperRef.current = node;
     }
   }, []);
 
-  const closeMenu = useCallback(() => {
-    setShowMenu(false);
-  }, []);
-
+  /**
+   * classNames
+   */
   const menuContentWrapperClass = useMemo(
     () =>
       classNames(['rc-menu-content-wrapper'], {
@@ -124,7 +120,10 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
     [showMenu, focusable]
   );
 
-  const contentWrapperProps = useMemo(
+  /**
+   * setup the focus props
+   */
+  const focusProps = useMemo(
     () =>
       focusable
         ? {
@@ -140,7 +139,7 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
         className={menuContentWrapperClass}
         onClick={toggleMenu}
         ref={onInitRef}
-        {...contentWrapperProps}
+        {...focusProps}
       >
         {children}
       </div>
@@ -152,7 +151,10 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
             placementReference={wrapperRef}
             placement="bottom"
             onClose={closeMenu}
+            onOpen={handleOnOpen}
             align={position}
+            ref={menuRef}
+            focusable={focusable}
           />
         </div>
       )}
@@ -160,6 +162,6 @@ const MenuContainer: React.FunctionComponent<MenuProps> = ({
   );
 };
 
-MenuContainer.displayName = 'Menu';
+Menu.displayName = 'Menu';
 
-export { MenuContainer };
+export { Menu };

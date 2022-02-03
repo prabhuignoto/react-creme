@@ -79,7 +79,7 @@ export type {
 } from './components/list/list-model';
 export { MenuButton } from './components/menu-button/menu-button';
 export type { MenuButtonProps } from './components/menu-button/menu-button.model';
-export { MenuContainer as Menu } from './components/menu/menu';
+export { Menu } from './components/menu/menu';
 export type { MenuItemProps, MenuProps } from './components/menu/menu-model';
 export { Notification } from './components/notification/notification';
 export type { NotificationProps } from './components/notification/notification-model';

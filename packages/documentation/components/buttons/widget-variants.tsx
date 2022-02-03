@@ -5,7 +5,7 @@ import { SearchIcon } from '../../../lib/icons';
 export const Default = <Button label="save" onClick={() => alert('test')} />;
 
 export const Icon = (
-  <Button label="Search this page" focusable>
+  <Button label="Search this page">
     <SearchIcon />
   </Button>
 );

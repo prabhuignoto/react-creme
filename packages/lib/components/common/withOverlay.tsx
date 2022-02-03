@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Overlay } from './overlay';
@@ -15,7 +16,9 @@ type Settings = {
 type OverlayFunc = <U extends OverlayModel>(
   Node: React.FunctionComponent<U>,
   settings: Settings
-) => React.FunctionComponent<U>;
+) => React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<U> & React.RefAttributes<HTMLElement>
+>;
 
 export type OverlayContextModel = {
   align?: 'left' | 'right';
@@ -29,7 +32,7 @@ export const OverlayContext = React.createContext<OverlayContextModel | null>(
 );
 
 const withOverlay: OverlayFunc = function <T extends OverlayModel>(
-  Node: React.FunctionComponent<T>,
+  Node: React.FunctionComponent<T> | React.ForwardRefExoticComponent<T>,
   settings: Settings = {
     backdropColor: 'rgba(0,0,0,0.5)',
     disableAnimation: false,
@@ -37,7 +40,7 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
     hideDocumentOverflow: false,
   }
 ) {
-  const Component = (props: T) => {
+  const Component = React.forwardRef<HTMLElement, T>((props: T, ref) => {
     const classPrefix = useRef('overlay');
     const overlayRef = useRef<HTMLDivElement | null>(null);
     const {
@@ -123,13 +126,16 @@ const withOverlay: OverlayFunc = function <T extends OverlayModel>(
                 {...props}
                 onClose={handleChildClose}
                 isClosing={isClosing}
+                ref={ref}
               />
             </Overlay>
           </OverlayContext.Provider>,
           portalContainer.current as HTMLElement
         )
       : null;
-  };
+  });
+
+  Component.displayName = `withOverlay`;
 
   return Component;
 };

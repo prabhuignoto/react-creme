@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 import { CloseIcon } from '../../icons';
-import { useFocus } from '../common/effects/useFocus';
+import useFocus from '../common/effects/useFocusNew';
 import { GlobalNotificationProps } from './global-notification.model';
 import './global-notification.scss';
 

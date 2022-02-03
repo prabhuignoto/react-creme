@@ -23,7 +23,7 @@ importers:
       prettier: ^2.5.1
       react: ^18.0.0-rc.0
       react-dom: ^18.0.0-rc.0
-      snyk: ^1.845.0
+      snyk: ^1.848.0
       stylelint: 14.3.0
       stylelint-config-prettier: ^9.0.3
       stylelint-order: ^5.0.0
@@ -50,7 +50,7 @@ importers:
       prettier: 2.5.1
       react: 18.0.0-rc.0
       react-dom: 18.0.0-rc.0_react@18.0.0-rc.0
-      snyk: 1.845.0
+      snyk: 1.848.0
       stylelint: 14.3.0
       stylelint-config-prettier: 9.0.3_stylelint@14.3.0
       stylelint-order: 5.0.0_stylelint@14.3.0
@@ -89,7 +89,7 @@ importers:
       '@sentry/browser': ^6.17.4
       '@sentry/tracing': ^6.17.4
       '@stackblitz/sdk': ^1.5.5
-      '@types/react': ^17.0.38
+      '@types/react': ^17.0.39
       '@types/react-dom': ^17.0.11
       '@types/react-instantsearch-dom': ^6.12.2
       '@types/react-syntax-highlighter': ^13.5.2
@@ -122,7 +122,7 @@ importers:
       resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
       sass: ^1.49.7
-      snyk: ^1.845.0
+      snyk: ^1.848.0
       stylelint: 14.3.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -130,7 +130,7 @@ importers:
       typescript: ^4.5.5
       use-debounce: ^7.0.1
       use-timer: ^2.0.1
-      vite: ^2.7.13
+      vite: 2.6.13
       vite-plugin-react-svg: ^0.2.0
       vite-plugin-svgr: ^1.0.1
     dependencies:
@@ -150,7 +150,6 @@ importers:
       react-router-dom: 6.2.1_757a802188413a36d4f24237d13b8e90
       resize-observer-polyfill: 1.5.1
       use-debounce: 7.0.1_react@18.0.0-rc.0
-      vite: 2.7.13_sass@1.49.7
     devDependencies:
       '@axe-core/react': 4.3.2
       '@babel/core': 7.17.0
@@ -164,7 +163,7 @@ importers:
       '@fortawesome/free-solid-svg-icons': 5.15.4
       '@fortawesome/react-fontawesome': 0.1.17_390e17fbc388830b9e8de66ab4492448
       '@playwright/test': 1.18.1
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
       '@types/react-dom': 17.0.11
       '@types/react-instantsearch-dom': 6.12.2
       '@types/react-syntax-highlighter': 13.5.2
@@ -185,15 +184,16 @@ importers:
       recoil: 0.6.1_757a802188413a36d4f24237d13b8e90
       rimraf: 3.0.2
       sass: 1.49.7
-      snyk: 1.845.0
+      snyk: 1.848.0
       stylelint: 14.3.0
       stylelint-config-prettier: 9.0.3_stylelint@14.3.0
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.6+stylelint@14.3.0
       stylelint-scss: 4.1.0_stylelint@14.3.0
       typescript: 4.5.5
       use-timer: 2.0.1_757a802188413a36d4f24237d13b8e90
-      vite-plugin-react-svg: 0.2.0_@babel+core@7.17.0+vite@2.7.13
-      vite-plugin-svgr: 1.0.1_vite@2.7.13
+      vite: 2.6.13_sass@1.49.7
+      vite-plugin-react-svg: 0.2.0_@babel+core@7.17.0+vite@2.6.13
+      vite-plugin-svgr: 1.0.1_vite@2.6.13
 
   packages/lib:
     specifiers:
@@ -214,7 +214,7 @@ importers:
       '@testing-library/user-event': ^13.5.0
       '@types/bluebird': ^3.5.36
       '@types/node': ^17.0.14
-      '@types/react': ^17.0.38
+      '@types/react': ^17.0.39
       '@types/react-dom': ^17.0.11
       '@types/react-syntax-highlighter': ^13.5.2
       '@types/react-transition-group': ^4.4.4
@@ -251,7 +251,7 @@ importers:
       rollup-plugin-typescript2: ^0.31.2
       rollup-plugin-visualizer: ^5.5.4
       sass: ^1.49.7
-      snyk: ^1.845.0
+      snyk: ^1.848.0
       stylelint: 14.3.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -259,7 +259,6 @@ importers:
       ts-toolbelt: ^9.6.0
       typescript: ^4.5.5
       use-debounce: ^7.0.1
-      use-deep-compare-effect: ^1.8.1
       vite: ^2.7.13
       vitest: ^0.2.6
     dependencies:
@@ -268,7 +267,6 @@ importers:
       hex-rgb: 5.0.0
       nanoid: 3.2.0
       use-debounce: 7.0.1
-      use-deep-compare-effect: 1.8.1
     devDependencies:
       '@babel/core': 7.17.0
       '@babel/plugin-proposal-optional-chaining': 7.16.7_@babel+core@7.17.0
@@ -287,7 +285,7 @@ importers:
       '@testing-library/user-event': 13.5.0_@testing-library+dom@8.11.3
       '@types/bluebird': 3.5.36
       '@types/node': 17.0.14
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
       '@types/react-dom': 17.0.11
       '@types/react-syntax-highlighter': 13.5.2
       '@types/react-transition-group': 4.4.4
@@ -320,7 +318,7 @@ importers:
       rollup-plugin-typescript2: 0.31.2_78a4c11a1b23e394e51b5d6a509810a8
       rollup-plugin-visualizer: 5.5.4_rollup@2.67.0
       sass: 1.49.7
-      snyk: 1.845.0
+      snyk: 1.848.0
       stylelint: 14.3.0
       stylelint-config-prettier: 9.0.3_stylelint@14.3.0
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.6+stylelint@14.3.0
@@ -4802,13 +4800,13 @@ packages:
   /@types/react-dom/17.0.11:
     resolution: {integrity: sha512-f96K3k+24RaLGVu/Y2Ng3e1EbZ8/cVJvypZWd7cy0ofCBaf2lcM46xNhycMZ2xGwbBjRql7hOlZ+e2WlJ5MH3Q==}
     dependencies:
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
     dev: true
 
   /@types/react-instantsearch-core/6.10.6:
     resolution: {integrity: sha512-oGeDM1VMIuuGA405TYUhpJpmWkEEJHL/Il51ufLQmu3fhgo+PG1fDfee5/nPQhcg1jfR/hZ82fRGL3SJUrG4hA==}
     dependencies:
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
       algoliasearch: 4.12.1
       algoliasearch-helper: 3.7.0_algoliasearch@4.12.1
     dev: true
@@ -4816,7 +4814,7 @@ packages:
   /@types/react-instantsearch-dom/6.12.2:
     resolution: {integrity: sha512-MsVn01rRXsthQyKkUfcXAaiNBoCCsiPiD2/gzPx050QO/g2VfTacOTzSZfh29+0luRqAV58abnG34eQ/luq2Wg==}
     dependencies:
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
       '@types/react-instantsearch-core': 6.10.6
     dev: true
 
@@ -4829,17 +4827,25 @@ packages:
   /@types/react-syntax-highlighter/13.5.2:
     resolution: {integrity: sha512-sRZoKZBGKaE7CzMvTTgz+0x/aVR58ZYUTfB7HN76vC+yQnvo1FWtzNARBt0fGqcLGEVakEzMu/CtPzssmanu8Q==}
     dependencies:
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
     dev: true
 
   /@types/react-transition-group/4.4.4:
     resolution: {integrity: sha512-7gAPz7anVK5xzbeQW9wFBDg7G++aPLAFY0QaSMOou9rJZpbuI58WAuJrgu+qR92l61grlnCUe7AFX8KGahAgug==}
     dependencies:
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
     dev: true
 
   /@types/react/17.0.38:
     resolution: {integrity: sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==}
+    dependencies:
+      '@types/prop-types': 15.7.4
+      '@types/scheduler': 0.16.2
+      csstype: 3.0.10
+    dev: true
+
+  /@types/react/17.0.39:
+    resolution: {integrity: sha512-UVavlfAxDd/AgAacMa60Azl7ygyQNRwC/DsHZmKgNvPmRR5p70AJ5Q9EAmL2NWOJmeV+vVUI4IAP7GZrN8h8Ug==}
     dependencies:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
@@ -7588,11 +7594,6 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /dequal/2.0.2:
-    resolution: {integrity: sha512-q9K8BlJVxK7hQYqa6XISGmBZbtQQWVXSrRrWreHC94rMt1QL/Impruc+7p2CYSYuVIUr+YCt6hjrs1kkdJRTug==}
-    engines: {node: '>=6'}
-    dev: false
-
   /des.js/1.0.1:
     resolution: {integrity: sha512-Q0I4pfFrv2VPd34/vfLrFOoRmlYj3OV50i7fskps1jZWK1kApMWWT9G6RRUeYedLcBDIhnSDaUvJMb3AhUlaEA==}
     dependencies:
@@ -7989,6 +7990,7 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-android-arm64/0.14.18:
@@ -8005,6 +8007,7 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-darwin-64/0.14.18:
@@ -8021,6 +8024,7 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-darwin-arm64/0.14.18:
@@ -8037,6 +8041,7 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-freebsd-64/0.14.18:
@@ -8053,6 +8058,7 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-freebsd-arm64/0.14.18:
@@ -8069,6 +8075,7 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-32/0.14.18:
@@ -8085,6 +8092,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-64/0.14.18:
@@ -8101,6 +8109,7 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-arm/0.14.18:
@@ -8117,6 +8126,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-arm64/0.14.18:
@@ -8133,6 +8143,7 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-mips64le/0.14.18:
@@ -8149,6 +8160,7 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-ppc64le/0.14.18:
@@ -8174,6 +8186,7 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-netbsd-64/0.14.18:
@@ -8190,6 +8203,7 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-openbsd-64/0.14.18:
@@ -8206,6 +8220,7 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-sunos-64/0.14.18:
@@ -8222,6 +8237,7 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-32/0.14.18:
@@ -8238,6 +8254,7 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-64/0.14.18:
@@ -8254,6 +8271,7 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-arm64/0.14.18:
@@ -8287,6 +8305,7 @@ packages:
       esbuild-windows-32: 0.13.15
       esbuild-windows-64: 0.13.15
       esbuild-windows-arm64: 0.13.15
+    dev: true
 
   /esbuild/0.14.18:
     resolution: {integrity: sha512-vCUoISSltnX7ax01w70pWOSQT+e55o+2P/a+A9MSTukJAt3T4aDZajcjeG4fnZbkvOEv+dkKgdkvljz6vVQD4A==}
@@ -9267,6 +9286,7 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -14065,6 +14085,7 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /rsvp/4.8.5:
     resolution: {integrity: sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==}
@@ -14463,8 +14484,8 @@ packages:
       use: 3.1.1
     dev: true
 
-  /snyk/1.845.0:
-    resolution: {integrity: sha512-ZQb8/lDIo8mENuaYgqrDeBTJugTK/OJPoadmh/ivHYdxOUSwEF8PA7gRDB4fs2b55bdVyk/QONZmDQcMmAuT7w==}
+  /snyk/1.848.0:
+    resolution: {integrity: sha512-hVPv6F+4o2OrTPj/qrdoJ5NffFi2zgo5Q1pHp/XgmP4alIE7TIeHsJnFFNrCpyNpMYCMOUrpc33c4ZQcCkaqAA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -15890,16 +15911,6 @@ packages:
       react: 18.0.0-rc.0
     dev: false
 
-  /use-deep-compare-effect/1.8.1:
-    resolution: {integrity: sha512-kbeNVZ9Zkc0RFGpfMN3MNfaKNvcLNyxOAAd9O4CBZ+kCBXXscn9s/4I+8ytUER4RDpEYs5+O6Rs4PqiZ+rHr5Q==}
-    engines: {node: '>=10', npm: '>=6'}
-    peerDependencies:
-      react: '>=16.13'
-    dependencies:
-      '@babel/runtime': 7.16.7
-      dequal: 2.0.2
-    dev: false
-
   /use-isomorphic-layout-effect/1.1.1_react@17.0.2:
     resolution: {integrity: sha512-L7Evj8FGcwo/wpbv/qvSfrkHFtOpCzvM5yl2KVyDJoylVuSvzphiiasmjgQPttIGBAy2WKiBNR98q8w7PiNgKQ==}
     peerDependencies:
@@ -16033,7 +16044,7 @@ packages:
       vfile-message: 2.0.4
     dev: true
 
-  /vite-plugin-react-svg/0.2.0_@babel+core@7.17.0+vite@2.7.13:
+  /vite-plugin-react-svg/0.2.0_@babel+core@7.17.0+vite@2.6.13:
     resolution: {integrity: sha512-Qza30GSMb9SBp9Ma5Bq1O/GmZzkB97Tn6JJGPonuJ2h8NRZWESK69ux9lZHcdqekLnVxvDxabcJVOrygAeSyxQ==}
     peerDependencies:
       vite: ^2.0.0-beta.61
@@ -16042,21 +16053,46 @@ packages:
       '@svgr/core': 5.5.0
       '@svgr/plugin-jsx': 5.5.0
       '@svgr/plugin-svgo': 5.5.0
-      vite: 2.7.13_sass@1.49.7
+      vite: 2.6.13_sass@1.49.7
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
     dev: true
 
-  /vite-plugin-svgr/1.0.1_vite@2.7.13:
+  /vite-plugin-svgr/1.0.1_vite@2.6.13:
     resolution: {integrity: sha512-7jHIC2Bi83KRwBB/b5FLcQdqWfzOSDVy7BtE9g4GXoY1axTZRKeqyWMEK3LCySQ70+BSYFtoSwHJaNLeqxjYlg==}
     peerDependencies:
       vite: ^2.6.0
     dependencies:
       '@svgr/core': 6.2.0
-      vite: 2.7.13_sass@1.49.7
+      vite: 2.6.13_sass@1.49.7
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vite/2.6.13_sass@1.49.7:
+    resolution: {integrity: sha512-+tGZ1OxozRirTudl4M3N3UTNJOlxdVo/qBl2IlDEy/ZpTFcskp+k5ncNjayR3bRYTCbqSOFz2JWGN1UmuDMScA==}
+    engines: {node: '>=12.2.0'}
+    hasBin: true
+    peerDependencies:
+      less: '*'
+      sass: '*'
+      stylus: '*'
+    peerDependenciesMeta:
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+    dependencies:
+      esbuild: 0.13.15
+      postcss: 8.4.6
+      resolve: 1.22.0
+      rollup: 2.67.0
+      sass: 1.49.7
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /vite/2.7.13_sass@1.49.7:
@@ -16082,6 +16118,7 @@ packages:
       sass: 1.49.7
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /vitest/0.2.6_d35042e26d0cbaa89a6e56c07f54c787:
     resolution: {integrity: sha512-qjjWJm+rpmqOmG3uSoFAh/8m9iZWzYmoWJTqqLKZYKRZSo0P+ibC05Atu8l1JRUrEgsgJIGot4JcPO4N42TX9Q==}

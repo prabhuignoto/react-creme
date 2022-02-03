@@ -48,7 +48,12 @@ const Widget: React.FunctionComponent = () => {
         </DemoWidget>
       </Section>
       {open2 && (
-        <Drawer position="left" width={width} onClose={() => setOpen2(false)}>
+        <Drawer
+          position="left"
+          width={width}
+          onClose={() => setOpen2(false)}
+          focusable={false}
+        >
           <span>This is a test</span>
         </Drawer>
       )}

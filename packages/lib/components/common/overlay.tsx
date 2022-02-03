@@ -8,6 +8,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { useDebouncedCallback } from 'use-debounce';
 import { CloseIcon } from '../../icons';
 import { OverlayProps } from './overlay-model';
 import './overlay.scss';
@@ -39,6 +40,8 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
    */
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const overlayContentRef = useRef<HTMLDivElement | null>(null);
+  const observer = useRef<ResizeObserver | null>(null);
+  const [retriggerStyleCal, setRetriggerStyleCal] = useState<number>(0);
 
   /**
    * State to store the dimensions of the overlay content
@@ -48,8 +51,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     width: number;
   } | null>(null);
 
-  // const [contentHeight, setContentHeight] = React.useState<number>(0);
-  const [scrollPosition, setScrollPosition] = React.useState<number>(0);
+  const retrigger = useDebouncedCallback(() => {
+    setRetriggerStyleCal(new Date().getTime());
+  }, 25);
 
   const overlayWrapperClass = useMemo(() => {
     return classNames(['rc-overlay-wrapper'], {
@@ -74,7 +78,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         position: 'absolute',
       } as CSSProperties;
     }
-  }, [placementReference, scrollPosition, overlayDimensions?.width]);
+  }, [placementReference, retriggerStyleCal, overlayDimensions?.width]);
 
   // event handlers
 
@@ -125,7 +129,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
    * Synchronizes the position of the overlay content with the scroll position
    */
   const handleWindowScroll = useCallback(
-    () => setScrollPosition(window.scrollY),
+    () => setRetriggerStyleCal(new Date().getTime()),
     []
   );
 
@@ -147,6 +151,10 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     const ele = node as HTMLDivElement;
     if (ele) {
       overlayRef.current = ele;
+
+      observer.current = new ResizeObserver(retrigger);
+
+      observer.current.observe(ele);
 
       setTimeout(() => {
         onOpen?.();
