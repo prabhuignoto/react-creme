@@ -10,7 +10,7 @@ const options = [
   { name: 'brazil', value: 'brazil', id: 'brazil' },
   { name: 'usa', value: 'usa', id: 'usa' },
   { name: 'uk', value: 'uk', id: 'uk' },
-  { name: 'germany', value: 'germany', disabled: true, id: 'germany' },
+  { name: 'germany', value: 'germany', id: 'germany' },
   { name: 'india', value: 'india', id: 'india' },
 ];
 
