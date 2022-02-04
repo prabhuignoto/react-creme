@@ -6,7 +6,7 @@ import { Dropdown } from '../dropdown';
 const options = [
   { name: 'usa', value: 'usa' },
   { name: 'uk', value: 'uk' },
-  { name: 'germany', value: 'germany', disabled: true },
+  { name: 'germany', value: 'germany' },
   { name: 'india', value: 'india', selected: false },
   { name: 'sri lanka', value: 'sri lanka', selected: false },
 ];
@@ -14,7 +14,7 @@ const options = [
 const optionsSelected = [
   { name: 'usa', value: 'usa' },
   { name: 'uk', value: 'uk' },
-  { name: 'germany', value: 'germany', disabled: true },
+  { name: 'germany', value: 'germany' },
   { name: 'india', value: 'india', selected: true },
   { name: 'sri lanka', value: 'sri lanka', selected: true },
 ];
@@ -95,11 +95,27 @@ describe('Dropdown', () => {
     });
   });
 
-  it('should render disabled', () => {
+  it('should render disabled', async () => {
+    const optionsDisabled = [
+      { name: 'usa', value: 'usa' },
+      { name: 'uk', value: 'uk' },
+      { name: 'germany', value: 'germany' },
+      { name: 'india', value: 'india' },
+      { name: 'sri lanka', value: 'sri lanka' },
+    ];
+
     const { getByText, container } = render(
-      <Dropdown options={options} placeholder="select a option" disabled />
+      <Dropdown
+        options={optionsDisabled}
+        allowMultiSelection
+        placeholder="select a option"
+        disabled
+      />
     );
-    expect(getByText('select a option')).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(getByText('select a option')).toBeInTheDocument();
+    });
     expect(container?.firstChild).toHaveClass('rc-dropdown-disabled');
     expect(container?.firstChild?.firstChild).toHaveAttribute(
       'aria-disabled',
@@ -109,7 +125,7 @@ describe('Dropdown', () => {
   });
 
   it('should render allowMultiSelection mode', async () => {
-    const { getByText, queryByRole, getByTestId } = render(
+    const { getByText, getByTestId } = render(
       <Dropdown
         options={optionsSelected}
         placeholder="select a option"
@@ -177,7 +193,7 @@ describe('Dropdown', () => {
     await waitFor(() => {
       expect(getByRole('listbox')).toBeInTheDocument();
       expect(getAllByRole('option')).toHaveLength(5);
-      expect(getAllByRole('option')[1]).toHaveFocus();
+      expect(getAllByRole('option')[0]).toHaveFocus();
     });
   });
 
@@ -195,19 +211,19 @@ describe('Dropdown', () => {
     await waitFor(() => {
       expect(getByRole('listbox')).toBeInTheDocument();
       expect(getAllByRole('option')).toHaveLength(5);
-      expect(getAllByRole('option')[1]).toHaveFocus();
+      expect(getAllByRole('option')[0]).toHaveFocus();
     });
 
     fireEvent.keyDown(getByRole('listbox'), {
       key: 'ArrowDown',
     });
 
-    expect(getAllByRole('option')[2]).toHaveFocus();
+    expect(getAllByRole('option')[1]).toHaveFocus();
 
     fireEvent.keyDown(getByRole('listbox'), {
       key: 'ArrowUp',
     });
 
-    expect(getAllByRole('option')[1]).toHaveFocus();
+    expect(getAllByRole('option')[0]).toHaveFocus();
   });
 });
