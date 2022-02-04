@@ -1,42 +1,14 @@
-import {
-  Dispatch,
-  RefObject,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import isTouchDevice from '../utils';
+import { useDragFunctionType } from './usedrag-settings-model';
 
 const rnd = Math.round;
 
 const isTouch = isTouchDevice();
 
-interface Settings {
-  currentValue?: number;
-  direction: 'horizontal' | 'vertical';
-  endValue?: number;
-  maxX?: number;
-  maxY?: number;
-  minX?: number;
-  minY?: number;
-  observeContainer?: boolean;
-  offsetLeft?: number;
-  onDragEnd?: () => void;
-  onDragStart?: () => void;
-  startValue?: number;
-}
-
-type functionType = (
-  container: RefObject<HTMLElement>,
-  dragTarget: RefObject<HTMLElement>,
-  settings: Settings
-) => [number, Dispatch<SetStateAction<number>>];
-
 const { max, min } = Math;
 
-const useDrag: functionType = (
+const useDrag: useDragFunctionType = (
   container,
   target,
   {
@@ -45,7 +17,7 @@ const useDrag: functionType = (
     maxY,
     minX = 0,
     minY = 0,
-    startValue,
+    startValue = 0,
     endValue,
     offsetLeft = 0,
     onDragEnd,
@@ -57,31 +29,81 @@ const useDrag: functionType = (
   const dragStarted = useRef(false);
   const [percent, setPercent] = useState(0);
 
+  const containerRect = useRef<DOMRect>();
   const resizeObserver = useRef<ResizeObserver>();
+
   const dragStartTimer = useRef<number>();
 
   const maxXValue = useRef<number>(0);
   const maxYValue = useRef<number>(0);
+  const trackerValue = useRef<number>(currentValue);
 
+  /**
+   * Event handler for drag start operation
+   */
   const handleDragStart = useCallback(
     (ev: MouseEvent | TouchEvent) => {
       if (ev.target === target.current) {
+        // detect if the user intended a drag operation
         dragStartTimer.current = window.setTimeout(() => {
           dragStarted.current = true;
           onDragStart && onDragStart();
         }, 30);
+
+        // get the bounding client rect
+        if (container.current) {
+          containerRect.current = container.current.getBoundingClientRect();
+        }
       }
     },
     [target]
   );
 
+  /**
+   * Event handler for keyboard based drag operation
+   */
+  const handleKeyDown = useCallback(
+    (ev: KeyboardEvent) => {
+      ev.stopPropagation();
+      if (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') {
+        ev.preventDefault();
+
+        if (!endValue || !target.current) {
+          return;
+        }
+
+        const trackerVal = trackerValue.current;
+
+        if (ev.key === 'ArrowLeft' && startValue) {
+          if (trackerVal > Math.max(trackerVal - startValue, 0)) {
+            trackerValue.current -= 1;
+          }
+        } else if (ev.key === 'ArrowRight' && endValue) {
+          if (trackerVal < endValue) {
+            trackerValue.current += 1;
+          }
+        }
+
+        const newPercent = trackerValue.current / endValue;
+        setPercent(newPercent);
+        target.current.style.left = `${rnd(newPercent * 100)}%`;
+      }
+    },
+    [percent]
+  );
+
+  /**
+   * Event handler for drag operation
+   */
   const handleDrag = useCallback((ev: MouseEvent | TouchEvent) => {
     if (dragStarted.current && target.current && container.current) {
       ev.preventDefault();
-      const { clientWidth: parentWidth, clientHeight: parentHeight } =
-        container.current;
-      const { left: parentLeft, top: parentTop } =
-        container.current.getBoundingClientRect();
+      const {
+        left: parentLeft,
+        top: parentTop,
+        width: parentWidth,
+        height: parentHeight,
+      } = containerRect.current as DOMRect;
       const { clientWidth: targetWidth } = target.current;
 
       let clientX = 0;
@@ -95,6 +117,7 @@ const useDrag: functionType = (
         clientY = (ev as TouchEvent).touches[0].clientY;
       }
 
+      // calculate the target's position for both horizontal and vertical mode.
       if (direction === 'horizontal') {
         const left = max(0, clientX - (parentLeft || 0));
 
@@ -107,8 +130,11 @@ const useDrag: functionType = (
           }px`;
           const percent = (left - rnd(targetWidth / 2)) / parentWidth;
           setPercent(percent);
+          trackerValue.current = rnd(percent * (endValue || 0));
         } else if (left >= maxXValue.current) {
-          setPercent(maxXValue.current / parentWidth);
+          const percent = maxXValue.current / parentWidth;
+          setPercent(percent);
+          trackerValue.current = rnd(percent * (endValue || 0));
           target.current.style.left = `${
             maxXValue.current - rnd(targetWidth / 2)
           }px`;
@@ -126,12 +152,18 @@ const useDrag: functionType = (
     }
   }, []);
 
+  /**
+   * Event handler for drag end operation
+   */
   const handleDragEnd = useCallback(() => {
     window.clearTimeout(dragStartTimer.current);
     dragStarted.current = false;
     onDragEnd && onDragEnd();
   }, []);
 
+  /**
+   * onMount operation
+   */
   useEffect(() => {
     if (observeContainer) {
       resizeObserver.current = new ResizeObserver(observer => {
@@ -147,6 +179,9 @@ const useDrag: functionType = (
       container.current && resizeObserver.current.observe(container.current);
     }
 
+    /**
+     * cleanup event handlers
+     */
     return () => {
       resizeObserver.current?.disconnect();
       document.removeEventListener('mousemove', handleDrag);
@@ -172,6 +207,8 @@ const useDrag: functionType = (
       if (!_target || !_container) {
         return;
       }
+
+      containerRect.current = _container.getBoundingClientRect();
 
       container.current.style.userSelect = 'none';
 
@@ -203,26 +240,18 @@ const useDrag: functionType = (
         }
       }
 
+      //wireup event handlers
+
       if (isTouch) {
-        document.addEventListener('touchmove', handleDrag, {
-          passive: false,
-        });
-        document.addEventListener('touchstart', handleDragStart, {
-          passive: false,
-        });
-        document.addEventListener('touchend', handleDragEnd, {
-          passive: true,
-        });
+        document.addEventListener('touchmove', handleDrag);
+        document.addEventListener('touchstart', handleDragStart);
+        document.addEventListener('touchend', handleDragEnd);
+        target.current.removeEventListener('keydown', handleKeyDown);
       } else {
-        document.addEventListener('mousedown', handleDragStart, {
-          passive: false,
-        });
-        document.addEventListener('mouseup', handleDragEnd, {
-          passive: true,
-        });
-        document.addEventListener('mousemove', handleDrag, {
-          passive: false,
-        });
+        document.addEventListener('mousedown', handleDragStart);
+        document.addEventListener('mouseup', handleDragEnd);
+        document.addEventListener('mousemove', handleDrag);
+        target.current.addEventListener('keydown', handleKeyDown);
       }
     };
 

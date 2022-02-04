@@ -32,18 +32,18 @@
     border-radius: 2px;
   }
 
-  &.rc-slider-control-dragging {
+  &.rc-slider-control-dragging,
+  &:focus {
     box-shadow: 0 0 1px calc(var(--size) / 2) rgba(colors.$primary-rgb, 0.25);
   }
 
-  &:not(.rc-slider-control-dragging) {
+  &:not(.rc-slider-control-dragging):not(:focus) {
     box-shadow: none;
   }
 }
 
 .rc-slider-track {
   @extend %border-radius;
-  // background: rgba(colors.$secondary-rgb, 0.5);
   background: colors.$gray;
   height: 5px;
   position: relative;
@@ -61,7 +61,6 @@
   @extend %border-radius-left;
   @include position.position-abs('center left');
   background: rgba(colors.$primary-rgb, 0.75);
-  // background-color: colors.$secondary;
   display: block;
   height: 100%;
 }

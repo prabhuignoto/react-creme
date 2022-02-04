@@ -123,7 +123,12 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
 
   return (
     <header className={tabHeadersWrapperClass}>
-      <div className={tabHeadersClass} ref={onHeadersRef} role="tablist">
+      <div
+        className={tabHeadersClass}
+        ref={onHeadersRef}
+        role="tablist"
+        // onKeyDown={handleKeyUp}
+      >
         {items.map(({ id, name, disabled }, index) => (
           <TabHead
             key={id}
