@@ -39,12 +39,8 @@ $sizes: (sm, md, lg);
   padding: 0.25rem;
 
   &:hover {
-    background-color: rgba(colors.$secondary-rgb, 0.25);
-    color: colors.$tertiary;
-  }
-
-  a {
-    color: colors.$black;
+    // background-color: rgba(colors.$secondary-rgb, 0.25);
+    // color: colors.$tertiary;
   }
 
   &.rc-bread-crumb-node-selected {

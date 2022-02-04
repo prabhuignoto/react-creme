@@ -6,6 +6,7 @@ import './breadcrumb.scss';
 
 interface BreadCrumbItemModel {
   id: string;
+  name: string;
   selected: boolean;
 }
 
@@ -16,17 +17,17 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
   size = 'sm',
   focusable = true,
   selectedCrumbIndex = 0,
+  links = [],
 }) => {
   const [items, setItems] = useState<BreadCrumbItemModel[]>(
-    Array.isArray(children)
-      ? children.map((_, index) => ({
-          id: nanoid(),
-          selected: selectedCrumbIndex === index,
-        }))
-      : []
+    links.map((link, index) => ({
+      id: nanoid(),
+      name: link,
+      selected: selectedCrumbIndex === index,
+    }))
   );
 
-  const handleSelection = useCallback((id, index) => {
+  const handleSelection = useCallback((id, name) => {
     setItems(prev =>
       prev.map(item => ({
         ...item,
@@ -34,7 +35,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
       }))
     );
 
-    onSelected?.(index);
+    onSelected?.(name);
   }, []);
 
   return (
@@ -43,7 +44,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
       role="navigation"
       aria-label="breadcrumbs"
     >
-      {items.map(({ id, selected }, index) => (
+      {items.map(({ id, selected, name }, index) => (
         <BreadCrumbItem
           child={Array.isArray(children) && children[index]}
           id={id}
@@ -55,6 +56,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
           selected={selected}
           index={index}
           focusable={focusable}
+          name={name}
         />
       ))}
     </ul>

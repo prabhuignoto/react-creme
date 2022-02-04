@@ -1,19 +1,19 @@
 import classNames from 'classnames';
-import React, { FunctionComponent, useMemo, useRef } from 'react';
+import React, { FunctionComponent, useCallback, useMemo, useRef } from 'react';
 import { ArrowRightIcon, ChevronRightIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
+import { Link } from '../link/link';
 import { BreadCrumbItemProps } from './breadcrumb-model';
 
 const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
   ({
     id,
     onSelected,
-    child,
     showChevron,
     icon = 'chevron',
     size = 'sm',
     selected,
-    index,
+    name,
   }: BreadCrumbItemProps) => {
     const ref = useRef<HTMLSpanElement>(null);
     useFocusNew(ref);
@@ -31,16 +31,14 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
       });
     }, [selected]);
 
+    const handleClick = useCallback((id, name) => {
+      onSelected?.(id, name);
+    }, []);
+
     return (
       <li className="rc-bread-crumb" key={id}>
-        <span
-          className={breadCrumbNode}
-          ref={ref}
-          tabIndex={0}
-          onClick={() => onSelected?.(id, index)}
-          role="button"
-        >
-          {child}
+        <span className={breadCrumbNode}>
+          <Link onClick={() => handleClick(id, name)}>{name}</Link>
         </span>
         {showChevron && (
           <span className={breadCrumbIcon}>

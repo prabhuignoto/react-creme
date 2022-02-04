@@ -8,6 +8,7 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
   focusable?: boolean;
   icon?: React.ReactNode;
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
 const Link: React.FunctionComponent<LinkProps> = ({
@@ -17,6 +18,7 @@ const Link: React.FunctionComponent<LinkProps> = ({
   target,
   accent = 'default',
   focusable = true,
+  onClick,
 }) => {
   const ref = useRef(null);
   let focusProps = null;
@@ -37,6 +39,12 @@ const Link: React.FunctionComponent<LinkProps> = ({
       href={href}
       {...focusProps}
       ref={ref}
+      onClick={onClick}
+      onKeyUp={e => {
+        if (e.key === 'Enter') {
+          onClick?.(e);
+        }
+      }}
     >
       {icon && <span className="rc-link-icon">{icon}</span>}
       <span className="rc-link-text">{children}</span>

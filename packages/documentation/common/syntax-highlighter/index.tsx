@@ -1,6 +1,6 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
-import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import nightOwl from 'react-syntax-highlighter/dist/esm/styles/hljs/night-owl';
 import { Notification } from '../../../lib/components/notification/notification';
 import { CopyIcon } from '../../../lib/icons';
 import './syntax-highlighter.scss';
@@ -44,8 +44,9 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
       </span>
       <SyntaxHighlighter
         language="javascript"
+        wrapLongLines={true}
         useInlineStyles={true}
-        style={{ ...nightOwl, height: '100%' }}
+        style={{ ...nightOwl, fontSize: '2rem', height: '100%' }}
       >
         {code}
       </SyntaxHighlighter>

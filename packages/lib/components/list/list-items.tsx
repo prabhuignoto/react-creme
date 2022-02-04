@@ -26,7 +26,6 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
   textColorSelected,
   virtualized,
   visibleRange,
-  renderHash,
   selectedIndex = -1,
   resetState,
 }: ListItemsProps) => {
@@ -38,7 +37,12 @@ const ListItems: React.FunctionComponent<ListItemsProps> = ({
     } as CSSProperties;
 
     return style;
-  }, [options.length, renderHash]);
+  }, [
+    JSON.stringify(
+      options.map(({ id, top, selected }) => ({ id, selected, top }))
+    ),
+    resetState,
+  ]);
 
   const listRef = useRef<HTMLUListElement | null>(null);
 

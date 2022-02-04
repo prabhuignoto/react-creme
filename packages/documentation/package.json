@@ -29,14 +29,14 @@
     "fast-deep-equal": "^3.1.3",
     "jsx-to-string": "^1.4.0",
     "normalize.css": "^8.0.1",
-    "react": "^18.0.0-rc.0",
-    "react-dom": "^18.0.0-rc.0",
     "react-feather": "^2.0.9",
     "react-instantsearch-dom": "^6.22.0",
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
     "resize-observer-polyfill": "^1.5.1",
-    "use-debounce": "^7.0.1"
+    "use-debounce": "^7.0.1",
+    "react": "file:../../node_modules/react",
+    "react-dom": "file:../../node_modules/react-dom"
   },
   "devDependencies": {
     "@axe-core/react": "^4.3.2",

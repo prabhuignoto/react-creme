@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { CheckboxProps } from './checkbox-model';
@@ -100,6 +100,12 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
       [disabled]
     );
     const iconProps = useMemo(() => (focusIcon ? focusProps : null), []);
+
+    useEffect(() => {
+      if (checked !== isChecked) {
+        setChecked(isChecked);
+      }
+    }, [isChecked]);
 
     return (
       <div
