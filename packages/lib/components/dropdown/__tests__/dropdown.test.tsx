@@ -211,22 +211,29 @@ describe('Dropdown', () => {
 
     fireEvent.click(getByText('select a option'));
 
-    await waitFor(() => {
-      expect(getByRole('listbox')).toBeInTheDocument();
-      expect(getAllByRole('option')).toHaveLength(5);
-      expect(getAllByRole('option')[0]).toHaveFocus();
-    });
+    await waitFor(
+      () => {
+        expect(getByRole('listbox')).toBeInTheDocument();
+        expect(getAllByRole('option')).toHaveLength(5);
+        expect(getAllByRole('option')[0]).toHaveFocus();
+      },
+      { timeout: 2500 }
+    );
 
     fireEvent.keyDown(getByRole('listbox'), {
       key: 'ArrowDown',
     });
 
-    expect(getAllByRole('option')[1]).toHaveFocus();
+    await waitFor(() => {
+      expect(getAllByRole('option')[1]).toHaveFocus();
+    });
 
     fireEvent.keyDown(getByRole('listbox'), {
       key: 'ArrowUp',
     });
 
-    expect(getAllByRole('option')[0]).toHaveFocus();
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
   });
 });
