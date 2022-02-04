@@ -148,7 +148,6 @@ const Slider: React.FunctionComponent<SliderProps> = ({
       aria-valuenow={value}
       aria-valuetext={`slider value is ${value}`}
       {...(showTooltipOnHover ? { onMouseOut: handelMouseOut } : null)}
-      {...focusableProps}
       ref={onTrackerInit}
       aria-label="slider"
     >
@@ -161,6 +160,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
         <span
           className={knobClass}
           ref={onControlInit}
+          {...focusableProps}
           style={
             {
               '--size': `${knobSize}px`,

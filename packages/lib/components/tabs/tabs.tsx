@@ -130,9 +130,11 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     }
   }, []);
 
-  const handleKeyUp = useCallback(
+  const handleKeyDown = useCallback(
     (ev: React.KeyboardEvent) => {
       ev.stopPropagation();
+      ev.preventDefault();
+
       const key = ev.key;
       const _items = items.current;
 
@@ -152,7 +154,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   );
 
   return (
-    <div className={rcTabsClass} style={tabsStyle} onKeyUp={handleKeyUp}>
+    <div className={rcTabsClass} style={tabsStyle} onKeyDown={handleKeyDown}>
       <TabHeaders
         items={items.current}
         handleTabSelection={handleTabSelection}

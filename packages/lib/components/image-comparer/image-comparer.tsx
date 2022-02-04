@@ -132,7 +132,12 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
           showLoader={false}
         />
       </div>
-      <span className={dragHandleClass} ref={dragRef}>
+      <span
+        className={dragHandleClass}
+        ref={dragRef}
+        role="separator"
+        tabIndex={0}
+      >
         <span className="rc-drag-handle-square"></span>
       </span>
     </div>
