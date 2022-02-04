@@ -190,11 +190,14 @@ describe('Dropdown', () => {
 
     fireEvent.click(getByText('select a option'));
 
-    await waitFor(() => {
-      expect(getByRole('listbox')).toBeInTheDocument();
-      expect(getAllByRole('option')).toHaveLength(5);
-      expect(getAllByRole('option')[0]).toHaveFocus();
-    });
+    await waitFor(
+      () => {
+        expect(getByRole('listbox')).toBeInTheDocument();
+        expect(getAllByRole('option')).toHaveLength(5);
+        expect(getAllByRole('option')[0]).toHaveFocus();
+      },
+      { timeout: 2000 }
+    );
   });
 
   it('should focus change on keyboard interaction', async () => {
