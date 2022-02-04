@@ -11,7 +11,7 @@ export default defineConfig({
     coverage: {
       clean: true,
       enabled: true,
-      reporter: ['html', 'lcov'],
+      reporter: ['html', 'lcov', 'clover', 'cobertura'],
       reportsDirectory: './coverage',
     },
     environment: 'jsdom',
