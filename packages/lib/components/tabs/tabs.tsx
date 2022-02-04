@@ -132,13 +132,12 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
 
   const handleKeyDown = useCallback(
     (ev: React.KeyboardEvent) => {
-      ev.stopPropagation();
-      ev.preventDefault();
-
       const key = ev.key;
-      const _items = items.current;
-
       if (key === 'ArrowLeft' || key === 'ArrowRight') {
+        ev.stopPropagation();
+        ev.preventDefault();
+
+        const _items = items.current;
         const activeTabIndex = _items.findIndex(item => {
           return item.id === activeTabId;
         });
