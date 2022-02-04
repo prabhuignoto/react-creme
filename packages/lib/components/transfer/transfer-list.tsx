@@ -13,7 +13,7 @@ const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
     return (
       <List
         options={options
-          .filter(i => i.visible)
+          // .filter(i => i.visible)
           .map(item => ({
             ...item,
             name: item.name,

@@ -2,41 +2,37 @@ import React from 'react';
 import { BreadCrumb } from '../../../lib/components';
 
 export const Default = (
-  <BreadCrumb>
-    <span>Home</span>
-    <span>Features</span>
-    <span>Bread Crumb</span>
-  </BreadCrumb>
+  <BreadCrumb links={['Home', 'Features', 'Bread Crumb']}></BreadCrumb>
 );
 
 export const Slash = (
-  <BreadCrumb icon="slash" selectedCrumbIndex={1}>
-    <span>Home</span>
-    <span>Features</span>
-    <span>Bread Crumb</span>
-  </BreadCrumb>
+  <BreadCrumb
+    icon="slash"
+    selectedCrumbIndex={1}
+    links={['Home', 'Features', 'Bread Crumb']}
+  ></BreadCrumb>
 );
 
 export const CustomIcon = (
-  <BreadCrumb icon="arrow">
-    <span>Home</span>
-    <span>Features</span>
-    <span>Bread Crumb</span>
-  </BreadCrumb>
+  <BreadCrumb
+    icon="arrow"
+    links={['Home', 'Features', 'Bread Crumb']}
+  ></BreadCrumb>
 );
 
 export const SelectedIndex = (
-  <BreadCrumb icon="arrow" size="md" selectedCrumbIndex={2}>
-    <span>Home</span>
-    <span>Features</span>
-    <span>Bread Crumb</span>
-  </BreadCrumb>
+  <BreadCrumb
+    icon="arrow"
+    size="md"
+    selectedCrumbIndex={2}
+    links={['Home', 'Features', 'Bread Crumb']}
+  ></BreadCrumb>
 );
 
 export const CustomSize = (
-  <BreadCrumb icon="arrow" size="lg">
-    <span>Home</span>
-    <span>Features</span>
-    <span>Bread Crumb</span>
-  </BreadCrumb>
+  <BreadCrumb
+    icon="arrow"
+    size="lg"
+    links={['Home', 'Features', 'Bread Crumb']}
+  ></BreadCrumb>
 );

@@ -38,7 +38,6 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
           onSelect={handleSidebarSelect}
           searchPlaceholder="Search Components ..."
           sectionsCollapsible={false}
-          focusable={false}
           groups={[
             {
               items: [

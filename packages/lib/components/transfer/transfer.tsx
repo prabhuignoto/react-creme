@@ -51,12 +51,16 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
         setRightSelected(prev => prev.concat(leftSelected));
         setLeftSelected([]);
       } else {
-        setLeftList(prev => prev.concat(rightSelected));
+        setLeftList(prev => {
+          return prev.concat(rightSelected);
+        });
         const rightSelectedIds = rightSelected.map(item => item.id);
         setRightList(prev =>
           prev.filter(item => !rightSelectedIds.includes(item.id))
         );
-        setLeftSelected(prev => prev.concat(rightSelected));
+        setLeftSelected(prev => {
+          return prev.concat(rightSelected);
+        });
         setRightSelected([]);
       }
     },

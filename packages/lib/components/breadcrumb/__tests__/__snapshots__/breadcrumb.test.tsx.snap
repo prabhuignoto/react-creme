@@ -11,17 +11,22 @@ exports[`Breadcrumb > should render snapshot 1`] = `
   >
     <span
       class="rc-bread-crumb-node rc-bread-crumb-node-sm rc-bread-crumb-node-selected"
-      role="button"
-      style="outline: none; position: relative;"
-      tabindex="0"
     >
-      <span>
-        google
-      </span>
-      <span
-        class="rc-focus-ring"
-        style="width: 6px; height: 6px;"
-      />
+      <a
+        class="rc-link"
+        style="outline: none; position: relative;"
+        tabindex="0"
+      >
+        <span
+          class="rc-link-text"
+        >
+          google
+        </span>
+        <span
+          class="rc-focus-ring"
+          style="width: 6px; height: 6px;"
+        />
+      </a>
     </span>
     <span
       class="rc-bread-crumb-icon rc-bread-crumb-icon-sm"
@@ -46,17 +51,22 @@ exports[`Breadcrumb > should render snapshot 1`] = `
   >
     <span
       class="rc-bread-crumb-node rc-bread-crumb-node-sm"
-      role="button"
-      style="outline: none; position: relative;"
-      tabindex="0"
     >
-      <span>
-        yahoo
-      </span>
-      <span
-        class="rc-focus-ring"
-        style="width: 6px; height: 6px;"
-      />
+      <a
+        class="rc-link"
+        style="outline: none; position: relative;"
+        tabindex="0"
+      >
+        <span
+          class="rc-link-text"
+        >
+          yahoo
+        </span>
+        <span
+          class="rc-focus-ring"
+          style="width: 6px; height: 6px;"
+        />
+      </a>
     </span>
     <span
       class="rc-bread-crumb-icon rc-bread-crumb-icon-sm"
@@ -81,17 +91,22 @@ exports[`Breadcrumb > should render snapshot 1`] = `
   >
     <span
       class="rc-bread-crumb-node rc-bread-crumb-node-sm"
-      role="button"
-      style="outline: none; position: relative;"
-      tabindex="0"
     >
-      <span>
-        amazon
-      </span>
-      <span
-        class="rc-focus-ring"
-        style="width: 6px; height: 6px;"
-      />
+      <a
+        class="rc-link"
+        style="outline: none; position: relative;"
+        tabindex="0"
+      >
+        <span
+          class="rc-link-text"
+        >
+          amazon
+        </span>
+        <span
+          class="rc-focus-ring"
+          style="width: 6px; height: 6px;"
+        />
+      </a>
     </span>
   </li>
 </ul>

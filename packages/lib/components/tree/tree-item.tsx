@@ -156,7 +156,12 @@ const TreeItem: React.FunctionComponent<TreeItemProps> = React.memo(
 
     return (
       <div className={itemClass} style={itemStyle} role="treeitem">
-        <span className={iconClass} onClick={ev => id && handleToggle(ev, id)}>
+        <span
+          className={iconClass}
+          onClick={ev => id && handleToggle(ev, id)}
+          role="img"
+          tabIndex={0}
+        >
           {iconType === 'chevron' && <ChevronRightIcon />}
           {iconType === 'plus' && !expanded && <PlusIcon />}
           {iconType === 'plus' && expanded && <MinusIcon />}

@@ -82,14 +82,22 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
   // event handlers
 
+  const closeProcess = useCallback(() => {
+    onClose?.();
+    setHideOverlay(true);
+
+    if (hideDocumentOverflow) {
+      document.body.style.overflow = 'auto';
+    }
+  }, []);
+
   /**
    *
    * Handles the overlay closure via Escape key
    */
   const handleClose = (ev: React.KeyboardEvent) => {
     if (ev.key === 'Escape') {
-      onClose?.();
-      setHideOverlay(true);
+      closeProcess();
     }
   };
 
@@ -98,12 +106,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
    */
   useEffect(() => {
     if (context?.childClosing) {
-      setHideOverlay(true);
-      onClose?.();
-
-      if (hideDocumentOverflow) {
-        document.body.style.overflow = 'auto';
-      }
+      closeProcess();
     }
   }, [context?.childClosing]);
 
@@ -117,9 +120,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         overlayContent &&
         !overlayContent.contains(ev.target as HTMLElement)
       ) {
-        setHideOverlay(true);
-        onClose?.();
-        document.body.style.overflow = 'auto';
+        closeProcess();
       }
     },
     [overlayContentRef]
@@ -144,6 +145,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     // cleanup
     return () => {
       document.removeEventListener('scroll', handleWindowScroll);
+      observer.current?.disconnect();
     };
   }, []);
 

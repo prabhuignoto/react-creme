@@ -58,40 +58,36 @@ const List: React.FunctionComponent<ListProps> = ({
     []
   );
 
+  const [searchTerm, setSearchTerm] = useState('');
+
   const handleSearch = useCallback((val: string) => {
     const _val = val.trim().toLowerCase();
-
+    setSearchTerm(_val);
     if (listRef.current) {
       listRef.current.scrollTop = 0;
     }
-
-    setListOptions(prev => {
-      let updated = [];
-
-      if (_val.length) {
-        updated = prev
-          .map(opt => ({
-            ...opt,
-            visible: opt.name.toLowerCase().includes(_val),
-          }))
-          .sort((a, b) => (a.visible === b.visible ? 0 : a.visible ? -1 : 1));
-      } else {
-        updated = prev
-          .map(opt => ({
-            ...opt,
-            visible: true,
-          }))
-          .sort((a, b) =>
-            b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1
-          );
-      }
-
-      return updated.map((option, index) => ({
-        ...option,
-        top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
-      }));
-    });
   }, []);
+
+  const visibleOptions = useMemo(() => {
+    if (searchTerm) {
+      return _listOptions
+        .map(opt => ({
+          ...opt,
+          visible: opt.name.toLowerCase().includes(searchTerm),
+        }))
+        .sort((a, b) => (a.visible === b.visible ? 0 : a.visible ? -1 : 1))
+        .map((opt, index) => ({
+          ...opt,
+          top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
+        }));
+    } else {
+      return _listOptions;
+    }
+  }, [
+    searchTerm,
+    _listOptions.length,
+    JSON.stringify(_listOptions.map((id, selected) => ({ id, selected }))),
+  ]);
 
   const handleSelection = (opt: ListOption) => {
     if (allowMultiSelection) {
@@ -131,7 +127,9 @@ const List: React.FunctionComponent<ListProps> = ({
     if (!isFirstRender.current) {
       setListOptions(ParseOptions(options, rowGap, itemHeight, noUniqueIds));
     }
-  }, [JSON.stringify(options)]);
+  }, [
+    JSON.stringify(options.map(op => ({ id: op.id, selected: op.selected }))),
+  ]);
 
   const isFirstRender = useFirstRender();
 
@@ -221,7 +219,7 @@ const List: React.FunctionComponent<ListProps> = ({
           textColor={textColor}
           textColorSelected={textColorSelected}
           visibleRange={visibleRange}
-          options={_listOptions}
+          options={visibleOptions}
           itemHeight={itemHeight}
           label={label}
           selectedIndex={selectedIndex}
