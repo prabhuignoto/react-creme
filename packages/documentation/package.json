@@ -23,20 +23,20 @@
   "dependencies": {
     "@sentry/browser": "^6.17.4",
     "@sentry/tracing": "^6.17.4",
-    "@stackblitz/sdk": "^1.5.5",
+    "@stackblitz/sdk": "^1.5.6",
     "algoliasearch": "^4.12.1",
     "classnames": "^2.3.1",
     "fast-deep-equal": "^3.1.3",
     "jsx-to-string": "^1.4.0",
     "normalize.css": "^8.0.1",
+    "react": "file:../../node_modules/react",
+    "react-dom": "file:../../node_modules/react-dom",
     "react-feather": "^2.0.9",
     "react-instantsearch-dom": "^6.22.0",
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
     "resize-observer-polyfill": "^1.5.1",
-    "use-debounce": "^7.0.1",
-    "react": "file:../../node_modules/react",
-    "react-dom": "file:../../node_modules/react-dom"
+    "use-debounce": "^7.0.1"
   },
   "devDependencies": {
     "@axe-core/react": "^4.3.2",

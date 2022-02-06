@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import isTouchDevice from '../utils';
-import { useDragFunctionType } from './usedrag-settings-model';
+import { useDragFunctionType } from './use-drag-settings-model';
 
 const rnd = Math.round;
 
@@ -18,16 +18,17 @@ const useDrag: useDragFunctionType = (
     minX = 0,
     minY = 0,
     startValue = 0,
-    endValue,
+    endValue = 0,
     offsetLeft = 0,
     onDragEnd,
     onDragStart,
     currentValue = 0,
     observeContainer = false,
+    moveToPositionOnClick = false,
   }
 ) => {
   const dragStarted = useRef(false);
-  const [percent, setPercent] = useState(0);
+  const [percent, setPercent] = useState(rnd(startValue / endValue));
 
   const containerRect = useRef<DOMRect>();
   const resizeObserver = useRef<ResizeObserver>();
@@ -68,7 +69,7 @@ const useDrag: useDragFunctionType = (
       if (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') {
         ev.preventDefault();
 
-        if (!endValue || !target.current) {
+        if (!endValue || !target.current || !container.current) {
           return;
         }
 
@@ -85,8 +86,8 @@ const useDrag: useDragFunctionType = (
         }
 
         const newPercent = trackerValue.current / endValue;
+
         setPercent(newPercent);
-        target.current.style.left = `${rnd(newPercent * 100)}%`;
       }
     },
     [percent]
@@ -104,7 +105,6 @@ const useDrag: useDragFunctionType = (
         width: parentWidth,
         height: parentHeight,
       } = containerRect.current as DOMRect;
-      const { clientWidth: targetWidth } = target.current;
 
       let clientX = 0;
       let clientY = 0;
@@ -123,21 +123,12 @@ const useDrag: useDragFunctionType = (
 
         if (left < offsetLeft) {
           setPercent(0);
-          target.current.style.left = `${-rnd(targetWidth / 2)}px`;
         } else if (left <= maxXValue.current && left >= minX) {
-          target.current.style.left = `${
-            left - rnd(targetWidth / 2) - (startValue || 0)
-          }px`;
-          const percent = (left - rnd(targetWidth / 2)) / parentWidth;
+          const percent = left / parentWidth;
           setPercent(percent);
-          trackerValue.current = rnd(percent * (endValue || 0));
         } else if (left >= maxXValue.current) {
           const percent = maxXValue.current / parentWidth;
           setPercent(percent);
-          trackerValue.current = rnd(percent * (endValue || 0));
-          target.current.style.left = `${
-            maxXValue.current - rnd(targetWidth / 2)
-          }px`;
         }
       } else if (direction === 'vertical') {
         const top = max(0, clientY - (parentTop || 0));
@@ -151,6 +142,46 @@ const useDrag: useDragFunctionType = (
       }
     }
   }, []);
+
+  const handleClick = (ev: MouseEvent) => {
+    if (container.current) {
+      const { left, width, height, top } =
+        container.current.getBoundingClientRect();
+      ev.stopPropagation();
+      let clickedPosition;
+      let percent = 0;
+
+      if (direction === 'horizontal') {
+        clickedPosition = ev.clientX - left;
+        percent = clickedPosition / width;
+      } else if (direction === 'vertical') {
+        clickedPosition = ev.clientY - top;
+        percent = clickedPosition / height;
+      }
+
+      if (target.current) {
+        setPercent(percent);
+        target.current.focus();
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (target.current && container.current) {
+      const { clientWidth: containerWidth, clientHeight: containerHeight } =
+        container.current;
+
+      if (direction === 'horizontal') {
+        const offset = rnd(target.current.clientWidth / 2);
+        target.current.style.left = containerWidth * percent - offset + 'px';
+      } else if (direction === 'vertical') {
+        const offset = rnd(target.current.clientHeight / 2);
+        target.current.style.top = containerHeight * percent - offset + 'px';
+      }
+
+      trackerValue.current = rnd(percent * (endValue || 0));
+    }
+  }, [percent]);
 
   /**
    * Event handler for drag end operation
@@ -192,6 +223,10 @@ const useDrag: useDragFunctionType = (
 
       document.removeEventListener('mouseup', handleDragEnd);
       document.removeEventListener('touchend', handleDragEnd);
+
+      if (moveToPositionOnClick) {
+        container.current?.removeEventListener('click', handleClick);
+      }
     };
   }, []);
 
@@ -207,8 +242,6 @@ const useDrag: useDragFunctionType = (
       if (!_target || !_container) {
         return;
       }
-
-      containerRect.current = _container.getBoundingClientRect();
 
       container.current.style.userSelect = 'none';
 
@@ -240,7 +273,7 @@ const useDrag: useDragFunctionType = (
         }
       }
 
-      //wireup event handlers
+      //wire up event handlers
 
       if (isTouch) {
         document.addEventListener('touchmove', handleDrag);
@@ -252,6 +285,10 @@ const useDrag: useDragFunctionType = (
         document.addEventListener('mouseup', handleDragEnd);
         document.addEventListener('mousemove', handleDrag);
         target.current.addEventListener('keydown', handleKeyDown);
+
+        if (moveToPositionOnClick) {
+          container.current.addEventListener('click', handleClick);
+        }
       }
     };
 

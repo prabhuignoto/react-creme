@@ -54,7 +54,8 @@ $heights: (
   }
 
   &.rc-section-rtl {
-    @extend %right;
+    // @extend %right;
+    direction: rtl;
   }
 
   &:not(.rc-section-no-title) {

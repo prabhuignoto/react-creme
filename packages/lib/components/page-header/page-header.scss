@@ -37,7 +37,8 @@ $heights: (
 }
 
 .rc-page-header-rtl {
-  @extend %list-right;
+  // @extend %list-right;
+  direction: rtl;
 
   h2 {
     text-align: right;

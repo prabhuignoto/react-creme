@@ -8,6 +8,7 @@ export interface Settings {
   maxY?: number;
   minX?: number;
   minY?: number;
+  moveToPositionOnClick?: boolean;
   observeContainer?: boolean;
   offsetLeft?: number;
   onDragEnd?: () => void;

@@ -24,10 +24,12 @@ function useKeyNavigation(
         setSelection(prev => {
           if (prev < collectionLength - 1) {
             return prev + 1;
+          } else {
+            return 0;
           }
-          return prev;
         });
 
+        // scroll to top
         if (_listRef) {
           _listRef.scrollTop += scrollOffset;
         }
@@ -35,8 +37,9 @@ function useKeyNavigation(
         setSelection(prev => {
           if (prev > 0) {
             return prev - 1;
+          } else {
+            return collectionLength - 1;
           }
-          return prev;
         });
         if (_listRef) {
           _listRef.scrollTop -= scrollOffset;
