@@ -9,6 +9,8 @@ function index() {
     <DemoPageRenderer
       title="Alerts"
       description="Alerts are used to notify the user of an important event."
+      sourceId="alert/alert.tsx"
+      editId="alerts"
       pageIcon={<FontAwesomeIcon icon={faExclamation} size="2x" />}
       callbacks={[
         {

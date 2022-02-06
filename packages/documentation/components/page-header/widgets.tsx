@@ -6,16 +6,18 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section>
-        <BlockQuote>
-          Page header can be used to display the title of the page.
-        </BlockQuote>
         <DemoWidget fullWidth>
           <PageHeader title="Page Header" />
         </DemoWidget>
       </Section>
       <Section>
+        <BlockQuote>
+          use the <code>RTL</code> prop to support right to left languages.
+        </BlockQuote>
         <DemoWidget fullWidth>
-          <PageHeader title="Page Header (Right to Left)" RTL />
+          <PageHeader title="Page Header (Right to Left)" RTL>
+            This is a test content
+          </PageHeader>
         </DemoWidget>
       </Section>
     </div>

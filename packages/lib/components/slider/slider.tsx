@@ -46,6 +46,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     currentValue: sliderValue,
     direction: 'horizontal',
     endValue: end,
+    moveToPositionOnClick: true,
     observeContainer: true,
     offsetLeft: start,
     onDragEnd,
