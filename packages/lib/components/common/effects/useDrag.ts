@@ -75,6 +75,8 @@ const useDrag: useDragFunctionType = (
 
         const trackerVal = trackerValue.current;
 
+        console.log(trackerVal);
+
         if (ev.key === 'ArrowLeft' && startValue) {
           if (trackerVal > Math.max(trackerVal - startValue, 0)) {
             trackerValue.current -= 1;
@@ -143,7 +145,18 @@ const useDrag: useDragFunctionType = (
     }
   }, []);
 
-  const handleClick = (ev: MouseEvent) => {
+  const handleClick = (ev: MouseEvent | TouchEvent) => {
+    let clientX = 0;
+    let clientY = 0;
+
+    if (ev instanceof MouseEvent) {
+      clientX = (ev as MouseEvent).clientX;
+      clientY = (ev as MouseEvent).clientY;
+    } else if (ev instanceof TouchEvent) {
+      clientX = (ev as TouchEvent).touches[0].clientX;
+      clientY = (ev as TouchEvent).touches[0].clientY;
+    }
+
     if (container.current) {
       const { left, width, height, top } =
         container.current.getBoundingClientRect();
@@ -152,10 +165,10 @@ const useDrag: useDragFunctionType = (
       let percent = 0;
 
       if (direction === 'horizontal') {
-        clickedPosition = ev.clientX - left;
+        clickedPosition = clientX - left;
         percent = clickedPosition / width;
       } else if (direction === 'vertical') {
-        clickedPosition = ev.clientY - top;
+        clickedPosition = clientY - top;
         percent = clickedPosition / height;
       }
 
@@ -285,10 +298,10 @@ const useDrag: useDragFunctionType = (
         document.addEventListener('mouseup', handleDragEnd);
         document.addEventListener('mousemove', handleDrag);
         target.current.addEventListener('keydown', handleKeyDown);
+      }
 
-        if (moveToPositionOnClick) {
-          container.current.addEventListener('click', handleClick);
-        }
+      if (moveToPositionOnClick) {
+        container.current.addEventListener('click', handleClick);
       }
     };
 

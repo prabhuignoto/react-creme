@@ -164,8 +164,8 @@ const List: React.FunctionComponent<ListProps> = ({
         ? {
             onKeyDown: (ev: React.KeyboardEvent) => {
               if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
-                ev.preventDefault();
-                ev.stopPropagation();
+                // ev.preventDefault();
+                // ev.stopPropagation();
               }
             },
           }

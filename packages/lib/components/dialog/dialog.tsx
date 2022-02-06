@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
-import { useCallback, useMemo, useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { CheckIcon, CloseIcon } from '../../icons';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
@@ -48,15 +48,19 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     () => ({
       '--animation': animationType,
       '--min-width': `${width}px`,
-      height: height ? `${height}px` : 'auto',
+      minHeight: height ? `${height}px` : 'auto',
     }),
     [width, height]
   );
 
-  const handleSuccess = useCallback(() => {
+  const handleSuccess = () => {
     onSuccess?.();
     onClose?.();
-  }, []);
+  };
+
+  const handleClose = () => {
+    onClose?.();
+  };
 
   return (
     <div
@@ -73,7 +77,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
         <div className="rc-dialog-button-wrapper">
           <Button
             type="icon"
-            onClick={onClose}
+            onClick={handleClose}
             size="md"
             focusable={focusable}
             ref={buttonRef}
@@ -92,7 +96,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
         >
           <CheckIcon />
         </Button>
-        <Button label="cancel" onClick={onClose} focusable={focusable}>
+        <Button label="cancel" onClick={handleClose} focusable={focusable}>
           <CloseIcon />
         </Button>
       </footer>

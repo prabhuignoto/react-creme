@@ -122,10 +122,6 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     [hideTooltip, disableTooltip]
   );
 
-  if (focusable) {
-    // useFocus(controlRef);
-  }
-
   useEffect(() => onChangeDebounced?.(value), [value]);
 
   const tooltipMessage = useMemo(() => {

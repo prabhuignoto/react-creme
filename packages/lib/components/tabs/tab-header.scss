@@ -103,6 +103,10 @@ $rounded-tabs-height: 45px;
     color: colors.$primary;
   }
 
+  &:not(.rc-tab-head-selected) {
+    cursor: pointer;
+  }
+
   &:not(:first-child) {
     margin-left: 0.75rem;
   }
@@ -148,8 +152,6 @@ $rounded-tabs-height: 45px;
 
 .rc-tab-header-label {
   @extend %left;
-  // @include animate.halo(2px, 2px);
-  cursor: pointer;
   height: 90%;
   position: relative;
   text-transform: capitalize;
