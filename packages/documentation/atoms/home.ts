@@ -1,6 +1,10 @@
 import { atom } from 'recoil';
 import { Theme } from '../../lib/components/common/theme-provider';
 
+export type ThemeType = 'default' | 'glacier' | 'blueberry';
+
+type ThemeState = { colors: Theme; selectedTheme: ThemeType };
+
 export type MediaState = {
   isBigScreen: boolean;
   isDesktop: boolean;
@@ -28,12 +32,15 @@ const responsiveState = atom<MediaState>({
   key: 'responsiveState',
 });
 
-const themeState = atom<Theme>({
+const themeState = atom<ThemeState>({
   default: {
-    primary: '#0074B7',
-    secondary: '#BFD7ED',
-    tertiary: '#003B73',
-    textSelection: '#003B73',
+    colors: {
+      primary: '#0074B7',
+      secondary: '#BFD7ED',
+      tertiary: '#003B73',
+      textSelection: '#003B73',
+    },
+    selectedTheme: 'default',
   },
   key: 'themeState',
 });

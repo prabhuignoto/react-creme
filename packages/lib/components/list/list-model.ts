@@ -109,7 +109,7 @@ export type ListItemContentProps = Pick<
   // tabIndex: number;
 };
 
-export interface ListOption extends Option {
+export interface ListOption<T = string> extends Option<T> {
   focus?: boolean;
   group?: string;
   top?: number;

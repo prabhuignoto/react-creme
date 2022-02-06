@@ -11,12 +11,12 @@ export interface DropdownMenuStyleModel {
 }
 
 /** Model representing the Dropdown Option */
-export interface Option {
+export interface Option<T = string> {
   disabled?: boolean;
   id?: string;
   name: string;
   selected?: boolean;
-  value?: string;
+  value?: T;
 }
 
 /** ✨Component props */
