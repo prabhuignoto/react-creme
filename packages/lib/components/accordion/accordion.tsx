@@ -33,22 +33,27 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
     title,
     titleColor = '#000',
     transition = 'cubic-bezier(0.19, 1, 0.22, 1)',
+    onRendered,
+    autoSetBodyHeight = true,
+    onChange,
+    selected = false,
   }: AccordionProps) => {
     const accordionID = useRef(id || `accordion-${nanoid()}`);
     const accordionBodyId = useRef(`accordion-body-${nanoid()}`);
 
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement | null>(null);
 
     const [open, setOpen] = useState(expanded);
     const [bodyHeight, setBodyHeight] = useState(0);
 
     const toggleAccordion = useCallback(() => {
       enableCallback.current = true;
+      onChange?.(!open);
 
       setOpen(prev => {
         return !prev;
       });
-    }, []);
+    }, [open]);
 
     const enableCallback = useRef(false);
     const isFirstRender = useFirstRender();
@@ -63,18 +68,27 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
     );
 
     const style = useMemo(
-      () =>
-        ({
-          '--icon-color': iconColor,
-          '--max-height': open
-            ? bodyHeight
-              ? `${bodyHeight}px`
-              : `${100}px`
-            : '0px',
-          '--title-color': titleColor,
-          '--transition': transition,
-        } as CSSProperties),
+      () => ({
+        '--icon-color': iconColor,
+        '--title-color': titleColor,
+        '--transition': transition,
+      }),
       [open, bodyHeight]
+    );
+
+    const styleWithHeight = useMemo(
+      () =>
+        style
+          ? {
+              ...style,
+              '--max-height': open
+                ? bodyHeight
+                  ? `${bodyHeight}px`
+                  : `${100}px`
+                : '0px',
+            }
+          : {},
+      [autoSetBodyHeight, bodyHeight, style, open]
     );
 
     const accordionClass = useMemo(
@@ -88,9 +102,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
 
     const onInitRef = useCallback(node => {
       if (node) {
-        ref.current = node;
-        const height = (node as HTMLElement).scrollHeight;
-        setBodyHeight(height);
+        ref.current = node as HTMLDivElement;
       }
     }, []);
 
@@ -114,8 +126,20 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
       }
     }, [expanded]);
 
+    useEffect(() => {
+      if (children) {
+        const height = ref.current?.scrollHeight;
+
+        if (height && autoSetBodyHeight) {
+          setBodyHeight(height);
+        }
+
+        onRendered?.();
+      }
+    }, [children]);
+
     return (
-      <div className={accordionClass} style={style}>
+      <div className={accordionClass}>
         <AccordionHeader
           disableIcon={disableIcon}
           focusable={focusable}
@@ -132,10 +156,12 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
           onToggle={toggleAccordion}
           aria-controls={accordionBodyId.current}
           aria-expanded={open}
+          selected={selected}
         />
         <div
           className={accordionBodyClass}
-          style={style}
+          style={(autoSetBodyHeight ? styleWithHeight : style) as CSSProperties}
+          // style={style}
           ref={onInitRef}
           id={accordionBodyId.current}
           aria-labelledby={accordionID.current}

@@ -36,6 +36,11 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
     display: grid;
     grid-template-columns: 2rem calc(100% - 2.5rem) 0.5rem;
   }
+
+  &.rc-accordion-selected {
+    @extend %border-radius;
+    background: rgba(colors.$secondary-rgb, 0.25);
+  }
 }
 
 .rc-accordion-align-icon-rt {

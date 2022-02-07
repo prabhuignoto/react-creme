@@ -1,6 +1,6 @@
 {
   "name": "react-creme",
-  "version": "0.0.42",
+  "version": "0.0.44",
   "author": {
     "name": "Prabhu Murthy",
     "email": "prabhu.m.murthy@gmail.com"
@@ -71,8 +71,8 @@
     "autoprefixer": "^10.4.2",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "c8": "^7.11.0",
-    "cssnano": "^5.0.16",
-    "esbuild": "^0.14.18",
+    "cssnano": "^5.0.17",
+    "esbuild": "^0.14.20",
     "jest-sonar-reporter": "^2.0.0",
     "jsdom": "^19.0.0",
     "postcss": "^8.4.6",
@@ -84,7 +84,7 @@
     "react-dom": "file:../../node_modules/react-dom",
     "resize-observer-polyfill": "^1.5.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.67.0",
+    "rollup": "^2.67.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-progress": "^1.1.2",

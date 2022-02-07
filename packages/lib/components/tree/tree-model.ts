@@ -1,24 +1,14 @@
-export interface TreeItemProps extends TreeCommonProps {
-  child?: TreeItemProps[];
-  disabled?: boolean;
-  expanded?: boolean;
+export type TreeNodeProps = {
   id?: string;
+  isChild?: boolean;
   name?: string;
-  onToggle?: (id?: string) => void;
+  nodes?: TreeNodeProps[];
+  onSelect?: (id?: string) => void;
   selected?: boolean;
-}
+};
 
-export interface TreeProps extends TreeCommonProps {
-  childrenSelected?: boolean;
-  height?: number;
-  isChildTree?: boolean;
-  items: TreeItemProps[];
-}
-
-export interface TreeCommonProps {
-  allowSelection?: boolean;
-  iconType?: 'plus' | 'chevron';
-  onChange?: (name?: string) => void;
-  onChildToggle?: (expanded: boolean, childrenCount: number) => void;
-  width?: number;
-}
+export type TreeProps = {
+  name?: string;
+  nodes: TreeNodeProps[];
+  onSelected?: (t: TreeNodeProps) => void;
+};

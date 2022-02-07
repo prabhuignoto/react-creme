@@ -58,6 +58,20 @@ function rate() {
           optional: 'Yes',
           type: `Array`,
         },
+        {
+          default: 'False',
+          description: 'disables the component',
+          name: 'disabled',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'False',
+          description: 'sets the direction of the component',
+          name: 'RTL',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-lqtbt6']}

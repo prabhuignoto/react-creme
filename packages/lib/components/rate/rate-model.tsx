@@ -1,17 +1,14 @@
 import { ReactNode } from 'react';
 
-interface CommonProps {
-  focusable?: boolean;
-  icon?: ReactNode;
-  size?: 'sm' | 'md' | 'lg';
-}
-
-export interface RateProps extends CommonProps {
+export interface RateProps {
   RTL?: boolean;
   disabled?: boolean;
+  focusable?: boolean;
+  icon?: ReactNode;
   iconCount?: number;
   onChange?: (value: number | string) => void;
   ratingValues?: string[];
+  size?: 'sm' | 'md' | 'lg';
   value?: 1 | 2 | 3 | 4 | 5;
 }
 
@@ -21,9 +18,12 @@ export interface RateItemProps {
   id: string;
 }
 
-export interface RateItemViewProps extends CommonProps, RateItemProps {
-  disabled?: boolean;
-  index: number;
-  onMouseOver: (idx: number) => void;
-  onSelect: (idx: number) => void;
-}
+export type RateItemViewProps = Pick<
+  RateProps,
+  'disabled' | 'focusable' | 'icon' | 'size'
+> &
+  RateItemProps & {
+    index: number;
+    onMouseOver: (idx: number) => void;
+    onSelect: (idx: number) => void;
+  };

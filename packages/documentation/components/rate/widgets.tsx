@@ -17,15 +17,23 @@ function widgets() {
         <DemoWidget>{Default}</DemoWidget>
       </Section>
       <Section title="Custom icon count">
-        <BlockQuote>You can choose the number of icons to display.</BlockQuote>
+        <BlockQuote>
+          Use the <code>iconCount</code> prop to customize the number of icons.
+          The example renders the component with 3 icons.
+        </BlockQuote>
         <DemoWidget>{CustomIconCount}</DemoWidget>
       </Section>
       <Section title="Custom Icon">
-        <BlockQuote>You can set the custom icon.</BlockQuote>
+        <BlockQuote>
+          Customize the icon with the <code>icon</code> prop.
+        </BlockQuote>
         <DemoWidget>{CustomIcon}</DemoWidget>
       </Section>
       <Section title="Custom size">
-        <BlockQuote>The size of the icon can be customized too</BlockQuote>
+        <BlockQuote>
+          Choose a custom size with the <code>size</code> prop. The prop value
+          can be <code>sm</code>, <code>md</code> or <code>lg</code>.
+        </BlockQuote>
         <DemoWidget>{CustomSize}</DemoWidget>
       </Section>
       <Section title="Disabled state">

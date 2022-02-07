@@ -10,7 +10,7 @@ export interface RadioGroupProps<T = string> {
   style?: CSSProperties;
 }
 
-export interface RadioGroupItemProps<U> {
+export interface RadioGroupItemProps<U = string> {
   checked?: boolean | null;
   disabled?: boolean;
   id?: string;

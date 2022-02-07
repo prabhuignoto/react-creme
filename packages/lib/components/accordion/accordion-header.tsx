@@ -17,6 +17,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   onToggle,
   accordionId,
   open,
+  selected,
 }) => {
   const accordionHeaderClass = useMemo(
     () =>
@@ -25,8 +26,9 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
         'rc-accordion-disable-collapse': disableCollapse,
         'rc-accordion-disable-icon': disableIcon,
         'rc-accordion-focusable': focusable,
+        'rc-accordion-selected': selected,
       }),
-    [alignIconRight, focusable]
+    [alignIconRight, focusable, selected]
   );
 
   const ref = useRef(null);
