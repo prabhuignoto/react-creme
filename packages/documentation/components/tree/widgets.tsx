@@ -1,7 +1,7 @@
 import React from 'react';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
-import { CustomIcon, Default, Selection } from './widget-variants';
+import { Default } from './widget-variants';
 
 function Widgets() {
   return (
