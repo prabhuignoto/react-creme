@@ -16,10 +16,10 @@ const GithubLink = () => (
   </div>
 );
 
-const Badge = () => {
+const Badge = ({ label }: { label: string }) => {
   return (
     <div className="rc-demo-alpha-badge" aria-label="alpha">
-      Alpha
+      {label}
     </div>
   );
 };

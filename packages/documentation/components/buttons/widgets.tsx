@@ -14,18 +14,18 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render">
-        <DemoWidget width={100}>{Default}</DemoWidget>
+        <DemoWidget width={80}>{Default}</DemoWidget>
       </Section>
       <Section title="Icon">
         <BlockQuote>Insert a custom icon to the button.</BlockQuote>
-        <DemoWidget width={150}>{Icon}</DemoWidget>
+        <DemoWidget width={130}>{Icon}</DemoWidget>
       </Section>
       <Section title="Loading state">
         <BlockQuote>
           Use the <code>type</code> property to change the button to a loading
           state.
         </BlockQuote>
-        <DemoWidget width={150}>{SearchingState}</DemoWidget>
+        <DemoWidget width={120}>{SearchingState}</DemoWidget>
       </Section>
       <Section title="Disabled">
         <BlockQuote>Buttons can be disabled</BlockQuote>

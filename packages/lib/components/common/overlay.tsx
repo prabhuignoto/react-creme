@@ -19,13 +19,14 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   children,
   containedToParent = false,
   disableBackdrop,
+  hideDocumentOverflow = false,
   onClose,
   onOpen,
   overlayAnimation = true,
   placement,
+  placementOffset = 0,
   placementReference,
   showCloseButton = false,
-  hideDocumentOverflow = false,
 }) => {
   const context = useContext(OverlayContext) as OverlayContextModel;
 
@@ -72,7 +73,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       const positionRight = right - overlayDimensions.width;
 
       return {
-        [placement === 'top' ? 'bottom' : 'top']: `${top + height}px`,
+        [placement === 'top' ? 'bottom' : 'top']: `${
+          top + height + placementOffset
+        }px`,
         left: `${context?.align === 'left' ? left : positionRight}px`,
         pointerEvents: 'all',
         position: 'absolute',
@@ -87,7 +90,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     setHideOverlay(true);
 
     if (hideDocumentOverflow) {
-      document.body.style.overflow = 'auto';
+      // document.body.style.overflow = 'auto';
     }
   }, []);
 
@@ -163,7 +166,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       }, 50);
 
       if (hideDocumentOverflow) {
-        document.body.style.overflow = 'hidden';
+        // document.body.style.overflow = 'hidden';
       }
     }
   }, []);

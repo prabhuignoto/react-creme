@@ -81,10 +81,10 @@
       height: 20px;
       padding: calc(20px * 0.25);
     } @else if $size == large {
-      height: 30px;
+      height: 40px;
       padding: calc(30px * 0.25);
     } @else if $size == medium {
-      height: 25px;
+      height: 30px;
       padding: calc(25px * 0.25);
     }
   }

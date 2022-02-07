@@ -7,6 +7,7 @@ interface OverlayCommon {
   onClosing?: () => void;
   onOpen?: () => void;
   placement?: 'top' | 'bottom';
+  placementOffset?: number;
   placementReference?: RefObject<HTMLElement>;
 }
 

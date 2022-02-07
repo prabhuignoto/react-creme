@@ -155,6 +155,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
             align={position}
             ref={menuRef}
             focusable={focusable}
+            placementOffset={15}
           />
         </div>
       )}

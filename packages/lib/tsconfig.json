@@ -30,6 +30,12 @@
       "@testing-library/jest-dom",
       "vitest/globals"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ],
+    },
   },
   "include": [
     "./components",

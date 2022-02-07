@@ -18,7 +18,7 @@ function widgets() {
     }
 
     if (responsive.isExtraLargeScreen) {
-      setWidth(650);
+      setWidth(550);
     } else if (responsive.isBigScreen) {
       setWidth(550);
     } else if (responsive.isDesktop) {
