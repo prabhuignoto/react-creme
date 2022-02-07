@@ -27,11 +27,8 @@
       "react/next",
       "react-dom/next",
       "vite-plugin-svgr/client"
-    ],
+    ]
   },
-  "exclude": [
-    "./node_modules/**/*"
-  ],
   "include": [
     "svg.d.ts"
   ]
