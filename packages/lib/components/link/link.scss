@@ -8,17 +8,18 @@
   align-items: center;
   color: colors.$primary;
   margin: 0;
-  padding: 0.5rem;
+  padding: 0.25rem;
   text-decoration: none;
   white-space: nowrap;
 
   &.rc-link-btn {
     @extend %shadow-inset-small;
     @extend %border;
+    padding: 0.5rem;
   }
 
   &.rc-link-btn:hover {
-    background:rgba(colors.$primary-rgb, 1);
+    background: rgba(colors.$primary-rgb, 1);
     box-shadow: none;
     color: colors.$white;
   }

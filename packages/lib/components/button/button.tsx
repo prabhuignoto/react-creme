@@ -16,7 +16,7 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
     type = 'default',
     label = '',
     onClick,
-    size = 'md',
+    size = 'sm',
     style = {},
   } = props;
   // classes

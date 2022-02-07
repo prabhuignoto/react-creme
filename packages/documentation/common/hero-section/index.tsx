@@ -36,7 +36,7 @@ function HeroSection() {
         </ul>
         {media.isMobile && (
           <div className="home-menu">
-            <HomeButton onClick={handleOpenSidebar}>
+            <HomeButton onClick={handleOpenSidebar} size="md">
               <FontAwesomeIcon icon={faBars} size="2x" />
             </HomeButton>
           </div>

@@ -64,7 +64,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
 
   const handleClose = useCallback(() => {
     setOpen(false);
-    setTimeout(() => onClose?.(), 250);
+    onClose?.();
   }, []);
 
   return (
