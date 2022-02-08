@@ -17,7 +17,7 @@ const data = [
           { name: 'four' },
           { name: 'five' },
           { name: 'six' },
-          { name: 'seven' },
+          { name: 'seven', nodes: [{ name: 'eight' }] },
         ],
       },
     ],

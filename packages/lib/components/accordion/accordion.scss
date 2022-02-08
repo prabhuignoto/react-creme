@@ -32,7 +32,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
     cursor: pointer;
   }
 
-  &:not(.rc-accordion-disable-icon):not(.rc-accordion-header-icon) {
+  &:not(.rc-accordion-header-icon) {
     display: grid;
     grid-template-columns: 2rem calc(100% - 2.5rem) 0.5rem;
   }
@@ -69,7 +69,7 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   @extend %left;
   display: block;
   font-size: 1rem;
-  padding-left: 0.5rem;
+  // padding-left: 0.5rem;
   white-space: nowrap;
 
   &:not(.rc-accordion-title-bold) {
@@ -89,5 +89,9 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
 
   &.rc-accordion-icon-open:not(.rc-accordion-icon-plus):not(.rc-accordion-custom-icon) {
     transform: rotate(90deg);
+  }
+
+  &.rc-accordion-disable-icon {
+    visibility: hidden;
   }
 }

@@ -60,15 +60,12 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     return classnames([...classes, 'rc-accordion-icon'], {
       'rc-accordion-custom-icon': customIcon,
       [`rc-accordion-icon-${iconType}`]: true,
+      'rc-accordion-disable-icon': disableIcon,
       'rc-accordion-icon-open': open,
     });
-  }, [open, customIcon]);
+  }, [open, customIcon, disableIcon]);
 
   const icon = useMemo(() => {
-    if (disableIcon) {
-      return null;
-    }
-
     if (customIcon) {
       return customIcon;
     } else if (iconType === 'chevron') {
@@ -76,7 +73,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     } else if (iconType === 'plus') {
       return open ? <MinusIcon /> : <PlusIcon />;
     }
-  }, [iconType, open, disableIcon]);
+  }, [iconType, open]);
 
   if (focusable) {
     useFocusNew(ref, onToggle);
@@ -91,7 +88,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
       {...focusProps}
       {...collapsibleProps}
     >
-      {!disableIcon && <span className={iconClass}>{icon}</span>}
+      <span className={iconClass}>{icon}</span>
       <span className={titleClass}>{title}</span>
     </div>
   );
