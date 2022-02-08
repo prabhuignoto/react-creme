@@ -134,7 +134,7 @@ const Widgets = () => {
             The notification can be closed automatically after a certain time
             using the autoClose property.
           </BlockQuote>
-          <DemoWidget>
+          <DemoWidget width={150}>
             <Button label="Open Notification" onClick={() => setShow3(true)} />
           </DemoWidget>
         </Section>

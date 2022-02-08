@@ -62,28 +62,9 @@ export default {
     common({}),
     babel({
       babelHelpers: 'runtime',
-      exclude: 'node_modules/**',
-      plugins: [
-        '@babel/plugin-transform-runtime',
-        '@babel/plugin-proposal-optional-chaining',
-      ],
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            targets: {
-              esmodules: true,
-            },
-          },
-        ],
-        [
-          '@babel/preset-react',
-          {
-            runtime: 'automatic',
-          },
-        ],
-        '@babel/preset-typescript',
-      ],
+      babelrc: true,
+      exclude: '**/node_modules/**',
+      skipPreflightCheck: true,
     }),
     purgecss({
       content: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],

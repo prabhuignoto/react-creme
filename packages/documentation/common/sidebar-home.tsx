@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Sidebar } from '../../lib/components';
 import {
   SidebarGroupModel,
-  SidebarItemModel
+  SidebarItemModel,
 } from '../../lib/components/sidebar/sidebar-model';
 
 interface SideBarHomeProps {
@@ -49,7 +49,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
                 { name: 'Sidebar' },
                 { name: 'image comparer' },
                 { name: 'Carousel' },
-                { name: 'Reveal' },
+                // { name: 'Reveal' },
                 { name: 'scroll spy' },
               ],
               title: 'Layout',
@@ -99,7 +99,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
               title: 'Data',
             },
             {
-              items: [{ name: 'Bread Crumb' }, {name: 'Link'}],
+              items: [{ name: 'Bread Crumb' }, { name: 'Link' }],
               title: 'Navigation',
             },
             {

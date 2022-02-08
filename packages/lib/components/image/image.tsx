@@ -139,7 +139,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
   }, [loaded]);
 
   const focusProps = useMemo(
-    () => (focusable && expandImageOnClick ? { tabindex: 0 } : {}),
+    () => (focusable && expandImageOnClick ? { tabIndex: 0 } : {}),
     [focusable, expandImageOnClick]
   );
 

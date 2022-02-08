@@ -11,9 +11,12 @@
   color: rgba(0, 0, 0, 0.65);
   cursor: pointer;
   display: flex;
+  height: 2rem;
   justify-content: center;
 
+  width: 2rem;
+
   svg {
-    height: 80%;
+    height: 100%;
   }
 }
