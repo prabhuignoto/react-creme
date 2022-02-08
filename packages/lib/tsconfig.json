@@ -6,7 +6,7 @@
       "dom.iterable",
       "ESNext"
     ],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -20,15 +20,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react",
-    "noEmit": true,
     "declaration": true,
     "declarationDir": "dist",
     "types": [
       "react",
       "react-dom",
-      "jest",
-      "@testing-library/jest-dom",
-      "vitest/globals"
     ],
     "baseUrl": ".",
     "paths": {

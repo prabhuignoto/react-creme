@@ -1,7 +1,6 @@
 export { AccordionGroup } from './components/accordion-group/accordion-group';
 export { Accordion } from './components/accordion/accordion';
 export type {
-  AccordionCommon,
   AccordionGroupProps,
   AccordionHeaderProps,
   AccordionItemProps,
@@ -151,4 +150,4 @@ export type {
   TransferProps,
 } from './components/transfer/transfer-model';
 export { Tree } from './components/tree/tree';
-export type { TreeItemProps, TreeProps } from './components/tree/tree-model';
+export type { TreeNodeProps, TreeProps } from './components/tree/tree-model';

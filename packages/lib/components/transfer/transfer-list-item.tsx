@@ -19,8 +19,8 @@ const TransferListItem: React.FunctionComponent<TransferListItemModel> =
           <CheckBox
             label={name}
             isChecked={selected}
-            onChange={(id: string, name: string, checked: boolean) => {
-              if (checked !== selected) {
+            onChange={(id?: string, checked?: boolean) => {
+              if (id && checked !== selected) {
                 handleSelection(list, id);
               }
             }}
