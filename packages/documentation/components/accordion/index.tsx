@@ -41,6 +41,22 @@ const Accordion = () => {
           optional: 'Yes',
           type: 'Function',
         },
+        {
+          default: '',
+          description:
+            'Callback function executed when the accordion is collapsed or expanded.',
+          name: 'onChange',
+          optional: 'Yes',
+          type: 'Function',
+        },
+        {
+          default: '',
+          description:
+            'Callback function executed when the accordion is rendered.',
+          name: 'onRendered',
+          optional: 'Yes',
+          type: 'Function',
+        },
       ]}
       properties={[
         {

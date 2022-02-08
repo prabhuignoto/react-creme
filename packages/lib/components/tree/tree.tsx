@@ -1,97 +1,105 @@
-import classNames from 'classnames';
-import { nanoid } from 'nanoid';
-import React, {
-  CSSProperties,
-  useCallback,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
-import { TreeItem } from './tree-item';
-import { TreeProps } from './tree-model';
-import './tree.scss';
+import React, { useMemo, useState } from 'react';
+import { Accordion } from '../accordion/accordion';
+import { TreeNodeProps, TreeProps } from './tree-model';
+import { Parse, recursiveFind, recursiveUpdate } from './tree-utils';
 
-const Tree: React.FunctionComponent<TreeProps> = React.memo(
-  ({
-    allowSelection,
-    childrenSelected,
-    height = 200,
-    isChildTree,
-    items = [],
-    onChildToggle,
-    onChange,
-    iconType = 'chevron',
-  }: TreeProps) => {
-    const [_items, setItems] = useState(
-      items.map(item => ({
-        id: nanoid(),
-        ...item,
-      }))
-    );
+const AccordionMemo = React.memo(Accordion);
 
-    const rootRef = useRef();
-    const [rootWidth, setRootWidth] = useState(0);
+const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
+  (props: TreeNodeProps) => {
+    const { nodes = [], isChild, selected, onSelect, id } = props;
 
-    const toggleItem = useCallback(
-      (id?: string) => {
-        setItems(prev =>
-          prev.map(item => ({
-            ...item,
-            expanded: id === item.id ? !item.expanded : item.expanded,
-          }))
-        );
-      },
-      [_items.length]
-    );
-
-    const treeStyle = useMemo(
-      () =>
-        ({
-          // "--width": `${width}px`,
-          '--height': `${height}px`,
-          width: '100%',
-        } as CSSProperties),
-      []
-    );
-
-    const onRootRef = useCallback(node => {
-      if (node) {
-        rootRef.current = node;
-        setRootWidth(node.clientWidth);
+    const style = useMemo(() => {
+      if (isChild) {
+        return {
+          paddingLeft: '1.5rem',
+        };
+      } else {
+        return {
+          maxHeight: '900px',
+          transition: 'max-height 0.5s ease-in',
+        };
       }
-    }, []);
+    }, [isChild, selected]);
 
     return (
-      <div
-        className={classNames({
-          'rc-tree-wrapper': !isChildTree,
-        })}
-        role="tree"
-        style={treeStyle}
-        ref={onRootRef}
-      >
-        {_items.map(({ id, name, expanded, child, disabled }) => (
-          <TreeItem
-            width={rootWidth}
-            id={id}
-            name={name}
-            expanded={expanded}
-            child={child}
-            key={id}
-            onToggle={toggleItem}
-            onChildToggle={onChildToggle}
-            allowSelection={allowSelection}
-            selected={childrenSelected}
-            onChange={onChange}
-            disabled={disabled}
-            iconType={iconType}
-          />
+      <div style={style} id={id}>
+        {nodes.map((node, index) => (
+          <AccordionMemo
+            key={index}
+            title={node.name}
+            disableIcon={!node.nodes?.length}
+            autoSetBodyHeight={false}
+            onChange={() => {
+              onSelect?.(node.id);
+            }}
+            selected={node.selected}
+          >
+            {node.nodes?.length && (
+              <div
+                style={{
+                  margin: '0.5rem 0',
+                }}
+              >
+                <TreeNode
+                  key={index}
+                  nodes={node.nodes || []}
+                  name={node.name}
+                  isChild
+                  id={node.id}
+                  onSelect={x => onSelect?.(node.id + '/' + x)}
+                  selected={node.selected}
+                />
+              </div>
+            )}
+          </AccordionMemo>
         ))}
       </div>
     );
   }
 );
 
-Tree.displayName = 'Tree';
+TreeNode.displayName = 'TreeNode';
+
+const Tree = ({ nodes, onSelected }: TreeProps) => {
+  const [treeNodes, setTreeNodes] = useState(Parse(nodes));
+
+  const handleSelection = (id?: string) => {
+    if (!id) {
+      return;
+    }
+
+    const ids = id.split('/');
+
+    const idToFind = ids[ids.length - 1];
+
+    const node = treeNodes.find(x => x.id === ids[0]);
+
+    if (node) {
+      const nodeCopy = JSON.parse(JSON.stringify(node));
+
+      const nodeCopyUpdated = recursiveUpdate(nodeCopy, idToFind);
+
+      setTreeNodes(
+        treeNodes.map(x => {
+          if (x.id === ids[0]) {
+            return nodeCopyUpdated;
+          }
+          return x;
+        })
+      );
+
+      const selectedNode = recursiveFind(nodeCopyUpdated, idToFind);
+
+      if (selectedNode) {
+        onSelected?.(selectedNode);
+      }
+    }
+  };
+
+  return (
+    <TreeNode nodes={treeNodes} isChild={false} onSelect={handleSelection} />
+  );
+};
 
 export { Tree };

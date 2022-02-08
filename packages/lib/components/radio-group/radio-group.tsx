@@ -16,7 +16,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   RTL = false,
   focusable = true,
 }) => {
-  const [_items, setItems] = useState<RadioGroupItemProps[]>(
+  const [_items, setItems] = useState<RadioGroupItemProps<string>[]>(
     Array.isArray(items)
       ? items.map(item => ({
           id: nanoid(),
