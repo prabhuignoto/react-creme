@@ -10,3 +10,4 @@ expo_dist
 *.d.ts
 __tests__
 storybook
+webpack.config.js
