@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": false
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "absoluteRuntime": false,
+        "corejs": false,
+        "helpers": true,
+        "regenerator": true,
+        "useESModules": false,
+        "version": "^7.8.3"
+      }
+    ],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-classes",
+    [
+      "@babel/plugin-proposal-optional-chaining",
+      {
+        "loose": true
+      }
+    ]
+  ]
+}
