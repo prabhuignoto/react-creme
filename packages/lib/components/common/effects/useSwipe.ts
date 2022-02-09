@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 type SwipeDirection = 'LEFT' | 'TOP' | 'RIGHT' | 'BOTTOM' | 'NONE';
 
@@ -15,12 +15,12 @@ interface SwipeState {
   offset: number;
 }
 
-type SwipeFunc = (
-  ref: RefObject<HTMLElement | null>,
-  swipeStrength?: SwipeStrength
-) => SwipeState;
+type SwipeFunc = (swipeStrength?: SwipeStrength) => {
+  onInit: (node: HTMLElement | null) => void;
+  swipeState: SwipeState;
+};
 
-const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
+const useSwipe: SwipeFunc = (strength = 'medium') => {
   const swipeStarted = useRef<boolean>(false);
   const rect = useRef<DOMRect | null>(null);
   const startPosition = useRef<{
@@ -32,6 +32,8 @@ const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
     y: number;
   }>({ x: 0, y: 0 });
 
+  const elementRef = useRef<HTMLElement>();
+
   const threshold = SwipeStrengthSettings[strength];
 
   const [swipeState, setSwipeState] = useState<SwipeState>({
@@ -39,7 +41,7 @@ const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
     offset: -1,
   });
 
-  const elementRef = useRef<HTMLElement>();
+  // const elementRef = useRef<HTMLElement>();
 
   const handleMouseDown = useCallback((ev: MouseEvent | TouchEvent) => {
     ev.preventDefault();
@@ -49,8 +51,9 @@ const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
 
     const { clientX, clientY } =
       ev instanceof window.TouchEvent ? ev.touches[0] : ev;
+    console.log(clientX, clientY);
 
-    ref.current?.setAttribute('disabled', 'true');
+    // elementRef.current?.setAttribute('disabled', 'true');
 
     if (_rect) {
       startPosition.current = {
@@ -72,6 +75,8 @@ const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
 
     const diffX = startX - endX;
     const diffY = startY - endY;
+
+    console.log(diffX, diffY);
 
     if (rect.current && Math.abs(diffX) / rect.current.width < threshold) {
       return;
@@ -111,7 +116,7 @@ const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
       }
     }
 
-    ref.current?.removeAttribute('disabled');
+    // elementRef.current?.removeAttribute('disabled');
   };
 
   const handleMouseMove = (ev: MouseEvent | TouchEvent) => {
@@ -128,29 +133,29 @@ const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
     }
   };
 
-  useEffect(() => {
-    if (elementRef.current) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (elementRef.current) {
+  //     return;
+  //   }
 
-    const _ref = ref.current;
+  //   const _ref = ref.current;
 
-    if (_ref) {
-      elementRef.current = ref.current;
-      rect.current = _ref.getBoundingClientRect();
-      _ref.addEventListener('mousedown', handleMouseDown);
-      _ref.addEventListener('mouseup', handleMouseUp);
-      _ref.addEventListener('mousemove', handleMouseMove);
+  //   if (_ref) {
+  //     elementRef.current = ref.current;
+  //     rect.current = _ref.getBoundingClientRect();
+  //     _ref.addEventListener('mousedown', handleMouseDown);
+  //     _ref.addEventListener('mouseup', handleMouseUp);
+  //     _ref.addEventListener('mousemove', handleMouseMove);
 
-      _ref.addEventListener('touchstart', handleMouseDown, {
-        passive: false,
-      });
-      _ref.addEventListener('touchend', handleMouseUp, { passive: false });
-      _ref.addEventListener('touchmove', handleMouseMove, {
-        passive: false,
-      });
-    }
-  }, [ref]);
+  //     _ref.addEventListener('touchstart', handleMouseDown, {
+  //       passive: false,
+  //     });
+  //     _ref.addEventListener('touchend', handleMouseUp, { passive: false });
+  //     _ref.addEventListener('touchmove', handleMouseMove, {
+  //       passive: false,
+  //     });
+  //   }
+  // }, [ref]);
 
   useEffect(() => {
     return () => {
@@ -167,7 +172,23 @@ const useSwipe: SwipeFunc = (ref, strength = 'medium') => {
     };
   }, []);
 
-  return swipeState;
+  const onInit = useCallback((node: HTMLElement | null) => {
+    const ele = node as HTMLElement;
+    if (ele) {
+      elementRef.current = ele;
+
+      rect.current = ele.getBoundingClientRect();
+      ele.addEventListener('mousedown', handleMouseDown);
+      ele.addEventListener('mouseup', handleMouseUp);
+      ele.addEventListener('mousemove', handleMouseMove);
+
+      ele.addEventListener('touchstart', handleMouseDown);
+      ele.addEventListener('touchend', handleMouseUp);
+      ele.addEventListener('touchmove', handleMouseMove);
+    }
+  }, []);
+
+  return { onInit, swipeState };
 };
 
 export default useSwipe;

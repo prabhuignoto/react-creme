@@ -5,6 +5,7 @@ export type AccordionProps = {
   autoSetBodyHeight?: boolean;
   border?: boolean;
   children?: ReactNode;
+  customContent?: React.ReactNode;
   customIcon?: ReactNode;
   disableCollapse?: boolean;
   disableIcon?: boolean;
@@ -60,6 +61,7 @@ export type AccordionHeaderProps = Pick<
   | 'customIcon'
   | 'isTitleBold'
   | 'selected'
+  | 'customContent'
 > & {
   accordionBodyId?: string;
   accordionId?: string;

@@ -37,6 +37,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
     autoSetBodyHeight = true,
     onChange,
     selected = false,
+    customContent,
   }: AccordionProps) => {
     const accordionID = useRef(id || `accordion-${nanoid()}`);
     const accordionBodyId = useRef(`accordion-body-${nanoid()}`);
@@ -48,9 +49,9 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
 
     const toggleAccordion = useCallback(() => {
       enableCallback.current = true;
-      onChange?.(!open);
 
       setOpen(prev => {
+        onChange?.(!prev);
         return !prev;
       });
     }, [open]);
@@ -157,6 +158,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
           aria-controls={accordionBodyId.current}
           aria-expanded={open}
           selected={selected}
+          customContent={customContent}
         />
         <div
           className={accordionBodyClass}

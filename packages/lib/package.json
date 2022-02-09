@@ -65,11 +65,11 @@
     "@types/react-dom": "file:../../node_modules/@types/react-dom",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/react-transition-group": "^4.4.4",
-    "@vitejs/plugin-react": "1.1.4",
+    "@vitejs/plugin-react": "1.2.0",
     "@vitejs/plugin-react-refresh": "^1.3.6",
-    "@vitest/ui": "^0.2.7",
+    "@vitest/ui": "^0.3.0",
     "c8": "^7.11.0",
-    "esbuild": "file:../../node_modules/esbuild",
+    "esbuild": "link:..\\..\\node_modules\\esbuild",
     "jest-sonar-reporter": "^2.0.0",
     "jsdom": "^19.0.0",
     "postcss": "file:../../node_modules/postcss",
@@ -87,7 +87,7 @@
     "ts-toolbelt": "^9.6.0",
     "typescript": "file:../../node_modules/typescript",
     "vite": "^2.7.13",
-    "vitest": "^0.2.8"
+    "vitest": "^0.3.0"
   },
   "browserslist": [
     "last 3 versions",

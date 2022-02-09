@@ -24,10 +24,10 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   direction = 'horizontal',
   height = 400,
   transition = 'cubic-bezier(0.55, 0.08, 0.68, 0.53)',
-  enableSwipe = false,
+  // enableSwipe = false,
   focusable = true,
 }) => {
-  const carouselRef = useRef<HTMLDivElement | null>(null);
+  // const carouselRef = useRef<HTMLDivElement | null>(null);
   const [carouselItems, setCarouselItems] = useState<CarouselItemProps[]>(
     Array.isArray(children)
       ? children.map(() => ({
@@ -164,23 +164,24 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
     []
   );
 
-  if (enableSwipe) {
-    const { dir, offset } = useSwipe(carouselRef, 'low');
+  const {
+    onInit,
+    swipeState: { dir, offset },
+  } = useSwipe('low');
 
-    useEffect(() => {
-      if (
-        (dir === 'RIGHT' && direction === 'horizontal') ||
-        (dir === 'BOTTOM' && direction === 'vertical')
-      ) {
-        handlePrevious();
-      } else if (
-        (dir === 'LEFT' && direction === 'horizontal') ||
-        (dir === 'TOP' && direction === 'vertical')
-      ) {
-        handleNext();
-      }
-    }, [offset, dir]);
-  }
+  useEffect(() => {
+    if (
+      (dir === 'RIGHT' && direction === 'horizontal') ||
+      (dir === 'BOTTOM' && direction === 'vertical')
+    ) {
+      handlePrevious();
+    } else if (
+      (dir === 'LEFT' && direction === 'horizontal') ||
+      (dir === 'TOP' && direction === 'vertical')
+    ) {
+      handleNext();
+    }
+  }, [offset, dir]);
 
   useEffect(() => {
     return () => {
@@ -189,7 +190,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   }, []);
 
   return (
-    <div className={carouselContainerClass}>
+    <div className={carouselContainerClass} ref={onInit}>
       <div
         className={wrapperClass}
         ref={onInitRef}
