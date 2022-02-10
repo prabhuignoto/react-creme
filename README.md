@@ -17,6 +17,8 @@
 
 Modern UI Toolkit for React
 
+[Explore the Components](https://react-creme.vercel.app/)
+
 <h2>Features</h2>
 
 - 💎 High quality react components.
@@ -59,13 +61,12 @@ npm install react-creme
 ## ☕ Usage
 
 ```sh
-  import React from "react";
   import { Button } from "react-creme";
 
   const App = () => {
     return (
       <div>
-        <Button>Click Me</Button>
+        <Button>Welcome to react-creme</Button>
       </div>
     );
   };
