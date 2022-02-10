@@ -1,3 +1,7 @@
+<section>
+  <img src="./readme-assets/logo.jpg" />
+</section>
+
 [![codecov](https://codecov.io/gh/prabhuignoto/react-creme/branch/master/graph/badge.svg?token=JEL70TGE8Q)](https://codecov.io/gh/prabhuignoto/react-creme)
 [![Snyk](https://snyk.io/test/github/prabhuignoto/react-creme/badge.svg)](https://snyk.io/test/github/prabhuignoto/react-creme)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=react-creme&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=react-creme)
@@ -5,19 +9,39 @@
 [![CodeQL](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml)
 [![dev status](https://img.shields.io/badge/status-alpha-green)](https://img.shields.io/badge/status-alpha-green)
 
-<section>
-  <img src="./readme-assets/backdrop.jpg" />
-</section>
-
 </br>
 
 # react-creme
 
 Modern UI Toolkit for React
 
-> This is a Monorepo powered by Turbo Repo. Both the library and the documentation is housed in the mono repo
+<h2>Features</h2>
 
-## Getting Started
+- 💎 High quality react components.
+- 💪 Robust components written in Typescript.
+- ♿ Fully Accessible UI Components.
+
+- 🏳️‍🌈 30+ UI Elements.
+
+- 🛠️ Customizable components.
+
+- 📱 Complete Touch support.
+
+- 🎨 Themeable components.
+
+- ⚙️ Minimal Third party dependencies.
+
+<h2>Table of Contents</h2>
+
+- [react-creme](#react-creme)
+  - [🚀 Getting Started](#-getting-started)
+  - [☕ Usage](#-usage)
+  - [🌍 Browser Support](#-browser-support)
+  - [🍫 Examples & Documentation](#-examples--documentation)
+  - [🔨 Build](#-build)
+  - [🤝Contributing](#contributing)
+
+## 🚀 Getting Started
 
 Install the package using npm or yarn
 
@@ -30,7 +54,7 @@ npm install react-creme
 
 ```
 
-## Usage
+## ☕ Usage
 
 ```sh
   import React from "react";
@@ -47,9 +71,9 @@ npm install react-creme
   export default App;
 ```
 
-## Browser Support
+## 🌍 Browser Support
 
-`react-creme` is a modern UI component library with support for all the latest browsers
+`react-creme` is a modern UI component library with support for all the latest browsers.
 
 <div style="display: flex; justify-content: space-between; width: 280px">
   <img src="./readme-assets/chrome.svg" alt="chrome" width=50 />
@@ -58,14 +82,11 @@ npm install react-creme
   <img src="./readme-assets/safari.svg" alt="chrome" width=50 />
 </div>
 
-## Development
+## 🍫 Examples & Documentation
 
-```sh
-pnpm install
-pnpm dev
-```
+For more thorough examples and the API details visit the [main site](https://react-creme.vercel.app)
 
-## Build
+## 🔨 Build
 
 To build everything
 
@@ -91,5 +112,15 @@ To run the Unit tests
 ```sh
 pnpm test
 ```
+
+## 🤝Contributing
+
+Contributions, ideas and PR's are welcome!. Please read the [guidelines](/CONTRIBUTING.md) for more details.
+
+1. [Fork it](https://github.com/prabhuignoto/react-creme/fork)
+2. Create your feature branch (`git checkout -b new-feature`)
+3. Commit your changes (`git commit -am 'Add feature'`)
+4. Push to the branch (`git push origin new-feature`)
+5. Create a new Pull Request
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=react-creme)
