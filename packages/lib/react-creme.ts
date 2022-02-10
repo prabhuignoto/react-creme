@@ -109,11 +109,10 @@ export { Section } from './components/section/section';
 export type { SectionProps } from './components/section/section-model';
 export { Sidebar } from './components/sidebar/sidebar';
 export type {
-  SidebarCommonProps,
   SidebarGroupModel,
   SidebarGroupsModel,
   SidebarItemModel,
-  SidebarModel,
+  SidebarProps,
 } from './components/sidebar/sidebar-model';
 export { Skeleton } from './components/skeleton/skeleton';
 export type {
