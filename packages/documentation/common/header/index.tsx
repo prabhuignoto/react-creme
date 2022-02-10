@@ -13,7 +13,7 @@ const Header: React.FC<{
   return (
     <header className="app-header">
       <Logo isMobile={isMobile} onMenuClick={onOpen} />
-      <Badge label="beta" />
+      <Badge label="alpha" />
       {/* <ThemeSwitcher /> */}
       {/* {!isMobile && (
         <div className="algolia-container" style={{ width: '200px' }}>
