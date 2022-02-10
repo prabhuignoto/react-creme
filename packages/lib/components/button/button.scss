@@ -10,14 +10,6 @@ $types: (primary, default, danger);
 $sizes: (sm, md, lg);
 
 .rc-btn {
-  &:not(.rc-btn-danger) {
-    // @include animate.halo(1px, 4px);
-  }
-
-  &.rc-btn-danger {
-    // @include animate.halo(1px, 4px);
-  }
-
   &.rc-btn-no-border {
     border: 0;
     box-shadow: none;

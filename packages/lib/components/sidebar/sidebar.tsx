@@ -7,10 +7,10 @@ import { isArray } from '../common/utils';
 import { Input } from '../input/input';
 import { ListOption } from '../list/list-model';
 import { SidebarGroups } from './sidebar-groups';
-import { SidebarGroupModel, SidebarModel } from './sidebar-model';
+import { SidebarGroupModel, SidebarProps } from './sidebar-model';
 import './sidebar.scss';
 
-const Sidebar: React.FunctionComponent<SidebarModel> = ({
+const Sidebar: React.FunctionComponent<SidebarProps> = ({
   backGroundColor = '#fff',
   border = false,
   enableSearch = false,
@@ -23,6 +23,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
   onSelect,
   searchPlaceholder = 'Search ...',
   sectionsCollapsible = true,
+  icons,
 }) => {
   const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
     isArray(groups)
@@ -137,6 +138,7 @@ const Sidebar: React.FunctionComponent<SidebarModel> = ({
           sideBarHeight={sidebarHeight}
           listMaxHeight={listMaxHeight}
           sectionsCollapsible={sectionsCollapsible}
+          icons={icons}
         />
       </div>
     </div>

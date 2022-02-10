@@ -1,14 +1,14 @@
 import React from 'react';
 import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
-import { Selection } from './widget-variants';
+import { Default, Selection } from './widget-variants';
 
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      {/* <Section title="Default render">
+      <Section title="Default render">
         <DemoWidget width={400}>{Default}</DemoWidget>
-      </Section> */}
+      </Section>
       <Section title="Selection Mode">
         <BlockQuote>
           In selection mode, individual nodes with its children can be selected

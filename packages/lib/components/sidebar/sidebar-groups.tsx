@@ -13,6 +13,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
   onSelection,
   sideBarHeight,
   sectionsCollapsible,
+  icons,
 }) => {
   const groupsWrapperStyle = useMemo(() => {
     return {
@@ -31,6 +32,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
         iconColor={groupIconColor}
         isTitleBold
         disableCollapse={!sectionsCollapsible}
+        icons={icons}
       >
         {groups
           .filter(grp => grp.visible)

@@ -38,8 +38,10 @@ export type AccordionGroupProps = Pick<
   autoClose?: boolean;
   border?: boolean;
   children?: ReactNode[];
+  disableIcon?: boolean;
   expanded?: boolean;
   iconType?: 'chevron' | 'plus';
+  icons?: React.ReactNode[];
   titles?: string[];
 };
 

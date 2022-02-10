@@ -6,23 +6,31 @@ function tree() {
   return (
     <DemoPageRenderer
       title="Tree"
-      description="Tree is a component that displays a hierarchical data structure with expandable/collapsible nodes."
+      description={`A tree view or an outline view is a graphical control element that presents a hierarchical view of information.
+      Each item (often called a branch or a node) can have a number of subitems`}
       sourceId="tree/tree.tsx"
       editId="tree"
       properties={[
         {
-          defaultValue: '[]',
-          description: 'The items to display in the tree',
-          name: 'items',
+          default: '[]',
+          description: 'The tree nodes to display in the tree',
+          name: 'nodes',
           optional: 'Yes',
-          type: 'array',
+          type: 'Array',
         },
         {
-          defaultValue: '',
+          default: 'False',
+          description: 'Whether the tree is selectable',
+          name: 'selectable',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: '',
           description: 'Callback for when the selection changes',
           name: 'onChange',
           optional: 'Yes',
-          type: 'function',
+          type: 'Function',
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}

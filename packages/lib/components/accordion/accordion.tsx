@@ -16,28 +16,28 @@ import './accordion.scss';
 
 const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
   ({
-    customIcon = null,
     alignIconRight = false,
+    autoSetBodyHeight = true,
     border = false,
     children,
+    customContent,
+    customIcon = null,
     disableCollapse = false,
     disableIcon = false,
-    iconType = 'chevron',
     expanded = null,
     focusable = true,
     iconColor,
+    iconType = 'chevron',
     id,
     isTitleBold = false,
+    onChange,
     onCollapsed,
     onExpanded,
+    onRendered,
+    selected = false,
     title,
     titleColor = '#000',
     transition = 'cubic-bezier(0.19, 1, 0.22, 1)',
-    onRendered,
-    autoSetBodyHeight = true,
-    onChange,
-    selected = false,
-    customContent,
   }: AccordionProps) => {
     const accordionID = useRef(id || `accordion-${nanoid()}`);
     const accordionBodyId = useRef(`accordion-body-${nanoid()}`);
@@ -163,7 +163,6 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
         <div
           className={accordionBodyClass}
           style={(autoSetBodyHeight ? styleWithHeight : style) as CSSProperties}
-          // style={style}
           ref={onInitRef}
           id={accordionBodyId.current}
           aria-labelledby={accordionID.current}

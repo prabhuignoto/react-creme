@@ -28,19 +28,10 @@ $heights: (
   justify-items: center;
   padding: 0.25rem 0;
   padding: 0 0.5rem;
-  // padding-left: 1rem;
   width: 100%;
 
   &.rc-checkbox-rtl {
     direction: rtl;
-  }
-
-  &.rc-checkbox-rtl.rc-checkbox-focus {
-    // @include animate.halo(4px, 1px, true, true);
-  }
-
-  &.rc-checkbox-focus:not(.rc-checkbox-rtl) {
-    // @include animate.halo(4px, 1px);
   }
 
   &.rc-checkbox-hover:hover {
@@ -71,10 +62,6 @@ $heights: (
   @extend %left;
   user-select: none;
   z-index: 1;
-
-  &.rc-checkbox-focus {
-    // @include animate.halo(4px, 3px);
-  }
 
   * {
     cursor: pointer;

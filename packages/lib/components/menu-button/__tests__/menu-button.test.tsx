@@ -22,9 +22,9 @@ describe('Menu Button', () => {
       />
     );
 
-    await act(async () => {
-      fireEvent.click(getByRole('img'));
-    });
+    // await act(async () => {
+    fireEvent.click(getByRole('img'));
+    // });
 
     await waitFor(
       () => {
@@ -38,13 +38,13 @@ describe('Menu Button', () => {
       }
     );
 
-    await act(async () => {
-      fireEvent.click(getByText('cancel'));
-    });
+    // await act(async () => {
+    fireEvent.click(getByText('cancel'));
+    // });
 
-    await waitFor(async () => {
-      expect(handler).toBeCalledWith('cancel');
-    });
+    // await waitFor(async () => {
+    expect(handler).toBeCalledWith('cancel');
+    // });
   });
 
   it('should call handler on click', async () => {

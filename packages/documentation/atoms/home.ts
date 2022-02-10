@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 import { Theme } from '../../lib/components/common/theme-provider';
 
-export type ThemeType = 'default' | 'glacier' | 'blueberry';
+export type ThemeType = 'default' | 'glacier' | 'blueberry' | 'bluerush';
 
 type ThemeState = { colors: Theme; selectedTheme: ThemeType };
 

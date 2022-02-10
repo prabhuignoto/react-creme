@@ -48,9 +48,9 @@ describe('Transfer', () => {
     const btnRight = container.querySelector('.transfer-btn.right');
 
     if (btnRight) {
-      act(() => {
-        fireEvent.click(btnRight);
-      });
+      // act(() => {
+      fireEvent.click(btnRight);
+      // });
 
       await waitFor(
         async () => {
@@ -83,9 +83,9 @@ describe('Transfer', () => {
     const btnLeft = container.querySelector('.transfer-btn.left');
 
     if (btnLeft) {
-      act(() => {
-        fireEvent.click(btnLeft);
-      });
+      // act(() => {
+      fireEvent.click(btnLeft);
+      // });
 
       await waitFor(
         async () => {
