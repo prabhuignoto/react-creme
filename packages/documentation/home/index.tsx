@@ -1,11 +1,11 @@
 import React from 'react';
-import { BlockQuote, Button } from '../lib/components';
-import { Section } from '../lib/components/section/section';
-import packages from '../lib/package.json';
-import BrowserSupport from './common/browser-support';
-import HeroSection from './common/hero-section';
-import { Code } from './common/syntax';
-import { SyntaxHighLighter } from './common/syntax-highlighter';
+import { BlockQuote, Button } from '../../lib/components';
+import { Section } from '../../lib/components/section/section';
+import packages from '../../lib/package.json';
+import BrowserSupport from './../common/browser-support';
+import HeroSection from './../common/hero-section';
+import { Code } from './../common/syntax';
+import { SyntaxHighLighter } from './../common/syntax-highlighter';
 import './home.scss';
 
 const Home: React.FunctionComponent = () => {

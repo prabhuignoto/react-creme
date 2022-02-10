@@ -80,7 +80,65 @@
   justify-content: center;
   margin-top: 3rem;
 
-  >:first-child {
+  > :first-child {
     margin-right: 1rem;
+  }
+}
+
+.rc-demo-app-feature-icon {
+  align-items: center;
+  border-radius: 10%;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  justify-self: center;
+  position: relative;
+  width: 40px;
+  z-index: 1;
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    height: 30px;
+    width: 30px;
+  }
+
+  &::after {
+    background-color: rgba($color: #fff, $alpha: 1);
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 40px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    z-index: -1;
+    @media (min-width: 320px) and (max-width: 480px) {
+      height: 35px;
+      width: 35px;
+    }
+  }
+
+  svg {
+    height: 60%;
+    width: 60%;
+  }
+}
+
+.rc-demo-app-feature-name {
+  color: #003b73;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-left: 0.2rem;
+  margin-top: 0.5rem;
+  text-align: left;
+
+  @media (min-width: 300px) and (max-width: 480px) {
+    font-size: 0.85rem;
+    margin-left: 0;
+    text-align: center;
+    width: 90%;
   }
 }
