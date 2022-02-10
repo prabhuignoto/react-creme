@@ -18,7 +18,7 @@
     "design system"
   ],
   "scripts": {
-    "build": "webpack --config ./webpack.config.js",
+    "build": "rollup -c",
     "ci": "pnpm lint && pnpm test-ci && pnpm build",
     "eslint": "eslint ./components/**/*.{tsx,ts}",
     "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
