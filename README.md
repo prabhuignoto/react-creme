@@ -1,5 +1,8 @@
 <div align="center">
+  <br/>
   <img src="./readme-assets/logo.jpg" />
+  <br/>
+  <br/>
   
   [![codecov](https://codecov.io/gh/prabhuignoto/react-creme/branch/master/graph/badge.svg?token=JEL70TGE8Q)](https://codecov.io/gh/prabhuignoto/react-creme)
   [![Snyk](https://snyk.io/test/github/prabhuignoto/react-creme/badge.svg)](https://snyk.io/test/github/prabhuignoto/react-creme)
@@ -14,6 +17,8 @@
 # react-creme
 
 Modern UI Toolkit for React
+
+[Explore the Components](https://react-creme.vercel.app/)
 
 <h2>Features</h2>
 
@@ -57,13 +62,12 @@ npm install react-creme
 ## ☕ Usage
 
 ```sh
-  import React from "react";
   import { Button } from "react-creme";
 
   const App = () => {
     return (
       <div>
-        <Button>Click Me</Button>
+        <Button>Welcome to react-creme</Button>
       </div>
     );
   };
