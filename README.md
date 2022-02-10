@@ -1,7 +1,7 @@
 <div align="center">
+  <br/>
   <img src="./readme-assets/logo.jpg" />
-  
-  <br/></br>
+  <br/>
   
   [![codecov](https://codecov.io/gh/prabhuignoto/react-creme/branch/master/graph/badge.svg?token=JEL70TGE8Q)](https://codecov.io/gh/prabhuignoto/react-creme)
   [![Snyk](https://snyk.io/test/github/prabhuignoto/react-creme/badge.svg)](https://snyk.io/test/github/prabhuignoto/react-creme)
