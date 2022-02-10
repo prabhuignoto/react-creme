@@ -93,7 +93,7 @@ const Widgets = () => {
             title="Hello World"
             autoClose={3000}
             onClose={() => {
-              setShow2(false);
+              setShow3(false);
             }}
           >
             <span>test</span>
