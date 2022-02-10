@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { asideState, responsiveState } from '../../atoms/home';
-import { HomeButton } from '../../home-button';
-import { Features } from '../../home-data';
+import { HomeButton } from '../../home/home-button';
+import { Features } from '../../home/home-data';
 import './hero-section.scss';
 
 function HeroSection() {
@@ -25,12 +25,15 @@ function HeroSection() {
         </header>
         {/* FEATURES SECTION */}
         <ul className="rc-demo-app-features">
-          {Features.map((feature, index) => (
+          {Features.map(({ icon, title, color }, index) => (
             <li key={index} className="rc-demo-app-feature">
-              <span className="rc-demo-app-feature-icon">
-                <FontAwesomeIcon icon={feature.icon} size="2x" />
+              <span
+                className="rc-demo-app-feature-icon"
+                style={{ color: `${color}` }}
+              >
+                <FontAwesomeIcon icon={icon} size="2x" />
               </span>
-              <span className="rc-demo-app-feature-name">{feature.title}</span>
+              <span className="rc-demo-app-feature-name">{title}</span>
             </li>
           ))}
         </ul>

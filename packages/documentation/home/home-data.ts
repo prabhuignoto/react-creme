@@ -17,34 +17,42 @@ import {
 
 export const Features = [
   {
+    color: '#0074E4',
     icon: faReact,
     title: 'Comprehensive UI Toolkit for React',
   },
   {
+    color: '#FF5E3A',
     icon: faBolt,
     title: 'Robust & Performant components',
   },
   {
+    color: '#FF5E3A',
     icon: faTools,
     title: 'Highly customizable UI Elements',
   },
   {
+    color: '#0074E4',
     icon: faFistRaised,
     title: 'Built with TypeScript & React',
   },
   {
+    color: '#0074E4',
     icon: faCubes,
     title: 'Modular and extensible components',
   },
   {
+    color: '#3E7C17',
     icon: faMobile,
     title: 'Complete support for Touch devices',
   },
   {
+    color: '#F4A442',
     icon: faAccessibleIcon,
     title: 'Fully Accessible UI Components',
   },
   {
+    color: '#504658',
     icon: faGlobe,
     title: 'Built for Modern web browsers',
   },
