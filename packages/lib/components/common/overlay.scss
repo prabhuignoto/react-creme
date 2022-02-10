@@ -43,12 +43,12 @@
   top: 1rem;
 
   &:hover::after {
-    background: rgba($color: #000, $alpha: 0.95);
+    background: rgba($color: #000, $alpha: 0.75);
   }
 
   &::after {
     @include position.position-abs('center center');
-    background: rgba($color: #000, $alpha: 0.75);
+    background: rgba($color: #000, $alpha: 0.5);
     border-radius: 50%;
     content: '';
     display: block;
@@ -64,7 +64,7 @@
 
 .rc-overlay-close-btn:hover {
   svg {
-    color: colors.$primary;
+    // color: colors.$primary;
   }
 }
 

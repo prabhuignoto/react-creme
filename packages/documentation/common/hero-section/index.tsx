@@ -27,10 +27,7 @@ function HeroSection() {
         <ul className="rc-demo-app-features">
           {Features.map(({ icon, title, color }, index) => (
             <li key={index} className="rc-demo-app-feature">
-              <span
-                className="rc-demo-app-feature-icon"
-                style={{ color: `${color}` }}
-              >
+              <span className="rc-demo-app-feature-icon">
                 <FontAwesomeIcon icon={icon} size="2x" />
               </span>
               <span className="rc-demo-app-feature-name">{title}</span>

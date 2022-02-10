@@ -23,15 +23,15 @@
   }
 
   &:hover:not(.rc-disabled) {
-    background-color: rgba(colors.$secondary-rgb, 0.25);
-    color: colors.$tertiary;
+    background-color: $bg-hover;
+    color: $color-hover;
   }
 }
 
 %button-primary {
   @include get-button-type(
     colors.$primary,
-    colors.$white,
+    colors.$secondary,
     colors.$white,
     colors.$primary
   );
@@ -44,7 +44,7 @@
 %button-danger {
   @include get-button-type(
     colors.$crimson,
-    colors.$white,
+    rgba(colors.$crimson, 0.25),
     colors.$white,
     colors.$crimson
   );
