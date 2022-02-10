@@ -1,31 +1,51 @@
-import { nanoid } from 'nanoid';
 import { TreeNodeProps } from './tree-model';
 
-export function Parse(nodes: TreeNodeProps[]): TreeNodeProps[] {
-  return nodes.map(node => {
-    if (node.nodes?.length) {
-      return {
-        ...node,
-        id: nanoid(),
-        nodes: Parse(node.nodes),
-      };
-    }
-    return { ...node, id: nanoid() };
-  });
-}
+export function recursiveUpdateMultiSelection(
+  node: TreeNodeProps,
+  id: string,
+  forceSelect?: boolean,
+  forceSelectVal?: undefined | boolean
+) {
+  if (node.id === id || forceSelect) {
+    node.selected =
+      typeof forceSelectVal !== 'undefined' ? forceSelectVal : !node.selected;
 
-export function recursiveUpdate(node: TreeNodeProps, id: string) {
-  if (node.id === id) {
-    node.selected = true;
+    if (node.nodes?.length) {
+      node.nodes.forEach(n =>
+        recursiveUpdateMultiSelection(n, id, true, node.selected)
+      );
+    }
+
     return node;
   } else if (node.nodes?.length) {
     node.nodes = node.nodes.map(x => {
-      return recursiveUpdate(x, id);
+      return recursiveUpdateMultiSelection(x, id, undefined, undefined);
     });
+
     return node;
   } else {
     return node;
   }
+}
+
+export function recursiveUpdateSingleSelection(
+  nodes: TreeNodeProps[],
+  idToFind: string
+) {
+  return nodes.map(node => {
+    if (node.id === idToFind) {
+      node.selected = true;
+      if (node.nodes?.length) {
+        node.nodes = recursiveUpdateSingleSelection(node.nodes, idToFind);
+      }
+    } else {
+      if (node.nodes?.length) {
+        node.nodes = recursiveUpdateSingleSelection(node.nodes, idToFind);
+      }
+      node.selected = false;
+    }
+    return node;
+  });
 }
 
 export function recursiveFind(

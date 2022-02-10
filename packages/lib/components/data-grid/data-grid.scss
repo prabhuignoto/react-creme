@@ -12,9 +12,7 @@ $comfortable-row-height: 50px;
   width: 100%;
 
   &.rc-data-grid-border {
-    // @extend %border-radius;
     @extend %border;
-    // @extend %shadow-small;
   }
 }
 
@@ -69,7 +67,8 @@ $comfortable-row-height: 50px;
     overflow-wrap: anywhere;
   }
 
-  em,code {
+  em,
+  code {
     @extend %border-radius;
     background-color: rgba(colors.$secondary-rgb, 0.25);
     color: colors.$primary;

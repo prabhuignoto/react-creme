@@ -39,6 +39,6 @@ export const Default = (
   <Tree nodes={data} />
 );
 
-// export const Selection = <Tree height={400} allowSelection items={data} />;
+export const Selection = <Tree selectable nodes={data} />;
 
 // export const CustomIcon = <Tree height={400} items={data} iconType="plus" />;

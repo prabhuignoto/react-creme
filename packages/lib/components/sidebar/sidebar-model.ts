@@ -1,13 +1,20 @@
 import { ListOption } from '../list/list-model';
 
-export interface SidebarModel extends SidebarCommonProps {
+export interface SidebarProps {
   backGroundColor?: string;
   border?: boolean;
   enableSearch?: boolean;
+  focusable?: boolean;
+  groupIconColor?: string;
+  groupTitleColor?: string;
   groups: SidebarGroupModel[];
   height?: number;
+  icons?: React.ReactNode[];
+  iconsColor?: string;
+  listMaxHeight?: number;
   onSelect?: (group: SidebarGroupModel, item: SidebarItemModel) => void;
   searchPlaceholder?: string;
+  sectionsCollapsible?: boolean;
 }
 
 export interface SidebarGroupModel {
@@ -24,17 +31,16 @@ export interface SidebarItemModel {
   visible?: boolean;
 }
 
-export interface SidebarGroupsModel extends SidebarCommonProps {
+export type SidebarGroupsModel = Pick<
+  SidebarProps,
+  | 'focusable'
+  | 'listMaxHeight'
+  | 'sectionsCollapsible'
+  | 'groupIconColor'
+  | 'groupTitleColor'
+  | 'icons'
+> & {
   groups: SidebarGroupModel[];
   onSelection: (option: ListOption[], id?: string) => void;
   sideBarHeight?: number;
-}
-
-export interface SidebarCommonProps {
-  focusable?: boolean;
-  groupIconColor?: string;
-  groupTitleColor?: string;
-  iconsColor?: string;
-  listMaxHeight?: number;
-  sectionsCollapsible?: boolean;
-}
+};

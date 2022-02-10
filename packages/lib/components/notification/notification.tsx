@@ -55,7 +55,7 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
     return swipeToClose && !autoClose && leftORight;
   }, [position, swipeToClose]);
 
-  const state = swipeToClose ? useSwipe(ref, 'medium') : null;
+  const { swipeState: state, onInit } = useSwipe('medium');
 
   useEffect(() => {
     if (state) {
@@ -72,7 +72,7 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
       style={wrapperStyle}
       role="alert"
       aria-modal="true"
-      ref={ref}
+      ref={onInit}
     >
       {!disableHeader && (
         <header className="rc-notification-header">

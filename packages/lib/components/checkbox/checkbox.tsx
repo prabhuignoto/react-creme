@@ -33,12 +33,18 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
         : useRef(`label-${nanoid()}`)
       : useRef(`label-${nanoid()}`);
 
-    const toggleCheck = useCallback(() => {
-      if (!disabled) {
-        setChecked(!checked);
-        onChange && onChange(checkBoxId.current, !checked);
-      }
-    }, [checked]);
+    const toggleCheck = useCallback(
+      (ev: React.MouseEvent) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+
+        if (!disabled) {
+          setChecked(!checked);
+          onChange && onChange(checkBoxId.current, !checked);
+        }
+      },
+      [checked]
+    );
 
     if (focusable) {
       useFocusNew(ref);

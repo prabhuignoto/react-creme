@@ -32,13 +32,13 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
     cursor: pointer;
   }
 
-  &:not(.rc-accordion-header-icon):not(.rc-accordion-disable-icon) {
+  &:not(.rc-accordion-header-icon) {
     display: grid;
     grid-template-columns: 2rem calc(100% - 2.5rem) 0.5rem;
   }
 
   &.rc-accordion-disable-icon {
-    padding-right: 1rem;
+    // padding-right: 1rem;
   }
 
   &.rc-accordion-selected {

@@ -11,7 +11,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.17.0",
+    "@babel/core": "^7.17.2",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
@@ -39,8 +39,8 @@
     "webpack": "^5.68.0"
   },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "file:../../node_modules/react",
+    "react-dom": "file:../../node_modules/react-dom"
   },
   "resolutions": {
     "glob-parent": "^5.1.2",

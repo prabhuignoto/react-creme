@@ -82,9 +82,9 @@ describe('CheckboxGroup', () => {
       expect(getAllByRole('checkbox')).toHaveLength(3);
     });
 
-    act(() => {
-      fireEvent.click(getAllByRole('checkbox')[0]);
-    });
+    // act(() => {
+    fireEvent.click(getAllByRole('checkbox')[0]);
+    // });
 
     await waitFor(() => {
       expect(handler).toHaveBeenCalled();

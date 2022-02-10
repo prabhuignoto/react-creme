@@ -18,7 +18,7 @@ function widgets() {
       </Section>
       <Section title="Icon">
         <BlockQuote>Insert a custom icon to the button.</BlockQuote>
-        <DemoWidget width={130}>{Icon}</DemoWidget>
+        <DemoWidget width={160}>{Icon}</DemoWidget>
       </Section>
       <Section title="Loading state">
         <BlockQuote>
@@ -31,11 +31,11 @@ function widgets() {
         <BlockQuote>Buttons can be disabled</BlockQuote>
         <DemoWidget width={120}>{Disabled}</DemoWidget>
       </Section>
-      <Section title="Large sized button">
+      <Section title="Medium sized button">
         <BlockQuote>
           Customize the size of the button by using the <code>size</code> prop
         </BlockQuote>
-        <DemoWidget width={100}>{Medium}</DemoWidget>
+        <DemoWidget width={130}>{Medium}</DemoWidget>
       </Section>
       <Section title="Button with State (Extra large)">
         <BlockQuote>

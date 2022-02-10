@@ -93,7 +93,7 @@ const Widgets = () => {
             title="Hello World"
             autoClose={3000}
             onClose={() => {
-              setShow2(false);
+              setShow3(false);
             }}
           >
             <span>test</span>
@@ -104,7 +104,7 @@ const Widgets = () => {
             By default the notification is positioned at the top-left corner of
             the screen relative to the page.
           </BlockQuote>
-          <DemoWidget width={180}>
+          <DemoWidget width={150}>
             <Button label="Open Notification" onClick={() => setShow2(true)} />
           </DemoWidget>
         </Section>

@@ -5,6 +5,7 @@ export type AccordionProps = {
   autoSetBodyHeight?: boolean;
   border?: boolean;
   children?: ReactNode;
+  customContent?: React.ReactNode;
   customIcon?: ReactNode;
   disableCollapse?: boolean;
   disableIcon?: boolean;
@@ -37,8 +38,10 @@ export type AccordionGroupProps = Pick<
   autoClose?: boolean;
   border?: boolean;
   children?: ReactNode[];
+  disableIcon?: boolean;
   expanded?: boolean;
   iconType?: 'chevron' | 'plus';
+  icons?: React.ReactNode[];
   titles?: string[];
 };
 
@@ -60,6 +63,7 @@ export type AccordionHeaderProps = Pick<
   | 'customIcon'
   | 'isTitleBold'
   | 'selected'
+  | 'customContent'
 > & {
   accordionBodyId?: string;
   accordionId?: string;

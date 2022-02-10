@@ -1,104 +1,116 @@
-import React, { useMemo, useState } from 'react';
-import { Accordion } from '../accordion/accordion';
+import { nanoid } from 'nanoid';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { TreeNodeProps, TreeProps } from './tree-model';
-import { Parse, recursiveFind, recursiveUpdate } from './tree-utils';
+import { TreeNode } from './tree-node';
+import {
+  recursiveUpdateMultiSelection,
+  recursiveUpdateSingleSelection,
+} from './tree-utils';
 
-const AccordionMemo = React.memo(Accordion);
-
-const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
-  (props: TreeNodeProps) => {
-    const { nodes = [], isChild, selected, onSelect, id } = props;
-
-    const style = useMemo(() => {
-      if (isChild) {
+const Tree: React.FunctionComponent<TreeProps> = ({
+  nodes,
+  // onSelected,
+  selectable,
+}: TreeProps) => {
+  const parser = useCallback(_nodes => {
+    return _nodes.map((n: TreeNodeProps) => {
+      if (n.nodes?.length) {
         return {
-          paddingLeft: '1.5rem',
-        };
-      } else {
-        return {
-          maxHeight: '900px',
-          transition: 'max-height 0.5s ease-in',
+          ...n,
+          id: nanoid(),
+          nodes: parser(n.nodes),
+          selected: false,
         };
       }
-    }, [isChild, selected]);
+      return { ...n, id: nanoid() };
+    });
+  }, []);
 
-    return (
-      <div style={style} id={id}>
-        {nodes.map((node, index) => (
-          <AccordionMemo
-            key={index}
-            title={node.name}
-            disableIcon={!node.nodes?.length}
-            autoSetBodyHeight={false}
-            onChange={() => {
-              onSelect?.(node.id);
-            }}
-            selected={node.selected}
-          >
-            {node.nodes?.length && (
-              <div
-                style={{
-                  margin: '0.5rem 0',
-                }}
-              >
-                <TreeNode
-                  key={index}
-                  nodes={node.nodes || []}
-                  name={node.name}
-                  isChild
-                  id={node.id}
-                  onSelect={x => onSelect?.(node.id + '/' + x)}
-                  selected={node.selected}
-                />
-              </div>
-            )}
-          </AccordionMemo>
-        ))}
-      </div>
-    );
-  }
-);
+  const [selectedId, setSelectedId] = useState<{
+    id: string;
+    lookupNodeId: string;
+    selected: boolean;
+    stamp: number;
+  }>();
 
-TreeNode.displayName = 'TreeNode';
+  const [treeNodes, setTreeNodes] = useState<TreeNodeProps[]>(() => {
+    return parser(nodes);
+  });
 
-const Tree = ({ nodes, onSelected }: TreeProps) => {
-  const [treeNodes, setTreeNodes] = useState(Parse(nodes));
+  const getLookupNode = useMemo(() => {
+    if (selectedId) {
+      const lookupNode = treeNodes.find(
+        node => node.id === selectedId.lookupNodeId
+      );
+      return lookupNode;
+    }
+  }, [JSON.stringify(selectedId)]);
 
-  const handleSelection = (id?: string) => {
+  useEffect(() => {
+    const node = getLookupNode;
+
+    if (node && selectedId) {
+      const nodeToUpdate = JSON.parse(JSON.stringify(node));
+
+      const idToFind = selectedId.id;
+
+      let nodeCopyUpdated: TreeNodeProps;
+      let nodesCopyUpdated: TreeNodeProps[];
+
+      if (selectable) {
+        nodeCopyUpdated = recursiveUpdateMultiSelection(
+          nodeToUpdate,
+          idToFind,
+          false,
+          undefined
+        );
+        setTreeNodes(prev => {
+          const result = prev.map(x => {
+            if (x.id === selectedId.lookupNodeId) {
+              return { ...nodeCopyUpdated };
+            }
+            return x;
+          });
+          return result;
+        });
+      } else {
+        nodesCopyUpdated = recursiveUpdateSingleSelection(treeNodes, idToFind);
+        setTreeNodes(nodesCopyUpdated);
+      }
+
+      // const selectedNode = recursiveFind(nodeCopyUpdated, idToFind);
+
+      // if (selectedNode) {
+      //   onSelected?.(selectedNode);
+      // }
+    }
+  }, [JSON.stringify(getLookupNode), JSON.stringify(selectedId)]);
+
+  const handleSelection = useCallback((id?: string, open?: boolean) => {
     if (!id) {
       return;
     }
-
     const ids = id.split('/');
-
     const idToFind = ids[ids.length - 1];
+    const lookupNodeId = ids[0];
 
-    const node = treeNodes.find(x => x.id === ids[0]);
-
-    if (node) {
-      const nodeCopy = JSON.parse(JSON.stringify(node));
-
-      const nodeCopyUpdated = recursiveUpdate(nodeCopy, idToFind);
-
-      setTreeNodes(
-        treeNodes.map(x => {
-          if (x.id === ids[0]) {
-            return nodeCopyUpdated;
-          }
-          return x;
-        })
-      );
-
-      const selectedNode = recursiveFind(nodeCopyUpdated, idToFind);
-
-      if (selectedNode) {
-        onSelected?.(selectedNode);
-      }
-    }
-  };
+    setSelectedId({
+      id: idToFind,
+      lookupNodeId,
+      selected: open || false,
+      stamp: new Date().getTime(),
+    });
+  }, []);
 
   return (
-    <TreeNode nodes={treeNodes} isChild={false} onSelect={handleSelection} />
+    <div role="tree">
+      <TreeNode
+        nodes={treeNodes}
+        isChild={false}
+        onSelect={handleSelection}
+        enableCheckbox={selectable}
+      />
+    </div>
   );
 };
 

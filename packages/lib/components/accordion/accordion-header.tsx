@@ -18,6 +18,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   accordionId,
   open,
   selected,
+  customContent,
 }) => {
   const accordionHeaderClass = useMemo(
     () =>
@@ -89,7 +90,11 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
       {...collapsibleProps}
     >
       <span className={iconClass}>{icon}</span>
-      <span className={titleClass}>{title}</span>
+      {customContent ? (
+        customContent
+      ) : (
+        <span className={titleClass}>{title}</span>
+      )}
     </div>
   );
 };

@@ -27,9 +27,9 @@ describe('Tooltip', () => {
     const message = getByRole('tooltip').querySelector('.tooltip-message');
 
     if (hostContent && message) {
-      await act(async () => {
-        fireEvent.mouseEnter(hostContent);
-      });
+      // await act(async () => {
+      fireEvent.mouseEnter(hostContent);
+      // });
 
       await waitFor(
         async () => {
@@ -40,9 +40,9 @@ describe('Tooltip', () => {
         }
       );
 
-      await act(async () => {
-        fireEvent.mouseLeave(hostContent);
-      });
+      // await act(async () => {
+      fireEvent.mouseLeave(hostContent);
+      // });
 
       await waitFor(
         async () => {

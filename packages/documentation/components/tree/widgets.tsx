@@ -1,7 +1,7 @@
 import React from 'react';
-import { Section } from '../../../lib/components';
+import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
-import { Default } from './widget-variants';
+import { Default, Selection } from './widget-variants';
 
 function Widgets() {
   return (
@@ -9,14 +9,14 @@ function Widgets() {
       <Section title="Default render">
         <DemoWidget width={400}>{Default}</DemoWidget>
       </Section>
-      {/* <Section title="Selection Mode">
+      <Section title="Selection Mode">
         <BlockQuote>
           In selection mode, individual nodes with its children can be selected
           through the checkbox
         </BlockQuote>
-        <DemoWidget width={300}>{Selection}</DemoWidget>
+        <DemoWidget width={400}>{Selection}</DemoWidget>
       </Section>
-      <Section title="Custom Icon">
+      {/* <Section title="Custom Icon">
         <BlockQuote>
           Use a custom icon for the expand and collapse actions.
         </BlockQuote>

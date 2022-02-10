@@ -1,3 +1,14 @@
+import {
+  faBell,
+  faBorderAll,
+  faDatabase,
+  faHammer,
+  faKeyboard,
+  faLink,
+  faTasksAlt,
+  faWindowMaximize,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Sidebar } from '../../lib/components';
@@ -5,6 +16,7 @@ import {
   SidebarGroupModel,
   SidebarItemModel,
 } from '../../lib/components/sidebar/sidebar-model';
+import data from './sidebar-home-data';
 
 interface SideBarHomeProps {
   onSelect?: () => void;
@@ -38,83 +50,16 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
           onSelect={handleSidebarSelect}
           searchPlaceholder="Search Components ..."
           sectionsCollapsible={false}
-          groups={[
-            {
-              items: [
-                { name: 'Splitter' },
-                { name: 'Accordion' },
-                { name: 'Image' },
-                { name: 'Tabs' },
-                { name: 'Accordion Group' },
-                { name: 'Sidebar' },
-                { name: 'image comparer' },
-                { name: 'Carousel' },
-                // { name: 'Reveal' },
-                { name: 'scroll spy' },
-              ],
-              title: 'Layout',
-            },
-            {
-              items: [
-                { name: 'section' },
-                { name: 'Card' },
-                { name: 'page header' },
-              ],
-              title: 'content',
-            },
-            {
-              items: [
-                { name: 'Input Text' },
-                { name: 'Tags' },
-                { name: 'Radio Group' },
-                { name: 'Checkbox' },
-                { name: 'Checkbox Group' },
-                { name: 'Switch' },
-                { name: 'Dropdown' },
-                { name: 'Rate' },
-                { name: 'Button' },
-                { name: 'Slider' },
-                { name: 'Auto Suggest' },
-                { name: 'Menu Button' },
-              ],
-              title: 'Inputs',
-            },
-            {
-              items: [
-                { name: 'Progress' },
-                { name: 'Skeleton' },
-                { name: 'Notification' },
-                { name: 'Global Notification' },
-                { name: 'Alerts' },
-              ],
-              title: 'Feedback',
-            },
-            {
-              items: [
-                { name: 'Tree' },
-                { name: 'List' },
-                { name: 'Data Grid' },
-                { name: 'Transfer' },
-              ],
-              title: 'Data',
-            },
-            {
-              items: [{ name: 'Bread Crumb' }, { name: 'Link' }],
-              title: 'Navigation',
-            },
-            {
-              items: [
-                { name: 'Dialog' },
-                { name: 'Drawer' },
-                { name: 'Tooltip' },
-                { name: 'Menu' },
-              ],
-              title: 'Overlay',
-            },
-            {
-              items: [{ name: 'draggable' }, { name: 'position' }],
-              title: 'Utilities',
-            },
+          groups={data}
+          icons={[
+            <FontAwesomeIcon size="2x" icon={faBorderAll} key="layout" />,
+            <FontAwesomeIcon size="2x" icon={faTasksAlt} key="content" />,
+            <FontAwesomeIcon size="2x" icon={faKeyboard} key="input" />,
+            <FontAwesomeIcon size="2x" icon={faBell} key="notification" />,
+            <FontAwesomeIcon size="2x" icon={faDatabase} key="data" />,
+            <FontAwesomeIcon size="2x" icon={faLink} key="link" />,
+            <FontAwesomeIcon size="2x" icon={faWindowMaximize} key="overlay" />,
+            <FontAwesomeIcon size="2x" icon={faHammer} key="utilities" />,
           ]}
         />
       </div>
