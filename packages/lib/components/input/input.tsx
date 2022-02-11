@@ -15,170 +15,186 @@ import { useFirstRender } from '../common/effects/useFirstRender';
 import { InputProps } from './input-model';
 import './input.scss';
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const {
-    children,
-    RTL = false,
-    accent = 'flat',
-    border = false,
-    controlled = false,
-    disabled = false,
-    enableClear = true,
-    focusable = true,
-    id = '',
-    isAutoComplete = false,
-    noUniqueId = false,
-    onChange,
-    onKeyUp,
-    placeholder = 'Please enter a value ...',
-    showSpinner = false,
-    state = 'default',
-    style,
-    type = 'text',
-    value = '',
-    onFocus,
-  } = props;
-  const [inputValue, setInputValue] = useState(value);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const isFirstRender = useFirstRender();
+export type RCInputElementProps =
+  | (Partial<HTMLInputElement> & {
+      focus: () => void;
+      getValue: () => string;
+      setValue: (value: string) => void;
+    })
+  | null;
 
-  const inputId = useRef(noUniqueId ? id : nanoid());
-  const [hasFocus, setHasFocus] = useState(false);
+const Input = React.forwardRef<RCInputElementProps, InputProps>(
+  (props, ref) => {
+    const {
+      children,
+      RTL = false,
+      accent = 'flat',
+      border = false,
+      controlled = false,
+      disabled = false,
+      enableClear = true,
+      focusable = true,
+      id = '',
+      isAutoComplete = false,
+      noUniqueId = false,
+      onChange,
+      onKeyUp,
+      placeholder = 'Please enter a value ...',
+      showSpinner = false,
+      state = 'default',
+      style,
+      type = 'text',
+      value = '',
+      onFocus,
+    } = props;
+    const [inputValue, setInputValue] = useState(value);
+    const inputRef = useRef<HTMLInputElement>(null);
+    const containerRef = useRef<HTMLDivElement | null>(null);
+    const isFirstRender = useFirstRender();
 
-  useImperativeHandle(
-    ref,
-    () =>
-      ({
-        focus() {
-          inputRef.current?.focus();
-        },
-      } as HTMLInputElement)
-  );
+    const inputId = useRef(noUniqueId ? id : nanoid());
+    const [hasFocus, setHasFocus] = useState(false);
 
-  const handleClear = useCallback((ev: React.MouseEvent) => {
-    ev.preventDefault();
-    setInputValue('');
-
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-    onChange?.('');
-  }, []);
-
-  const handleInput = useCallback(
-    (ev: React.ChangeEvent<HTMLInputElement>) => {
-      if (controlled) {
-        const val = ev.target.value;
+    useImperativeHandle(ref, () => ({
+      focus() {
+        inputRef.current?.focus();
+      },
+      getValue() {
+        return inputRef.current?.value || '';
+      },
+      setValue(val: string) {
         setInputValue(val);
+      },
+    }));
+
+    const handleClear = useCallback((ev: React.MouseEvent) => {
+      ev.preventDefault();
+      setInputValue('');
+
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+      onChange?.('');
+    }, []);
+
+    const handleInput = useCallback(
+      (ev: React.ChangeEvent<HTMLInputElement>) => {
+        if (controlled) {
+          const val = ev.target.value;
+          setInputValue(val);
+          onChange?.(val);
+        }
+      },
+      [controlled]
+    );
+
+    const handleUnControlled = useCallback(
+      (ev: React.ChangeEvent<HTMLInputElement>) => {
+        const val = ev.target.value;
         onChange?.(val);
+      },
+      []
+    );
+
+    const clearClass = useMemo(
+      () => classNames(['rc-input-clear', !inputValue ? 'hidden' : '']),
+      [inputValue]
+    );
+
+    const inputClass = useMemo(
+      () =>
+        classNames('rc-input', {
+          [`rc-input-${state}`]: true,
+          'rc-input-border': border,
+          'rc-input-disabled': disabled,
+          'rc-input-focus': hasFocus,
+          'rc-input-no-icon': !children,
+          'rc-input-rtl': RTL,
+          [`rc-input-${accent}`]: true,
+        }),
+      [disabled, hasFocus]
+    );
+
+    useEffect(() => {
+      if (controlled && !isFirstRender.current) {
+        setInputValue(value);
       }
-    },
-    [controlled]
-  );
+    }, [value]);
 
-  const handleUnControlled = useCallback(
-    (ev: React.ChangeEvent<HTMLInputElement>) => {
-      const val = ev.target.value;
-      onChange?.(val);
-    },
-    []
-  );
+    const controlledProps = controlled
+      ? {
+          onChange: handleInput,
+          value: inputValue,
+        }
+      : { onChange: handleUnControlled };
 
-  const clearClass = useMemo(
-    () => classNames(['rc-input-clear', !inputValue ? 'hidden' : '']),
-    [inputValue]
-  );
+    const autoCompleteProps = useMemo(
+      () =>
+        isAutoComplete
+          ? {
+              'aria-controls': id,
+              role: 'combobox',
+            }
+          : null,
+      [isAutoComplete]
+    );
 
-  const inputClass = useMemo(
-    () =>
-      classNames('rc-input', {
-        [`rc-input-${state}`]: true,
-        'rc-input-border': border,
-        'rc-input-disabled': disabled,
-        'rc-input-focus': hasFocus,
-        'rc-input-no-icon': !children,
-        'rc-input-rtl': RTL,
-        [`rc-input-${accent}`]: true,
-      }),
-    [disabled, hasFocus]
-  );
-
-  useEffect(() => {
-    if (controlled && !isFirstRender.current) {
-      setInputValue(value);
-    }
-  }, [value]);
-
-  const controlledProps = controlled
-    ? {
-        onChange: handleInput,
-        value: inputValue,
+    const focusProps = useMemo(() => {
+      if (focusable) {
+        return {
+          onBlur: () => setHasFocus(false),
+          onFocus: (ev: React.FocusEvent) => {
+            setHasFocus(true);
+            onFocus?.(ev);
+          },
+        };
+      } else {
+        return {};
       }
-    : { onChange: handleUnControlled };
+    }, [focusable]);
 
-  const autoCompleteProps = useMemo(
-    () =>
-      isAutoComplete
-        ? {
-            'aria-controls': id,
-            role: 'combobox',
-          }
-        : null,
-    [isAutoComplete]
-  );
+    const inputDisabled = useMemo(() => {
+      return disabled;
+    }, [disabled]);
 
-  const focusProps = useMemo(() => {
-    if (focusable) {
-      return {
-        onBlur: () => setHasFocus(false),
-        onFocus: (ev: React.FocusEvent) => {
-          setHasFocus(true);
-          onFocus?.(ev);
-        },
-      };
-    } else {
-      return {};
-    }
-  }, [focusable]);
-
-  const inputDisabled = useMemo(() => {
-    return disabled;
-  }, [disabled]);
-
-  return (
-    <div
-      className={inputClass}
-      role="textbox"
-      ref={containerRef}
-      style={style}
-      aria-label={placeholder}
-      {...autoCompleteProps}
-    >
-      <span className={'rc-input-icon'}>{children}</span>
-      <input
-        type={type}
-        placeholder={placeholder}
-        {...controlledProps}
-        onKeyUp={onKeyUp}
-        ref={inputRef}
-        id={inputId.current}
-        disabled={inputDisabled}
-        {...focusProps}
-      />
-      {!showSpinner && (
-        <span onMouseDown={handleClear} className={clearClass} role="button">
-          {enableClear && <CloseIcon />}
-        </span>
-      )}
-      {showSpinner && (
-        <span className={'rc-input-loading'}>
-          <CircularProgress size="xs" />
-        </span>
-      )}
-    </div>
-  );
-});
+    return (
+      <div
+        className={inputClass}
+        role="textbox"
+        ref={containerRef}
+        style={style}
+        aria-label={placeholder}
+        {...autoCompleteProps}
+      >
+        <span className={'rc-input-icon'}>{children}</span>
+        <input
+          type={type}
+          placeholder={placeholder}
+          {...controlledProps}
+          onKeyUp={onKeyUp}
+          ref={inputRef}
+          id={inputId.current}
+          disabled={inputDisabled}
+          {...focusProps}
+        />
+        {!showSpinner && (
+          <span onMouseDown={handleClear} className={clearClass} role="button">
+            {enableClear && <CloseIcon />}
+          </span>
+        )}
+        {showSpinner && (
+          <span
+            className={'rc-input-loading'}
+            role="img"
+            data-testid="rc-input-spinner"
+          >
+            <CircularProgress size="xs" />
+          </span>
+        )}
+      </div>
+    );
+  }
+);
 
 Input.displayName = 'Input';
 

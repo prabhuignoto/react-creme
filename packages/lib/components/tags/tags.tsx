@@ -1,3 +1,4 @@
+import { RCInputElementProps } from '@components/input/input';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
@@ -44,6 +45,8 @@ const Tags: React.FunctionComponent<TagsProps> = ({
 
   const [inputValue, setInputValue] = useState('');
 
+  const inputRef = React.useRef<RCInputElementProps | null>(null);
+
   const canAdd = useMemo(
     () => tagItems.length + 1 <= maxTags && !readonly,
     [tagItems.length, inputValue]
@@ -62,15 +65,19 @@ const Tags: React.FunctionComponent<TagsProps> = ({
 
   const handleKeyUp = useCallback(
     (ev: React.KeyboardEvent) => {
-      if (ev.key === 'Enter' && canAdd && inputValue) {
-        handleAdd(inputValue);
+      if (ev.key === 'Enter' && canAdd && inputRef.current) {
+        const val = inputRef.current.getValue();
+
+        if (val) {
+          handleAdd(val);
+        }
       }
     },
     [canAdd, inputValue]
   );
 
-  const handleChange = useCallback((val: string) => {
-    setInputValue(val.trim());
+  const handleChange = useCallback((val?: string) => {
+    val && setInputValue(val.trim());
   }, []);
 
   const handleAdd = useCallback(
@@ -84,7 +91,12 @@ const Tags: React.FunctionComponent<TagsProps> = ({
             name: _value,
           })
         );
-        setInputValue('');
+        // setInputValue('');
+
+        if (inputRef.current) {
+          inputRef.current.setValue('');
+          inputRef.current.focus();
+        }
       }
     },
     [canAdd]
@@ -155,6 +167,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
             placeholder={placeholder}
             focusable={focusable}
             accent={accent}
+            ref={inputRef}
           />
         </li>
       )}

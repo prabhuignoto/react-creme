@@ -35,6 +35,8 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
 
   const ref = useRef<HTMLUListElement>(null);
 
+  console.log(data);
+
   useEffect(() => {
     if (data?.focus) {
       ref.current?.focus();
@@ -63,6 +65,8 @@ const SuggestionsMenuOverlay = withOverlay<
   SuggestMenuData
 >(SuggestionsMenu, {
   backdropColor: 'transparent',
+
+  disableAnimation: true,
   // disableBackdrop: true,
   placement: 'bottom',
 });

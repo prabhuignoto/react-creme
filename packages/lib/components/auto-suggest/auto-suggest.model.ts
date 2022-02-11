@@ -6,7 +6,7 @@ export interface AutoSuggestProps {
   debounce?: number;
   focusable?: boolean;
   icon?: React.ReactNode;
-  onChange?: (value: string) => void;
+  onChange?: (value?: string) => void;
   onKeyUp?: (ev: React.KeyboardEvent) => void;
   onSelection?: (selected: AutoSuggestOption) => void;
   placeholder?: string;
