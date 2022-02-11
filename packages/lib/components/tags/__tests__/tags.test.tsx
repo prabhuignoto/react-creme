@@ -44,7 +44,7 @@ describe('Tags', () => {
       },
     });
 
-    fireEvent.keyUp(input, {
+    fireEvent.keyDown(input, {
       key: 'Enter',
       code: 'Enter',
       keyCode: 13,

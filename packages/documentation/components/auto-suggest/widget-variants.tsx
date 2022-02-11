@@ -5,6 +5,8 @@ export const Default = (
   <AutoSuggest
     placeholder="Choose a name"
     suggestionsWidth={320}
+    debounce={200}
+    onChange={(value: string) => console.log(value)}
     suggestions={[
       'Alex',
       'Alec Baldwin',
