@@ -103,7 +103,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   );
 };
 
-const Drawer = withOverlay<DrawerProps>(DrawerComponent, {
+const Drawer = withOverlay<DrawerProps, null>(DrawerComponent, {
   disableAnimation: false,
 });
 
