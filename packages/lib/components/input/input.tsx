@@ -67,6 +67,9 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       },
     }));
 
+    /**
+     * Handler for clearing the input value
+     */
     const handleClear = useCallback((ev: React.MouseEvent) => {
       ev.preventDefault();
       setInputValue('');
@@ -77,6 +80,9 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       onChange?.('');
     }, []);
 
+    /**
+     * Handler for handling the input change
+     */
     const handleInput = useCallback(
       (ev: React.ChangeEvent<HTMLInputElement>) => {
         if (controlled) {

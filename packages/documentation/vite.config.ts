@@ -19,5 +19,18 @@ export default defineConfig({
   clearScreen: true,
   logLevel: 'info',
   mode: 'universal',
-  plugins: [reactRefresh(), svgr()],
+  plugins: [
+    reactRefresh({
+      include: [
+        './common/**/*.tsx',
+        './common/**/*.scss',
+        './components/**/*.tsx',
+        './components/**/*.scss',
+        './home/**/*.tsx',
+        './route-configs/**/*.tsx',
+        './main.tsx',
+      ],
+    }),
+    svgr(),
+  ],
 });
