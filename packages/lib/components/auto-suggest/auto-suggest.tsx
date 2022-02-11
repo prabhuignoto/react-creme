@@ -1,67 +1,17 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
-import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
-import { OverlayModel } from '../common/overlay-model';
 import { isValidString } from '../common/utils';
-import { withOverlay } from '../common/withOverlay';
 import { Option } from '../dropdown/dropdown-model';
 import { Input } from '../input/input';
 import '../input/input.scss';
-import { List } from '../list/list';
-import { ListOption } from '../list/list-model';
+import { SuggestionsMenuOverlay } from './auto-suggest-menu';
 import { AutoSuggestProps } from './auto-suggest.model';
 import './auto-suggest.scss';
-
-interface SuggestionsOverlayModel extends OverlayModel {
-  id?: string;
-  // eslint-disable-next-line no-unused-vars
-  onSelection: (option: ListOption[]) => void;
-  // suggestions: Option[];
-  width?: number;
-}
-
-const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
-  onSelection,
-  id,
-  width,
-  data,
-}) => {
-  const style = useMemo(
-    () =>
-      width
-        ? ({
-            '--suggestions-width': `${width}px`,
-          } as CSSProperties)
-        : {},
-    [width]
-  );
-
-  return (
-    <div className="rc-auto-suggest-suggestions-wrapper" style={style}>
-      <List
-        options={data as ListOption[]}
-        onSelection={onSelection}
-        showCheckIcon={false}
-        itemHeight={35}
-        id={id}
-        border={false}
-      />
-    </div>
-  );
-};
-
-const SuggestionsMenuOverlay = withOverlay<SuggestionsOverlayModel>(
-  SuggestionsMenu,
-  {
-    backdropColor: 'transparent',
-    // disableBackdrop: true,
-    placement: 'bottom',
-  }
-);
 
 const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
   onChange,
@@ -96,6 +46,7 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
 
   const [input, setInput] = React.useState<string | undefined>('');
   const [selected, setSelected] = React.useState<boolean>(false);
+  const [focusMenu, setFocusMenu] = React.useState<boolean>(false);
 
   const onChangeDebounced = useDebouncedCallback(
     useCallback(() => {
@@ -142,6 +93,9 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
   const handleSelection = useCallback((selected: Option[]) => {
     if (Array.isArray(selected) && selected.length > 0) {
       const selectedItem = selected[0];
+      setFocusMenu(false);
+      setIsDirty(true);
+
       if (selectedItem) {
         const { name, value } = selectedItem;
         setInput(name);
@@ -185,6 +139,32 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
     }
   }, [suggestions.length]);
 
+  const handleKeyUp = useCallback((ev: React.KeyboardEvent) => {
+    if (ev.key === 'ArrowDown') {
+      setFocusMenu(true);
+    } else if (ev.key === 'Escape') {
+      setIsDirty(true);
+      setSelected(false);
+
+      setTimeout(() => {
+        setFocusMenu(false);
+      }, 200);
+    }
+    onKeyUp?.(ev);
+  }, []);
+
+  const handleOnClose = () => {
+    inputRef.current?.focus();
+    setFocusMenu(false);
+    setIsDirty(true);
+  };
+
+  const data = useMemo(() => {
+    return apiBacked
+      ? { focus: focusMenu, items: suggestionItems }
+      : { focus: focusMenu, items: listItems };
+  }, [focusMenu, listItems.length, suggestionItems.length]);
+
   return (
     <div
       className={autoSuggestClass}
@@ -201,7 +181,7 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
           noUniqueId
           id={id.current}
           isAutoComplete
-          onKeyUp={onKeyUp}
+          onKeyUp={handleKeyUp}
           focusable={focusable}
           showSpinner={showSpinner}
           accent={accent}
@@ -218,7 +198,9 @@ const AutoSuggest: React.FunctionComponent<AutoSuggestProps> = ({
           align="left"
           placement="bottom"
           width={suggestionsWidth}
-          data={apiBacked ? suggestionItems : listItems}
+          data={data}
+          onClose={handleOnClose}
+          placementOffset={6}
         />
       )}
     </div>

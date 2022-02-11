@@ -40,7 +40,7 @@ importers:
       react-dom: ^18.0.0-rc.0
       sass: ^1.49.7
       snyk: ^1.851.0
-      stylelint: 14.4.0
+      stylelint: 14.5.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
       stylelint-order: ^5.0.0
@@ -86,11 +86,11 @@ importers:
       react-dom: 18.0.0-rc.0_react@18.0.0-rc.0
       sass: 1.49.7
       snyk: 1.851.0
-      stylelint: 14.4.0
-      stylelint-config-prettier: 9.0.3_stylelint@14.4.0
-      stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.6+stylelint@14.4.0
-      stylelint-order: 5.0.0_stylelint@14.4.0
-      stylelint-scss: 4.1.0_stylelint@14.4.0
+      stylelint: 14.5.0
+      stylelint-config-prettier: 9.0.3_stylelint@14.5.0
+      stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.6+stylelint@14.5.0
+      stylelint-order: 5.0.0_stylelint@14.5.0
+      stylelint-scss: 4.1.0_stylelint@14.5.0
       ts-toolbelt: 9.6.0
       turbo: 1.1.2
       typescript: 4.5.5
@@ -160,7 +160,7 @@ importers:
       rimraf: ^3.0.2
       sass: ^1.49.7
       snyk: ^1.851.0
-      stylelint: 14.4.0
+      stylelint: 14.5.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
       stylelint-scss: ^4.1.0
@@ -222,10 +222,10 @@ importers:
       rimraf: 3.0.2
       sass: 1.49.7
       snyk: 1.851.0
-      stylelint: 14.4.0
-      stylelint-config-prettier: 9.0.3_stylelint@14.4.0
-      stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.6+stylelint@14.4.0
-      stylelint-scss: 4.1.0_stylelint@14.4.0
+      stylelint: 14.5.0
+      stylelint-config-prettier: 9.0.3_stylelint@14.5.0
+      stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.6+stylelint@14.5.0
+      stylelint-scss: 4.1.0_stylelint@14.5.0
       typescript: 4.5.5
       use-timer: 2.0.1
       vite: 2.6.13_sass@1.49.7
@@ -12709,6 +12709,7 @@ packages:
 
   /is-typedarray/1.0.0:
     resolution: { integrity: sha1-5HnICFjfDBsR3dppQPlgEfzaSpo= }
+    dev: true
 
   /is-weakref/1.0.2:
     resolution:
@@ -18602,7 +18603,7 @@ packages:
       postcss: 8.4.6
       postcss-selector-parser: 6.0.9
 
-  /stylelint-config-prettier/9.0.3_stylelint@14.4.0:
+  /stylelint-config-prettier/9.0.3_stylelint@14.5.0:
     resolution:
       {
         integrity: sha512-5n9gUDp/n5tTMCq1GLqSpA30w2sqWITSSEiAWQlpxkKGAUbjcemQ0nbkRvRUa0B1LgD3+hCvdL7B1eTxy1QHJg==,
@@ -18612,9 +18613,9 @@ packages:
     peerDependencies:
       stylelint: '>=11.0.0'
     dependencies:
-      stylelint: 14.4.0
+      stylelint: 14.5.0
 
-  /stylelint-config-sass-guidelines/9.0.1_postcss@8.4.6+stylelint@14.4.0:
+  /stylelint-config-sass-guidelines/9.0.1_postcss@8.4.6+stylelint@14.5.0:
     resolution:
       {
         integrity: sha512-N06PsVsrgKijQ3YT5hqKA7x3NUkgELTRI1cbWMqcYiCGG6MjzvNk6Cb5YYA1PrvrksBV76BvY9P9bAswojVMqA==,
@@ -18626,11 +18627,11 @@ packages:
     dependencies:
       postcss: 8.4.6
       postcss-scss: 4.0.3_postcss@8.4.6
-      stylelint: 14.4.0
-      stylelint-order: 5.0.0_stylelint@14.4.0
-      stylelint-scss: 4.1.0_stylelint@14.4.0
+      stylelint: 14.5.0
+      stylelint-order: 5.0.0_stylelint@14.5.0
+      stylelint-scss: 4.1.0_stylelint@14.5.0
 
-  /stylelint-order/5.0.0_stylelint@14.4.0:
+  /stylelint-order/5.0.0_stylelint@14.5.0:
     resolution:
       {
         integrity: sha512-OWQ7pmicXufDw5BlRqzdz3fkGKJPgLyDwD1rFY3AIEfIH/LQY38Vu/85v8/up0I+VPiuGRwbc2Hg3zLAsJaiyw==,
@@ -18640,9 +18641,9 @@ packages:
     dependencies:
       postcss: 8.4.6
       postcss-sorting: 7.0.1_postcss@8.4.6
-      stylelint: 14.4.0
+      stylelint: 14.5.0
 
-  /stylelint-scss/4.1.0_stylelint@14.4.0:
+  /stylelint-scss/4.1.0_stylelint@14.5.0:
     resolution:
       {
         integrity: sha512-BNYTo7MMamhFOlcaAWp2dMpjg6hPyM/FFqfDIYzmYVLMmQJqc8lWRIiTqP4UX5bresj9Vo0dKC6odSh43VP2NA==,
@@ -18655,12 +18656,12 @@ packages:
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.9
       postcss-value-parser: 4.2.0
-      stylelint: 14.4.0
+      stylelint: 14.5.0
 
-  /stylelint/14.4.0:
+  /stylelint/14.5.0:
     resolution:
       {
-        integrity: sha512-F6H2frcmdpB5ZXPjvHKSZRmszuYz7bsbl2NXyE+Pn+1P6PMD3dYMKjXci6yEzj9+Yf2ZinxBMaXYvSzYjaHtog==,
+        integrity: sha512-4dvQjrhAz2njLoE1OvUEZpryNWcmx2w5Lq5jlibxFv6b5W6O8/vob12M2ZzhX3Ndzs5f67F+BEYmhnQXOwfVYQ==,
       }
     engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
     hasBin: true
@@ -18705,7 +18706,7 @@ packages:
       svg-tags: 1.0.0
       table: 6.8.0
       v8-compile-cache: 2.3.0
-      write-file-atomic: 4.0.0
+      write-file-atomic: 4.0.1
     transitivePeerDependencies:
       - supports-color
 
@@ -19630,12 +19631,6 @@ packages:
     dependencies:
       is-typedarray: 1.0.0
     dev: true
-
-  /typedarray-to-buffer/4.0.0:
-    resolution:
-      {
-        integrity: sha512-6dOYeZfS3O9RtRD1caom0sMxgK59b27+IwoNy8RDPsmslSGOyU+mpTamlaIW7aNKi90ZQZ9DFaZL3YRoiSCULQ==,
-      }
 
   /typedarray/0.0.6:
     resolution: { integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c= }
@@ -20697,17 +20692,15 @@ packages:
       typedarray-to-buffer: 3.1.5
     dev: true
 
-  /write-file-atomic/4.0.0:
+  /write-file-atomic/4.0.1:
     resolution:
       {
-        integrity: sha512-JhcWoKffJNF7ivO9yflBhc7tn3wKnokMUfWpBriM9yCXj4ePQnRPcWglBkkg1AHC8nsW/EfxwwhqsLtOy59djA==,
+        integrity: sha512-nSKUxgAbyioruk6hU87QzVbY279oYT6uiwgDoujth2ju4mJ+TZau7SQBhtbTmUyuNYTuXnSyRn66FV0+eCgcrQ==,
       }
     engines: { node: ^12.13.0 || ^14.15.0 || >=16 }
     dependencies:
       imurmurhash: 0.1.4
-      is-typedarray: 1.0.0
       signal-exit: 3.0.7
-      typedarray-to-buffer: 4.0.0
 
   /ws/7.5.7:
     resolution:

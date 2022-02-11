@@ -86,6 +86,8 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   // event handlers
 
   const closeProcess = useCallback(() => {
+    document.removeEventListener('scroll', handleWindowScroll);
+    observer.current?.disconnect();
     onClose?.();
     setHideOverlay(true);
 
@@ -147,8 +149,8 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
     // cleanup
     return () => {
-      document.removeEventListener('scroll', handleWindowScroll);
-      observer.current?.disconnect();
+      // document.removeEventListener('scroll', handleWindowScroll);
+      // observer.current?.disconnect();
     };
   }, []);
 
@@ -164,10 +166,6 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       setTimeout(() => {
         onOpen?.();
       }, 50);
-
-      if (hideDocumentOverflow) {
-        // document.body.style.overflow = 'hidden';
-      }
     }
   }, []);
 
@@ -175,6 +173,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     const ele = node as HTMLDivElement;
     if (ele) {
       overlayContentRef.current = ele;
+
       setOverlayDimensions({
         height: ele.clientHeight,
         width: ele.clientWidth,

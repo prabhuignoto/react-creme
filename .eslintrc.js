@@ -31,6 +31,7 @@ module.exports = {
     'no-unused-vars': 'off',
     // 'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
     'no-use-before-define': 'off',
+    'react/prop-types': 'off',
     'sort-keys-fix/sort-keys-fix': 'error',
     'typescript-sort-keys/interface': 'error',
     'typescript-sort-keys/string-enum': 'error',

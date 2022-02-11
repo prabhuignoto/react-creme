@@ -11,12 +11,12 @@ interface OverlayCommon {
   placementReference?: RefObject<HTMLElement>;
 }
 
-export interface OverlayModel extends OverlayCommon {
+export interface OverlayModel<T> extends OverlayCommon {
   align?: 'left' | 'right';
   children?: React.ReactNode | React.ReactNode[];
   containedToParent?: RefObject<HTMLElement>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data?: any;
+  data?: T;
   isClosing?: boolean;
   overlayAnimation?: boolean;
   placement?: 'top' | 'bottom';

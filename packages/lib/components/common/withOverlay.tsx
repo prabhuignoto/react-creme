@@ -13,12 +13,12 @@ type Settings = {
   placement?: 'bottom' | 'top';
 };
 
-type OverlayFunc = <U extends OverlayModel>(
-  Node: React.FunctionComponent<U>,
-  settings: Settings
-) => React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<U> & React.RefAttributes<HTMLElement>
->;
+// type OverlayFunc = <U extends OverlayModel<T>>(
+//   Node: React.FunctionComponent<U>,
+//   settings: Settings
+// ) => React.ForwardRefExoticComponent<
+//   React.PropsWithoutRef<U> & React.RefAttributes<HTMLElement>
+// >;
 
 export type OverlayContextModel = {
   align?: 'left' | 'right';
@@ -31,7 +31,7 @@ export const OverlayContext = React.createContext<OverlayContextModel | null>(
   null
 );
 
-const withOverlay: OverlayFunc = function <T extends OverlayModel>(
+const withOverlay = function <T extends OverlayModel<U>, U>(
   Node: React.FunctionComponent<T> | React.ForwardRefExoticComponent<T>,
   settings: Settings = {
     backdropColor: 'rgba(0,0,0,0.5)',

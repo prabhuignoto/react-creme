@@ -8,7 +8,7 @@ import { DropdownMenuProps, DropdownProps, Option } from './dropdown-model';
 import { DropdownValue } from './dropdown-value';
 import './dropdown.scss';
 
-const DropdownMenuOverlay = withOverlay<DropdownMenuProps>(DropDownMenu, {
+const DropdownMenuOverlay = withOverlay<DropdownMenuProps, null>(DropDownMenu, {
   backdropColor: 'transparent',
 });
 

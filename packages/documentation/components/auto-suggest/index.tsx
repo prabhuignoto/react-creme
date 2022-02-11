@@ -16,7 +16,7 @@ function index() {
       callbacks={[
         {
           default: '',
-          description: 'Callback function when an item is selected',
+          description: 'Callback function executed when an item is selected',
           name: 'onSelection',
           optional: 'Yes',
           type: 'function',

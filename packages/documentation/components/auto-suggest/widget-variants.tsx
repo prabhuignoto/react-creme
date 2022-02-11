@@ -4,6 +4,7 @@ import { AutoSuggest } from '../../../lib/components';
 export const Default = (
   <AutoSuggest
     placeholder="Choose a name"
+    suggestionsWidth={320}
     suggestions={[
       'Alex',
       'Alec Baldwin',
@@ -17,11 +18,13 @@ export const Default = (
       'Jonathan Frakes',
       'Iggy Azalea',
       'Kevin James',
-      'Lloyd Banks',
-      'Michael Richards',
-      'Nicole Kidman',
-      'Richard Pryor',
-      'Steve Martin',
+      'Kurt Cobain',
+      'Kate McKinnon',
+      'Kirk Douglas',
+      'Kevin Kline',
+      'Koala',
+      'Kid Rock',
+      'Kevin Smith',
       'Tina Fey',
       'Tom Hanks',
     ].map(item => ({
@@ -35,6 +38,7 @@ export const Accent = (
   <AutoSuggest
     accent="rounded"
     placeholder="Choose a name"
+    suggestionsWidth={320}
     suggestions={[
       'Alex',
       'Alec Baldwin',
