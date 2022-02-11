@@ -22,12 +22,12 @@ export const Features = [
     title: 'Comprehensive UI Toolkit for React',
   },
   {
-    color: '#FF5E3A',
+    color: '#0074E4',
     icon: faBolt,
     title: 'Robust & Performant components',
   },
   {
-    color: '#FF5E3A',
+    color: '#0074E4',
     icon: faTools,
     title: 'Highly customizable UI Elements',
   },
@@ -42,17 +42,17 @@ export const Features = [
     title: 'Modular and extensible components',
   },
   {
-    color: '#3E7C17',
+    color: '#0074E4',
     icon: faMobile,
     title: 'Complete support for Touch devices',
   },
   {
-    color: '#F4A442',
+    color: '#0074E4',
     icon: faAccessibleIcon,
     title: 'Fully Accessible UI Components',
   },
   {
-    color: '#504658',
+    color: '#0074E4',
     icon: faGlobe,
     title: 'Built for Modern web browsers',
   },

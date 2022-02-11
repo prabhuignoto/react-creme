@@ -4,7 +4,15 @@ import React from 'react';
 import { vi } from 'vitest';
 import { AutoSuggest } from '../auto-suggest';
 
-const suggestions = ['one', 'two', 'three', 'four', 'five'].map(item => ({
+const suggestions = [
+  'one',
+  'two',
+  'three',
+  'four',
+  'five',
+  'six',
+  'sixty six',
+].map(item => ({
   name: item,
   value: item,
 }));
@@ -86,5 +94,45 @@ describe('AutoSuggest', () => {
         timeout: 2000,
       }
     );
+  });
+
+  it('should keyboard navigation work as expected', async () => {
+    const handler = vi.fn();
+    const { getByPlaceholderText, getByText, getAllByRole, getByRole } = render(
+      <AutoSuggest
+        suggestions={suggestions}
+        placeholder="enter input"
+        onChange={handler}
+      />
+    );
+
+    fireEvent.change(getByPlaceholderText('enter input'), {
+      target: { value: 'six' },
+    });
+
+    await waitFor(() => {
+      expect(getByText('six')).toBeInTheDocument();
+      expect(getAllByRole('option')).toHaveLength(2);
+    });
+
+    fireEvent.keyUp(getByPlaceholderText('enter input'), {
+      key: 'ArrowDown',
+    });
+
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
+
+    await waitFor(() => {
+      expect(getByRole('listbox')).toBeInTheDocument();
+    });
+
+    fireEvent.keyDown(getByRole('listbox'), {
+      key: 'ArrowDown',
+    });
+
+    await waitFor(() => {
+      expect(getAllByRole('option')[1]).toHaveFocus();
+    });
   });
 });

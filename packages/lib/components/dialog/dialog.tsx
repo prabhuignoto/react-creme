@@ -110,7 +110,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   );
 };
 
-const Dialog = withOverlay<DialogProps>(DialogComponent, {
+const Dialog = withOverlay<DialogProps, null>(DialogComponent, {
   disableAnimation: false,
   hideDocumentOverflow: true,
 });

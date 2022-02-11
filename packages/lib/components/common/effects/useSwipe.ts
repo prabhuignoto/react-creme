@@ -51,7 +51,6 @@ const useSwipe: SwipeFunc = (strength = 'medium') => {
 
     const { clientX, clientY } =
       ev instanceof window.TouchEvent ? ev.touches[0] : ev;
-    console.log(clientX, clientY);
 
     // elementRef.current?.setAttribute('disabled', 'true');
 
@@ -75,8 +74,6 @@ const useSwipe: SwipeFunc = (strength = 'medium') => {
 
     const diffX = startX - endX;
     const diffY = startY - endY;
-
-    console.log(diffX, diffY);
 
     if (rect.current && Math.abs(diffX) / rect.current.width < threshold) {
       return;

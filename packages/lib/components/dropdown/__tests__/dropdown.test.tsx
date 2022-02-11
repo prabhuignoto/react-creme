@@ -217,25 +217,25 @@ describe('Dropdown', () => {
       () => {
         expect(getByRole('listbox')).toBeInTheDocument();
         expect(getAllByRole('option')).toHaveLength(5);
-        // expect(getAllByRole('option')[0]).toHaveFocus();
+        expect(getAllByRole('option')[0]).toHaveFocus();
       },
       { timeout: 2500 }
     );
 
-    // fireEvent.keyDown(getByRole('listbox'), {
-    //   key: 'ArrowDown',
-    // });
-
-    await waitFor(() => {
-      // expect(getAllByRole('option')[1]).toHaveFocus();
+    fireEvent.keyDown(getByRole('listbox'), {
+      key: 'ArrowDown',
     });
 
-    // fireEvent.keyDown(getByRole('listbox'), {
-    //   key: 'ArrowUp',
-    // });
+    await waitFor(() => {
+      expect(getAllByRole('option')[1]).toHaveFocus();
+    });
+
+    fireEvent.keyDown(getByRole('listbox'), {
+      key: 'ArrowUp',
+    });
 
     await waitFor(() => {
-      // expect(getAllByRole('option')[0]).toHaveFocus();
+      expect(getAllByRole('option')[0]).toHaveFocus();
     });
   });
 });

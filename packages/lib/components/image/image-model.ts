@@ -1,7 +1,7 @@
 import { OverlayModel } from '../common/overlay-model';
 import React from 'react';
 
-export interface ImageOverlayProps extends OverlayModel {
+export interface ImageOverlayProps extends OverlayModel<null> {
   height?: number;
   src: string;
   width?: number;

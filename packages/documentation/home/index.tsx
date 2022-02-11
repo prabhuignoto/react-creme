@@ -45,8 +45,8 @@ const Home: React.FunctionComponent = () => {
 
         <Section title="Usage" size="md">
           <BlockQuote>
-            The example below shows how to use the react-creme package. we
-            create a simple component that renders a button.
+            The example below shows how to use the react-creme package to create
+            a button element.
           </BlockQuote>
           <SyntaxHighLighter
             code={`import React from "react";\nimport { Button, ThemeProvider } from "react-creme";\nimport "react-creme/dist/react-creme.css";\n\nconst App = () => {\n  return (\n    <ThemeProvider>\n      <Button>Click Me</Button>\n    </ThemeProvider>\n  );\n};\n\nexport default App;`}

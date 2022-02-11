@@ -10,7 +10,7 @@ export type NotificationPosition =
   | 'top-center';
 
 /** ✨ Component props */
-export interface NotificationProps extends OverlayModel {
+export interface NotificationProps extends OverlayModel<null> {
   /**🔷 auto closes the tooltip after the duration in Milliseconds */
   autoClose?: number;
 

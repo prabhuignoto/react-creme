@@ -89,9 +89,12 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   );
 };
 
-const Notification = withOverlay<NotificationProps>(NotificationComponent, {
-  backdropColor: 'transparent',
-});
+const Notification = withOverlay<NotificationProps, null>(
+  NotificationComponent,
+  {
+    backdropColor: 'transparent',
+  }
+);
 
 Notification.displayName = 'Notification';
 

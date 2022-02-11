@@ -24,4 +24,4 @@ export type MenuItemProps = Pick<MenuProps, 'disabled'> & {
 export type MenuOverlayModel = Pick<MenuProps, 'focusable' | 'items'> & {
   onSelection?: (val: string) => void;
   ref?: RefObject<HTMLUListElement | null>;
-} & OverlayModel;
+} & OverlayModel<null>;

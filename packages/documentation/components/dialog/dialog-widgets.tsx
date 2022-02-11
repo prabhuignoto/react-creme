@@ -51,7 +51,7 @@ const Widget = () => {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render">
-          <DemoWidget width={100} component={Default}>
+          <DemoWidget width={120} component={Default}>
             <Button onClick={() => setOpen(true)} label="Open dialog"></Button>
             {open && (
               <Dialog
@@ -74,7 +74,7 @@ const Widget = () => {
             <code>drop</code>. The example below shows dialog with drop
             animation.
           </BlockQuote>
-          <DemoWidget width={100} component={Drop}>
+          <DemoWidget width={120} component={Drop}>
             <Button onClick={() => setOpen2(true)} label="Open dialog"></Button>
             {open2 && (
               <Dialog

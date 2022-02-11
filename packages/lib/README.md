@@ -1,15 +1,13 @@
 <div align="center">
-  <br/>
   <img src="./readme-assets/logo.jpg" />
-  <br/>
-  <br/>
-  
-  [![codecov](https://codecov.io/gh/prabhuignoto/react-creme/branch/master/graph/badge.svg?token=JEL70TGE8Q)](https://codecov.io/gh/prabhuignoto/react-creme)
-  [![Snyk](https://snyk.io/test/github/prabhuignoto/react-creme/badge.svg)](https://snyk.io/test/github/prabhuignoto/react-creme)
-  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=react-creme&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=react-creme)
-  [![CodeFactor](https://www.codefactor.io/repository/github/prabhuignoto/react-creme/badge)](https://www.codefactor.io/repository/github/prabhuignoto/react-creme)
-  [![CodeQL](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml)
-  [![dev status](https://img.shields.io/badge/status-alpha-green)](https://img.shields.io/badge/status-alpha-green)
+
+[![codecov](https://codecov.io/gh/prabhuignoto/react-creme/branch/master/graph/badge.svg?token=JEL70TGE8Q)](https://codecov.io/gh/prabhuignoto/react-creme)
+[![Snyk](https://snyk.io/test/github/prabhuignoto/react-creme/badge.svg)](https://snyk.io/test/github/prabhuignoto/react-creme)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=react-creme&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=react-creme)
+[![CodeFactor](https://www.codefactor.io/repository/github/prabhuignoto/react-creme/badge)](https://www.codefactor.io/repository/github/prabhuignoto/react-creme)
+[![CodeQL](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml)
+[![dev status](https://img.shields.io/badge/status-alpha-green)](https://img.shields.io/badge/status-alpha-green)
+
 </div>
 
 </br>
@@ -18,14 +16,10 @@
 
 Modern UI Toolkit for React
 
-[Explore the Components](https://react-creme.vercel.app/)
-
 <h2>Features</h2>
 
 - 💎 High quality react components.
-
 - 💪 Robust components written in Typescript.
-
 - ♿ Fully Accessible UI Components.
 
 - 🏳️‍🌈 30+ UI Elements.
@@ -64,12 +58,13 @@ npm install react-creme
 ## ☕ Usage
 
 ```sh
+  import React from "react";
   import { Button } from "react-creme";
 
   const App = () => {
     return (
       <div>
-        <Button>Welcome to react-creme</Button>
+        <Button>Click Me</Button>
       </div>
     );
   };

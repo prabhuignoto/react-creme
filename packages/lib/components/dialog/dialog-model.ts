@@ -1,7 +1,7 @@
 import React from 'react';
 import { OverlayModel } from '../common/overlay-model';
 
-export interface DialogProps extends OverlayModel {
+export interface DialogProps extends OverlayModel<null> {
   animationType?: 'drop' | 'pop';
   children?: React.ReactNode;
   focusable?: boolean;
