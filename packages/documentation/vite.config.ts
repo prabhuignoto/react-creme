@@ -21,16 +21,18 @@ export default defineConfig({
   mode: 'universal',
   plugins: [
     reactRefresh({
-      include: [
-        './common/**/*.tsx',
-        './common/**/*.scss',
-        './components/**/*.tsx',
-        './components/**/*.scss',
-        './home/**/*.tsx',
-        './route-configs/**/*.tsx',
-        './main.tsx',
+      exclude: [
+        './node_modules/**',
+        './**/*.test.tsx',
+        './**/*.test.ts',
+        './**/*.spec.tsx',
       ],
     }),
     svgr(),
   ],
+  server: {
+    fs: {
+      strict: false,
+    },
+  },
 });

@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "ESNext"
-    ],
+    "target": "ES2020",
+    "lib": ["dom", "dom.iterable", "ES2020"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -13,7 +9,7 @@
     "experimentalDecorators": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
+    "module": "ES2020",
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -22,27 +18,13 @@
     "jsx": "react",
     "declaration": true,
     "declarationDir": "dist",
-    "types": [
-      "react",
-      "react-dom",
-    ],
+    "types": ["react", "react-dom"],
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "components/*"
-      ],
-    },
+      "@components/*": ["components/*"]
+    }
   },
-  "include": [
-    "./components",
-  ],
-  "exclude": [
-    "./**/*.test.tsx",
-    "node_modules",
-    "dist",
-    "rollup.config.js"
-  ],
-  "files": [
-    "react-creme.ts"
-  ],
+  "include": ["./components"],
+  "exclude": ["./**/*.test.tsx", "node_modules", "dist", "rollup.config.js"],
+  "files": ["react-creme.ts"]
 }

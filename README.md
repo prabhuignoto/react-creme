@@ -3,18 +3,18 @@
   <img src="./readme-assets/logo.jpg" />
   <br/>
   <br/>
-  
-  [![codecov](https://codecov.io/gh/prabhuignoto/react-creme/branch/master/graph/badge.svg?token=JEL70TGE8Q)](https://codecov.io/gh/prabhuignoto/react-creme)
-  [![Snyk](https://snyk.io/test/github/prabhuignoto/react-creme/badge.svg)](https://snyk.io/test/github/prabhuignoto/react-creme)
-  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=react-creme&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=react-creme)
-  [![CodeFactor](https://www.codefactor.io/repository/github/prabhuignoto/react-creme/badge)](https://www.codefactor.io/repository/github/prabhuignoto/react-creme)
-  [![CodeQL](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml)
-  [![dev status](https://img.shields.io/badge/status-alpha-green)](https://img.shields.io/badge/status-alpha-green)
+
+[![codecov](https://codecov.io/gh/prabhuignoto/react-creme/branch/master/graph/badge.svg?token=JEL70TGE8Q)](https://codecov.io/gh/prabhuignoto/react-creme)
+[![Snyk](https://snyk.io/test/github/prabhuignoto/react-creme/badge.svg)](https://snyk.io/test/github/prabhuignoto/react-creme)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=react-creme&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=react-creme)
+[![CodeFactor](https://www.codefactor.io/repository/github/prabhuignoto/react-creme/badge)](https://www.codefactor.io/repository/github/prabhuignoto/react-creme)
+[![CodeQL](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml)
+[![dev status](https://img.shields.io/badge/status-alpha-green)](https://img.shields.io/badge/status-alpha-green)
+
+  </br>
 </div>
 
 </br>
-
-# react-creme
 
 Modern UI Toolkit for React
 
@@ -28,7 +28,7 @@ Modern UI Toolkit for React
 
 - ♿ Fully Accessible UI Components.
 
-- 🏳️‍🌈 30+ UI Elements.
+- 🌈 35+ UI Elements.
 
 - 🛠️ Customizable components.
 
@@ -40,13 +40,12 @@ Modern UI Toolkit for React
 
 <h2>Table of Contents</h2>
 
-- [react-creme](#react-creme)
-  - [🚀 Getting Started](#-getting-started)
-  - [☕ Usage](#-usage)
-  - [🌍 Browser Support](#-browser-support)
-  - [🍫 Examples & Documentation](#-examples--documentation)
-  - [🔨 Build](#-build)
-  - [🤝Contributing](#contributing)
+- [🚀 Getting Started](#-getting-started)
+- [☕ Usage](#-usage)
+- [🌍 Browser Support](#-browser-support)
+- [🍫 Examples & Documentation](#-examples--documentation)
+- [🔨 Build](#-build)
+- [🤝Contributing](#contributing)
 
 ## 🚀 Getting Started
 
@@ -79,14 +78,9 @@ npm install react-creme
 
 ## 🌍 Browser Support
 
-`react-creme` is a modern UI component library with support for all the latest browsers.
-
-<div style="display: flex; justify-content: space-between; width: 280px">
-  <img src="./readme-assets/chrome.svg" alt="chrome" width=50 />
-  <img src="./readme-assets/firefox.svg" alt="chrome" width=50 />
-  <img src="./readme-assets/edge.svg" alt="chrome" width=50 />
-  <img src="./readme-assets/safari.svg" alt="chrome" width=50 />
-</div>
+| ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png) |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
+| Latest ✔                                                                                            | Latest ✔                                                                                               | Latest ✔                                                                                    | Latest ✔                                                                                         | Latest ✔                                                                                            |
 
 ## 🍫 Examples & Documentation
 
@@ -103,7 +97,7 @@ pnpm build
 To build the library
 
 ```sh
-pnpm build: lib
+pnpm build:lib
 ```
 
 To build and run the documentation
