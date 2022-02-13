@@ -23,6 +23,13 @@ const banner = `/*
 
 const OUTPUT_NAME = 'ReactCreme';
 
+const globals = {
+  globals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+  },
+};
+
 export default {
   external: [...Object.keys(pkg.peerDependencies || {})],
   input: 'react-creme.ts',
@@ -30,12 +37,18 @@ export default {
     {
       banner,
       exports: 'named',
+      file: pkg.browser,
+      format: 'umd',
+      ...globals,
+      name: OUTPUT_NAME,
+      strict: true,
+    },
+    {
+      banner,
+      exports: 'named',
       file: pkg.main,
       format: 'cjs',
-      globals: {
-        react: 'React',
-        'react-dom': 'ReactDOM',
-      },
+      ...globals,
       name: OUTPUT_NAME,
       strict: true,
     },
@@ -44,10 +57,7 @@ export default {
       exports: 'named',
       file: pkg.module,
       format: 'es',
-      globals: {
-        react: 'React',
-        'react-dom': 'ReactDOM',
-      },
+      ...globals,
       name: OUTPUT_NAME,
       strict: true,
     },

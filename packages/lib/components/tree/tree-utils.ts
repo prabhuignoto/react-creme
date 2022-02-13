@@ -56,9 +56,12 @@ export function recursiveFind(
     return node;
   } else if (node.nodes?.length) {
     let result;
-    node.nodes.forEach(n => {
-      result = recursiveFind(n, id);
-    });
+    for (let i = 0; i < node.nodes.length; i++) {
+      result = recursiveFind(node.nodes[i], id);
+      if (result) {
+        return result;
+      }
+    }
 
     return result;
   } else {

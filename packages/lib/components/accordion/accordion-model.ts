@@ -7,6 +7,7 @@ export type AccordionProps = {
   children?: ReactNode;
   customContent?: React.ReactNode;
   customIcon?: ReactNode;
+  disableARIA?: boolean;
   disableCollapse?: boolean;
   disableIcon?: boolean;
   expanded?: boolean | null;
@@ -34,6 +35,7 @@ export type AccordionGroupProps = Pick<
   | 'titleColor'
   | 'isTitleBold'
   | 'focusable'
+  | 'disableARIA'
 > & {
   autoClose?: boolean;
   border?: boolean;

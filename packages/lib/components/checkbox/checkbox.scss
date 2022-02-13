@@ -80,10 +80,6 @@ $heights: (
     border-radius: 50%;
   }
 
-  &:hover {
-    @extend %shadow-inset;
-  }
-
   svg {
     display: none;
   }

@@ -7,7 +7,7 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render">
-        <DemoWidget>
+        <DemoWidget width={100}>
           <MenuButton items={['save', 'save as new', 'discard']} width={150} />
         </DemoWidget>
       </Section>
@@ -15,7 +15,7 @@ function widgets() {
         <DemoWidget>
           <MenuButton
             items={['save', 'save as new', 'discard']}
-            width={150}
+            width={100}
             RTL
           />
         </DemoWidget>

@@ -3,13 +3,14 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { TreeNodeProps, TreeProps } from './tree-model';
 import { TreeNode } from './tree-node';
 import {
+  recursiveFind,
   recursiveUpdateMultiSelection,
   recursiveUpdateSingleSelection,
 } from './tree-utils';
 
 const Tree: React.FunctionComponent<TreeProps> = ({
   nodes,
-  // onSelected,
+  onSelected,
   selectable,
 }: TreeProps) => {
   const parser = useCallback(_nodes => {
@@ -54,37 +55,33 @@ const Tree: React.FunctionComponent<TreeProps> = ({
 
       const idToFind = selectedId.id;
 
-      let nodeCopyUpdated: TreeNodeProps;
-      let nodesCopyUpdated: TreeNodeProps[];
+      let nodeUpdated: TreeNodeProps;
+      let nodesUpdated: TreeNodeProps[];
 
       if (selectable) {
-        nodeCopyUpdated = recursiveUpdateMultiSelection(
-          nodeToUpdate,
-          idToFind,
-          false,
-          undefined
-        );
+        nodeUpdated = recursiveUpdateMultiSelection(nodeToUpdate, idToFind);
         setTreeNodes(prev => {
           const result = prev.map(x => {
             if (x.id === selectedId.lookupNodeId) {
-              return { ...nodeCopyUpdated };
+              return { ...nodeUpdated };
             }
             return x;
           });
           return result;
         });
       } else {
-        nodesCopyUpdated = recursiveUpdateSingleSelection(treeNodes, idToFind);
-        setTreeNodes(nodesCopyUpdated);
+        nodesUpdated = recursiveUpdateSingleSelection(treeNodes, idToFind);
+        setTreeNodes(nodesUpdated);
       }
 
-      // const selectedNode = recursiveFind(nodeCopyUpdated, idToFind);
+      const selectedNode = recursiveFind(node, selectedId.id);
 
-      // if (selectedNode) {
-      //   onSelected?.(selectedNode);
-      // }
+      if (selectedNode) {
+        const { id, name } = selectedNode;
+        onSelected?.({ id, name });
+      }
     }
-  }, [JSON.stringify(getLookupNode), JSON.stringify(selectedId)]);
+  }, [JSON.stringify(selectedId)]);
 
   const handleSelection = useCallback((id?: string, open?: boolean) => {
     if (!id) {

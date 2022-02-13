@@ -36,13 +36,20 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
     }, []);
 
     return (
-      <div style={style} id={id} role="treeitem" aria-expanded={expanded}>
+      <div
+        style={style}
+        id={id}
+        role="treeitem"
+        aria-expanded={expanded}
+        aria-checked={enableCheckbox && selected}
+      >
         {nodes.map((node, index) => (
           <div key={index} style={{ marginBottom: '0.25rem' }}>
             <Accordion
               title={node.name}
               disableIcon={!node.nodes?.length}
               autoSetBodyHeight={false}
+              disableARIA
               onChange={open => {
                 if (!enableCheckbox) {
                   handleChange(open, node.id);
@@ -69,6 +76,7 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
                   style={{
                     margin: '0.5rem 0',
                   }}
+                  role="tree"
                 >
                   <TreeNode
                     key={node.id}

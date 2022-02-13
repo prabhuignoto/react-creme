@@ -12,6 +12,6 @@ export type TreeNodeProps = {
 export type TreeProps = {
   name?: string;
   nodes: TreeNodeProps[];
-  onSelected?: (t: TreeNodeProps) => void;
+  onSelected?: (t: { id?: string; name?: string }) => void;
   selectable?: boolean;
 };

@@ -10,7 +10,6 @@ import {
   useRef,
   useState,
 } from 'react';
-import ResizeObserver from 'resize-observer-polyfill';
 import { useDebounce } from 'use-debounce';
 import useSwipe from '../common/effects/useSwipe';
 import { CarouselItems } from './carousel-items';

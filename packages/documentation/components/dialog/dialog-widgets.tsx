@@ -74,7 +74,7 @@ const Widget = () => {
             <code>drop</code>. The example below shows dialog with drop
             animation.
           </BlockQuote>
-          <DemoWidget width={120} component={Drop}>
+          <DemoWidget width={130} component={Drop}>
             <Button onClick={() => setOpen2(true)} label="Open dialog"></Button>
             {open2 && (
               <Dialog

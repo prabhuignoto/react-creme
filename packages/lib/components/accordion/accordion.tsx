@@ -38,6 +38,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
     title,
     titleColor = '#000',
     transition = 'cubic-bezier(0.19, 1, 0.22, 1)',
+    disableARIA,
   }: AccordionProps) => {
     const accordionID = useRef(id || `accordion-${nanoid()}`);
     const accordionBodyId = useRef(`accordion-body-${nanoid()}`);
@@ -139,6 +140,15 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
       }
     }, [children]);
 
+    const ARIA = useMemo(
+      () =>
+        !disableARIA && {
+          'aria-controls': accordionBodyId.current,
+          'aria-expanded': open,
+        },
+      []
+    );
+
     return (
       <div className={accordionClass}>
         <AccordionHeader
@@ -155,6 +165,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
           isTitleBold={isTitleBold}
           open={open}
           onToggle={toggleAccordion}
+          {...ARIA}
           aria-controls={accordionBodyId.current}
           aria-expanded={open}
           selected={selected}
