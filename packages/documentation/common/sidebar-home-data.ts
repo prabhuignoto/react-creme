@@ -5,7 +5,6 @@ export default [
     items: [
       { name: 'Splitter' },
       { name: 'Accordion' },
-      { name: 'Image' },
       { name: 'Tabs' },
       { name: 'Accordion Group' },
       { name: 'Sidebar' },
@@ -17,7 +16,12 @@ export default [
     title: 'Layout',
   },
   {
-    items: [{ name: 'section' }, { name: 'Card' }, { name: 'page header' }],
+    items: [
+      { name: 'section' },
+      { name: 'Card' },
+      { name: 'page header' },
+      { name: 'Image' },
+    ],
     title: 'content',
   },
   {

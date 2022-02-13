@@ -36,7 +36,7 @@ export const Default = (
   //   items={data}
   //   onChange={selected => console.log(selected, name)}
   // />
-  <Tree nodes={data} />
+  <Tree nodes={data} onSelected={val => console.log(val)} />
 );
 
 export const Selection = <Tree selectable nodes={data} />;

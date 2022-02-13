@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import * as React from 'react';
-import { CSSProperties, useCallback, useMemo, useRef } from 'react';
+import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
 import { SearchIcon } from '../../icons';
 import { isArray } from '../common/utils';
 import { Input } from '../input/input';

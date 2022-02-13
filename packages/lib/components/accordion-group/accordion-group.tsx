@@ -23,6 +23,7 @@ const AccordionGroup = ({
   focusable = true,
   icons,
   disableIcon = false,
+  disableARIA,
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
@@ -73,7 +74,11 @@ const AccordionGroup = ({
   return (
     <div className={groupClass}>
       {items.map((item, index) => (
-        <div className="rc-accordion-group-item" key={item.id} role="group">
+        <div
+          className="rc-accordion-group-item"
+          key={item.id}
+          role={!disableARIA ? 'group' : ''}
+        >
           <Accordion
             id={item.id}
             onExpanded={handleExpand}
@@ -90,6 +95,7 @@ const AccordionGroup = ({
             disableIcon={disableIcon}
             focusable={focusable}
             customIcon={icons && icons[index]}
+            disableARIA={disableARIA}
           >
             {children && children[index]}
           </Accordion>
