@@ -30,6 +30,7 @@ export const Default = (
     tabStyle="flat"
     border={false}
     activeTab="two"
+    size="sm"
     // focusable
   >
     <span>one</span>

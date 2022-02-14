@@ -171,6 +171,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
               labels={tabTitles}
               icons={canShowProperties ? Icons : IconsWithoutProperties}
               focusable={false}
+              size="sm"
             >
               <div className="rc-demo-widgets-wrapper">
                 <Suspense fallback={<span>Loading Widgets...</span>}>

@@ -65,6 +65,14 @@ function tabs() {
           optional: 'Yes',
           type: 'String',
         },
+        {
+          default: 'md',
+          description:
+            'Sets the size of the tabs. Can be of type <em>sm</em> | <em>md</em> | <em>lg</em>. Controls the size of the icon and the fonts',
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
       ]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
