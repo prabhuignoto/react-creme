@@ -22,6 +22,7 @@ export type AccordionProps = {
   onExpanded?: (id: string) => void;
   onRendered?: () => void;
   selected?: boolean;
+  size?: 'sm' | 'md' | 'lg';
   title?: string;
   titleColor?: string;
   transition?: string;
@@ -36,6 +37,7 @@ export type AccordionGroupProps = Pick<
   | 'isTitleBold'
   | 'focusable'
   | 'disableARIA'
+  | 'size'
 > & {
   autoClose?: boolean;
   border?: boolean;
@@ -66,6 +68,7 @@ export type AccordionHeaderProps = Pick<
   | 'isTitleBold'
   | 'selected'
   | 'customContent'
+  | 'size'
 > & {
   accordionBodyId?: string;
   accordionId?: string;

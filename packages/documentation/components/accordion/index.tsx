@@ -129,6 +129,14 @@ const Accordion = () => {
           optional: 'Yes',
           type: 'Boolean',
         },
+        {
+          default: 'md',
+          description:
+            'Size of the accordion. can be <code>sm</code>, <code>md</code> or <code>lg</code>',
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
       ]}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

@@ -24,6 +24,7 @@ const AccordionGroup = ({
   icons,
   disableIcon = false,
   disableARIA,
+  size = 'sm',
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
@@ -96,6 +97,7 @@ const AccordionGroup = ({
             focusable={focusable}
             customIcon={icons && icons[index]}
             disableARIA={disableARIA}
+            size={size}
           >
             {children && children[index]}
           </Accordion>

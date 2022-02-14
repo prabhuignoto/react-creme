@@ -56,3 +56,14 @@ $icon-sizes: (
 %icon-xl {
   @include get-icon(extra-large, colors.$primary);
 }
+
+%icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}

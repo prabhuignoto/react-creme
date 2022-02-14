@@ -60,7 +60,7 @@
   &.rc-tooltip-top-left::after,
   &.rc-tooltip-top-center::after,
   &.rc-tooltip-top-right::after {
-    bottom: -5px;
+    bottom: -4px;
   }
 
   &.rc-tooltip-top-left::after,
@@ -76,19 +76,19 @@
   &.rc-tooltip-bottom-left::after,
   &.rc-tooltip-bottom-center::after,
   &.rc-tooltip-bottom-right::after {
-    top: -5px;
+    top: -4px;
   }
 
   &.rc-tooltip-right-top::after,
   &.rc-tooltip-right-center::after,
   &.rc-tooltip-right-bottom::after {
-    left: -5px;
+    left: -4px;
   }
 
   &.rc-tooltip-left-top::after,
   &.rc-tooltip-left-center::after,
   &.rc-tooltip-left-bottom::after {
-    right: -5px;
+    right: -4px;
   }
 
   &::after {
