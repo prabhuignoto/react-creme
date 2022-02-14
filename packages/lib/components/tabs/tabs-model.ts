@@ -2,24 +2,13 @@ import { CSSProperties, ReactNode } from 'react';
 
 // ⚙️ Internal props
 
-/** 🟧 Common props
-====================================*/
-
-export interface TabsCommonProps {
-  // enables border
-  border?: boolean;
-
-  // enables focus
-  focusable?: boolean;
-
-  // style of the tabs container
-  tabStyle?: 'flat' | 'rounded';
-}
-
 /** 🟧 props passed to the tab header
 =====================================**/
 
-export interface TabHeadProps extends TabsCommonProps {
+export type TabHeadProps = Pick<
+  TabsProps,
+  'focusable' | 'tabStyle' | 'size'
+> & {
   // disables the tab head
   disabled?: boolean;
 
@@ -41,7 +30,7 @@ export interface TabHeadProps extends TabsCommonProps {
 
   // selected state of the tab head
   selected?: boolean;
-}
+};
 
 /** 🟧 props passed to the tab item component
 ==============================================**/
@@ -55,12 +44,15 @@ export interface TabItemProps {
 
 /** 🟧 props passed to the tabs header
 ==============================================**/
-export interface TabHeadersProps extends TabsCommonProps {
+export type TabHeadersProps = Pick<
+  TabsProps,
+  'focusable' | 'tabStyle' | 'size'
+> & {
   activeTabId: string;
   handleTabSelection: (id: string) => void;
   icons?: ReactNode[];
   items: TabItemProps[];
-}
+};
 
 /** 🟧 props passed to the tabs panel
 ==============================================**/
@@ -74,15 +66,21 @@ export interface TabPanelProps {
 /*✨ Component props
 ==============================================**/
 
-export interface TabsProps extends TabsCommonProps {
+export interface TabsProps {
   // active tab
   activeTab?: string;
+
+  // enables border
+  border?: boolean;
 
   // children items that are rendered inside the tab panels
   children: ReactNode[];
 
   // array of tabs that needs to be disabled
   disabledTabs?: string[];
+
+  // enables focus
+  focusable?: boolean;
 
   // custom icons for tabs: { [key: string]: ReactNode };
   icons?: ReactNode[];
@@ -93,8 +91,13 @@ export interface TabsProps extends TabsCommonProps {
   // labels for the tabs
   labels: string[];
 
+  size?: 'sm' | 'md' | 'lg';
+
   // custom style that will be applied to the tab container
   style?: CSSProperties;
+
+  // style of the tabs container
+  tabStyle?: 'flat' | 'rounded';
 
   // width of the tabs
   width?: number | string;

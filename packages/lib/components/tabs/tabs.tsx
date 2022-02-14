@@ -26,6 +26,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   tabStyle = 'flat',
   width = '100%',
   activeTab,
+  size = 'sm',
 }) => {
   const selectionStart = useRef<number>(-1);
   const [activeTabId, setActiveTabId] = useState<string>('');
@@ -161,6 +162,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         focusable={focusable}
         icons={icons}
         activeTabId={activeTabId}
+        size={size}
       />
       <div className={rcPanelsClass}>{tabItems}</div>
     </div>

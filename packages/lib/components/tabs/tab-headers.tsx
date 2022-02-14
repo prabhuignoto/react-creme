@@ -19,6 +19,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   items,
   tabStyle,
   activeTabId,
+  size,
 }: TabHeadersProps) => {
   const tabHeadersRef = useRef<HTMLUListElement | null>(null);
   const [hasFocus, setHasFocus] = useState(false);
@@ -142,6 +143,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
             icon={icons?.[index]}
             onFocus={onFocus}
             parentHasFocus={hasFocus}
+            size={size}
           />
         ))}
       </div>

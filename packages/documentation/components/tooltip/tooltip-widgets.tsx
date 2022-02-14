@@ -81,6 +81,7 @@ const Widgets = () => {
               minWidth={160}
               bgColor="#fff"
               foreColor="#FF0000"
+              size="sm"
             >
               <Card height={200}>
                 Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean

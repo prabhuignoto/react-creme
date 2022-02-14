@@ -78,6 +78,8 @@ export interface InputProps {
    */
   showSpinner?: boolean;
 
+  size?: 'sm' | 'md' | 'lg';
+
   /**
    * 🔴 state of the input
    */

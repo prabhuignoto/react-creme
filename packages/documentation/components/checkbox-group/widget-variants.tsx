@@ -23,6 +23,7 @@ export const Default = (
 
 export const PreSelected = (
   <CheckBoxGroup
+    size="md"
     options={[
       {
         label: 'Option 1',

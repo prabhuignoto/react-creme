@@ -7,6 +7,7 @@ export interface RadioGroupProps<T = string> {
   items: RadioGroupItemProps<T>[];
   layout?: 'row' | 'column';
   onSelected?: (selected: T) => void;
+  size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;
 }
 

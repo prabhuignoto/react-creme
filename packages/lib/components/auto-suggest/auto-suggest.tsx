@@ -30,6 +30,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
       apiBacked = false,
       icon,
       rtl,
+      size = 'sm',
     }: AutoSuggestProps,
     ref
   ) => {
@@ -191,6 +192,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
             focusable={focusable}
             showSpinner={showSpinner}
             accent={accent}
+            size={size}
             ref={ref || inputRef}
           >
             {icon ? icon : <SearchIcon />}
@@ -207,6 +209,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
             data={data}
             onClose={handleOnClose}
             placementOffset={6}
+            size={size}
           />
         )}
       </div>

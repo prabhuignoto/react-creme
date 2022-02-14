@@ -1,15 +1,21 @@
 @use '../../design/layout.scss';
 @use '../../design/theme.scss';
-@use '../../design/icon.scss';
 @use '../../design/button.scss';
 @use '../../design/animate.scss';
 @use '../../design/position.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+$heights: (
+  sm: 35px,
+  md: 40px,
+  lg: 45px,
+);
 
 .rc-input {
   align-items: center;
   background: theme.$white;
   display: grid;
-  font-size: 1rem;
   grid-template-columns: 2rem calc(100% - 4rem) 2rem;
   height: 35px;
   justify-items: center;
@@ -62,12 +68,7 @@
   }
 
   ::placeholder {
-    font-size: 1rem;
     font-weight: 300;
-  }
-
-  &:not(.rc-input-disabled) {
-    // @include animate.halo(4px, 5px);
   }
 
   &.rc-input-error.rc-input-border {
@@ -97,6 +98,21 @@
   }
 }
 
+@each $size in $sizes {
+  .rc-input-#{$size} {
+    @extend %font-#{$size};
+    height: map.get($heights, $size);
+
+    ::placeholder {
+      @extend %font-#{$size};
+    }
+
+    .rc-input-icon {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
 .rc-input-error:not(.rc-input-border) {
   border: 1px solid rgba(theme.$crimson, 0.5);
 
@@ -116,7 +132,6 @@
 }
 
 .rc-input-icon {
-  @extend %icon-md;
   color: theme.$primary;
 }
 

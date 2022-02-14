@@ -24,6 +24,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   maxWidth = 300,
   bgColor = '#fff',
   foreColor = '#000',
+  size = 'sm',
 }: TooltipProps) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
@@ -58,6 +59,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
         {
           'hide-tooltip': !isFirstRender.current && !showTooltip,
           'show-tooltip': showTooltip,
+          [`rc-tooltip-message-${size}`]: size,
           [`rc-tooltip-${position.split(' ')[0]}-${position.split(' ')[1]}`]:
             true,
         },

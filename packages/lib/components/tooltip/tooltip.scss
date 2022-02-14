@@ -3,6 +3,8 @@
 @use '../../design/animate.scss';
 @use '../../design/position.scss';
 
+$sizes: (sm, md, lg);
+
 .rc-tooltip-wrapper {
   @extend %center;
 
@@ -100,6 +102,12 @@
     position: absolute;
     transform: rotate(45deg);
     width: $arrow-dim;
+  }
+}
+
+@each $size in $sizes {
+  .rc-tooltip-message-#{$size} {
+    @extend %font-#{$size};
   }
 }
 

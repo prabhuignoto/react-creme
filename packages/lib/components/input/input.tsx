@@ -46,6 +46,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       type = 'text',
       value = '',
       onFocus,
+      size = 'sm',
     } = props;
     const [inputValue, setInputValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -117,6 +118,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           'rc-input-no-icon': !children,
           'rc-input-rtl': RTL,
           [`rc-input-${accent}`]: true,
+          [`rc-input-${size}`]: true,
         }),
       [disabled, hasFocus]
     );

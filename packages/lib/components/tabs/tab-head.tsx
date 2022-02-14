@@ -16,6 +16,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     icon,
     onFocus,
     parentHasFocus,
+    size,
   }: TabHeadProps) => {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -37,6 +38,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         'rc-tab-head-selected': selected,
         [`rc-tab-head-${tabStyle}`]: true,
         'rc-tab-head-with-icon': icon,
+        [`rc-tab-head-${size}`]: true,
       });
     }, [disabled, selected, icon]);
 

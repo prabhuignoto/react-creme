@@ -49,4 +49,6 @@ export type TooltipProps = {
 
   //🔷 whether to show the tooltip
   show?: boolean;
+
+  size?: 'sm' | 'md' | 'lg';
 };
