@@ -1,9 +1,11 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 
 $compact-row-height: 35px;
 $comfortable-row-height: 50px;
+
+$sizes: (sm, md, lg);
 
 .rc-data-grid {
   @extend %col;
@@ -18,7 +20,7 @@ $comfortable-row-height: 50px;
 
 .rc-data-grid-row-zebra {
   &:nth-child(odd) {
-    background-color: rgba(colors.$light-bg, 0.75);
+    background-color: rgba(theme.$light-bg, 0.75);
   }
 }
 
@@ -26,11 +28,11 @@ $comfortable-row-height: 50px;
   width: 100%;
 
   &:not(:last-child):not(.rc-data-grid-row-zebra) {
-    border-bottom: 1px solid colors.$secondary;
+    border-bottom: 1px solid theme.$secondary;
   }
 
   &:hover {
-    background-color: colors.$light-bg;
+    background-color: theme.$light-bg;
   }
 
   &.rc-data-grid-row-compact {
@@ -42,7 +44,15 @@ $comfortable-row-height: 50px;
   }
 
   .rc-data-grid-cell-border:not(:last-child) {
-    border-right: 1px solid colors.$secondary;
+    border-right: 1px solid theme.$secondary;
+  }
+}
+
+@each $size in $sizes {
+  .rc-data-grid-row-#{$size} {
+    .rc-data-grid-cell-val {
+      @extend %text-#{$size};
+    }
   }
 }
 
@@ -70,8 +80,8 @@ $comfortable-row-height: 50px;
   em,
   code {
     @extend %border-radius;
-    background-color: rgba(colors.$secondary-rgb, 0.25);
-    color: colors.$primary;
+    background-color: rgba(theme.$secondary-rgb, 0.25);
+    color: theme.$primary;
     font-style: normal;
     font-weight: 400;
     padding: 0.1rem 0.25rem;

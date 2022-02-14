@@ -1,6 +1,6 @@
 @use '../../design/animate.scss';
 @use '../../design/button.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/layout.scss';
 @use '../../design/position.scss';
 @use '../../design/icon.scss';
@@ -58,13 +58,13 @@
   }
 
   svg {
-    color: colors.$white;
+    color: theme.$white;
   }
 }
 
 .rc-overlay-close-btn:hover {
   svg {
-    // color: colors.$primary;
+    // color: theme.$primary;
   }
 }
 

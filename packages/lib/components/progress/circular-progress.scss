@@ -1,5 +1,5 @@
-@use "../../design/colors";
-@use "../../design/position";
+@use '../../design/theme';
+@use '../../design/position';
 
 $sizes: (
   xs: 16px,
@@ -22,8 +22,8 @@ $sizes: (
   animation: spin 1s linear infinite;
   background: linear-gradient(
     to right,
-    colors.$primary 50%,
-    colors.$secondary 50% 100%
+    theme.$primary 50%,
+    theme.$secondary 50% 100%
   );
   border-radius: 100%;
   display: block;
@@ -40,8 +40,8 @@ $sizes: (
 }
 
 .inner-circle-2 {
-  @include position.position-abs("center center");
-  background: colors.$white;
+  @include position.position-abs('center center');
+  background: theme.$white;
   border-radius: 50%;
   display: block;
   height: 85%;
@@ -49,10 +49,10 @@ $sizes: (
   z-index: 2;
 
   &::after {
-    @include position.position-abs("center center");
+    @include position.position-abs('center center');
     background: #fff;
     border-radius: 50%;
-    content: "";
+    content: '';
     display: block;
     height: 50%;
     width: 50%;

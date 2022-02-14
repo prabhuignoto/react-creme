@@ -1,13 +1,13 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/position.scss';
 @use '../../design/icon.scss';
 @use 'sass:color';
 
 .rc-block-quote {
   align-items: center;
-  background: rgba(colors.$secondary-rgb, 0.1);
-  border-left: 3px solid rgba(colors.$primary-rgb, 0.5);
+  background: rgba(theme.$secondary-rgb, 0.1);
+  border-left: 3px solid rgba(theme.$primary-rgb, 0.5);
   display: grid;
   font-weight: 300;
   grid-template-columns: 2rem auto;
@@ -20,8 +20,8 @@
 
   code {
     @extend %border-radius;
-    background: rgba(colors.$secondary-rgb, 0.5);
-    color: colors.$tertiary;
+    background: rgba(theme.$secondary-rgb, 0.5);
+    color: theme.$tertiary;
     display: inline-block;
     font-style: normal;
     font-style: normal;
@@ -39,7 +39,7 @@
 
 .rc-block-quote-icon {
   @extend %icon-lg;
-  color: rgba(colors.$primary-rgb, 1);
+  color: rgba(theme.$primary-rgb, 1);
   margin-right: 0.5rem;
 }
 

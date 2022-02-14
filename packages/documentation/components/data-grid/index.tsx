@@ -58,6 +58,14 @@ const DataGridDemo: React.FunctionComponent = () => {
           optional: 'Yes',
           type: 'boolean',
         },
+        {
+          default: 'sm',
+          description:
+            'Sets the size of the grid. can be <em>sm</em>, <em>md</em> or <em>lg</em>. Controls the font size of the grid.',
+          name: 'size',
+          optional: 'Yes',
+          type: 'string',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-vebq81']}

@@ -2,6 +2,7 @@ import classnames from 'classnames';
 import React, { useMemo, useRef } from 'react';
 import { ChevronRightIcon, MinusIcon, PlusIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
+import './accordion-header.scss';
 import { AccordionHeaderProps } from './accordion-model';
 
 const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
@@ -19,6 +20,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   open,
   selected,
   customContent,
+  size,
 }) => {
   const accordionHeaderClass = useMemo(
     () =>
@@ -52,6 +54,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   const titleClass = useMemo(() => {
     return classnames('rc-accordion-title', {
       'rc-accordion-title-bold': isTitleBold,
+      [`rc-accordion-title-${size}`]: size,
     });
   }, [isTitleBold]);
 
@@ -62,6 +65,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
       'rc-accordion-custom-icon': customIcon,
       [`rc-accordion-icon-${iconType}`]: true,
       'rc-accordion-disable-icon': disableIcon,
+      [`rc-accordion-icon-${size}`]: true,
       'rc-accordion-icon-open': open,
     });
   }, [open, customIcon, disableIcon]);

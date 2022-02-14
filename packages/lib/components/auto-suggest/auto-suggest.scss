@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/position.scss';
 
 .rc-auto-suggest-input-wrapper {
@@ -10,7 +10,7 @@
 .rc-auto-suggest-suggestions-wrapper {
   @extend %shadow-small;
   @extend %border-radius;
-  background: colors.$white;
+  background: theme.$white;
   width: var(--suggestions-width, 200px);
   z-index: 999;
 }

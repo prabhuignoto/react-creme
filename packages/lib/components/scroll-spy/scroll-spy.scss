@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/list.scss';
 
 .rc-scroll-spy-wrapper {
@@ -41,7 +41,7 @@
 .rc-scroll-spy-list-item {
   @extend %border-radius;
   @extend %left;
-  color: colors.$black;
+  color: theme.$black;
   cursor: pointer;
   font-weight: 300;
   height: 35px;
@@ -49,8 +49,8 @@
   width: calc(100% - 0.5rem);
 
   &.active {
-    background: rgba(colors.$secondary-rgb, 50%);
-    color: colors.$primary;
+    background: rgba(theme.$secondary-rgb, 50%);
+    color: theme.$primary;
     font-weight: 400;
   }
 }

@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/animate.scss';
 @use '../../design/position.scss';
 
@@ -35,9 +35,9 @@
 
   @include animate.set-keyframes(animate-tooltip-show, $animation);
   @include animate.set-keyframes(animate-tooltip-close, $animation, true);
-  background: colors.$white;
-  background-color: var(-bg-color, colors.$white);
-  color: var(--fore-color, colors.$primary);
+  background: theme.$white;
+  background-color: var(-bg-color, theme.$white);
+  color: var(--fore-color, theme.$primary);
   max-width: var(--max-width);
   min-width: var(--min-width);
   padding: 0.5rem;
@@ -60,7 +60,7 @@
   &.rc-tooltip-top-left::after,
   &.rc-tooltip-top-center::after,
   &.rc-tooltip-top-right::after {
-    bottom: -5px;
+    bottom: -4px;
   }
 
   &.rc-tooltip-top-left::after,
@@ -76,23 +76,23 @@
   &.rc-tooltip-bottom-left::after,
   &.rc-tooltip-bottom-center::after,
   &.rc-tooltip-bottom-right::after {
-    top: -5px;
+    top: -4px;
   }
 
   &.rc-tooltip-right-top::after,
   &.rc-tooltip-right-center::after,
   &.rc-tooltip-right-bottom::after {
-    left: -5px;
+    left: -4px;
   }
 
   &.rc-tooltip-left-top::after,
   &.rc-tooltip-left-center::after,
   &.rc-tooltip-left-bottom::after {
-    right: -5px;
+    right: -4px;
   }
 
   &::after {
-    background: colors.$white;
+    background: theme.$white;
     border-radius: 1px;
     content: '';
     display: block;

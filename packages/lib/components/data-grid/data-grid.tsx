@@ -26,13 +26,12 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   layoutStyle = 'comfortable',
   rowHeight,
   zebra = false,
+  size = 'sm',
 }: DataGridProps) => {
   const sortableColumns = useRef(columns.filter(col => col.sortable));
   const sortableColumnFirst = useRef<DataGridColumn>(
     sortableColumns.current.length ? sortableColumns.current[0] : null
   );
-
-  //reddit
 
   const rowData = useRef<Record[]>(
     sortableColumnFirst.current !== null
@@ -179,6 +178,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         onSort={handleSort}
         layoutStyle={layoutStyle}
         border={border}
+        size={size}
       />
       {sortedData.map(row => {
         return (
@@ -193,6 +193,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
             fixedHeight={fixedHeight}
             zebra={zebra}
             rowHeight={rowHeight}
+            size={size}
           />
         );
       })}

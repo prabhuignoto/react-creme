@@ -15,7 +15,9 @@ export const Warning = (
   <Alert message="This is a warning text" state="warning" />
 );
 
-export const Error = <Alert message="This is a error text" state="error" />;
+export const Error = (
+  <Alert message="This is a error text" state="error" size="lg" />
+);
 
 export const Custom = (
   <Alert message="This is a information text" canDismiss={false}>

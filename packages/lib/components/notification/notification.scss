@@ -3,8 +3,9 @@
 @use '../../design/button.scss';
 @use '../../design/animate.scss';
 @use '../../design/util.scss';
-@use '../../design/icon.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
+
+$sizes: (sm, md, lg);
 
 .rc-notification-wrapper {
   $min-width: var(--min-width);
@@ -68,7 +69,7 @@
   @extend %border-radius;
   @extend %col;
   @include animate.set-settings(0.25s);
-  background: colors.$white;
+  background: theme.$white;
   min-height: $min-height;
   min-width: $min-width;
 
@@ -113,9 +114,21 @@
   }
 }
 
+@each $size in $sizes {
+  .rc-notification-#{$size} {
+    .rc-notification-title {
+      @extend %text-#{$size};
+    }
+
+    .rc-notification-close-btn {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
 .rc-notification-header {
   @extend %left;
-  border-bottom: 1px solid colors.$gray;
+  border-bottom: 1px solid theme.$gray;
   height: 40px;
   width: 100%;
 }

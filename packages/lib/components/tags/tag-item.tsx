@@ -26,7 +26,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     readonly,
     tagWidth,
     tagStyle,
-    tagSize,
+    size,
     markedForRemoval,
     focusable,
     accent,
@@ -49,7 +49,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
           'rc-tag-marked-for-removal':
             markedForRemoval && !isFirstRender.current,
           [`rc-tag-style-${tagStyle}`]: true,
-          [`rc-tag-${tagSize}`]: true,
+          [`rc-tag-${size}`]: true,
           'rc-tag-readonly': readonly,
           [`rc-tag-accent-${accent}`]: true,
         }),
@@ -60,19 +60,12 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
       () =>
         classNames('rc-tag-icon', {
           [`rc-tag-icon-${tagStyle}`]: true,
-          [`rc-tag-icon-${tagSize}`]: true,
           'rc-tag-icon-editable': editable,
         }),
       [editable]
     );
 
-    const tagName = useMemo(
-      () =>
-        classNames('rc-tag-name', {
-          [`rc-tag-name-${tagSize}`]: true,
-        }),
-      []
-    );
+    const tagName = useMemo(() => classNames('rc-tag-name', {}), []);
 
     const style = useMemo(
       () =>

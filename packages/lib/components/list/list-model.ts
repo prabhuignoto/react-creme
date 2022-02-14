@@ -57,6 +57,8 @@ export type ListProps = {
   // 🔷 Shows a check icon on selection
   showCheckIcon?: boolean;
 
+  size?: 'sm' | 'md' | 'lg';
+
   // 🔷 color of the text
   textColor?: string;
 
@@ -104,6 +106,7 @@ export type ListItemContentProps = Pick<
   | 'RTL'
   | 'selected'
   | 'highlightSelection'
+  | 'size'
 > & {
   showCheck?: boolean;
   // tabIndex: number;

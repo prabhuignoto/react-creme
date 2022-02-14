@@ -1,6 +1,6 @@
 @use '../../design/layout.scss';
 @use '../../design/position.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 
 .rc-img-comparer-wrapper {
@@ -18,11 +18,11 @@
 }
 
 .rc-img-comparer-drag-handle {
-  background: rgba(colors.$primary-rgb, 0.95);
+  background: rgba(theme.$primary-rgb, 0.95);
   z-index: 2;
 
   &.rc-comparer-drag-handle-dragged {
-    background: rgba(colors.$primary-rgb, 1);
+    background: rgba(theme.$primary-rgb, 1);
   }
 
   .rc-drag-handle-square {
@@ -30,7 +30,7 @@
     @extend %border-radius;
     @extend %center;
     @include position.position-abs('center center');
-    background: colors.$secondary;
+    background: theme.$secondary;
     content: '';
     display: block;
     pointer-events: none;

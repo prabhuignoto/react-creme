@@ -25,9 +25,9 @@ function tags() {
       ]}
       properties={[
         {
-          default: `small`,
+          default: `sm`,
           description: `Sets the size of the tag.<br> <em>sm</em> | <em>md</em> | <em>lg</em>.`,
-          name: 'tagSize',
+          name: 'size',
           optional: 'Yes',
           type: `String`,
         },

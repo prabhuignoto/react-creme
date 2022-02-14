@@ -15,9 +15,9 @@ export interface TagsProps {
   onChange?: (selected: string[]) => void;
   placeholder?: string;
   readonly?: boolean;
+  size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;
   suggestions?: string[];
-  tagSize?: 'sm' | 'md' | 'lg';
   tagStyle?: 'default' | 'fill';
   tagWidth?: number;
   wrap?: boolean;
@@ -30,7 +30,7 @@ export type TagItemProps = Pick<
   | 'accent'
   | 'focusable'
   | 'tagStyle'
-  | 'tagSize'
+  | 'size'
   | 'tagWidth'
 > & {
   id?: string;

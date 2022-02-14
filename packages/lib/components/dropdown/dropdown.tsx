@@ -27,6 +27,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     chevronIconColor,
     showClearBtn = true,
     label = 'dropdown',
+    size = 'sm',
   }: DropdownProps) => {
     /**
      * The state of the dropdown.
@@ -209,6 +210,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
           selectedValue={selectedValue}
           label={label}
           focus={focusManual}
+          size={size}
         />
 
         {showMenu && (
@@ -230,6 +232,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
             focusable={focusable}
             align="left"
             selectedIndex={focusIndex}
+            size={size}
           />
         )}
       </div>

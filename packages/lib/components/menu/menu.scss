@@ -1,31 +1,25 @@
-@use "../../design/list.scss";
-@use "../../design/layout.scss";
-@use "../../design/animate.scss";
-@use "../../design/colors.scss";
+@use '../../design/list.scss';
+@use '../../design/layout.scss';
+@use '../../design/animate.scss';
+@use '../../design/theme.scss';
 
 .rc-menu-wrapper {
   @extend %center;
   height: 100%;
   position: relative;
-  // z-index: 9999;
 }
 
 .rc-menu-content-wrapper {
   @extend %center;
-  // @include animate.halo(1px, 2px, false);
   height: 100%;
   position: relative;
-
-  // &.rc-menu-not-focusable {
-  //   outline: 0;
-  // }
 }
 
 .rc-menu {
   @extend %list;
   @extend %border-radius;
   @extend %col;
-  background: colors.$white;
+  background: theme.$white;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   min-width: 150px;
   outline: none;

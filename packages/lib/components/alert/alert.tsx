@@ -21,6 +21,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   children,
   RTL = false,
   focusable = true,
+  size = 'md',
 }) => {
   const [close, setClose] = React.useState(false);
 
@@ -44,6 +45,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
         [`rc-alert-${state}`]: true,
         'rc-alert-close': close,
         'rc-alert-rtl': RTL,
+        [`rc-alert-${size}`]: true,
       }),
     [state, close]
   );

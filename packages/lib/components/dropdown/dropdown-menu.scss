@@ -1,6 +1,6 @@
 @use '../../design/layout.scss';
 @use '../../design/animate.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/list.scss';
 
 .rc-dropdown-menu-container {
@@ -8,7 +8,7 @@
   @extend %shadow-medium;
   @include animate.set-settings(0.25s, cubic-bezier(0.17, 0.84, 0.44, 1));
 
-  background: colors.$white;
+  background: theme.$white;
   left: 0;
   opacity: 0;
   overflow: hidden;
@@ -52,7 +52,7 @@
   width: 100%;
 
   &:hover {
-    background: colors.$light-bg;
+    background: theme.$light-bg;
   }
 
   &.disabled {

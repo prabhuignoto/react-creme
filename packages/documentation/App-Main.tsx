@@ -35,7 +35,7 @@ const Main = React.forwardRef<
         />
       )}
       <Suspense fallback={<span></span>}>
-        <ThemeProvider theme={theme.colors}>
+        <ThemeProvider theme={theme}>
           <AppRoutes />
         </ThemeProvider>
       </Suspense>

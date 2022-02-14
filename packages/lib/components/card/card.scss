@@ -1,9 +1,9 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 
 .rc-card-wrapper {
   @extend %col;
-  background: colors.$white;
+  background: theme.$white;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -27,7 +27,7 @@
 
 .rc-card-header {
   @extend %left;
-  border-bottom: 1px solid colors.$gray;
+  border-bottom: 1px solid theme.$gray;
   height: 100%;
   width: 95%;
 
@@ -49,7 +49,7 @@
 
 .rc-card-footer {
   @extend %left;
-  border-top: 1px solid colors.$gray;
+  border-top: 1px solid theme.$gray;
   height: 100%;
   margin-top: auto;
   width: 95%;

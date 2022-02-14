@@ -48,7 +48,12 @@ export const InitialState = (
 );
 
 export const AutoClosingSections = (
-  <AccordionGroup titles={['one', 'two', 'three']} autoClose border={false}>
+  <AccordionGroup
+    titles={['one', 'two', 'three']}
+    autoClose
+    border={false}
+    size="sm"
+  >
     {Array.from({ length: 3 }).map((_, i) => (
       <Para key={i} />
     ))}

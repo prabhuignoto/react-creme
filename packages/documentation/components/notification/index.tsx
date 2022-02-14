@@ -74,6 +74,14 @@ function notification() {
           optional: 'Yes',
           type: 'Boolean',
         },
+        {
+          default: 'md',
+          description:
+            'size of the notification. can be <em>sm</em> | <em>md</em> | <em>lg</em>. Controls the size of the icons and text.',
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-fwgs9r']}

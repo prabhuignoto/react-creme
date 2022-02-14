@@ -1,16 +1,14 @@
 @use '../../design/layout.scss';
 @use '../../design/list.scss';
-@use '../../design/icon.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/animate.scss';
-@use '../../design/font.scss';
 @use '../../design/position.scss';
 
 $sizes: (sm, md, lg);
 $padding-sizes: (
-  sm: 0.25rem,
+  sm: 0.5rem,
   md: 0.5rem,
-  lg: 0.75rem,
+  lg: 0.5rem,
 );
 
 .rc-tags-wrapper {
@@ -51,6 +49,8 @@ $padding-sizes: (
   margin: 0.25rem;
   max-width: var(--width);
   min-width: 40px;
+
+  padding: 0.4rem 0.5rem;
   transform: scale(1);
 
   user-select: none;
@@ -72,8 +72,8 @@ $padding-sizes: (
 
   &.rc-tag-style-fill {
     @extend %border-radius;
-    background: rgba(colors.$primary-rgb, 1);
-    color: colors.$white;
+    background: rgba(theme.$primary-rgb, 1);
+    color: theme.$white;
   }
 
   &.rc-tag-style-default {
@@ -95,19 +95,26 @@ $padding-sizes: (
     transform: scale(0.98);
     visibility: hidden;
   }
+}
 
-  @each $key, $val in $padding-sizes {
-    &.rc-tag-#{$key} {
-      padding: $val;
+@each $size in $sizes {
+  .rc-tag-#{$size} {
+    .rc-tag-icon {
+      @extend %icon-#{$size};
+    }
+
+    .rc-tag-name {
+      @extend %font-#{$size};
     }
   }
 }
 
 .rc-tag-icon {
-  //
+  align-self: center;
   border-radius: 50%;
   cursor: pointer;
   display: block;
+  justify-self: flex-end;
 
   &.rc-tag-icon-editable {
     visibility: visible;
@@ -127,31 +134,25 @@ $padding-sizes: (
     width: 110%;
     z-index: -1;
   }
-
-  @each $size in $sizes {
-    &.rc-tag-icon-#{$size} {
-      @extend %icon-#{$size};
-    }
-  }
 }
 
 .rc-tag-icon-fill {
   &:hover::after {
-    background: rgba(colors.$white, 1);
+    background: rgba(theme.$white, 1);
   }
 
   &:hover {
-    color: colors.$primary;
+    color: theme.$primary;
   }
 }
 
 .rc-tag-icon-default {
   &:hover::after {
-    background: colors.$primary;
+    background: theme.$primary;
   }
 
   &:hover {
-    color: colors.$white;
+    color: theme.$white;
   }
 }
 

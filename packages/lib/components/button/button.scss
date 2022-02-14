@@ -1,6 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
-@use '../../design/icon.scss';
+@use '../../design/theme.scss';
 @use '../../design/button.scss';
 @use '../../design/font.scss';
 @use '../../design/animate.scss';
@@ -26,14 +25,14 @@ $sizes: (sm, md, lg);
 
     &.rc-disabled {
       @extend %disabled;
-      border: 1px solid colors.$chinese-gray;
+      border: 1px solid theme.$chinese-gray;
     }
   }
 }
 
 @each $size in $sizes {
   .rc-btn-#{$size} {
-    @extend %font-#{$size};
+    @extend %text-#{$size};
     @extend %button-#{$size};
 
     .rc-btn-icon-container {
@@ -51,6 +50,14 @@ $sizes: (sm, md, lg);
   text-transform: capitalize;
 }
 
+@each $size in $sizes {
+  .rc-btn-#{$size} {
+    .rc-btn-label {
+      @extend %font-#{$size};
+    }
+  }
+}
+
 .rc-btn-icon {
   border-radius: 50%;
   padding: 0.25rem;
@@ -60,11 +67,11 @@ $sizes: (sm, md, lg);
   }
 
   &:not(.rc-disabled) {
-    background: colors.$light-bg;
+    background: theme.$light-bg;
   }
 
   &:hover:not(.rc-disabled) {
-    background: colors.$secondary;
+    background: theme.$secondary;
   }
 }
 

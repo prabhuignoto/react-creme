@@ -1,0 +1,104 @@
+$primary: var(--rc-primary-color-hex);
+$secondary: var(--rc-secondary-color-hex);
+$tertiary: var(--rc-tertiary-color-hex);
+$text-color-on-selection: var(--rc-textSelection-color-hex);
+$text-color: var(--rc-text-color-hex);
+
+$primary-rgb: var(--rc-primary-color-rgb);
+$secondary-rgb: var(--rc-secondary-color-rgb);
+$tertiary-rgb: var(--rc-tertiary-color-rgb);
+$text-color-on-selection-rgb: var(--rc-textSelection-color-rgb);
+$text-color-rgb: var(--rc-text-color-rgb);
+
+$font-size-sm: var(--rc-font-size-sm);
+$font-size-md: var(--rc-font-size-md);
+$font-size-lg: var(--rc-font-size-lg);
+
+$icon-size-sm: var(--rc-icon-size-sm);
+$icon-size-md: var(--rc-icon-size-md);
+$icon-size-lg: var(--rc-icon-size-lg);
+$icon-size-xs: var(--rc-icon-size-xs);
+
+$size-sm: var(--rc-size-sm);
+$size-md: var(--rc-size-md);
+$size-lg: var(--rc-size-lg);
+
+$white: #fff;
+$black: #000;
+$gray: #e5e5e5;
+$light-gray: #f7f7f7;
+$crimson: #e32636;
+$snow-white: #f3f6fb;
+$chinese-gray: #ccc;
+$alto: #dbdbdb;
+$mercury: #e5e5e5;
+$success-green: #4bb543;
+$light-bg: #f6f6f6;
+
+$transparent: transparent;
+$amber: #ffc107;
+$blue: #2196f3;
+$platinum: #e5e4e2;
+$gunmetal-gray: #2b2b2b;
+
+%icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+%font-sm {
+  font-size: $font-size-sm;
+}
+
+%font-md {
+  font-size: $font-size-md;
+}
+
+%font-lg {
+  font-size: $font-size-lg;
+}
+
+%icon-sm {
+  @extend %icon;
+  height: $icon-size-sm;
+  width: $icon-size-sm;
+}
+
+%icon-md {
+  @extend %icon;
+  height: $icon-size-md;
+  width: $icon-size-md;
+}
+
+%icon-lg {
+  @extend %icon;
+  height: $icon-size-lg;
+  width: $icon-size-lg;
+}
+
+%icon-xs {
+  @extend %icon;
+  height: $icon-size-xs;
+  width: $icon-size-xs;
+}
+
+%text-sm {
+  @extend %font-sm;
+  color: $text-color;
+}
+
+%text-md {
+  @extend %font-md;
+  color: $text-color;
+}
+
+%text-lg {
+  @extend %font-lg;
+  color: $text-color;
+}

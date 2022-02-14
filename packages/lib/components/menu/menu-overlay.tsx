@@ -7,7 +7,7 @@ import { MenuItem } from './menu-item';
 import { MenuOverlayModel } from './menu-model';
 
 const MenuContainer = React.forwardRef<HTMLUListElement, MenuOverlayModel>(
-  ({ items, onSelection, focusable }: MenuOverlayModel, ref) => {
+  ({ items, onSelection, focusable, size }: MenuOverlayModel, ref) => {
     const listRef = useRef<HTMLUListElement | null>(null);
 
     /**
@@ -21,7 +21,13 @@ const MenuContainer = React.forwardRef<HTMLUListElement, MenuOverlayModel>(
       focusable
     );
 
-    const menuClass = useMemo(() => classNames(['rc-menu'], {}), []);
+    const menuClass = useMemo(
+      () =>
+        classNames(['rc-menu'], {
+          [`rc-menu-${size}`]: size,
+        }),
+      []
+    );
 
     /**
      * Imperative handle for managing focus

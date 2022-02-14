@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/animate.scss';
 @use '../../design/position.scss';
 @use '../../design/font.scss';
@@ -21,15 +21,15 @@ $sizes: (
 );
 
 $knob-sizes: (
-  sm: 15px,
+  sm: 16px,
   md: 20px,
-  lg: 25px,
+  lg: 24px,
 );
 
 $switch-width: (
-  sm: 60px,
-  md: 70px,
-  lg: 80px,
+  sm: calc(map.get($knob-sizes, sm) * 3),
+  md: calc(map.get($knob-sizes, md) * 3),
+  lg: calc(map.get($knob-sizes, lg) * 3),
 );
 
 $start-left: 4px;
@@ -75,13 +75,13 @@ $start-left: 4px;
   z-index: 0;
 
   &.rc-switch-on {
-    // background-color: rgba(colors.$primary-rgb, 0.25);
+    // background-color: rgba(theme.$primary-rgb, 0.25);
     @extend %shadow-inset-small;
     @extend %border;
   }
 
   &.rc-switch-off {
-    background-color: colors.$mercury;
+    background-color: theme.$mercury;
     border: 1px solid transparent;
   }
 
@@ -106,7 +106,7 @@ $start-left: 4px;
   @extend %shadow-small;
 
   svg {
-    color: colors.$chinese-gray;
+    color: theme.$chinese-gray;
   }
 }
 
@@ -121,7 +121,7 @@ $start-left: 4px;
 
   svg {
     @include position.position-abs('center center');
-    color: colors.$white;
+    color: theme.$white;
     height: 75%;
     width: 75%;
   }
@@ -136,24 +136,24 @@ $start-left: 4px;
           left: calc(100% - $val - 4px),
         ),
       );
-      background-color: colors.$white;
+      background-color: theme.$white;
       height: $val;
       width: $val;
 
       &.rc-switch-on-load {
-        background-color: colors.$primary;
+        background-color: theme.$primary;
         left: calc(100% - $val - 4px);
       }
 
       &.rc-switch-disabled {
-        background-color: colors.$white;
+        background-color: theme.$white;
       }
 
       &.rc-switch-on {
         @extend %shadow-medium;
         @include animate.set-keyframes(slide-right-#{$key}, $settings);
         animation-name: slide-right-#{$key};
-        background-color: colors.$primary;
+        background-color: theme.$primary;
         box-shadow: none;
         left: calc(100% - $val - 4px);
       }
@@ -171,7 +171,7 @@ $start-left: 4px;
   @extend %text-no-wrap;
 
   &.rc-switch-label-on {
-    color: colors.$primary;
+    color: theme.$primary;
   }
 
   @each $key, $val in $sizes {

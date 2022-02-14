@@ -1,11 +1,12 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
-@use '../../design/icon.scss';
+@use '../../design/theme.scss';
+
+$sizes: (sm, md, lg);
 
 .rc-data-grid-header-cell {
   @extend %left;
-  background: rgba(colors.$secondary-rgb, 0.5);
-  color: colors.$black;
+  background: rgba(theme.$secondary-rgb, 0.5);
+  color: theme.$black;
   height: 100%;
   text-transform: capitalize;
 
@@ -28,7 +29,7 @@
   }
 
   &.rc-data-grid-header-border:not(:last-child) {
-    border-right: 1px solid colors.$secondary;
+    border-right: 1px solid theme.$secondary;
   }
 }
 
@@ -38,11 +39,14 @@
 }
 
 %sort-icon {
-  @extend %icon-sm;
+  @extend %icon-xs;
+  align-items: center;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 
   svg {
-    fill: rgba(colors.$primary-rgb, 0.25);
+    fill: rgba(theme.$primary-rgb, 0.25);
     stroke: none;
   }
 }
@@ -63,7 +67,7 @@
 
 .rc-data-grid-header-sort-icon-active {
   svg {
-    fill: colors.$primary;
+    fill: theme.$primary;
   }
 }
 
@@ -77,5 +81,13 @@
 
   &.rc-data-grid-header-comfortable {
     height: 50px;
+  }
+}
+
+@each $size in $sizes {
+  .rc-data-grid-header-#{$size} {
+    .rc-data-grid-cell-val {
+      @extend %text-#{$size};
+    }
   }
 }

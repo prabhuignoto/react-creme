@@ -1,4 +1,4 @@
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/layout.scss';
 @use '../../design/icon.scss';
 @use '../../design/list.scss';
@@ -17,7 +17,7 @@
 .rc-dropdown-multi {
   display: flex;
   max-height: 400px;
-  min-height: 45px;
+  min-height: 35px;
   transition: max-height 0.5s ease-in;
 }
 

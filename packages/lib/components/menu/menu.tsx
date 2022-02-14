@@ -24,6 +24,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   onSelected,
   position = 'left',
   style,
+  size = 'sm',
 }: MenuProps) => {
   const [menuItems] = useState<MenuItemProps[]>(
     items.map(item => ({
@@ -120,6 +121,12 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     [showMenu, focusable]
   );
 
+  const menuWrapperClass = useMemo(() => {
+    return classNames(['rc-menu-wrapper'], {
+      [`rc-menu-wrapper-${size}`]: true,
+    });
+  }, []);
+
   /**
    * setup the focus props
    */
@@ -134,7 +141,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   );
 
   return (
-    <div className="rc-menu-wrapper" style={style} ref={containerRef}>
+    <div className={menuWrapperClass} style={style} ref={containerRef}>
       <div
         className={menuContentWrapperClass}
         onClick={toggleMenu}
@@ -156,6 +163,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
             ref={menuRef}
             focusable={focusable}
             placementOffset={10}
+            size={size}
           />
         </div>
       )}

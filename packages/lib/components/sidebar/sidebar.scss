@@ -1,7 +1,7 @@
-@use "../../design/layout.scss";
-@use "../../design/colors.scss";
-@use "../../design/position.scss";
-@use "../../design/icon.scss";
+@use '../../design/layout.scss';
+@use '../../design/theme.scss';
+@use '../../design/position.scss';
+@use '../../design/icon.scss';
 
 $searchbar-height: 40px;
 
@@ -39,7 +39,7 @@ $searchbar-height: 40px;
 
 .rc-sidebar-minimize-btn {
   // @extend %icon-md;
-  background-color: colors.$primary;
+  background-color: theme.$primary;
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
   color: #fff;

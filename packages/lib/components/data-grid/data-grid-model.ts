@@ -4,14 +4,6 @@ export type Record = {
   [key: string]: string | number;
 };
 
-export interface DataGridCommon {
-  border?: boolean;
-  fixedHeight?: boolean;
-  layoutStyle?: 'compact' | 'comfortable';
-  rowHeight?: number;
-  zebra?: boolean;
-}
-
 export interface DataGridColumn {
   align?: string;
   format?: string;
@@ -32,30 +24,40 @@ export interface DataGridCell {
   value: string | number;
 }
 
-export interface DataRow extends DataGridCommon {
+export type DataRow = Pick<
+  DataGridProps,
+  'zebra' | 'layoutStyle' | 'border' | 'fixedHeight' | 'rowHeight' | 'size'
+> & {
   columnConfigs?: DataGridColumn[];
   columnWidth?: number;
   data: Record;
   id?: string;
   style?: CSSProperties;
-}
+};
 
 export interface DataGridModel {
   rows: DataRow[];
 }
 
-export interface DataGridProps extends DataGridCommon {
+export interface DataGridProps {
+  border?: boolean;
   columns?: DataGridColumn[];
   data: Record[];
+  fixedHeight?: boolean;
   gridWidth?: number;
+  layoutStyle?: 'compact' | 'comfortable';
+  rowHeight?: number;
+  size?: 'sm' | 'md' | 'lg';
+  zebra?: boolean;
 }
 
-export interface DataGridHeaderProps extends DataGridCommon {
-  border?: boolean;
+export type DataGridHeaderProps = Pick<
+  DataGridProps,
+  'border' | 'columns' | 'layoutStyle' | 'size'
+> & {
   columnWidth?: number;
-  columns: DataGridColumn[];
   onSort?: (column: string, dir: SortDirection) => void;
   style?: CSSProperties;
-}
+};
 
 export type SortDirection = 'asc' | 'desc' | 'none';

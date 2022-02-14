@@ -11,6 +11,7 @@ export interface MenuProps {
   onOpen?: (id?: string) => void;
   onSelected?: (val: string) => void;
   position?: 'left' | 'right';
+  size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;
 }
 
@@ -21,7 +22,10 @@ export type MenuItemProps = Pick<MenuProps, 'disabled'> & {
   name?: string;
 };
 
-export type MenuOverlayModel = Pick<MenuProps, 'focusable' | 'items'> & {
+export type MenuOverlayModel = Pick<
+  MenuProps,
+  'focusable' | 'items' | 'size'
+> & {
   onSelection?: (val: string) => void;
   ref?: RefObject<HTMLUListElement | null>;
 } & OverlayModel<null>;

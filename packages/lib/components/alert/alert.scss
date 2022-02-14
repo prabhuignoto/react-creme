@@ -1,12 +1,14 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 @use '../../design/animate.scss';
+
+$sizes: (sm, md, lg);
 
 .rc-alert {
   @extend %border-radius;
   align-items: center;
-  color: colors.$white;
+  color: theme.$white;
   display: grid;
   grid-template-columns: 3rem 1fr 2rem;
   justify-items: center;
@@ -30,25 +32,43 @@
   }
 }
 
+@each $size in $sizes {
+  .rc-alert-#{$size} {
+    .rc-alert-icon {
+      @extend %icon;
+      @extend %icon-#{$size};
+    }
+
+    .rc-alert-close-btn {
+      @extend %icon;
+      @extend %icon-#{$size};
+    }
+
+    .rc-alert-content {
+      @extend %font-#{$size};
+    }
+  }
+}
+
 .rc-alert-success {
-  background-color: colors.$success-green;
+  background-color: theme.$success-green;
 }
 
 .rc-alert-error {
-  background-color: colors.$crimson;
+  background-color: theme.$crimson;
 }
 
 .rc-alert-warning {
-  background-color: colors.$amber;
-  color: colors.$black;
+  background-color: theme.$amber;
+  color: theme.$black;
 
   svg {
-    color: colors.$black;
+    color: theme.$black;
   }
 }
 
 .rc-alert-info {
-  background-color: colors.$blue;
+  background-color: theme.$blue;
 }
 
 .rc-alert-icon-wrapper {
@@ -64,13 +84,12 @@
   justify-self: flex-start;
 
   svg {
-    color: colors.$white;
+    color: theme.$white;
   }
 }
 
 .rc-alert-content {
   @extend %left;
-  font-size: 1rem;
   font-weight: 300;
 }
 
@@ -82,6 +101,6 @@
   margin-top: 0.5rem;
 
   svg {
-    color: colors.$white;
+    color: theme.$white;
   }
 }

@@ -13,6 +13,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
   border,
   fixedHeight,
   zebra,
+  size,
 }: DataRow) => {
   const cellsData = useRef<{ [key: string]: string | number }[]>(
     Object.keys(data)
@@ -30,6 +31,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
       'rc-data-grid-row-border': border,
       'rc-data-grid-row-fixed-height': fixedHeight,
       'rc-data-grid-row-zebra': zebra,
+      [`rc-data-grid-row-${size}`]: true,
     });
   }, [layoutStyle]);
 

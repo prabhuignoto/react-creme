@@ -1,11 +1,13 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 @use '../../design/animate.scss';
 
+$sizes: (sm, md, lg);
+
 .rc-global-notification {
   @extend %center;
-  background: colors.$secondary;
+  background: theme.$secondary;
   left: 0;
   overflow: hidden;
   position: fixed;
@@ -16,21 +18,34 @@
   z-index: 99999;
 
   &.rc-global-notification-success {
-    background: colors.$success-green;
-    color: colors.$white;
+    background: theme.$success-green;
+    color: theme.$white;
   }
 
   &.rc-global-notification-error {
-    background: colors.$crimson;
-    color: colors.$white;
+    background: theme.$crimson;
+    color: theme.$white;
   }
 
   &.rc-global-notification-warning {
-    background: colors.$amber;
+    background: theme.$amber;
   }
 
   &.rc-global-notification-info {
-    background: colors.$secondary;
+    background: theme.$secondary;
+  }
+}
+
+@each $size in $sizes {
+  .rc-global-notification-#{$size} {
+    .rc-global-notification-close-btn {
+      @extend %icon;
+      @extend %icon-#{$size};
+    }
+
+    .rc-global-notification-message {
+      @extend %font-#{$size};
+    }
   }
 }
 
@@ -65,19 +80,15 @@
 
 .rc-global-notification-close-btn {
   @extend %center;
-  //
   color: #fff;
   cursor: pointer;
   display: block;
-  height: 2rem;
   margin-left: auto;
   margin-right: 0.5rem;
-  width: 2rem;
 }
 
 .rc-global-notification-message {
   @extend %left;
-  font-size: 1.25rem;
   font-weight: 300;
   margin-left: auto;
 }

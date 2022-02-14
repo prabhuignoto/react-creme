@@ -1,5 +1,5 @@
 @use 'layout.scss';
-@use 'colors.scss';
+@use 'theme.scss';
 @use 'sass:map';
 
 $icon-sizes: (
@@ -38,21 +38,32 @@ $icon-sizes: (
 }
 
 %icon-xs {
-  @include get-icon(extra-small, colors.$primary);
+  @include get-icon(extra-small, theme.$primary);
 }
 
 %icon-sm {
-  @include get-icon(small, colors.$primary);
+  @include get-icon(small, theme.$primary);
 }
 
 %icon-md {
-  @include get-icon(medium, colors.$primary);
+  @include get-icon(medium, theme.$primary);
 }
 
 %icon-lg {
-  @include get-icon(large, colors.$primary);
+  @include get-icon(large, theme.$primary);
 }
 
 %icon-xl {
-  @include get-icon(extra-large, colors.$primary);
+  @include get-icon(extra-large, theme.$primary);
+}
+
+%icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
 }

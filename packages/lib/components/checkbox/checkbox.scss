@@ -2,7 +2,7 @@
 @use '../../design/icon.scss';
 @use '../../design/font.scss';
 @use '../../design/animate.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -36,7 +36,7 @@ $heights: (
 
   &.rc-checkbox-hover:hover {
     @extend %border-radius;
-    background: rgba(colors.$secondary-rgb, 0.25);
+    background: rgba(theme.$secondary-rgb, 0.25);
   }
 
   &.rc-checkbox-border {
@@ -74,7 +74,7 @@ $heights: (
 
 .rc-checkbox-icon {
   @extend %border;
-  background: colors.$white;
+  background: theme.$white;
 
   &.rc-checkbox-round {
     border-radius: 50%;
@@ -85,11 +85,11 @@ $heights: (
   }
 
   &.rc-checkbox-checked {
-    background: colors.$primary;
+    background: theme.$primary;
   }
 
   &.rc-checkbox-checked svg {
-    color: colors.$white;
+    color: theme.$white;
     display: block;
   }
 }

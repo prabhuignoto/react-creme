@@ -1,12 +1,12 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/animate.scss';
 @use '../../design/list.scss';
 @use '../../design/position.scss';
 
 .rc-skeleton-wrapper {
   @extend %border-radius;
-  background: colors.$light-bg;
+  background: theme.$light-bg;
   min-height: var(--min-height);
   min-width: var(--min-width);
 }
@@ -28,7 +28,7 @@
   z-index: -1;
 
   &.rc-skeleton-disable-animation {
-    background: colors.$chinese-gray;
+    background: theme.$chinese-gray;
   }
 
   &:not(.rc-skeleton-disable-animation) {
@@ -36,9 +36,9 @@
     @include animate.set-keyframes(animate-skeleton, $settings);
     background: linear-gradient(
       90deg,
-      colors.$mercury 0%,
-      colors.$chinese-gray 35%,
-      colors.$mercury 100%
+      theme.$mercury 0%,
+      theme.$chinese-gray 35%,
+      theme.$mercury 100%
     );
     background-position: 400% 400%;
     background-size: 200% 200%;
@@ -64,7 +64,7 @@
 }
 
 .rc-skeleton-circle {
-  background: colors.$chinese-gray;
+  background: theme.$chinese-gray;
   border-radius: 50%;
   height: 40px;
   width: 40px;

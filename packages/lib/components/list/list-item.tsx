@@ -19,6 +19,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
     textColor,
     RTL,
     focus,
+    size,
   }: ListItemProps) => {
     const handleSelection = useCallback(() => {
       onSelection &&
@@ -99,6 +100,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
             textColor={textColor}
             RTL={RTL}
             highlightSelection={highlightSelection}
+            size={size}
           />
         </div>
       </li>

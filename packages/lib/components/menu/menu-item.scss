@@ -1,6 +1,8 @@
-@use "../../design/layout.scss";
-@use "../../design/list.scss";
-@use "../../design/colors.scss";
+@use '../../design/layout.scss';
+@use '../../design/list.scss';
+@use '../../design/theme.scss';
+
+$sizes: (sm, md, lg);
 
 .rc-menu-item {
   @extend %list-item-left;
@@ -8,8 +10,8 @@
   width: 100%;
 
   &:hover {
-    background: colors.$light-bg;
-    color: colors.$primary;
+    background: theme.$light-bg;
+    color: theme.$primary;
     cursor: pointer;
   }
 
@@ -25,6 +27,14 @@
 
   &.rc-menu-item-disabled {
     @extend %disabled;
+  }
+}
+
+@each $size in $sizes {
+  .rc-menu-#{$size} {
+    .rc-menu-item {
+      @extend %text-#{$size};
+    }
   }
 }
 

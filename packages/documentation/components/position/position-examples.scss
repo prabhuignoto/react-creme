@@ -1,9 +1,9 @@
-@use '../../../lib/design/colors.scss';
+@use '../../../lib/design/theme.scss';
 @use '../../../lib/design/layout.scss';
 
 .rc-demo-position-outer-box {
   @extend %border-radius;
-  background: colors.$light-bg;
+  background: theme.$light-bg;
   height: 200px;
   margin-left: 50px;
   position: relative;

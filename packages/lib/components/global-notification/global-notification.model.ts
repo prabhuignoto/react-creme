@@ -21,6 +21,8 @@ export interface GlobalNotificationProps {
   /**🔸callback executed on close */
   onClose?: () => void;
 
+  size?: 'sm' | 'md' | 'lg';
+
   /**🔸state of the notification */
   state?: GlobalNotificationState;
 }

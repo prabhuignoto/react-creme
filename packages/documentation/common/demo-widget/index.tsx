@@ -1,8 +1,8 @@
 import React, { CSSProperties } from 'react';
 import { Accordion } from '../../../lib/components';
 import { CodeIcon } from '../../../lib/icons';
-import './demo-widget.scss';
 import { Code } from '../syntax';
+import './demo-widget.scss';
 
 interface WidgetProps {
   children?: React.ReactNode;
@@ -56,6 +56,7 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
             disableCollapse={showCodeByDefault}
             disableIcon={showCodeByDefault}
             customIcon={<CodeIcon />}
+            size="sm"
           >
             {codeString ? (
               <Code code={codeString} />

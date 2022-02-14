@@ -21,6 +21,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   chevronIconColor,
   containerRef,
   focus,
+  size,
 }: DropdownValueProps) => {
   const rcDropdownValueClass = useMemo(
     () =>
@@ -31,6 +32,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
         'rc-dropdown-rtl': RTL,
         'rc-dropdown-single': !allowMultiSelection,
         'rc-dropdown-with-clear': showClearBtn,
+        [`rc-dropdown-value-${size}`]: true,
       }),
     [disabled, showMenu]
   );
@@ -93,7 +95,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
             <Tags
               items={selectedValue}
               readonly
-              tagSize={'md'}
+              size={size}
               tagStyle="fill"
               tagWidth={60}
               RTL={RTL}

@@ -56,6 +56,8 @@ export type DropdownProps = {
   /**🔷 Enables the clear button for clearing the selected option */
   showClearBtn?: boolean;
 
+  size?: 'sm' | 'md' | 'lg';
+
   /**🔷 Virtualises the items displayed in the menu */
   virtualize?: boolean;
 };
@@ -80,7 +82,7 @@ export type PickValueProps<T> = {
 };
 
 export type DropdownMenuProps = PickMenuProps<DropdownProps> &
-  OverlayModel & {
+  OverlayModel<null> & {
     handleSelection: (selected: Option[]) => void;
     open: boolean;
     selectedIndex?: number;
