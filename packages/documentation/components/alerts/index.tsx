@@ -53,7 +53,7 @@ function index() {
         },
         {
           default: 'md',
-          description: 'The size of the alert box.',
+          description: `The size of the alert box. can be <code>sm</code> | <code>md</code> | <code>lg</code>. Controls the size of the icons and text.`,
           name: 'size',
           optional: 'Yes',
           type: 'string',

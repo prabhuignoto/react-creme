@@ -66,6 +66,14 @@ function index() {
           optional: 'Yes',
           type: 'string',
         },
+        {
+          default: 'sm',
+          description:
+            'Size of the notification. Can be any one of the following: <br> <code>sm</code> | <code>md</code> | <code>lg</code>. Controls the size of the icons and text.',
+          name: 'size',
+          optional: 'Yes',
+          type: 'string',
+        },
       ]}
       demoWidget={<Widgets />}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
