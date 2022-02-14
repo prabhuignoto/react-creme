@@ -3,6 +3,8 @@
 @use '../../design/icon.scss';
 @use '../../design/animate.scss';
 
+$sizes: (sm, md, lg);
+
 .rc-alert {
   @extend %border-radius;
   align-items: center;
@@ -27,6 +29,24 @@
 
   &.rc-alert-rtl {
     direction: rtl;
+  }
+}
+
+@each $size in $sizes {
+  .rc-alert-#{$size} {
+    .rc-alert-icon {
+      @extend %icon;
+      @extend %icon-size-#{$size};
+    }
+
+    .rc-alert-close-btn {
+      @extend %icon;
+      @extend %icon-size-#{$size};
+    }
+
+    .rc-alert-content {
+      @extend %font-size-#{$size};
+    }
   }
 }
 
@@ -70,7 +90,6 @@
 
 .rc-alert-content {
   @extend %left;
-  font-size: 1rem;
   font-weight: 300;
 }
 

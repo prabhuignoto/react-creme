@@ -51,6 +51,13 @@ function index() {
           optional: 'Yes',
           type: 'boolean',
         },
+        {
+          default: 'md',
+          description: 'The size of the alert box.',
+          name: 'size',
+          optional: 'Yes',
+          type: 'string',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-fvmzp5']}

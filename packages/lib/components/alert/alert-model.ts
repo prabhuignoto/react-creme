@@ -23,6 +23,9 @@ export interface AlertProps {
   /**🟡 callback executed on dismiss */
   onDismiss?: () => void;
 
+  /**🟡 prop to set the size */
+  size?: 'sm' | 'md' | 'lg';
+
   /**🟡 state of the alert */
   state?: 'success' | 'error' | 'warning' | 'info';
 }

@@ -36,7 +36,15 @@ export type { CheckboxProps } from './components/checkbox/checkbox-model';
 export { default as useDraggable } from './components/common/effects/useDraggable';
 export type { OverlayModel } from './components/common/overlay-model';
 export { ThemeProvider } from './components/common/theme-provider';
-export type { Theme } from './components/common/theme-provider';
+export type {
+  Colors,
+  FontSizes,
+  IconSizes,
+  Sizes,
+  Theme,
+  ThemeColor,
+  ThemeProviderProps,
+} from './components/common/theme-provider-model';
 export { DataGrid } from './components/data-grid/data-grid';
 export type {
   DataGridCell,
