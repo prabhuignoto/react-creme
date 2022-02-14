@@ -141,7 +141,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
         width && (
           <div className="rc-demo-page">
             {title && (
-              <PageHeader title={title} icon={pageIcon} size="md">
+              <PageHeader title={title} icon={pageIcon} size="lg">
                 <div>{description}</div>
                 <div className="rc-demo-page-links-container">
                   {sourceId && (
@@ -171,7 +171,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
               labels={tabTitles}
               icons={canShowProperties ? Icons : IconsWithoutProperties}
               focusable={false}
-              size="sm"
+              size="md"
             >
               <div className="rc-demo-widgets-wrapper">
                 <Suspense fallback={<span>Loading Widgets...</span>}>
