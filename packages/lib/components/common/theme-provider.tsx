@@ -28,6 +28,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
       lg: 24,
       md: 20,
       sm: 16,
+      xs: 12,
     },
     sizes: {
       lg: 24,

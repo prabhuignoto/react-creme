@@ -14,7 +14,9 @@ export type Sizes = {
   sm: number;
 };
 
-export type IconSizes = Pick<Sizes, 'sm' | 'md' | 'lg'>;
+export type IconSizes = Pick<Sizes, 'sm' | 'md' | 'lg'> & {
+  xs: number;
+};
 
 export type Theme = {
   colors: Colors;

@@ -6,11 +6,12 @@ import './data-grid-header.scss';
 import { DataGridHeaderProps, SortDirection } from './data-grid-model';
 
 const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
-  columns,
+  columns = [],
   style,
   onSort,
   layoutStyle,
   border,
+  size,
 }: DataGridHeaderProps) => {
   const [headerColumns, setHeaderColumns] = useState(
     columns.map(col => ({
@@ -33,6 +34,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
   const headerClass = useMemo(() => {
     return classNames('rc-data-grid-header', {
       [`rc-data-grid-header-${layoutStyle}`]: true,
+      [`rc-data-grid-header-${size}`]: true,
     });
   }, [layoutStyle]);
 

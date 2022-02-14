@@ -17,6 +17,7 @@ $font-size-lg: var(--rc-font-size-lg);
 $icon-size-sm: var(--rc-icon-size-sm);
 $icon-size-md: var(--rc-icon-size-md);
 $icon-size-lg: var(--rc-icon-size-lg);
+$icon-size-xs: var(--rc-icon-size-xs);
 
 $size-sm: var(--rc-size-sm);
 $size-md: var(--rc-size-md);
@@ -79,6 +80,12 @@ $gunmetal-gray: #2b2b2b;
   @extend %icon;
   height: $icon-size-lg;
   width: $icon-size-lg;
+}
+
+%icon-xs {
+  @extend %icon;
+  height: $icon-size-xs;
+  width: $icon-size-xs;
 }
 
 %text-sm {
