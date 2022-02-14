@@ -49,6 +49,8 @@ $padding-sizes: (
   margin: 0.25rem;
   max-width: var(--width);
   min-width: 40px;
+
+  padding: 0.4rem 0.5rem;
   transform: scale(1);
 
   user-select: none;
@@ -93,8 +95,6 @@ $padding-sizes: (
     transform: scale(0.98);
     visibility: hidden;
   }
-
-  padding: 0.4rem 0.5rem;
 }
 
 @each $size in $sizes {
@@ -110,10 +110,10 @@ $padding-sizes: (
 }
 
 .rc-tag-icon {
+  align-self: center;
   border-radius: 50%;
   cursor: pointer;
   display: block;
-  align-self: center;
   justify-self: flex-end;
 
   &.rc-tag-icon-editable {

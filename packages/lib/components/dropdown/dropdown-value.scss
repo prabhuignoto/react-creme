@@ -76,9 +76,9 @@ $sizes: (sm, md, lg);
 
 .rc-dropdown-chevron-icon {
   color: var(--chevron-icon-color, theme.$primary);
+  justify-self: center;
   order: 4;
   transition: transform 0.2s ease-in;
-  justify-self: center;
 }
 
 .rc-dropdown-clear-icon {
