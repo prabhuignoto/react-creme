@@ -20,6 +20,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   height = 200,
   focusable = true,
   animationType = 'pop',
+  size = 'sm',
 }: DialogProps) => {
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
@@ -34,13 +35,18 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
 
   const dialogClass = useMemo(
     () =>
-      classNames([
-        'rc-dialog',
-        isClosing
-          ? `rc-dialog-${animationType}-leave`
-          : `rc-dialog-${animationType}-enter`,
-      ]),
-    [isClosing]
+      classNames(
+        [
+          'rc-dialog',
+          isClosing
+            ? `rc-dialog-${animationType}-leave`
+            : `rc-dialog-${animationType}-enter`,
+        ],
+        {
+          [`rc-dialog-${size}`]: true,
+        }
+      ),
+    [isClosing, size]
   );
   const id = useRef(`rc-dialog-${nanoid()}`);
 
@@ -78,7 +84,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
           <Button
             type="icon"
             onClick={handleClose}
-            size="md"
+            size={size}
             focusable={focusable}
             ref={buttonRef}
           >
@@ -93,7 +99,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
           type="primary"
           onClick={handleSuccess}
           focusable={focusable}
-          size="md"
+          size={size}
         >
           <CheckIcon />
         </Button>
@@ -101,7 +107,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
           label="cancel"
           onClick={handleClose}
           focusable={focusable}
-          size="md"
+          size={size}
         >
           <CloseIcon />
         </Button>

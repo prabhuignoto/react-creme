@@ -2,6 +2,8 @@
 @use '../../design/list.scss';
 @use '../../design/theme.scss';
 
+$sizes: (sm, md, lg);
+
 .rc-menu-item {
   @extend %list-item-left;
   height: 40px;
@@ -25,6 +27,14 @@
 
   &.rc-menu-item-disabled {
     @extend %disabled;
+  }
+}
+
+@each $size in $sizes {
+  .rc-menu-#{$size} {
+    .rc-menu-item {
+      @extend %text-#{$size};
+    }
   }
 }
 

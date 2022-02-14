@@ -7,18 +7,12 @@
   @extend %center;
   height: 100%;
   position: relative;
-  // z-index: 9999;
 }
 
 .rc-menu-content-wrapper {
   @extend %center;
-  // @include animate.halo(1px, 2px, false);
   height: 100%;
   position: relative;
-
-  // &.rc-menu-not-focusable {
-  //   outline: 0;
-  // }
 }
 
 .rc-menu {

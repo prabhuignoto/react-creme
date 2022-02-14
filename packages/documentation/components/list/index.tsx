@@ -107,6 +107,14 @@ function list() {
           optional: 'Yes',
           type: 'boolean',
         },
+        {
+          default: 'sm',
+          description:
+            'size of the list. can be <em>sm</em>, <em>md</em> or <em>lg</em>',
+          name: 'size',
+          optional: 'Yes',
+          type: 'string',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-18dr2b']}

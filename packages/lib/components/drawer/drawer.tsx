@@ -17,6 +17,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   position = 'left',
   transition = 'cubic-bezier(0.79, 0.14, 0.15, 0.86)',
   width = 300,
+  size = 'md',
 }) => {
   /**
    * state for activating the drawer
@@ -68,6 +69,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
       classNames(['rc-drawer', `rc-drawer-${position}`], {
         [`visible slide-${position}-enter`]: activate && !isClosing,
         [`visible slide-${position}-exit`]: isClosing,
+        [`rc-drawer-${size}`]: size,
       }),
     [activate, isClosing]
   );
@@ -90,7 +92,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
       <div className="rc-drawer-close-btn-wrapper">
         <Button
           type="icon"
-          size="lg"
+          size={size}
           onClick={onClose}
           focusable={focusable}
           ref={buttonRef}

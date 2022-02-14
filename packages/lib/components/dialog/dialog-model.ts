@@ -9,6 +9,7 @@ export interface DialogProps extends OverlayModel<null> {
   onClose?: () => void;
   onOpen?: () => void;
   onSuccess?: () => void;
+  size?: 'sm' | 'md' | 'lg';
   title?: string;
   width?: number;
 }

@@ -1,6 +1,5 @@
 @use '../../design/layout.scss';
 @use '../../design/theme.scss';
-@use '../../design/icon.scss';
 @use '../../design/button.scss';
 @use '../../design/font.scss';
 @use '../../design/animate.scss';
@@ -33,7 +32,7 @@ $sizes: (sm, md, lg);
 
 @each $size in $sizes {
   .rc-btn-#{$size} {
-    @extend %font-#{$size};
+    @extend %text-#{$size};
     @extend %button-#{$size};
 
     .rc-btn-icon-container {
@@ -49,6 +48,14 @@ $sizes: (sm, md, lg);
 .rc-btn-label {
   @extend %text-no-wrap;
   text-transform: capitalize;
+}
+
+@each $size in $sizes {
+  .rc-btn-#{$size} {
+    .rc-btn-label {
+      @extend %font-#{$size};
+    }
+  }
 }
 
 .rc-btn-icon {

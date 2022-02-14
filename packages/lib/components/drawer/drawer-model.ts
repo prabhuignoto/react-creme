@@ -6,6 +6,7 @@ export interface DrawerProps extends OverlayModel<null> {
   focusable?: boolean;
   height?: number | string;
   position?: 'left' | 'right' | 'top' | 'bottom';
+  size?: 'sm' | 'md' | 'lg';
   transition?: string;
   width?: number | string;
 }
