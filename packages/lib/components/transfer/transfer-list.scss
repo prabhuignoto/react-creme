@@ -1,8 +1,8 @@
-@use "../../design/layout.scss";
-@use "../../design/list.scss";
-@use "../../design/colors.scss";
-@use "../../design/icon.scss";
-@use "../../design/position.scss";
+@use '../../design/layout.scss';
+@use '../../design/list.scss';
+@use '../../design/theme.scss';
+@use '../../design/icon.scss';
+@use '../../design/position.scss';
 
 .transfer-list {
   @extend %list;
@@ -20,11 +20,11 @@
   width: 100%;
 
   &.selected {
-    color: colors.$tertiary;
+    color: theme.$tertiary;
   }
 
   &:hover:not(.header) {
-    background-color: colors.$light-bg;
+    background-color: theme.$light-bg;
   }
 
   &.header {

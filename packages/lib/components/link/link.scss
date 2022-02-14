@@ -1,12 +1,12 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 
 .rc-link {
   @extend %center;
   @extend %border-radius;
   align-items: center;
-  color: colors.$primary;
+  color: theme.$primary;
   margin: 0;
   padding: 0.25rem;
   text-decoration: none;
@@ -19,13 +19,13 @@
   }
 
   &.rc-link-btn:hover {
-    background: rgba(colors.$primary-rgb, 1);
+    background: rgba(theme.$primary-rgb, 1);
     box-shadow: none;
-    color: colors.$white;
+    color: theme.$white;
   }
 
   &:hover {
-    background-color: rgba(colors.$secondary-rgb, 0.5);
+    background-color: rgba(theme.$secondary-rgb, 0.5);
     text-decoration: underline;
   }
 }

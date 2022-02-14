@@ -1,4 +1,4 @@
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/layout.scss';
 @use '../../design/icon.scss';
 @use '../../design/animate.scss';
@@ -80,18 +80,18 @@
 
 .rc-dropdown-chevron-icon {
   @extend %icon-lg;
-  color: var(--chevron-icon-color, colors.$primary);
+  color: var(--chevron-icon-color, theme.$primary);
   order: 4;
   transition: transform 0.2s ease-in;
 }
 
 .rc-dropdown-clear-icon {
   @extend %icon-md;
-  color: colors.$gunmetal-gray;
+  color: theme.$gunmetal-gray;
   justify-self: center;
 
   &:hover {
-    color: var(--clear-icon-color, colors.$primary);
+    color: var(--clear-icon-color, theme.$primary);
   }
 
   &.rc-dropdown-clear-icon-hidden {

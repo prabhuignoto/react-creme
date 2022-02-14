@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/animate.scss';
 @use '../../design/position.scss';
 
@@ -35,9 +35,9 @@
 
   @include animate.set-keyframes(animate-tooltip-show, $animation);
   @include animate.set-keyframes(animate-tooltip-close, $animation, true);
-  background: colors.$white;
-  background-color: var(-bg-color, colors.$white);
-  color: var(--fore-color, colors.$primary);
+  background: theme.$white;
+  background-color: var(-bg-color, theme.$white);
+  color: var(--fore-color, theme.$primary);
   max-width: var(--max-width);
   min-width: var(--min-width);
   padding: 0.5rem;
@@ -92,7 +92,7 @@
   }
 
   &::after {
-    background: colors.$white;
+    background: theme.$white;
     border-radius: 1px;
     content: '';
     display: block;

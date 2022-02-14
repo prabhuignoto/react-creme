@@ -1,9 +1,9 @@
-@use "../../design/button.scss";
-@use "../../design/icon.scss";
-@use "../../design/colors.scss";
-@use "../../design/list.scss";
-@use "../../design/layout.scss";
-@use "../../design/position.scss";
+@use '../../design/button.scss';
+@use '../../design/icon.scss';
+@use '../../design/theme.scss';
+@use '../../design/list.scss';
+@use '../../design/layout.scss';
+@use '../../design/position.scss';
 
 .rc-carousel-container {
   @extend %border;

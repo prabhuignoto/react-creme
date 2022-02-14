@@ -1,11 +1,11 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 
 .rc-data-grid-header-cell {
   @extend %left;
-  background: rgba(colors.$secondary-rgb, 0.5);
-  color: colors.$black;
+  background: rgba(theme.$secondary-rgb, 0.5);
+  color: theme.$black;
   height: 100%;
   text-transform: capitalize;
 
@@ -28,7 +28,7 @@
   }
 
   &.rc-data-grid-header-border:not(:last-child) {
-    border-right: 1px solid colors.$secondary;
+    border-right: 1px solid theme.$secondary;
   }
 }
 
@@ -42,7 +42,7 @@
   cursor: pointer;
 
   svg {
-    fill: rgba(colors.$primary-rgb, 0.25);
+    fill: rgba(theme.$primary-rgb, 0.25);
     stroke: none;
   }
 }
@@ -63,7 +63,7 @@
 
 .rc-data-grid-header-sort-icon-active {
   svg {
-    fill: colors.$primary;
+    fill: theme.$primary;
   }
 }
 

@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 @use '../../design/button.scss';
 @use '../../design/font.scss';
@@ -26,7 +26,7 @@ $sizes: (sm, md, lg);
 
     &.rc-disabled {
       @extend %disabled;
-      border: 1px solid colors.$chinese-gray;
+      border: 1px solid theme.$chinese-gray;
     }
   }
 }
@@ -60,11 +60,11 @@ $sizes: (sm, md, lg);
   }
 
   &:not(.rc-disabled) {
-    background: colors.$light-bg;
+    background: theme.$light-bg;
   }
 
   &:hover:not(.rc-disabled) {
-    background: colors.$secondary;
+    background: theme.$secondary;
   }
 }
 

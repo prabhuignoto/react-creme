@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/button.scss';
 @use '../../design/animate.scss';
 @use '../../design/animations.scss';
@@ -17,7 +17,7 @@
   @include animations.set-animation(drop, from);
   @include animations.set-animation(drop, to);
 
-  background-color: colors.$white;
+  background-color: theme.$white;
   min-height: 300px;
   min-width: var(--min-width, 300px);
 

@@ -1,7 +1,7 @@
 @use '../../design/layout.scss';
 @use '../../design/list.scss';
 @use '../../design/position.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 @use '../../design/animate.scss';
 @use '../../design/font.scss';
@@ -28,7 +28,7 @@ $height: 40px;
   z-index: 1;
 
   &:hover:not(.rc-list-option-disabled) {
-    background: rgba(colors.$secondary-rgb, 0.25);
+    background: rgba(theme.$secondary-rgb, 0.25);
   }
 
   &.rc-list-option-disabled {
@@ -39,7 +39,7 @@ $height: 40px;
 .rc-list-option-focus {
   &::after {
     @include position.position-abs('center center');
-    border: 2px solid rgba(colors.$white, 0.1);
+    border: 2px solid rgba(theme.$white, 0.1);
     border-radius: 4px;
     content: '';
     display: block;
@@ -53,7 +53,7 @@ $height: 40px;
 
 .rc-list-option-focus:focus {
   &::after {
-    border: 2px solid rgba(colors.$primary-rgb, 0.5);
+    border: 2px solid rgba(theme.$primary-rgb, 0.5);
   }
 }
 
@@ -80,8 +80,8 @@ $height: 40px;
   }
 
   &.rc-list-option-selected.rc-list-option-highlight-selection {
-    background: rgba(colors.$secondary-rgb, 0.5);
-    color: colors.$primary;
+    background: rgba(theme.$secondary-rgb, 0.5);
+    color: theme.$primary;
   }
 }
 
@@ -117,14 +117,14 @@ $height: 40px;
   width: 100%;
 
   &.rc-list-option-value-selected {
-    color: colors.$text-color-on-selection;
+    color: theme.$text-color-on-selection;
   }
 }
 
 .rc-list-option-icon {
   @extend %center;
   @extend %icon-lg;
-  color: colors.$primary;
+  color: theme.$primary;
   height: 100%;
   visibility: hidden;
 

@@ -1,6 +1,6 @@
 @use 'sass:map';
 @use 'position.scss';
-@use 'colors.scss';
+@use 'theme.scss';
 
 @mixin set-keyframes($name, $attrs, $reverse: false) {
   $from: from;

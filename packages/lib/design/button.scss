@@ -1,4 +1,4 @@
-@use 'colors.scss';
+@use 'theme.scss';
 @use 'layout.scss';
 
 %button {
@@ -10,7 +10,7 @@
   white-space: nowrap;
 
   svg {
-    color: colors.$primary;
+    color: theme.$primary;
   }
 }
 
@@ -30,46 +30,46 @@
 
 %button-primary {
   @include get-button-type(
-    colors.$primary,
-    colors.$secondary,
-    colors.$white,
-    colors.$primary
+    theme.$primary,
+    theme.$secondary,
+    theme.$white,
+    theme.$primary
   );
 
   svg {
-    color: colors.$white !important;
+    color: theme.$white !important;
   }
 }
 
 %button-danger {
   @include get-button-type(
-    colors.$crimson,
-    rgba(colors.$crimson, 0.25),
-    colors.$white,
-    colors.$crimson
+    theme.$crimson,
+    rgba(theme.$crimson, 0.25),
+    theme.$white,
+    theme.$crimson
   );
-  border: 1px solid colors.$crimson;
+  border: 1px solid theme.$crimson;
 }
 
 %button-default {
   @extend %shadow-inset-small;
   @include get-button-type(
-    colors.$white,
-    rgba(colors.$secondary-rgb, 0.25),
-    colors.$primary,
-    colors.$primary
+    theme.$white,
+    rgba(theme.$secondary-rgb, 0.25),
+    theme.$primary,
+    theme.$primary
   );
 }
 
 %button-icon {
   @extend %button;
   border: 0;
-  color: colors.$primary;
+  color: theme.$primary;
 }
 
 %button-icon:hover {
   svg {
-    color: colors.$secondary;
+    color: theme.$secondary;
   }
 }
 

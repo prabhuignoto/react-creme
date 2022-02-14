@@ -1,6 +1,6 @@
 @use '../../design/layout.scss';
 @use '../../design/button.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/animate.scss';
 @use '../../design/position.scss';
 @use '../../design/util.scss';
@@ -55,7 +55,7 @@
   @extend %top-center;
   @include animate.set-settings(0.25s, var(--transition));
 
-  background-color: colors.$white;
+  background-color: theme.$white;
   height: var(--min-height);
   min-width: $min-width;
   outline: 0;

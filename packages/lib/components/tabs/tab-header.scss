@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/position.scss';
 @use '../../design/icon.scss';
 @use '../../design/list.scss';
@@ -19,7 +19,7 @@ $rounded-tabs-height: 45px;
 
   &::after {
     @include position.position-abs('bottom center');
-    background: colors.$platinum;
+    background: theme.$platinum;
     content: '';
     display: block;
     height: 4px;
@@ -62,11 +62,11 @@ $rounded-tabs-height: 45px;
 .rc-tab-header-btn {
   @extend %border-radius;
   @extend %icon-lg;
-  color: var(--icons-color, colors.$primary);
+  color: var(--icons-color, theme.$primary);
   cursor: pointer;
 
   &:hover {
-    background: colors.$secondary;
+    background: theme.$secondary;
   }
 
   &.rc-tab-header-btn-disabled {
@@ -84,7 +84,7 @@ $rounded-tabs-height: 45px;
   user-select: none;
 
   &:hover {
-    color: colors.$primary;
+    color: theme.$primary;
   }
 
   &.rc-tab-head-rounded {
@@ -100,7 +100,7 @@ $rounded-tabs-height: 45px;
   }
 
   &.rc-tab-head-selected {
-    color: colors.$primary;
+    color: theme.$primary;
   }
 
   &:not(.rc-tab-head-selected) {
@@ -126,7 +126,7 @@ $rounded-tabs-height: 45px;
 .rc-tab-head-flat {
   &.rc-tab-head-selected::after {
     @include position.position-abs('bottom center');
-    background: colors.$primary;
+    background: theme.$primary;
     bottom: -4px;
     content: '';
     display: block;
@@ -136,7 +136,7 @@ $rounded-tabs-height: 45px;
 
   &::after {
     @include position.position-abs('bottom center');
-    background: rgba(colors.$primary-rgb, 70%);
+    background: rgba(theme.$primary-rgb, 70%);
     content: '';
     display: block;
     transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -157,7 +157,7 @@ $rounded-tabs-height: 45px;
   width: 90%;
 
   &.rc-tab-header-selected {
-    color: colors.$tertiary;
+    color: theme.$tertiary;
     position: relative;
   }
 
@@ -168,7 +168,7 @@ $rounded-tabs-height: 45px;
 }
 
 .rc-tab-head-rounded {
-  border: 1px solid colors.$platinum;
+  border: 1px solid theme.$platinum;
   border-bottom: 0;
   border-radius: 4px;
   border-bottom-left-radius: 0;
@@ -179,7 +179,7 @@ $rounded-tabs-height: 45px;
 .rc-tab-head-rounded.rc-tab-head-selected {
   &::after {
     @include position.position-abs('bottom center');
-    background: colors.$white;
+    background: theme.$white;
     bottom: -2px;
     content: '';
     display: block;

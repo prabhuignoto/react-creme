@@ -1,11 +1,11 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 @use '../../design/animate.scss';
 
 .rc-global-notification {
   @extend %center;
-  background: colors.$secondary;
+  background: theme.$secondary;
   left: 0;
   overflow: hidden;
   position: fixed;
@@ -16,21 +16,21 @@
   z-index: 99999;
 
   &.rc-global-notification-success {
-    background: colors.$success-green;
-    color: colors.$white;
+    background: theme.$success-green;
+    color: theme.$white;
   }
 
   &.rc-global-notification-error {
-    background: colors.$crimson;
-    color: colors.$white;
+    background: theme.$crimson;
+    color: theme.$white;
   }
 
   &.rc-global-notification-warning {
-    background: colors.$amber;
+    background: theme.$amber;
   }
 
   &.rc-global-notification-info {
-    background: colors.$secondary;
+    background: theme.$secondary;
   }
 }
 

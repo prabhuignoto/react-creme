@@ -1,4 +1,4 @@
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 
 $header-height: 35px;
@@ -7,7 +7,7 @@ $sizes: (sm, md, lg);
 .rc-accordion-header {
   @extend %left;
   align-items: center;
-  color: colors.$primary;
+  color: theme.$primary;
   height: $header-height;
   justify-items: center;
   outline: 0;
@@ -16,7 +16,7 @@ $sizes: (sm, md, lg);
 
   &:not(.rc-accordion-disable-collapse):hover {
     @extend %border-radius;
-    background: rgba(colors.$secondary-rgb, 0.25);
+    background: rgba(theme.$secondary-rgb, 0.25);
     cursor: pointer;
   }
 
@@ -27,7 +27,7 @@ $sizes: (sm, md, lg);
 
   &.rc-accordion-selected {
     @extend %border-radius;
-    background: rgba(colors.$secondary-rgb, 0.25);
+    background: rgba(theme.$secondary-rgb, 0.25);
   }
 }
 
@@ -54,7 +54,7 @@ $sizes: (sm, md, lg);
 
 .rc-accordion-icon {
   @extend %icon;
-  color: var(--icon-color, colors.$primary);
+  color: var(--icon-color, theme.$primary);
   cursor: pointer;
   transition: transform 0.2s ease-in;
 

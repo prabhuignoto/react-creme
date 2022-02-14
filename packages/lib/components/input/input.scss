@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/icon.scss';
 @use '../../design/button.scss';
 @use '../../design/animate.scss';
@@ -7,7 +7,7 @@
 
 .rc-input {
   align-items: center;
-  background: colors.$white;
+  background: theme.$white;
   display: grid;
   font-size: 1rem;
   grid-template-columns: 2rem calc(100% - 4rem) 2rem;
@@ -38,8 +38,8 @@
   }
 
   &.rc-input-focus::after {
-    border: 2px solid colors.$primary;
-    box-shadow: 0 0 1px 4px rgba(colors.$primary-rgb, 0.25);
+    border: 2px solid theme.$primary;
+    box-shadow: 0 0 1px 4px rgba(theme.$primary-rgb, 0.25);
   }
 
   &:not(.rc-input-border):not(.rc-input-rounded) {
@@ -51,8 +51,8 @@
   }
 
   &:not(.rc-input-border).rc-input-default {
-    background: colors.$light-bg;
-    box-shadow: inset 0 0 3px 1px rgba($color: colors.$alto, $alpha: 0.25);
+    background: theme.$light-bg;
+    box-shadow: inset 0 0 3px 1px rgba($color: theme.$alto, $alpha: 0.25);
   }
 
   ::input-placeholder {
@@ -89,7 +89,7 @@
   input {
     background: transparent;
     border: 0;
-    color: colors.$black;
+    color: theme.$black;
     height: 35px;
     outline: 0;
     padding: 0;
@@ -98,31 +98,31 @@
 }
 
 .rc-input-error:not(.rc-input-border) {
-  border: 1px solid rgba(colors.$crimson, 0.5);
+  border: 1px solid rgba(theme.$crimson, 0.5);
 
   &.rc-input-focus::after {
-    border: 2px solid colors.$crimson;
-    box-shadow: 0 0 1px 4px rgba(colors.$crimson, 0.25);
+    border: 2px solid theme.$crimson;
+    box-shadow: 0 0 1px 4px rgba(theme.$crimson, 0.25);
   }
 }
 
 .rc-input-success:not(.rc-input-border) {
-  border: 1px solid rgba(colors.$success-green, 0.5);
+  border: 1px solid rgba(theme.$success-green, 0.5);
 
   &.rc-input-focus::after {
-    border: 2px solid colors.$success-green;
-    box-shadow: 0 0 1px 4px rgba(colors.$success-green, 0.25);
+    border: 2px solid theme.$success-green;
+    box-shadow: 0 0 1px 4px rgba(theme.$success-green, 0.25);
   }
 }
 
 .rc-input-icon {
   @extend %icon-md;
-  color: colors.$primary;
+  color: theme.$primary;
 }
 
 .rc-input-clear {
   @extend %icon-md;
-  color: colors.$tertiary;
+  color: theme.$tertiary;
   cursor: pointer;
   display: block;
   width: 100%;

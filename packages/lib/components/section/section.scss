@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/list.scss';
 @use 'sass:map';
 
@@ -22,8 +22,8 @@ $heights: (
 }
 
 .rc-section-header {
-  border-bottom: 1px solid colors.$secondary;
-  color: colors.$black;
+  border-bottom: 1px solid theme.$secondary;
+  color: theme.$black;
   font-size: 1rem;
   font-weight: 500;
   height: 30px;

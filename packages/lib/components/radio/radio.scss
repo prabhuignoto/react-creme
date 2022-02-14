@@ -1,7 +1,7 @@
 @use '../../design/layout.scss';
 @use '../../design/position.scss';
 @use '../../design/icon.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/animate.scss';
 @use '../../design/animations.scss';
 @use '../../design/font.scss';
@@ -50,7 +50,7 @@ $heights: (
 
   &:hover:not(.rc-radio-disabled) {
     @extend %border-radius;
-    background: rgba(colors.$secondary-rgb, 0.25);
+    background: rgba(theme.$secondary-rgb, 0.25);
   }
 
   @each $key, $val in $heights {
@@ -81,7 +81,7 @@ $heights: (
 
         &.rc-radio-ico-checked::after {
           @include position.position-abs('center center');
-          background: colors.$primary;
+          background: theme.$primary;
           border-radius: 100%;
           content: '';
           display: block;
@@ -94,14 +94,14 @@ $heights: (
 }
 
 %pseudo-common {
-  background-color: colors.$primary;
+  background-color: theme.$primary;
   border-radius: 50%;
   content: '';
   display: block;
 }
 
 .rc-radio-icon {
-  border: 1px solid rgba(colors.$primary-rgb, 0.25);
+  border: 1px solid rgba(theme.$primary-rgb, 0.25);
   border-radius: 50%;
   display: block;
   position: relative;
@@ -111,7 +111,7 @@ $heights: (
   }
 
   &.rc-radio-ico-checked {
-    // background-color: rgba(colors.$secondary-rgb, 0.25);
+    // background-color: rgba(theme.$secondary-rgb, 0.25);
     @extend %shadow-inset-small;
   }
 }
@@ -140,10 +140,10 @@ $heights: (
   animate-radio-select,
   (
     from: (
-      background: colors.$white,
+      background: theme.$white,
     ),
     to: (
-      background: colors.$primary,
+      background: theme.$primary,
     ),
   )
 );

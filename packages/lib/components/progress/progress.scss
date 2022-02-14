@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/animate.scss';
 @use '../../design/position.scss';
 
@@ -23,15 +23,15 @@
   }
 
   &.rc-progress-track-default {
-    background: rgba(colors.$secondary-rgb, 0.5);
+    background: rgba(theme.$secondary-rgb, 0.5);
   }
 
   &.rc-progress-track-success {
-    background: rgba(colors.$success-green, 0.25);
+    background: rgba(theme.$success-green, 0.25);
   }
 
   &.rc-progress-track-error {
-    background: rgba(colors.$crimson, 0.25);
+    background: rgba(theme.$crimson, 0.25);
   }
 }
 
@@ -42,15 +42,15 @@
   z-index: 0;
 
   &.rc-progress-fill-default {
-    background: colors.$primary;
+    background: theme.$primary;
   }
 
   &.rc-progress-fill-success {
-    background: colors.$success-green;
+    background: theme.$success-green;
   }
 
   &.rc-progress-fill-error {
-    background: colors.$crimson;
+    background: theme.$crimson;
   }
 
   &.progressive {
@@ -66,7 +66,7 @@
     @include position.position-abs('top left');
     @include animate.set-settings(2s, linear, true);
     animation-name: indeterminate-progress;
-    border: 1px solid colors.$primary;
+    border: 1px solid theme.$primary;
     height: calc(var(--height) - 2px);
   }
 
@@ -81,7 +81,7 @@
 
 .rc-progress-percent-value {
   @extend %right;
-  color: colors.$white;
+  color: theme.$white;
   font-size: 1rem;
   height: 100%;
   padding: 0 0.5rem;
@@ -113,5 +113,8 @@ $bob-anim-settings: (
   ),
 );
 
-@include animate.set-keyframes(indeterminate-progress, $indeterminate-anim-settings);
+@include animate.set-keyframes(
+  indeterminate-progress,
+  $indeterminate-anim-settings
+);
 @include animate.set-keyframes(indeterminate-bob, $bob-anim-settings);

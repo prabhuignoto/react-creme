@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/list.scss';
 @use '../../design/icon.scss';
 @use 'sass:map';
@@ -51,7 +51,7 @@ $heights: (
 
 .rc-page-header-icon {
   @extend %icon;
-  color: colors.$primary;
+  color: theme.$primary;
   margin-right: 0.5rem;
 
   @each $size in $sizes {
@@ -63,7 +63,7 @@ $heights: (
 
 .rc-page-header-title-container {
   @extend %left;
-  border-bottom: 1px solid colors.$gray;
+  border-bottom: 1px solid theme.$gray;
   width: 100%;
 }
 

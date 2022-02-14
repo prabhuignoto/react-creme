@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/position.scss';
 
 .rc-slider-wrapper {
@@ -15,7 +15,7 @@
 
 .rc-slider-control {
   @include position.position-abs('center left');
-  background: colors.$primary;
+  background: theme.$primary;
   cursor: pointer;
   height: var(--size);
   outline: 0;
@@ -34,7 +34,7 @@
 
   &.rc-slider-control-dragging,
   &:focus {
-    box-shadow: 0 0 1px calc(var(--size) / 2) rgba(colors.$primary-rgb, 0.25);
+    box-shadow: 0 0 1px calc(var(--size) / 2) rgba(theme.$primary-rgb, 0.25);
   }
 
   &:not(.rc-slider-control-dragging):not(:focus) {
@@ -44,7 +44,7 @@
 
 .rc-slider-track {
   @extend %border-radius;
-  background: colors.$gray;
+  background: theme.$gray;
   height: 5px;
   position: relative;
   width: 100%;
@@ -53,14 +53,14 @@
 .rc-slider-track-progress {
   @extend %border-radius;
   @include position.position-abs('center left');
-  background: colors.$secondary;
+  background: theme.$secondary;
   height: 100%;
 }
 
 .rc-slider-fill {
   @extend %border-radius-left;
   @include position.position-abs('center left');
-  background: rgba(colors.$primary-rgb, 0.75);
+  background: rgba(theme.$primary-rgb, 0.75);
   display: block;
   height: 100%;
 }

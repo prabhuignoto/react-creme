@@ -1,5 +1,5 @@
 @use '../../design/layout.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/list.scss';
 @use '../../design/animate.scss';
 
@@ -39,7 +39,7 @@ $sizes: (
   }
 
   svg {
-    fill: colors.$alto;
+    fill: theme.$alto;
     height: 100%;
     stroke-width: 0;
     transition: fill 0.1s ease-in;
@@ -56,20 +56,20 @@ $sizes: (
 
 .rc-rate-item:hover {
   svg {
-    fill: colors.$primary;
+    fill: theme.$primary;
   }
 }
 
 .rc-rate-item-active {
-  color: colors.$primary;
+  color: theme.$primary;
 
   svg {
-    fill: colors.$primary;
+    fill: theme.$primary;
   }
 }
 
 .rc-rate-item-hovered {
   svg {
-    fill: colors.$primary;
+    fill: theme.$primary;
   }
 }

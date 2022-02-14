@@ -1,6 +1,6 @@
 @use '../../design/layout.scss';
 @use '../../design/position.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 
 .splitter-wrapper {
   @extend %border;
@@ -19,7 +19,7 @@
 }
 
 .splitter-control {
-  background: colors.$secondary;
+  background: theme.$secondary;
   transition: background 0.1s linear;
 
   &.splitter-control-horizontal {
@@ -35,12 +35,12 @@
   }
 
   &.splitter-control-dragged {
-    background: rgba(colors.$primary-rgb, 75%);
+    background: rgba(theme.$primary-rgb, 75%);
   }
 }
 
 .splitter-partition {
   @extend %center;
-  background: colors.$white;
+  background: theme.$white;
   overflow: auto;
 }

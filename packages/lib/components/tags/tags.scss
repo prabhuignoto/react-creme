@@ -1,7 +1,7 @@
 @use '../../design/layout.scss';
 @use '../../design/list.scss';
 @use '../../design/icon.scss';
-@use '../../design/colors.scss';
+@use '../../design/theme.scss';
 @use '../../design/animate.scss';
 @use '../../design/font.scss';
 @use '../../design/position.scss';
@@ -72,8 +72,8 @@ $padding-sizes: (
 
   &.rc-tag-style-fill {
     @extend %border-radius;
-    background: rgba(colors.$primary-rgb, 1);
-    color: colors.$white;
+    background: rgba(theme.$primary-rgb, 1);
+    color: theme.$white;
   }
 
   &.rc-tag-style-default {
@@ -137,21 +137,21 @@ $padding-sizes: (
 
 .rc-tag-icon-fill {
   &:hover::after {
-    background: rgba(colors.$white, 1);
+    background: rgba(theme.$white, 1);
   }
 
   &:hover {
-    color: colors.$primary;
+    color: theme.$primary;
   }
 }
 
 .rc-tag-icon-default {
   &:hover::after {
-    background: colors.$primary;
+    background: theme.$primary;
   }
 
   &:hover {
-    color: colors.$white;
+    color: theme.$white;
   }
 }
 
