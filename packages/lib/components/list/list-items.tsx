@@ -32,6 +32,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
       visibleRange,
       selectedIndex = -1,
       resetState,
+      size,
     }: ListItemsProps,
     ref
   ) => {
@@ -121,6 +122,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
                   value={value}
                   RTL={RTL}
                   focus={selection === index}
+                  size={size}
                   style={{
                     height: `${itemHeight}px`,
                     top: `${top}px`,

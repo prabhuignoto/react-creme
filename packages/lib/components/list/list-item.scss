@@ -2,11 +2,12 @@
 @use '../../design/list.scss';
 @use '../../design/position.scss';
 @use '../../design/theme.scss';
-@use '../../design/icon.scss';
 @use '../../design/animate.scss';
 @use '../../design/font.scss';
 
 $height: 40px;
+
+$sizes: (sm, md, lg);
 
 .rc-list-item-wrapper {
   height: 100%;
@@ -58,7 +59,6 @@ $height: 40px;
 }
 
 .rc-list-option-value-wrapper {
-  color: var(--text-color);
   display: grid;
   height: 100%;
   justify-items: center;
@@ -82,6 +82,18 @@ $height: 40px;
   &.rc-list-option-selected.rc-list-option-highlight-selection {
     background: rgba(theme.$secondary-rgb, 0.5);
     color: theme.$primary;
+  }
+}
+
+@each $size in $sizes {
+  .rc-list-option-#{$size} {
+    .rc-list-option-value {
+      @extend %text-#{$size};
+    }
+
+    .rc-list-option-icon {
+      @extend %icon-#{$size};
+    }
   }
 }
 
@@ -123,7 +135,6 @@ $height: 40px;
 
 .rc-list-option-icon {
   @extend %center;
-  @extend %icon-lg;
   color: theme.$primary;
   height: 100%;
   visibility: hidden;

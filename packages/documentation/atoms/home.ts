@@ -49,7 +49,7 @@ const themeState = atom<ThemeState>({
       primary: '#0074B7',
       secondary: '#BFD7ED',
       tertiary: '#003B73',
-      text: '#000',
+      text: '#003B73',
       textSelection: '#003B73',
     },
     fontSizes: {

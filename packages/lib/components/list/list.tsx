@@ -40,6 +40,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
       textColorSelected = '#fff',
       virtualized = false,
       selectedIndex = -1,
+      size = 'sm',
     }: ListProps,
     ref
   ) => {
@@ -209,6 +210,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
             virtualized={virtualized}
             resetState={resetState}
             ref={ref}
+            size={size}
           />
         </div>
       </div>

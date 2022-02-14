@@ -13,6 +13,7 @@ const ListItemContent: React.FunctionComponent<ListItemContentProps> =
       textColorSelected,
       RTL,
       highlightSelection,
+      size,
     }: ListItemContentProps) => {
       const ref = React.useRef<HTMLDivElement>(null);
 
@@ -23,6 +24,7 @@ const ListItemContent: React.FunctionComponent<ListItemContentProps> =
           'rc-list-option-no-icon': !showCheck,
           'rc-list-option-rtl': RTL,
           'rc-list-option-selected': selected,
+          [`rc-list-option-${size}`]: size,
         },
         [selected]
       );
