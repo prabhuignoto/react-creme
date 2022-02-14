@@ -149,7 +149,6 @@ export type {
 } from './components/tooltip/tooltip-model';
 export { Transfer } from './components/transfer/transfer';
 export type {
-  TransferCommonProps,
   TransferList,
   TransferListItemModel,
   TransferListProps,
