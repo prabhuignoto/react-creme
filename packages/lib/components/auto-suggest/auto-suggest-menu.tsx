@@ -12,8 +12,8 @@ type SuggestMenuData = {
 interface SuggestionsOverlayModel extends OverlayModel<SuggestMenuData> {
   focus?: boolean;
   id?: string;
-  // eslint-disable-next-line no-unused-vars
   onSelection: (option: ListOption[]) => void;
+  size?: 'sm' | 'md' | 'lg';
   width?: number;
 }
 
@@ -22,6 +22,7 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
   id,
   width,
   data,
+  size,
 }) => {
   const style = useMemo(
     () =>
@@ -34,8 +35,6 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
   );
 
   const ref = useRef<HTMLUListElement>(null);
-
-  console.log(data);
 
   useEffect(() => {
     if (data?.focus) {
@@ -55,6 +54,7 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
         id={id}
         border={false}
         ref={ref}
+        size={size}
       />
     </div>
   );
@@ -65,9 +65,7 @@ const SuggestionsMenuOverlay = withOverlay<
   SuggestMenuData
 >(SuggestionsMenu, {
   backdropColor: 'transparent',
-
   disableAnimation: true,
-  // disableBackdrop: true,
   placement: 'bottom',
 });
 

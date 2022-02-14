@@ -4,7 +4,7 @@ import { ChevronRightIcon } from '../../../lib/icons';
 
 export const Default = <Input enableClear></Input>;
 export const WithIcon = (
-  <Input enableClear focusable size="lg">
+  <Input enableClear focusable>
     <ChevronRightIcon />
   </Input>
 );

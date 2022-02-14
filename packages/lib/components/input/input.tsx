@@ -46,7 +46,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       type = 'text',
       value = '',
       onFocus,
-      size,
+      size = 'sm',
     } = props;
     const [inputValue, setInputValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);

@@ -12,6 +12,7 @@ export interface AutoSuggestProps {
   placeholder?: string;
   rtl?: boolean;
   showSpinner?: boolean;
+  size?: 'sm' | 'md' | 'lg';
   suggestions: AutoSuggestOption[];
   suggestionsWidth?: number;
   value?: string;
