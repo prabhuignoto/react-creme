@@ -63,6 +63,7 @@ function widgets() {
               delay={500}
               closeAfter={4000}
               state={state}
+              size="lg"
             />
           }
         ></DemoWidget>
@@ -73,6 +74,7 @@ function widgets() {
             delay={500}
             closeAfter={4000}
             state={state}
+            size="lg"
           />
         )}
       </Section>

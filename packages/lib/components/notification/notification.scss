@@ -3,8 +3,9 @@
 @use '../../design/button.scss';
 @use '../../design/animate.scss';
 @use '../../design/util.scss';
-@use '../../design/icon.scss';
 @use '../../design/theme.scss';
+
+$sizes: (sm, md, lg);
 
 .rc-notification-wrapper {
   $min-width: var(--min-width);
@@ -109,6 +110,18 @@
       @include position.position-abs($position-val, true);
       animation-name: notification-slide-#{$position}-exit;
       #{$new-position}: $slide-pos-horizontal;
+    }
+  }
+}
+
+@each $size in $sizes {
+  .rc-notification-#{$size} {
+    .rc-notification-title {
+      @extend %text-#{$size};
+    }
+
+    .rc-notification-close-btn {
+      @extend %icon-#{$size};
     }
   }
 }

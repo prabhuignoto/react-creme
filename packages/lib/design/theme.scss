@@ -40,29 +40,58 @@ $blue: #2196f3;
 $platinum: #e5e4e2;
 $gunmetal-gray: #2b2b2b;
 
-%font-size-sm {
+%icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+%font-sm {
   font-size: $font-size-sm;
 }
 
-%font-size-md {
+%font-md {
   font-size: $font-size-md;
 }
 
-%font-size-lg {
+%font-lg {
   font-size: $font-size-lg;
 }
 
-%icon-size-sm {
+%icon-sm {
+  @extend %icon;
   height: $icon-size-sm;
   width: $icon-size-sm;
 }
 
-%icon-size-md {
+%icon-md {
+  @extend %icon;
   height: $icon-size-md;
   width: $icon-size-md;
 }
 
-%icon-size-lg {
+%icon-lg {
+  @extend %icon;
   height: $icon-size-lg;
   width: $icon-size-lg;
+}
+
+%text-sm {
+  @extend %font-sm;
+  color: $text-color;
+}
+
+%text-md {
+  @extend %font-md;
+  color: $text-color;
+}
+
+%text-lg {
+  @extend %font-lg;
+  color: $text-color;
 }

@@ -36,16 +36,16 @@ $sizes: (sm, md, lg);
   .rc-alert-#{$size} {
     .rc-alert-icon {
       @extend %icon;
-      @extend %icon-size-#{$size};
+      @extend %icon-#{$size};
     }
 
     .rc-alert-close-btn {
       @extend %icon;
-      @extend %icon-size-#{$size};
+      @extend %icon-#{$size};
     }
 
     .rc-alert-content {
-      @extend %font-size-#{$size};
+      @extend %font-#{$size};
     }
   }
 }

@@ -19,12 +19,14 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   title,
   width = 350,
   disableHeader = false,
+  size = 'sm',
 }) => {
   const wrapperClass = classNames([
     'rc-notification-wrapper',
     {
       [`rc-notification-${position}-enter`]: !isClosing,
       [`rc-notification-${position}-exit`]: isClosing,
+      [`rc-notification-${size}`]: true,
     },
   ]);
 

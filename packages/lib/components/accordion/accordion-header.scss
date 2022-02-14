@@ -1,5 +1,5 @@
 @use '../../design/theme.scss';
-@use '../../design/icon.scss';
+@use '../../design/layout.scss';
 
 $header-height: 35px;
 $sizes: (sm, md, lg);
@@ -38,7 +38,7 @@ $sizes: (sm, md, lg);
 
   @each $size in $sizes {
     &.rc-accordion-title-#{$size} {
-      @extend %font-size-#{$size};
+      @extend %text-#{$size};
       line-height: #{$size}-line-height;
     }
   }
@@ -60,7 +60,7 @@ $sizes: (sm, md, lg);
 
   @each $size in $sizes {
     &.rc-accordion-icon-#{$size} {
-      @extend %icon-size-#{$size};
+      @extend %icon-#{$size};
     }
   }
 

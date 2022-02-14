@@ -26,6 +26,8 @@ export interface NotificationProps extends OverlayModel<null> {
   /**🔷 prop to set the position of the tooltip */
   position?: NotificationPosition;
 
+  size?: 'sm' | 'md' | 'lg';
+
   /**🔷 swipe gesture to close the notification */
   swipeToClose?: boolean;
 

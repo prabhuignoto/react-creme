@@ -21,6 +21,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   onClose,
   hideAnimationStyle = 'hide',
   focusable = true,
+  size = 'md',
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -50,6 +51,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
         'rc-global-notification-open': open,
         [`rc-global-notification-${state}`]: true,
         [`rc-global-notification-animation-${hideAnimationStyle}`]: true,
+        [`rc-global-notification-${size}`]: true,
       }),
     [open, state, hideAnimationStyle]
   );
