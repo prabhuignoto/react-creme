@@ -49,7 +49,6 @@ export { DataGrid } from './components/data-grid/data-grid';
 export type {
   DataGridCell,
   DataGridColumn,
-  DataGridCommon,
   DataGridHeaderProps,
   DataGridModel,
   DataGridProps,
