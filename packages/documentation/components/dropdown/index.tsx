@@ -83,6 +83,14 @@ function dropdown() {
           optional: 'Yes',
           type: 'Boolean',
         },
+        {
+          default: 'sm',
+          description: `Size of the dropdown. can be <code>sm</code>, <code>md</code> or <code>lg</code>.<br/>
+            Controls the size of the icon and font size`,
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-b9syfa']}

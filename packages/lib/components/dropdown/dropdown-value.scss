@@ -1,7 +1,8 @@
 @use '../../design/theme.scss';
 @use '../../design/layout.scss';
-@use '../../design/icon.scss';
 @use '../../design/animate.scss';
+
+$sizes: (sm, md, lg);
 
 .rc-dropdown-value-container {
   @extend %border;
@@ -14,13 +15,8 @@
   padding: 0.1rem 0;
   width: 100%;
 
-  // @extend %border-radius;
   &.rc-dropdown-menu-open {
     box-shadow: none;
-  }
-
-  &:not(.rc-dropdown-disabled) {
-    // @include animate.halo(4px, 4px);
   }
 
   &.rc-dropdown-disabled {
@@ -54,7 +50,7 @@
   }
 
   .rc-dropdown-chevron-icon {
-    margin-right: 4px;
+    // margin-right: 4px;
   }
 }
 
@@ -79,14 +75,13 @@
 }
 
 .rc-dropdown-chevron-icon {
-  @extend %icon-lg;
   color: var(--chevron-icon-color, theme.$primary);
   order: 4;
   transition: transform 0.2s ease-in;
+  justify-self: center;
 }
 
 .rc-dropdown-clear-icon {
-  @extend %icon-md;
   color: theme.$gunmetal-gray;
   justify-self: center;
 
@@ -108,4 +103,20 @@
 .rc-dropdown-tags-wrapper {
   overflow: hidden;
   padding-left: 0.25rem;
+}
+
+@each $size in $sizes {
+  .rc-dropdown-value-#{$size} {
+    .rc-dropdown-value {
+      @extend %text-#{$size};
+    }
+
+    .rc-dropdown-chevron-icon {
+      @extend %icon-#{$size};
+    }
+
+    .rc-dropdown-clear-icon {
+      @extend %icon-#{$size};
+    }
+  }
 }

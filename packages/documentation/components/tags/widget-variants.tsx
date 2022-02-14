@@ -15,9 +15,8 @@ export const Default = (
     items={items}
     maxTags={15}
     onChange={val => console.log(val)}
-    tagWidth={70}
+    tagWidth={60}
     focusable
-    tagSize="md"
   />
 );
 
@@ -73,6 +72,6 @@ export const LargeSize = (
     maxTags={15}
     onChange={val => console.log(val)}
     tagWidth={100}
-    tagSize="lg"
+    size="lg"
   />
 );

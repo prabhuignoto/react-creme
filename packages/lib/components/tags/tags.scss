@@ -1,16 +1,14 @@
 @use '../../design/layout.scss';
 @use '../../design/list.scss';
-@use '../../design/icon.scss';
 @use '../../design/theme.scss';
 @use '../../design/animate.scss';
-@use '../../design/font.scss';
 @use '../../design/position.scss';
 
 $sizes: (sm, md, lg);
 $padding-sizes: (
-  sm: 0.25rem,
+  sm: 0.5rem,
   md: 0.5rem,
-  lg: 0.75rem,
+  lg: 0.5rem,
 );
 
 .rc-tags-wrapper {
@@ -96,18 +94,27 @@ $padding-sizes: (
     visibility: hidden;
   }
 
-  @each $key, $val in $padding-sizes {
-    &.rc-tag-#{$key} {
-      padding: $val;
+  padding: 0.4rem 0.5rem;
+}
+
+@each $size in $sizes {
+  .rc-tag-#{$size} {
+    .rc-tag-icon {
+      @extend %icon-#{$size};
+    }
+
+    .rc-tag-name {
+      @extend %font-#{$size};
     }
   }
 }
 
 .rc-tag-icon {
-  //
   border-radius: 50%;
   cursor: pointer;
   display: block;
+  align-self: center;
+  justify-self: flex-end;
 
   &.rc-tag-icon-editable {
     visibility: visible;
@@ -126,12 +133,6 @@ $padding-sizes: (
     height: 110%;
     width: 110%;
     z-index: -1;
-  }
-
-  @each $size in $sizes {
-    &.rc-tag-icon-#{$size} {
-      @extend %icon-#{$size};
-    }
   }
 }
 
