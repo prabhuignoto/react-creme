@@ -1,6 +1,5 @@
 @use '../../design/layout.scss';
 @use '../../design/list.scss';
-@use '../../design/icon.scss';
 @use '../../design/theme.scss';
 @use '../../design/animate.scss';
 @use '../../design/font.scss';
@@ -35,13 +34,7 @@ $sizes: (sm, md, lg);
 .rc-bread-crumb-node {
   @extend %center;
   @extend %border-radius;
-  //
   padding: 0.25rem;
-
-  &:hover {
-    // background-color: rgba(theme.$secondary-rgb, 0.25);
-    // color: theme.$tertiary;
-  }
 
   &.rc-bread-crumb-node-selected {
     background-color: rgba(theme.$secondary-rgb, 0.5);

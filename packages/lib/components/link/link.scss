@@ -1,6 +1,7 @@
 @use '../../design/layout.scss';
 @use '../../design/theme.scss';
-@use '../../design/icon.scss';
+
+$sizes: (sm, md, lg);
 
 .rc-link {
   @extend %center;
@@ -8,14 +9,13 @@
   align-items: center;
   color: theme.$primary;
   margin: 0;
-  padding: 0.25rem;
+  padding: 0.5rem;
   text-decoration: none;
   white-space: nowrap;
 
   &.rc-link-btn {
     @extend %shadow-inset-small;
     @extend %border;
-    padding: 0.5rem;
   }
 
   &.rc-link-btn:hover {
@@ -30,11 +30,22 @@
   }
 }
 
+@each $size in $sizes {
+  .rc-link-#{$size} {
+    .rc-link-text {
+      @extend %font-#{$size};
+    }
+
+    .rc-link-icon {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
 .rc-link-text {
   @extend %center;
 }
 
 .rc-link-icon {
-  @extend %icon-md;
   margin-right: 0.5rem;
 }
