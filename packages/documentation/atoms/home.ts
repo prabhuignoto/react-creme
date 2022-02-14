@@ -6,7 +6,12 @@ import {
   Sizes,
 } from '../../lib/components/common/theme-provider-model';
 
-export type ThemeType = 'default' | 'glacier' | 'blueberry' | 'bluerush';
+export type ThemeType =
+  | 'default'
+  | 'glacier'
+  | 'blueberry'
+  | 'bluerush'
+  | 'grape';
 
 type ThemeState = {
   colors: Colors;

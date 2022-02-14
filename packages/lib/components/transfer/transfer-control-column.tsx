@@ -6,18 +6,20 @@ interface TransferControlModel {
   disableTransferLeft?: boolean;
   disableTransferRight?: boolean;
   onTransfer: (dir: string) => void;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
   onTransfer,
   disableTransferLeft,
   disableTransferRight,
+  size,
 }: TransferControlModel) => {
   return (
     <section className="transfer-control-column">
       <Button
         type="icon"
-        size="md"
+        size={size}
         onClick={() => onTransfer('right')}
         disabled={disableTransferRight}
       >
@@ -25,7 +27,7 @@ const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
       </Button>
       <Button
         type="icon"
-        size="md"
+        size={size}
         onClick={() => onTransfer('left')}
         disabled={disableTransferLeft}
         style={{ transform: 'rotate(180deg)' }}

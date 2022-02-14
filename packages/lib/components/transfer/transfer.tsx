@@ -22,6 +22,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
   enableSearch = false,
   virtualize = false,
   focusable = false,
+  size = 'sm',
 }) => {
   const [leftList, setLeftList] = useState<TransferListInternalModel[]>(
     initMapper(list1)
@@ -124,6 +125,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
             enableSearch={enableSearch}
             virtualize={virtualize}
             focusable={focusable}
+            size={size}
           />
         ) : null}
       </section>
@@ -131,6 +133,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
         onTransfer={transfer}
         disableTransferLeft={!rightSelected.length}
         disableTransferRight={!leftSelected.length}
+        size={size}
       />
       <section className="transfer-column2">
         {rightList.length ? (
@@ -140,6 +143,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
             onSelection={handleListSelectionRight}
             enableSearch={enableSearch}
             focusable={focusable}
+            size={size}
           />
         ) : null}
       </section>

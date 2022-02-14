@@ -51,6 +51,13 @@ function transfer() {
           optional: 'Yes',
           type: 'boolean',
         },
+        {
+          default: 'sm',
+          description: `The size of the tree nodes. Can be 'sm', 'md' or 'lg'. Controls the size of the fonts and icons.`,
+          name: 'size',
+          optional: 'Yes',
+          type: 'string',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-q3izbn']}

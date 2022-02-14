@@ -5,5 +5,6 @@ export interface MenuButtonProps {
   iconColor?: string;
   items: string[];
   onSelected?: (item?: string) => void;
+  size?: 'sm' | 'md' | 'lg';
   width?: number;
 }

@@ -32,7 +32,7 @@ $sizes: (sm, md, lg);
 
 @each $size in $sizes {
   .rc-menu-#{$size} {
-    .rc-menu-item {
+    .rc-menu-item-name {
       @extend %text-#{$size};
     }
   }

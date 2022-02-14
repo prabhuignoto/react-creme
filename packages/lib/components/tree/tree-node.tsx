@@ -11,6 +11,7 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
       onSelect,
       id,
       enableCheckbox,
+      size,
     } = props;
 
     const style = useMemo(() => {
@@ -50,6 +51,7 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
               disableIcon={!node.nodes?.length}
               autoSetBodyHeight={false}
               disableARIA
+              size={size}
               onChange={open => {
                 if (!enableCheckbox) {
                   handleChange(open, node.id);
@@ -67,6 +69,7 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
                     isChecked={node.selected}
                     noHoverStyle
                     autoHeight
+                    size={size}
                   />
                 ) : null
               }
@@ -87,6 +90,7 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
                     onSelect={x => onSelect?.(node.id + '/' + x, node.selected)}
                     selected={node.selected}
                     enableCheckbox={enableCheckbox}
+                    size={size}
                   />
                 </div>
               )}

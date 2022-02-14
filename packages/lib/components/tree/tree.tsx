@@ -12,6 +12,7 @@ const Tree: React.FunctionComponent<TreeProps> = ({
   nodes,
   onSelected,
   selectable,
+  size = 'sm',
 }: TreeProps) => {
   const parser = useCallback(_nodes => {
     return _nodes.map((n: TreeNodeProps) => {
@@ -106,6 +107,7 @@ const Tree: React.FunctionComponent<TreeProps> = ({
         isChild={false}
         onSelect={handleSelection}
         enableCheckbox={selectable}
+        size={size}
       />
     </div>
   );

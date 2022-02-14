@@ -62,7 +62,7 @@ const Widget = () => {
                 onOpen={handleOnOpen}
                 width={width}
                 height={250}
-                size="md"
+                size="sm"
               >
                 <span>Your content here !</span>
               </Dialog>

@@ -11,8 +11,9 @@ export const AttachedToButton = (
       { name: 'Close' },
       { name: 'Exit' },
     ]}
+    size="sm"
   >
-    <Button label="File"></Button>
+    <Button label="File" size="sm"></Button>
   </Menu>
 );
 

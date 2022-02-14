@@ -16,6 +16,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   disabled = false,
   RTL = false,
   iconColor,
+  size = 'sm',
 }) => {
   const menuItems = useRef<MenuItemProps[]>(
     items.slice(1).map(item => ({
@@ -54,7 +55,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         label={items[0]}
         border={false}
         focusable={focusable}
-        size="sm"
+        size={size}
         onClick={() => handleChange(items[0])}
       />
       <Menu
@@ -62,6 +63,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         focusable={focusable}
         onSelected={handleChange}
         position={menuPosition}
+        size={size}
       >
         <span className="rc-menu-btn-icon" role="img">
           <ChevronDownIcon />
