@@ -18,7 +18,7 @@ function widgets() {
       </Section>
       <Section title="Icon">
         <BlockQuote>Insert a custom icon to the button.</BlockQuote>
-        <DemoWidget width={160}>{Icon}</DemoWidget>
+        <DemoWidget width={150}>{Icon}</DemoWidget>
       </Section>
       <Section title="Loading state">
         <BlockQuote>

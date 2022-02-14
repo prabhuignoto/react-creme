@@ -1,7 +1,6 @@
 @use '../../design/layout.scss';
 @use '../../design/theme.scss';
 @use '../../design/button.scss';
-@use '../../design/font.scss';
 @use '../../design/animate.scss';
 @use 'sass:map';
 
@@ -54,6 +53,10 @@ $sizes: (sm, md, lg);
   .rc-btn-#{$size} {
     .rc-btn-label {
       @extend %font-#{$size};
+    }
+
+    .rc-btn-icon {
+      @extend %icon-#{$size};
     }
   }
 }

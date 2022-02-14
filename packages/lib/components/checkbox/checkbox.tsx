@@ -21,7 +21,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
     noHoverStyle = false,
     noUniqueId = false,
     onChange,
-    size = 'md',
+    size = 'sm',
     style,
     RTL = false,
   }: CheckboxProps) => {

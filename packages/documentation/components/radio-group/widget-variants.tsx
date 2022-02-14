@@ -11,6 +11,7 @@ export const Default = (
     ]}
     onSelected={val => console.log(val)}
     focusable
+    size="sm"
   />
 );
 

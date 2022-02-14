@@ -15,6 +15,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   layout = 'column',
   RTL = false,
   focusable = true,
+  size = 'sm',
 }) => {
   const [_items, setItems] = useState<RadioGroupItemProps<string>[]>(
     Array.isArray(items)
@@ -70,14 +71,6 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   return (
     <ul className={radioGroupClass} role="radiogroup" style={style}>
       {_items.map(({ id, disabled, label, checked }) => (
-        // <li
-        //   key={id}
-        //   className={classNames('rc-radio-grp-item', {
-        //     'rc-radio-grp-item-disabled': disabled,
-        //   })}
-        //   aria-checked={!!checked}
-        //   role="radio"
-        // >
         <Radio
           key={id}
           onChange={handleChange}
@@ -87,12 +80,11 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
           disabled={disabled}
           isControlled
           withGroup
-          size="sm"
+          size={size}
           fullWidth={layout === 'column'}
           RTL={RTL}
           focusable={focusable}
         />
-        // </li>
       ))}
     </ul>
   );

@@ -21,6 +21,7 @@ export interface CheckboxGroupProps {
     }[]
   ) => void;
   options: CheckboxProps[];
+  size?: 'sm' | 'md' | 'lg';
 }
 
 const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
@@ -32,6 +33,7 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   onChange,
   noUniqueIds = false,
   RTL = false,
+  size = 'sm',
 }) => {
   const wrapperClass = useMemo(() => {
     return classNames('rc-checkbox-group', {
@@ -94,6 +96,7 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
             noUniqueId={true}
             id={item.id}
             RTL={RTL}
+            size={size}
           />
         );
       })}
