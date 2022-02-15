@@ -63,7 +63,7 @@ const Home: React.FunctionComponent = () => {
         <Section title="Theme" size="md" hashPrefix="home">
           <BlockQuote>
             react-creme comes with built in support for Themes. Customize the
-            colors, font and icon sizes with ease.
+            Colors, Font and Icon sizes with ease.
           </BlockQuote>
           <SyntaxHighLighter code={gettingStartedTheme}></SyntaxHighLighter>
         </Section>
