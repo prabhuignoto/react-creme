@@ -49,8 +49,8 @@
   width: calc(100% - 0.5rem);
 
   &.active {
-    background: rgba(theme.$secondary-rgb, 50%);
-    color: theme.$primary;
+    background: rgba(theme.$secondary-rgb, 1);
+    color: theme.$white;
     font-weight: 400;
   }
 }

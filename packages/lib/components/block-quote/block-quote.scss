@@ -1,8 +1,9 @@
 @use '../../design/layout.scss';
 @use '../../design/theme.scss';
 @use '../../design/position.scss';
-@use '../../design/icon.scss';
 @use 'sass:color';
+
+$sizes: (sm, md, lg);
 
 .rc-block-quote {
   align-items: center;
@@ -37,8 +38,19 @@
   }
 }
 
+@each $size in $sizes {
+  .rc-block-quote-#{$size} {
+    .rc-block-quote-icon {
+      @extend %icon-#{$size};
+    }
+
+    .rc-block-quote-child-content {
+      @extend %font-#{$size};
+    }
+  }
+}
+
 .rc-block-quote-icon {
-  @extend %icon-lg;
   color: rgba(theme.$primary-rgb, 1);
   margin-right: 0.5rem;
 }

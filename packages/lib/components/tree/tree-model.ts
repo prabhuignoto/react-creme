@@ -7,6 +7,7 @@ export type TreeNodeProps = {
   nodes?: TreeNodeProps[];
   onSelect?: (id?: string, open?: boolean) => void;
   selected?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 };
 
 export type TreeProps = {
@@ -14,4 +15,5 @@ export type TreeProps = {
   nodes: TreeNodeProps[];
   onSelected?: (t: { id?: string; name?: string }) => void;
   selectable?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 };

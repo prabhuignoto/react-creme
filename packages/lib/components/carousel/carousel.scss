@@ -1,5 +1,4 @@
 @use '../../design/button.scss';
-@use '../../design/icon.scss';
 @use '../../design/theme.scss';
 @use '../../design/list.scss';
 @use '../../design/layout.scss';
@@ -7,7 +6,6 @@
 
 .rc-carousel-container {
   @extend %border;
-  // @extend %shadow-inset;
   height: 100%;
   width: 100%;
 

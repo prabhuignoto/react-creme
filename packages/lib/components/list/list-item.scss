@@ -80,7 +80,7 @@ $sizes: (sm, md, lg);
   }
 
   &.rc-list-option-selected.rc-list-option-highlight-selection {
-    background: rgba(theme.$secondary-rgb, 0.5);
+    background: rgba(theme.$secondary-rgb, 1);
     color: theme.$primary;
   }
 }

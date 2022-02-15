@@ -32,6 +32,14 @@ function tree() {
           optional: 'Yes',
           type: 'Function',
         },
+        {
+          default: 'sm',
+          description:
+            "The size of the tree nodes. Can be 'sm', 'md' or 'lg'. Controls the size of the fonts and icons.",
+          name: 'size',
+          optional: 'Yes',
+          type: 'string',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-bpfa5b']}

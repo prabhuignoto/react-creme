@@ -132,7 +132,7 @@ const Accordion = () => {
         {
           default: 'md',
           description:
-            'Size of the accordion. can be <code>sm</code>, <code>md</code> or <code>lg</code>',
+            'Size of the accordion. Can be <code>sm</code>, <code>md</code> or <code>lg</code>. Controls the size of the Fonts and Icons.',
           name: 'size',
           optional: 'Yes',
           type: 'String',

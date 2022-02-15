@@ -1,6 +1,5 @@
 @use '../../design/layout.scss';
 @use '../../design/theme.scss';
-@use '../../design/icon.scss';
 @use '../../design/animate.scss';
 
 $sizes: (sm, md, lg);
@@ -35,12 +34,10 @@ $sizes: (sm, md, lg);
 @each $size in $sizes {
   .rc-alert-#{$size} {
     .rc-alert-icon {
-      @extend %icon;
       @extend %icon-#{$size};
     }
 
     .rc-alert-close-btn {
-      @extend %icon;
       @extend %icon-#{$size};
     }
 
@@ -79,7 +76,6 @@ $sizes: (sm, md, lg);
 }
 
 .rc-alert-icon {
-  @extend %icon-xl;
   align-self: center;
   justify-self: flex-start;
 
@@ -94,8 +90,6 @@ $sizes: (sm, md, lg);
 }
 
 .rc-alert-close-btn {
-  @extend %icon-lg;
-
   align-self: flex-start;
   cursor: pointer;
   margin-top: 0.5rem;

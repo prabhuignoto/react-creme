@@ -176,6 +176,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
               enableClear
               controlled
               RTL={RTL}
+              size={size}
               focusable={focusable}
               placeholder="Search ..."
               onFocus={() => {

@@ -38,6 +38,14 @@ function Link() {
           optional: 'Yes',
           type: 'boolean',
         },
+        {
+          default: 'sm',
+          description:
+            'The size of the link. Can be <code>sm</code>, <code>md</code> or <code>lg</code>.',
+          name: ' size',
+          optional: 'Yes',
+          type: 'string',
+        },
       ]}
       stackBlitzCodes={['red']}
       demoWidget={<Widgets />}

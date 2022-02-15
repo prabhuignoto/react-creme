@@ -66,6 +66,14 @@ function dialog() {
           optional: 'Yes',
           type: 'String',
         },
+        {
+          default: 'sm',
+          description:
+            'The size of the dialog. Can be <code>sm</code>, <code>md</code> or <code>lg</code>. Controls the size of the Fonts and the Icons',
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-9dnouy']}

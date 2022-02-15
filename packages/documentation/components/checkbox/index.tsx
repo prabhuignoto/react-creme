@@ -72,6 +72,14 @@ function checkbox() {
           optional: 'Yes',
           type: 'Boolean',
         },
+        {
+          default: 'sm',
+          description:
+            'sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>',
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-wrjrdy']}

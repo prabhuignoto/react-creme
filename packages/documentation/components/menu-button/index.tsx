@@ -72,6 +72,14 @@ function menuButton() {
           optional: 'Yes',
           type: 'String',
         },
+        {
+          default: 'sm',
+          description:
+            'sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>',
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-kdxxkx']}

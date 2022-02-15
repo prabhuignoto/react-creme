@@ -22,6 +22,12 @@
     color: $color;
   }
 
+  &:hover {
+    svg {
+      color: $color-hover;
+    }
+  }
+
   &:hover:not(.rc-disabled) {
     background-color: $bg-hover;
     color: $color-hover;
@@ -35,10 +41,6 @@
     theme.$white,
     theme.$primary
   );
-
-  svg {
-    color: theme.$white !important;
-  }
 }
 
 %button-danger {

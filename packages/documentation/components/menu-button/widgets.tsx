@@ -8,7 +8,11 @@ function widgets() {
     <div className="rc-demo-widgets">
       <Section title="Default render">
         <DemoWidget width={100}>
-          <MenuButton items={['save', 'save as new', 'discard']} width={150} />
+          <MenuButton
+            items={['save', 'save as new', 'discard']}
+            width={150}
+            size="sm"
+          />
         </DemoWidget>
       </Section>
       <Section title="Right to Left">

@@ -36,9 +36,9 @@ export const Default = (
   //   items={data}
   //   onChange={selected => console.log(selected, name)}
   // />
-  <Tree nodes={data} onSelected={val => console.log(val)} />
+  <Tree nodes={data} onSelected={val => console.log(val)} size="sm" />
 );
 
-export const Selection = <Tree selectable nodes={data} />;
+export const Selection = <Tree selectable nodes={data} size="sm" />;
 
 // export const CustomIcon = <Tree height={400} items={data} iconType="plus" />;

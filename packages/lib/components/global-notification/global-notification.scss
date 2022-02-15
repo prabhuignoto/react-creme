@@ -1,6 +1,5 @@
 @use '../../design/layout.scss';
 @use '../../design/theme.scss';
-@use '../../design/icon.scss';
 @use '../../design/animate.scss';
 
 $sizes: (sm, md, lg);
@@ -39,7 +38,6 @@ $sizes: (sm, md, lg);
 @each $size in $sizes {
   .rc-global-notification-#{$size} {
     .rc-global-notification-close-btn {
-      @extend %icon;
       @extend %icon-#{$size};
     }
 

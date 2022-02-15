@@ -9,16 +9,15 @@ const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
     enableSearch,
     virtualize,
     focusable,
+    size,
   }: TransferListProps) => {
     return (
       <List
-        options={options
-          // .filter(i => i.visible)
-          .map(item => ({
-            ...item,
-            name: item.name,
-            value: item.name,
-          }))}
+        options={options.map(item => ({
+          ...item,
+          name: item.name,
+          value: item.name,
+        }))}
         allowMultiSelection
         maxHeight={350}
         noUniqueIds
@@ -26,6 +25,7 @@ const TransferList: React.FunctionComponent<TransferListProps> = React.memo(
         itemHeight={40}
         enableSearch={enableSearch}
         virtualized={virtualize}
+        size={size}
         focusable={focusable}
       />
     );

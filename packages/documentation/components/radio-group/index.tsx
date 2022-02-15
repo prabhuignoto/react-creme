@@ -56,6 +56,14 @@ function radioGroup() {
           optional: 'Yes',
           type: 'Object',
         },
+        {
+          default: 'sm',
+          description:
+            'Size of the radio group. <em>sm</em> | <em>md</em> | <em>lg</em>',
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
       ]}
     ></DemoPageRenderer>
   );

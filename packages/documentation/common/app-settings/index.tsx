@@ -5,7 +5,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { Dialog, RadioGroup, Section } from '../../../lib/components';
 import { RadioGroupItemProps } from '../../../lib/components/radio-group/radio-group-model';
 import { responsiveState, themeState, ThemeType } from '../../atoms/home';
-import { Blueberry, Default, Glacier } from '../app-themes';
+import { Blueberry, Default, Glacier, GrapeFruit } from '../app-themes';
 import './app-settings.scss';
 
 const themes: RadioGroupItemProps<ThemeType>[] = [
@@ -21,6 +21,10 @@ const themes: RadioGroupItemProps<ThemeType>[] = [
   {
     label: 'Blueberry',
     value: 'blueberry',
+  },
+  {
+    label: 'Biscuit',
+    value: 'grape',
   },
 ];
 
@@ -50,6 +54,8 @@ const AppSettings: React.FunctionComponent = () => {
       selectedTheme = { colors: { ...Glacier }, selectedTheme: 'glacier' };
     } else if (themeToUpdate.value === 'blueberry') {
       selectedTheme = { colors: { ...Blueberry }, selectedTheme: 'blueberry' };
+    } else if (themeToUpdate.value === 'grape') {
+      selectedTheme = { colors: { ...GrapeFruit }, selectedTheme: 'grape' };
     }
 
     updateAppTheme(selectedTheme);
