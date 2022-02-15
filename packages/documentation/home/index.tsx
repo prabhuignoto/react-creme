@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BlockQuote, Button } from '../../lib/components';
 import { Section } from '../../lib/components/section/section';
 import packages from '../../lib/package.json';
@@ -7,6 +7,8 @@ import HeroSection from './../common/hero-section';
 import { Code } from './../common/syntax';
 import { SyntaxHighLighter } from './../common/syntax-highlighter';
 import './home.scss';
+import gettingStarted from './samples/getting-started';
+import gettingStartedTheme from './samples/getting-started-theme';
 
 const Home: React.FunctionComponent = () => {
   return (
@@ -48,9 +50,7 @@ const Home: React.FunctionComponent = () => {
             The example below shows how to use the react-creme package to create
             a button element.
           </BlockQuote>
-          <SyntaxHighLighter
-            code={`import React from "react";\nimport { Button, ThemeProvider } from "react-creme";\nimport "react-creme/dist/react-creme.css";\n\nconst App = () => {\n  return (\n    <ThemeProvider>\n      <Button>Click Me</Button>\n    </ThemeProvider>\n  );\n};\n\nexport default App;`}
-          ></SyntaxHighLighter>
+          <SyntaxHighLighter code={gettingStarted}></SyntaxHighLighter>
 
           <div style={{ width: '100px' }}>
             <Button
@@ -58,6 +58,14 @@ const Home: React.FunctionComponent = () => {
               onClick={() => alert('Welcome to React-Creme')}
             ></Button>
           </div>
+        </Section>
+
+        <Section title="Support for Themes" size="md">
+          <BlockQuote>
+            react-creme comes with built in support for Themes. Customize the
+            colors, font and icon sizes with ease.
+          </BlockQuote>
+          <SyntaxHighLighter code={gettingStartedTheme}></SyntaxHighLighter>
         </Section>
       </div>
     </div>

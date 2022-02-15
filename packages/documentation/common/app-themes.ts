@@ -15,7 +15,7 @@ export const Glacier: Colors = {
   secondary: '#a1d6e2',
   tertiary: '#062127',
   text: '#000',
-  textSelection: '#1995AD',
+  textSelection: '#000',
 };
 
 export const Coffee: Colors = {
@@ -31,7 +31,7 @@ export const Tangerine: Colors = {
   secondary: '#864879',
   tertiary: '#1F1D36',
   text: '#000',
-  textSelection: '#864879',
+  textSelection: '#fff',
 };
 
 export const Blueberry: Colors = {
@@ -39,7 +39,7 @@ export const Blueberry: Colors = {
   secondary: '#DBE6FD',
   tertiary: '#293B5F',
   text: '#000',
-  textSelection: '#293B5F',
+  textSelection: '#000',
 };
 
 export const GrapeFruit: Colors = {
@@ -47,5 +47,5 @@ export const GrapeFruit: Colors = {
   secondary: '#A7BBC7',
   tertiary: '#FAF3F3',
   text: '#000',
-  textSelection: '#000',
+  textSelection: '#fff',
 };
