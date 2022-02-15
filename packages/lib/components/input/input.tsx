@@ -165,6 +165,15 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       return disabled;
     }, [disabled]);
 
+    const clearProps = useMemo(
+      () => ({
+        'aria-hidden': !showSpinner && !inputValue,
+        'aria-label': 'Clear',
+        // hidden: !showSpinner && !inputValue,
+      }),
+      [inputValue, showSpinner]
+    );
+
     return (
       <div
         className={inputClass}
@@ -178,15 +187,21 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
         <input
           type={type}
           placeholder={placeholder}
+          {...focusProps}
           {...controlledProps}
           onKeyUp={onKeyUp}
           ref={inputRef}
           id={inputId.current}
           disabled={inputDisabled}
-          {...focusProps}
         />
         {!showSpinner && (
-          <span onMouseDown={handleClear} className={clearClass} role="button">
+          <span
+            onMouseDown={handleClear}
+            className={clearClass}
+            role="button"
+            data-testid="rc-clear-input"
+            {...clearProps}
+          >
             {enableClear && <CloseIcon />}
           </span>
         )}

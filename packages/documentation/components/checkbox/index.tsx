@@ -8,8 +8,7 @@ function checkbox() {
   return (
     <DemoPageRenderer
       title="Checkbox"
-      description={`Checkboxes are used when there is a list of options and the user may select any number of choices, including zero.
-      Each checkbox is independent of all other checkboxes in the list, and checking one box doesn’t uncheck the others.`}
+      description={`A checkbox (check box, tickbox, tick box) is a Graphical widget that permits the user to make a binary choice.`}
       pageIcon={<FontAwesomeIcon icon={faCheckSquare} size="2x" />}
       editId="checkbox"
       sourceId="checkbox/checkbox.tsx"

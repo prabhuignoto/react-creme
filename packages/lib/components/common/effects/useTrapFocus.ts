@@ -11,7 +11,9 @@ export default function useTrapFocus<T extends HTMLElement>(
     const ele = node as T;
     if (ele) {
       targetRef.current = ele;
-      focusTargets.current = Array.from(ele.querySelectorAll('[tabindex="0"]'));
+      focusTargets.current = Array.from(
+        ele.querySelectorAll('[tabindex="0"]:not([disabled]):not([hidden])')
+      );
 
       onRender?.();
 

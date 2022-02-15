@@ -5,16 +5,16 @@ exports[`Accordion > should render snapshot 1`] = `
   class="rc-accordion rc-accordion-no-border"
 >
   <div
-    aria-controls="accordion-body-gHFwvK1055TyyEUaCbr5d"
+    aria-controls="accordion-body-33yzAhIj-UF2qnpimXAei"
     aria-expanded="false"
     class="rc-accordion-header rc-accordion-focusable"
-    id="accordion-E71t1POvA0lE9rVwBYM4g"
+    id="accordion-pabcWnvGGpBzTH6hFZ9kn"
     role="button"
     style="outline: none; position: relative;"
     tabindex="0"
   >
     <span
-      class="rc-accordion-icon rc-accordion-icon-chevron"
+      class="rc-accordion-icon rc-accordion-icon-chevron rc-accordion-icon-sm"
     >
       <svg
         fill="none"
@@ -31,7 +31,7 @@ exports[`Accordion > should render snapshot 1`] = `
       </svg>
     </span>
     <span
-      class="rc-accordion-title"
+      class="rc-accordion-title rc-accordion-title-sm"
     />
     <span
       class="rc-focus-ring"
@@ -39,9 +39,9 @@ exports[`Accordion > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-labelledby="accordion-E71t1POvA0lE9rVwBYM4g"
+    aria-labelledby="accordion-pabcWnvGGpBzTH6hFZ9kn"
     class="rc-accordion-body rc-accordion-close"
-    id="accordion-body-gHFwvK1055TyyEUaCbr5d"
+    id="accordion-body-33yzAhIj-UF2qnpimXAei"
     style="--title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
   >
     <p>

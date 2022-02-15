@@ -10,8 +10,7 @@ function carousel() {
       demoWidget={<Widgets />}
       stackBlitzCodes={['react-ts-kgea3r']}
       title="Carousel"
-      description={`Carousels allow multiple pieces of content to occupy a single, coveted space.
-      This may placate corporate infighting, but on large or small viewports, people often scroll past carousels.`}
+      description={`Carousels allow multiple pieces of content to occupy a single, coveted space.`}
       pageIcon={<FontAwesomeIcon icon={faFilm} size="2x" />}
       editId="carousel"
       sourceId="carousel/carousel.tsx"

@@ -74,16 +74,18 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
 
     const visibleOptions = useMemo(() => {
       if (searchTerm) {
-        return _listOptions
-          .map(opt => ({
-            ...opt,
-            visible: opt.name.toLowerCase().includes(searchTerm),
-          }))
-          .sort((a, b) => (a.visible === b.visible ? 0 : a.visible ? -1 : 1))
-          .map((opt, index) => ({
-            ...opt,
-            top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
-          }));
+        return (
+          _listOptions
+            .map(opt => ({
+              ...opt,
+              visible: opt.name.toLowerCase().includes(searchTerm),
+            }))
+            // .sort((a, b) => (a.visible === b.visible ? 0 : a.visible ? -1 : 1))
+            .map((opt, index) => ({
+              ...opt,
+              top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
+            }))
+        );
       } else {
         return _listOptions;
       }

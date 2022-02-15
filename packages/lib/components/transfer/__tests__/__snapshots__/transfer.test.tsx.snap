@@ -32,48 +32,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
               style="width: 100%;"
             >
               <div
-                class="rc-list-option-value-wrapper"
-                style="--text-color: #000;"
-              >
-                <span
-                  class="rc-list-option-icon"
-                >
-                  <svg
-                    class="prefix__feather prefix__feather-check"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="rc-list-option-value"
-                >
-                  five
-                </span>
-              </div>
-            </div>
-          </li>
-          <li
-            aria-checked="false"
-            class="rc-list-option"
-            role="option"
-            style="height: 40px; top: 50px;"
-            tabindex="0"
-          >
-            <div
-              class="rc-list-item-wrapper"
-              style="width: 100%;"
-            >
-              <div
-                class="rc-list-option-value-wrapper"
+                class="rc-list-option-value-wrapper rc-list-option-sm"
                 style="--text-color: #000;"
               >
                 <span
@@ -106,7 +65,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
             aria-checked="false"
             class="rc-list-option"
             role="option"
-            style="height: 40px; top: 95px;"
+            style="height: 40px; top: 50px;"
             tabindex="0"
           >
             <div
@@ -114,48 +73,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
               style="width: 100%;"
             >
               <div
-                class="rc-list-option-value-wrapper"
-                style="--text-color: #000;"
-              >
-                <span
-                  class="rc-list-option-icon"
-                >
-                  <svg
-                    class="prefix__feather prefix__feather-check"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="rc-list-option-value"
-                >
-                  six
-                </span>
-              </div>
-            </div>
-          </li>
-          <li
-            aria-checked="false"
-            class="rc-list-option"
-            role="option"
-            style="height: 40px; top: 140px;"
-            tabindex="0"
-          >
-            <div
-              class="rc-list-item-wrapper"
-              style="width: 100%;"
-            >
-              <div
-                class="rc-list-option-value-wrapper"
+                class="rc-list-option-value-wrapper rc-list-option-sm"
                 style="--text-color: #000;"
               >
                 <span
@@ -184,6 +102,88 @@ exports[`Transfer > should render transfer snapshot 1`] = `
               </div>
             </div>
           </li>
+          <li
+            aria-checked="false"
+            class="rc-list-option"
+            role="option"
+            style="height: 40px; top: 95px;"
+            tabindex="0"
+          >
+            <div
+              class="rc-list-item-wrapper"
+              style="width: 100%;"
+            >
+              <div
+                class="rc-list-option-value-wrapper rc-list-option-sm"
+                style="--text-color: #000;"
+              >
+                <span
+                  class="rc-list-option-icon"
+                >
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="rc-list-option-value"
+                >
+                  five
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="rc-list-option"
+            role="option"
+            style="height: 40px; top: 140px;"
+            tabindex="0"
+          >
+            <div
+              class="rc-list-item-wrapper"
+              style="width: 100%;"
+            >
+              <div
+                class="rc-list-option-value-wrapper rc-list-option-sm"
+                style="--text-color: #000;"
+              >
+                <span
+                  class="rc-list-option-icon"
+                >
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="rc-list-option-value"
+                >
+                  six
+                </span>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -193,7 +193,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
   >
     <div
       aria-label=""
-      class="rc-disabled rc-btn-md rc-btn-icon rc-btn"
+      class="rc-disabled rc-btn-sm rc-btn-icon rc-btn"
       role="button"
       style="outline: none; position: relative;"
       tabindex="0"
@@ -222,7 +222,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     </div>
     <div
       aria-label=""
-      class="rc-disabled rc-btn-md rc-btn-icon rc-btn"
+      class="rc-disabled rc-btn-sm rc-btn-icon rc-btn"
       role="button"
       style="transform: rotate(180deg); outline: none; position: relative;"
       tabindex="0"
@@ -278,7 +278,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
               style="width: 100%;"
             >
               <div
-                class="rc-list-option-value-wrapper"
+                class="rc-list-option-value-wrapper rc-list-option-sm"
                 style="--text-color: #000;"
               >
                 <span
@@ -302,7 +302,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
                 <span
                   class="rc-list-option-value"
                 >
-                  eight
+                  three
                 </span>
               </div>
             </div>
@@ -319,7 +319,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
               style="width: 100%;"
             >
               <div
-                class="rc-list-option-value-wrapper"
+                class="rc-list-option-value-wrapper rc-list-option-sm"
                 style="--text-color: #000;"
               >
                 <span
@@ -360,7 +360,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
               style="width: 100%;"
             >
               <div
-                class="rc-list-option-value-wrapper"
+                class="rc-list-option-value-wrapper rc-list-option-sm"
                 style="--text-color: #000;"
               >
                 <span
@@ -401,7 +401,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
               style="width: 100%;"
             >
               <div
-                class="rc-list-option-value-wrapper"
+                class="rc-list-option-value-wrapper rc-list-option-sm"
                 style="--text-color: #000;"
               >
                 <span
@@ -425,7 +425,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
                 <span
                   class="rc-list-option-value"
                 >
-                  three
+                  eight
                 </span>
               </div>
             </div>

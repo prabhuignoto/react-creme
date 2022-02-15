@@ -11,6 +11,7 @@ const Section: React.FC<SectionProps> = ({
   RTL = false,
   size = 'sm',
   noPadding = false,
+  useHash = false,
 }) => {
   const sectionStyle = useMemo(
     () =>
@@ -47,9 +48,19 @@ const Section: React.FC<SectionProps> = ({
     });
   }, []);
 
+  const getTitle = useMemo(() => {
+    return useHash ? `# ${title}` : title;
+  }, []);
+
+  const getId = useMemo(() => {
+    return `${title?.toLowerCase().replace(' ', '-')}`;
+  }, []);
+
   return (
     <div style={sectionStyle} className={'rc-section'}>
-      {title && <div className={headerClass}>{title}</div>}
+      <div className={headerClass} id={getId}>
+        {getTitle}
+      </div>
       <div style={bodyStyle} className={bodyClass}>
         {children}
       </div>

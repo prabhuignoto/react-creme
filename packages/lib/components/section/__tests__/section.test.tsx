@@ -17,4 +17,13 @@ describe('Section', () => {
     const { getByText } = render(<Section>Section content</Section>);
     expect(getByText('Section content')).toBeInTheDocument();
   });
+
+  it('should render title with hash', () => {
+    const { getByText } = render(
+      <Section useHash title="test">
+        content
+      </Section>
+    );
+    expect(getByText('# test')).toBeInTheDocument();
+  });
 });

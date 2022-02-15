@@ -13,7 +13,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       class="rc-bread-crumb-node rc-bread-crumb-node-sm rc-bread-crumb-node-selected"
     >
       <a
-        class="rc-link"
+        class="rc-link rc-link-sm"
         style="outline: none; position: relative;"
         tabindex="0"
       >
@@ -53,7 +53,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       class="rc-bread-crumb-node rc-bread-crumb-node-sm"
     >
       <a
-        class="rc-link"
+        class="rc-link rc-link-sm"
         style="outline: none; position: relative;"
         tabindex="0"
       >
@@ -93,7 +93,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       class="rc-bread-crumb-node rc-bread-crumb-node-sm"
     >
       <a
-        class="rc-link"
+        class="rc-link rc-link-sm"
         style="outline: none; position: relative;"
         tabindex="0"
       >

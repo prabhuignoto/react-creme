@@ -5,6 +5,7 @@ import {
   faHammer,
   faKeyboard,
   faLink,
+  faRocket,
   faTasksAlt,
   faWindowMaximize,
 } from '@fortawesome/free-solid-svg-icons';
@@ -33,14 +34,32 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
     item: SidebarItemModel
   ) => {
     onSelect?.();
-    navigate('/' + item.name.trim().toLowerCase().replace(/ /g, '-'));
+    const name = item.name.trim().toLowerCase().replace(/ /g, '-');
+    const value = item.value.trim().toLowerCase().replace(/ /g, '-');
+
+    if (value === 'home') {
+      navigate(`/home#${name}`);
+    } else {
+      navigate('/' + name);
+    }
   };
 
   useEffect(() => {
     if (location.pathname) {
-      window.scrollTo(0, 0);
+      if (location.pathname === '/' || location.pathname === '/home') {
+        if (location.hash) {
+          const hash = location.hash.replace('#', '');
+          const el = document.getElementById(hash);
+          console.log(el);
+          if (el) {
+            el.scrollIntoView();
+          }
+        }
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   const sideBarMemoized = React.useMemo(() => {
     return (
@@ -52,6 +71,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
           sectionsCollapsible={false}
           groups={data}
           icons={[
+            <FontAwesomeIcon size="2x" icon={faRocket} key="home" />,
             <FontAwesomeIcon size="2x" icon={faBorderAll} key="layout" />,
             <FontAwesomeIcon size="2x" icon={faTasksAlt} key="content" />,
             <FontAwesomeIcon size="2x" icon={faKeyboard} key="input" />,

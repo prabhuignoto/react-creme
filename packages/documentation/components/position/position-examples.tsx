@@ -1,8 +1,6 @@
 import React, { useRef } from 'react';
-import {
-  Position,
-  usePosition,
-} from '../../../lib/components/common/effects/usePosition';
+import { Position } from '../../../lib/components/common/effects/use-position-model';
+import { usePosition } from '../../../lib/components/common/effects/usePosition';
 import './position-examples.scss';
 
 export const PositionComponent: React.FunctionComponent<{

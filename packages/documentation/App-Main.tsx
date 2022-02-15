@@ -1,5 +1,5 @@
 import deepEqual from 'fast-deep-equal';
-import React, { Suspense, useImperativeHandle, useRef } from 'react';
+import React, { Suspense, useImperativeHandle, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { useRecoilValue } from 'recoil';
 import { ThemeProvider } from '../lib/components/common/theme-provider';
@@ -25,9 +25,14 @@ const Main = React.forwardRef<
     }
   });
 
+  const canShowHeader = useMemo(
+    () => location.pathname !== '/' && location.pathname !== '/home',
+    [location.pathname]
+  );
+
   return (
     <section className="app-main-section" ref={sectionRef}>
-      {location.pathname !== '/' && (
+      {canShowHeader && (
         <Header
           isMobile={media && media.isMobile}
           onOpen={toggleOpen}

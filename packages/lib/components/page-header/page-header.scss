@@ -39,11 +39,17 @@ $heights: (
   }
 }
 
-.rc-page-header-title {
-  @each $size in $sizes {
-    &.rc-page-header-title-#{$size} {
+@each $size in $sizes {
+  .rc-page-header-#{$size} {
+    .rc-page-header-title {
       @extend %text-#{$size};
       height: map.get($heights, $size);
+    }
+
+    .rc-page-header-content {
+      :first-child {
+        // @extend %text-#{$size};
+      }
     }
   }
 }

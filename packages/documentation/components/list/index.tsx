@@ -9,7 +9,8 @@ function list() {
     <DemoPageRenderer
       demoWidget={<Widgets />}
       title="List"
-      description="List is a component that displays a list of items."
+      description={`The List component can be used to display a list of items.
+      The component comes with an option to quickly search through the items. With virtualization, the list only renders the items that are in the visible region.`}
       pageIcon={<FontAwesomeIcon icon={faList} size="2x" />}
       sourceId="list/list.tsx"
       editId="list"

@@ -11,7 +11,7 @@ function Draggable() {
       demoWidget={<Widgets />}
       title="useDraggable"
       properties={[]}
-      description="React Hook to enable draggable functionality"
+      description="A Hook to enable draggable behavior on a single or a multiple target element."
       tabTitles={['Examples', 'Stackblitz']}
       stackBlitzCodes={['react-ts-re75pw']}
       sourceId="common/effects/useDraggable.ts"

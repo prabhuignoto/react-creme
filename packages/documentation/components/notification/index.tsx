@@ -8,7 +8,7 @@ function notification() {
   return (
     <DemoPageRenderer
       title="Notification"
-      description="Notification is a component that can be used to display a message to the user."
+      description="Notification is a component that can be used to display any important message to the user. Notifications can be dismissed manually or automatically."
       pageIcon={<FontAwesomeIcon icon={faBell} size="2x" />}
       sourceId="notification/notification.tsx"
       editId="notification"

@@ -28,6 +28,7 @@ export interface SidebarItemModel {
   id?: string;
   name: string;
   selected?: boolean;
+  value?: string;
   visible?: boolean;
 }
 

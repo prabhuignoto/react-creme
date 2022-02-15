@@ -34,6 +34,7 @@
 }
 
 .rc-overlay-close-btn {
+  @extend %icon-md;
   @include position.position-abs('top right');
   border-radius: 50%;
   cursor: pointer;
@@ -57,12 +58,6 @@
 
   svg {
     color: theme.$white;
-  }
-}
-
-.rc-overlay-close-btn:hover {
-  svg {
-    // color: theme.$primary;
   }
 }
 

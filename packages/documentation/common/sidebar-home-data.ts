@@ -3,6 +3,31 @@ import { SidebarGroupModel } from '../../lib/components/sidebar/sidebar-model';
 export default [
   {
     items: [
+      {
+        name: 'Installation',
+        value: 'home',
+      },
+      {
+        name: 'Dependencies',
+        value: 'home',
+      },
+      {
+        name: 'Browser Support',
+        value: 'home',
+      },
+      {
+        name: 'Usage',
+        value: 'home',
+      },
+      {
+        name: 'Theme',
+        value: 'home',
+      },
+    ],
+    title: 'Getting started',
+  },
+  {
+    items: [
       { name: 'Splitter' },
       { name: 'Accordion' },
       { name: 'Tabs' },

@@ -7,8 +7,8 @@ import { Widgets } from './widgets';
 const Description = (
   <div>
     <p>
-      An accordion is a design element that expands in place to expose some
-      hidden information. Unlike overlays, accordions push the page content down
+      Accordion is a design element that expands in place to expose some hidden
+      information. Unlike overlays, accordions push the page content down
       instead of being superposed on top of page content.
     </p>
   </div>

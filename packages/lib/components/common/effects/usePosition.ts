@@ -1,34 +1,9 @@
-import React, { CSSProperties, RefObject, useEffect, useState } from 'react';
-
-export type Position =
-  | 'top left'
-  | 'top right'
-  | 'top center'
-  | 'bottom center'
-  | 'bottom left'
-  | 'bottom right'
-  | 'left center'
-  | 'left top'
-  | 'left bottom'
-  | 'right top'
-  | 'right bottom'
-  | 'right center';
-
-interface Settings {
-  alignToEdge?: boolean;
-  spacing: number;
-}
-
-type FunctionType = (
-  ele: RefObject<HTMLDivElement>,
-  toolTip: RefObject<HTMLElement>,
-  pos: Position,
-  settings?: Settings
-) => CSSProperties | undefined;
+import React, { useEffect, useState } from 'react';
+import { FunctionType } from './use-position-model';
 
 const usePosition: FunctionType = function (
-  element,
-  tooltip,
+  container,
+  target,
   position,
   settings = { spacing: 15 }
 ) {
@@ -36,7 +11,7 @@ const usePosition: FunctionType = function (
   const { spacing, alignToEdge } = settings;
 
   useEffect(() => {
-    if (!element.current && !tooltip.current) {
+    if (!container.current && !target.current) {
       return;
     }
 
@@ -47,10 +22,10 @@ const usePosition: FunctionType = function (
 
     const isPositionY = (match: string) => positionY === match;
 
-    const eleHeight = element.current?.clientHeight || 0;
-    const eleWidth = element.current?.clientWidth || 0;
+    const eleHeight = container.current?.clientHeight || 0;
+    const eleWidth = container.current?.clientWidth || 0;
 
-    const tooltipWidth = tooltip.current?.clientWidth || 0;
+    const tooltipWidth = target.current?.clientWidth || 0;
     const tooltipHalfWidth = Math.round(tooltipWidth / 2);
 
     const horizontalCenter: React.CSSProperties = {
@@ -134,7 +109,7 @@ const usePosition: FunctionType = function (
     }
 
     setPosition(cssPosition);
-  }, [element, tooltip, position]);
+  }, [container, target, position]);
 
   return _position;
 };

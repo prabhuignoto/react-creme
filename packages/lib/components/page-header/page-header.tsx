@@ -20,13 +20,12 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   const headerClass = useMemo(() => {
     return classNames('rc-page-header', {
       'rc-page-header-rtl': RTL,
+      [`rc-page-header-${size}`]: size,
     });
   }, []);
 
   const titleClass = useMemo(() => {
-    return classNames('rc-page-header-title', {
-      [`rc-page-header-title-${size}`]: true,
-    });
+    return classNames('rc-page-header-title');
   }, []);
 
   const headerIconClass = useMemo(() => {
