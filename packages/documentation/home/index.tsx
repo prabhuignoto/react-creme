@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BlockQuote, Button } from '../../lib/components';
 import { Section } from '../../lib/components/section/section';
 import packages from '../../lib/package.json';
