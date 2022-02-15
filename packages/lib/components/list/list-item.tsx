@@ -40,6 +40,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
           {
             'rc-list-option-disabled': disabled,
             'rc-list-option-focus': focusable && focus,
+            'rc-list-option-highlight-selection': highlightSelection,
           },
         ]),
       [selected, disabled, focus]

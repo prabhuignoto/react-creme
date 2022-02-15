@@ -80,8 +80,7 @@ $sizes: (sm, md, lg);
   }
 
   &.rc-list-option-selected.rc-list-option-highlight-selection {
-    background: rgba(theme.$secondary-rgb, 1);
-    color: theme.$primary;
+    background: rgba(theme.$primary-rgb, 1);
   }
 }
 
@@ -129,6 +128,12 @@ $sizes: (sm, md, lg);
   width: 100%;
 
   &.rc-list-option-value-selected {
+    // color: theme.$text-color-on-selection;
+  }
+}
+
+.rc-list-option-highlight-selection {
+  .rc-list-option-value-selected {
     color: theme.$text-color-on-selection;
   }
 }

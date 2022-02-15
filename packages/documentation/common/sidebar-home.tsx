@@ -70,6 +70,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
           searchPlaceholder="Search Components ..."
           sectionsCollapsible={false}
           groups={data}
+          focusable={false}
           icons={[
             <FontAwesomeIcon size="2x" icon={faRocket} key="home" />,
             <FontAwesomeIcon size="2x" icon={faBorderAll} key="layout" />,

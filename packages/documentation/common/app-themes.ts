@@ -7,7 +7,7 @@ export const Default: Colors = {
   secondary: '#BFD7ED',
   tertiary: '#003B73',
   text: '#000',
-  textSelection: '#003B73',
+  textSelection: '#fff',
 };
 
 export const Glacier: Colors = {
