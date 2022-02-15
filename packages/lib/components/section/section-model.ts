@@ -9,4 +9,5 @@ export interface SectionProps {
   noPadding?: boolean;
   size?: 'sm' | 'md' | 'lg';
   title?: string;
+  useHash?: boolean;
 }

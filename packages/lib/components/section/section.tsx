@@ -11,6 +11,7 @@ const Section: React.FC<SectionProps> = ({
   RTL = false,
   size = 'sm',
   noPadding = false,
+  useHash = false,
 }) => {
   const sectionStyle = useMemo(
     () =>
@@ -48,7 +49,7 @@ const Section: React.FC<SectionProps> = ({
   }, []);
 
   const getTitle = useMemo(() => {
-    return `# ${title}`;
+    return useHash ? `# ${title}` : title;
   }, []);
 
   const getId = useMemo(() => {
