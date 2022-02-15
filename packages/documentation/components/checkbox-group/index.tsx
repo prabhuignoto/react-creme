@@ -8,7 +8,8 @@ function index() {
   return (
     <DemoPageRenderer
       title="Checkbox Group"
-      description="Checkbox group is a group of checkboxes that can be used to select multiple options."
+      description={`Checkboxes are used when there is a list of options and the user may select any number of choices, including zero.
+      Each checkbox is independent of all other checkboxes in the list, and checking one box doesn’t uncheck the others.`}
       demoWidget={<Widgets />}
       pageIcon={<FontAwesomeIcon icon={faTasks} size="2x" />}
       editId="checkbox-group"

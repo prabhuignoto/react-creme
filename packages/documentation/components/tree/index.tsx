@@ -6,7 +6,7 @@ function tree() {
   return (
     <DemoPageRenderer
       title="Tree"
-      description={`A tree view or an outline view is a graphical control element that presents a hierarchical view of information.
+      description={`A tree view or an outline view is a graphical  element that presents a hierarchical view of information.
       Each item (often called a branch or a node) can have a number of subitems`}
       sourceId="tree/tree.tsx"
       editId="tree"

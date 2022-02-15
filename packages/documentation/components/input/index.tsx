@@ -8,7 +8,7 @@ function index() {
   return (
     <DemoPageRenderer
       title="Inputs"
-      description="Inputs are used to collect user input."
+      description="Input fields allow users to enter text into a UI. Leading icon(optional) — describe the type of input a text field requires."
       pageIcon={<FontAwesomeIcon icon={faKeyboard} size="2x" />}
       sourceId="input/input.tsx"
       editId="input"
