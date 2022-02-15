@@ -186,7 +186,13 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           {...focusProps}
         />
         {!showSpinner && (
-          <span onMouseDown={handleClear} className={clearClass} role="button">
+          <span
+            onMouseDown={handleClear}
+            className={clearClass}
+            role="button"
+            hidden={!showSpinner}
+            aria-hidden={!showSpinner}
+          >
             {enableClear && <CloseIcon />}
           </span>
         )}

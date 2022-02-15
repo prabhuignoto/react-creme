@@ -22,10 +22,6 @@ const themes: RadioGroupItemProps<ThemeType>[] = [
     label: 'Blueberry',
     value: 'blueberry',
   },
-  {
-    label: 'Biscuit',
-    value: 'grape',
-  },
 ];
 
 const AppSettings: React.FunctionComponent = () => {

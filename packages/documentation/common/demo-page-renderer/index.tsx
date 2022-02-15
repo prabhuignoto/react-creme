@@ -219,6 +219,14 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                     ))}
                 </div>
               )}
+              <div className="rc-demo-stack-blitz-collection">
+                {stackBlitzCodes &&
+                  stackBlitzCodes.map(code => (
+                    <div className="rc-demo-stack-blitz" key={code}>
+                      <StackBlitz id={code} />
+                    </div>
+                  ))}
+              </div>
             </Tabs>
           </div>
         )

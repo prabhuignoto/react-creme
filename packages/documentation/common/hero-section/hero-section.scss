@@ -4,7 +4,7 @@
   border-radius: 4px;
   display: flex;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   padding: 1rem;
 }
 
@@ -77,11 +77,13 @@
 .rc-home-buttons {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-top: 3rem;
+  width: 90%;
 
-  > :first-child {
-    margin-right: 1rem;
+  > * {
+    margin: 1rem;
   }
 }
 

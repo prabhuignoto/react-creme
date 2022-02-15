@@ -6,6 +6,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { asideState, responsiveState } from '../../atoms/home';
 import { HomeButton } from '../../home/home-button';
 import { Features } from '../../home/home-data';
+import { Badges } from '../badges';
 import './hero-section.scss';
 
 function HeroSection() {
@@ -23,6 +24,9 @@ function HeroSection() {
           <span className="rc-demo-app-icon"></span>
           <span className="rc-demo-app-title">react-creme</span>
         </header>
+
+        <Badges />
+
         {/* FEATURES SECTION */}
         <ul className="rc-demo-app-features">
           {Features.map(({ icon, title }, index) => (

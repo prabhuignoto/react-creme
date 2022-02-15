@@ -48,7 +48,7 @@ $heights: (
 
     .rc-page-header-content {
       :first-child {
-        @extend %text-#{$size};
+        // @extend %text-#{$size};
       }
     }
   }
