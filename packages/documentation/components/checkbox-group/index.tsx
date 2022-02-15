@@ -1,8 +1,8 @@
 import { faTasks } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import Widgets from './widgets';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function index() {
   return (
@@ -20,7 +20,7 @@ function index() {
             'Callback function to be called when the checkbox group changes.',
           name: 'onChange',
           optional: 'Yes',
-          type: 'function',
+          type: 'Function',
         },
       ]}
       properties={[
@@ -37,7 +37,7 @@ function index() {
             'If true, the checkbox group will not generate unique ids for each checkbox.',
           name: 'noUniqueIds',
           optional: 'Yes',
-          type: 'boolean',
+          type: 'Boolean',
         },
         {
           default: 'square',
@@ -45,21 +45,28 @@ function index() {
             'checkbox render style. <em>square</em> or <em>round</em>',
           name: 'checkboxStyle',
           optional: 'Yes',
-          type: 'string',
+          type: 'String',
         },
         {
           default: 'false',
           description: 'Disables the checkbox group',
           name: 'disabled',
           optional: 'Yes',
-          type: 'boolean',
+          type: 'Boolean',
         },
         {
           default: 'vertical',
           description: 'layout of the checkbox group. vertical or horizontal',
           name: 'layout',
           optional: 'Yes',
-          type: 'string',
+          type: 'String',
+        },
+        {
+          default: 'sm',
+          description: 'size of the checkbox group',
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
