@@ -38,9 +38,24 @@ describe('Input', () => {
 
   it('should clear work', async () => {
     const handler = vi.fn();
-    const { getByRole } = render(<Input onChange={handler} enableClear />);
+    const { getByTestId, getByPlaceholderText } = render(
+      <Input
+        onChange={handler}
+        enableClear
+        placeholder="enter"
+        showSpinner={false}
+      />
+    );
 
-    fireEvent.mouseDown(getByRole('button'));
+    fireEvent.keyUp(getByPlaceholderText('enter'), {
+      key: 'E',
+    });
+
+    await waitFor(() => {
+      expect(getByTestId('rc-clear-input')).toBeInTheDocument();
+    });
+
+    fireEvent.mouseDown(getByTestId('rc-clear-input'));
 
     await waitFor(async () => expect(handler).toBeCalledWith(''));
   });
