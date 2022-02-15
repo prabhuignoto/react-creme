@@ -28,6 +28,7 @@ $heights: (
   font-weight: 500;
   height: 30px;
   padding-left: 1rem;
+  text-decoration: none;
   width: 100%;
 
   @each $key, $val in $sizes {

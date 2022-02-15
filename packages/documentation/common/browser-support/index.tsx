@@ -6,7 +6,7 @@ import './browser-support.scss';
 
 function BrowserSupport() {
   return (
-    <Section title="Browser Support" size="md">
+    <Section title="Browser Support" size="md" useHash>
       <BlockQuote>
         react-creme is a modern UI Toolkit that is designed to work with the
         most popular & modern web browsers.

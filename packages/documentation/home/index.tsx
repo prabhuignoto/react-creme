@@ -19,7 +19,7 @@ const Home: React.FunctionComponent = () => {
       {/* GETTING STARTED SECTION */}
       <div className="rc-home-main-content">
         {/* SETUP */}
-        <Section title="Getting Started" size="md">
+        <Section title="Installation" size="md" hashPrefix="home">
           <BlockQuote>
             Get started by installing the react-creme package via npm or yarn.
           </BlockQuote>
@@ -28,7 +28,7 @@ const Home: React.FunctionComponent = () => {
         </Section>
 
         {/* DEPENDENCIES */}
-        <Section title="Dependencies" size="md">
+        <Section title="Dependencies" size="md" hashPrefix="home">
           <BlockQuote>
             react-creme is designed to be lean and does not depend on any other
             major library for styling or for any other features. It only depends
@@ -45,7 +45,7 @@ const Home: React.FunctionComponent = () => {
         {/* Browser Support */}
         <BrowserSupport />
 
-        <Section title="Usage" size="md">
+        <Section title="Usage" size="md" hashPrefix="home">
           <BlockQuote>
             The example below shows how to use the react-creme package to create
             a button element.
@@ -60,7 +60,7 @@ const Home: React.FunctionComponent = () => {
           </div>
         </Section>
 
-        <Section title="Support for Themes" size="md">
+        <Section title="Theme" size="md" hashPrefix="home">
           <BlockQuote>
             react-creme comes with built in support for Themes. Customize the
             colors, font and icon sizes with ease.
