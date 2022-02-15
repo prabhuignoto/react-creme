@@ -34,6 +34,7 @@ export type { CheckboxGroupProps } from './components/checkbox-group/checkbox-gr
 export { CheckBox } from './components/checkbox/checkbox';
 export type { CheckboxProps } from './components/checkbox/checkbox-model';
 export { default as useDraggable } from './components/common/effects/useDraggable';
+export { usePosition } from './components/common/effects/usePosition';
 export type { OverlayModel } from './components/common/overlay-model';
 export { ThemeProvider } from './components/common/theme-provider';
 export type {

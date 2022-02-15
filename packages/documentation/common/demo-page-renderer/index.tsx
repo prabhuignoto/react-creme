@@ -184,7 +184,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                   </CSSTransition>
                 </Suspense>
               </div>
-              {canShowProperties && (
+              {canShowProperties ? (
                 <div className="rc-demo-prop-section">
                   <Suspense fallback={<div></div>}>
                     <Section title="Properties">
@@ -209,15 +209,16 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                     )}
                   </Suspense>
                 </div>
+              ) : (
+                <div className="rc-demo-stack-blitz-collection">
+                  {stackBlitzCodes &&
+                    stackBlitzCodes.map(code => (
+                      <div className="rc-demo-stack-blitz" key={code}>
+                        <StackBlitz id={code} />
+                      </div>
+                    ))}
+                </div>
               )}
-              <div className="rc-demo-stack-blitz-collection">
-                {stackBlitzCodes &&
-                  stackBlitzCodes.map(code => (
-                    <div className="rc-demo-stack-blitz" key={code}>
-                      <StackBlitz id={code} />
-                    </div>
-                  ))}
-              </div>
             </Tabs>
           </div>
         )
