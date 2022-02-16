@@ -1,5 +1,5 @@
 @use '../../../lib/design/theme.scss';
-@use '../../../lib/design/layout.scss';
+@use '../../../lib/design/core.scss';
 
 .rc-demo-position-outer-box {
   @extend %border-radius;

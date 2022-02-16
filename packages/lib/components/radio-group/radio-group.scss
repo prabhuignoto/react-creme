@@ -1,5 +1,5 @@
-@use "../../design/layout.scss";
-@use "../../design/list.scss";
+@use '../../design/core.scss';
+@use '../../design/list.scss';
 
 .rc-radio-group {
   margin: 0;
@@ -15,7 +15,7 @@
 
 .rc-radio-group-column {
   @extend %list-left;
-  
+
   .rc-radio-grp-item {
     width: 100%;
   }

@@ -1,5 +1,5 @@
-@use "../../design/layout.scss";
-@use "../../design/button.scss";
+@use '../../design/core.scss';
+@use '../../design/button.scss';
 
 .transfer-wrapper {
   @extend %center;
