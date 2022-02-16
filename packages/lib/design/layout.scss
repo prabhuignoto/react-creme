@@ -1,5 +1,8 @@
-@use 'theme.scss';
 @use 'position.scss';
+@import 'border';
+@import 'shadow';
+@import 'font';
+@import 'icon';
 
 %flex {
   align-items: center;
@@ -30,68 +33,6 @@
   @extend %flex;
   align-items: flex-start;
   justify-content: center;
-}
-
-%border-radius {
-  border-radius: 4px;
-}
-
-%border-radius-high {
-  border-radius: 20px;
-}
-
-%border-radius-right {
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-%border-radius-left {
-  border-bottom-left-radius: 4px;
-  border-top-left-radius: 4px;
-}
-
-%border {
-  @extend %border-radius;
-  border: 1px solid rgba(theme.$secondary-rgb, 0.75);
-}
-
-%border-error {
-  @extend %border-radius;
-  border: 1px solid theme.$crimson;
-}
-
-%border-success {
-  @extend %border-radius;
-  border: 1px solid theme.$success-green;
-}
-
-%border-no-radius {
-  border: 1px solid theme.$secondary;
-}
-
-%border-strong {
-  @extend %border-radius;
-  border: 1px solid theme.$primary;
-}
-
-%shadow-inset-strong {
-  box-shadow: inset 0 0 5px 2px rgba(theme.$secondary-rgb, 0.75);
-}
-
-%shadow-inset {
-  box-shadow: inset 0 0 4px 1px rgba(theme.$secondary-rgb, 0.4);
-}
-
-%shadow-inset-small {
-  box-shadow: inset 0 0 4px 2px rgba(theme.$secondary-rgb, 0.2);
-}
-
-%shadow-small {
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
-}
-
-%shadow-medium {
-  box-shadow: 0 0 20px 6px rgba(0, 0, 0, 0.1);
 }
 
 @mixin get-flex($align, $wrap: false) {

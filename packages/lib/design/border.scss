@@ -1,0 +1,43 @@
+@use 'theme.scss';
+
+%border-radius {
+  border-radius: 4px;
+}
+
+%border-radius-high {
+  border-radius: 20px;
+}
+
+%border-radius-right {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+%border-radius-left {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+%border {
+  @extend %border-radius;
+  border: 1px solid rgba(theme.$secondary-rgb, 0.75);
+}
+
+%border-error {
+  @extend %border-radius;
+  border: 1px solid theme.$crimson;
+}
+
+%border-success {
+  @extend %border-radius;
+  border: 1px solid theme.$success-green;
+}
+
+%border-no-radius {
+  border: 1px solid theme.$secondary;
+}
+
+%border-strong {
+  @extend %border-radius;
+  border: 1px solid theme.$primary;
+}
