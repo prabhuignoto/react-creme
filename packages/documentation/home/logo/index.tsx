@@ -17,7 +17,6 @@ const Logo: React.FC<{ isMobile: boolean; onMenuClick }> = ({
         </span>
       )}
       <div onClick={() => navigate('/')} className="rc-demo-app-logo">
-        {/* <span className="rc-demo-logo"></span>s */}
         <span className="rc-demo-logo-text">React Creme</span>
       </div>
     </div>

@@ -167,6 +167,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
             focusable={focusable}
             accent={accent}
             ref={inputRef}
+            size={size}
           />
         </li>
       )}

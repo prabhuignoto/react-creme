@@ -1,17 +1,27 @@
+import { faGithub, faHackerNews } from '@fortawesome/free-brands-svg-icons';
+import {
+  faAddressBook,
+  faHouse,
+  faLaptop,
+  faPaintbrush,
+  faSailboat,
+  faSearch,
+  faWrench,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Settings } from 'react-feather';
 import { Tabs } from '../../../lib/components';
 
 const icons = [
-  <Settings key="1" />,
-  <Settings key="2" />,
-  <Settings key="3" />,
-  <Settings key="4" />,
-  <Settings key="5" />,
-  <Settings key="6" />,
-  <Settings key="7" />,
-  <Settings key="8" />,
-  <Settings key="9" />,
+  <FontAwesomeIcon icon={faAddressBook} key="1" />,
+  <FontAwesomeIcon icon={faSearch} key="2" />,
+  <FontAwesomeIcon icon={faWrench} key="3" />,
+  <FontAwesomeIcon icon={faHouse} key="4" />,
+  <FontAwesomeIcon icon={faPaintbrush} key="5" />,
+  <FontAwesomeIcon icon={faLaptop} key="6" />,
+  <FontAwesomeIcon icon={faSailboat} key="7" />,
+  <FontAwesomeIcon icon={faGithub} key="8" />,
+  <FontAwesomeIcon icon={faHackerNews} key="9" />,
 ];
 
 export const Default = (
