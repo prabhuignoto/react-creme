@@ -10,10 +10,10 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     class="rc-bread-crumb"
   >
     <span
-      class="rc-bread-crumb-node rc-bread-crumb-node-sm rc-bread-crumb-node-selected"
+      class="rc-bread-crumb-node rc-bread-crumb-node-sm"
     >
       <a
-        class="rc-link rc-link-sm"
+        class="rc-link rc-link-sm rc-link-highlight"
         style="outline: none; position: relative;"
         tabindex="0"
       >
