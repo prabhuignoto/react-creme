@@ -23,7 +23,7 @@ $heights: (
 
 .rc-section-header {
   border-bottom: 1px solid theme.$secondary;
-  color: theme.$black;
+  color: theme.$primary;
   font-size: 1rem;
   font-weight: 500;
   height: 30px;
@@ -33,7 +33,7 @@ $heights: (
 
   @each $key, $val in $sizes {
     &.rc-section-header-#{$key} {
-      font-size: $val;
+      @extend %font-#{$key};
       height: map.get($heights, $key);
     }
   }

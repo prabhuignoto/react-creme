@@ -44,9 +44,7 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
       </span>
       <SyntaxHighlighter
         language="typescript"
-        // wrapLongLines={true}
-        // useInlineStyles={true}
-        style={{ ...nightOwl, fontSize: '2rem', height: '100%' }}
+        style={{ ...nightOwl, height: '100%' }}
       >
         {code}
       </SyntaxHighlighter>

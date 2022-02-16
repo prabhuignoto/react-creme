@@ -23,9 +23,9 @@ const HomeButton: React.FunctionComponent<HomeButtonProps> = ({
 }) => {
   const btnClass = useMemo(
     () =>
-      classNames(size ? `rc-demo-home-btn-${size}` : '', 'rc-demo-home-btn', {
-        [`rc-demo-home-btn-${accent}`]: true,
-        [`rc-demo-home-btn-${fillStyle}`]: true,
+      classNames(size ? `rc-doc-home-btn-${size}` : '', 'rc-doc-home-btn', {
+        [`rc-doc-home-btn-${accent}`]: true,
+        [`rc-doc-home-btn-${fillStyle}`]: true,
       }),
     []
   );

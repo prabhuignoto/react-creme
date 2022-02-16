@@ -2,8 +2,8 @@ import React from 'react';
 import { BlockQuote, Button } from '../../lib/components';
 import { Section } from '../../lib/components/section/section';
 import packages from '../../lib/package.json';
-import BrowserSupport from './../common/browser-support';
-import HeroSection from './../common/hero-section';
+import BrowserSupport from './browser-support';
+import HeroSection from './hero-section';
 import { Code } from './../common/syntax';
 import { SyntaxHighLighter } from './../common/syntax-highlighter';
 import './home.scss';
@@ -12,7 +12,7 @@ import gettingStartedTheme from './samples/getting-started-theme';
 
 const Home: React.FunctionComponent = () => {
   return (
-    <div className="rc-demo-home-page">
+    <div className="rc-doc-home-page">
       {/* HERO SECTION */}
       <HeroSection />
 

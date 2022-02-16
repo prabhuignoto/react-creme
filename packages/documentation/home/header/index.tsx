@@ -1,7 +1,7 @@
 import React from 'react';
 import { AutoSuggestOption } from '../../../lib/components/auto-suggest/auto-suggest.model';
+import { Badge, GithubLink } from '../../common/github-link';
 import { AppSettings } from '../app-settings';
-import { Badge, GithubLink } from '../github-link';
 import { Logo } from '../logo';
 import './header.scss';
 

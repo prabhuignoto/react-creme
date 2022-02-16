@@ -19,22 +19,22 @@ function HeroSection() {
 
   return (
     media && (
-      <section className="rc-demo-app-hero">
-        <header className="rc-demo-app-hero-header">
-          <span className="rc-demo-app-icon"></span>
-          <span className="rc-demo-app-title">react-creme</span>
+      <section className="rc-doc-app-hero">
+        <header className="rc-doc-app-hero-header">
+          <span className="rc-doc-app-icon"></span>
+          <span className="rc-doc-app-title">react-creme</span>
         </header>
 
         <Badges />
 
         {/* FEATURES SECTION */}
-        <ul className="rc-demo-app-features">
+        <ul className="rc-doc-app-features">
           {Features.map(({ icon, title }, index) => (
-            <li key={index} className="rc-demo-app-feature">
-              <span className="rc-demo-app-feature-icon">
+            <li key={index} className="rc-doc-app-feature">
+              <span className="rc-doc-app-feature-icon">
                 <FontAwesomeIcon icon={icon} size="2x" />
               </span>
-              <span className="rc-demo-app-feature-name">{title}</span>
+              <span className="rc-doc-app-feature-name">{title}</span>
             </li>
           ))}
         </ul>

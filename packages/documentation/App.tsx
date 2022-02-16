@@ -10,7 +10,7 @@ import '../lib/design/theme.scss';
 import { AppMain } from './App-Main';
 import './App.scss';
 import { asideState, MediaState } from './atoms/home';
-import SidebarHome from './common/sidebar-home';
+import SidebarHome from './home/sidebar-home';
 
 const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
   ({ media }: { media: MediaState }) => {
