@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
+  faBook,
   faCode,
   faEdit,
   faExternalLink,
+  faSlidersH,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Suspense, useLayoutEffect, useMemo } from 'react';
-import { BookOpen, Code, Sliders } from 'react-feather';
+import { BookOpen, Code } from 'react-feather';
 import { CSSTransition } from 'react-transition-group';
 import { Link, PageHeader, Section, Tabs } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
@@ -23,9 +25,9 @@ const DataGrid = React.lazy(() =>
 );
 
 const Icons = [
-  <BookOpen size={18} key="book-open" />,
-  <Sliders size={18} key="settings" />,
-  <Code size={18} key="code" />,
+  <FontAwesomeIcon icon={faBook} key="book-open" />,
+  <FontAwesomeIcon icon={faSlidersH} key="sliders" />,
+  <FontAwesomeIcon icon={faCode} key="code" />,
 ];
 
 const IconsWithoutProperties = [
@@ -170,7 +172,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                       Edit this Page
                     </Link>
                   )}
-                  {stackBlitzCodes.length && (
+                  {stackBlitzCodes?.length && (
                     <Link
                       target="_blank"
                       accent="button"

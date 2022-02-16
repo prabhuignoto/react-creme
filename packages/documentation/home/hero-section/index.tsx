@@ -60,7 +60,7 @@ function HeroSection() {
             size="md"
             accent="round"
             fillStyle="solid"
-            link="https://61f8f3a47390f6003aed34df-ykvrobzdwm.chromatic.com/"
+            link="https://61f8f3a47390f6003aed34df-abuyqanwcm.chromatic.com/"
           >
             <FontAwesomeIcon icon={faBookOpen} />
           </HomeButton>

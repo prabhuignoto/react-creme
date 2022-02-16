@@ -9,7 +9,7 @@ export const data = [
   },
   {
     age: 25,
-    dept: 'chemistry is the toughest job in the world',
+    dept: 'Physics, Chemistry, Biology, Maths, English, Hindi, Social Science',
     marks: 80,
     name: 'Jane',
   },

@@ -36,11 +36,6 @@ $sizes: (sm, md, lg);
   @extend %border-radius;
   padding: 0.25rem;
 
-  &.rc-bread-crumb-node-selected {
-    background-color: rgba(theme.$secondary-rgb, 0.5);
-    color: theme.$tertiary;
-  }
-
   @each $size in $sizes {
     &.rc-bread-crumb-node-#{$size} {
       > * {
