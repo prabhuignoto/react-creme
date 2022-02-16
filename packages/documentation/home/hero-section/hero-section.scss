@@ -159,19 +159,19 @@
   width: 100%;
 
   @media (max-width: 480px) {
-    min-height: 950px;
+    height: 950px;
   }
 
   @media (min-width: 481px) and (max-width: 768px) {
-    min-height: 600px;
+    height: 600px;
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
-    min-height: 700px;
+    height: 700px;
   }
 
   @media (min-width: 1025px) {
-    min-height: 700px;
+    height: 700px;
   }
 
   img {

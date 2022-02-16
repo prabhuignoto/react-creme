@@ -1,5 +1,4 @@
-export default `
-import { Input, Theme, ThemeProvider } from 'react-creme';
+export default `import { Input, Theme, ThemeProvider } from 'react-creme';
 import 'react-creme/dist/react-creme.css';
 
 const AppTheme = {

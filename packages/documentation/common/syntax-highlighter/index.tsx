@@ -44,6 +44,7 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
       </span>
       <SyntaxHighlighter
         language="typescript"
+        customStyle={{ padding: '0.5rem' }}
         style={{ ...nightOwl, height: '100%' }}
       >
         {code}

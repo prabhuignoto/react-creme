@@ -7,7 +7,12 @@ function Footer() {
     <>
       <a
         href="javascript:void(0);"
-        style={{ marginBottom: '1rem', marginLeft: 'auto', marginTop: 'auto' }}
+        style={{
+          marginBottom: '1rem',
+          marginLeft: 'auto',
+          marginRight: '1rem',
+          marginTop: 'auto',
+        }}
         onClick={ev => {
           ev.preventDefault();
           window.scrollTo({
