@@ -26,10 +26,10 @@ export type RCInputElementProps =
 const Input = React.forwardRef<RCInputElementProps, InputProps>(
   (props, ref) => {
     const {
-      children,
       RTL = false,
       accent = 'flat',
       border = false,
+      children,
       controlled = false,
       disabled = false,
       enableClear = true,
@@ -38,15 +38,15 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       isAutoComplete = false,
       noUniqueId = false,
       onChange,
+      onFocus,
       onKeyUp,
       placeholder = 'Please enter a value ...',
       showSpinner = false,
+      size = 'sm',
       state = 'default',
       style,
       type = 'text',
       value = '',
-      onFocus,
-      size = 'sm',
     } = props;
     const [inputValue, setInputValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -169,7 +169,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       () => ({
         'aria-hidden': !showSpinner && !inputValue,
         'aria-label': 'Clear',
-        // hidden: !showSpinner && !inputValue,
+        hidden: !showSpinner && !inputValue,
       }),
       [inputValue, showSpinner]
     );

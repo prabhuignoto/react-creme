@@ -21,8 +21,8 @@ $sizes: (sm, md, lg);
 
   code {
     @extend %border-radius;
-    background: rgba(theme.$secondary-rgb, 0.5);
-    color: theme.$tertiary;
+    background: rgba(theme.$primary-rgb, 0.75);
+    color: theme.$white;
     display: inline-block;
     font-style: normal;
     margin: 0 0.2rem;

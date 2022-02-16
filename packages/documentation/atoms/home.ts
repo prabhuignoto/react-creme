@@ -11,6 +11,7 @@ export type ThemeType =
   | 'glacier'
   | 'blueberry'
   | 'night-gray'
+  | 'dark'
   | 'light-gray';
 
 type ThemeState = {

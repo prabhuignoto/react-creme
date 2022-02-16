@@ -7,6 +7,7 @@ import { RadioGroupItemProps } from '../../../lib/components/radio-group/radio-g
 import { responsiveState, themeState, ThemeType } from '../../atoms/home';
 import {
   Blueberry,
+  Dark,
   Default,
   Glacier,
   LightGray,
@@ -64,6 +65,8 @@ const AppSettings: React.FunctionComponent = () => {
       selectedTheme = { colors: { ...NightGray }, selectedTheme: 'neon' };
     } else if (themeToUpdate.value === 'light-gray') {
       selectedTheme = { colors: { ...LightGray }, selectedTheme: 'light-gray' };
+    } else if (themeToUpdate.value === 'dark') {
+      selectedTheme = { colors: { ...Dark }, selectedTheme: 'dark' };
     }
 
     updateAppTheme(selectedTheme);

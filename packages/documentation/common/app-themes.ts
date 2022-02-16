@@ -65,3 +65,11 @@ export const LightGray: Colors = {
   text: '#6C737E',
   textSelection: '#fff',
 };
+
+export const Dark: Colors = {
+  primary: '#113CFC',
+  secondary: '#1597E5',
+  tertiary: '#1597E5',
+  text: '#fff',
+  textSelection: '#fff',
+};

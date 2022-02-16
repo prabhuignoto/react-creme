@@ -1,6 +1,5 @@
 .app {
   --aside-width: 300px;
-  // background: #fff;
   background: #fff;
   display: flex;
   justify-content: flex-end;
@@ -43,7 +42,7 @@ code {
 
 .app-aside {
   align-items: center;
-  background: #fcfcfc;
+  // background: #000;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
