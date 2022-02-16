@@ -58,9 +58,11 @@ const Section: React.FC<SectionProps> = ({
 
   return (
     <div style={sectionStyle} className={'rc-section'}>
-      <div className={headerClass} id={getId}>
-        {getTitle}
-      </div>
+      {getTitle && (
+        <div className={headerClass} id={getId}>
+          {getTitle}
+        </div>
+      )}
       <div style={bodyStyle} className={bodyClass}>
         {children}
       </div>

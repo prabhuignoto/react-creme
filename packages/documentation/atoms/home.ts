@@ -10,8 +10,8 @@ export type ThemeType =
   | 'default'
   | 'glacier'
   | 'blueberry'
-  | 'bluerush'
-  | 'grape';
+  | 'night-gray'
+  | 'light-gray';
 
 type ThemeState = {
   colors: Colors;

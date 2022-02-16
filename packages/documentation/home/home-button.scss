@@ -18,7 +18,7 @@ $icons: (
   lg: 24px,
 );
 
-.rc-demo-home-btn {
+.rc-doc-home-btn {
   align-items: center;
   background: rgba($color: #434343, $alpha: 0.1);
   color: #fff;
@@ -29,25 +29,25 @@ $icons: (
   text-decoration: none;
   transition: background 0.2s ease-in;
 
-  &.rc-demo-home-btn-round {
+  &.rc-doc-home-btn-round {
     border-radius: 30px;
   }
 
-  &:not(.rc-demo-home-btn-round) {
+  &:not(.rc-doc-home-btn-round) {
     border-radius: 6px;
   }
 
   @each $key, $val in $heights {
-    &.rc-demo-home-btn-#{$key} {
+    &.rc-doc-home-btn-#{$key} {
       height: $val;
     }
   }
 
-  &.rc-demo-home-btn-solid {
+  &.rc-doc-home-btn-solid {
     background: rgba(#003b73, 0.75);
   }
 
-  &.rc-demo-home-btn-solid:hover {
+  &.rc-doc-home-btn-solid:hover {
     background: #fff;
     color: rgba(#003b73, 0.75);
   }

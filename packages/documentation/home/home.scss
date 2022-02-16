@@ -1,4 +1,4 @@
-.rc-demo-home-page {
+.rc-doc-home-page {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -7,13 +7,13 @@
   width: 100%;
 }
 
-.rc-demo-app-title {
+.rc-doc-app-title {
   color: #003b73;
   font-size: 3rem;
   font-weight: 500;
 }
 
-.rc-demo-app-hero-image {
+.rc-doc-app-hero-image {
   height: 100%;
   width: 100%;
 }
@@ -26,52 +26,4 @@
   position: absolute;
   right: 15px;
   top: 10px;
-}
-
-.rc-demo-app-hero {
-  align-items: center;
-  background-image: url('../images/adrian.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 1rem;
-  min-height: 650px;
-  width: 100%;
-
-  @media (max-width: 480px) {
-    min-height: 950px;
-  }
-
-  @media (min-width: 481px) and (max-width: 768px) {
-    min-height: 600px;
-  }
-
-  @media (min-width: 769px) and (max-width: 1024px) {
-    min-height: 700px;
-  }
-
-  @media (min-width: 1025px) {
-    min-height: 700px;
-  }
-
-  img {
-    object-fit: cover;
-  }
-}
-
-.rc-demo-app-icon {
-  align-items: center;
-  background-image: url('../images/cafe.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: block;
-  display: flex;
-  height: 45px;
-  justify-content: center;
-  margin-right: 0.5rem;
-  width: 45px;
 }

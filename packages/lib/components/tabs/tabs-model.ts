@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ReactElement, ReactNode } from 'react';
 
 // ⚙️ Internal props
 
@@ -83,7 +83,7 @@ export interface TabsProps {
   focusable?: boolean;
 
   // custom icons for tabs: { [key: string]: ReactNode };
-  icons?: ReactNode[];
+  icons?: ReactNode[] | ReactElement[];
 
   // custom icon color
   iconsColor?: string;

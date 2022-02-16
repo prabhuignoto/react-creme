@@ -28,6 +28,11 @@ $sizes: (sm, md, lg);
     background-color: rgba(theme.$secondary-rgb, 0.5);
     text-decoration: underline;
   }
+
+  &.rc-link-highlight {
+    background-color: rgba(theme.$primary-rgb, 1);
+    color: theme.$white;
+  }
 }
 
 @each $size in $sizes {

@@ -35,10 +35,12 @@
 .rc-demo-page-links-container {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: 2rem;
 
   a {
-    margin-right: 20px;
+    margin-right: 14px;
+    margin-top: 14px;
   }
 }

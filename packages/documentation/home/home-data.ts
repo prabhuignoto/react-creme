@@ -11,7 +11,7 @@ import {
   faCubes,
   faFistRaised,
   faGlobe,
-  faMobile,
+  faPalette,
   faTools,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -34,17 +34,17 @@ export const Features = [
   {
     color: '#0074E4',
     icon: faFistRaised,
-    title: 'Built with TypeScript & React',
+    title: 'Built with TypeScript',
   },
   {
     color: '#0074E4',
     icon: faCubes,
-    title: 'Modular and extensible components',
+    title: 'Modular and extensible',
   },
   {
     color: '#0074E4',
-    icon: faMobile,
-    title: 'Complete support for Touch devices',
+    icon: faPalette,
+    title: 'Themeable and responsive',
   },
   {
     color: '#0074E4',

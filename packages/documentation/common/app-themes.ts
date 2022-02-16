@@ -39,7 +39,7 @@ export const Blueberry: Colors = {
   secondary: '#DBE6FD',
   tertiary: '#293B5F',
   text: '#000',
-  textSelection: '#000',
+  textSelection: '#fff',
 };
 
 export const GrapeFruit: Colors = {
@@ -47,5 +47,21 @@ export const GrapeFruit: Colors = {
   secondary: '#A7BBC7',
   tertiary: '#FAF3F3',
   text: '#000',
+  textSelection: '#fff',
+};
+
+export const NightGray: Colors = {
+  primary: '#495464',
+  secondary: '#BBBFCA',
+  tertiary: '#E8E8E8',
+  text: '#495464',
+  textSelection: '#fff',
+};
+
+export const LightGray: Colors = {
+  primary: '#6C737E',
+  secondary: '#E8ECF1',
+  tertiary: '#6C737E',
+  text: '#6C737E',
   textSelection: '#fff',
 };

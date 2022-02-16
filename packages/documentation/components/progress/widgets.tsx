@@ -73,7 +73,7 @@ const Widgets: React.FunctionComponent = () => {
           />
         </DemoWidget>
       </Section>
-      <Section title="Infinite progress">
+      <Section title="Indeterminate progress">
         <BlockQuote>
           Useful for operations that take a long time to complete.
         </BlockQuote>
@@ -81,7 +81,7 @@ const Widgets: React.FunctionComponent = () => {
           <Progress type="indeterminate" showProgressValue size="sm" />
         </DemoWidget>
       </Section>
-      <Section title="Infinite Progress - Bob">
+      <Section title="Indeterminate Progress - Bob">
         <BlockQuote>Infinite progress with a bob animation</BlockQuote>
         <DemoWidget>
           <Progress type="indeterminate" size="md" indeterminateStyle="bob" />

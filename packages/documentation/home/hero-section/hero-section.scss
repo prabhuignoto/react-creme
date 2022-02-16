@@ -1,4 +1,4 @@
-.rc-demo-app-hero-header {
+.rc-doc-app-hero-header {
   align-items: center;
   background: #fff;
   border-radius: 4px;
@@ -8,7 +8,7 @@
   padding: 1rem;
 }
 
-.rc-demo-app-features {
+.rc-doc-app-features {
   column-gap: 1rem;
   display: grid;
   grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
@@ -41,15 +41,15 @@
   }
 }
 
-.rc-demo-home-header {
+.rc-doc-home-header {
   padding: 0.5rem;
 }
 
-.rc-demo-app-hero {
+.rc-doc-app-hero {
   position: relative;
 }
 
-.rc-demo-app-feature {
+.rc-doc-app-feature {
   align-items: center;
   background: rgba($color: #fff, $alpha: 0.25);
   border-radius: 4px;
@@ -87,7 +87,7 @@
   }
 }
 
-.rc-demo-app-feature-icon {
+.rc-doc-app-feature-icon {
   align-items: center;
   border-radius: 10%;
   border-radius: 50%;
@@ -129,7 +129,7 @@
   }
 }
 
-.rc-demo-app-feature-name {
+.rc-doc-app-feature-name {
   color: #003b73;
   font-size: 1.1rem;
   font-weight: 400;
@@ -143,4 +143,52 @@
     text-align: center;
     width: 90%;
   }
+}
+
+.rc-doc-app-hero {
+  align-items: center;
+  background-image: url('../images/adrian.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1rem;
+  min-height: 650px;
+  width: 100%;
+
+  @media (max-width: 480px) {
+    height: 950px;
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    height: 600px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    height: 700px;
+  }
+
+  @media (min-width: 1025px) {
+    height: 700px;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.rc-doc-app-icon {
+  align-items: center;
+  background-image: url('../images/cafe.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  margin-right: 0.5rem;
+  width: 45px;
 }

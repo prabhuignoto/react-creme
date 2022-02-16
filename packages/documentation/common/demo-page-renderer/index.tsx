@@ -1,6 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import {
+  faBook,
+  faCode,
+  faEdit,
+  faExternalLink,
+  faSlidersH,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Suspense, useLayoutEffect, useMemo } from 'react';
-import { BookOpen, Code, Edit, Sliders } from 'react-feather';
+import { BookOpen, Code } from 'react-feather';
 import { CSSTransition } from 'react-transition-group';
 import { Link, PageHeader, Section, Tabs } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
@@ -17,9 +25,9 @@ const DataGrid = React.lazy(() =>
 );
 
 const Icons = [
-  <BookOpen size={18} key="book-open" />,
-  <Sliders size={18} key="settings" />,
-  <Code size={18} key="code" />,
+  <FontAwesomeIcon icon={faBook} key="book-open" />,
+  <FontAwesomeIcon icon={faSlidersH} key="sliders" />,
+  <FontAwesomeIcon icon={faCode} key="code" />,
 ];
 
 const IconsWithoutProperties = [
@@ -148,7 +156,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                     <Link
                       target="_blank"
                       accent="button"
-                      icon={<Code />}
+                      icon={<FontAwesomeIcon icon={faCode} />}
                       href={`https://github.com/prabhuignoto/react-creme/tree/master/packages/lib/components/${sourceId}`}
                     >
                       View Source
@@ -158,10 +166,20 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                     <Link
                       target="_blank"
                       accent="button"
-                      icon={<Edit />}
+                      icon={<FontAwesomeIcon icon={faEdit} />}
                       href={`https://github.com/prabhuignoto/react-creme/tree/master/packages/documentation/components/${editId}/index.tsx`}
                     >
                       Edit this Page
+                    </Link>
+                  )}
+                  {stackBlitzCodes?.length && (
+                    <Link
+                      target="_blank"
+                      accent="button"
+                      icon={<FontAwesomeIcon icon={faExternalLink} />}
+                      href={`https://stackblitz.com/edit/${stackBlitzCodes[0]}`}
+                    >
+                      Open in StackBlitz
                     </Link>
                   )}
                 </div>

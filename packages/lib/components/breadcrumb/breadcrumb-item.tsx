@@ -27,7 +27,6 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
     const breadCrumbNode = useMemo(() => {
       return classNames('rc-bread-crumb-node', {
         [`rc-bread-crumb-node-${size}`]: true,
-        'rc-bread-crumb-node-selected': selected,
       });
     }, [selected]);
 
@@ -38,7 +37,9 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
     return (
       <li className="rc-bread-crumb" key={id}>
         <span className={breadCrumbNode}>
-          <Link onClick={() => handleClick(id, name)}>{name}</Link>
+          <Link onClick={() => handleClick(id, name)} highlight={selected}>
+            {name}
+          </Link>
         </span>
         {showChevron && (
           <span className={breadCrumbIcon}>

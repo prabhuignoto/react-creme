@@ -5,8 +5,8 @@ import { useRecoilValue } from 'recoil';
 import { ThemeProvider } from '../lib/components/common/theme-provider';
 import AppRoutes from './app-routes';
 import { MediaState, themeState } from './atoms/home';
-import Footer from './common/footer/footer';
-import { Header } from './common/header';
+import Footer from './home/footer/footer';
+import { Header } from './home/header';
 
 const Main = React.forwardRef<
   { getBoundingClientRect: () => DOMRect },
