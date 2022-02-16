@@ -75,6 +75,10 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
       setAsideValue({ isAnyOverlayOpen: false, isOpen: false });
     }, []);
 
+    const onSelect = () => {
+      setOpenAside(false);
+    };
+
     return (
       <div className="app" ref={onAppRef}>
         {media && !media.isMobile && (
@@ -87,8 +91,8 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
           </aside>
         )}
         {canRenderAside && (
-          <Drawer onClose={onClose} showClose>
-            <SidebarHome />
+          <Drawer onClose={onClose} showClose focusable={false}>
+            <SidebarHome onSelect={onSelect} />
           </Drawer>
         )}
         <AppMain media={media} toggleOpen={toggleOpen} ref={sectionRef} />
