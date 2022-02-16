@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useRecoilState } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
 import { Drawer } from '../lib/components';
-import '../lib/design/layout.scss';
+import '../lib/design/core.scss';
 import '../lib/design/list.scss';
 import '../lib/design/theme.scss';
 import { AppMain } from './App-Main';

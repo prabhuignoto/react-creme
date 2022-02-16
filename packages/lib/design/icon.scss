@@ -1,0 +1,39 @@
+$icon-size-sm: var(--rc-icon-size-sm);
+$icon-size-md: var(--rc-icon-size-md);
+$icon-size-lg: var(--rc-icon-size-lg);
+$icon-size-xs: var(--rc-icon-size-xs);
+
+%icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+%icon-sm {
+  @extend %icon;
+  height: $icon-size-sm;
+  width: $icon-size-sm;
+}
+
+%icon-md {
+  @extend %icon;
+  height: $icon-size-md;
+  width: $icon-size-md;
+}
+
+%icon-lg {
+  @extend %icon;
+  height: $icon-size-lg;
+  width: $icon-size-lg;
+}
+
+%icon-xs {
+  @extend %icon;
+  height: $icon-size-xs;
+  width: $icon-size-xs;
+}

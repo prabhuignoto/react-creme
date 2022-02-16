@@ -1,0 +1,78 @@
+@use 'position.scss';
+@import 'border';
+@import 'shadow';
+@import 'font';
+@import 'icon';
+
+%flex {
+  align-items: center;
+  display: flex;
+}
+
+%col {
+  @extend %flex;
+  flex-direction: column;
+}
+
+%left {
+  @extend %flex;
+  justify-content: flex-start;
+}
+
+%right {
+  @extend %flex;
+  justify-content: flex-end;
+}
+
+%center {
+  @extend %flex;
+  justify-content: center;
+}
+
+%top-center {
+  @extend %flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@mixin get-flex($align, $wrap: false) {
+  @extend %flex !optional;
+
+  @if $wrap {
+    flex-wrap: wrap;
+  }
+
+  @if $align == left {
+    @extend %left;
+  } @else if $align == right {
+    @extend %right;
+  } @else if $align == center {
+    @extend %center;
+  }
+}
+
+%disabled {
+  box-shadow: none;
+  cursor: not-allowed;
+  filter: grayscale(90%);
+  opacity: 0.5;
+  outline: 0;
+  user-select: none;
+  z-index: 0;
+
+  * {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: none;
+  }
+}
+
+%text-no-wrap {
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

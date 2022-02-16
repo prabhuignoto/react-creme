@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import '../../design/layout.scss';
+import '../../design/core.scss';
 import '../../design/list.scss';
 import { AutoSuggest } from '../auto-suggest/auto-suggest';
 import { AutoSuggestOption } from '../auto-suggest/auto-suggest.model';

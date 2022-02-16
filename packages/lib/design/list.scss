@@ -1,4 +1,4 @@
-@use 'layout.scss';
+@use 'core.scss';
 
 %list-common {
   list-style: none;
@@ -8,49 +8,49 @@
 
 %list {
   @extend %list-common;
-  @include layout.get-flex(center);
+  @include core.get-flex(center);
   flex-direction: column;
 }
 
 %list-left {
   @extend %list-common;
-  @include layout.get-flex(center);
+  @include core.get-flex(center);
   align-items: flex-start;
   flex-direction: column;
 }
 
 %list-right {
   @extend %list-common;
-  @include layout.get-flex(center);
+  @include core.get-flex(center);
   align-items: flex-end;
   flex-direction: column;
 }
 
 %list-horizontal {
   @extend %list-common;
-  @include layout.get-flex(center);
+  @include core.get-flex(center);
 }
 
 %list-horizontal-left {
   @extend %list-common;
-  @include layout.get-flex(flex-start);
+  @include core.get-flex(flex-start);
 }
 
 %list-horizontal-right {
   @extend %list-common;
-  @include layout.get-flex(flex-end);
+  @include core.get-flex(flex-end);
 }
 
 %list-wrap {
   @extend %list-common;
-  @include layout.get-flex(left, true);
+  @include core.get-flex(left, true);
 }
 
 %list-item {
-  @include layout.get-flex(center);
+  @include core.get-flex(center);
   margin: 0.25rem;
 }
 
 %list-item-left {
-  @include layout.get-flex(left);
+  @include core.get-flex(left);
 }

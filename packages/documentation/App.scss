@@ -24,7 +24,6 @@ button,
 div,
 section,
 ul,
-code,
 input,
 label,
 button,
@@ -32,6 +31,14 @@ span {
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
   font-weight: 300;
+}
+
+code {
+  span {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
+    font-weight: 500;
+  }
 }
 
 .app-aside {

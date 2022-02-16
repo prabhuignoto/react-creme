@@ -1,11 +1,32 @@
+@import 'theme';
+
+$font-size-sm: var(--rc-font-size-sm);
+$font-size-md: var(--rc-font-size-md);
+$font-size-lg: var(--rc-font-size-lg);
+
 %font-sm {
-  font-size: 12px;
+  font-size: $font-size-sm;
 }
 
 %font-md {
-  font-size: 14px;
+  font-size: $font-size-md;
 }
 
 %font-lg {
-  font-size: 20px;
+  font-size: $font-size-lg;
+}
+
+%text-sm {
+  @extend %font-sm;
+  color: $text-color;
+}
+
+%text-md {
+  @extend %font-md;
+  color: $text-color;
+}
+
+%text-lg {
+  @extend %font-lg;
+  color: $text-color;
 }
