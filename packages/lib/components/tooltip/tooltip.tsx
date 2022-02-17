@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { usePosition } from '../common/effects/usePosition';
 import { TooltipProps } from './tooltip-model';
@@ -25,6 +26,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   bgColor = '#fff',
   foreColor = '#000',
   size = 'sm',
+  openOnClick = false,
 }: TooltipProps) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
@@ -115,6 +117,23 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
     []
   );
 
+  const eventProps = useMemo(
+    () =>
+      openOnClick
+        ? {
+            onClick: onShow,
+          }
+        : {
+            onMouseEnter: onShow,
+            onMouseLeave: onHide,
+          },
+    []
+  );
+
+  const handleClose = useCallback(() => {
+    setShowTooltip(false);
+  }, []);
+
   return (
     <div
       className={tooltipWrapperClass}
@@ -123,18 +142,23 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
       style={style}
       aria-label="tooltip"
     >
-      <span
+      <div
         className={toolTipMessageClass}
         style={tooltipMessageStyle}
         ref={tooltipRef}
       >
+        {openOnClick && (
+          <span
+            role="button"
+            className="rc-tooltip-close-btn"
+            onClick={handleClose}
+          >
+            <CloseIcon />
+          </span>
+        )}
         {message}
-      </span>
-      <section
-        className="rc-tooltip-host-content"
-        onMouseEnter={onShow}
-        onMouseLeave={onHide}
-      >
+      </div>
+      <section className="rc-tooltip-host-content" {...eventProps}>
         {children}
       </section>
     </div>

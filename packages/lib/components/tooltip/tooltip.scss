@@ -4,6 +4,9 @@
 @use '../../design/position.scss';
 
 $sizes: (sm, md, lg);
+$arrow-dim-sm: 12px;
+$arrow-dim-md: 16px;
+$arrow-dim-lg: 20px;
 
 .rc-tooltip-wrapper {
   @extend %center;
@@ -29,7 +32,6 @@ $sizes: (sm, md, lg);
     ),
   );
 
-  $arrow-dim: 10px;
   @extend %center;
   @extend %border-radius;
   @extend %shadow-medium;
@@ -98,19 +100,49 @@ $sizes: (sm, md, lg);
     border-radius: 1px;
     content: '';
     display: block;
-    height: $arrow-dim;
     position: absolute;
     transform: rotate(45deg);
-    width: $arrow-dim;
+  }
+}
+
+@function get-arrow-dim($size) {
+  @if ($size == 'sm') {
+    @return $arrow-dim-sm;
+  } @else if($size == 'md') {
+    @return $arrow-dim-md;
+  } @else if($size == 'lg') {
+    @return $arrow-dim-lg;
   }
 }
 
 @each $size in $sizes {
   .rc-tooltip-message-#{$size} {
     @extend %font-#{$size};
+    padding: 1rem;
+    width: 90%;
+
+    &::after {
+      height: get-arrow-dim($size);
+      width: get-arrow-dim($size);
+    }
+
+    .rc-tooltip-close-btn {
+      @extend %icon-#{$size};
+    }
   }
 }
 
 .rc-tooltip-host-content {
   @extend %center;
+}
+
+.rc-tooltip-close-btn {
+  @include position.position-abs('top right');
+  color: theme.$gunmetal-gray;
+  cursor: pointer;
+  padding: 0.2rem;
+
+  &:hover {
+    color: theme.$primary;
+  }
 }
