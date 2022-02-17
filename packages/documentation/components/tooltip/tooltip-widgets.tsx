@@ -41,7 +41,9 @@ const Widgets = () => {
       <div className="rc-demo-widgets">
         <Section>
           <BlockQuote>
-            The Component supports 12 different docking positions.
+            Tooltip component can be anchored to the target element in 12
+            different positions. Change the position of the tooltip using the
+            dropdown.
           </BlockQuote>
           <div className="rc-demo-widget" style={{ width: '320px' }}>
             <Dropdown
@@ -72,7 +74,8 @@ const Widgets = () => {
         </Section>
         <Section title="On Hover">
           <BlockQuote>
-            The Tooltip is activated by hovering over the target element.
+            The Tooltip is activated by hovering over the target element and is
+            auto closed the moment the mouse moves out of the target element.
           </BlockQuote>
           <DemoWidget width={width}>
             <Tooltip
@@ -96,9 +99,8 @@ const Widgets = () => {
         </Section>
         <Section title="Static Tooltip">
           <BlockQuote>
-            The Tooltip can also be configured to be static. Use the{' '}
-            <code>IsStatic</code> prop to keep the tooltip visible all the time.
-            always visible.
+            Sometimes it can be useful to have the Tooltip visible all the time.
+            use the <code>isStatic</code> prop to achieve this.
           </BlockQuote>
           <DemoWidget width={width}>
             <Tooltip
@@ -120,7 +122,7 @@ const Widgets = () => {
         </Section>
         <Section title="Activate Tooltip on click">
           <BlockQuote>
-            Tooltip can be activated also by clicking on the target element via
+            Tooltip can be also activated by clicking on the target element via
             the <code>openOnClick</code> prop. In this mode a close button will
             be additionally rendered to close the tooltip.
           </BlockQuote>

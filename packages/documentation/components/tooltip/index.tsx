@@ -81,6 +81,13 @@ function tooltip() {
           optional: 'Yes',
           type: 'Boolean',
         },
+        {
+          default: 'false',
+          description: 'Opens the tooltip on click',
+          name: 'openOnClick',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-pwaial']}
