@@ -200,6 +200,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     >
       <span
         class="rc-btn-icon-container"
+        role="img"
       >
         <svg
           fill="none"
@@ -229,6 +230,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     >
       <span
         class="rc-btn-icon-container"
+        role="img"
       >
         <svg
           fill="none"

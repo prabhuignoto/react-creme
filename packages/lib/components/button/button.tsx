@@ -76,11 +76,15 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
       aria-label={label}
     >
       {type === 'progress' && !disabled && (
-        <span className="rc-btn-progress-wrapper">
+        <span className="rc-btn-progress-wrapper" role="img">
           <CircularProgress size={'xs'} />
         </span>
       )}
-      {children && <span className="rc-btn-icon-container">{children}</span>}
+      {children && (
+        <span className="rc-btn-icon-container" role="img">
+          {children}
+        </span>
+      )}
       {label && type !== 'icon' && (
         <span className="rc-btn-label">{label}</span>
       )}

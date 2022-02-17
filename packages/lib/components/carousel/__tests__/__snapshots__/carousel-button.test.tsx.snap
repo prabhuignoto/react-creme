@@ -10,6 +10,7 @@ exports[`Carousel Button > should render carousel button snapshot 1`] = `
 >
   <span
     class="rc-btn-icon-container"
+    role="img"
   >
     <svg
       fill="none"
