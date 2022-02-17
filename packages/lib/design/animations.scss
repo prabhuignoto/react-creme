@@ -1,5 +1,7 @@
-@use "animate.scss";
-@use "sass:map";
+@use 'animate.scss';
+@use 'sass:map';
+
+$animations: (pop, drop, rise, slide-left);
 
 $animation-pop: (
   from: (
@@ -26,6 +28,39 @@ $animation-drop: (
   ),
 );
 
+$animation-rise: (
+  from: (
+    opacity: 0,
+    transform: translateY(600px),
+  ),
+  to: (
+    opacity: 1,
+    transform: translateY(0),
+  ),
+);
+
+$animation-slide-left: (
+  from: (
+    opacity: 0,
+    transform: translateX(-600px),
+  ),
+  to: (
+    opacity: 1,
+    transform: translateX(0),
+  ),
+);
+
+$animation-slide-right: (
+  from: (
+    opacity: 0,
+    transform: translateX(600px),
+  ),
+  to: (
+    opacity: 1,
+    transform: translateX(0),
+  ),
+);
+
 @mixin set-animation($type, $key) {
   $animation-setting: ();
 
@@ -39,8 +74,19 @@ $animation-drop: (
     @include setup-drop-animation();
   }
 
-  @each $name, $value in map.get($animation-setting, $key) {
-    #{$name}: #{$value};
+  @if $type == rise {
+    $animation-setting: $animation-rise;
+    @include setup-rise-animation();
+  }
+
+  @if $type == slide-left {
+    $animation-setting: $animation-slide-left;
+    @include setup-slide-left-animation();
+  }
+
+  @if $type == slide-right {
+    $animation-setting: $animation-slide-right;
+    @include setup-slide-right-animation();
   }
 }
 
@@ -51,5 +97,42 @@ $animation-drop: (
 
 @mixin setup-drop-animation {
   @include animate.set-keyframes(rc-animation-drop-enter, $animation-drop);
-  @include animate.set-keyframes(rc-animation-drop-leave, $animation-drop, true);
+  @include animate.set-keyframes(
+    rc-animation-drop-leave,
+    $animation-drop,
+    true
+  );
+}
+
+@mixin setup-rise-animation {
+  @include animate.set-keyframes(rc-animation-rise-enter, $animation-rise);
+  @include animate.set-keyframes(
+    rc-animation-rise-leave,
+    $animation-rise,
+    true
+  );
+}
+
+@mixin setup-slide-left-animation {
+  @include animate.set-keyframes(
+    rc-animation-slide-left-enter,
+    $animation-slide-left
+  );
+  @include animate.set-keyframes(
+    rc-animation-slide-left-leave,
+    $animation-slide-left,
+    true
+  );
+}
+
+@mixin setup-slide-right-animation {
+  @include animate.set-keyframes(
+    rc-animation-slide-right-enter,
+    $animation-slide-right
+  );
+  @include animate.set-keyframes(
+    rc-animation-slide-right-leave,
+    $animation-slide-right,
+    true
+  );
 }

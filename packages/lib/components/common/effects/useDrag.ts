@@ -45,6 +45,7 @@ const useDrag: useDragFunctionType = (
   const handleDragStart = useCallback(
     (ev: MouseEvent | TouchEvent) => {
       if (ev.target === target.current) {
+        ev.preventDefault();
         // detect if the user intended a drag operation
         dragStartTimer.current = window.setTimeout(() => {
           dragStarted.current = true;
@@ -74,8 +75,6 @@ const useDrag: useDragFunctionType = (
         }
 
         const trackerVal = trackerValue.current;
-
-        console.log(trackerVal);
 
         if (ev.key === 'ArrowLeft' && startValue) {
           if (trackerVal > Math.max(trackerVal - startValue, 0)) {
@@ -228,14 +227,14 @@ const useDrag: useDragFunctionType = (
      */
     return () => {
       resizeObserver.current?.disconnect();
-      document.removeEventListener('mousemove', handleDrag);
-      document.removeEventListener('touchmove', handleDrag);
+      container.current?.removeEventListener('mousemove', handleDrag);
+      container.current?.removeEventListener('touchmove', handleDrag);
 
-      document.removeEventListener('mousedown', handleDragStart);
-      document.removeEventListener('touchstart', handleDragStart);
+      container.current?.removeEventListener('mousedown', handleDragStart);
+      container.current?.removeEventListener('touchstart', handleDragStart);
 
-      document.removeEventListener('mouseup', handleDragEnd);
-      document.removeEventListener('touchend', handleDragEnd);
+      container.current?.removeEventListener('mouseup', handleDragEnd);
+      container.current?.removeEventListener('touchend', handleDragEnd);
 
       if (moveToPositionOnClick) {
         container.current?.removeEventListener('click', handleClick);
@@ -250,6 +249,9 @@ const useDrag: useDragFunctionType = (
 
     const _target = target.current;
     const _container = container.current;
+
+    _target.style.touchAction = 'none';
+    _container.style.touchAction = 'none';
 
     const setup = () => {
       if (!_target || !_container) {
@@ -289,14 +291,14 @@ const useDrag: useDragFunctionType = (
       //wire up event handlers
 
       if (isTouch) {
-        document.addEventListener('touchmove', handleDrag);
-        document.addEventListener('touchstart', handleDragStart);
-        document.addEventListener('touchend', handleDragEnd);
+        container.current?.addEventListener('touchmove', handleDrag);
+        container.current?.addEventListener('touchstart', handleDragStart);
+        container.current?.addEventListener('touchend', handleDragEnd);
         target.current.removeEventListener('keydown', handleKeyDown);
       } else {
-        document.addEventListener('mousedown', handleDragStart);
-        document.addEventListener('mouseup', handleDragEnd);
-        document.addEventListener('mousemove', handleDrag);
+        container.current?.addEventListener('mousedown', handleDragStart);
+        container.current?.addEventListener('mouseup', handleDragEnd);
+        container.current?.addEventListener('mousemove', handleDrag);
         target.current.addEventListener('keydown', handleKeyDown);
       }
 

@@ -21,6 +21,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   focusable = true,
   animationType = 'pop',
   size = 'sm',
+  animationDuration = 250,
 }: DialogProps) => {
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
@@ -52,8 +53,9 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
 
   const style = useMemo(
     () => ({
-      '--animation': animationType,
       '--min-width': `${width}px`,
+      '--rc-dialog-animation': animationType,
+      '--rc-dialog-animation-duration': `${animationDuration}ms`,
       minHeight: height ? `${height}px` : 'auto',
     }),
     [width, height]

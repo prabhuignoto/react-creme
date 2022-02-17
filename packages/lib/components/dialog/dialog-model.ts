@@ -2,7 +2,8 @@ import React from 'react';
 import { OverlayModel } from '../common/overlay-model';
 
 export interface DialogProps extends OverlayModel<null> {
-  animationType?: 'drop' | 'pop';
+  animationDuration?: number;
+  animationType?: 'drop' | 'pop' | 'rise' | 'slide-left' | 'slide-right';
   children?: React.ReactNode;
   focusable?: boolean;
   height?: number;
