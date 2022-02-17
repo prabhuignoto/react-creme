@@ -3,11 +3,14 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { BlockQuote, Button, Dialog, Section } from '../../../lib/components';
 import { asideState, responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { Default, Drop } from './widget-variants';
+import { Default, Drop, Rise, SlideLeft, SlideRight } from './widget-variants';
 
 const Widget = () => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
+  const [open3, setOpen3] = useState(false);
+  const [open4, setOpen4] = useState(false);
+  const [open5, setOpen5] = useState(false);
 
   const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
@@ -69,13 +72,32 @@ const Widget = () => {
             )}
           </DemoWidget>
         </Section>
-        <Section title="Custom animation">
+        <Section title="Custom animation - Drop">
           <BlockQuote>
-            Dialog comes with two animations: <code>pop</code> and{' '}
-            <code>drop</code>. The example below shows dialog with drop
-            animation.
+            Dialog can be animated in five ways. <code>pop</code>,{' '}
+            <code>drop</code>, <code>rise</code>, <code>slide-left</code> or{' '}
+            <code>slide-right</code>
           </BlockQuote>
           <DemoWidget width={110} component={Drop}>
+            <Button onClick={() => setOpen5(true)} label="Open dialog"></Button>
+            {open5 && (
+              <Dialog
+                onClose={() => {
+                  setOpen5(false);
+                  handleOnClose();
+                }}
+                onOpen={handleOnOpen}
+                width={width}
+                height={250}
+                animationType="drop"
+              >
+                <span>Your content here!</span>
+              </Dialog>
+            )}
+          </DemoWidget>
+        </Section>
+        <Section title="Custom animation - Rise">
+          <DemoWidget width={110} component={Rise}>
             <Button onClick={() => setOpen2(true)} label="Open dialog"></Button>
             {open2 && (
               <Dialog
@@ -86,7 +108,45 @@ const Widget = () => {
                 onOpen={handleOnOpen}
                 width={width}
                 height={250}
-                animationType="drop"
+                animationType="rise"
+              >
+                <span>Your content here!</span>
+              </Dialog>
+            )}
+          </DemoWidget>
+        </Section>
+        <Section title="Custom animation - Slide from Left">
+          <DemoWidget width={110} component={SlideLeft}>
+            <Button onClick={() => setOpen3(true)} label="Open dialog"></Button>
+            {open3 && (
+              <Dialog
+                onClose={() => {
+                  setOpen3(false);
+                  handleOnClose();
+                }}
+                onOpen={handleOnOpen}
+                width={width}
+                height={250}
+                animationType="slide-left"
+              >
+                <span>Your content here!</span>
+              </Dialog>
+            )}
+          </DemoWidget>
+        </Section>
+        <Section title="Custom animation - Slide from Right">
+          <DemoWidget width={110} component={SlideRight}>
+            <Button onClick={() => setOpen4(true)} label="Open dialog"></Button>
+            {open4 && (
+              <Dialog
+                onClose={() => {
+                  setOpen4(false);
+                  handleOnClose();
+                }}
+                onOpen={handleOnOpen}
+                width={width}
+                height={250}
+                animationType="slide-right"
               >
                 <span>Your content here!</span>
               </Dialog>

@@ -60,8 +60,8 @@ function dialog() {
         },
         {
           default: 'pop',
-          description:
-            'The animation type to use for the dialog. Can be <code>pop</code> or <code>drop</code>',
+          description: `The animation type to use for the dialog.
+            Can be <code>pop</code> | <code>drop</code> | <code>rise</code> | <code>slide-left</code> | <code>slide-right</code>`,
           name: 'animationType',
           optional: 'Yes',
           type: 'String',

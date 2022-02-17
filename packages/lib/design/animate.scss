@@ -40,19 +40,3 @@
     animation-iteration-count: infinite;
   }
 }
-
-%halo-common {
-  @include position.position-abs('center center');
-  content: '';
-  display: block;
-  height: 100%;
-  width: 99%;
-}
-
-%halo-common-rtl {
-  @include position.position-abs('center right');
-  content: '';
-  display: block;
-  height: 100%;
-  width: 99%;
-}
