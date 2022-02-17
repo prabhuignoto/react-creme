@@ -74,7 +74,12 @@ export default {
       babelHelpers: 'runtime',
       babelrc: true,
       exclude: '**/node_modules/**',
-      skipPreflightCheck: true,
+      extensions: ['.ts', '.tsx'],
+      plugins: [
+        '@babel/plugin-transform-runtime',
+        '@babel/plugin-proposal-optional-chaining',
+      ],
+      // skipPreflightCheck: true,
     }),
     purgecss({
       content: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],

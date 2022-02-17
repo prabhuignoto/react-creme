@@ -41,6 +41,9 @@ export type TooltipProps = {
   //🔷 callback executed when the tooltip is rendered
   onTooltipRendered?: () => void;
 
+  //🔷 opens the tooltip on click
+  openOnClick?: boolean;
+
   //🔷 position of the tooltip
   position?: ToolTipPosition;
 

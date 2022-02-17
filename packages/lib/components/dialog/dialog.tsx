@@ -10,18 +10,18 @@ import { DialogProps } from './dialog-model';
 import './dialog.scss';
 
 const DialogComponent: React.FunctionComponent<DialogProps> = ({
+  animationDuration = 250,
+  animationType = 'pop',
   children,
+  focusable = true,
+  height = 200,
   isClosing,
-  onOpen,
   onClose,
+  onOpen,
   onSuccess,
+  size = 'sm',
   title,
   width = 300,
-  height = 200,
-  focusable = true,
-  animationType = 'pop',
-  size = 'sm',
-  animationDuration = 250,
 }: DialogProps) => {
   const buttonRef = useRef<HTMLDivElement | null>(null);
 

@@ -96,7 +96,8 @@ const Widgets = () => {
         </Section>
         <Section title="Static Tooltip">
           <BlockQuote>
-            The Tooltip can also be configured to be static. The Tooltip will be
+            The Tooltip can also be configured to be static. Use the{' '}
+            <code>IsStatic</code> prop to keep the tooltip visible all the time.
             always visible.
           </BlockQuote>
           <DemoWidget width={width}>
@@ -114,6 +115,31 @@ const Widgets = () => {
                   />
                 </Card>
               </div>
+            </Tooltip>
+          </DemoWidget>
+        </Section>
+        <Section title="Activate Tooltip on click">
+          <BlockQuote>
+            Tooltip can be activated also by clicking on the target element via
+            the <code>openOnClick</code> prop. In this mode a close button will
+            be additionally rendered to close the tooltip.
+          </BlockQuote>
+          <DemoWidget width={width}>
+            <Tooltip
+              message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
+              position={position}
+              minWidth={160}
+              size="md"
+              openOnClick
+            >
+              <Card height={150}>
+                Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
+                molestie velit quis volutpat vestibulum. Donec facilisis est ac
+                condimentum aliquet. Nam semper dui eget sagittis sagittis.
+                Aenean sodales vulputate magna vitae sodales. Phasellus
+                dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam
+                diam, at pulvinar
+              </Card>
             </Tooltip>
           </DemoWidget>
         </Section>

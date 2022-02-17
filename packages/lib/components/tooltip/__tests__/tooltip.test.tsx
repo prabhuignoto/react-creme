@@ -1,6 +1,5 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { Tooltip } from '../tooltip';
 
 describe('Tooltip', () => {
@@ -178,5 +177,38 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(
       'rc-tooltip-left-bottom'
     );
+  });
+
+  it('should render Tooltip on click', async () => {
+    const { getByRole, getByText } = render(
+      <Tooltip
+        position="left bottom"
+        message="this is a test tooltip"
+        openOnClick
+      >
+        <span>content</span>
+      </Tooltip>
+    );
+
+    await waitFor(
+      () => {
+        expect(getByRole('tooltip').firstChild).not.toHaveClass('show-tooltip');
+      },
+      {
+        timeout: 1000,
+      }
+    );
+
+    fireEvent.click(getByText('content'));
+
+    await waitFor(() => {
+      expect(getByRole('tooltip').firstChild).toHaveClass('show-tooltip');
+    });
+
+    fireEvent.click(getByRole('button'));
+
+    await waitFor(() => {
+      expect(getByRole('tooltip').firstChild).toHaveClass('hide-tooltip');
+    });
   });
 });
