@@ -24,7 +24,7 @@ function widgets() {
       setWidth(500);
     } else if (media.isMobile) {
       setWidth(320);
-      setHandleBarWidth(6);
+      setHandleBarWidth(8);
     }
   }, [media]);
 
@@ -75,6 +75,7 @@ function widgets() {
               dir="vertical"
               minSplitHeight={400 * 0.25}
               maxSplitHeight={400 * 0.75}
+              handleBarWidth={handleBarWidth}
             >
               <p>
                 Contrary to popular belief, Lorem Ipsum is not simply random
