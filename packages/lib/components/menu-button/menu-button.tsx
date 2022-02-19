@@ -34,6 +34,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
       classNames('rc-menu-btn-wrapper', {
         'rc-menu-btn-disabled': disabled,
         'rc-menu-btn-rtl': RTL,
+        [`rc-menu-btn-${size}`]: true,
       }),
     [disabled]
   );

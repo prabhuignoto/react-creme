@@ -11,56 +11,55 @@ export interface MenuItemProps {
   name?: string;
 }
 
-const MenuItem: React.FunctionComponent<MenuItemProps> = ({
-  disabled,
-  name,
-  isDivider,
-  handleSelection,
-  focus,
-}) => {
-  const ref = useRef<HTMLLIElement | null>(null);
+const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
+  ({ disabled, name, isDivider, handleSelection, focus }) => {
+    const ref = useRef<HTMLLIElement | null>(null);
 
-  const onRef = useCallback(
-    node => {
-      if (node) {
-        ref.current = node;
+    const onRef = useCallback(
+      node => {
+        if (node) {
+          ref.current = node;
+        }
+      },
+      [focus]
+    );
+
+    const handleClick = useCallback(ev => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      if (!disabled && name) {
+        handleSelection?.(name);
       }
-    },
-    [focus]
-  );
+    }, []);
 
-  const handleClick = useCallback(ev => {
-    ev.preventDefault();
-    ev.stopPropagation();
-    if (!disabled && name) {
-      handleSelection?.(name);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (focus) {
-      setTimeout(() => {
+    useEffect(() => {
+      if (focus) {
         ref.current?.focus();
-      }, 100);
-    }
-  }, [focus]);
+      }
+    }, [focus]);
 
-  useFocusNew(ref, handleClick);
+    useFocusNew(ref, handleClick);
 
-  return (
-    <li
-      className={classNames(['rc-menu-item'], {
-        'rc-menu-item-disabled': disabled,
-        'rc-menu-item-divider': isDivider,
-      })}
-      onClick={handleClick}
-      ref={onRef}
-      role="menuitem"
-      tabIndex={0}
-    >
-      {!isDivider && <span className="rc-menu-item-name">{name}</span>}
-    </li>
-  );
-};
+    return (
+      <li
+        className={classNames(['rc-menu-item'], {
+          'rc-menu-item-disabled': disabled,
+          'rc-menu-item-divider': isDivider,
+        })}
+        onClick={handleClick}
+        ref={onRef}
+        role="menuitem"
+        tabIndex={0}
+      >
+        {!isDivider && <span className="rc-menu-item-name">{name}</span>}
+      </li>
+    );
+  },
+  (prev, next) => {
+    return prev.disabled === next.disabled && prev.focus === next.focus;
+  }
+);
+
+MenuItem.displayName = 'MenuItem';
 
 export { MenuItem };

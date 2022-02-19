@@ -3,6 +3,8 @@
 @use '../../design/position.scss';
 @use '../../design/animate.scss';
 
+$sizes: (sm, md, lg);
+
 .rc-menu-btn-wrapper {
   @extend %border;
   @extend %shadow-inset-small;
@@ -34,10 +36,16 @@
   }
 }
 
+@each $size in $sizes {
+  .rc-menu-btn-#{$size} {
+    .rc-menu-btn-icon {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
 .rc-menu-btn-icon {
   @extend %center;
-  @extend %icon-md;
-
   color: var(--icon-color, theme.$primary);
   cursor: pointer;
   display: block;

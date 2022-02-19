@@ -6,7 +6,11 @@ import { withOverlay } from '../common/withOverlay';
 import { MenuItem } from './menu-item';
 import { MenuOverlayModel } from './menu-model';
 
-const MenuContainer = React.forwardRef<HTMLUListElement, MenuOverlayModel>(
+export type MenuOverlayProps = Partial<HTMLUListElement> & {
+  element: HTMLUListElement | null;
+};
+
+const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
   ({ items, onSelection, focusable, size }: MenuOverlayModel, ref) => {
     const listRef = useRef<HTMLUListElement | null>(null);
 
@@ -34,10 +38,11 @@ const MenuContainer = React.forwardRef<HTMLUListElement, MenuOverlayModel>(
      */
     useImperativeHandle(ref, () => {
       return {
+        element: listRef.current,
         focus: () => {
           listRef.current?.focus();
         },
-      } as HTMLUListElement;
+      };
     });
 
     /**

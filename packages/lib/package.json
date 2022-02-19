@@ -1,6 +1,6 @@
 {
   "name": "react-creme",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": {
     "name": "Prabhu Murthy",
     "email": "prabhu.m.murthy@gmail.com"
@@ -92,6 +92,5 @@
   },
   "browser": "dist/react-creme.js",
   "module": "dist/react-creme.mjs",
-  "main": "dist/react-creme.cjs.js",
   "css": "dist/react-creme.css"
 }
