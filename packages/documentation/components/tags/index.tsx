@@ -40,7 +40,7 @@ function tags() {
         },
         {
           default: `[]`,
-          description: `Collection of tag items that will be rendered on load.`,
+          description: `Collection of tag items that will be rendered.`,
           name: 'items',
           optional: 'No',
           type: `Array`,
