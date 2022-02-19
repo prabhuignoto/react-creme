@@ -76,7 +76,7 @@ describe('Tags', () => {
     }
   });
 
-  it('Should call on change', async () => {
+  it('Should call onChange', async () => {
     const handler = vi.fn();
     const { getByPlaceholderText } = render(
       <Tags

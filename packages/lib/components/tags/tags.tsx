@@ -7,6 +7,7 @@ import '../../design/core.scss';
 import '../../design/list.scss';
 import { AutoSuggest } from '../auto-suggest/auto-suggest';
 import { AutoSuggestOption } from '../auto-suggest/auto-suggest.model';
+import { useFirstRender } from '../common/effects/useFirstRender';
 import { TagItem } from './tag-item';
 import { TagItemProps, TagsProps } from './tags-model';
 import './tags.scss';
@@ -41,6 +42,8 @@ const Tags: React.FunctionComponent<TagsProps> = ({
       }))
       .slice(0, maxTags)
   );
+
+  const isFirstRender = useFirstRender();
 
   const [inputValue, setInputValue] = useState('');
 
@@ -100,31 +103,32 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   );
 
   const handleRemove = useCallback(val => {
-    setTagItems(tags =>
-      tags.map(tag =>
-        tag.id === val ? { ...tag, markedForRemoval: true } : tag
-      )
-    );
     setTagItems(tags => tags.filter(tag => tag.id !== val));
+
+    inputRef.current?.focus();
   }, []);
 
   // EFFECTS
   useEffect(() => {
-    if (onChange) {
+    if (onChange && !isFirstRender.current) {
       onChange(tagItems.map(tag => tag.name));
     }
   }, [tagItems.length]);
 
   useEffect(() => {
-    setTagItems(
-      items.map(item => ({
-        accent,
-        disabled: item.disabled,
-        id: nanoid(),
-        name: item.name,
-        readonly: readonly,
-      }))
-    );
+    if (!isFirstRender.current) {
+      setTagItems(
+        items
+          .map(item => ({
+            accent,
+            disabled: item.disabled,
+            id: nanoid(),
+            name: item.name,
+            readonly: readonly,
+          }))
+          .slice(0, maxTags)
+      );
+    }
   }, [items.length]);
 
   return (

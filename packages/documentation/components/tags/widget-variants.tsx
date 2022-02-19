@@ -13,7 +13,6 @@ export const Default = (
   <Tags
     placeholder="Choose a language..."
     items={items}
-    maxTags={15}
     onChange={val => console.log(val)}
     tagWidth={60}
     focusable
@@ -69,9 +68,18 @@ export const LargeSize = (
   <Tags
     placeholder="Choose a language..."
     items={items}
-    maxTags={15}
     onChange={val => console.log(val)}
     tagWidth={100}
     size="lg"
+  />
+);
+
+export const MaxTags = (
+  <Tags
+    placeholder="Choose a language..."
+    items={items}
+    maxTags={2}
+    onChange={val => console.log(val)}
+    tagWidth={70}
   />
 );

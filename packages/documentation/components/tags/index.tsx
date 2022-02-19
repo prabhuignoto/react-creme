@@ -1,8 +1,8 @@
 import { faTags } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import Widgets from './widgets';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function tags() {
   return (
@@ -17,7 +17,7 @@ function tags() {
       callbacks={[
         {
           default: ``,
-          description: `Function executed on Change.`,
+          description: `Callback executed on change.`,
           name: 'onChange',
           optional: 'Yes',
           type: `Function`,
@@ -26,7 +26,7 @@ function tags() {
       properties={[
         {
           default: `sm`,
-          description: `Sets the size of the tag.<br> <em>sm</em> | <em>md</em> | <em>lg</em>.`,
+          description: `Sets the size of the tag.<br> Can be <em>sm</em> | <em>md</em> | <em>lg</em>.`,
           name: 'size',
           optional: 'Yes',
           type: `String`,
@@ -42,12 +42,12 @@ function tags() {
           default: `[]`,
           description: `Collection of tag items that will be rendered on load.`,
           name: 'items',
-          optional: 'Yes',
+          optional: 'No',
           type: `Array`,
         },
         {
           default: `Number.MAX_VALUE`,
-          description: `Maximum tags allowed.`,
+          description: `Maximum tags that can be created or displayed.`,
           name: 'maxTags',
           optional: 'Yes',
           type: `Number`,
@@ -61,14 +61,14 @@ function tags() {
         },
         {
           default: 'False',
-          description: `Sets the control to readonly.`,
+          description: `Sets the control to be Readonly.`,
           name: 'readonly',
           optional: 'Yes',
           type: `Boolean`,
         },
         {
           default: '50',
-          description: `Maximum width of the tag.`,
+          description: `Maximum width of the tag. Longer texts will be auto-truncated.`,
           name: 'tagWidth',
           optional: 'Yes',
           type: `Number`,
@@ -79,6 +79,13 @@ function tags() {
           name: 'style',
           optional: 'Yes',
           type: `Object`,
+        },
+        {
+          default: 'true',
+          description: 'Sets the control to be focusable.',
+          name: 'focusable',
+          optional: 'Yes',
+          type: 'Boolean',
         },
       ]}
       demoWidget={<Widgets />}
