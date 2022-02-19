@@ -76,9 +76,11 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   const handleOnOpen = useCallback(() => {
     const menu = menuRef.current as MenuOverlayProps;
 
-    if (menu.element) {
-      menu.element.querySelectorAll('li')[0].focus();
-    }
+    setTimeout(() => {
+      if (menu.element) {
+        menu.element.querySelectorAll('li')[0].focus();
+      }
+    }, 10);
   }, []);
 
   /**

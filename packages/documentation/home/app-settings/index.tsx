@@ -13,6 +13,7 @@ import {
   LightGray,
   NightGray,
 } from '../../common/app-themes';
+import { GithubLink } from '../../common/github-link';
 import './app-settings.scss';
 
 const themes: RadioGroupItemProps<ThemeType>[] = [
@@ -84,6 +85,7 @@ const AppSettings: React.FunctionComponent = () => {
       >
         <FontAwesomeIcon icon={faCog} size="2x" />
       </span>
+      <GithubLink />
       {showSettings && (
         <Dialog
           onSuccess={handleOnSuccess}

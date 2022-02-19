@@ -271,7 +271,7 @@ importers:
       rollup-plugin-visualizer: ^5.5.4
       ts-toolbelt: ^9.6.0
       use-debounce: ^7.0.1
-      vitest: ^0.4.2
+      vitest: 0.4.1
     dependencies:
       classnames: 2.3.1
       fast-deep-equal: 3.1.3
@@ -311,7 +311,7 @@ importers:
       rollup-plugin-typescript2: 0.31.2_2424cab8e561c02ba71021f1269c3d85
       rollup-plugin-visualizer: 5.5.4_rollup@2.67.3
       ts-toolbelt: 9.6.0
-      vitest: 0.4.2_3382e712b0c688df73c2736ee5511966
+      vitest: 0.4.1_3382e712b0c688df73c2736ee5511966
 
   packages/storybook:
     specifiers:
@@ -20878,10 +20878,10 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.4.2_3382e712b0c688df73c2736ee5511966:
+  /vitest/0.4.1_3382e712b0c688df73c2736ee5511966:
     resolution:
       {
-        integrity: sha512-f5kclFhkCuIKQ96lsAveESeyfTf9ihT79ZQcLDNCoJbMDNTHQdSMnU7aq9KAeOmZVh4la3NANKWECWM7HfP1ng==,
+        integrity: sha512-zDqUYOUoyBiC0DgWw9RyQqhUktaFA+hJmrZskYrnVslSuZiuzI7SYj2GmXGwHvSx1FfdWI5lRFN9IWB7Ug5cYg==,
       }
     engines: { node: '>=14.14.0' }
     hasBin: true

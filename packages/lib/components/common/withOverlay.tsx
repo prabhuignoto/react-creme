@@ -68,8 +68,6 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
 
     const [childInvokedClose, setChildInvokedClose] = useState(false);
 
-    console.log(data);
-
     useEffect(() => {
       if (containedToParent?.current) {
         portalContainer.current = containedToParent.current;
