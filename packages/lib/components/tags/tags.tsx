@@ -65,7 +65,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   const handleKeyUp = useCallback(
     (ev: React.KeyboardEvent) => {
       if (ev.key === 'Enter' && canAdd && inputRef.current) {
-        const val = inputRef.current.getValue();
+        const val = inputRef.current.getValue().trim();
 
         if (val) {
           handleAdd(val);
@@ -90,8 +90,6 @@ const Tags: React.FunctionComponent<TagsProps> = ({
             name: _value,
           })
         );
-        // setInputValue('');
-
         if (inputRef.current) {
           inputRef.current.setValue('');
           inputRef.current.focus();
@@ -168,6 +166,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
             accent={accent}
             ref={inputRef}
             size={size}
+            disableIcon={!suggestions.length}
           />
         </li>
       )}

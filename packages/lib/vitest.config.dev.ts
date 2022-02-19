@@ -13,6 +13,7 @@ export default defineConfig({
     maxThreads: 12,
     minThreads: 5,
     setupFiles: './test-setup.ts',
+    silent: true,
     threads: true,
     update: true,
   },

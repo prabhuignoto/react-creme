@@ -173,6 +173,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
               onTooltipRendered={onTooltipRender}
               fixedAtCenter
               minWidth={tooltipWidth}
+              enablePadding={false}
             >
               <span className="tooltip-placer" ref={onPlacerRef}></span>
             </Tooltip>

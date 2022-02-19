@@ -44,7 +44,6 @@ $arrow-dim-lg: 20px;
   color: var(--fore-color, theme.$primary);
   max-width: var(--max-width);
   min-width: var(--min-width);
-  padding: 0.5rem;
   position: absolute;
   visibility: hidden;
   z-index: 99999;
@@ -103,6 +102,14 @@ $arrow-dim-lg: 20px;
     position: absolute;
     transform: rotate(45deg);
   }
+
+  &.rc-tooltip-with-padding {
+    padding: 1rem;
+  }
+
+  &:not(.rc-tooltip-with-padding) {
+    padding: 0.5rem;
+  }
 }
 
 @function get-arrow-dim($size) {
@@ -118,7 +125,6 @@ $arrow-dim-lg: 20px;
 @each $size in $sizes {
   .rc-tooltip-message-#{$size} {
     @extend %font-#{$size};
-    padding: 1rem;
     width: 90%;
 
     &::after {

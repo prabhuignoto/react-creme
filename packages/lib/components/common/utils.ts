@@ -8,7 +8,7 @@ export function isArray(value: any): boolean {
   return Array.isArray(value);
 }
 
-export default function isTouchDevice() {
+export const isTouchDevice = (() => {
   return (
     !!(
       typeof window !== 'undefined' &&
@@ -22,7 +22,7 @@ export default function isTouchDevice() {
       (navigator.maxTouchPoints || (navigator as any).msMaxTouchPoints)
     )
   );
-}
+})() as boolean;
 
 export function isValidString(value: any): boolean {
   return typeof value === 'string' && !isUndefined(value) && value !== null;

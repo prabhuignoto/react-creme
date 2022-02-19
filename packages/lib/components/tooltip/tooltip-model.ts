@@ -20,6 +20,8 @@ export type TooltipProps = {
 
   children: React.ReactNode[] | React.ReactNode;
 
+  enablePadding?: boolean;
+
   //🔷 pins the Tooltip at the center
   fixedAtCenter?: boolean;
 

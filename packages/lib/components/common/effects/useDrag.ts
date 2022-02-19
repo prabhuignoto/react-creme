@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import isTouchDevice from '../utils';
+import { isTouchDevice } from '../utils';
 import { useDragFunctionType } from './use-drag-settings-model';
 
 const rnd = Math.round;
 
-const isTouch = isTouchDevice();
+const isTouch = isTouchDevice;
 
 const { max, min } = Math;
 

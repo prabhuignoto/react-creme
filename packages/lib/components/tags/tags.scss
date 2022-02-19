@@ -44,7 +44,6 @@ $padding-sizes: (
   @include animate.set-keyframes('tag-fade-in', $settings);
   @include animate.set-keyframes('tag-fade-out', $settings, true);
 
-  // @extend %center;
   justify-items: center;
   margin: 0.25rem;
   max-width: var(--width);
@@ -157,7 +156,7 @@ $padding-sizes: (
 }
 
 .rc-tags-input-wrapper {
-  margin: 0.25rem;
+  margin: 0.5rem 0.25rem;
   position: relative;
 }
 

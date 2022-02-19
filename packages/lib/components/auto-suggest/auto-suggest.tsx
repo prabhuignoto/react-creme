@@ -31,6 +31,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
       icon,
       rtl,
       size = 'sm',
+      disableIcon = false,
     }: AutoSuggestProps,
     ref
   ) => {
@@ -172,6 +173,12 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
         : { focus: focusMenu, items: listItems };
     }, [focusMenu, listItems.length, suggestionItems.length]);
 
+    const iconToRender = useMemo(() => {
+      if (!disableIcon) {
+        return icon || <SearchIcon />;
+      }
+    }, []);
+
     return (
       <div
         className={autoSuggestClass}
@@ -195,7 +202,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
             size={size}
             ref={ref || inputRef}
           >
-            {icon ? icon : <SearchIcon />}
+            {iconToRender}
           </Input>
         </div>
         {matchFound && (

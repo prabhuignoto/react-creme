@@ -87,6 +87,7 @@ const AppSettings: React.FunctionComponent = () => {
       {showSettings && (
         <Dialog
           onSuccess={handleOnSuccess}
+          animationDuration={200}
           onClose={() => setShowSettings(false)}
           width={width}
         >
