@@ -20,6 +20,7 @@ export default defineConfig({
     maxThreads: 20,
     minThreads: 10,
     setupFiles: './test-setup.ts',
+    silent: true,
     threads: true,
     update: true,
     watch: false,

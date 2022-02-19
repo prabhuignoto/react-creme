@@ -22,7 +22,6 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   size = 'sm',
   title,
   width = 300,
-  RTL = false,
 }: DialogProps) => {
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
