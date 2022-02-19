@@ -25,21 +25,23 @@ function drawer() {
         },
         {
           default: '300',
-          description: 'Custom height to be used when docked to top or bottom',
+          description:
+            'Custom height to be used when docked to <em>top</em> or <em>bottom</em>',
           name: 'height',
           optional: 'Yes',
           type: 'Number',
         },
         {
           default: '300',
-          description: 'Custom width to be used when docked to left or right',
+          description:
+            'Custom width to be used when docked to <em>left</em> or <em>right</em>',
           name: 'width',
           optional: 'Yes',
           type: 'Number',
         },
         {
           default: 'cubic-bezier(0.79, 0.14, 0.15, 0.86',
-          description: 'custom transition for the animation',
+          description: 'Custom transition for the animation',
           name: 'transition',
           optional: 'Yes',
           type: 'String',

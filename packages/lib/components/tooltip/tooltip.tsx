@@ -27,6 +27,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   foreColor = '#000',
   size = 'sm',
   openOnClick = false,
+  enablePadding = true,
 }: TooltipProps) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
@@ -60,8 +61,9 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
         'rc-tooltip-message',
         {
           'hide-tooltip': !isFirstRender.current && !showTooltip,
-          'show-tooltip': showTooltip,
+          'rc-tooltip-with-padding': enablePadding,
           [`rc-tooltip-message-${size}`]: size,
+          'show-tooltip': showTooltip,
           [`rc-tooltip-${position.split(' ')[0]}-${position.split(' ')[1]}`]:
             true,
         },

@@ -9,6 +9,7 @@ import {
   Default,
   Disabled,
   LargeSize,
+  MaxTags,
   ReadOnly,
 } from './widget-variants';
 
@@ -57,6 +58,12 @@ function widgets() {
             In readonly mode we can display a list of non editable tags.
           </BlockQuote>
           <DemoWidget width={width}>{ReadOnly}</DemoWidget>
+        </Section>
+        <Section title="Max Tags">
+          <BlockQuote>
+            Use the <code>maxTags</code> prop to limit the number of tags.
+          </BlockQuote>
+          <DemoWidget width={width}>{MaxTags}</DemoWidget>
         </Section>
         <Section title="Tags - AutoComplete">
           <BlockQuote>

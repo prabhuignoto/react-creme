@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { isTouchDevice } from '../utils';
 
 type SwipeDirection = 'LEFT' | 'TOP' | 'RIGHT' | 'BOTTOM' | 'NONE';
 
@@ -41,8 +42,6 @@ const useSwipe: SwipeFunc = (strength = 'medium') => {
     offset: -1,
   });
 
-  // const elementRef = useRef<HTMLElement>();
-
   const handleMouseDown = useCallback((ev: MouseEvent | TouchEvent) => {
     ev.preventDefault();
     swipeStarted.current = true;
@@ -51,8 +50,6 @@ const useSwipe: SwipeFunc = (strength = 'medium') => {
 
     const { clientX, clientY } =
       ev instanceof window.TouchEvent ? ev.touches[0] : ev;
-
-    // elementRef.current?.setAttribute('disabled', 'true');
 
     if (_rect) {
       startPosition.current = {
@@ -130,30 +127,6 @@ const useSwipe: SwipeFunc = (strength = 'medium') => {
     }
   };
 
-  // useEffect(() => {
-  //   if (elementRef.current) {
-  //     return;
-  //   }
-
-  //   const _ref = ref.current;
-
-  //   if (_ref) {
-  //     elementRef.current = ref.current;
-  //     rect.current = _ref.getBoundingClientRect();
-  //     _ref.addEventListener('mousedown', handleMouseDown);
-  //     _ref.addEventListener('mouseup', handleMouseUp);
-  //     _ref.addEventListener('mousemove', handleMouseMove);
-
-  //     _ref.addEventListener('touchstart', handleMouseDown, {
-  //       passive: false,
-  //     });
-  //     _ref.addEventListener('touchend', handleMouseUp, { passive: false });
-  //     _ref.addEventListener('touchmove', handleMouseMove, {
-  //       passive: false,
-  //     });
-  //   }
-  // }, [ref]);
-
   useEffect(() => {
     return () => {
       if (elementRef.current) {
@@ -162,9 +135,11 @@ const useSwipe: SwipeFunc = (strength = 'medium') => {
         _ref.removeEventListener('mouseup', handleMouseUp);
         _ref.removeEventListener('mousemove', handleMouseMove);
 
-        _ref.removeEventListener('touchstart', handleMouseDown);
-        _ref.removeEventListener('touchend', handleMouseUp);
-        _ref.removeEventListener('touchmove', handleMouseMove);
+        if (isTouchDevice) {
+          _ref.removeEventListener('touchstart', handleMouseDown);
+          _ref.removeEventListener('touchend', handleMouseUp);
+          _ref.removeEventListener('touchmove', handleMouseMove);
+        }
       }
     };
   }, []);
@@ -179,9 +154,11 @@ const useSwipe: SwipeFunc = (strength = 'medium') => {
       ele.addEventListener('mouseup', handleMouseUp);
       ele.addEventListener('mousemove', handleMouseMove);
 
-      ele.addEventListener('touchstart', handleMouseDown);
-      ele.addEventListener('touchend', handleMouseUp);
-      ele.addEventListener('touchmove', handleMouseMove);
+      if (isTouchDevice) {
+        ele.addEventListener('touchstart', handleMouseDown, { passive: true });
+        ele.addEventListener('touchend', handleMouseUp, { passive: true });
+        ele.addEventListener('touchmove', handleMouseMove, { passive: true });
+      }
     }
   }, []);
 

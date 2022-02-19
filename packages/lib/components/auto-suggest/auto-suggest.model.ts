@@ -4,6 +4,7 @@ export interface AutoSuggestProps {
   accent?: 'rounded' | 'flat';
   apiBacked?: boolean;
   debounce?: number;
+  disableIcon?: boolean;
   focusable?: boolean;
   icon?: React.ReactNode;
   onChange?: (value?: string) => void;

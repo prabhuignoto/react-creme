@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDebounce } from 'use-debounce';
-import isTouchDevice from '../utils';
+import { isTouchDevice } from '../utils';
 import { Position, UseDraggable } from './draggable-model';
 
 const useDraggable: UseDraggable = (
@@ -33,7 +33,7 @@ const useDraggable: UseDraggable = (
 
   const [debouncedPosition] = useDebounce(position, 500, { trailing: true });
 
-  const isTouch = isTouchDevice();
+  const isTouch = isTouchDevice;
 
   const handleMouseDown = useCallback((ev: MouseEvent | TouchEvent) => {
     const target = ev.target as HTMLElement;

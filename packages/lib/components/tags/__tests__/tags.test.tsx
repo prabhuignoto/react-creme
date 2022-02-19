@@ -56,8 +56,8 @@ describe('Tags', () => {
     });
   });
 
-  it('should delete a tag', async () => {
-    const { getByText, getByRole } = render(<Tags items={tags} />);
+  it('Should delete a Tag', async () => {
+    const { getByText, getByRole, queryByText } = render(<Tags items={tags} />);
 
     const one = getByText('one');
     const oneParent = one.parentElement;
@@ -71,11 +71,12 @@ describe('Tags', () => {
 
       await waitFor(() => {
         expect(getByRole('list').querySelectorAll('li').length).toEqual(3);
+        expect(queryByText('one')).not.toBeInTheDocument();
       });
     }
   });
 
-  it('should call on change', async () => {
+  it('Should call onChange', async () => {
     const handler = vi.fn();
     const { getByPlaceholderText } = render(
       <Tags
@@ -102,7 +103,79 @@ describe('Tags', () => {
 
     await waitFor(() => {
       expect(handler).toBeCalled();
-      // expect(handler).toBeCalledWith(['one', 'two', 'three', 'test']);
+      expect(handler).toBeCalledWith(['one', 'two', 'three', 'test']);
+    });
+  });
+
+  it('Should not allow creation of empty tags', async () => {
+    const { getByPlaceholderText, getAllByRole, container } = render(
+      <Tags items={tags} placeholder="Please enter a value ..." />
+    );
+
+    const input = getByPlaceholderText('Please enter a value ...');
+    expect(input).toBeInTheDocument();
+
+    expect(container.querySelectorAll('.rc-tag')).toHaveLength(3);
+
+    fireEvent.change(input, {
+      target: {
+        value: ' ',
+      },
+    });
+
+    fireEvent.keyDown(input, {
+      key: 'Enter',
+      code: 'Enter',
+      keyCode: 13,
+      charCode: 13,
+    });
+
+    await waitFor(() => {
+      expect(container.querySelectorAll('.rc-tag')).toHaveLength(3);
+    });
+  });
+
+  it('should render custom sized tag', () => {
+    const { container } = render(<Tags items={tags} size="md" />);
+
+    expect(container.querySelectorAll('.rc-tag-md')).toHaveLength(3);
+  });
+
+  it('should not exceed max tags', async () => {
+    const { queryByPlaceholderText, container } = render(
+      <Tags items={tags} placeholder="Please enter a value ..." maxTags={3} />
+    );
+
+    expect(container.querySelectorAll('.rc-tag')).toHaveLength(3);
+
+    const input = queryByPlaceholderText('Please enter a value ...');
+    expect(input).not.toBeInTheDocument();
+  });
+
+  it('should not exceed max tags - after input entry', async () => {
+    const { getByPlaceholderText, container, queryByPlaceholderText } = render(
+      <Tags items={tags} placeholder="Please enter a value ..." maxTags={4} />
+    );
+
+    const input = getByPlaceholderText('Please enter a value ...');
+    expect(container.querySelectorAll('.rc-tag')).toHaveLength(3);
+
+    fireEvent.change(input, {
+      target: {
+        value: 'new',
+      },
+    });
+
+    fireEvent.keyUp(input, {
+      key: 'Enter',
+      code: 'Enter',
+      keyCode: 13,
+      charCode: 13,
+    });
+
+    await waitFor(() => {
+      expect(container.querySelectorAll('.rc-tag')).toHaveLength(4);
+      expect(input).not.toBeVisible();
     });
   });
 });
