@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoSuggestOption } from '../../../lib/components/auto-suggest/auto-suggest.model';
-import { Badge, GithubLink } from '../../common/github-link';
+import { Badge } from '../../common/github-link';
 import { AppSettings } from '../app-settings';
 import { Logo } from '../logo';
 import './header.scss';
@@ -21,7 +21,6 @@ const Header: React.FC<{
         </div>
       )} */}
       <AppSettings />
-      <GithubLink />
     </header>
   );
 };

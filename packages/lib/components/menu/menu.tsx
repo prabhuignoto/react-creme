@@ -11,7 +11,7 @@ import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
 import { MenuItemProps, MenuProps } from './menu-model';
-import { MenuOverlay } from './menu-overlay';
+import { MenuOverlay, MenuOverlayProps } from './menu-overlay';
 import './menu.scss';
 
 const Menu: React.FunctionComponent<MenuProps> = ({
@@ -74,9 +74,13 @@ const Menu: React.FunctionComponent<MenuProps> = ({
    * Handler executed when the menu is rendered the first time
    */
   const handleOnOpen = useCallback(() => {
-    if (containerRef) {
-      menuRef.current?.focus();
-    }
+    const menu = menuRef.current as MenuOverlayProps;
+
+    setTimeout(() => {
+      if (menu.element) {
+        menu.element.querySelectorAll('li')[0].focus();
+      }
+    }, 10);
   }, []);
 
   /**

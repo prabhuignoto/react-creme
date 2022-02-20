@@ -163,9 +163,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
       observer.current.observe(ele);
 
-      setTimeout(() => {
-        onOpen?.();
-      }, 50);
+      onOpen?.();
+      // setTimeout(() => {
+      // }, 50);
     }
   }, []);
 

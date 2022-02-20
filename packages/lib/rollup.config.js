@@ -46,15 +46,6 @@ export default {
     {
       banner,
       exports: 'named',
-      file: pkg.main,
-      format: 'cjs',
-      ...globals,
-      name: OUTPUT_NAME,
-      strict: true,
-    },
-    {
-      banner,
-      exports: 'named',
       file: pkg.module,
       format: 'es',
       ...globals,
