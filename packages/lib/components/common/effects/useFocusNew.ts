@@ -37,8 +37,6 @@ export default function useFocusNew(
     }
   }, []);
 
-  // const onScroll = useCallback((ev: Event) => removeFocus(true), []);
-
   useEffect(() => {
     const ele = ref.current;
     if (ele) {
