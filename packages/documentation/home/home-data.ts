@@ -8,11 +8,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faBolt,
-  faCubes,
+  faFeather,
   faFistRaised,
   faGlobe,
   faPalette,
-  faTools,
+  faTree,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const Features = [
@@ -28,8 +28,8 @@ export const Features = [
   },
   {
     color: '#0074E4',
-    icon: faTools,
-    title: 'Highly customizable UI Elements',
+    icon: faFeather,
+    title: 'Light weight & Modular',
   },
   {
     color: '#0074E4',
@@ -38,23 +38,23 @@ export const Features = [
   },
   {
     color: '#0074E4',
-    icon: faCubes,
-    title: 'Modular and extensible',
+    icon: faTree,
+    title: 'Tree Shakeable Library',
   },
   {
     color: '#0074E4',
     icon: faPalette,
-    title: 'Themeable and responsive',
+    title: 'Themeable and Responsive',
   },
   {
     color: '#0074E4',
     icon: faAccessibleIcon,
-    title: 'Fully Accessible UI Components',
+    title: 'Accessible UI Components',
   },
   {
     color: '#0074E4',
     icon: faGlobe,
-    title: 'Built for Modern web browsers',
+    title: 'Built for Modern Web Browsers',
   },
 ];
 

@@ -24,19 +24,21 @@ Modern UI Toolkit for React
 
 <h2>Features</h2>
 
-- 💎 High Quality react components.
+- 💎 High Quality React components.
 
 - 💪 Robust components written in Typescript.
 
-- ♿ Fully Accessible UI Components.
+- ♿ Accessible UI Components.
 
-- 🌈 40 UI Components.
+- 🌈 40+ UI Components.
 
 - 🛠️ Customizable components.
 
 - 🎨 Themeable components.
 
 - ⚙️ Minimal Third party dependencies.
+
+- 🪶 At ~32kb minified and gzipped, react-creme is lightweight.
 
 <h2>Table of Contents</h2>
 
