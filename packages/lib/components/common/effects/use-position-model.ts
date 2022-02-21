@@ -24,4 +24,7 @@ export type FunctionType = (
   toolTip: RefObject<HTMLElement>,
   pos: Position,
   settings?: Settings
-) => CSSProperties | undefined;
+) => {
+  onInit: () => void;
+  position?: CSSProperties;
+};

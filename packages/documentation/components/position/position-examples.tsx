@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { usePosition } from '../../../lib/components/common/effects/usePosition';
 import './position-examples.scss';
@@ -9,15 +9,25 @@ export const PositionComponent: React.FunctionComponent<{
   const container = useRef<HTMLDivElement>();
   const element = useRef<HTMLElement>();
 
-  const style = usePosition(container, element, position, {
-    spacing: 0,
-  });
+  const { position: cssPosition, onInit } = usePosition(
+    container,
+    element,
+    position,
+    {
+      spacing: 0,
+    }
+  );
+
+  const onRef = useCallback((node: HTMLDivElement) => {
+    container.current = node;
+    onInit();
+  }, []);
 
   return (
-    <div className="rc-demo-position-outer-box" ref={container}>
+    <div className="rc-demo-position-outer-box" ref={onRef}>
       <span
         className="rc-demo-position-inner-box"
-        style={{ ...style }}
+        style={{ ...cssPosition }}
         ref={element}
       ></span>
     </div>

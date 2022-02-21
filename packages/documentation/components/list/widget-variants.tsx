@@ -17,6 +17,7 @@ export const MultiSelection = (
     onSelection={val => console.log(val)}
     allowMultiSelection
     maxHeight={350}
+    border={false}
     options={[
       {
         name: 'india',
