@@ -5,7 +5,6 @@
 @use '../../design/position.scss';
 
 .rc-carousel-container {
-  @extend %border;
   height: 100%;
   width: 100%;
 
@@ -15,6 +14,15 @@
 
   &.rc-carousel-container-vertical {
     @extend %center;
+  }
+
+  &.rc-carousel-container-border {
+    @extend %border;
+  }
+
+  &:not(.rc-carousel-container-border) {
+    @extend %shadow-medium;
+    @extend %border-radius;
   }
 }
 

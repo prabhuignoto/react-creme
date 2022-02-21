@@ -131,6 +131,11 @@ export const routes = [
     key: 'bread-crumb',
     path: '/bread-crumb',
   },
+  {
+    component: lazy(() => import('../components/form-field')),
+    key: 'form-field',
+    path: '/form-field',
+  },
 ];
 
 export { routes as routes2 };
