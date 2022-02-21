@@ -8,7 +8,7 @@
   @extend %border-radius;
   background-color: var(--list-bg-color, #fff);
   justify-items: center;
-  row-gap: 6px;
+  // row-gap: 6px;
   width: 100%;
 
   &:not(.rc-list-search) {
@@ -18,7 +18,7 @@
   &.rc-list-search {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 50px calc(var(--max-height) - 56px);
+    grid-template-rows: 50px calc(var(--rc-list-height) - 56px);
   }
 
   &.rc-list-border {
@@ -28,7 +28,7 @@
 
 .rc-list-search-input {
   @extend %center;
-  margin-top: 0.2rem;
+  margin: 0.5rem 0;
   width: 95%;
 }
 
@@ -49,19 +49,17 @@ $list-anim-settings: (
 );
 
 .rc-list-options-wrapper {
-  max-height: var(--max-height);
+  max-height: var(--rc-list-max-height);
   overflow-y: auto;
   width: 100%;
 }
 
 .rc-list-options {
   @extend %list;
-  height: var(--list-height);
+  height: var(--rc-list-height);
   justify-content: flex-start;
-  margin-top: 0.5rem;
   overflow-x: hidden;
   overflow-y: hidden;
-  padding-bottom: 0.5rem;
   position: relative;
   width: 100%;
 }

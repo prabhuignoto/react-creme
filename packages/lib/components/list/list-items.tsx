@@ -38,7 +38,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
   ) => {
     const listStyle = useMemo(() => {
       const style = {
-        '--list-height': `${
+        '--rc-list-height': `${
           options.filter(v => v.visible).length * (itemHeight + rowGap) + rowGap
         }px`,
       } as CSSProperties;

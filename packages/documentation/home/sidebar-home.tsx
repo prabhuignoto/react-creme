@@ -50,7 +50,6 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
         if (location.hash) {
           const hash = location.hash.replace('#', '');
           const el = document.getElementById(hash);
-          console.log(el);
           if (el) {
             el.scrollIntoView();
           }
@@ -65,7 +64,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
     return (
       <div style={{ height: '100vh', width: '100%' }}>
         <Sidebar
-          enableSearch
+          // enableSearch
           onSelect={handleSidebarSelect}
           searchPlaceholder="Search Components ..."
           sectionsCollapsible={false}
