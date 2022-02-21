@@ -163,9 +163,9 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
         className={rcListClass}
         style={
           {
-            '--list-bg-color': backGroundColor,
-            '--max-height': `${maxHeight}px`,
-            '--min-height': `${minHeight}px`,
+            '--rc-list-bg-color': backGroundColor,
+            '--rc-list-max-height': `${maxHeight}px`,
+            '--rc-list-min-height': `${minHeight}px`,
           } as CSSProperties
         }
       >

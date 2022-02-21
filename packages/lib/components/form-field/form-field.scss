@@ -39,6 +39,10 @@ $sizes: (sm, md, lg);
   margin-bottom: 1rem;
 }
 
+.rc-form-field-label {
+  color: theme.$primary;
+}
+
 .rc-form-field-input-container {
   width: 100%;
 }

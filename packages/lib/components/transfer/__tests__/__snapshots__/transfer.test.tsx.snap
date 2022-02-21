@@ -9,7 +9,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
   >
     <div
       class="rc-list rc-list-border"
-      style="--list-bg-color: #fff; --max-height: 350px; --min-height: 100px;"
+      style="--rc-list-bg-color: #fff; --rc-list-max-height: 350px; --rc-list-min-height: 100px;"
     >
       <div
         class="rc-list-options-wrapper"
@@ -18,7 +18,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           aria-label="rc-list-label-undefined"
           class="rc-list-options"
           role="listbox"
-          style="--list-height: 185px;"
+          style="--rc-list-height: 185px;"
         >
           <li
             aria-checked="false"
@@ -257,7 +257,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
   >
     <div
       class="rc-list rc-list-border"
-      style="--list-bg-color: #fff; --max-height: 350px; --min-height: 100px;"
+      style="--rc-list-bg-color: #fff; --rc-list-max-height: 350px; --rc-list-min-height: 100px;"
     >
       <div
         class="rc-list-options-wrapper"
@@ -266,7 +266,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           aria-label="rc-list-label-undefined"
           class="rc-list-options"
           role="listbox"
-          style="--list-height: 185px;"
+          style="--rc-list-height: 185px;"
         >
           <li
             aria-checked="false"

@@ -92,7 +92,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
   const style = useMemo(() => {
     return {
       '--bg-color': backGroundColor,
-      '--sidebar-height': Number.isInteger(height) ? `${height}px` : 'height',
+      '--sidebar-height': Number.isInteger(height) ? `${height}px` : height,
     } as CSSProperties;
   }, []);
 
@@ -106,7 +106,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
     if (node) {
       ref.current = node;
       setSidebarHeight(
-        node.clientHeight ? node.clientHeight - 40 : window.innerHeight
+        node.clientHeight ? node.clientHeight : window.innerHeight
       );
     }
   }, []);
