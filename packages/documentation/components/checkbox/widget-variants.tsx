@@ -5,7 +5,6 @@ export const Default = (
   <CheckBox
     label="Choose your preferred option"
     onChange={ele => console.log(ele)}
-    focusIcon
   />
 );
 
@@ -33,7 +32,6 @@ export const CustomStyle = (
   <CheckBox
     onChange={ele => console.log(ele)}
     label="Choose this option"
-    focusIcon
     checkBoxStyle="round"
     isChecked
   />
