@@ -23,6 +23,30 @@
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   min-width: 150px;
   outline: none;
+  padding: 0.5rem;
+  position: relative;
+
+  &::after {
+    border-bottom: 10px solid theme.$white;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    content: '';
+    display: blocks;
+    position: absolute;
+    top: -10px;
+  }
+}
+
+.rc-menu-left {
+  &::after {
+    left: 6px;
+  }
+}
+
+.rc-menu-right {
+  &::after {
+    right: 6px;
+  }
 }
 
 .rc-menu-overlay-wrapper {

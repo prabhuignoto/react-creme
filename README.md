@@ -24,17 +24,15 @@ Modern UI Toolkit for React
 
 <h2>Features</h2>
 
-- 💎 High quality react components.
+- 💎 High Quality react components.
 
 - 💪 Robust components written in Typescript.
 
 - ♿ Fully Accessible UI Components.
 
-- 🌈 35+ UI Elements.
+- 🌈 40 UI Components.
 
 - 🛠️ Customizable components.
-
-- 📱 Complete Touch support.
 
 - 🎨 Themeable components.
 
