@@ -7,8 +7,8 @@ import Widgets from './widgets';
 function formField() {
   return (
     <DemoPageRenderer
-      title="Dropdown"
-      description="Dropdown is a component that allows the user to select a value from a list of options."
+      title="Form field"
+      description="Form field component"
       pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
       sourceId="dropdown/dropdown.tsx"
       editId="dropdown"
@@ -18,13 +18,6 @@ function formField() {
           description: 'Label of the form field.',
           name: 'label',
           optional: 'No',
-          type: 'string',
-        },
-        {
-          default: 'Your name',
-          description: 'Placeholder of the form field.',
-          name: 'placeholder',
-          optional: 'Yes',
           type: 'string',
         },
         {
@@ -50,34 +43,11 @@ function formField() {
           type: 'boolean',
         },
         {
-          default: '200ms',
-          description: 'Debounce time in milliseconds.',
-          name: 'debounce',
-          optional: 'Yes',
-          type: 'number',
-        },
-        {
-          default: 'default',
-          description:
-            'State of the form field. can be <em>default</em>, <em>error</em>, <em>success</em>.',
-          name: 'state',
-          optional: 'Yes',
-          type: 'string',
-        },
-        {
           default: 'false',
           description: 'Whether to show the component in RTL or not.',
           name: 'RTL',
           optional: 'Yes',
           type: 'boolean',
-        },
-
-        {
-          default: '',
-          description: 'Value of the form field.',
-          name: 'value',
-          optional: 'Yes',
-          type: 'string',
         },
         {
           default: 'false',

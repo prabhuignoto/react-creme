@@ -1,12 +1,15 @@
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import React from 'react';
-import { describe, fn, it } from 'vitest';
+import { describe, it } from 'vitest';
+import { Input } from '../../input/input';
 import { FormField } from '../form-field';
 
 describe('Form Field', () => {
   it('Should render the form field', () => {
     const { getByText, getByPlaceholderText } = render(
-      <FormField label="Name" placeholder="please enter your name" />
+      <FormField label="Name">
+        <Input id="name" placeholder="please enter your name" />
+      </FormField>
     );
 
     expect(getByText('Name')).toBeInTheDocument();
@@ -15,11 +18,9 @@ describe('Form Field', () => {
 
   it('should render icon', () => {
     const { getByTestId } = render(
-      <FormField
-        label="Name"
-        placeholder="please enter your name"
-        icon={<i data-testid="icon" />}
-      />
+      <FormField label="Name" icon={<i data-testid="icon" />}>
+        <Input id="name" placeholder="please enter your name" />
+      </FormField>
     );
 
     expect(getByTestId('icon')).toBeInTheDocument();
@@ -27,7 +28,9 @@ describe('Form Field', () => {
 
   it('should render RTL mode', () => {
     const { getByText, container } = render(
-      <FormField label="Name" placeholder="please enter your name" RTL />
+      <FormField label="Name" RTL>
+        <Input id="name" placeholder="please enter your name" />
+      </FormField>
     );
 
     expect(getByText('Name')).toBeInTheDocument();
@@ -35,22 +38,15 @@ describe('Form Field', () => {
     expect(container.firstChild).toHaveClass('rc-form-field-rtl');
   });
 
-  it('should call on change handler', async () => {
-    const onChange = fn();
-    const { getByPlaceholderText } = render(
-      <FormField
-        label="Name"
-        placeholder="please enter your name"
-        onChange={onChange}
-      />
+  it('should render custom size', () => {
+    const { getByText, container } = render(
+      <FormField label="Name" size="sm">
+        <Input id="name" placeholder="please enter your name" />
+      </FormField>
     );
 
-    fireEvent.change(getByPlaceholderText('please enter your name'), {
-      target: { value: 'test' },
-    });
+    expect(getByText('Name')).toBeInTheDocument();
 
-    await waitFor(() => {
-      expect(onChange).toHaveBeenCalled();
-    });
+    expect(container.firstChild).toHaveClass('rc-form-field-sm');
   });
 });

@@ -7,6 +7,7 @@ $sizes: (sm, md, lg);
 .rc-form-field {
   @extend %col;
   align-items: flex-start;
+  margin: 0.5rem 0;
   padding: 0.75rem 0.5rem;
 
   &.rc-form-field-rtl {

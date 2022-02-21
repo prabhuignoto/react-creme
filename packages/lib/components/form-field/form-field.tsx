@@ -1,8 +1,6 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { FunctionComponent, useMemo, useRef } from 'react';
-import { useDebouncedCallback } from 'use-debounce';
-import { Input } from '../input/input';
 import { FormFieldProps } from './form-field.model';
 import './form-field.scss';
 
@@ -11,18 +9,15 @@ const FormField: FunctionComponent<FormFieldProps> = ({
   disabled = false,
   icon,
   label,
-  onChange,
-  placeholder,
   size,
-  state,
-  debounce = 200,
   border = true,
-  value = '',
+  children,
 }) => {
   const formFieldClass = useMemo(() => {
     return classNames('rc-form-field', {
       [`rc-form-field-${size}`]: true,
       'rc-form-field-border': border,
+      'rc-form-field-disabled': disabled,
       'rc-form-field-rtl': RTL,
     });
   }, []);
@@ -41,9 +36,6 @@ const FormField: FunctionComponent<FormFieldProps> = ({
 
   const id = useRef(`rc-form-field-${nanoid()}`);
 
-  const debouncedOnChange =
-    onChange && useDebouncedCallback(onChange, debounce);
-
   return (
     <div className={formFieldClass}>
       <div className="rc-form-field-label-container">
@@ -56,20 +48,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
           {label}
         </label>
       </div>
-      <div className="rc-form-field-input-container">
-        <Input
-          placeholder={placeholder}
-          onChange={debouncedOnChange}
-          size={size}
-          state={state}
-          noUniqueId
-          id={id.current}
-          RTL={RTL}
-          enableClear
-          disabled={disabled}
-          value={value}
-        />
-      </div>
+      <div className="rc-form-field-input-container">{children}</div>
     </div>
   );
 };
