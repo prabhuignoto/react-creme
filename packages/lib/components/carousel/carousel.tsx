@@ -25,6 +25,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   transition = 'cubic-bezier(0.55, 0.08, 0.68, 0.53)',
   // enableSwipe = false,
   focusable = true,
+  border = false,
 }) => {
   // const carouselRef = useRef<HTMLDivElement | null>(null);
   const [carouselItems, setCarouselItems] = useState<CarouselItemProps[]>(
@@ -141,10 +142,12 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   const carouselContainerClass = useMemo(
     () =>
-      classNames([
-        'rc-carousel-container',
-        `rc-carousel-container-${direction}`,
-      ]),
+      classNames(
+        ['rc-carousel-container', `rc-carousel-container-${direction}`],
+        {
+          'rc-carousel-border': border,
+        }
+      ),
     []
   );
 

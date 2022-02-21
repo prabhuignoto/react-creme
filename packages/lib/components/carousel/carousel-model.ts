@@ -2,6 +2,7 @@ import React from 'react';
 
 export interface CarouselProps {
   autoPlay?: number;
+  border?: boolean;
   children: React.ReactNode | React.ReactNode;
   direction?: 'horizontal' | 'vertical';
   enableSwipe?: boolean;

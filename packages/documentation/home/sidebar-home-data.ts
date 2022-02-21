@@ -63,6 +63,7 @@ export default [
       { name: 'Slider' },
       { name: 'Auto Suggest' },
       { name: 'Menu Button' },
+      { name: 'Form Field' },
     ],
     title: 'Inputs',
   },

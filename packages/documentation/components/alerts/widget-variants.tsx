@@ -12,7 +12,7 @@ export const Success = (
 );
 
 export const Warning = (
-  <Alert message="This is a warning text" state="warning" />
+  <Alert message="This is a warning text" state="warning" size="md" />
 );
 
 export const Error = (
