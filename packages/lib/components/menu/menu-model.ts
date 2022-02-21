@@ -3,6 +3,7 @@ import { OverlayModel } from '../common/overlay-model';
 export interface MenuProps {
   children: React.ReactNode;
   disabled?: boolean;
+  dockPosition?: 'left' | 'right' | 'center';
   focusable?: boolean;
   id?: string;
   isClosing?: boolean;
@@ -10,7 +11,6 @@ export interface MenuProps {
   onClose?: (id?: string) => void;
   onOpen?: (id?: string) => void;
   onSelected?: (val: string) => void;
-  position?: 'left' | 'right';
   size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;
 }
@@ -24,7 +24,7 @@ export type MenuItemProps = Pick<MenuProps, 'disabled'> & {
 
 export type MenuOverlayModel = Pick<
   MenuProps,
-  'focusable' | 'items' | 'size'
+  'focusable' | 'items' | 'size' | 'dockPosition'
 > & {
   onSelection?: (val: string) => void;
   ref?: RefObject<HTMLUListElement | null>;

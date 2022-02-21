@@ -1,10 +1,9 @@
 import React from 'react';
 import { Button, Menu } from '../../../lib/components';
-import { CheckCircleIcon } from '../../../lib/icons';
 
 export const AttachedToButton = (
   <Menu
-    position="left"
+    dockPosition="left"
     items={[
       { name: 'Open' },
       { name: 'Save As' },
@@ -25,16 +24,17 @@ export const AttachedToIcon = (
       { name: 'Close' },
       { name: 'Exit' },
     ]}
+    dockPosition="center"
   >
-    <Button type="icon" size="lg">
-      <CheckCircleIcon />
+    <Button size="md" label="Open Menu">
+      {/* <CheckCircleIcon /> */}
     </Button>
   </Menu>
 );
 
 export const AttachedToNativeElement = (
   <Menu
-    position="right"
+    dockPosition="right"
     items={[
       { name: 'Open' },
       { name: 'Save As' },

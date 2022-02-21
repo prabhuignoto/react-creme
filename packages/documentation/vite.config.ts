@@ -19,17 +19,7 @@ export default defineConfig({
   clearScreen: true,
   logLevel: 'info',
   mode: 'universal',
-  plugins: [
-    reactRefresh({
-      exclude: [
-        './node_modules/**',
-        './**/*.test.tsx',
-        './**/*.test.ts',
-        './**/*.spec.tsx',
-      ],
-    }),
-    svgr(),
-  ],
+  plugins: [reactRefresh(), svgr()],
   server: {
     fs: {
       strict: false,

@@ -6,7 +6,7 @@ $sizes: (sm, md, lg);
 
 .rc-menu-item {
   @extend %list-item-left;
-  height: 40px;
+  height: 35px;
   width: 100%;
 
   &:hover {

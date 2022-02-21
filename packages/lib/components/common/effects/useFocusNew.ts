@@ -49,7 +49,7 @@ export default function useFocusNew(
       focusRing.classList.add('rc-focus-ring');
       focusRing.style.cssText = `
         width: ${clientWidth + 6}px;
-        height: ${clientHeight + 6}px;
+        height: ${clientHeight + 6}px; 
       `;
       ring.current = ele;
       ele.appendChild(focusRing);

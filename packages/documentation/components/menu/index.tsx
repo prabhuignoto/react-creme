@@ -36,9 +36,16 @@ function menu() {
       ]}
       properties={[
         {
+          default: 'sm',
+          description: `The size of the menu. Can be <em>sm</em>, <em>md</em> <em>lg</em>`,
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
+        {
           default: 'left',
           description: `Docking position of the menu. <br>
-          <em>'left'</em> | <em>'right'</em>`,
+          <em>'left'</em> | <em>'right'</em> | <em>center</em>`,
           name: 'align',
           optional: 'Yes',
           type: 'string',

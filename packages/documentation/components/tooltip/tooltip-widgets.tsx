@@ -41,7 +41,7 @@ const Widgets = () => {
       <div className="rc-demo-widgets">
         <Section>
           <BlockQuote>
-            Tooltip component can be anchored to the target element in 12
+            Tooltip component can be anchored to a target element in 12
             different positions. Change the position of the tooltip using the
             dropdown.
           </BlockQuote>

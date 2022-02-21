@@ -7,17 +7,17 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render">
-        <DemoWidget width={250}>{Default}</DemoWidget>
+        <DemoWidget width={220}>{Default}</DemoWidget>
       </Section>
       <Section title="Disabled State">
-        <DemoWidget width={250}>{Disabled}</DemoWidget>
+        <DemoWidget width={200}>{Disabled}</DemoWidget>
       </Section>
       <Section title="Large size">
         <BlockQuote>Comes in three sizes: small, medium, large.</BlockQuote>
-        <DemoWidget width={250}>{Large}</DemoWidget>
+        <DemoWidget width={200}>{Large}</DemoWidget>
       </Section>
       <Section title="Custom Checkbox style">
-        <DemoWidget width={250}>{CustomStyle}</DemoWidget>
+        <DemoWidget width={150}>{CustomStyle}</DemoWidget>
       </Section>
     </div>
   );
