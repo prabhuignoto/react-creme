@@ -8,7 +8,7 @@ $sizes: (sm, md, lg);
   @extend %col;
   align-items: flex-start;
   margin: 0.5rem 0;
-  padding: 0.75rem 0.5rem;
+  padding: 1rem;
 
   &.rc-form-field-rtl {
     direction: rtl;

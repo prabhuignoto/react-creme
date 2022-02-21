@@ -5,6 +5,7 @@ export type FormFieldProps = {
   border?: boolean;
   disabled?: boolean;
   icon?: ReactNode;
+  id?: string;
   label?: string;
   size?: 'sm' | 'md' | 'lg';
   type?: 'text' | 'select' | 'radio-group';

@@ -1,6 +1,5 @@
 import classNames from 'classnames';
-import { nanoid } from 'nanoid';
-import React, { FunctionComponent, useMemo, useRef } from 'react';
+import React, { FunctionComponent, useMemo } from 'react';
 import { FormFieldProps } from './form-field.model';
 import './form-field.scss';
 
@@ -12,6 +11,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
   size,
   border = true,
   children,
+  id,
 }) => {
   const formFieldClass = useMemo(() => {
     return classNames('rc-form-field', {
@@ -34,17 +34,11 @@ const FormField: FunctionComponent<FormFieldProps> = ({
     });
   }, []);
 
-  const id = useRef(`rc-form-field-${nanoid()}`);
-
   return (
     <div className={formFieldClass}>
       <div className="rc-form-field-label-container">
         {icon && <span className={formIconClass}>{icon}</span>}
-        <label
-          className={formLabelClass}
-          aria-label={label}
-          htmlFor={id.current}
-        >
+        <label className={formLabelClass} aria-label={label} htmlFor={id}>
           {label}
         </label>
       </div>
