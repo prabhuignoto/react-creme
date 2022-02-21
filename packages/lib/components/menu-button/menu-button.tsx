@@ -63,7 +63,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         items={menuItems.current}
         focusable={focusable}
         onSelected={handleChange}
-        position={menuPosition}
+        dockPosition={menuPosition}
         size={size}
       >
         <span className="rc-menu-btn-icon" role="img">
