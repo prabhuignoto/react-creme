@@ -109,7 +109,6 @@ export type ListItemContentProps = Pick<
   | 'size'
 > & {
   showCheck?: boolean;
-  // tabIndex: number;
 };
 
 export interface ListOption<T = string> extends Option<T> {
@@ -142,17 +141,15 @@ export function ParseOptions(
   itemHeight: number,
   noUniqueIds: boolean
 ): ListOption[] {
-  return (
-    options
-      // .sort((a, b) => (b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1))
-      .filter(opt => (!isUndefined(opt.visible) ? opt.visible : true))
-      .map((option, index) => ({
-        id: !noUniqueIds ? nanoid() : option.id,
-        ...option,
-        selected: !isUndefined(option.selected) ? option.selected : false,
-        top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
-        value: option.value || option.name,
-        visible: true,
-      }))
-  );
+  return options
+    .sort((a, b) => (b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1))
+    .filter(opt => (!isUndefined(opt.visible) ? opt.visible : true))
+    .map((option, index) => ({
+      id: !noUniqueIds ? nanoid() : option.id,
+      ...option,
+      selected: !isUndefined(option.selected) ? option.selected : false,
+      top: index > 0 ? index * (itemHeight + rowGap) + rowGap : rowGap,
+      value: option.value || option.name,
+      visible: true,
+    }));
 }

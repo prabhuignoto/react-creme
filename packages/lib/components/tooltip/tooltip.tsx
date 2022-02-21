@@ -39,10 +39,15 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   const [showTooltip, setShowTooltip] = useState(isStatic);
 
   // helper to position the tooltip
-  const cssPosition = usePosition(wrapperRef, tooltipRef, position, {
-    alignToEdge: true,
-    spacing: 15,
-  });
+  const { position: cssPosition, onInit } = usePosition(
+    wrapperRef,
+    tooltipRef,
+    position,
+    {
+      alignToEdge: true,
+      spacing: 15,
+    }
+  );
 
   // handlers for showing/hiding tooltip
   const onShow = useCallback(
@@ -101,6 +106,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   const onRef = useCallback(node => {
     if (node) {
       wrapperRef.current = node;
+      onInit();
     }
   }, []);
 

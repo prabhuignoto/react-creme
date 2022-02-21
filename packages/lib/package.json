@@ -75,7 +75,7 @@
     "rollup-plugin-typescript2": "^0.31.2",
     "rollup-plugin-visualizer": "^5.5.4",
     "ts-toolbelt": "^9.6.0",
-    "vitest": "0.4.1"
+    "vitest": "0.4.2"
   },
   "browserslist": [
     "last 3 versions",

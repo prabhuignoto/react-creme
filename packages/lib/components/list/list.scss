@@ -24,6 +24,10 @@
   &.rc-list-border {
     @extend %border;
   }
+
+  &:not(.rc-list-border) {
+    @extend %shadow-small;
+  }
 }
 
 .rc-list-search-input {
