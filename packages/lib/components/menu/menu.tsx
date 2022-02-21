@@ -16,15 +16,15 @@ import './menu.scss';
 
 const Menu: React.FunctionComponent<MenuProps> = ({
   children,
+  dockPosition = 'left',
   focusable = true,
   id,
   items = [],
   onClose,
   onOpen,
   onSelected,
-  position = 'left',
-  style,
   size = 'sm',
+  style,
 }: MenuProps) => {
   const [menuItems] = useState<MenuItemProps[]>(
     items.map(item => ({
@@ -163,11 +163,12 @@ const Menu: React.FunctionComponent<MenuProps> = ({
             placement="bottom"
             onClose={closeMenu}
             onOpen={handleOnOpen}
-            align={position}
             ref={menuRef}
             focusable={focusable}
-            placementOffset={10}
+            placementOffset={14}
             size={size}
+            align={dockPosition}
+            dockPosition={dockPosition}
           />
         </div>
       )}

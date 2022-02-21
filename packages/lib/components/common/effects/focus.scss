@@ -24,7 +24,7 @@
   animation-timing-function: ease-in;
   background-color: rgba(#fff, 0.1);
   border: 2px solid rgba(theme.$primary-rgb, 0.75);
-  box-shadow: 0 0 25px 15px rgba(#ffff, 0.1);
+  box-shadow: 0 0 1px 4px rgba(theme.$primary-rgb, 0.2);
   visibility: visible;
 }
 
@@ -40,6 +40,6 @@
   }
 
   100% {
-    box-shadow: 0 0 25px 20px rgba(#ffff, 0.1);
+    box-shadow: 0 0 1px 4px rgba(theme.$primary-rgb, 0.2);
   }
 }

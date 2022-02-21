@@ -11,7 +11,10 @@ export type MenuOverlayProps = Partial<HTMLUListElement> & {
 };
 
 const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
-  ({ items, onSelection, focusable, size }: MenuOverlayModel, ref) => {
+  (
+    { items, onSelection, focusable, size, dockPosition }: MenuOverlayModel,
+    ref
+  ) => {
     const listRef = useRef<HTMLUListElement | null>(null);
 
     /**
@@ -29,6 +32,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
       () =>
         classNames(['rc-menu'], {
           [`rc-menu-${size}`]: size,
+          [`rc-menu-${dockPosition}`]: true,
         }),
       []
     );

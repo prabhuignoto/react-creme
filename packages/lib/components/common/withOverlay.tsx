@@ -13,15 +13,8 @@ type Settings = {
   placement?: 'bottom' | 'top';
 };
 
-// type OverlayFunc = <U extends OverlayModel<T>>(
-//   Node: React.FunctionComponent<U>,
-//   settings: Settings
-// ) => React.ForwardRefExoticComponent<
-//   React.PropsWithoutRef<U> & React.RefAttributes<HTMLElement>
-// >;
-
 export type OverlayContextModel = {
-  align?: 'left' | 'right';
+  align?: 'left' | 'right' | 'center';
   childClosing?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any;

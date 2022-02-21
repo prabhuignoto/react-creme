@@ -67,16 +67,28 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
    * Computes the placement style for the overlay content
    */
   const placementStyle = useMemo(() => {
-    if (placementReference?.current && placement && overlayDimensions) {
-      const child = placementReference?.current.firstChild as HTMLElement;
-      const { top, left, right, height } = child.getBoundingClientRect();
+    const placementRef = placementReference?.current;
+    const overlayRef = overlayContentRef.current;
+
+    if (placementRef && placement && overlayDimensions && overlayRef) {
+      const child = placementRef.firstChild as HTMLElement;
+      const { top, left, right, height, width } = child.getBoundingClientRect();
       const positionRight = right - overlayDimensions.width;
+      const overlayChild = overlayRef.firstChild as HTMLElement;
 
       return {
         [placement === 'top' ? 'bottom' : 'top']: `${
           top + height + placementOffset
         }px`,
-        left: `${context?.align === 'left' ? left : positionRight}px`,
+        left: `${
+          context?.align === 'left'
+            ? left
+            : context.align === 'center'
+            ? left +
+              Math.round(width / 2) -
+              Math.round(overlayChild.clientWidth / 2)
+            : positionRight
+        }px`,
         pointerEvents: 'all',
         position: 'absolute',
       } as CSSProperties;

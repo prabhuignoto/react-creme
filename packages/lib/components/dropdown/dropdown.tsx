@@ -124,7 +124,10 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       const focusableIndex = dropdownOptions.findIndex(
         option => !option.disabled
       );
-      setFocusIndex(focusableIndex);
+
+      setTimeout(() => {
+        setFocusIndex(focusableIndex);
+      }, 50);
     }, []);
 
     // handles the menu closing

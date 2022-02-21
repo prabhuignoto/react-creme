@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FunctionType } from './use-position-model';
 
 const usePosition: FunctionType = function (
@@ -9,6 +9,10 @@ const usePosition: FunctionType = function (
 ) {
   const [_position, setPosition] = useState<React.CSSProperties>();
   const { spacing, alignToEdge } = settings;
+
+  useEffect(() => {
+    onInit();
+  }, [position]);
 
   const onInit = useCallback(() => {
     const containerEle = container.current;
@@ -113,7 +117,7 @@ const usePosition: FunctionType = function (
 
       setPosition(cssPosition);
     }
-  }, []);
+  }, [position]);
 
   return {
     onInit,
