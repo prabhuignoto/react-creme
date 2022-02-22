@@ -27,8 +27,8 @@ function Widgets() {
       setWidth(450);
       setHeight(300);
     } else if (media.isMobile) {
-      setWidth(320);
-      setHeight(300);
+      setWidth(350);
+      setHeight(200);
     }
   }, [media]);
 

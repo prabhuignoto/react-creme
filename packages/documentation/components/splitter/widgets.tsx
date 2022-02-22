@@ -7,7 +7,6 @@ import { DemoWidget } from '../../common/demo-widget';
 function widgets() {
   const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
-  const [handleBarWidth, setHandleBarWidth] = React.useState(4);
 
   useLayoutEffect(() => {
     if (!media) {
@@ -24,7 +23,6 @@ function widgets() {
       setWidth(500);
     } else if (media.isMobile) {
       setWidth(320);
-      setHandleBarWidth(8);
     }
   }, [media]);
 
@@ -41,7 +39,7 @@ function widgets() {
               dir="horizontal"
               minSplitWidth={Math.round(width * 0.3)}
               maxSplitWidth={Math.round(width * 0.75)}
-              handleBarWidth={handleBarWidth}
+              handleBarWidth={4}
             >
               <p style={{ padding: '1rem' }}>
                 Contrary to popular belief, Lorem Ipsum is not simply random
@@ -75,7 +73,7 @@ function widgets() {
               dir="vertical"
               minSplitHeight={400 * 0.25}
               maxSplitHeight={400 * 0.75}
-              handleBarWidth={handleBarWidth}
+              handleBarWidth={4}
             >
               <p style={{ padding: '1rem' }}>
                 Contrary to popular belief, Lorem Ipsum is not simply random
