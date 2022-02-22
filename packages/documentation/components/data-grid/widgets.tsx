@@ -19,9 +19,9 @@ function widgets() {
     if (media.isExtraLargeScreen) {
       setWidth(950);
     } else if (media.isBigScreen) {
-      setWidth(750);
+      setWidth(720);
     } else if (media.isDesktop) {
-      setWidth(550);
+      setWidth(620);
       setColumns([
         { name: 'name', type: 'string' },
         { name: 'marks', type: 'number' },

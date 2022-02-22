@@ -199,7 +199,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                     classNames="widget-fade"
                     timeout={300}
                   >
-                    {media.isMobile || media.isTablet ? (
+                    {media.isMobile || media.isTablet || media.isDesktop ? (
                       Demo
                     ) : (
                       <WidgetsWrapper>{Demo}</WidgetsWrapper>
