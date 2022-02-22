@@ -18,8 +18,8 @@ const links = [
     url: 'https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml',
   },
   {
-    image: 'https://img.shields.io/bundlephobia/minzip/react-creme/0.5.0',
-    url: 'https://bundlephobia.com/package/react-creme@0.5.0',
+    image: 'https://img.shields.io/bundlephobia/minzip/react-creme',
+    url: 'https://bundlephobia.com/package/react-creme',
   },
   {
     image: 'https://img.shields.io/badge/status-alpha-green',
