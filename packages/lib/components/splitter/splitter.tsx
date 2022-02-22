@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import React, {
   CSSProperties,
   useCallback,
-  useEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
+import { AlignJustify } from '../../icons';
 import { useDrag } from '../common/effects/useDrag';
 import { SplitterProps } from './splitter-model';
 import './splitter.scss';
@@ -41,6 +41,7 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
     observeContainer: true,
     onDragEnd: () => setDragStarted(false),
     onDragStart: () => setDragStarted(true),
+    updatePosition: false,
   });
 
   const isHorizontal = useMemo(() => dir === 'horizontal', []);
@@ -130,35 +131,27 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
     }
   }, []);
 
-  useEffect(() => {
-    if (controlRef.current) {
-      if (dir === 'horizontal') {
-        controlRef.current.style.left = `${minSplitWidth}px`;
-      } else {
-        controlRef.current.style.top = `${minSplitHeight}px`;
-      }
-    }
-  }, []);
-
   const handleBarStyle = useMemo(() => {
     if (dir === 'horizontal') {
       return {
+        left: `${round(percent * 100)}%`,
         width: `${handleBarWidth}px`,
       } as CSSProperties;
     } else {
       return {
         height: `${handleBarWidth}px`,
+        top: `${round(percent * 100)}%`,
       } as CSSProperties;
     }
-  }, []);
+  }, [percent]);
 
   return (
     <div className={wrapperClass} ref={setWrapperRef}>
-      <span
-        className={controlClass}
-        ref={controlRef}
-        style={handleBarStyle}
-      ></span>
+      <div className={controlClass} style={handleBarStyle}>
+        <span className="rc-splitter-drag-square" ref={controlRef}>
+          <AlignJustify />
+        </span>
+      </div>
       <div className="splitter-partition" style={partitionOneStyle}>
         {children && children[0]}
       </div>

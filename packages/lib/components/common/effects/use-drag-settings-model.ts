@@ -14,6 +14,7 @@ export interface Settings {
   onDragEnd?: () => void;
   onDragStart?: () => void;
   startValue?: number;
+  updatePosition?: boolean;
 }
 
 export type useDragFunctionType = (
