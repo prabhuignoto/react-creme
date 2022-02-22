@@ -12,10 +12,10 @@ import {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section title="Default render" size="md">
         <DemoWidget width={450}>{Default}</DemoWidget>
       </Section>
-      <Section title="Custom Icon - slash">
+      <Section title="Custom Icon - slash" size="md">
         <BlockQuote>
           The icon can be changed by setting the <code>icon</code> property to
           any of the values <code>slash</code> <code>arrow</code> or{' '}
@@ -23,17 +23,17 @@ function Widgets() {
         </BlockQuote>
         <DemoWidget width={450}>{Slash}</DemoWidget>
       </Section>
-      <Section title="Custom Icon - arrow">
+      <Section title="Custom Icon - arrow" size="md">
         <DemoWidget width={450}>{CustomIcon}</DemoWidget>
       </Section>
-      <Section title="Custom Size - Medium">
+      <Section title="Custom Size - Medium" size="md">
         <BlockQuote>
           The size can be changed by setting the <code>size</code> property to{' '}
           <code>sm</code> <code>md</code> or <code>lg</code>.
         </BlockQuote>
         <DemoWidget width={450}>{SelectedIndex}</DemoWidget>
       </Section>
-      <Section title="Custom Size - Large">
+      <Section title="Custom Size - Large" size="md">
         <DemoWidget width={400}>{CustomSize}</DemoWidget>
       </Section>
     </div>

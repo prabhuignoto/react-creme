@@ -46,7 +46,7 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section title="Comfortable View">
+        <Section title="Comfortable View" size="md">
           <BlockQuote>
             In Comfortable mode, the display density is set to high and is
             preferable for better readability.
@@ -61,7 +61,7 @@ function widgets() {
             />
           </DemoWidget>
         </Section>
-        <Section title="Compact View">
+        <Section title="Compact View" size="md">
           <BlockQuote>
             In Compact mode, the display density is set to low and is preferred
             for smaller viewport and when you want to cramp in more rows in the
@@ -77,7 +77,7 @@ function widgets() {
             />
           </DemoWidget>
         </Section>
-        <Section title="Sortable">
+        <Section title="Sortable" size="md">
           <BlockQuote>
             Individual columns can be configured to be sortable.
           </BlockQuote>
@@ -96,7 +96,7 @@ function widgets() {
             />
           </DemoWidget>
         </Section>
-        <Section title="Custom Table outlook">
+        <Section title="Custom Table outlook" size="md">
           <BlockQuote>
             Use the <code>zebra</code> property to alternate the background
             color of the rows.

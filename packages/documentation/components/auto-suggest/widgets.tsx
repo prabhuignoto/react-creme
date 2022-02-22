@@ -6,13 +6,13 @@ import { Accent, Default, RTL } from './widget-variants';
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default Render">
+      <Section title="Default Render" size="md">
         <DemoWidget width={300}>{Default}</DemoWidget>
       </Section>
-      <Section title="Rounded Accent">
+      <Section title="Rounded Accent" size="md">
         <DemoWidget width={300}>{Accent}</DemoWidget>
       </Section>
-      <Section title="RTL">
+      <Section title="RTL" size="md">
         <DemoWidget width={300}>{RTL}</DemoWidget>
       </Section>
     </div>

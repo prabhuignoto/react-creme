@@ -22,6 +22,7 @@ $heights: (
 }
 
 .rc-section-header {
+  @extend %left;
   border-bottom: 1px solid theme.$secondary;
   color: theme.$primary;
   font-size: 1rem;

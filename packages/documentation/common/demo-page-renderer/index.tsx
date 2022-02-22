@@ -15,6 +15,7 @@ import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-mode
 import StackBlitz from '../stackblitz';
 import useMedia from '../useMedia';
 import './demo-page-renderer.scss';
+import WidgetsWrapper from './widgets-wrapper';
 
 const DataGrid = React.lazy(() =>
   import('../../../lib/components/data-grid/data-grid').then(
@@ -198,7 +199,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                     classNames="widget-fade"
                     timeout={300}
                   >
-                    {Demo}
+                    <WidgetsWrapper>{Demo}</WidgetsWrapper>
                   </CSSTransition>
                 </Suspense>
               </div>

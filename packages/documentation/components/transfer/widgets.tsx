@@ -30,10 +30,10 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section title="Default render">
+        <Section title="Default render" size="md">
           <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
-        <Section title="Search">
+        <Section title="Search" size="md">
           <DemoWidget width={width}>{Searchable}</DemoWidget>
         </Section>
       </div>

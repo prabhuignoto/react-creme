@@ -12,19 +12,19 @@ import {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default Render">
+      <Section title="Default Render" size="md">
         <DemoWidget width={100}>{Default}</DemoWidget>
       </Section>
-      <Section title="Preselected Option">
+      <Section title="Preselected Option" size="md">
         <DemoWidget width={200}>{PreSelected}</DemoWidget>
       </Section>
-      <Section title="Disabled Option">
+      <Section title="Disabled Option" size="md">
         <DemoWidget width={200}>{Disabled}</DemoWidget>
       </Section>
-      <Section title="Checkbox Group - Round style">
+      <Section title="Checkbox Group - Round style" size="md">
         <DemoWidget width={150}>{CustomStyle}</DemoWidget>
       </Section>
-      <Section title="Checkbox Group - RTL">
+      <Section title="Checkbox Group - RTL" size="md">
         <DemoWidget width={150}>{RTL}</DemoWidget>
       </Section>
     </div>

@@ -29,22 +29,22 @@ function Widgets() {
   return (
     width && (
       <div className="rc-demo-widgets">
-        <Section title="Default render">
+        <Section title="Default render" size="md">
           <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
-        <Section title="Custom Icon">
+        <Section title="Custom Icon" size="md">
           <BlockQuote>
             Use the <code>icon</code> prop to add an icon to the form field.
           </BlockQuote>
           <DemoWidget width={width}>{Icon}</DemoWidget>
         </Section>
-        <Section title="Field with state">
+        <Section title="Field with state" size="md">
           <DemoWidget width={width}>{State}</DemoWidget>
         </Section>
-        <Section title="Dropdown Field">
+        <Section title="Dropdown Field" size="md">
           <DemoWidget width={width}>{DropdownField}</DemoWidget>
         </Section>
-        <Section title="RTL Render">
+        <Section title="RTL Render" size="md">
           <DemoWidget width={width}>{RTL}</DemoWidget>
         </Section>
       </div>

@@ -1,0 +1,13 @@
+.rc-doc-widgets-collection {
+  justify-self: flex-start;
+}
+
+// .rc-doc-links-wrapper {
+// }
+
+.rc-doc-widgets-wrapper {
+  display: grid;
+  grid-template-columns: auto 200px;
+  height: 100%;
+  width: 100%;
+}

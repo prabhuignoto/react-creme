@@ -30,21 +30,21 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section title="Flat tabs">
+        <Section title="Flat tabs" size="md">
           <BlockQuote>
             In flat mode, the tabs are rendered as a horizontal list of tabs
             with a flat accent.
           </BlockQuote>
           <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
-        <Section title="Rounded tabs">
+        <Section title="Rounded tabs" size="md">
           <BlockQuote>
             In rounded mode, the tabs are rendered as a horizontal list of tabs
             with rounded borders.
           </BlockQuote>
           <DemoWidget width={width}>{Rounded}</DemoWidget>
         </Section>
-        <Section title="Rounded tabs with scroll">
+        <Section title="Rounded tabs with scroll" size="md">
           <BlockQuote>
             When the tabs are too long to fit in the available space, they can
             be scrolled with the help of the buttons to the right.
@@ -77,14 +77,14 @@ function widgets() {
             </Tabs>
           </DemoWidget>
         </Section>
-        <Section title="Flat tabs (Disabled)">
+        <Section title="Flat tabs (Disabled)" size="md">
           <BlockQuote>
             Specific tabs can be disabled by passing an array of tab labels to
             the <em>disabledTabs</em> array
           </BlockQuote>
           <DemoWidget width={width}>{Disabled}</DemoWidget>
         </Section>
-        <Section title="Tabs with Icons">
+        <Section title="Tabs with Icons" size="md">
           <BlockQuote>
             Specific tabs can be disabled by passing an array of tab labels to
             the <em>disabledTabs</em> array

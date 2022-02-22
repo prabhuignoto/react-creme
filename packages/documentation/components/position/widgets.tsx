@@ -49,27 +49,27 @@ function Widgets() {
           />
         </div>
       </Section>
-      <Section title="Positioned Left center">
+      <Section title="Positioned Left center" size="md">
         <DemoWidget codeString={PositionLeftCode}>
           <PositionLeft />
         </DemoWidget>
       </Section>
-      <Section title="Positioned Right Bottom">
+      <Section title="Positioned Right Bottom" size="md">
         <DemoWidget codeString={PositionRightCode}>
           <PositionRightBottom />
         </DemoWidget>
       </Section>
-      <Section title="Positioned Left Top">
+      <Section title="Positioned Left Top" size="md">
         <DemoWidget codeString={PositionTopCode}>
           <PositionLeftTop />
         </DemoWidget>
       </Section>
-      <Section title="Positioned Right Top">
+      <Section title="Positioned Right Top" size="md">
         <DemoWidget codeString={PositionRightTopCode}>
           <PositionRightTop />
         </DemoWidget>
       </Section>
-      <Section title="Positioned Left Bottom">
+      <Section title="Positioned Left Bottom" size="md">
         <DemoWidget codeString={PositionLeftBottomCode}>
           <PositionLeftBottom />
         </DemoWidget>

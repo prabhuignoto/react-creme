@@ -53,7 +53,7 @@ const Widget = () => {
     media &&
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section title="Default render">
+        <Section title="Default render" size="md">
           <DemoWidget width={110} component={Default}>
             <Button onClick={() => setOpen(true)} label="Open dialog"></Button>
             {open && (
@@ -72,7 +72,7 @@ const Widget = () => {
             )}
           </DemoWidget>
         </Section>
-        <Section title="Custom animation - Drop">
+        <Section title="Custom animation - Drop" size="md">
           <BlockQuote>
             Dialog can be animated in five ways. <code>pop</code>,{' '}
             <code>drop</code>, <code>rise</code>, <code>slide-left</code> or{' '}
@@ -96,7 +96,7 @@ const Widget = () => {
             )}
           </DemoWidget>
         </Section>
-        <Section title="Custom animation - Rise">
+        <Section title="Custom animation - Rise" size="md">
           <DemoWidget width={110} component={Rise}>
             <Button onClick={() => setOpen2(true)} label="Open dialog"></Button>
             {open2 && (
@@ -115,7 +115,7 @@ const Widget = () => {
             )}
           </DemoWidget>
         </Section>
-        <Section title="Custom animation - Slide from Left">
+        <Section title="Custom animation - Slide from Left" size="md">
           <DemoWidget width={110} component={SlideLeft}>
             <Button onClick={() => setOpen3(true)} label="Open dialog"></Button>
             {open3 && (
@@ -134,7 +134,7 @@ const Widget = () => {
             )}
           </DemoWidget>
         </Section>
-        <Section title="Custom animation - Slide from Right">
+        <Section title="Custom animation - Slide from Right" size="md">
           <DemoWidget width={110} component={SlideRight}>
             <Button onClick={() => setOpen4(true)} label="Open dialog"></Button>
             {open4 && (

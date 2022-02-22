@@ -35,26 +35,26 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section title="Default rendering">
+        <Section title="Default rendering" size="md">
           <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
-        <Section title="With Circle">
+        <Section title="With Circle" size="md">
           <BlockQuote>
             A circle can be added to the Skeleton to make it more visible.
           </BlockQuote>
           <DemoWidget width={width}>{Circle}</DemoWidget>
         </Section>
-        <Section title="Custom row count and height">
+        <Section title="Custom row count and height" size="md">
           <BlockQuote>The height and row count can be customized.</BlockQuote>
           <DemoWidget width={width}>{CustomRowAndHeight}</DemoWidget>
         </Section>
-        <Section title="Animated rows">
+        <Section title="Animated rows" size="md">
           <BlockQuote>
             The rows can be animated by setting the <code>animate</code> prop
           </BlockQuote>
           <DemoWidget width={width}>{Animate}</DemoWidget>
         </Section>
-        <Section title="Custom block count">
+        <Section title="Custom block count" size="md">
           <BlockQuote>Can customize the number of blocks</BlockQuote>
           <DemoWidget width={width}>{CustomBlockCount}</DemoWidget>
         </Section>

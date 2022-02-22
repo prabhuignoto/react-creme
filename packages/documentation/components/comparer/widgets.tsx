@@ -34,7 +34,7 @@ function Widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="Horizontal Comparison">
+      <Section title="Horizontal Comparison" size="md">
         <BlockQuote>
           Compare two images side by side horizontally. The drag handle guides
           the user to the correct position.
@@ -43,7 +43,7 @@ function Widgets() {
           {Horizontal}
         </DemoWidget>
       </Section>
-      <Section title="Vertical comparison">
+      <Section title="Vertical comparison" size="md">
         <BlockQuote>
           Compare two images side by side vertically. The drag handle guides the
           user to the correct position.
