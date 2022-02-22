@@ -17,11 +17,11 @@ function widgets() {
     }
 
     if (media.isExtraLargeScreen) {
-      setWidth(1250);
+      setWidth(950);
     } else if (media.isBigScreen) {
-      setWidth(850);
+      setWidth(750);
     } else if (media.isDesktop) {
-      setWidth(650);
+      setWidth(550);
       setColumns([
         { name: 'name', type: 'string' },
         { name: 'marks', type: 'number' },
@@ -55,7 +55,7 @@ function widgets() {
             <DataGrid
               layoutStyle="comfortable"
               border
-              gridWidth={width}
+              // gridWidth={width}
               columns={columns}
               data={data}
             />

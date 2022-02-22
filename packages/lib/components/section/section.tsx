@@ -53,13 +53,19 @@ const Section: React.FC<SectionProps> = ({
   }, []);
 
   const getId = useMemo(() => {
-    return `${title?.toLowerCase().replace(' ', '-')}`;
+    return `${title
+      ?.replace(/\(|\)/gi, '')
+      .replace('-', ' ')
+      .split(' ')
+      .map(f => f.trim().toLowerCase())
+      .filter(f => f)
+      .join('-')}`;
   }, []);
 
   return (
-    <div style={sectionStyle} className={'rc-section'}>
+    <div style={sectionStyle} className={'rc-section'} role="">
       {getTitle && (
-        <div className={headerClass} id={getId}>
+        <div className={headerClass} id={getId} role="heading">
           {getTitle}
         </div>
       )}

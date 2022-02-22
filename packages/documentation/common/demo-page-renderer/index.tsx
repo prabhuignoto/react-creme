@@ -199,7 +199,11 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                     classNames="widget-fade"
                     timeout={300}
                   >
-                    <WidgetsWrapper>{Demo}</WidgetsWrapper>
+                    {media.isMobile || media.isTablet ? (
+                      Demo
+                    ) : (
+                      <WidgetsWrapper>{Demo}</WidgetsWrapper>
+                    )}
                   </CSSTransition>
                 </Suspense>
               </div>
