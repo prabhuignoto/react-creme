@@ -19,23 +19,30 @@
 }
 
 .splitter-control {
-  background: theme.$secondary;
+  background: rgba(theme.$primary-rgb, 75%);
+  position: relative;
   transition: background 0.1s linear;
 
-  &.splitter-control-horizontal {
-    @include position.position-abs('center left');
-    cursor: ew-resize;
-    height: 100%;
-  }
-
-  &.splitter-control-vertical {
-    @include position.position-abs('top left');
-    cursor: ns-resize;
-    width: 100%;
-  }
-
   &.splitter-control-dragged {
-    background: rgba(theme.$primary-rgb, 75%);
+    background: rgba(theme.$primary-rgb, 100%);
+  }
+}
+
+.splitter-control-horizontal {
+  @include position.position-abs('center left');
+  height: 100%;
+
+  .rc-splitter-drag-square {
+    cursor: ew-resize;
+  }
+}
+
+.splitter-control-vertical {
+  @include position.position-abs('top left');
+  width: 100%;
+
+  .rc-splitter-drag-square {
+    cursor: ns-resize;
   }
 }
 
@@ -43,4 +50,22 @@
   @extend %center;
   background: theme.$white;
   overflow: auto;
+}
+
+.rc-splitter-drag-square {
+  @extend %center;
+  @extend %shadow-small;
+  @include position.position-abs('center center');
+  background: theme.$white;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+
+  svg {
+    color: theme.$primary;
+    height: 70%;
+    pointer-events: none;
+    touch-action: none;
+    width: 70%;
+  }
 }

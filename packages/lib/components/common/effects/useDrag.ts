@@ -25,6 +25,7 @@ const useDrag: useDragFunctionType = (
     currentValue = 0,
     observeContainer = false,
     moveToPositionOnClick = false,
+    updatePosition = true,
   }
 ) => {
   const dragStarted = useRef(false);
@@ -135,7 +136,7 @@ const useDrag: useDragFunctionType = (
         const top = max(0, clientY - (parentTop || 0));
 
         if (top <= maxYValue.current && top >= minY) {
-          target.current.style.top = `${top}px`;
+          // target.current.style.top = `${top}px`;
 
           const percent = (top - rnd(offsetLeft * 0.5)) / parentHeight;
           setPercent(percent);
@@ -179,7 +180,7 @@ const useDrag: useDragFunctionType = (
   };
 
   useEffect(() => {
-    if (target.current && container.current) {
+    if (target.current && container.current && updatePosition) {
       const { clientWidth: containerWidth, clientHeight: containerHeight } =
         container.current;
 

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useCallback, useMemo, useRef, useState } from 'react';
+import { AlignJustify } from '../../icons';
 import { useDrag } from '../common/effects/useDrag';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { Image } from '../image/image';
@@ -87,6 +88,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
     observeContainer: true,
     onDragEnd: () => setDragged(false),
     onDragStart: () => setDragged(true),
+    updatePosition: false,
   });
 
   // tracks the first render of the component
@@ -108,6 +110,12 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
       } as CSSProperties;
     }
   }, [percent, direction]);
+
+  const dragHandleStyle = useMemo(() => {
+    return {
+      [direction === 'horizontal' ? 'left' : 'top']: `${percent * 100}%`,
+    };
+  }, [percent]);
 
   return (
     <div className={wrapperClass} ref={panelRef} style={wrapperStyle}>
@@ -134,11 +142,13 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
       </div>
       <span
         className={dragHandleClass}
-        ref={dragRef}
         role="separator"
         tabIndex={0}
+        style={dragHandleStyle}
       >
-        <span className="rc-drag-handle-square"></span>
+        <span className="rc-drag-handle-square" ref={dragRef}>
+          <AlignJustify />
+        </span>
       </span>
     </div>
   );
