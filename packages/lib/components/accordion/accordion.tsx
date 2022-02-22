@@ -81,7 +81,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
 
     const styleWithHeight = useMemo(
       () =>
-        style
+        style && !disableCollapse
           ? {
               ...style,
               '--max-height': open
