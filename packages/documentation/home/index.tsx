@@ -36,8 +36,8 @@ const Home: React.FunctionComponent = () => {
             compare.
           </BlockQuote>
           <Code>
-            {Object.keys(packages.dependencies)
-              .map(key => `${key}@${packages.dependencies[key]}`)
+            {Object.keys(packages.peerDependencies)
+              .map(key => `${key}@${packages.peerDependencies[key]}`)
               .join('\n')}
           </Code>
         </Section>
