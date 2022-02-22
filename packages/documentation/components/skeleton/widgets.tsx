@@ -35,27 +35,34 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section title="Default rendering">
+        <Section title="Default rendering" size="md">
           <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
-        <Section title="With Circle">
+        <Section title="With Circle" size="md">
           <BlockQuote>
-            A circle can be added to the Skeleton to make it more visible.
+            Optional Circle figure can be added to the skeleton
           </BlockQuote>
           <DemoWidget width={width}>{Circle}</DemoWidget>
         </Section>
-        <Section title="Custom row count and height">
-          <BlockQuote>The height and row count can be customized.</BlockQuote>
+        <Section title="Custom row count and height" size="md">
+          <BlockQuote>
+            The height of each row and the height of it can be customized.
+          </BlockQuote>
           <DemoWidget width={width}>{CustomRowAndHeight}</DemoWidget>
         </Section>
-        <Section title="Animated rows">
+        <Section title="Animated rows" size="md">
           <BlockQuote>
-            The rows can be animated by setting the <code>animate</code> prop
+            Use the <code>animate</code> prop to animate the skeleton.
           </BlockQuote>
           <DemoWidget width={width}>{Animate}</DemoWidget>
         </Section>
-        <Section title="Custom block count">
-          <BlockQuote>Can customize the number of blocks</BlockQuote>
+        <Section title="Custom block count" size="md">
+          <BlockQuote>
+            A collection of Skeleton is a block. with the <code>blocks</code>{' '}
+            prop we can also customize the number of blocks we want to be
+            displayed. The example shows how to create 2 blocks with 4 rows per
+            block.
+          </BlockQuote>
           <DemoWidget width={width}>{CustomBlockCount}</DemoWidget>
         </Section>
       </div>

@@ -28,13 +28,13 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section title="Default render">
+        <Section title="Default render" size="md">
           <BlockQuote>Sections are collapsible by default.</BlockQuote>
           <DemoWidget width={width} height={400}>
             {Default}
           </DemoWidget>
         </Section>
-        <Section title="Search">
+        <Section title="Search" size="md">
           <BlockQuote>
             Can optionally include a search bar for filtering the sidebar.
           </BlockQuote>

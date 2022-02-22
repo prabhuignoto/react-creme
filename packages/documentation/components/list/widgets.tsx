@@ -35,22 +35,22 @@ function Widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section title="Default render">
+        <Section title="Default render" size="md">
           <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
-        <Section title="Multi selection mode">
+        <Section title="Multi selection mode" size="md">
           <BlockQuote>
             In Multi selection mode you can select multiple items.
           </BlockQuote>
           <DemoWidget width={width}>{MultiSelection}</DemoWidget>
         </Section>
-        <Section title="Searchable list">
+        <Section title="Searchable list" size="md">
           <BlockQuote>
             With searchable list items can be quickly searched.
           </BlockQuote>
           <DemoWidget width={width}>{Search}</DemoWidget>
         </Section>
-        <Section title="Virtualized">
+        <Section title="Virtualized" size="md">
           <BlockQuote>
             The virtualized list is a performance improvement over the default
             rendering. It renders only the visible items

@@ -37,32 +37,32 @@ const Widgets = () => {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section title="Default Render">
+        <Section title="Default Render" size="md">
           <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
-        <Section title="Positioning the Tooltip">
+        <Section title="Positioning the Tooltip" size="md">
           <BlockQuote>
             Can also position the tooltip to be on the top or bottom of the
             slider. The Example here shows the tooltip on the bottom.
           </BlockQuote>
           <DemoWidget width={width}>{CustomTooltipPosition}</DemoWidget>
         </Section>
-        <Section title="Preselected Value">
+        <Section title="Preselected Value" size="md">
           <DemoWidget width={width}>{PreSelected}</DemoWidget>
         </Section>
-        <Section title="Show Tooltip on Hover">
+        <Section title="Show Tooltip on Hover" size="md">
           <BlockQuote>
             The tooltip will only show when the user hovers over the slider.
           </BlockQuote>
           <DemoWidget width={width}>{TooltipOnHover}</DemoWidget>
         </Section>
-        <Section title="Formatted value">
+        <Section title="Formatted value" size="md">
           <BlockQuote>
             The slider can also display the value in a formatted way.
           </BlockQuote>
           <DemoWidget width={width}>{TooltipFormatted}</DemoWidget>
         </Section>
-        <Section title="Disabled state">
+        <Section title="Disabled state" size="md">
           <BlockQuote>
             The slide can be disabled via the <code>disabled</code> prop.
           </BlockQuote>
