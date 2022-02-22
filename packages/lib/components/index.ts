@@ -19,6 +19,7 @@ export { FormField } from './form-field/form-field';
 export { GlobalNotification } from './global-notification/global-notification';
 export { ImageComparer } from './image-comparer/image-comparer';
 export { Image } from './image/image';
+export { InputNumber } from './input-number/input-number';
 export { Input } from './input/input';
 export { Link } from './link/link';
 export { List } from './list/list';

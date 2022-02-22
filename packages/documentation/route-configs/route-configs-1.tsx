@@ -98,6 +98,11 @@ const routes = [
     key: 'link',
     path: '/link',
   },
+  {
+    component: React.lazy(() => import('../components/input-number')),
+    key: 'input-number',
+    path: '/input-number',
+  },
 ];
 
 export { routes };

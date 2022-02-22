@@ -3,11 +3,13 @@
 exports[`Section > should render Section correctly 1`] = `
 <div
   class="rc-section"
+  role=""
   style="min-height: 150px;"
 >
   <div
     class="rc-section-header rc-section-header-sm"
     id="test"
+    role="heading"
   >
     test
   </div>

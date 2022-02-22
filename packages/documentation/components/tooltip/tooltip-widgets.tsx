@@ -48,6 +48,7 @@ const Widgets = () => {
           <div className="rc-demo-widget" style={{ width: '320px' }}>
             <Dropdown
               placeholder="choose a position"
+              maxMenuHeight={350}
               onSelected={val => {
                 setPosition(val as ToolTipPosition);
               }}

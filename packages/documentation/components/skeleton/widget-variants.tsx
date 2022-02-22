@@ -12,3 +12,5 @@ export const CustomRowAndHeight = (
 export const Animate = <Skeleton rows={6} rowHeight={8} animate />;
 
 export const CustomBlockCount = <Skeleton rows={4} rowHeight={8} blocks={2} />;
+
+export const RTL = <Skeleton rows={5} rowHeight={3} RTL />;
