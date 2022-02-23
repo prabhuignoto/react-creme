@@ -30,3 +30,12 @@ export const Searchable = (
     size="sm"
   />
 );
+
+export const RTL = (
+  <Transfer
+    list1={['one', 'two', 'five', 'six', 'nine', 'ten', 'thirteen']}
+    list2={['three', 'four', 'seven', 'eight', 'eleven']}
+    RTL
+    enableSearch
+  />
+);

@@ -15,13 +15,15 @@ import './input-number.scss';
 const InputNumber: FunctionComponent<InputNumberProps> = ({
   end = Number.MAX_VALUE,
   start = 1,
-  value,
+  value = 0,
   onChange,
   size = 'sm',
   border = false,
   RTL = false,
 }) => {
-  const [number, setNumber] = useState(value || start);
+  const [number, setNumber] = useState(
+    value ? (value > start ? start : value) : start
+  );
 
   const isFirstRender = useFirstRender();
 

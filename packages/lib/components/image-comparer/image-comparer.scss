@@ -60,6 +60,10 @@
     height: 24px;
     width: 24px;
   }
+
+  svg {
+    transform: rotate(90deg);
+  }
 }
 
 .rc-comparer-drag-handle-vertical {

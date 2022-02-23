@@ -25,6 +25,10 @@ const links = [
     image: 'https://img.shields.io/badge/status-alpha-green',
     url: 'https://github.com/prabhuignoto/react-creme',
   },
+  {
+    image: 'https://badgen.net/npm/v/react-creme',
+    url: 'https://www.npmjs.com/package/react-creme',
+  },
 ];
 
 const Badges = () => {
