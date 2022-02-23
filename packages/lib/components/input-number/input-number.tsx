@@ -22,7 +22,7 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
   RTL = false,
 }) => {
   const [number, setNumber] = useState(
-    value ? (value > start ? start : value) : start
+    value ? (value > end ? end : value < start ? start : value) : start
   );
 
   const isFirstRender = useFirstRender();

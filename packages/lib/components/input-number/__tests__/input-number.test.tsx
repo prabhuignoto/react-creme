@@ -1,13 +1,15 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { describe, it, fn } from 'vitest';
+import { describe, fn, it } from 'vitest';
 import { InputNumber } from '../input-number';
 
 describe('Input Number', () => {
   it('should render the value', () => {
-    const { getByDisplayValue } = render(<InputNumber value={23} />);
+    const { getByDisplayValue } = render(
+      <InputNumber value={6} start={1} end={10} />
+    );
 
-    expect(getByDisplayValue('23')).toBeInTheDocument();
+    expect(getByDisplayValue('6')).toBeInTheDocument();
   });
 
   it('should increment the value', async () => {
@@ -58,5 +60,21 @@ describe('Input Number', () => {
     await waitFor(() => {
       expect(onChange).toHaveBeenCalledWith(2);
     });
+  });
+
+  it('should auto reset when the value is out of range - greater', () => {
+    const { getByDisplayValue } = render(
+      <InputNumber start={5} end={10} value={12} />
+    );
+
+    expect(getByDisplayValue('10')).toBeInTheDocument();
+  });
+
+  it('should auto reset when the value is out of range - lesser', () => {
+    const { getByDisplayValue } = render(
+      <InputNumber start={5} end={10} value={1} />
+    );
+
+    expect(getByDisplayValue('5')).toBeInTheDocument();
   });
 });
