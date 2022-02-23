@@ -9,6 +9,7 @@ import {
   CustomBlockCount,
   CustomRowAndHeight,
   Default,
+  RTL,
 } from './widget-variants';
 
 function widgets() {
@@ -64,6 +65,9 @@ function widgets() {
             block.
           </BlockQuote>
           <DemoWidget width={width}>{CustomBlockCount}</DemoWidget>
+        </Section>
+        <Section title="RTL">
+          <DemoWidget width={width}>{RTL}</DemoWidget>
         </Section>
       </div>
     )

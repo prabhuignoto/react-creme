@@ -23,6 +23,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
   virtualize = false,
   focusable = false,
   size = 'sm',
+  RTL = false,
 }) => {
   const [leftList, setLeftList] = useState<TransferListInternalModel[]>(
     initMapper(list1)
@@ -126,6 +127,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
             virtualize={virtualize}
             focusable={focusable}
             size={size}
+            RTL={RTL}
           />
         ) : null}
       </section>
@@ -144,6 +146,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
             enableSearch={enableSearch}
             focusable={focusable}
             size={size}
+            RTL={RTL}
           />
         ) : null}
       </section>

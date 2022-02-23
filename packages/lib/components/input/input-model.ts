@@ -90,10 +90,12 @@ export interface InputProps {
    */
   style?: CSSProperties;
 
+  transparentBgColor?: boolean;
+
   /**
    * 🔴 type of Input
    */
-  type?: 'text' | 'password';
+  type?: 'text' | 'password' | 'number';
 
   /**
    * 🔴 value of the Input

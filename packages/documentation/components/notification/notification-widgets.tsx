@@ -49,6 +49,7 @@ const Widgets = () => {
           </BlockQuote>
           <DemoWidget width={300}>
             <Dropdown
+              maxMenuHeight={300}
               options={[
                 { name: 'top-left', value: 'top-left' },
                 { name: 'top-right', value: 'top-right' },

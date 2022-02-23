@@ -1,6 +1,7 @@
 import { ListOption } from '../list/list-model';
 
 export interface TransferProps {
+  RTL?: boolean;
   enableSearch?: boolean;
   focusable?: boolean;
   list1: string[];
@@ -28,7 +29,7 @@ export interface TransferListItemModel {
 
 export type TransferListProps = Pick<
   TransferProps,
-  'focusable' | 'virtualize' | 'size'
+  'focusable' | 'virtualize' | 'size' | 'RTL'
 > & {
   enableSearch?: boolean;
   listId: TransferList;

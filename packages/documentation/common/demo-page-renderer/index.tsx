@@ -150,7 +150,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
         width && (
           <div className="rc-demo-page">
             {title && (
-              <PageHeader title={title} icon={pageIcon} size="md">
+              <PageHeader title={title} icon={pageIcon} size="lg">
                 <div>{description}</div>
                 <div className="rc-demo-page-links-container">
                   {sourceId && (

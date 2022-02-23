@@ -47,6 +47,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       style,
       type = 'text',
       value = '',
+      transparentBgColor = false,
     } = props;
     const [inputValue, setInputValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -119,6 +120,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           'rc-input-rtl': RTL,
           [`rc-input-${accent}`]: true,
           [`rc-input-${size}`]: true,
+          'rc-input-transparent-bg-color': transparentBgColor,
         }),
       [disabled, hasFocus]
     );

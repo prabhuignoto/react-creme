@@ -73,6 +73,8 @@ export { ImageComparer } from './components/image-comparer/image-comparer';
 export type { ImageComparerProps } from './components/image-comparer/image-comparer.model';
 export { Image } from './components/image/image';
 export type { ImageProps } from './components/image/image-model';
+export { InputNumber } from './components/input-number/input-number';
+export type { InputNumberProps } from './components/input-number/input-number.model';
 export { Input } from './components/input/input';
 export type { InputProps } from './components/input/input-model';
 export { Link } from './components/link/link';

@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 import { Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { Default, Searchable } from './widget-variants';
+import { Default, RTL, Searchable } from './widget-variants';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -35,6 +35,9 @@ function widgets() {
         </Section>
         <Section title="Search" size="md">
           <DemoWidget width={width}>{Searchable}</DemoWidget>
+        </Section>
+        <Section title="RTL">
+          <DemoWidget width={width}>{RTL}</DemoWidget>
         </Section>
       </div>
     )

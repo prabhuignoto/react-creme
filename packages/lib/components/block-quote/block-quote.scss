@@ -1,6 +1,7 @@
 @use '../../design/core.scss';
 @use '../../design/theme.scss';
 @use '../../design/position.scss';
+@use '../../design/font.scss';
 @use 'sass:color';
 
 $sizes: (sm, md, lg);
@@ -44,6 +45,10 @@ $sizes: (sm, md, lg);
     }
 
     .rc-block-quote-child-content {
+      @extend %font-#{$size};
+    }
+
+    code {
       @extend %font-#{$size};
     }
   }

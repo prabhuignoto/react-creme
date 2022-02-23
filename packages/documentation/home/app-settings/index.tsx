@@ -10,7 +10,6 @@ import {
   Dark,
   Default,
   Glacier,
-  LightGray,
   NightGray,
 } from '../../common/app-themes';
 import { GithubLink } from '../../common/github-link';
@@ -29,10 +28,6 @@ const themes: RadioGroupItemProps<ThemeType>[] = [
   {
     label: 'Night Gray',
     value: 'night-gray',
-  },
-  {
-    label: 'Light Gray',
-    value: 'light-gray',
   },
 ];
 
@@ -64,8 +59,6 @@ const AppSettings: React.FunctionComponent = () => {
       selectedTheme = { colors: { ...Blueberry }, selectedTheme: 'blueberry' };
     } else if (themeToUpdate.value === 'night-gray') {
       selectedTheme = { colors: { ...NightGray }, selectedTheme: 'neon' };
-    } else if (themeToUpdate.value === 'light-gray') {
-      selectedTheme = { colors: { ...LightGray }, selectedTheme: 'light-gray' };
     } else if (themeToUpdate.value === 'dark') {
       selectedTheme = { colors: { ...Dark }, selectedTheme: 'dark' };
     }

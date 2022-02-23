@@ -42,8 +42,9 @@ const Widgets = () => {
         </Section>
         <Section title="Positioning the Tooltip" size="md">
           <BlockQuote>
-            Can also position the tooltip to be on the top or bottom of the
-            slider. The Example here shows the tooltip on the bottom.
+            The tooltip can be positioned to either <code>top</code> or{' '}
+            <code>bottom</code>. The Example here shows the tooltip positioned
+            to the bottom of the slider.
           </BlockQuote>
           <DemoWidget width={width}>{CustomTooltipPosition}</DemoWidget>
         </Section>
@@ -52,7 +53,8 @@ const Widgets = () => {
         </Section>
         <Section title="Show Tooltip on Hover" size="md">
           <BlockQuote>
-            The tooltip will only show when the user hovers over the slider.
+            With the <code>showTooltipOnHover</code>, the tooltip will be
+            displayed only when the user hovers over the slider control.
           </BlockQuote>
           <DemoWidget width={width}>{TooltipOnHover}</DemoWidget>
         </Section>

@@ -26,7 +26,7 @@ function Widgets() {
           <BoundToContainer />
         </DemoWidget>
       </Section>
-      <Section title="Restrict Drag in one Direction - Horizontal" size="md">
+      <Section title="Drag in one Direction - Horizontal" size="md">
         <BlockQuote>
           The draggable widget can be restricted to only drag in one direction.
           In this example, the widget can only be dragged horizontally.
@@ -35,7 +35,7 @@ function Widgets() {
           <BoundToContainerHorizontal />
         </DemoWidget>
       </Section>
-      <Section title="Restrict Drag in one Direction - Vertical" size="md">
+      <Section title="Drag in one Direction - Vertical" size="md">
         <DemoWidget codeString={ContainerBoundVertical}>
           <BoundToContainerVertical />
         </DemoWidget>

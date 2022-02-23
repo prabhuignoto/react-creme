@@ -1,0 +1,60 @@
+@use '../../design/theme.scss';
+@use '../../design/core.scss';
+@use '../../design/icon.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+$heights: (
+  sm: 30px,
+  md: 35px,
+  lg: 40px,
+);
+
+.rc-input-number {
+  @extend %left;
+  padding: 0.2rem;
+
+  &.rc-input-number-border {
+    @extend %border;
+  }
+
+  &:not(.rc-input-number-border) {
+    @extend %border-radius;
+    background: theme.$light-bg;
+  }
+
+  &.rc-input-number-rtl {
+    direction: rtl;
+  }
+}
+
+.rc-input-number-controls {
+  @extend %col;
+  margin-left: auto;
+}
+
+@each $size in $sizes {
+  .rc-input-number-#{$size} {
+    .rc-input-number-btn {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.rc-input-number-btn {
+  @extend %border-radius;
+  background: theme.$secondary;
+  color: theme.$white;
+  color: theme.$primary;
+  cursor: pointer;
+
+  &.increment {
+    margin-bottom: 0.2rem;
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    background: theme.$primary;
+    color: theme.$white;
+  }
+}

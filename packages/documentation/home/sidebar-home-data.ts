@@ -52,6 +52,7 @@ export default [
   {
     items: [
       { name: 'Input Text' },
+      { name: 'Input Number' },
       { name: 'Tags' },
       { name: 'Radio Group' },
       { name: 'Checkbox' },

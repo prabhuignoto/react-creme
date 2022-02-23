@@ -58,14 +58,6 @@ export const NightGray: Colors = {
   textSelection: '#fff',
 };
 
-export const LightGray: Colors = {
-  primary: '#6C737E',
-  secondary: '#E8ECF1',
-  tertiary: '#6C737E',
-  text: '#6C737E',
-  textSelection: '#fff',
-};
-
 export const Dark: Colors = {
   primary: '#113CFC',
   secondary: '#1597E5',

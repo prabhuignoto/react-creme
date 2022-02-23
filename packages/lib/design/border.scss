@@ -20,7 +20,7 @@
 
 %border {
   @extend %border-radius;
-  border: 1px solid rgba(theme.$secondary-rgb, 0.75);
+  border: 1px solid rgba(theme.$secondary-rgb, 1);
 }
 
 %border-error {

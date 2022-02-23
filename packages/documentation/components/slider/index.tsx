@@ -22,28 +22,29 @@ function slider() {
       properties={[
         {
           default: '1',
-          description: 'The starting value of the slider.',
+          description: 'Starting value of the slider.',
           name: 'start',
           optional: 'Yes',
           type: 'number',
         },
         {
           default: '10',
-          description: 'The ending value of the slider.',
+          description: 'Ending value of the slider.',
           name: 'end',
           optional: 'Yes',
           type: 'number',
         },
         {
           default: '0',
-          description: 'The current value of the slider.',
+          description: 'Current value of the slider.',
           name: 'sliderValue',
           optional: 'Yes',
           type: 'number',
         },
         {
           default: 'top',
-          description: 'The position of the tooltip.',
+          description:
+            'Position of the tooltip. can be <code>top</code> or <code>bottom</code>.',
           name: 'position',
           optional: 'Yes',
           type: 'string',
@@ -71,14 +72,14 @@ function slider() {
         },
         {
           default: '<code>40</code>',
-          description: 'The width of the tooltip.',
+          description: 'Sets the width of the tooltip.',
           name: 'tooltipWidth',
           optional: 'Yes',
           type: 'number',
         },
         {
           default: '16px',
-          description: 'The size of the knob.',
+          description: 'Prop to set the size of the knob.',
           name: 'knobSize',
           optional: 'Yes',
           type: 'number',
