@@ -40,6 +40,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
     transition = 'cubic-bezier(0.19, 1, 0.22, 1)',
     disableARIA,
     size = 'sm',
+    animate = true,
   }: AccordionProps) => {
     const accordionID = useRef(id || `accordion-${nanoid()}`);
     const accordionBodyId = useRef(`accordion-body-${nanoid()}`);
@@ -64,6 +65,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
     const accordionBodyClass = useMemo(
       () =>
         cls('rc-accordion-body', {
+          'rc-accordion-animate': animate,
           'rc-accordion-close': !open,
           'rc-accordion-open': open && !isFirstRender.current,
         }),

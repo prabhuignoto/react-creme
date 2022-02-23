@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 export type AccordionProps = {
   alignIconRight?: boolean;
+  animate?: boolean;
   autoSetBodyHeight?: boolean;
   border?: boolean;
   children?: ReactNode;

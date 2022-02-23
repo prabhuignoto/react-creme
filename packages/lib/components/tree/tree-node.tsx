@@ -58,6 +58,7 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
                 }
               }}
               selected={!enableCheckbox && node.selected}
+              animate={false}
               customContent={
                 enableCheckbox ? (
                   <CheckBox
