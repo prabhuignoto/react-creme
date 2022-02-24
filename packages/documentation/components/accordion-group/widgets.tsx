@@ -6,6 +6,7 @@ import {
   AutoClosingSections,
   CustomIcon,
   Default,
+  IconCustomPositioning,
   InitialState,
 } from './widget-variants';
 
@@ -58,6 +59,9 @@ function Widgets() {
             alignment of the icon can be changed.
           </BlockQuote>
           <DemoWidget width={width}>{CustomIcon}</DemoWidget>
+        </Section>
+        <Section title="Icon Positioning" size="md">
+          <DemoWidget width={width}>{IconCustomPositioning}</DemoWidget>
         </Section>
       </div>
     )
