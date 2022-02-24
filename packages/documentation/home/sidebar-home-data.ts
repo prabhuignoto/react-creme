@@ -84,6 +84,7 @@ export default [
       { name: 'List' },
       { name: 'Data Grid' },
       { name: 'Transfer' },
+      { name: 'Kbd' },
     ],
     title: 'Data',
   },

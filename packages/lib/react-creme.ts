@@ -77,6 +77,8 @@ export { InputNumber } from './components/input-number/input-number';
 export type { InputNumberProps } from './components/input-number/input-number.model';
 export { Input } from './components/input/input';
 export type { InputProps } from './components/input/input-model';
+export { Kbd, KbdCombination } from './components/kbd/kbd';
+export type { KbdCombinationProps, KbdProps } from './components/kbd/kbd';
 export { Link } from './components/link/link';
 export type { LinkProps } from './components/link/link';
 export { List } from './components/list/list';

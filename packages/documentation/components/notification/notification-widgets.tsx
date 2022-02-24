@@ -50,6 +50,7 @@ const Widgets = () => {
           <DemoWidget width={300}>
             <Dropdown
               maxMenuHeight={300}
+              placeholder="Select notification position"
               options={[
                 { name: 'top-left', value: 'top-left' },
                 { name: 'top-right', value: 'top-right' },
