@@ -103,6 +103,11 @@ const routes = [
     key: 'input-number',
     path: '/input-number',
   },
+  {
+    component: React.lazy(() => import('../components/kbd')),
+    key: 'kbd',
+    path: '/kbd',
+  },
 ];
 
 export { routes };

@@ -1,0 +1,65 @@
+@use '../../design/theme.scss';
+@use '../../design/core.scss';
+@use '../../design/font.scss';
+@use '../../design/icon.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+
+$heights: (
+  sm: 20px,
+  md: 25px,
+  lg: 30px,
+);
+
+$widths: (
+  sm: 50px,
+  md: 75px,
+  lg: 100px,
+);
+
+.rc-kbd-wrapper {
+  @extend %border-radius;
+  background-color: rgba(theme.$primary-rgb, 0.9);
+  color: theme.$white;
+  display: inline-block;
+  padding: 0.2rem;
+  text-align: center;
+
+  &.rc-kbd-left-raised {
+    box-shadow: 2px 2px 0 2px rgba(theme.$primary-rgb, 0.5);
+  }
+
+  &.rc-kbd-right-raised {
+    box-shadow: -2px 2px 0 2px rgba(theme.$primary-rgb, 0.5);
+  }
+}
+
+@each $size in $sizes {
+  .rc-kbd-wrapper {
+    &.rc-kbd-#{$size} {
+      @extend %font-#{$size};
+      height: #{map.get($heights, $size)};
+      line-height: #{map.get($heights, $size)};
+      min-width: map.get($widths, $size);
+    }
+  }
+}
+
+@each $size in $sizes {
+  .rc-kbd-combination-#{$size} {
+    .rc-kbd-plus {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.rc-kbd-plus {
+  color: theme.$gunmetal-gray;
+  margin: 0 0.5rem;
+}
+
+.rc-kbd-combination {
+  @extend %left;
+  flex-wrap: wrap;
+}
