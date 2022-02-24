@@ -20,18 +20,18 @@ $widths: (
 
 .rc-kbd-wrapper {
   @extend %border-radius;
-  background-color: rgba(theme.$primary-rgb, 0.9);
-  color: theme.$white;
+  background-color: rgba(theme.$light-bg, 1);
+  color: theme.$black;
   display: inline-block;
   padding: 0.2rem;
   text-align: center;
 
   &.rc-kbd-left-raised {
-    box-shadow: 2px 2px 0 2px rgba(theme.$primary-rgb, 0.5);
+    box-shadow: 0 2px 0 2px rgba(theme.$chinese-gray, 0.9);
   }
 
   &.rc-kbd-right-raised {
-    box-shadow: -2px 2px 0 2px rgba(theme.$primary-rgb, 0.5);
+    box-shadow: 0 2px 0 2px rgba(theme.$chinese-gray, 0.9);
   }
 }
 
