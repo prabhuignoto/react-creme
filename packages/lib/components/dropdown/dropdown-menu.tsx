@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { CSSProperties, useEffect, useMemo } from 'react';
+import React, { CSSProperties, useCallback, useEffect, useMemo } from 'react';
+import useClickOutside from '../common/effects/useOnClickOutside';
 import { List } from '../list/list';
 import './dropdown-menu.scss';
 import { DropdownMenuProps } from './dropdown-model';
@@ -17,6 +18,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   RTL,
   focusable,
   selectedIndex,
+  onClose,
 }: DropdownMenuProps) => {
   // STYLES
   const menuStyle = useMemo(() => {
@@ -44,8 +46,12 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
     }
   }, [isClosing]);
 
+  const handleClose = useCallback(() => open && onClose?.(), [open]);
+
+  const { onRef } = useClickOutside(handleClose);
+
   return (
-    <div className={menuClass} style={menuStyle}>
+    <div className={menuClass} style={menuStyle} ref={onRef}>
       <List
         options={options}
         onSelection={handleSelection}

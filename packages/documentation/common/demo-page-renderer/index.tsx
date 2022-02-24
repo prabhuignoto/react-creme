@@ -217,6 +217,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                         data={properties}
                         border
                         rowHeight={68}
+                        zebra
                       />
                     </Section>
                     {callbacks && (
@@ -227,6 +228,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                           data={callbacks}
                           border
                           rowHeight={68}
+                          zebra
                         />
                       </Section>
                     )}

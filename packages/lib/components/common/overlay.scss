@@ -11,6 +11,7 @@
   opacity: 1;
   outline: 0;
   overflow: hidden;
+  position: fixed;
   top: 0;
   transition: opacity 0.25s ease;
   z-index: 9999;
@@ -31,6 +32,14 @@
   &.rc-overlay-hide {
     opacity: 0;
   }
+
+  &.disable-pointer-events {
+    pointer-events: none;
+  }
+}
+
+.rc-overlay-content-wrapper {
+  pointer-events: all;
 }
 
 .rc-overlay-close-btn {

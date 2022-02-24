@@ -58,6 +58,8 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
   const overlayWrapperClass = useMemo(() => {
     return classNames(['rc-overlay-wrapper'], {
+      'disable-pointer-events':
+        disableBackdrop || backdropColor === 'transparent',
       'rc-overlay-contained': containedToParent,
       'rc-overlay-hide': hideOverlay,
     });

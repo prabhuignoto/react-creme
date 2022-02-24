@@ -10,6 +10,7 @@ import React, {
 import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
+import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { MenuItemProps, MenuProps } from './menu-model';
 import { MenuOverlay, MenuOverlayProps } from './menu-overlay';
 import './menu.scss';
@@ -34,7 +35,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   );
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isFirstRender = useFirstRender();
-  const containerRef = useRef<HTMLDivElement>(null);
+  // const containerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLUListElement | null>(null);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -144,8 +145,10 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     [focusable]
   );
 
+  const { onRef } = useOnClickOutside(() => setShowMenu(false));
+
   return (
-    <div className={menuWrapperClass} style={style} ref={containerRef}>
+    <div className={menuWrapperClass} style={style} ref={onRef}>
       <div
         className={menuContentWrapperClass}
         onClick={toggleMenu}
