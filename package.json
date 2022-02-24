@@ -56,7 +56,7 @@
   "scripts": {
     "lint": "turbo run lint",
     "format": "turbo run format",
-    "build": "turbo run build",
+    "build": "npm run build --prefix ./packages/lib",
     "prepare": "husky install",
     "dev": "turbo run dev --scope=*docu*",
     "story": "turbo run dev --scope=*story*",
