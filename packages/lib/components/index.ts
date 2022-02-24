@@ -21,6 +21,7 @@ export { ImageComparer } from './image-comparer/image-comparer';
 export { Image } from './image/image';
 export { InputNumber } from './input-number/input-number';
 export { Input } from './input/input';
+export { Kbd } from './kbd/kbd';
 export { Link } from './link/link';
 export { List } from './list/list';
 export { Menu } from './menu/menu';
