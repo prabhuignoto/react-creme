@@ -93,7 +93,7 @@ $searchbar-height: 40px;
 
 .rc-sidebar-groups-wrapper {
   height: calc(100% - $searchbar-height);
-  overflow-y: auto;
   overflow-x: hidden;
+  overflow-y: auto;
   padding-top: 0.2rem;
 }

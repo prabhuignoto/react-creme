@@ -71,3 +71,15 @@ export const CustomIcon = (
     ))}
   </AccordionGroup>
 );
+
+export const IconCustomPositioning = (
+  <AccordionGroup
+    titles={['one', 'two', 'three', 'four']}
+    border={false}
+    alignIconRight
+  >
+    {Array.from({ length: 4 }).map((_, i) => (
+      <Para key={i} />
+    ))}
+  </AccordionGroup>
+);
