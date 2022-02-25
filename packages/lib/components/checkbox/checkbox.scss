@@ -4,6 +4,7 @@
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
 
 $grid: (
   sm: 16px,
@@ -32,15 +33,6 @@ $heights: (
     direction: rtl;
   }
 
-  &.rc-checkbox-hover:hover {
-    @extend %border-radius;
-    background: rgba(theme.$secondary-rgb, 0.25);
-  }
-
-  &.rc-checkbox-border {
-    @extend %border;
-  }
-
   &.rc-checkbox-disabled {
     @extend %disabled;
   }
@@ -53,6 +45,22 @@ $heights: (
         min-height: map.get($heights, $key);
       }
     }
+  }
+}
+
+.rc-checkbox-border {
+  @if not $dark-mode {
+    @extend %border;
+  }
+}
+
+.rc-checkbox-hover:hover {
+  @extend %border-radius;
+
+  @if $dark-mode {
+    background-color: theme.$gunmetal-gray;
+  } @else {
+    background: rgba(theme.$secondary-rgb, 0.25);
   }
 }
 
@@ -71,8 +79,13 @@ $heights: (
 }
 
 .rc-checkbox-icon {
-  @extend %border;
-  background: theme.$white;
+  @if not $dark-mode {
+    @extend %border;
+    background: theme.$white;
+  } @else {
+    @extend %border-radius;
+    background: theme.$charcoal-gray;
+  }
 
   &.rc-checkbox-round {
     border-radius: 50%;
@@ -98,6 +111,10 @@ $heights: (
   display: block;
   font-weight: 300;
   padding-left: 0.5rem;
+
+  @if $dark-mode {
+    color: theme.$white;
+  }
 
   &.rc-checkbox-label-rtl {
     padding-right: 0.5rem;

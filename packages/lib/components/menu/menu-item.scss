@@ -4,16 +4,12 @@
 
 $sizes: (sm, md, lg);
 
+$dark-mode: theme.$dark-mode;
+
 .rc-menu-item {
   @extend %list-item-left;
   height: 35px;
   width: 100%;
-
-  &:hover {
-    background: theme.$light-bg;
-    color: theme.$primary;
-    cursor: pointer;
-  }
 
   &:first-child {
     border-top-left-radius: 4px;
@@ -27,6 +23,18 @@ $sizes: (sm, md, lg);
 
   &.rc-menu-item-disabled {
     @extend %disabled;
+  }
+}
+
+.rc-menu-item:hover {
+  cursor: pointer;
+
+  @if $dark-mode {
+    background: theme.$charcoal-gray;
+    color: theme.$white;
+  } @else {
+    background: theme.$light-bg;
+    color: theme.$primary;
   }
 }
 

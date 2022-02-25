@@ -9,6 +9,7 @@ $heights: (
   md: 35px,
   lg: 40px,
 );
+$dark-mode: theme.$dark-mode;
 
 .rc-input-number {
   @extend %left;
@@ -18,13 +19,18 @@ $heights: (
     @extend %border;
   }
 
-  &:not(.rc-input-number-border) {
-    @extend %border-radius;
-    background: theme.$light-bg;
-  }
-
   &.rc-input-number-rtl {
     direction: rtl;
+  }
+}
+
+.rc-input-number:not(.rc-input-number-border) {
+  @extend %border-radius;
+
+  @if $dark-mode {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: theme.$light-bg;
   }
 }
 
@@ -44,8 +50,13 @@ $heights: (
 .rc-input-number-btn {
   @extend %border-radius;
   background: theme.$secondary;
-  color: theme.$primary;
   cursor: pointer;
+
+  @if $dark-mode {
+    color: theme.$white;
+  } @else {
+    color: theme.$primary;
+  }
 
   &.increment {
     margin-bottom: 0.2rem;

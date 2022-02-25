@@ -60,7 +60,7 @@
     "@types/react-transition-group": "^4.4.4",
     "@vitejs/plugin-react": "1.2.0",
     "@vitejs/plugin-react-refresh": "^1.3.6",
-    "@vitest/ui": "^0.5.4",
+    "@vitest/ui": "^0.5.5",
     "c8": "^7.11.0",
     "classnames": "^2.3.1",
     "fast-deep-equal": "^3.1.3",
@@ -78,7 +78,7 @@
     "rollup-plugin-visualizer": "^5.5.4",
     "ts-toolbelt": "^9.6.0",
     "use-debounce": "^7.0.1",
-    "vitest": "0.5.4"
+    "vitest": "0.5.5"
   },
   "browserslist": [
     "last 3 versions",

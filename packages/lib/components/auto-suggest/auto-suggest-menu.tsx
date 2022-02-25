@@ -2,6 +2,7 @@ import { OverlayModel } from '@components/common/overlay-model';
 import { ListOption } from '@components/list/list-model';
 import React, { CSSProperties, useEffect, useMemo, useRef } from 'react';
 import { withOverlay } from '../../components/common/withOverlay';
+import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { List } from '../list/list';
 
 type SuggestMenuData = {
@@ -23,6 +24,7 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
   width,
   data,
   size,
+  onClose,
 }) => {
   const style = useMemo(
     () =>
@@ -44,8 +46,14 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
     }
   }, [data?.focus]);
 
+  const { onRef } = useOnClickOutside(onClose);
+
   return (
-    <div className="rc-auto-suggest-suggestions-wrapper" style={style}>
+    <div
+      className="rc-auto-suggest-suggestions-wrapper"
+      style={style}
+      ref={onRef}
+    >
       <List
         options={data?.items as ListOption[]}
         onSelection={onSelection}

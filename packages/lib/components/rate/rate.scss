@@ -9,6 +9,8 @@ $sizes: (
   lg: 30px,
 );
 
+$dark-mode: theme.$dark-mode;
+
 .rc-rate-wrapper {
   @extend %list-horizontal;
 
@@ -31,18 +33,9 @@ $sizes: (
   }
 
   span {
-    //
     display: block;
     height: 100%;
     outline: 0;
-    width: 100%;
-  }
-
-  svg {
-    fill: theme.$alto;
-    height: 100%;
-    stroke-width: 0;
-    transition: fill 0.1s ease-in;
     width: 100%;
   }
 
@@ -52,6 +45,18 @@ $sizes: (
       width: #{$val};
     }
   }
+}
+
+.rc-rate-item svg {
+  @if $dark-mode {
+    fill: theme.$charcoal-gray;
+  } @else {
+    fill: theme.$alto;
+  }
+  height: 100%;
+  stroke-width: 0;
+  transition: fill 0.1s ease-in;
+  width: 100%;
 }
 
 .rc-rate-item:hover {

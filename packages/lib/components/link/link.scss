@@ -2,6 +2,7 @@
 @use '../../design/theme.scss';
 
 $sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
 
 .rc-link {
   @extend %center;
@@ -12,11 +13,6 @@ $sizes: (sm, md, lg);
   padding: 0.5rem;
   text-decoration: none;
   white-space: nowrap;
-
-  &.rc-link-btn {
-    @extend %shadow-inset-small;
-    @extend %border;
-  }
 
   &.rc-link-btn:hover {
     background: rgba(theme.$primary-rgb, 1);
@@ -32,6 +28,16 @@ $sizes: (sm, md, lg);
   &.rc-link-highlight {
     background-color: rgba(theme.$primary-rgb, 1);
     color: theme.$white;
+  }
+}
+
+.rc-link-btn {
+  @if $dark-mode {
+    background-color: theme.$gunmetal-gray;
+    color: theme.$white;
+  } @else {
+    @extend %shadow-inset-small;
+    @extend %border;
   }
 }
 

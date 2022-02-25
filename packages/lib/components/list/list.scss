@@ -6,7 +6,7 @@
 
 .rc-list {
   @extend %border-radius;
-  background-color: var(--list-bg-color, #fff);
+  // background-color: var(--list-bg-color, #fff);
   justify-items: center;
   // row-gap: 6px;
   width: 100%;

@@ -1,12 +1,23 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section, Splitter } from '../../../lib/components';
-import { responsiveState } from '../../atoms/home';
+import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
   const [width, setWidth] = React.useState(0);
+  const theme = useRecoilValue(themeState);
+
+  const isDark = useMemo(() => theme.darkMode, [theme]);
+
+  const paraStyle = useMemo(
+    () => ({
+      color: isDark ? '#fff' : '#000',
+      padding: '1rem',
+    }),
+    []
+  );
 
   useLayoutEffect(() => {
     if (!media) {
@@ -41,7 +52,7 @@ function widgets() {
               maxSplitWidth={Math.round(width * 0.75)}
               handleBarWidth={4}
             >
-              <p style={{ padding: '1rem' }}>
+              <p style={paraStyle}>
                 Contrary to popular belief, Lorem Ipsum is not simply random
                 text. It has roots in a piece of classical Latin literature from
                 45 BC, making it over 2000 years old. Richard McClintock, a
@@ -50,7 +61,7 @@ function widgets() {
                 Ipsum passage, and going through the cites of the word in
                 classical literature, discovered the undoubtable source.
               </p>
-              <p style={{ padding: '1rem' }}>
+              <p style={paraStyle}>
                 There are many variations of passages of Lorem Ipsum available,
                 but the majority have suffered alteration in some form, by
                 injected humour, or randomised words which don&apos;t look even
@@ -75,7 +86,7 @@ function widgets() {
               maxSplitHeight={400 * 0.75}
               handleBarWidth={4}
             >
-              <p style={{ padding: '1rem' }}>
+              <p style={paraStyle}>
                 Contrary to popular belief, Lorem Ipsum is not simply random
                 text. It has roots in a piece of classical Latin literature from
                 45 BC, making it over 2000 years old. Richard McClintock, a
@@ -84,7 +95,7 @@ function widgets() {
                 Ipsum passage, and going through the cites of the word in
                 classical literature, discovered the undoubtable source.
               </p>
-              <p style={{ padding: '1rem' }}>
+              <p style={paraStyle}>
                 There are many variations of passages of Lorem Ipsum available,
                 but the majority have suffered alteration in some form, by
                 injected humour, or randomised words which don&apos;t look even

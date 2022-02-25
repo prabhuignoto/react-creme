@@ -5,6 +5,8 @@
 @use '../../design/position.scss';
 @use '../../design/util.scss';
 
+$dark-mode: theme.$dark-mode;
+
 .rc-drawer {
   $min-width: var(--min-width);
   $min-height: var(--min-height);
@@ -55,7 +57,11 @@
   @extend %top-center;
   @include animate.set-settings(0.25s, var(--transition));
 
-  background-color: theme.$white;
+  @if $dark-mode {
+    background-color: theme.$gunmetal-gray;
+  } @else {
+    background-color: theme.$white;
+  }
   height: var(--min-height);
   min-width: $min-width;
   outline: 0;
@@ -111,14 +117,6 @@
     }
   }
 }
-
-// .rc-drawer-top,
-// .rc-drawer-right,
-// .rc-drawer-bottom {
-//   .rc-drawer-close-btn-wrapper {
-//     right: 1.5rem;
-//   }
-// }
 
 .rc-drawer-close-btn-wrapper {
   @include position.position-abs('top right');

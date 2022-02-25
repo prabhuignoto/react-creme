@@ -2,6 +2,8 @@
 @use '../../design/theme.scss';
 @use '../../design/position.scss';
 
+$dark-mode: theme.$dark-mode;
+
 .rc-slider-wrapper {
   @extend %center;
   height: 100px;
@@ -44,10 +46,15 @@
 
 .rc-slider-track {
   @extend %border-radius;
-  background: theme.$gray;
   height: 5px;
   position: relative;
   width: 100%;
+
+  @if $dark-mode {
+    background: theme.$charcoal-gray;
+  } @else {
+    background: theme.$gray;
+  }
 }
 
 .rc-slider-track-progress {

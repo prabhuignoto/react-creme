@@ -38,8 +38,8 @@ importers:
       pretty-quick: ^3.1.3
       react: ^18.0.0-rc.0
       react-dom: ^18.0.0-rc.0
-      sass: ^1.49.8
-      snyk: ^1.856.0
+      sass: ^1.49.9
+      snyk: ^1.858.0
       stylelint: 14.5.3
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -84,8 +84,8 @@ importers:
       pretty-quick: 3.1.3_prettier@2.5.1
       react: 18.0.0-rc.0
       react-dom: 18.0.0-rc.0_react@18.0.0-rc.0
-      sass: 1.49.8
-      snyk: 1.856.0
+      sass: 1.49.9
+      snyk: 1.858.0
       stylelint: 14.5.3
       stylelint-config-prettier: 9.0.3_stylelint@14.5.3
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.6+stylelint@14.5.3
@@ -123,8 +123,8 @@ importers:
       '@fortawesome/free-solid-svg-icons': ^6.0.0
       '@fortawesome/react-fontawesome': ^0.1.17
       '@playwright/test': ^1.19.1
-      '@sentry/browser': ^6.17.9
-      '@sentry/tracing': ^6.17.9
+      '@sentry/browser': ^6.18.0
+      '@sentry/tracing': ^6.18.0
       '@stackblitz/sdk': ^1.5.6
       '@types/react': ^17.0.39
       '@types/react-dom': ^17.0.11
@@ -158,8 +158,8 @@ importers:
       recoil: ^0.6.1
       resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
-      sass: ^1.49.8
-      snyk: ^1.856.0
+      sass: ^1.49.9
+      snyk: ^1.858.0
       stylelint: 14.5.3
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -171,8 +171,8 @@ importers:
       vite-plugin-react-svg: ^0.2.0
       vite-plugin-svgr: ^1.0.1
     dependencies:
-      '@sentry/browser': 6.17.9
-      '@sentry/tracing': 6.17.9
+      '@sentry/browser': 6.18.0
+      '@sentry/tracing': 6.18.0
       '@stackblitz/sdk': 1.5.6
       algoliasearch: 4.12.1
       classnames: 2.3.1
@@ -220,15 +220,15 @@ importers:
       react-transition-group: 4.4.2
       recoil: 0.6.1
       rimraf: 3.0.2
-      sass: 1.49.8
-      snyk: 1.856.0
+      sass: 1.49.9
+      snyk: 1.858.0
       stylelint: 14.5.3
       stylelint-config-prettier: 9.0.3_stylelint@14.5.3
       stylelint-config-sass-guidelines: 9.0.1_postcss@8.4.6+stylelint@14.5.3
       stylelint-scss: 4.1.0_stylelint@14.5.3
       typescript: 4.5.5
       use-timer: 2.0.1
-      vite: 2.6.13_sass@1.49.8
+      vite: 2.6.13_sass@1.49.9
       vite-plugin-react-svg: 0.2.0_@babel+core@7.17.5+vite@2.6.13
       vite-plugin-svgr: 1.0.1_vite@2.6.13
 
@@ -253,7 +253,7 @@ importers:
       '@types/react-transition-group': ^4.4.4
       '@vitejs/plugin-react': 1.2.0
       '@vitejs/plugin-react-refresh': ^1.3.6
-      '@vitest/ui': ^0.5.4
+      '@vitest/ui': ^0.5.5
       c8: ^7.11.0
       classnames: ^2.3.1
       fast-deep-equal: ^3.1.3
@@ -271,7 +271,7 @@ importers:
       rollup-plugin-visualizer: ^5.5.4
       ts-toolbelt: ^9.6.0
       use-debounce: ^7.0.1
-      vitest: 0.5.4
+      vitest: 0.5.5
     devDependencies:
       '@babel/core': 7.17.5
       '@babel/plugin-proposal-optional-chaining': 7.16.7_@babel+core@7.17.5
@@ -292,7 +292,7 @@ importers:
       '@types/react-transition-group': 4.4.4
       '@vitejs/plugin-react': 1.2.0
       '@vitejs/plugin-react-refresh': 1.3.6
-      '@vitest/ui': 0.5.4
+      '@vitest/ui': 0.5.5
       c8: 7.11.0
       classnames: 2.3.1
       fast-deep-equal: 3.1.3
@@ -310,7 +310,7 @@ importers:
       rollup-plugin-visualizer: 5.5.4_rollup@2.68.0
       ts-toolbelt: 9.6.0
       use-debounce: 7.0.1_react@18.0.0-rc.0
-      vitest: 0.5.4_fb449876a74b34a933c31bad280ec49e
+      vitest: 0.5.5_46d1227c8298da17641eba616a2c0c1a
 
   packages/storybook:
     specifiers:
@@ -337,7 +337,7 @@ importers:
       postcss-preset-env: ^7.4.1
       react: file:../../node_modules/react
       react-dom: file:../../node_modules/react-dom
-      sass: ^1.49.8
+      sass: ^1.49.9
       sass-loader: 10.1.1
       style-loader: 2.0.0
       typescript: ^4.5.5
@@ -367,8 +367,8 @@ importers:
       postcss: 8.4.6
       postcss-loader: 4.2.0_postcss@8.4.6+webpack@5.69.1
       postcss-preset-env: 7.4.1_postcss@8.4.6
-      sass: 1.49.8
-      sass-loader: 10.1.1_sass@1.49.8+webpack@5.69.1
+      sass: 1.49.9
+      sass-loader: 10.1.1_sass@1.49.9+webpack@5.69.1
       style-loader: 2.0.0_webpack@5.69.1
       typescript: 4.5.5
       webpack: 5.69.1_esbuild@0.14.23
@@ -2880,7 +2880,7 @@ packages:
     dependencies:
       '@csstools/sass-import-resolve': 1.0.0
       postcss: 8.4.6
-      sass: 1.49.8
+      sass: 1.49.9
       source-map: 0.7.3
     dev: true
 
@@ -3557,87 +3557,87 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@sentry/browser/6.17.9:
+  /@sentry/browser/6.18.0:
     resolution:
       {
-        integrity: sha512-RsC8GBZmZ3YfBTaIOJ06RlFp5zG7BkUoquNJmf4YhRUZeihT9osrn8qUYGFWSV/UduwKUIlSGJA/rATWWhwPRQ==,
+        integrity: sha512-fQZdFs0jnBijVmhDWNIsHD0rGsIXup/1UYgMZqdBYYSBBQ7Ffpw+6nX1/vyKsCpLdgYhbi88eK/XO+QHtUJE2w==,
       }
     engines: { node: '>=6' }
     dependencies:
-      '@sentry/core': 6.17.9
-      '@sentry/types': 6.17.9
-      '@sentry/utils': 6.17.9
+      '@sentry/core': 6.18.0
+      '@sentry/types': 6.18.0
+      '@sentry/utils': 6.18.0
       tslib: 1.14.1
     dev: false
 
-  /@sentry/core/6.17.9:
+  /@sentry/core/6.18.0:
     resolution:
       {
-        integrity: sha512-14KalmTholGUtgdh9TklO+jUpyQ/D3OGkhlH1rnGQGoJgFy2eYm+s+MnUEMxFdGIUCz5kOteuNqYZxaDmFagpQ==,
+        integrity: sha512-I3iQVfMWHXR/LtevJg83aD7UAiUBLz1xAW8y3gd5lJej96UNv/4TbCmKZumYnEJMXf8EcFlg8t48W0Bl1GxhEg==,
       }
     engines: { node: '>=6' }
     dependencies:
-      '@sentry/hub': 6.17.9
-      '@sentry/minimal': 6.17.9
-      '@sentry/types': 6.17.9
-      '@sentry/utils': 6.17.9
+      '@sentry/hub': 6.18.0
+      '@sentry/minimal': 6.18.0
+      '@sentry/types': 6.18.0
+      '@sentry/utils': 6.18.0
       tslib: 1.14.1
     dev: false
 
-  /@sentry/hub/6.17.9:
+  /@sentry/hub/6.18.0:
     resolution:
       {
-        integrity: sha512-34EdrweWDbBV9EzEFIXcO+JeoyQmKzQVJxpTKZoJA6PUwf2NrndaUdjlkDEtBEzjuLUTxhLxtOzEsYs1O6RVcg==,
+        integrity: sha512-E2GrrNcidyT67ONU3btHO5vyS1bPQNdWqC09sUc1F3q/nQyvc7L2W09TKY2veaMZQtC9EU760fTG1hMmgGwPmw==,
       }
     engines: { node: '>=6' }
     dependencies:
-      '@sentry/types': 6.17.9
-      '@sentry/utils': 6.17.9
+      '@sentry/types': 6.18.0
+      '@sentry/utils': 6.18.0
       tslib: 1.14.1
     dev: false
 
-  /@sentry/minimal/6.17.9:
+  /@sentry/minimal/6.18.0:
     resolution:
       {
-        integrity: sha512-T3PMCHcKk6lkZq6zKgANrYJJxXBXKOe+ousV1Fas1rVBMv7dtKfsa4itqQHszcW9shusPDiaQKIJ4zRLE5LKmg==,
+        integrity: sha512-QkkWOhX3NMycUNLj96thMQ0BclmfxE2VdDf9ZqRkvdFzxI1FVY5NEArqD4wtlrCIoYN1ioAYrvdb48/BTuGung==,
       }
     engines: { node: '>=6' }
     dependencies:
-      '@sentry/hub': 6.17.9
-      '@sentry/types': 6.17.9
+      '@sentry/hub': 6.18.0
+      '@sentry/types': 6.18.0
       tslib: 1.14.1
     dev: false
 
-  /@sentry/tracing/6.17.9:
+  /@sentry/tracing/6.18.0:
     resolution:
       {
-        integrity: sha512-5Rb/OS4ryNJLvz2nv6wyjwhifjy6veqaF9ffLrwFYij/WDy7m62ASBblxgeiI3fbPLX0aBRFWIJAq1vko26+AQ==,
+        integrity: sha512-thwVrYT+ba58h6F6Im4t+JH9o+7H+75ribkeTgM7NRhNuiGajlXNmb37Dh9gP5Iy76jNV8GATy4cOcuVc7P1jA==,
       }
     engines: { node: '>=6' }
     dependencies:
-      '@sentry/hub': 6.17.9
-      '@sentry/minimal': 6.17.9
-      '@sentry/types': 6.17.9
-      '@sentry/utils': 6.17.9
+      '@sentry/hub': 6.18.0
+      '@sentry/minimal': 6.18.0
+      '@sentry/types': 6.18.0
+      '@sentry/utils': 6.18.0
       tslib: 1.14.1
     dev: false
 
-  /@sentry/types/6.17.9:
+  /@sentry/types/6.18.0:
     resolution:
       {
-        integrity: sha512-xuulX6qUCL14ayEOh/h6FUIvZtsi1Bx34dSOaWDrjXUOJHJAM7214uiqW1GZxPJ13YuaUIubjTSfDmSQ9CBzTw==,
+        integrity: sha512-SypDwXL1URE/XLkP4Ve+pFs41e+2OUYZ0lCimNreQQv46//pFXxP3LwU9Tc0Az4ZfxXnGiwofvt73XyBq9VpRQ==,
       }
     engines: { node: '>=6' }
     dev: false
 
-  /@sentry/utils/6.17.9:
+  /@sentry/utils/6.18.0:
     resolution:
       {
-        integrity: sha512-4eo9Z3JlJCGlGrQRbtZWL+L9NnlUXgTbfK3Lk7oO8D1ev8R5b5+iE6tZHTvU5rQRcq6zu+POT+tK5u9oxc/rnQ==,
+        integrity: sha512-mKegOabkAjoUHfokjI5oi3CMez5GD3xXOrBFcLVc9GFDXCgNMdYnHyEn/mmy8PikFdGHxZ3oI/16ZGU22wi5aw==,
       }
     engines: { node: '>=6' }
     dependencies:
-      '@sentry/types': 6.17.9
+      '@sentry/types': 6.18.0
       tslib: 1.14.1
     dev: false
 
@@ -5057,7 +5057,7 @@ packages:
       style-loader: '*'
     dependencies:
       css-loader: 5.2.6_webpack@5.69.1
-      sass-loader: 10.1.1_sass@1.49.8+webpack@5.69.1
+      sass-loader: 10.1.1_sass@1.49.9+webpack@5.69.1
       style-loader: 2.0.0_webpack@5.69.1
     dev: true
 
@@ -6565,10 +6565,10 @@ packages:
       - supports-color
     dev: true
 
-  /@vitest/ui/0.5.4:
+  /@vitest/ui/0.5.5:
     resolution:
       {
-        integrity: sha512-XAyW+kXNSv/M/MTZJ9CJBith0iaPvu/FjuKOkbrajw127skTP8/aZzo/s3enb7J85NPzIEZPTgJNG0/11RBYbQ==,
+        integrity: sha512-zPM+a9EHPR+nSXYJ8KaG8LGe5wwpq1cGZ3LcALFD5Q043rgK7xoTyqXnjgnw7rRbg2IixMyExpQ2X6WkBYxi0A==,
       }
     dependencies:
       sirv: 2.0.2
@@ -16898,6 +16898,18 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
+  /postcss/8.4.7:
+    resolution:
+      {
+        integrity: sha512-L9Ye3r6hkkCeOETQX6iOaWZgjp3LL6Lpqm6EtgbKrgqGGteRMNb9vzBfRL96YOSu8o7x3MfIH9Mo5cPJFGrW6A==,
+      }
+    engines: { node: ^10 || ^12 || >=14 }
+    dependencies:
+      nanoid: 3.3.1
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+    dev: true
+
   /prelude-ls/1.1.2:
     resolution: { integrity: sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ= }
     engines: { node: '>= 0.8.0' }
@@ -17200,7 +17212,7 @@ packages:
     dependencies:
       commander: 8.3.0
       glob: 7.2.0
-      postcss: 8.4.6
+      postcss: 8.4.7
       postcss-selector-parser: 6.0.9
     dev: true
 
@@ -18355,7 +18367,7 @@ packages:
       walker: 1.0.8
     dev: true
 
-  /sass-loader/10.1.1_sass@1.49.8+webpack@5.69.1:
+  /sass-loader/10.1.1_sass@1.49.9+webpack@5.69.1:
     resolution:
       {
         integrity: sha512-W6gVDXAd5hR/WHsPicvZdjAWHBcEJ44UahgxcIE196fW2ong0ZHMPO1kZuI5q0VlvMQZh32gpv69PLWQm70qrw==,
@@ -18377,16 +18389,16 @@ packages:
       klona: 2.0.5
       loader-utils: 2.0.2
       neo-async: 2.6.2
-      sass: 1.49.8
+      sass: 1.49.9
       schema-utils: 3.1.1
       semver: 7.3.5
       webpack: 5.69.1_esbuild@0.14.23
     dev: true
 
-  /sass/1.49.8:
+  /sass/1.49.9:
     resolution:
       {
-        integrity: sha512-NoGOjvDDOU9og9oAxhRnap71QaTjjlzrvLnKecUJ3GxhaQBrV6e7gPuSPF28u1OcVAArVojPAe4ZhOXwwC4tGw==,
+        integrity: sha512-YlYWkkHP9fbwaFRZQRXgDi3mXZShslVmmo+FVK3kHLUELHHEYrCmL1x6IUjC7wLS6VuJSAFXRQS/DxdsC4xL1A==,
       }
     engines: { node: '>=12.0.0' }
     hasBin: true
@@ -18796,10 +18808,10 @@ packages:
       use: 3.1.1
     dev: true
 
-  /snyk/1.856.0:
+  /snyk/1.858.0:
     resolution:
       {
-        integrity: sha512-pJc09EVtmErs6hFwHv3jPt1iHNqfkN4QqES20sl5eGRXQaXeG+HAQXx00QezSZDdZ9eXyEbtJdIsk0V/4WzWVA==,
+        integrity: sha512-0qws95M19TAnZ9IORUBYnwhH4IYqQNE8/+EnWv4Q+9nDUqxFA52xawadq0jlBNDkcxt4zjTdfJcGy/qcMCkN+A==,
       }
     engines: { node: '>=10' }
     hasBin: true
@@ -20883,7 +20895,7 @@ packages:
       '@svgr/core': 5.5.0
       '@svgr/plugin-jsx': 5.5.0
       '@svgr/plugin-svgo': 5.5.0
-      vite: 2.6.13_sass@1.49.8
+      vite: 2.6.13_sass@1.49.9
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -20898,12 +20910,12 @@ packages:
       vite: ^2.6.0
     dependencies:
       '@svgr/core': 6.2.1
-      vite: 2.6.13_sass@1.49.8
+      vite: 2.6.13_sass@1.49.9
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite/2.6.13_sass@1.49.8:
+  /vite/2.6.13_sass@1.49.9:
     resolution:
       {
         integrity: sha512-+tGZ1OxozRirTudl4M3N3UTNJOlxdVo/qBl2IlDEy/ZpTFcskp+k5ncNjayR3bRYTCbqSOFz2JWGN1UmuDMScA==,
@@ -20926,12 +20938,12 @@ packages:
       postcss: 8.4.6
       resolve: 1.22.0
       rollup: 2.67.3
-      sass: 1.49.8
+      sass: 1.49.9
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vite/2.8.4_sass@1.49.8:
+  /vite/2.8.4_sass@1.49.9:
     resolution:
       {
         integrity: sha512-GwtOkkaT2LDI82uWZKcrpRQxP5tymLnC7hVHHqNkhFNknYr0hJUlDLfhVRgngJvAy3RwypkDCWtTKn1BjO96Dw==,
@@ -20954,15 +20966,15 @@ packages:
       postcss: 8.4.6
       resolve: 1.22.0
       rollup: 2.68.0
-      sass: 1.49.8
+      sass: 1.49.9
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.5.4_fb449876a74b34a933c31bad280ec49e:
+  /vitest/0.5.5_46d1227c8298da17641eba616a2c0c1a:
     resolution:
       {
-        integrity: sha512-mQ6Wj5vczFybtb/kZ419gLqQRroLgqRdkVkNyC4Dz6XWDGBhBNEVP/KryLGgovEGvs9nlJBacaFXWt+6Cgdstg==,
+        integrity: sha512-oBKIXpFOGN7jDdK0MO4uWcB+UOPRyEJveB8XDx74XsFNbjGF7vHmHqwAomNE8MGtDW8hBKvSSbr58hibFiQc5Q==,
       }
     engines: { node: '>=14.14.0' }
     hasBin: true
@@ -20983,14 +20995,14 @@ packages:
     dependencies:
       '@types/chai': 4.3.0
       '@types/chai-subset': 1.3.3
-      '@vitest/ui': 0.5.4
+      '@vitest/ui': 0.5.5
       c8: 7.11.0
       chai: 4.3.6
       jsdom: 19.0.0
       local-pkg: 0.4.1
       tinypool: 0.1.2
       tinyspy: 0.3.0
-      vite: 2.8.4_sass@1.49.8
+      vite: 2.8.4_sass@1.49.9
     transitivePeerDependencies:
       - less
       - sass

@@ -21,8 +21,8 @@
     "snyk": "snyk test"
   },
   "dependencies": {
-    "@sentry/browser": "^6.17.9",
-    "@sentry/tracing": "^6.17.9",
+    "@sentry/browser": "^6.18.0",
+    "@sentry/tracing": "^6.18.0",
     "@stackblitz/sdk": "^1.5.6",
     "algoliasearch": "^4.12.1",
     "classnames": "^2.3.1",
@@ -71,8 +71,8 @@
     "react-transition-group": "^4.4.2",
     "recoil": "^0.6.1",
     "rimraf": "^3.0.2",
-    "sass": "^1.49.8",
-    "snyk": "^1.856.0",
+    "sass": "^1.49.9",
+    "snyk": "^1.858.0",
     "stylelint": "14.5.3",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",

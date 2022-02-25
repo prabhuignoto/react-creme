@@ -4,16 +4,23 @@
 @use '../../design/animate.scss';
 
 $sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
 
 .rc-menu-btn-wrapper {
-  @extend %border;
-  @extend %shadow-inset-small;
   align-items: center;
   column-gap: 0.25rem;
   display: grid;
   height: 35px;
   max-width: var(--max-width);
   min-width: 100px;
+
+  @if $dark-mode {
+    @extend %border-radius;
+    background-color: theme.$primary;
+  } @else {
+    @extend %border;
+    @extend %shadow-inset-small;
+  }
 
   &.rc-menu-btn-disabled {
     @extend %disabled;
@@ -46,10 +53,15 @@ $sizes: (sm, md, lg);
 
 .rc-menu-btn-icon {
   @extend %center;
-  color: var(--icon-color, theme.$primary);
   cursor: pointer;
   display: block;
   position: relative;
+
+  @if $dark-mode {
+    color: theme.$white;
+  } @else {
+    color: var(--icon-color, theme.$primary);
+  }
 
   &:hover {
     background: theme.$secondary;

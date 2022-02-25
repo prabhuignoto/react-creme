@@ -2,12 +2,21 @@
 @use '../../design/position.scss';
 @use '../../design/theme.scss';
 
+$dark-mode: theme.$dark-mode;
+
 .splitter-wrapper {
-  @extend %border;
-  @extend %shadow-inset;
   height: 450px;
   position: relative;
   width: 100%;
+
+  @if $dark-mode {
+    @extend %border-radius;
+    background: theme.$gunmetal-gray;
+  } @else {
+    @extend %shadow-inset;
+    @extend %border;
+    background: theme.$white;
+  }
 
   &.splitter-wrapper-horizontal {
     display: flex;
@@ -52,7 +61,7 @@
 
 .splitter-partition {
   @extend %center;
-  background: theme.$white;
+  // background: theme.$white;
   overflow: auto;
 }
 

@@ -3,12 +3,19 @@
 @use '../../design/theme.scss';
 @use '../../design/list.scss';
 
+$dark-mode: theme.$dark-mode;
+
 .rc-dropdown-menu-container {
   @extend %border-radius;
   @extend %shadow-medium;
   @include animate.set-settings(0.25s, cubic-bezier(0.17, 0.84, 0.44, 1));
 
-  background: theme.$white;
+  @if $dark-mode {
+    background: theme.$charcoal-gray;
+  } @else {
+    background: theme.$white;
+  }
+
   left: 0;
   opacity: 0;
   overflow: hidden;

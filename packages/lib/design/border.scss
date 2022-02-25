@@ -1,5 +1,7 @@
 @use 'theme.scss';
 
+$dark-mode: theme.$dark-mode;
+
 %border-radius {
   border-radius: 4px;
 }
@@ -20,7 +22,11 @@
 
 %border {
   @extend %border-radius;
-  border: 1px solid rgba(theme.$secondary-rgb, 1);
+  @if $dark-mode {
+    border: 1px solid rgba(theme.$charcoal-gray, 1);
+  } @else {
+    border: 1px solid rgba(theme.$secondary-rgb, 1);
+  }
 }
 
 %border-error {

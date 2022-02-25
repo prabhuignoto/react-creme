@@ -4,9 +4,17 @@
 
 $sizes: (sm, md, lg);
 
+$dark-mode: theme.$dark-mode;
+
 .rc-dropdown-value-container {
-  @extend %border;
-  @extend %shadow-inset-small;
+  @if $dark-mode {
+    @extend %border-radius;
+    background-color: theme.$gunmetal-gray;
+    color: theme.$white;
+  } @else {
+    @extend %border;
+    @extend %shadow-inset-small;
+  }
 
   align-items: center;
   cursor: pointer;
@@ -71,23 +79,35 @@ $sizes: (sm, md, lg);
 }
 
 .rc-dropdown-chevron-icon {
-  color: var(--chevron-icon-color, theme.$primary);
+  @if $dark-mode {
+    color: theme.$white;
+  } @else {
+    color: var(--chevron-icon-color, theme.$primary);
+  }
+
   justify-self: center;
   order: 4;
   transition: transform 0.2s ease-in;
 }
 
 .rc-dropdown-clear-icon {
-  color: theme.$gunmetal-gray;
   justify-self: center;
 
-  &:hover {
-    color: var(--clear-icon-color, theme.$primary);
+  @if $dark-mode {
+    color: theme.$white;
+  } @else {
+    color: theme.$charcoal-gray;
   }
 
   &.rc-dropdown-clear-icon-hidden {
     pointer-events: none;
     visibility: hidden;
+  }
+}
+
+.rc-dropdown-clear-icon:hover {
+  @if not $dark-mode {
+    color: var(--clear-icon-color, theme.$primary);
   }
 }
 

@@ -8,6 +8,8 @@ $arrow-dim-sm: 12px;
 $arrow-dim-md: 16px;
 $arrow-dim-lg: 20px;
 
+$dark-mode: theme.$dark-mode;
+
 .rc-tooltip-wrapper {
   @extend %center;
 
@@ -39,14 +41,20 @@ $arrow-dim-lg: 20px;
 
   @include animate.set-keyframes(animate-tooltip-show, $animation);
   @include animate.set-keyframes(animate-tooltip-close, $animation, true);
-  background: theme.$white;
   background-color: var(-bg-color, theme.$white);
-  color: var(--fore-color, theme.$primary);
   max-width: var(--max-width);
   min-width: var(--min-width);
   position: absolute;
   visibility: hidden;
   z-index: 99999;
+
+  @if $dark-mode {
+    background: theme.$gunmetal-gray;
+    color: theme.$white;
+  } @else {
+    background: theme.$white;
+    color: var(--fore-color, theme.$primary);
+  }
 
   &.show-tooltip {
     animation-name: animate-tooltip-show;
@@ -94,15 +102,6 @@ $arrow-dim-lg: 20px;
     right: -4px;
   }
 
-  &::after {
-    background: theme.$white;
-    border-radius: 1px;
-    content: '';
-    display: block;
-    position: absolute;
-    transform: rotate(45deg);
-  }
-
   &.rc-tooltip-with-padding {
     padding: 1rem;
   }
@@ -110,6 +109,19 @@ $arrow-dim-lg: 20px;
   &:not(.rc-tooltip-with-padding) {
     padding: 0.5rem;
   }
+}
+
+.rc-tooltip-message::after {
+  @if $dark-mode {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: theme.$white;
+  }
+  border-radius: 1px;
+  content: '';
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
 }
 
 @function get-arrow-dim($size) {

@@ -63,6 +63,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
         RTL={RTL}
         focusable={focusable}
         selectedIndex={selectedIndex}
+        backGroundColor="transparent"
       />
     </div>
   );

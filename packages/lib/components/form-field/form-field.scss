@@ -3,6 +3,7 @@
 @use '../../design/font.scss';
 
 $sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
 
 .rc-form-field {
   @extend %col;
@@ -40,7 +41,11 @@ $sizes: (sm, md, lg);
 }
 
 .rc-form-field-label {
-  color: theme.$primary;
+  @if $dark-mode {
+    color: theme.$white;
+  } @else {
+    color: theme.$primary;
+  }
 }
 
 .rc-form-field-input-container {

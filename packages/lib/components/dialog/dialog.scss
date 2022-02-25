@@ -4,11 +4,11 @@
 @use '../../design/animate.scss';
 @use '../../design/animations.scss';
 
+$dark-mode: theme.$dark-mode;
+
 .rc-dialog {
   $animations: (pop, drop, rise, slide-left, slide-right);
   @extend %col;
-  @extend %border;
-  @extend %shadow-inset;
   @include animate.set-settings(var(--rc-dialog-animation-duration));
 
   @each $animation in $animations {
@@ -16,7 +16,14 @@
     @include animations.set-animation($animation, to);
   }
 
-  background-color: theme.$white;
+  @if $dark-mode {
+    @extend %border-radius;
+    background-color: theme.$gunmetal-gray;
+  } @else {
+    @extend %shadow-inset;
+    @extend %border;
+    background-color: theme.$white;
+  }
   min-height: 300px;
   min-width: var(--min-width, 300px);
 

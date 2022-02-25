@@ -6,6 +6,7 @@
 @use '../../design/font.scss';
 
 $height: 40px;
+$dark-mode: theme.$dark-mode;
 
 $sizes: (sm, md, lg);
 
@@ -28,12 +29,16 @@ $sizes: (sm, md, lg);
   width: 98%;
   z-index: 1;
 
-  &:hover:not(.rc-list-option-disabled) {
-    background: rgba(theme.$secondary-rgb, 0.25);
-  }
-
   &.rc-list-option-disabled {
     @extend %disabled;
+  }
+}
+
+.rc-list-option:hover:not(.rc-list-option-disabled) {
+  @if $dark-mode {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: rgba(theme.$secondary-rgb, 0.25);
   }
 }
 

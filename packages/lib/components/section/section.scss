@@ -21,16 +21,24 @@ $heights: (
   width: 100%;
 }
 
+$dark-mode: theme.$dark-mode;
+
 .rc-section-header {
   @extend %left;
-  border-bottom: 1px solid theme.$secondary;
-  color: theme.$primary;
   font-size: 1rem;
   font-weight: 500;
   height: 30px;
   padding-left: 1rem;
   text-decoration: none;
   width: 100%;
+
+  @if $dark-mode {
+    border-bottom: 1px solid theme.$primary;
+    color: theme.$white;
+  } @else {
+    border-bottom: 1px solid theme.$secondary;
+    color: theme.$primary;
+  }
 
   @each $key, $val in $sizes {
     &.rc-section-header-#{$key} {
@@ -56,7 +64,6 @@ $heights: (
   }
 
   &.rc-section-rtl {
-    // @extend %right;
     direction: rtl;
   }
 

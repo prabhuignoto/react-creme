@@ -5,6 +5,7 @@ $compact-row-height: 35px;
 $comfortable-row-height: 50px;
 
 $sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
 
 .rc-data-grid {
   @extend %col;
@@ -17,22 +18,16 @@ $sizes: (sm, md, lg);
   }
 }
 
-.rc-data-grid-row-zebra {
-  &:nth-child(odd) {
+.rc-data-grid-row-zebra:nth-child(odd) {
+  @if $dark-mode {
+    background-color: rgba(theme.$gunmetal-gray, 0.25);
+  } @else {
     background-color: rgba(theme.$light-bg, 0.75);
   }
 }
 
 .rc-data-grid-row {
   width: 100%;
-
-  &:not(:last-child):not(.rc-data-grid-row-zebra) {
-    border-bottom: 1px solid theme.$secondary;
-  }
-
-  &:hover {
-    background-color: theme.$light-bg;
-  }
 
   &.rc-data-grid-row-compact {
     min-height: var(--row-height, $compact-row-height);
@@ -41,9 +36,29 @@ $sizes: (sm, md, lg);
   &.rc-data-grid-row-comfortable {
     min-height: var(--row-height, $comfortable-row-height);
   }
+}
 
-  .rc-data-grid-cell-border:not(:last-child) {
+.rc-data-grid-cell-border:not(:last-child) {
+  @if $dark-mode {
+    border-right: 1px solid theme.$charcoal-gray;
+  } @else {
     border-right: 1px solid theme.$secondary;
+  }
+}
+
+.rc-data-grid-row:not(:last-child):not(.rc-data-grid-row-zebra) {
+  @if $dark-mode {
+    border-bottom: 1px solid theme.$charcoal-gray;
+  } @else {
+    border-bottom: 1px solid theme.$secondary;
+  }
+}
+
+.rc-data-grid-row:hover {
+  @if dark-mode {
+    background-color: theme.$cod-gray;
+  } @else {
+    background-color: theme.$light-bg;
   }
 }
 

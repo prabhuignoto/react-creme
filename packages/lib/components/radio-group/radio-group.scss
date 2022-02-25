@@ -24,7 +24,6 @@
 .rc-radio-grp-item {
   @extend %list-item-left;
   margin: 0.5rem;
-  // width: 100%;
 
   &.rc-radio-grp-item-disabled {
     @extend %disabled;

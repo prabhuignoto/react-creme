@@ -5,6 +5,8 @@
 @use '../../design/position.scss';
 
 $sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
+
 $padding-sizes: (
   sm: 0.5rem,
   md: 0.5rem,
@@ -68,32 +70,45 @@ $padding-sizes: (
   &.rc-tag-disabled {
     pointer-events: none;
   }
+}
 
-  &.rc-tag-style-fill {
-    @extend %border-radius;
+.rc-tag-style-fill {
+  @extend %border-radius;
+
+  @if $dark-mode {
+    background: theme.$platinum;
+    color: theme.$black;
+  } @else {
     background: rgba(theme.$primary-rgb, 1);
     color: theme.$white;
   }
+}
 
-  &.rc-tag-style-default {
+.rc-tag-style-default {
+  @if not $dark-mode {
     @extend %border;
     @extend %shadow-inset-small;
+  } @else {
+    @extend %border-radius;
   }
+}
 
-  &.rc-tag-accent-rounded {
-    border-radius: 40px;
-  }
+.rc-tag-accent-rounded {
+  border-radius: 40px;
+}
 
-  &.rc-tag-readonly {
-    @extend %center;
+.rc-tag-readonly {
+  @if $dark-mode {
+    background: theme.$primary;
+    color: theme.$white;
   }
+}
 
-  &.rc-tag-marked-for-removal {
-    animation-name: tag-fade-out;
-    max-width: var(--width);
-    transform: scale(0.98);
-    visibility: hidden;
-  }
+.rc-tag-marked-for-removal {
+  animation-name: tag-fade-out;
+  max-width: var(--width);
+  transform: scale(0.98);
+  visibility: hidden;
 }
 
 @each $size in $sizes {

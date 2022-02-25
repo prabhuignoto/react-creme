@@ -4,6 +4,7 @@
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
 
 $heights: (
   sm: 30px,
@@ -17,9 +18,6 @@ $heights: (
 
   h2 {
     @extend %left;
-    font-size: 1.2rem;
-    font-weight: 400;
-    height: 35px;
     margin: 0.5rem 0;
     width: 100%;
   }
@@ -74,4 +72,9 @@ $heights: (
 
 .rc-page-header-content {
   padding-top: 1rem;
+  @if $dark-mode {
+    color: theme.$white;
+  } @else {
+    color: theme.$black;
+  }
 }

@@ -4,22 +4,29 @@
 @use '../../design/list.scss';
 @use '../../design/position.scss';
 
+$dark-mode: theme.$dark-mode;
+$settings: (
+  from: (
+    background-position: 0% 0%,
+  ),
+  to: (
+    background-position: 400% 400%,
+  ),
+);
+
 .rc-skeleton-wrapper {
   @extend %border-radius;
-  background: theme.$light-bg;
   min-height: var(--min-height);
   min-width: var(--min-width);
+
+  @if $dark-mode {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: theme.$light-bg;
+  }
 }
 
 .rc-skeleton-row {
-  $settings: (
-    from: (
-      background-position: 0% 0%,
-    ),
-    to: (
-      background-position: 400% 400%,
-    ),
-  );
   @extend %border-radius;
   display: block;
   height: var(--height);
@@ -27,27 +34,41 @@
   padding-left: 0.5rem;
   z-index: -1;
 
-  &.rc-skeleton-disable-animation {
+  &.rc-skeleton-animate:not(.rc-skeleton-disable-animation) {
+    animation-direction: reverse;
+    animation-name: animate-skeleton;
+  }
+}
+
+.rc-skeleton-disable-animation {
+  @if $dark-mode {
+    background: theme.$charcoal-gray;
+  } @else {
     background: theme.$chinese-gray;
   }
+}
 
-  &:not(.rc-skeleton-disable-animation) {
-    @include animate.set-settings(2s, linear, true);
-    @include animate.set-keyframes(animate-skeleton, $settings);
+.rc-skeleton-row:not(.rc-skeleton-disable-animation) {
+  @include animate.set-settings(2s, linear, true);
+  @include animate.set-keyframes(animate-skeleton, $settings);
+
+  @if $dark-mode {
+    background: linear-gradient(
+      90deg,
+      theme.$charcoal-gray 0%,
+      theme.$gunmetal-gray 35%,
+      theme.$charcoal-gray 100%
+    );
+  } @else {
     background: linear-gradient(
       90deg,
       theme.$mercury 0%,
       theme.$chinese-gray 35%,
       theme.$mercury 100%
     );
-    background-position: 400% 400%;
-    background-size: 200% 200%;
   }
-
-  &.rc-skeleton-animate:not(.rc-skeleton-disable-animation) {
-    animation-direction: reverse;
-    animation-name: animate-skeleton;
-  }
+  background-position: 400% 400%;
+  background-size: 200% 200%;
 }
 
 .rc-skeleton-block:not(:first-child) {
@@ -64,7 +85,11 @@
 }
 
 .rc-skeleton-circle {
-  background: theme.$chinese-gray;
+  @if $dark-mode {
+    background: theme.$charcoal-gray;
+  } @else {
+    background: theme.$chinese-gray;
+  }
   border-radius: 50%;
   height: 40px;
   width: 40px;

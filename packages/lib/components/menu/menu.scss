@@ -3,6 +3,8 @@
 @use '../../design/animate.scss';
 @use '../../design/theme.scss';
 
+$dark-mode: theme.$dark-mode;
+
 .rc-menu-wrapper {
   @extend %center;
   height: 100%;
@@ -19,21 +21,31 @@
   @extend %list;
   @extend %border-radius;
   @extend %col;
-  background: theme.$white;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   min-width: 150px;
   outline: none;
   padding: 0.5rem;
   position: relative;
 
-  &::after {
+  @if $dark-mode {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: theme.$white;
+  }
+}
+
+.rc-menu::after {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  content: '';
+  display: blocks;
+  position: absolute;
+  top: -10px;
+
+  @if $dark-mode {
+    border-bottom: 10px solid theme.$gunmetal-gray;
+  } @else {
     border-bottom: 10px solid theme.$white;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    content: '';
-    display: blocks;
-    position: absolute;
-    top: -10px;
   }
 }
 

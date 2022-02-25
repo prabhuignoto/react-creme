@@ -4,6 +4,8 @@
 $header-height: 35px;
 $sizes: (sm, md, lg);
 
+$dark-mode: theme.$dark-mode;
+
 .rc-accordion-header {
   @extend %left;
   align-items: center;
@@ -14,19 +16,28 @@ $sizes: (sm, md, lg);
   position: relative;
   text-transform: capitalize;
 
-  &:not(.rc-accordion-disable-collapse):hover {
-    @extend %border-radius;
-    background: rgba(theme.$secondary-rgb, 0.25);
-    cursor: pointer;
-  }
-
   &:not(.rc-accordion-header-icon) {
     display: grid;
     grid-template-columns: 2rem calc(100% - 2.5rem) 0.5rem;
   }
+}
 
-  &.rc-accordion-selected {
-    @extend %border-radius;
+.rc-accordion-header:not(.rc-accordion-disable-collapse):hover {
+  @extend %border-radius;
+  cursor: pointer;
+
+  @if $dark-mode {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: rgba(theme.$secondary-rgb, 0.25);
+  }
+}
+
+.rc-accordion-selected {
+  @extend %border-radius;
+  @if $dark-mode {
+    background: theme.$gunmetal-gray;
+  } @else {
     background: rgba(theme.$secondary-rgb, 0.25);
   }
 }

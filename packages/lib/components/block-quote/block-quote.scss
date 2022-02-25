@@ -5,11 +5,10 @@
 @use 'sass:color';
 
 $sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
 
 .rc-block-quote {
   align-items: center;
-  background: rgba(theme.$secondary-rgb, 0.1);
-  border-left: 3px solid rgba(theme.$primary-rgb, 0.5);
   display: grid;
   font-weight: 300;
   grid-template-columns: 2rem auto;
@@ -19,6 +18,16 @@ $sizes: (sm, md, lg);
   padding-left: 0.5rem;
   padding-top: 1rem;
   text-align: left;
+
+  @if $dark-mode {
+    background: theme.$gunmetal-gray;
+    border-left: 3px solid rgba(theme.$primary-rgb, 1);
+    color: theme.$white;
+  } @else {
+    background: rgba(theme.$secondary-rgb, 0.1);
+    border-left: 3px solid rgba(theme.$primary-rgb, 0.5);
+    color: theme.$black;
+  }
 
   code {
     @extend %border-radius;

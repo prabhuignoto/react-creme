@@ -2,13 +2,19 @@
 @use '../../design/theme.scss';
 
 $sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
 
 .rc-data-grid-header-cell {
   @extend %left;
-  background: rgba(theme.$secondary-rgb, 0.5);
   color: theme.$black;
   height: 100%;
   text-transform: capitalize;
+
+  @if $dark-mode {
+    background: rgba(theme.$charcoal-gray, 0.5);
+  } @else {
+    background: rgba(theme.$secondary-rgb, 0.5);
+  }
 
   &:not(:last-child) {
     width: calc(100% - 1px);
@@ -27,8 +33,12 @@ $sizes: (sm, md, lg);
     font-weight: 400;
     width: 95%;
   }
+}
 
-  &.rc-data-grid-header-border:not(:last-child) {
+.rc-data-grid-header-border:not(:last-child) {
+  @if dark-mode {
+    border-right: 1px solid theme.$charcoal-gray;
+  } @else {
     border-right: 1px solid theme.$secondary;
   }
 }
