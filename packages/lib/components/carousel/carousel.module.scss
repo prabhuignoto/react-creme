@@ -4,59 +4,59 @@
 @use '../../design/core.scss';
 @use '../../design/position.scss';
 
-.rc-carousel-container {
+.container {
   height: 100%;
   width: 100%;
 
-  &.rc-carousel-container-horizontal {
+  &.container_horizontal {
     @extend %col;
   }
 
-  &.rc-carousel-container-vertical {
+  &.container_vertical {
     @extend %center;
   }
 
-  &.rc-carousel-container-border {
+  &.container_border {
     @extend %border;
   }
 
-  &:not(.rc-carousel-container-border) {
+  &:not(.container_border) {
     @extend %shadow-medium;
     @extend %border-radius;
   }
 }
 
-.rc-carousel-wrapper {
+.wrapper {
   overflow: hidden;
   position: relative;
 
-  &.rc-carousel-wrapper-horizontal {
+  &.wrapper_horizontal {
     height: calc(100% - 4rem);
     margin-top: 1rem;
     width: 95%;
   }
 
-  &.rc-carousel-wrapper-vertical {
+  &.wrapper_vertical {
     height: calc(100% - 3rem);
     margin-left: 1rem;
     width: calc(100% - 3rem);
   }
 }
 
-.rc-carousel-track-wrapper {
+.track_wrapper {
   @extend %center;
 
-  &.rc-carousel-track-wrapper-horizontal {
+  &.track_wrapper_horizontal {
     height: 3rem;
     width: 100%;
   }
 
-  &.rc-carousel-track-wrapper-horizontal {
+  &.track_wrapper_horizontal {
     width: 3rem;
   }
 }
 
-.rc-carousel {
+.carousel {
   height: 100%;
   left: 0;
   list-style: none;
@@ -67,7 +67,7 @@
   transition: transform 0.5s var(--transition);
 }
 
-.rc-carousel-item {
+.item {
   @extend %center;
   @extend %border-radius;
   height: 100%;
@@ -81,36 +81,36 @@
   }
 }
 
-.rc-carousel-item-container {
+.item_container {
   @extend %center;
   height: 95%;
   width: 95%;
 }
 
-.rc-carousel-btn {
+.btn {
   border-radius: 50%;
 
-  &.rc-carousel-btn-horizontal {
+  &.btn_horizontal {
     margin: 0 1rem;
   }
 
-  &.rc-carousel-btn-vertical {
+  &.btn_vertical {
     margin: 1rem 0;
   }
 
-  &.rc-carousel-btn-hide {
+  &.btn_hide {
     visibility: hidden;
   }
 }
 
-.rc-carousel-btn-left {
+.btn_left {
   transform: rotate(-180deg);
 }
 
-.rc-carousel-btn-left:not(.rc-carousel-btn-horizontal) {
+.btn_left:not(.btn_horizontal) {
   transform: rotate(-90deg);
 }
 
-.rc-carousel-btn-right:not(.rc-carousel-btn-horizontal) {
+.btn_right:not(.btn_horizontal) {
   transform: rotate(90deg);
 }

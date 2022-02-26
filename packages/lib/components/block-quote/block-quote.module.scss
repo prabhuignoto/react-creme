@@ -7,7 +7,7 @@
 $sizes: (sm, md, lg);
 $dark-mode: theme.$dark-mode;
 
-.rc-block-quote {
+.block_quote {
   align-items: center;
   display: grid;
   font-weight: 300;
@@ -48,12 +48,12 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .rc-block-quote-#{$size} {
-    .rc-block-quote-icon {
+  .block_quote_#{$size} {
+    .block_quote_icon {
       @extend %icon-#{$size};
     }
 
-    .rc-block-quote-child-content {
+    .block_quote_child_content {
       @extend %font-#{$size};
     }
 
@@ -63,11 +63,11 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-block-quote-icon {
+.block_quote_icon {
   color: rgba(theme.$primary-rgb, 1);
   margin-right: 0.5rem;
 }
 
-.rc-block-quote-child-content {
+.block_quote_child_content {
   justify-self: flex-start;
 }

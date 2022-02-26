@@ -2,7 +2,8 @@ import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import { CarouselButton } from './carousel-button';
 import { CarouselTrackProps } from './carousel-model';
-import './carousel-track.scss';
+import styles from './carousel-track.module.scss';
+import rootStyles from './carousel.module.scss';
 
 const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
   length,
@@ -16,15 +17,25 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
   focusable,
 }: CarouselTrackProps) => {
   const carouselTrackClass = useMemo(
-    () => classNames(['rc-carousel-track', `rc-carousel-track-${direction}`]),
+    () =>
+      classNames([
+        styles.track,
+        direction === 'horizontal'
+          ? styles.track_horizontal
+          : styles.track_vertical,
+      ]),
     []
   );
 
   const carouselContainerClass = useMemo(
     () =>
-      classNames('rc-carousel-track-wrapper', {
-        [`rc-carousel-track-wrapper-${direction}`]: true,
-      }),
+      classNames([
+        rootStyles.track_wrapper,
+        direction === 'horizontal'
+          ? styles.track_wrapper_horizontal
+          : styles.track_wrapper_vertical,
+        // [styles[`track-wrapper-${direction}`]]: true,
+      ]),
     [direction]
   );
 
@@ -44,8 +55,8 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
             key={index}
             role="listitem"
             className={classNames([
-              'rc-carousel-track-item',
-              index === activeIndex ? 'rc-carousel-track-item-selected' : '',
+              styles.track_item,
+              index === activeIndex ? styles.track_item_selected : '',
             ])}
             onClick={() => handleSelection(index)}
           ></li>

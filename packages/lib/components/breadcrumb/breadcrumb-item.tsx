@@ -4,6 +4,7 @@ import { ArrowRightIcon, ChevronRightIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { Link } from '../link/link';
 import { BreadCrumbItemProps } from './breadcrumb-model';
+import styles from './breadcrumb.module.scss';
 
 const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
   ({
@@ -19,14 +20,14 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
     useFocusNew(ref);
 
     const breadCrumbIcon = useMemo(() => {
-      return classNames('rc-bread-crumb-icon', {
-        [`rc-bread-crumb-icon-${size}`]: true,
+      return classNames(styles.bread_crumb_icon, {
+        [styles[`bread_crumb_icon_${size}`]]: true,
       });
     }, []);
 
     const breadCrumbNode = useMemo(() => {
-      return classNames('rc-bread-crumb-node', {
-        [`rc-bread-crumb-node-${size}`]: true,
+      return classNames(styles.bread_crumb_node, {
+        [styles[`bread_crumb_node_${size}`]]: true,
       });
     }, [selected]);
 
@@ -35,7 +36,7 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
     }, []);
 
     return (
-      <li className="rc-bread-crumb" key={id}>
+      <li className={styles.bread_crumb} key={id}>
         <span className={breadCrumbNode}>
           <Link onClick={() => handleClick(id, name)} highlight={selected}>
             {name}

@@ -5,7 +5,7 @@ import { useImperativeHandle, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { CircularProgress } from '../progress/circular-progress';
 import { ButtonProps } from './button-model';
-import './button.scss';
+import styles from './button.module.scss';
 
 const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
   const {
@@ -24,11 +24,11 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
     () =>
       classNames(
         {
-          'rc-btn-default': type === 'progress',
-          'rc-btn-no-border': !border,
-          'rc-disabled': disabled,
+          [styles[`btn_default`]]: type === 'progress',
+          [styles.btn_no_border]: !border,
+          [styles.disabled]: disabled,
         },
-        [`rc-btn-${size}`, `rc-btn-${type}`, 'rc-btn']
+        [styles[`btn_${size}`], styles[`btn_${type}`], styles['btn']]
       ),
     [disabled]
   );
@@ -76,17 +76,17 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
       aria-label={label}
     >
       {type === 'progress' && !disabled && (
-        <span className="rc-btn-progress-wrapper" role="img">
+        <span className={styles.btn_progress_wrapper} role="img">
           <CircularProgress size={'xs'} />
         </span>
       )}
       {children && (
-        <span className="rc-btn-icon-container" role="img">
+        <span className={styles.btn_icon_container} role="img">
           {children}
         </span>
       )}
       {label && type !== 'icon' && (
-        <span className="rc-btn-label">{label}</span>
+        <span className={styles.btn_label}>{label}</span>
       )}
     </div>
   );

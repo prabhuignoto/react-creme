@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 import React, { useCallback, useState } from 'react';
 import { BreadCrumbItem } from './breadcrumb-item';
 import { BreadCrumbProps } from './breadcrumb-model';
-import './breadcrumb.scss';
+import styles from './breadcrumb.module.scss';
 
 interface BreadCrumbItemModel {
   id: string;
@@ -40,7 +40,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
 
   return (
     <ul
-      className="rc-bread-crumbs-wrapper"
+      className={styles.bread_crumbs_wrapper}
       role="navigation"
       aria-label="breadcrumbs"
     >

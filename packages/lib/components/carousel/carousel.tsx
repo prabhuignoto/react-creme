@@ -15,7 +15,7 @@ import useSwipe from '../common/effects/useSwipe';
 import { CarouselItems } from './carousel-items';
 import { CarouselItemProps, CarouselProps } from './carousel-model';
 import { CarouselTrack } from './carousel-track';
-import './carousel.scss';
+import styles from './carousel.module.scss';
 
 const Carousel: React.FunctionComponent<CarouselProps> = ({
   autoPlay = 0,
@@ -131,11 +131,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   const carouselTrackClass = useMemo(
     () =>
       classNames([
-        'rc-carousel-track-wrapper',
-        `rc-carousel-track-wrapper-${direction}`,
-        {
-          'rc-carousel-track-auto-play': isAutoPlaying,
-        },
+        styles.track_wrapper,
+        direction === 'horizontal' ? styles.track_wrapper_horizontal : '',
+        // `rc-carousel-track-wrapper-${direction}`,
       ]),
     [isAutoPlaying]
   );
@@ -143,7 +141,12 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   const carouselContainerClass = useMemo(
     () =>
       classNames(
-        ['rc-carousel-container', `rc-carousel-container-${direction}`],
+        [
+          styles.container,
+          direction === 'horizontal'
+            ? styles.container_horizontal
+            : styles.container_vertical,
+        ],
         {
           'rc-carousel-border': border,
         }
@@ -162,7 +165,12 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   const wrapperClass = useMemo(
     () =>
-      classNames(['rc-carousel-wrapper', `rc-carousel-wrapper-${direction}`]),
+      classNames([
+        styles.wrapper,
+        direction === 'horizontal'
+          ? styles.wrapper_horizontal
+          : styles.wrapper_vertical,
+      ]),
     []
   );
 

@@ -1,7 +1,7 @@
 @use '../../design/core.scss';
 @use '../../design/theme.scss';
 
-.rc-card-wrapper {
+.card_wrapper {
   @extend %col;
   background: theme.$white;
 
@@ -11,54 +11,54 @@
   min-height: var(--height, 300px);
   width: 100%;
 
-  &:not(.rc-card-border-less) {
+  &:not(.card_border_less) {
     @extend %border;
   }
 
-  &.rc-card-shadow {
+  &.card_shadow {
     @extend %shadow-medium;
     @extend %border-radius;
   }
 
-  &:not(.rc-card-shadow) {
+  &:not(.card_shadow) {
     @extend %border;
   }
 }
 
-.rc-card-header {
+.card_header {
   @extend %left;
   border-bottom: 1px solid theme.$gray;
   height: 100%;
   width: 95%;
 
-  &.rc-card-align-right {
+  &.card_align_right {
     @extend %right;
   }
 
-  &.rc-card-align-center {
+  &.card_align_center {
     @extend %center;
   }
 }
 
-.rc-card-body {
+.card_body {
   @extend %center;
   height: 95%;
   padding: 1rem;
   width: 95%;
 }
 
-.rc-card-footer {
+.card_footer {
   @extend %left;
   border-top: 1px solid theme.$gray;
   height: 100%;
   margin-top: auto;
   width: 95%;
 
-  &.rc-card-align-right {
+  &.card_align_right {
     @extend %right;
   }
 
-  &.rc-card-align-center {
+  &.card_align_center {
     @extend %center;
   }
 }

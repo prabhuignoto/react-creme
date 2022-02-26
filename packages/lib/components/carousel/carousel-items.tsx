@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactNode, useMemo } from 'react';
 import { CarouselItemsProps } from './carousel-model';
-import './carousel.scss';
+import styles from './carousel.module.scss';
 
 const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
   activePage = 0,
@@ -22,7 +22,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
   }, [width, height, activePage]);
 
   return (
-    <ul className={'rc-carousel'} style={carouselStyle} role="list">
+    <ul className={styles.carousel} style={carouselStyle} role="list">
       {carouselItems.map((item, index) => (
         <li
           key={item.id}

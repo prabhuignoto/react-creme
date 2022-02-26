@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import { InfoIcon } from '../../icons';
-import './block-quote.scss';
+import styles from './block-quote.module.scss';
 
 export interface BlockQuoteProps {
   children: React.ReactNode;
@@ -16,18 +16,18 @@ const BlockQuote: React.FC<BlockQuoteProps> = ({
 }) => {
   const blockQuoteClass = useMemo(
     () =>
-      classNames('rc-block-quote', {
-        [`rc-block-quote-${size}`]: size,
+      classNames(styles.block_quote, {
+        [styles[`block_quote_${size}`]]: size,
       }),
     []
   );
 
   return (
     <div className={blockQuoteClass}>
-      <span className="rc-block-quote-icon">
+      <span className={styles.block_quote_icon}>
         {showInfoIcon && <InfoIcon />}
       </span>
-      <div className="rc-block-quote-child-content">{children}</div>
+      <div className={styles.block_quote_child_content}>{children}</div>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
 import { CardProps } from './card-model';
-import './card.scss';
+import styles from './card.module.scss';
 
 const Card: React.FunctionComponent<CardProps> = ({
   alignFooter = 'left',
@@ -26,28 +26,28 @@ const Card: React.FunctionComponent<CardProps> = ({
   }, [height]);
 
   const cardWrapperClass = useMemo(() => {
-    return classNames('rc-card-wrapper', {
-      'rc-card-border-less': !border,
-      'rc-card-shadow': shadow,
+    return classNames(styles.card_wrapper, {
+      [styles.card_border_less]: !border,
+      [styles.card_shadow]: shadow,
     });
   }, [border]);
 
   const cardHeaderClass = useMemo(() => {
-    return classNames('rc-card-header', {
-      [`rc-card-align-${alignHeader}`]: true,
+    return classNames(styles.card_header, {
+      [styles[`card-align-${alignHeader}`]]: true,
     });
   }, []);
 
   const cardFooterClass = useMemo(() => {
-    return classNames('rc-card-footer', {
-      [`rc-card-align-${alignFooter}`]: true,
+    return classNames(styles.card_footer, {
+      [styles[`card-align-${alignFooter}`]]: true,
     });
   }, []);
 
   return (
     <div className={cardWrapperClass} style={style} ref={ref}>
       {header && <header className={cardHeaderClass}>{header}</header>}
-      <section className="rc-card-body">{children}</section>
+      <section className={styles.card_body}>{children}</section>
       {footer && <footer className={cardFooterClass}>{footer}</footer>}
     </div>
   );

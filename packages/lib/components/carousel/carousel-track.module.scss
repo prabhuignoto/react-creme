@@ -2,19 +2,19 @@
 @use '../../design/list.scss';
 @use '../../design/theme.scss';
 
-.rc-carousel-track {
-  &.rc-carousel-track-horizontal {
+.track {
+  &.track_horizontal {
     @extend %center;
     @extend %list-horizontal;
   }
 
-  &.rc-carousel-track-vertical {
+  &.track_vertical {
     @extend %list;
     width: 3rem;
   }
 }
 
-.rc-carousel-track-item {
+.track_item {
   border: 1px solid theme.$secondary;
   border-radius: 50%;
   height: 10px;
@@ -22,23 +22,23 @@
   width: 10px;
 }
 
-.rc-carousel-track-item:hover {
+.track_item:hover {
   cursor: pointer;
 }
 
-.rc-carousel-track-item-selected {
+.track_item_selected {
   background: theme.$primary;
   border: 1px solid theme.$primary;
 }
 
-.rc-carousel-icon {
+.icon {
   @extend %icon-md;
 }
 
-.rc-carousel-track-wrapper-horizontal {
+.track_wrapper_horizontal {
   @extend %center;
 }
 
-.rc-carousel-track-wrapper-vertical {
+.track_wrapper_vertical {
   @extend %list;
 }
