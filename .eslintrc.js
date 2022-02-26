@@ -43,7 +43,7 @@ module.exports = {
       },
     },
     react: {
-      version: 'latest',
+      version: 'detect',
     },
   },
 };

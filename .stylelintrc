@@ -1,13 +1,8 @@
 {
-  "extends": [
-    "stylelint-config-sass-guidelines",
-    "stylelint-config-prettier"
-  ],
-  "plugins": [
-    "stylelint-scss",
-    "stylelint-order"
-  ],
+  "extends": ["stylelint-config-sass-guidelines", "stylelint-config-prettier"],
+  "plugins": ["stylelint-scss", "stylelint-order"],
   "rules": {
-    "selector-pseudo-element-no-unknown": null
+    "selector-pseudo-element-no-unknown": null,
+    "selector-class-pattern": null
   }
 }
