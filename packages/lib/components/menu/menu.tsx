@@ -13,7 +13,7 @@ import useFocusNew from '../common/effects/useFocusNew';
 import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { MenuItemProps, MenuProps } from './menu-model';
 import { MenuOverlay, MenuOverlayProps } from './menu-overlay';
-import './menu.scss';
+import styles from './menu.module.scss';
 
 const Menu: React.FunctionComponent<MenuProps> = ({
   children,
@@ -120,15 +120,15 @@ const Menu: React.FunctionComponent<MenuProps> = ({
    */
   const menuContentWrapperClass = useMemo(
     () =>
-      classNames(['rc-menu-content-wrapper'], {
-        'rc-menu-not-focusable': !focusable,
+      classNames([styles.menu_content_wrapper], {
+        [styles.menu_content_focusable]: !focusable,
       }),
     [showMenu, focusable]
   );
 
   const menuWrapperClass = useMemo(() => {
-    return classNames(['rc-menu-wrapper'], {
-      [`rc-menu-wrapper-${size}`]: true,
+    return classNames([styles.menu_wrapper], {
+      [styles[`menu-wrapper-${size}`]]: true,
     });
   }, []);
 
@@ -158,7 +158,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
         {children}
       </div>
       {showMenu && (
-        <div className="rc-menu-overlay-wrapper">
+        <div className={styles.menu_overlay_wrapper}>
           <MenuOverlay
             items={menuItems}
             onSelection={handleSelection}

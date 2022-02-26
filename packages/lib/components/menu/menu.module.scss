@@ -5,19 +5,19 @@
 
 $dark-mode: theme.$dark-mode;
 
-.rc-menu-wrapper {
+.menu_wrapper {
   @extend %center;
   height: 100%;
   position: relative;
 }
 
-.rc-menu-content-wrapper {
+.menu_content_wrapper {
   @extend %center;
   height: 100%;
   position: relative;
 }
 
-.rc-menu {
+.menu {
   @extend %list;
   @extend %border-radius;
   @extend %col;
@@ -34,7 +34,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-menu::after {
+.menu::after {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   content: '';
@@ -49,18 +49,18 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-menu-left {
+.menu_left {
   &::after {
     left: 6px;
   }
 }
 
-.rc-menu-right {
+.menu_right {
   &::after {
     right: 6px;
   }
 }
 
-.rc-menu-overlay-wrapper {
+.menu_overlay_wrapper {
   @extend %center;
 }

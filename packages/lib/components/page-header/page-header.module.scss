@@ -12,7 +12,7 @@ $heights: (
   lg: 40px,
 );
 
-.rc-page-header {
+.page_header {
   margin-bottom: 1rem;
   width: 100%;
 
@@ -23,13 +23,13 @@ $heights: (
   }
 }
 
-.rc-page-header:not(.rc-page-header-rtl) {
+.page_header:not(.page_header_rtl) {
   h2 {
     text-align: left;
   }
 }
 
-.rc-page-header-rtl {
+.page_header_rtl {
   direction: rtl;
 
   h2 {
@@ -38,39 +38,33 @@ $heights: (
 }
 
 @each $size in $sizes {
-  .rc-page-header-#{$size} {
-    .rc-page-header-title {
+  .page_header_#{$size} {
+    .page_header_title {
       @extend %text-#{$size};
       height: map.get($heights, $size);
-    }
-
-    .rc-page-header-content {
-      :first-child {
-        // @extend %text-#{$size};
-      }
     }
   }
 }
 
-.rc-page-header-icon {
+.page_header_icon {
   @extend %icon;
   color: theme.$primary;
   margin-right: 0.5rem;
 
   @each $size in $sizes {
-    &.rc-page-header-icon-#{$size} {
+    &.page_header_icon_#{$size} {
       @extend %icon-#{$size};
     }
   }
 }
 
-.rc-page-header-title-container {
+.page_header_title_container {
   @extend %left;
   border-bottom: 1px solid theme.$gray;
   width: 100%;
 }
 
-.rc-page-header-content {
+.page_header_content {
   padding-top: 1rem;
   @if $dark-mode == 'true' {
     color: theme.$white;
