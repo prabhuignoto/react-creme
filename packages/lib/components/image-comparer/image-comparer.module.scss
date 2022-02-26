@@ -2,39 +2,39 @@
 @use '../../design/position.scss';
 @use '../../design/theme.scss';
 
-.rc-img-comparer-wrapper {
+.img_comparer_wrapper {
   position: relative;
 
-  &:not(.rc-image-comparer-loaded) {
+  &:not(.image_comparer_loaded) {
     height: 100%;
     width: 100%;
   }
 
-  &.rc-image-comparer-loaded {
+  &.image_comparer_loaded {
     height: var(--height);
     width: var(--width);
   }
 }
 
-.rc-img-comparer-drag-handle {
+.img_comparer_drag_handle {
   background: rgba(theme.$primary-rgb, 0.95);
   position: absolute;
   z-index: 2;
 
-  &.rc-comparer-drag-handle-dragged {
+  &.comparer_drag_handle_dragged {
     background: rgba(theme.$primary-rgb, 1);
   }
 
-  &.rc-comparer-drag-handle-visible {
+  &.comparer_drag_handle_visible {
     visibility: visible;
   }
 
-  &.rc-comparer-drag-handle-hidden {
+  &.comparer_drag_handle_hidden {
     visibility: hidden;
   }
 }
 
-.rc-drag-handle-square {
+.drag_handle_square {
   @extend %shadow-small;
   @extend %center;
   @include position.position-abs('center center');
@@ -50,12 +50,12 @@
   }
 }
 
-.rc-comparer-drag-handle-horizontal {
+.comparer_drag_handle_horizontal {
   @include position.position-abs('center center');
   height: 100%;
   width: 6px;
 
-  .rc-drag-handle-square {
+  .drag_handle_square {
     cursor: ew-resize;
     height: 24px;
     width: 24px;
@@ -66,25 +66,25 @@
   }
 }
 
-.rc-comparer-drag-handle-vertical {
+.comparer_drag_handle_vertical {
   @include position.position-abs('center center');
   height: 6px;
   width: 100%;
 
-  .rc-drag-handle-square {
+  .drag_handle_square {
     cursor: ns-resize;
     height: 24px;
     width: 24px;
   }
 }
 
-.img-comparer-drag-handle-horizontal {
+.img_comparer_drag_handle_horizontal {
   cursor: ns-resize;
   height: 6px;
   width: 100%;
 }
 
-.img-comparer-panel {
+.img_comparer_panel {
   @include position.position-abs('left center');
   height: 100%;
   overflow: hidden;
@@ -96,15 +96,15 @@
   }
 }
 
-.img-comparer-panel-1 {
+.img_comparer_panel_1 {
   z-index: 1;
 }
 
-.img-comparer-panel-2 {
+.img_comparer_panel_2 {
   z-index: 0;
 }
 
-.rc-circular-loader-wrapper {
+.circular_loader_wrapper {
   @include position.position-abs('center center');
   height: 30px;
   width: 30px;

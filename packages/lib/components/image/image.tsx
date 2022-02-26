@@ -5,7 +5,7 @@ import useFocusNew from '../common/effects/useFocusNew';
 import { CircularProgress } from '../progress/circular-progress';
 import { ImageProps } from './image-model';
 import { ImageOverlay } from './image-overlay';
-import './image.scss';
+import styles from './image.module.scss';
 
 const Image: React.FunctionComponent<ImageProps> = ({
   alt,
@@ -63,16 +63,16 @@ const Image: React.FunctionComponent<ImageProps> = ({
   );
 
   const wrapperClass = useMemo(() => {
-    return classNames('rc-image-wrapper', {
-      'rc-image-clickable': expandImageOnClick,
-      'rc-image-loaded': loaded,
+    return classNames(styles.image_wrapper, {
+      [styles.image_clickable]: expandImageOnClick,
+      [styles.image_loaded]: loaded,
     });
   }, [loaded]);
 
   const ImageClass = useMemo(() => {
-    return classNames('rc-image', {
-      'rc-image-loaded': loaded,
-      'rc-image-loading': !loaded,
+    return classNames(styles.image, {
+      [styles.image_loaded]: loaded,
+      [styles.image_loading]: !loaded,
     });
   }, [loaded]);
 
@@ -167,7 +167,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
         style={imageStyle}
       />
       {showLoader && !loaded && (
-        <span className="rc-image-load-icon-wrapper">
+        <span className={styles.image_load_icon_wrapper}>
           <CircularProgress size={loaderSize} />
         </span>
       )}

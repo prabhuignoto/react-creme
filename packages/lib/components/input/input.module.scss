@@ -13,7 +13,7 @@ $heights: (
 );
 $dark-mode: theme.$dark-mode;
 
-.rc-input {
+.input {
   align-items: center;
   display: grid;
   grid-template-columns: 2rem calc(100% - 4rem) 2rem;
@@ -22,11 +22,11 @@ $dark-mode: theme.$dark-mode;
   width: 100%;
   z-index: 2;
 
-  &.rc-input-rtl {
+  &.input_rtl {
     direction: rtl;
   }
 
-  &.rc-input-border {
+  &.input_border {
     @extend %border;
   }
 
@@ -42,20 +42,20 @@ $dark-mode: theme.$dark-mode;
     z-index: -1;
   }
 
-  &.rc-input-focus::after {
+  &.input_focus::after {
     border: 2px solid rgba(theme.$primary-rgb, 0.75);
     box-shadow: 0 0 1px 4px rgba(theme.$primary-rgb, 0.25);
   }
 
-  &:not(.rc-input-border):not(.rc-input-rounded) {
+  &:not(.input_border):not(.input_rounded) {
     @extend %border-radius;
   }
 
-  &.rc-input-rounded {
+  &.input_rounded {
     @extend %border-radius-high;
   }
 
-  &.rc-input-transparent-bg-color {
+  &.input_transparent_bg_color {
     background: transparent;
   }
 
@@ -68,19 +68,19 @@ $dark-mode: theme.$dark-mode;
     font-weight: 300;
   }
 
-  &.rc-input-error.rc-input-border {
+  &.input_error.input_border {
     @extend %border-error;
   }
 
-  &.rc-input-success {
+  &.input_success {
     @extend %border-success;
   }
 
-  &.rc-input-no-icon {
+  &.input_no_icon {
     grid-template-columns: 0.5rem calc(100% - 2.5rem) 2rem;
   }
 
-  &.rc-input-disabled {
+  &.input_disabled {
     @extend %disabled;
   }
 
@@ -91,7 +91,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-input input {
+.input input {
   background: transparent;
   border: 0;
   height: 100%;
@@ -106,7 +106,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-input:not(.rc-input-border).rc-input-default:not(.rc-input-transparent-bg-color) {
+.input:not(.input_border).input_default:not(.input_transparent_bg_color) {
   @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
@@ -116,7 +116,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .rc-input-#{$size} {
+  .input_#{$size} {
     height: map.get($heights, $size);
 
     input {
@@ -127,36 +127,35 @@ $dark-mode: theme.$dark-mode;
       @extend %font-#{$size};
     }
 
-    .rc-input-icon {
+    .input_icon {
       @extend %icon-#{$size};
     }
   }
 }
 
-.rc-input-error:not(.rc-input-border) {
+.input_error:not(.input_border) {
   border: 1px solid rgba(theme.$crimson, 0.5);
 
-  &.rc-input-focus::after {
+  &.input_focus::after {
     border: 2px solid theme.$crimson;
     box-shadow: 0 0 1px 4px rgba(theme.$crimson, 0.25);
   }
 }
 
-.rc-input-success:not(.rc-input-border) {
+.input_success:not(.input_border) {
   border: 1px solid rgba(theme.$success-green, 0.5);
 
-  &.rc-input-focus::after {
+  &.input_focus::after {
     border: 2px solid theme.$success-green;
     box-shadow: 0 0 1px 4px rgba(theme.$success-green, 0.25);
   }
 }
 
-.rc-input-icon {
+.input_icon {
   color: theme.$primary;
 }
 
-.rc-input-clear {
-  @extend %icon-md;
+.input_clear {
   color: theme.$tertiary;
   cursor: pointer;
   display: block;

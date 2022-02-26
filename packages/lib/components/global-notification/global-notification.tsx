@@ -10,7 +10,7 @@ import React, {
 import { CloseIcon } from '../../icons';
 import useFocus from '../common/effects/useFocusNew';
 import { GlobalNotificationProps } from './global-notification.model';
-import './global-notification.scss';
+import styles from './global-notification.module.scss';
 
 const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   height = 50,
@@ -46,12 +46,12 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
 
   const globalNotificationClass = useMemo(
     () =>
-      classNames('rc-global-notification', {
-        'rc-global-notification-close': !open,
-        'rc-global-notification-open': open,
-        [`rc-global-notification-${state}`]: true,
-        [`rc-global-notification-animation-${hideAnimationStyle}`]: true,
-        [`rc-global-notification-${size}`]: true,
+      classNames(styles.global_notification, {
+        [styles.global_notification_close]: !open,
+        [styles.global_notification_open]: open,
+        [styles[`global_notification_${state}`]]: true,
+        [styles[`global_notification_animation_${hideAnimationStyle}`]]: true,
+        [styles[`global_notification_${size}`]]: true,
       }),
     [open, state, hideAnimationStyle]
   );
@@ -71,9 +71,11 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
 
   return (
     <div className={globalNotificationClass} style={style} role="alert">
-      <span className="rc-global-notification-message">{open && message}</span>
+      <span className={styles.global_notification_message}>
+        {open && message}
+      </span>
       <span
-        className="rc-global-notification-close-btn"
+        className={styles.global_notification_close_btn}
         onClick={handleClose}
         role="button"
         ref={btnCloseRef}

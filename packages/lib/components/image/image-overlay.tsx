@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { withOverlay } from '../common/withOverlay';
 import { Image } from './image';
 import { ImageOverlayProps } from './image-model';
-import './image.scss';
+import styles from './image.module.scss';
 
 const ImageOverlayComponent: React.FunctionComponent<ImageOverlayProps> = ({
   src,
@@ -19,9 +19,9 @@ const ImageOverlayComponent: React.FunctionComponent<ImageOverlayProps> = ({
   const [canShow, setCanShow] = useState(false);
 
   const overlayClass = useMemo(() => {
-    return classNames('rc-image-overlay', {
-      'rc-image-overlay-close': isClosing,
-      'rc-image-overlay-open': canShow,
+    return classNames(styles.image_overlay, {
+      [styles.image_overlay_close]: isClosing,
+      [styles.image_overlay_open]: canShow,
     });
   }, [isClosing, canShow]);
 

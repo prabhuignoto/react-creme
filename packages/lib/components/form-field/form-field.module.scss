@@ -5,42 +5,42 @@
 $sizes: (sm, md, lg);
 $dark-mode: theme.$dark-mode;
 
-.rc-form-field {
+.form_field {
   @extend %col;
   align-items: flex-start;
   margin: 0.5rem 0;
   padding: 1rem;
 
-  &.rc-form-field-rtl {
+  &.form_field_rtl {
     direction: rtl;
   }
 
-  &.rc-form-field-border {
+  &.form_field_border {
     @extend %border;
   }
 }
 
-.rc-form-field-icon {
+.form_field_icon {
   color: theme.$primary;
   margin-right: 0.5rem;
 }
 
 @each $size in $sizes {
-  .rc-form-field-label-#{$size} {
+  .form_field_label_#{$size} {
     @extend %text-#{$size};
   }
 
-  .rc-form-field-icon-#{$size} {
+  .form-field-icon-#{$size} {
     @extend %icon-#{$size};
   }
 }
 
-.rc-form-field-label-container {
+.form_field_label_container {
   @extend %left;
   margin-bottom: 1rem;
 }
 
-.rc-form-field-label {
+.form_field_label {
   @if $dark-mode == 'true' {
     color: theme.$white;
   } @else {
@@ -48,6 +48,6 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-form-field-input-container {
+.form_field_input_container {
   width: 100%;
 }

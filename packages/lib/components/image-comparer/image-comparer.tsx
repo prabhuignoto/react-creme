@@ -7,7 +7,7 @@ import { useFirstRender } from '../common/effects/useFirstRender';
 import { Image } from '../image/image';
 import { CircularProgress } from '../progress/circular-progress';
 import { ImageComparerProps } from './image-comparer.model';
-import './image-comparer.scss';
+import styles from './image-comparer.module.scss';
 
 const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   sourceOne,
@@ -43,18 +43,18 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   // classes
   const dragHandleClass = useMemo(
     () =>
-      classNames('rc-img-comparer-drag-handle', {
-        'rc-comparer-drag-handle-dragged': dragged,
-        [`rc-comparer-drag-handle-${direction}`]: true,
-        'rc-comparer-drag-handle-hidden': !imagesLoaded,
-        'rc-comparer-drag-handle-visible': imagesLoaded,
+      classNames(styles.img_comparer_drag_handle, {
+        [styles.comparer_drag_handle_dragged]: dragged,
+        [styles[`comparer_drag_handle_${direction}`]]: true,
+        [styles.comparer_drag_handle_hidden]: !imagesLoaded,
+        [styles.comparer_drag_handle_visible]: imagesLoaded,
       }),
     [dragged, direction, imagesLoaded]
   );
 
   const wrapperClass = useMemo(() => {
-    return classNames('rc-img-comparer-wrapper', {
-      'rc-image-comparer-loaded': imagesLoaded,
+    return classNames(styles.img_comparer_wrapper, {
+      [styles.image_comparer_loaded]: imagesLoaded,
     });
   }, [imagesLoaded]);
 
@@ -120,11 +120,17 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   return (
     <div className={wrapperClass} ref={panelRef} style={wrapperStyle}>
       {!imagesLoaded && (
-        <div className="rc-circular-loader-wrapper">
+        <div className={styles.circular_loader_wrapper}>
           <CircularProgress />
         </div>
       )}
-      <div className="img-comparer-panel img-comparer-panel-1" style={style}>
+      <div
+        className={classNames(
+          styles.img_comparer_panel,
+          styles.img_comparer_panel_1
+        )}
+        style={style}
+      >
         <Image
           src={sourceOne}
           fitImage={false}
@@ -132,7 +138,12 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
           showLoader={false}
         />
       </div>
-      <div className="img-comparer-panel img-comparer-panel-2">
+      <div
+        className={classNames(
+          styles.img_comparer_panel,
+          styles.img_comparer_panel_2
+        )}
+      >
         <Image
           src={sourceTwo}
           fitImage={false}
@@ -146,7 +157,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
         tabIndex={0}
         style={dragHandleStyle}
       >
-        <span className="rc-drag-handle-square" ref={dragRef}>
+        <span className={styles.drag_handle_square} ref={dragRef}>
           <AlignJustify />
         </span>
       </span>
