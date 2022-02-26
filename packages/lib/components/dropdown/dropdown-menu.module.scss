@@ -5,7 +5,7 @@
 
 $dark-mode: theme.$dark-mode;
 
-.rc-dropdown-menu-container {
+.dropdown_menu_container {
   @extend %border-radius;
   @extend %shadow-medium;
   @include animate.set-settings(0.25s, cubic-bezier(0.17, 0.84, 0.44, 1));
@@ -29,22 +29,22 @@ $dark-mode: theme.$dark-mode;
     transform: blur(0);
   }
 
-  &.rc-dropdown-menu-open {
-    animation-name: dropdown-menu-open;
+  &.dropdown_menu_open {
+    animation-name: dropdown_menu_open;
     height: var(--menu-max-height);
     opacity: 1;
     visibility: visible;
   }
 
-  &.rc-dropdown-menu-close {
-    animation-name: dropdown-menu-close;
+  &.dropdown_menu_close {
+    animation-name: dropdown_menu_close;
     height: 0;
     opacity: 0;
     visibility: hidden;
   }
 }
 
-.rc-dropdown-options {
+.dropdown_options {
   @extend %list;
   justify-content: flex-start;
   margin-bottom: 0.5rem;
@@ -53,7 +53,7 @@ $dark-mode: theme.$dark-mode;
   overflow-y: auto;
 }
 
-.rc-dropdown-option {
+.dropdown_option {
   @extend %list-item-left;
   padding: 0.5rem 0;
   width: 100%;
@@ -67,14 +67,14 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-dropdown-option-value {
+.dropdown_option_value {
   @extend %text-no-wrap;
   padding-left: 1rem;
   text-align: left;
   width: 80%;
 }
 
-.rc-dropdown-search-input {
+.dropdown_search_input {
   margin: 1rem auto;
   width: 90%;
 }
@@ -90,14 +90,14 @@ $show-anim: (
   height: var(--menu-max-height),
 );
 
-$dropdown-anim-settings: (
+$dropdown_anim-settings: (
   from: $hide-anim,
   to: $show-anim,
 );
 
-@include animate.set-keyframes(dropdown-menu-open, $dropdown-anim-settings);
+@include animate.set-keyframes(dropdown_menu_open, $dropdown_anim-settings);
 @include animate.set-keyframes(
-  dropdown-menu-close,
-  $dropdown-anim-settings,
+  dropdown_menu_close,
+  $dropdown_anim-settings,
   true
 );

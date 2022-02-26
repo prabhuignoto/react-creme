@@ -3,44 +3,44 @@
 @use '../../design/list.scss';
 @use '../../design/animate.scss';
 
-.rc-dropdown {
+.dropdown {
   position: relative;
   user-select: none;
   width: 100%;
 
-  &.rc-dropdown-disabled {
+  &.dropdown_disabled {
     @extend %disabled;
   }
 }
 
-.rc-dropdown-multi {
+.dropdown_multi {
   display: flex;
   max-height: 400px;
   min-height: 35px;
   transition: max-height 0.5s ease-in;
 }
 
-.rc-dropdown-single {
-  .rc-dropdown-chevron-icon {
+.dropdown_single {
+  .dropdown_chevron_icon {
     margin-left: auto;
     margin-right: 8px;
   }
 }
 
-.rc-dropdown-rtl {
-  .rc-dropdown-chevron-icon {
+.dropdown_rtl {
+  .dropdown_chevron_icon {
     order: 1;
   }
 
-  .rc-dropdown-clear-icon {
+  .dropdown_clear_icon {
     order: 2;
   }
 
-  .rc-dropdown-value {
+  .dropdown_value {
     order: 3;
   }
 
-  .rc-dropdown-tags-wrapper {
+  .dropdown_tags_wrapper {
     order: 3;
   }
 }
