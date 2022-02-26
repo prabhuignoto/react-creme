@@ -1,12 +1,12 @@
 @use '../../design/core.scss';
 @use '../../design/theme.scss';
 
-.rc-checkbox-group-wrapper {
-  &.rc-checkbox-group-horizontal {
+.checkbox_group_wrapper {
+  &.checkbox_group_horizontal {
     @extend %left;
   }
 
-  &.rc-checkbox-group-vertical {
+  &.checkbox_group_vertical {
     @extend %col;
   }
 }

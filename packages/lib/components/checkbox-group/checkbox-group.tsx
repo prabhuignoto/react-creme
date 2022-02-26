@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useCallback, useMemo } from 'react';
 import { CheckBox } from '../checkbox/checkbox';
 import { CheckboxProps } from '../checkbox/checkbox-model';
-import './checkbox-group.scss';
+import styles from './checkbox-group.module.scss';
 
 export interface CheckboxGroupProps {
   RTL?: boolean;
@@ -27,7 +27,7 @@ export interface CheckboxGroupProps {
 const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   options = [],
   disabled,
-  border,
+  // border,
   layout = 'vertical',
   checkboxStyle = 'square',
   onChange,
@@ -36,12 +36,14 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   size = 'sm',
 }) => {
   const wrapperClass = useMemo(() => {
-    return classNames('rc-checkbox-group', {
-      'rc-checkbox-group-border': border,
-      'rc-checkbox-group-disabled': disabled,
-      'rc-checkbox-group-horizontal': layout === 'horizontal',
-      'rc-checkbox-group-vertical': layout === 'vertical',
-    });
+    return classNames([
+      styles.checkbox_group_wrapper,
+      // 'rc-checkbox-group-border': border,
+      // 'rc-checkbox-group-disabled': disabled,
+      layout === 'horizontal'
+        ? styles.checkbox_group_horizontal
+        : styles.checkbox_group_vertical,
+    ]);
   }, [layout, disabled]);
 
   const [items, setItems] = React.useState(

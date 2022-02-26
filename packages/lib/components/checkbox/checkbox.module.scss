@@ -18,7 +18,7 @@ $heights: (
   lg: 45px,
 );
 
-.rc-checkbox-wrapper {
+.checkbox_wrapper {
   @extend %left;
   align-items: center;
   cursor: pointer;
@@ -29,32 +29,32 @@ $heights: (
   padding: 0 0.5rem;
   width: 100%;
 
-  &.rc-checkbox-rtl {
+  &.checkbox_rtl {
     direction: rtl;
   }
 
-  &.rc-checkbox-disabled {
+  &.checkbox_disabled {
     @extend %disabled;
   }
 
   @each $key, $val in $grid {
-    &.rc-checkbox-#{$key} {
+    &.checkbox_#{$key} {
       display: flex;
 
-      &:not(.rc-checkbox-auto-height) {
+      &:not(.checkbox_auto_height) {
         min-height: map.get($heights, $key);
       }
     }
   }
 }
 
-.rc-checkbox-border {
+.checkbox_border {
   @if not $dark-mode == 'true' {
     @extend %border;
   }
 }
 
-.rc-checkbox-hover:hover {
+.checkbox_hover:hover {
   @extend %border-radius;
 
   @if $dark-mode == 'true' {
@@ -64,7 +64,7 @@ $heights: (
   }
 }
 
-.rc-checkbox {
+.checkbox {
   @extend %left;
   user-select: none;
   z-index: 1;
@@ -73,12 +73,12 @@ $heights: (
     cursor: pointer;
   }
 
-  &.rc-disabled {
+  &.disabled {
     @extend %disabled;
   }
 }
 
-.rc-checkbox-icon {
+.checkbox_icon {
   @if $dark-mode == 'true' {
     @extend %border-radius;
     background: theme.$charcoal-gray;
@@ -87,7 +87,7 @@ $heights: (
     background: theme.$white;
   }
 
-  &.rc-checkbox-round {
+  &.checkbox_round {
     border-radius: 50%;
   }
 
@@ -95,17 +95,17 @@ $heights: (
     display: none;
   }
 
-  &.rc-checkbox-checked {
+  &.checkbox_checked {
     background: theme.$primary;
   }
 
-  &.rc-checkbox-checked svg {
+  &.checkbox_checked svg {
     color: theme.$white;
     display: block;
   }
 }
 
-.rc-checkbox-label {
+.checkbox_label {
   @extend %text-no-wrap;
   cursor: pointer;
   display: block;
@@ -116,20 +116,20 @@ $heights: (
     color: theme.$white;
   }
 
-  &.rc-checkbox-label-rtl {
+  &.checkbox_label_rtl {
     padding-right: 0.5rem;
   }
 
   @each $key in $sizes {
-    &.rc-checkbox-label-#{$key} {
+    &.checkbox_label_#{$key} {
       @extend %font-#{$key};
     }
   }
 }
 
 @each $size in $sizes {
-  .rc-checkbox-#{$size} {
-    &.rc-checkbox-icon {
+  .checkbox_#{$size} {
+    &.checkbox_icon {
       @extend %icon-#{$size};
     }
   }
