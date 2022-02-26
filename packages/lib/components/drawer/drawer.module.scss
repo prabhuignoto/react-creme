@@ -7,7 +7,7 @@
 
 $dark-mode: theme.$dark-mode;
 
-.rc-drawer {
+.drawer {
   $min-width: var(--min-width);
   $min-height: var(--min-height);
 
@@ -93,7 +93,7 @@ $dark-mode: theme.$dark-mode;
       true
     );
 
-    &.rc-drawer-#{$position} {
+    &.drawer-#{$position} {
       @include position.position-abs($val);
 
       @if $position == top or $position == bottom {
@@ -118,7 +118,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-drawer-close-btn-wrapper {
+.drawer-close-btn-wrapper {
   @include position.position-abs('top right');
   right: 0.5rem;
   top: 0.5rem;
