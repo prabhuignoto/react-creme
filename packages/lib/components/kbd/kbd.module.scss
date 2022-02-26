@@ -18,7 +18,7 @@ $widths: (
   lg: 100px,
 );
 
-.rc-kbd-wrapper {
+.kbd_wrapper {
   @extend %border-radius;
   background-color: rgba(theme.$light-bg, 1);
   color: theme.$black;
@@ -26,18 +26,18 @@ $widths: (
   padding: 0.2rem;
   text-align: center;
 
-  &.rc-kbd-left-raised {
+  &.kbd_left_raised {
     box-shadow: 0 2px 0 2px rgba(theme.$chinese-gray, 0.9);
   }
 
-  &.rc-kbd-right-raised {
+  &.kbd_right_raised {
     box-shadow: 0 2px 0 2px rgba(theme.$chinese-gray, 0.9);
   }
 }
 
 @each $size in $sizes {
-  .rc-kbd-wrapper {
-    &.rc-kbd-#{$size} {
+  .kbd_wrapper {
+    &.kbd_#{$size} {
       @extend %font-#{$size};
       height: #{map.get($heights, $size)};
       line-height: #{map.get($heights, $size)};
@@ -47,19 +47,19 @@ $widths: (
 }
 
 @each $size in $sizes {
-  .rc-kbd-combination-#{$size} {
-    .rc-kbd-plus {
+  .kbd_combination_#{$size} {
+    .kbd_plus {
       @extend %icon-#{$size};
     }
   }
 }
 
-.rc-kbd-plus {
+.kbd_plus {
   color: theme.$gunmetal-gray;
   margin: 0 0.5rem;
 }
 
-.rc-kbd-combination {
+.kbd_combination {
   @extend %left;
   flex-wrap: wrap;
 }

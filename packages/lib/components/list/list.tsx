@@ -14,7 +14,7 @@ import { useFirstRender } from '../common/effects/useFirstRender';
 import { Input } from '../input/input';
 import { ListItems } from './list-items';
 import { ListOption, ListProps, ParseOptions } from './list-model';
-import './list.scss';
+import styles from './list.module.scss';
 
 const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
   (
@@ -55,9 +55,9 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
 
     const rcListClass = useMemo(
       () =>
-        cls('rc-list', {
-          'rc-list-border': border,
-          'rc-list-search': enableSearch,
+        cls(styles.list, {
+          [styles.list_border]: border,
+          [styles.list_search]: enableSearch,
         }),
       []
     );
@@ -170,7 +170,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
         }
       >
         {enableSearch && (
-          <div className="rc-list-search-input">
+          <div className={styles.list_search_input}>
             <Input
               onChange={handleSearch}
               enableClear
@@ -188,7 +188,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
           </div>
         )}
         <div
-          className="rc-list-options-wrapper"
+          className={styles.list_options_wrapper}
           ref={onListRef}
           onScroll={handleScroll}
         >

@@ -8,7 +8,7 @@ import React, {
   useRef,
 } from 'react';
 import { PlusIcon } from '../../icons';
-import './kbd.scss';
+import styles from './kbd.module.scss';
 
 export type KbdProps = {
   buttonRaised?: 'left' | 'right';
@@ -26,9 +26,9 @@ const Kbd: FunctionComponent<KbdProps> = ({
 }) => {
   const kbdClass = useMemo(
     () =>
-      classNames('rc-kbd-wrapper', {
-        [`rc-kbd-${size}`]: true,
-        [`rc-kbd-${buttonRaised}-raised`]: true,
+      classNames(styles.kbd_wrapper, {
+        [styles[`kbd_${size}`]]: true,
+        [styles[`kbd_${buttonRaised}_raised`]]: true,
       }),
     []
   );
@@ -52,8 +52,8 @@ const KbdCombination: FunctionComponent<KbdCombinationProps> = ({
 
   const combinationClass = useMemo(
     () =>
-      classNames('rc-kbd-combination', {
-        [`rc-kbd-combination-${size}`]: true,
+      classNames(styles.kbd_combination, {
+        [styles[`kbd_combination_${size}`]]: true,
       }),
     []
   );
@@ -64,7 +64,7 @@ const KbdCombination: FunctionComponent<KbdCombinationProps> = ({
         <Fragment key={item.id}>
           {item.child}
           {index >= 0 && index < combLen.current - 1 && (
-            <span className="rc-kbd-plus">
+            <span className={styles.kbd_plus}>
               <PlusIcon />
             </span>
           )}

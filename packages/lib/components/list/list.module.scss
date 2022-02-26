@@ -4,29 +4,29 @@
 @use '../../design/list.scss';
 @use '../../design/position.scss';
 
-.rc-list {
+.list {
   @extend %border-radius;
   // background-color: var(--list-bg-color, #fff);
   justify-items: center;
   // row-gap: 6px;
   width: 100%;
 
-  &:not(.rc-list-search) {
+  &:not(.list_search) {
     @extend %col;
   }
 
-  &.rc-list-search {
+  &.list_search {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 50px calc(var(--rc-list-height) - 56px);
   }
 
-  &.rc-list-border {
+  &.list_border {
     @extend %border;
   }
 }
 
-.rc-list-search-input {
+.list_search_input {
   @extend %center;
   margin: 0.5rem 0;
   width: 95%;
@@ -48,13 +48,13 @@ $list-anim-settings: (
   to: $show-anim,
 );
 
-.rc-list-options-wrapper {
+.list_options_wrapper {
   max-height: var(--rc-list-max-height);
   overflow-y: auto;
   width: 100%;
 }
 
-.rc-list-options {
+.list_options {
   @extend %list;
   height: var(--rc-list-height);
   justify-content: flex-start;

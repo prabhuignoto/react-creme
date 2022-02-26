@@ -1,7 +1,7 @@
 import cls from 'classnames';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { ListItemContent } from './list-item-content';
-import './list-item.scss';
+import styles from './list-item.module.scss';
 import { ListItemProps } from './list-model';
 
 const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
@@ -36,11 +36,11 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
     const listItemClass = useMemo(
       () =>
         cls([
-          'rc-list-option',
+          styles.list_option,
           {
-            'rc-list-option-disabled': disabled,
-            'rc-list-option-focus': focusable && focus,
-            'rc-list-option-highlight-selection': highlightSelection,
+            [styles.list_option_disabled]: disabled,
+            [styles.list_option_focus]: focusable && focus,
+            [styles.list_option_highlight_selection]: highlightSelection,
           },
         ]),
       [selected, disabled, focus]
@@ -91,7 +91,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
         {...clickableProps}
         {...ariaProps}
       >
-        <div className="rc-list-item-wrapper" style={{ width: '100%' }}>
+        <div className={styles.list_item_wrapper} style={{ width: '100%' }}>
           <ListItemContent
             key={id}
             name={name}

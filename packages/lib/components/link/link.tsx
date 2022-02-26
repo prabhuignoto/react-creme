@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { AnchorHTMLAttributes, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
-import './link.scss';
+import styles from './link.module.scss';
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   accent?: 'default' | 'button';
@@ -35,10 +35,10 @@ const Link: React.FunctionComponent<LinkProps> = ({
   }
 
   const linkClass = useMemo(() => {
-    return classNames('rc-link', {
-      'rc-link-btn': accent === 'button',
-      [`rc-link-${size}`]: true,
-      'rc-link-highlight': highlight,
+    return classNames(styles.link, {
+      [styles.link_btn]: accent === 'button',
+      [styles[`link_${size}`]]: true,
+      [styles.link_highlight]: highlight,
     });
   }, [highlight]);
 
@@ -56,8 +56,8 @@ const Link: React.FunctionComponent<LinkProps> = ({
         }
       }}
     >
-      {icon && <span className="rc-link-icon">{icon}</span>}
-      <span className="rc-link-text">{children}</span>
+      {icon && <span className={styles.link_icon}>{icon}</span>}
+      <span className={styles.link_text}>{children}</span>
     </a>
   );
 };
