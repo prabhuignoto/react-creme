@@ -1,61 +1,61 @@
 @use '../../design/core.scss';
 @use '../../design/theme.scss';
 
-$compact-row-height: 35px;
-$comfortable-row-height: 50px;
+$compact_row_height: 35px;
+$comfortable_row_height: 50px;
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark-mode;
+$dark_mode: theme.$dark-mode;
 
-.rc-data-grid {
+.data_grid {
   @extend %col;
   overflow: hidden;
   padding: 0;
   width: 100%;
 
-  &.rc-data-grid-border {
+  &.data_grid_border {
     @extend %border;
   }
 }
 
-.rc-data-grid-row-zebra:nth-child(odd) {
-  @if $dark-mode == 'true' {
+.data_grid_row_zebra:nth_child(odd) {
+  @if $dark_mode == 'true' {
     background-color: rgba(theme.$gunmetal-gray, 0.25);
   } @else {
     background-color: rgba(theme.$light-bg, 0.75);
   }
 }
 
-.rc-data-grid-row {
+.data_grid_row {
   width: 100%;
 
-  &.rc-data-grid-row-compact {
-    min-height: var(--row-height, $compact-row-height);
+  &.data_grid_row_compact {
+    min-height: var(--row-height, $compact_row_height);
   }
 
-  &.rc-data-grid-row-comfortable {
-    min-height: var(--row-height, $comfortable-row-height);
+  &.data_grid_row_comfortable {
+    min-height: var(--row-height, $comfortable_row_height);
   }
 }
 
-.rc-data-grid-cell-border:not(:last-child) {
-  @if $dark-mode == 'true' {
+.data_grid_cell_border:not(:last_child) {
+  @if $dark_mode == 'true' {
     border-right: 1px solid theme.$charcoal-gray;
   } @else {
     border-right: 1px solid theme.$secondary;
   }
 }
 
-.rc-data-grid-row:not(:last-child):not(.rc-data-grid-row-zebra) {
-  @if $dark-mode == 'true' {
+.data_grid_row:not(:last_child):not(.data_grid_row_zebra) {
+  @if $dark_mode == 'true' {
     border-bottom: 1px solid theme.$charcoal-gray;
   } @else {
     border-bottom: 1px solid theme.$secondary;
   }
 }
 
-.rc-data-grid-row:hover {
-  @if dark-mode {
+.data_grid_row:hover {
+  @if dark_mode {
     background-color: theme.$cod-gray;
   } @else {
     background-color: theme.$light-bg;
@@ -63,19 +63,19 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .rc-data-grid-row-#{$size} {
-    .rc-data-grid-cell-val {
+  .data_grid_row_#{$size} {
+    .data_grid_cell_val {
       @extend %text-#{$size};
     }
   }
 }
 
-.rc-data-grid-cell {
+.data_grid_cell {
   @extend %center;
   width: calc(100% - 1px);
 }
 
-.rc-data-grid-cell-val {
+.data_grid_cell_val {
   display: block;
   font-weight: 300;
   line-height: 25px;
@@ -83,11 +83,11 @@ $dark-mode: theme.$dark-mode;
   padding-left: 0.25rem;
   width: 90%;
 
-  &.rc-data-grid-cell-val-fixed {
+  &.data_grid_cell_val_fixed {
     @extend %text-no-wrap;
   }
 
-  &:not(.rc-data-grid-cell-val-fixed) {
+  &:not(.data_grid_cell_val_fixed) {
     overflow-wrap: anywhere;
   }
 

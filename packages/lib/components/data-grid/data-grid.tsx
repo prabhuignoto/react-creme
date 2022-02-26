@@ -15,7 +15,7 @@ import {
   SortDirection,
 } from './data-grid-model';
 import { DataGridRow } from './data-grid-row';
-import './data-grid.scss';
+import styles from './data-grid.module.scss';
 
 const DataGrid: React.FunctionComponent<DataGridProps> = ({
   border = false,
@@ -73,9 +73,9 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   const resizeObserver = useRef<ResizeObserver>();
 
   const gridClass = useMemo(() => {
-    return classNames('rc-data-grid', {
-      'rc-data-grid-border': border,
-      'rc-data-grid-zebra': zebra,
+    return classNames(styles.data_grid, {
+      [styles.data_grid_border]: border,
+      'data-grid-zebra': zebra,
     });
   }, []);
 
@@ -88,8 +88,6 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
       const usedWidth = columns
         .map(c => c.width || 0)
         .reduce((a, b) => a + b, 0);
-
-      // usedWidth += (columns.length - 2) * 1;
 
       return Math.floor(
         (width - usedWidth) /

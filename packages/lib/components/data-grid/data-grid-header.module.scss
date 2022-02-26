@@ -2,15 +2,15 @@
 @use '../../design/theme.scss';
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark-mode;
+$dark_mode: theme.$dark_mode;
 
-.rc-data-grid-header-cell {
+.data_grid_header_cell {
   @extend %left;
   color: theme.$black;
   height: 100%;
   text-transform: capitalize;
 
-  @if $dark-mode == 'true' {
+  @if $dark_mode == 'true' {
     background: rgba(theme.$charcoal-gray, 0.5);
   } @else {
     background: rgba(theme.$secondary-rgb, 0.5);
@@ -29,21 +29,21 @@ $dark-mode: theme.$dark-mode;
     width: 100%;
   }
 
-  .rc-data-grid-cell-val {
+  .data_grid_cell_val {
     font-weight: 400;
     width: 95%;
   }
 }
 
-.rc-data-grid-header-border:not(:last-child) {
-  @if dark-mode {
+.data_grid_header_border:not(:last-child) {
+  @if dark_mode {
     border-right: 1px solid theme.$charcoal-gray;
   } @else {
     border-right: 1px solid theme.$secondary;
   }
 }
 
-.rc-data-grid-header-sort-icon-wrapper {
+.data_grid_header_sort_icon_wrapper {
   margin-left: auto;
   margin-right: 0.5rem;
 }
@@ -56,47 +56,47 @@ $dark-mode: theme.$dark-mode;
   justify-content: center;
 
   svg {
-    fill: rgba(theme.$primary-rgb, 0.25);
+    fill: rgba(theme.$primary_rgb, 0.25);
     stroke: none;
   }
 }
 
-.rc-data-grid-header-sort-icon {
+.data_grid_header_sort_icon {
   @extend %sort-icon;
 }
 
-.rc-data-grid-header-sort-icon-asc {
+.data_grid_header_sort_icon_asc {
   margin-bottom: 0.2rem;
 }
 
-.rc-data-grid-header-sort-icon-desc {
+.data_grid_header_sort_icon_desc {
   @extend %sort-icon;
   margin-top: 0.2rem;
   transform: rotate(180deg);
 }
 
-.rc-data-grid-header-sort-icon-active {
+.data_grid_header_sort_icon_active {
   svg {
     fill: theme.$primary;
   }
 }
 
-.rc-data-grid-header {
+.data_grid_header {
   justify-items: center;
   width: 100%;
 
-  &.rc-data-grid-header-compact {
+  &.data_grid_header_compact {
     height: 40px;
   }
 
-  &.rc-data-grid-header-comfortable {
+  &.data_grid_header_comfortable {
     height: 50px;
   }
 }
 
 @each $size in $sizes {
-  .rc-data-grid-header-#{$size} {
-    .rc-data-grid-cell-val {
+  .data_grid_header_#{$size} {
+    .data_grid_cell_val {
       @extend %text-#{$size};
     }
   }
