@@ -40,8 +40,8 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
         [
           styles.dialog,
           isClosing
-            ? styles[`dialog-${animationType}-leave`]
-            : styles[`dialog-${animationType}-enter`],
+            ? styles[`dialog_${animationType}_leave`]
+            : styles[`dialog_${animationType}_enter`],
         ],
         {
           [styles[`dialog-${size}`]]: true,
