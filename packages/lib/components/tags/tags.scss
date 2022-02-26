@@ -75,9 +75,10 @@ $padding-sizes: (
 .rc-tag-style-fill {
   @extend %border-radius;
 
-  @if $dark-mode {
-    background: theme.$platinum;
-    color: theme.$black;
+  @if $dark-mode == 'true' {
+    // background: theme.$platinum;
+    background: rgba(theme.$primary-rgb, 1);
+    color: theme.$white;
   } @else {
     background: rgba(theme.$primary-rgb, 1);
     color: theme.$white;
@@ -85,11 +86,13 @@ $padding-sizes: (
 }
 
 .rc-tag-style-default {
-  @if not $dark-mode {
+  @if not $dark-mode == 'true' {
     @extend %border;
     @extend %shadow-inset-small;
   } @else {
     @extend %border-radius;
+    background-color: theme.$charcoal-gray;
+    color: theme.$white;
   }
 }
 
@@ -98,7 +101,7 @@ $padding-sizes: (
 }
 
 .rc-tag-readonly {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$primary;
     color: theme.$white;
   }

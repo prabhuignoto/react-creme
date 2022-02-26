@@ -7,7 +7,7 @@ $sizes: (sm, md, lg);
 $dark-mode: theme.$dark-mode;
 
 .rc-dropdown-value-container {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     @extend %border-radius;
     background-color: theme.$gunmetal-gray;
     color: theme.$white;
@@ -79,7 +79,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 .rc-dropdown-chevron-icon {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     color: theme.$white;
   } @else {
     color: var(--chevron-icon-color, theme.$primary);
@@ -93,7 +93,7 @@ $dark-mode: theme.$dark-mode;
 .rc-dropdown-clear-icon {
   justify-self: center;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     color: theme.$white;
   } @else {
     color: theme.$charcoal-gray;
@@ -106,7 +106,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 .rc-dropdown-clear-icon:hover {
-  @if not $dark-mode {
+  @if not $dark-mode == 'true' {
     color: var(--clear-icon-color, theme.$primary);
   }
 }

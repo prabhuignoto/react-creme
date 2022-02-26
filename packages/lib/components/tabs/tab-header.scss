@@ -28,7 +28,7 @@ $dark-mode: theme.$dark-mode;
   height: 4px;
   width: 100%;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$charcoal-gray;
   } @else {
     background: theme.$platinum;
@@ -91,7 +91,7 @@ $dark-mode: theme.$dark-mode;
   position: relative;
   user-select: none;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     color: theme.$white;
   } @else {
     color: theme.$black;
@@ -194,7 +194,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 .rc-tab-head-rounded {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     border: 1px solid theme.$charcoal-gray;
   } @else {
     border: 1px solid theme.$platinum;
@@ -208,7 +208,7 @@ $dark-mode: theme.$dark-mode;
 
 .rc-tab-head-rounded.rc-tab-head-selected::after {
   @include position.position-abs('bottom center');
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$black;
   } @else {
     background: theme.$white;

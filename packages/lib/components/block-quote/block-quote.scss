@@ -19,7 +19,7 @@ $dark-mode: theme.$dark-mode;
   padding-top: 1rem;
   text-align: left;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
     border-left: 3px solid rgba(theme.$primary-rgb, 1);
     color: theme.$white;

@@ -32,7 +32,7 @@ $dark-mode: theme.$dark-mode;
   text-decoration: none;
   width: 100%;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     border-bottom: 1px solid theme.$primary;
     color: theme.$white;
   } @else {

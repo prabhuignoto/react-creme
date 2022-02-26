@@ -43,7 +43,7 @@ $dark-mode: theme.$dark-mode;
 
 .inner-circle-2 {
   @include position.position-abs('center center');
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: #000;
   } @else {
     background: #fff;
@@ -58,7 +58,7 @@ $dark-mode: theme.$dark-mode;
 .inner-circle-2::after {
   @include position.position-abs('center center');
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: #000;
   } @else {
     background: #fff;

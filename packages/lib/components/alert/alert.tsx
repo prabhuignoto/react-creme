@@ -10,7 +10,7 @@ import {
 } from '../../icons';
 import useFocus from '../common/effects/useFocusNew';
 import { AlertProps } from './alert-model';
-import './alert.scss';
+import styles from './alert.module.scss';
 
 const Alert: React.FunctionComponent<AlertProps> = ({
   message,
@@ -41,11 +41,11 @@ const Alert: React.FunctionComponent<AlertProps> = ({
 
   const messageClass = useMemo(
     () =>
-      classNames('rc-alert', {
-        [`rc-alert-${state}`]: true,
-        'rc-alert-close': close,
-        'rc-alert-rtl': RTL,
-        [`rc-alert-${size}`]: true,
+      classNames(styles.alert, {
+        [styles[`alert_${state}`]]: true,
+        [styles.alert_close]: close,
+        [styles.alert_rtl]: RTL,
+        [styles[`alert_${size}`]]: true,
       }),
     [state, close]
   );
@@ -72,19 +72,19 @@ const Alert: React.FunctionComponent<AlertProps> = ({
 
   return (
     <div className={messageClass} style={style} role="alert">
-      <div className="rc-alert-icon-wrapper">
+      <div className={styles.alert_icon_wrapper}>
         <span
-          className="rc-alert-icon"
+          className={styles.alert_icon}
           role="img"
           aria-label={`alert-icon-${state}`}
         >
           {icon}
         </span>
       </div>
-      <span className="rc-alert-content">{children || message}</span>
+      <span className={styles.alert_content}>{children || message}</span>
       {canDismiss && (
         <span
-          className="rc-alert-close-btn"
+          className={styles.alert_close_btn}
           role="button"
           aria-label="close alert"
           ref={btnCloseRef}

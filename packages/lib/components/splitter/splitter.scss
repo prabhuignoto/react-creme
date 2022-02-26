@@ -9,7 +9,7 @@ $dark-mode: theme.$dark-mode;
   position: relative;
   width: 100%;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     @extend %border-radius;
     background: theme.$gunmetal-gray;
   } @else {

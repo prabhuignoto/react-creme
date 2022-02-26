@@ -1,16 +1,16 @@
 @use '../../design/core.scss';
 @use '../../design/theme.scss';
 
-.rc-accordion-group {
+.group {
   @extend %col;
   width: 100%;
 
-  &:not(.rc-accordion-grp-no-border) {
+  &:not(.grp_no_border) {
     @extend %border;
   }
 }
 
-.rc-accordion-group-item {
+.group_item {
   @extend %left;
   margin-bottom: 0.5rem;
   width: 100%;

@@ -27,7 +27,7 @@ $dark-mode: theme.$dark-mode;
 .rc-input-number:not(.rc-input-number-border) {
   @extend %border-radius;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
     background: theme.$light-bg;
@@ -52,7 +52,7 @@ $dark-mode: theme.$dark-mode;
   background: theme.$secondary;
   cursor: pointer;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     color: theme.$white;
   } @else {
     color: theme.$primary;

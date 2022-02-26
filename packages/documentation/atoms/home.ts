@@ -5,7 +5,6 @@ import {
   IconSizes,
   Sizes,
 } from '../../lib/components/common/theme-provider-model';
-import { Dark } from '../common/app-themes';
 
 export type ThemeType =
   | 'default'
@@ -54,14 +53,13 @@ const responsiveState = atom<MediaState>({
 const themeState = atom<ThemeState>({
   default: {
     colors: {
-      // primary: '#0074B7',
-      // secondary: '#BFD7ED',
-      // tertiary: '#003B73',
-      // text: '#003B73',
-      // textSelection: '#fff',
-      ...Dark,
+      primary: '#0074B7',
+      secondary: '#BFD7ED',
+      tertiary: '#003B73',
+      text: '#003B73',
+      textSelection: '#fff',
     },
-    darkMode: true,
+    darkMode: false,
     fontSizes: {
       lg: 18,
       md: 16,

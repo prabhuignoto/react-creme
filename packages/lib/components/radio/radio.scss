@@ -51,7 +51,7 @@ $dark-mode: theme.$dark-mode;
 .rc-radio-wrapper:hover:not(.rc-radio-disabled) {
   @extend %border-radius;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
     background: rgba(theme.$secondary-rgb, 0.25);
@@ -121,7 +121,7 @@ $dark-mode: theme.$dark-mode;
   cursor: pointer;
   padding-left: 0.5rem;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     color: theme.$white;
   } @else {
     color: theme.$black;

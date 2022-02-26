@@ -57,7 +57,7 @@ $dark-mode: theme.$dark-mode;
   @extend %top-center;
   @include animate.set-settings(0.25s, var(--transition));
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background-color: theme.$gunmetal-gray;
   } @else {
     background-color: theme.$white;

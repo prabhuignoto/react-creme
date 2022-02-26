@@ -107,7 +107,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 .rc-input:not(.rc-input-border).rc-input-default:not(.rc-input-transparent-bg-color) {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
     background: theme.$light-bg;

@@ -27,7 +27,7 @@ $dark-mode: theme.$dark-mode;
   padding: 0.5rem;
   position: relative;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
     background: theme.$white;
@@ -42,7 +42,7 @@ $dark-mode: theme.$dark-mode;
   position: absolute;
   top: -10px;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     border-bottom: 10px solid theme.$gunmetal-gray;
   } @else {
     border-bottom: 10px solid theme.$white;

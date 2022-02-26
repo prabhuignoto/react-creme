@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import React, { useMemo, useRef } from 'react';
 import { ChevronRightIcon, MinusIcon, PlusIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
-import './accordion-header.scss';
+import styles from './accordion-header.module.scss';
 import { AccordionHeaderProps } from './accordion-model';
 
 const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
@@ -24,12 +24,12 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
 }) => {
   const accordionHeaderClass = useMemo(
     () =>
-      classnames('rc-accordion-header', {
-        'rc-accordion-align-icon-rt': alignIconRight,
-        'rc-accordion-disable-collapse': disableCollapse,
-        'rc-accordion-disable-icon': disableIcon,
-        'rc-accordion-focusable': focusable,
-        'rc-accordion-selected': selected,
+      classnames(styles.header, {
+        [styles['align-icon-rt']]: alignIconRight,
+        [styles['disable-collapse']]: disableCollapse,
+        [styles['disable-icon']]: disableIcon,
+        [styles['focusable']]: focusable,
+        [styles['selected']]: selected,
       }),
     [alignIconRight, focusable, selected]
   );
@@ -52,21 +52,21 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   }, []);
 
   const titleClass = useMemo(() => {
-    return classnames('rc-accordion-title', {
-      'rc-accordion-title-bold': isTitleBold,
-      [`rc-accordion-title-${size}`]: size,
+    return classnames(styles.title, {
+      [styles.title_bold]: isTitleBold,
+      [styles[`title-${size}`]]: size,
     });
   }, [isTitleBold]);
 
   const iconClass = useMemo(() => {
     const classes: string[] = [];
 
-    return classnames([...classes, 'rc-accordion-icon'], {
-      'rc-accordion-custom-icon': customIcon,
-      [`rc-accordion-icon-${iconType}`]: true,
-      'rc-accordion-disable-icon': disableIcon,
-      [`rc-accordion-icon-${size}`]: true,
-      'rc-accordion-icon-open': open,
+    return classnames([...classes, styles['icon']], {
+      [styles['custom-icon']]: customIcon,
+      [styles[`icon-${iconType}`]]: true,
+      [styles['disable-icon']]: disableIcon,
+      [styles[`icon-${size}`]]: true,
+      [styles['icon-open']]: open,
     });
   }, [open, customIcon, disableIcon]);
 

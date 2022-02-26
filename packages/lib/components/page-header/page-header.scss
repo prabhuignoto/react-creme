@@ -72,7 +72,7 @@ $heights: (
 
 .rc-page-header-content {
   padding-top: 1rem;
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     color: theme.$white;
   } @else {
     color: theme.$black;

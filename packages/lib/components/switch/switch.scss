@@ -26,6 +26,8 @@ $knob-sizes: (
   lg: 24px,
 );
 
+$dark-mode: theme.$dark-mode;
+
 $switch-width: (
   sm: calc(map.get($knob-sizes, sm) * 3),
   md: calc(map.get($knob-sizes, md) * 3),
@@ -74,17 +76,6 @@ $start-left: 4px;
   width: 100%;
   z-index: 0;
 
-  &.rc-switch-on {
-    // background-color: rgba(theme.$primary-rgb, 0.25);
-    @extend %shadow-inset-small;
-    @extend %border;
-  }
-
-  &.rc-switch-off {
-    background-color: theme.$mercury;
-    border: 1px solid transparent;
-  }
-
   @each $key, $val in $sizes {
     &.rc-switch-#{$key} {
       @each $attr, $value in $val {
@@ -100,6 +91,22 @@ $start-left: 4px;
       }
     }
   }
+}
+
+.rc-switch-on {
+  // background-color: rgba(theme.$primary-rgb, 0.25);
+
+  @if $dark-mode == 'true' {
+    background: theme.$gunmetal-gray;
+  } @else {
+    @extend %shadow-inset-small;
+    @extend %border;
+  }
+}
+
+.rc-switch-off {
+  background-color: theme.$mercury;
+  border: 1px solid transparent;
 }
 
 .rc-switch-knob:not(.rc-switch-on):not(.rc-switch-on-load) {

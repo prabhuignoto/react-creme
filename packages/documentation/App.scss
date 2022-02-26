@@ -1,6 +1,7 @@
 .app {
   --aside-width: 300px;
-  background: #000;
+  // background: #000;
+  background: #fff;
   display: flex;
   justify-content: flex-end;
   margin: 0 auto;
@@ -8,7 +9,8 @@
 }
 
 body {
-  background: #000;
+  // background: #000;
+  background: #fff;
   margin: 0;
   padding: 0;
 }

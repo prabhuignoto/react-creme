@@ -14,7 +14,7 @@ $dark-mode: theme.$dark-mode;
   max-width: var(--max-width);
   min-width: 100px;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     @extend %border-radius;
     background-color: theme.$primary;
   } @else {
@@ -57,7 +57,7 @@ $dark-mode: theme.$dark-mode;
   display: block;
   position: relative;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     color: theme.$white;
   } @else {
     color: var(--icon-color, theme.$primary);

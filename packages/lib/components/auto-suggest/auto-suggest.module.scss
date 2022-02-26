@@ -4,12 +4,12 @@
 
 $dark-mode: theme.$dark-mode;
 
-.rc-auto-suggest-input-wrapper {
+.input_wrapper {
   @extend %center;
   height: 35px;
 }
 
-.rc-auto-suggest-suggestions-wrapper {
+.suggestions_wrapper {
   @extend %shadow-small;
   @extend %border-radius;
   width: var(--suggestions-width, 200px);
@@ -21,8 +21,8 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-auto-suggest {
-  &.rc-auto-suggest-rtl {
+.auto_suggest {
+  &.rtl {
     direction: rtl;
   }
 }

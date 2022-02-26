@@ -10,7 +10,7 @@ $dark-mode: theme.$dark-mode;
   @extend %shadow-medium;
   @include animate.set-settings(0.25s, cubic-bezier(0.17, 0.84, 0.44, 1));
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$charcoal-gray;
   } @else {
     background: theme.$white;

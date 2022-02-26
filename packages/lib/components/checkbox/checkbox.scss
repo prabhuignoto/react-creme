@@ -49,7 +49,7 @@ $heights: (
 }
 
 .rc-checkbox-border {
-  @if not $dark-mode {
+  @if not $dark-mode == 'true' {
     @extend %border;
   }
 }
@@ -57,7 +57,7 @@ $heights: (
 .rc-checkbox-hover:hover {
   @extend %border-radius;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background-color: theme.$gunmetal-gray;
   } @else {
     background: rgba(theme.$secondary-rgb, 0.25);
@@ -79,12 +79,12 @@ $heights: (
 }
 
 .rc-checkbox-icon {
-  @if not $dark-mode {
-    @extend %border;
-    background: theme.$white;
-  } @else {
+  @if $dark-mode == 'true' {
     @extend %border-radius;
     background: theme.$charcoal-gray;
+  } @else {
+    @extend %border;
+    background: theme.$white;
   }
 
   &.rc-checkbox-round {
@@ -112,7 +112,7 @@ $heights: (
   font-weight: 300;
   padding-left: 0.5rem;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     color: theme.$white;
   }
 

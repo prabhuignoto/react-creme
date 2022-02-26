@@ -4,7 +4,7 @@
 
 $sizes: (sm, md, lg);
 
-.rc-alert {
+.alert {
   @extend %border-radius;
   align-items: center;
   color: theme.$white;
@@ -17,45 +17,45 @@ $sizes: (sm, md, lg);
   transition: height 0.25s ease-in-out, opacity 0.25s ease-in-out;
   width: 100%;
 
-  &:not(.rc-alert-close) {
+  &:not(.alert_close) {
     height: var(--height);
   }
 
-  &.rc-alert-close {
+  &.alert_close {
     height: 0;
     opacity: 0;
   }
 
-  &.rc-alert-rtl {
+  &.alert_rtl {
     direction: rtl;
   }
 }
 
 @each $size in $sizes {
-  .rc-alert-#{$size} {
-    .rc-alert-icon {
+  .alert_#{$size} {
+    .alert_icon {
       @extend %icon-#{$size};
     }
 
-    .rc-alert-close-btn {
+    .alert_close_btn {
       @extend %icon-#{$size};
     }
 
-    .rc-alert-content {
+    .alert_content {
       @extend %font-#{$size};
     }
   }
 }
 
-.rc-alert-success {
+.alert_success {
   background-color: theme.$success-green;
 }
 
-.rc-alert-error {
+.alert_error {
   background-color: theme.$crimson;
 }
 
-.rc-alert-warning {
+.alert_warning {
   background-color: theme.$amber;
   color: theme.$black;
 
@@ -64,18 +64,18 @@ $sizes: (sm, md, lg);
   }
 }
 
-.rc-alert-info {
+.alert_info {
   background-color: theme.$blue;
 }
 
-.rc-alert-icon-wrapper {
+.alert_icon_wrapper {
   @extend %center;
   background: rgba($color: #fff, $alpha: 0.2);
   height: 100%;
   width: 100%;
 }
 
-.rc-alert-icon {
+.alert_icon {
   align-self: center;
   justify-self: flex-start;
 
@@ -84,12 +84,12 @@ $sizes: (sm, md, lg);
   }
 }
 
-.rc-alert-content {
+.alert_content {
   @extend %left;
   font-weight: 300;
 }
 
-.rc-alert-close-btn {
+.alert_close_btn {
   align-self: flex-start;
   cursor: pointer;
   margin-top: 0.5rem;

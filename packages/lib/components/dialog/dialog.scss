@@ -16,7 +16,7 @@ $dark-mode: theme.$dark-mode;
     @include animations.set-animation($animation, to);
   }
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     @extend %border-radius;
     background-color: theme.$gunmetal-gray;
   } @else {

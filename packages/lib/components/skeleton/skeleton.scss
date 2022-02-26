@@ -19,7 +19,7 @@ $settings: (
   min-height: var(--min-height);
   min-width: var(--min-width);
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
     background: theme.$light-bg;
@@ -41,7 +41,7 @@ $settings: (
 }
 
 .rc-skeleton-disable-animation {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$charcoal-gray;
   } @else {
     background: theme.$chinese-gray;
@@ -52,7 +52,7 @@ $settings: (
   @include animate.set-settings(2s, linear, true);
   @include animate.set-keyframes(animate-skeleton, $settings);
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: linear-gradient(
       90deg,
       theme.$charcoal-gray 0%,
@@ -85,7 +85,7 @@ $settings: (
 }
 
 .rc-skeleton-circle {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$charcoal-gray;
   } @else {
     background: theme.$chinese-gray;

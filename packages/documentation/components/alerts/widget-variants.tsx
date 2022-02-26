@@ -4,11 +4,11 @@ import { Alert, Button } from '../../../lib/components';
 export const Information = <Alert message="This is a information text" />;
 
 export const Dismiss = (
-  <Alert message="This is a information text" canDismiss={false} />
+  <Alert message="This is a information text" canDismiss />
 );
 
 export const Success = (
-  <Alert message="This is a success text" state="success" />
+  <Alert message="This is a success text" state="success" canDismiss />
 );
 
 export const Warning = (

@@ -6,7 +6,7 @@ $sizes: (sm, md, lg);
 
 $dark-mode: theme.$dark-mode;
 
-.rc-accordion-header {
+.header {
   @extend %left;
   align-items: center;
   color: theme.$primary;
@@ -16,70 +16,70 @@ $dark-mode: theme.$dark-mode;
   position: relative;
   text-transform: capitalize;
 
-  &:not(.rc-accordion-header-icon) {
+  &:not(.header-icon) {
     display: grid;
     grid-template-columns: 2rem calc(100% - 2.5rem) 0.5rem;
   }
 }
 
-.rc-accordion-header:not(.rc-accordion-disable-collapse):hover {
+.header:not(.disable-collapse):hover {
   @extend %border-radius;
   cursor: pointer;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
     background: rgba(theme.$secondary-rgb, 0.25);
   }
 }
 
-.rc-accordion-selected {
+.selected {
   @extend %border-radius;
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
     background: rgba(theme.$secondary-rgb, 0.25);
   }
 }
 
-.rc-accordion-title {
+.title {
   @extend %left;
   display: block;
   white-space: nowrap;
 
   @each $size in $sizes {
-    &.rc-accordion-title-#{$size} {
+    &.title_#{$size} {
       @extend %text-#{$size};
       line-height: #{$size}-line-height;
     }
   }
 
-  &:not(.rc-accordion-title-bold) {
+  &:not(.title_bold) {
     font-weight: 400;
   }
 
-  &.rc-accordion-title-bold {
+  &.title-bold {
     font-weight: 500;
   }
 }
 
-.rc-accordion-icon {
+.icon {
   @extend %icon;
   color: var(--icon-color, theme.$primary);
   cursor: pointer;
   transition: transform 0.2s ease-in;
 
   @each $size in $sizes {
-    &.rc-accordion-icon-#{$size} {
+    &.icon-#{$size} {
       @extend %icon-#{$size};
     }
   }
 
-  &.rc-accordion-icon-open:not(.rc-accordion-icon-plus):not(.rc-accordion-custom-icon) {
+  &.icon-open:not(.icon-plus):not(.custom-icon) {
     transform: rotate(90deg);
   }
 
-  &.rc-accordion-disable-icon {
+  &.disable-icon {
     visibility: hidden;
   }
 }

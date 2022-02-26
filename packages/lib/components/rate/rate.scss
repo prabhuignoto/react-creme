@@ -48,7 +48,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 .rc-rate-item svg {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     fill: theme.$charcoal-gray;
   } @else {
     fill: theme.$alto;

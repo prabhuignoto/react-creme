@@ -22,7 +22,7 @@ $dark-mode: theme.$dark-mode;
 
 %border {
   @extend %border-radius;
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     border: 1px solid rgba(theme.$charcoal-gray, 1);
   } @else {
     border: 1px solid rgba(theme.$secondary-rgb, 1);

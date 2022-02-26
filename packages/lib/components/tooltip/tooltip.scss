@@ -48,7 +48,7 @@ $dark-mode: theme.$dark-mode;
   visibility: hidden;
   z-index: 99999;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
     color: theme.$white;
   } @else {
@@ -112,7 +112,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 .rc-tooltip-message::after {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
     background: theme.$white;

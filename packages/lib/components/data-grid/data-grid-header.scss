@@ -10,7 +10,7 @@ $dark-mode: theme.$dark-mode;
   height: 100%;
   text-transform: capitalize;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: rgba(theme.$charcoal-gray, 0.5);
   } @else {
     background: rgba(theme.$secondary-rgb, 0.5);

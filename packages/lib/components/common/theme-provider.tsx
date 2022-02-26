@@ -160,6 +160,8 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   useEffect(() => {
     if (theme.darkMode) {
       document.documentElement.style.cssText += ';--rc-dark-mode: true;';
+    } else {
+      document.documentElement.style.cssText += ';--rc-dark-mode: false;';
     }
   }, [theme.darkMode]);
 

@@ -25,7 +25,7 @@ $dark-mode: theme.$dark-mode;
   border: 2px solid rgba(theme.$primary-rgb, 0.75);
   visibility: visible;
 
-  @if not $dark-mode {
+  @if not $dark-mode == 'true' {
     animation-duration: 0.2s;
     animation-name: halo;
     animation-timing-function: ease-in;

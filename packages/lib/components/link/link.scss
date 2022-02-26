@@ -32,7 +32,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 .rc-link-btn {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background-color: theme.$gunmetal-gray;
     color: theme.$white;
   } @else {

@@ -6,7 +6,7 @@ import {
   AccordionGroupProps,
   AccordionItemProps,
 } from '../accordion/accordion-model';
-import './accordion-group.scss';
+import styles from './accordion-group.module.scss';
 
 const AccordionGroup = ({
   alignIconRight = false,
@@ -54,8 +54,8 @@ const AccordionGroup = ({
   }, []);
 
   const groupClass = useMemo(() => {
-    return classNames('rc-accordion-group', {
-      'rc-accordion-grp-no-border': !border,
+    return classNames(styles.group, {
+      [styles.grp_no_border]: !border,
     });
   }, []);
 
@@ -76,7 +76,7 @@ const AccordionGroup = ({
     <div className={groupClass}>
       {items.map((item, index) => (
         <div
-          className="rc-accordion-group-item"
+          className={styles.group_item}
           key={item.id}
           role={!disableARIA ? 'group' : ''}
         >

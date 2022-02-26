@@ -35,7 +35,7 @@ $sizes: (sm, md, lg);
 }
 
 .rc-list-option:hover:not(.rc-list-option-disabled) {
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
     background: rgba(theme.$secondary-rgb, 0.25);

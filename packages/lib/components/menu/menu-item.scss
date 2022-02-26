@@ -29,7 +29,7 @@ $dark-mode: theme.$dark-mode;
 .rc-menu-item:hover {
   cursor: pointer;
 
-  @if $dark-mode {
+  @if $dark-mode == 'true' {
     background: theme.$charcoal-gray;
     color: theme.$white;
   } @else {
