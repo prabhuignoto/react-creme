@@ -2,6 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import vi from 'vitest';
 import { Drawer } from '../drawer';
+import styles from '../drawer.module.scss';
 
 describe('Drawer', () => {
   it('should render the drawer', () => {
@@ -13,7 +14,10 @@ describe('Drawer', () => {
 
     expect(getByRole('dialog')).toBeInTheDocument();
     expect(getByRole('dialog')).toHaveStyle('--min-width: 400px');
-    expect(getByRole('dialog')).toHaveClass('visible', 'slide-left-enter');
+    expect(getByRole('dialog')).toHaveClass(
+      styles.visible,
+      styles.slide_left_enter
+    );
     expect(getByText('content')).toBeInTheDocument();
   });
 
@@ -25,7 +29,10 @@ describe('Drawer', () => {
     );
 
     expect(getByRole('dialog')).toBeInTheDocument();
-    expect(getByRole('dialog')).toHaveClass('visible', 'slide-right-enter');
+    expect(getByRole('dialog')).toHaveClass(
+      styles.visible,
+      styles.slide_right_enter
+    );
   });
 
   it('should render the drawer from bottom', async () => {
@@ -35,7 +42,10 @@ describe('Drawer', () => {
       </Drawer>
     );
 
-    expect(getByRole('dialog')).toHaveClass('visible', 'slide-bottom-enter');
+    expect(getByRole('dialog')).toHaveClass(
+      styles.visible,
+      styles.slide_bottom_enter
+    );
   });
 
   it('should render the drawer from top', async () => {
@@ -45,7 +55,10 @@ describe('Drawer', () => {
       </Drawer>
     );
 
-    expect(getByRole('dialog')).toHaveClass('visible', 'slide-top-enter');
+    expect(getByRole('dialog')).toHaveClass(
+      styles.visible,
+      styles.slide_top_enter
+    );
   });
 
   it('should close the drawer', async () => {
@@ -59,8 +72,6 @@ describe('Drawer', () => {
       key: 'Escape',
       keyCode: 'Escape',
     });
-    // await act(async () => {
-    // });
 
     await waitFor(
       async () => {

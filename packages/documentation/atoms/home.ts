@@ -16,6 +16,7 @@ export type ThemeType =
 
 type ThemeState = {
   colors: Colors;
+  darkMode?: boolean;
   fontSizes?: FontSizes;
   iconSizes?: IconSizes;
   selectedTheme: ThemeType;
@@ -58,6 +59,7 @@ const themeState = atom<ThemeState>({
       text: '#003B73',
       textSelection: '#fff',
     },
+    darkMode: false,
     fontSizes: {
       lg: 18,
       md: 16,

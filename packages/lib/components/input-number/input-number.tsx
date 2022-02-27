@@ -10,7 +10,7 @@ import { ChevronDownIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { Input } from '../input/input';
 import { InputNumberProps } from './input-number.model';
-import './input-number.scss';
+import styles from './input-number.module.scss';
 
 const InputNumber: FunctionComponent<InputNumberProps> = ({
   end = Number.MAX_VALUE,
@@ -47,10 +47,10 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
 
   const inputClass = useMemo(
     () =>
-      classNames('rc-input-number', {
-        [`rc-input-number-${size}`]: true,
-        'rc-input-number-border': border,
-        'rc-input-number-rtl': RTL,
+      classNames(styles.input_number, {
+        [styles[`input_number_${size}`]]: true,
+        [styles.input_number_border]: border,
+        [styles.input_number_rtl]: RTL,
       }),
     []
   );
@@ -66,11 +66,11 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         size={size}
         type="number"
       />
-      <div className="rc-input-number-controls">
+      <div className={styles.input_number_controls}>
         <span
           role="button"
           tabIndex={0}
-          className="rc-input-number-btn increment"
+          className={classNames(styles.input_number_btn, styles.increment)}
           onClick={increment}
           aria-label="increment"
         >
@@ -79,7 +79,7 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         <span
           role="button"
           tabIndex={0}
-          className="rc-input-number-btn decrement"
+          className={classNames(styles.input_number_btn, styles.decrement)}
           onClick={decrement}
           aria-label="decrement"
         >

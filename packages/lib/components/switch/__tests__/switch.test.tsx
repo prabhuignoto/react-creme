@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { vi } from 'vitest';
 import { Switch } from '../switch';
+import styles from '../switch.module.scss';
 
 const handler = vi.fn();
 
@@ -25,10 +26,10 @@ describe('Switch', () => {
 
     userEvent.click(switchItem);
     expect(handler).toBeCalledWith(true);
-    expect(switchItem.firstChild).toHaveClass('rc-switch-on');
+    expect(switchItem.firstChild).toHaveClass(styles.switch_on);
 
     userEvent.click(switchItem);
     expect(handler).toBeCalledWith(false);
-    expect(switchItem.firstChild).toHaveClass('rc-switch-off');
+    expect(switchItem.firstChild).toHaveClass(styles.switch_off);
   });
 });

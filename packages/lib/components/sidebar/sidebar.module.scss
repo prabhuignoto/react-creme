@@ -1,0 +1,97 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/position.scss';
+
+$searchbar-height: 40px;
+
+.sidebar {
+  align-items: flex-start;
+
+  background-color: var(--bg-color);
+  display: flex;
+  height: var(--sidebar-height, 100%);
+  overflow: hidden;
+  position: relative;
+
+  &.sidebar_border {
+    @extend %border;
+  }
+
+  &:not(.sidebar_minimize) {
+    justify-content: center;
+  }
+
+  &.sidebar_minimize {
+    justify-content: flex-start;
+  }
+}
+
+.sidebar_search_wrapper {
+  @extend %center;
+  height: $searchbar-height;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  width: 90%;
+}
+
+.sidebar_minimize_btn {
+  background-color: theme.$primary;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  height: 1.5rem;
+  position: absolute;
+  top: 1px;
+  transition: right 0.2s ease-in;
+  width: 1.5rem;
+  z-index: 999;
+}
+
+.sidebar_minimize_btn_open {
+  right: calc(0% - 1.5rem);
+
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.sidebar_minimize_btn_close {
+  right: calc(100% - 1.5rem);
+}
+
+.sidebar_content_wrapper {
+  &.sidebar_border {
+    @extend %border;
+  }
+
+  &.sidebar_minimize {
+    transition: width 0.25s ease-in-out, opacity 0.1s linear;
+  }
+
+  &:not(.sidebar_minimize) {
+    width: 100%;
+  }
+
+  &.sidebar_hide {
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+  }
+
+  &.sidebar_open {
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+  }
+}
+
+.sidebar_groups_wrapper {
+  height: calc(100% - $searchbar-height);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 0.2rem;
+}

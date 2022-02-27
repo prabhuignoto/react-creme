@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import React, { useMemo, useRef } from 'react';
 import { DataGridCell } from './data-grid-cell';
 import { DataRow } from './data-grid-model';
-import './data-grid.scss';
+import styles from './data-grid.module.scss';
 
 const DataGridRow: React.FunctionComponent<DataRow> = ({
   data,
@@ -26,12 +26,12 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
   );
 
   const rowClass = useMemo(() => {
-    return classNames('rc-data-grid-row', {
-      [`rc-data-grid-row-${layoutStyle}`]: true,
-      'rc-data-grid-row-border': border,
-      'rc-data-grid-row-fixed-height': fixedHeight,
-      'rc-data-grid-row-zebra': zebra,
-      [`rc-data-grid-row-${size}`]: true,
+    return classNames(styles.row, {
+      [styles[`row_${layoutStyle}`]]: true,
+      [styles.border]: border,
+      rc_row_fixed_height: fixedHeight,
+      [styles.row_zebra]: zebra,
+      [styles[`row_${size}`]]: true,
     });
   }, [layoutStyle]);
 

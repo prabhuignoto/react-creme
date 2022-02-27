@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { CSSProperties, FunctionComponent, useMemo } from 'react';
 import { SkeletonRowProps } from './skeleton-model';
+import styles from './skeleton.module.scss';
 
 const SkeletonRow: FunctionComponent<
   SkeletonRowProps & {
@@ -10,9 +11,9 @@ const SkeletonRow: FunctionComponent<
 > = ({ id, width, animate, rowHeight, disableAnimation }) => {
   const skeletonRowClass = useMemo(
     () =>
-      classNames('rc-skeleton-row', {
-        'rc-skeleton-animate': animate,
-        'rc-skeleton-disable-animation': disableAnimation,
+      classNames(styles.skeleton_row, 'rc-skeleton-row', {
+        [styles.skeleton_animate]: animate,
+        [styles.skeleton_disable_animation]: disableAnimation,
       }),
     [disableAnimation]
   );

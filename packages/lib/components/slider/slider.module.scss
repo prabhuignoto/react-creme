@@ -1,0 +1,78 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/position.scss';
+
+$dark-mode: theme.$dark-mode;
+
+.slider_wrapper {
+  @extend %center;
+  height: 100px;
+  min-width: 100px;
+  width: 100%;
+
+  &.slider_wrapper_disabled {
+    @extend %disabled;
+  }
+}
+
+.slider_control {
+  @include position.position-abs('center left');
+  background: theme.$primary;
+  cursor: pointer;
+  height: var(--size);
+  outline: 0;
+  position: absolute;
+  transition: box-shadow 0.3s ease-in-out;
+  width: var(--size);
+  z-index: 10;
+
+  &.slider_control_circle {
+    border-radius: 50%;
+  }
+
+  &.slider_control_square {
+    border-radius: 2px;
+  }
+
+  &.slider_control_dragging,
+  &:focus {
+    box-shadow: 0 0 1px calc(var(--size) / 2) rgba(theme.$primary-rgb, 0.25);
+  }
+
+  &:not(.slider_control_dragging):not(:focus) {
+    box-shadow: none;
+  }
+}
+
+.slider_track {
+  @extend %border-radius;
+  height: 5px;
+  position: relative;
+  width: 100%;
+
+  @if $dark-mode == 'true' {
+    background: theme.$charcoal-gray;
+  } @else {
+    background: theme.$gray;
+  }
+}
+
+.slider_track_progress {
+  @extend %border-radius;
+  @include position.position-abs('center left');
+  background: theme.$secondary;
+  height: 100%;
+}
+
+.slider_fill {
+  @extend %border-radius-left;
+  @include position.position-abs('center left');
+  background: rgba(theme.$primary-rgb, 0.75);
+  display: block;
+  height: 100%;
+}
+
+.tooltip_placer {
+  display: block;
+  visibility: hidden;
+}

@@ -1,0 +1,81 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/list.scss';
+@use 'sass:map';
+
+$sizes: (
+  sm: 1rem,
+  md: 1.25rem,
+  lg: 1.5rem,
+);
+
+$heights: (
+  sm: 30px,
+  md: 35px,
+  lg: 40px,
+);
+
+.section {
+  @extend %col;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+$dark-mode: theme.$dark-mode;
+
+.section_header {
+  @extend %left;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 30px;
+  padding-left: 1rem;
+  text-decoration: none;
+  width: 100%;
+
+  @if $dark-mode == 'true' {
+    border-bottom: 1px solid theme.$primary;
+    color: theme.$white;
+  } @else {
+    border-bottom: 1px solid theme.$secondary;
+    color: theme.$primary;
+  }
+
+  @each $key, $val in $sizes {
+    &.section_header_#{$key} {
+      @extend %font-#{$key};
+      height: map.get($heights, $key);
+    }
+  }
+}
+
+.section_body {
+  width: calc(100% - 2rem);
+
+  &.section_no_padding {
+    padding: 0;
+  }
+
+  &:not(.section_no_padding) {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  &:not(.section_rtl) {
+    @extend %left;
+  }
+
+  &.section_rtl {
+    direction: rtl;
+  }
+
+  &:not(.section_no_title) {
+    min-height: calc(100% - 30px);
+  }
+
+  &.section_no_title {
+    min-height: 100%;
+  }
+}
+
+.section_header_rtl {
+  @extend %right;
+}

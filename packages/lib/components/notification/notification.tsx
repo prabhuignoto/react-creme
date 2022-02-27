@@ -6,7 +6,7 @@ import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
 import useSwipe from '../common/effects/useSwipe';
 import { withOverlay } from '../common/withOverlay';
 import { NotificationProps } from './notification-model';
-import './notification.scss';
+import styles from './notification.module.scss';
 
 const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   autoClose,
@@ -22,11 +22,11 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   size = 'sm',
 }) => {
   const wrapperClass = classNames([
-    'rc-notification-wrapper',
+    styles.notification_wrapper,
     {
-      [`rc-notification-${position}-enter`]: !isClosing,
-      [`rc-notification-${position}-exit`]: isClosing,
-      [`rc-notification-${size}`]: true,
+      [styles[`notification_${position}_enter`]]: !isClosing,
+      [styles[`notification_${position}_exit`]]: isClosing,
+      [styles[`notification_${size}`]]: true,
     },
   ]);
 
@@ -77,16 +77,16 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
       ref={onInit}
     >
       {!disableHeader && (
-        <header className="rc-notification-header">
-          <span className="rc-notification-title">{title}</span>
-          <span className="rc-notification-close-btn">
+        <header className={styles.notification_header}>
+          <span className={styles.notification_title}>{title}</span>
+          <span className={styles.notification_close_btn}>
             <Button type="icon" size={size} onClick={onClose}>
               <CloseIcon />
             </Button>
           </span>
         </header>
       )}
-      <section className="rc-notification-content">{children}</section>
+      <section className={styles.notification_content}>{children}</section>
     </div>
   );
 };

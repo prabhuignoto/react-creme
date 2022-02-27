@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
-import './menu-item.scss';
+import styles from './menu-item.module.scss';
 
 export interface MenuItemProps {
   disabled?: boolean;
@@ -42,16 +42,16 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
 
     return (
       <li
-        className={classNames(['rc-menu-item'], {
-          'rc-menu-item-disabled': disabled,
-          'rc-menu-item-divider': isDivider,
+        className={classNames(styles.menu_item, {
+          [styles.menu_item_disabled]: disabled,
+          [styles.menu_item_divider]: isDivider,
         })}
         onClick={handleClick}
         ref={onRef}
         role="menuitem"
         tabIndex={0}
       >
-        {!isDivider && <span className="rc-menu-item-name">{name}</span>}
+        {!isDivider && <span className={styles.menu_item_name}>{name}</span>}
       </li>
     );
   },

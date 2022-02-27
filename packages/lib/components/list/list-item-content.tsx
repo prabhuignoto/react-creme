@@ -1,6 +1,7 @@
 import cls from 'classnames';
 import React, { CSSProperties, useMemo } from 'react';
 import { CheckIcon } from '../../icons';
+import styles from './list-item.module.scss';
 import { ListItemContentProps } from './list-model';
 
 const ListItemContent: React.FunctionComponent<ListItemContentProps> =
@@ -18,13 +19,13 @@ const ListItemContent: React.FunctionComponent<ListItemContentProps> =
       const ref = React.useRef<HTMLDivElement>(null);
 
       const listOptionClass = cls(
-        'rc-list-option-value-wrapper',
+        [styles.list_option_value_wrapper],
         {
-          'rc-list-option-highlight-selection': highlightSelection,
-          'rc-list-option-no-icon': !showCheck,
-          'rc-list-option-rtl': RTL,
-          'rc-list-option-selected': selected,
-          [`rc-list-option-${size}`]: size,
+          [styles.list_option_highlight_selection]: highlightSelection,
+          [styles.list_option_no_icon]: !showCheck,
+          [styles.list_option_rtl]: RTL,
+          [styles.list_option_selected]: selected,
+          [styles[`list_option_${size}`]]: size,
         },
         [selected]
       );
@@ -40,17 +41,17 @@ const ListItemContent: React.FunctionComponent<ListItemContentProps> =
         <div className={listOptionClass} ref={ref} style={style}>
           {showCheck && (
             <span
-              className={cls('rc-list-option-icon', {
-                'rc-list-option-rtl': RTL,
-                'rc-list-option-selected': selected,
+              className={cls(styles.list_option_icon, {
+                [styles.list_option_rtl]: RTL,
+                [styles.list_option_selected]: selected,
               })}
             >
               <CheckIcon />
             </span>
           )}
           <span
-            className={cls('rc-list-option-value', {
-              'rc-list-option-value-selected': selected,
+            className={cls(styles.list_option_value, {
+              [styles.list_option_value_selected]: selected,
             })}
           >
             {name}

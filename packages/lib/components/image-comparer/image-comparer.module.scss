@@ -1,0 +1,111 @@
+@use '../../design/core.scss';
+@use '../../design/position.scss';
+@use '../../design/theme.scss';
+
+.img_comparer_wrapper {
+  position: relative;
+
+  &:not(.image_comparer_loaded) {
+    height: 100%;
+    width: 100%;
+  }
+
+  &.image_comparer_loaded {
+    height: var(--height);
+    width: var(--width);
+  }
+}
+
+.img_comparer_drag_handle {
+  background: rgba(theme.$primary-rgb, 0.95);
+  position: absolute;
+  z-index: 2;
+
+  &.comparer_drag_handle_dragged {
+    background: rgba(theme.$primary-rgb, 1);
+  }
+
+  &.comparer_drag_handle_visible {
+    visibility: visible;
+  }
+
+  &.comparer_drag_handle_hidden {
+    visibility: hidden;
+  }
+}
+
+.drag_handle_square {
+  @extend %shadow-small;
+  @extend %center;
+  @include position.position-abs('center center');
+  background: theme.$white;
+  border-radius: 50%;
+
+  svg {
+    color: theme.$primary;
+    height: 70%;
+    pointer-events: none;
+    touch-action: none;
+    width: 70%;
+  }
+}
+
+.comparer_drag_handle_horizontal {
+  @include position.position-abs('center center');
+  height: 100%;
+  width: 6px;
+
+  .drag_handle_square {
+    cursor: ew-resize;
+    height: 24px;
+    width: 24px;
+  }
+
+  svg {
+    transform: rotate(90deg);
+  }
+}
+
+.comparer_drag_handle_vertical {
+  @include position.position-abs('center center');
+  height: 6px;
+  width: 100%;
+
+  .drag_handle_square {
+    cursor: ns-resize;
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.img_comparer_drag_handle_horizontal {
+  cursor: ns-resize;
+  height: 6px;
+  width: 100%;
+}
+
+.img_comparer_panel {
+  @include position.position-abs('left center');
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  img {
+    max-height: var(--height);
+    max-width: var(--width);
+  }
+}
+
+.img_comparer_panel_1 {
+  z-index: 1;
+}
+
+.img_comparer_panel_2 {
+  z-index: 0;
+}
+
+.circular_loader_wrapper {
+  @include position.position-abs('center center');
+  height: 30px;
+  width: 30px;
+}

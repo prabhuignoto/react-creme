@@ -1,0 +1,120 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/animate.scss';
+@use '../../design/position.scss';
+
+.progress_wrapper {
+  @extend %center;
+  height: var(--height);
+  overflow: hidden;
+  width: var(--width);
+}
+
+.progress_track {
+  @extend %border-radius;
+  display: block;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  &.progress_track_rtl {
+    direction: rtl;
+  }
+
+  &.progress_track_default {
+    background: rgba(theme.$secondary-rgb, 0.5);
+  }
+
+  &.progress_track_success {
+    background: rgba(theme.$success-green, 0.25);
+  }
+
+  &.progress_track_error {
+    background: rgba(theme.$crimson, 0.25);
+  }
+}
+
+.progress_fill {
+  display: block;
+  transition: width 0.2s ease-in;
+  width: var(--width);
+  z-index: 0;
+
+  &.progress_fill_default {
+    background: theme.$primary;
+  }
+
+  &.progress_fill_success {
+    background: theme.$success-green;
+  }
+
+  &.progress_fill_error {
+    background: theme.$crimson;
+  }
+
+  &.progressive {
+    @extend %border-radius-left;
+  }
+
+  &:not(.indeterminate) {
+    height: 100%;
+  }
+
+  &.indeterminate {
+    @extend %border-radius;
+    @include position.position-abs('top left');
+    @include animate.set-settings(2s, linear, true);
+    animation-name: indeterminate-progress;
+    border: 1px solid theme.$primary;
+    height: calc(var(--height) - 2px);
+  }
+
+  &.bob {
+    animation-direction: alternate;
+  }
+
+  &.complete {
+    @extend %border-radius;
+  }
+}
+
+.progress_percent_value {
+  @extend %right;
+  color: theme.$white;
+  font-size: 1rem;
+  height: 100%;
+  padding: 0 0.5rem;
+
+  &.progress_percent_value_large {
+    font-size: 1.2rem;
+  }
+
+  &.progress_percent_value_small {
+    font-size: 0.8rem;
+  }
+}
+
+$indeterminate-anim-settings: (
+  from: (
+    left: -50%,
+  ),
+  to: (
+    left: 100%,
+  ),
+);
+
+$bob-anim-settings: (
+  from: (
+    left: -50%,
+  ),
+  to: (
+    left: 100%,
+  ),
+);
+
+@include animate.set-keyframes(
+  indeterminate-progress,
+  $indeterminate-anim-settings
+);
+@include animate.set-keyframes(indeterminate-bob, $bob-anim-settings);

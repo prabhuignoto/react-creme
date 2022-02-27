@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useRecoilValue } from 'recoil';
 import { AccordionGroup, Image } from '../../../lib/components';
+import { themeState } from '../../atoms/home';
 
-const Para = () => (
-  <p>
-    Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit amet justo vel,
-    convallis volutpat neque. Morbi semper odio sed diam tristique, nec tempor
-    neque tempus. Praesent quis ultrices odio. Nulla vestibulum nulla sed massa
-    molestie, quis vulputate risus semper. Phasellus elementum, metus in iaculis
-    sollicitudin, risus elit pulvinar neque, eget pulvinar odio libero eu mi.
-    Vivamus id leo facilisis, tincidunt lacus semper, condimentum est. Nam
-    euismod non eros a lacinia.
-  </p>
-);
+const Para = () => {
+  const theme = useRecoilValue(themeState);
+
+  const isDark = useMemo(() => theme.darkMode, [theme]);
+
+  const style = useMemo(
+    () => ({
+      color: isDark ? '#fff' : '#000',
+    }),
+    [isDark]
+  );
+  return (
+    <p style={style}>
+      Aenean aliquam dignissim pretium. Ut nulla nunc, euismod sit amet justo
+      vel, convallis volutpat neque. Morbi semper odio sed diam tristique, nec
+      tempor neque tempus. Praesent quis ultrices odio. Nulla vestibulum nulla
+      sed massa molestie, quis vulputate risus semper. Phasellus elementum,
+      metus in iaculis sollicitudin, risus elit pulvinar neque, eget pulvinar
+      odio libero eu mi. Vivamus id leo facilisis, tincidunt lacus semper,
+      condimentum est. Nam euismod non eros a lacinia.
+    </p>
+  );
+};
 
 export const Default = (
   <AccordionGroup titles={['one', 'two']}>

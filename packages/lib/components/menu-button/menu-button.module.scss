@@ -1,0 +1,69 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/position.scss';
+@use '../../design/animate.scss';
+
+$sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
+
+.menu_btn_wrapper {
+  align-items: center;
+  column-gap: 0.25rem;
+  display: grid;
+  height: 35px;
+  max-width: var(--max-width);
+  min-width: 100px;
+
+  @if $dark-mode == 'true' {
+    @extend %border-radius;
+    background-color: theme.$primary;
+  } @else {
+    @extend %border;
+    @extend %shadow-inset-small;
+  }
+
+  &.menu_btn_disabled {
+    @extend %disabled;
+  }
+
+  &:not(.menu_btn_rtl) {
+    grid-template-columns: calc(100% - 2rem) 1.75rem;
+  }
+}
+
+.menu_btn_rtl {
+  grid-template-columns: 1.75rem calc(100% - 2rem);
+
+  > :first-child {
+    order: 1;
+  }
+
+  > :last-child {
+    order: 0;
+  }
+}
+
+@each $size in $sizes {
+  .menu_btn_#{$size} {
+    .menu_btn_icon {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.menu_btn_icon {
+  @extend %center;
+  cursor: pointer;
+  display: block;
+  position: relative;
+
+  @if $dark-mode == 'true' {
+    color: theme.$white;
+  } @else {
+    color: var(--icon-color, theme.$primary);
+  }
+
+  &:hover {
+    background: theme.$secondary;
+  }
+}

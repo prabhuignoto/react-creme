@@ -1,0 +1,84 @@
+@use '../../design/core.scss';
+@use '../../design/position.scss';
+@use '../../design/theme.scss';
+
+$dark-mode: theme.$dark-mode;
+
+.splitter_wrapper {
+  height: 450px;
+  position: relative;
+  width: 100%;
+
+  @if $dark-mode == 'true' {
+    @extend %border-radius;
+    background: theme.$gunmetal-gray;
+  } @else {
+    @extend %shadow-inset;
+    @extend %border;
+    background: theme.$white;
+  }
+
+  &.splitter_wrapper_horizontal {
+    display: flex;
+  }
+
+  &.splitter_wrapper_border {
+    @extend %border;
+  }
+}
+
+.splitter_control {
+  background: rgba(theme.$primary-rgb, 75%);
+  position: relative;
+  transition: background 0.1s linear;
+
+  &.splitter_control_dragged {
+    background: rgba(theme.$primary-rgb, 100%);
+  }
+}
+
+.splitter_control_horizontal {
+  @include position.position-abs('center left');
+  height: 100%;
+
+  .splitter_drag_square {
+    cursor: ew-resize;
+  }
+
+  svg {
+    transform: rotate(90deg);
+  }
+}
+
+.splitter_control_vertical {
+  @include position.position-abs('top left');
+  width: 100%;
+
+  .splitter_drag_square {
+    cursor: ns-resize;
+  }
+}
+
+.splitter_partition {
+  @extend %center;
+  // background: theme.$white;
+  overflow: auto;
+}
+
+.splitter_drag_square {
+  @extend %center;
+  @extend %shadow-small;
+  @include position.position-abs('center center');
+  background: theme.$white;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+
+  svg {
+    color: theme.$primary;
+    height: 70%;
+    pointer-events: none;
+    touch-action: none;
+    width: 70%;
+  }
+}

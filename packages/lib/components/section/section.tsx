@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { CSSProperties, useMemo } from 'react';
 import { SectionProps } from './section-model';
-import './section.scss';
+import styles from './section.module.scss';
 
 const Section: React.FC<SectionProps> = ({
   children,
@@ -32,19 +32,19 @@ const Section: React.FC<SectionProps> = ({
 
   const bodyClass = useMemo(
     () =>
-      classNames('rc-section-body', {
-        [`rc-section-${layout}`]: true,
-        'rc-section-no-padding': noPadding,
-        'rc-section-no-title': !title,
-        'rc-section-rtl': RTL,
+      classNames(styles.section_body, {
+        [styles[`rc_section_${layout}`]]: true,
+        [styles.section_no_padding]: noPadding,
+        [styles.section_no_title]: !title,
+        [styles.section_rtl]: RTL,
       }),
     [layout, title]
   );
 
   const headerClass = useMemo(() => {
-    return classNames('rc-section-header', {
-      'rc-section-header-rtl': RTL,
-      [`rc-section-header-${size}`]: true,
+    return classNames(styles.section_header, {
+      [styles.section_header_rtl]: RTL,
+      [styles[`section_header_${size}`]]: true,
     });
   }, []);
 
@@ -63,7 +63,7 @@ const Section: React.FC<SectionProps> = ({
   }, []);
 
   return (
-    <div style={sectionStyle} className={'rc-section'} role="">
+    <div style={sectionStyle} className={styles.section} role="">
       {getTitle && (
         <div className={headerClass} id={getId} role="heading">
           {getTitle}

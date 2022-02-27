@@ -1,0 +1,68 @@
+@use '../../design/core.scss';
+@use '../../design/animate.scss';
+@use '../../design/theme.scss';
+@use '../../design/list.scss';
+@use '../../design/position.scss';
+
+.list {
+  @extend %border-radius;
+  // background-color: var(--list-bg-color, #fff);
+  justify-items: center;
+  // row-gap: 6px;
+  width: 100%;
+
+  &:not(.list_search) {
+    @extend %col;
+  }
+
+  &.list_search {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px calc(var(--rc-list-height) - 56px);
+  }
+
+  &.list_border {
+    @extend %border;
+  }
+}
+
+.list_search_input {
+  @extend %center;
+  margin: 0.5rem 0;
+  width: 95%;
+}
+
+$hide-anim: (
+  opacity: 0,
+  visibility: hidden,
+  transform: scale(0.95),
+);
+$show-anim: (
+  opacity: 1,
+  visibility: visible,
+  transform: scale(1),
+);
+
+$list-anim-settings: (
+  from: $hide-anim,
+  to: $show-anim,
+);
+
+.list_options_wrapper {
+  max-height: var(--rc-list-max-height);
+  overflow-y: auto;
+  width: 100%;
+}
+
+.list_options {
+  @extend %list;
+  height: var(--rc-list-height);
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  width: 100%;
+}
+
+@include animate.set-keyframes(list-menu-open, $list-anim-settings);
+@include animate.set-keyframes(list-menu-close, $list-anim-settings, true);

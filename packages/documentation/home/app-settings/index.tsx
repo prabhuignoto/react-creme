@@ -29,6 +29,10 @@ const themes: RadioGroupItemProps<ThemeType>[] = [
     label: 'Night Gray',
     value: 'night-gray',
   },
+  {
+    label: 'Dark',
+    value: 'dark',
+  },
 ];
 
 const AppSettings: React.FunctionComponent = () => {
@@ -60,7 +64,11 @@ const AppSettings: React.FunctionComponent = () => {
     } else if (themeToUpdate.value === 'night-gray') {
       selectedTheme = { colors: { ...NightGray }, selectedTheme: 'neon' };
     } else if (themeToUpdate.value === 'dark') {
-      selectedTheme = { colors: { ...Dark }, selectedTheme: 'dark' };
+      selectedTheme = {
+        colors: { ...Dark },
+        darkMode: true,
+        selectedTheme: 'dark',
+      };
     }
 
     updateAppTheme(selectedTheme);

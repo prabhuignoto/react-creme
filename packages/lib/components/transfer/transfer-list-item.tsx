@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { CheckBox } from '../checkbox/checkbox';
-import './transfer-list.scss';
+import styles from './transfer-list.module.scss';
 import { TransferListItemModel } from './transfer-model';
 
 const TransferListItem: React.FunctionComponent<TransferListItemModel> =
@@ -10,8 +10,8 @@ const TransferListItem: React.FunctionComponent<TransferListItemModel> =
       return (
         <li
           className={classNames([
-            'transfer-list-item',
-            selected ? 'selected' : '',
+            styles.transfer_list_item,
+            selected ? styles.selected : '',
           ])}
           key={id}
           role="listitem"

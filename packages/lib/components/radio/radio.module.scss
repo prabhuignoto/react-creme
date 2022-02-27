@@ -1,0 +1,161 @@
+@use '../../design/core.scss';
+@use '../../design/position.scss';
+@use '../../design/theme.scss';
+@use '../../design/animate.scss';
+@use '../../design/animations.scss';
+@use 'sass:map';
+
+$sizes: (
+  sm: 16px,
+  md: 24px,
+  lg: 28px,
+);
+
+$heights: (
+  sm: 32px,
+  md: 48px,
+  lg: 56px,
+);
+
+$dark-mode: theme.$dark-mode;
+
+.radio_wrapper {
+  @extend %left;
+  cursor: pointer;
+  display: grid;
+  justify-items: center;
+  padding: 0.25rem 0;
+  padding-left: 0.5rem;
+
+  &.radio_rtl {
+    direction: rtl;
+  }
+
+  &.radio_full_width {
+    width: 100%;
+  }
+
+  &.radio_disabled {
+    @extend %disabled;
+    cursor: not-allowed;
+  }
+
+  @each $key, $val in $heights {
+    &.radio_#{$key} {
+      display: flex;
+      min-height: $val;
+    }
+  }
+}
+
+.radio_wrapper:hover:not(.radio_disabled) {
+  @extend %border-radius;
+
+  @if $dark-mode == 'true' {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: rgba(theme.$secondary-rgb, 0.25);
+  }
+}
+
+.radio {
+  @extend %left;
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  user-select: none;
+
+  &:focus {
+    outline: 0;
+  }
+
+  @each $key, $val in $sizes {
+    &.radio_#{$key} {
+      .radio_icon {
+        height: $val;
+        position: relative;
+        width: $val;
+
+        &.radio_ico_checked::after {
+          @include position.position-abs('center center');
+          background: theme.$primary;
+          border-radius: 100%;
+          content: '';
+          display: block;
+          height: 65%;
+          width: 65%;
+        }
+      }
+    }
+  }
+}
+
+%pseudo-common {
+  background-color: theme.$primary;
+  border-radius: 50%;
+  content: '';
+  display: block;
+}
+
+.radio_icon {
+  border-radius: 50%;
+  display: block;
+  position: relative;
+
+  &:hover:not(.radio_disabled) {
+    @extend %shadow-inset;
+  }
+
+  &.radio_ico_checked {
+    background-color: theme.$primary;
+    border: 1px solid theme.$secondary;
+  }
+}
+
+.radio_icon:not(.radio_ico_checked) {
+  @if $dark-mode == 'true' {
+    background-color: theme.$charcoal-gray;
+    border: 1px solid theme.$secondary;
+  } @else {
+    @extend %shadow-inset;
+    border: 1px solid theme.$secondary;
+  }
+}
+
+.radio_label {
+  @extend %left;
+  cursor: pointer;
+  padding-left: 0.5rem;
+
+  @if $dark-mode == 'true' {
+    color: theme.$white;
+  } @else {
+    color: theme.$black;
+  }
+
+  &.radio_disabled {
+    @extend %disabled;
+  }
+
+  &.radio_rtl {
+    padding-right: 0.5rem;
+  }
+
+  @each $key, $val in $sizes {
+    &.radio_label_#{$key} {
+      @extend %font-#{$key};
+    }
+  }
+}
+
+@include animate.set-keyframes(
+  animate-radio_select,
+  (
+    from: (
+      background: theme.$white,
+    ),
+    to: (
+      background: theme.$primary,
+    ),
+  )
+);

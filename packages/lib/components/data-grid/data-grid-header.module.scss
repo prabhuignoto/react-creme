@@ -1,0 +1,103 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+
+$sizes: (sm, md, lg);
+$dark-mode: theme.$dark_mode;
+
+.header_cell {
+  @extend %left;
+  color: theme.$black;
+  height: 100%;
+  text-transform: capitalize;
+
+  @if $dark-mode == 'true' {
+    background: rgba(theme.$charcoal-gray, 0.5);
+  } @else {
+    background: rgba(theme.$secondary-rgb, 0.5);
+  }
+
+  &:not(:last-child) {
+    width: calc(100% - 1px);
+  }
+
+  &:first-child {
+    border-top-left-radius: 4px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 4px;
+    width: 100%;
+  }
+
+  .cell_val {
+    font-weight: 400;
+    width: 95%;
+  }
+}
+
+.header_border:not(:last-child) {
+  @if $dark-mode == 'true' {
+    border-right: 1px solid theme.$charcoal-gray;
+  } @else {
+    border-right: 1px solid theme.$secondary;
+  }
+}
+
+.header_sort_icon_wrapper {
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+
+%sort-icon {
+  @extend %icon-xs;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    fill: rgba(theme.$primary_rgb, 0.25);
+    stroke: none;
+  }
+}
+
+.header_sort_icon {
+  @extend %sort-icon;
+}
+
+.header_sort_icon_asc {
+  margin-bottom: 0.2rem;
+}
+
+.header_sort_icon_desc {
+  @extend %sort-icon;
+  margin-top: 0.2rem;
+  transform: rotate(180deg);
+}
+
+.header_sort_icon_active {
+  svg {
+    fill: theme.$primary;
+  }
+}
+
+.header {
+  justify-items: center;
+  width: 100%;
+
+  &.header_compact {
+    height: 40px;
+  }
+
+  &.header_comfortable {
+    height: 50px;
+  }
+}
+
+@each $size in $sizes {
+  .header_#{$size} {
+    .cell_val {
+      @extend %text-#{$size};
+    }
+  }
+}

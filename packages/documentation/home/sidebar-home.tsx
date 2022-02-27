@@ -12,11 +12,13 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import { Sidebar } from '../../lib/components';
 import {
   SidebarGroupModel,
   SidebarItemModel,
 } from '../../lib/components/sidebar/sidebar-model';
+import { themeState } from '../atoms/home';
 import data from './sidebar-home-data';
 
 interface SideBarHomeProps {
@@ -28,6 +30,8 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
 }: SideBarHomeProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const theme = useRecoilValue(themeState);
 
   const handleSidebarSelect = (
     group: SidebarGroupModel,
@@ -70,6 +74,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
           sectionsCollapsible={false}
           groups={data}
           focusable={false}
+          backGroundColor={theme.darkMode ? '#000' : '#fff'}
           icons={[
             <FontAwesomeIcon size="2x" icon={faRocket} key="home" />,
             <FontAwesomeIcon size="2x" icon={faBorderAll} key="layout" />,

@@ -1,0 +1,66 @@
+@use '../../design/list.scss';
+@use '../../design/core.scss';
+@use '../../design/animate.scss';
+@use '../../design/theme.scss';
+
+$dark-mode: theme.$dark-mode;
+
+.menu_wrapper {
+  @extend %center;
+  height: 100%;
+  position: relative;
+}
+
+.menu_content_wrapper {
+  @extend %center;
+  height: 100%;
+  position: relative;
+}
+
+.menu {
+  @extend %list;
+  @extend %border-radius;
+  @extend %col;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+  min-width: 150px;
+  outline: none;
+  padding: 0.5rem;
+  position: relative;
+
+  @if $dark-mode == 'true' {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: theme.$white;
+  }
+}
+
+.menu::after {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  content: '';
+  display: blocks;
+  position: absolute;
+  top: -10px;
+
+  @if $dark-mode == 'true' {
+    border-bottom: 10px solid theme.$gunmetal-gray;
+  } @else {
+    border-bottom: 10px solid theme.$white;
+  }
+}
+
+.menu_left {
+  &::after {
+    left: 6px;
+  }
+}
+
+.menu_right {
+  &::after {
+    right: 6px;
+  }
+}
+
+.menu_overlay_wrapper {
+  @extend %center;
+}

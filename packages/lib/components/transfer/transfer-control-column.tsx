@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronRightIcon } from '../../icons';
 import { Button } from '../button/button';
+import styles from './transfer.module.scss';
 
 interface TransferControlModel {
   disableTransferLeft?: boolean;
@@ -16,7 +17,7 @@ const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
   size,
 }: TransferControlModel) => {
   return (
-    <section className="transfer-control-column">
+    <section className={styles.transfer_control_column}>
       <Button
         type="icon"
         size={size}

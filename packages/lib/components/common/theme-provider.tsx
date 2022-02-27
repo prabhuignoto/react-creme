@@ -19,6 +19,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
       text: '#000',
       textSelection: '#293B5F',
     },
+    darkMode: false,
     fontSizes: {
       lg: 24,
       md: 20,
@@ -155,6 +156,14 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
       setCurrentTheme(theme);
     }
   }, [theme, currentTheme]);
+
+  useEffect(() => {
+    if (theme.darkMode) {
+      document.documentElement.style.cssText += ';--rc-dark-mode: true;';
+    } else {
+      document.documentElement.style.cssText += ';--rc-dark-mode: false;';
+    }
+  }, [theme.darkMode]);
 
   const canRender = useMemo(
     () => stylesApplied.colors && stylesApplied.fonts && stylesApplied.icons,

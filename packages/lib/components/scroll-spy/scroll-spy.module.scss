@@ -1,0 +1,71 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/list.scss';
+
+.scroll_spy_wrapper {
+  @extend %center;
+  align-items: flex-start;
+  column-gap: 2%;
+  display: grid;
+  height: 100%;
+  justify-items: center;
+  width: 100%;
+}
+
+.scroll_spy_wrapper_left {
+  grid-template-columns: 150px 1fr;
+}
+
+.scroll_spy_wrapper_right {
+  grid-template-columns: 1fr 150px;
+
+  .scroll_spy_aside {
+    order: 2;
+  }
+
+  .scroll_spy_content {
+    order: 1;
+  }
+}
+
+.scroll_spy_aside {
+  @extend %center;
+  width: 100%;
+}
+
+.scroll_spy_list {
+  @extend %list-left;
+  width: 100%;
+}
+
+.scroll_spy_list_item {
+  @extend %border-radius;
+  @extend %left;
+  color: theme.$black;
+  cursor: pointer;
+  font-weight: 300;
+  height: 35px;
+  padding-left: 0.5rem;
+  width: calc(100% - 0.5rem);
+
+  &.active {
+    background: rgba(theme.$primary-rgb, 1);
+    color: theme.$white;
+    font-weight: 400;
+  }
+}
+
+.scroll_spy_content {
+  @extend %col;
+  height: 100%;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.scroll_spy_content-item {
+  padding: 0.5rem 0;
+}
+
+.header {
+  margin: 0;
+}

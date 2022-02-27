@@ -2,6 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { Input } from '../input';
+import styles from '../input.module.scss';
 
 const handler = vi.fn();
 
@@ -10,7 +11,7 @@ describe('Input', () => {
     const { getAllByRole } = render(<Input />);
 
     expect(getAllByRole('textbox')[0]).toBeInTheDocument();
-    expect(getAllByRole('textbox')[0]).toHaveClass('rc-input-default');
+    expect(getAllByRole('textbox')[0]).toHaveClass(styles.input_default);
   });
 
   it('should have the aria label', () => {
@@ -79,13 +80,13 @@ describe('Input', () => {
   it('should be in success state', () => {
     const { container } = render(<Input state="success" />);
 
-    expect(container.firstChild).toHaveClass('rc-input-success');
+    expect(container.firstChild).toHaveClass(styles.input_success);
   });
 
   it('should be in error state', () => {
     const { container } = render(<Input state="error" />);
 
-    expect(container.firstChild).toHaveClass('rc-input-error');
+    expect(container.firstChild).toHaveClass(styles.input_error);
   });
 
   it('should render the spinner', () => {

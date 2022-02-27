@@ -10,7 +10,7 @@ import React, {
 import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { ListItem } from './list-item';
 import { ListItemsProps, ListOption } from './list-model';
-import './list.scss';
+import styles from './list.module.scss';
 
 const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
   (
@@ -91,7 +91,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
 
     return (
       <ul
-        className={'rc-list-options'}
+        className={styles.list_options}
         role="listbox"
         aria-label={`rc-list-label-${label}`}
         style={listStyle}

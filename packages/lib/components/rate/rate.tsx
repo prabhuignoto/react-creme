@@ -6,7 +6,7 @@ import RateIcon from '../../icons/star';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { RateItem } from './rate-item';
 import { RateItemProps, RateProps } from './rate-model';
-import './rate.scss';
+import styles from './rate.module.scss';
 
 const Rate: React.FunctionComponent<RateProps> = ({
   focusable = true,
@@ -84,9 +84,9 @@ const Rate: React.FunctionComponent<RateProps> = ({
   const isFirstRender = useFirstRender();
 
   const rateWrapperClass = useMemo(() => {
-    return classNames('rc-rate-wrapper', {
-      'rc-rate-disabled': disabled,
-      'rc-rate-rtl': RTL,
+    return classNames(styles.rate_wrapper, {
+      [styles.rate_disabled]: disabled,
+      [styles.rate_rtl]: RTL,
     });
   }, [disabled]);
 

@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import { Skeleton } from '../skeleton';
+import styles from '../skeleton.module.scss';
 
 describe('Skeleton', () => {
   it('should render skeleton', () => {
@@ -34,7 +35,7 @@ describe('Skeleton', () => {
 
     const children = getByTestId('rc-skeleton').children;
 
-    expect(children[0].firstChild).toHaveClass('rc-skeleton-animate');
+    expect(children[0].firstChild).toHaveClass(styles.skeleton_animate);
     // expect(children[0].firstChild).toHaveStyle("--height: 20px");
   });
 });

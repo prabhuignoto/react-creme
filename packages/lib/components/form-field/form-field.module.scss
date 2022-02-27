@@ -1,0 +1,57 @@
+@use '../../design/theme.scss';
+@use '../../design/core.scss';
+@use '../../design/font.scss';
+
+$sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
+
+.form_field {
+  @extend %col;
+  align-items: flex-start;
+  margin: 0.5rem 0;
+  padding: 1rem;
+
+  &.form_field_rtl {
+    direction: rtl;
+  }
+
+  &.form_field_border {
+    @extend %border;
+  }
+}
+
+.form_field_icon {
+  color: theme.$primary;
+  margin-right: 0.5rem;
+}
+
+@each $size in $sizes {
+  .form_field_label_#{$size} {
+    @extend %text-#{$size};
+  }
+
+  .form-field-icon-#{$size} {
+    @extend %icon-#{$size};
+  }
+
+  .form_field_#{$size} {
+    display: block;
+  }
+}
+
+.form_field_label_container {
+  @extend %left;
+  margin-bottom: 1rem;
+}
+
+.form_field_label {
+  @if $dark-mode == 'true' {
+    color: theme.$white;
+  } @else {
+    color: theme.$primary;
+  }
+}
+
+.form_field_input_container {
+  width: 100%;
+}

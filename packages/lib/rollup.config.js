@@ -51,10 +51,11 @@ export default {
     {
       banner,
       exports: 'named',
-      file: pkg.module,
       format: 'es',
       ...globals,
+      dir: './dist',
       name: OUTPUT_NAME,
+      preserveModules: true,
       strict: true,
     },
   ],
@@ -75,7 +76,6 @@ export default {
         '@babel/plugin-transform-runtime',
         '@babel/plugin-proposal-optional-chaining',
       ],
-      // skipPreflightCheck: true,
     }),
     purgecss({
       content: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
@@ -83,6 +83,7 @@ export default {
     postcss({
       extensions: ['.scss'],
       extract: true,
+      modules: true,
       plugins: [
         autoprefixer,
         BemLinter,

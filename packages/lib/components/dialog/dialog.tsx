@@ -7,7 +7,7 @@ import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
 import { withOverlay } from '../common/withOverlay';
 import { DialogProps } from './dialog-model';
-import './dialog.scss';
+import styles from './dialog.module.scss';
 
 const DialogComponent: React.FunctionComponent<DialogProps> = ({
   animationDuration = 250,
@@ -38,13 +38,13 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     () =>
       classNames(
         [
-          'rc-dialog',
+          styles.dialog,
           isClosing
-            ? `rc-dialog-${animationType}-leave`
-            : `rc-dialog-${animationType}-enter`,
+            ? styles[`dialog_${animationType}_leave`]
+            : styles[`dialog_${animationType}_enter`],
         ],
         {
-          [`rc-dialog-${size}`]: true,
+          [styles[`dialog-${size}`]]: true,
         }
       ),
     [isClosing, size]
@@ -78,11 +78,11 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
       style={style}
       {...focusProps.current}
     >
-      <header className="rc-dialog-header">
-        <h2 className="rc-dialog-title" id={id.current}>
+      <header className={styles.dialog_header}>
+        <h2 className={styles.dialog_title} id={id.current}>
           {title}
         </h2>
-        <div className="rc-dialog-button-wrapper">
+        <div className={styles.dialog_button_wrapper}>
           <Button
             type="icon"
             onClick={handleClose}
@@ -94,8 +94,8 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
           </Button>
         </div>
       </header>
-      <section className="rc-dialog-body">{children}</section>
-      <footer className="rc-dialog-footer">
+      <section className={styles.dialog_body}>{children}</section>
+      <footer className={styles.dialog_footer}>
         <Button
           label="okay"
           type="primary"

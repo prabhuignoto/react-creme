@@ -2,6 +2,7 @@ import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { CarouselTrack } from '../carousel-track';
+import styles from '../carousel-track.module.scss';
 
 const handler = vi.fn();
 
@@ -18,7 +19,7 @@ describe('Carousel Track', () => {
       />
     );
 
-    expect(getByRole('list')).toHaveClass('rc-carousel-track-horizontal');
+    expect(getByRole('list')).toHaveClass(styles.track_horizontal);
     expect(getAllByRole('listitem')).toHaveLength(3);
   });
 
@@ -66,8 +67,6 @@ describe('Carousel Track', () => {
       />
     );
 
-    expect(getAllByRole('listitem')[1]).toHaveClass(
-      'rc-carousel-track-item-selected'
-    );
+    expect(getAllByRole('listitem')[1]).toHaveClass(styles.track_item_selected);
   });
 });

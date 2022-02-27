@@ -1,0 +1,97 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/animate.scss';
+@use '../../design/list.scss';
+@use '../../design/position.scss';
+
+$dark-mode: theme.$dark-mode;
+$settings: (
+  from: (
+    background-position: 0% 0%,
+  ),
+  to: (
+    background-position: 400% 400%,
+  ),
+);
+
+.skeleton_wrapper {
+  @extend %border-radius;
+  min-height: var(--min-height);
+  min-width: var(--min-width);
+
+  @if $dark-mode == 'true' {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: theme.$light-bg;
+  }
+}
+
+.skeleton_row {
+  @extend %border-radius;
+  display: block;
+  height: var(--height);
+  margin: 0.5rem 0;
+  padding-left: 0.5rem;
+  z-index: -1;
+
+  &.skeleton_animate:not(.skeleton_disable_animation) {
+    animation-direction: reverse;
+    animation-name: animate-skeleton;
+  }
+}
+
+.skeleton_disable_animation {
+  @if $dark-mode == 'true' {
+    background: theme.$charcoal-gray;
+  } @else {
+    background: theme.$chinese-gray;
+  }
+}
+
+.skeleton_row:not(.skeleton_disable_animation) {
+  @include animate.set-settings(2s, linear, true);
+  @include animate.set-keyframes(animate-skeleton, $settings);
+
+  @if $dark-mode == 'true' {
+    background: linear-gradient(
+      90deg,
+      theme.$charcoal-gray 0%,
+      theme.$gunmetal-gray 35%,
+      theme.$charcoal-gray 100%
+    );
+  } @else {
+    background: linear-gradient(
+      90deg,
+      theme.$mercury 0%,
+      theme.$chinese-gray 35%,
+      theme.$mercury 100%
+    );
+  }
+  background-position: 400% 400%;
+  background-size: 200% 200%;
+}
+
+.skeleton_block:not(:first-child) {
+  margin: 2rem 0;
+}
+
+.skeleton_block {
+  padding: 1rem;
+  position: relative;
+
+  &.skeleton_block_rtl {
+    direction: rtl;
+  }
+}
+
+.skeleton_circle {
+  @if $dark-mode == 'true' {
+    background: theme.$charcoal-gray;
+  } @else {
+    background: theme.$chinese-gray;
+  }
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: 1;
+}

@@ -2,6 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { GlobalNotification } from '../global-notification';
+import styles from '../global-notification.module.scss';
 
 describe('GlobalNotification', () => {
   it('should render global notification', async () => {
@@ -21,7 +22,7 @@ describe('GlobalNotification', () => {
     await waitFor(() => {
       expect(getByRole('alert')).toBeInTheDocument();
       expect(getByRole('alert')).toHaveClass(
-        'rc-global-notification-success'
+        styles.global_notification_success
       );
     });
   });
@@ -33,9 +34,7 @@ describe('GlobalNotification', () => {
 
     await waitFor(() => {
       expect(getByRole('alert')).toBeInTheDocument();
-      expect(getByRole('alert')).toHaveClass(
-        'rc-global-notification-error'
-      );
+      expect(getByRole('alert')).toHaveClass(styles.global_notification_error);
     });
   });
 
@@ -47,7 +46,7 @@ describe('GlobalNotification', () => {
     await waitFor(() => {
       expect(getByRole('alert')).toBeInTheDocument();
       expect(getByRole('alert')).toHaveClass(
-        'rc-global-notification-warning'
+        styles.global_notification_warning
       );
     });
   });
@@ -59,9 +58,7 @@ describe('GlobalNotification', () => {
 
     await waitFor(() => {
       expect(getByRole('alert')).toBeInTheDocument();
-      expect(getByRole('alert')).toHaveClass(
-        'rc-global-notification-info'
-      );
+      expect(getByRole('alert')).toHaveClass(styles.global_notification_info);
     });
   });
 

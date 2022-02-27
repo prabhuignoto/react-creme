@@ -3,8 +3,7 @@ import React from 'react';
 import { vi } from 'vitest';
 import { Tags } from '../tags';
 import { TagItemProps } from '../tags-model';
-
-const onSelected = vi.fn();
+import styles from '../tags.module.scss';
 
 const tags: TagItemProps[] = [
   { name: 'one' },
@@ -29,7 +28,7 @@ describe('Tags', () => {
   it('Should render disabled', () => {
     const { getAllByRole } = render(<Tags items={tagsWithDisabled} />);
 
-    expect(getAllByRole('listitem')[1]).toHaveClass('rc-tag-disabled');
+    expect(getAllByRole('listitem')[1]).toHaveClass(styles.tag_disabled);
   });
 
   it('Should create new tag', async () => {
@@ -63,7 +62,7 @@ describe('Tags', () => {
     const oneParent = one.parentElement;
 
     if (oneParent) {
-      const closeIcon = oneParent.querySelector('.rc-tag-icon');
+      const closeIcon = oneParent.querySelector('.' + styles.tag_icon);
 
       if (closeIcon) {
         fireEvent.click(closeIcon);
@@ -138,7 +137,7 @@ describe('Tags', () => {
   it('should render custom sized tag', () => {
     const { container } = render(<Tags items={tags} size="md" />);
 
-    expect(container.querySelectorAll('.rc-tag-md')).toHaveLength(3);
+    expect(container.querySelectorAll(`.${styles.tag_md}`)).toHaveLength(3);
   });
 
   it('should not exceed max tags', async () => {

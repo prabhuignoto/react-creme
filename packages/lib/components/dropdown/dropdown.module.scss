@@ -1,0 +1,46 @@
+@use '../../design/theme.scss';
+@use '../../design/core.scss';
+@use '../../design/list.scss';
+@use '../../design/animate.scss';
+
+.dropdown {
+  position: relative;
+  user-select: none;
+  width: 100%;
+
+  &.dropdown_disabled {
+    @extend %disabled;
+  }
+}
+
+.dropdown_multi {
+  display: flex;
+  max-height: 400px;
+  min-height: 35px;
+  transition: max-height 0.5s ease-in;
+}
+
+.dropdown_single {
+  .dropdown_chevron_icon {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+}
+
+.dropdown_rtl {
+  .dropdown_chevron_icon {
+    order: 1;
+  }
+
+  .dropdown_clear_icon {
+    order: 2;
+  }
+
+  .dropdown_value {
+    order: 3;
+  }
+
+  .dropdown_tags_wrapper {
+    order: 3;
+  }
+}

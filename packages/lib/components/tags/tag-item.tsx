@@ -11,7 +11,7 @@ import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
 import { useKey } from '../common/effects/useKey';
 import { TagItemProps } from './tags-model';
-import './tags.scss';
+import styles from './tags.module.scss';
 
 type TagItemViewProps = TagItemProps & {
   handleRemove: (id: string) => void;
@@ -44,28 +44,28 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     const editable = useMemo(() => !disabled && !readonly, []);
     const tagItemClass = useMemo(
       () =>
-        classNames('rc-tag', {
-          'rc-tag-disabled': disabled,
-          'rc-tag-marked-for-removal':
+        classNames(styles.tag, 'rc-tag', {
+          [styles.tag_disabled]: disabled,
+          [styles.tag_marked_for_removal]:
             markedForRemoval && !isFirstRender.current,
-          [`rc-tag-style-${tagStyle}`]: true,
-          [`rc-tag-${size}`]: true,
-          'rc-tag-readonly': readonly,
-          [`rc-tag-accent-${accent}`]: true,
+          [styles[`tag_style_${tagStyle}`]]: true,
+          [styles[`tag_${size}`]]: true,
+          [styles.tag_readonly]: readonly,
+          [styles[`tag_accent_${accent}`]]: true,
         }),
       [markedForRemoval]
     );
 
     const tagIconClass = useMemo(
       () =>
-        classNames('rc-tag-icon', {
-          [`rc-tag-icon-${tagStyle}`]: true,
-          'rc-tag-icon-editable': editable,
+        classNames(styles.tag_icon, {
+          [styles[`tag_icon_${tagStyle}`]]: true,
+          [styles.tag_icon_editable]: editable,
         }),
       [editable]
     );
 
-    const tagName = useMemo(() => classNames('rc-tag-name', {}), []);
+    const tagName = useMemo(() => classNames(styles.tag_name, {}), []);
 
     const style = useMemo(
       () =>

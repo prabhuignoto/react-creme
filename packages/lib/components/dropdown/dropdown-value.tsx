@@ -4,7 +4,7 @@ import { ChevronDownIcon, CloseIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { Tags } from '../tags/tags';
 import { DropdownValueProps } from './dropdown-model';
-import './dropdown-value.scss';
+import styles from './dropdown-value.module.scss';
 
 const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   RTL,
@@ -25,14 +25,14 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
 }: DropdownValueProps) => {
   const rcDropdownValueClass = useMemo(
     () =>
-      cls('rc-dropdown-value-container', {
-        'rc-dropdown-disabled': disabled,
-        'rc-dropdown-menu-open': showMenu,
-        'rc-dropdown-multi': allowMultiSelection,
-        'rc-dropdown-rtl': RTL,
-        'rc-dropdown-single': !allowMultiSelection,
-        'rc-dropdown-with-clear': showClearBtn,
-        [`rc-dropdown-value-${size}`]: true,
+      cls(styles.dropdown_value_container, {
+        [styles.dropdown_menu_open]: disabled,
+        [styles.menu]: showMenu,
+        [styles.dropdown_multi]: allowMultiSelection,
+        [styles.dropdown_rtl]: RTL,
+        [styles.single]: !allowMultiSelection,
+        [styles.dropdown_with_clear]: showClearBtn,
+        [styles[`dropdown_value_${size}`]]: true,
       }),
     [disabled, showMenu]
   );
@@ -40,8 +40,8 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   const rcDropdownIconClass = useMemo(
     () =>
       cls(
-        'rc-dropdown-chevron-icon',
-        showMenu && !menuClosing ? 'rc-dropdown-chevron-icon-rotate' : ''
+        styles.dropdown_chevron_icon,
+        showMenu && !menuClosing ? styles.dropdown_chevron_icon_rotate : ''
       ),
     [showMenu, menuClosing]
   );
@@ -53,8 +53,8 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
 
   const rcDropdownClearClass = useMemo(
     () =>
-      cls('rc-dropdown-clear-icon', {
-        'rc-dropdown-clear-icon-hidden': canHideClearButton,
+      cls(styles.dropdown_clear_icon, {
+        [styles.dropdown_clear_icon_hidden]: canHideClearButton,
       }),
     [showClearBtn, canHideClearButton]
   );
@@ -66,8 +66,8 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   }, []);
 
   const valueClass = useMemo(() => {
-    return cls('rc-dropdown-value', {
-      'rc-dropdown-rtl': RTL,
+    return cls(styles.dropdown_value, {
+      [styles.dropdown_rtl]: RTL,
     });
   }, []);
 
@@ -91,7 +91,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
     >
       {allowMultiSelection ? (
         Array.isArray(selectedValue) ? (
-          <div className="rc-dropdown-tags-wrapper">
+          <div className={styles.dropdown_tags_wrapper}>
             <Tags
               items={selectedValue}
               readonly

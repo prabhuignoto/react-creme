@@ -1,0 +1,28 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/position.scss';
+
+$dark-mode: theme.$dark-mode;
+
+.input_wrapper {
+  @extend %center;
+  height: 35px;
+}
+
+.suggestions_wrapper {
+  @extend %shadow-small;
+  @extend %border-radius;
+  width: var(--suggestions-width, 200px);
+  z-index: 999;
+  @if dark-mode {
+    background: theme.$charcoal-gray;
+  } @else {
+    background: theme.$white;
+  }
+}
+
+.auto_suggest {
+  &.rtl {
+    direction: rtl;
+  }
+}

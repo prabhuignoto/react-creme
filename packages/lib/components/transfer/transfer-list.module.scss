@@ -1,0 +1,36 @@
+@use '../../design/core.scss';
+@use '../../design/list.scss';
+@use '../../design/theme.scss';
+@use '../../design/position.scss';
+
+.transfer_list {
+  @extend %list;
+  @extend %border;
+  padding: 1rem;
+  width: calc(100%);
+}
+
+.transfer_list_item {
+  @extend %left;
+  cursor: pointer;
+  height: 45px;
+  padding-left: 0.5rem;
+  user-select: none;
+  width: 100%;
+
+  &.selected {
+    color: theme.$tertiary;
+  }
+
+  &:hover:not(.header) {
+    background-color: theme.$light-bg;
+  }
+
+  &.header {
+    column-gap: 5px;
+    display: grid;
+    grid-template-columns: 30px calc(100% - 35px);
+    height: 30px;
+    margin-bottom: 1rem;
+  }
+}

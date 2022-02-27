@@ -1,0 +1,136 @@
+@use '../../design/core.scss';
+@use '../../design/animate.scss';
+@use '../../design/theme.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+$dark-mode: theme.$dark-mode;
+
+$grid: (
+  sm: 16px,
+  md: 24px,
+  lg: 28px,
+);
+
+$heights: (
+  sm: 35px,
+  md: 40px,
+  lg: 45px,
+);
+
+.checkbox_wrapper {
+  @extend %left;
+  align-items: center;
+  cursor: pointer;
+  display: grid;
+  height: 100%;
+  justify-items: center;
+  padding: 0.25rem 0;
+  padding: 0 0.5rem;
+  width: 100%;
+
+  &.checkbox_rtl {
+    direction: rtl;
+  }
+
+  &.checkbox_disabled {
+    @extend %disabled;
+  }
+
+  @each $key, $val in $grid {
+    &.checkbox_#{$key} {
+      display: flex;
+
+      &:not(.checkbox_auto_height) {
+        min-height: map.get($heights, $key);
+      }
+    }
+  }
+}
+
+.checkbox_border {
+  @if not $dark-mode == 'true' {
+    @extend %border;
+  }
+}
+
+.checkbox_hover:hover {
+  @extend %border-radius;
+
+  @if $dark-mode == 'true' {
+    background-color: theme.$gunmetal-gray;
+  } @else {
+    background: rgba(theme.$secondary-rgb, 0.25);
+  }
+}
+
+.checkbox {
+  @extend %left;
+  user-select: none;
+  z-index: 1;
+
+  * {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    @extend %disabled;
+  }
+}
+
+.checkbox_icon {
+  @if $dark-mode == 'true' {
+    @extend %border-radius;
+    background: theme.$charcoal-gray;
+  } @else {
+    @extend %border;
+    background: theme.$white;
+  }
+
+  &.checkbox_round {
+    border-radius: 50%;
+  }
+
+  svg {
+    display: none;
+  }
+
+  &.checkbox_checked {
+    background: theme.$primary;
+  }
+
+  &.checkbox_checked svg {
+    color: theme.$white;
+    display: block;
+  }
+}
+
+.checkbox_label {
+  @extend %text-no-wrap;
+  cursor: pointer;
+  display: block;
+  font-weight: 300;
+  padding-left: 0.5rem;
+
+  @if $dark-mode == 'true' {
+    color: theme.$white;
+  }
+
+  &.checkbox_label_rtl {
+    padding-right: 0.5rem;
+  }
+
+  @each $key in $sizes {
+    &.checkbox_label_#{$key} {
+      @extend %font-#{$key};
+    }
+  }
+}
+
+@each $size in $sizes {
+  .checkbox_#{$size} {
+    &.checkbox_icon {
+      @extend %icon-#{$size};
+    }
+  }
+}

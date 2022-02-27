@@ -1,0 +1,230 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/position.scss';
+@use '../../design/list.scss';
+@use '../../design/animate.scss';
+
+$flat-tabs-height: 45px;
+$rounded-tabs-height: 45px;
+
+$sizes: (sm, md, lg);
+
+$dark-mode: theme.$dark-mode;
+
+.tab_headers_wrapper {
+  @extend %left;
+  position: relative;
+  width: 100%;
+
+  &.tab_headers_wrapper-flat::after {
+    height: 2px;
+  }
+}
+
+.tab_headers_wrapper::after {
+  @include position.position-abs('bottom center');
+  content: '';
+  display: block;
+  height: 4px;
+  width: 100%;
+
+  @if $dark-mode == 'true' {
+    background: theme.$charcoal-gray;
+  } @else {
+    background: theme.$platinum;
+  }
+}
+
+.tab_headers_flat {
+  height: $flat-tabs-height;
+}
+
+.tab_headers_rounded {
+  height: $rounded-tabs-height;
+
+  &::after {
+    bottom: 3px;
+    height: 1px;
+  }
+}
+
+.tab_headers {
+  @extend %list-horizontal-left;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  width: 90%;
+  z-index: 1;
+}
+
+.tab_header_control {
+  @extend %center;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 100%;
+  justify-content: space-around;
+  margin-left: auto;
+  width: 5rem;
+}
+
+.tab_header_btn {
+  @extend %border-radius;
+  @extend %icon-lg;
+  color: var(--icons-color, theme.$primary);
+  cursor: pointer;
+
+  &:hover {
+    background: theme.$secondary;
+  }
+
+  &.tab_header_btn_disabled {
+    @extend %disabled;
+  }
+}
+
+.tab_header_btn_left {
+  transform: rotate(180deg);
+}
+
+.tab_head {
+  min-width: 120px;
+  position: relative;
+  user-select: none;
+
+  @if $dark-mode == 'true' {
+    color: theme.$white;
+  } @else {
+    color: theme.$black;
+  }
+
+  &:hover {
+    color: theme.$primary;
+  }
+
+  &.tab_head_rounded {
+    height: 80%;
+  }
+
+  &.tab_head_flat {
+    height: 80%;
+  }
+
+  &.tab_head_disabled {
+    @extend %disabled;
+  }
+
+  &.tab_head_selected {
+    color: theme.$primary;
+  }
+
+  &:not(.tab_head_selected) {
+    cursor: pointer;
+  }
+
+  &:not(:first-child) {
+    margin-left: 0.75rem;
+  }
+
+  &:not(.tab_head_with_icon) {
+    @extend %center;
+  }
+
+  &.tab_head_with_icon {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 2.5rem calc(100% - 2rem) 0.5rem;
+    justify-items: center;
+  }
+}
+
+@each $size in $sizes {
+  .tab_head_#{$size} {
+    .tab_header_label {
+      @extend %font-#{$size};
+    }
+
+    .tab_head_icon {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.tab_head_flat {
+  &.tab_head_selected::after {
+    @include position.position-abs('bottom center');
+    background: theme.$primary;
+    bottom: -4px;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100%;
+  }
+
+  &::after {
+    @include position.position-abs('bottom center');
+    // background: rgba(theme.$primary-rgb, 70%);
+    content: '';
+    display: block;
+    transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 0;
+  }
+
+  &.tab_header_selected::after {
+    width: 100%;
+  }
+}
+
+.tab_header_label {
+  @extend %left;
+  height: 90%;
+  position: relative;
+  text-transform: capitalize;
+  white-space: nowrap;
+  width: 90%;
+
+  &.tab_header_selected {
+    color: theme.$tertiary;
+    position: relative;
+  }
+
+  &:not(.tab_header_label_icon) {
+    @extend %center;
+    width: 100%;
+  }
+}
+
+.tab_head_rounded {
+  @if $dark-mode == 'true' {
+    border: 1px solid theme.$charcoal-gray;
+  } @else {
+    border: 1px solid theme.$platinum;
+  }
+  border-bottom: 0;
+  border-radius: 4px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
+}
+
+.tab_head_rounded.tab_head_selected::after {
+  @include position.position-abs('bottom center');
+  @if $dark-mode == 'true' {
+    background: theme.$black;
+  } @else {
+    background: theme.$white;
+  }
+  bottom: -2px;
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  z-index: -1;
+}
+
+.tab_head_icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  padding-left: 0.2rem;
+}

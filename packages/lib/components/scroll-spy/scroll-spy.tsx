@@ -6,7 +6,7 @@ import {
   ScrollSpyLinkInternal,
   ScrollSpyProps,
 } from './scroll-spy.model';
-import './scroll-spy.scss';
+import styles from './scroll-spy.module.scss';
 
 const ScrollSpy: React.FC<ScrollSpyProps> = ({
   links = [],
@@ -141,22 +141,23 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
   }, []);
 
   const spyWrapperClass = useMemo(() => {
-    return classNames('rc-scroll-spy-wrapper', {
-      [`rc-scroll-spy-wrapper-${linksPosition}`]: true,
+    return classNames(styles.scroll_spy_wrapper, {
+      [styles[`scroll_spy_wrapper_${linksPosition}`]]: true,
     });
   }, []);
 
   return (
     <div className={spyWrapperClass}>
-      <div className="rc-scroll-spy-aside">
-        <ul className="rc-scroll-spy-list">
+      <div className={styles.scroll_spy_aside}>
+        <ul className={styles.scroll_spy_list}>
           {scrollSpyLinks.map((link, index) => {
             return (
               <li
                 key={link.id}
-                className={`rc-scroll-spy-list-item ${
-                  link.active ? 'active' : ''
-                }`}
+                className={classNames(
+                  styles.scroll_spy_list_item,
+                  link.active ? styles.active : ''
+                )}
                 onClick={ev => {
                   ev.preventDefault();
                   handleScrollTo(link.id, index);
@@ -168,16 +169,21 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
           })}
         </ul>
       </div>
-      <div className="rc-scroll-spy-content" ref={onRef} onWheel={handleScroll}>
+      <div
+        className={styles.scroll_spy_content}
+        ref={onRef}
+        onWheel={handleScroll}
+      >
         {contents.map((content, index) => {
           return (
             <div
               key={content.id}
-              className={`rc-scroll-spy-content-item ${
-                content.active ? 'active' : ''
-              }`}
+              className={classNames(
+                styles['scroll_spy_content-item'],
+                content.active ? styles.active : ''
+              )}
             >
-              <h4 className="rc-header" id={content.id}>
+              <h4 className={styles.header} id={content.id}>
                 {links[index]}
               </h4>
               {Array.isArray(children) ? children[index] : children}

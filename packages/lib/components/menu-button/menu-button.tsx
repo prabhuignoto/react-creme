@@ -6,7 +6,7 @@ import { Button } from '../button/button';
 import { Menu } from '../menu/menu';
 import { MenuItemProps } from '../menu/menu-item';
 import { MenuButtonProps } from './menu-button.model';
-import './menu-button.scss';
+import styles from './menu-button.module.scss';
 
 const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   items = [],
@@ -31,10 +31,10 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
 
   const menuButtonClass = useMemo(
     () =>
-      classNames('rc-menu-btn-wrapper', {
-        'rc-menu-btn-disabled': disabled,
-        'rc-menu-btn-rtl': RTL,
-        [`rc-menu-btn-${size}`]: true,
+      classNames(styles.menu_btn_wrapper, {
+        [styles.menu_btn_disabled]: disabled,
+        [styles.menu_btn_rtl]: RTL,
+        [styles[`menu_btn_${size}`]]: true,
       }),
     [disabled]
   );
@@ -66,7 +66,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         dockPosition={menuPosition}
         size={size}
       >
-        <span className="rc-menu-btn-icon" role="img">
+        <span className={styles.menu_btn_icon} role="img">
           <ChevronDownIcon />
         </span>
       </Menu>

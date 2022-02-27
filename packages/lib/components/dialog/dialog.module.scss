@@ -1,0 +1,79 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/button.scss';
+@use '../../design/animate.scss';
+@use '../../design/animations.scss';
+
+$dark-mode: theme.$dark-mode;
+
+.dialog {
+  $animations: (pop, drop, rise, slide-left, slide-right);
+  @extend %col;
+  @include animate.set-settings(var(--rc-dialog-animation-duration));
+
+  @each $animation in $animations {
+    @include animations.set-animation($animation, from);
+    @include animations.set-animation($animation, to);
+  }
+
+  @if $dark-mode == 'true' {
+    @extend %border-radius;
+    background-color: theme.$gunmetal-gray;
+  } @else {
+    @extend %shadow-inset;
+    @extend %border;
+    background-color: theme.$white;
+  }
+  min-height: 300px;
+  min-width: var(--min-width, 300px);
+
+  @each $animation in $animations {
+    &.dialog_#{$animation}_enter {
+      animation-name: rc-animation-#{$animation}-enter;
+    }
+
+    &.dialog_#{$animation}_leave {
+      animation-name: rc-animation-#{$animation}-leave;
+    }
+  }
+}
+
+.dialog_header {
+  @extend %left;
+  margin: 0.25rem 0;
+  width: 100%;
+}
+
+.dialog_body {
+  @extend %center;
+  width: 100%;
+}
+
+.dialog_footer {
+  @extend %right;
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  margin-top: auto;
+  width: 100%;
+
+  [role='button']:first-of-type {
+    margin-right: 0.5rem;
+  }
+}
+
+.dialog_btn {
+  @extend %button-lg;
+}
+
+.dialog_title {
+  @extend %center;
+  font-size: 1rem;
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.dialog_button_wrapper {
+  margin-left: auto;
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+}

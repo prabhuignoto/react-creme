@@ -12,7 +12,7 @@ import {
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { AccordionHeader } from './accordion-header';
 import { AccordionProps } from './accordion-model';
-import './accordion.scss';
+import styles from './accordion.module.scss';
 
 const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
   ({
@@ -64,10 +64,10 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
 
     const accordionBodyClass = useMemo(
       () =>
-        cls('rc-accordion-body', {
-          'rc-accordion-animate': animate,
-          'rc-accordion-close': !open,
-          'rc-accordion-open': open && !isFirstRender.current,
+        cls(styles.body, {
+          [styles.animate]: animate,
+          [styles.close]: !open,
+          [styles.open]: open && !isFirstRender.current,
         }),
       [open]
     );
@@ -98,9 +98,9 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
 
     const accordionClass = useMemo(
       () =>
-        cls('rc-accordion', {
-          'rc-accordion-no-border': !border,
-          'rc-accordion-open': open,
+        cls(styles.accordion, {
+          [styles['no-border']]: !border,
+          [styles['open']]: open,
         }),
       [border, open, alignIconRight]
     );

@@ -1,0 +1,167 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/button.scss';
+@use '../../design/animate.scss';
+@use '../../design/position.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+$heights: (
+  sm: 30px,
+  md: 35px,
+  lg: 40px,
+);
+$dark-mode: theme.$dark-mode;
+
+.input {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 2rem calc(100% - 4rem) 2rem;
+  justify-items: center;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+
+  &.input_rtl {
+    direction: rtl;
+  }
+
+  &.input_border {
+    @extend %border;
+  }
+
+  &::after {
+    @include position.position-abs('center center');
+    border: 2px solid transparent;
+    border-radius: 4px;
+    content: '';
+    display: block;
+    height: 98%;
+    transition: border 0.1s ease-in, box-shadow 0.1s ease-in;
+    width: 98%;
+    z-index: -1;
+  }
+
+  &.input_focus::after {
+    border: 2px solid rgba(theme.$primary-rgb, 0.75);
+    box-shadow: 0 0 1px 4px rgba(theme.$primary-rgb, 0.25);
+  }
+
+  &:not(.input_border):not(.input_rounded) {
+    @extend %border-radius;
+  }
+
+  &.input_rounded {
+    @extend %border-radius-high;
+  }
+
+  &.input_transparent_bg_color {
+    background: transparent;
+  }
+
+  ::input-placeholder {
+    color: rgba($color: #000, $alpha: 0.35);
+    font-weight: 300;
+  }
+
+  ::placeholder {
+    font-weight: 300;
+  }
+
+  &.input_error.input_border {
+    @extend %border-error;
+  }
+
+  &.input_success {
+    @extend %border-success;
+  }
+
+  &.input_no_icon {
+    grid-template-columns: 0.5rem calc(100% - 2.5rem) 2rem;
+  }
+
+  &.input_disabled {
+    @extend %disabled;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+}
+
+.input input {
+  background: transparent;
+  border: 0;
+  height: 100%;
+  outline: 0;
+  padding: 0;
+  width: 100%;
+
+  @if dark-mode {
+    color: theme.$white;
+  } @else {
+    color: theme.$black;
+  }
+}
+
+.input:not(.input_border).input_default:not(.input_transparent_bg_color) {
+  @if $dark-mode == 'true' {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: theme.$light-bg;
+    box-shadow: inset 0 0 3px 1px rgba($color: theme.$alto, $alpha: 0.25);
+  }
+}
+
+@each $size in $sizes {
+  .input_#{$size} {
+    height: map.get($heights, $size);
+
+    input {
+      @extend %font-#{$size};
+    }
+
+    ::placeholder {
+      @extend %font-#{$size};
+    }
+
+    .input_icon {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.input_error:not(.input_border) {
+  border: 1px solid rgba(theme.$crimson, 0.5);
+
+  &.input_focus::after {
+    border: 2px solid theme.$crimson;
+    box-shadow: 0 0 1px 4px rgba(theme.$crimson, 0.25);
+  }
+}
+
+.input_success:not(.input_border) {
+  border: 1px solid rgba(theme.$success-green, 0.5);
+
+  &.input_focus::after {
+    border: 2px solid theme.$success-green;
+    box-shadow: 0 0 1px 4px rgba(theme.$success-green, 0.25);
+  }
+}
+
+.input_icon {
+  color: theme.$primary;
+}
+
+.input_clear {
+  color: theme.$tertiary;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+
+  &.hidden {
+    visibility: hidden;
+  }
+}

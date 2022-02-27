@@ -1,0 +1,31 @@
+@use '../../design/core.scss';
+@use '../../design/list.scss';
+
+.radio_group {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  &.radio_group_row {
+    @extend %center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+.radio_group_column {
+  @extend %list-left;
+
+  .radio_grp_item {
+    width: 100%;
+  }
+}
+
+.radio_grp_item {
+  @extend %list-item-left;
+  margin: 0.5rem;
+
+  &.radio_grp_item_disabled {
+    @extend %disabled;
+  }
+}

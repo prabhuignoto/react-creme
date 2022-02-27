@@ -1,0 +1,70 @@
+@use '../../design/theme.scss';
+@use '../../design/core.scss';
+@use '../../design/icon.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+$heights: (
+  sm: 30px,
+  md: 35px,
+  lg: 40px,
+);
+$dark-mode: theme.$dark-mode;
+
+.input_number {
+  @extend %left;
+  padding: 0.2rem;
+
+  &.input_number_border {
+    @extend %border;
+  }
+
+  &.input_number_rtl {
+    direction: rtl;
+  }
+}
+
+.input_number:not(.input_number_border) {
+  @extend %border-radius;
+
+  @if $dark-mode == 'true' {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: theme.$light-bg;
+  }
+}
+
+.input_number_controls {
+  @extend %col;
+  margin-left: auto;
+}
+
+@each $size in $sizes {
+  .input_number_#{$size} {
+    .input_number_btn {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.input_number_btn {
+  @extend %border-radius;
+  background: theme.$secondary;
+  cursor: pointer;
+
+  @if $dark-mode == 'true' {
+    color: theme.$white;
+  } @else {
+    color: theme.$primary;
+  }
+
+  &.increment {
+    margin-bottom: 0.2rem;
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    background: theme.$primary;
+    color: theme.$white;
+  }
+}

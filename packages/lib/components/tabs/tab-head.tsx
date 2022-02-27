@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { useEffect, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { TabHeadProps } from './tabs-model';
-import './tabs.scss';
+import styles from './tab-header.module.scss';
 
 const TabHead: React.FC<TabHeadProps> = React.memo(
   ({
@@ -26,25 +26,25 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     }
 
     const headerLabelClass = useMemo(() => {
-      return classNames('rc-tab-header-label', {
-        [`rc-tab-header-${tabStyle}`]: true,
-        'rc-tab-header-label-icon': icon,
+      return classNames(styles.tab_header_label, {
+        [styles[`tab_header_${tabStyle}`]]: true,
+        [styles.tab_header_label_icon]: icon,
       });
     }, [icon]);
 
     const tabHeadClass = useMemo(() => {
-      return classNames('rc-tab-head', {
-        'rc-tab-head-disabled': disabled,
-        'rc-tab-head-selected': selected,
-        [`rc-tab-head-${tabStyle}`]: true,
-        'rc-tab-head-with-icon': icon,
-        [`rc-tab-head-${size}`]: true,
+      return classNames(styles.tab_head, {
+        [styles.tab_head_disabled]: disabled,
+        [styles.tab_head_selected]: selected,
+        [styles[`tab_head_${tabStyle}`]]: true,
+        [styles.tab_head_with_icon]: icon,
+        [styles[`tab_head_${size}`]]: true,
       });
     }, [disabled, selected, icon]);
 
     const tabHeadIcon = useMemo(() => {
-      return classNames('rc-tab-head-icon', {
-        'rc-tab-head-icon-selected': selected,
+      return classNames(styles.tab_head_icon, {
+        [styles.tab_head_selected]: selected,
       });
     }, []);
 

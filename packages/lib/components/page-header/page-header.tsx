@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
-import './page-header.scss';
+import styles from './page-header.module.scss';
 
 export interface PageHeaderProps {
   RTL?: boolean;
@@ -18,29 +18,29 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   icon,
 }) => {
   const headerClass = useMemo(() => {
-    return classNames('rc-page-header', {
-      'rc-page-header-rtl': RTL,
-      [`rc-page-header-${size}`]: size,
+    return classNames(styles.page_header, {
+      [styles.page_header_rtl]: RTL,
+      [styles[`page_header_${size}`]]: size,
     });
   }, []);
 
   const titleClass = useMemo(() => {
-    return classNames('rc-page-header-title');
+    return classNames(styles.page_header_title);
   }, []);
 
   const headerIconClass = useMemo(() => {
-    return classNames('rc-page-header-icon', {
-      [`rc-page-header-icon-${size}`]: true,
+    return classNames(styles.page_header_icon, {
+      [styles[`page_header_icon_${size}`]]: true,
     });
   }, []);
 
   return (
     <header className={headerClass}>
-      <div className="rc-page-header-title-container">
+      <div className={styles.page_header_title_container}>
         {icon && <span className={headerIconClass}>{icon}</span>}
         <h2 className={titleClass}>{title}</h2>
       </div>
-      <div className="rc-page-header-content">{children}</div>
+      <div className={styles.page_header_content}>{children}</div>
     </header>
   );
 };

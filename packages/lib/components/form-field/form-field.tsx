@@ -1,48 +1,48 @@
 import classNames from 'classnames';
 import React, { FunctionComponent, useMemo } from 'react';
 import { FormFieldProps } from './form-field.model';
-import './form-field.scss';
+import styles from './form-field.module.scss';
 
 const FormField: FunctionComponent<FormFieldProps> = ({
   RTL = false,
   disabled = false,
   icon,
   label,
-  size,
+  size = 'sm',
   border = true,
   children,
   id,
 }) => {
   const formFieldClass = useMemo(() => {
-    return classNames('rc-form-field', {
-      [`rc-form-field-${size}`]: true,
-      'rc-form-field-border': border,
-      'rc-form-field-disabled': disabled,
-      'rc-form-field-rtl': RTL,
+    return classNames(styles.form_field, {
+      [styles[`form_field_${size}`]]: true,
+      [styles.form_field_border]: border,
+      [styles.form_field_disabled]: disabled,
+      [styles.form_field_rtl]: RTL,
     });
   }, []);
 
   const formLabelClass = useMemo(() => {
-    return classNames('rc-form-field-label', {
-      [`rc-form-field-label-${size}`]: true,
+    return classNames(styles.form_field_label, {
+      [styles[`form_field_label_${size}`]]: true,
     });
   }, []);
 
   const formIconClass = useMemo(() => {
-    return classNames('rc-form-field-icon', {
-      [`rc-form-field-icon-${size}`]: true,
+    return classNames(styles.form_field_icon, {
+      [styles[`rc_form_field_icon_${size}`]]: true,
     });
   }, []);
 
   return (
     <div className={formFieldClass}>
-      <div className="rc-form-field-label-container">
+      <div className={styles.form_field_label_container}>
         {icon && <span className={formIconClass}>{icon}</span>}
         <label className={formLabelClass} aria-label={label} htmlFor={id}>
           {label}
         </label>
       </div>
-      <div className="rc-form-field-input-container">{children}</div>
+      <div className={styles.form_field_input_container}>{children}</div>
     </div>
   );
 };

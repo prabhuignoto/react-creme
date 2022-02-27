@@ -6,7 +6,7 @@ import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
 import { withOverlay } from '../common/withOverlay';
 import { DrawerProps } from './drawer-model';
-import './drawer.scss';
+import styles from './drawer.module.scss';
 
 const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   children,
@@ -66,10 +66,11 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
    */
   const drawerClass = useMemo(
     () =>
-      classNames(['rc-drawer', `rc-drawer-${position}`], {
-        [`visible slide-${position}-enter`]: activate && !isClosing,
-        [`visible slide-${position}-exit`]: isClosing,
-        [`rc-drawer-${size}`]: size,
+      classNames([styles.drawer, styles[`drawer-${position}`]], {
+        [styles[`slide-${position}-enter`]]: activate && !isClosing,
+        [styles[`slide-${position}-exit`]]: isClosing,
+        [styles.visible]: activate,
+        [styles[`drawer-${size}`]]: size,
       }),
     [activate, isClosing]
   );
@@ -89,7 +90,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
       aria-modal="true"
       {...focusProps.current}
     >
-      <div className="rc-drawer-close-btn-wrapper">
+      <div className={styles['drawer-close-btn-wrapper']}>
         <Button
           type="icon"
           size={size}

@@ -1,6 +1,8 @@
 @use 'theme.scss';
 @use 'core.scss';
 
+$dark-mode: theme.$dark-mode;
+
 %button {
   @extend %border;
   @extend %center;
@@ -55,12 +57,24 @@
 
 %button-default {
   @extend %shadow-inset-small;
-  @include get-button-type(
-    theme.$white,
-    rgba(theme.$secondary-rgb, 0.25),
-    theme.$primary,
-    theme.$primary
-  );
+
+  @if $dark-mode == 'true' {
+    @include get-button-type(
+      theme.$primary,
+      theme.$secondary,
+      theme.$white,
+      theme.$white
+    );
+  }
+
+  else {
+    @include get-button-type(
+      theme.$white,
+      rgba(theme.$secondary-rgb, 0.25),
+      theme.$primary,
+      theme.$primary
+    );
+  }
 }
 
 %button-icon {
@@ -78,7 +92,7 @@
 @mixin get-button($size, $border) {
   @extend %button;
 
-  &:not(.rc-btn-icon) {
+  &:not(.btn_icon) {
     @if $size == small {
       height: 20px;
       padding: calc(20px * 0.25) calc(20px * 0.5);
@@ -91,7 +105,7 @@
     }
   }
 
-  &.rc-btn-icon {
+  &.btn_icon {
     border: 0;
   }
 }

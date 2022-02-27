@@ -1,0 +1,85 @@
+@use '../../design/theme.scss';
+@use '../../design/core.scss';
+
+$header-height: 35px;
+$sizes: (sm, md, lg);
+
+$dark-mode: theme.$dark-mode;
+
+.header {
+  @extend %left;
+  align-items: center;
+  color: theme.$primary;
+  height: $header-height;
+  justify-items: center;
+  outline: 0;
+  position: relative;
+  text-transform: capitalize;
+
+  &:not(.header-icon) {
+    display: grid;
+    grid-template-columns: 2rem calc(100% - 2.5rem) 0.5rem;
+  }
+}
+
+.header:not(.disable-collapse):hover {
+  @extend %border-radius;
+  cursor: pointer;
+
+  @if $dark-mode == 'true' {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: rgba(theme.$secondary-rgb, 0.25);
+  }
+}
+
+.selected {
+  @extend %border-radius;
+  @if $dark-mode == 'true' {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: rgba(theme.$secondary-rgb, 0.25);
+  }
+}
+
+.title {
+  @extend %left;
+  display: block;
+  white-space: nowrap;
+
+  @each $size in $sizes {
+    &.title_#{$size} {
+      @extend %text-#{$size};
+      line-height: #{$size}-line-height;
+    }
+  }
+
+  &:not(.title_bold) {
+    font-weight: 400;
+  }
+
+  &.title-bold {
+    font-weight: 500;
+  }
+}
+
+.icon {
+  @extend %icon;
+  color: var(--icon-color, theme.$primary);
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+
+  @each $size in $sizes {
+    &.icon-#{$size} {
+      @extend %icon-#{$size};
+    }
+  }
+
+  &.icon-open:not(.icon-plus):not(.custom-icon) {
+    transform: rotate(90deg);
+  }
+
+  &.disable-icon {
+    visibility: hidden;
+  }
+}

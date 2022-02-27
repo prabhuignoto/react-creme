@@ -1,6 +1,7 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { Tooltip } from '../tooltip';
+import styles from '../tooltip.module.scss';
 
 describe('Tooltip', () => {
   it('Should render tooltip', () => {
@@ -23,7 +24,7 @@ describe('Tooltip', () => {
     const hostContent = getByRole('tooltip').querySelector(
       '.tooltip-host-content'
     );
-    const message = getByRole('tooltip').querySelector('.tooltip-message');
+    const message = getByRole('tooltip').querySelector(styles.tooltip_message);
 
     if (hostContent && message) {
       // await act(async () => {
@@ -62,9 +63,9 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip')).toHaveClass('rc-tooltip-static');
+    // expect(getByRole('tooltip')).toHaveClass(styles.tooltip_static);
     expect(getByRole('tooltip').firstChild).toHaveClass(
-      'rc-tooltip-top-center'
+      styles.tooltip_top_center
     );
   });
 
@@ -77,7 +78,7 @@ describe('Tooltip', () => {
 
     expect(getByRole('tooltip')).toBeInTheDocument();
     expect(getByRole('tooltip').firstChild).toHaveClass(
-      'rc-tooltip-bottom-center'
+      styles.tooltip_bottom_center
     );
   });
 
@@ -90,7 +91,7 @@ describe('Tooltip', () => {
 
     expect(getByRole('tooltip')).toBeInTheDocument();
     expect(getByRole('tooltip').firstChild).toHaveClass(
-      'rc-tooltip-bottom-left'
+      styles.tooltip_bottom_left
     );
   });
 
@@ -103,7 +104,7 @@ describe('Tooltip', () => {
 
     expect(getByRole('tooltip')).toBeInTheDocument();
     expect(getByRole('tooltip').firstChild).toHaveClass(
-      'rc-tooltip-bottom-right'
+      styles.tooltip_bottom_right
     );
   });
 
@@ -115,7 +116,9 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass('rc-tooltip-top-left');
+    expect(getByRole('tooltip').firstChild).toHaveClass(
+      styles.tooltip_top_left
+    );
   });
 
   it('should render tooltip top right', () => {
@@ -126,7 +129,9 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass('rc-tooltip-top-right');
+    expect(getByRole('tooltip').firstChild).toHaveClass(
+      styles.tooltip_top_right
+    );
   });
 
   it('should render left center', () => {
@@ -138,7 +143,7 @@ describe('Tooltip', () => {
 
     expect(getByRole('tooltip')).toBeInTheDocument();
     expect(getByRole('tooltip').firstChild).toHaveClass(
-      'rc-tooltip-left-center'
+      styles.tooltip_left_center
     );
   });
 
@@ -151,7 +156,7 @@ describe('Tooltip', () => {
 
     expect(getByRole('tooltip')).toBeInTheDocument();
     expect(getByRole('tooltip').firstChild).toHaveClass(
-      'rc-tooltip-right-center'
+      styles.tooltip_right_center
     );
   });
 
@@ -163,7 +168,9 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass('rc-tooltip-left-top');
+    expect(getByRole('tooltip').firstChild).toHaveClass(
+      styles.tooltip_left_top
+    );
   });
 
   it('should render left bottom', () => {
@@ -175,7 +182,7 @@ describe('Tooltip', () => {
 
     expect(getByRole('tooltip')).toBeInTheDocument();
     expect(getByRole('tooltip').firstChild).toHaveClass(
-      'rc-tooltip-left-bottom'
+      styles.tooltip_left_bottom
     );
   });
 
@@ -192,7 +199,9 @@ describe('Tooltip', () => {
 
     await waitFor(
       () => {
-        expect(getByRole('tooltip').firstChild).not.toHaveClass('show-tooltip');
+        expect(getByRole('tooltip').firstChild).not.toHaveClass(
+          styles.show_tooltip
+        );
       },
       {
         timeout: 1000,
@@ -202,13 +211,13 @@ describe('Tooltip', () => {
     fireEvent.click(getByText('content'));
 
     await waitFor(() => {
-      expect(getByRole('tooltip').firstChild).toHaveClass('show-tooltip');
+      expect(getByRole('tooltip').firstChild).toHaveClass(styles.show_tooltip);
     });
 
     fireEvent.click(getByRole('button'));
 
     await waitFor(() => {
-      expect(getByRole('tooltip').firstChild).toHaveClass('hide-tooltip');
+      expect(getByRole('tooltip').firstChild).toHaveClass(styles.hide_tooltip);
     });
   });
 });

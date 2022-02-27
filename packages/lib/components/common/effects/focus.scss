@@ -1,5 +1,7 @@
 @use '../../../design/theme.scss';
 
+$dark-mode: theme.$dark-mode;
+
 .rc-focus-ring {
   background-color: rgba(theme.$primary-rgb, 0.1);
   border: 2px solid transparent;
@@ -19,13 +21,16 @@
 }
 
 .rc-focus-ring-active {
-  animation-duration: 0.2s;
-  animation-name: halo;
-  animation-timing-function: ease-in;
   background-color: rgba(#fff, 0.1);
   border: 2px solid rgba(theme.$primary-rgb, 0.75);
-  box-shadow: 0 0 1px 4px rgba(theme.$primary-rgb, 0.2);
   visibility: visible;
+
+  @if not $dark-mode == 'true' {
+    animation-duration: 0.2s;
+    animation-name: halo;
+    animation-timing-function: ease-in;
+    box-shadow: 0 0 1px 4px rgba(theme.$primary-rgb, 0.2);
+  }
 }
 
 .rc-focus-ring-inactive {

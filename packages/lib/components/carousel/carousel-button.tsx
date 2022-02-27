@@ -3,7 +3,7 @@ import React from 'react';
 import { ChevronRightIcon } from '../../icons';
 import { Button } from '../button/button';
 import { CarouselButtonProps } from './carousel-model';
-import './carousel.scss';
+import styles from './carousel.module.scss';
 
 const CarouselButton: React.FunctionComponent<CarouselButtonProps> = ({
   onClick,
@@ -17,12 +17,14 @@ const CarouselButton: React.FunctionComponent<CarouselButtonProps> = ({
     <span
       className={classNames(
         [
-          'rc-carousel-btn',
-          `rc-carousel-btn-${position}`,
-          `rc-carousel-btn-${direction}`,
+          styles.btn,
+          position === 'left' ? styles.btn_left : styles.btn_right,
+          direction === 'horizontal'
+            ? styles.btn_horizontal
+            : styles.btn_vertical,
         ],
         {
-          'rc-carousel-btn-hide': hide,
+          [styles.btn_hide]: hide,
         }
       )}
     >

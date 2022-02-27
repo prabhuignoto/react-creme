@@ -1,0 +1,138 @@
+@use '../../design/theme.scss';
+@use '../../design/core.scss';
+@use '../../design/animate.scss';
+
+$sizes: (sm, md, lg);
+
+$dark-mode: theme.$dark-mode;
+
+.dropdown_value_container {
+  @if $dark-mode == 'true' {
+    @extend %border-radius;
+    background-color: theme.$gunmetal-gray;
+    color: theme.$white;
+  } @else {
+    @extend %border;
+    @extend %shadow-inset-small;
+  }
+
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  height: 100%;
+  padding: 0.1rem 0;
+  width: 100%;
+
+  &.dropdown_menu_open {
+    box-shadow: none;
+  }
+
+  &.dropdown_disabled {
+    @extend %disabled;
+  }
+
+  &:not(.dropdown_multi) {
+    @extend %center;
+    height: 35px;
+  }
+
+  &.dropdown_rtl {
+    display: grid;
+    grid-template-columns: 2rem 2rem calc(100% - 4rem);
+  }
+
+  &:not(.dropdown_rtl):not(.dropdown_with_clear) {
+    display: grid;
+    grid-template-columns: calc(100% - 2rem) 2rem;
+  }
+
+  &:not(.dropdown_rtl).dropdown_with_clear {
+    display: grid;
+    grid-template-columns: calc(100% - 4rem) 2rem 2rem;
+  }
+}
+
+.dropdown_value_container:not(.dropdown_rtl) {
+  .dropdown_value {
+    padding-left: 1rem;
+  }
+}
+
+.dropdown_value_container.dropdown_rtl {
+  .dropdown_value {
+    padding-right: 1rem;
+  }
+
+  .dropdown_chevron_icon {
+    margin-left: 4px;
+  }
+}
+
+.dropdown_value {
+  @extend %text-no-wrap;
+  height: 20px;
+  line-height: 20px;
+
+  &.dropdown_rtl {
+    text-align: right;
+  }
+}
+
+.dropdown_chevron_icon {
+  @if $dark-mode == 'true' {
+    color: theme.$white;
+  } @else {
+    color: var(--chevron-icon-color, theme.$primary);
+  }
+
+  justify-self: center;
+  order: 4;
+  transition: transform 0.2s ease-in;
+}
+
+.dropdown_clear_icon {
+  justify-self: center;
+
+  @if $dark-mode == 'true' {
+    color: theme.$white;
+  } @else {
+    color: theme.$charcoal-gray;
+  }
+
+  &.dropdown_clear_icon_hidden {
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+.dropdown_clear_icon:hover {
+  @if not $dark-mode == 'true' {
+    color: var(--clear-icon-color, theme.$primary);
+  }
+}
+
+.dropdown_chevron_icon_rotate {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease-in;
+}
+
+.dropdown_tags_wrapper {
+  overflow: hidden;
+  padding-left: 0.25rem;
+}
+
+@each $size in $sizes {
+  .dropdown_value_#{$size} {
+    .dropdown_value {
+      @extend %text-#{$size};
+    }
+
+    .dropdown_chevron_icon {
+      @extend %icon-#{$size};
+    }
+
+    .dropdown_clear_icon {
+      @extend %icon-#{$size};
+    }
+  }
+}

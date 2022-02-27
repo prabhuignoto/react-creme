@@ -1,0 +1,170 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/animate.scss';
+@use '../../design/position.scss';
+
+$sizes: (sm, md, lg);
+$arrow-dim-sm: 12px;
+$arrow-dim-md: 16px;
+$arrow-dim-lg: 20px;
+
+$dark-mode: theme.$dark-mode;
+
+.tooltip_wrapper {
+  @extend %center;
+
+  &:not(.tooltip_fixed) {
+    position: relative;
+  }
+
+  &.tooltip_fixed {
+    @include position.position-abs('center center');
+  }
+
+  &.tooltip_static {
+    display: block;
+  }
+}
+
+.tooltip_message {
+  $animation: (
+    from: (
+      opacity: 0,
+      visibility: hidden,
+    ),
+    to: (
+      opacity: 1,
+      visibility: visible,
+    ),
+  );
+
+  @extend %center;
+  @extend %border-radius;
+  @extend %shadow-medium;
+  @include animate.set-settings(0.25s);
+
+  @include animate.set-keyframes(animate_tooltip_show, $animation);
+  @include animate.set-keyframes(animate_tooltip_close, $animation, true);
+  background-color: var(-bg-color, theme.$white);
+  max-width: var(--max-width);
+  min-width: var(--min-width);
+  position: absolute;
+  visibility: hidden;
+  z-index: 99999;
+
+  @if $dark-mode == 'true' {
+    background: theme.$gunmetal-gray;
+    color: theme.$white;
+  } @else {
+    background: theme.$white;
+    color: var(--fore-color, theme.$primary);
+  }
+
+  &.show_tooltip {
+    animation-name: animate_tooltip_show;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.hide_tooltip {
+    animation-name: animate_tooltip_close;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.tooltip_top_left::after,
+  &.tooltip_top_center::after,
+  &.tooltip_top_right::after {
+    bottom: -4px;
+  }
+
+  &.tooltip_top_left::after,
+  &.tooltip_bottom_left::after {
+    left: 15px;
+  }
+
+  &.tooltip_top_right::after,
+  &.tooltip_bottom_right::after {
+    right: 15px;
+  }
+
+  &.tooltip_bottom_left::after,
+  &.tooltip_bottom_center::after,
+  &.tooltip_bottom_right::after {
+    top: -4px;
+  }
+
+  &.tooltip_right_top::after,
+  &.tooltip_right_center::after,
+  &.tooltip_right_bottom::after {
+    left: -4px;
+  }
+
+  &.tooltip_left_top::after,
+  &.tooltip_left_center::after,
+  &.tooltip_left_bottom::after {
+    right: -4px;
+  }
+
+  &.tooltip_with_padding {
+    padding: 1rem;
+  }
+
+  &:not(.tooltip_with_padding) {
+    padding: 0.5rem;
+  }
+}
+
+.tooltip_message::after {
+  @if $dark-mode == 'true' {
+    background: theme.$gunmetal-gray;
+  } @else {
+    background: theme.$white;
+  }
+  border-radius: 1px;
+  content: '';
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+@function get-arrow-dim($size) {
+  @if ($size == 'sm') {
+    @return $arrow-dim-sm;
+  } @else if($size == 'md') {
+    @return $arrow-dim-md;
+  } @else if($size == 'lg') {
+    @return $arrow-dim-lg;
+  }
+}
+
+@each $size in $sizes {
+  .tooltip_message_#{$size} {
+    @extend %font-#{$size};
+    width: 90%;
+
+    &::after {
+      height: get-arrow-dim($size);
+      width: get-arrow-dim($size);
+    }
+
+    .tooltip_close_btn {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.tooltip_host_content {
+  @extend %center;
+}
+
+.tooltip_close_btn {
+  @include position.position-abs('top right');
+  color: theme.$gunmetal-gray;
+  cursor: pointer;
+  padding: 0.2rem;
+
+  &:hover {
+    color: theme.$primary;
+  }
+}

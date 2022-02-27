@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { CheckboxProps } from './checkbox-model';
-import './checkbox.scss';
+import styles from './checkbox.module.scss';
 
 const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
   ({
@@ -52,43 +52,43 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
 
     const iconClass = useMemo(
       () =>
-        classNames('rc-checkbox-icon', {
-          'rc-checkbox-checked': checked,
-          [`rc-checkbox-${size}`]: true,
-          [`rc-checkbox-${checkBoxStyle}`]: true,
+        classNames(styles.checkbox_icon, {
+          [styles.checkbox_checked]: checked,
+          [styles[`checkbox_${size}`]]: true,
+          [styles[`checkbox_${checkBoxStyle}`]]: true,
         }),
       [checked]
     );
 
     const labelClass = useMemo(
       () =>
-        classNames('rc-checkbox-label', {
-          [`rc-checkbox-label-${size}`]: true,
-          'rc-checkbox-label-rtl': RTL,
+        classNames(styles.checkbox_label, {
+          [styles[`checkbox_label_${size}`]]: true,
+          [styles.checkbox_label_rtl]: RTL,
         }),
       []
     );
 
     const checkBoxClass = useMemo(
       () =>
-        classNames('rc-checkbox', {
+        classNames(styles.checkbox, {
           'rc-checkbox-focus': focusIcon,
-          [`rc-checkbox-${size}`]: true,
-          'rc-disabled': disabled,
+          [styles[`checkbox_${size}`]]: true,
+          [styles.disabled]: disabled,
         }),
       [disabled]
     );
 
     const wrapperClass = useMemo(
       () =>
-        classNames('rc-checkbox-wrapper', {
-          [`rc-checkbox-${size}`]: true,
-          'rc-checkbox-auto-height': autoHeight,
-          'rc-checkbox-border': border,
-          'rc-checkbox-disabled': disabled,
-          'rc-checkbox-focus': !focusIcon,
-          'rc-checkbox-hover': !noHoverStyle,
-          'rc-checkbox-rtl': RTL,
+        classNames(styles.checkbox_wrapper, {
+          [styles[`checkbox_${size}`]]: true,
+          [styles.checkbox_auto_height]: autoHeight,
+          [styles.checkbox_border]: border,
+          [styles.checkbox_disabled]: disabled,
+          [styles.checkbox_focus]: !focusIcon,
+          [styles.checkbox_hover]: !noHoverStyle,
+          [styles.checkbox_rtl]: RTL,
         }),
       [size, disabled]
     );

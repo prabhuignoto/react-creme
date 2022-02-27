@@ -12,7 +12,7 @@ import {
 import { TabHeaders } from './tab-headers';
 import { TabPanel } from './TabPanel';
 import { TabItemProps, TabsProps } from './tabs-model';
-import './tabs.scss';
+import styles from './tabs.module.scss';
 
 const Tabs: React.FunctionComponent<TabsProps> = ({
   border = false,
@@ -111,15 +111,15 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
 
   const rcTabsClass = useMemo(
     () =>
-      classNames('rc-tabs', {
-        'rc-tabs-border': border,
+      classNames(styles.tabs, {
+        [styles.tab_border]: border,
       }),
     []
   );
 
   const rcPanelsClass = useMemo(() => {
-    return classNames('rc-tab-panels', {
-      'rc-panel-border': tabStyle === 'rounded',
+    return classNames(styles.tab_panels, {
+      [styles.panel_border]: tabStyle === 'rounded',
     });
   }, []);
 

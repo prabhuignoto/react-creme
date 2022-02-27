@@ -8,10 +8,10 @@ import { useFirstRender } from '../common/effects/useFirstRender';
 import { isValidString } from '../common/utils';
 import { Option } from '../dropdown/dropdown-model';
 import { Input, RCInputElementProps } from '../input/input';
-import '../input/input.scss';
+// import '../input/input.scss';
 import { SuggestionsMenuOverlay } from './auto-suggest-menu';
 import { AutoSuggestProps } from './auto-suggest.model';
-import './auto-suggest.scss';
+import styles from './auto-suggest.module.scss';
 
 const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
   (
@@ -83,8 +83,8 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
 
     const autoSuggestClass = useMemo(
       () =>
-        classNames('rc-auto-suggest', {
-          'rc-auto-suggest-rtl': rtl,
+        classNames(styles.auto_suggest, {
+          [styles.rtl]: rtl,
         }),
       []
     );
@@ -185,7 +185,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
         data-testid="rc-auto-suggest"
         ref={rootRef}
       >
-        <div className="rc-auto-suggest-input-wrapper">
+        <div className={styles.input_wrapper}>
           <Input
             enableClear
             onChange={handleChange}

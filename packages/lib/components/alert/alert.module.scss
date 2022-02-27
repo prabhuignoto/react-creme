@@ -1,0 +1,100 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+@use '../../design/animate.scss';
+
+$sizes: (sm, md, lg);
+
+.alert {
+  @extend %border-radius;
+  align-items: center;
+  color: theme.$white;
+  display: grid;
+  grid-template-columns: 3rem 1fr 2rem;
+  justify-items: center;
+  opacity: 1;
+  overflow: hidden;
+  padding: 0;
+  transition: height 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  width: 100%;
+
+  &:not(.alert_close) {
+    height: var(--height);
+  }
+
+  &.alert_close {
+    height: 0;
+    opacity: 0;
+  }
+
+  &.alert_rtl {
+    direction: rtl;
+  }
+}
+
+@each $size in $sizes {
+  .alert_#{$size} {
+    .alert_icon {
+      @extend %icon-#{$size};
+    }
+
+    .alert_close_btn {
+      @extend %icon-#{$size};
+    }
+
+    .alert_content {
+      @extend %font-#{$size};
+    }
+  }
+}
+
+.alert_success {
+  background-color: theme.$success-green;
+}
+
+.alert_error {
+  background-color: theme.$crimson;
+}
+
+.alert_warning {
+  background-color: theme.$amber;
+  color: theme.$black;
+
+  svg {
+    color: theme.$black;
+  }
+}
+
+.alert_info {
+  background-color: theme.$blue;
+}
+
+.alert_icon_wrapper {
+  @extend %center;
+  background: rgba($color: #fff, $alpha: 0.2);
+  height: 100%;
+  width: 100%;
+}
+
+.alert_icon {
+  align-self: center;
+  justify-self: flex-start;
+
+  svg {
+    color: theme.$white;
+  }
+}
+
+.alert_content {
+  @extend %left;
+  font-weight: 300;
+}
+
+.alert_close_btn {
+  align-self: flex-start;
+  cursor: pointer;
+  margin-top: 0.5rem;
+
+  svg {
+    color: theme.$white;
+  }
+}

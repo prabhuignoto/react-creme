@@ -2,7 +2,7 @@ import React, { CSSProperties, useMemo } from 'react';
 import { AccordionGroup } from '../accordion-group/accordion-group';
 import { List } from '../list/list';
 import { SidebarGroupsModel } from './sidebar-model';
-import './sidebar.scss';
+import styles from './sidebar.module.scss';
 
 const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = React.memo(
   ({
@@ -23,7 +23,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = React.memo(
     }, [sideBarHeight]);
 
     return (
-      <div className="rc-sidebar-groups-wrapper" style={groupsWrapperStyle}>
+      <div className={styles.sidebar_groups_wrapper} style={groupsWrapperStyle}>
         <AccordionGroup
           titles={groups.filter(grp => grp.visible).map(grp => grp.title)}
           expanded

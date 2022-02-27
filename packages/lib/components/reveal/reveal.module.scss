@@ -1,0 +1,20 @@
+@use '../../design/core.scss';
+@use '../../design/theme.scss';
+
+.reveal_wrapper {
+  width: 100%;
+}
+
+.reveal {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+  &.reveal_show {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &.reveal_hide {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}

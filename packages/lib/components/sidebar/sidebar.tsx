@@ -7,7 +7,7 @@ import { Input } from '../input/input';
 import { ListOption } from '../list/list-model';
 import { SidebarGroups } from './sidebar-groups';
 import { SidebarGroupModel, SidebarProps } from './sidebar-model';
-import './sidebar.scss';
+import styles from './sidebar.module.scss';
 
 const Sidebar: React.FunctionComponent<SidebarProps> = ({
   backGroundColor = '#fff',
@@ -87,7 +87,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
     [groups.length]
   );
 
-  const sideBarClass = useMemo(() => classNames('rc-sidebar'), []);
+  const sideBarClass = useMemo(() => classNames(styles.sidebar), []);
 
   const style = useMemo(() => {
     return {
@@ -97,8 +97,8 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
   }, []);
 
   const contentWrapper = useMemo(() => {
-    return classNames('rc-sidebar-content-wrapper', {
-      'rc-sidebar-border': border,
+    return classNames(styles.sidebar_content_wrapper, {
+      [styles.sidebar_border]: border,
     });
   }, [border]);
 
@@ -115,7 +115,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
     <div className={sideBarClass} style={style} ref={onRef}>
       <div className={contentWrapper}>
         {enableSearch && (
-          <div className="rc-sidebar-search-wrapper">
+          <div className={styles.sidebar_search_wrapper}>
             <Input
               type="text"
               enableClear

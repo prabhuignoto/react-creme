@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { CSSProperties, useCallback, useEffect, useMemo } from 'react';
 import useClickOutside from '../common/effects/useOnClickOutside';
 import { List } from '../list/list';
-import './dropdown-menu.scss';
+import styles from './dropdown-menu.module.scss';
 import { DropdownMenuProps } from './dropdown-model';
 
 const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
@@ -31,10 +31,10 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   const menuClass = useMemo(
     () =>
       classNames([
-        'rc-dropdown-menu-container',
+        styles.dropdown_menu_container,
         {
-          'rc-dropdown-menu-close': !open || isClosing,
-          'rc-dropdown-menu-open': open && !isClosing,
+          [styles.dropdown_menu_close]: !open || isClosing,
+          [styles.dropdown_menu_open]: open && !isClosing,
         },
       ]),
     [open, isClosing]
@@ -63,6 +63,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
         RTL={RTL}
         focusable={focusable}
         selectedIndex={selectedIndex}
+        backGroundColor="transparent"
       />
     </div>
   );

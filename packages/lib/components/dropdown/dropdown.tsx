@@ -6,7 +6,7 @@ import { withOverlay } from '../common/withOverlay';
 import { DropDownMenu } from './dropdown-menu';
 import { DropdownMenuProps, DropdownProps, Option } from './dropdown-model';
 import { DropdownValue } from './dropdown-value';
-import './dropdown.scss';
+import styles from './dropdown.module.scss';
 
 const DropdownMenuOverlay = withOverlay<DropdownMenuProps, null>(DropDownMenu, {
   backdropColor: 'transparent',
@@ -185,8 +185,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     // memoized classnames
     const rcDropdownClass = useMemo(
       () =>
-        cls('rc-dropdown', {
-          'rc-dropdown-disabled': disabled,
+        cls(styles.dropdown, {
+          [styles.dropdown_disabled]: disabled,
         }),
       [disabled]
     );

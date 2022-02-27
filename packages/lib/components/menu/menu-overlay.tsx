@@ -5,6 +5,7 @@ import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { withOverlay } from '../common/withOverlay';
 import { MenuItem } from './menu-item';
 import { MenuOverlayModel } from './menu-model';
+import styles from './menu.module.scss';
 
 export type MenuOverlayProps = Partial<HTMLUListElement> & {
   element: HTMLUListElement | null;
@@ -30,9 +31,9 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
 
     const menuClass = useMemo(
       () =>
-        classNames(['rc-menu'], {
-          [`rc-menu-${size}`]: size,
-          [`rc-menu-${dockPosition}`]: true,
+        classNames([styles.menu], {
+          [styles[`menu_${size}`]]: size,
+          [styles[`menu_${dockPosition}`]]: true,
         }),
       []
     );

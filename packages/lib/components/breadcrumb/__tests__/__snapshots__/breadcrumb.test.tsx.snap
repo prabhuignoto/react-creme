@@ -3,22 +3,22 @@
 exports[`Breadcrumb > should render snapshot 1`] = `
 <ul
   aria-label="breadcrumbs"
-  class="rc-bread-crumbs-wrapper"
+  class="_bread_crumbs_wrapper_1ju3c_42"
   role="navigation"
 >
   <li
-    class="rc-bread-crumb"
+    class="_bread_crumb_1ju3c_1"
   >
     <span
-      class="rc-bread-crumb-node rc-bread-crumb-node-sm"
+      class="_bread_crumb_node_1ju3c_1 _bread_crumb_node_sm_1ju3c_5"
     >
       <a
-        class="rc-link rc-link-sm rc-link-highlight"
+        class="_link_4lr21_1 _link_sm_4lr21_13 _link_highlight_4lr21_76"
         style="outline: none; position: relative;"
         tabindex="0"
       >
         <span
-          class="rc-link-text"
+          class="_link_text_4lr21_13"
         >
           google
         </span>
@@ -29,7 +29,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       </a>
     </span>
     <span
-      class="rc-bread-crumb-icon rc-bread-crumb-icon-sm"
+      class="_bread_crumb_icon_1ju3c_17 _bread_crumb_icon_sm_1ju3c_17"
     >
       <svg
         fill="none"
@@ -47,18 +47,18 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     </span>
   </li>
   <li
-    class="rc-bread-crumb"
+    class="_bread_crumb_1ju3c_1"
   >
     <span
-      class="rc-bread-crumb-node rc-bread-crumb-node-sm"
+      class="_bread_crumb_node_1ju3c_1 _bread_crumb_node_sm_1ju3c_5"
     >
       <a
-        class="rc-link rc-link-sm"
+        class="_link_4lr21_1 _link_sm_4lr21_13"
         style="outline: none; position: relative;"
         tabindex="0"
       >
         <span
-          class="rc-link-text"
+          class="_link_text_4lr21_13"
         >
           yahoo
         </span>
@@ -69,7 +69,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       </a>
     </span>
     <span
-      class="rc-bread-crumb-icon rc-bread-crumb-icon-sm"
+      class="_bread_crumb_icon_1ju3c_17 _bread_crumb_icon_sm_1ju3c_17"
     >
       <svg
         fill="none"
@@ -87,18 +87,18 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     </span>
   </li>
   <li
-    class="rc-bread-crumb"
+    class="_bread_crumb_1ju3c_1"
   >
     <span
-      class="rc-bread-crumb-node rc-bread-crumb-node-sm"
+      class="_bread_crumb_node_1ju3c_1 _bread_crumb_node_sm_1ju3c_5"
     >
       <a
-        class="rc-link rc-link-sm"
+        class="_link_4lr21_1 _link_sm_4lr21_13"
         style="outline: none; position: relative;"
         tabindex="0"
       >
         <span
-          class="rc-link-text"
+          class="_link_text_4lr21_13"
         >
           amazon
         </span>

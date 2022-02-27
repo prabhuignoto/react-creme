@@ -1,0 +1,65 @@
+@use '../../design/theme.scss';
+@use '../../design/core.scss';
+@use '../../design/font.scss';
+@use '../../design/icon.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+
+$heights: (
+  sm: 20px,
+  md: 25px,
+  lg: 30px,
+);
+
+$widths: (
+  sm: 50px,
+  md: 75px,
+  lg: 100px,
+);
+
+.kbd_wrapper {
+  @extend %border-radius;
+  background-color: rgba(theme.$light-bg, 1);
+  color: theme.$black;
+  display: inline-block;
+  padding: 0.2rem;
+  text-align: center;
+
+  &.kbd_left_raised {
+    box-shadow: 0 2px 0 2px rgba(theme.$chinese-gray, 0.9);
+  }
+
+  &.kbd_right_raised {
+    box-shadow: 0 2px 0 2px rgba(theme.$chinese-gray, 0.9);
+  }
+}
+
+@each $size in $sizes {
+  .kbd_wrapper {
+    &.kbd_#{$size} {
+      @extend %font-#{$size};
+      height: #{map.get($heights, $size)};
+      line-height: #{map.get($heights, $size)};
+      min-width: map.get($widths, $size);
+    }
+  }
+}
+
+@each $size in $sizes {
+  .kbd_combination_#{$size} {
+    .kbd_plus {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.kbd_plus {
+  color: theme.$gunmetal-gray;
+  margin: 0 0.5rem;
+}
+
+.kbd_combination {
+  @extend %left;
+  flex-wrap: wrap;
+}
