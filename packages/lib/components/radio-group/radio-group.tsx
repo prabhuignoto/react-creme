@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { Radio } from '../radio/radio';
 import { RadioGroupItemProps, RadioGroupProps } from './radio-group-model';
-import './radio-group.scss';
+import styles from './radio-group.module.scss';
 
 const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   items,
@@ -61,9 +61,9 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
 
   const radioGroupClass = useMemo(
     () =>
-      classNames('rc-radio-group', {
-        'rc-radio-group-column': layout === 'column',
-        'rc-radio-group-row': layout === 'row',
+      classNames(styles.radio_group, {
+        [styles.radio_group_column]: layout === 'column',
+        [styles.radio_group_row]: layout === 'row',
       }),
     []
   );

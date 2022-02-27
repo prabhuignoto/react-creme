@@ -10,7 +10,7 @@ import React, {
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
 import { RadioProps } from './radio-model';
-import './radio.scss';
+import styles from './radio.module.scss';
 
 const Radio: React.FunctionComponent<RadioProps> = React.memo(
   ({
@@ -60,35 +60,35 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
     }
 
     const radioWrapperClass = useMemo(() => {
-      return cls('rc-radio-wrapper', {
-        [`rc-radio-${size}`]: true,
-        'rc-radio-disabled': disabled,
-        'rc-radio-full-width': fullWidth,
-        'rc-radio-rtl': RTL,
+      return cls(styles.radio_wrapper, {
+        [styles[`radio_${size}`]]: true,
+        [styles.radio_disabled]: disabled,
+        [styles.radio_full_width]: fullWidth,
+        [styles.radio_rtl]: RTL,
       });
     }, [disabled, fullWidth]);
 
     const radioClass = useMemo(
       () =>
-        cls(['rc-radio'], {
-          'rc-radio-checked': checked,
-          'rc-radio-disabled': disabled,
-          [`rc-radio-${size}`]: true,
+        cls(styles.radio, {
+          [styles.radio_ico_checked]: checked,
+          [styles.radio_disabled]: disabled,
+          [styles[`radio_${size}`]]: true,
         }),
       [checked, disabled]
     );
 
     const radioIconClass = useMemo(() => {
-      return cls(['rc-radio-icon'], {
-        'rc-radio-ico-checked': checked,
-        'rc-radio-ico-un-checked': !isFirstRender.current && !checked,
+      return cls(styles.radio_icon, {
+        [styles.radio_ico_checked]: checked,
+        [styles.radio_ico_unchecked]: !isFirstRender.current && !checked,
       });
     }, [checked]);
 
     const radioLabelClass = useMemo(() => {
-      return cls(['rc-radio-label', `rc-radio-label-${size}`], {
-        'rc-radio-disabled': disabled,
-        'rc-radio-rtl': RTL,
+      return cls([styles.radio_label, styles[`radio_label_${size}`]], {
+        [styles.radio_disabled]: disabled,
+        [styles.radio_rtl]: RTL,
       });
     }, [size, disabled]);
 

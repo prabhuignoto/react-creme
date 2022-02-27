@@ -11,24 +11,24 @@ $sizes: (
 
 $dark-mode: theme.$dark-mode;
 
-.rc-rate-wrapper {
+.rate_wrapper {
   @extend %list-horizontal;
 
-  &.rc-rate-disabled {
+  &.rate_disabled {
     @extend %disabled;
   }
 
-  &.rc-rate-rtl {
+  &.rate_rtl {
     direction: rtl;
   }
 }
 
-.rc-rate-item {
+.rate_item {
   @include animate.set-settings();
   cursor: pointer;
   margin: 0 0.5rem;
 
-  &.rc-rate-item-disabled {
+  &.rate_item_disabled {
     @extend %disabled;
   }
 
@@ -40,14 +40,14 @@ $dark-mode: theme.$dark-mode;
   }
 
   @each $key, $val in $sizes {
-    &.rc-rate-item-#{$key} {
+    &.rate_item_#{$key} {
       height: #{$val};
       width: #{$val};
     }
   }
 }
 
-.rc-rate-item svg {
+.rate_item svg {
   @if $dark-mode == 'true' {
     fill: theme.$charcoal-gray;
   } @else {
@@ -59,13 +59,13 @@ $dark-mode: theme.$dark-mode;
   width: 100%;
 }
 
-.rc-rate-item:hover {
+.rate_item:hover {
   svg {
     fill: theme.$primary;
   }
 }
 
-.rc-rate-item-active {
+.rate_item_active {
   color: theme.$primary;
 
   svg {
@@ -73,7 +73,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-rate-item-hovered {
+.rate_item_hovered {
   svg {
     fill: theme.$primary;
   }

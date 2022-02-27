@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import RateIcon from '../../icons/star';
 import useFocusNew from '../common/effects/useFocusNew';
 import { RateItemViewProps } from './rate-model';
+import styles from './rate.module.scss';
 
 const RateItem: React.FunctionComponent<RateItemViewProps> = React.memo(
   ({
@@ -25,11 +26,11 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = React.memo(
 
     const rateItemClass = useMemo(
       () =>
-        classNames('rc-rate-item', {
-          'rc-rate-item-active': active,
-          [`rc-rate-item-${size}`]: true,
-          'rc-rate-item-disabled': disabled,
-          'rc-rate-item-hovered': hovered,
+        classNames(styles.rate_item, {
+          [styles.rate_item_active]: active,
+          [styles[`rate_item_${size}`]]: true,
+          [styles.rate_item_disabled]: disabled,
+          [styles.rate_item_hovered]: hovered,
         }),
       [active, hovered, disabled]
     );

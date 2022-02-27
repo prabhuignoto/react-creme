@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useCallback, useMemo, useRef, useState } from 'react';
 import { ProgressProps } from './progress-model';
-import './progress.scss';
+import styles from './progress.module.scss';
 
 const Progress: React.FunctionComponent<ProgressProps> = ({
   currentValue = 0,
@@ -64,13 +64,13 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
     () =>
       classNames(
         [
-          'rc-progress-fill',
-          type,
-          indeterminateStyle,
-          progressComplete ? 'complete' : '',
+          styles.progress_fill,
+          styles[type],
+          styles[indeterminateStyle],
+          progressComplete ? styles.complete : '',
         ],
         {
-          [`rc-progress-fill-${status}`]: true,
+          [styles[`progress_fill_${status}`]]: true,
         }
       ),
     [progressComplete, status]
@@ -88,27 +88,26 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
 
   const wrapperClass = useMemo(
     () =>
-      classNames('rc-progress-wrapper', {
-        [`rc-progress-${status}`]: true,
+      classNames(styles, {
+        [styles[`progress_${status}`]]: true,
       }),
     [status]
   );
 
   const progressTrackClass = useMemo(
     () =>
-      classNames('rc-progress-track', {
-        [`rc-progress-track-${status}`]: true,
-        'rc-progress-track-rtl': RTL,
+      classNames(styles.progress_track, {
+        [styles[`progress_track_${status}`]]: true,
+        [styles.progress_track_rtl]: RTL,
       }),
     [status]
   );
 
   const progressPercentValClass = useMemo(
     () =>
-      classNames(
-        'rc-progress-percent-value',
-        `rc-progress-percent-value-${size}`
-      ),
+      classNames(styles.progress_percent_value, {
+        [styles[`progress_percent_value_${size}`]]: true,
+      }),
     []
   );
 

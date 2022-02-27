@@ -19,7 +19,7 @@ $heights: (
 
 $dark-mode: theme.$dark-mode;
 
-.rc-radio-wrapper {
+.radio_wrapper {
   @extend %left;
   cursor: pointer;
   display: grid;
@@ -27,28 +27,28 @@ $dark-mode: theme.$dark-mode;
   padding: 0.25rem 0;
   padding-left: 0.5rem;
 
-  &.rc-radio-rtl {
+  &.radio_rtl {
     direction: rtl;
   }
 
-  &.rc-radio-full-width {
+  &.radio_full_width {
     width: 100%;
   }
 
-  &.rc-radio-disabled {
+  &.radio_disabled {
     @extend %disabled;
     cursor: not-allowed;
   }
 
   @each $key, $val in $heights {
-    &.rc-radio-#{$key} {
+    &.radio_#{$key} {
       display: flex;
       min-height: $val;
     }
   }
 }
 
-.rc-radio-wrapper:hover:not(.rc-radio-disabled) {
+.radio_wrapper:hover:not(.radio_disabled) {
   @extend %border-radius;
 
   @if $dark-mode == 'true' {
@@ -58,7 +58,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-radio {
+.radio {
   @extend %left;
   cursor: pointer;
   height: 100%;
@@ -70,13 +70,13 @@ $dark-mode: theme.$dark-mode;
   }
 
   @each $key, $val in $sizes {
-    &.rc-radio-#{$key} {
-      .rc-radio-icon {
+    &.radio_#{$key} {
+      .radio_icon {
         height: $val;
         position: relative;
         width: $val;
 
-        &.rc-radio-ico-checked::after {
+        &.radio_ico_checked::after {
           @include position.position-abs('center center');
           background: theme.$primary;
           border-radius: 100%;
@@ -97,26 +97,26 @@ $dark-mode: theme.$dark-mode;
   display: block;
 }
 
-.rc-radio-icon {
+.radio_icon {
   border-radius: 50%;
   display: block;
   position: relative;
 
-  &:hover:not(.rc-radio-disabled) {
+  &:hover:not(.radio_disabled) {
     @extend %shadow-inset;
   }
 
-  &.rc-radio-ico-checked {
+  &.radio_ico_checked {
     @extend %shadow-inset-small;
     background-color: theme.$primary;
   }
 
-  &:not(.rc-radio-ico-checked) {
+  &:not(.radio_ico_checked) {
     background-color: theme.$charcoal-gray;
   }
 }
 
-.rc-radio-label {
+.radio_label {
   @extend %left;
   cursor: pointer;
   padding-left: 0.5rem;
@@ -127,23 +127,23 @@ $dark-mode: theme.$dark-mode;
     color: theme.$black;
   }
 
-  &.rc-radio-disabled {
+  &.radio_disabled {
     @extend %disabled;
   }
 
-  &.rc-radio-rtl {
+  &.radio_rtl {
     padding-right: 0.5rem;
   }
 
   @each $key, $val in $sizes {
-    &.rc-radio-label-#{$key} {
+    &.radio_label_#{$key} {
       @extend %font-#{$key};
     }
   }
 }
 
 @include animate.set-keyframes(
-  animate-radio-select,
+  animate-radio_select,
   (
     from: (
       background: theme.$white,

@@ -1,31 +1,31 @@
 @use '../../design/core.scss';
 @use '../../design/list.scss';
 
-.rc-radio-group {
+.radio_group {
   margin: 0;
   padding: 0;
   width: 100%;
 
-  &.rc-radio-group-row {
+  &.radio_group_row {
     @extend %center;
     flex-wrap: wrap;
     justify-content: flex-start;
   }
 }
 
-.rc-radio-group-column {
+.radio_group_column {
   @extend %list-left;
 
-  .rc-radio-grp-item {
+  .radio_grp_item {
     width: 100%;
   }
 }
 
-.rc-radio-grp-item {
+.radio_grp_item {
   @extend %list-item-left;
   margin: 0.5rem;
 
-  &.rc-radio-grp-item-disabled {
+  &.radio_grp_item_disabled {
     @extend %disabled;
   }
 }
