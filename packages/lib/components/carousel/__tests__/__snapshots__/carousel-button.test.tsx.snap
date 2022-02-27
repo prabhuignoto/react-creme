@@ -3,13 +3,13 @@
 exports[`Carousel Button > should render carousel button snapshot 1`] = `
 <div
   aria-label="previous"
-  class="_btn_sm_13o6m_1 _btn_icon_13o6m_37 _btn_13o6m_1"
+  class="_btn_sm_2g1ex_1 _btn_icon_2g1ex_37 _btn_2g1ex_1"
   role="button"
   style="outline: none; position: relative;"
   tabindex="0"
 >
   <span
-    class="_btn_icon_container_13o6m_37"
+    class="_btn_icon_container_2g1ex_37"
     role="img"
   >
     <svg

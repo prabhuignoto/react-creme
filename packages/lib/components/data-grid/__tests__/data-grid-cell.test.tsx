@@ -12,7 +12,7 @@ describe('DataGridCell', () => {
     expect(getByText('john')).toBeInTheDocument();
 
     expect(getByRole('cell')).toBeInTheDocument();
-    expect(getByRole('cell')).toHaveClass(styles.data_grid_cell);
+    expect(getByRole('cell')).toHaveClass(styles.cell);
   });
 
   it('should render with border', () => {
@@ -20,6 +20,6 @@ describe('DataGridCell', () => {
       <DataGridCell name="name" value="john" border />
     );
 
-    expect(getByRole('cell')).toHaveClass(styles.data_grid_cell_border);
+    expect(getByRole('cell')).toHaveClass(styles.cell_border);
   });
 });
