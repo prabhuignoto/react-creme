@@ -2,7 +2,7 @@
 @use '../../design/theme.scss';
 
 $sizes: (sm, md, lg);
-$dark_mode: theme.$dark_mode;
+$dark-mode: theme.$dark_mode;
 
 .data_grid_header_cell {
   @extend %left;
@@ -10,7 +10,7 @@ $dark_mode: theme.$dark_mode;
   height: 100%;
   text-transform: capitalize;
 
-  @if $dark_mode == 'true' {
+  @if $dark-mode == 'true' {
     background: rgba(theme.$charcoal-gray, 0.5);
   } @else {
     background: rgba(theme.$secondary-rgb, 0.5);
@@ -36,7 +36,7 @@ $dark_mode: theme.$dark_mode;
 }
 
 .data_grid_header_border:not(:last-child) {
-  @if dark_mode {
+  @if $dark-mode {
     border-right: 1px solid theme.$charcoal-gray;
   } @else {
     border-right: 1px solid theme.$secondary;

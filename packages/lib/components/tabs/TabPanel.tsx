@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import { TabPanelProps } from './tabs-model';
+import styles from './tabs.module.scss';
 
 const TabPanel: React.FunctionComponent<TabPanelProps> = ({
   children,
@@ -8,8 +9,8 @@ const TabPanel: React.FunctionComponent<TabPanelProps> = ({
   id,
 }: TabPanelProps) => {
   const tabPanelClass = useMemo(() => {
-    return classNames('rc-tab-panel', {
-      'rc-tab-panel-disabled': disabled,
+    return classNames(styles.tab_panel, {
+      [styles.disabled]: disabled,
     });
   }, []);
   return (

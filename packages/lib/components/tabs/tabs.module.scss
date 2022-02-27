@@ -6,25 +6,25 @@
 
 $dark-mode: theme.$dark-mode;
 
-.rc-tab-panel {
+.tab_panel {
   @extend %center;
   min-height: 100%;
   width: 100%;
 }
 
-.rc-tabs {
+.tabs {
   @extend %col;
   padding: 0.2rem;
   width: var(--min-width);
 }
 
-.rc-tab-panels {
+.tab_panels {
   @extend %list;
   min-height: 200px;
   width: 100%;
 }
 
-.rc-panel-border {
+.panel_border {
   border-radius: 4px;
   border-top: 0;
   border-top-left-radius: 0;

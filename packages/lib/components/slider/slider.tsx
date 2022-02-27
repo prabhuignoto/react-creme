@@ -6,7 +6,7 @@ import { useDrag } from '../common/effects/useDrag';
 // import useFocus from '../common/effects/useFocusNew';
 import { Tooltip } from '../tooltip/tooltip';
 import { SliderProps } from './slider-model';
-import './slider.scss';
+import styles from './slider.module.scss';
 
 const Slider: React.FunctionComponent<SliderProps> = ({
   disableTooltip = false,
@@ -100,16 +100,16 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 
   const sliderWrapperClass = useMemo(
     () =>
-      classNames('rc-slider-wrapper', {
-        'rc-slider-wrapper-disabled': disabled,
+      classNames(styles.slider_wrapper, {
+        [styles['slider_wrapper_disabled']]: disabled,
       }),
     []
   );
 
   const knobClass = useMemo(() => {
-    return classNames('rc-slider-control', {
-      [`rc-slider-control-${knobShape}`]: true,
-      'rc-slider-control-dragging': dragging,
+    return classNames(styles.slider_control, {
+      [styles[`slider_control_${knobShape}`]]: true,
+      [styles.slider_control_dragging]: dragging,
     });
   }, [dragging]);
 
@@ -148,11 +148,11 @@ const Slider: React.FunctionComponent<SliderProps> = ({
       ref={onTrackerInit}
       aria-label="slider"
     >
-      <div className="rc-slider-track">
+      <div className={styles.slider_track}>
         <span
           ref={sliderFillRef}
           style={sliderFillStyle}
-          className="rc-slider-fill"
+          className={styles.slider_fill}
         ></span>
         <span
           className={knobClass}
@@ -175,7 +175,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
               minWidth={tooltipWidth}
               enablePadding={false}
             >
-              <span className="tooltip-placer" ref={onPlacerRef}></span>
+              <span className={styles.tooltip_placer} ref={onPlacerRef}></span>
             </Tooltip>
           )}
         </span>

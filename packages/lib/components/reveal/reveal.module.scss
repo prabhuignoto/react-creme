@@ -1,19 +1,19 @@
 @use '../../design/core.scss';
 @use '../../design/theme.scss';
 
-.rc-reveal-wrapper {
+.reveal_wrapper {
   width: 100%;
 }
 
-.rc-reveal {
+.reveal {
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 
-  &.rc-reveal-show {
+  &.reveal_show {
     opacity: 1;
     transform: scale(1);
   }
 
-  &.rc-reveal-hide {
+  &.reveal_hide {
     opacity: 0;
     transform: scale(0.98);
   }

@@ -5,7 +5,7 @@ import { ListOption } from '../list/list-model';
 import { TransferControlColumn } from './transfer-control-column';
 import { TransferList } from './transfer-list';
 import { TransferListInternalModel, TransferProps } from './transfer-model';
-import './transfer.scss';
+import styles from './transfer.module.scss';
 
 const initMapper = (list: string[]) =>
   list.map(item => ({
@@ -116,7 +116,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
   }, [leftList.length, rightList.length]);
 
   return (
-    <div className="transfer-wrapper">
+    <div className={styles.transfer_wrapper}>
       <section className="transfer-column1">
         {leftList.length ? (
           <TransferList

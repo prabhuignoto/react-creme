@@ -12,7 +12,7 @@ import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { usePosition } from '../common/effects/usePosition';
 import { TooltipProps } from './tooltip-model';
-import './tooltip.scss';
+import styles from './tooltip.module.scss';
 
 const Tooltip: React.FunctionComponent<TooltipProps> = ({
   children,
@@ -63,14 +63,15 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   const toolTipMessageClass = useMemo(
     () =>
       classNames([
-        'rc-tooltip-message',
+        styles.tooltip_message,
         {
-          'hide-tooltip': !isFirstRender.current && !showTooltip,
-          'rc-tooltip-with-padding': enablePadding,
-          [`rc-tooltip-message-${size}`]: size,
-          'show-tooltip': showTooltip,
-          [`rc-tooltip-${position.split(' ')[0]}-${position.split(' ')[1]}`]:
-            true,
+          [styles.hide_tooltip]: !isFirstRender.current && !showTooltip,
+          [styles.tooltip_with_padding]: enablePadding,
+          [styles[`tooltip_message_${size}`]]: size,
+          [styles.show_tooltip]: showTooltip,
+          [styles[
+            `tooltip_${position.split(' ')[0]}_${position.split(' ')[1]}`
+          ]]: true,
         },
       ]),
     [showTooltip, position]
@@ -79,10 +80,10 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   const tooltipWrapperClass = useMemo(
     () =>
       classNames([
-        'rc-tooltip-wrapper',
+        styles.tooltip_wrapper,
         {
-          'rc-tooltip-fixed': fixedAtCenter,
-          'rc-tooltip-static': isStatic,
+          [styles.tooltip_fixed]: fixedAtCenter,
+          ['rc-tooltip-static']: isStatic,
         },
       ]),
     [fixedAtCenter]
@@ -158,7 +159,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
         {openOnClick && (
           <span
             role="button"
-            className="rc-tooltip-close-btn"
+            className={styles.tooltip_close_btn}
             onClick={handleClose}
           >
             <CloseIcon />
@@ -166,7 +167,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
         )}
         {message}
       </div>
-      <section className="rc-tooltip-host-content" {...eventProps}>
+      <section className={styles.tooltip_host_content} {...eventProps}>
         {children}
       </section>
     </div>

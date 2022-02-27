@@ -10,7 +10,7 @@ import { AutoSuggestOption } from '../auto-suggest/auto-suggest.model';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { TagItem } from './tag-item';
 import { TagItemProps, TagsProps } from './tags-model';
-import './tags.scss';
+import styles from './tags.module.scss';
 
 const Tags: React.FunctionComponent<TagsProps> = ({
   disabled = false,
@@ -133,10 +133,10 @@ const Tags: React.FunctionComponent<TagsProps> = ({
 
   return (
     <ul
-      className={classNames('rc-tags-wrapper', {
-        'rc-tags-disabled': disabled,
-        'rc-tags-rtl': RTL,
-        'rc-tags-wrap': wrap,
+      className={classNames(styles.tags_wrapper, {
+        [styles.tags_disabled]: disabled,
+        [styles.tags_rtl]: RTL,
+        [styles.tags_wrap]: wrap,
       })}
       role="list"
       style={style}
@@ -158,7 +158,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
         />
       ))}
       {canAdd && (
-        <li className="rc-tags-input-wrapper">
+        <li className={styles.tags_input_wrapper}>
           <AutoSuggest
             suggestions={tagSuggestions}
             onChange={handleChange}

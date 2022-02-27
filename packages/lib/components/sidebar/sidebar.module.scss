@@ -4,30 +4,29 @@
 
 $searchbar-height: 40px;
 
-.rc-sidebar {
+.sidebar {
   align-items: flex-start;
 
   background-color: var(--bg-color);
   display: flex;
   height: var(--sidebar-height, 100%);
-  // min-height: 98%;
   overflow: hidden;
   position: relative;
 
-  &.rc-sidebar-border {
+  &.sidebar_border {
     @extend %border;
   }
 
-  &:not(.rc-sidebar-minimize) {
+  &:not(.sidebar_minimize) {
     justify-content: center;
   }
 
-  &.rc-sidebar-minimize {
+  &.sidebar_minimize {
     justify-content: flex-start;
   }
 }
 
-.rc-sidebar-search-wrapper {
+.sidebar_search_wrapper {
   @extend %center;
   height: $searchbar-height;
   margin: 0 auto;
@@ -36,8 +35,7 @@ $searchbar-height: 40px;
   width: 90%;
 }
 
-.rc-sidebar-minimize-btn {
-  // @extend %icon-md;
+.sidebar_minimize_btn {
   background-color: theme.$primary;
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
@@ -52,7 +50,7 @@ $searchbar-height: 40px;
   z-index: 999;
 }
 
-.rc-sidebar-minimize-btn-open {
+.sidebar_minimize_btn_open {
   right: calc(0% - 1.5rem);
 
   svg {
@@ -60,38 +58,38 @@ $searchbar-height: 40px;
   }
 }
 
-.rc-sidebar-minimize-btn-close {
+.sidebar_minimize_btn_close {
   right: calc(100% - 1.5rem);
 }
 
-.rc-sidebar-content-wrapper {
-  &.rc-sidebar-border {
+.sidebar_content_wrapper {
+  &.sidebar_border {
     @extend %border;
   }
 
-  &.rc-sidebar-minimize {
+  &.sidebar_minimize {
     transition: width 0.25s ease-in-out, opacity 0.1s linear;
   }
 
-  &:not(.rc-sidebar-minimize) {
+  &:not(.sidebar_minimize) {
     width: 100%;
   }
 
-  &.rc-sidebar-hide {
+  &.sidebar_hide {
     opacity: 0;
     overflow: hidden;
     visibility: hidden;
     width: 0;
   }
 
-  &.rc-sidebar-open {
+  &.sidebar_open {
     opacity: 1;
     visibility: visible;
     width: 100%;
   }
 }
 
-.rc-sidebar-groups-wrapper {
+.sidebar_groups_wrapper {
   height: calc(100% - $searchbar-height);
   overflow-x: hidden;
   overflow-y: auto;

@@ -90,12 +90,12 @@ $show-anim: (
   height: var(--menu-max-height),
 );
 
-$dropdown_anim-settings: (
+$dropdown-anim-settings: (
   from: $hide-anim,
   to: $show-anim,
 );
 
-@include animate.set-keyframes(dropdown_menu_open, $dropdown_anim-settings);
+@include animate.set-keyframes(dropdown_menu_open, $dropdown-anim-settings);
 @include animate.set-keyframes(
   dropdown_menu_close,
   $dropdown_anim-settings,

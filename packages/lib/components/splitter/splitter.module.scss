@@ -4,7 +4,7 @@
 
 $dark-mode: theme.$dark-mode;
 
-.splitter-wrapper {
+.splitter_wrapper {
   height: 450px;
   position: relative;
   width: 100%;
@@ -18,30 +18,30 @@ $dark-mode: theme.$dark-mode;
     background: theme.$white;
   }
 
-  &.splitter-wrapper-horizontal {
+  &.splitter_wrapper_horizontal {
     display: flex;
   }
 
-  &.splitter-wrapper-border {
+  &.splitter_wrapper_border {
     @extend %border;
   }
 }
 
-.splitter-control {
+.splitter_control {
   background: rgba(theme.$primary-rgb, 75%);
   position: relative;
   transition: background 0.1s linear;
 
-  &.splitter-control-dragged {
+  &.splitter_control_dragged {
     background: rgba(theme.$primary-rgb, 100%);
   }
 }
 
-.splitter-control-horizontal {
+.splitter_control_horizontal {
   @include position.position-abs('center left');
   height: 100%;
 
-  .rc-splitter-drag-square {
+  .splitter_drag_square {
     cursor: ew-resize;
   }
 
@@ -50,22 +50,22 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.splitter-control-vertical {
+.splitter_control_vertical {
   @include position.position-abs('top left');
   width: 100%;
 
-  .rc-splitter-drag-square {
+  .splitter_drag_square {
     cursor: ns-resize;
   }
 }
 
-.splitter-partition {
+.splitter_partition {
   @extend %center;
   // background: theme.$white;
   overflow: auto;
 }
 
-.rc-splitter-drag-square {
+.splitter_drag_square {
   @extend %center;
   @extend %shadow-small;
   @include position.position-abs('center center');

@@ -8,9 +8,8 @@ import React, {
 } from 'react';
 import { ChevronRightIcon } from '../../icons';
 import { TabHead } from './tab-head';
-import './tab-header.scss';
+import styles from './tab-header.module.scss';
 import { TabHeadersProps } from './tabs-model';
-import './tabs.scss';
 
 const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   focusable,
@@ -85,21 +84,21 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
 
   // style classes
   const tabHeadersWrapperClass = useMemo(() => {
-    return classNames('rc-tab-headers-wrapper', {
-      [`rc-tab-headers-${tabStyle}`]: true,
+    return classNames(styles.tab_headers_wrapper, {
+      [styles[`tab_headers_${tabStyle}`]]: true,
     });
   }, []);
 
   const tabHeadersClass = useMemo(() => {
-    return classNames('rc-tab-headers', {
-      [`rc-tab-headers-${tabStyle}`]: true,
+    return classNames(styles.tab_headers, {
+      [styles[`tab_headers_${tabStyle}`]]: true,
     });
   }, []);
 
   const tabHeaderControl = useMemo(() => {
-    return classNames('rc-tab-header-control', {
-      [`rc-tab-header-control-${tabStyle}`]: true,
-      'rc-tab-header-control-icon': icons?.length,
+    return classNames(styles.tab_header_control, {
+      [styles[`tab_header_control_${tabStyle}`]]: true,
+      [styles.tab_head_icon]: icons?.length,
     });
   }, [icons?.length]);
 
@@ -151,10 +150,10 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
         <div className={tabHeaderControl}>
           <span
             className={classNames(
-              'rc-tab-header-btn',
-              'rc-tab-header-btn-left',
+              styles.tab_header_btn,
+              styles.tab_header_btn_left,
               {
-                'rc-tab-header-btn-disabled': disableScrollLeft,
+                [styles.tab_header_btn_disabled]: disableScrollLeft,
               }
             )}
             role="button"
@@ -164,8 +163,8 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
             <ChevronRightIcon />
           </span>
           <span
-            className={classNames('rc-tab-header-btn', {
-              'rc-tab-header-btn-disabled': disableScrollRight,
+            className={classNames(styles.tab_header_btn, {
+              [styles.tab_header_btn_disabled]: disableScrollRight,
             })}
             role="button"
             aria-label="scroll right"

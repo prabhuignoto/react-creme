@@ -1,11 +1,11 @@
 @use '../../design/core.scss';
 @use '../../design/theme.scss';
 
-$compact_row_height: 35px;
-$comfortable_row_height: 50px;
+$compact-row-height: 35px;
+$comfortable-row-height: 50px;
 
 $sizes: (sm, md, lg);
-$dark_mode: theme.$dark-mode;
+$dark-mode: theme.$dark-mode;
 
 .data_grid {
   @extend %col;
@@ -19,7 +19,7 @@ $dark_mode: theme.$dark-mode;
 }
 
 .data_grid_row_zebra:nth_child(odd) {
-  @if $dark_mode == 'true' {
+  @if $dark-mode == 'true' {
     background-color: rgba(theme.$gunmetal-gray, 0.25);
   } @else {
     background-color: rgba(theme.$light-bg, 0.75);
@@ -30,16 +30,16 @@ $dark_mode: theme.$dark-mode;
   width: 100%;
 
   &.data_grid_row_compact {
-    min-height: var(--row-height, $compact_row_height);
+    min-height: var(--row-height, $compact-row-height);
   }
 
   &.data_grid_row_comfortable {
-    min-height: var(--row-height, $comfortable_row_height);
+    min-height: var(--row-height, $comfortable-row-height);
   }
 }
 
 .data_grid_cell_border:not(:last_child) {
-  @if $dark_mode == 'true' {
+  @if $dark-mode == 'true' {
     border-right: 1px solid theme.$charcoal-gray;
   } @else {
     border-right: 1px solid theme.$secondary;
@@ -47,7 +47,7 @@ $dark_mode: theme.$dark-mode;
 }
 
 .data_grid_row:not(:last_child):not(.data_grid_row_zebra) {
-  @if $dark_mode == 'true' {
+  @if $dark-mode == 'true' {
     border-bottom: 1px solid theme.$charcoal-gray;
   } @else {
     border-bottom: 1px solid theme.$secondary;
@@ -55,7 +55,7 @@ $dark_mode: theme.$dark-mode;
 }
 
 .data_grid_row:hover {
-  @if dark_mode {
+  @if dark-mode {
     background-color: theme.$cod-gray;
   } @else {
     background-color: theme.$light-bg;

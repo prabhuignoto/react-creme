@@ -9,7 +9,7 @@ import React, {
 import { AlignJustify } from '../../icons';
 import { useDrag } from '../common/effects/useDrag';
 import { SplitterProps } from './splitter-model';
-import './splitter.scss';
+import styles from './splitter.module.scss';
 
 const round = Math.round;
 
@@ -60,9 +60,9 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
 
   const controlClass = useMemo(
     () =>
-      classNames(['splitter-control', `splitter-control-${dir}`], {
-        'splitter-control-disable': !canSplit,
-        'splitter-control-dragged': dragStarted,
+      classNames([styles.splitter_control, styles[`splitter_control_${dir}`]], {
+        [styles.disable]: !canSplit,
+        [styles.splitter_control_dragged]: dragStarted,
       }),
     [canSplit, dragStarted]
   );
@@ -109,8 +109,8 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
 
   const wrapperClass = useMemo(
     () =>
-      classNames(['splitter-wrapper', `splitter-wrapper-${dir}`], {
-        'splitter-wrapper-border': border,
+      classNames([styles.splitter_wrapper, styles[`splitter_wrapper_${dir}`]], {
+        [styles.splitter_wrapper_border]: border,
       }),
     []
   );
@@ -148,14 +148,14 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
   return (
     <div className={wrapperClass} ref={setWrapperRef}>
       <div className={controlClass} style={handleBarStyle}>
-        <span className="rc-splitter-drag-square" ref={controlRef}>
+        <span className={styles.splitter_drag_square} ref={controlRef}>
           <AlignJustify />
         </span>
       </div>
-      <div className="splitter-partition" style={partitionOneStyle}>
+      <div className={styles.splitter_partition} style={partitionOneStyle}>
         {children && children[0]}
       </div>
-      <div className="splitter-partition" style={partitionTwoStyle}>
+      <div className={styles.splitter_partition} style={partitionTwoStyle}>
         {children && children[1]}
       </div>
     </div>

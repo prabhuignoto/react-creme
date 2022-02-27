@@ -13,25 +13,25 @@ $padding-sizes: (
   lg: 0.5rem,
 );
 
-.rc-tags-wrapper {
-  &.rc-tags-rtl {
+.tags_wrapper {
+  &.tags_rtl {
     direction: rtl;
   }
 
-  &.rc-tags-disabled {
+  &.tags_disabled {
     @extend %disabled;
   }
 
-  &.rc-tags-wrap {
+  &.tags_wrap {
     @extend %list-wrap;
   }
 
-  &:not(.rc-tags-wrap) {
+  &:not(.tags_wrap) {
     @extend %list-horizontal-left;
   }
 }
 
-.rc-tag {
+.tag {
   $settings: (
     from: (
       visibility: hidden,
@@ -43,8 +43,8 @@ $padding-sizes: (
     ),
   );
   @include animate.set-settings(0.1s, linear);
-  @include animate.set-keyframes('tag-fade-in', $settings);
-  @include animate.set-keyframes('tag-fade-out', $settings, true);
+  @include animate.set-keyframes('tag_fade-in', $settings);
+  @include animate.set-keyframes('tag_fade-out', $settings, true);
 
   justify-items: center;
   margin: 0.5rem 0.25rem;
@@ -57,22 +57,22 @@ $padding-sizes: (
   user-select: none;
   visibility: visible;
 
-  &:not(.rc-tag-disabled):not(.rc-tag-readonly) {
+  &:not(.tag_disabled):not(.tag_readonly) {
     display: grid;
     grid-template-columns: calc(var(--width) - 1rem) 1rem;
   }
 
-  &.rc-tag-disabled,
-  &.rc-tag-readonly {
+  &.tag_disabled,
+  &.tag_readonly {
     @extend %center;
   }
 
-  &.rc-tag-disabled {
+  &.tag_disabled {
     pointer-events: none;
   }
 }
 
-.rc-tag-style-fill {
+.tag_style_fill {
   @extend %border-radius;
 
   @if $dark-mode == 'true' {
@@ -85,7 +85,7 @@ $padding-sizes: (
   }
 }
 
-.rc-tag-style-default {
+.tag_style_default {
   @if not $dark-mode == 'true' {
     @extend %border;
     @extend %shadow-inset-small;
@@ -96,48 +96,48 @@ $padding-sizes: (
   }
 }
 
-.rc-tag-accent-rounded {
+.tag_accent_rounded {
   border-radius: 40px;
 }
 
-.rc-tag-readonly {
+.tag_readonly {
   @if $dark-mode == 'true' {
     background: theme.$primary;
     color: theme.$white;
   }
 }
 
-.rc-tag-marked-for-removal {
-  animation-name: tag-fade-out;
+.tag_marked_for_removal {
+  animation-name: tag_fade-out;
   max-width: var(--width);
   transform: scale(0.98);
   visibility: hidden;
 }
 
 @each $size in $sizes {
-  .rc-tag-#{$size} {
-    .rc-tag-icon {
+  .tag_#{$size} {
+    .tag_icon {
       @extend %icon-#{$size};
     }
 
-    .rc-tag-name {
+    .tag_name {
       @extend %font-#{$size};
     }
   }
 }
 
-.rc-tag-icon {
+.tag_icon {
   align-self: center;
   border-radius: 50%;
   cursor: pointer;
   display: block;
   justify-self: flex-end;
 
-  &.rc-tag-icon-editable {
+  &.tag_icon_editable {
     visibility: visible;
   }
 
-  &:not(.rc-tag-icon-editable) {
+  &:not(.tag_icon_editable) {
     visibility: hidden;
     width: 0;
   }
@@ -153,7 +153,7 @@ $padding-sizes: (
   }
 }
 
-.rc-tag-icon-fill {
+.tag_icon_fill {
   &:hover::after {
     background: rgba(theme.$white, 1);
   }
@@ -163,7 +163,7 @@ $padding-sizes: (
   }
 }
 
-.rc-tag-icon-default {
+.tag_icon_default {
   &:hover::after {
     background: theme.$primary;
   }
@@ -173,19 +173,19 @@ $padding-sizes: (
   }
 }
 
-.rc-tags-input-wrapper {
+.tags_input_wrapper {
   margin-left: 0.25rem;
   position: relative;
 }
 
-.rc-tag-name {
+.tag_name {
   @extend %text-no-wrap;
   display: block;
   text-align: center;
   width: 100%;
 
   @each $size in $sizes {
-    &.rc-tag-name-#{$size} {
+    &.tag_name_#{$size} {
       @extend %font-#{$size};
     }
   }

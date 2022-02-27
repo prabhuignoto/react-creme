@@ -2,7 +2,7 @@
 @use '../../design/theme.scss';
 @use '../../design/list.scss';
 
-.rc-scroll-spy-wrapper {
+.scroll_spy_wrapper {
   @extend %center;
   align-items: flex-start;
   column-gap: 2%;
@@ -12,33 +12,33 @@
   width: 100%;
 }
 
-.rc-scroll-spy-wrapper-left {
+.scroll_spy_wrapper_left {
   grid-template-columns: 150px 1fr;
 }
 
-.rc-scroll-spy-wrapper-right {
+.scroll_spy_wrapper_right {
   grid-template-columns: 1fr 150px;
 
-  .rc-scroll-spy-aside {
+  .scroll_spy_aside {
     order: 2;
   }
 
-  .rc-scroll-spy-content {
+  .scroll_spy_content {
     order: 1;
   }
 }
 
-.rc-scroll-spy-aside {
+.scroll_spy_aside {
   @extend %center;
   width: 100%;
 }
 
-.rc-scroll-spy-list {
+.scroll_spy_list {
   @extend %list-left;
   width: 100%;
 }
 
-.rc-scroll-spy-list-item {
+.scroll_spy_list_item {
   @extend %border-radius;
   @extend %left;
   color: theme.$black;
@@ -55,17 +55,17 @@
   }
 }
 
-.rc-scroll-spy-content {
+.scroll_spy_content {
   @extend %col;
   height: 100%;
   overflow: auto;
   scroll-behavior: smooth;
 }
 
-.rc-scroll-spy-content-item {
+.scroll_spy_content-item {
   padding: 0.5rem 0;
 }
 
-.rc-header {
+.header {
   margin: 0;
 }

@@ -111,4 +111,5 @@ export default {
       filename: 'bundle-analysis.html',
     }),
   ],
+  preserveModules: true,
 };

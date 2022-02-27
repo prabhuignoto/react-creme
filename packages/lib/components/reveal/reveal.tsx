@@ -7,7 +7,7 @@ import React, {
   useState,
 } from 'react';
 import { RevealProps } from './reveal-model';
-import './reveal.scss';
+import styles from './reveal.module.scss';
 
 const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
   const observer = useRef<IntersectionObserver>();
@@ -43,9 +43,9 @@ const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
 
   const revealClass = useMemo(
     () =>
-      classNames('rc-reveal', {
-        'rc-reveal-hide': !visible,
-        'rc-reveal-show': visible,
+      classNames(styles.reveal, {
+        [styles.reveal_hide]: !visible,
+        [styles.reveal_show]: visible,
       }),
     [visible]
   );
@@ -58,7 +58,7 @@ const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
   }, []);
 
   return (
-    <div className="rc-reveal-wrapper">
+    <div className={styles.reveal_wrapper}>
       {isParentAvailable && (
         <div className={revealClass} ref={onRef}>
           {children}

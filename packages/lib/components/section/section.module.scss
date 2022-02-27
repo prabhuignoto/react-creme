@@ -15,7 +15,7 @@ $heights: (
   lg: 40px,
 );
 
-.rc-section {
+.section {
   @extend %col;
   margin: 2rem 0;
   width: 100%;
@@ -23,7 +23,7 @@ $heights: (
 
 $dark-mode: theme.$dark-mode;
 
-.rc-section-header {
+.section_header {
   @extend %left;
   font-size: 1rem;
   font-weight: 500;
@@ -41,41 +41,41 @@ $dark-mode: theme.$dark-mode;
   }
 
   @each $key, $val in $sizes {
-    &.rc-section-header-#{$key} {
+    &.section_header_#{$key} {
       @extend %font-#{$key};
       height: map.get($heights, $key);
     }
   }
 }
 
-.rc-section-body {
+.section_body {
   width: calc(100% - 2rem);
 
-  &.rc-section-no-padding {
+  &.section_no_padding {
     padding: 0;
   }
 
-  &:not(.rc-section-no-padding) {
+  &:not(.section_no_padding) {
     padding: 1.5rem 1rem 1rem;
   }
 
-  &:not(.rc-section-rtl) {
+  &:not(.section_rtl) {
     @extend %left;
   }
 
-  &.rc-section-rtl {
+  &.section_rtl {
     direction: rtl;
   }
 
-  &:not(.rc-section-no-title) {
+  &:not(.section_no_title) {
     min-height: calc(100% - 30px);
   }
 
-  &.rc-section-no-title {
+  &.section_no_title {
     min-height: 100%;
   }
 }
 
-.rc-section-header-rtl {
+.section_header_rtl {
   @extend %right;
 }

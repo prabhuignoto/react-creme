@@ -3,14 +3,14 @@
 @use '../../design/theme.scss';
 @use '../../design/position.scss';
 
-.transfer-list {
+.transfer_list {
   @extend %list;
   @extend %border;
   padding: 1rem;
   width: calc(100%);
 }
 
-.transfer-list-item {
+.transfer_list_item {
   @extend %left;
   cursor: pointer;
   height: 45px;

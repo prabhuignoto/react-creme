@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { CheckIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { SwitchProps } from './switch-model';
-import './switch.scss';
+import styles from './switch.module.scss';
 
 const Switch: React.FunctionComponent<SwitchProps> = ({
   checked = false,
@@ -45,46 +45,46 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
   // CSS
   const switchKnobClass = useMemo(
     () =>
-      classNames(['rc-switch-knob'], {
-        'rc-switch-check-icon': showCheckIcon,
-        'rc-switch-disabled': disabled,
-        'rc-switch-off': !state && !isFirstRender.current,
-        [`rc-switch-knob-${size}`]: true,
-        'rc-switch-on': state && !isFirstRender.current,
-        'rc-switch-on-load': state && isFirstRender.current,
+      classNames([styles.switch_knob], {
+        // [styles.check]: showCheckIcon,
+        [styles.switch_disabled]: disabled,
+        [styles.switch_off]: !state && !isFirstRender.current,
+        [styles[`switch_knob_${size}`]]: true,
+        [styles.switch_on]: state && !isFirstRender.current,
+        [styles.switch_on_load]: state && isFirstRender.current,
       }),
     [state, size, disabled, showCheckIcon]
   );
 
   const switchClass = useMemo(
     () =>
-      classNames('rc-switch', {
-        'rc-disabled': disabled,
-        [`rc-switch-${size}`]: true,
-        'rc-switch-label-outside': labelOutside,
+      classNames(styles.switch, {
+        [styles.disabled]: disabled,
+        [styles[`switch_${size}`]]: true,
+        [styles.switch_label_outside]: labelOutside,
       }),
     [size, labelOutside, disabled]
   );
 
   const switchTrackClass = useMemo(
     () =>
-      classNames('rc-switch-track', {
-        'rc-switch-label-outside': labelOutside,
-        'rc-switch-off': !state,
-        'rc-switch-on': state,
-        [`rc-switch-${size}`]: true,
-        'rc-switch-track-disabled': disabled,
+      classNames(styles.switch_track, {
+        [styles.switch_label_outside]: labelOutside,
+        [styles.switch_off]: !state,
+        [styles.switch_on]: state,
+        [styles[`switch_${size}`]]: true,
+        [styles.track_disabled]: disabled,
       }),
     [state, size, disabled, labelOutside]
   );
 
   const switchLabelClass = useMemo(
     () =>
-      classNames(['rc-switch-label'], {
-        'rc-switch-label-off': !state,
-        'rc-switch-label-on': state,
-        [`rc-switch-label-${size}`]: true,
-        'rc-switch-label-outside': labelOutside,
+      classNames([styles.switch_label], {
+        [styles.switch_label_off]: !state,
+        [styles.switch_label_on]: state,
+        [styles[`switch_label_${size}`]]: true,
+        [styles.switch_label_outside]: labelOutside,
       }),
     [state, labelOutside]
   );

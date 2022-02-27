@@ -4,7 +4,7 @@ import * as React from 'react';
 import { FunctionComponent, useCallback, useState } from 'react';
 import { SkeletonBlockProps, SkeletonProps } from './skeleton-model';
 import { SkeletonRow } from './skeleton-row';
-import './skeleton.scss';
+import styles from './skeleton.module.scss';
 
 const Skeleton: FunctionComponent<SkeletonProps> = ({
   rows = 4,
@@ -49,19 +49,19 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
 
   return (
     <div
-      className="rc-skeleton-wrapper"
+      className={styles.skeleton_wrapper}
       ref={onInit}
       data-testid="rc-skeleton"
       style={style}
     >
       {skeletonBlocks.map(({ id, rows }) => (
         <div
-          className={classNames('rc-skeleton-block', {
-            'rc-skeleton-block-rtl': RTL,
+          className={classNames(styles.skeleton_block, {
+            [styles.skeleton_block_rtl]: RTL,
           })}
           key={id}
         >
-          {showCircle && <div className="rc-skeleton-circle" />}
+          {showCircle && <div className={styles.skeleton_circle} />}
           {rows.map(
             row =>
               row.visible && (

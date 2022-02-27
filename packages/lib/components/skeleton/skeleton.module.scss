@@ -14,7 +14,7 @@ $settings: (
   ),
 );
 
-.rc-skeleton-wrapper {
+.skeleton_wrapper {
   @extend %border-radius;
   min-height: var(--min-height);
   min-width: var(--min-width);
@@ -26,7 +26,7 @@ $settings: (
   }
 }
 
-.rc-skeleton-row {
+.skeleton_row {
   @extend %border-radius;
   display: block;
   height: var(--height);
@@ -34,13 +34,13 @@ $settings: (
   padding-left: 0.5rem;
   z-index: -1;
 
-  &.rc-skeleton-animate:not(.rc-skeleton-disable-animation) {
+  &.skeleton_animate:not(.skeleton_disable_animation) {
     animation-direction: reverse;
     animation-name: animate-skeleton;
   }
 }
 
-.rc-skeleton-disable-animation {
+.skeleton_disable_animation {
   @if $dark-mode == 'true' {
     background: theme.$charcoal-gray;
   } @else {
@@ -48,7 +48,7 @@ $settings: (
   }
 }
 
-.rc-skeleton-row:not(.rc-skeleton-disable-animation) {
+.skeleton_row:not(.skeleton_disable_animation) {
   @include animate.set-settings(2s, linear, true);
   @include animate.set-keyframes(animate-skeleton, $settings);
 
@@ -71,20 +71,20 @@ $settings: (
   background-size: 200% 200%;
 }
 
-.rc-skeleton-block:not(:first-child) {
+.skeleton_block:not(:first-child) {
   margin: 2rem 0;
 }
 
-.rc-skeleton-block {
+.skeleton_block {
   padding: 1rem;
   position: relative;
 
-  &.rc-skeleton-block-rtl {
+  &.skeleton_block_rtl {
     direction: rtl;
   }
 }
 
-.rc-skeleton-circle {
+.skeleton_circle {
   @if $dark-mode == 'true' {
     background: theme.$charcoal-gray;
   } @else {

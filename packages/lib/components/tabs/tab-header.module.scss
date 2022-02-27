@@ -11,17 +11,17 @@ $sizes: (sm, md, lg);
 
 $dark-mode: theme.$dark-mode;
 
-.rc-tab-headers-wrapper {
+.tab_headers_wrapper {
   @extend %left;
   position: relative;
   width: 100%;
 
-  &.rc-tab-headers-wrapper-flat::after {
+  &.tab_headers_wrapper-flat::after {
     height: 2px;
   }
 }
 
-.rc-tab-headers-wrapper::after {
+.tab_headers_wrapper::after {
   @include position.position-abs('bottom center');
   content: '';
   display: block;
@@ -35,11 +35,11 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-tab-headers-flat {
+.tab_headers_flat {
   height: $flat-tabs-height;
 }
 
-.rc-tab-headers-rounded {
+.tab_headers_rounded {
   height: $rounded-tabs-height;
 
   &::after {
@@ -48,7 +48,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-tab-headers {
+.tab_headers {
   @extend %list-horizontal-left;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -57,7 +57,7 @@ $dark-mode: theme.$dark-mode;
   z-index: 1;
 }
 
-.rc-tab-header-control {
+.tab_header_control {
   @extend %center;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -67,7 +67,7 @@ $dark-mode: theme.$dark-mode;
   width: 5rem;
 }
 
-.rc-tab-header-btn {
+.tab_header_btn {
   @extend %border-radius;
   @extend %icon-lg;
   color: var(--icons-color, theme.$primary);
@@ -77,16 +77,16 @@ $dark-mode: theme.$dark-mode;
     background: theme.$secondary;
   }
 
-  &.rc-tab-header-btn-disabled {
+  &.tab_header_btn_disabled {
     @extend %disabled;
   }
 }
 
-.rc-tab-header-btn-left {
+.tab_header_btn_left {
   transform: rotate(180deg);
 }
 
-.rc-tab-head {
+.tab_head {
   min-width: 120px;
   position: relative;
   user-select: none;
@@ -101,23 +101,23 @@ $dark-mode: theme.$dark-mode;
     color: theme.$primary;
   }
 
-  &.rc-tab-head-rounded {
+  &.tab_head_rounded {
     height: 80%;
   }
 
-  &.rc-tab-head-flat {
+  &.tab_head_flat {
     height: 80%;
   }
 
-  &.rc-tab-head-disabled {
+  &.tab_head_disabled {
     @extend %disabled;
   }
 
-  &.rc-tab-head-selected {
+  &.tab_head_selected {
     color: theme.$primary;
   }
 
-  &:not(.rc-tab-head-selected) {
+  &:not(.tab_head_selected) {
     cursor: pointer;
   }
 
@@ -125,11 +125,11 @@ $dark-mode: theme.$dark-mode;
     margin-left: 0.75rem;
   }
 
-  &:not(.rc-tab-head-with-icon) {
+  &:not(.tab_head_with_icon) {
     @extend %center;
   }
 
-  &.rc-tab-head-with-icon {
+  &.tab_head_with_icon {
     align-items: center;
     display: grid;
     grid-template-columns: 2.5rem calc(100% - 2rem) 0.5rem;
@@ -138,19 +138,19 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .rc-tab-head-#{$size} {
-    .rc-tab-header-label {
+  .tab_head_#{$size} {
+    .tab_header_label {
       @extend %font-#{$size};
     }
 
-    .rc-tab-head-icon {
+    .tab_head_icon {
       @extend %icon-#{$size};
     }
   }
 }
 
-.rc-tab-head-flat {
-  &.rc-tab-head-selected::after {
+.tab_head_flat {
+  &.tab_head_selected::after {
     @include position.position-abs('bottom center');
     background: theme.$primary;
     bottom: -4px;
@@ -169,12 +169,12 @@ $dark-mode: theme.$dark-mode;
     width: 0;
   }
 
-  &.rc-tab-header-selected::after {
+  &.tab_header_selected::after {
     width: 100%;
   }
 }
 
-.rc-tab-header-label {
+.tab_header_label {
   @extend %left;
   height: 90%;
   position: relative;
@@ -182,18 +182,18 @@ $dark-mode: theme.$dark-mode;
   white-space: nowrap;
   width: 90%;
 
-  &.rc-tab-header-selected {
+  &.tab_header_selected {
     color: theme.$tertiary;
     position: relative;
   }
 
-  &:not(.rc-tab-header-label-icon) {
+  &:not(.tab_header_label_icon) {
     @extend %center;
     width: 100%;
   }
 }
 
-.rc-tab-head-rounded {
+.tab_head_rounded {
   @if $dark-mode == 'true' {
     border: 1px solid theme.$charcoal-gray;
   } @else {
@@ -206,7 +206,7 @@ $dark-mode: theme.$dark-mode;
   position: relative;
 }
 
-.rc-tab-head-rounded.rc-tab-head-selected::after {
+.tab_head_rounded.tab_head_selected::after {
   @include position.position-abs('bottom center');
   @if $dark-mode == 'true' {
     background: theme.$black;
@@ -221,7 +221,7 @@ $dark-mode: theme.$dark-mode;
   z-index: -1;
 }
 
-.rc-tab-head-icon {
+.tab_head_icon {
   align-items: center;
   display: flex;
   justify-content: center;
