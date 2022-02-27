@@ -41,21 +41,11 @@ export default {
   output: [
     {
       banner,
-      exports: 'named',
-      file: pkg.browser,
-      format: 'umd',
-      ...globals,
-      name: OUTPUT_NAME,
-      strict: true,
-    },
-    {
-      banner,
-      exports: 'named',
       format: 'es',
       ...globals,
-      dir: './dist',
+      exports: 'named',
+      file: pkg.module,
       name: OUTPUT_NAME,
-      preserveModules: true,
       strict: true,
     },
   ],
