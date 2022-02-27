@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import { DataGridCell } from '../data-grid-cell';
+import styles from '../data-grid.module.scss';
 
 describe('DataGridCell', () => {
   it('should render the data grid cell', () => {
@@ -11,7 +12,7 @@ describe('DataGridCell', () => {
     expect(getByText('john')).toBeInTheDocument();
 
     expect(getByRole('cell')).toBeInTheDocument();
-    expect(getByRole('cell')).toHaveClass('rc-data-grid-cell');
+    expect(getByRole('cell')).toHaveClass(styles.data_grid_cell);
   });
 
   it('should render with border', () => {
@@ -19,6 +20,6 @@ describe('DataGridCell', () => {
       <DataGridCell name="name" value="john" border />
     );
 
-    expect(getByRole('cell')).toHaveClass('rc-data-grid-cell-border');
+    expect(getByRole('cell')).toHaveClass(styles.data_grid_cell_border);
   });
 });

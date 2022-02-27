@@ -2,6 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { Rate } from '../rate';
+import styles from '../rate.module.scss';
 
 describe('Rate', () => {
   it('renders correctly', () => {
@@ -47,13 +48,13 @@ describe('Rate', () => {
       const radios = getAllByRole('radio').slice(0, 3);
 
       radios.forEach(radio => {
-        expect(radio).toHaveClass('rc-rate-item-hovered');
+        expect(radio).toHaveClass(styles.rate_item_hovered);
       });
 
       const radios2 = getAllByRole('radio').slice(3, radios.length);
 
       radios2.forEach(radio => {
-        expect(radio).not.toHaveClass('rc-rate-item-hovered');
+        expect(radio).not.toHaveClass(styles.rate_item_hovered);
       });
     });
   });

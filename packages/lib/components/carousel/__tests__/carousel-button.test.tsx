@@ -2,6 +2,7 @@ import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { CarouselButton } from '../carousel-button';
+import styles from '../carousel.module.scss';
 
 const handler = vi.fn();
 
@@ -17,7 +18,7 @@ describe('Carousel Button', () => {
     );
 
     expect(container.firstChild).toBeInTheDocument();
-    expect(container.firstChild).toHaveClass('rc-carousel-btn-left');
+    expect(container.firstChild).toHaveClass(styles.btn_left);
   });
 
   it('should render carousel button snapshot', () => {

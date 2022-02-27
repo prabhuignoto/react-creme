@@ -3,6 +3,7 @@ import React from 'react';
 import { describe, it } from 'vitest';
 import { Input } from '../../input/input';
 import { FormField } from '../form-field';
+import styles from '../form-field.module.scss';
 
 describe('Form Field', () => {
   it('Should render the form field', () => {
@@ -35,7 +36,7 @@ describe('Form Field', () => {
 
     expect(getByText('Name')).toBeInTheDocument();
 
-    expect(container.firstChild).toHaveClass('rc-form-field-rtl');
+    expect(container.firstChild).toHaveClass(styles.form_field_rtl);
   });
 
   it('should render custom size', () => {
@@ -47,6 +48,6 @@ describe('Form Field', () => {
 
     expect(getByText('Name')).toBeInTheDocument();
 
-    expect(container.firstChild).toHaveClass('rc-form-field-sm');
+    expect(container.firstChild).toHaveClass(styles.form_field_sm);
   });
 });

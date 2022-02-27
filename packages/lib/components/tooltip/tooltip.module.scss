@@ -20,6 +20,10 @@ $dark-mode: theme.$dark-mode;
   &.tooltip_fixed {
     @include position.position-abs('center center');
   }
+
+  &.tooltip_static {
+    display: block;
+  }
 }
 
 .tooltip_message {
@@ -96,9 +100,9 @@ $dark-mode: theme.$dark-mode;
     left: -4px;
   }
 
-  &.tooltip_left-top::after,
-  &.tooltip_left-center::after,
-  &.tooltip_left-bottom::after {
+  &.tooltip_left_top::after,
+  &.tooltip_left_center::after,
+  &.tooltip_left_bottom::after {
     right: -4px;
   }
 

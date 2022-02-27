@@ -2,6 +2,7 @@ import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { CheckBox } from '../checkbox';
+import styles from '../checkbox.module.scss';
 
 const handler = vi.fn();
 
@@ -15,15 +16,15 @@ describe('Checkbox', () => {
   it('should render disabled', () => {
     const { getByRole } = render(<CheckBox label="My Checkbox" disabled />);
 
-    expect(getByRole('checkbox')).toHaveClass('rc-checkbox-disabled');
+    expect(getByRole('checkbox')).toHaveClass(styles.checkbox_disabled);
     expect(getByRole('checkbox')).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('should render default prop isChecked', () => {
     const { container } = render(<CheckBox label="My Checkbox" isChecked />);
 
-    expect(container.querySelector('.rc-checkbox-icon')).toHaveClass(
-      'rc-checkbox-checked'
+    expect(container.querySelector('.' + styles.checkbox_icon)).toHaveClass(
+      styles.checkbox_checked
     );
   });
 

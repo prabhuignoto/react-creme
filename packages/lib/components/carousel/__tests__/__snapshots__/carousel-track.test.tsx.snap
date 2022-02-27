@@ -2,19 +2,19 @@
 
 exports[`Carousel Track > Should render the track snapshot 1`] = `
 <ul
-  class="rc-carousel-track rc-carousel-track-horizontal"
+  class="_track_1ym1m_16 _track_horizontal_1ym1m_16"
   role="list"
 >
   <li
-    class="rc-carousel-track-item"
+    class="_track_item_1ym1m_39"
     role="listitem"
   />
   <li
-    class="rc-carousel-track-item rc-carousel-track-item-selected"
+    class="_track_item_1ym1m_39 _track_item_selected_1ym1m_51"
     role="listitem"
   />
   <li
-    class="rc-carousel-track-item"
+    class="_track_item_1ym1m_39"
     role="listitem"
   />
 </ul>

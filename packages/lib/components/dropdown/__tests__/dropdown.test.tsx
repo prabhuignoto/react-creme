@@ -2,6 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { Dropdown } from '../dropdown';
+import styles from '../dropdown.module.scss';
 
 const options = [
   { name: 'usa', value: 'usa' },
@@ -116,7 +117,7 @@ describe('Dropdown', () => {
     await waitFor(() => {
       expect(getByText('select a option')).toBeInTheDocument();
     });
-    expect(container?.firstChild).toHaveClass('rc-dropdown-disabled');
+    expect(container?.firstChild).toHaveClass(styles.dropdown_disabled);
     expect(container?.firstChild?.firstChild).toHaveAttribute(
       'aria-disabled',
       'true'

@@ -2,6 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { Button } from '../button';
+import styles from '../button.module.scss';
 
 const handler = vi.fn();
 
@@ -12,7 +13,7 @@ describe('Button', () => {
     const button = container.firstChild;
 
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass('rc-btn-default');
+    expect(button).toHaveClass(styles.btn_default);
   });
 
   it('should render label', () => {
@@ -23,7 +24,7 @@ describe('Button', () => {
   it('should render size', () => {
     const { getByRole } = render(<Button label="My Button" size="lg" />);
     expect(getByRole('button')).toBeInTheDocument();
-    expect(getByRole('button')).toHaveClass('rc-btn-lg');
+    expect(getByRole('button')).toHaveClass(styles.btn_lg);
   });
 
   it('should render button snapshot', () => {
@@ -38,7 +39,7 @@ describe('Button', () => {
       <Button label="My Button" disabled onClick={handler} />
     );
 
-    expect(getByRole('button')).toHaveClass('rc-disabled');
+    expect(getByRole('button')).toHaveClass(styles.disabled);
 
     fireEvent.click(getByRole('button'));
 

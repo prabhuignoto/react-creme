@@ -8,14 +8,14 @@ const FormField: FunctionComponent<FormFieldProps> = ({
   disabled = false,
   icon,
   label,
-  size,
+  size = 'sm',
   border = true,
   children,
   id,
 }) => {
   const formFieldClass = useMemo(() => {
     return classNames(styles.form_field, {
-      [styles[`form-field-${size}`]]: true,
+      [styles[`form_field_${size}`]]: true,
       [styles.form_field_border]: border,
       [styles.form_field_disabled]: disabled,
       [styles.form_field_rtl]: RTL,
@@ -24,13 +24,13 @@ const FormField: FunctionComponent<FormFieldProps> = ({
 
   const formLabelClass = useMemo(() => {
     return classNames(styles.form_field_label, {
-      [styles[`form-field-label-${size}`]]: true,
+      [styles[`form_field_label_${size}`]]: true,
     });
   }, []);
 
   const formIconClass = useMemo(() => {
     return classNames(styles.form_field_icon, {
-      [styles[`rc-form-field-icon-${size}`]]: true,
+      [styles[`rc_form_field_icon_${size}`]]: true,
     });
   }, []);
 

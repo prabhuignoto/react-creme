@@ -83,7 +83,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
         styles.tooltip_wrapper,
         {
           [styles.tooltip_fixed]: fixedAtCenter,
-          ['rc-tooltip-static']: isStatic,
+          [styles.tooltip_static]: isStatic,
         },
       ]),
     [fixedAtCenter]

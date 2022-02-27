@@ -11,7 +11,7 @@ const SkeletonRow: FunctionComponent<
 > = ({ id, width, animate, rowHeight, disableAnimation }) => {
   const skeletonRowClass = useMemo(
     () =>
-      classNames(styles.skeleton_row, {
+      classNames(styles.skeleton_row, 'rc-skeleton-row', {
         [styles.skeleton_animate]: animate,
         [styles.skeleton_disable_animation]: disableAnimation,
       }),

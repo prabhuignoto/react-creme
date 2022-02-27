@@ -44,7 +44,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     const editable = useMemo(() => !disabled && !readonly, []);
     const tagItemClass = useMemo(
       () =>
-        classNames(styles.tag, {
+        classNames(styles.tag, 'rc-tag', {
           [styles.tag_disabled]: disabled,
           [styles.tag_marked_for_removal]:
             markedForRemoval && !isFirstRender.current,

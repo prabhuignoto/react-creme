@@ -2,20 +2,20 @@
 
 exports[`Tabs > should render snapshot 1`] = `
 <div
-  class="rc-tab-headers rc-tab-headers-flat"
+  class="_tab_headers_1xz4f_42 _tab_headers_flat_1xz4f_98"
   role="tablist"
 >
   <div
-    aria-controls="rc-tab-panel-V4NGc8Y8EXrS7wJvPud7T"
+    aria-controls="rc-tab-panel-UNwTcZ_ddrdNm9Nfzqmt3"
     aria-selected="true"
-    class="rc-tab-head rc-tab-head-selected rc-tab-head-flat rc-tab-head-sm"
-    id="rc-tab-V4NGc8Y8EXrS7wJvPud7T"
+    class="_tab_head_1xz4f_1 _tab_head_selected_1xz4f_153 _tab_head_flat_1xz4f_150 _tab_head_sm_1xz4f_5"
+    id="rc-tab-UNwTcZ_ddrdNm9Nfzqmt3"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="0"
   >
     <span
-      class="rc-tab-header-label rc-tab-header-flat"
+      class="_tab_header_label_1xz4f_5 undefined"
     >
       one
     </span>
@@ -25,16 +25,16 @@ exports[`Tabs > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-R0-Y_Fh4Bc25lHtix40OR"
+    aria-controls="rc-tab-panel-AqggNG82cUAhm1FV3-RuF"
     aria-selected="false"
-    class="rc-tab-head rc-tab-head-flat rc-tab-head-sm"
-    id="rc-tab-R0-Y_Fh4Bc25lHtix40OR"
+    class="_tab_head_1xz4f_1 _tab_head_flat_1xz4f_150 _tab_head_sm_1xz4f_5"
+    id="rc-tab-AqggNG82cUAhm1FV3-RuF"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
   >
     <span
-      class="rc-tab-header-label rc-tab-header-flat"
+      class="_tab_header_label_1xz4f_5 undefined"
     >
       two
     </span>
@@ -44,16 +44,16 @@ exports[`Tabs > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-H6RHjPE_52TixFJ2EIKjz"
+    aria-controls="rc-tab-panel-jBc30vOAJ-MswfDEoCkF3"
     aria-selected="false"
-    class="rc-tab-head rc-tab-head-flat rc-tab-head-sm"
-    id="rc-tab-H6RHjPE_52TixFJ2EIKjz"
+    class="_tab_head_1xz4f_1 _tab_head_flat_1xz4f_150 _tab_head_sm_1xz4f_5"
+    id="rc-tab-jBc30vOAJ-MswfDEoCkF3"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
   >
     <span
-      class="rc-tab-header-label rc-tab-header-flat"
+      class="_tab_header_label_1xz4f_5 undefined"
     >
       three
     </span>

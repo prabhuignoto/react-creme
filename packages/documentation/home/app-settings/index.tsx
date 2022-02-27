@@ -66,8 +66,8 @@ const AppSettings: React.FunctionComponent = () => {
     } else if (themeToUpdate.value === 'dark') {
       selectedTheme = {
         colors: { ...Dark },
-        selectedTheme: 'dark',
         darkMode: true,
+        selectedTheme: 'dark',
       };
     }
 

@@ -33,6 +33,10 @@ $dark-mode: theme.$dark-mode;
   .form-field-icon-#{$size} {
     @extend %icon-#{$size};
   }
+
+  .form_field_#{$size} {
+    display: block;
+  }
 }
 
 .form_field_label_container {
