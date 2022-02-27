@@ -48,11 +48,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
     <div className={headerClass} style={style} role="row">
       {headerColumns.map(column => (
         <div className={headerCellClass} key={column.name}>
-          <DataGridCell
-            name={column.name}
-            value={column.name}
-            border={border}
-          />
+          <DataGridCell name={column.name} value={column.name} border={false} />
           {column.sortable && (
             <span className={styles.header_sort_icon_wrapper}>
               <span
