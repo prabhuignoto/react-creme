@@ -107,12 +107,18 @@ $dark-mode: theme.$dark-mode;
   }
 
   &.radio_ico_checked {
-    @extend %shadow-inset-small;
     background-color: theme.$primary;
+    border: 1px solid theme.$secondary;
   }
+}
 
-  &:not(.radio_ico_checked) {
+.radio_icon:not(.radio_ico_checked) {
+  @if $dark-mode == 'true' {
     background-color: theme.$charcoal-gray;
+    border: 1px solid theme.$secondary;
+  } @else {
+    @extend %shadow-inset;
+    border: 1px solid theme.$secondary;
   }
 }
 

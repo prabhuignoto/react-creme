@@ -4,7 +4,7 @@
 $sizes: (sm, md, lg);
 $dark-mode: theme.$dark_mode;
 
-.data_grid_header_cell {
+.header_cell {
   @extend %left;
   color: theme.$black;
   height: 100%;
@@ -29,21 +29,21 @@ $dark-mode: theme.$dark_mode;
     width: 100%;
   }
 
-  .data_grid_cell_val {
+  .cell_val {
     font-weight: 400;
     width: 95%;
   }
 }
 
-.data_grid_header_border:not(:last-child) {
-  @if $dark-mode {
+.header_border:not(:last-child) {
+  @if $dark-mode == 'true' {
     border-right: 1px solid theme.$charcoal-gray;
   } @else {
     border-right: 1px solid theme.$secondary;
   }
 }
 
-.data_grid_header_sort_icon_wrapper {
+.header_sort_icon_wrapper {
   margin-left: auto;
   margin-right: 0.5rem;
 }
@@ -61,42 +61,42 @@ $dark-mode: theme.$dark_mode;
   }
 }
 
-.data_grid_header_sort_icon {
+.header_sort_icon {
   @extend %sort-icon;
 }
 
-.data_grid_header_sort_icon_asc {
+.header_sort_icon_asc {
   margin-bottom: 0.2rem;
 }
 
-.data_grid_header_sort_icon_desc {
+.header_sort_icon_desc {
   @extend %sort-icon;
   margin-top: 0.2rem;
   transform: rotate(180deg);
 }
 
-.data_grid_header_sort_icon_active {
+.header_sort_icon_active {
   svg {
     fill: theme.$primary;
   }
 }
 
-.data_grid_header {
+.header {
   justify-items: center;
   width: 100%;
 
-  &.data_grid_header_compact {
+  &.header_compact {
     height: 40px;
   }
 
-  &.data_grid_header_comfortable {
+  &.header_comfortable {
     height: 50px;
   }
 }
 
 @each $size in $sizes {
-  .data_grid_header_#{$size} {
-    .data_grid_cell_val {
+  .header_#{$size} {
+    .cell_val {
       @extend %text-#{$size};
     }
   }

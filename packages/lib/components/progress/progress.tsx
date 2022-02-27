@@ -88,7 +88,7 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
 
   const wrapperClass = useMemo(
     () =>
-      classNames(styles, {
+      classNames(styles.progress_wrapper, {
         [styles[`progress_${status}`]]: true,
       }),
     [status]

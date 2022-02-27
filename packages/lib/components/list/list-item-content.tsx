@@ -25,7 +25,7 @@ const ListItemContent: React.FunctionComponent<ListItemContentProps> =
           [styles.list_option_no_icon]: !showCheck,
           [styles.list_option_rtl]: RTL,
           [styles.list_option_selected]: selected,
-          [styles[`list-option-${size}`]]: size,
+          [styles[`list_option_${size}`]]: size,
         },
         [selected]
       );

@@ -6,14 +6,14 @@ import styles from './data-grid.module.scss';
 const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
   ({ value, border, fixedHeight, formatter }: CellModel) => {
     const columnClass = useMemo(() => {
-      return classNames(styles.data_grid_cell, {
-        [styles.data_grid_cell_border]: border,
+      return classNames(styles.cell, {
+        [styles.cell_border]: border,
       });
     }, [border]);
 
     const cellClass = useMemo(() => {
-      return classNames(styles.data_grid_cell_val, {
-        [styles.data_grid_cell_val_fixed]: fixedHeight,
+      return classNames(styles.cell_val, {
+        [styles.cell_val_fixed]: fixedHeight,
       });
     }, []);
 

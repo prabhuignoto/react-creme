@@ -92,7 +92,7 @@ $dark-mode: theme.$dark-mode;
 @mixin get-button($size, $border) {
   @extend %button;
 
-  &:not(.rc-btn-icon) {
+  &:not(.btn_icon) {
     @if $size == small {
       height: 20px;
       padding: calc(20px * 0.25) calc(20px * 0.5);
@@ -105,7 +105,7 @@ $dark-mode: theme.$dark-mode;
     }
   }
 
-  &.rc-btn-icon {
+  &.btn_icon {
     border: 0;
   }
 }

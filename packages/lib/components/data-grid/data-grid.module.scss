@@ -13,12 +13,12 @@ $dark-mode: theme.$dark-mode;
   padding: 0;
   width: 100%;
 
-  &.data_grid_border {
+  &.border {
     @extend %border;
   }
 }
 
-.data_grid_row_zebra:nth_child(odd) {
+.row_zebra:nth-child(odd) {
   @if $dark-mode == 'true' {
     background-color: rgba(theme.$gunmetal-gray, 0.25);
   } @else {
@@ -26,19 +26,19 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.data_grid_row {
+.row {
   width: 100%;
 
-  &.data_grid_row_compact {
+  &.row_compact {
     min-height: var(--row-height, $compact-row-height);
   }
 
-  &.data_grid_row_comfortable {
+  &.row_comfortable {
     min-height: var(--row-height, $comfortable-row-height);
   }
 }
 
-.data_grid_cell_border:not(:last_child) {
+.cell_border:not(:last-child) {
   @if $dark-mode == 'true' {
     border-right: 1px solid theme.$charcoal-gray;
   } @else {
@@ -46,7 +46,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.data_grid_row:not(:last_child):not(.data_grid_row_zebra) {
+.row:not(:last-child):not(.row_zebra) {
   @if $dark-mode == 'true' {
     border-bottom: 1px solid theme.$charcoal-gray;
   } @else {
@@ -54,8 +54,8 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.data_grid_row:hover {
-  @if dark-mode {
+.row:hover {
+  @if $dark-mode == 'true' {
     background-color: theme.$cod-gray;
   } @else {
     background-color: theme.$light-bg;
@@ -63,19 +63,19 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .data_grid_row_#{$size} {
-    .data_grid_cell_val {
+  .row_#{$size} {
+    .cell_val {
       @extend %text-#{$size};
     }
   }
 }
 
-.data_grid_cell {
+.cell {
   @extend %center;
   width: calc(100% - 1px);
 }
 
-.data_grid_cell_val {
+.cell_val {
   display: block;
   font-weight: 300;
   line-height: 25px;
@@ -83,11 +83,11 @@ $dark-mode: theme.$dark-mode;
   padding-left: 0.25rem;
   width: 90%;
 
-  &.data_grid_cell_val_fixed {
+  &.cell_val_fixed {
     @extend %text-no-wrap;
   }
 
-  &:not(.data_grid_cell_val_fixed) {
+  &:not(.cell_val_fixed) {
     overflow-wrap: anywhere;
   }
 

@@ -26,12 +26,12 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
   );
 
   const rowClass = useMemo(() => {
-    return classNames(styles.data_grid_row, {
-      [styles[`data_grid_row_${layoutStyle}`]]: true,
-      [styles.data_grid_border]: border,
-      rc_data_grid_row_fixed_height: fixedHeight,
-      [styles.data_grid_row_zebra]: zebra,
-      [styles[`data_grid_row_${size}`]]: true,
+    return classNames(styles.row, {
+      [styles[`row_${layoutStyle}`]]: true,
+      [styles.border]: border,
+      rc_row_fixed_height: fixedHeight,
+      [styles.row_zebra]: zebra,
+      [styles[`row_${size}`]]: true,
     });
   }, [layoutStyle]);
 

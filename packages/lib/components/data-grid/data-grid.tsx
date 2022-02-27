@@ -74,7 +74,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
 
   const gridClass = useMemo(() => {
     return classNames(styles.data_grid, {
-      [styles.data_grid_border]: border,
+      [styles.border]: border,
       'data-grid-zebra': zebra,
     });
   }, []);

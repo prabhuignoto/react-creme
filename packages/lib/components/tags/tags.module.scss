@@ -86,7 +86,7 @@ $padding-sizes: (
 }
 
 .tag_style_default {
-  @if not $dark-mode == 'true' {
+  @if $dark-mode != 'true' {
     @extend %border;
     @extend %shadow-inset-small;
   } @else {
