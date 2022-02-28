@@ -2,7 +2,7 @@
 
 $dark-mode: theme.$dark-mode;
 
-.rc-focus-ring {
+.focus_ring {
   background-color: rgba(theme.$primary-rgb, 0.1);
   border: 2px solid transparent;
   border-radius: 4px;
@@ -20,7 +20,7 @@ $dark-mode: theme.$dark-mode;
   z-index: 10;
 }
 
-.rc-focus-ring-active {
+.focus_ring_active {
   background-color: rgba(#fff, 0.1);
   border: 2px solid rgba(theme.$primary-rgb, 0.75);
   visibility: visible;
@@ -33,7 +33,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-focus-ring-inactive {
+.focus_ring_inactive {
   background-color: rgba(theme.$primary-rgb, 0.1);
   border: 2px solid transparent;
   visibility: hidden;

@@ -26,7 +26,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
       {carouselItems.map((item, index) => (
         <li
           key={item.id}
-          className={'rc-carousel-item'}
+          className={styles.item}
           role="listitem"
           data-visible={activePage === index}
           aria-hidden={activePage !== index}
@@ -37,7 +37,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
             width: item.width,
           }}
         >
-          <div className="rc-carousel-item-container">
+          <div className={styles.item_container}>
             {(children as ReactNode[])[index]}
           </div>
         </li>

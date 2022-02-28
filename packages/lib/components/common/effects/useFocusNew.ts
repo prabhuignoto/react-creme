@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
-import './focus.scss';
+import styles from './focus.module.scss';
 
 /**
  * @param  {React.RefObject<HTMLElement>} ref
@@ -14,16 +14,16 @@ export default function useFocusNew(
   const focusHandler = useCallback(() => {
     const ele = ring.current;
     if (ele) {
-      ele.classList.remove('rc-focus-ring-inactive');
-      ele.classList.add('rc-focus-ring-active');
+      ele.classList.remove(styles.ring_inactive);
+      ele.classList.add(styles.ring_active);
     }
   }, []);
 
   const removeFocus = useCallback(() => {
     const ele = ring.current;
     if (ele) {
-      ele.classList.remove('rc-focus-ring-active');
-      ele.classList.add('rc-focus-ring-inactive');
+      ele.classList.remove(styles.ring_active);
+      ele.classList.add(styles.ring_inactive);
     }
   }, []);
 
@@ -46,7 +46,7 @@ export default function useFocusNew(
       ele.style.outline = 'none';
       ele.style.position = 'relative';
 
-      focusRing.classList.add('rc-focus-ring');
+      focusRing.classList.add(styles.focus_ring);
       focusRing.style.cssText = `
         width: ${clientWidth + 6}px;
         height: ${clientHeight + 6}px; 
