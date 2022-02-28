@@ -18,6 +18,7 @@ const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
     const cellClass = useMemo(() => {
       return classNames(styles.cell_val, {
         [styles.cell_val_fixed]: fixedHeight,
+        [styles.dark]: isDarkMode,
       });
     }, []);
 

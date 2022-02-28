@@ -17,8 +17,6 @@ $heights: (
   lg: 56px,
 );
 
-$dark-mode: theme.$dark-mode;
-
 .wrapper {
   @extend %left;
   cursor: pointer;

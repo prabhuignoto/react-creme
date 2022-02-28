@@ -3,8 +3,6 @@
 @use '../../design/theme.scss';
 @use '../../design/list.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .container {
   @extend %border-radius;
   @extend %shadow-medium;

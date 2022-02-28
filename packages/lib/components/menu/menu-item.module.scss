@@ -4,8 +4,6 @@
 
 $sizes: (sm, md, lg);
 
-$dark-mode: theme.$dark-mode;
-
 .item {
   @extend %list-item-left;
   height: 35px;

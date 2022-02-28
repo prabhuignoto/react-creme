@@ -9,7 +9,6 @@ $heights: (
   md: 35px,
   lg: 40px,
 );
-$dark-mode: theme.$dark-mode;
 
 .input_number {
   @extend %left;

@@ -5,11 +5,6 @@
 
 $sizes: (sm, md, lg);
 
-$dark-mode: theme.$dark-mode;
-$normal-mode: theme.$normal-mode;
-
-$modes: ($dark-mode, $normal-mode);
-
 .container {
   align-items: center;
   cursor: pointer;
@@ -56,6 +51,10 @@ $modes: ($dark-mode, $normal-mode);
     display: grid;
     grid-template-columns: calc(100% - 4rem) 2rem 2rem;
   }
+}
+
+.multi {
+  height: 45px;
 }
 
 .container:not(.rtl) {
@@ -116,7 +115,7 @@ $modes: ($dark-mode, $normal-mode);
 }
 
 .clear_icon:hover {
-  @if not $dark-mode == 'true' {
+  &:not(.dark) {
     color: var(--clear-icon-color, theme.$primary);
   }
 }

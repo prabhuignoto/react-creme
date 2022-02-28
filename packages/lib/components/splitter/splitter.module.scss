@@ -2,8 +2,6 @@
 @use '../../design/position.scss';
 @use '../../design/theme.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .wrapper {
   height: 450px;
   position: relative;

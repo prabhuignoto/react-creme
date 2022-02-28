@@ -5,8 +5,6 @@
 @use '../../design/position.scss';
 @use '../../design/util.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .drawer {
   $min-width: var(--min-width);
   $min-height: var(--min-height);

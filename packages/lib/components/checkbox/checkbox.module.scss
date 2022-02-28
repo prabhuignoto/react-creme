@@ -4,7 +4,6 @@
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark-mode;
 
 $grid: (
   sm: 16px,
@@ -49,7 +48,7 @@ $heights: (
 }
 
 .border {
-  @if not $dark-mode == 'true' {
+  &:not(.dark) {
     @extend %border;
   }
 }

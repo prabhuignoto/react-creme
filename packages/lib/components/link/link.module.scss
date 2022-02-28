@@ -2,7 +2,6 @@
 @use '../../design/theme.scss';
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark-mode;
 
 .link {
   @extend %center;

@@ -2,8 +2,6 @@
 @use '../../design/theme.scss';
 @use '../../design/position.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .input_wrapper {
   @extend %center;
   height: 35px;

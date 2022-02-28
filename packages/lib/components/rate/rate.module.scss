@@ -9,8 +9,6 @@ $sizes: (
   lg: 30px,
 );
 
-$dark-mode: theme.$dark-mode;
-
 .wrapper {
   @extend %list-horizontal;
 

@@ -26,8 +26,6 @@ $knob-sizes: (
   lg: 24px,
 );
 
-$dark-mode: theme.$dark-mode;
-
 $switch-width: (
   sm: calc(map.get($knob-sizes, sm) * 3),
   md: calc(map.get($knob-sizes, md) * 3),

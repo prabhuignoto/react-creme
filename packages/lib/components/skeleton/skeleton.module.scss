@@ -4,7 +4,6 @@
 @use '../../design/list.scss';
 @use '../../design/position.scss';
 
-$dark-mode: theme.$dark-mode;
 $settings: (
   from: (
     background-position: 0% 0%,

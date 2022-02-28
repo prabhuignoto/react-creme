@@ -9,8 +9,6 @@ $rounded-tabs-height: 45px;
 
 $sizes: (sm, md, lg);
 
-$dark-mode: theme.$dark-mode;
-
 .tab_headers_wrapper {
   @extend %left;
   position: relative;
@@ -209,6 +207,16 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
+.tab_head_rounded.tab_head_selected {
+  &.dark::after {
+    background: theme.$black;
+  }
+
+  &:not(.dark)::after {
+    background: theme.$white;
+  }
+}
+
 .tab_head_rounded.tab_head_selected::after {
   @include position.position-abs('bottom center');
   bottom: -2px;
@@ -217,14 +225,6 @@ $dark-mode: theme.$dark-mode;
   height: 3px;
   width: 100%;
   z-index: -1;
-
-  &.dark {
-    background: theme.$black;
-  }
-
-  &:not(.dark) {
-    background: theme.$white;
-  }
 }
 
 .tab_head_icon {

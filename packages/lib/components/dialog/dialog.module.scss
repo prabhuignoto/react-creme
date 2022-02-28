@@ -4,8 +4,6 @@
 @use '../../design/animate.scss';
 @use '../../design/animations.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .dialog {
   $animations: (pop, drop, rise, slide-left, slide-right);
   @extend %col;

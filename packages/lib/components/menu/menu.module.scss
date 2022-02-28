@@ -3,8 +3,6 @@
 @use '../../design/animate.scss';
 @use '../../design/theme.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .wrapper {
   @extend %center;
   height: 100%;

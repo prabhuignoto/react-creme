@@ -55,8 +55,8 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
           {column.sortable && (
             <span className={styles.sort_icon_wrapper}>
               <span
-                className={classNames(styles.sort_icon, {
-                  [styles.sort_icon_asc]: column.sortDirection === 'asc',
+                className={classNames(styles.sort_icon_asc, {
+                  [styles.sort_icon_active]: column.sortDirection === 'asc',
                 })}
                 role="button"
                 onClick={() => handleSort(column.name, 'asc')}

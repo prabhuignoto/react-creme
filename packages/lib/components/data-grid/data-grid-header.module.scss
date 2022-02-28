@@ -70,6 +70,7 @@ $dark-mode: theme.$dark_mode;
 }
 
 .sort_icon_asc {
+  @extend %sort-icon;
   margin-bottom: 0.2rem;
 }
 

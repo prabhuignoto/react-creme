@@ -4,8 +4,6 @@
 $header-height: 35px;
 $sizes: (sm, md, lg);
 
-$dark-mode: theme.$dark-mode;
-
 .header {
   @extend %left;
   align-items: center;

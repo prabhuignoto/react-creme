@@ -5,7 +5,6 @@
 @use 'sass:color';
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark-mode;
 
 .block_quote {
   align-items: center;

@@ -5,7 +5,6 @@ $compact-row-height: 35px;
 $comfortable-row-height: 50px;
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark-mode;
 
 .data_grid {
   @extend %col;
@@ -41,7 +40,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 .cell_border:not(:last-child) {
-  .dark {
+  &.dark {
     border-right: 1px solid theme.$charcoal-gray;
   }
 
@@ -51,7 +50,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 .row:not(:last-child):not(.row_zebra) {
-  .dark {
+  &.dark {
     border-bottom: 1px solid theme.$charcoal-gray;
   }
 
@@ -61,7 +60,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 .row:hover {
-  .dark {
+  &.dark {
     background-color: theme.$cod-gray;
   }
 
@@ -90,6 +89,14 @@ $dark-mode: theme.$dark-mode;
   padding: 0.5rem 0;
   padding-left: 0.25rem;
   width: 90%;
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
 
   &.cell_val_fixed {
     @extend %text-no-wrap;
