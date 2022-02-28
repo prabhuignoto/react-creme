@@ -26,20 +26,20 @@ const Card: React.FunctionComponent<CardProps> = ({
   }, [height]);
 
   const cardWrapperClass = useMemo(() => {
-    return classNames(styles.card_wrapper, {
-      [styles.card_border_less]: !border,
-      [styles.card_shadow]: shadow,
+    return classNames(styles.wrapper, {
+      [styles.border_less]: !border,
+      [styles.shadow]: shadow,
     });
   }, [border]);
 
   const cardHeaderClass = useMemo(() => {
-    return classNames(styles.card_header, {
+    return classNames(styles.header, {
       [styles[`card-align-${alignHeader}`]]: true,
     });
   }, []);
 
   const cardFooterClass = useMemo(() => {
-    return classNames(styles.card_footer, {
+    return classNames(styles.footer, {
       [styles[`card-align-${alignFooter}`]]: true,
     });
   }, []);
@@ -47,7 +47,7 @@ const Card: React.FunctionComponent<CardProps> = ({
   return (
     <div className={cardWrapperClass} style={style} ref={ref}>
       {header && <header className={cardHeaderClass}>{header}</header>}
-      <section className={styles.card_body}>{children}</section>
+      <section className={styles.body}>{children}</section>
       {footer && <footer className={cardFooterClass}>{footer}</footer>}
     </div>
   );

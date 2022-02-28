@@ -14,7 +14,7 @@ $dark-mode: theme.$dark-mode;
   text-decoration: none;
   white-space: nowrap;
 
-  &.link_btn:hover {
+  &.btn:hover {
     background: rgba(theme.$primary-rgb, 1);
     box-shadow: none;
     color: theme.$white;
@@ -25,13 +25,13 @@ $dark-mode: theme.$dark-mode;
     text-decoration: underline;
   }
 
-  &.link_highlight {
+  &.highlight {
     background-color: rgba(theme.$primary-rgb, 1);
     color: theme.$white;
   }
 }
 
-.link_btn {
+.btn {
   @if $dark-mode == 'true' {
     background-color: theme.$gunmetal-gray;
     color: theme.$white;
@@ -42,21 +42,21 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .link_#{$size} {
-    .link_text {
+  .#{$size} {
+    .text {
       @extend %font-#{$size};
     }
 
-    .link_icon {
+    .icon {
       @extend %icon-#{$size};
     }
   }
 }
 
-.link_text {
+.text {
   @extend %center;
 }
 
-.link_icon {
+.icon {
   margin-right: 0.5rem;
 }

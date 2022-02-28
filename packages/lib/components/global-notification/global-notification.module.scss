@@ -16,67 +16,67 @@ $sizes: (sm, md, lg);
   width: 100%;
   z-index: 99999;
 
-  &.global_notification_success {
+  &.success {
     background: theme.$success-green;
     color: theme.$white;
   }
 
-  &.global_notification_error {
+  &.error {
     background: theme.$crimson;
     color: theme.$white;
   }
 
-  &.global_notification_warning {
+  &.warning {
     background: theme.$amber;
   }
 
-  &.global_notification_info {
+  &.info {
     background: theme.$secondary;
   }
 }
 
 @each $size in $sizes {
-  .global_notification_#{$size} {
-    .global_notification_close_btn {
+  .#{$size} {
+    .close_btn {
       @extend %icon-#{$size};
     }
 
-    .global_notification_message {
+    .message {
       @extend %font-#{$size};
     }
   }
 }
 
-.global_notification_animation_shrink {
-  &.global_notification_open {
+.animation_shrink {
+  &.open {
     height: var(--height);
   }
 
-  &.global_notification_close {
+  &.close {
     height: 0;
   }
 }
 
-.global_notification_animation_hide {
+.animation_hide {
   height: var(--height);
 
-  &.global_notification_open {
+  &.open {
     top: 0;
   }
 
-  &.global_notification_close {
+  &.close {
     top: calc(var(--height) * -1);
   }
 }
 
-.global_notification_info,
-.global_notification_warning {
-  .global_notification_close_btn {
+.info,
+.warning {
+  .close_btn {
     color: #000;
   }
 }
 
-.global_notification_close_btn {
+.close_btn {
   @extend %center;
   color: #fff;
   cursor: pointer;
@@ -85,7 +85,7 @@ $sizes: (sm, md, lg);
   margin-right: 0.5rem;
 }
 
-.global_notification_message {
+.message {
   @extend %left;
   font-weight: 300;
   margin-left: auto;

@@ -107,8 +107,8 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
     const clearClass = useMemo(
       () =>
         classNames([
-          styles.input_clear,
-          styles.input_icon,
+          styles.clear,
+          styles.icon,
           !inputValue ? styles.hidden : '',
         ]),
       [inputValue]
@@ -117,15 +117,15 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
     const inputClass = useMemo(
       () =>
         classNames(styles.input, {
-          [styles[`input_${state}`]]: true,
-          [styles.input_border]: border,
-          [styles.input_disabled]: disabled,
-          [styles.input_focus]: hasFocus,
-          [styles['input_no_icon']]: !children,
-          [styles.input_rtl]: RTL,
-          [styles[`input_${accent}`]]: true,
-          [styles[`input_${size}`]]: true,
-          [styles.input_transparent_bg_color]: transparentBgColor,
+          [styles[state]]: true,
+          [styles.border]: border,
+          [styles.disabled]: disabled,
+          [styles.focus]: hasFocus,
+          [styles['no_icon']]: !children,
+          [styles.rtl]: RTL,
+          [styles[accent]]: true,
+          [styles[size]]: true,
+          [styles.transparent_bg_color]: transparentBgColor,
         }),
       [disabled, hasFocus]
     );
@@ -190,7 +190,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
         aria-label={placeholder}
         {...autoCompleteProps}
       >
-        <span className={styles.input_icon}>{children}</span>
+        <span className={styles.icon}>{children}</span>
         <input
           type={type}
           placeholder={placeholder}

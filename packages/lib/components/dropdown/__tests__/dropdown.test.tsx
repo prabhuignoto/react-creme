@@ -117,7 +117,7 @@ describe('Dropdown', () => {
     await waitFor(() => {
       expect(getByText('select a option')).toBeInTheDocument();
     });
-    expect(container?.firstChild).toHaveClass(styles.dropdown_disabled);
+    expect(container?.firstChild).toHaveClass(styles.disabled);
     expect(container?.firstChild?.firstChild).toHaveAttribute(
       'aria-disabled',
       'true'

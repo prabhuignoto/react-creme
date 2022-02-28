@@ -36,9 +36,9 @@ const Link: React.FunctionComponent<LinkProps> = ({
 
   const linkClass = useMemo(() => {
     return classNames(styles.link, {
-      [styles.link_btn]: accent === 'button',
-      [styles[`link_${size}`]]: true,
-      [styles.link_highlight]: highlight,
+      [styles.btn]: accent === 'button',
+      [styles[size]]: true,
+      [styles.highlight]: highlight,
     });
   }, [highlight]);
 
@@ -56,8 +56,8 @@ const Link: React.FunctionComponent<LinkProps> = ({
         }
       }}
     >
-      {icon && <span className={styles.link_icon}>{icon}</span>}
-      <span className={styles.link_text}>{children}</span>
+      {icon && <span className={styles.icon}>{icon}</span>}
+      <span className={styles.text}>{children}</span>
     </a>
   );
 };

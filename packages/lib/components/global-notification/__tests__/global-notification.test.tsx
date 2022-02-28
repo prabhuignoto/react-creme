@@ -21,9 +21,7 @@ describe('GlobalNotification', () => {
     );
     await waitFor(() => {
       expect(getByRole('alert')).toBeInTheDocument();
-      expect(getByRole('alert')).toHaveClass(
-        styles.global_notification_success
-      );
+      expect(getByRole('alert')).toHaveClass(styles.success);
     });
   });
 
@@ -34,7 +32,7 @@ describe('GlobalNotification', () => {
 
     await waitFor(() => {
       expect(getByRole('alert')).toBeInTheDocument();
-      expect(getByRole('alert')).toHaveClass(styles.global_notification_error);
+      expect(getByRole('alert')).toHaveClass(styles.error);
     });
   });
 
@@ -45,9 +43,7 @@ describe('GlobalNotification', () => {
 
     await waitFor(() => {
       expect(getByRole('alert')).toBeInTheDocument();
-      expect(getByRole('alert')).toHaveClass(
-        styles.global_notification_warning
-      );
+      expect(getByRole('alert')).toHaveClass(styles.warning);
     });
   });
 
@@ -58,7 +54,7 @@ describe('GlobalNotification', () => {
 
     await waitFor(() => {
       expect(getByRole('alert')).toBeInTheDocument();
-      expect(getByRole('alert')).toHaveClass(styles.global_notification_info);
+      expect(getByRole('alert')).toHaveClass(styles.info);
     });
   });
 

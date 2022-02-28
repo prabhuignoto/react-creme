@@ -47,11 +47,11 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   const globalNotificationClass = useMemo(
     () =>
       classNames(styles.global_notification, {
-        [styles.global_notification_close]: !open,
-        [styles.global_notification_open]: open,
-        [styles[`global_notification_${state}`]]: true,
-        [styles[`global_notification_animation_${hideAnimationStyle}`]]: true,
-        [styles[`global_notification_${size}`]]: true,
+        [styles.close]: !open,
+        [styles.open]: open,
+        [styles[state]]: true,
+        [styles[`animation_${hideAnimationStyle}`]]: true,
+        [styles[size]]: true,
       }),
     [open, state, hideAnimationStyle]
   );
@@ -71,11 +71,9 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
 
   return (
     <div className={globalNotificationClass} style={style} role="alert">
-      <span className={styles.global_notification_message}>
-        {open && message}
-      </span>
+      <span className={styles.message}>{open && message}</span>
       <span
-        className={styles.global_notification_close_btn}
+        className={styles.close_btn}
         onClick={handleClose}
         role="button"
         ref={btnCloseRef}

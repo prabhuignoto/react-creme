@@ -48,9 +48,9 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
   const inputClass = useMemo(
     () =>
       classNames(styles.input_number, {
-        [styles[`input_number_${size}`]]: true,
-        [styles.input_number_border]: border,
-        [styles.input_number_rtl]: RTL,
+        [styles[size]]: true,
+        [styles.border]: border,
+        [styles.rtl]: RTL,
       }),
     []
   );
@@ -66,11 +66,11 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         size={size}
         type="number"
       />
-      <div className={styles.input_number_controls}>
+      <div className={styles.controls}>
         <span
           role="button"
           tabIndex={0}
-          className={classNames(styles.input_number_btn, styles.increment)}
+          className={classNames(styles.btn, styles.increment)}
           onClick={increment}
           aria-label="increment"
         >
@@ -79,7 +79,7 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         <span
           role="button"
           tabIndex={0}
-          className={classNames(styles.input_number_btn, styles.decrement)}
+          className={classNames(styles.btn, styles.decrement)}
           onClick={decrement}
           aria-label="decrement"
         >

@@ -6,10 +6,10 @@ exports[`Tabs > should render snapshot 1`] = `
   role="tablist"
 >
   <div
-    aria-controls="rc-tab-panel-aiNwl6bC5VQj4LqPhtw0I"
+    aria-controls="rc-tab-panel-iqR8WpbxOviuUnFxeH2I9"
     aria-selected="true"
     class="_tab_head_1xz4f_1 _tab_head_selected_1xz4f_153 _tab_head_flat_1xz4f_150 _tab_head_sm_1xz4f_5"
-    id="rc-tab-aiNwl6bC5VQj4LqPhtw0I"
+    id="rc-tab-iqR8WpbxOviuUnFxeH2I9"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="0"
@@ -20,15 +20,15 @@ exports[`Tabs > should render snapshot 1`] = `
       one
     </span>
     <span
-      class="rc-focus-ring"
+      class="_focus_ring_193gd_1"
       style="width: 6px; height: 6px;"
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-DsSsvHR3Moz4usICJHDae"
+    aria-controls="rc-tab-panel-VxUndBV6fx7TCnqBjRBuA"
     aria-selected="false"
     class="_tab_head_1xz4f_1 _tab_head_flat_1xz4f_150 _tab_head_sm_1xz4f_5"
-    id="rc-tab-DsSsvHR3Moz4usICJHDae"
+    id="rc-tab-VxUndBV6fx7TCnqBjRBuA"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
@@ -39,15 +39,15 @@ exports[`Tabs > should render snapshot 1`] = `
       two
     </span>
     <span
-      class="rc-focus-ring"
+      class="_focus_ring_193gd_1"
       style="width: 6px; height: 6px;"
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-XRMUXhnzfmFM-9ln8DQHn"
+    aria-controls="rc-tab-panel-cxCstcxMdsBlDM7NwpYhE"
     aria-selected="false"
     class="_tab_head_1xz4f_1 _tab_head_flat_1xz4f_150 _tab_head_sm_1xz4f_5"
-    id="rc-tab-XRMUXhnzfmFM-9ln8DQHn"
+    id="rc-tab-cxCstcxMdsBlDM7NwpYhE"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
@@ -58,7 +58,7 @@ exports[`Tabs > should render snapshot 1`] = `
       three
     </span>
     <span
-      class="rc-focus-ring"
+      class="_focus_ring_193gd_1"
       style="width: 6px; height: 6px;"
     />
   </div>

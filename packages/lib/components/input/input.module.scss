@@ -22,11 +22,11 @@ $dark-mode: theme.$dark-mode;
   width: 100%;
   z-index: 2;
 
-  &.input_rtl {
+  &.rtl {
     direction: rtl;
   }
 
-  &.input_border {
+  &.border {
     @extend %border;
   }
 
@@ -42,20 +42,20 @@ $dark-mode: theme.$dark-mode;
     z-index: -1;
   }
 
-  &.input_focus::after {
+  &.focus::after {
     border: 2px solid rgba(theme.$primary-rgb, 0.75);
     box-shadow: 0 0 1px 4px rgba(theme.$primary-rgb, 0.25);
   }
 
-  &:not(.input_border):not(.input_rounded) {
+  &:not(.border):not(.rounded) {
     @extend %border-radius;
   }
 
-  &.input_rounded {
+  &.rounded {
     @extend %border-radius-high;
   }
 
-  &.input_transparent_bg_color {
+  &.transparent_bg_color {
     background: transparent;
   }
 
@@ -68,19 +68,19 @@ $dark-mode: theme.$dark-mode;
     font-weight: 300;
   }
 
-  &.input_error.input_border {
+  &.error.border {
     @extend %border-error;
   }
 
-  &.input_success {
+  &.success {
     @extend %border-success;
   }
 
-  &.input_no_icon {
+  &.no_icon {
     grid-template-columns: 0.5rem calc(100% - 2.5rem) 2rem;
   }
 
-  &.input_disabled {
+  &.disabled {
     @extend %disabled;
   }
 
@@ -99,14 +99,14 @@ $dark-mode: theme.$dark-mode;
   padding: 0;
   width: 100%;
 
-  @if dark-mode {
+  @if dark-mode == 'true' {
     color: theme.$white;
   } @else {
     color: theme.$black;
   }
 }
 
-.input:not(.input_border).input_default:not(.input_transparent_bg_color) {
+.input:not(.border).default:not(.transparent_bg_color) {
   @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
@@ -116,7 +116,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .input_#{$size} {
+  .#{$size} {
     height: map.get($heights, $size);
 
     input {
@@ -127,35 +127,35 @@ $dark-mode: theme.$dark-mode;
       @extend %font-#{$size};
     }
 
-    .input_icon {
+    .icon {
       @extend %icon-#{$size};
     }
   }
 }
 
-.input_error:not(.input_border) {
+.error:not(.border) {
   border: 1px solid rgba(theme.$crimson, 0.5);
 
-  &.input_focus::after {
+  &.focus::after {
     border: 2px solid theme.$crimson;
     box-shadow: 0 0 1px 4px rgba(theme.$crimson, 0.25);
   }
 }
 
-.input_success:not(.input_border) {
+.success:not(.border) {
   border: 1px solid rgba(theme.$success-green, 0.5);
 
-  &.input_focus::after {
+  &.focus::after {
     border: 2px solid theme.$success-green;
     box-shadow: 0 0 1px 4px rgba(theme.$success-green, 0.25);
   }
 }
 
-.input_icon {
+.icon {
   color: theme.$primary;
 }
 
-.input_clear {
+.clear {
   color: theme.$tertiary;
   cursor: pointer;
   display: block;

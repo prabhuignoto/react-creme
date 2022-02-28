@@ -6,7 +6,7 @@ $sizes: (sm, md, lg);
 
 $dark-mode: theme.$dark-mode;
 
-.dropdown_value_container {
+.container {
   @if $dark-mode == 'true' {
     @extend %border-radius;
     background-color: theme.$gunmetal-gray;
@@ -23,7 +23,7 @@ $dark-mode: theme.$dark-mode;
   padding: 0.1rem 0;
   width: 100%;
 
-  &.dropdown_menu_open {
+  &.open {
     box-shadow: none;
   }
 
@@ -52,13 +52,13 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.dropdown_value_container:not(.dropdown_rtl) {
+.container:not(.dropdown_rtl) {
   .dropdown_value {
     padding-left: 1rem;
   }
 }
 
-.dropdown_value_container.dropdown_rtl {
+.container.dropdown_rtl {
   .dropdown_value {
     padding-right: 1rem;
   }
@@ -122,7 +122,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .dropdown_value_#{$size} {
+  .#{$size} {
     .dropdown_value {
       @extend %text-#{$size};
     }

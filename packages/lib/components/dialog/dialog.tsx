@@ -40,8 +40,8 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
         [
           styles.dialog,
           isClosing
-            ? styles[`dialog_${animationType}_leave`]
-            : styles[`dialog_${animationType}_enter`],
+            ? styles[`${animationType}_leave`]
+            : styles[`${animationType}_enter`],
         ],
         {
           [styles[`dialog-${size}`]]: true,
@@ -78,11 +78,11 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
       style={style}
       {...focusProps.current}
     >
-      <header className={styles.dialog_header}>
-        <h2 className={styles.dialog_title} id={id.current}>
+      <header className={styles.header}>
+        <h2 className={styles.title} id={id.current}>
           {title}
         </h2>
-        <div className={styles.dialog_button_wrapper}>
+        <div className={styles.button_wrapper}>
           <Button
             type="icon"
             onClick={handleClose}
@@ -94,8 +94,8 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
           </Button>
         </div>
       </header>
-      <section className={styles.dialog_body}>{children}</section>
-      <footer className={styles.dialog_footer}>
+      <section className={styles.body}>{children}</section>
+      <footer className={styles.footer}>
         <Button
           label="okay"
           type="primary"

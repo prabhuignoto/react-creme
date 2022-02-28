@@ -15,16 +15,16 @@ $dark-mode: theme.$dark-mode;
   @extend %left;
   padding: 0.2rem;
 
-  &.input_number_border {
+  &.border {
     @extend %border;
   }
 
-  &.input_number_rtl {
+  &.rtl {
     direction: rtl;
   }
 }
 
-.input_number:not(.input_number_border) {
+.input_number:not(.border) {
   @extend %border-radius;
 
   @if $dark-mode == 'true' {
@@ -34,20 +34,20 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.input_number_controls {
+.controls {
   @extend %col;
   margin-left: auto;
 }
 
 @each $size in $sizes {
-  .input_number_#{$size} {
-    .input_number_btn {
+  .#{$size} {
+    .btn {
       @extend %icon-#{$size};
     }
   }
 }
 
-.input_number_btn {
+.btn {
   @extend %border-radius;
   background: theme.$secondary;
   cursor: pointer;

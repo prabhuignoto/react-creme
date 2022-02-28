@@ -18,7 +18,7 @@ $widths: (
   lg: 100px,
 );
 
-.kbd_wrapper {
+.wrapper {
   @extend %border-radius;
   background-color: rgba(theme.$light-bg, 1);
   color: theme.$black;
@@ -26,18 +26,18 @@ $widths: (
   padding: 0.2rem;
   text-align: center;
 
-  &.kbd_left_raised {
+  &.left_raised {
     box-shadow: 0 2px 0 2px rgba(theme.$chinese-gray, 0.9);
   }
 
-  &.kbd_right_raised {
+  &.right_raised {
     box-shadow: 0 2px 0 2px rgba(theme.$chinese-gray, 0.9);
   }
 }
 
 @each $size in $sizes {
-  .kbd_wrapper {
-    &.kbd_#{$size} {
+  .wrapper {
+    &.#{$size} {
       @extend %font-#{$size};
       height: #{map.get($heights, $size)};
       line-height: #{map.get($heights, $size)};
@@ -47,19 +47,19 @@ $widths: (
 }
 
 @each $size in $sizes {
-  .kbd_combination_#{$size} {
-    .kbd_plus {
+  .combination_#{$size} {
+    .plus {
       @extend %icon-#{$size};
     }
   }
 }
 
-.kbd_plus {
+.plus {
   color: theme.$gunmetal-gray;
   margin: 0 0.5rem;
 }
 
-.kbd_combination {
+.combination {
   @extend %left;
   flex-wrap: wrap;
 }

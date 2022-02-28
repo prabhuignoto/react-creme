@@ -93,7 +93,7 @@ $dark-mode: theme.$dark-mode;
       true
     );
 
-    &.drawer-#{$position} {
+    &.#{$position} {
       @include position.position-abs($val);
 
       @if $position == top or $position == bottom {
@@ -118,7 +118,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.drawer-close-btn-wrapper {
+.close-btn-wrapper {
   @include position.position-abs('top right');
   right: 0.5rem;
   top: 0.5rem;
