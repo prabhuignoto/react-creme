@@ -74,7 +74,11 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         <span
           role="button"
           tabIndex={0}
-          className={classNames(styles.btn, styles.increment)}
+          className={classNames(
+            styles.btn,
+            styles.increment,
+            isDarkMode && styles.dark
+          )}
           onClick={increment}
           aria-label="increment"
         >
@@ -83,7 +87,11 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         <span
           role="button"
           tabIndex={0}
-          className={classNames(styles.btn, styles.decrement)}
+          className={classNames(
+            styles.btn,
+            styles.decrement,
+            isDarkMode && styles.dark
+          )}
           onClick={decrement}
           aria-label="decrement"
         >
