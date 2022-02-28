@@ -4,15 +4,17 @@
 $sizes: (sm, md, lg);
 $dark-mode: theme.$dark_mode;
 
-.header_cell {
+.cell {
   @extend %left;
   color: theme.$black;
   height: 100%;
   text-transform: capitalize;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     background: rgba(theme.$charcoal-gray, 0.5);
-  } @else {
+  }
+
+  &:not(.dark) {
     background: rgba(theme.$secondary-rgb, 0.5);
   }
 
@@ -35,15 +37,17 @@ $dark-mode: theme.$dark_mode;
   }
 }
 
-.header_border:not(:last-child) {
-  @if $dark-mode == 'true' {
+.border:not(:last-child) {
+  &.dark {
     border-right: 1px solid theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     border-right: 1px solid theme.$secondary;
   }
 }
 
-.header_sort_icon_wrapper {
+.sort_icon_wrapper {
   margin-left: auto;
   margin-right: 0.5rem;
 }
@@ -61,21 +65,22 @@ $dark-mode: theme.$dark_mode;
   }
 }
 
-.header_sort_icon {
+.sort_icon {
   @extend %sort-icon;
 }
 
-.header_sort_icon_asc {
+.sort_icon_asc {
+  @extend %sort-icon;
   margin-bottom: 0.2rem;
 }
 
-.header_sort_icon_desc {
+.sort_icon_desc {
   @extend %sort-icon;
   margin-top: 0.2rem;
   transform: rotate(180deg);
 }
 
-.header_sort_icon_active {
+.sort_icon_active {
   svg {
     fill: theme.$primary;
   }
@@ -85,17 +90,17 @@ $dark-mode: theme.$dark_mode;
   justify-items: center;
   width: 100%;
 
-  &.header_compact {
+  &.compact {
     height: 40px;
   }
 
-  &.header_comfortable {
+  &.comfortable {
     height: 50px;
   }
 }
 
 @each $size in $sizes {
-  .header_#{$size} {
+  .#{$size} {
     .cell_val {
       @extend %text-#{$size};
     }

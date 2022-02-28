@@ -3,6 +3,7 @@ import * as React from 'react';
 import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useDrag } from '../common/effects/useDrag';
+import { isDark } from '../common/utils';
 // import useFocus from '../common/effects/useFocusNew';
 import { Tooltip } from '../tooltip/tooltip';
 import { SliderProps } from './slider-model';
@@ -136,6 +137,16 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     [focusable]
   );
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
+  const trackClass = useMemo(
+    () =>
+      classNames(styles.track, {
+        [styles.dark]: isDarkMode,
+      }),
+    []
+  );
+
   return (
     <div
       className={sliderWrapperClass}
@@ -148,7 +159,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
       ref={onTrackerInit}
       aria-label="slider"
     >
-      <div className={styles.track}>
+      <div className={trackClass}>
         <span
           ref={sliderFillRef}
           style={sliderFillStyle}

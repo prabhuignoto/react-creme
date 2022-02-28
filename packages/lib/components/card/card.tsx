@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
+import { isDark } from '../common/utils';
 import { CardProps } from './card-model';
 import styles from './card.module.scss';
 
@@ -16,6 +17,8 @@ const Card: React.FunctionComponent<CardProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const style = useMemo(() => {
     return {
       '--height': `${height}px`,
@@ -29,6 +32,7 @@ const Card: React.FunctionComponent<CardProps> = ({
     return classNames(styles.wrapper, {
       [styles.border_less]: !border,
       [styles.shadow]: shadow,
+      [styles.dark]: isDarkMode,
     });
   }, [border]);
 

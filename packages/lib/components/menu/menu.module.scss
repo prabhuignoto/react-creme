@@ -3,8 +3,6 @@
 @use '../../design/animate.scss';
 @use '../../design/theme.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .wrapper {
   @extend %center;
   height: 100%;
@@ -27,10 +25,20 @@ $dark-mode: theme.$dark-mode;
   padding: 0.5rem;
   position: relative;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     background: theme.$gunmetal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$white;
+  }
+
+  &.dark::after {
+    border-bottom: 10px solid theme.$gunmetal-gray;
+  }
+
+  &:not(.dark)::after {
+    border-bottom: 10px solid theme.$white;
   }
 }
 
@@ -41,12 +49,6 @@ $dark-mode: theme.$dark-mode;
   display: blocks;
   position: absolute;
   top: -10px;
-
-  @if $dark-mode == 'true' {
-    border-bottom: 10px solid theme.$gunmetal-gray;
-  } @else {
-    border-bottom: 10px solid theme.$white;
-  }
 }
 
 .left {

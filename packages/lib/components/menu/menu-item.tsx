@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
+import { isDark } from '../common/utils';
 import styles from './menu-item.module.scss';
 
 export interface MenuItemProps {
@@ -40,11 +41,14 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
 
     useFocusNew(ref, handleClick);
 
+    const isDarkMode = useMemo(() => isDark(), []);
+
     return (
       <li
         className={classNames(styles.item, {
           [styles.disabled]: disabled,
           [styles.divider]: isDivider,
+          [styles.dark]: isDarkMode,
         })}
         onClick={handleClick}
         ref={onRef}

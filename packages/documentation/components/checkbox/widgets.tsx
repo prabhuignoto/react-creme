@@ -1,7 +1,14 @@
 import React from 'react';
 import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
-import { CustomStyle, Default, Disabled, Large } from './widget-variants';
+import {
+  CustomStyle,
+  Default,
+  Disabled,
+  Large,
+  LargeRounded,
+  Medium,
+} from './widget-variants';
 
 function widgets() {
   return (
@@ -18,6 +25,11 @@ function widgets() {
       </Section>
       <Section title="Custom Checkbox style" size="md">
         <DemoWidget width={150}>{CustomStyle}</DemoWidget>
+      </Section>
+      <Section title="All Sizes" size="md">
+        <DemoWidget width={200}>{CustomStyle}</DemoWidget>
+        <DemoWidget width={200}>{Medium}</DemoWidget>
+        <DemoWidget width={200}>{LargeRounded}</DemoWidget>
       </Section>
     </div>
   );

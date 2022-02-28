@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import { ChevronDownIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { InputNumberProps } from './input-number.model';
 import styles from './input-number.module.scss';
@@ -45,12 +46,15 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
     }
   }, [number]);
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const inputClass = useMemo(
     () =>
       classNames(styles.input_number, {
         [styles[size]]: true,
         [styles.border]: border,
         [styles.rtl]: RTL,
+        [styles.dark]: isDarkMode,
       }),
     []
   );
@@ -70,7 +74,11 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         <span
           role="button"
           tabIndex={0}
-          className={classNames(styles.btn, styles.increment)}
+          className={classNames(
+            styles.btn,
+            styles.increment,
+            isDarkMode && styles.dark
+          )}
           onClick={increment}
           aria-label="increment"
         >
@@ -79,7 +87,11 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         <span
           role="button"
           tabIndex={0}
-          className={classNames(styles.btn, styles.decrement)}
+          className={classNames(
+            styles.btn,
+            styles.decrement,
+            isDarkMode && styles.dark
+          )}
           onClick={decrement}
           aria-label="decrement"
         >

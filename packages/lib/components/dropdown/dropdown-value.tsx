@@ -2,6 +2,7 @@ import cls from 'classnames';
 import React, { CSSProperties, useEffect, useMemo } from 'react';
 import { ChevronDownIcon, CloseIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
+import { isDark } from '../common/utils';
 import { Tags } from '../tags/tags';
 import { DropdownValueProps } from './dropdown-model';
 import styles from './dropdown-value.module.scss';
@@ -23,6 +24,8 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   focus,
   size = 'sm',
 }: DropdownValueProps) => {
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const rcDropdownValueClass = useMemo(
     () =>
       cls(styles.container, {
@@ -33,6 +36,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
         [styles.single]: !allowMultiSelection,
         [styles.with_clear]: showClearBtn,
         [styles[size]]: true,
+        [styles.dark]: isDarkMode,
       }),
     [disabled, showMenu]
   );
@@ -41,7 +45,10 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
     () =>
       cls(
         styles.chevron_icon,
-        showMenu && !menuClosing ? styles.chevron_icon_rotate : ''
+        showMenu && !menuClosing ? styles.chevron_icon_rotate : '',
+        {
+          [styles.dark]: isDarkMode,
+        }
       ),
     [showMenu, menuClosing]
   );
@@ -55,6 +62,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
     () =>
       cls(styles.clear_icon, {
         [styles.clear_icon_hidden]: canHideClearButton,
+        [styles.dark]: isDarkMode,
       }),
     [showClearBtn, canHideClearButton]
   );

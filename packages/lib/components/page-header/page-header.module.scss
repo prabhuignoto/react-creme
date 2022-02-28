@@ -4,7 +4,6 @@
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark-mode;
 
 $heights: (
   sm: 30px,
@@ -66,9 +65,12 @@ $heights: (
 
 .content {
   padding-top: 1rem;
-  @if $dark-mode == 'true' {
+
+  &.dark {
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     color: theme.$black;
   }
 }

@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { isDark } from '../common/utils';
 import { DataGridHeader } from './data-grid-header';
 import {
   DataGridColumn,
@@ -72,10 +73,13 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
 
   const resizeObserver = useRef<ResizeObserver>();
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const gridClass = useMemo(() => {
     return classNames(styles.data_grid, {
       [styles.border]: border,
       'data-grid-zebra': zebra,
+      [styles.dark]: isDarkMode,
     });
   }, []);
 

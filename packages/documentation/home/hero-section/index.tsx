@@ -1,9 +1,10 @@
 import { faGithub, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faBookOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames';
 import React, { useCallback } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { asideState, responsiveState } from '../../atoms/home';
+import { asideState, responsiveState, themeState } from '../../atoms/home';
 import { HomeButton } from '../../home/home-button';
 import { Features } from '../../home/home-data';
 import { Badges } from '../badges';
@@ -12,6 +13,7 @@ import './hero-section.scss';
 function HeroSection() {
   const media = useRecoilValue(responsiveState);
   const setAsideState = useSetRecoilState(asideState);
+  const theme = useRecoilValue(themeState);
 
   const handleOpenSidebar = useCallback(() => {
     setAsideState({ isAnyOverlayOpen: false, isOpen: true });
@@ -19,7 +21,11 @@ function HeroSection() {
 
   return (
     media && (
-      <section className="rc-doc-app-hero">
+      <section
+        className={classNames('rc-doc-app-hero', {
+          dark: theme.darkMode,
+        })}
+      >
         <header className="rc-doc-app-hero-header">
           <span className="rc-doc-app-icon"></span>
           <span className="rc-doc-app-title">react-creme</span>
@@ -30,11 +36,22 @@ function HeroSection() {
         {/* FEATURES SECTION */}
         <ul className="rc-doc-app-features">
           {Features.map(({ icon, title }, index) => (
-            <li key={index} className="rc-doc-app-feature">
+            <li
+              key={index}
+              className={classNames('rc-doc-app-feature', {
+                dark: theme.darkMode,
+              })}
+            >
               <span className="rc-doc-app-feature-icon">
                 <FontAwesomeIcon icon={icon} size="2x" />
               </span>
-              <span className="rc-doc-app-feature-name">{title}</span>
+              <span
+                className={classNames('rc-doc-app-feature-name', {
+                  dark: theme.darkMode,
+                })}
+              >
+                {title}
+              </span>
             </li>
           ))}
         </ul>

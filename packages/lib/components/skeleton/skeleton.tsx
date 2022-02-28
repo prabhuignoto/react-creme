@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
-import { FunctionComponent, useCallback, useState } from 'react';
+import { FunctionComponent, useCallback, useMemo, useState } from 'react';
+import { isDark } from '../common/utils';
 import { SkeletonBlockProps, SkeletonProps } from './skeleton-model';
 import { SkeletonRow } from './skeleton-row';
 import styles from './skeleton.module.scss';
@@ -47,9 +48,16 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
     }
   }, []);
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
+  const wrapperClass = useMemo(
+    () => classNames(styles.wrapper, { [styles.dark]: isDarkMode }),
+    [isDarkMode]
+  );
+
   return (
     <div
-      className={styles.wrapper}
+      className={wrapperClass}
       ref={onInit}
       data-testid="rc-skeleton"
       style={style}
@@ -61,7 +69,13 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
           })}
           key={id}
         >
-          {showCircle && <div className={styles.circle} />}
+          {showCircle && (
+            <div
+              className={classNames(styles.circle, {
+                [styles.dark]: isDarkMode,
+              })}
+            />
+          )}
           {rows.map(
             row =>
               row.visible && (

@@ -8,8 +8,6 @@ $sizes: (
   lg: 56px,
 );
 
-$dark-mode: theme.$dark-mode;
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -20,7 +18,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.rc-circular-progress {
+.circular-progress {
   animation: spin 1s linear infinite;
   background: linear-gradient(
     to right,
@@ -34,7 +32,7 @@ $dark-mode: theme.$dark-mode;
   z-index: 0;
 
   @each $key, $val in $sizes {
-    &.rc-circular-progress-#{$key} {
+    &.circular-progress-#{$key} {
       height: #{$val};
       width: #{$val};
     }
@@ -43,29 +41,34 @@ $dark-mode: theme.$dark-mode;
 
 .inner-circle-2 {
   @include position.position-abs('center center');
-  @if $dark-mode == 'true' {
-    background: #000;
-  } @else {
-    background: #fff;
-  }
   border-radius: 50%;
   display: block;
   height: 85%;
   width: 85%;
   z-index: 2;
+
+  &.dark {
+    background: #000;
+  }
+
+  &:not(.dark) {
+    background: #fff;
+  }
 }
 
 .inner-circle-2::after {
   @include position.position-abs('center center');
-
-  @if $dark-mode == 'true' {
-    background: #000;
-  } @else {
-    background: #fff;
-  }
   border-radius: 50%;
   content: '';
   display: block;
   height: 50%;
   width: 50%;
+
+  &.dark {
+    background: #000;
+  }
+
+  &:not(.dark) {
+    background: #fff;
+  }
 }

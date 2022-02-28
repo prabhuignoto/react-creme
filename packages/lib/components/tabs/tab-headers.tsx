@@ -7,6 +7,7 @@ import React, {
   useState,
 } from 'react';
 import { ChevronRightIcon } from '../../icons';
+import { isDark } from '../common/utils';
 import { TabHead } from './tab-head';
 import styles from './tab-header.module.scss';
 import { TabHeadersProps } from './tabs-model';
@@ -32,6 +33,8 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     dir: 'left' | 'right';
     value: number;
   }>({ dir: 'left', value: 0 });
+
+  const isDarkMode = useMemo(() => isDark(), []);
 
   // show or hide scroll buttons
   const canShowControls = useMemo(() => {
@@ -86,8 +89,9 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   const tabHeadersWrapperClass = useMemo(() => {
     return classNames(styles.tab_headers_wrapper, {
       [styles[`tab_headers_${tabStyle}`]]: true,
+      [styles.tab_headers_dark]: isDarkMode,
     });
-  }, []);
+  }, [isDarkMode]);
 
   const tabHeadersClass = useMemo(() => {
     return classNames(styles.tab_headers, {

@@ -1,5 +1,6 @@
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { Dialog, RadioGroup, Section } from '../../../lib/components';
@@ -71,6 +72,12 @@ const AppSettings: React.FunctionComponent = () => {
       };
     }
 
+    if (themeToUpdate.value === 'dark') {
+      document.body.style.backgroundColor = '#000';
+    } else {
+      document.body.style.backgroundColor = '#f4f4f4';
+    }
+
     updateAppTheme(selectedTheme);
   }, [theme]);
 
@@ -81,7 +88,9 @@ const AppSettings: React.FunctionComponent = () => {
   return width > 0 ? (
     <div className="rc-doc-app-settings-wrapper">
       <span
-        className="rc-doc-app-settings-icon"
+        className={classNames('rc-doc-app-settings-icon', {
+          dark: theme === 'dark',
+        })}
         onClick={() => setShowSettings(prev => !prev)}
       >
         <FontAwesomeIcon icon={faCog} size="2x" />

@@ -1,3 +1,4 @@
+import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
@@ -117,9 +118,12 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     []
   );
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const rcPanelsClass = useMemo(() => {
     return classNames(styles.tab_panels, {
       [styles.panel_border]: tabStyle === 'rounded',
+      [styles.dark]: isDarkMode,
     });
   }, []);
 

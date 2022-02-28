@@ -4,6 +4,7 @@ import { CloseIcon } from '../../icons';
 import { Button } from '../button/button';
 import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
 import useSwipe from '../common/effects/useSwipe';
+import { isDark } from '../common/utils';
 import { withOverlay } from '../common/withOverlay';
 import { NotificationProps } from './notification-model';
 import styles from './notification.module.scss';
@@ -21,12 +22,15 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   disableHeader = false,
   size = 'sm',
 }) => {
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const wrapperClass = classNames([
     styles.wrapper,
     {
       [styles[`${position}_enter`]]: !isClosing,
       [styles[`${position}_exit`]]: isClosing,
       [styles[`${size}`]]: true,
+      [styles.dark]: isDarkMode,
     },
   ]);
 
@@ -68,6 +72,14 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
     }
   }, [state, canSwipeToClose, position]);
 
+  const headerClass = useMemo(
+    () =>
+      classNames(styles.header, {
+        [styles.dark]: isDarkMode,
+      }),
+    []
+  );
+
   return (
     <div
       className={wrapperClass}
@@ -77,7 +89,7 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
       ref={onInit}
     >
       {!disableHeader && (
-        <header className={styles.header}>
+        <header className={headerClass}>
           <span className={styles.title}>{title}</span>
           <span className={styles.close_btn}>
             <Button type="icon" size={size} onClick={onClose}>

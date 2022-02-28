@@ -3,18 +3,10 @@
 @use '../../design/theme.scss';
 @use '../../design/list.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .container {
   @extend %border-radius;
   @extend %shadow-medium;
   @include animate.set-settings(0.25s, cubic-bezier(0.17, 0.84, 0.44, 1));
-
-  @if $dark-mode == 'true' {
-    background: theme.$charcoal-gray;
-  } @else {
-    background: theme.$white;
-  }
 
   left: 0;
   opacity: 0;
@@ -24,6 +16,14 @@ $dark-mode: theme.$dark-mode;
   visibility: hidden;
   width: var(--menu-width);
   z-index: 999;
+
+  &.dark {
+    background: theme.$charcoal-gray;
+  }
+
+  &:not(.dark) {
+    background: theme.$white;
+  }
 
   * {
     transform: blur(0);

@@ -69,9 +69,16 @@ $sizes: (sm, md, lg);
   @extend %border-radius;
   @extend %col;
   @include animate.set-settings(0.25s);
-  background: theme.$white;
   min-height: $min-height;
   min-width: $min-width;
+
+  &.dark {
+    background: theme.$gunmetal-gray;
+  }
+
+  &:not(.dark) {
+    background: theme.$white;
+  }
 
   @each $position, $position-val in $positions {
     $new-position: left;
@@ -128,9 +135,16 @@ $sizes: (sm, md, lg);
 
 .header {
   @extend %left;
-  border-bottom: 1px solid theme.$gray;
   height: 40px;
   width: 100%;
+
+  &.dark {
+    border-bottom: 1px solid theme.$charcoal-gray;
+  }
+
+  &:not(.dark) {
+    border-bottom: 1px solid theme.$gray;
+  }
 }
 
 .title {

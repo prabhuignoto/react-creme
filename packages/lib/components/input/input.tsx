@@ -12,6 +12,7 @@ import React, {
 import { CircularProgress } from '..';
 import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { isDark } from '../common/utils';
 import { InputProps } from './input-model';
 import styles from './input.module.scss';
 
@@ -49,6 +50,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       value = '',
       transparentBgColor = false,
     } = props;
+
     const [inputValue, setInputValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
@@ -114,6 +116,8 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       [inputValue]
     );
 
+    const isDarkMode = useMemo(() => isDark(), []);
+
     const inputClass = useMemo(
       () =>
         classNames(styles.input, {
@@ -126,8 +130,9 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           [styles[accent]]: true,
           [styles[size]]: true,
           [styles.transparent_bg_color]: transparentBgColor,
+          [styles.input_dark]: isDarkMode,
         }),
-      [disabled, hasFocus]
+      [disabled, hasFocus, isDarkMode]
     );
 
     useEffect(() => {
@@ -200,6 +205,10 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           ref={inputRef}
           id={inputId.current}
           disabled={inputDisabled}
+          className={classNames(
+            styles.input_text,
+            isDarkMode ? styles.input_dark : ''
+          )}
         />
         {!showSpinner && (
           <span

@@ -4,28 +4,29 @@
 @use '../../design/animate.scss';
 @use '../../design/animations.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .dialog {
   $animations: (pop, drop, rise, slide-left, slide-right);
   @extend %col;
   @include animate.set-settings(var(--rc-dialog-animation-duration));
 
-  @each $animation in $animations {
-    @include animations.set-animation($animation, from);
-    @include animations.set-animation($animation, to);
-  }
+  min-height: 300px;
+  min-width: var(--min-width, 300px);
 
-  @if $dark-mode == 'true' {
+  &.dark {
     @extend %border-radius;
     background-color: theme.$gunmetal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     @extend %shadow-inset;
     @extend %border;
     background-color: theme.$white;
   }
-  min-height: 300px;
-  min-width: var(--min-width, 300px);
+
+  @each $animation in $animations {
+    @include animations.set-animation($animation, from);
+    @include animations.set-animation($animation, to);
+  }
 
   @each $animation in $animations {
     &.#{$animation}_enter {

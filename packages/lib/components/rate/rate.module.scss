@@ -9,8 +9,6 @@ $sizes: (
   lg: 30px,
 );
 
-$dark-mode: theme.$dark-mode;
-
 .wrapper {
   @extend %list-horizontal;
 
@@ -45,18 +43,28 @@ $dark-mode: theme.$dark-mode;
       width: #{$val};
     }
   }
-}
 
-.item svg {
-  @if $dark-mode == 'true' {
+  &.dark svg {
     fill: theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) svg {
     fill: theme.$alto;
   }
-  height: 100%;
-  stroke-width: 0;
-  transition: fill 0.1s ease-in;
-  width: 100%;
+}
+
+.item.active {
+  color: theme.$primary;
+
+  svg {
+    fill: theme.$primary;
+  }
+}
+
+.item.hovered {
+  svg {
+    fill: theme.$primary;
+  }
 }
 
 .item:hover {
@@ -65,16 +73,9 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.active {
-  color: theme.$primary;
-
-  svg {
-    fill: theme.$primary;
-  }
-}
-
-.hovered {
-  svg {
-    fill: theme.$primary;
-  }
+.item svg {
+  height: 100%;
+  stroke-width: 0;
+  transition: fill 0.1s ease-in;
+  width: 100%;
 }

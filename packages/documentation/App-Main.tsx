@@ -1,10 +1,8 @@
 import deepEqual from 'fast-deep-equal';
 import React, { Suspense, useImperativeHandle, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router';
-import { useRecoilValue } from 'recoil';
-import { ThemeProvider } from '../lib/components/common/theme-provider';
 import AppRoutes from './app-routes';
-import { MediaState, themeState } from './atoms/home';
+import { MediaState } from './atoms/home';
 import Footer from './home/footer/footer';
 import { Header } from './home/header';
 
@@ -14,8 +12,6 @@ const Main = React.forwardRef<
 >(({ media, toggleOpen }, ref) => {
   const sectionRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
-
-  const theme = useRecoilValue(themeState);
 
   useImperativeHandle(ref, () => {
     if (sectionRef.current) {
@@ -40,9 +36,7 @@ const Main = React.forwardRef<
         />
       )}
       <Suspense fallback={<span></span>}>
-        <ThemeProvider theme={theme}>
-          <AppRoutes />
-        </ThemeProvider>
+        <AppRoutes />
       </Suspense>
       <Footer />
     </section>

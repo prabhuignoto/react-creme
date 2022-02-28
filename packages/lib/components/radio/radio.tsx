@@ -9,6 +9,7 @@ import React, {
 } from 'react';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
+import { isDark } from '../common/utils';
 import { RadioProps } from './radio-model';
 import styles from './radio.module.scss';
 
@@ -38,6 +39,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
     const isFirstRender = useFirstRender();
 
     const canToggle = useMemo(() => !disabled, [disabled]);
+    const isDarkMode = useMemo(() => isDark(), []);
 
     const toggleCheck = useCallback(() => {
       if (canToggle) {
@@ -61,10 +63,11 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
 
     const radioWrapperClass = useMemo(() => {
       return cls(styles.wrapper, {
-        [styles[`${size}`]]: true,
+        [styles[size]]: true,
         [styles.disabled]: disabled,
         [styles.full_width]: fullWidth,
         [styles.rtl]: RTL,
+        [styles.dark]: isDarkMode,
       });
     }, [disabled, fullWidth]);
 
@@ -73,7 +76,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
         cls(styles.radio, {
           [styles.ico_checked]: checked,
           [styles.disabled]: disabled,
-          [styles[`${size}`]]: true,
+          [styles[size]]: true,
         }),
       [checked, disabled]
     );
@@ -82,6 +85,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
       return cls(styles.icon, {
         [styles.ico_checked]: checked,
         [styles.ico_unchecked]: !isFirstRender.current && !checked,
+        [styles.dark]: isDarkMode,
       });
     }, [checked]);
 
@@ -89,6 +93,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
       return cls([styles.label, styles[`label_${size}`]], {
         [styles.disabled]: disabled,
         [styles.rtl]: RTL,
+        [styles.dark]: isDarkMode,
       });
     }, [size, disabled]);
 

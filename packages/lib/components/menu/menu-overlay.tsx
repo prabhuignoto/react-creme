@@ -2,6 +2,7 @@
 import classNames from 'classnames';
 import React, { useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { useKeyNavigation } from '../common/effects/useKeyNavigation';
+import { isDark } from '../common/utils';
 import { withOverlay } from '../common/withOverlay';
 import { MenuItem } from './menu-item';
 import { MenuOverlayModel } from './menu-model';
@@ -23,6 +24,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
     ref
   ) => {
     const listRef = useRef<HTMLUListElement | null>(null);
+    const isDarkMode = useMemo(() => isDark(), []);
 
     /**
      * Handle key navigation
@@ -40,6 +42,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
         classNames([styles.menu], {
           [styles[size]]: size,
           [styles[dockPosition]]: true,
+          [styles.dark]: isDarkMode,
         }),
       []
     );

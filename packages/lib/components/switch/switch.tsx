@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CheckIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
+import { isDark } from '../common/utils';
 import { SwitchProps } from './switch-model';
 import styles from './switch.module.scss';
 
@@ -42,6 +43,8 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
     useFocusNew(ref, handleToggle);
   }
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   // CSS
   const switchKnobClass = useMemo(
     () =>
@@ -52,6 +55,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
         [styles[`knob_${size}`]]: true,
         [styles.on]: state && !isFirstRender.current,
         [styles.on_load]: state && isFirstRender.current,
+        [styles.dark]: isDarkMode,
       }),
     [state, size, disabled, showCheckIcon]
   );
@@ -70,10 +74,11 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
     () =>
       classNames(styles.track, {
         [styles.label_outside]: labelOutside,
-        [styles.off]: !state,
-        [styles.on]: state,
+        [styles.track_off]: !state,
+        [styles.track_on]: state,
         [styles[`${size}`]]: true,
         [styles.track_disabled]: disabled,
+        [styles.dark]: isDarkMode,
       }),
     [state, size, disabled, labelOutside]
   );

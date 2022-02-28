@@ -1,3 +1,4 @@
+import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import React, { CSSProperties, FunctionComponent, useMemo } from 'react';
 import { SkeletonRowProps } from './skeleton-model';
@@ -9,11 +10,13 @@ const SkeletonRow: FunctionComponent<
     rowHeight?: number;
   }
 > = ({ id, width, animate, rowHeight, disableAnimation }) => {
+  const isDarkMode = useMemo(() => isDark(), []);
   const skeletonRowClass = useMemo(
     () =>
       classNames(styles.row, 'rc-skeleton-row', {
         [styles.animate]: animate,
         [styles.disable_animation]: disableAnimation,
+        [styles.dark]: isDarkMode,
       }),
     [disableAnimation]
   );

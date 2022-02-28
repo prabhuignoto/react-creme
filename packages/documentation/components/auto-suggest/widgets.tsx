@@ -1,7 +1,7 @@
 import React from 'react';
 import { Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
-import { Accent, Default, RTL } from './widget-variants';
+import { Accent, Default, Large, Medium, RTL } from './widget-variants';
 
 function Widgets() {
   return (
@@ -14,6 +14,10 @@ function Widgets() {
       </Section>
       <Section title="RTL" size="md">
         <DemoWidget width={300}>{RTL}</DemoWidget>
+      </Section>
+      <Section title="Custom sizes">
+        <DemoWidget width={300}>{Medium}</DemoWidget>
+        <DemoWidget width={300}>{Large}</DemoWidget>
       </Section>
     </div>
   );

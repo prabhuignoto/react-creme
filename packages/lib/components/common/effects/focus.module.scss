@@ -1,7 +1,5 @@
 @use '../../../design/theme.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .focus_ring {
   background-color: rgba(theme.$primary-rgb, 0.1);
   border: 2px solid transparent;
@@ -25,7 +23,7 @@ $dark-mode: theme.$dark-mode;
   border: 2px solid rgba(theme.$primary-rgb, 0.75);
   visibility: visible;
 
-  @if not $dark-mode == 'true' {
+  &:not(.dark) {
     animation-duration: 0.2s;
     animation-name: halo;
     animation-timing-function: ease-in;

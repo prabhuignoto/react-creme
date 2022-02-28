@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
 import { ChevronDownIcon } from '../../icons';
 import { Button } from '../button/button';
+import { isDark } from '../common/utils';
 import { Menu } from '../menu/menu';
 import { MenuItemProps } from '../menu/menu-item';
 import { MenuButtonProps } from './menu-button.model';
@@ -25,6 +26,8 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
     }))
   );
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const handleChange = useCallback((item: string) => {
     onSelected?.(item);
   }, []);
@@ -35,6 +38,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         [styles.disabled]: disabled,
         [styles.rtl]: RTL,
         [styles[size]]: true,
+        [styles.dark]: isDarkMode,
       }),
     [disabled]
   );
@@ -49,6 +53,14 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
       '--max-width': `${width}px`,
     } as CSSProperties;
   }, []);
+
+  const iconClass = useMemo(
+    () =>
+      classNames(styles.icon, {
+        [styles.dark]: isDarkMode,
+      }),
+    []
+  );
 
   return (
     <div className={menuButtonClass} style={menuStyle}>
@@ -66,7 +78,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         dockPosition={menuPosition}
         size={size}
       >
-        <span className={styles.icon} role="img">
+        <span className={iconClass} role="img">
           <ChevronDownIcon />
         </span>
       </Menu>

@@ -2,8 +2,6 @@
 @use '../../design/theme.scss';
 @use '../../design/position.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .input_wrapper {
   @extend %center;
   height: 35px;
@@ -14,9 +12,12 @@ $dark-mode: theme.$dark-mode;
   @extend %border-radius;
   width: var(--suggestions-width, 200px);
   z-index: 999;
-  @if dark-mode {
+
+  &.dark {
     background: theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$white;
   }
 }

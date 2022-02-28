@@ -4,8 +4,6 @@
 @use '../../design/position.scss';
 @use '../../design/animate.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .tab_panel {
   @extend %center;
   min-height: 100%;
@@ -31,11 +29,13 @@ $dark-mode: theme.$dark-mode;
   border-top-right-radius: 0;
   margin-left: 0.1rem;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     border-bottom: 1px solid theme.$charcoal-gray;
     border-left: 1px solid theme.$charcoal-gray;
     border-right: 1px solid theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     border: 1px solid theme.$platinum;
   }
 }

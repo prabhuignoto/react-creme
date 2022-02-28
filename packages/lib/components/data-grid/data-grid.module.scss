@@ -5,7 +5,6 @@ $compact-row-height: 35px;
 $comfortable-row-height: 50px;
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark-mode;
 
 .data_grid {
   @extend %col;
@@ -19,9 +18,11 @@ $dark-mode: theme.$dark-mode;
 }
 
 .row_zebra:nth-child(odd) {
-  @if $dark-mode == 'true' {
+  .dark {
     background-color: rgba(theme.$gunmetal-gray, 0.25);
-  } @else {
+  }
+
+  &:not(.dark) {
     background-color: rgba(theme.$light-bg, 0.75);
   }
 }
@@ -39,25 +40,31 @@ $dark-mode: theme.$dark-mode;
 }
 
 .cell_border:not(:last-child) {
-  @if $dark-mode == 'true' {
+  &.dark {
     border-right: 1px solid theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     border-right: 1px solid theme.$secondary;
   }
 }
 
 .row:not(:last-child):not(.row_zebra) {
-  @if $dark-mode == 'true' {
+  &.dark {
     border-bottom: 1px solid theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     border-bottom: 1px solid theme.$secondary;
   }
 }
 
 .row:hover {
-  @if $dark-mode == 'true' {
+  &.dark {
     background-color: theme.$cod-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background-color: theme.$light-bg;
   }
 }
@@ -82,6 +89,14 @@ $dark-mode: theme.$dark-mode;
   padding: 0.5rem 0;
   padding-left: 0.25rem;
   width: 90%;
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
 
   &.cell_val_fixed {
     @extend %text-no-wrap;

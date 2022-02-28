@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { AnchorHTMLAttributes, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
+import { isDark } from '../common/utils';
 import styles from './link.module.scss';
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -34,11 +35,14 @@ const Link: React.FunctionComponent<LinkProps> = ({
     };
   }
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const linkClass = useMemo(() => {
     return classNames(styles.link, {
       [styles.btn]: accent === 'button',
       [styles[size]]: true,
       [styles.highlight]: highlight,
+      [styles.dark]: isDarkMode,
     });
   }, [highlight]);
 

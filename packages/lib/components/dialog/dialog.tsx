@@ -1,3 +1,4 @@
+import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
@@ -34,6 +35,8 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     focusProps.current = { tabIndex: 0 };
   }
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const dialogClass = useMemo(
     () =>
       classNames(
@@ -45,6 +48,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
         ],
         {
           [styles[`dialog-${size}`]]: true,
+          [styles.dark]: isDarkMode,
         }
       ),
     [isClosing, size]

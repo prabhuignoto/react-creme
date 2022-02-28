@@ -4,8 +4,6 @@
 
 $sizes: (sm, md, lg);
 
-$dark-mode: theme.$dark-mode;
-
 .item {
   @extend %list-item-left;
   height: 35px;
@@ -24,15 +22,25 @@ $dark-mode: theme.$dark-mode;
   &.disabled {
     @extend %disabled;
   }
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
 }
 
 .item:hover {
   cursor: pointer;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     background: theme.$charcoal-gray;
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$light-bg;
     color: theme.$primary;
   }

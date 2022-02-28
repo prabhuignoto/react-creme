@@ -11,6 +11,7 @@ import {
 import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { usePosition } from '../common/effects/usePosition';
+import { isDark } from '../common/utils';
 import { TooltipProps } from './tooltip-model';
 import styles from './tooltip.module.scss';
 
@@ -59,6 +60,8 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
     [isStatic]
   );
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   // CSS
   const toolTipMessageClass = useMemo(
     () =>
@@ -70,6 +73,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
           [styles[`message_${size}`]]: size,
           [styles.show_tooltip]: showTooltip,
           [styles[`${position.split(' ')[0]}_${position.split(' ')[1]}`]]: true,
+          [styles.dark]: isDarkMode,
         },
       ]),
     [showTooltip, position]

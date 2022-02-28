@@ -3,13 +3,20 @@
 
 .wrapper {
   @extend %col;
-  background: theme.$white;
 
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
   min-height: var(--height, 300px);
   width: 100%;
+
+  &.dark {
+    background: theme.$gunmetal-gray;
+  }
+
+  &:not(.dark) {
+    background: theme.$white;
+  }
 
   &:not(.border_less) {
     @extend %border;

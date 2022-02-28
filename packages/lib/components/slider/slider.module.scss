@@ -2,8 +2,6 @@
 @use '../../design/theme.scss';
 @use '../../design/position.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .wrapper {
   @extend %center;
   height: 100px;
@@ -50,9 +48,11 @@ $dark-mode: theme.$dark-mode;
   position: relative;
   width: 100%;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     background: theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$gray;
   }
 }

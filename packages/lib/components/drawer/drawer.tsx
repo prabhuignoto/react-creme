@@ -1,3 +1,4 @@
+import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
@@ -61,6 +62,8 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
     } as CSSProperties;
   }, []);
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   /**
    * memoized classnames for the drawer
    */
@@ -71,6 +74,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
         [styles[`slide-${position}-exit`]]: isClosing,
         [styles.visible]: activate,
         [styles[`${size}`]]: size,
+        [styles.dark]: isDarkMode,
       }),
     [activate, isClosing]
   );

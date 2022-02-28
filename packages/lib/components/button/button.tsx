@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { useImperativeHandle, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
+import { isDark } from '../common/utils';
 import { CircularProgress } from '../progress/circular-progress';
 import { ButtonProps } from './button-model';
 import styles from './button.module.scss';
@@ -19,6 +20,9 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
     size = 'sm',
     style = {},
   } = props;
+
+  const isDarkMode = useMemo(() => isDark(), []);
+
   // classes
   const buttonClass = useMemo(
     () =>
@@ -27,10 +31,11 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
           [styles[`btn_default`]]: type === 'progress',
           [styles.btn_no_border]: !border,
           [styles.disabled]: disabled,
+          [styles.dark]: isDarkMode,
         },
         [styles[`btn_${size}`], styles[`btn_${type}`], styles['btn']]
       ),
-    [disabled]
+    [disabled, isDarkMode]
   );
 
   // setup for focus

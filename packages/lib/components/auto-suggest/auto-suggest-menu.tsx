@@ -1,8 +1,10 @@
-import { OverlayModel } from '@components/common/overlay-model';
 import { ListOption } from '@components/list/list-model';
+import classNames from 'classnames';
 import React, { CSSProperties, useEffect, useMemo, useRef } from 'react';
 import { withOverlay } from '../../components/common/withOverlay';
 import useOnClickOutside from '../common/effects/useOnClickOutside';
+import { OverlayModel } from '../common/overlay-model';
+import { isDark } from '../common/utils';
 import { List } from '../list/list';
 import styles from './auto-suggest.module.scss';
 
@@ -49,8 +51,18 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
 
   const { onRef } = useOnClickOutside(onClose);
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
+  const suggestionsClass = useMemo(
+    () =>
+      classNames(styles.suggestions_wrapper, {
+        [styles.dark]: isDarkMode,
+      }),
+    []
+  );
+
   return (
-    <div className={styles.suggestions_wrapper} style={style} ref={onRef}>
+    <div className={suggestionsClass} style={style} ref={onRef}>
       <List
         options={data?.items as ListOption[]}
         onSelection={onSelection}

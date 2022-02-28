@@ -8,8 +8,6 @@ $arrow-dim-sm: 12px;
 $arrow-dim-md: 16px;
 $arrow-dim-lg: 20px;
 
-$dark-mode: theme.$dark-mode;
-
 .wrapper {
   @extend %center;
 
@@ -52,10 +50,20 @@ $dark-mode: theme.$dark-mode;
   visibility: hidden;
   z-index: 99999;
 
-  @if $dark-mode == 'true' {
+  &.dark::after {
+    background: theme.$gunmetal-gray;
+  }
+
+  &:not(.dark)::after {
+    background: theme.$white;
+  }
+
+  &.dark {
     background: theme.$gunmetal-gray;
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$white;
     color: var(--fore-color, theme.$primary);
   }
@@ -116,11 +124,6 @@ $dark-mode: theme.$dark-mode;
 }
 
 .message::after {
-  @if $dark-mode == 'true' {
-    background: theme.$gunmetal-gray;
-  } @else {
-    background: theme.$white;
-  }
   border-radius: 1px;
   content: '';
   display: block;

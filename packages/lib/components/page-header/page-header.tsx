@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
+import { isDark } from '../common/utils';
 import styles from './page-header.module.scss';
 
 export interface PageHeaderProps {
@@ -17,6 +18,7 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   size = 'sm',
   icon,
 }) => {
+  const isDarkMode = useMemo(() => isDark(), []);
   const headerClass = useMemo(() => {
     return classNames(styles.page_header, {
       [styles.rtl]: RTL,
@@ -34,13 +36,21 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
     });
   }, []);
 
+  const contentClass = useMemo(
+    () =>
+      classNames(styles.content, {
+        [styles.dark]: isDarkMode,
+      }),
+    []
+  );
+
   return (
     <header className={headerClass}>
       <div className={styles.title_container}>
         {icon && <span className={headerIconClass}>{icon}</span>}
         <h2 className={titleClass}>{title}</h2>
       </div>
-      <div className={styles.content}>{children}</div>
+      <div className={contentClass}>{children}</div>
     </header>
   );
 };

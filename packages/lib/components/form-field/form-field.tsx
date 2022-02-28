@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React, { FunctionComponent, useMemo } from 'react';
+import { isDark } from '../common/utils';
 import { FormFieldProps } from './form-field.model';
 import styles from './form-field.module.scss';
 
@@ -13,18 +14,22 @@ const FormField: FunctionComponent<FormFieldProps> = ({
   children,
   id,
 }) => {
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const formFieldClass = useMemo(() => {
     return classNames(styles.form_field, {
       [styles[size]]: true,
       [styles.border]: border,
       [styles.disabled]: disabled,
       [styles.rtl]: RTL,
+      [styles.dark]: isDarkMode,
     });
   }, []);
 
   const formLabelClass = useMemo(() => {
     return classNames(styles.label, {
       [styles[`label_${size}`]]: true,
+      [styles.dark]: isDarkMode,
     });
   }, []);
 

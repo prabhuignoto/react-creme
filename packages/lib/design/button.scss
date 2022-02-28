@@ -1,15 +1,20 @@
 @use 'theme.scss';
 @use 'core.scss';
 
-$dark-mode: theme.$dark-mode;
-
 %button {
-  @extend %border;
   @extend %center;
   background: none;
   cursor: pointer;
   transition: background-color 50ms ease-in;
   white-space: nowrap;
+
+  &:not(.dark) {
+    @extend %border;
+  }
+
+  &.dark {
+    @extend %border-radius;
+  }
 
   svg {
     color: theme.$primary;
@@ -41,7 +46,7 @@ $dark-mode: theme.$dark-mode;
     theme.$primary,
     theme.$secondary,
     theme.$white,
-    theme.$primary
+    theme.$white
   );
 }
 
@@ -56,21 +61,22 @@ $dark-mode: theme.$dark-mode;
 }
 
 %button-default {
-  @extend %shadow-inset-small;
-
-  @if $dark-mode == 'true' {
+  &.dark {
     @include get-button-type(
       theme.$primary,
       theme.$secondary,
       theme.$white,
       theme.$white
     );
-  } @else {
+  }
+
+  &:not(.dark) {
+    @extend %shadow-inset-small;
     @include get-button-type(
       theme.$white,
-      rgba(theme.$secondary-rgb, 0.25),
       theme.$primary,
-      theme.$primary
+      theme.$primary,
+      theme.$white
     );
   }
 }

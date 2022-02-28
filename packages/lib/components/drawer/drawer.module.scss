@@ -5,8 +5,6 @@
 @use '../../design/position.scss';
 @use '../../design/util.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .drawer {
   $min-width: var(--min-width);
   $min-height: var(--min-height);
@@ -56,17 +54,19 @@ $dark-mode: theme.$dark-mode;
   @extend %shadow-small;
   @extend %top-center;
   @include animate.set-settings(0.25s, var(--transition));
-
-  @if $dark-mode == 'true' {
-    background-color: theme.$gunmetal-gray;
-  } @else {
-    background-color: theme.$white;
-  }
   height: var(--min-height);
   min-width: $min-width;
   outline: 0;
   position: relative;
   visibility: hidden;
+
+  &.dark {
+    background-color: theme.$gunmetal-gray;
+  }
+
+  &:not(.dark) {
+    background-color: theme.$white;
+  }
 
   &.visible {
     visibility: visible;

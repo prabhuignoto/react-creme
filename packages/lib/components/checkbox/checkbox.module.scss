@@ -4,7 +4,6 @@
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark-mode;
 
 $grid: (
   sm: 16px,
@@ -49,7 +48,7 @@ $heights: (
 }
 
 .border {
-  @if not $dark-mode == 'true' {
+  &:not(.dark) {
     @extend %border;
   }
 }
@@ -57,9 +56,11 @@ $heights: (
 .hover:hover {
   @extend %border-radius;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     background-color: theme.$gunmetal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: rgba(theme.$secondary-rgb, 0.25);
   }
 }
@@ -79,10 +80,12 @@ $heights: (
 }
 
 .icon {
-  @if $dark-mode == 'true' {
+  &.dark {
     @extend %border-radius;
     background: theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     @extend %border;
     background: theme.$white;
   }
@@ -112,7 +115,7 @@ $heights: (
   font-weight: 300;
   padding-left: 0.5rem;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     color: theme.$white;
   }
 

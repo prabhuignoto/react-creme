@@ -81,3 +81,47 @@ export const RTL = (
     }))}
   />
 );
+
+export const Medium = (
+  <AutoSuggest
+    placeholder="Choose a name"
+    suggestions={[
+      'Alex',
+      'Alec Baldwin',
+      'Bob Odenkirk',
+      'Charlie Day',
+      'David Letterman',
+      'Eddie Murphy',
+      'George Carlin',
+      'Harrison Ford',
+      'Jerry Seinfeld',
+      'Jonathan Frakes',
+    ].map(item => ({
+      name: item,
+      value: item,
+    }))}
+    size="md"
+  />
+);
+
+export const Large = (
+  <AutoSuggest
+    placeholder="Choose a name"
+    suggestions={[
+      'Alex',
+      'Alec Baldwin',
+      'Bob Odenkirk',
+      'Charlie Day',
+      'David Letterman',
+      'Eddie Murphy',
+      'George Carlin',
+      'Harrison Ford',
+      'Jerry Seinfeld',
+      'Jonathan Frakes',
+    ].map(item => ({
+      name: item,
+      value: item,
+    }))}
+    size="lg"
+  />
+);

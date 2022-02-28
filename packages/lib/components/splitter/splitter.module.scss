@@ -2,17 +2,17 @@
 @use '../../design/position.scss';
 @use '../../design/theme.scss';
 
-$dark-mode: theme.$dark-mode;
-
 .wrapper {
   height: 450px;
   position: relative;
   width: 100%;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     @extend %border-radius;
     background: theme.$gunmetal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     @extend %shadow-inset;
     @extend %border;
     background: theme.$white;

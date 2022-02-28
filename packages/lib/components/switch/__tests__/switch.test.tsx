@@ -26,10 +26,10 @@ describe('Switch', () => {
 
     userEvent.click(switchItem);
     expect(handler).toBeCalledWith(true);
-    expect(switchItem.firstChild).toHaveClass(styles.on);
+    expect(switchItem.firstChild).toHaveClass(styles.track_on);
 
     userEvent.click(switchItem);
     expect(handler).toBeCalledWith(false);
-    expect(switchItem.firstChild).toHaveClass(styles.off);
+    expect(switchItem.firstChild).toHaveClass(styles.track_off);
   });
 });

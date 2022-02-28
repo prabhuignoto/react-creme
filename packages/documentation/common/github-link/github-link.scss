@@ -4,6 +4,14 @@
   justify-content: center;
   justify-self: flex-end;
 
+  &.dark a {
+    color: #fff;
+  }
+
+  &:not(.dark) a {
+    color: #000;
+  }
+
   svg {
     height: 100%;
     width: 100%;
@@ -12,7 +20,6 @@
 
 .rc-demo-app-github-link a {
   align-items: center;
-  color: rgba(0, 0, 0, 0.65);
   display: flex;
   height: 2rem;
   justify-content: center;

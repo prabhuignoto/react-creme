@@ -36,3 +36,25 @@ export const CustomStyle = (
     isChecked
   />
 );
+
+export const Medium = (
+  <CheckBox
+    label="Choose this option"
+    isChecked
+    size="md"
+    border={false}
+    focusable
+    checkBoxStyle="round"
+  />
+);
+
+export const LargeRounded = (
+  <CheckBox
+    label="Choose this option"
+    isChecked
+    size="lg"
+    border={false}
+    focusable
+    checkBoxStyle="round"
+  />
+);
