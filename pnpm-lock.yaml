@@ -253,7 +253,7 @@ importers:
       '@types/react-transition-group': ^4.4.4
       '@vitejs/plugin-react': 1.2.0
       '@vitejs/plugin-react-refresh': ^1.3.6
-      '@vitest/ui': ^0.5.7
+      '@vitest/ui': ^0.5.8
       c8: ^7.11.0
       classnames: ^2.3.1
       fast-deep-equal: ^3.1.3
@@ -262,8 +262,8 @@ importers:
       jsdom: ^19.0.0
       nanoid: ^3.3.1
       postcss: ^8.4.7
-      react: ^17.0.2
-      react-dom: ^17.0.2
+      react: file:../../node_modules/react
+      react-dom: file:../../node_modules/react-dom
       resize-observer-polyfill: ^1.5.1
       rollup: ^2.68.0
       rollup-plugin-postcss: ^4.0.2
@@ -275,13 +275,13 @@ importers:
       typescript: ^4.5.5
       typescript-plugin-css-modules: ^3.4.0
       use-debounce: ^7.0.1
-      vitest: 0.5.7
+      vitest: 0.5.8
     dependencies:
       classnames: 2.3.1
       fast-deep-equal: 3.1.3
       hex-rgb: 5.0.0
       nanoid: 3.3.1
-      use-debounce: 7.0.1_react@17.0.2
+      use-debounce: 7.0.1
     devDependencies:
       '@babel/core': 7.17.5
       '@babel/plugin-proposal-optional-chaining': 7.16.7_@babel+core@7.17.5
@@ -292,7 +292,7 @@ importers:
       '@rollup/plugin-node-resolve': 13.1.3_rollup@2.68.0
       '@testing-library/dom': 8.11.3
       '@testing-library/jest-dom': 5.16.2
-      '@testing-library/react': 13.0.0-alpha.5_react-dom@17.0.2+react@17.0.2
+      '@testing-library/react': 13.0.0-alpha.5
       '@testing-library/user-event': 13.5.0_@testing-library+dom@8.11.3
       '@types/bluebird': 3.5.36
       '@types/node': 17.0.21
@@ -302,13 +302,13 @@ importers:
       '@types/react-transition-group': 4.4.4
       '@vitejs/plugin-react': 1.2.0
       '@vitejs/plugin-react-refresh': 1.3.6
-      '@vitest/ui': 0.5.7
+      '@vitest/ui': 0.5.8
       c8: 7.11.0
       jest-sonar-reporter: 2.0.0
       jsdom: 19.0.0
       postcss: 8.4.7
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
+      react: link:../../node_modules/react
+      react-dom: link:../../node_modules/react-dom
       resize-observer-polyfill: 1.5.1
       rollup: 2.68.0
       rollup-plugin-postcss: 4.0.2_postcss@8.4.7
@@ -319,7 +319,7 @@ importers:
       ts-toolbelt: 9.6.0
       typescript: 4.5.5
       typescript-plugin-css-modules: 3.4.0_typescript@4.5.5
-      vitest: 0.5.7_f10713a5f7fc60c6455484150f1a0fe3
+      vitest: 0.5.8_1bbeb174c177a0f4e2485901d240cdb7
 
   packages/storybook:
     specifiers:
@@ -5674,7 +5674,7 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react/13.0.0-alpha.5_react-dom@17.0.2+react@17.0.2:
+  /@testing-library/react/13.0.0-alpha.5:
     resolution:
       {
         integrity: sha512-QrxKC/7pTE0ze3wLZNaenGJqsLcbAJL71XqU/ryJTL2pqZBjiJHuxZavl2ZQAxnBQkDQF9oh9my3bKPstWfnhA==,
@@ -5686,8 +5686,6 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.0
       '@testing-library/dom': 8.11.3
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
     dev: true
 
   /@testing-library/user-event/13.5.0_@testing-library+dom@8.11.3:
@@ -6585,10 +6583,10 @@ packages:
       - supports-color
     dev: true
 
-  /@vitest/ui/0.5.7:
+  /@vitest/ui/0.5.8:
     resolution:
       {
-        integrity: sha512-QHGUNHbfcARZdz8bI+8f3VxMLWr9PUzZYAeH4ZXREt7qK7PmnftzJkifUMiPod28TDbwguZx1dC5FbCac89VUA==,
+        integrity: sha512-NcZ+9BzTfzKwDwhpYUkXAzypF/2mxrvcV8AwNwwYDThqm6oP+B0NLiY/lVR0PgVSq6rlMt7sDIrq/GSqrwIZcg==,
       }
     dependencies:
       sirv: 2.0.2
@@ -20963,18 +20961,6 @@ packages:
       react: '>=16.8.0'
     dev: false
 
-  /use-debounce/7.0.1_react@17.0.2:
-    resolution:
-      {
-        integrity: sha512-fOrzIw2wstbAJuv8PC9Vg4XgwyTLEOdq4y/Z3IhVl8DAE4svRcgyEUvrEXu+BMNgMoc3YND6qLT61kkgEKXh7Q==,
-      }
-    engines: { node: '>= 10.0.0' }
-    peerDependencies:
-      react: '>=16.8.0'
-    dependencies:
-      react: 17.0.2
-    dev: false
-
   /use-isomorphic-layout-effect/1.1.1_@types+react@17.0.39:
     resolution:
       {
@@ -21214,7 +21200,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite/2.8.4_sass@1.49.9:
+  /vite/2.8.4:
     resolution:
       {
         integrity: sha512-GwtOkkaT2LDI82uWZKcrpRQxP5tymLnC7hVHHqNkhFNknYr0hJUlDLfhVRgngJvAy3RwypkDCWtTKn1BjO96Dw==,
@@ -21237,15 +21223,14 @@ packages:
       postcss: 8.4.7
       resolve: 1.22.0
       rollup: 2.68.0
-      sass: 1.49.9
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.5.7_f10713a5f7fc60c6455484150f1a0fe3:
+  /vitest/0.5.8_1bbeb174c177a0f4e2485901d240cdb7:
     resolution:
       {
-        integrity: sha512-keLLxLGi+dkXFUuKxCXnBw5MkSZ03cynlG6+LVLaKoyUuW8Xu6NzX1oC6dVNm6Ig7mw6gX9OHV+Lpmcc3tu/mQ==,
+        integrity: sha512-LTtjwaNiFKeDm/G/XbvXzFSFRB91uMIjszwfRRr5gNpdhoo9IE2BIeAMAyKbpGaj0oAqTOltCQ6A0x/7b/1Ueg==,
       }
     engines: { node: '>=14.14.0' }
     hasBin: true
@@ -21266,14 +21251,14 @@ packages:
     dependencies:
       '@types/chai': 4.3.0
       '@types/chai-subset': 1.3.3
-      '@vitest/ui': 0.5.7
+      '@vitest/ui': 0.5.8
       c8: 7.11.0
       chai: 4.3.6
       jsdom: 19.0.0
       local-pkg: 0.4.1
       tinypool: 0.1.2
       tinyspy: 0.3.0
-      vite: 2.8.4_sass@1.49.9
+      vite: 2.8.4
     transitivePeerDependencies:
       - less
       - sass

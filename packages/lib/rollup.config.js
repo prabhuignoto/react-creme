@@ -48,6 +48,15 @@ export default {
       name: OUTPUT_NAME,
       strict: true,
     },
+    {
+      banner,
+      format: 'cjs',
+      ...globals,
+      exports: 'named',
+      file: pkg.main,
+      name: OUTPUT_NAME,
+      strict: true,
+    },
   ],
   plugins: [
     typescript({
