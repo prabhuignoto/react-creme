@@ -63,7 +63,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
 
     const radioWrapperClass = useMemo(() => {
       return cls(styles.wrapper, {
-        [styles[`${size}`]]: true,
+        [styles[size]]: true,
         [styles.disabled]: disabled,
         [styles.full_width]: fullWidth,
         [styles.rtl]: RTL,
@@ -76,7 +76,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
         cls(styles.radio, {
           [styles.ico_checked]: checked,
           [styles.disabled]: disabled,
-          [styles[`${size}`]]: true,
+          [styles[size]]: true,
         }),
       [checked, disabled]
     );

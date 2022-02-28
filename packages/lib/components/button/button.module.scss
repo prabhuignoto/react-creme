@@ -69,12 +69,24 @@ $sizes: (sm, md, lg);
     @extend %disabled;
   }
 
-  &:not(.disabled) {
+  &:not(.disabled):not(.dark) {
     background: theme.$light-bg;
   }
 
-  &:hover:not(.disabled) {
+  &:hover:not(.disabled):not(.dark) {
     background: theme.$secondary;
+  }
+
+  &.dark:not(.disabled) {
+    background: theme.$cod-gray;
+  }
+
+  &:hover.dark {
+    background: theme.$secondary;
+  }
+
+  &:hover.dark svg {
+    color: theme.$white;
   }
 }
 

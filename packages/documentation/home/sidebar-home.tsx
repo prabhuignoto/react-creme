@@ -10,10 +10,10 @@ import {
   faWindowMaximize,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { Sidebar } from '../../lib/components';
+import { Sidebar, Theme } from '../../lib/components';
 import {
   SidebarGroupModel,
   SidebarItemModel,
@@ -24,6 +24,41 @@ import data from './sidebar-home-data';
 interface SideBarHomeProps {
   onSelect?: () => void;
 }
+
+const SideBar: FunctionComponent<{
+  onSelect: (group: SidebarGroupModel, item: SidebarItemModel) => void;
+  theme: Theme;
+}> = React.memo(
+  ({ theme, onSelect }) => {
+    return (
+      <div style={{ height: '100vh', width: '100%' }}>
+        <Sidebar
+          // enableSearch
+          onSelect={onSelect}
+          searchPlaceholder="Search Components ..."
+          sectionsCollapsible={false}
+          groups={data}
+          focusable={false}
+          backGroundColor={theme.darkMode ? '#000' : '#fff'}
+          icons={[
+            <FontAwesomeIcon size="2x" icon={faRocket} key="home" />,
+            <FontAwesomeIcon size="2x" icon={faBorderAll} key="layout" />,
+            <FontAwesomeIcon size="2x" icon={faTasksAlt} key="content" />,
+            <FontAwesomeIcon size="2x" icon={faKeyboard} key="input" />,
+            <FontAwesomeIcon size="2x" icon={faBell} key="notification" />,
+            <FontAwesomeIcon size="2x" icon={faDatabase} key="data" />,
+            <FontAwesomeIcon size="2x" icon={faLink} key="link" />,
+            <FontAwesomeIcon size="2x" icon={faWindowMaximize} key="overlay" />,
+            <FontAwesomeIcon size="2x" icon={faHammer} key="utilities" />,
+          ]}
+        />
+      </div>
+    );
+  },
+  (prev, next) => prev.theme.darkMode === next.theme.darkMode
+);
+
+SideBar.displayName = 'SideBar';
 
 const SidebarHome: React.FC<SideBarHomeProps> = ({
   onSelect,
@@ -64,34 +99,11 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
     }
   }, [location.pathname, location.hash]);
 
-  const sideBarMemoized = React.useMemo(() => {
-    return (
-      <div style={{ height: '100vh', width: '100%' }}>
-        <Sidebar
-          // enableSearch
-          onSelect={handleSidebarSelect}
-          searchPlaceholder="Search Components ..."
-          sectionsCollapsible={false}
-          groups={data}
-          focusable={false}
-          backGroundColor={theme.darkMode ? '#000' : '#fff'}
-          icons={[
-            <FontAwesomeIcon size="2x" icon={faRocket} key="home" />,
-            <FontAwesomeIcon size="2x" icon={faBorderAll} key="layout" />,
-            <FontAwesomeIcon size="2x" icon={faTasksAlt} key="content" />,
-            <FontAwesomeIcon size="2x" icon={faKeyboard} key="input" />,
-            <FontAwesomeIcon size="2x" icon={faBell} key="notification" />,
-            <FontAwesomeIcon size="2x" icon={faDatabase} key="data" />,
-            <FontAwesomeIcon size="2x" icon={faLink} key="link" />,
-            <FontAwesomeIcon size="2x" icon={faWindowMaximize} key="overlay" />,
-            <FontAwesomeIcon size="2x" icon={faHammer} key="utilities" />,
-          ]}
-        />
-      </div>
-    );
-  }, [theme.darkMode]);
-
-  return <div style={{ width: '100%' }}>{sideBarMemoized}</div>;
+  return (
+    <div style={{ width: '100%' }}>
+      <SideBar onSelect={handleSidebarSelect} theme={theme} />
+    </div>
+  );
 };
 
 SidebarHome.displayName = 'SidebarHome';

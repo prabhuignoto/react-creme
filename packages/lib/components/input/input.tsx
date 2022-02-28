@@ -50,6 +50,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       value = '',
       transparentBgColor = false,
     } = props;
+
     const [inputValue, setInputValue] = useState(value);
     const inputRef = useRef<HTMLInputElement>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
@@ -129,7 +130,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           [styles[accent]]: true,
           [styles[size]]: true,
           [styles.transparent_bg_color]: transparentBgColor,
-          [styles.dark]: isDarkMode,
+          [styles.input_dark]: isDarkMode,
         }),
       [disabled, hasFocus, isDarkMode]
     );

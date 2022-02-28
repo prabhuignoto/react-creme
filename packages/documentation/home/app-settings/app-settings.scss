@@ -8,7 +8,6 @@
 
 .rc-doc-app-settings-icon {
   align-items: center;
-  color: rgba(0, 0, 0, 0.65);
   cursor: pointer;
   display: flex;
   height: 1.75rem;
@@ -19,5 +18,13 @@
 
   svg {
     height: 100%;
+  }
+
+  &.dark {
+    color: #fff;
+  }
+
+  &:not(.dark) {
+    color: #000;
   }
 }

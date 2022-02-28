@@ -35,7 +35,7 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
         },
         [styles[`btn_${size}`], styles[`btn_${type}`], styles['btn']]
       ),
-    [disabled]
+    [disabled, isDarkMode]
   );
 
   // setup for focus

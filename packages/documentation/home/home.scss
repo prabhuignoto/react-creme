@@ -30,7 +30,6 @@
 
 .rc-doc-app-hero {
   align-items: center;
-  background-image: url('../images/adrian.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -40,6 +39,14 @@
   margin-bottom: 1rem;
   min-height: 650px;
   width: 100%;
+
+  &:not(.dark) {
+    background-image: url('../images/adrian.jpg');
+  }
+
+  img {
+    object-fit: cover;
+  }
 
   @media (max-width: 480px) {
     height: 950px;
@@ -55,10 +62,6 @@
 
   @media (min-width: 1025px) {
     height: 750px;
-  }
-
-  img {
-    object-fit: cover;
   }
 }
 

@@ -2,7 +2,6 @@ import deepEqual from 'fast-deep-equal';
 import React, { Suspense, useImperativeHandle, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { useRecoilValue } from 'recoil';
-import { ThemeProvider } from '../lib/components/common/theme-provider';
 import AppRoutes from './app-routes';
 import { MediaState, themeState } from './atoms/home';
 import Footer from './home/footer/footer';
@@ -40,9 +39,9 @@ const Main = React.forwardRef<
         />
       )}
       <Suspense fallback={<span></span>}>
-        <ThemeProvider theme={theme}>
-          <AppRoutes />
-        </ThemeProvider>
+        {/* <ThemeProvider theme={theme}> */}
+        <AppRoutes />
+        {/* </ThemeProvider> */}
       </Suspense>
       <Footer />
     </section>

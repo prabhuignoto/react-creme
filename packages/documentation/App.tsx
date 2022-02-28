@@ -3,7 +3,7 @@ import deepEqual from 'fast-deep-equal';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
-import { Drawer } from '../lib/components';
+import { Drawer, ThemeProvider } from '../lib/components';
 import '../lib/design/core.scss';
 import '../lib/design/list.scss';
 import '../lib/design/theme.scss';
@@ -87,23 +87,25 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
     );
 
     return (
-      <div className={appClass} ref={onAppRef}>
-        {media && !media.isMobile && (
-          <aside
-            className={sidebarClass}
-            ref={asideRef}
-            style={{ left: `${left}px` }}
-          >
-            <SidebarHome />
-          </aside>
-        )}
-        {canRenderAside && (
-          <Drawer onClose={onClose} showClose focusable={false}>
-            <SidebarHome onSelect={onSelect} />
-          </Drawer>
-        )}
-        <AppMain media={media} toggleOpen={toggleOpen} ref={sectionRef} />
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className={appClass} ref={onAppRef}>
+          {media && !media.isMobile && (
+            <aside
+              className={sidebarClass}
+              ref={asideRef}
+              style={{ left: `${left}px` }}
+            >
+              <SidebarHome />
+            </aside>
+          )}
+          {canRenderAside && (
+            <Drawer onClose={onClose} showClose focusable={false}>
+              <SidebarHome onSelect={onSelect} />
+            </Drawer>
+          )}
+          <AppMain media={media} toggleOpen={toggleOpen} ref={sectionRef} />
+        </div>
+      </ThemeProvider>
     );
   },
   (prev, next) => {

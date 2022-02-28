@@ -6,6 +6,7 @@
 $sizes: (sm, md, lg);
 
 .container {
+  @extend %shadow-inset;
   align-items: center;
   cursor: pointer;
   font-size: 14px;
@@ -21,7 +22,6 @@ $sizes: (sm, md, lg);
 
   &:not(.dark) {
     @extend %border;
-    @extend %shadow-inset-small;
   }
 
   &.open {
@@ -38,16 +38,15 @@ $sizes: (sm, md, lg);
   }
 
   &.rtl {
-    display: grid;
-    grid-template-columns: 2rem 2rem calc(100% - 4rem);
+    direction: rtl;
   }
 
-  &:not(.rtl):not(.with_clear) {
+  &:not(.with_clear) {
     display: grid;
     grid-template-columns: calc(100% - 2rem) 2rem;
   }
 
-  &:not(.rtl).with_clear {
+  &.with_clear {
     display: grid;
     grid-template-columns: calc(100% - 4rem) 2rem 2rem;
   }

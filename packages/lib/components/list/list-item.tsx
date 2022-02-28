@@ -46,7 +46,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
             [styles.dark]: isDarkMode,
           },
         ]),
-      [selected, disabled, focus]
+      [selected, disabled, focus, isDarkMode]
     );
 
     const handleMouseDown = useCallback((e: React.MouseEvent) => {
