@@ -45,27 +45,27 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     const tagItemClass = useMemo(
       () =>
         classNames(styles.tag, 'rc-tag', {
-          [styles.tag_disabled]: disabled,
-          [styles.tag_marked_for_removal]:
+          [styles.disabled]: disabled,
+          [styles.marked_for_removal]:
             markedForRemoval && !isFirstRender.current,
-          [styles[`tag_style_${tagStyle}`]]: true,
-          [styles[`tag_${size}`]]: true,
-          [styles.tag_readonly]: readonly,
-          [styles[`tag_accent_${accent}`]]: true,
+          [styles[`style_${tagStyle}`]]: true,
+          [styles[`${size}`]]: true,
+          [styles.readonly]: readonly,
+          [styles[`accent_${accent}`]]: true,
         }),
       [markedForRemoval]
     );
 
     const tagIconClass = useMemo(
       () =>
-        classNames(styles.tag_icon, {
-          [styles[`tag_icon_${tagStyle}`]]: true,
-          [styles.tag_icon_editable]: editable,
+        classNames(styles.icon, {
+          [styles[`icon_${tagStyle}`]]: true,
+          [styles.icon_editable]: editable,
         }),
       [editable]
     );
 
-    const tagName = useMemo(() => classNames(styles.tag_name, {}), []);
+    const tagName = useMemo(() => classNames(styles.name, {}), []);
 
     const style = useMemo(
       () =>

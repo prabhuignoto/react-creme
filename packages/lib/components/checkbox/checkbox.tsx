@@ -52,19 +52,19 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
 
     const iconClass = useMemo(
       () =>
-        classNames(styles.checkbox_icon, {
-          [styles.checkbox_checked]: checked,
-          [styles[`checkbox_${size}`]]: true,
-          [styles[`checkbox_${checkBoxStyle}`]]: true,
+        classNames(styles.icon, {
+          [styles.checked]: checked,
+          [styles[`${size}`]]: true,
+          [styles[`${checkBoxStyle}`]]: true,
         }),
       [checked]
     );
 
     const labelClass = useMemo(
       () =>
-        classNames(styles.checkbox_label, {
-          [styles[`checkbox_label_${size}`]]: true,
-          [styles.checkbox_label_rtl]: RTL,
+        classNames(styles.label, {
+          [styles[`label_${size}`]]: true,
+          [styles.label_rtl]: RTL,
         }),
       []
     );
@@ -73,7 +73,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
       () =>
         classNames(styles.checkbox, {
           'rc-checkbox-focus': focusIcon,
-          [styles[`checkbox_${size}`]]: true,
+          [styles[size]]: true,
           [styles.disabled]: disabled,
         }),
       [disabled]
@@ -81,14 +81,14 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
 
     const wrapperClass = useMemo(
       () =>
-        classNames(styles.checkbox_wrapper, {
-          [styles[`checkbox_${size}`]]: true,
-          [styles.checkbox_auto_height]: autoHeight,
-          [styles.checkbox_border]: border,
-          [styles.checkbox_disabled]: disabled,
-          [styles.checkbox_focus]: !focusIcon,
-          [styles.checkbox_hover]: !noHoverStyle,
-          [styles.checkbox_rtl]: RTL,
+        classNames(styles.wrapper, {
+          [styles[size]]: true,
+          [styles.auto_height]: autoHeight,
+          [styles.border]: border,
+          [styles.disabled]: disabled,
+          [styles.focus]: !focusIcon,
+          [styles.hover]: !noHoverStyle,
+          [styles.rtl]: RTL,
         }),
       [size, disabled]
     );

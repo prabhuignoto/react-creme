@@ -32,19 +32,19 @@ const Section: React.FC<SectionProps> = ({
 
   const bodyClass = useMemo(
     () =>
-      classNames(styles.section_body, {
-        [styles[`rc_section_${layout}`]]: true,
-        [styles.section_no_padding]: noPadding,
-        [styles.section_no_title]: !title,
-        [styles.section_rtl]: RTL,
+      classNames(styles.body, {
+        [styles[layout]]: true,
+        [styles.no_padding]: noPadding,
+        [styles.no_title]: !title,
+        [styles.rtl]: RTL,
       }),
     [layout, title]
   );
 
   const headerClass = useMemo(() => {
-    return classNames(styles.section_header, {
-      [styles.section_header_rtl]: RTL,
-      [styles[`section_header_${size}`]]: true,
+    return classNames(styles.header, {
+      [styles.header_rtl]: RTL,
+      [styles[`header_${size}`]]: true,
     });
   }, []);
 

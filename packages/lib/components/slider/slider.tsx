@@ -100,16 +100,16 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 
   const sliderWrapperClass = useMemo(
     () =>
-      classNames(styles.slider_wrapper, {
-        [styles['slider_wrapper_disabled']]: disabled,
+      classNames(styles.wrapper, {
+        [styles['wrapper_disabled']]: disabled,
       }),
     []
   );
 
   const knobClass = useMemo(() => {
-    return classNames(styles.slider_control, {
-      [styles[`slider_control_${knobShape}`]]: true,
-      [styles.slider_control_dragging]: dragging,
+    return classNames(styles.control, {
+      [styles[`control_${knobShape}`]]: true,
+      [styles.control_dragging]: dragging,
     });
   }, [dragging]);
 
@@ -148,11 +148,11 @@ const Slider: React.FunctionComponent<SliderProps> = ({
       ref={onTrackerInit}
       aria-label="slider"
     >
-      <div className={styles.slider_track}>
+      <div className={styles.track}>
         <span
           ref={sliderFillRef}
           style={sliderFillStyle}
-          className={styles.slider_fill}
+          className={styles.fill}
         ></span>
         <span
           className={knobClass}

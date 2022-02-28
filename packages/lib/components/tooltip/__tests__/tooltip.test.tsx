@@ -24,7 +24,7 @@ describe('Tooltip', () => {
     const hostContent = getByRole('tooltip').querySelector(
       '.tooltip-host-content'
     );
-    const message = getByRole('tooltip').querySelector(styles.tooltip_message);
+    const message = getByRole('tooltip').querySelector(styles.message);
 
     if (hostContent && message) {
       // await act(async () => {
@@ -63,10 +63,8 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    // expect(getByRole('tooltip')).toHaveClass(styles.tooltip_static);
-    expect(getByRole('tooltip').firstChild).toHaveClass(
-      styles.tooltip_top_center
-    );
+    // expect(getByRole('tooltip')).toHaveClass(styles.static);
+    expect(getByRole('tooltip').firstChild).toHaveClass(styles.top_center);
   });
 
   it('should render tooltip bottom center', () => {
@@ -77,9 +75,7 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass(
-      styles.tooltip_bottom_center
-    );
+    expect(getByRole('tooltip').firstChild).toHaveClass(styles.bottom_center);
   });
 
   it('should render tooltip bottom left', () => {
@@ -90,9 +86,7 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass(
-      styles.tooltip_bottom_left
-    );
+    expect(getByRole('tooltip').firstChild).toHaveClass(styles.bottom_left);
   });
 
   it('should render tooltip bottom right', () => {
@@ -103,9 +97,7 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass(
-      styles.tooltip_bottom_right
-    );
+    expect(getByRole('tooltip').firstChild).toHaveClass(styles.bottom_right);
   });
 
   it('should render tooltip top left', () => {
@@ -116,9 +108,7 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass(
-      styles.tooltip_top_left
-    );
+    expect(getByRole('tooltip').firstChild).toHaveClass(styles.top_left);
   });
 
   it('should render tooltip top right', () => {
@@ -129,9 +119,7 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass(
-      styles.tooltip_top_right
-    );
+    expect(getByRole('tooltip').firstChild).toHaveClass(styles.top_right);
   });
 
   it('should render left center', () => {
@@ -142,9 +130,7 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass(
-      styles.tooltip_left_center
-    );
+    expect(getByRole('tooltip').firstChild).toHaveClass(styles.left_center);
   });
 
   it('should render right center', () => {
@@ -155,9 +141,7 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass(
-      styles.tooltip_right_center
-    );
+    expect(getByRole('tooltip').firstChild).toHaveClass(styles.right_center);
   });
 
   it('should render left top', () => {
@@ -168,9 +152,7 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass(
-      styles.tooltip_left_top
-    );
+    expect(getByRole('tooltip').firstChild).toHaveClass(styles.left_top);
   });
 
   it('should render left bottom', () => {
@@ -181,9 +163,7 @@ describe('Tooltip', () => {
     );
 
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip').firstChild).toHaveClass(
-      styles.tooltip_left_bottom
-    );
+    expect(getByRole('tooltip').firstChild).toHaveClass(styles.left_bottom);
   });
 
   it('should render Tooltip on click', async () => {

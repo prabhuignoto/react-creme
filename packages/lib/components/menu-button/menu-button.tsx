@@ -31,10 +31,10 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
 
   const menuButtonClass = useMemo(
     () =>
-      classNames(styles.menu_btn_wrapper, {
-        [styles.menu_btn_disabled]: disabled,
-        [styles.menu_btn_rtl]: RTL,
-        [styles[`menu_btn_${size}`]]: true,
+      classNames(styles.wrapper, {
+        [styles.disabled]: disabled,
+        [styles.rtl]: RTL,
+        [styles[size]]: true,
       }),
     [disabled]
   );
@@ -66,7 +66,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         dockPosition={menuPosition}
         size={size}
       >
-        <span className={styles.menu_btn_icon} role="img">
+        <span className={styles.icon} role="img">
           <ChevronDownIcon />
         </span>
       </Menu>

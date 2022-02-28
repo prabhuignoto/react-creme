@@ -35,7 +35,7 @@ describe('Skeleton', () => {
 
     const children = getByTestId('rc-skeleton').children;
 
-    expect(children[0].firstChild).toHaveClass(styles.skeleton_animate);
+    expect(children[0].firstChild).toHaveClass(styles.animate);
     // expect(children[0].firstChild).toHaveStyle("--height: 20px");
   });
 });

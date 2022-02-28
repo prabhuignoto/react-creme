@@ -28,7 +28,7 @@ describe('Tags', () => {
   it('Should render disabled', () => {
     const { getAllByRole } = render(<Tags items={tagsWithDisabled} />);
 
-    expect(getAllByRole('listitem')[1]).toHaveClass(styles.tag_disabled);
+    expect(getAllByRole('listitem')[1]).toHaveClass(styles.disabled);
   });
 
   it('Should create new tag', async () => {
@@ -62,7 +62,7 @@ describe('Tags', () => {
     const oneParent = one.parentElement;
 
     if (oneParent) {
-      const closeIcon = oneParent.querySelector('.' + styles.tag_icon);
+      const closeIcon = oneParent.querySelector('.' + styles.icon);
 
       if (closeIcon) {
         fireEvent.click(closeIcon);
@@ -137,7 +137,7 @@ describe('Tags', () => {
   it('should render custom sized tag', () => {
     const { container } = render(<Tags items={tags} size="md" />);
 
-    expect(container.querySelectorAll(`.${styles.tag_md}`)).toHaveLength(3);
+    expect(container.querySelectorAll(`.${styles.md}`)).toHaveLength(3);
   });
 
   it('should not exceed max tags', async () => {
@@ -152,7 +152,7 @@ describe('Tags', () => {
   });
 
   it('should not exceed max tags - after input entry', async () => {
-    const { getByPlaceholderText, container, queryByPlaceholderText } = render(
+    const { getByPlaceholderText, container } = render(
       <Tags items={tags} placeholder="Please enter a value ..." maxTags={4} />
     );
 

@@ -1,27 +1,27 @@
 @use '../../design/core.scss';
 @use '../../design/button.scss';
 
-.transfer_wrapper {
+.wrapper {
   @extend %center;
   align-items: flex-start;
   display: grid;
   grid-template-columns: 40% 20% 40%;
 }
 
-.transfer_column1 {
+.column1 {
   @extend %col;
 }
 
-.transfer_column2 {
+.column2 {
   @extend %col;
 }
 
-.transfer_control_column {
+.control_column {
   @extend %col;
   align-self: center;
 }
 
-.transfer_btn {
+.btn {
   @extend %button-md;
   padding: 0.25rem;
 
@@ -35,7 +35,7 @@
   }
 }
 
-.transfer_search_input {
+.search_input {
   margin-left: auto;
   margin-right: 0.5rem;
   width: 100%;

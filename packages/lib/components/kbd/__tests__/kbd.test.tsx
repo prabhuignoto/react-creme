@@ -13,12 +13,12 @@ describe('Keyboard', () => {
   it('should render kbd with size', () => {
     const { getByText } = render(<Kbd size="lg">Shift</Kbd>);
 
-    expect(getByText('Shift')).toHaveClass(styles.kbd_lg);
+    expect(getByText('Shift')).toHaveClass(styles.lg);
   });
 
   it('should render kbd with raised button', () => {
     const { getByText } = render(<Kbd buttonRaised="right">Shift</Kbd>);
 
-    expect(getByText('Shift')).toHaveClass(styles.kbd_right_raised);
+    expect(getByText('Shift')).toHaveClass(styles.right_raised);
   });
 });

@@ -13,20 +13,20 @@ $searchbar-height: 40px;
   overflow: hidden;
   position: relative;
 
-  &.sidebar_border {
+  &.border {
     @extend %border;
   }
 
-  &:not(.sidebar_minimize) {
+  &:not(.minimize) {
     justify-content: center;
   }
 
-  &.sidebar_minimize {
+  &.minimize {
     justify-content: flex-start;
   }
 }
 
-.sidebar_search_wrapper {
+.search_wrapper {
   @extend %center;
   height: $searchbar-height;
   margin: 0 auto;
@@ -35,7 +35,7 @@ $searchbar-height: 40px;
   width: 90%;
 }
 
-.sidebar_minimize_btn {
+.minimize_btn {
   background-color: theme.$primary;
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
@@ -50,7 +50,7 @@ $searchbar-height: 40px;
   z-index: 999;
 }
 
-.sidebar_minimize_btn_open {
+.minimize_btn_open {
   right: calc(0% - 1.5rem);
 
   svg {
@@ -58,38 +58,38 @@ $searchbar-height: 40px;
   }
 }
 
-.sidebar_minimize_btn_close {
+.minimize_btn_close {
   right: calc(100% - 1.5rem);
 }
 
-.sidebar_content_wrapper {
-  &.sidebar_border {
+.content_wrapper {
+  &.border {
     @extend %border;
   }
 
-  &.sidebar_minimize {
+  &.minimize {
     transition: width 0.25s ease-in-out, opacity 0.1s linear;
   }
 
-  &:not(.sidebar_minimize) {
+  &:not(.minimize) {
     width: 100%;
   }
 
-  &.sidebar_hide {
+  &.hide {
     opacity: 0;
     overflow: hidden;
     visibility: hidden;
     width: 0;
   }
 
-  &.sidebar_open {
+  &.open {
     opacity: 1;
     visibility: visible;
     width: 100%;
   }
 }
 
-.sidebar_groups_wrapper {
+.groups_wrapper {
   height: calc(100% - $searchbar-height);
   overflow-x: hidden;
   overflow-y: auto;

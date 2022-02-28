@@ -14,18 +14,18 @@ const ListItemContent: React.FunctionComponent<ListItemContentProps> =
       textColorSelected,
       RTL,
       highlightSelection,
-      size,
+      size = 'sm',
     }: ListItemContentProps) => {
       const ref = React.useRef<HTMLDivElement>(null);
 
       const listOptionClass = cls(
-        [styles.list_option_value_wrapper],
+        [styles.value_wrapper],
         {
-          [styles.list_option_highlight_selection]: highlightSelection,
-          [styles.list_option_no_icon]: !showCheck,
-          [styles.list_option_rtl]: RTL,
-          [styles.list_option_selected]: selected,
-          [styles[`list_option_${size}`]]: size,
+          [styles.highlight_selection]: highlightSelection,
+          [styles.no_icon]: !showCheck,
+          [styles.rtl]: RTL,
+          [styles.selected]: selected,
+          [styles[size]]: size,
         },
         [selected]
       );
@@ -41,17 +41,17 @@ const ListItemContent: React.FunctionComponent<ListItemContentProps> =
         <div className={listOptionClass} ref={ref} style={style}>
           {showCheck && (
             <span
-              className={cls(styles.list_option_icon, {
-                [styles.list_option_rtl]: RTL,
-                [styles.list_option_selected]: selected,
+              className={cls(styles.icon, {
+                [styles.rtl]: RTL,
+                [styles.selected]: selected,
               })}
             >
               <CheckIcon />
             </span>
           )}
           <span
-            className={cls(styles.list_option_value, {
-              [styles.list_option_value_selected]: selected,
+            className={cls(styles.value, {
+              [styles.value_selected]: selected,
             })}
           >
             {name}

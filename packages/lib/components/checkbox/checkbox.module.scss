@@ -18,7 +18,7 @@ $heights: (
   lg: 45px,
 );
 
-.checkbox_wrapper {
+.wrapper {
   @extend %left;
   align-items: center;
   cursor: pointer;
@@ -29,32 +29,32 @@ $heights: (
   padding: 0 0.5rem;
   width: 100%;
 
-  &.checkbox_rtl {
+  &.rtl {
     direction: rtl;
   }
 
-  &.checkbox_disabled {
+  &.disabled {
     @extend %disabled;
   }
 
   @each $key, $val in $grid {
-    &.checkbox_#{$key} {
+    &.#{$key} {
       display: flex;
 
-      &:not(.checkbox_auto_height) {
+      &:not(.auto_height) {
         min-height: map.get($heights, $key);
       }
     }
   }
 }
 
-.checkbox_border {
+.border {
   @if not $dark-mode == 'true' {
     @extend %border;
   }
 }
 
-.checkbox_hover:hover {
+.hover:hover {
   @extend %border-radius;
 
   @if $dark-mode == 'true' {
@@ -78,7 +78,7 @@ $heights: (
   }
 }
 
-.checkbox_icon {
+.icon {
   @if $dark-mode == 'true' {
     @extend %border-radius;
     background: theme.$charcoal-gray;
@@ -87,7 +87,7 @@ $heights: (
     background: theme.$white;
   }
 
-  &.checkbox_round {
+  &.round {
     border-radius: 50%;
   }
 
@@ -95,17 +95,17 @@ $heights: (
     display: none;
   }
 
-  &.checkbox_checked {
+  &.checked {
     background: theme.$primary;
   }
 
-  &.checkbox_checked svg {
+  &.checked svg {
     color: theme.$white;
     display: block;
   }
 }
 
-.checkbox_label {
+.label {
   @extend %text-no-wrap;
   cursor: pointer;
   display: block;
@@ -116,20 +116,20 @@ $heights: (
     color: theme.$white;
   }
 
-  &.checkbox_label_rtl {
+  &.label_rtl {
     padding-right: 0.5rem;
   }
 
   @each $key in $sizes {
-    &.checkbox_label_#{$key} {
+    &.label_#{$key} {
       @extend %font-#{$key};
     }
   }
 }
 
 @each $size in $sizes {
-  .checkbox_#{$size} {
-    &.checkbox_icon {
+  .#{$size} {
+    &.icon {
       @extend %icon-#{$size};
     }
   }

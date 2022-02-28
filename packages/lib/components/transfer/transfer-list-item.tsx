@@ -9,10 +9,7 @@ const TransferListItem: React.FunctionComponent<TransferListItemModel> =
     ({ selected, id, name, handleSelection, list }: TransferListItemModel) => {
       return (
         <li
-          className={classNames([
-            styles.transfer_list_item,
-            selected ? styles.selected : '',
-          ])}
+          className={classNames([styles.item, selected ? styles.selected : ''])}
           key={id}
           role="listitem"
         >

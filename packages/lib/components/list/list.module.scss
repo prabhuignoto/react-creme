@@ -48,7 +48,7 @@ $list-anim-settings: (
   to: $show-anim,
 );
 
-.list_options_wrapper {
+.wrapper {
   max-height: var(--rc-list-max-height);
   overflow-y: auto;
   width: 100%;

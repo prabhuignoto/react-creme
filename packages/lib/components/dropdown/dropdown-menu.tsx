@@ -31,10 +31,10 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   const menuClass = useMemo(
     () =>
       classNames([
-        styles.dropdown_menu_container,
+        styles.container,
         {
-          [styles.dropdown_menu_close]: !open || isClosing,
-          [styles.dropdown_menu_open]: open && !isClosing,
+          [styles.close]: !open || isClosing,
+          [styles.open]: open && !isClosing,
         },
       ]),
     [open, isClosing]

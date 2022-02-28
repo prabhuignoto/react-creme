@@ -116,7 +116,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
   }, [leftList.length, rightList.length]);
 
   return (
-    <div className={styles.transfer_wrapper}>
+    <div className={styles.wrapper}>
       <section className="transfer-column1">
         {leftList.length ? (
           <TransferList

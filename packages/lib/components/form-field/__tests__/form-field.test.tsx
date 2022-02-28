@@ -36,7 +36,7 @@ describe('Form Field', () => {
 
     expect(getByText('Name')).toBeInTheDocument();
 
-    expect(container.firstChild).toHaveClass(styles.form_field_rtl);
+    expect(container.firstChild).toHaveClass(styles.rtl);
   });
 
   it('should render custom size', () => {
@@ -48,6 +48,6 @@ describe('Form Field', () => {
 
     expect(getByText('Name')).toBeInTheDocument();
 
-    expect(container.firstChild).toHaveClass(styles.form_field_sm);
+    expect(container.firstChild).toHaveClass(styles.sm);
   });
 });

@@ -8,13 +8,13 @@ exports[`Carousel items > Should render carousel items snapshot 1`] = `
 >
   <li
     aria-hidden="true"
-    class="rc-carousel-item"
+    class="_item_16ckl_1"
     data-visible="false"
     role="listitem"
     style="left: 0px; top: 0px; visibility: visible; width: 300px;"
   >
     <div
-      class="rc-carousel-item-container"
+      class="_item_container_16ckl_13"
     >
       <span>
         one
@@ -23,13 +23,13 @@ exports[`Carousel items > Should render carousel items snapshot 1`] = `
   </li>
   <li
     aria-hidden="false"
-    class="rc-carousel-item"
+    class="_item_16ckl_1"
     data-visible="true"
     role="listitem"
     style="left: 300px; top: 0px; visibility: visible; width: 300px;"
   >
     <div
-      class="rc-carousel-item-container"
+      class="_item_container_16ckl_13"
     >
       <span>
         two
