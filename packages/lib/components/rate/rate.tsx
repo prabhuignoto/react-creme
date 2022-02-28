@@ -28,6 +28,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
   );
 
   const lastSelectedIndex = React.useRef<number>(-1);
+  const lastHoverIndex = React.useRef<number>(-1);
 
   const [selectedIndex, setSelectedIndex] = React.useState<number>(
     value ? value - 1 : -1
@@ -50,6 +51,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
   const handleHover = useDebouncedCallback((idx: number) => {
     if (!disabled) {
       setHoverIndex(idx);
+      lastHoverIndex.current = idx;
       setSelectedIndex(-1);
     }
   }, 10);
@@ -58,6 +60,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
     if (!disabled) {
       setHoverIndex(-1);
       setSelectedIndex(lastSelectedIndex.current);
+      lastHoverIndex.current = -1;
     }
   }, 10);
 
@@ -65,7 +68,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
     setItems(prev =>
       prev.map((item, index) => ({
         ...item,
-        active: index <= selectedIndex,
+        active: index <= lastSelectedIndex.current,
       }))
     );
   }, [selectedIndex]);
@@ -75,7 +78,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
       setItems(prev =>
         prev.map((item, index) => ({
           ...item,
-          hovered: index <= hoverIndex,
+          hovered: index <= lastHoverIndex.current,
         }))
       );
     }

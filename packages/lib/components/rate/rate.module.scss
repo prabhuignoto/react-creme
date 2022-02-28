@@ -55,11 +55,18 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.item svg {
-  height: 100%;
-  stroke-width: 0;
-  transition: fill 0.1s ease-in;
-  width: 100%;
+.item.active {
+  color: theme.$primary;
+
+  svg {
+    fill: theme.$primary;
+  }
+}
+
+.item.hovered {
+  svg {
+    fill: theme.$primary;
+  }
 }
 
 .item:hover {
@@ -68,16 +75,9 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.active {
-  color: theme.$primary;
-
-  svg {
-    fill: theme.$primary;
-  }
-}
-
-.hovered {
-  svg {
-    fill: theme.$primary;
-  }
+.item svg {
+  height: 100%;
+  stroke-width: 0;
+  transition: fill 0.1s ease-in;
+  width: 100%;
 }
