@@ -5,7 +5,7 @@
 
 $dark-mode: theme.$dark-mode;
 
-.dropdown_menu_container {
+.container {
   @extend %border-radius;
   @extend %shadow-medium;
   @include animate.set-settings(0.25s, cubic-bezier(0.17, 0.84, 0.44, 1));
@@ -29,15 +29,15 @@ $dark-mode: theme.$dark-mode;
     transform: blur(0);
   }
 
-  &.dropdown_menu_open {
-    animation-name: dropdown_menu_open;
+  &.open {
+    animation-name: open;
     height: var(--menu-max-height);
     opacity: 1;
     visibility: visible;
   }
 
-  &.dropdown_menu_close {
-    animation-name: dropdown_menu_close;
+  &.close {
+    animation-name: close;
     height: 0;
     opacity: 0;
     visibility: hidden;
@@ -95,9 +95,5 @@ $dropdown-anim-settings: (
   to: $show-anim,
 );
 
-@include animate.set-keyframes(dropdown_menu_open, $dropdown-anim-settings);
-@include animate.set-keyframes(
-  dropdown_menu_close,
-  $dropdown_anim-settings,
-  true
-);
+@include animate.set-keyframes(open, $dropdown-anim-settings);
+@include animate.set-keyframes(close, $dropdown_anim-settings, true);

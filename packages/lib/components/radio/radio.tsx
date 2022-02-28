@@ -60,35 +60,35 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
     }
 
     const radioWrapperClass = useMemo(() => {
-      return cls(styles.radio_wrapper, {
-        [styles[`radio_${size}`]]: true,
-        [styles.radio_disabled]: disabled,
-        [styles.radio_full_width]: fullWidth,
-        [styles.radio_rtl]: RTL,
+      return cls(styles.wrapper, {
+        [styles[`${size}`]]: true,
+        [styles.disabled]: disabled,
+        [styles.full_width]: fullWidth,
+        [styles.rtl]: RTL,
       });
     }, [disabled, fullWidth]);
 
     const radioClass = useMemo(
       () =>
         cls(styles.radio, {
-          [styles.radio_ico_checked]: checked,
-          [styles.radio_disabled]: disabled,
-          [styles[`radio_${size}`]]: true,
+          [styles.ico_checked]: checked,
+          [styles.disabled]: disabled,
+          [styles[`${size}`]]: true,
         }),
       [checked, disabled]
     );
 
     const radioIconClass = useMemo(() => {
-      return cls(styles.radio_icon, {
-        [styles.radio_ico_checked]: checked,
-        [styles.radio_ico_unchecked]: !isFirstRender.current && !checked,
+      return cls(styles.icon, {
+        [styles.ico_checked]: checked,
+        [styles.ico_unchecked]: !isFirstRender.current && !checked,
       });
     }, [checked]);
 
     const radioLabelClass = useMemo(() => {
-      return cls([styles.radio_label, styles[`radio_label_${size}`]], {
-        [styles.radio_disabled]: disabled,
-        [styles.radio_rtl]: RTL,
+      return cls([styles.label, styles[`label_${size}`]], {
+        [styles.disabled]: disabled,
+        [styles.rtl]: RTL,
       });
     }, [size, disabled]);
 

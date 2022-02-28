@@ -6,7 +6,7 @@ $sizes: (sm, md, lg);
 
 $dark-mode: theme.$dark-mode;
 
-.menu_item {
+.item {
   @extend %list-item-left;
   height: 35px;
   width: 100%;
@@ -21,12 +21,12 @@ $dark-mode: theme.$dark-mode;
     border-bottom-right-radius: 4px;
   }
 
-  &.menu_item_disabled {
+  &.disabled {
     @extend %disabled;
   }
 }
 
-.menu_item:hover {
+.item:hover {
   cursor: pointer;
 
   @if $dark-mode == 'true' {
@@ -39,14 +39,14 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .menu_#{$size} {
-    .menu_item_name {
+  .#{$size} {
+    .name {
       @extend %text-#{$size};
     }
   }
 }
 
-.menu_item_name {
+.name {
   font-weight: 300;
   padding-left: 0.5rem;
 }

@@ -1,7 +1,7 @@
 @use '../../design/core.scss';
 @use '../../design/theme.scss';
 
-.card_wrapper {
+.wrapper {
   @extend %col;
   background: theme.$white;
 
@@ -11,54 +11,54 @@
   min-height: var(--height, 300px);
   width: 100%;
 
-  &:not(.card_border_less) {
+  &:not(.border_less) {
     @extend %border;
   }
 
-  &.card_shadow {
+  &.shadow {
     @extend %shadow-medium;
     @extend %border-radius;
   }
 
-  &:not(.card_shadow) {
+  &:not(.shadow) {
     @extend %border;
   }
 }
 
-.card_header {
+.header {
   @extend %left;
   border-bottom: 1px solid theme.$gray;
   height: 100%;
   width: 95%;
 
-  &.card_align_right {
+  &.align_right {
     @extend %right;
   }
 
-  &.card_align_center {
+  &.align_center {
     @extend %center;
   }
 }
 
-.card_body {
+.body {
   @extend %center;
   height: 95%;
   padding: 1rem;
   width: 95%;
 }
 
-.card_footer {
+.footer {
   @extend %left;
   border-top: 1px solid theme.$gray;
   height: 100%;
   margin-top: auto;
   width: 95%;
 
-  &.card_align_right {
+  &.align_right {
     @extend %right;
   }
 
-  &.card_align_center {
+  &.align_center {
     @extend %center;
   }
 }

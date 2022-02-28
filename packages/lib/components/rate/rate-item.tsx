@@ -16,7 +16,7 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = React.memo(
     index,
     onMouseOver,
     onSelect,
-    size,
+    size = 'sm',
   }: RateItemViewProps) => {
     const ref = React.useRef<HTMLLIElement | null>(null);
 
@@ -26,11 +26,11 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = React.memo(
 
     const rateItemClass = useMemo(
       () =>
-        classNames(styles.rate_item, {
-          [styles.rate_item_active]: active,
-          [styles[`rate_item_${size}`]]: true,
-          [styles.rate_item_disabled]: disabled,
-          [styles.rate_item_hovered]: hovered,
+        classNames(styles.item, {
+          [styles.active]: active,
+          [styles[size]]: true,
+          [styles.disabled]: disabled,
+          [styles.hovered]: hovered,
         }),
       [active, hovered, disabled]
     );

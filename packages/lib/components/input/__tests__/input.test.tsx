@@ -11,7 +11,7 @@ describe('Input', () => {
     const { getAllByRole } = render(<Input />);
 
     expect(getAllByRole('textbox')[0]).toBeInTheDocument();
-    expect(getAllByRole('textbox')[0]).toHaveClass(styles.input_default);
+    expect(getAllByRole('textbox')[0]).toHaveClass(styles.default);
   });
 
   it('should have the aria label', () => {
@@ -80,13 +80,13 @@ describe('Input', () => {
   it('should be in success state', () => {
     const { container } = render(<Input state="success" />);
 
-    expect(container.firstChild).toHaveClass(styles.input_success);
+    expect(container.firstChild).toHaveClass(styles.success);
   });
 
   it('should be in error state', () => {
     const { container } = render(<Input state="error" />);
 
-    expect(container.firstChild).toHaveClass(styles.input_error);
+    expect(container.firstChild).toHaveClass(styles.error);
   });
 
   it('should render the spinner', () => {

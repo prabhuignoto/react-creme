@@ -84,9 +84,9 @@ const Rate: React.FunctionComponent<RateProps> = ({
   const isFirstRender = useFirstRender();
 
   const rateWrapperClass = useMemo(() => {
-    return classNames(styles.rate_wrapper, {
-      [styles.rate_disabled]: disabled,
-      [styles.rate_rtl]: RTL,
+    return classNames(styles.wrapper, {
+      [styles.disabled]: disabled,
+      [styles.rtl]: RTL,
     });
   }, [disabled]);
 

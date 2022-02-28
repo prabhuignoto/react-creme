@@ -14,7 +14,7 @@ $settings: (
   ),
 );
 
-.skeleton_wrapper {
+.wrapper {
   @extend %border-radius;
   min-height: var(--min-height);
   min-width: var(--min-width);
@@ -26,7 +26,7 @@ $settings: (
   }
 }
 
-.skeleton_row {
+.row {
   @extend %border-radius;
   display: block;
   height: var(--height);
@@ -34,13 +34,13 @@ $settings: (
   padding-left: 0.5rem;
   z-index: -1;
 
-  &.skeleton_animate:not(.skeleton_disable_animation) {
+  &.animate:not(.disable_animation) {
     animation-direction: reverse;
     animation-name: animate-skeleton;
   }
 }
 
-.skeleton_disable_animation {
+.disable_animation {
   @if $dark-mode == 'true' {
     background: theme.$charcoal-gray;
   } @else {
@@ -48,7 +48,7 @@ $settings: (
   }
 }
 
-.skeleton_row:not(.skeleton_disable_animation) {
+.row:not(.disable_animation) {
   @include animate.set-settings(2s, linear, true);
   @include animate.set-keyframes(animate-skeleton, $settings);
 
@@ -71,20 +71,20 @@ $settings: (
   background-size: 200% 200%;
 }
 
-.skeleton_block:not(:first-child) {
+.block:not(:first-child) {
   margin: 2rem 0;
 }
 
-.skeleton_block {
+.block {
   padding: 1rem;
   position: relative;
 
-  &.skeleton_block_rtl {
+  &.block_rtl {
     direction: rtl;
   }
 }
 
-.skeleton_circle {
+.circle {
   @if $dark-mode == 'true' {
     background: theme.$charcoal-gray;
   } @else {

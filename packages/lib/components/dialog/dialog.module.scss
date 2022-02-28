@@ -28,28 +28,28 @@ $dark-mode: theme.$dark-mode;
   min-width: var(--min-width, 300px);
 
   @each $animation in $animations {
-    &.dialog_#{$animation}_enter {
+    &.#{$animation}_enter {
       animation-name: rc-animation-#{$animation}-enter;
     }
 
-    &.dialog_#{$animation}_leave {
+    &.#{$animation}_leave {
       animation-name: rc-animation-#{$animation}-leave;
     }
   }
 }
 
-.dialog_header {
+.header {
   @extend %left;
   margin: 0.25rem 0;
   width: 100%;
 }
 
-.dialog_body {
+.body {
   @extend %center;
   width: 100%;
 }
 
-.dialog_footer {
+.footer {
   @extend %right;
   margin-bottom: 1rem;
   margin-right: 2rem;
@@ -61,18 +61,18 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.dialog_btn {
+.btn {
   @extend %button-lg;
 }
 
-.dialog_title {
+.title {
   @extend %center;
   font-size: 1rem;
   margin: 0;
   padding-left: 1rem;
 }
 
-.dialog_button_wrapper {
+.button_wrapper {
   margin-left: auto;
   margin-right: 0.5rem;
   margin-top: 0.25rem;

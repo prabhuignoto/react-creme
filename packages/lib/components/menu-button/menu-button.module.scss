@@ -6,7 +6,7 @@
 $sizes: (sm, md, lg);
 $dark-mode: theme.$dark-mode;
 
-.menu_btn_wrapper {
+.wrapper {
   align-items: center;
   column-gap: 0.25rem;
   display: grid;
@@ -22,16 +22,16 @@ $dark-mode: theme.$dark-mode;
     @extend %shadow-inset-small;
   }
 
-  &.menu_btn_disabled {
+  &.disabled {
     @extend %disabled;
   }
 
-  &:not(.menu_btn_rtl) {
+  &:not(.rtl) {
     grid-template-columns: calc(100% - 2rem) 1.75rem;
   }
 }
 
-.menu_btn_rtl {
+.rtl {
   grid-template-columns: 1.75rem calc(100% - 2rem);
 
   > :first-child {
@@ -44,14 +44,14 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .menu_btn_#{$size} {
-    .menu_btn_icon {
+  .#{$size} {
+    .icon {
       @extend %icon-#{$size};
     }
   }
 }
 
-.menu_btn_icon {
+.icon {
   @extend %center;
   cursor: pointer;
   display: block;

@@ -4,18 +4,18 @@
 
 $dark-mode: theme.$dark-mode;
 
-.slider_wrapper {
+.wrapper {
   @extend %center;
   height: 100px;
   min-width: 100px;
   width: 100%;
 
-  &.slider_wrapper_disabled {
+  &.wrapper_disabled {
     @extend %disabled;
   }
 }
 
-.slider_control {
+.control {
   @include position.position-abs('center left');
   background: theme.$primary;
   cursor: pointer;
@@ -26,25 +26,25 @@ $dark-mode: theme.$dark-mode;
   width: var(--size);
   z-index: 10;
 
-  &.slider_control_circle {
+  &.control_circle {
     border-radius: 50%;
   }
 
-  &.slider_control_square {
+  &.control_square {
     border-radius: 2px;
   }
 
-  &.slider_control_dragging,
+  &.control_dragging,
   &:focus {
     box-shadow: 0 0 1px calc(var(--size) / 2) rgba(theme.$primary-rgb, 0.25);
   }
 
-  &:not(.slider_control_dragging):not(:focus) {
+  &:not(.control_dragging):not(:focus) {
     box-shadow: none;
   }
 }
 
-.slider_track {
+.track {
   @extend %border-radius;
   height: 5px;
   position: relative;
@@ -57,14 +57,14 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.slider_track_progress {
+.track_progress {
   @extend %border-radius;
   @include position.position-abs('center left');
   background: theme.$secondary;
   height: 100%;
 }
 
-.slider_fill {
+.fill {
   @extend %border-radius-left;
   @include position.position-abs('center left');
   background: rgba(theme.$primary-rgb, 0.75);

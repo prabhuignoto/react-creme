@@ -21,18 +21,18 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   chevronIconColor,
   containerRef,
   focus,
-  size,
+  size = 'sm',
 }: DropdownValueProps) => {
   const rcDropdownValueClass = useMemo(
     () =>
-      cls(styles.dropdown_value_container, {
-        [styles.dropdown_menu_open]: disabled,
+      cls(styles.container, {
+        [styles.open]: disabled,
         [styles.menu]: showMenu,
-        [styles.dropdown_multi]: allowMultiSelection,
-        [styles.dropdown_rtl]: RTL,
+        [styles.multi]: allowMultiSelection,
+        [styles.rtl]: RTL,
         [styles.single]: !allowMultiSelection,
-        [styles.dropdown_with_clear]: showClearBtn,
-        [styles[`dropdown_value_${size}`]]: true,
+        [styles.with_clear]: showClearBtn,
+        [styles[size]]: true,
       }),
     [disabled, showMenu]
   );
@@ -40,8 +40,8 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   const rcDropdownIconClass = useMemo(
     () =>
       cls(
-        styles.dropdown_chevron_icon,
-        showMenu && !menuClosing ? styles.dropdown_chevron_icon_rotate : ''
+        styles.chevron_icon,
+        showMenu && !menuClosing ? styles.chevron_icon_rotate : ''
       ),
     [showMenu, menuClosing]
   );
@@ -53,8 +53,8 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
 
   const rcDropdownClearClass = useMemo(
     () =>
-      cls(styles.dropdown_clear_icon, {
-        [styles.dropdown_clear_icon_hidden]: canHideClearButton,
+      cls(styles.clear_icon, {
+        [styles.clear_icon_hidden]: canHideClearButton,
       }),
     [showClearBtn, canHideClearButton]
   );
@@ -66,8 +66,8 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   }, []);
 
   const valueClass = useMemo(() => {
-    return cls(styles.dropdown_value, {
-      [styles.dropdown_rtl]: RTL,
+    return cls(styles.value, {
+      [styles.rtl]: RTL,
     });
   }, []);
 
@@ -91,7 +91,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
     >
       {allowMultiSelection ? (
         Array.isArray(selectedValue) ? (
-          <div className={styles.dropdown_tags_wrapper}>
+          <div className={styles.tags_wrapper}>
             <Tags
               items={selectedValue}
               readonly

@@ -66,11 +66,11 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
    */
   const drawerClass = useMemo(
     () =>
-      classNames([styles.drawer, styles[`drawer-${position}`]], {
+      classNames([styles.drawer, styles[`${position}`]], {
         [styles[`slide-${position}-enter`]]: activate && !isClosing,
         [styles[`slide-${position}-exit`]]: isClosing,
         [styles.visible]: activate,
-        [styles[`drawer-${size}`]]: size,
+        [styles[`${size}`]]: size,
       }),
     [activate, isClosing]
   );
@@ -90,7 +90,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
       aria-modal="true"
       {...focusProps.current}
     >
-      <div className={styles['drawer-close-btn-wrapper']}>
+      <div className={styles['close-btn-wrapper']}>
         <Button
           type="icon"
           size={size}

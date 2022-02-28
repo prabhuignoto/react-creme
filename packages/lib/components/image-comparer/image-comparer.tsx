@@ -43,17 +43,17 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   // classes
   const dragHandleClass = useMemo(
     () =>
-      classNames(styles.img_comparer_drag_handle, {
-        [styles.comparer_drag_handle_dragged]: dragged,
-        [styles[`comparer_drag_handle_${direction}`]]: true,
-        [styles.comparer_drag_handle_hidden]: !imagesLoaded,
-        [styles.comparer_drag_handle_visible]: imagesLoaded,
+      classNames(styles.drag_handle, {
+        [styles.handle_dragged]: dragged,
+        [styles[`handle_${direction}`]]: true,
+        [styles.handle_hidden]: !imagesLoaded,
+        [styles.handle_visible]: imagesLoaded,
       }),
     [dragged, direction, imagesLoaded]
   );
 
   const wrapperClass = useMemo(() => {
-    return classNames(styles.img_comparer_wrapper, {
+    return classNames(styles.wrapper, {
       [styles.image_comparer_loaded]: imagesLoaded,
     });
   }, [imagesLoaded]);
@@ -124,13 +124,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
           <CircularProgress />
         </div>
       )}
-      <div
-        className={classNames(
-          styles.img_comparer_panel,
-          styles.img_comparer_panel_1
-        )}
-        style={style}
-      >
+      <div className={classNames(styles.panel, styles.panel_1)} style={style}>
         <Image
           src={sourceOne}
           fitImage={false}
@@ -138,12 +132,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
           showLoader={false}
         />
       </div>
-      <div
-        className={classNames(
-          styles.img_comparer_panel,
-          styles.img_comparer_panel_2
-        )}
-      >
+      <div className={classNames(styles.panel, styles.panel_2)}>
         <Image
           src={sourceTwo}
           fitImage={false}

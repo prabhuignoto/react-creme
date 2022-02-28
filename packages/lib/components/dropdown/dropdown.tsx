@@ -186,7 +186,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const rcDropdownClass = useMemo(
       () =>
         cls(styles.dropdown, {
-          [styles.dropdown_disabled]: disabled,
+          [styles.disabled]: disabled,
         }),
       [disabled]
     );

@@ -2,7 +2,7 @@
 @use '../../design/position.scss';
 @use '../../design/theme.scss';
 
-.img_comparer_wrapper {
+.wrapper {
   position: relative;
 
   &:not(.image_comparer_loaded) {
@@ -16,20 +16,20 @@
   }
 }
 
-.img_comparer_drag_handle {
+.drag_handle {
   background: rgba(theme.$primary-rgb, 0.95);
   position: absolute;
   z-index: 2;
 
-  &.comparer_drag_handle_dragged {
+  &.handle_dragged {
     background: rgba(theme.$primary-rgb, 1);
   }
 
-  &.comparer_drag_handle_visible {
+  &.handle_visible {
     visibility: visible;
   }
 
-  &.comparer_drag_handle_hidden {
+  &.handle_hidden {
     visibility: hidden;
   }
 }
@@ -50,7 +50,7 @@
   }
 }
 
-.comparer_drag_handle_horizontal {
+.handle_horizontal {
   @include position.position-abs('center center');
   height: 100%;
   width: 6px;
@@ -66,7 +66,7 @@
   }
 }
 
-.comparer_drag_handle_vertical {
+.handle_vertical {
   @include position.position-abs('center center');
   height: 6px;
   width: 100%;
@@ -78,13 +78,13 @@
   }
 }
 
-.img_comparer_drag_handle_horizontal {
+.drag_handle_horizontal {
   cursor: ns-resize;
   height: 6px;
   width: 100%;
 }
 
-.img_comparer_panel {
+.panel {
   @include position.position-abs('left center');
   height: 100%;
   overflow: hidden;
@@ -96,11 +96,11 @@
   }
 }
 
-.img_comparer_panel_1 {
+.panel_1 {
   z-index: 1;
 }
 
-.img_comparer_panel_2 {
+.panel_2 {
   z-index: 0;
 }
 

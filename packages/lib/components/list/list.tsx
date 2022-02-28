@@ -187,11 +187,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
             </Input>
           </div>
         )}
-        <div
-          className={styles.list_options_wrapper}
-          ref={onListRef}
-          onScroll={handleScroll}
-        >
+        <div className={styles.wrapper} ref={onListRef} onScroll={handleScroll}>
           <ListItems
             RTL={RTL}
             allowMultiSelection={allowMultiSelection}

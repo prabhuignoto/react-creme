@@ -16,15 +16,15 @@ describe('Checkbox', () => {
   it('should render disabled', () => {
     const { getByRole } = render(<CheckBox label="My Checkbox" disabled />);
 
-    expect(getByRole('checkbox')).toHaveClass(styles.checkbox_disabled);
+    expect(getByRole('checkbox')).toHaveClass(styles.disabled);
     expect(getByRole('checkbox')).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('should render default prop isChecked', () => {
     const { container } = render(<CheckBox label="My Checkbox" isChecked />);
 
-    expect(container.querySelector('.' + styles.checkbox_icon)).toHaveClass(
-      styles.checkbox_checked
+    expect(container.querySelector('.' + styles.icon)).toHaveClass(
+      styles.checked
     );
   });
 

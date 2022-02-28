@@ -6,7 +6,7 @@ $sizes: (sm, md, lg);
 
 $dark-mode: theme.$dark-mode;
 
-.dropdown_value_container {
+.container {
   @if $dark-mode == 'true' {
     @extend %border-radius;
     background-color: theme.$gunmetal-gray;
@@ -23,62 +23,62 @@ $dark-mode: theme.$dark-mode;
   padding: 0.1rem 0;
   width: 100%;
 
-  &.dropdown_menu_open {
+  &.open {
     box-shadow: none;
   }
 
-  &.dropdown_disabled {
+  &.disabled {
     @extend %disabled;
   }
 
-  &:not(.dropdown_multi) {
+  &:not(.multi) {
     @extend %center;
     height: 35px;
   }
 
-  &.dropdown_rtl {
+  &.rtl {
     display: grid;
     grid-template-columns: 2rem 2rem calc(100% - 4rem);
   }
 
-  &:not(.dropdown_rtl):not(.dropdown_with_clear) {
+  &:not(.rtl):not(.with_clear) {
     display: grid;
     grid-template-columns: calc(100% - 2rem) 2rem;
   }
 
-  &:not(.dropdown_rtl).dropdown_with_clear {
+  &:not(.rtl).with_clear {
     display: grid;
     grid-template-columns: calc(100% - 4rem) 2rem 2rem;
   }
 }
 
-.dropdown_value_container:not(.dropdown_rtl) {
-  .dropdown_value {
+.container:not(.rtl) {
+  .value {
     padding-left: 1rem;
   }
 }
 
-.dropdown_value_container.dropdown_rtl {
-  .dropdown_value {
+.container.rtl {
+  .value {
     padding-right: 1rem;
   }
 
-  .dropdown_chevron_icon {
+  .chevron_icon {
     margin-left: 4px;
   }
 }
 
-.dropdown_value {
+.value {
   @extend %text-no-wrap;
   height: 20px;
   line-height: 20px;
 
-  &.dropdown_rtl {
+  &.rtl {
     text-align: right;
   }
 }
 
-.dropdown_chevron_icon {
+.chevron_icon {
   @if $dark-mode == 'true' {
     color: theme.$white;
   } @else {
@@ -90,7 +90,7 @@ $dark-mode: theme.$dark-mode;
   transition: transform 0.2s ease-in;
 }
 
-.dropdown_clear_icon {
+.clear_icon {
   justify-self: center;
 
   @if $dark-mode == 'true' {
@@ -99,39 +99,39 @@ $dark-mode: theme.$dark-mode;
     color: theme.$charcoal-gray;
   }
 
-  &.dropdown_clear_icon_hidden {
+  &.clear_icon_hidden {
     pointer-events: none;
     visibility: hidden;
   }
 }
 
-.dropdown_clear_icon:hover {
+.clear_icon:hover {
   @if not $dark-mode == 'true' {
     color: var(--clear-icon-color, theme.$primary);
   }
 }
 
-.dropdown_chevron_icon_rotate {
+.chevron_icon_rotate {
   transform: rotate(180deg);
   transition: transform 0.2s ease-in;
 }
 
-.dropdown_tags_wrapper {
+.tags_wrapper {
   overflow: hidden;
   padding-left: 0.25rem;
 }
 
 @each $size in $sizes {
-  .dropdown_value_#{$size} {
-    .dropdown_value {
+  .#{$size} {
+    .value {
       @extend %text-#{$size};
     }
 
-    .dropdown_chevron_icon {
+    .chevron_icon {
       @extend %icon-#{$size};
     }
 
-    .dropdown_clear_icon {
+    .clear_icon {
       @extend %icon-#{$size};
     }
   }

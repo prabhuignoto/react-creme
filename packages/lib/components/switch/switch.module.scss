@@ -48,12 +48,12 @@ $start-left: 4px;
     @extend %disabled;
   }
 
-  &.switch_label_outside {
+  &.label_outside {
     align-items: center;
     display: grid;
 
     @each $key, $value in $switch-width {
-      &.switch_#{$key} {
+      &.#{$key} {
         grid-template-columns: $value calc(100% - $value);
       }
     }
@@ -61,12 +61,12 @@ $start-left: 4px;
 }
 
 .disabled {
-  .switch_knob {
+  .knob {
     box-shadow: none;
   }
 }
 
-.switch_track {
+.track {
   @extend %center;
   height: 100%;
   position: relative;
@@ -74,23 +74,23 @@ $start-left: 4px;
   z-index: 0;
 
   @each $key, $val in $sizes {
-    &.switch_#{$key} {
+    &.#{$key} {
       @each $attr, $value in $val {
         #{$attr}: #{$value};
       }
 
-      .switch_label_on {
+      .label_on {
         margin-right: map.get($knob-sizes, $key);
       }
 
-      .switch_label_off {
+      .label_off {
         margin-left: map.get($knob-sizes, $key);
       }
     }
   }
 }
 
-.switch_on {
+.on {
   @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
@@ -99,12 +99,12 @@ $start-left: 4px;
   }
 }
 
-.switch_off {
+.off {
   background-color: theme.$mercury;
   border: 1px solid transparent;
 }
 
-.switch_knob:not(.switch_on):not(.switch_on-load) {
+.knob:not(.on):not(.on-load) {
   @extend %shadow-small;
 
   svg {
@@ -112,7 +112,7 @@ $start-left: 4px;
   }
 }
 
-.switch_knob {
+.knob {
   @include animate.set-settings(0.2s);
   @include position.position-abs('center left');
   border-radius: 50%;
@@ -129,7 +129,7 @@ $start-left: 4px;
   }
 
   @each $key, $val in $knob-sizes {
-    &.switch_knob_#{$key} {
+    &.knob_#{$key} {
       $settings: (
         from: (
           left: $start-left,
@@ -142,16 +142,16 @@ $start-left: 4px;
       height: $val;
       width: $val;
 
-      &.switch_on_load {
+      &.on_load {
         background-color: theme.$primary;
         left: calc(100% - $val - 4px);
       }
 
-      &.switch_disabled {
+      &.disabled {
         background-color: theme.$white;
       }
 
-      &.switch_on {
+      &.on {
         @extend %shadow-medium;
         @include animate.set-keyframes(slide-right-#{$key}, $settings);
         animation-name: slide-right-#{$key};
@@ -160,7 +160,7 @@ $start-left: 4px;
         left: calc(100% - $val - 4px);
       }
 
-      &.switch_off {
+      &.off {
         @include animate.set-keyframes(slide-left-#{$key}, $settings, true);
         animation-name: slide-left-#{$key};
         right: calc(100% - $val - 4px);
@@ -169,24 +169,24 @@ $start-left: 4px;
   }
 }
 
-.switch_label {
+.label {
   @extend %text-no-wrap;
 
-  &.switch_label_on {
+  &.label_on {
     color: theme.$primary;
   }
 
   @each $key, $val in $sizes {
-    &.switch_label_#{$key} {
+    &.label_#{$key} {
       @extend %font-#{$key};
     }
   }
 
-  &:not(.switch_label_outside) {
+  &:not(.label_outside) {
     @extend %center;
   }
 
-  &.switch_label_outside {
+  &.label_outside {
     @extend %left;
     margin-left: 0.5rem;
   }

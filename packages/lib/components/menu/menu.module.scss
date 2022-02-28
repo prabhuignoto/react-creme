@@ -5,13 +5,13 @@
 
 $dark-mode: theme.$dark-mode;
 
-.menu_wrapper {
+.wrapper {
   @extend %center;
   height: 100%;
   position: relative;
 }
 
-.menu_content_wrapper {
+.content_wrapper {
   @extend %center;
   height: 100%;
   position: relative;
@@ -49,18 +49,18 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.menu_left {
+.left {
   &::after {
     left: 6px;
   }
 }
 
-.menu_right {
+.right {
   &::after {
     right: 6px;
   }
 }
 
-.menu_overlay_wrapper {
+.overlay_wrapper {
   @extend %center;
 }

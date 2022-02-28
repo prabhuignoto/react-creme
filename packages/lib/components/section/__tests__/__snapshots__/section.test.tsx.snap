@@ -2,19 +2,19 @@
 
 exports[`Section > should render Section correctly 1`] = `
 <div
-  class="_section_c93pb_1"
+  class="_section_dzzc7_13"
   role=""
   style="min-height: 150px;"
 >
   <div
-    class="_section_header_c93pb_1 _section_header_sm_c93pb_1"
+    class="_header_dzzc7_1 _header_sm_dzzc7_1"
     id="test"
     role="heading"
   >
     test
   </div>
   <div
-    class="_section_body_c93pb_13 undefined"
+    class="_body_dzzc7_13 undefined"
     style="align-items: stretch; flex-direction: column;"
   >
     <span />

@@ -26,9 +26,9 @@ const Kbd: FunctionComponent<KbdProps> = ({
 }) => {
   const kbdClass = useMemo(
     () =>
-      classNames(styles.kbd_wrapper, {
-        [styles[`kbd_${size}`]]: true,
-        [styles[`kbd_${buttonRaised}_raised`]]: true,
+      classNames(styles.wrapper, {
+        [styles[`${size}`]]: true,
+        [styles[`${buttonRaised}_raised`]]: true,
       }),
     []
   );
@@ -52,8 +52,8 @@ const KbdCombination: FunctionComponent<KbdCombinationProps> = ({
 
   const combinationClass = useMemo(
     () =>
-      classNames(styles.kbd_combination, {
-        [styles[`kbd_combination_${size}`]]: true,
+      classNames(styles.combination, {
+        [styles[`combination_${size}`]]: true,
       }),
     []
   );
@@ -64,7 +64,7 @@ const KbdCombination: FunctionComponent<KbdCombinationProps> = ({
         <Fragment key={item.id}>
           {item.child}
           {index >= 0 && index < combLen.current - 1 && (
-            <span className={styles.kbd_plus}>
+            <span className={styles.plus}>
               <PlusIcon />
             </span>
           )}

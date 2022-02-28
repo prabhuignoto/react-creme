@@ -38,9 +38,9 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
         cls([
           styles.list_option,
           {
-            [styles.list_option_disabled]: disabled,
-            [styles.list_option_focus]: focusable && focus,
-            [styles.list_option_highlight_selection]: highlightSelection,
+            [styles.disabled]: disabled,
+            [styles.focus]: focusable && focus,
+            [styles.highlight_selection]: highlightSelection,
           },
         ]),
       [selected, disabled, focus]
