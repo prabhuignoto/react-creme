@@ -17,7 +17,7 @@ const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
   size,
 }: TransferControlModel) => {
   return (
-    <section className={styles.transfer_control_column}>
+    <section className={styles.control_column}>
       <Button
         type="icon"
         size={size}

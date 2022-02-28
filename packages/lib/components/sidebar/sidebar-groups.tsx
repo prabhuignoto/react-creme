@@ -23,7 +23,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = React.memo(
     }, [sideBarHeight]);
 
     return (
-      <div className={styles.sidebar_groups_wrapper} style={groupsWrapperStyle}>
+      <div className={styles.groups_wrapper} style={groupsWrapperStyle}>
         <AccordionGroup
           titles={groups.filter(grp => grp.visible).map(grp => grp.title)}
           expanded

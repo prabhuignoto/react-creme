@@ -44,8 +44,8 @@ const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
   const revealClass = useMemo(
     () =>
       classNames(styles.reveal, {
-        [styles.reveal_hide]: !visible,
-        [styles.reveal_show]: visible,
+        [styles.hide]: !visible,
+        [styles.show]: visible,
       }),
     [visible]
   );
@@ -58,7 +58,7 @@ const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
   }, []);
 
   return (
-    <div className={styles.reveal_wrapper}>
+    <div className={styles.wrapper}>
       {isParentAvailable && (
         <div className={revealClass} ref={onRef}>
           {children}

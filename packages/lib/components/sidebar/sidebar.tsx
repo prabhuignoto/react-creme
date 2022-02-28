@@ -97,8 +97,8 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
   }, []);
 
   const contentWrapper = useMemo(() => {
-    return classNames(styles.sidebar_content_wrapper, {
-      [styles.sidebar_border]: border,
+    return classNames(styles.content_wrapper, {
+      [styles.border]: border,
     });
   }, [border]);
 
@@ -115,7 +115,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
     <div className={sideBarClass} style={style} ref={onRef}>
       <div className={contentWrapper}>
         {enableSearch && (
-          <div className={styles.sidebar_search_wrapper}>
+          <div className={styles.search_wrapper}>
             <Input
               type="text"
               enableClear

@@ -23,13 +23,13 @@ $heights: (
   }
 }
 
-.page_header:not(.page_header_rtl) {
+.page_header:not(.rtl) {
   h2 {
     text-align: left;
   }
 }
 
-.page_header_rtl {
+.rtl {
   direction: rtl;
 
   h2 {
@@ -38,33 +38,33 @@ $heights: (
 }
 
 @each $size in $sizes {
-  .page_header_#{$size} {
-    .page_header_title {
+  .#{$size} {
+    .title {
       @extend %text-#{$size};
       height: map.get($heights, $size);
     }
   }
 }
 
-.page_header_icon {
+.icon {
   @extend %icon;
   color: theme.$primary;
   margin-right: 0.5rem;
 
   @each $size in $sizes {
-    &.page_header_icon_#{$size} {
+    &.icon_#{$size} {
       @extend %icon-#{$size};
     }
   }
 }
 
-.page_header_title_container {
+.title_container {
   @extend %left;
   border-bottom: 1px solid theme.$gray;
   width: 100%;
 }
 
-.page_header_content {
+.content {
   padding-top: 1rem;
   @if $dark-mode == 'true' {
     color: theme.$white;

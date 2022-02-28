@@ -43,8 +43,8 @@ $padding-sizes: (
     ),
   );
   @include animate.set-settings(0.1s, linear);
-  @include animate.set-keyframes('tag_fade-in', $settings);
-  @include animate.set-keyframes('tag_fade-out', $settings, true);
+  @include animate.set-keyframes('fade-in', $settings);
+  @include animate.set-keyframes('fade-out', $settings, true);
 
   justify-items: center;
   margin: 0.5rem 0.25rem;
@@ -57,22 +57,22 @@ $padding-sizes: (
   user-select: none;
   visibility: visible;
 
-  &:not(.tag_disabled):not(.tag_readonly) {
+  &:not(.disabled):not(.readonly) {
     display: grid;
     grid-template-columns: calc(var(--width) - 1rem) 1rem;
   }
 
-  &.tag_disabled,
-  &.tag_readonly {
+  &.disabled,
+  &.readonly {
     @extend %center;
   }
 
-  &.tag_disabled {
+  &.disabled {
     pointer-events: none;
   }
 }
 
-.tag_style_fill {
+.style_fill {
   @extend %border-radius;
 
   @if $dark-mode == 'true' {
@@ -85,7 +85,7 @@ $padding-sizes: (
   }
 }
 
-.tag_style_default {
+.style_default {
   @if $dark-mode != 'true' {
     @extend %border;
     @extend %shadow-inset-small;
@@ -96,48 +96,48 @@ $padding-sizes: (
   }
 }
 
-.tag_accent_rounded {
+.accent_rounded {
   border-radius: 40px;
 }
 
-.tag_readonly {
+.readonly {
   @if $dark-mode == 'true' {
     background: theme.$primary;
     color: theme.$white;
   }
 }
 
-.tag_marked_for_removal {
-  animation-name: tag_fade-out;
+.marked_for_removal {
+  animation-name: fade-out;
   max-width: var(--width);
   transform: scale(0.98);
   visibility: hidden;
 }
 
 @each $size in $sizes {
-  .tag_#{$size} {
-    .tag_icon {
+  .#{$size} {
+    .icon {
       @extend %icon-#{$size};
     }
 
-    .tag_name {
+    .name {
       @extend %font-#{$size};
     }
   }
 }
 
-.tag_icon {
+.icon {
   align-self: center;
   border-radius: 50%;
   cursor: pointer;
   display: block;
   justify-self: flex-end;
 
-  &.tag_icon_editable {
+  &.icon_editable {
     visibility: visible;
   }
 
-  &:not(.tag_icon_editable) {
+  &:not(.icon_editable) {
     visibility: hidden;
     width: 0;
   }
@@ -153,7 +153,7 @@ $padding-sizes: (
   }
 }
 
-.tag_icon_fill {
+.icon_fill {
   &:hover::after {
     background: rgba(theme.$white, 1);
   }
@@ -163,7 +163,7 @@ $padding-sizes: (
   }
 }
 
-.tag_icon_default {
+.icon_default {
   &:hover::after {
     background: theme.$primary;
   }
@@ -178,14 +178,14 @@ $padding-sizes: (
   position: relative;
 }
 
-.tag_name {
+.name {
   @extend %text-no-wrap;
   display: block;
   text-align: center;
   width: 100%;
 
   @each $size in $sizes {
-    &.tag_name_#{$size} {
+    &.name_#{$size} {
       @extend %font-#{$size};
     }
   }

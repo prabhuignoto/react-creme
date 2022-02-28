@@ -10,23 +10,23 @@ $arrow-dim-lg: 20px;
 
 $dark-mode: theme.$dark-mode;
 
-.tooltip_wrapper {
+.wrapper {
   @extend %center;
 
-  &:not(.tooltip_fixed) {
+  &:not(.fixed) {
     position: relative;
   }
 
-  &.tooltip_fixed {
+  &.fixed {
     @include position.position-abs('center center');
   }
 
-  &.tooltip_static {
+  &.static {
     display: block;
   }
 }
 
-.tooltip_message {
+.message {
   $animation: (
     from: (
       opacity: 0,
@@ -43,8 +43,8 @@ $dark-mode: theme.$dark-mode;
   @extend %shadow-medium;
   @include animate.set-settings(0.25s);
 
-  @include animate.set-keyframes(animate_tooltip_show, $animation);
-  @include animate.set-keyframes(animate_tooltip_close, $animation, true);
+  @include animate.set-keyframes(animate_show, $animation);
+  @include animate.set-keyframes(animate_close, $animation, true);
   background-color: var(-bg-color, theme.$white);
   max-width: var(--max-width);
   min-width: var(--min-width);
@@ -61,61 +61,61 @@ $dark-mode: theme.$dark-mode;
   }
 
   &.show_tooltip {
-    animation-name: animate_tooltip_show;
+    animation-name: animate_show;
     opacity: 1;
     visibility: visible;
   }
 
   &.hide_tooltip {
-    animation-name: animate_tooltip_close;
+    animation-name: animate_close;
     opacity: 0;
     visibility: hidden;
   }
 
-  &.tooltip_top_left::after,
-  &.tooltip_top_center::after,
-  &.tooltip_top_right::after {
+  &.top_left::after,
+  &.top_center::after,
+  &.top_right::after {
     bottom: -4px;
   }
 
-  &.tooltip_top_left::after,
-  &.tooltip_bottom_left::after {
+  &.top_left::after,
+  &.bottom_left::after {
     left: 15px;
   }
 
-  &.tooltip_top_right::after,
-  &.tooltip_bottom_right::after {
+  &.top_right::after,
+  &.bottom_right::after {
     right: 15px;
   }
 
-  &.tooltip_bottom_left::after,
-  &.tooltip_bottom_center::after,
-  &.tooltip_bottom_right::after {
+  &.bottom_left::after,
+  &.bottom_center::after,
+  &.bottom_right::after {
     top: -4px;
   }
 
-  &.tooltip_right_top::after,
-  &.tooltip_right_center::after,
-  &.tooltip_right_bottom::after {
+  &.right_top::after,
+  &.right_center::after,
+  &.right_bottom::after {
     left: -4px;
   }
 
-  &.tooltip_left_top::after,
-  &.tooltip_left_center::after,
-  &.tooltip_left_bottom::after {
+  &.left_top::after,
+  &.left_center::after,
+  &.left_bottom::after {
     right: -4px;
   }
 
-  &.tooltip_with_padding {
+  &.with_padding {
     padding: 1rem;
   }
 
-  &:not(.tooltip_with_padding) {
+  &:not(.with_padding) {
     padding: 0.5rem;
   }
 }
 
-.tooltip_message::after {
+.message::after {
   @if $dark-mode == 'true' {
     background: theme.$gunmetal-gray;
   } @else {
@@ -139,7 +139,7 @@ $dark-mode: theme.$dark-mode;
 }
 
 @each $size in $sizes {
-  .tooltip_message_#{$size} {
+  .message_#{$size} {
     @extend %font-#{$size};
     width: 90%;
 
@@ -148,17 +148,17 @@ $dark-mode: theme.$dark-mode;
       width: get-arrow-dim($size);
     }
 
-    .tooltip_close_btn {
+    .close_btn {
       @extend %icon-#{$size};
     }
   }
 }
 
-.tooltip_host_content {
+.host_content {
   @extend %center;
 }
 
-.tooltip_close_btn {
+.close_btn {
   @include position.position-abs('top right');
   color: theme.$gunmetal-gray;
   cursor: pointer;

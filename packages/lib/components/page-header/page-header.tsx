@@ -19,28 +19,28 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
 }) => {
   const headerClass = useMemo(() => {
     return classNames(styles.page_header, {
-      [styles.page_header_rtl]: RTL,
-      [styles[`page_header_${size}`]]: size,
+      [styles.rtl]: RTL,
+      [styles[`${size}`]]: size,
     });
   }, []);
 
   const titleClass = useMemo(() => {
-    return classNames(styles.page_header_title);
+    return classNames(styles.title);
   }, []);
 
   const headerIconClass = useMemo(() => {
-    return classNames(styles.page_header_icon, {
-      [styles[`page_header_icon_${size}`]]: true,
+    return classNames(styles.icon, {
+      [styles[`icon_${size}`]]: true,
     });
   }, []);
 
   return (
     <header className={headerClass}>
-      <div className={styles.page_header_title_container}>
+      <div className={styles.title_container}>
         {icon && <span className={headerIconClass}>{icon}</span>}
         <h2 className={titleClass}>{title}</h2>
       </div>
-      <div className={styles.page_header_content}>{children}</div>
+      <div className={styles.content}>{children}</div>
     </header>
   );
 };

@@ -48,13 +48,13 @@ describe('Rate', () => {
       const radios = getAllByRole('radio').slice(0, 3);
 
       radios.forEach(radio => {
-        expect(radio).toHaveClass(styles.rate_item_hovered);
+        expect(radio).toHaveClass(styles.hovered);
       });
 
       const radios2 = getAllByRole('radio').slice(3, radios.length);
 
       radios2.forEach(radio => {
-        expect(radio).not.toHaveClass(styles.rate_item_hovered);
+        expect(radio).not.toHaveClass(styles.hovered);
       });
     });
   });

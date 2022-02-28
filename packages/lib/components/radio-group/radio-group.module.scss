@@ -6,14 +6,14 @@
   padding: 0;
   width: 100%;
 
-  &.radio_group_row {
+  &.row {
     @extend %center;
     flex-wrap: wrap;
     justify-content: flex-start;
   }
 }
 
-.radio_group_column {
+.column {
   @extend %list-left;
 
   .radio_grp_item {

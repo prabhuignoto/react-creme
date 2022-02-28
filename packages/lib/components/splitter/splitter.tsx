@@ -60,9 +60,9 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
 
   const controlClass = useMemo(
     () =>
-      classNames([styles.splitter_control, styles[`splitter_control_${dir}`]], {
+      classNames([styles.control, styles[`control_${dir}`]], {
         [styles.disable]: !canSplit,
-        [styles.splitter_control_dragged]: dragStarted,
+        [styles.control_dragged]: dragStarted,
       }),
     [canSplit, dragStarted]
   );
@@ -109,8 +109,8 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
 
   const wrapperClass = useMemo(
     () =>
-      classNames([styles.splitter_wrapper, styles[`splitter_wrapper_${dir}`]], {
-        [styles.splitter_wrapper_border]: border,
+      classNames([styles.wrapper, styles[`wrapper_${dir}`]], {
+        [styles.wrapper_border]: border,
       }),
     []
   );
@@ -148,14 +148,14 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
   return (
     <div className={wrapperClass} ref={setWrapperRef}>
       <div className={controlClass} style={handleBarStyle}>
-        <span className={styles.splitter_drag_square} ref={controlRef}>
+        <span className={styles.drag_square} ref={controlRef}>
           <AlignJustify />
         </span>
       </div>
-      <div className={styles.splitter_partition} style={partitionOneStyle}>
+      <div className={styles.partition} style={partitionOneStyle}>
         {children && children[0]}
       </div>
-      <div className={styles.splitter_partition} style={partitionTwoStyle}>
+      <div className={styles.partition} style={partitionTwoStyle}>
         {children && children[1]}
       </div>
     </div>

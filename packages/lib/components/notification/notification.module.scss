@@ -7,7 +7,7 @@
 
 $sizes: (sm, md, lg);
 
-.notification_wrapper {
+.wrapper {
   $min-width: var(--min-width);
   $min-height: var(--min-height);
   $positions: (
@@ -100,13 +100,13 @@ $sizes: (sm, md, lg);
       true
     );
 
-    &.notification_#{$position}_enter {
+    &.#{$position}_enter {
       @include position.position-abs($position-val, true);
       animation-name: notification-slide-#{$position}-enter;
       #{$new-position}: 1rem;
     }
 
-    &.notification_#{$position}_exit {
+    &.#{$position}_exit {
       @include position.position-abs($position-val, true);
       animation-name: notification-slide-#{$position}-exit;
       #{$new-position}: $slide-pos-horizontal;
@@ -115,34 +115,34 @@ $sizes: (sm, md, lg);
 }
 
 @each $size in $sizes {
-  .notification_#{$size} {
-    .notification_title {
+  .#{$size} {
+    .title {
       @extend %text-#{$size};
     }
 
-    .notification_close_btn {
+    .close_btn {
       @extend %icon-#{$size};
     }
   }
 }
 
-.notification_header {
+.header {
   @extend %left;
   border-bottom: 1px solid theme.$gray;
   height: 40px;
   width: 100%;
 }
 
-.notification_title {
+.title {
   margin-right: auto;
   padding-left: 0.5rem;
 }
 
-.notification_close_btn {
+.close_btn {
   padding-right: 0.5rem;
   padding-top: 0.25rem;
 }
 
-.notification_content {
+.content {
   @extend %center;
 }

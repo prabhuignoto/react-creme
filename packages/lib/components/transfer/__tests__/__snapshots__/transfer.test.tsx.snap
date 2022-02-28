@@ -2,7 +2,7 @@
 
 exports[`Transfer > should render transfer snapshot 1`] = `
 <div
-  class="_transfer_wrapper_tidy4_9"
+  class="_wrapper_1d9gm_9"
 >
   <section
     class="transfer-column1"
@@ -185,7 +185,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     </div>
   </section>
   <section
-    class="_transfer_control_column_tidy4_9"
+    class="_control_column_1d9gm_9"
   >
     <div
       aria-label=""

@@ -49,19 +49,19 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
 
   return (
     <div
-      className={styles.skeleton_wrapper}
+      className={styles.wrapper}
       ref={onInit}
       data-testid="rc-skeleton"
       style={style}
     >
       {skeletonBlocks.map(({ id, rows }) => (
         <div
-          className={classNames(styles.skeleton_block, {
-            [styles.skeleton_block_rtl]: RTL,
+          className={classNames(styles.block, {
+            [styles.block_rtl]: RTL,
           })}
           key={id}
         >
-          {showCircle && <div className={styles.skeleton_circle} />}
+          {showCircle && <div className={styles.circle} />}
           {rows.map(
             row =>
               row.visible && (

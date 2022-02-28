@@ -42,16 +42,16 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
 
     return (
       <li
-        className={classNames(styles.menu_item, {
-          [styles.menu_item_disabled]: disabled,
-          [styles.menu_item_divider]: isDivider,
+        className={classNames(styles.item, {
+          [styles.disabled]: disabled,
+          [styles.divider]: isDivider,
         })}
         onClick={handleClick}
         ref={onRef}
         role="menuitem"
         tabIndex={0}
       >
-        {!isDivider && <span className={styles.menu_item_name}>{name}</span>}
+        {!isDivider && <span className={styles.name}>{name}</span>}
       </li>
     );
   },

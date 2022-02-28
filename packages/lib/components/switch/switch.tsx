@@ -45,13 +45,13 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
   // CSS
   const switchKnobClass = useMemo(
     () =>
-      classNames([styles.switch_knob], {
+      classNames([styles.knob], {
         // [styles.check]: showCheckIcon,
-        [styles.switch_disabled]: disabled,
-        [styles.switch_off]: !state && !isFirstRender.current,
-        [styles[`switch_knob_${size}`]]: true,
-        [styles.switch_on]: state && !isFirstRender.current,
-        [styles.switch_on_load]: state && isFirstRender.current,
+        [styles.disabled]: disabled,
+        [styles.off]: !state && !isFirstRender.current,
+        [styles[`knob_${size}`]]: true,
+        [styles.on]: state && !isFirstRender.current,
+        [styles.on_load]: state && isFirstRender.current,
       }),
     [state, size, disabled, showCheckIcon]
   );
@@ -60,19 +60,19 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
     () =>
       classNames(styles.switch, {
         [styles.disabled]: disabled,
-        [styles[`switch_${size}`]]: true,
-        [styles.switch_label_outside]: labelOutside,
+        [styles[`${size}`]]: true,
+        [styles.label_outside]: labelOutside,
       }),
     [size, labelOutside, disabled]
   );
 
   const switchTrackClass = useMemo(
     () =>
-      classNames(styles.switch_track, {
-        [styles.switch_label_outside]: labelOutside,
-        [styles.switch_off]: !state,
-        [styles.switch_on]: state,
-        [styles[`switch_${size}`]]: true,
+      classNames(styles.track, {
+        [styles.label_outside]: labelOutside,
+        [styles.off]: !state,
+        [styles.on]: state,
+        [styles[`${size}`]]: true,
         [styles.track_disabled]: disabled,
       }),
     [state, size, disabled, labelOutside]
@@ -80,11 +80,11 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
 
   const switchLabelClass = useMemo(
     () =>
-      classNames([styles.switch_label], {
-        [styles.switch_label_off]: !state,
-        [styles.switch_label_on]: state,
-        [styles[`switch_label_${size}`]]: true,
-        [styles.switch_label_outside]: labelOutside,
+      classNames([styles.label], {
+        [styles.label_off]: !state,
+        [styles.label_on]: state,
+        [styles[`label_${size}`]]: true,
+        [styles.label_outside]: labelOutside,
       }),
     [state, labelOutside]
   );

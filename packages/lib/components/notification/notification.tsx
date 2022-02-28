@@ -22,11 +22,11 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   size = 'sm',
 }) => {
   const wrapperClass = classNames([
-    styles.notification_wrapper,
+    styles.wrapper,
     {
-      [styles[`notification_${position}_enter`]]: !isClosing,
-      [styles[`notification_${position}_exit`]]: isClosing,
-      [styles[`notification_${size}`]]: true,
+      [styles[`${position}_enter`]]: !isClosing,
+      [styles[`${position}_exit`]]: isClosing,
+      [styles[`${size}`]]: true,
     },
   ]);
 
@@ -77,16 +77,16 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
       ref={onInit}
     >
       {!disableHeader && (
-        <header className={styles.notification_header}>
-          <span className={styles.notification_title}>{title}</span>
-          <span className={styles.notification_close_btn}>
+        <header className={styles.header}>
+          <span className={styles.title}>{title}</span>
+          <span className={styles.close_btn}>
             <Button type="icon" size={size} onClick={onClose}>
               <CloseIcon />
             </Button>
           </span>
         </header>
       )}
-      <section className={styles.notification_content}>{children}</section>
+      <section className={styles.content}>{children}</section>
     </div>
   );
 };
