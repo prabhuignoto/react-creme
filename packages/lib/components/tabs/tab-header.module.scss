@@ -16,21 +16,19 @@ $dark-mode: theme.$dark-mode;
   position: relative;
   width: 100%;
 
-  &.tab_headers_wrapper-flat::after {
-    height: 2px;
+  &::after {
+    @include position.position-abs('bottom center');
+    content: '';
+    display: block;
+    height: 4px;
+    width: 100%;
   }
-}
 
-.tab_headers_wrapper::after {
-  @include position.position-abs('bottom center');
-  content: '';
-  display: block;
-  height: 4px;
-  width: 100%;
-
-  @if $dark-mode == 'true' {
+  &.tab_headers_dark::after {
     background: theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.tab_headers_dark)::after {
     background: theme.$platinum;
   }
 }
@@ -91,9 +89,11 @@ $dark-mode: theme.$dark-mode;
   position: relative;
   user-select: none;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     color: theme.$black;
   }
 
@@ -194,31 +194,37 @@ $dark-mode: theme.$dark-mode;
 }
 
 .tab_head_rounded {
-  @if $dark-mode == 'true' {
-    border: 1px solid theme.$charcoal-gray;
-  } @else {
-    border: 1px solid theme.$platinum;
-  }
   border-bottom: 0;
   border-radius: 4px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   position: relative;
+
+  &.dark {
+    border: 1px solid theme.$charcoal-gray;
+  }
+
+  &:not(.dark) {
+    border: 1px solid theme.$platinum;
+  }
 }
 
 .tab_head_rounded.tab_head_selected::after {
   @include position.position-abs('bottom center');
-  @if $dark-mode == 'true' {
-    background: theme.$black;
-  } @else {
-    background: theme.$white;
-  }
   bottom: -2px;
   content: '';
   display: block;
   height: 3px;
   width: 100%;
   z-index: -1;
+
+  &.dark {
+    background: theme.$black;
+  }
+
+  &:not(.dark) {
+    background: theme.$white;
+  }
 }
 
 .tab_head_icon {

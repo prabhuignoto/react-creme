@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { CSSProperties, useCallback, useEffect, useMemo } from 'react';
 import useClickOutside from '../common/effects/useOnClickOutside';
+import { isDark } from '../common/utils';
 import { List } from '../list/list';
 import styles from './dropdown-menu.module.scss';
 import { DropdownMenuProps } from './dropdown-model';
@@ -28,6 +29,8 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
     } as CSSProperties;
   }, [top, width]);
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const menuClass = useMemo(
     () =>
       classNames([
@@ -35,6 +38,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
         {
           [styles.close]: !open || isClosing,
           [styles.open]: open && !isClosing,
+          [styles.dark]: isDarkMode,
         },
       ]),
     [open, isClosing]

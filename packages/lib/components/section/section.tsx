@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React, { CSSProperties, useMemo } from 'react';
+import { isDark } from '../common/utils';
 import { SectionProps } from './section-model';
 import styles from './section.module.scss';
 
@@ -41,10 +42,13 @@ const Section: React.FC<SectionProps> = ({
     [layout, title]
   );
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const headerClass = useMemo(() => {
     return classNames(styles.header, {
       [styles.header_rtl]: RTL,
       [styles[`header_${size}`]]: true,
+      [styles.dark]: isDarkMode,
     });
   }, []);
 

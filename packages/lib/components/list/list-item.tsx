@@ -1,5 +1,6 @@
 import cls from 'classnames';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
+import { isDark } from '../common/utils';
 import { ListItemContent } from './list-item-content';
 import styles from './list-item.module.scss';
 import { ListItemProps } from './list-model';
@@ -32,6 +33,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
     }, []);
 
     const ref = useRef<HTMLLIElement>(null);
+    const isDarkMode = useMemo(() => isDark(), []);
 
     const listItemClass = useMemo(
       () =>
@@ -41,6 +43,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
             [styles.disabled]: disabled,
             [styles.focus]: focusable && focus,
             [styles.highlight_selection]: highlightSelection,
+            [styles.dark]: isDarkMode,
           },
         ]),
       [selected, disabled, focus]

@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import React, { useEffect, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
-import { TabHeadProps } from './tabs-model';
+import { isDark } from '../common/utils';
 import styles from './tab-header.module.scss';
+import { TabHeadProps } from './tabs-model';
 
 const TabHead: React.FC<TabHeadProps> = React.memo(
   ({
@@ -19,6 +20,8 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     size,
   }: TabHeadProps) => {
     const ref = useRef<HTMLDivElement>(null);
+
+    const isDarkMode = useMemo(() => isDark(), []);
 
     // enable focus outlines
     if (!disabled && focusable) {
@@ -39,8 +42,9 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         [styles[`tab_head_${tabStyle}`]]: true,
         [styles.tab_head_with_icon]: icon,
         [styles[`tab_head_${size}`]]: true,
+        [styles.dark]: isDarkMode,
       });
-    }, [disabled, selected, icon]);
+    }, [disabled, selected, icon, isDarkMode]);
 
     const tabHeadIcon = useMemo(() => {
       return classNames(styles.tab_head_icon, {

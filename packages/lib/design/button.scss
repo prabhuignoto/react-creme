@@ -58,14 +58,16 @@ $dark-mode: theme.$dark-mode;
 %button-default {
   @extend %shadow-inset-small;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     @include get-button-type(
       theme.$primary,
       theme.$secondary,
       theme.$white,
       theme.$white
     );
-  } @else {
+  }
+
+  &:not(.dark) {
     @include get-button-type(
       theme.$white,
       rgba(theme.$secondary-rgb, 0.25),

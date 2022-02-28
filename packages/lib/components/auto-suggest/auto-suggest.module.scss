@@ -14,9 +14,12 @@ $dark-mode: theme.$dark-mode;
   @extend %border-radius;
   width: var(--suggestions-width, 200px);
   z-index: 999;
-  @if dark-mode {
+
+  &.dark {
     background: theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$white;
   }
 }

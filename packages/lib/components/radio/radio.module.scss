@@ -51,9 +51,11 @@ $dark-mode: theme.$dark-mode;
 .wrapper:hover:not(.disabled) {
   @extend %border-radius;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     background: theme.$gunmetal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: rgba(theme.$secondary-rgb, 0.25);
   }
 }
@@ -113,10 +115,12 @@ $dark-mode: theme.$dark-mode;
 }
 
 .icon:not(.ico_checked) {
-  @if $dark-mode == 'true' {
+  &.dark {
     background-color: theme.$charcoal-gray;
-    border: 1px solid theme.$secondary;
-  } @else {
+    border: 1px solid theme.$gunmetal-gray;
+  }
+
+  &:not(.dark) {
     @extend %shadow-inset;
     border: 1px solid theme.$secondary;
   }
@@ -127,9 +131,11 @@ $dark-mode: theme.$dark-mode;
   cursor: pointer;
   padding-left: 0.5rem;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     color: theme.$black;
   }
 

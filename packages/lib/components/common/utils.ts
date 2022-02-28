@@ -27,3 +27,9 @@ export const isTouchDevice = (() => {
 export function isValidString(value: any): boolean {
   return typeof value === 'string' && !isUndefined(value) && value !== null;
 }
+
+export function isDark(): boolean {
+  return (
+    document.documentElement.style.getPropertyValue('--rc-dark-mode') === 'true'
+  );
+}

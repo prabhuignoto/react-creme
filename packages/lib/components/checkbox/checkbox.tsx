@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
+import { isDark } from '../common/utils';
 import { CheckboxProps } from './checkbox-model';
 import styles from './checkbox.module.scss';
 
@@ -27,6 +28,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
   }: CheckboxProps) => {
     const [checked, setChecked] = useState(isChecked);
     const ref = useRef(null);
+    const isDarkMode = useMemo(() => isDark(), []);
     const checkBoxId = noUniqueId
       ? id
         ? useRef(id)
@@ -56,6 +58,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
           [styles.checked]: checked,
           [styles[`${size}`]]: true,
           [styles[`${checkBoxStyle}`]]: true,
+          [styles.dark]: isDarkMode,
         }),
       [checked]
     );
@@ -65,6 +68,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
         classNames(styles.label, {
           [styles[`label_${size}`]]: true,
           [styles.label_rtl]: RTL,
+          [styles.dark]: isDarkMode,
         }),
       []
     );
@@ -89,6 +93,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
           [styles.focus]: !focusIcon,
           [styles.hover]: !noHoverStyle,
           [styles.rtl]: RTL,
+          [styles.dark]: isDarkMode,
         }),
       [size, disabled]
     );

@@ -2,6 +2,7 @@ import classnames from 'classnames';
 import React, { useMemo, useRef } from 'react';
 import { ChevronRightIcon, MinusIcon, PlusIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
+import { isDark } from '../common/utils';
 import styles from './accordion-header.module.scss';
 import { AccordionHeaderProps } from './accordion-model';
 
@@ -22,6 +23,8 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   customContent,
   size,
 }) => {
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const accordionHeaderClass = useMemo(
     () =>
       classnames(styles.header, {
@@ -30,6 +33,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
         [styles['disable-icon']]: disableIcon,
         [styles['focusable']]: focusable,
         [styles['selected']]: selected,
+        [styles.dark]: isDarkMode,
       }),
     [alignIconRight, focusable, selected]
   );

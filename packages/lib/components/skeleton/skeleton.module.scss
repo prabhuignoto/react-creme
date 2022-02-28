@@ -19,9 +19,11 @@ $settings: (
   min-height: var(--min-height);
   min-width: var(--min-width);
 
-  @if $dark-mode == 'true' {
+  &.dark {
     background: theme.$gunmetal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$light-bg;
   }
 }
@@ -41,9 +43,11 @@ $settings: (
 }
 
 .disable_animation {
-  @if $dark-mode == 'true' {
+  &.dark {
     background: theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$chinese-gray;
   }
 }
@@ -51,15 +55,19 @@ $settings: (
 .row:not(.disable_animation) {
   @include animate.set-settings(2s, linear, true);
   @include animate.set-keyframes(animate-skeleton, $settings);
+  background-position: 400% 400%;
+  background-size: 200% 200%;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     background: linear-gradient(
       90deg,
       theme.$charcoal-gray 0%,
       theme.$gunmetal-gray 35%,
       theme.$charcoal-gray 100%
     );
-  } @else {
+  }
+
+  &:not(.dark) {
     background: linear-gradient(
       90deg,
       theme.$mercury 0%,
@@ -67,8 +75,6 @@ $settings: (
       theme.$mercury 100%
     );
   }
-  background-position: 400% 400%;
-  background-size: 200% 200%;
 }
 
 .block:not(:first-child) {
@@ -85,13 +91,16 @@ $settings: (
 }
 
 .circle {
-  @if $dark-mode == 'true' {
-    background: theme.$charcoal-gray;
-  } @else {
-    background: theme.$chinese-gray;
-  }
   border-radius: 50%;
   height: 40px;
   width: 40px;
   z-index: 1;
+
+  &.dark {
+    background: theme.$charcoal-gray;
+  }
+
+  &:not(.dark) {
+    background: theme.$chinese-gray;
+  }
 }

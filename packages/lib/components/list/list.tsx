@@ -11,6 +11,7 @@ import {
 import { useDebouncedCallback } from 'use-debounce';
 import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { ListItems } from './list-items';
 import { ListOption, ListProps, ParseOptions } from './list-model';
@@ -53,11 +54,14 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
     const [visibleRange, setVisibleRange] = useState<[number, number]>([0, 0]);
     const [resetState, setResetState] = useState(0);
 
+    const isDarkMode = useMemo(() => isDark(), []);
+
     const rcListClass = useMemo(
       () =>
         cls(styles.list, {
           [styles.list_border]: border,
           [styles.list_search]: enableSearch,
+          [styles.dark]: isDarkMode,
         }),
       []
     );

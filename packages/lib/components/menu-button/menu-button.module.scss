@@ -14,10 +14,12 @@ $dark-mode: theme.$dark-mode;
   max-width: var(--max-width);
   min-width: 100px;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     @extend %border-radius;
     background-color: theme.$primary;
-  } @else {
+  }
+
+  &:not(.dark) {
     @extend %border;
     @extend %shadow-inset-small;
   }
@@ -57,9 +59,11 @@ $dark-mode: theme.$dark-mode;
   display: block;
   position: relative;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     color: var(--icon-color, theme.$primary);
   }
 

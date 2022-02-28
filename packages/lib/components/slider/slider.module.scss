@@ -50,9 +50,11 @@ $dark-mode: theme.$dark-mode;
   position: relative;
   width: 100%;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     background: theme.$charcoal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$gray;
   }
 }

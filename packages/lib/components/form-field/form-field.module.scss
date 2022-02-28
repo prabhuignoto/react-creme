@@ -3,7 +3,6 @@
 @use '../../design/font.scss';
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark-mode;
 
 .form_field {
   @extend %col;
@@ -45,9 +44,11 @@ $dark-mode: theme.$dark-mode;
 }
 
 .label {
-  @if $dark-mode == 'true' {
+  &.dark {
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     color: theme.$primary;
   }
 }

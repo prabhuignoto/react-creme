@@ -45,14 +45,17 @@ $dark-mode: theme.$dark-mode;
       width: #{$val};
     }
   }
+
+  &.dark svg {
+    fill: theme.$charcoal-gray;
+  }
+
+  &:not(.dark) svg {
+    fill: theme.$alto;
+  }
 }
 
 .item svg {
-  @if $dark-mode == 'true' {
-    fill: theme.$charcoal-gray;
-  } @else {
-    fill: theme.$alto;
-  }
   height: 100%;
   stroke-width: 0;
   transition: fill 0.1s ease-in;

@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import { ChevronDownIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { InputNumberProps } from './input-number.model';
 import styles from './input-number.module.scss';
@@ -45,12 +46,15 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
     }
   }, [number]);
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const inputClass = useMemo(
     () =>
       classNames(styles.input_number, {
         [styles[size]]: true,
         [styles.border]: border,
         [styles.rtl]: RTL,
+        [styles.dark]: isDarkMode,
       }),
     []
   );

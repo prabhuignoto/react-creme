@@ -1,27 +1,33 @@
 @use '../../design/theme.scss';
 @use '../../design/core.scss';
 @use '../../design/animate.scss';
+@use 'sass:map';
 
 $sizes: (sm, md, lg);
 
 $dark-mode: theme.$dark-mode;
+$normal-mode: theme.$normal-mode;
+
+$modes: ($dark-mode, $normal-mode);
 
 .container {
-  @if $dark-mode == 'true' {
-    @extend %border-radius;
-    background-color: theme.$gunmetal-gray;
-    color: theme.$white;
-  } @else {
-    @extend %border;
-    @extend %shadow-inset-small;
-  }
-
   align-items: center;
   cursor: pointer;
   font-size: 14px;
   height: 100%;
   padding: 0.1rem 0;
   width: 100%;
+
+  &.dark {
+    @extend %border-radius;
+    background-color: theme.$gunmetal-gray;
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    @extend %border;
+    @extend %shadow-inset-small;
+  }
 
   &.open {
     box-shadow: none;
@@ -79,23 +85,27 @@ $dark-mode: theme.$dark-mode;
 }
 
 .chevron_icon {
-  @if $dark-mode == 'true' {
-    color: theme.$white;
-  } @else {
-    color: var(--chevron-icon-color, theme.$primary);
-  }
-
   justify-self: center;
   order: 4;
   transition: transform 0.2s ease-in;
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: var(--chevron-icon-color, theme.$primary);
+  }
 }
 
 .clear_icon {
   justify-self: center;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     color: theme.$charcoal-gray;
   }
 

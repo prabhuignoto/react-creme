@@ -69,17 +69,16 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
       });
     }
 
-    const rgbColors = result.reduce(
-      (a, { color, rgb }) => a + `--rc-${color}-color-rgb: ${rgb.join(',')};`,
-      ''
-    );
-
-    const hexColors = result.reduce(
-      (a, { color, hex }) => a + `--rc-${color}-color-hex: ${hex};`,
-      ''
-    );
-
-    document.documentElement.style.cssText += ';' + hexColors.concat(rgbColors);
+    result.forEach(({ color, rgb, hex }) => {
+      (document.querySelector(':root') as HTMLElement)?.style.setProperty(
+        `--rc-${color}-color-rgb`,
+        rgb.join(',')
+      );
+      (document.querySelector(':root') as HTMLElement)?.style.setProperty(
+        `--rc-${color}-color-hex`,
+        hex
+      );
+    });
 
     setStylesApplied(prev => ({ ...prev, colors: true }));
   }, [currentTheme.colors.primary]);
@@ -159,9 +158,11 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
 
   useEffect(() => {
     if (theme.darkMode) {
-      document.documentElement.style.cssText += ';--rc-dark-mode: true;';
+      document.documentElement.style.cssText +=
+        ';--rc-dark-mode:true;--rc-normal-mode:false;';
     } else {
-      document.documentElement.style.cssText += ';--rc-dark-mode: false;';
+      document.documentElement.style.cssText +=
+        ';--rc-dark-mode:false;--rc-normal-mode:true;';
     }
   }, [theme.darkMode]);
 

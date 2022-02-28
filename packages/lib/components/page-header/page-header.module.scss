@@ -66,9 +66,12 @@ $heights: (
 
 .content {
   padding-top: 1rem;
-  @if $dark-mode == 'true' {
+
+  &.dark {
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     color: theme.$black;
   }
 }

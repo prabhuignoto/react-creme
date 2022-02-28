@@ -91,7 +91,7 @@ $dark-mode: theme.$dark-mode;
   }
 }
 
-.input input {
+.input_text {
   background: transparent;
   border: 0;
   height: 100%;
@@ -99,17 +99,21 @@ $dark-mode: theme.$dark-mode;
   padding: 0;
   width: 100%;
 
-  @if dark-mode == 'true' {
+  &.input_dark {
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.input_dark) {
     color: theme.$black;
   }
 }
 
 .input:not(.border).default:not(.transparent_bg_color) {
-  @if $dark-mode == 'true' {
+  &.dark {
     background: theme.$gunmetal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$light-bg;
     box-shadow: inset 0 0 3px 1px rgba($color: theme.$alto, $alpha: 0.25);
   }

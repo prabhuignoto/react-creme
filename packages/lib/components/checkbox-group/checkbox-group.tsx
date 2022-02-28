@@ -38,8 +38,6 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   const wrapperClass = useMemo(() => {
     return classNames([
       styles.checkbox_group_wrapper,
-      // 'rc-checkbox-group-border': border,
-      // 'rc-checkbox-group-disabled': disabled,
       layout === 'horizontal'
         ? styles.checkbox_group_horizontal
         : styles.checkbox_group_vertical,

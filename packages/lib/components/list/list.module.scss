@@ -6,9 +6,7 @@
 
 .list {
   @extend %border-radius;
-  // background-color: var(--list-bg-color, #fff);
   justify-items: center;
-  // row-gap: 6px;
   width: 100%;
 
   &:not(.list_search) {
@@ -20,10 +18,10 @@
     grid-template-columns: 100%;
     grid-template-rows: 50px calc(var(--rc-list-height) - 56px);
   }
+}
 
-  &.list_border {
-    @extend %border;
-  }
+.list_border {
+  @extend %border;
 }
 
 .list_search_input {

@@ -32,10 +32,12 @@ $dark-mode: theme.$dark-mode;
 }
 
 .btn {
-  @if $dark-mode == 'true' {
+  &.dark {
     background-color: theme.$gunmetal-gray;
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     @extend %shadow-inset-small;
     @extend %border;
   }

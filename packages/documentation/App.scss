@@ -6,6 +6,10 @@
   justify-content: flex-end;
   margin: 0 auto;
   position: relative;
+
+  &.dark {
+    background-color: #000;
+  }
 }
 
 body {

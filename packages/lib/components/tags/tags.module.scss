@@ -75,21 +75,24 @@ $padding-sizes: (
 .style_fill {
   @extend %border-radius;
 
-  @if $dark-mode == 'true' {
-    // background: theme.$platinum;
+  &.dark {
     background: rgba(theme.$primary-rgb, 1);
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: rgba(theme.$primary-rgb, 1);
     color: theme.$white;
   }
 }
 
 .style_default {
-  @if $dark-mode != 'true' {
+  &:not(.dark) {
     @extend %border;
     @extend %shadow-inset-small;
-  } @else {
+  }
+
+  &.dark {
     @extend %border-radius;
     background-color: theme.$charcoal-gray;
     color: theme.$white;
@@ -101,7 +104,7 @@ $padding-sizes: (
 }
 
 .readonly {
-  @if $dark-mode == 'true' {
+  &.dark {
     background: theme.$primary;
     color: theme.$white;
   }

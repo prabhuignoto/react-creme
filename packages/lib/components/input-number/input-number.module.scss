@@ -27,9 +27,11 @@ $dark-mode: theme.$dark-mode;
 .input_number:not(.border) {
   @extend %border-radius;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     background: theme.$gunmetal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     background: theme.$light-bg;
   }
 }
@@ -52,9 +54,11 @@ $dark-mode: theme.$dark-mode;
   background: theme.$secondary;
   cursor: pointer;
 
-  @if $dark-mode == 'true' {
+  &.dark {
     color: theme.$white;
-  } @else {
+  }
+
+  &:not(.dark) {
     color: theme.$primary;
   }
 

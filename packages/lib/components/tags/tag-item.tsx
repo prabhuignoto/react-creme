@@ -10,6 +10,7 @@ import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
 import { useKey } from '../common/effects/useKey';
+import { isDark } from '../common/utils';
 import { TagItemProps } from './tags-model';
 import styles from './tags.module.scss';
 
@@ -42,6 +43,9 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     useKey(ref, handleClick);
 
     const editable = useMemo(() => !disabled && !readonly, []);
+
+    const isDarkMode = useMemo(() => isDark(), []);
+
     const tagItemClass = useMemo(
       () =>
         classNames(styles.tag, 'rc-tag', {
@@ -52,6 +56,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
           [styles[`${size}`]]: true,
           [styles.readonly]: readonly,
           [styles[`accent_${accent}`]]: true,
+          [styles.dark]: isDarkMode,
         }),
       [markedForRemoval]
     );

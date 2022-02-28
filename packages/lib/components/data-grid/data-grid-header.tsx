@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
 import { TriangleIcon } from '../../icons';
+import { isDark } from '../common/utils';
 import { DataGridCell } from './data-grid-cell';
 import styles from './data-grid-header.module.scss';
 import { DataGridHeaderProps, SortDirection } from './data-grid-model';
@@ -13,6 +14,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
   border,
   size,
 }: DataGridHeaderProps) => {
+  const isDarkMode = useMemo(() => isDark(), []);
   const [headerColumns, setHeaderColumns] = useState(
     columns.map(col => ({
       ...col,
@@ -33,14 +35,15 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
 
   const headerClass = useMemo(() => {
     return classNames(styles.header, {
-      [styles[`header_${layoutStyle}`]]: true,
-      [styles[`header_${size}`]]: true,
+      [styles[`${layoutStyle}`]]: true,
+      [styles[`${size}`]]: true,
     });
   }, [layoutStyle]);
 
   const headerCellClass = useMemo(() => {
-    return classNames(styles.header_cell, {
-      [styles.header_border]: border,
+    return classNames(styles.cell, {
+      [styles.border]: border,
+      [styles.dark]: isDarkMode,
     });
   }, []);
 
@@ -50,10 +53,10 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
         <div className={headerCellClass} key={column.name}>
           <DataGridCell name={column.name} value={column.name} border={false} />
           {column.sortable && (
-            <span className={styles.header_sort_icon_wrapper}>
+            <span className={styles.sort_icon_wrapper}>
               <span
-                className={classNames(styles.header_sort_icon, {
-                  [styles.header_sort_icon_asc]: column.sortDirection === 'asc',
+                className={classNames(styles.sort_icon, {
+                  [styles.sort_icon_asc]: column.sortDirection === 'asc',
                 })}
                 role="button"
                 onClick={() => handleSort(column.name, 'asc')}
@@ -61,9 +64,8 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
                 <TriangleIcon />
               </span>
               <span
-                className={classNames(styles.header_sort_icon_desc, {
-                  [styles.header_sort_icon_active]:
-                    column.sortDirection === 'desc',
+                className={classNames(styles.sort_icon_desc, {
+                  [styles.sort_icon_active]: column.sortDirection === 'desc',
                 })}
                 role="button"
                 onClick={() => handleSort(column.name, 'desc')}

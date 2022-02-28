@@ -89,7 +89,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
         />
       </div>
     );
-  }, []);
+  }, [theme.darkMode]);
 
   return <div style={{ width: '100%' }}>{sideBarMemoized}</div>;
 };

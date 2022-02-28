@@ -90,16 +90,18 @@ $start-left: 4px;
   }
 }
 
-.on {
-  @if $dark-mode == 'true' {
+.track_on {
+  &.dark {
     background: theme.$gunmetal-gray;
-  } @else {
+  }
+
+  &:not(.dark) {
     @extend %shadow-inset-small;
     @extend %border;
   }
 }
 
-.off {
+.track_off {
   background-color: theme.$mercury;
   border: 1px solid transparent;
 }

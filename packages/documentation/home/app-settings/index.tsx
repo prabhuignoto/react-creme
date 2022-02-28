@@ -71,6 +71,12 @@ const AppSettings: React.FunctionComponent = () => {
       };
     }
 
+    if (themeToUpdate.value === 'dark') {
+      document.body.style.backgroundColor = '#000';
+    } else {
+      document.body.style.backgroundColor = '#f4f4f4';
+    }
+
     updateAppTheme(selectedTheme);
   }, [theme]);
 

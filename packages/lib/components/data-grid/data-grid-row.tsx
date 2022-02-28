@@ -1,3 +1,4 @@
+import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { useMemo, useRef } from 'react';
@@ -15,6 +16,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
   zebra,
   size,
 }: DataRow) => {
+  const isDarkMode = useMemo(() => isDark(), []);
   const cellsData = useRef<{ [key: string]: string | number }[]>(
     Object.keys(data)
       .filter(k => k !== 'id')
@@ -32,6 +34,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
       rc_row_fixed_height: fixedHeight,
       [styles.row_zebra]: zebra,
       [styles[`row_${size}`]]: true,
+      [styles.dark]: isDarkMode,
     });
   }, [layoutStyle]);
 

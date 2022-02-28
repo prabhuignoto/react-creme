@@ -94,7 +94,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
       '--bg-color': backGroundColor,
       '--sidebar-height': Number.isInteger(height) ? `${height}px` : height,
     } as CSSProperties;
-  }, []);
+  }, [backGroundColor]);
 
   const contentWrapper = useMemo(() => {
     return classNames(styles.content_wrapper, {

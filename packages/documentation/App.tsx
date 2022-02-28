@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import deepEqual from 'fast-deep-equal';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
 import { Drawer } from '../lib/components';
 import '../lib/design/core.scss';
@@ -9,7 +9,7 @@ import '../lib/design/list.scss';
 import '../lib/design/theme.scss';
 import { AppMain } from './App-Main';
 import './App.scss';
-import { asideState, MediaState } from './atoms/home';
+import { asideState, MediaState, themeState } from './atoms/home';
 import SidebarHome from './home/sidebar-home';
 
 const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
@@ -23,6 +23,8 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
 
     const appRef = useRef<HTMLDivElement>(null);
     const [openAside, setOpenAside] = React.useState(false);
+
+    const theme = useRecoilValue(themeState);
 
     const sidebarClass = useMemo(() => {
       return classNames('app-aside', {
@@ -79,8 +81,13 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
       setOpenAside(false);
     };
 
+    const appClass = useMemo(
+      () => classNames('app', theme.darkMode ? 'dark' : ''),
+      [theme.darkMode]
+    );
+
     return (
-      <div className="app" ref={onAppRef}>
+      <div className={appClass} ref={onAppRef}>
         {media && !media.isMobile && (
           <aside
             className={sidebarClass}

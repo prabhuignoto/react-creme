@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import { AlignJustify } from '../../icons';
 import { useDrag } from '../common/effects/useDrag';
+import { isDark } from '../common/utils';
 import { SplitterProps } from './splitter-model';
 import styles from './splitter.module.scss';
 
@@ -31,6 +32,8 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
   );
 
   const [dragStarted, setDragStarted] = useState(false);
+
+  const isDarkMode = useMemo(() => isDark(), []);
 
   const [percent, setPercent] = useDrag(ref, controlRef, {
     direction: dir,
@@ -111,6 +114,7 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
     () =>
       classNames([styles.wrapper, styles[`wrapper_${dir}`]], {
         [styles.wrapper_border]: border,
+        [styles.dark]: isDarkMode,
       }),
     []
   );
