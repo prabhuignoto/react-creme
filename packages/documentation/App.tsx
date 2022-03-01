@@ -14,7 +14,6 @@ import SidebarHome from './home/sidebar-home';
 
 const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
   ({ media }: { media: MediaState }) => {
-    console.log('root rendering');
     const sectionRef = useRef(null);
     const asideRef = useRef<HTMLElement>(null);
     const [left, setLeft] = React.useState(-1);
@@ -60,6 +59,14 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
         resizeObserver.current.disconnect();
       };
     }, []);
+
+    useEffect(() => {
+      if (theme.darkMode) {
+        document.body.style.backgroundColor = '#000';
+      } else {
+        document.body.style.backgroundColor = '#fff';
+      }
+    }, [theme.darkMode]);
 
     useEffect(() => {
       if (asideValue.isOpen) {

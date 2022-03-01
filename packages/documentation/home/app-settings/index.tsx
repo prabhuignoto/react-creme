@@ -14,7 +14,7 @@ import {
   NightGray,
 } from '../../common/app-themes';
 import { GithubLink } from '../../common/github-link';
-import './app-settings.scss';
+import styles from './app-settings.module.scss';
 
 const themes: RadioGroupItemProps<ThemeType>[] = [
   {
@@ -72,11 +72,11 @@ const AppSettings: React.FunctionComponent = () => {
       };
     }
 
-    if (themeToUpdate.value === 'dark') {
-      document.body.style.backgroundColor = '#000';
-    } else {
-      document.body.style.backgroundColor = '#f4f4f4';
-    }
+    // if (themeToUpdate.value === 'dark') {
+    //   document.body.style.backgroundColor = '#000';
+    // } else {
+    //   document.body.style.backgroundColor = '#f4f4f4';
+    // }
 
     updateAppTheme(selectedTheme);
   }, [theme]);
@@ -86,10 +86,10 @@ const AppSettings: React.FunctionComponent = () => {
   }, []);
 
   return width > 0 ? (
-    <div className="rc-doc-app-settings-wrapper">
+    <div className={styles.wrapper}>
       <span
-        className={classNames('rc-doc-app-settings-icon', {
-          dark: theme === 'dark',
+        className={classNames(styles.icon, {
+          [styles.dark]: appTheme.darkMode,
         })}
         onClick={() => setShowSettings(prev => !prev)}
       >

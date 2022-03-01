@@ -10,7 +10,7 @@ const GithubLink = () => {
   const theme = useRecoilValue(themeState);
 
   return (
-    <div className={classNames(styles.link, theme.darkMode ? 'dark' : '')}>
+    <div className={classNames(styles.link, theme.darkMode ? styles.dark : '')}>
       <a
         href="https://github.com/prabhuignoto/react-creme/"
         target="_blank"

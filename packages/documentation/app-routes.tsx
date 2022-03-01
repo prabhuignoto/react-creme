@@ -8,7 +8,7 @@ function AppRoutes() {
   return (
     <TransitionGroup style={{ width: '100%' }}>
       {/* <CSSTransition key={location.pathname} classNames="fade" timeout={200}> */}
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div></div>}>
         <Routes>
           {routes.map(({ key, path, component }) => {
             const Component = component;

@@ -41,12 +41,19 @@
 .list_item {
   @extend %border-radius;
   @extend %left;
-  color: theme.$black;
   cursor: pointer;
   font-weight: 300;
   height: 35px;
   padding-left: 0.5rem;
   width: calc(100% - 0.5rem);
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
 }
 
 .active {
@@ -68,4 +75,12 @@
 
 .header {
   margin: 0;
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
 }
