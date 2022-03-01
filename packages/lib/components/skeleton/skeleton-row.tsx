@@ -1,6 +1,6 @@
-import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import React, { CSSProperties, FunctionComponent, useMemo } from 'react';
+import { isDark } from '../common/utils';
 import { SkeletonRowProps } from './skeleton-model';
 import styles from './skeleton.module.scss';
 
@@ -18,7 +18,7 @@ const SkeletonRow: FunctionComponent<
         [styles.disable_animation]: disableAnimation,
         [styles.dark]: isDarkMode,
       }),
-    [disableAnimation]
+    [disableAnimation, isDarkMode]
   );
 
   const rowStyle = useMemo(

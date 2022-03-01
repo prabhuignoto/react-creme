@@ -3,8 +3,10 @@ import { useRecoilValue } from 'recoil';
 import { BlockQuote, ScrollSpy, Section } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+
 const Para = () => {
   const theme = useRecoilValue(themeState);
+
   return (
     <p style={{ color: theme.darkMode ? '#fff' : '#000' }}>
       Nulla congue efficitur massa, at tempor enim mattis vitae. Suspendisse
@@ -66,7 +68,9 @@ function Widgets() {
               ]}
             >
               {Array.from({ length: 8 }).map((_, i) => (
-                <div key={i}>{Para}</div>
+                <div key={i}>
+                  <Para />
+                </div>
               ))}
             </ScrollSpy>
           </DemoWidget>
@@ -82,7 +86,9 @@ function Widgets() {
               links={['one', 'two', 'three', 'four', 'five']}
             >
               {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i}>{Para}</div>
+                <div key={i}>
+                  <Para />
+                </div>
               ))}
             </ScrollSpy>
           </DemoWidget>

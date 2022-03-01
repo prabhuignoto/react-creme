@@ -1,6 +1,9 @@
+import classNames from 'classnames';
 import React, { useCallback, useRef } from 'react';
+import { useRecoilValue } from 'recoil';
 import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { usePosition } from '../../../lib/components/common/effects/usePosition';
+import { themeState } from '../../atoms/home';
 import './position-examples.scss';
 
 export const PositionComponent: React.FunctionComponent<{
@@ -8,6 +11,7 @@ export const PositionComponent: React.FunctionComponent<{
 }> = ({ position }) => {
   const container = useRef<HTMLDivElement>();
   const element = useRef<HTMLElement>();
+  const theme = useRecoilValue(themeState);
 
   const { position: cssPosition, onInit } = usePosition(
     container,
@@ -24,9 +28,15 @@ export const PositionComponent: React.FunctionComponent<{
   }, []);
 
   return (
-    <div className="rc-demo-position-outer-box" ref={onRef}>
+    <div
+      className={classNames(
+        'rc-demo-position-outer-box',
+        theme.darkMode ? 'dark' : ''
+      )}
+      ref={onRef}
+    >
       <span
-        className="rc-demo-position-inner-box"
+        className={classNames('rc-demo-position-inner-box')}
         style={{ ...cssPosition }}
         ref={element}
       ></span>

@@ -1,4 +1,4 @@
-.browser-support-list {
+.list {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -14,18 +14,25 @@
     margin: 0 1rem;
   }
 
-  .browser-support-name {
+  .name {
     color: var(--rc-primary-color-hex);
     font-size: 1rem;
     font-weight: 500;
     margin-top: 0.5rem;
   }
+}
 
-  .browser-support-icon {
-    align-items: center;
+.icon {
+  align-items: center;
+  color: var(--rc-primary-color-hex);
+  display: flex;
+  justify-content: center;
+
+  &.dark {
+    background: #000;
+  }
+
+  &:not(.dark) {
     background: #fff;
-    color: var(--rc-primary-color-hex);
-    display: flex;
-    justify-content: center;
   }
 }

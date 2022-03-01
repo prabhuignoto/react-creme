@@ -15,14 +15,20 @@ const CircularProgress: React.FunctionComponent<CircularProgressProps> = ({
 }) => {
   const isDarkMode = useMemo(() => isDark(), []);
   const wrapperClass = useMemo(() => {
-    return classNames('circular-progress', `circular-progress-${size}`);
+    return classNames(
+      styles.circular_progress,
+      styles[`circular_progress_${size}`],
+      {
+        [styles.dark]: isDarkMode,
+      }
+    );
   }, []);
   return (
     <span className={wrapperClass}>
-      {style === 'double-ring' && <span className="inner-circle"></span>}
+      {/* {style === 'double-ring' && <span className={styles.inner}></span>} */}
       {style === 'default' && (
         <span
-          className={classNames('inner-circle-2', {
+          className={classNames(styles.inner_circle_2, {
             [styles.dark]: isDarkMode,
           })}
         ></span>

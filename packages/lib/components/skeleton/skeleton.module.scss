@@ -29,6 +29,8 @@ $settings: (
 
 .row {
   @extend %border-radius;
+  @include animate.set-settings(2s, linear, true);
+  @include animate.set-keyframes(animate_skeleton, $settings);
   display: block;
   height: var(--height);
   margin: 0.5rem 0;
@@ -37,23 +39,21 @@ $settings: (
 
   &.animate:not(.disable_animation) {
     animation-direction: reverse;
-    animation-name: animate-skeleton;
+    animation-name: animate_skeleton;
   }
 }
 
 .disable_animation {
   &.dark {
-    background: theme.$charcoal-gray;
+    background-color: theme.$charcoal-gray;
   }
 
   &:not(.dark) {
-    background: theme.$chinese-gray;
+    background-color: theme.$chinese-gray;
   }
 }
 
 .row:not(.disable_animation) {
-  @include animate.set-settings(2s, linear, true);
-  @include animate.set-keyframes(animate-skeleton, $settings);
   background-position: 400% 400%;
   background-size: 200% 200%;
 

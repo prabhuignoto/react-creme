@@ -3,11 +3,18 @@
 
 .rc-demo-position-outer-box {
   @extend %border-radius;
-  background: theme.$light-bg;
   height: 200px;
   margin-left: 50px;
   position: relative;
   width: 200px;
+
+  &.dark {
+    background: theme.$gunmetal-gray;
+  }
+
+  &:not(.dark) {
+    background: theme.$light-bg;
+  }
 }
 
 .rc-demo-position-inner-box {

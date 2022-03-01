@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
+import { isDark } from '../common/utils';
 import { CarouselButton } from './carousel-button';
 import { CarouselTrackProps } from './carousel-model';
 import styles from './carousel-track.module.scss';
@@ -16,6 +17,8 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
   hideNext,
   focusable,
 }: CarouselTrackProps) => {
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const carouselTrackClass = useMemo(
     () =>
       classNames([
@@ -57,6 +60,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
             className={classNames([
               styles.track_item,
               index === activeIndex ? styles.track_item_selected : '',
+              isDarkMode ? styles.dark : '',
             ])}
             onClick={() => handleSelection(index)}
           ></li>

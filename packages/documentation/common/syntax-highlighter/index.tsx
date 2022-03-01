@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
 import nightOwl from 'react-syntax-highlighter/dist/esm/styles/hljs/night-owl';
+import lioshi from 'react-syntax-highlighter/dist/esm/styles/hljs/lioshi';
+import { useRecoilValue } from 'recoil';
 import { Notification } from '../../../lib/components/notification/notification';
 import { CopyIcon } from '../../../lib/icons';
+import { themeState } from '../../atoms/home';
 import './syntax-highlighter.scss';
 
 interface CodeModel {
@@ -11,6 +14,11 @@ interface CodeModel {
 
 const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
   const [showNotification, setShowNotification] = React.useState(false);
+  const theme = useRecoilValue(themeState);
+  const syntaxTheme = useMemo(
+    () => (theme.darkMode ? nightOwl : lioshi),
+    [theme.darkMode]
+  );
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);
@@ -45,7 +53,7 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
       <SyntaxHighlighter
         language="typescript"
         customStyle={{ padding: '0.5rem' }}
-        style={{ ...nightOwl, height: '100%' }}
+        style={{ ...syntaxTheme, height: '100%' }}
       >
         {code}
       </SyntaxHighlighter>

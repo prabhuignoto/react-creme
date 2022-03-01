@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import useDraggable from '../../../lib/components/common/effects/useDraggable';
-import { responsiveState } from '../../atoms/home';
+import { responsiveState, themeState } from '../../atoms/home';
 
 function useDimensions() {
   const [dimensions, setDimensions] = React.useState({ height: 0, width: 0 });
@@ -33,11 +33,13 @@ export function BoundToContainer() {
   const boundRef = useRef();
   useDraggable(ref, { boundTo: boundRef });
 
+  const theme = useRecoilValue(themeState);
   const dimensions = useDimensions();
 
   return (
     <div
       style={{
+        backgroundColor: theme.darkMode ? '#1e1e1e' : '#f6f6f6',
         height: `${dimensions.height}px`,
         padding: '1rem',
         width: `${dimensions.width}px`,
@@ -61,12 +63,14 @@ export function BoundToContainerHorizontal() {
   const ref = useRef();
   const boundRef = useRef();
   useDraggable(ref, { boundTo: boundRef, dragDirection: 'HORIZONTAL' });
+  const theme = useRecoilValue(themeState);
 
   const dimensions = useDimensions();
 
   return (
     <div
       style={{
+        backgroundColor: theme.darkMode ? '#1e1e1e' : '#fff',
         height: `${dimensions.height}px`,
         padding: '1rem',
         width: `${dimensions.width}px`,
@@ -88,6 +92,7 @@ export function BoundToContainerHorizontal() {
 
 export function BoundToContainerVertical() {
   const ref = useRef();
+  const theme = useRecoilValue(themeState);
   const boundRef = useRef();
   useDraggable(ref, { boundTo: boundRef, dragDirection: 'VERTICAL' });
   const dimensions = useDimensions();
@@ -95,6 +100,7 @@ export function BoundToContainerVertical() {
   return (
     <div
       style={{
+        backgroundColor: theme.darkMode ? '#1e1e1e' : '#fff',
         height: `${dimensions.height}px`,
         padding: '1rem',
         width: `${dimensions.width}px`,
@@ -116,6 +122,7 @@ export function BoundToContainerVertical() {
 
 export function DraggableWidgets() {
   const boundRef = useRef();
+  const theme = useRecoilValue(themeState);
 
   useDraggable(boundRef, {
     boundTo: boundRef,
@@ -127,6 +134,7 @@ export function DraggableWidgets() {
   return (
     <div
       style={{
+        backgroundColor: theme.darkMode ? '#1e1e1e' : '#fff',
         height: `${dimensions.height}px`,
         padding: '1rem',
         width: `${dimensions.width}px`,

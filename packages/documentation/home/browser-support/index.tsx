@@ -1,23 +1,40 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import classNames from 'classnames';
+import React, { useMemo } from 'react';
+import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section } from '../../../lib/components';
+import { themeState } from '../../atoms/home';
 import { supportedBrowsers } from '../../home/home-data';
-import './browser-support.scss';
+import styles from './browser-support.module.scss';
 
 function BrowserSupport() {
+  const theme = useRecoilValue(themeState);
+
+  const isDarkMode = useMemo(() => !!theme.darkMode, []);
+
   return (
     <Section title="Browser Support" size="md" useHash>
       <BlockQuote>
         react-creme is a modern UI Toolkit that is designed to work with the
-        most popular & modern web browsers.
+        most popular &amp; modern web browsers.
       </BlockQuote>
-      <ul className="browser-support-list">
+      <ul className={styles.list}>
         {supportedBrowsers.map((browser, index) => (
           <li key={index} className="browser-support-item">
-            <span className="browser-support-icon">
+            <span
+              className={classNames(styles.icon, {
+                [styles.dark]: isDarkMode,
+              })}
+            >
               <FontAwesomeIcon icon={browser.icon} size="4x" />
             </span>
-            <span className="browser-support-name">{browser.title}</span>
+            <span
+              className={classNames(styles.name, {
+                [styles.dark]: isDarkMode,
+              })}
+            >
+              {browser.title}
+            </span>
           </li>
         ))}
       </ul>
