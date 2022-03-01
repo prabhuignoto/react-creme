@@ -8,7 +8,7 @@ export const Default = (
 );
 
 export const Drop = (
-  <Dialog width={450} height={300} animationType="drop">
+  <Dialog width={450} height={300} animationType="drop" size="lg">
     <span>Your content here!</span>
   </Dialog>
 );
