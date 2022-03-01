@@ -18,28 +18,40 @@ $sizes: (
   }
 }
 
-.circular-progress {
+.circular_progress {
   animation: spin 1s linear infinite;
-  background: linear-gradient(
-    to right,
-    theme.$primary 50%,
-    theme.$black 50% 100%
-  );
+
   border-radius: 100%;
   display: block;
   position: relative;
   transform-origin: 50% 50%;
   z-index: 0;
 
+  &.dark {
+    background: linear-gradient(
+      to right,
+      theme.$primary 50%,
+      theme.$black 50% 100%
+    );
+  }
+
+  &:not(.dark) {
+    background: linear-gradient(
+      to right,
+      theme.$primary 50%,
+      theme.$secondary 50% 100%
+    );
+  }
+
   @each $key, $val in $sizes {
-    &.circular-progress-#{$key} {
+    &.circular_progress_#{$key} {
       height: #{$val};
       width: #{$val};
     }
   }
 }
 
-.inner-circle-2 {
+.inner_circle_2 {
   @include position.position-abs('center center');
   border-radius: 50%;
   display: block;
@@ -56,7 +68,7 @@ $sizes: (
   }
 }
 
-.inner-circle-2::after {
+.inner_circle_2::after {
   @include position.position-abs('center center');
   border-radius: 50%;
   content: '';
