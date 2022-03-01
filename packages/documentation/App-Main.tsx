@@ -1,4 +1,3 @@
-import deepEqual from 'fast-deep-equal';
 import React, { Suspense, useImperativeHandle, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import AppRoutes from './app-routes';
@@ -43,8 +42,9 @@ const Main = React.forwardRef<
   );
 });
 
-const MainMemoized = React.memo(Main, (prev, next) =>
-  deepEqual(prev.media, next.media)
+const MainMemoized = React.memo(
+  Main,
+  (prev, next) => JSON.stringify(prev.media) === JSON.stringify(next.media)
 );
 
 Main.displayName = 'Main';
