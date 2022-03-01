@@ -35,7 +35,7 @@ $sizes: (sm, md, lg);
 
 .list_option:hover:not(.disabled) {
   &.dark {
-    background: theme.$gunmetal-gray;
+    background: theme.$charcoal-gray;
   }
 
   &:not(.dark) {

@@ -1,4 +1,4 @@
-import React, { Suspense, useImperativeHandle, useMemo, useRef } from 'react';
+import React, { useImperativeHandle, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import AppRoutes from './app-routes';
 import { MediaState } from './atoms/home';
@@ -34,9 +34,7 @@ const Main = React.forwardRef<
           onSearchSelection={path => navigate(path.value)}
         />
       )}
-      <Suspense fallback={<span></span>}>
-        <AppRoutes />
-      </Suspense>
+      <AppRoutes />
       <Footer />
     </section>
   );

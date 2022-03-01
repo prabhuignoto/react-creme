@@ -3,7 +3,7 @@ import deepEqual from 'fast-deep-equal';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
-import { Drawer, ThemeProvider } from '../lib/components';
+import { Drawer } from '../lib/components';
 import '../lib/design/core.scss';
 import '../lib/design/list.scss';
 import '../lib/design/theme.scss';
@@ -14,7 +14,6 @@ import SidebarHome from './home/sidebar-home';
 
 const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
   ({ media }: { media: MediaState }) => {
-    console.log('root rendering');
     const sectionRef = useRef(null);
     const asideRef = useRef<HTMLElement>(null);
     const [left, setLeft] = React.useState(-1);
@@ -62,6 +61,14 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
     }, []);
 
     useEffect(() => {
+      if (theme.darkMode) {
+        document.body.style.backgroundColor = '#000';
+      } else {
+        document.body.style.backgroundColor = '#fff';
+      }
+    }, [theme.darkMode]);
+
+    useEffect(() => {
       if (asideValue.isOpen) {
         setOpenAside(true);
       }
@@ -88,25 +95,23 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
     );
 
     return (
-      <ThemeProvider theme={theme}>
-        <div className={appClass} ref={onAppRef}>
-          {media && !media.isMobile && (
-            <aside
-              className={sidebarClass}
-              ref={asideRef}
-              style={{ left: `${left}px` }}
-            >
-              <SidebarHome />
-            </aside>
-          )}
-          {canRenderAside && (
-            <Drawer onClose={onClose} showClose focusable={false}>
-              <SidebarHome onSelect={onSelect} />
-            </Drawer>
-          )}
-          <AppMain media={media} toggleOpen={toggleOpen} ref={sectionRef} />
-        </div>
-      </ThemeProvider>
+      <div className={appClass} ref={onAppRef}>
+        {media && !media.isMobile && (
+          <aside
+            className={sidebarClass}
+            ref={asideRef}
+            style={{ left: `${left}px` }}
+          >
+            <SidebarHome />
+          </aside>
+        )}
+        {canRenderAside && (
+          <Drawer onClose={onClose} showClose focusable={false}>
+            <SidebarHome onSelect={onSelect} />
+          </Drawer>
+        )}
+        <AppMain media={media} toggleOpen={toggleOpen} ref={sectionRef} />
+      </div>
     );
   },
   (prev, next) => {

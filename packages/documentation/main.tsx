@@ -4,9 +4,10 @@ import 'normalize.css';
 import React, { StrictMode, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { RecoilRoot, useSetRecoilState } from 'recoil';
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';
+import { ThemeProvider } from '../lib/components';
 import App from './App';
-import { responsiveState } from './atoms/home';
+import { responsiveState, themeState } from './atoms/home';
 import useMedia from './common/useMedia';
 
 const Root = ReactDOM.createRoot(document.getElementById('root'));
@@ -28,9 +29,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const AppBootStrap = () => {
+  console.log('boot strap');
   const media = useMedia();
   const setResponsiveState = useSetRecoilState(responsiveState);
   const [canLoad, setCanLoad] = React.useState(false);
+  const theme = useRecoilValue(themeState);
 
   useEffect(() => {
     if (!media) {
@@ -47,7 +50,11 @@ const AppBootStrap = () => {
     setCanLoad(true);
   }, [media]);
 
-  return canLoad ? <App media={media} /> : null;
+  return canLoad ? (
+    <ThemeProvider theme={theme}>
+      <App media={media} />
+    </ThemeProvider>
+  ) : null;
 };
 
 Root.render(

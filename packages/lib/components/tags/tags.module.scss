@@ -86,7 +86,7 @@ $padding-sizes: (
 }
 
 .style_default {
-  &:not(.dark) {
+  &:not(.dark):not(.readonly) {
     @extend %border;
     @extend %shadow-inset-small;
   }
@@ -103,10 +103,9 @@ $padding-sizes: (
 }
 
 .readonly {
-  &.dark {
-    background: theme.$primary;
-    color: theme.$white;
-  }
+  @extend %border-radius;
+  background: theme.$primary;
+  color: theme.$white;
 }
 
 .marked_for_removal {

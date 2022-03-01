@@ -1,7 +1,6 @@
 import { ListOption } from '../list/list-model';
 
 export interface SidebarProps {
-  backGroundColor?: string;
   border?: boolean;
   enableSearch?: boolean;
   focusable?: boolean;

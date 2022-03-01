@@ -19,10 +19,14 @@
   svg {
     color: theme.$primary;
   }
+
+  &:hover svg {
+    color: theme.$white;
+  }
 }
 
 @mixin get-button-type($bg, $bg-hover, $color, $color-hover) {
-  background-color: $bg;
+  background: $bg;
   color: $color;
 
   svg {
@@ -36,7 +40,7 @@
   }
 
   &:hover:not(.rc-disabled) {
-    background-color: $bg-hover;
+    background: $bg-hover;
     color: $color-hover;
   }
 }
@@ -84,12 +88,12 @@
 %button-icon {
   @extend %button;
   border: 0;
-  color: theme.$primary;
+  // color: theme.$primary;
 }
 
 %button-icon:hover {
   svg {
-    color: theme.$secondary;
+    color: theme.$white;
   }
 }
 

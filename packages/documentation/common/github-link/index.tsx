@@ -4,18 +4,13 @@ import classNames from 'classnames';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { themeState } from '../../atoms/home';
-import './github-link.scss';
+import styles from './github-link.module.scss';
 
 const GithubLink = () => {
   const theme = useRecoilValue(themeState);
 
   return (
-    <div
-      className={classNames(
-        'rc-demo-app-github-link',
-        theme.darkMode ? 'dark' : ''
-      )}
-    >
+    <div className={classNames(styles.link, theme.darkMode ? styles.dark : '')}>
       <a
         href="https://github.com/prabhuignoto/react-creme/"
         target="_blank"
@@ -30,7 +25,7 @@ const GithubLink = () => {
 
 const Badge = ({ label }: { label: string }) => {
   return (
-    <div className="rc-demo-alpha-badge" aria-label="alpha">
+    <div className={styles.badge} aria-label="alpha">
       {label}
     </div>
   );

@@ -1,23 +1,26 @@
 import React, { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, ScrollSpy, Section } from '../../../lib/components';
-import { responsiveState } from '../../atoms/home';
+import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-const Para = (
-  <p>
-    Nulla congue efficitur massa, at tempor enim mattis vitae. Suspendisse
-    dictum tincidunt felis, vel convallis velit volutpat quis. Suspendisse
-    auctor nibh ac purus commodo lacinia. Etiam ornare sodales risus, quis
-    vulputate nisl dapibus sed. Quisque gravida viverra sagittis. Fusce
-    hendrerit ante sed dictum commodo. Mauris a nulla suscipit, dapibus nulla
-    vitae, semper neque. Nullam mattis et odio vel tincidunt. Donec bibendum
-    purus orci, sed porttitor quam porta in. sodales risus, quis vulputate nisl
-    dapibus sed. Quisque gravida viverra sagittis. Fusce hendrerit ante sed
-    dictum commodo. Mauris a nulla suscipit, dapibus nulla vitae, semper neque.
-    Nullam mattis et odio vel tincidunt. Donec bibendum purus orci, sed
-    porttitor quam porta in.
-  </p>
-);
+const Para = () => {
+  const theme = useRecoilValue(themeState);
+  return (
+    <p style={{ color: theme.darkMode ? '#fff' : '#000' }}>
+      Nulla congue efficitur massa, at tempor enim mattis vitae. Suspendisse
+      dictum tincidunt felis, vel convallis velit volutpat quis. Suspendisse
+      auctor nibh ac purus commodo lacinia. Etiam ornare sodales risus, quis
+      vulputate nisl dapibus sed. Quisque gravida viverra sagittis. Fusce
+      hendrerit ante sed dictum commodo. Mauris a nulla suscipit, dapibus nulla
+      vitae, semper neque. Nullam mattis et odio vel tincidunt. Donec bibendum
+      purus orci, sed porttitor quam porta in. sodales risus, quis vulputate
+      nisl dapibus sed. Quisque gravida viverra sagittis. Fusce hendrerit ante
+      sed dictum commodo. Mauris a nulla suscipit, dapibus nulla vitae, semper
+      neque. Nullam mattis et odio vel tincidunt. Donec bibendum purus orci, sed
+      porttitor quam porta in.
+    </p>
+  );
+};
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);

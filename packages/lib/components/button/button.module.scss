@@ -74,7 +74,8 @@ $sizes: (sm, md, lg);
   }
 
   &:hover:not(.disabled):not(.dark) {
-    background: theme.$secondary;
+    background: theme.$primary;
+    color: theme.$white;
   }
 
   &.dark:not(.disabled) {
@@ -82,7 +83,7 @@ $sizes: (sm, md, lg);
   }
 
   &:hover.dark {
-    background: theme.$secondary;
+    background: theme.$primary;
   }
 
   &:hover.dark svg {

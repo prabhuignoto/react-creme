@@ -1,3 +1,4 @@
+import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
@@ -21,6 +22,8 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
 
   // tracks the last selected link index
   const lastSelectedIndex = useRef<number>(0);
+
+  const isDarkMode = useMemo(() => isDark(), []);
 
   const [scrollSpyLinks, setScrollSpyLinks] = React.useState<
     ScrollSpyLinkInternal[]
@@ -158,7 +161,8 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
                 key={link.id}
                 className={classNames(
                   styles.list_item,
-                  link.active ? styles.active : ''
+                  link.active ? styles.active : '',
+                  isDarkMode ? styles.dark : ''
                 )}
                 onClick={ev => {
                   ev.preventDefault();
