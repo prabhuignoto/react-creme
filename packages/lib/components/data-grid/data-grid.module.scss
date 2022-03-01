@@ -106,10 +106,19 @@ $sizes: (sm, md, lg);
     overflow-wrap: anywhere;
   }
 
+  &:not(.dark) em,
+  code {
+    background-color: rgba(theme.$secondary-rgb, 0.25);
+  }
+
+  &.dark em,
+  code {
+    background-color: theme.$gunmetal-gray;
+  }
+
   em,
   code {
     @extend %border-radius;
-    background-color: rgba(theme.$secondary-rgb, 0.25);
     color: theme.$primary;
     font-style: normal;
     font-weight: 400;

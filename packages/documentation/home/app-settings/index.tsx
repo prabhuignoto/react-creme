@@ -18,7 +18,6 @@ import styles from './app-settings.module.scss';
 
 const themes: RadioGroupItemProps<ThemeType>[] = [
   {
-    checked: true,
     label: 'Default',
     value: 'default',
   },
@@ -31,6 +30,7 @@ const themes: RadioGroupItemProps<ThemeType>[] = [
     value: 'night-gray',
   },
   {
+    checked: true,
     label: 'Dark',
     value: 'dark',
   },
@@ -71,12 +71,6 @@ const AppSettings: React.FunctionComponent = () => {
         selectedTheme: 'dark',
       };
     }
-
-    // if (themeToUpdate.value === 'dark') {
-    //   document.body.style.backgroundColor = '#000';
-    // } else {
-    //   document.body.style.backgroundColor = '#f4f4f4';
-    // }
 
     updateAppTheme(selectedTheme);
   }, [theme]);

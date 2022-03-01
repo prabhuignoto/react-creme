@@ -1,7 +1,7 @@
-import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
+import { isDark } from '../common/utils';
 import {
   ScrollSpyContent,
   ScrollSpyLinkInternal,
@@ -185,7 +185,12 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
                 // content.active ? styles.active : ''
               )}
             >
-              <h4 className={styles.header} id={content.id}>
+              <h4
+                className={classNames(styles.header, {
+                  [styles.dark]: isDarkMode,
+                })}
+                id={content.id}
+              >
                 {links[index]}
               </h4>
               {Array.isArray(children) ? children[index] : children}
