@@ -44,6 +44,10 @@
     background-image: url('../images/adrian.jpg');
   }
 
+  &.dark {
+    // background-image: url('../images/pexels.jpeg');
+  }
+
   img {
     object-fit: cover;
   }

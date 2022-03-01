@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TransitionGroup } from 'react-transition-group';
 import './app-routes.scss';
 import { routes } from './route-configs/route-configs-1';
 
 function AppRoutes() {
   return (
     <TransitionGroup style={{ width: '100%' }}>
-      <CSSTransition key={location.pathname} classNames="fade" timeout={200}>
+      {/* <CSSTransition key={location.pathname} classNames="fade" timeout={200}> */}
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           {routes.map(({ key, path, component }) => {
             const Component = component;
@@ -24,7 +25,8 @@ function AppRoutes() {
             );
           })}
         </Routes>
-      </CSSTransition>
+      </Suspense>
+      {/* </CSSTransition> */}
     </TransitionGroup>
   );
 }

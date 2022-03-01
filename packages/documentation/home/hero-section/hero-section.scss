@@ -64,7 +64,8 @@
   }
 
   &.dark {
-    background: #1e1e1e;
+    background: rgba($color: #fff, $alpha: 0.25);
+    // background: #1e1e1e;
   }
 
   @media (min-width: 300px) and (max-width: 480px) {

@@ -1,4 +1,4 @@
-.rc-demo-app-github-link {
+.link {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@
   }
 }
 
-.rc-demo-app-github-link a {
+.link a {
   align-items: center;
   display: flex;
   height: 2rem;
@@ -26,4 +26,17 @@
   margin-left: auto;
   text-decoration: none;
   width: 2rem;
+}
+
+.badge {
+  align-items: center;
+  background: var(--rc-primary-color-hex);
+  border-radius: 4px;
+  box-shadow: inset 0 0 10px 6px rgba(#fff, 0.1);
+  color: #fff;
+  display: inline;
+  font-size: 12px;
+  font-weight: 300;
+  justify-content: center;
+  padding: 0.25rem;
 }

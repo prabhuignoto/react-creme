@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
 import { SearchIcon } from '../../icons';
-import { isArray } from '../common/utils';
+import { isArray, isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { ListOption } from '../list/list-model';
 import { SidebarGroups } from './sidebar-groups';
@@ -10,7 +10,6 @@ import { SidebarGroupModel, SidebarProps } from './sidebar-model';
 import styles from './sidebar.module.scss';
 
 const Sidebar: React.FunctionComponent<SidebarProps> = ({
-  backGroundColor = '#fff',
   border = false,
   enableSearch = false,
   focusable = true,
@@ -42,6 +41,8 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
   const [sidebarHeight, setSidebarHeight] = React.useState(0);
 
   const ref = useRef<HTMLDivElement | null>(null);
+
+  const isDarkMode = useMemo(() => isDark(), []);
 
   const handleSelection = useCallback(
     (option: ListOption[], groupId?: string) => {
@@ -87,14 +88,19 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
     [groups.length]
   );
 
-  const sideBarClass = useMemo(() => classNames(styles.sidebar), []);
+  const sideBarClass = useMemo(
+    () =>
+      classNames(styles.sidebar, {
+        [styles.dark]: isDarkMode,
+      }),
+    [isDarkMode]
+  );
 
   const style = useMemo(() => {
     return {
-      '--bg-color': backGroundColor,
       '--sidebar-height': Number.isInteger(height) ? `${height}px` : height,
     } as CSSProperties;
-  }, [backGroundColor]);
+  }, []);
 
   const contentWrapper = useMemo(() => {
     return classNames(styles.content_wrapper, {

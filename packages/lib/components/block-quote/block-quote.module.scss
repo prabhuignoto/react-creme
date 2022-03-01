@@ -19,7 +19,7 @@ $sizes: (sm, md, lg);
   text-align: left;
 
   &.dark {
-    background: theme.$gunmetal-gray;
+    background: theme.$cod-gray;
     border-left: 3px solid rgba(theme.$primary-rgb, 1);
     color: theme.$white;
   }

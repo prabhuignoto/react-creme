@@ -7,11 +7,18 @@ $searchbar-height: 40px;
 .sidebar {
   align-items: flex-start;
 
-  background-color: var(--bg-color);
   display: flex;
   height: var(--sidebar-height, 100%);
   overflow: hidden;
   position: relative;
+
+  &.dark {
+    background-color: theme.$cod-gray;
+  }
+
+  &:not(.dark) {
+    background-color: theme.$white;
+  }
 
   &.border {
     @extend %border;
