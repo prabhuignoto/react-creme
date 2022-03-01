@@ -14,6 +14,7 @@ import SidebarHome from './home/sidebar-home';
 
 const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
   ({ media }: { media: MediaState }) => {
+    console.log('root rendering');
     const sectionRef = useRef(null);
     const asideRef = useRef<HTMLElement>(null);
     const [left, setLeft] = React.useState(-1);
