@@ -1,10 +1,10 @@
-import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
 import { CloseIcon } from '../../icons';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
+import { isDark } from '../common/utils';
 import { withOverlay } from '../common/withOverlay';
 import { DrawerProps } from './drawer-model';
 import styles from './drawer.module.scss';
@@ -18,7 +18,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   position = 'left',
   transition = 'cubic-bezier(0.79, 0.14, 0.15, 0.86)',
   width = 300,
-  size = 'md',
+  size = 'sm',
 }) => {
   /**
    * state for activating the drawer

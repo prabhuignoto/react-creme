@@ -38,6 +38,7 @@ export { Section } from './section/section';
 export { Sidebar } from './sidebar/sidebar';
 export { Skeleton } from './skeleton/skeleton';
 export { Slider } from './slider/slider';
+export { Spinner } from './spinner/spinner';
 export { Splitter } from './splitter/splitter';
 export { Switch } from './switch/switch';
 export { Tabs } from './tabs/tabs';

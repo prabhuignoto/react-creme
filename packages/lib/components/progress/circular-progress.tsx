@@ -4,6 +4,7 @@ import { isDark } from '../common/utils';
 import styles from './circular-progress.module.scss';
 
 export interface CircularProgressProps {
+  _innerCircleColor?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg';
   style?: 'double-ring' | 'default';
   type?: 'infinite' | 'progressive';

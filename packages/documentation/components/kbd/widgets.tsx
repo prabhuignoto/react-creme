@@ -7,6 +7,7 @@ import {
   largeSized,
   mediumSized,
   smallSized,
+  Thickness,
   WithCombination,
 } from './widget-variants';
 
@@ -37,6 +38,13 @@ function Widgets() {
           the <code>buttonRaised</code> prop.
         </BlockQuote>
         <DemoWidget>{ButtonRaisedRight}</DemoWidget>
+      </Section>
+      <Section title="Keyboard Thickness">
+        <BlockQuote>
+          Customize the thickness of the keyboard with the{' '}
+          <code>thickness</code> prop.
+        </BlockQuote>
+        <DemoWidget>{Thickness}</DemoWidget>
       </Section>
     </div>
   );

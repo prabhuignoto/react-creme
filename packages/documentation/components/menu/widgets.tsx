@@ -16,7 +16,7 @@ function Widgets() {
           native elements. Simply wrap the Menu control in the target component
           and use the appropriate <code>dockPosition</code> to position the menu
         </BlockQuote>
-        <DemoWidget width={100} style={{ marginLeft: '2rem' }}>
+        <DemoWidget width={80} style={{ marginLeft: '2rem' }}>
           {AttachedToButton}
         </DemoWidget>
       </Section>
@@ -26,7 +26,7 @@ function Widgets() {
           <code>right</code> or <code>center</code>. The example below shows a
           menu docked and aligned to the center of the icon.
         </BlockQuote>
-        <DemoWidget width={150} style={{ marginLeft: '2rem' }}>
+        <DemoWidget width={120} style={{ marginLeft: '2rem' }}>
           {AttachedToIcon}
         </DemoWidget>
       </Section>

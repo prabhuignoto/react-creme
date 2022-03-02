@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import { Button } from '..';
 import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { usePosition } from '../common/effects/usePosition';
@@ -159,13 +160,11 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
         ref={tooltipRef}
       >
         {openOnClick && (
-          <span
-            role="button"
-            className={styles.close_btn}
-            onClick={handleClose}
-          >
-            <CloseIcon />
-          </span>
+          <div className={styles.close_btn_wrapper}>
+            <Button type="icon" onClick={handleClose} size={size}>
+              <CloseIcon />
+            </Button>
+          </div>
         )}
         {message}
       </div>

@@ -45,16 +45,20 @@ $start-left: 4px;
   &.disabled {
     @extend %disabled;
   }
+}
 
-  &.label_outside {
-    align-items: center;
-    display: grid;
+.label_outside {
+  align-items: center;
+  display: grid;
 
-    @each $key, $value in $switch-width {
-      &.#{$key} {
-        grid-template-columns: $value calc(100% - $value);
-      }
+  @each $key, $value in $switch-width {
+    &.#{$key} {
+      grid-template-columns: $value calc(100% - $value);
     }
+  }
+
+  &.dark {
+    color: theme.$white;
   }
 }
 
@@ -91,6 +95,7 @@ $start-left: 4px;
 .track_on {
   &.dark {
     background: theme.$gunmetal-gray;
+    border: 1px solid theme.$gunmetal-gray;
   }
 
   &:not(.dark) {

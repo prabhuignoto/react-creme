@@ -66,6 +66,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
         [styles.disabled]: disabled,
         [styles[`${size}`]]: true,
         [styles.label_outside]: labelOutside,
+        [styles.dark]: isDarkMode,
       }),
     [size, labelOutside, disabled]
   );

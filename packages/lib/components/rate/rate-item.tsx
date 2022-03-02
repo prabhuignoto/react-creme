@@ -1,3 +1,4 @@
+import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import RateIcon from '../../icons/star';
@@ -18,6 +19,7 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = ({
   size = 'sm',
 }: RateItemViewProps) => {
   const ref = React.useRef<HTMLLIElement | null>(null);
+  const isDarkMode = useMemo(() => isDark(), []);
 
   if (focusable && !disabled) {
     useFocusNew(ref, () => onSelect(index));
@@ -30,6 +32,7 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = ({
         [styles[size]]: true,
         [styles.disabled]: disabled,
         [styles.hovered]: hovered,
+        [styles.dark]: isDarkMode,
       }),
     [active, hovered, disabled]
   );

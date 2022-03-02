@@ -1,29 +1,32 @@
-import { useCallback, useEffect, useRef } from 'react';
-import styles from './focus.module.scss';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
+import { isDark } from '../utils';
+import './focus.scss';
 
 /**
  * @param  {React.RefObject<HTMLElement>} ref
  * @param  {(ev?:Event)=>void} cb?
  */
-export default function useFocusNew(
+export default async function useFocusNew(
   ref: React.RefObject<HTMLElement>,
   cb?: (ev?: Event) => void
 ) {
   const ring = useRef<HTMLSpanElement>();
 
+  const isDarkMode = useMemo(() => isDark(), []);
+
   const focusHandler = useCallback(() => {
     const ele = ring.current;
     if (ele) {
-      ele.classList.remove(styles.ring_inactive);
-      ele.classList.add(styles.ring_active);
+      ele.classList.remove('focus_ring_inactive');
+      ele.classList.add('focus_ring_active');
     }
   }, []);
 
   const removeFocus = useCallback(() => {
     const ele = ring.current;
     if (ele) {
-      ele.classList.remove(styles.ring_active);
-      ele.classList.add(styles.ring_inactive);
+      ele.classList.remove('focus_ring_active');
+      ele.classList.add('focus_ring_inactive');
     }
   }, []);
 
@@ -46,7 +49,11 @@ export default function useFocusNew(
       ele.style.outline = 'none';
       ele.style.position = 'relative';
 
-      focusRing.classList.add(styles.focus_ring);
+      const classesToAdd = ['focus_ring', isDarkMode ? 'dark' : ''].filter(
+        cls => !!cls
+      );
+
+      focusRing.classList.add(...classesToAdd);
       focusRing.style.cssText = `
         width: ${clientWidth + 6}px;
         height: ${clientHeight + 6}px; 

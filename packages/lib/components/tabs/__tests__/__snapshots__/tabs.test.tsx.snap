@@ -2,63 +2,63 @@
 
 exports[`Tabs > should render snapshot 1`] = `
 <div
-  class="_tab_headers_12ld0_42 _tab_headers_flat_12ld0_99"
+  class="_tab_headers_1sn0q_42 _tab_headers_flat_1sn0q_99"
   role="tablist"
 >
   <div
-    aria-controls="rc-tab-panel-KCKROqKa3WDrnGbIcIa7J"
+    aria-controls="rc-tab-panel-vhbA8_uyaYXpv6yioPJ7z"
     aria-selected="true"
-    class="_tab_head_12ld0_1 _tab_head_selected_12ld0_159 _tab_head_flat_12ld0_156 _tab_head_sm_12ld0_5"
-    id="rc-tab-KCKROqKa3WDrnGbIcIa7J"
+    class="_tab_head_1sn0q_1 _tab_head_selected_1sn0q_159 _tab_head_flat_1sn0q_156 _tab_head_sm_1sn0q_5"
+    id="rc-tab-vhbA8_uyaYXpv6yioPJ7z"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="0"
   >
     <span
-      class="_tab_header_label_12ld0_5 undefined"
+      class="_tab_header_label_1sn0q_5 undefined"
     >
       one
     </span>
     <span
-      class="_focus_ring_193gd_1"
+      class="focus_ring"
       style="width: 6px; height: 6px;"
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-Sa4ttozOfGgwZQ7O-2Fha"
+    aria-controls="rc-tab-panel-RDQKqx_YxIcQdA034fZ9Z"
     aria-selected="false"
-    class="_tab_head_12ld0_1 _tab_head_flat_12ld0_156 _tab_head_sm_12ld0_5"
-    id="rc-tab-Sa4ttozOfGgwZQ7O-2Fha"
+    class="_tab_head_1sn0q_1 _tab_head_flat_1sn0q_156 _tab_head_sm_1sn0q_5"
+    id="rc-tab-RDQKqx_YxIcQdA034fZ9Z"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
   >
     <span
-      class="_tab_header_label_12ld0_5 undefined"
+      class="_tab_header_label_1sn0q_5 undefined"
     >
       two
     </span>
     <span
-      class="_focus_ring_193gd_1"
+      class="focus_ring"
       style="width: 6px; height: 6px;"
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-5rRxTH3IGpZFu31ZFsqD5"
+    aria-controls="rc-tab-panel-6VUOGqlJ5vCkEnPzDfpnd"
     aria-selected="false"
-    class="_tab_head_12ld0_1 _tab_head_flat_12ld0_156 _tab_head_sm_12ld0_5"
-    id="rc-tab-5rRxTH3IGpZFu31ZFsqD5"
+    class="_tab_head_1sn0q_1 _tab_head_flat_1sn0q_156 _tab_head_sm_1sn0q_5"
+    id="rc-tab-6VUOGqlJ5vCkEnPzDfpnd"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
   >
     <span
-      class="_tab_header_label_12ld0_5 undefined"
+      class="_tab_header_label_1sn0q_5 undefined"
     >
       three
     </span>
     <span
-      class="_focus_ring_193gd_1"
+      class="focus_ring"
       style="width: 6px; height: 6px;"
     />
   </div>
