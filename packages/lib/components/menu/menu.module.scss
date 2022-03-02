@@ -48,18 +48,18 @@
   content: '';
   display: blocks;
   position: absolute;
-  top: -10px;
+  top: -8px;
 }
 
 .left {
   &::after {
-    left: 6px;
+    left: 1rem;
   }
 }
 
 .right {
   &::after {
-    right: 6px;
+    right: 1rem;
   }
 }
 

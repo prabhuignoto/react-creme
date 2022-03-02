@@ -90,6 +90,7 @@ const Widget = () => {
                 width={width}
                 height={250}
                 animationType="drop"
+                size="md"
               >
                 <span>Your content here!</span>
               </Dialog>

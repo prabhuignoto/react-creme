@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
+import { Spinner } from '..';
 import useFocusNew from '../common/effects/useFocusNew';
-import { CircularProgress } from '../progress/circular-progress';
 import { ImageProps } from './image-model';
 import { ImageOverlay } from './image-overlay';
 import styles from './image.module.scss';
@@ -168,7 +168,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
       />
       {showLoader && !loaded && (
         <span className={styles.image_load_icon_wrapper}>
-          <CircularProgress size={loaderSize} />
+          <Spinner size={loaderSize} />
         </span>
       )}
       {openOverlay && src && (

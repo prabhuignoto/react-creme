@@ -161,13 +161,8 @@ $arrow-dim-lg: 20px;
   @extend %center;
 }
 
-.close_btn {
+.close_btn_wrapper {
   @include position.position-abs('top right');
-  color: theme.$gunmetal-gray;
-  cursor: pointer;
-  padding: 0.2rem;
-
-  &:hover {
-    color: theme.$primary;
-  }
+  right: 0.5rem;
+  top: 0.5rem;
 }

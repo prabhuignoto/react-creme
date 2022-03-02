@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import {
   BlockQuote,
@@ -9,13 +9,15 @@ import {
   Tooltip,
 } from '../../../lib/components';
 import { ToolTipPosition } from '../../../lib/components/tooltip/tooltip-model';
-import { responsiveState } from '../../atoms/home';
+import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 
 const Widgets = () => {
   const [position, setPosition] = useState<ToolTipPosition>('bottom center');
 
   const media = useRecoilValue(responsiveState);
+  const theme = useRecoilValue(themeState);
+  const isDark = useMemo(() => theme.darkMode, []);
 
   const [width, setWidth] = React.useState(0);
 
@@ -88,12 +90,14 @@ const Widgets = () => {
               size="sm"
             >
               <Card height={200}>
-                Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
-                molestie velit quis volutpat vestibulum. Donec facilisis est ac
-                condimentum aliquet. Nam semper dui eget sagittis sagittis.
-                Aenean sodales vulputate magna vitae sodales. Phasellus
-                dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam
-                diam, at pulvinar
+                <p style={{ color: isDark ? '#fff' : '#000' }}>
+                  Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
+                  molestie velit quis volutpat vestibulum. Donec facilisis est
+                  ac condimentum aliquet. Nam semper dui eget sagittis sagittis.
+                  Aenean sodales vulputate magna vitae sodales. Phasellus
+                  dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam
+                  diam, at pulvinar
+                </p>
               </Card>
             </Tooltip>
           </DemoWidget>
@@ -132,16 +136,17 @@ const Widgets = () => {
               message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
               position={position}
               minWidth={160}
-              size="md"
               openOnClick
             >
               <Card height={150}>
-                Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
-                molestie velit quis volutpat vestibulum. Donec facilisis est ac
-                condimentum aliquet. Nam semper dui eget sagittis sagittis.
-                Aenean sodales vulputate magna vitae sodales. Phasellus
-                dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam
-                diam, at pulvinar
+                <p style={{ color: isDark ? '#fff' : '#000' }}>
+                  Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
+                  molestie velit quis volutpat vestibulum. Donec facilisis est
+                  ac condimentum aliquet. Nam semper dui eget sagittis sagittis.
+                  Aenean sodales vulputate magna vitae sodales. Phasellus
+                  dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam
+                  diam, at pulvinar
+                </p>
               </Card>
             </Tooltip>
           </DemoWidget>

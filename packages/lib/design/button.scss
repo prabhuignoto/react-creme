@@ -47,19 +47,19 @@
 
 %button-primary {
   @include get-button-type(
+    rgba(theme.$primary-rgb, 0.85),
     theme.$primary,
-    theme.$secondary,
     theme.$white,
-    theme.$primary
+    theme.$white
   );
 }
 
 %button-danger {
   @include get-button-type(
+    rgba(theme.$crimson, 0.9),
     theme.$crimson,
-    rgba(theme.$crimson, 0.25),
     theme.$white,
-    theme.$crimson
+    theme.$white
   );
   border: 1px solid theme.$crimson;
 }
@@ -100,7 +100,7 @@
 @mixin get-button($size, $border) {
   @extend %button;
 
-  &:not(.btn_icon) {
+  &:not(.icon) {
     @if $size == small {
       height: 20px;
       padding: calc(20px * 0.25) calc(20px * 0.5);
@@ -113,7 +113,7 @@
     }
   }
 
-  &.btn_icon {
+  &.icon {
     border: 0;
   }
 }

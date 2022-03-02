@@ -49,20 +49,20 @@ exports[`Carousel > should render carousel snapshot 1`] = `
     class="_track_wrapper_1cdj9_16 _track_wrapper_horizontal_1cdj9_48"
   >
     <div
-      class="_track_wrapper_1cdj9_16 _track_wrapper_horizontal_1ym1m_16"
+      class="_track_wrapper_1cdj9_16 _track_wrapper_horizontal_doir4_16"
     >
       <span
         class="_btn_1cdj9_82 _btn_left_1cdj9_95 _btn_horizontal_1cdj9_85 _btn_hide_1cdj9_91"
       >
         <div
           aria-label="Previous"
-          class="_btn_sm_1s3ch_1 _btn_icon_1s3ch_40 _btn_1s3ch_1"
+          class="_sm_wxy6d_1 _icon_wxy6d_43 _btn_wxy6d_198"
           role="button"
           style="outline: none; position: relative;"
           tabindex="0"
         >
           <span
-            class="_btn_icon_container_1s3ch_40"
+            class="_icon_container_wxy6d_43"
             role="img"
           >
             <svg
@@ -80,21 +80,21 @@ exports[`Carousel > should render carousel snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="_focus_ring_193gd_1"
+            class="focus_ring"
             style="width: 6px; height: 6px;"
           />
         </div>
       </span>
       <ul
-        class="_track_1ym1m_16 _track_horizontal_1ym1m_16"
+        class="_track_doir4_16 _track_horizontal_doir4_16"
         role="list"
       >
         <li
-          class="_track_item_1ym1m_39 _track_item_selected_1ym1m_51"
+          class="_track_item_doir4_39 _track_item_selected_doir4_45"
           role="listitem"
         />
         <li
-          class="_track_item_1ym1m_39"
+          class="_track_item_doir4_39"
           role="listitem"
         />
       </ul>
@@ -103,13 +103,13 @@ exports[`Carousel > should render carousel snapshot 1`] = `
       >
         <div
           aria-label="Next"
-          class="_btn_sm_1s3ch_1 _btn_icon_1s3ch_40 _btn_1s3ch_1"
+          class="_sm_wxy6d_1 _icon_wxy6d_43 _btn_wxy6d_198"
           role="button"
           style="outline: none; position: relative;"
           tabindex="0"
         >
           <span
-            class="_btn_icon_container_1s3ch_40"
+            class="_icon_container_wxy6d_43"
             role="img"
           >
             <svg
@@ -127,7 +127,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="_focus_ring_193gd_1"
+            class="focus_ring"
             style="width: 6px; height: 6px;"
           />
         </div>

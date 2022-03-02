@@ -8,18 +8,18 @@ $types: (primary, default, danger);
 $sizes: (sm, md, lg);
 
 .btn {
-  &.btn_no_border {
+  &.no_border {
     border: 0;
     box-shadow: none;
   }
 
-  &:not(.btn_icon) {
+  &:not(.icon) {
     min-width: 50px;
   }
 }
 
 @each $value in $types {
-  .btn_#{$value} {
+  .#{$value} {
     @extend %button-#{$value};
 
     &.disabled {
@@ -30,38 +30,38 @@ $sizes: (sm, md, lg);
 }
 
 @each $size in $sizes {
-  .btn_#{$size} {
+  .#{$size} {
     @extend %text-#{$size};
     @extend %button-#{$size};
 
-    .btn_icon_container {
+    .icon_container {
       @extend %icon-#{$size};
     }
 
-    .btn_label {
+    .label {
       @extend %font-#{$size};
     }
   }
 }
 
-.btn_label {
+.label {
   @extend %text-no-wrap;
   text-transform: capitalize;
 }
 
 @each $size in $sizes {
-  .btn_#{$size} {
-    .btn_label {
+  .#{$size} {
+    .label {
       @extend %font-#{$size};
     }
 
-    .btn_icon {
+    .icon {
       @extend %icon-#{$size};
     }
   }
 }
 
-.btn_icon {
+.icon {
   border-radius: 50%;
   padding: 0.25rem;
 
@@ -91,10 +91,10 @@ $sizes: (sm, md, lg);
   }
 }
 
-.btn_icon_container + .btn_label {
+.icon_container + .label {
   margin-left: 0.25rem;
 }
 
-.btn_progress_wrapper {
+.progress_wrapper {
   margin-right: 0.5rem;
 }

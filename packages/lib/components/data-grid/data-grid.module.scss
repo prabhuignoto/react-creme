@@ -106,16 +106,6 @@ $sizes: (sm, md, lg);
     overflow-wrap: anywhere;
   }
 
-  &:not(.dark) em,
-  code {
-    background-color: rgba(theme.$secondary-rgb, 0.25);
-  }
-
-  &.dark em,
-  code {
-    background-color: theme.$gunmetal-gray;
-  }
-
   em,
   code {
     @extend %border-radius;
@@ -123,5 +113,19 @@ $sizes: (sm, md, lg);
     font-style: normal;
     font-weight: 400;
     padding: 0.1rem 0.25rem;
+  }
+}
+
+.cell-val:not(.dark) {
+  em,
+  code {
+    background-color: rgba(theme.$secondary-rgb, 0.25);
+  }
+}
+
+.cell-val.dark {
+  em,
+  code {
+    background-color: theme.$gunmetal-gray;
   }
 }

@@ -13,7 +13,7 @@ describe('Button', () => {
     const button = container.firstChild;
 
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass(styles.btn_default);
+    expect(button).toHaveClass(styles.default);
   });
 
   it('should render label', () => {
@@ -24,7 +24,7 @@ describe('Button', () => {
   it('should render size', () => {
     const { getByRole } = render(<Button label="My Button" size="lg" />);
     expect(getByRole('button')).toBeInTheDocument();
-    expect(getByRole('button')).toHaveClass(styles.btn_lg);
+    expect(getByRole('button')).toHaveClass(styles.lg);
   });
 
   it('should render button snapshot', () => {

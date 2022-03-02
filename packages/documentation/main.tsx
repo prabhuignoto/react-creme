@@ -29,7 +29,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const AppBootStrap = () => {
-  console.log('boot strap');
   const media = useMedia();
   const setResponsiveState = useSetRecoilState(responsiveState);
   const [canLoad, setCanLoad] = React.useState(false);

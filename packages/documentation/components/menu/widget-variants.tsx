@@ -34,7 +34,7 @@ export const AttachedToIcon = (
 
 export const AttachedToNativeElement = (
   <Menu
-    dockPosition="right"
+    dockPosition="left"
     items={[
       { name: 'Open' },
       { name: 'Save As' },

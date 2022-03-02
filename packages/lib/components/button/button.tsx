@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useImperativeHandle, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';
-import { CircularProgress } from '../progress/circular-progress';
+import { Spinner } from '../spinner/spinner';
 import { ButtonProps } from './button-model';
 import styles from './button.module.scss';
 
@@ -23,17 +23,16 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
 
   const isDarkMode = useMemo(() => isDark(), []);
 
-  // classes
   const buttonClass = useMemo(
     () =>
       classNames(
         {
-          [styles[`btn_default`]]: type === 'progress',
-          [styles.btn_no_border]: !border,
+          [styles[`default`]]: type === 'progress',
+          [styles.no_border]: !border,
           [styles.disabled]: disabled,
           [styles.dark]: isDarkMode,
         },
-        [styles[`btn_${size}`], styles[`btn_${type}`], styles['btn']]
+        [styles[size], styles[type], styles.btn]
       ),
     [disabled, isDarkMode]
   );
@@ -52,7 +51,6 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
   );
 
   if (focusable) {
-    // useFocusNew(ref, onClick);
     useFocusNew(buttonRef);
   }
 
@@ -81,17 +79,18 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
       aria-label={label}
     >
       {type === 'progress' && !disabled && (
-        <span className={styles.btn_progress_wrapper} role="img">
-          <CircularProgress size={'xs'} />
+        <span className={styles.progress_wrapper} role="img">
+          {/* <CircularProgress size={'xs'} /> */}
+          <Spinner />
         </span>
       )}
       {children && (
-        <span className={styles.btn_icon_container} role="img">
+        <span className={styles.icon_container} role="img">
           {children}
         </span>
       )}
       {label && type !== 'icon' && (
-        <span className={styles.btn_label}>{label}</span>
+        <span className={styles.label}>{label}</span>
       )}
     </div>
   );

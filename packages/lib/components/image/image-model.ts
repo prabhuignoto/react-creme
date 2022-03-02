@@ -13,7 +13,7 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fitImage?: boolean;
   focusable?: boolean;
   isOverlay?: boolean;
-  loaderSize?: 'xs' | 'sm' | 'md' | 'lg';
+  loaderSize?: 'sm' | 'md' | 'lg';
   onLoad?: (evt: React.SyntheticEvent) => void;
   showLoader?: boolean;
 }
