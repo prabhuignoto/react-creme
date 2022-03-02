@@ -21,17 +21,10 @@ const banner = `/*
  */
 `;
 
-const OUTPUT_NAME = 'ReactCreme';
-
 const globals = {
   globals: {
-    classnames: 'classNames',
-    'fast-deep-equal': 'fastDeepEqual',
-    'hex-rgb': 'hexRgb',
-    nanoid: 'nanoid',
     react: 'React',
     'react-dom': 'ReactDOM',
-    'use-debounce': 'useDebounce',
   },
 };
 
@@ -43,18 +36,16 @@ export default {
       banner,
       format: 'es',
       ...globals,
-      exports: 'named',
+      exports: 'auto',
       file: pkg.module,
-      name: OUTPUT_NAME,
       strict: true,
     },
     {
       banner,
       format: 'cjs',
       ...globals,
-      exports: 'named',
+      exports: 'auto',
       file: pkg.main,
-      name: OUTPUT_NAME,
       strict: true,
     },
   ],
