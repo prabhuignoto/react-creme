@@ -64,7 +64,7 @@
   }
 
   &.dark {
-    background: rgba($color: #fff, $alpha: 0.5);
+    background: rgba($color: #000, $alpha: 0.5);
     // background: #003b73;
   }
 
@@ -145,7 +145,7 @@
   text-align: left;
 
   &.dark {
-    color: #003b73;
+    color: #fff;
   }
 
   &:not(.dark) {
