@@ -13,8 +13,9 @@ $sizes: (sm, md, lg);
   @extend %left;
   position: relative;
   width: 100%;
+  z-index: 2;
 
-  &::after {
+  &.tab_headers_flat::after {
     @include position.position-abs('bottom center');
     content: '';
     display: block;
@@ -26,7 +27,7 @@ $sizes: (sm, md, lg);
     background: theme.$charcoal-gray;
   }
 
-  &:not(.tab_headers_dark)::after {
+  &:not(.tab_headers_dark).flat::after {
     background: theme.$platinum;
   }
 }
@@ -46,11 +47,16 @@ $sizes: (sm, md, lg);
 
 .tab_headers {
   @extend %list-horizontal-left;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
   width: 90%;
   z-index: 1;
+
+  &.rounded {
+    align-items: flex-end;
+  }
 }
 
 .tab_header_control {
@@ -100,7 +106,7 @@ $sizes: (sm, md, lg);
   }
 
   &.tab_head_rounded {
-    height: 80%;
+    height: 85%;
   }
 
   &.tab_head_flat {
@@ -199,11 +205,15 @@ $sizes: (sm, md, lg);
   position: relative;
 
   &.dark {
-    border: 1px solid theme.$charcoal-gray;
+    border-left: 1px solid theme.$charcoal-gray;
+    border-right: 1px solid theme.$charcoal-gray;
+    border-top: 1px solid theme.$charcoal-gray;
   }
 
   &:not(.dark) {
-    border: 1px solid theme.$platinum;
+    border-left: 1px solid theme.$platinum;
+    border-right: 1px solid theme.$platinum;
+    border-top: 1px solid theme.$platinum;
   }
 }
 

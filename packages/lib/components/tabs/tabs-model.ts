@@ -91,6 +91,8 @@ export interface TabsProps {
   // labels for the tabs
   labels: string[];
 
+  minHeight?: number;
+
   size?: 'sm' | 'md' | 'lg';
 
   // custom style that will be applied to the tab container

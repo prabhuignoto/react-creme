@@ -1,4 +1,3 @@
-import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
@@ -10,6 +9,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import { isDark } from '../common/utils';
 import { TabHeaders } from './tab-headers';
 import { TabPanel } from './TabPanel';
 import { TabItemProps, TabsProps } from './tabs-model';
@@ -28,6 +28,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   width = '100%',
   activeTab,
   size = 'sm',
+  minHeight = 200,
 }) => {
   const selectionStart = useRef<number>(-1);
   const [activeTabId, setActiveTabId] = useState<string>('');
@@ -105,7 +106,8 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
       ({
         ...style,
         '--icons-color': iconsColor,
-        '--min-width': Number.isInteger(width) ? `${width}px` : width,
+        '--rc-tabs-min-height': `${minHeight}px`,
+        '--rc-tabs-min-width': Number.isInteger(width) ? `${width}px` : width,
       } as CSSProperties),
     []
   );

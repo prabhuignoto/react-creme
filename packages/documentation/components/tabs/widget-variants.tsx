@@ -41,6 +41,7 @@ export const Default = (
     border={false}
     activeTab="two"
     size="sm"
+    minHeight={250}
     // focusable
   >
     <span>one</span>
@@ -61,6 +62,7 @@ export const Rounded = (
     border={false}
     tabStyle="rounded"
     focusable
+    minHeight={250}
   >
     <span>one</span>
     <span>two</span>
@@ -74,6 +76,7 @@ export const Disabled = (
     labels={['one', 'two', 'three']}
     tabStyle="flat"
     disabledTabs={['two', 'one']}
+    minHeight={250}
   >
     <span>one</span>
     <span>two</span>
@@ -95,6 +98,7 @@ export const Icons = (
       'nine',
     ]}
     tabStyle="flat"
+    minHeight={250}
     disabledTabs={['two', 'one']}
     icons={icons}
   >
