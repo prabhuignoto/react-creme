@@ -12,14 +12,19 @@
 
 .tabs {
   @extend %col;
+  // min-height: var(--rc-tabs-min-height);
   padding: 0.2rem;
-  width: var(--min-width);
+  position: relative;
+  width: var(--rc-tabs-min-width);
 }
 
 .tab_panels {
   @extend %list;
   min-height: 200px;
+  top: 45px;
   width: 100%;
+  // position: absolute;
+  z-index: 0;
 }
 
 .panel_border {
@@ -30,9 +35,7 @@
   margin-left: 0.1rem;
 
   &.dark {
-    border-bottom: 1px solid theme.$charcoal-gray;
-    border-left: 1px solid theme.$charcoal-gray;
-    border-right: 1px solid theme.$charcoal-gray;
+    border: 1px solid theme.$charcoal-gray;
   }
 
   &:not(.dark) {

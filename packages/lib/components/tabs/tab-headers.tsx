@@ -17,7 +17,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   handleTabSelection,
   icons,
   items,
-  tabStyle,
+  tabStyle = 'flat',
   activeTabId,
   size,
 }: TabHeadersProps) => {
@@ -90,12 +90,13 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     return classNames(styles.tab_headers_wrapper, {
       [styles[`tab_headers_${tabStyle}`]]: true,
       [styles.tab_headers_dark]: isDarkMode,
+      [styles[tabStyle]]: true,
     });
   }, [isDarkMode]);
 
   const tabHeadersClass = useMemo(() => {
     return classNames(styles.tab_headers, {
-      [styles[`tab_headers_${tabStyle}`]]: true,
+      [styles[tabStyle]]: true,
     });
   }, []);
 

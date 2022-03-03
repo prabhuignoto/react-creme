@@ -51,6 +51,7 @@ function widgets() {
           </BlockQuote>
           <DemoWidget width={width}>
             <Tabs
+              minHeight={250}
               labels={[
                 'one',
                 'two',

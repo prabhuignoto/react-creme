@@ -29,7 +29,7 @@ const globals = {
 };
 
 export default {
-  external: [...Object.keys(pkg.peerDependencies || {})],
+  external: [...Object.keys(pkg.peerDependencies || {}), '@babel/runtime'],
   input: 'react-creme.ts',
   output: [
     {
@@ -62,10 +62,6 @@ export default {
       babelrc: true,
       exclude: '**/node_modules/**',
       extensions: ['.ts', '.tsx'],
-      plugins: [
-        '@babel/plugin-transform-runtime',
-        '@babel/plugin-proposal-optional-chaining',
-      ],
     }),
     purgecss({
       content: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],

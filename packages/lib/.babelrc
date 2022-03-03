@@ -17,8 +17,7 @@
         "corejs": false,
         "helpers": true,
         "regenerator": true,
-        "useESModules": false,
-        "version": "^7.8.3"
+        "useESModules": true
       }
     ],
     "@babel/plugin-proposal-class-properties",
