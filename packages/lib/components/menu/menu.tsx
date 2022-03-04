@@ -146,7 +146,18 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     [focusable]
   );
 
-  const { onRef } = useOnClickOutside(() => setShowMenu(false));
+  const handleClickOnOutside = useCallback(() => {
+    setShowMenu(prev => {
+      if (prev) {
+        onClose?.();
+        return !prev;
+      }
+
+      return prev;
+    });
+  }, []);
+
+  const { onRef } = useOnClickOutside(handleClickOnOutside);
 
   return (
     <div className={menuWrapperClass} style={style} ref={onRef}>
