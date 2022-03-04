@@ -136,6 +136,11 @@ export const routes = [
     key: 'form-field',
     path: '/form-field',
   },
+  {
+    component: lazy(() => import('../components/menu-bar')),
+    key: 'menu-bar',
+    path: '/menu-bar',
+  },
 ];
 
 export { routes as routes2 };

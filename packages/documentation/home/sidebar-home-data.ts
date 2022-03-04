@@ -98,6 +98,7 @@ export default [
       { name: 'Drawer' },
       { name: 'Tooltip' },
       { name: 'Menu' },
+      { name: 'Menu Bar' },
     ],
     title: 'Overlay',
   },

@@ -42,7 +42,7 @@
   }
 }
 
-.menu::after {
+.arrow::after {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   content: '';
@@ -52,13 +52,13 @@
 }
 
 .left {
-  &::after {
+  &.arrow::after {
     left: 1rem;
   }
 }
 
 .right {
-  &::after {
+  &.arrow::after {
     right: 1rem;
   }
 }

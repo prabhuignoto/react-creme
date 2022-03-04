@@ -5,6 +5,8 @@ export interface MenuProps {
   disabled?: boolean;
   dockPosition?: 'left' | 'right' | 'center';
   focusable?: boolean;
+  gutter?: number;
+  hideArrow?: boolean;
   id?: string;
   isClosing?: boolean;
   items: MenuItemProps[];
@@ -24,7 +26,7 @@ export type MenuItemProps = Pick<MenuProps, 'disabled'> & {
 
 export type MenuOverlayModel = Pick<
   MenuProps,
-  'focusable' | 'items' | 'size' | 'dockPosition'
+  'focusable' | 'items' | 'size' | 'dockPosition' | 'hideArrow'
 > & {
   onSelection?: (val: string) => void;
   ref?: RefObject<HTMLUListElement | null>;

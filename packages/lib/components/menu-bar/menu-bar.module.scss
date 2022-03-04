@@ -1,0 +1,39 @@
+@use '../../design/core.scss';
+@use '../../design/list.scss';
+@use '../../design/theme.scss';
+
+.wrapper {
+  @extend %shadow-inset;
+  @extend %border;
+
+  &.left_aligned {
+    @extend %list-horizontal-left;
+  }
+
+  &.right_aligned {
+    @extend %list-horizontal-right;
+  }
+}
+
+.item {
+  @extend %center;
+  padding: 0.75rem 0.25rem;
+  width: 80px;
+
+  &:not(:last-child) {
+    margin-right: 0.25rem;
+  }
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
+
+  &.active {
+    background-color: theme.$primary;
+    color: theme.$white;
+  }
+}

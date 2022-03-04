@@ -77,6 +77,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         onSelected={handleChange}
         dockPosition={menuPosition}
         size={size}
+        gutter={20}
       >
         <span className={iconClass} role="img">
           <ChevronDownIcon />

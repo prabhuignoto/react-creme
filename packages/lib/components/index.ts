@@ -24,6 +24,7 @@ export { Input } from './input/input';
 export { Kbd } from './kbd/kbd';
 export { Link } from './link/link';
 export { List } from './list/list';
+export { MenuBar } from './menu-bar/menu-bar';
 export { Menu } from './menu/menu';
 export { Notification } from './notification/notification';
 export { PageHeader } from './page-header/page-header';

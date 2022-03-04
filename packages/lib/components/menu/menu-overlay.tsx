@@ -20,6 +20,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
       focusable,
       size = 'sm',
       dockPosition = 'left',
+      hideArrow,
     }: MenuOverlayModel,
     ref
   ) => {
@@ -43,6 +44,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
           [styles[size]]: size,
           [styles[dockPosition]]: true,
           [styles.dark]: isDarkMode,
+          [styles.arrow]: !hideArrow,
         }),
       []
     );

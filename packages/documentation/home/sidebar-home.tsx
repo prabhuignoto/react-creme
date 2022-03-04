@@ -29,7 +29,7 @@ const SideBar: FunctionComponent<{
   onSelect: (group: SidebarGroupModel, item: SidebarItemModel) => void;
   theme: Theme;
 }> = React.memo(
-  ({ theme, onSelect }) => {
+  ({ onSelect }) => {
     return (
       <div style={{ height: '100vh', width: '100%' }}>
         <Sidebar
@@ -39,7 +39,6 @@ const SideBar: FunctionComponent<{
           sectionsCollapsible={false}
           groups={data}
           focusable={false}
-          backGroundColor={theme.darkMode ? '#000' : '#fff'}
           icons={[
             <FontAwesomeIcon size="2x" icon={faRocket} key="home" />,
             <FontAwesomeIcon size="2x" icon={faBorderAll} key="layout" />,

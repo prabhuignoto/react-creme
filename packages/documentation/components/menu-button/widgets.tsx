@@ -24,6 +24,16 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
+      <Section title="Custom sizes" size="md">
+        <DemoWidget>
+          <MenuButton
+            size="md"
+            items={['save', 'save as new', 'discard']}
+            width={150}
+            RTL
+          />
+        </DemoWidget>
+      </Section>
     </div>
   );
 }
