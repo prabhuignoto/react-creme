@@ -9,7 +9,7 @@ import React, {
 import { Menu } from '..';
 import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { isDark } from '../common/utils';
-import { MenuBarItem } from './menu-bar.item';
+import { MenuBarItem } from './item';
 import { MenuBarProps } from './menu-bar.model';
 import styles from './menu-bar.module.scss';
 
