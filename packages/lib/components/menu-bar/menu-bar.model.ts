@@ -1,13 +1,5 @@
-import { MenuItemProps } from '@components/menu/menu-item';
 import { ReactNode } from 'react';
-
-export type MenuBarItemProps = {
-  active?: boolean;
-  id?: string;
-  isMenuOpen?: boolean;
-  items: MenuItemProps[];
-  name: string;
-};
+import { MenuItemProps } from '../menu/menu-item';
 
 export type MenuBarProps = {
   RTL?: boolean;
@@ -17,4 +9,20 @@ export type MenuBarProps = {
   noUniqueId?: boolean;
   onSelect?: (s: { id?: string; path?: string }) => void;
   size?: 'sm' | 'md' | 'lg';
+};
+
+export type MenuBarItemProps = {
+  active?: boolean;
+  id?: string;
+  items: MenuItemProps[];
+  name: string;
+};
+
+export type MenuBarItemViewProps = Pick<MenuBarProps, 'RTL' | 'size'> & {
+  active?: boolean;
+  icon?: ReactNode;
+  id?: string;
+  isMenuOpen?: boolean;
+  name: string;
+  showIcon?: boolean;
 };

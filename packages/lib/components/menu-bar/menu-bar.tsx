@@ -7,10 +7,9 @@ import React, {
   useState,
 } from 'react';
 import { Menu } from '..';
-import { ChevronDownIcon } from '../../icons';
-import { useFirstRender } from '../common/effects/useFirstRender';
 import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { isDark } from '../common/utils';
+import { MenuBarItem } from './menu-bar-item';
 import { MenuBarProps } from './menu-bar.model';
 import styles from './menu-bar.module.scss';
 
@@ -77,8 +76,6 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
 
   const hasIcons = useMemo(() => !!icons.length, []);
 
-  const isFirstRender = useFirstRender();
-
   return (
     <ul className={menuBarClass} ref={onRef}>
       {_items.map((item, index) => (
@@ -94,40 +91,16 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
           onSelected={name => handleSelection(item.id, item.name, name)}
           focusable={focusable}
         >
-          <li
-            className={classNames(styles.item, isDarkMode && styles.dark, {
-              [styles.active]: item.active,
-            })}
-          >
-            {hasIcons && (
-              <span className={classNames(styles.icon, styles.size)}>
-                {icons[index]}
-              </span>
-            )}
-            <span
-              className={classNames(
-                styles.name,
-                styles[size],
-                RTL ? styles.rtl : ''
-              )}
-            >
-              {item.name}
-            </span>
-            <span
-              className={classNames(
-                styles.chevron_icon,
-                styles[size],
-                RTL ? styles.rtl : '',
-                item.isMenuOpen
-                  ? styles.rotate
-                  : !isFirstRender.current
-                  ? styles.rotate_reverse
-                  : ''
-              )}
-            >
-              <ChevronDownIcon />
-            </span>
-          </li>
+          <MenuBarItem
+            active={item.active}
+            icon={icons[index]}
+            RTL={RTL}
+            name={item.name}
+            size={size}
+            isMenuOpen={item.isMenuOpen}
+            showIcon={hasIcons}
+            key={item.id}
+          />
         </Menu>
       ))}
     </ul>
