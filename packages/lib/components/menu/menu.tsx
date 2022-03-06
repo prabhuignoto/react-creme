@@ -26,6 +26,8 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   onSelected,
   size = 'sm',
   style,
+  gutter = 12,
+  hideArrow = false,
 }: MenuProps) => {
   const [menuItems] = useState<MenuItemProps[]>(
     items.map(item => ({
@@ -35,7 +37,6 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   );
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isFirstRender = useFirstRender();
-  // const containerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLUListElement | null>(null);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -145,7 +146,18 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     [focusable]
   );
 
-  const { onRef } = useOnClickOutside(() => setShowMenu(false));
+  const handleClickOnOutside = useCallback(() => {
+    setShowMenu(prev => {
+      if (prev) {
+        onClose?.();
+        return !prev;
+      }
+
+      return prev;
+    });
+  }, []);
+
+  const { onRef } = useOnClickOutside(handleClickOnOutside);
 
   return (
     <div className={menuWrapperClass} style={style} ref={onRef}>
@@ -168,10 +180,11 @@ const Menu: React.FunctionComponent<MenuProps> = ({
             onOpen={handleOnOpen}
             ref={menuRef}
             focusable={focusable}
-            placementOffset={14}
+            placementOffset={gutter}
             size={size}
             align={dockPosition}
             dockPosition={dockPosition}
+            hideArrow={hideArrow}
           />
         </div>
       )}

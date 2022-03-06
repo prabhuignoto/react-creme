@@ -88,6 +88,11 @@ export type {
   ListOption,
   ListProps,
 } from './components/list/list-model';
+export { MenuBar } from './components/menu-bar/menu-bar';
+export type {
+  MenuBarItemProps,
+  MenuBarProps,
+} from './components/menu-bar/menu-bar.model';
 export { MenuButton } from './components/menu-button/menu-button';
 export type { MenuButtonProps } from './components/menu-button/menu-button.model';
 export { Menu } from './components/menu/menu';
