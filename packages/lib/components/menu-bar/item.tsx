@@ -25,7 +25,8 @@ const MenuBarItem: FunctionComponent<MenuBarItemViewProps> = memo(
           className={classNames(
             styles.name,
             styles[size],
-            RTL ? styles.rtl : ''
+            RTL ? styles.rtl : '',
+            active ? styles.active : ''
           )}
         >
           {name}
@@ -46,7 +47,8 @@ const MenuBarItem: FunctionComponent<MenuBarItemViewProps> = memo(
         </span>
       </li>
     );
-  }
+  },
+  (prev, next) => prev.active === next.active
 );
 
 MenuBarItem.displayName = 'MenuBarItem';

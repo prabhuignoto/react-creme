@@ -81,10 +81,13 @@ $sizes: (sm, md, lg);
       @extend %text-#{$size};
     }
   }
+
+  &.active {
+    color: theme.$white;
+  }
 }
 
 .icon {
-  // margin: 0 0.5rem;
   margin-left: 0.5rem;
 
   @each $size in $sizes {
