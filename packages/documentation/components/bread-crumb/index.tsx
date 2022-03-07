@@ -8,7 +8,8 @@ function BreadCrumb() {
       properties={[
         {
           default: 'chevron',
-          description: 'The icon to use for the breadcrumb',
+          description:
+            'The icon to use for the breadcrumb. Can be <code>chevron</code>, <code>arrow</code> or <code>slash</code>',
           name: 'icon',
           optional: 'Yes',
           type: 'String',
@@ -54,6 +55,13 @@ function BreadCrumb() {
           name: 'focusable',
           optional: 'Yes',
           type: 'Boolean',
+        },
+        {
+          default: [],
+          description: 'The links to display in the breadcrumb',
+          name: 'links',
+          optional: 'Yes',
+          type: 'Array',
         },
       ]}
       tabTitles={['Examples', 'properties', 'StackBlitz']}
