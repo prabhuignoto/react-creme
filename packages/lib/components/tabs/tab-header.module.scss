@@ -72,7 +72,7 @@ $sizes: (sm, md, lg);
 .tab_header_btn {
   @extend %border-radius;
   @extend %icon-lg;
-  color: var(--icons-color, theme.$primary);
+  color: theme.$primary;
   cursor: pointer;
 
   &:hover {
@@ -81,6 +81,12 @@ $sizes: (sm, md, lg);
 
   &.tab_header_btn_disabled {
     @extend %disabled;
+  }
+}
+
+.tab_header_btn.dark {
+  &:hover {
+    color: theme.$white;
   }
 }
 

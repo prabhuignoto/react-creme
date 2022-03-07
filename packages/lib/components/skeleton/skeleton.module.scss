@@ -16,7 +16,7 @@ $settings: (
 .wrapper {
   @extend %border-radius;
   min-height: var(--min-height);
-  min-width: var(--min-width);
+  width: 100%;
 
   &.dark {
     background: theme.$gunmetal-gray;

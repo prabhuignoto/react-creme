@@ -159,6 +159,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
               styles.tab_header_btn_left,
               {
                 [styles.tab_header_btn_disabled]: disableScrollLeft,
+                [styles.dark]: isDarkMode,
               }
             )}
             role="button"
@@ -170,6 +171,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
           <span
             className={classNames(styles.tab_header_btn, {
               [styles.tab_header_btn_disabled]: disableScrollRight,
+              [styles.dark]: isDarkMode,
             })}
             role="button"
             aria-label="scroll right"
