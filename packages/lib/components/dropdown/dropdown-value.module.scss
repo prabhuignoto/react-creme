@@ -1,6 +1,7 @@
 @use '../../design/theme.scss';
 @use '../../design/core.scss';
 @use '../../design/animate.scss';
+@use '../../design/font.scss';
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -143,4 +144,9 @@ $sizes: (sm, md, lg);
       @extend %icon-#{$size};
     }
   }
+}
+
+.not_selected {
+  color: theme.$chinese-gray;
+  font-style: italic;
 }

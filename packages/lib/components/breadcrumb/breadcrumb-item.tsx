@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { FunctionComponent, useCallback, useMemo, useRef } from 'react';
-import { ArrowRightIcon, ChevronRightIcon } from '../../icons';
+import { ArrowRightIcon, ChevronRightIcon, MinusIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { Link } from '../link/link';
 import { BreadCrumbItemProps } from './breadcrumb-model';
@@ -22,6 +22,7 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
     const breadCrumbIcon = useMemo(() => {
       return classNames(styles.bread_crumb_icon, {
         [styles[`bread_crumb_icon_${size}`]]: true,
+        [styles.slash]: icon === 'slash',
       });
     }, []);
 
@@ -46,7 +47,7 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
           <span className={breadCrumbIcon}>
             {icon === 'chevron' && <ChevronRightIcon />}
             {icon === 'arrow' && <ArrowRightIcon />}
-            {icon === 'slash' && '/'}
+            {icon === 'slash' && <MinusIcon />}
           </span>
         )}
       </li>

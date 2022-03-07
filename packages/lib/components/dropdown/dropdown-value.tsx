@@ -76,8 +76,9 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   const valueClass = useMemo(() => {
     return cls(styles.value, {
       [styles.rtl]: RTL,
+      [styles.not_selected]: selectedValue === placeholder,
     });
-  }, []);
+  }, [selectedValue]);
 
   if (focusable && containerRef) {
     useFocusNew(containerRef, onToggle);
