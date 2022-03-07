@@ -36,7 +36,7 @@
     "eslint-plugin-typescript-sort-keys": "^2.1.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
-    "postcss": "^8.4.7",
+    "postcss": "^8.4.8",
     "postcss-bem-linter": "^3.3.0",
     "postcss-preset-env": "^7.4.2",
     "postcss-scss": "^4.0.3",

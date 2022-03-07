@@ -60,7 +60,7 @@
     "autoprefixer": "^10.4.2",
     "cssnano": "^5.1.0",
     "esbuild": "^0.14.25",
-    "postcss": "^8.4.7",
+    "postcss": "^8.4.8",
     "postcss-bem-linter": "^3.3.0",
     "postcss-prefixer": "^2.1.3",
     "postcss-preset-env": "^7.4.2",
