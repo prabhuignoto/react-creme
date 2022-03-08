@@ -65,6 +65,7 @@ export default [
       { name: 'Auto Suggest' },
       { name: 'Menu Button' },
       { name: 'Form Field' },
+      { name: 'Form Group' },
     ],
     title: 'Inputs',
   },

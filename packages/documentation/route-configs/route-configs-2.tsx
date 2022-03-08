@@ -141,6 +141,11 @@ export const routes = [
     key: 'menu-bar',
     path: '/menu-bar',
   },
+  {
+    component: lazy(() => import('../components/form-group')),
+    key: 'form-group',
+    path: '/form-group',
+  },
 ];
 
 export { routes as routes2 };
