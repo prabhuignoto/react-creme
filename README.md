@@ -31,7 +31,7 @@ Modern UI Toolkit for React
 
 - ♿ Accessible UI Components.
 
-- 🌈 40+ UI Components.
+- 🌈 45+ UI Components.
 
 - 🛠️ Customizable components.
 
@@ -39,7 +39,7 @@ Modern UI Toolkit for React
 
 - ⚙️ Minimal Third party dependencies.
 
-- 🪶 At ~30kb minified and gzipped, `react-creme` is a lightweight component library.
+- 🪶 At ~42kb minified and gzipped, `react-creme` is a lightweight component library.
 
 <h2>Table of Contents</h2>
 
