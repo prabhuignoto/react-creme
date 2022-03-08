@@ -21,6 +21,24 @@ function formGroup() {
           type: 'boolean',
         },
       ]}
+      callbacks={[
+        {
+          default: '',
+          description:
+            'Callback function that is called when the form is submitted.',
+          name: 'onSubmit',
+          optional: 'Yes',
+          type: 'function',
+        },
+        {
+          default: '',
+          description:
+            'Callback function that is called when the form is canceled.',
+          name: 'onCancel',
+          optional: 'Yes',
+          type: 'function',
+        },
+      ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['']}
       demoWidget={<Widgets />}
