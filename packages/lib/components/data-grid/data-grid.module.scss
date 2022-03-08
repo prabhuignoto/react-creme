@@ -116,14 +116,14 @@ $sizes: (sm, md, lg);
   }
 }
 
-.cell-val:not(.dark) {
+.cell_val:not(.dark) {
   em,
   code {
     background-color: rgba(theme.$secondary-rgb, 0.25);
   }
 }
 
-.cell-val.dark {
+.cell_val.dark {
   em,
   code {
     background-color: theme.$gunmetal-gray;

@@ -41,6 +41,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       onChange,
       onFocus,
       onKeyUp,
+      onKeyDown,
       placeholder = 'Please enter a value ...',
       showSpinner = false,
       size = 'sm',
@@ -202,6 +203,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           {...focusProps}
           {...controlledProps}
           onKeyUp={onKeyUp}
+          onKeyDown={onKeyDown}
           ref={inputRef}
           id={inputId.current}
           disabled={inputDisabled}
