@@ -77,4 +77,19 @@ describe('Input Number', () => {
 
     expect(getByDisplayValue('5')).toBeInTheDocument();
   });
+
+  it('should increment or decrement on keyboard interaction', async () => {
+    const { getByDisplayValue, getByPlaceholderText } = render(
+      <InputNumber start={1} end={10} placeholder="choose a value" />
+    );
+
+    const input = getByPlaceholderText('choose a value');
+
+    expect(input).toBeInTheDocument();
+    fireEvent.keyUp(input, { key: 'ArrowUp' });
+    expect(getByDisplayValue('2')).toBeInTheDocument();
+
+    fireEvent.keyUp(input, { key: 'ArrowDown' });
+    expect(getByDisplayValue('1')).toBeInTheDocument();
+  });
 });

@@ -3,14 +3,14 @@
 exports[`Breadcrumb > should render snapshot 1`] = `
 <ul
   aria-label="breadcrumbs"
-  class="_bread_crumbs_wrapper_1ju3c_42"
+  class="_bread_crumbs_wrapper_y5rr3_42"
   role="navigation"
 >
   <li
-    class="_bread_crumb_1ju3c_1"
+    class="_bread_crumb_y5rr3_1"
   >
     <span
-      class="_bread_crumb_node_1ju3c_1 _bread_crumb_node_sm_1ju3c_5"
+      class="_bread_crumb_node_y5rr3_1 _bread_crumb_node_sm_y5rr3_5"
     >
       <a
         class="_link_apynu_1 _sm_apynu_19 _highlight_apynu_82"
@@ -29,7 +29,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       </a>
     </span>
     <span
-      class="_bread_crumb_icon_1ju3c_17 _bread_crumb_icon_sm_1ju3c_17"
+      class="_bread_crumb_icon_y5rr3_17 _bread_crumb_icon_sm_y5rr3_17"
     >
       <svg
         fill="none"
@@ -47,10 +47,10 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     </span>
   </li>
   <li
-    class="_bread_crumb_1ju3c_1"
+    class="_bread_crumb_y5rr3_1"
   >
     <span
-      class="_bread_crumb_node_1ju3c_1 _bread_crumb_node_sm_1ju3c_5"
+      class="_bread_crumb_node_y5rr3_1 _bread_crumb_node_sm_y5rr3_5"
     >
       <a
         class="_link_apynu_1 _sm_apynu_19"
@@ -69,7 +69,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       </a>
     </span>
     <span
-      class="_bread_crumb_icon_1ju3c_17 _bread_crumb_icon_sm_1ju3c_17"
+      class="_bread_crumb_icon_y5rr3_17 _bread_crumb_icon_sm_y5rr3_17"
     >
       <svg
         fill="none"
@@ -87,10 +87,10 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     </span>
   </li>
   <li
-    class="_bread_crumb_1ju3c_1"
+    class="_bread_crumb_y5rr3_1"
   >
     <span
-      class="_bread_crumb_node_1ju3c_1 _bread_crumb_node_sm_1ju3c_5"
+      class="_bread_crumb_node_y5rr3_1 _bread_crumb_node_sm_y5rr3_5"
     >
       <a
         class="_link_apynu_1 _sm_apynu_19"

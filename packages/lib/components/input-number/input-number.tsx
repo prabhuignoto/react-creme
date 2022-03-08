@@ -21,6 +21,7 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
   size = 'sm',
   border = false,
   RTL = false,
+  placeholder = '',
 }) => {
   const [number, setNumber] = useState(
     value ? (value > end ? end : value < start ? start : value) : start
@@ -59,6 +60,18 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
     []
   );
 
+  const handleKeyUp = useCallback(
+    (ev: React.KeyboardEvent) => {
+      ev.preventDefault();
+      if (ev.key === 'ArrowUp') {
+        increment();
+      } else if (ev.key === 'ArrowDown') {
+        decrement();
+      }
+    },
+    [number]
+  );
+
   return (
     <div className={inputClass}>
       <Input
@@ -69,6 +82,11 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         focusable={false}
         size={size}
         type="number"
+        onKeyUp={handleKeyUp}
+        placeholder={placeholder}
+        onKeyDown={(ev: React.KeyboardEvent) => {
+          ev.preventDefault();
+        }}
       />
       <div className={styles.controls}>
         <span

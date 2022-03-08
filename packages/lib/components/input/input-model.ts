@@ -63,6 +63,8 @@ export interface InputProps {
 
   onFocus?: (ev: React.FocusEvent) => void;
 
+  onKeyDown?: (ev: React.KeyboardEvent) => void;
+
   /**
    * 🔴 callback executed on every keystroke
    */
