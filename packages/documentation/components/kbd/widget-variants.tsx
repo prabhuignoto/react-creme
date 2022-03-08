@@ -45,13 +45,13 @@ export const ButtonRaisedRight = (
 );
 export const Thickness = (
   <KbdCombination>
-    <Kbd buttonRaised="right" thickness={7} size="md">
+    <Kbd buttonRaised="right" thickness={5} size="md">
       Shift
     </Kbd>
-    <Kbd buttonRaised="right" thickness={7} size="md">
+    <Kbd buttonRaised="right" thickness={5} size="md">
       Alt
     </Kbd>
-    <Kbd buttonRaised="right" thickness={7} size="md">
+    <Kbd buttonRaised="right" thickness={5} size="md">
       X
     </Kbd>
   </KbdCombination>

@@ -13,6 +13,7 @@ $heights: (
 .input_number {
   @extend %left;
   padding: 0.2rem;
+  user-select: none;
 
   &.border {
     @extend %border;

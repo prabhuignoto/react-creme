@@ -16,6 +16,7 @@ export { Dialog } from './dialog/dialog';
 export { Drawer } from './drawer/drawer';
 export { Dropdown } from './dropdown/dropdown';
 export { FormField } from './form-field/form-field';
+export { FormGroup } from './form-group/form-group';
 export { GlobalNotification } from './global-notification/global-notification';
 export { ImageComparer } from './image-comparer/image-comparer';
 export { Image } from './image/image';
