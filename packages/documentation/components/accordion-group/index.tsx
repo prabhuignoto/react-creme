@@ -14,6 +14,7 @@ function accordionGroup() {
       sourceId="accordion-group/accordion-group.tsx"
       editId="accordion-group"
       pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}
+      features={['Auto closing sections', 'Customizable icons', 'Custom Sizes']}
       properties={[
         {
           default: 'False',

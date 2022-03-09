@@ -3,8 +3,9 @@ import React, { useLayoutEffect, useMemo } from 'react';
 import { Section } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
 import useMedia from '../useMedia';
+import DemoPageFeatures from './demo-page-features';
 import { DemoPageHeader } from './demo-page-header';
-import './demo-page-renderer.scss';
+import styles from './demo-page-renderer.module.scss';
 import { DemoPageTabs } from './demo-page-tabs';
 
 export interface DemoPageRendererProps {
@@ -12,7 +13,7 @@ export interface DemoPageRendererProps {
   demoWidget: React.ReactNode;
   description?: string | React.ReactNode;
   editId?: string;
-  features: string[];
+  features?: string[];
   pageIcon?: React.ReactNode;
   properties: any[];
   sourceId?: string;
@@ -115,7 +116,7 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
 
       return (
         width && (
-          <div className="rc-demo-page">
+          <div className={styles.wrapper}>
             {title && (
               <DemoPageHeader
                 title={title}
@@ -126,7 +127,11 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
                 stackBlitzCodes={stackBlitzCodes}
               />
             )}
-            {features.length ? <Section title="Features">test</Section> : null}
+            {features.length ? (
+              <Section noPadding height={50}>
+                <DemoPageFeatures features={features} />
+              </Section>
+            ) : null}
             <DemoPageTabs
               tabTitles={tabTitles}
               media={media}

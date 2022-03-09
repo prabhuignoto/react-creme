@@ -8,6 +8,7 @@ function PageHeader() {
   return (
     <DemoPageRenderer
       demoWidget={<Widgets />}
+      features={['RTL Support', 'Custom sizes']}
       properties={[
         {
           default: 'Page Header',

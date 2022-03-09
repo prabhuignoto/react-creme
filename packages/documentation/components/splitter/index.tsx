@@ -14,6 +14,7 @@ function splitter() {
       sourceId="splitter/splitter.tsx"
       editId="splitter"
       pageIcon={<FontAwesomeIcon icon={faColumns} size="2x" />}
+      features={['Horizontal or vertical splitting']}
       properties={[
         {
           default: 'horizontal',

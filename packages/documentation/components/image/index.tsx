@@ -14,6 +14,7 @@ function image() {
       pageIcon={<FontAwesomeIcon icon={faImage} size="2x" />}
       sourceId="image/image.tsx"
       editId="image"
+      features={['Expandable Image', 'Loading indicator', 'Responsive']}
       callbacks={[
         {
           default: '',

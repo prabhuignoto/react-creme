@@ -15,6 +15,7 @@ function sidebar() {
       sourceId="sidebar/sidebar.tsx"
       editId="sidebar"
       pageIcon={<FontAwesomeIcon icon={faArrowLeft} size="2x" />}
+      features={['Collapsible sections', 'Searchable']}
       callbacks={[
         {
           default: '',

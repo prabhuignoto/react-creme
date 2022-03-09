@@ -15,6 +15,7 @@ function index() {
       pageIcon={<FontAwesomeIcon icon={faSquare} size="2x" />}
       sourceId="section/section.tsx"
       editId="section"
+      features={['RTL Support', 'Custom Sizes']}
       properties={[
         {
           default: '',
