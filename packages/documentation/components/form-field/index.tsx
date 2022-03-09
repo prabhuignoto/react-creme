@@ -12,6 +12,12 @@ function formField() {
       pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
       sourceId="dropdown/dropdown.tsx"
       editId="dropdown"
+      features={[
+        'Custom sizes',
+        'RTL Support',
+        'Custom icon for labels',
+        'Disabled state',
+      ]}
       properties={[
         {
           default: 'Please enter the name',

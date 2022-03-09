@@ -12,6 +12,12 @@ function rate() {
       pageIcon={<FontAwesomeIcon icon={faStarHalfAlt} size="2x" />}
       sourceId="rate/rate.tsx"
       editId="rate"
+      features={[
+        'Custom sizes',
+        'RTL Support',
+        'Disabled state',
+        'Supports custom icon and icon count',
+      ]}
       callbacks={[
         {
           default: ``,

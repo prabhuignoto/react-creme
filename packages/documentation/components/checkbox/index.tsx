@@ -12,6 +12,11 @@ function checkbox() {
       pageIcon={<FontAwesomeIcon icon={faCheckSquare} size="2x" />}
       editId="checkbox"
       sourceId="checkbox/checkbox.tsx"
+      features={[
+        'Custom sizes',
+        'Disabled state',
+        'Custom outlook (square or rounded)',
+      ]}
       callbacks={[
         {
           default: '',

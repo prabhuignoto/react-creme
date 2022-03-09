@@ -13,6 +13,12 @@ function index() {
       pageIcon={<FontAwesomeIcon icon={faMagic} size="2x" />}
       sourceId="auto-suggest/auto-suggest.tsx"
       editId="auto-suggest"
+      features={[
+        'Custom sizes',
+        'API backed suggestions or local',
+        'RTL Support',
+        'Adjustable list width',
+      ]}
       callbacks={[
         {
           default: '',

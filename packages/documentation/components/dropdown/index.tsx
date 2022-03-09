@@ -12,6 +12,13 @@ function dropdown() {
       pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
       sourceId="dropdown/dropdown.tsx"
       editId="dropdown"
+      features={[
+        'Supports both Single and Multiple selection',
+        'RTL Support',
+        'Custom sizes',
+        'Searchable list to filter options',
+        'Virtualized list for improved performance',
+      ]}
       properties={[
         {
           default: 'False',

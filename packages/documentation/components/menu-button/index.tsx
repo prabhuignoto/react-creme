@@ -12,6 +12,7 @@ function menuButton() {
       pageIcon={<FontAwesomeIcon icon={faHandPointUp} size="2x" />}
       sourceId="menu-button/menu-button.tsx"
       editId="menu-button"
+      features={['Custom sizes', 'RTL Support']}
       callbacks={[
         {
           default: '',

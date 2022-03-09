@@ -14,6 +14,12 @@ function index() {
       pageIcon={<FontAwesomeIcon icon={faTasks} size="2x" />}
       editId="checkbox-group"
       sourceId="checkbox-group/checkbox-group.tsx"
+      features={[
+        'Custom sizes',
+        'Option to disable checkboxes',
+        'RTL Support',
+        'Custom checkbox outlook (square or rounded)',
+      ]}
       callbacks={[
         {
           default: '',

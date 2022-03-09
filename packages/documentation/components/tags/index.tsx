@@ -14,6 +14,16 @@ function tags() {
       pageIcon={<FontAwesomeIcon icon={faTags} size="2x" />}
       sourceId="tags/tags.tsx"
       editId="tags"
+      features={[
+        'Editable tags',
+        'Readonly tags for display only purposes',
+        'Custom sizes',
+        'AutoComplete inputs',
+        'Disabled state',
+        'Custom outlook. filled or default',
+        'Restrict the number of tags with maxTags',
+        'Change the accent. flat or rounded',
+      ]}
       callbacks={[
         {
           default: ``,
