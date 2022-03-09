@@ -1,5 +1,6 @@
+import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { BreadCrumbItem } from './breadcrumb-item';
 import { BreadCrumbProps } from './breadcrumb-model';
 import styles from './breadcrumb.module.scss';
@@ -18,6 +19,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
   focusable = true,
   selectedCrumbIndex = 0,
   links = [],
+  RTL = false,
 }) => {
   const [items, setItems] = useState<BreadCrumbItemModel[]>(
     links.map((link, index) => ({
@@ -38,12 +40,13 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
     onSelected?.(name);
   }, []);
 
+  const wrapperClass = useMemo(
+    () => classNames(styles.bread_crumbs_wrapper, RTL ? styles.rtl : ''),
+    []
+  );
+
   return (
-    <ul
-      className={styles.bread_crumbs_wrapper}
-      role="navigation"
-      aria-label="breadcrumbs"
-    >
+    <ul className={wrapperClass} role="navigation" aria-label="breadcrumbs">
       {items.map(({ id, selected, name }, index) => (
         <BreadCrumbItem
           child={Array.isArray(children) && children[index]}
@@ -57,6 +60,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
           index={index}
           focusable={focusable}
           name={name}
+          RTL={RTL}
         />
       ))}
     </ul>

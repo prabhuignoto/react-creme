@@ -10,6 +10,10 @@ $sizes: (sm, md, lg);
   @extend %left;
   margin: 0;
   padding: 0;
+
+  &.rtl {
+    direction: rtl;
+  }
 }
 
 .bread_crumb {
@@ -18,7 +22,14 @@ $sizes: (sm, md, lg);
 }
 
 .bread_crumb_icon {
-  margin-left: 0.5rem;
+  &:not(.rtl_icon) {
+    margin-left: 0.5rem;
+  }
+
+  &.rtl_icon {
+    margin-right: 0.5rem;
+    transform: rotate(-180deg);
+  }
 
   @each $size in $sizes {
     &.bread_crumb_icon_#{$size} {

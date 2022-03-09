@@ -5,6 +5,7 @@ import {
   CustomIcon,
   CustomSize,
   Default,
+  RTL,
   SelectedIndex,
   Slash,
 } from './widget-variants';
@@ -35,6 +36,9 @@ function Widgets() {
       </Section>
       <Section title="Custom Size - Large" size="md">
         <DemoWidget width={400}>{CustomSize}</DemoWidget>
+      </Section>
+      <Section title="RTL" size="md">
+        <DemoWidget width={400}>{RTL}</DemoWidget>
       </Section>
     </div>
   );

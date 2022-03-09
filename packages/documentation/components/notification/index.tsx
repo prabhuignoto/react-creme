@@ -12,6 +12,11 @@ function notification() {
       pageIcon={<FontAwesomeIcon icon={faBell} size="2x" />}
       sourceId="notification/notification.tsx"
       editId="notification"
+      features={[
+        'Easy docking to 6 different positions',
+        'Auto closing notifications',
+        'Contained notifications',
+      ]}
       callbacks={[
         {
           default: '',

@@ -36,3 +36,7 @@ export const CustomSize = (
     links={['Home', 'Features', 'Bread Crumb']}
   ></BreadCrumb>
 );
+
+export const RTL = (
+  <BreadCrumb links={['Home', 'Features', 'Bread Crumb']} RTL></BreadCrumb>
+);

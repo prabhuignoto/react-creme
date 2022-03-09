@@ -13,6 +13,7 @@ function transfer() {
       pageIcon={<FontAwesomeIcon icon={faExchangeAlt} size="2x" />}
       sourceId="transfer/transfer.tsx"
       editId="transfer"
+      features={['Searchable', 'RTL Support']}
       callbacks={[
         {
           default: '',

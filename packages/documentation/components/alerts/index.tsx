@@ -12,6 +12,13 @@ function index() {
       sourceId="alert/alert.tsx"
       editId="alerts"
       pageIcon={<FontAwesomeIcon icon={faExclamation} size="2x" />}
+      features={[
+        'Custom sizes',
+        'RTL Support',
+        'Render custom content',
+        'Dismissable alert boxes',
+        'Stateful alerts. Supports success, info, warning and error',
+      ]}
       callbacks={[
         {
           default: '',

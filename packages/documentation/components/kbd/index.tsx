@@ -11,6 +11,7 @@ function menu() {
       description="Renders a keyboard key or a combination of keys."
       sourceId="menu/menu.tsx"
       editId="menu"
+      features={['Keyboard combinations', 'Custom thickness', 'Custom sizes']}
       properties={[
         {
           default: 'sm',

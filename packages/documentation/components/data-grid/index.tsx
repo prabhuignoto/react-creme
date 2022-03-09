@@ -14,6 +14,12 @@ const DataGridDemo: React.FunctionComponent = () => {
       pageIcon={<FontAwesomeIcon icon={faTable} size="2x" />}
       editId="data-grid"
       sourceId="data-grid/data-grid.tsx"
+      features={[
+        'Supports two layouts. Comfortable or Compact',
+        'Sortable',
+        'Two different outlooks for the table via the border property',
+        'Zebra rendering',
+      ]}
       properties={[
         {
           default: 'comfortable',

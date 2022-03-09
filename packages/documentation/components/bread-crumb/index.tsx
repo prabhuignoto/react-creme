@@ -64,7 +64,8 @@ function BreadCrumb() {
           type: 'Array',
         },
       ]}
-      tabTitles={['Examples', 'properties', 'StackBlitz']}
+      tabTitles={['Examples', 'properties', 'StackBlitz', 'RTL Support']}
+      features={['Custom sizes', 'Custom separator Icons']}
       demoWidget={<Widgets />}
       title="Bread Crumb"
       sourceId="breadcrumb/breadcrumb.tsx"

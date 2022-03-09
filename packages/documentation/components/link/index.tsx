@@ -8,6 +8,11 @@ function Link() {
       title="Link"
       description="Link is a component that can be used to create a link."
       tabTitles={['examples', 'properties', 'stackblitz']}
+      features={[
+        'Custom sizes',
+        'Support for custom icon',
+        'Accent. default or button',
+      ]}
       properties={[
         {
           default: '',
