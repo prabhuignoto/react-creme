@@ -19,7 +19,7 @@ export type IconSizes = Pick<Sizes, 'sm' | 'md' | 'lg'> & {
 };
 
 export type Theme = {
-  colors: Colors;
+  colors?: Colors;
   darkMode?: boolean;
   fontSizes?: FontSizes;
   iconSizes?: IconSizes;

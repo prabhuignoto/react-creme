@@ -1,4 +1,4 @@
-import React from 'react';
+import { KeyboardEvent, ReactNode } from 'react';
 
 export interface AutoSuggestProps {
   accent?: 'rounded' | 'flat';
@@ -6,9 +6,10 @@ export interface AutoSuggestProps {
   debounce?: number;
   disableIcon?: boolean;
   focusable?: boolean;
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   onChange?: (value?: string) => void;
-  onKeyUp?: (ev: React.KeyboardEvent) => void;
+  onKeyDown?: (ev: KeyboardEvent) => void;
+  onKeyUp?: (ev: KeyboardEvent) => void;
   onSelection?: (selected: AutoSuggestOption) => void;
   placeholder?: string;
   rtl?: boolean;

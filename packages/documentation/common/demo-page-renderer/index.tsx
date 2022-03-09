@@ -1,46 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  faBook,
-  faCode,
-  faEdit,
-  faExternalLink,
-  faSlidersH,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { Suspense, useLayoutEffect, useMemo } from 'react';
-import { BookOpen, Code } from 'react-feather';
-import { CSSTransition } from 'react-transition-group';
-import { Link, PageHeader, Section, Tabs } from '../../../lib/components';
+import React, { useLayoutEffect, useMemo } from 'react';
+import { Section } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
-import StackBlitz from '../stackblitz';
 import useMedia from '../useMedia';
+import { DemoPageHeader } from './demo-page-header';
 import './demo-page-renderer.scss';
-import WidgetsWrapper from './widgets-wrapper';
+import { DemoPageTabs } from './demo-page-tabs';
 
-const DataGrid = React.lazy(() =>
-  import('../../../lib/components/data-grid/data-grid').then(
-    ({ DataGrid }) => ({
-      default: DataGrid,
-    })
-  )
-);
-
-const Icons = [
-  <FontAwesomeIcon icon={faBook} key="book-open" />,
-  <FontAwesomeIcon icon={faSlidersH} key="sliders" />,
-  <FontAwesomeIcon icon={faCode} key="code" />,
-];
-
-const IconsWithoutProperties = [
-  <BookOpen size={18} key="book-open" />,
-  <Code size={18} key="code" />,
-];
-
-interface DemoPageRendererProps {
+export interface DemoPageRendererProps {
   callbacks?: any[];
   demoWidget: React.ReactNode;
   description?: string | React.ReactNode;
   editId?: string;
+  features: string[];
   pageIcon?: React.ReactNode;
   properties: any[];
   sourceId?: string;
@@ -63,10 +35,9 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
       pageIcon,
       sourceId,
       editId,
+      features = [],
     }: DemoPageRendererProps) => {
       const media = useMedia();
-
-      const Demo = demoWidget;
 
       const [width, setWidth] = React.useState(null);
 
@@ -87,10 +58,6 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
           setWidth([120, 120, 120]);
         }
       }, [media]);
-
-      const canShowProperties = useMemo(() => {
-        return properties && properties.length;
-      }, [properties.length]);
 
       const columns: DataGridColumn[] = useMemo(() => {
         if (!width || !media) {
@@ -150,107 +117,25 @@ const DemoPageRenderer: React.FunctionComponent<DemoPageRendererProps> =
         width && (
           <div className="rc-demo-page">
             {title && (
-              <PageHeader title={title} icon={pageIcon} size="lg">
-                <div>{description}</div>
-                <div className="rc-demo-page-links-container">
-                  {sourceId && (
-                    <Link
-                      target="_blank"
-                      accent="button"
-                      icon={<FontAwesomeIcon icon={faCode} />}
-                      href={`https://github.com/prabhuignoto/react-creme/tree/master/packages/lib/components/${sourceId}`}
-                    >
-                      View Source
-                    </Link>
-                  )}
-                  {editId && (
-                    <Link
-                      target="_blank"
-                      accent="button"
-                      icon={<FontAwesomeIcon icon={faEdit} />}
-                      href={`https://github.com/prabhuignoto/react-creme/tree/master/packages/documentation/components/${editId}/index.tsx`}
-                    >
-                      Edit this Page
-                    </Link>
-                  )}
-                  {stackBlitzCodes?.length && (
-                    <Link
-                      target="_blank"
-                      accent="button"
-                      icon={<FontAwesomeIcon icon={faExternalLink} />}
-                      href={`https://stackblitz.com/edit/${stackBlitzCodes[0]}`}
-                    >
-                      Open in StackBlitz
-                    </Link>
-                  )}
-                </div>
-              </PageHeader>
+              <DemoPageHeader
+                title={title}
+                description={description}
+                pageIcon={pageIcon}
+                sourceId={sourceId}
+                editId={editId}
+                stackBlitzCodes={stackBlitzCodes}
+              />
             )}
-            <Tabs
-              labels={tabTitles}
-              icons={canShowProperties ? Icons : IconsWithoutProperties}
-              focusable={false}
-              size="sm"
-            >
-              <div className="rc-demo-widgets-wrapper">
-                <Suspense fallback={<span>Loading Widgets...</span>}>
-                  <CSSTransition
-                    key={tabTitles.join('')}
-                    classNames="widget-fade"
-                    timeout={300}
-                  >
-                    {media.isMobile || media.isTablet || media.isDesktop ? (
-                      Demo
-                    ) : (
-                      <WidgetsWrapper>{Demo}</WidgetsWrapper>
-                    )}
-                  </CSSTransition>
-                </Suspense>
-              </div>
-              {canShowProperties ? (
-                <div className="rc-demo-prop-section">
-                  <Suspense fallback={<div></div>}>
-                    <Section title="Properties">
-                      <DataGrid
-                        layoutStyle={'comfortable'}
-                        columns={columns}
-                        data={properties}
-                        border
-                        rowHeight={68}
-                      />
-                    </Section>
-                    {callbacks && (
-                      <Section title="Callbacks">
-                        <DataGrid
-                          layoutStyle={'comfortable'}
-                          columns={columns}
-                          data={callbacks}
-                          border
-                          rowHeight={68}
-                        />
-                      </Section>
-                    )}
-                  </Suspense>
-                </div>
-              ) : (
-                <div className="rc-demo-stack-blitz-collection">
-                  {stackBlitzCodes &&
-                    stackBlitzCodes.map(code => (
-                      <div className="rc-demo-stack-blitz" key={code}>
-                        <StackBlitz id={code} />
-                      </div>
-                    ))}
-                </div>
-              )}
-              <div className="rc-demo-stack-blitz-collection">
-                {stackBlitzCodes &&
-                  stackBlitzCodes.map(code => (
-                    <div className="rc-demo-stack-blitz" key={code}>
-                      <StackBlitz id={code} />
-                    </div>
-                  ))}
-              </div>
-            </Tabs>
+            {features.length ? <Section title="Features">test</Section> : null}
+            <DemoPageTabs
+              tabTitles={tabTitles}
+              media={media}
+              callbacks={callbacks}
+              demoWidget={demoWidget}
+              columns={columns}
+              stackBlitzCodes={stackBlitzCodes}
+              properties={properties}
+            />
           </div>
         )
       );

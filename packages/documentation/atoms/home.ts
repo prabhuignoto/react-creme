@@ -16,11 +16,11 @@ export type ThemeType =
   | 'light-gray';
 
 type ThemeState = {
-  colors: Colors;
+  colors?: Colors;
   darkMode?: boolean;
   fontSizes?: FontSizes;
   iconSizes?: IconSizes;
-  selectedTheme: ThemeType;
+  selectedTheme?: ThemeType;
   sizes?: Sizes;
 };
 

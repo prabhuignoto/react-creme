@@ -82,7 +82,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
       });
 
       setStylesApplied(prev => ({ ...prev, colors: true }));
-    }, [currentTheme.colors.primary]);
+    }, [currentTheme.colors?.primary]);
 
     /**
      * Setup Font Sizes
