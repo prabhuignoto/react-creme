@@ -19,7 +19,7 @@ const links = [
   },
   {
     image: 'https://img.shields.io/bundlephobia/minzip/react-creme',
-    url: 'https://bundlephobia.com/package/react-creme',
+    url: 'https://bundlephobia.com/package/react-creme@0.12.0',
   },
   {
     image: 'https://img.shields.io/badge/status-alpha-green',
