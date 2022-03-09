@@ -11,6 +11,7 @@ function menu() {
       description="Menu is a component that can be used to display a list of items. It can be docked to any target element and aligned to three supported positions: left, right, and center."
       sourceId="menu/menu.tsx"
       editId="menu"
+      features={['Custom sizes', 'Easily align to left, right, or center']}
       callbacks={[
         {
           default: '',

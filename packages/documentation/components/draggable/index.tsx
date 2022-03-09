@@ -10,6 +10,11 @@ function Draggable() {
     <DemoPageRenderer
       demoWidget={<Widgets />}
       title="useDraggable"
+      features={[
+        'Restrict dragging to the containing element',
+        'Restrict drag to either Horizontal or Vertical axis',
+        'Enable dragging on multiple targets',
+      ]}
       properties={[]}
       description="A Hook to enable draggable behavior on a single or a multiple target element."
       tabTitles={['Examples', 'Stackblitz']}

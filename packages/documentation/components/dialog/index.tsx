@@ -29,6 +29,11 @@ function dialog() {
           type: 'Function',
         },
       ]}
+      features={[
+        'Adjustable height and width',
+        'Four different animations for the dialog',
+        'Custom sizes',
+      ]}
       properties={[
         {
           default: '',

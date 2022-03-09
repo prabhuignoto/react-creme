@@ -14,6 +14,11 @@ function drawer() {
        It can be used as a navigation drawer or a side drawer.`}
       editId="drawer"
       sourceId="drawer/drawer.tsx"
+      features={[
+        'Four docking positions',
+        'Adjustable width and height',
+        'Support for Custom transition',
+      ]}
       properties={[
         {
           default: 'left',
