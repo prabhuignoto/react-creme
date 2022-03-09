@@ -11,6 +11,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .rc-demo-stack-blitz-collection {
@@ -43,4 +44,45 @@
     margin-right: 14px;
     margin-top: 14px;
   }
+}
+
+.wrapper {
+  width: 95%;
+}
+
+.features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feature {
+  align-items: center;
+  display: flex;
+  margin: 1rem 0;
+}
+
+.feature_icon {
+  color: var(--rc-primary-color-hex);
+  display: block;
+  height: 1rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.feature_name {
+  color: var(--rc-primary-color-hex);
+  font-size: var(--rc-font-size-md);
+  font-weight: 500;
+  text-align: left;
+}
+
+.widgets_container {
+  padding-top: 1rem;
+  width: 95%;
 }

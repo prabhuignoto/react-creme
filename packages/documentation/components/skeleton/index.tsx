@@ -12,6 +12,12 @@ function skeleton() {
       pageIcon={<FontAwesomeIcon icon={faSpinner} size="2x" />}
       sourceId="skeleton/skeleton.tsx"
       editId="skeleton"
+      features={[
+        'Custom row count and height',
+        'Easily animate rows',
+        'Option to add multiple skeleton blocks',
+        'RTL Support',
+      ]}
       properties={[
         {
           default: '4',
@@ -52,6 +58,13 @@ function skeleton() {
           default: 'False',
           description: 'Shows a circle for each block',
           name: 'showCircle',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'False',
+          description: 'Right to left support',
+          name: 'RTL',
           optional: 'Yes',
           type: 'Boolean',
         },

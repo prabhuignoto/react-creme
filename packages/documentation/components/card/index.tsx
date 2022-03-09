@@ -15,6 +15,12 @@ function card() {
       pageIcon={<FontAwesomeIcon icon={faSquareFull} size="2x" />}
       sourceId="card/card.tsx"
       editId="card"
+      features={[
+        'Customize Header and Footer content',
+        'RTL Support',
+        'Adjustable height',
+        'Bordered or Shadowed outlook',
+      ]}
       properties={[
         {
           default: '',

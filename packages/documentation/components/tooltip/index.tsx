@@ -12,6 +12,12 @@ function tooltip() {
       pageIcon={<FontAwesomeIcon icon={faComment} />}
       sourceId="tooltip/tooltip.tsx"
       editId="tooltip"
+      features={[
+        '12 docking positions',
+        'Custom sizes',
+        'Activate only on click',
+        'Always visible tooltip',
+      ]}
       callbacks={[
         {
           default: '',

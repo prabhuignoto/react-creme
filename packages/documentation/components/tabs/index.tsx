@@ -14,6 +14,13 @@ function tabs() {
       pageIcon={<FontAwesomeIcon icon={faWindowRestore} size="2x" />}
       sourceId="tabs/tabs.tsx"
       editId="tabs"
+      features={[
+        'Custom sizes',
+        'Responsive',
+        'Scrollable Tab heads',
+        'Ready to use Tab styles (Flat or Rounded)',
+        'Support for disabled tabs',
+      ]}
       properties={[
         {
           default: 'flat',

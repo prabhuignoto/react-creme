@@ -21,7 +21,8 @@
     "types": ["react", "react-dom"],
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"]
+      "@components/*": ["./components/*"],
+      "@design": ["./design/*"]
     },
     "plugins": [
       {

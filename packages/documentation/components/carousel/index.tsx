@@ -13,6 +13,11 @@ function carousel() {
       description={`Carousels allow multiple pieces of content to occupy a single, coveted space.`}
       pageIcon={<FontAwesomeIcon icon={faFilm} size="2x" />}
       editId="carousel"
+      features={[
+        'Vertical or Horizontal layout',
+        'Custom Transitions',
+        'Auto play',
+      ]}
       sourceId="carousel/carousel.tsx"
       properties={[
         {

@@ -10,6 +10,7 @@ function tree() {
       Each item (often called a branch or a node) can have a number of subitems`}
       sourceId="tree/tree.tsx"
       editId="tree"
+      features={['Support for both single and multi selection', 'Custom sizes']}
       properties={[
         {
           default: '[]',

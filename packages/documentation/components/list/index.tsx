@@ -14,6 +14,12 @@ function list() {
       pageIcon={<FontAwesomeIcon icon={faList} size="2x" />}
       sourceId="list/list.tsx"
       editId="list"
+      features={[
+        'Single or Multiple selection',
+        'Searchable list',
+        'Virtualized list for improved performance',
+        'Custom sizes',
+      ]}
       callbacks={[
         {
           default: 'undefined',

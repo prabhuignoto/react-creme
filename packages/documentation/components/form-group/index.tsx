@@ -12,6 +12,7 @@ function formGroup() {
       pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
       sourceId="form-group/form-group.tsx"
       editId="form-group"
+      features={['RTL Support']}
       properties={[
         {
           default: 'false',

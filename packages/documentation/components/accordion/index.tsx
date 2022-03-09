@@ -23,6 +23,7 @@ const Accordion = () => {
       stackBlitzCodes={['react-ts-s9qxmk']}
       sourceId="accordion/accordion.tsx"
       editId="accordion"
+      features={['Customizable Icon', 'RTL Support', 'Expanded state on Load']}
       pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}
       callbacks={[
         {

@@ -1,8 +1,8 @@
 import { faListUl } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import Widgets from './widgets';
 import DemoPageRenderer from '../../common/demo-page-renderer';
+import Widgets from './widgets';
 
 function index() {
   return (
@@ -11,6 +11,7 @@ function index() {
       pageIcon={<FontAwesomeIcon icon={faListUl} size="2x" />}
       sourceId="scroll-spy/scroll-spy.tsx"
       editId="scroll-spy"
+      features={['Smart and intuitive', 'Supports RTL rendering']}
       properties={[
         {
           default: '[]',

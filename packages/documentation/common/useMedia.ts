@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-interface MediaState {
+export interface MediaState {
   isBigScreen: boolean;
   isDesktop: boolean;
   isExtraLargeScreen: boolean;

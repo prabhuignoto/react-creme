@@ -17,13 +17,23 @@ function widgets() {
         <DemoWidget width={220}>{Default}</DemoWidget>
       </Section>
       <Section title="Disabled State" size="md">
+        <BlockQuote>
+          Use the <code>disabled</code> prop to disable the checkbox.
+        </BlockQuote>
         <DemoWidget width={200}>{Disabled}</DemoWidget>
       </Section>
       <Section title="Large size" size="md">
-        <BlockQuote>Comes in three sizes: small, medium, large.</BlockQuote>
+        <BlockQuote>
+          The size of the checkbox can be customized. Supports three sizes:
+          small, medium, large.
+        </BlockQuote>
         <DemoWidget width={200}>{Large}</DemoWidget>
       </Section>
       <Section title="Custom Checkbox style" size="md">
+        <BlockQuote>
+          Change the outlook of the Checkbox via the <code>checkBoxStyle</code>{' '}
+          prop.
+        </BlockQuote>
         <DemoWidget width={150}>{CustomStyle}</DemoWidget>
       </Section>
       <Section title="All Sizes" size="md">

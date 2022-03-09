@@ -9,10 +9,18 @@ function buttons() {
       description={`Buttons are styled links that grab the user's attention and help drive them in a particular direction.
       Buttons can link us to other pages or complete an action like submitting a form or making a purchase`}
       stackBlitzCodes={['react-ts-uy6jjh']}
+      features={[
+        'Custom sizes',
+        'Button Types',
+        'Button with loading state',
+        'Support for custom Icon',
+        'Disabled state',
+      ]}
       callbacks={[
         {
           default: '',
-          description: 'Callback function when the button is clicked',
+          description:
+            'Callback function called on <code>onClick</code> event.',
           name: 'onClick',
           optional: 'Yes',
           type: 'function',
@@ -21,14 +29,14 @@ function buttons() {
       properties={[
         {
           default: `""`,
-          description: 'Label of the button',
+          description: 'Button label',
           name: 'label',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: 'default',
-          description: `configures the type of button.
+          description: `Configures the type of button. Can be
           <br> <em>primary</em> | <em>default</em> | <em>danger</em> | <em>icon</em> | <em>progress</em>`,
           name: 'type',
           optional: 'Yes',
@@ -36,14 +44,14 @@ function buttons() {
         },
         {
           default: 'False',
-          description: `disables the button`,
+          description: `Disables the button`,
           name: 'disabled',
           optional: 'Yes',
           type: 'Boolean',
         },
         {
           default: 'sm',
-          description: `sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
+          description: `Sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
           name: 'size',
           optional: 'Yes',
           type: 'String',
@@ -57,14 +65,14 @@ function buttons() {
         },
         {
           default: 'False',
-          description: `makes the component focusable via keyboard`,
+          description: `Makes the component focusable via keyboard`,
           name: 'focusable',
           optional: 'Yes',
           type: 'Boolean',
         },
         {
           default: 'true',
-          description: `prop for enabling or disabling the button border`,
+          description: `Prop for enabling or disabling the button border`,
           name: 'border',
           optional: 'Yes',
           type: 'Boolean',

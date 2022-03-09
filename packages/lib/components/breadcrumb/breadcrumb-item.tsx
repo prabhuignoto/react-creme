@@ -15,12 +15,13 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
     size = 'sm',
     selected,
     name,
+    RTL,
   }: BreadCrumbItemProps) => {
     const ref = useRef<HTMLSpanElement>(null);
     useFocusNew(ref);
 
     const breadCrumbIcon = useMemo(() => {
-      return classNames(styles.bread_crumb_icon, {
+      return classNames(styles.bread_crumb_icon, RTL ? styles.rtl_icon : '', {
         [styles[`bread_crumb_icon_${size}`]]: true,
         [styles.slash]: icon === 'slash',
       });

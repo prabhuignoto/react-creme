@@ -19,6 +19,14 @@ function slider() {
       pageIcon={<FontAwesomeIcon icon={faSlidersH} size="2x" />}
       sourceId="slider/slider.tsx"
       editId="slider"
+      features={[
+        'Customizable knob size',
+        'Knob shapes: round, square',
+        'Option to change the tooltip position (top or bottom)',
+        'Show tooltip only on Hover action',
+        'Disabled state',
+        "Format the tooltip's message",
+      ]}
       properties={[
         {
           default: '1',

@@ -33,14 +33,14 @@ function widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section title="Card shadowed">
+        <Section title="Card shadowed" size="md">
           <BlockQuote>
             The <code>header</code> and <code>footer</code> props allows to
             render custom contents in the card header and footer.
           </BlockQuote>
           <DemoWidget width={width}>{Default}</DemoWidget>
         </Section>
-        <Section title="Card without shadow">
+        <Section title="Card without shadow" size="md">
           <BlockQuote>Card with no shadow but with a border.</BlockQuote>
           <DemoWidget width={width} codeString={CustomImageCode}>
             {CustomImage}

@@ -12,10 +12,15 @@ function checkbox() {
       pageIcon={<FontAwesomeIcon icon={faCheckSquare} size="2x" />}
       editId="checkbox"
       sourceId="checkbox/checkbox.tsx"
+      features={[
+        'Custom sizes',
+        'Disabled state',
+        'Custom outlook (square or rounded)',
+      ]}
       callbacks={[
         {
           default: '',
-          description: `Callback fired when the state changes`,
+          description: `Callback executed on state change.`,
           name: 'onChange',
           optional: 'Yes',
           type: 'Function',
@@ -24,49 +29,49 @@ function checkbox() {
       properties={[
         {
           default: `""`,
-          description: `label for the checkbox`,
+          description: `Checkbox label`,
           name: 'label',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: 'False',
-          description: `disables the button`,
+          description: `Disables the button`,
           name: 'disabled',
           optional: 'Yes',
           type: 'Boolean',
         },
         {
           default: 'sm',
-          description: `sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
+          description: `Sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
           name: 'size',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: '{}',
-          description: `any custom CSS`,
+          description: `Custom CSS`,
           name: 'style',
           optional: 'Yes',
           type: 'Object',
         },
         {
           default: 'False',
-          description: `makes the component focusable via keyboard`,
+          description: `Makes the component focusable`,
           name: 'focusable',
           optional: 'Yes',
           type: 'Boolean',
         },
         {
           default: 'true',
-          description: `prop for disabling the button border`,
+          description: `Prop for disabling the button border`,
           name: 'border',
           optional: 'Yes',
           type: 'Boolean',
         },
         {
           default: 'False',
-          description: `prop to set the checkbox to checked state on load`,
+          description: `Prop to set the checkbox to checked state on load`,
           name: 'isChecked',
           optional: 'Yes',
           type: 'Boolean',
@@ -74,7 +79,7 @@ function checkbox() {
         {
           default: 'sm',
           description:
-            'sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>',
+            'Sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>',
           name: 'size',
           optional: 'Yes',
           type: 'String',

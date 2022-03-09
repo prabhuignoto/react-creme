@@ -17,6 +17,12 @@ function radioGroup() {
       pageIcon={<FontAwesomeIcon icon={faTasks} size="2x" />}
       sourceId="radio-group/radio-group.tsx"
       editId="radio-group"
+      features={[
+        'Custom sizes',
+        'RTL Support',
+        'Option to disable radio buttons',
+        'Vertical or Horizontal layout',
+      ]}
       callbacks={[
         {
           default: '',

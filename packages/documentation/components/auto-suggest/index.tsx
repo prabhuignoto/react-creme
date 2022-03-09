@@ -13,6 +13,12 @@ function index() {
       pageIcon={<FontAwesomeIcon icon={faMagic} size="2x" />}
       sourceId="auto-suggest/auto-suggest.tsx"
       editId="auto-suggest"
+      features={[
+        'Custom sizes',
+        'API backed suggestions or local',
+        'RTL Support',
+        'Adjustable list width',
+      ]}
       callbacks={[
         {
           default: '',
@@ -23,8 +29,17 @@ function index() {
         },
         {
           default: '',
-          description: 'Callback function when the input value changes',
+          description:
+            'Callback function executed on <code>keyup</code> event.',
           name: 'onKeyUp',
+          optional: 'Yes',
+          type: 'Function',
+        },
+        {
+          default: '',
+          description:
+            'Callback function executed on <code>keydown</code> event.',
+          name: 'onKeyDown',
           optional: 'Yes',
           type: 'Function',
         },
@@ -59,7 +74,7 @@ function index() {
           type: 'String',
         },
         {
-          default: '',
+          default: '""',
           description: 'Value of the input',
           name: 'value',
           optional: 'Yes',

@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 export type BreadCrumbProps = {
+  RTL?: boolean;
   focusable?: boolean;
   icon?: 'chevron' | 'arrow' | 'slash';
   links: string[];
@@ -11,7 +12,7 @@ export type BreadCrumbProps = {
 
 export type BreadCrumbItemProps = Pick<
   BreadCrumbProps,
-  'icon' | 'selectedCrumbIndex' | 'size' | 'focusable'
+  'icon' | 'selectedCrumbIndex' | 'size' | 'focusable' | 'RTL'
 > & {
   child: ReactNode;
   id: string;

@@ -17,6 +17,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
   (
     {
       onChange,
+      onKeyDown,
       onKeyUp,
       onSelection,
       placeholder = '',
@@ -196,6 +197,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
             id={id.current}
             isAutoComplete
             onKeyUp={handleKeyUp}
+            onKeyDown={onKeyDown}
             focusable={focusable}
             showSpinner={showSpinner}
             accent={accent}

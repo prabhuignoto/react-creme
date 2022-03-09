@@ -12,6 +12,13 @@ function index() {
       pageIcon={<FontAwesomeIcon icon={faKeyboard} size="2x" />}
       sourceId="input/input.tsx"
       editId="input"
+      features={[
+        'Custom sizes',
+        'RTL Support',
+        "Support for adding icons to the input's leading side",
+        'Input with states (error, success etc.)',
+        'Input accents flat or rounded',
+      ]}
       callbacks={[
         {
           default: '',

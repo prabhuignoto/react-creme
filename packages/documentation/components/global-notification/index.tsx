@@ -12,6 +12,11 @@ function index() {
       pageIcon={<FontAwesomeIcon icon={faBullhorn} size="2x" />}
       sourceId="global-notification/global-notification.tsx"
       editId="global-notification"
+      features={[
+        'Custom sizes',
+        'Stateful notifications. Supports success, info, warning and error',
+        'Custom animations',
+      ]}
       callbacks={[
         {
           default: '',

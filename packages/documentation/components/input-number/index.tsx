@@ -8,6 +8,7 @@ function InputNumber() {
       title="Input Number"
       description="An Input Number is a two-segment UI control used to incrementally increase or decrease a numeric value."
       tabTitles={['examples', 'properties', 'stackblitz']}
+      features={['RTL Support', 'Custom sizes']}
       properties={[
         {
           default: '1',

@@ -11,6 +11,7 @@ function comparer() {
       description="Compare images side by side either horizontally or vertically."
       pageIcon={<FontAwesomeIcon icon={faImages} size="2x" />}
       editId="comparer"
+      features={['Horizontal or Vertical layout']}
       sourceId="image-comparer/image-comparer.tsx"
       properties={[
         {
@@ -36,7 +37,7 @@ function comparer() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-kgea3r']}
+      stackBlitzCodes={['react-ts-4ogs2d']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

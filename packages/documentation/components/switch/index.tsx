@@ -13,6 +13,11 @@ function switchComponent() {
       The design and functionality of this control is based on a physical switch that allows users to turn things ON or OFF`}
       sourceId="switch/switch.tsx"
       editId="switch"
+      features={[
+        'Custom sizes',
+        'Place the label outside or inside the switch',
+        'Disabled state',
+      ]}
       callbacks={[
         {
           default: ``,

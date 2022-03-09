@@ -21,8 +21,8 @@
     "snyk": "snyk test"
   },
   "dependencies": {
-    "@sentry/browser": "^6.18.1",
-    "@sentry/tracing": "^6.18.1",
+    "@sentry/browser": "^6.18.2",
+    "@sentry/tracing": "^6.18.2",
     "@stackblitz/sdk": "^1.6.0",
     "algoliasearch": "^4.12.2",
     "classnames": "^2.3.1",
@@ -45,7 +45,7 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
-    "@csstools/postcss-sass": "^5.0.0",
+    "@csstools/postcss-sass": "^5.0.1",
     "@fortawesome/fontawesome-svg-core": "^1.3.0",
     "@fortawesome/free-brands-svg-icons": "^6.0.0",
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
@@ -58,7 +58,7 @@
     "@types/react-transition-group": "^4.4.4",
     "@vitejs/plugin-react-refresh": "^1.3.6",
     "autoprefixer": "^10.4.2",
-    "cssnano": "^5.1.0",
+    "cssnano": "^5.1.1",
     "esbuild": "^0.14.25",
     "postcss": "^8.4.8",
     "postcss-bem-linter": "^3.3.0",

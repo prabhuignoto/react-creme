@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { isDark } from '../utils';
-import './focus.scss';
+import styles from './focus.module.scss';
 
 /**
  * @param  {React.RefObject<HTMLElement>} ref
@@ -17,16 +17,16 @@ export default async function useFocusNew(
   const focusHandler = useCallback(() => {
     const ele = ring.current;
     if (ele) {
-      ele.classList.remove('focus_ring_inactive');
-      ele.classList.add('focus_ring_active');
+      ele.classList.remove(styles.focus_ring_inactive);
+      ele.classList.add(styles.focus_ring_active);
     }
   }, []);
 
   const removeFocus = useCallback(() => {
     const ele = ring.current;
     if (ele) {
-      ele.classList.remove('focus_ring_active');
-      ele.classList.add('focus_ring_inactive');
+      ele.classList.remove(styles.focus_ring_active);
+      ele.classList.add(styles.focus_ring_inactive);
     }
   }, []);
 
@@ -49,9 +49,10 @@ export default async function useFocusNew(
       ele.style.outline = 'none';
       ele.style.position = 'relative';
 
-      const classesToAdd = ['focus_ring', isDarkMode ? 'dark' : ''].filter(
-        cls => !!cls
-      );
+      const classesToAdd = [
+        styles.focus_ring,
+        isDarkMode ? styles.dark : '',
+      ].filter(cls => !!cls);
 
       focusRing.classList.add(...classesToAdd);
       focusRing.style.cssText = `

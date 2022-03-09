@@ -13,6 +13,12 @@ function progress() {
       pageIcon={<FontAwesomeIcon icon={faSpinner} size="2x" />}
       editId="progress"
       sourceId="progress/progress.tsx"
+      features={[
+        'Custom sizes',
+        'Indeterminate or determinate progress',
+        'Circular progress - Indeterminate',
+        'Stateful progress bars. Success, Error',
+      ]}
       properties={[
         {
           default: 'progressive',
