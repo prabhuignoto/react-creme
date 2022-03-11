@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
-import nightOwl from 'react-syntax-highlighter/dist/esm/styles/hljs/night-owl';
 import lioshi from 'react-syntax-highlighter/dist/esm/styles/hljs/lioshi';
+import nightOwl from 'react-syntax-highlighter/dist/esm/styles/hljs/night-owl';
 import { useRecoilValue } from 'recoil';
 import { Notification } from '../../../lib/components/notification/notification';
 import { CopyIcon } from '../../../lib/icons';

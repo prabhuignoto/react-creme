@@ -97,3 +97,27 @@ export const IconCustomPositioning = (
     ))}
   </AccordionGroup>
 );
+
+export const MediumSized = (
+  <AccordionGroup
+    titles={['one', 'two', 'three', 'four']}
+    border={false}
+    size="md"
+  >
+    {Array.from({ length: 4 }).map((_, i) => (
+      <Para key={i} />
+    ))}
+  </AccordionGroup>
+);
+
+export const LargeSized = (
+  <AccordionGroup
+    titles={['one', 'two', 'three', 'four']}
+    border={false}
+    size="lg"
+  >
+    {Array.from({ length: 4 }).map((_, i) => (
+      <Para key={i} />
+    ))}
+  </AccordionGroup>
+);

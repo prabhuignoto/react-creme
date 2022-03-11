@@ -58,7 +58,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   const titleClass = useMemo(() => {
     return classnames(styles.title, {
       [styles.title_bold]: isTitleBold,
-      [styles[`title-${size}`]]: size,
+      [styles[`title_${size}`]]: true,
     });
   }, [isTitleBold]);
 

@@ -8,6 +8,8 @@ import {
   Default,
   IconCustomPositioning,
   InitialState,
+  LargeSized,
+  MediumSized,
 } from './widget-variants';
 
 function Widgets() {
@@ -62,6 +64,10 @@ function Widgets() {
         </Section>
         <Section title="Icon Positioning" size="md">
           <DemoWidget width={width}>{IconCustomPositioning}</DemoWidget>
+        </Section>
+        <Section title="Custom Sizes" size="md">
+          <DemoWidget width={width}>{MediumSized}</DemoWidget>
+          <DemoWidget width={width}>{LargeSized}</DemoWidget>
         </Section>
       </div>
     )
