@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
-import lioshi from 'react-syntax-highlighter/dist/esm/styles/hljs/lioshi';
+import atom from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark';
 import nightOwl from 'react-syntax-highlighter/dist/esm/styles/hljs/night-owl';
 import { useRecoilValue } from 'recoil';
 import { Notification } from '../../../lib/components/notification/notification';
@@ -16,7 +16,7 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
   const [showNotification, setShowNotification] = React.useState(false);
   const theme = useRecoilValue(themeState);
   const syntaxTheme = useMemo(
-    () => (theme.darkMode ? nightOwl : lioshi),
+    () => (theme.darkMode ? atom : nightOwl),
     [theme.darkMode]
   );
 
@@ -51,9 +51,10 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
         <CopyIcon />
       </span>
       <SyntaxHighlighter
-        language="typescript"
-        customStyle={{ padding: '0.5rem' }}
+        language="javascript"
+        customStyle={{ padding: '1.25rem' }}
         style={{ ...syntaxTheme, height: '100%' }}
+        wrapLongLines
       >
         {code}
       </SyntaxHighlighter>
