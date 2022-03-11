@@ -18,8 +18,8 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
   ({
     children,
     layout = 'vertical',
-    showCodeByDefault = false,
-    customTitle = 'Show Code',
+    // showCodeByDefault = false,
+    // customTitle = 'Show Code',
     width,
     height,
     component,
