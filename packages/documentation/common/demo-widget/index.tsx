@@ -1,6 +1,4 @@
 import React, { CSSProperties } from 'react';
-import { Accordion } from '../../../lib/components';
-import { CodeIcon } from '../../../lib/icons';
 import { Code } from '../syntax';
 
 interface WidgetProps {
@@ -20,8 +18,8 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
   ({
     children,
     layout = 'vertical',
-    showCodeByDefault = false,
-    customTitle = 'Show Code',
+    // showCodeByDefault = false,
+    // customTitle = 'Show Code',
     width,
     height,
     component,
@@ -47,7 +45,12 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
           {children}
         </div>
         <div style={{ width: '100%' }}>
-          <Accordion
+          {codeString ? (
+            <Code code={codeString} />
+          ) : (
+            <Code>{component ? component : children}</Code>
+          )}
+          {/* <Accordion
             title={customTitle}
             border={false}
             focusable={false}
@@ -57,12 +60,7 @@ const DemoWidget: React.FC<WidgetProps> = React.memo(
             customIcon={<CodeIcon />}
             size="sm"
           >
-            {codeString ? (
-              <Code code={codeString} />
-            ) : (
-              <Code>{component ? component : children}</Code>
-            )}
-          </Accordion>
+          </Accordion> */}
         </div>
       </div>
     );

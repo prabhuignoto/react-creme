@@ -2,6 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { vi } from 'vitest';
 import { Accordion } from '../accordion';
+import headerStyles from '../accordion-header.module.scss';
 import styles from '../accordion.module.scss';
 
 describe('Accordion', () => {
@@ -52,5 +53,15 @@ describe('Accordion', () => {
     fireEvent.click(getByRole('button'));
 
     expect(onExpanded).toHaveBeenCalled();
+  });
+
+  it('should render custom sizes', () => {
+    const { getByRole } = render(
+      <Accordion size="sm">
+        <p>this is a test</p>
+      </Accordion>
+    );
+
+    expect(getByRole('img')).toHaveClass(headerStyles['icon-sm']);
   });
 });

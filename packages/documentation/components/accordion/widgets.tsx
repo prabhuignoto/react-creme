@@ -2,7 +2,13 @@ import React, { useEffect } from 'react';
 import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
-import { CustomIcon, Default, Expanded } from './widgets-variants';
+import {
+  CustomIcon,
+  Default,
+  Expanded,
+  LargeSized,
+  MediumSized,
+} from './widgets-variants';
 
 function Widgets() {
   const media = useMedia();
@@ -42,6 +48,10 @@ function Widgets() {
             shows a accordion expanded by default.
           </BlockQuote>
           <DemoWidget width={width}>{Expanded}</DemoWidget>
+        </Section>
+        <Section title="Custom sizes" size="md">
+          <DemoWidget width={width}>{MediumSized}</DemoWidget>
+          <DemoWidget width={width}>{LargeSized}</DemoWidget>
         </Section>
       </div>
     )

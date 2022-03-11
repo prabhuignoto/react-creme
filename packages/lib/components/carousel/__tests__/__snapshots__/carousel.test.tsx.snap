@@ -80,7 +80,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="focus_ring"
+            class="_focus_ring_4fy2t_1"
             style="width: 6px; height: 6px;"
           />
         </div>
@@ -127,7 +127,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="focus_ring"
+            class="_focus_ring_4fy2t_1"
             style="width: 6px; height: 6px;"
           />
         </div>
