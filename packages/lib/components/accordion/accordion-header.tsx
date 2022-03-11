@@ -21,7 +21,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   open,
   selected,
   customContent,
-  size,
+  size = 'sm',
 }) => {
   const isDarkMode = useMemo(() => isDark(), []);
 
@@ -97,7 +97,9 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
       {...focusProps}
       {...collapsibleProps}
     >
-      <span className={iconClass}>{icon}</span>
+      <span className={iconClass} role="img">
+        {icon}
+      </span>
       {customContent ? (
         customContent
       ) : (

@@ -5,16 +5,17 @@ exports[`Accordion > should render snapshot 1`] = `
   class="_accordion_nzff8_1 _no-border_nzff8_1"
 >
   <div
-    aria-controls="accordion-body-HD5OIr6q9hk6HWX4YJ6sW"
+    aria-controls="accordion-body-ovv645sEvOjccFZ8ePhAC"
     aria-expanded="false"
     class="_header_pm41k_1 undefined"
-    id="accordion-mqfoFG10i6D7hQDGylNor"
+    id="accordion-7-sduiHXDtNvAw8SqYof8"
     role="button"
     style="outline: none; position: relative;"
     tabindex="0"
   >
     <span
       class="_icon_pm41k_29 undefined _icon-sm_pm41k_29"
+      role="img"
     >
       <svg
         fill="none"
@@ -31,17 +32,17 @@ exports[`Accordion > should render snapshot 1`] = `
       </svg>
     </span>
     <span
-      class="_title_pm41k_5 undefined"
+      class="_title_pm41k_5 _title_sm_pm41k_5"
     />
     <span
-      class="focus_ring"
+      class="_focus_ring_4fy2t_1"
       style="width: 6px; height: 6px;"
     />
   </div>
   <div
-    aria-labelledby="accordion-mqfoFG10i6D7hQDGylNor"
+    aria-labelledby="accordion-7-sduiHXDtNvAw8SqYof8"
     class="_body_nzff8_29 _animate_nzff8_34 _close_nzff8_41"
-    id="accordion-body-HD5OIr6q9hk6HWX4YJ6sW"
+    id="accordion-body-ovv645sEvOjccFZ8ePhAC"
     style="--title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
   >
     <p>

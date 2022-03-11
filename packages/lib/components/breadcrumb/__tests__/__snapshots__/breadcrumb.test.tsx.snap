@@ -3,14 +3,14 @@
 exports[`Breadcrumb > should render snapshot 1`] = `
 <ul
   aria-label="breadcrumbs"
-  class="_bread_crumbs_wrapper_y5rr3_42"
+  class="_bread_crumbs_wrapper_1a3sh_42"
   role="navigation"
 >
   <li
-    class="_bread_crumb_y5rr3_1"
+    class="_bread_crumb_1a3sh_1"
   >
     <span
-      class="_bread_crumb_node_y5rr3_1 _bread_crumb_node_sm_y5rr3_5"
+      class="_bread_crumb_node_1a3sh_1 _bread_crumb_node_sm_1a3sh_5"
     >
       <a
         class="_link_apynu_1 _sm_apynu_19 _highlight_apynu_82"
@@ -23,13 +23,13 @@ exports[`Breadcrumb > should render snapshot 1`] = `
           google
         </span>
         <span
-          class="focus_ring"
+          class="_focus_ring_4fy2t_1"
           style="width: 6px; height: 6px;"
         />
       </a>
     </span>
     <span
-      class="_bread_crumb_icon_y5rr3_17 _bread_crumb_icon_sm_y5rr3_17"
+      class="_bread_crumb_icon_1a3sh_17 _bread_crumb_icon_sm_1a3sh_17"
     >
       <svg
         fill="none"
@@ -47,10 +47,10 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     </span>
   </li>
   <li
-    class="_bread_crumb_y5rr3_1"
+    class="_bread_crumb_1a3sh_1"
   >
     <span
-      class="_bread_crumb_node_y5rr3_1 _bread_crumb_node_sm_y5rr3_5"
+      class="_bread_crumb_node_1a3sh_1 _bread_crumb_node_sm_1a3sh_5"
     >
       <a
         class="_link_apynu_1 _sm_apynu_19"
@@ -63,13 +63,13 @@ exports[`Breadcrumb > should render snapshot 1`] = `
           yahoo
         </span>
         <span
-          class="focus_ring"
+          class="_focus_ring_4fy2t_1"
           style="width: 6px; height: 6px;"
         />
       </a>
     </span>
     <span
-      class="_bread_crumb_icon_y5rr3_17 _bread_crumb_icon_sm_y5rr3_17"
+      class="_bread_crumb_icon_1a3sh_17 _bread_crumb_icon_sm_1a3sh_17"
     >
       <svg
         fill="none"
@@ -87,10 +87,10 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     </span>
   </li>
   <li
-    class="_bread_crumb_y5rr3_1"
+    class="_bread_crumb_1a3sh_1"
   >
     <span
-      class="_bread_crumb_node_y5rr3_1 _bread_crumb_node_sm_y5rr3_5"
+      class="_bread_crumb_node_1a3sh_1 _bread_crumb_node_sm_1a3sh_5"
     >
       <a
         class="_link_apynu_1 _sm_apynu_19"
@@ -103,7 +103,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
           amazon
         </span>
         <span
-          class="focus_ring"
+          class="_focus_ring_4fy2t_1"
           style="width: 6px; height: 6px;"
         />
       </a>
