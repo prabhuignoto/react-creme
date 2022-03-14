@@ -1,4 +1,4 @@
-import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -43,6 +43,8 @@ const AppSettings: React.FunctionComponent = () => {
   const [appTheme, updateAppTheme] = useRecoilState(themeState);
   const [theme, setTheme] = useState<ThemeType>(appTheme.selectedTheme);
 
+  const [darkMode, setDarkMode] = useState(appTheme.darkMode);
+
   useEffect(() => {
     if (isMobile) {
       setWidth(300);
@@ -79,8 +81,30 @@ const AppSettings: React.FunctionComponent = () => {
     setTheme(selected);
   }, []);
 
+  const handleDarkModeSwitch = useCallback(() => {
+    setDarkMode(!darkMode);
+    updateAppTheme(() => ({
+      colors: darkMode ? { ...Default } : { ...Dark },
+      darkMode: !darkMode,
+      selectedTheme: 'default',
+    }));
+  }, [darkMode]);
+
   return width > 0 ? (
-    <div className={styles.wrapper}>
+    <div className={classNames(styles.wrapper)}>
+      <span
+        className={classNames(styles.icon, {
+          [styles.dark]: appTheme.darkMode,
+        })}
+        role="button"
+        onClick={handleDarkModeSwitch}
+      >
+        {darkMode ? (
+          <FontAwesomeIcon icon={faSun} size="2x" />
+        ) : (
+          <FontAwesomeIcon icon={faMoon} size="2x" />
+        )}
+      </span>
       <span
         className={classNames(styles.icon, {
           [styles.dark]: appTheme.darkMode,

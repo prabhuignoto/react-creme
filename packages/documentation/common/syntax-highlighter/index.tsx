@@ -54,7 +54,11 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
         language="javascript"
         customStyle={{ padding: '1.25rem' }}
         style={{ ...syntaxTheme, height: '100%' }}
+        lineProps={{
+          style: { whiteSpace: 'pre-wrap', wordBreak: 'break-all' },
+        }}
         wrapLongLines
+        wrapLines
       >
         {code}
       </SyntaxHighlighter>

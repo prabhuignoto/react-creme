@@ -23,6 +23,7 @@ export { Image } from './image/image';
 export { InputNumber } from './input-number/input-number';
 export { Input } from './input/input';
 export { Kbd } from './kbd/kbd';
+export { KbdCombination } from './kbd/kbd-combination';
 export { Link } from './link/link';
 export { List } from './list/list';
 export { MenuBar } from './menu-bar/menu-bar';
