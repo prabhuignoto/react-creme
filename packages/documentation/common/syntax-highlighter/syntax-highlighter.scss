@@ -28,6 +28,12 @@
   }
 }
 
+@media (min-width: 992px) {
+  .rc-demo-code-block {
+    width: 850px;
+  }
+}
+
 .rc-demo-code-copy-btn {
   align-items: center;
   background-color: rgba($color: #fff, $alpha: 0.2);
