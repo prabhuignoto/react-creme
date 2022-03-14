@@ -107,4 +107,6 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
   );
 };
 
+MenuBar.displayName = 'MenuBar';
+
 export { MenuBar };

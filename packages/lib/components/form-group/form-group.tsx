@@ -75,4 +75,6 @@ const FormGroup: FunctionComponent<FormGroupProps> = ({
   );
 };
 
+FormGroup.displayName = 'FormGroup';
+
 export { FormGroup };

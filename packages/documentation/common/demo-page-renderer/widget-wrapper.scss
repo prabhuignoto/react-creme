@@ -9,9 +9,6 @@
 
 .rc-doc-widgets-wrapper {
   align-items: flex-start;
-  column-gap: 1rem;
-  display: grid;
-  grid-template-columns: 80% 20%;
   height: 100%;
   justify-items: center;
   width: 100%;
@@ -28,7 +25,7 @@
   padding-left: 0.5rem;
   text-decoration: none;
   text-overflow: ellipsis;
-  width: calc(100% - 0.5rem);
+  width: calc(100% - 1rem);
 
   &:hover {
     background-color: rgba(theme.$white, 0.1);
@@ -38,35 +35,78 @@
   &.selected {
     background-color: rgba(theme.$black, 0.1);
     border-radius: 4px;
+  }
+
+  &.dark {
     color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
   }
 }
 
 .rc-doc-links-wrapper {
   align-items: center;
-  background: rgba(theme.$primary-rgb, 1);
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
+  height: 100vh;
   padding: 0.5rem;
-  position: absolute;
-  transition: top 0.1s linear;
-  width: 90%;
+
+  &.dark {
+    background: theme.$cod-gray;
+  }
+
+  &:not(.dark) {
+    background: theme.$light-bg;
+  }
 }
 
 .rc-doc-links-container {
-  position: relative;
-  width: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 200px;
+  z-index: 999;
+}
+
+@media (min-width: 1600px) {
+  .rc-doc-links-container {
+    width: 300px;
+  }
 }
 
 .rc-doc-links-header {
   @extend %left;
-  border-bottom: 1px solid theme.$white;
+  border-bottom: 1px solid theme.$primary;
   color: theme.$white;
+  color: theme.$primary;
   font-size: 1rem;
   font-weight: 400;
   height: 40px;
   margin-bottom: 1rem;
   width: 95%;
+}
+
+.rc-link-icon {
+  align-items: center;
+  color: rgba(theme.$white, 0.2);
+  display: flex;
+  height: 0.5rem;
+  justify-content: center;
+  margin-right: 0.5rem;
+  width: 0.5rem;
+
+  &:not(.dark):not(.selected) {
+    color: theme.$chinese-gray;
+  }
+
+  &.selected {
+    color: theme.$primary;
+  }
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
 }
