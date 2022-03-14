@@ -109,6 +109,10 @@ code {
     --aside-width: 300px;
     width: 100%;
   }
+
+  .section-content {
+    width: calc(100% - 300px);
+  }
 }
 
 @media (min-width: 1600px) {

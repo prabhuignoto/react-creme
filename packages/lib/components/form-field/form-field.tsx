@@ -52,4 +52,6 @@ const FormField: FunctionComponent<FormFieldProps> = ({
   );
 };
 
+FormField.displayName = 'FormField';
+
 export { FormField };
