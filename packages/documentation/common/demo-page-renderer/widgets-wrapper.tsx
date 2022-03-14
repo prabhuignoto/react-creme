@@ -28,12 +28,12 @@ const WidgetsWrapper: React.FunctionComponent<{
   const [links, setLinks] = useState<Link[]>([]);
   const resizeObserver = useRef<ResizeObserver>(null);
 
-  const [scrollPosition, setScrollPosition] = useState(0);
+  // const [scrollPosition, setScrollPosition] = useState(0);
 
   const { darkMode } = useRecoilValue(themeState);
 
   const currentRect = useRef<DOMRect>(null);
-  const scrollDirection = useRef<'up' | 'down' | null>(null);
+  // const scrollDirection = useRef<'up' | 'down' | null>(null);
 
   const setupLinks = useDebouncedCallback(() => {
     const headings: HTMLElement[] = Array.from(
@@ -86,7 +86,7 @@ const WidgetsWrapper: React.FunctionComponent<{
   }, []);
 
   const handleScroll = useCallback(() => {
-    scrollDirection.current = scrollPosition > window.scrollY ? 'up' : 'down';
+    // scrollDirection.current = scrollPosition > window.scrollY ? 'up' : 'down';
     // setScrollPosition(window.scrollY);
   }, []);
 
@@ -99,15 +99,15 @@ const WidgetsWrapper: React.FunctionComponent<{
 
   const getTop = useMemo(() => {
     if (currentRect.current) {
-      const { height, bottom } = currentRect.current;
-      const dir = scrollDirection.current;
-      const top =
-        dir === 'up'
-          ? scrollPosition - bottom + 10
-          : scrollPosition - height + 10;
-      return top > 0 ? top + 10 : 0;
+      // const { height, bottom } = currentRect.current;
+      // const dir = scrollDirection.current;
+      // const top =
+      //   dir === 'up'
+      //     ? scrollPosition - bottom + 10
+      //     : scrollPosition - height + 10;
+      // return top > 0 ? top + 10 : 0;
     }
-  }, [scrollPosition]);
+  }, []);
 
   return (
     <div className="rc-doc-widgets-wrapper">
