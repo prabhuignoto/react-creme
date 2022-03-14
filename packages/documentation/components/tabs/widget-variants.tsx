@@ -113,3 +113,45 @@ export const Icons = (
     <span>three</span>
   </Tabs>
 );
+
+export const IconsCode = `
+  <Tabs
+    labels={[
+      'one',
+      'two',
+      'three',
+      'four',
+      'five',
+      'six',
+      'seven',
+      'eight',
+      'nine',
+    ]}
+    tabStyle="flat"
+    minHeight={250}
+    disabledTabs={['two', 'one']}
+    icons={
+      [
+        <FontAwesomeIcon icon={faAddressBook} key="1" />,
+        <FontAwesomeIcon icon={faSearch} key="2" />,
+        <FontAwesomeIcon icon={faWrench} key="3" />,
+        <FontAwesomeIcon icon={faHouse} key="4" />,
+        <FontAwesomeIcon icon={faPaintbrush} key="5" />,
+        <FontAwesomeIcon icon={faLaptop} key="6" />,
+        <FontAwesomeIcon icon={faSailboat} key="7" />,
+        <FontAwesomeIcon icon={faGithub} key="8" />,
+        <FontAwesomeIcon icon={faHackerNews} key="9" />
+      ]
+    }
+  >
+    <span>one</span>
+    <span>two</span>
+    <span>three</span>
+    <span>one</span>
+    <span>two</span>
+    <span>three</span>
+    <span>one</span>
+    <span>two</span>
+    <span>three</span>
+  </Tabs>
+`;

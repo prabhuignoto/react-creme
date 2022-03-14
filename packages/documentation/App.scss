@@ -120,10 +120,6 @@ code {
     --aside-width: 350px;
     width: 100%;
   }
-
-  .section-content {
-    width: 100%;
-  }
 }
 
 @media (min-width: 1920px) {
@@ -135,6 +131,10 @@ code {
 @media (min-width: 2560px) {
   .app {
     width: 1800px;
+  }
+
+  .section-content {
+    width: 100%;
   }
 }
 

@@ -3,7 +3,13 @@ import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section, Tabs } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { Default, Disabled, Icons, Rounded } from './widget-variants';
+import {
+  Default,
+  Disabled,
+  Icons,
+  IconsCode,
+  Rounded,
+} from './widget-variants';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
@@ -90,7 +96,9 @@ function widgets() {
             Specific tabs can be disabled by passing an array of tab labels to
             the <em>disabledTabs</em> array
           </BlockQuote>
-          <DemoWidget width={width}>{Icons}</DemoWidget>
+          <DemoWidget width={width} codeString={IconsCode}>
+            {Icons}
+          </DemoWidget>
         </Section>
       </div>
     )
