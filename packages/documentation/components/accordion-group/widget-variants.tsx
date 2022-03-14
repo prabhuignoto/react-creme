@@ -36,7 +36,7 @@ export const Default = (
         width: '100%',
       }}
     >
-      <Image src="https://images.unsplash.com/photo-1635449586099-3ecb7ef8374d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"></Image>
+      <Image src="https://bit.ly/3i9PcxC"></Image>
     </div>
   </AccordionGroup>
 );
@@ -56,7 +56,7 @@ export const InitialState = (
         width: '100%',
       }}
     >
-      <Image src="https://images.unsplash.com/photo-1635449586099-3ecb7ef8374d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"></Image>
+      <Image src="https://bit.ly/3i9PcxC"></Image>
     </div>
   </AccordionGroup>
 );
