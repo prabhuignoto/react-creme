@@ -3,7 +3,15 @@ import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { Default, DropdownField, Icon, RTL, State } from './widget-variants';
+import {
+  Default,
+  DropdownField,
+  DropdownFieldCode,
+  Icon,
+  IconCode,
+  RTL,
+  State,
+} from './widget-variants';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
@@ -36,13 +44,17 @@ function Widgets() {
           <BlockQuote>
             Use the <code>icon</code> prop to add an icon to the form field.
           </BlockQuote>
-          <DemoWidget width={width}>{Icon}</DemoWidget>
+          <DemoWidget width={width} codeString={IconCode}>
+            {Icon}
+          </DemoWidget>
         </Section>
         <Section title="Field with state" size="md">
           <DemoWidget width={width}>{State}</DemoWidget>
         </Section>
         <Section title="Dropdown Field" size="md">
-          <DemoWidget width={width}>{DropdownField}</DemoWidget>
+          <DemoWidget width={width} codeString={DropdownFieldCode}>
+            {DropdownField}
+          </DemoWidget>
         </Section>
         <Section title="RTL Render" size="md">
           <DemoWidget width={width}>{RTL}</DemoWidget>
