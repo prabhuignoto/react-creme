@@ -110,7 +110,7 @@ code {
     width: 100%;
   }
 
-  .section-content {
+  .section-content:not(.home) {
     width: calc(100% - 300px);
   }
 }
