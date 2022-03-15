@@ -116,10 +116,7 @@ const Widgets = () => {
             >
               <div style={{ width: `${width}px` }}>
                 <Card height={300}>
-                  <Image
-                    height={280}
-                    src="https://www.dccomics.com/sites/default/files/Gallery_20210914_BM_THEWORLD_61401312483190.19934149.jpg"
-                  />
+                  <Image height={280} src="https://bit.ly/37wPJb5" />
                 </Card>
               </div>
             </Tooltip>

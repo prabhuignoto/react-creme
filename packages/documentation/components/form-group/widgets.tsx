@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 import { Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { Default, RTL } from './widget-variants';
+import { Default, DefaultCode, RTL, RTLCode } from './widget-variants';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
@@ -30,10 +30,14 @@ function Widgets() {
     width && (
       <div className="rc-demo-widgets">
         <Section title="Default render" size="md">
-          <DemoWidget width={width}>{Default}</DemoWidget>
+          <DemoWidget width={width} codeString={DefaultCode}>
+            {Default}
+          </DemoWidget>
         </Section>
         <Section title="RTL" size="md">
-          <DemoWidget width={width}>{RTL}</DemoWidget>
+          <DemoWidget width={width} codeString={RTLCode}>
+            {RTL}
+          </DemoWidget>
         </Section>
       </div>
     )

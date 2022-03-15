@@ -31,6 +31,13 @@ export const Icon = (
   </FormField>
 );
 
+export const IconCode = `<FormField
+    label="Please enter the name"
+    icon={<FontAwesomeIcon icon={faUser} />}
+>
+  <Input id="name" placeholder="Name" enableClear />
+</FormField>`;
+
 export const DropdownField = (
   <FormField
     label="Please select a Country"
@@ -59,3 +66,30 @@ export const DropdownField = (
     />
   </FormField>
 );
+
+export const DropdownFieldCode = `<FormField
+    label="Please select a Country"
+    icon={<FontAwesomeIcon icon={faFlag} />}
+>
+  <Dropdown
+    placeholder=""
+    maxMenuHeight={280}
+    options={[
+      {
+        name: 'India',
+      },
+      {
+        name: 'USA',
+      },
+      {
+        name: 'UK',
+      },
+      {
+        name: 'Brazil',
+      },
+      {
+        name: 'China',
+      },
+    ]}
+  />
+</FormField>`;
