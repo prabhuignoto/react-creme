@@ -59,7 +59,7 @@
     "@vitest/ui": "^0.6.1",
     "c8": "^7.11.0",
     "jsdom": "^19.0.0",
-    "postcss": "^8.4.8",
+    "postcss": "^8.4.11",
     "resize-observer-polyfill": "^1.5.1",
     "rollup": "^2.70.1",
     "rollup-plugin-postcss": "^4.0.2",

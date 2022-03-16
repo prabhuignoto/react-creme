@@ -133,7 +133,7 @@ code {
     width: 1800px;
   }
 
-  .section-content {
+  .section-content:not(.home) {
     width: 100%;
   }
 }
