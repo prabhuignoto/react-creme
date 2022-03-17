@@ -113,4 +113,6 @@ const Tree: React.FunctionComponent<TreeProps> = ({
   );
 };
 
+Tree.displayName = 'Tree';
+
 export { Tree };
