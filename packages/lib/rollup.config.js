@@ -30,14 +30,17 @@ const globals = {
 
 export default {
   external: [...Object.keys(pkg.peerDependencies || {}), '@babel/runtime'],
-  input: 'react-creme.ts',
+  input: './components/react-creme.ts',
   output: [
     {
       banner,
-      format: 'es',
+      format: 'esm',
       ...globals,
+      dir: 'dist/esm',
+      entryFileNames: '[name].mjs',
       exports: 'auto',
-      file: pkg.module,
+      preserveModules: true,
+      preserveModulesRoot: 'components',
       strict: true,
     },
     {
