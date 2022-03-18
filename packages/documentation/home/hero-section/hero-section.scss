@@ -145,11 +145,11 @@
   margin-top: 0.5rem;
   text-align: left;
 
-  &.dark {
-  }
+  // &.dark {
+  // }
 
-  &:not(.dark) {
-  }
+  // &:not(.dark) {
+  // }
 
   @media (min-width: 300px) and (max-width: 480px) {
     font-size: 0.85rem;
