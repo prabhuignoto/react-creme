@@ -26,7 +26,7 @@ function BrowserSupport() {
               })}
             >
               {/* <FontAwesomeIcon icon={browser.icon} size="4x" /> */}
-              <img src={`../../images/${browser.image}.svg`} />
+              <img src={`${browser.image}.svg`} />
             </span>
             <span
               className={classNames(styles.name, {

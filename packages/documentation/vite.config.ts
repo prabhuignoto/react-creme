@@ -20,6 +20,7 @@ export default defineConfig({
   logLevel: 'info',
   mode: 'universal',
   plugins: [reactRefresh(), svgr()],
+  publicDir: 'public',
   server: {
     fs: {
       strict: false,
