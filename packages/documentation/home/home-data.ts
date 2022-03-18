@@ -61,18 +61,22 @@ export const Features = [
 export const supportedBrowsers = [
   {
     icon: faChrome,
+    image: 'chrome',
     title: 'Chrome',
   },
   {
     icon: faFirefoxBrowser,
+    image: 'firefox',
     title: 'Firefox',
   },
   {
     icon: faSafari,
+    image: 'safari',
     title: 'Safari',
   },
   {
     icon: faEdge,
+    image: 'edge',
     title: 'Edge',
   },
 ];

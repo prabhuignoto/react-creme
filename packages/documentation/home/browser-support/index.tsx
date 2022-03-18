@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -26,7 +25,8 @@ function BrowserSupport() {
                 [styles.dark]: isDarkMode,
               })}
             >
-              <FontAwesomeIcon icon={browser.icon} size="4x" />
+              {/* <FontAwesomeIcon icon={browser.icon} size="4x" /> */}
+              <img src={`../../images/${browser.image}.svg`} />
             </span>
             <span
               className={classNames(styles.name, {

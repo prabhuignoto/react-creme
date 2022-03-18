@@ -64,8 +64,7 @@
   }
 
   &.dark {
-    background: rgba($color: #000, $alpha: 0.5);
-    // background: #003b73;
+    background: rgba($color: #fff, $alpha: 0.25);
   }
 
   @media (min-width: 300px) and (max-width: 480px) {
@@ -138,19 +137,19 @@
 }
 
 .rc-doc-app-feature-name {
+  // color: #003b73;
+  color: #fff;
   font-size: 1.1rem;
   font-weight: 400;
   margin-left: 0.2rem;
   margin-top: 0.5rem;
   text-align: left;
 
-  &.dark {
-    color: #fff;
-  }
+  // &.dark {
+  // }
 
-  &:not(.dark) {
-    color: #003b73;
-  }
+  // &:not(.dark) {
+  // }
 
   @media (min-width: 300px) and (max-width: 480px) {
     font-size: 0.85rem;
