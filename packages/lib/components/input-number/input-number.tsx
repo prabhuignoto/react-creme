@@ -110,11 +110,17 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
             type="icon"
             onClick={onIncrement}
             size={size}
+            label="increment"
             style={{ marginBottom: '0.25rem', transform: 'rotate(180deg)' }}
           >
             <ChevronDownIcon />
           </Button>
-          <Button type="icon" onClick={onDecrement} size={size}>
+          <Button
+            type="icon"
+            onClick={onDecrement}
+            size={size}
+            label="decrement"
+          >
             <ChevronDownIcon />
           </Button>
         </div>
