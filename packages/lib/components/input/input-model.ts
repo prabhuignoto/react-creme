@@ -11,6 +11,8 @@ export interface InputProps {
    */
   accent?: 'rounded' | 'flat';
 
+  alignCenter?: boolean;
+
   /**
    * 🔴 Enables or Disables the border
    */

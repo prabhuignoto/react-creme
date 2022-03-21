@@ -50,6 +50,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       type = 'text',
       value = '',
       transparentBgColor = false,
+      alignCenter = false,
     } = props;
 
     const [inputValue, setInputValue] = useState(value);
@@ -132,6 +133,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           [styles[size]]: true,
           [styles.transparent_bg_color]: transparentBgColor,
           [styles.input_dark]: isDarkMode,
+          [styles.no_clear]: !enableClear,
         }),
       [disabled, hasFocus, isDarkMode]
     );
@@ -196,7 +198,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
         aria-label={placeholder}
         {...autoCompleteProps}
       >
-        <span className={styles.icon}>{children}</span>
+        {children && <span className={styles.icon}>{children}</span>}
         <input
           type={type}
           placeholder={placeholder}
@@ -209,7 +211,8 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           disabled={inputDisabled}
           className={classNames(
             styles.input_text,
-            isDarkMode ? styles.input_dark : ''
+            isDarkMode ? styles.input_dark : '',
+            alignCenter ? styles.align_center : ''
           )}
         />
         {!showSpinner && (

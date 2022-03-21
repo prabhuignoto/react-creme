@@ -108,6 +108,11 @@ const routes = [
     key: 'kbd',
     path: '/kbd',
   },
+  {
+    component: React.lazy(() => import('../components/pin')),
+    key: 'pin',
+    path: '/pin',
+  },
 ];
 
 export { routes };

@@ -14,12 +14,18 @@ $heights: (
 
 .input {
   align-items: center;
-  display: grid;
-  grid-template-columns: 2rem calc(100% - 4rem) 2rem;
   justify-items: center;
   position: relative;
   width: 100%;
   z-index: 2;
+
+  &:not(.no_clear):not(.no_icon) {
+    display: grid;
+  }
+
+  &:not(.no_clear) {
+    grid-template-columns: 2rem calc(100% - 4rem) 2rem;
+  }
 
   &.rtl {
     direction: rtl;
@@ -75,8 +81,8 @@ $heights: (
     @extend %border-success;
   }
 
-  &.no_icon {
-    grid-template-columns: 0.5rem calc(100% - 2.5rem) 2rem;
+  &.no_icon:not(.no_clear) {
+    grid-template-columns: calc(100% - 2rem) 2rem;
   }
 
   &.disabled {
@@ -104,6 +110,14 @@ $heights: (
 
   &:not(.input_dark) {
     color: theme.$black;
+  }
+
+  &.align_center {
+    text-align: center;
+  }
+
+  &:not(.align_center) {
+    padding-left: 0.5rem;
   }
 }
 

@@ -2,12 +2,10 @@ import classNames from 'classnames';
 import React, {
   FunctionComponent,
   useCallback,
-  useEffect,
   useMemo,
   useState,
 } from 'react';
 import { ChevronDownIcon } from '../../icons';
-import { useFirstRender } from '../common/effects/useFirstRender';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { InputNumberProps } from './input-number.model';
@@ -22,30 +20,38 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
   border = false,
   RTL = false,
   placeholder = '',
+  disableControls = false,
+  focusable = true,
+  honorBoundaries = true,
+  alignCenter = true,
 }) => {
   const [number, setNumber] = useState(
-    value ? (value > end ? end : value < start ? start : value) : start
+    honorBoundaries
+      ? value
+        ? value > end
+          ? end
+          : value < start
+          ? start
+          : value
+        : start
+      : value
   );
-
-  const isFirstRender = useFirstRender();
 
   const increment = useCallback(() => {
     if (number + 1 <= end) {
-      setNumber(number + 1);
+      const newVal = number + 1;
+      setNumber(newVal);
+      onChange?.(newVal);
     }
-  }, [number, 1, end]);
+  }, [number]);
 
   const decrement = useCallback(() => {
     if (number - 1 >= start) {
-      setNumber(number - 1);
+      const newVal = number - 1;
+      setNumber(newVal);
+      onChange?.(newVal);
     }
-  }, [number, 1, start]);
-
-  useEffect(() => {
-    if (!isFirstRender.current) {
-      onChange?.(number);
-    }
-  }, [number]);
+  }, []);
 
   const isDarkMode = useMemo(() => isDark(), []);
 
@@ -62,12 +68,22 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
 
   const handleKeyUp = useCallback(
     (ev: React.KeyboardEvent) => {
-      ev.preventDefault();
       if (ev.key === 'ArrowUp') {
+        ev.preventDefault();
         increment();
       } else if (ev.key === 'ArrowDown') {
+        ev.preventDefault();
         decrement();
       }
+    },
+    [number]
+  );
+
+  const handleChange = useCallback(
+    (val: string) => {
+      const num = Number.parseInt(val);
+      setNumber(num);
+      onChange?.(num);
     },
     [number]
   );
@@ -79,45 +95,48 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         value={number + ''}
         enableClear={false}
         transparentBgColor
-        focusable={false}
+        focusable={focusable}
         size={size}
         type="number"
         onKeyUp={handleKeyUp}
         placeholder={placeholder}
-        onKeyDown={(ev: React.KeyboardEvent) => {
-          ev.preventDefault();
-        }}
+        onChange={handleChange}
+        alignCenter={alignCenter}
       />
-      <div className={styles.controls}>
-        <span
-          role="button"
-          tabIndex={0}
-          className={classNames(
-            styles.btn,
-            styles.increment,
-            isDarkMode && styles.dark
-          )}
-          onClick={increment}
-          aria-label="increment"
-        >
-          <ChevronDownIcon />
-        </span>
-        <span
-          role="button"
-          tabIndex={0}
-          className={classNames(
-            styles.btn,
-            styles.decrement,
-            isDarkMode && styles.dark
-          )}
-          onClick={decrement}
-          aria-label="decrement"
-        >
-          <ChevronDownIcon />
-        </span>
-      </div>
+      {!disableControls && (
+        <div className={styles.controls}>
+          <span
+            role="button"
+            tabIndex={0}
+            className={classNames(
+              styles.btn,
+              styles.increment,
+              isDarkMode && styles.dark
+            )}
+            onClick={increment}
+            aria-label="increment"
+          >
+            <ChevronDownIcon />
+          </span>
+          <span
+            role="button"
+            tabIndex={0}
+            className={classNames(
+              styles.btn,
+              styles.decrement,
+              isDarkMode && styles.dark
+            )}
+            onClick={decrement}
+            aria-label="decrement"
+          >
+            <ChevronDownIcon />
+          </span>
+        </div>
+      )}
     </div>
   );
 };
+
+InputNumber.displayName = 'InputNumber';
 
 export { InputNumber };
