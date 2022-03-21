@@ -43,7 +43,7 @@ const Pin: FunctionComponent<PinProps> = ({
 
   const handleChange = useCallback(
     (val, index) => {
-      if (val) {
+      if (!Number.isNaN(val)) {
         if (index + 1 < length && wrapperRef.current) {
           const ele = wrapperRef.current.querySelectorAll('li')[index + 1];
           ele.querySelector('input')?.focus();
@@ -74,7 +74,7 @@ const Pin: FunctionComponent<PinProps> = ({
               size={size}
               onChange={val => handleChange(val, index)}
               disableControls
-              value={0}
+              value={NaN}
               honorBoundaries={false}
             />
           </div>

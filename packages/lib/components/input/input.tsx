@@ -212,7 +212,8 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           className={classNames(
             styles.input_text,
             isDarkMode ? styles.input_dark : '',
-            alignCenter ? styles.align_center : ''
+            alignCenter ? styles.align_center : '',
+            children ? styles.with_icon : ''
           )}
         />
         {!showSpinner && (

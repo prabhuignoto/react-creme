@@ -116,7 +116,7 @@ $heights: (
     text-align: center;
   }
 
-  &:not(.align_center) {
+  &:not(.align_center):not(.with_icon) {
     padding-left: 0.5rem;
   }
 }

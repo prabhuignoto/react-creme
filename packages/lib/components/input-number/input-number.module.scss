@@ -54,6 +54,11 @@ $heights: (
   background: theme.$secondary;
   cursor: pointer;
 
+  &:focus {
+    outline: 1px solid theme.$primary;
+    outline-offset: 3px;
+  }
+
   &.dark {
     color: theme.$white;
   }

@@ -63,7 +63,7 @@ $sizes: (sm, md, lg);
 
 .icon {
   border-radius: 50%;
-  padding: 0.25rem;
+  // padding: 0.25rem;
 
   &.disabled {
     @extend %disabled;

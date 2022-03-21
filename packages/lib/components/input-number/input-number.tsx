@@ -6,6 +6,7 @@ import React, {
   useState,
 } from 'react';
 import { ChevronDownIcon } from '../../icons';
+import { Button } from '../button/button';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { InputNumberProps } from './input-number.model';
@@ -37,7 +38,7 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
       : value
   );
 
-  const increment = useCallback(() => {
+  const onIncrement = useCallback(() => {
     if (number + 1 <= end) {
       const newVal = number + 1;
       setNumber(newVal);
@@ -45,13 +46,13 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
     }
   }, [number]);
 
-  const decrement = useCallback(() => {
+  const onDecrement = useCallback(() => {
     if (number - 1 >= start) {
       const newVal = number - 1;
       setNumber(newVal);
       onChange?.(newVal);
     }
-  }, []);
+  }, [number]);
 
   const isDarkMode = useMemo(() => isDark(), []);
 
@@ -70,10 +71,10 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
     (ev: React.KeyboardEvent) => {
       if (ev.key === 'ArrowUp') {
         ev.preventDefault();
-        increment();
+        onIncrement();
       } else if (ev.key === 'ArrowDown') {
         ev.preventDefault();
-        decrement();
+        onDecrement();
       }
     },
     [number]
@@ -105,32 +106,17 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
       />
       {!disableControls && (
         <div className={styles.controls}>
-          <span
-            role="button"
-            tabIndex={0}
-            className={classNames(
-              styles.btn,
-              styles.increment,
-              isDarkMode && styles.dark
-            )}
-            onClick={increment}
-            aria-label="increment"
+          <Button
+            type="icon"
+            onClick={onIncrement}
+            size={size}
+            style={{ marginBottom: '0.25rem', transform: 'rotate(180deg)' }}
           >
             <ChevronDownIcon />
-          </span>
-          <span
-            role="button"
-            tabIndex={0}
-            className={classNames(
-              styles.btn,
-              styles.decrement,
-              isDarkMode && styles.dark
-            )}
-            onClick={decrement}
-            aria-label="decrement"
-          >
+          </Button>
+          <Button type="icon" onClick={onDecrement} size={size}>
             <ChevronDownIcon />
-          </span>
+          </Button>
         </div>
       )}
     </div>
