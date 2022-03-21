@@ -9,12 +9,12 @@ function widgets() {
       <Section title="Default render">
         <DemoWidget fullWidth>{Default}</DemoWidget>
       </Section>
-      {/* <Section title="Custom length">
+      <Section title="Custom length">
         <DemoWidget fullWidth>{CustomLength}</DemoWidget>
       </Section>
       <Section title="RLT">
         <DemoWidget fullWidth>{RTL}</DemoWidget>
-      </Section> */}
+      </Section>
     </div>
   );
 }
