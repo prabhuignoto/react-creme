@@ -66,6 +66,7 @@ export default [
       { name: 'Menu Button' },
       { name: 'Form Field' },
       { name: 'Form Group' },
+      { name: 'Pin' },
     ],
     title: 'Inputs',
   },

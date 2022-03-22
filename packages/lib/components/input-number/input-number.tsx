@@ -2,12 +2,11 @@ import classNames from 'classnames';
 import React, {
   FunctionComponent,
   useCallback,
-  useEffect,
   useMemo,
   useState,
 } from 'react';
 import { ChevronDownIcon } from '../../icons';
-import { useFirstRender } from '../common/effects/useFirstRender';
+import { Button } from '../button/button';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { InputNumberProps } from './input-number.model';
@@ -22,28 +21,36 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
   border = false,
   RTL = false,
   placeholder = '',
+  disableControls = false,
+  focusable = true,
+  honorBoundaries = true,
+  alignCenter = true,
 }) => {
   const [number, setNumber] = useState(
-    value ? (value > end ? end : value < start ? start : value) : start
+    honorBoundaries
+      ? value
+        ? value > end
+          ? end
+          : value < start
+          ? start
+          : value
+        : start
+      : value
   );
 
-  const isFirstRender = useFirstRender();
-
-  const increment = useCallback(() => {
+  const onIncrement = useCallback(() => {
     if (number + 1 <= end) {
-      setNumber(number + 1);
+      const newVal = number + 1;
+      setNumber(newVal);
+      onChange?.(newVal);
     }
-  }, [number, 1, end]);
+  }, [number]);
 
-  const decrement = useCallback(() => {
+  const onDecrement = useCallback(() => {
     if (number - 1 >= start) {
-      setNumber(number - 1);
-    }
-  }, [number, 1, start]);
-
-  useEffect(() => {
-    if (!isFirstRender.current) {
-      onChange?.(number);
+      const newVal = number - 1;
+      setNumber(newVal);
+      onChange?.(newVal);
     }
   }, [number]);
 
@@ -62,12 +69,22 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
 
   const handleKeyUp = useCallback(
     (ev: React.KeyboardEvent) => {
-      ev.preventDefault();
       if (ev.key === 'ArrowUp') {
-        increment();
+        ev.preventDefault();
+        onIncrement();
       } else if (ev.key === 'ArrowDown') {
-        decrement();
+        ev.preventDefault();
+        onDecrement();
       }
+    },
+    [number]
+  );
+
+  const handleChange = useCallback(
+    (val: string) => {
+      const num = Number.parseInt(val);
+      setNumber(num);
+      onChange?.(num);
     },
     [number]
   );
@@ -79,45 +96,39 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         value={number + ''}
         enableClear={false}
         transparentBgColor
-        focusable={false}
+        focusable={focusable}
         size={size}
         type="number"
         onKeyUp={handleKeyUp}
         placeholder={placeholder}
-        onKeyDown={(ev: React.KeyboardEvent) => {
-          ev.preventDefault();
-        }}
+        onChange={handleChange}
+        alignCenter={alignCenter}
       />
-      <div className={styles.controls}>
-        <span
-          role="button"
-          tabIndex={0}
-          className={classNames(
-            styles.btn,
-            styles.increment,
-            isDarkMode && styles.dark
-          )}
-          onClick={increment}
-          aria-label="increment"
-        >
-          <ChevronDownIcon />
-        </span>
-        <span
-          role="button"
-          tabIndex={0}
-          className={classNames(
-            styles.btn,
-            styles.decrement,
-            isDarkMode && styles.dark
-          )}
-          onClick={decrement}
-          aria-label="decrement"
-        >
-          <ChevronDownIcon />
-        </span>
-      </div>
+      {!disableControls && (
+        <div className={styles.controls}>
+          <Button
+            type="icon"
+            onClick={onIncrement}
+            size={size}
+            label="increment"
+            style={{ marginBottom: '0.25rem', transform: 'rotate(180deg)' }}
+          >
+            <ChevronDownIcon />
+          </Button>
+          <Button
+            type="icon"
+            onClick={onDecrement}
+            size={size}
+            label="decrement"
+          >
+            <ChevronDownIcon />
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
+
+InputNumber.displayName = 'InputNumber';
 
 export { InputNumber };

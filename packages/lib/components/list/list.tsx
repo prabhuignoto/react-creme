@@ -152,7 +152,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
 
     const handleScroll = useDebouncedCallback(setRange);
 
-    const onListRef = useCallback((el: HTMLDivElement) => {
+    const onListRef = useCallback((el: HTMLDivElement | null) => {
       if (el) {
         listRef.current = el;
 

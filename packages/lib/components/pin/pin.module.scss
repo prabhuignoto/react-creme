@@ -1,0 +1,41 @@
+@use '../../design/border.scss';
+@use '../../design/core.scss';
+@use '../../design/font.scss';
+@use '../../design/list.scss';
+
+$pin-item-margin: 1rem;
+$sizes: (
+  sm: 2.5rem,
+  md: 3rem,
+  lg: 5rem,
+);
+
+.wrapper {
+  @extend %list-horizontal-left;
+
+  &.RTL {
+    direction: rtl;
+  }
+}
+
+.item {
+  @extend %center;
+
+  &:not(:first-child) {
+    margin-left: $pin-item-margin;
+  }
+}
+
+.input {
+  @extend %border;
+  height: 100%;
+  width: 100%;
+}
+
+.input_wrapper {
+  @each $key, $val in $sizes {
+    &.#{$key} {
+      width: $val;
+    }
+  }
+}

@@ -30,6 +30,7 @@ export { MenuBar } from './menu-bar/menu-bar';
 export { Menu } from './menu/menu';
 export { Notification } from './notification/notification';
 export { PageHeader } from './page-header/page-header';
+export { Pin } from './pin/pin';
 export { CircularProgress } from './progress/circular-progress';
 export { Progress } from './progress/progress';
 export { RadioGroup } from './radio-group/radio-group';
