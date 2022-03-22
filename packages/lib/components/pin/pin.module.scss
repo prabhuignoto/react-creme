@@ -12,18 +12,25 @@ $sizes: (
 
 .wrapper {
   @extend %list-horizontal-left;
+}
 
-  &.RTL {
-    direction: rtl;
+.wrapper.RTL {
+  @extend %list-horizontal-left;
+  direction: rtl;
+
+  li:not(:first-child) {
+    margin-right: $pin-item-margin;
+  }
+}
+
+.wrapper:not(.RTL) {
+  li:not(:first-child) {
+    margin-left: $pin-item-margin;
   }
 }
 
 .item {
   @extend %center;
-
-  &:not(:first-child) {
-    margin-left: $pin-item-margin;
-  }
 }
 
 .input {

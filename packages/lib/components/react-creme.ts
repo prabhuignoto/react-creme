@@ -99,6 +99,8 @@ export { Notification } from './notification/notification';
 export type { NotificationProps } from './notification/notification-model';
 export { PageHeader } from './page-header/page-header';
 export type { PageHeaderProps } from './page-header/page-header';
+export { Pin } from './pin/pin';
+export type { PinProps } from './pin/pin';
 export { CircularProgress } from './progress/circular-progress';
 export type { CircularProgressProps } from './progress/circular-progress';
 export { Progress } from './progress/progress';

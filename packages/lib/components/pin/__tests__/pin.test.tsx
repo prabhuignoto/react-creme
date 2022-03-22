@@ -52,4 +52,14 @@ describe('Pin', () => {
       expect(inputs[1]).toHaveFocus();
     });
   });
+
+  it('should not auto jump', () => {
+    const { container } = render(<Pin autoJump={false} />);
+
+    const inputs = container.querySelectorAll("li input[type='number']");
+
+    fireEvent.change(inputs[0], { target: { value: '1' } });
+
+    expect(inputs[1]).not.toHaveFocus();
+  });
 });

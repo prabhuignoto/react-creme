@@ -9,7 +9,7 @@ function Pin() {
     <DemoPageRenderer
       title="Pin"
       description="Input for entering a pin code."
-      features={[]}
+      features={['Auto focusing input', 'RTL support', 'Custom pin length']}
       properties={[
         {
           default: 'sm',
@@ -39,8 +39,16 @@ function Pin() {
           optional: 'Yes',
           type: 'function',
         },
+        {
+          default: 'true',
+          description:
+            'Whether the pin should auto jump to the next input when the current input is filled.',
+          name: 'autoJump',
+          optional: 'Yes',
+          type: 'boolean',
+        },
       ]}
-      tabTitles={['Examples', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Stackblitz']}
       demoWidget={<Widgets />}
       stackBlitzCodes={['react-ts-un6jde']}
       sourceId="pin/pin"
