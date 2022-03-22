@@ -111,7 +111,7 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
     []
   );
 
-  const onRef = useCallback((ref: HTMLDivElement) => {
+  const onRef = useCallback((ref: HTMLDivElement | null) => {
     progressTrackRef.current = ref;
     setLoaded(true);
   }, []);

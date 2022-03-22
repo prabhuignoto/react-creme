@@ -51,7 +51,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
         ]
   );
 
-  const onRef = useCallback((node: HTMLDivElement) => {
+  const onRef = useCallback((node: HTMLDivElement | null) => {
     if (node) {
       scrollSpyContentRef.current = node;
       spy.current = new IntersectionObserver(

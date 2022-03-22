@@ -101,7 +101,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   }, [width]);
 
   const onRef = useCallback(
-    (node: HTMLDivElement) => {
+    (node: HTMLDivElement | null) => {
       if (node) {
         gridRef.current = node;
 

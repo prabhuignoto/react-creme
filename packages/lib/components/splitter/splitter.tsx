@@ -119,7 +119,7 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
     []
   );
 
-  const setWrapperRef = useCallback((node: HTMLDivElement) => {
+  const setWrapperRef = useCallback((node: HTMLDivElement | null) => {
     if (node) {
       ref.current = node;
       const { clientWidth, clientHeight } = node;
