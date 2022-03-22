@@ -1,6 +1,7 @@
 @use '../../design/border.scss';
 @use '../../design/core.scss';
 @use '../../design/font.scss';
+@use '../../design/list.scss';
 
 $pin-item-margin: 1rem;
 $sizes: (
@@ -10,7 +11,7 @@ $sizes: (
 );
 
 .wrapper {
-  @extend %center;
+  @extend %list-horizontal-left;
 
   &.RTL {
     direction: rtl;
@@ -20,7 +21,7 @@ $sizes: (
 .item {
   @extend %center;
 
-  &:not(.first) {
+  &:not(:first-child) {
     margin-left: $pin-item-margin;
   }
 }
@@ -35,7 +36,6 @@ $sizes: (
   @each $key, $val in $sizes {
     &.#{$key} {
       width: $val;
-      // height: $val;
     }
   }
 }

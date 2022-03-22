@@ -7,13 +7,13 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render">
-        <DemoWidget fullWidth>{Default}</DemoWidget>
+        <DemoWidget width={300}>{Default}</DemoWidget>
       </Section>
       <Section title="Custom length">
-        <DemoWidget fullWidth>{CustomLength}</DemoWidget>
+        <DemoWidget width={300}>{CustomLength}</DemoWidget>
       </Section>
-      <Section title="RLT">
-        <DemoWidget fullWidth>{RTL}</DemoWidget>
+      <Section title="RTL">
+        <DemoWidget width={300}>{RTL}</DemoWidget>
       </Section>
     </div>
   );

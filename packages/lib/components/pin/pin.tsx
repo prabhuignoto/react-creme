@@ -14,6 +14,7 @@ import styles from './pin.module.scss';
 
 export type PinProps = {
   RTL?: boolean;
+  border?: boolean;
   length?: number;
   onChange?: (val: number) => void;
   size?: 'sm' | 'md' | 'lg';
@@ -24,6 +25,7 @@ const Pin: FunctionComponent<PinProps> = ({
   RTL = false,
   onChange,
   size = 'sm',
+  border = false,
 }) => {
   const items = useRef(
     Array.from({ length }).map(() => ({
@@ -76,6 +78,7 @@ const Pin: FunctionComponent<PinProps> = ({
               disableControls
               value={NaN}
               honorBoundaries={false}
+              border={border}
             />
           </div>
         </li>
