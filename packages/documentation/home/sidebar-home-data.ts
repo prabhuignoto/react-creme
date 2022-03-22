@@ -67,6 +67,7 @@ export default [
       { name: 'Form Field' },
       { name: 'Form Group' },
       { name: 'Pin' },
+      { name: 'Password' },
     ],
     title: 'Inputs',
   },

@@ -11,6 +11,8 @@ export { default as CloseIcon } from './close';
 export { default as CodeIcon } from './code';
 export { default as CopyIcon } from './copy';
 export { default as ErrorIcon } from './error';
+export { default as Eye } from './eye';
+export { default as EyeOff } from './eye-off';
 export { default as InfoIcon } from './info';
 export { default as MinusIcon } from './minus';
 export { default as MoreHorizontalIcon } from './more-horizontal';

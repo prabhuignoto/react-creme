@@ -94,7 +94,7 @@ export interface InputProps {
    */
   style?: CSSProperties;
 
-  transparentBgColor?: boolean;
+  transparentBg?: boolean;
 
   /**
    * 🔴 type of Input

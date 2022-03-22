@@ -4,25 +4,25 @@ import { ChevronRightIcon } from '../../../lib/icons';
 
 export const Default = <Input enableClear></Input>;
 export const WithIcon = (
-  <Input enableClear focusable>
+  <Input focusable>
     <ChevronRightIcon />
   </Input>
 );
 export const WithBorder = (
-  <Input enableClear border>
+  <Input border>
     <ChevronRightIcon />
   </Input>
 );
-export const Error = <Input enableClear state="error" focusable></Input>;
-export const Success = <Input enableClear state="success"></Input>;
+export const Error = <Input state="error" focusable></Input>;
+export const Success = <Input state="success"></Input>;
 export const RTL = (
-  <Input enableClear focusable RTL>
+  <Input focusable RTL>
     <ChevronRightIcon />
   </Input>
 );
 
 export const Accent = (
-  <Input enableClear focusable accent="rounded">
+  <Input focusable accent="rounded">
     <ChevronRightIcon />
   </Input>
 );

@@ -95,7 +95,7 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         controlled
         value={number + ''}
         enableClear={false}
-        transparentBgColor
+        transparentBg
         focusable={focusable}
         size={size}
         type="number"
