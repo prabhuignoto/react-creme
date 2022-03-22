@@ -14,6 +14,7 @@ import styles from './pin.module.scss';
 
 export type PinProps = {
   RTL?: boolean;
+  autoJump?: boolean;
   border?: boolean;
   length?: number;
   onChange?: (val: number) => void;
@@ -26,6 +27,7 @@ const Pin: FunctionComponent<PinProps> = ({
   onChange,
   size = 'sm',
   border = false,
+  autoJump = true,
 }) => {
   const items = useRef(
     Array.from({ length }).map(() => ({
@@ -37,7 +39,7 @@ const Pin: FunctionComponent<PinProps> = ({
   const isFirstRender = useFirstRender();
 
   const wrapperClass = useMemo(
-    () => classNames(styles.wrapper, { [styles.RTL]: RTL }),
+    () => classNames(styles.wrapper, RTL ? styles.RTL : ''),
     []
   );
 
@@ -46,7 +48,7 @@ const Pin: FunctionComponent<PinProps> = ({
   const handleChange = useCallback(
     (val, index) => {
       if (!Number.isNaN(val)) {
-        if (index + 1 < length && wrapperRef.current) {
+        if (index + 1 < length && wrapperRef.current && autoJump) {
           const ele = wrapperRef.current.querySelectorAll('li')[index + 1];
           ele.querySelector('input')?.focus();
         }
@@ -86,5 +88,7 @@ const Pin: FunctionComponent<PinProps> = ({
     </ul>
   );
 };
+
+Pin.displayName = 'Pin';
 
 export { Pin };
