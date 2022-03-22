@@ -60,11 +60,7 @@ describe('Password', () => {
 
     fireEvent.change(input, { target: { value: 'test' } });
 
-    fireEvent.click(
-      getByRole('button', {
-        name: 'clear input',
-      })
-    );
+    fireEvent.mouseDown(getByRole('button', { name: 'clear input' }));
 
     await waitFor(() => {
       expect(input).toHaveValue('');
