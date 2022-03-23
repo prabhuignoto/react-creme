@@ -24,6 +24,7 @@ $heights: (
   }
 
   &:not(.no_clear) {
+    display: grid;
     grid-template-columns: 2rem calc(100% - 4rem) 2rem;
   }
 
@@ -82,6 +83,7 @@ $heights: (
   }
 
   &.no_icon:not(.no_clear) {
+    display: grid;
     grid-template-columns: calc(100% - 2rem) 2rem;
   }
 
@@ -92,7 +94,7 @@ $heights: (
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    margin: 0;
   }
 }
 
@@ -116,8 +118,12 @@ $heights: (
     text-align: center;
   }
 
-  &:not(.align_center):not(.with_icon) {
+  &:not(.align_center):not(.with_icon):not(.RTL) {
     padding-left: 0.5rem;
+  }
+
+  &:not(.align_center):not(.with_icon).RTL {
+    padding-right: 0.5rem;
   }
 }
 

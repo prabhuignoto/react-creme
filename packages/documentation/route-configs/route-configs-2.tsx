@@ -146,6 +146,11 @@ export const routes = [
     key: 'form-group',
     path: '/form-group',
   },
+  {
+    component: lazy(() => import('../components/password')),
+    key: 'password',
+    path: '/password',
+  },
 ];
 
 export { routes as routes2 };

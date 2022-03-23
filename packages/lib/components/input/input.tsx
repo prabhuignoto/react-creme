@@ -31,7 +31,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       accent = 'flat',
       border = false,
       children,
-      controlled = false,
+      controlled = true,
       disabled = false,
       enableClear = true,
       focusable = true,
@@ -49,7 +49,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       style,
       type = 'text',
       value = '',
-      transparentBgColor = false,
+      transparentBg = false,
       alignCenter = false,
     } = props;
 
@@ -131,11 +131,23 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           [styles.rtl]: RTL,
           [styles[accent]]: true,
           [styles[size]]: true,
-          [styles.transparent_bg_color]: transparentBgColor,
+          [styles.transparent_bg_color]: transparentBg,
           [styles.input_dark]: isDarkMode,
           [styles.no_clear]: !enableClear,
         }),
       [disabled, hasFocus, isDarkMode]
+    );
+
+    const inputTextClass = useMemo(
+      () =>
+        classNames(
+          styles.input_text,
+          isDarkMode ? styles.input_dark : '',
+          alignCenter ? styles.align_center : '',
+          children ? styles.with_icon : '',
+          RTL ? styles.RTL : ''
+        ),
+      []
     );
 
     useEffect(() => {
@@ -183,7 +195,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
     const clearProps = useMemo(
       () => ({
         'aria-hidden': !showSpinner && !inputValue,
-        'aria-label': 'Clear',
+        'aria-label': 'clear input',
         hidden: !showSpinner && !inputValue,
       }),
       [inputValue, showSpinner]
@@ -209,12 +221,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           ref={inputRef}
           id={inputId.current}
           disabled={inputDisabled}
-          className={classNames(
-            styles.input_text,
-            isDarkMode ? styles.input_dark : '',
-            alignCenter ? styles.align_center : '',
-            children ? styles.with_icon : ''
-          )}
+          className={inputTextClass}
         />
         {!showSpinner && (
           <span

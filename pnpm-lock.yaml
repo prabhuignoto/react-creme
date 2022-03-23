@@ -174,7 +174,7 @@ importers:
       use-timer: ^2.0.1
       vite: 2.6.3
       vite-plugin-react-svg: ^0.2.0
-      vite-plugin-svgr: ^1.0.1
+      vite-plugin-svgr: ^1.1.0
     dependencies:
       '@sentry/browser': 6.19.1
       '@sentry/tracing': 6.19.1
@@ -236,7 +236,7 @@ importers:
       typescript-plugin-css-modules: 3.4.0_typescript@4.6.2
       use-timer: 2.0.1
       vite-plugin-react-svg: 0.2.0_@babel+core@7.17.8+vite@2.6.3
-      vite-plugin-svgr: 1.0.1_vite@2.6.3
+      vite-plugin-svgr: 1.1.0_vite@2.6.3
 
   packages/lib:
     specifiers:
@@ -21512,10 +21512,10 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-svgr/1.0.1_vite@2.6.3:
+  /vite-plugin-svgr/1.1.0_vite@2.6.3:
     resolution:
       {
-        integrity: sha512-7jHIC2Bi83KRwBB/b5FLcQdqWfzOSDVy7BtE9g4GXoY1axTZRKeqyWMEK3LCySQ70+BSYFtoSwHJaNLeqxjYlg==,
+        integrity: sha512-fuwfRpUoMBX3wr47JVt4b4xpMYujONDGyDwZFE4JuohVTJovJ4VCNeAb3//mzdRxdzeHEfJuedpoHTvwPsqisA==,
       }
     peerDependencies:
       vite: ^2.6.0

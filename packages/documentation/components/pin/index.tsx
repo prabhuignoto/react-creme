@@ -10,6 +10,15 @@ function Pin() {
       title="Pin"
       description="Input for entering a pin code."
       features={['Auto focusing input', 'RTL support', 'Custom pin length']}
+      callbacks={[
+        {
+          default: '',
+          description: 'Callback executed when the pin changes.',
+          name: 'onChange',
+          optional: 'Yes',
+          type: 'function',
+        },
+      ]}
       properties={[
         {
           default: 'sm',
@@ -33,13 +42,6 @@ function Pin() {
           type: 'boolean',
         },
         {
-          default: '',
-          description: 'Callback for when the pin changes.',
-          name: 'onChange',
-          optional: 'Yes',
-          type: 'function',
-        },
-        {
           default: 'true',
           description:
             'Whether the pin should auto jump to the next input when the current input is filled.',
@@ -51,7 +53,7 @@ function Pin() {
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       demoWidget={<Widgets />}
       stackBlitzCodes={['react-ts-un6jde']}
-      sourceId="pin/pin"
+      sourceId="pin/pin.tsx"
       editId="pin"
       pageIcon={<FontAwesomeIcon icon={faKeyboard} />}
     ></DemoPageRenderer>
