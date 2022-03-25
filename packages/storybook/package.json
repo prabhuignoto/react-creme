@@ -24,7 +24,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.4.19",
     "@storybook/source-loader": "^6.4.19",
-    "@types/node": "^17.0.22",
+    "@types/node": "^17.0.23",
     "acorn": "^8.7.0",
     "babel-loader": "^8.2.3",
     "chromatic": "^6.5.3",

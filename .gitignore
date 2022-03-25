@@ -21,3 +21,4 @@ cache
 bundle-analysis**
 
 storybook-static
+build-storybook.log
