@@ -78,6 +78,7 @@ export default [
       { name: 'Notification' },
       { name: 'Global Notification' },
       { name: 'Alerts' },
+      { name: 'Spinner' },
     ],
     title: 'Feedback',
   },

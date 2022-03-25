@@ -154,4 +154,6 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
   );
 };
 
+Transfer.displayName = 'Transfer';
+
 export { Transfer };
