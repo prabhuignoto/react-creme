@@ -12,7 +12,24 @@ function spinner() {
       sourceId="spinner/spinner.tsx"
       editId="spinner"
       features={[]}
-      properties={[]}
+      properties={[
+        {
+          default: 'sm',
+          description:
+            'The size of the spinner. Can be <code>sm</code>, <code>md</code> or <code>lg</code>.',
+          name: 'size',
+          optional: 'Yes',
+          type: 'string',
+        },
+        {
+          default: 'medium',
+          description:
+            'The speed of the spinner. Can be <code>fast</code>, <code>medium</code> or <code>slow</code>.',
+          name: 'speed',
+          optional: 'Yes',
+          type: 'string',
+        },
+      ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-acenzu']}
       demoWidget={<Widgets />}

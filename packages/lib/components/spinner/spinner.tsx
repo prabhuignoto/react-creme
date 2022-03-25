@@ -39,4 +39,6 @@ const Spinner: FunctionComponent<SpinnerProps> = ({
   );
 };
 
+Spinner.displayName = 'Spinner';
+
 export { Spinner };
