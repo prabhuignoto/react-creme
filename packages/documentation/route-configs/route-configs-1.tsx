@@ -113,6 +113,11 @@ const routes = [
     key: 'pin',
     path: '/pin',
   },
+  {
+    component: React.lazy(() => import('../components/spinner')),
+    key: 'spinner',
+    path: '/spinner',
+  },
 ];
 
 export { routes };
