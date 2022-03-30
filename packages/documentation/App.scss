@@ -188,10 +188,23 @@ code {
 
 .app-header {
   align-items: center;
+  align-self: flex-start;
   display: flex;
   height: 50px;
   margin-bottom: 2rem;
   width: 98%;
+}
+
+@media (min-width: 1200px) {
+  .app-header {
+    width: calc(100% - 300px);
+  }
+}
+
+@media (min-width: 2560px) {
+  .app-header {
+    width: 100%;
+  }
 }
 
 .rc-demo-app-logo {
