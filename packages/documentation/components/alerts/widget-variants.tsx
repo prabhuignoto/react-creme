@@ -16,7 +16,7 @@ export const Warning = (
 );
 
 export const Error = (
-  <Alert message="This is a error text" state="error" size="lg" />
+  <Alert message="This is a error text" state="error" size="md" />
 );
 
 export const Custom = (

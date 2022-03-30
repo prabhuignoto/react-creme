@@ -39,8 +39,8 @@
     "webpack": "^5.70.0"
   },
   "dependencies": {
-    "react": "file:../../node_modules/react",
-    "react-dom": "file:../../node_modules/react-dom"
+    "react": "link:..\\..\\node_modules\\react",
+    "react-dom": "link:..\\..\\node_modules\\react-dom"
   },
   "resolutions": {
     "glob-parent": "^5.1.2",
