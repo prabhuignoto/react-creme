@@ -35,7 +35,7 @@
     "classnames": "^2.3.1",
     "fast-deep-equal": "^3.1.3",
     "hex-rgb": "^5.0.0",
-    "nanoid": "^3.3.1",
+    "nanoid": "^3.3.2",
     "use-debounce": "^7.0.1"
   },
   "peerDependencies": {
@@ -45,18 +45,18 @@
   "devDependencies": {
     "@csstools/postcss-sass": "^5.0.1",
     "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "21.0.2",
+    "@rollup/plugin-commonjs": "21.0.3",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@testing-library/dom": "^8.12.0",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^13.0.0-alpha.5",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.0.0",
     "@types/bluebird": "^3.5.36",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/react-transition-group": "^4.4.4",
     "@vitejs/plugin-react": "1.2.0",
     "@vitejs/plugin-react-refresh": "^1.3.6",
-    "@vitest/ui": "^0.7.12",
+    "@vitest/ui": "^0.8.0",
     "c8": "^7.11.0",
     "jsdom": "^19.0.0",
     "postcss": "^8.4.12",
@@ -70,7 +70,7 @@
     "ts-toolbelt": "^9.6.0",
     "typescript": "^4.6.3",
     "typescript-plugin-css-modules": "^3.4.0",
-    "vitest": "0.7.12"
+    "vitest": "0.8.0"
   },
   "browserslist": [
     "last 3 versions",
