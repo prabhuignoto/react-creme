@@ -84,17 +84,17 @@ $sizes: (sm, md, lg);
 }
 
 .chevron_icon {
+  color: var(--chevron-icon-color, theme.$primary);
   justify-self: center;
   order: 4;
   transition: transform 0.2s ease-in;
 
-  &.dark {
-    color: theme.$white;
-  }
+  // &.dark {
+  //   color: theme.$white;
+  // }
 
-  &:not(.dark) {
-    color: var(--chevron-icon-color, theme.$primary);
-  }
+  // &:not(.dark) {
+  // }
 }
 
 .clear_icon {

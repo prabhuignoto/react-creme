@@ -12,7 +12,9 @@ const Header: React.FC<{
 }> = ({ isMobile, onOpen }) => {
   return (
     <header className="app-header">
-      <Logo isMobile={isMobile} onMenuClick={onOpen} />
+      <div className="logo_wrapper">
+        <Logo isMobile={isMobile} onMenuClick={onOpen} />
+      </div>
       <Badge label="alpha" />
       {/* <ThemeSwitcher /> */}
       {/* {!isMobile && (

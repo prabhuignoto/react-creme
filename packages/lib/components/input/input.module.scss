@@ -119,11 +119,11 @@ $heights: (
   }
 
   &:not(.align_center):not(.with_icon):not(.RTL) {
-    padding-left: 0.5rem;
+    padding-left: 1rem;
   }
 
   &:not(.align_center):not(.with_icon).RTL {
-    padding-right: 0.5rem;
+    padding-right: 1rem;
   }
 }
 
