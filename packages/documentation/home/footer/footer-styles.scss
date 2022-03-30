@@ -65,3 +65,21 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.app-footer {
+  align-self: flex-start;
+  margin-top: auto;
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .app-footer {
+    width: calc(100% - 300px);
+  }
+}
+
+@media (min-width: 2560px) {
+  .app-footer {
+    width: 100%;
+  }
+}

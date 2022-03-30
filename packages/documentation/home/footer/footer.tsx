@@ -4,7 +4,7 @@ import './footer-styles.scss';
 
 function Footer() {
   return (
-    <>
+    <div className="app-footer">
       <a
         href="javascript:void(0);"
         style={{
@@ -63,7 +63,7 @@ function Footer() {
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

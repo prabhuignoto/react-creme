@@ -19,7 +19,7 @@ function Widgets() {
     if (media.isExtraLargeScreen) {
       setWidth(850);
     } else if (media.isBigScreen) {
-      setWidth(750);
+      setWidth(550);
     } else if (media.isDesktop) {
       setWidth(500);
       setHeight(300);
