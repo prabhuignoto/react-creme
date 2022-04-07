@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
-import { describe, fn, it } from 'vitest';
+import { describe, vi, it } from 'vitest';
 import { FormField } from '../../form-field/form-field';
 import { Input } from '../../input/input';
 import { FormGroup } from '../form-group';
@@ -33,8 +33,8 @@ describe('Form Group', () => {
   });
 
   it('should call onSubmit and onCancel', () => {
-    const onSubmit = fn();
-    const onCancel = fn();
+    const onSubmit = vi.fn();
+    const onCancel = vi.fn();
 
     const { getByText } = render(
       <FormGroup onSubmit={onSubmit} onCancel={onCancel}>

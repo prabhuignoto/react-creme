@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { describe, fn, it } from 'vitest';
+import { describe, vi, it } from 'vitest';
 import { MenuBar } from '../menu-bar';
 
 const items = [
@@ -99,7 +99,7 @@ describe('Menu Bar', () => {
   });
 
   it('Should call handler on selection', async () => {
-    const onSelection = fn();
+    const onSelection = vi.fn();
     const { getByText } = render(
       <MenuBar items={items} onSelect={onSelection} noUniqueId />
     );
