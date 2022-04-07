@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { describe, fn, it } from 'vitest';
+import { describe, vi, it } from 'vitest';
 import { Pin } from '../pin';
 
 describe('Pin', () => {
@@ -21,7 +21,7 @@ describe('Pin', () => {
   });
 
   it('should call the handler', async () => {
-    const onChange = fn();
+    const onChange = vi.fn();
     const { container } = render(<Pin onChange={onChange} />);
 
     const inputs = container.querySelectorAll("li input[type='number']");

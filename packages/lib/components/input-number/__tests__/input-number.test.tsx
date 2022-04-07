@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { describe, fn, it } from 'vitest';
+import { describe, vi, it } from 'vitest';
 import { InputNumber } from '../input-number';
 
 describe('Input Number', () => {
@@ -45,7 +45,7 @@ describe('Input Number', () => {
   });
 
   it('should call onChange handler with value', async () => {
-    const onChange = fn();
+    const onChange = vi.fn();
 
     const { getByLabelText } = render(
       <InputNumber start={1} end={10} onChange={onChange} />

@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { fn } from 'vitest';
+import { vi } from 'vitest';
 import { Password } from '../password';
 
 describe('Password', () => {
@@ -10,7 +10,7 @@ describe('Password', () => {
   });
 
   it('should call the handler on change', async () => {
-    const onChange = fn();
+    const onChange = vi.fn();
 
     const { getByPlaceholderText } = render(
       <Password onChange={onChange} placeholder="enter password" />
