@@ -96,7 +96,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   }, [activeTabId]);
 
   // handles the tab selection
-  const handleTabSelection = useCallback(id => {
+  const handleTabSelection = useCallback((id: string) => {
     setActiveTabId(id);
   }, []);
 

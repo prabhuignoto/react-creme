@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 export type FormFieldProps = {
   RTL?: boolean;
   border?: boolean;
+  children?: ReactNode | ReactNode[];
   disabled?: boolean;
   icon?: ReactNode;
   id?: string;

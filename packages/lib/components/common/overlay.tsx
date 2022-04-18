@@ -168,7 +168,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     };
   }, []);
 
-  const onRef = useCallback(node => {
+  const onRef = useCallback((node: HTMLDivElement) => {
     const ele = node as HTMLDivElement;
     if (ele) {
       overlayRef.current = ele;
@@ -183,7 +183,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     }
   }, []);
 
-  const onOverlayRef = useCallback(node => {
+  const onOverlayRef = useCallback((node: HTMLDivElement) => {
     const ele = node as HTMLDivElement;
     if (ele) {
       overlayContentRef.current = ele;

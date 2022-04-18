@@ -107,7 +107,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
     }
   }, [cssPosition]);
 
-  const onRef = useCallback(node => {
+  const onRef = useCallback((node: HTMLDivElement) => {
     if (node) {
       wrapperRef.current = node;
       onInit();

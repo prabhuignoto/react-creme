@@ -21,7 +21,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   activeTabId,
   size,
 }: TabHeadersProps) => {
-  const tabHeadersRef = useRef<HTMLUListElement | null>(null);
+  const tabHeadersRef = useRef<HTMLDivElement | null>(null);
   const [hasFocus, setHasFocus] = useState(false);
 
   const [disableScrollRight, setDisableScrollRight] = useState(false);
@@ -74,7 +74,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     }
   }, []);
 
-  const onHeadersRef = useCallback(node => {
+  const onHeadersRef = useCallback((node: HTMLDivElement | null) => {
     tabHeadersRef.current = node;
     setHeaderWidth(node?.scrollWidth || 0);
   }, []);

@@ -8,7 +8,7 @@ import styles from './focus.module.scss';
  */
 export default async function useFocusNew(
   ref: React.RefObject<HTMLElement>,
-  cb?: (ev?: Event) => void
+  cb?: (ev: MouseEvent | KeyboardEvent) => void
 ) {
   const ring = useRef<HTMLSpanElement>();
 

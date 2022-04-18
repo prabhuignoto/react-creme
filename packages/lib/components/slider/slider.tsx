@@ -55,19 +55,19 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     startValue: start,
   });
 
-  const onTrackerInit = useCallback(node => {
+  const onTrackerInit = useCallback((node: HTMLDivElement) => {
     if (node) {
       trackerRef.current = node;
     }
   }, []);
 
-  const onControlInit = useCallback(node => {
+  const onControlInit = useCallback((node: HTMLSpanElement) => {
     if (node) {
       controlRef.current = node;
     }
   }, []);
 
-  const onPlacerRef = useCallback(node => {
+  const onPlacerRef = useCallback((node: HTMLSpanElement) => {
     if (node) {
       placerRef.current = node;
       node.style.height = '10px';

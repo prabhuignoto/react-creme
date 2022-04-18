@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { OverlayModel } from '../common/overlay-model';
 
 export type MenuOption = Option & {
@@ -95,6 +96,6 @@ export type DropdownValueProps = PickValueProps<DropdownProps> & {
   menuClosing?: boolean;
   onClear?: (ev: React.MouseEvent) => void;
   onToggle?: () => void;
-  selectedValue?: string | { name: string }[];
+  selectedValue?: string | { name: string }[] | ReactNode;
   showMenu?: boolean;
 };

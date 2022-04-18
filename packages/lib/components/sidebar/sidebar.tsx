@@ -108,7 +108,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
     });
   }, [border]);
 
-  const onRef = useCallback(node => {
+  const onRef = useCallback((node: HTMLDivElement) => {
     if (node) {
       ref.current = node;
       setSidebarHeight(

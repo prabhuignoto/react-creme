@@ -23,7 +23,7 @@ const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
     }
   }, [parent.current]);
 
-  const onRef = useCallback(node => {
+  const onRef = useCallback((node: HTMLDivElement) => {
     if (node && parent.current) {
       ref.current = node;
       observer.current = new IntersectionObserver(

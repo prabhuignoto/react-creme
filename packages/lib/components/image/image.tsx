@@ -107,13 +107,13 @@ const Image: React.FunctionComponent<ImageProps> = ({
     []
   );
 
-  const onWrapperRef = useCallback(node => {
+  const onWrapperRef = useCallback((node: HTMLDivElement) => {
     if (node) {
       wrapperRef.current = node;
     }
   }, []);
 
-  const onImageRef = useCallback(node => {
+  const onImageRef = useCallback((node: HTMLImageElement) => {
     if (node) {
       imageRef.current = node;
     }

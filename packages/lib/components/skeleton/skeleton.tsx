@@ -27,7 +27,7 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
     }))
   );
 
-  const onInit = useCallback(node => {
+  const onInit = useCallback((node: HTMLDivElement) => {
     if (node) {
       const width = node.clientWidth - 30;
       const width2 = Math.round(width / 2);
