@@ -17,7 +17,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
     const ref = useRef<HTMLLIElement | null>(null);
 
     const onRef = useCallback(
-      node => {
+      (node: HTMLLIElement) => {
         if (node) {
           ref.current = node;
         }
@@ -25,7 +25,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
       [focus]
     );
 
-    const handleClick = useCallback(ev => {
+    const handleClick = useCallback((ev: React.MouseEvent) => {
       ev.preventDefault();
       ev.stopPropagation();
       if (!disabled && name) {
@@ -39,7 +39,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
       }
     }, [focus]);
 
-    useFocusNew(ref, handleClick);
+    useFocusNew(ref, handleClick as () => void);
 
     const isDarkMode = useMemo(() => isDark(), []);
 

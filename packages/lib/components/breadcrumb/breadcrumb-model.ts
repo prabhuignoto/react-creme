@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 export type BreadCrumbProps = {
   RTL?: boolean;
+  children: ReactNode | ReactNode[];
   focusable?: boolean;
   icon?: 'chevron' | 'arrow' | 'slash';
   links: string[];
@@ -18,7 +19,7 @@ export type BreadCrumbItemProps = Pick<
   id: string;
   index: number;
   name: string;
-  onSelected?: (id: string, index: number) => void;
+  onSelected?: (id: string, name: string) => void;
   selected?: boolean;
   showChevron?: boolean;
 };

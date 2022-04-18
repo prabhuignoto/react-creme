@@ -29,7 +29,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = ({
     }))
   );
 
-  const handleSelection = useCallback((id, name) => {
+  const handleSelection = useCallback((id: string, name: string) => {
     setItems(prev =>
       prev.map(item => ({
         ...item,

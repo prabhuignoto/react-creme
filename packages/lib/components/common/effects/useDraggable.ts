@@ -185,7 +185,7 @@ const useDraggable: UseDraggable = (
     }
   }, []);
 
-  const handleMouseUp = useCallback(ev => {
+  const handleMouseUp = useCallback((ev: MouseEvent | TouchEvent) => {
     // set pressed state to false
     mousePressed.current = false;
     window.clearTimeout(tapDetectionTimer.current);

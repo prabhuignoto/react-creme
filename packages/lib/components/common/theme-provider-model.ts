@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type Colors = {
   primary: string;
   secondary: string;
@@ -27,6 +29,7 @@ export type Theme = {
 };
 
 export interface ThemeProviderProps {
+  children?: ReactNode | ReactNode[];
   theme?: Theme;
 }
 

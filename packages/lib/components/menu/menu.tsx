@@ -55,7 +55,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   /**
    * Handles the menu selection
    */
-  const handleSelection = useCallback(name => {
+  const handleSelection = useCallback((name: string) => {
     if (onSelected) {
       onSelected(name);
     }
@@ -110,7 +110,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     }
   }, [showMenu]);
 
-  const onInitRef = useCallback(node => {
+  const onInitRef = useCallback((node: HTMLDivElement) => {
     if (node) {
       wrapperRef.current = node;
     }

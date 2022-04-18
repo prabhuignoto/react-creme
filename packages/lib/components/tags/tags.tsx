@@ -102,7 +102,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
     [canAdd]
   );
 
-  const handleRemove = useCallback(val => {
+  const handleRemove = useCallback((val: string) => {
     setTagItems(tags => tags.filter(tag => tag.id !== val));
 
     inputRef.current?.focus();

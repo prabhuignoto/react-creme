@@ -46,7 +46,7 @@ const Pin: FunctionComponent<PinProps> = ({
   const wrapperRef = useRef<HTMLUListElement | null>(null);
 
   const handleChange = useCallback(
-    (val, index) => {
+    (val: number, index: number) => {
       if (!Number.isNaN(val)) {
         if (index + 1 < length && wrapperRef.current && autoJump) {
           const ele = wrapperRef.current.querySelectorAll('li')[index + 1];

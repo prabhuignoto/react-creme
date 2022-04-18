@@ -61,11 +61,11 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   }, [activePage]);
 
   const handleActivatePage = useCallback(
-    pageIndex => setActivePage(pageIndex),
+    (pageIndex: number) => setActivePage(pageIndex),
     []
   );
 
-  const onInitRef = useCallback(node => {
+  const onInitRef = useCallback((node: HTMLDivElement) => {
     if (node) {
       const { clientHeight, clientWidth } = node;
       setSlideWidth(clientWidth);

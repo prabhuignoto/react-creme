@@ -9,7 +9,7 @@ export default function useOnClickOutside(cb?: () => void) {
     }
   }, []);
 
-  const onRef = useCallback(node => {
+  const onRef = useCallback((node: HTMLElement | null) => {
     if (node) {
       ref.current = node as HTMLDivElement;
       document.addEventListener('click', handleClick);

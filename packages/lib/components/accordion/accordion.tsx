@@ -105,7 +105,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = React.memo(
       [border, open, alignIconRight]
     );
 
-    const onInitRef = useCallback(node => {
+    const onInitRef = useCallback((node: HTMLDivElement) => {
       if (node) {
         ref.current = node as HTMLDivElement;
       }

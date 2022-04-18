@@ -14,7 +14,7 @@ const Tree: React.FunctionComponent<TreeProps> = ({
   selectable,
   size = 'sm',
 }: TreeProps) => {
-  const parser = useCallback(_nodes => {
+  const parser = useCallback((_nodes: any) => {
     return _nodes.map((n: TreeNodeProps) => {
       if (n.nodes?.length) {
         return {

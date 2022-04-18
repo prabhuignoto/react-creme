@@ -59,7 +59,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
       options.length
     );
 
-    const onSelection = useCallback((opt: ListOption, index) => {
+    const onSelection = useCallback((opt: ListOption, index: number) => {
       setSelection(index);
       handleSelection(opt);
     }, []);

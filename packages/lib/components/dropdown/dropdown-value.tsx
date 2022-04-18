@@ -115,7 +115,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
           <span className={valueClass}>{selectedValue}</span>
         )
       ) : (
-        <span className={valueClass}>{selectedValue}</span>
+        <span className={valueClass}>{selectedValue as string}</span>
       )}
       {
         <span

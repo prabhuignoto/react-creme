@@ -33,7 +33,7 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
       });
     }, [selected]);
 
-    const handleClick = useCallback((id, name) => {
+    const handleClick = useCallback((id: string, name: string) => {
       onSelected?.(id, name);
     }, []);
 
