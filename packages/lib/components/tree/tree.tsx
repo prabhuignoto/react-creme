@@ -14,19 +14,22 @@ const Tree: React.FunctionComponent<TreeProps> = ({
   selectable,
   size = 'sm',
 }: TreeProps) => {
-  const parser = useCallback((_nodes: any) => {
-    return _nodes.map((n: TreeNodeProps) => {
-      if (n.nodes?.length) {
-        return {
-          ...n,
-          id: nanoid(),
-          nodes: parser(n.nodes),
-          selected: false,
-        };
-      }
-      return { ...n, id: nanoid() };
-    });
-  }, []);
+  const parser: (n: TreeNodeProps[]) => TreeNodeProps[] = useCallback(
+    _nodes => {
+      return _nodes.map((n: TreeNodeProps) => {
+        if (n.nodes?.length) {
+          return {
+            ...n,
+            id: nanoid(),
+            nodes: parser(n.nodes),
+            selected: false,
+          };
+        }
+        return { ...n, id: nanoid() };
+      });
+    },
+    []
+  );
 
   const [selectedId, setSelectedId] = useState<{
     id: string;
@@ -35,9 +38,7 @@ const Tree: React.FunctionComponent<TreeProps> = ({
     stamp: number;
   }>();
 
-  const [treeNodes, setTreeNodes] = useState<TreeNodeProps[]>(() => {
-    return parser(nodes);
-  });
+  const [treeNodes, setTreeNodes] = useState<TreeNodeProps[]>(parser(nodes));
 
   const getLookupNode = useMemo(() => {
     if (selectedId) {
