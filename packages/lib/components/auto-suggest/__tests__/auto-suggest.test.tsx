@@ -59,11 +59,18 @@ describe('AutoSuggest', () => {
       <AutoSuggest suggestions={suggestions} placeholder="enter input" />
     );
 
-    userEvent.type(getByPlaceholderText('enter input'), 'o');
-
-    await waitFor(() => {
-      expect(getByTestId('rc-overlay')).toBeInTheDocument();
+    fireEvent.change(getByPlaceholderText('enter input'), {
+      target: { value: 'one' },
     });
+
+    await waitFor(
+      () => {
+        expect(getByTestId('rc-overlay')).toBeInTheDocument();
+      },
+      {
+        timeout: 2000,
+      }
+    );
 
     userEvent.click(getByTestId('rc-overlay').querySelectorAll('li')[0]);
 

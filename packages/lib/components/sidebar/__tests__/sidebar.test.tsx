@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { vi } from 'vitest';
@@ -29,7 +29,7 @@ describe('Sidebar', () => {
     expect(getByText('one')).toBeInTheDocument();
   });
 
-  it('should call handler', () => {
+  it('should call handler', async () => {
     const handler = vi.fn();
     const { getByText } = render(
       <Sidebar
@@ -53,6 +53,8 @@ describe('Sidebar', () => {
 
     userEvent.click(getByText('item1'));
 
-    expect(handler).toHaveBeenCalled();
+    await waitFor(() => {
+      expect(handler).toHaveBeenCalled();
+    });
   });
 });

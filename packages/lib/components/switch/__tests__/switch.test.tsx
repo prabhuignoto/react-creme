@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { vi } from 'vitest';
@@ -19,17 +19,23 @@ describe('Switch', () => {
     expect(getByRole('switch')).toHaveAttribute('aria-checked', 'true');
   });
 
-  it('should display toggle states', () => {
+  it('should display toggle states', async () => {
     const { getByRole } = render(<Switch onChange={handler} />);
 
     const switchItem = getByRole('switch');
 
     userEvent.click(switchItem);
-    expect(handler).toBeCalledWith(true);
-    expect(switchItem.firstChild).toHaveClass(styles.track_on);
+
+    await waitFor(() => {
+      expect(handler).toBeCalledWith(true);
+      expect(switchItem.firstChild).toHaveClass(styles.track_on);
+    });
 
     userEvent.click(switchItem);
-    expect(handler).toBeCalledWith(false);
-    expect(switchItem.firstChild).toHaveClass(styles.track_off);
+
+    await waitFor(() => {
+      expect(handler).toBeCalledWith(false);
+      expect(switchItem.firstChild).toHaveClass(styles.track_off);
+    });
   });
 });
