@@ -32,12 +32,12 @@
     "react": "link:..\\..\\node_modules\\react",
     "react-dom": "link:..\\..\\node_modules\\react-dom",
     "react-feather": "^2.0.9",
-    "react-instantsearch-dom": "^6.24.0",
+    "react-instantsearch-dom": "^6.24.2",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "resize-observer-polyfill": "^1.5.1",
-    "use-debounce": "^7.0.1",
-    "vite": "2.9.6"
+    "use-debounce": "^8.0.0",
+    "vite": "2.9.8"
   },
   "devDependencies": {
     "@axe-core/react": "^4.4.2",
@@ -58,13 +58,13 @@
     "@types/react-syntax-highlighter": "^15.5.1",
     "@types/react-transition-group": "^4.4.4",
     "@vitejs/plugin-react-refresh": "^1.3.6",
-    "autoprefixer": "^10.4.5",
+    "autoprefixer": "^10.4.7",
     "cssnano": "^5.1.7",
     "esbuild": "^0.14.38",
     "postcss": "^8.4.13",
     "postcss-bem-linter": "^3.3.0",
     "postcss-prefixer": "^2.1.3",
-    "postcss-preset-env": "^7.4.4",
+    "postcss-preset-env": "^7.5.0",
     "prettier": "^2.6.2",
     "react-element-to-jsx-string": "^14.3.4",
     "react-responsive": "^9.0.0-beta.6",
@@ -73,8 +73,8 @@
     "recoil": "^0.7.2",
     "rimraf": "^3.0.2",
     "sass": "^1.51.0",
-    "snyk": "^1.914.0",
-    "stylelint": "14.8.1",
+    "snyk": "^1.920.0",
+    "stylelint": "14.8.2",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-scss": "^4.2.0",
@@ -82,7 +82,7 @@
     "typescript-plugin-css-modules": "^3.4.0",
     "use-timer": "^2.0.1",
     "vite-plugin-react-svg": "^0.2.0",
-    "vite-plugin-svgr": "^1.1.0"
+    "vite-plugin-svgr": "^2.1.0"
   },
   "browserslist": [
     "last 3 versions",
