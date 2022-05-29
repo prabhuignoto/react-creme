@@ -17,6 +17,9 @@
 
 </div>
 
+There are 2 ways to build UI components in Vue. One is using Options API and the other is using Composition API. The Composition API was introduced in Vue 3.0 and is the recommended way to build UI components.
+Difference between these two approaches come from how we define the component's props, state and behavior. Composition API makes use of hooks to define the component's behavior, where as Options API uses a set of properties to define the component.
+
 </br>
 
 Modern UI Toolkit for React
