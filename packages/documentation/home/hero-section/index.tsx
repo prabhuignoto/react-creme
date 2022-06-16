@@ -2,7 +2,7 @@ import { faGithub, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faBookOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { asideState, responsiveState, themeState } from '../../atoms/home';
 import { HomeButton } from '../../home/home-button';
