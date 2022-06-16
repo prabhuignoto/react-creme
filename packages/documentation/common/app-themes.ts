@@ -65,3 +65,11 @@ export const Dark: Colors = {
   text: '#fff',
   textSelection: '#fff',
 };
+
+export const Magnolia: Colors = {
+  primary: '#4B6587',
+  secondary: '#F0E5CF',
+  tertiary: '#C8C6C6',
+  text: '#000',
+  textSelection: '#F7F6F2',
+};

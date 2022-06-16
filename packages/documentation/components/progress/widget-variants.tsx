@@ -1,4 +1,3 @@
-import React from 'react';
 import { CircularProgress, Progress } from '../../../lib/components';
 
 export const Success = (
@@ -19,6 +18,7 @@ export const Error = (
     showProgressValue
     size="lg"
     status="error"
+    RTL
   />
 );
 

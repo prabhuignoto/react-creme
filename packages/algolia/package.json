@@ -9,7 +9,7 @@
   "author": "Prabhu Murthy",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^17.0.40",
+    "@types/node": "^18.0.0",
     "algoliasearch": "^4.13.1",
     "dotenv": "^16.0.1",
     "ts-node": "^10.8.1",
