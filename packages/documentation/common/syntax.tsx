@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import jsxToString from 'react-element-to-jsx-string';
 import { SyntaxHighLighter } from './syntax-highlighter';
 

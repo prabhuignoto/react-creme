@@ -1,7 +1,7 @@
 import { faAlgolia } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import algoliasearch from 'algoliasearch/lite';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AutoSuggest } from '../../lib/components/auto-suggest/auto-suggest';
 import { AutoSuggestOption } from '../../lib/components/auto-suggest/auto-suggest.model';
 

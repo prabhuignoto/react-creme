@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import { CSSProperties, memo } from 'react';
 import { Code } from '../syntax';
 
 interface WidgetProps {
@@ -14,7 +14,7 @@ interface WidgetProps {
   width?: string | number;
 }
 
-const DemoWidget: React.FC<WidgetProps> = React.memo(
+const DemoWidget: React.FC<WidgetProps> = memo(
   ({
     children,
     layout = 'vertical',

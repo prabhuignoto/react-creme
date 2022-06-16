@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, ScrollSpy, Section } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
@@ -26,7 +26,7 @@ const Para = () => {
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = React.useState(0);
+  const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
     if (!media) {

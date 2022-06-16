@@ -1,4 +1,4 @@
-import React, { CSSProperties, useLayoutEffect } from 'react';
+import { CSSProperties, useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Radio, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
@@ -9,7 +9,7 @@ const style: CSSProperties = {
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = React.useState(0);
+  const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
     if (!media) {

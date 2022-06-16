@@ -1,6 +1,6 @@
 import { faBook, faCode, faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { FunctionComponent, Suspense, useMemo } from 'react';
+import { FunctionComponent, memo, Suspense, useMemo } from 'react';
 import { BookOpen, Code } from 'react-feather';
 import { CSSTransition } from 'react-transition-group';
 import { DemoPageRendererProps } from '.';
@@ -31,7 +31,7 @@ const IconsWithoutProperties = [
   <Code size={18} key="code" />,
 ];
 
-const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = React.memo(
+const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
   ({
     tabTitles,
     callbacks,

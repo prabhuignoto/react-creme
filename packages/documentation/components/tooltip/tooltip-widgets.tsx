@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import {
   BlockQuote,
@@ -19,7 +19,7 @@ const Widgets = () => {
   const theme = useRecoilValue(themeState);
   const isDark = useMemo(() => theme.darkMode, []);
 
-  const [width, setWidth] = React.useState(0);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     if (!media) {

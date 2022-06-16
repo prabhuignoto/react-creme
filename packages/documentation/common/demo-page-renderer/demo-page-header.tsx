@@ -4,7 +4,7 @@ import {
   faExternalLink,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { FunctionComponent, memo, ReactNode } from 'react';
+import { FunctionComponent, memo, ReactNode } from 'react';
 import { Link, PageHeader } from '../../../lib/components';
 import styles from './demo-page-renderer.module.scss';
 

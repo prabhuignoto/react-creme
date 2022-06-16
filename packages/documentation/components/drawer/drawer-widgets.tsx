@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Button, Drawer, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
@@ -11,7 +11,7 @@ const Widget: React.FunctionComponent = () => {
   const [open3, setOpen3] = useState(false);
   const [open4, setOpen4] = useState(false);
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = React.useState(0);
+  const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
     if (!media) {
