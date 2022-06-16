@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { Suspense, useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
 import { TransitionGroup } from 'react-transition-group';
 import './app-routes.scss';
