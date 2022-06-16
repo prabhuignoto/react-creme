@@ -1,5 +1,5 @@
-import React from 'react';
 import './badges.scss';
+import React from 'react';
 
 const links = [
   {

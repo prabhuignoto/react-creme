@@ -1,4 +1,3 @@
-import React from 'react';
 import { Kbd, KbdCombination } from '../../../lib/components';
 
 export const Default = <Kbd>Shift</Kbd>;

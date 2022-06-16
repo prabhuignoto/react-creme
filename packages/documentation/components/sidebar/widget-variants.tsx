@@ -1,4 +1,3 @@
-import React from 'react';
 import { Sidebar } from '../../../lib/components';
 
 export const Default = (

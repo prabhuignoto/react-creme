@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, {
+import {
   FunctionComponent,
   useCallback,
   useEffect,

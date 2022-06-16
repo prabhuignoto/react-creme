@@ -1,4 +1,3 @@
-import React from 'react';
 import { Dropdown } from '../../../lib/components';
 
 export const SingleSelection = (

@@ -1,7 +1,7 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import React from 'react';
+
 import { useRecoilValue } from 'recoil';
 import { themeState } from '../../atoms/home';
 import styles from './github-link.module.scss';

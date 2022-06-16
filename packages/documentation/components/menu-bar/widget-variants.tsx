@@ -1,7 +1,7 @@
 import { faHackerNews } from '@fortawesome/free-brands-svg-icons';
 import { faFile, faSearch, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+
 import { MenuBar } from '../../../lib/components';
 
 const icons = [

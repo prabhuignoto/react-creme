@@ -1,4 +1,3 @@
-import React from 'react';
 import { Image } from '../../../lib/components';
 
 export const Default = (

@@ -1,4 +1,3 @@
-import React from 'react';
 import DemoPageRenderer from './../../common/demo-page-renderer';
 import Widgets from './widgets';
 

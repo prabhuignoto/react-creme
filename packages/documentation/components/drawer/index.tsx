@@ -1,4 +1,3 @@
-import React from 'react';
 import { Sidebar } from 'react-feather';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './drawer-widgets';
