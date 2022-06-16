@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FunctionComponent, useMemo } from 'react';
+import { FunctionComponent, useMemo } from 'react';
 import { isDark } from '../common/utils';
 import { FormFieldProps } from './form-field.model';
 import styles from './form-field.module.scss';

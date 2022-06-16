@@ -1,4 +1,3 @@
-import React from 'react';
 import { Dialog } from '../../../lib/components';
 
 export const Default = (

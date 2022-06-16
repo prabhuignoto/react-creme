@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '../../../lib/components';
 import { SearchIcon } from '../../../lib/icons';
 

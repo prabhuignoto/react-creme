@@ -9,7 +9,7 @@ import {
   faWrench,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+
 import { Tabs } from '../../../lib/components';
 
 const icons = [

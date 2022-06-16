@@ -1,4 +1,3 @@
-import React from 'react';
 import { Pin } from '../../../lib/components';
 
 export const Default = <Pin />;

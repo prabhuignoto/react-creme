@@ -13,6 +13,7 @@ export type ThemeType =
   | 'blueberry'
   | 'night-gray'
   | 'dark'
+  | 'magnolia'
   | 'light-gray';
 
 type ThemeState = {

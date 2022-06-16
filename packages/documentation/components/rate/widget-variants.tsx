@@ -1,4 +1,3 @@
-import React from 'react';
 import { Rate } from '../../../lib/components';
 import { SearchIcon } from '../../../lib/icons';
 

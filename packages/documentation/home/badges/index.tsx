@@ -1,4 +1,3 @@
-import React from 'react';
 import './badges.scss';
 
 const links = [

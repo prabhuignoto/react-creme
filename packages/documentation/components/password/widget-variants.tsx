@@ -1,4 +1,3 @@
-import React from 'react';
 import { Password } from '../../../lib/components';
 
 export const Default = <Password onChange={val => console.log(val)} />;

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Card, Image, Skeleton } from '../../../lib/components';
 import { themeState } from '../../atoms/home';

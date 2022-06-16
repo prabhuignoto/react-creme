@@ -1,5 +1,3 @@
-import * as React from "react";
-
 const SvgComponent = () => (
   <svg
     viewBox="0 0 24 24"

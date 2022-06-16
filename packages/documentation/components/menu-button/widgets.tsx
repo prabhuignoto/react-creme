@@ -1,4 +1,3 @@
-import React from 'react';
 import { Section } from '../../../lib/components';
 import { MenuButton } from '../../../lib/components/menu-button/menu-button';
 import { DemoWidget } from '../../common/demo-widget';

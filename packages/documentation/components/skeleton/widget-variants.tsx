@@ -1,4 +1,3 @@
-import React from 'react';
 import { Skeleton } from '../../../lib/components';
 
 export const Default = <Skeleton rows={6} rowHeight={6} blocks={1} />;

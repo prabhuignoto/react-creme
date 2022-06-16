@@ -1,4 +1,3 @@
-import React from 'react';
 import { ImageComparer } from '../../../lib/components';
 
 export const Horizontal = (

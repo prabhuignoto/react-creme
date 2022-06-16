@@ -1,4 +1,3 @@
-import React from 'react';
 import { AutoSuggest } from '../../../lib/components';
 
 export const Default = (

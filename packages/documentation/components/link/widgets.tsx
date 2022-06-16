@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link as LinkIcon } from 'react-feather';
 import { Link, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';

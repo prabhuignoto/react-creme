@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, Tooltip } from '../../../lib/components';
 
 export const TopCenter = () => (

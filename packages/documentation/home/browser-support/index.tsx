@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section } from '../../../lib/components';
 import { themeState } from '../../atoms/home';

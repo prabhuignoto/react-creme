@@ -1,12 +1,6 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, {
-  Fragment,
-  FunctionComponent,
-  ReactNode,
-  useMemo,
-  useRef,
-} from 'react';
+import { Fragment, FunctionComponent, ReactNode, useMemo, useRef } from 'react';
 import { PlusIcon } from '../../icons';
 import { isDark } from '../common/utils';
 import { KbdCombinationProps } from './kbd';

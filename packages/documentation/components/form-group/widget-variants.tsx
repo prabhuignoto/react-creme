@@ -1,6 +1,6 @@
 import { faFlag, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+
 import { FormField, FormGroup, Input } from '../../../lib/components';
 import { Dropdown } from '../../../lib/components/dropdown/dropdown';
 

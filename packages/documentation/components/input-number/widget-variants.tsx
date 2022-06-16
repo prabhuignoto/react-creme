@@ -1,4 +1,3 @@
-import React from 'react';
 import { InputNumber } from '../../../lib/components';
 
 export const Default = <InputNumber start={3} end={10} />;

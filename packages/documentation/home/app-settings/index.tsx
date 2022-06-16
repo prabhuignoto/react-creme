@@ -11,6 +11,7 @@ import {
   Dark,
   Default,
   Glacier,
+  Magnolia,
   NightGray,
 } from '../../common/app-themes';
 import { GithubLink } from '../../common/github-link';
@@ -30,6 +31,10 @@ const themes: RadioGroupItemProps<ThemeType>[] = [
     value: 'night-gray',
   },
   {
+    label: 'Magnolia',
+    value: 'magnolia',
+  },
+  {
     checked: true,
     label: 'Dark',
     value: 'dark',
@@ -41,7 +46,9 @@ const AppSettings: React.FunctionComponent = () => {
   const [width, setWidth] = useState(0);
   const { isMobile } = useRecoilValue(responsiveState);
   const [appTheme, updateAppTheme] = useRecoilState(themeState);
-  const [theme, setTheme] = useState<ThemeType>(appTheme.selectedTheme);
+  const [theme, setTheme] = useState<ThemeType>(
+    appTheme.selectedTheme || ({} as ThemeType)
+  );
 
   const [darkMode, setDarkMode] = useState(appTheme.darkMode);
 
@@ -58,15 +65,17 @@ const AppSettings: React.FunctionComponent = () => {
 
     let selectedTheme;
 
-    if (themeToUpdate.value === 'default') {
+    if (themeToUpdate?.value === 'default') {
       selectedTheme = { colors: { ...Default }, selectedTheme: 'default' };
-    } else if (themeToUpdate.value === 'glacier') {
+    } else if (themeToUpdate?.value === 'glacier') {
       selectedTheme = { colors: { ...Glacier }, selectedTheme: 'glacier' };
-    } else if (themeToUpdate.value === 'blueberry') {
+    } else if (themeToUpdate?.value === 'blueberry') {
       selectedTheme = { colors: { ...Blueberry }, selectedTheme: 'blueberry' };
-    } else if (themeToUpdate.value === 'night-gray') {
+    } else if (themeToUpdate?.value === 'night-gray') {
       selectedTheme = { colors: { ...NightGray }, selectedTheme: 'neon' };
-    } else if (themeToUpdate.value === 'dark') {
+    } else if (themeToUpdate?.value === 'magnolia') {
+      selectedTheme = { colors: { ...Magnolia }, selectedTheme: 'magnolia' };
+    } else if (themeToUpdate?.value === 'dark') {
       selectedTheme = {
         colors: { ...Dark },
         darkMode: true,

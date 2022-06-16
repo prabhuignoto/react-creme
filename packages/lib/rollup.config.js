@@ -5,6 +5,7 @@ import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import BemLinter from 'postcss-bem-linter';
 import PostCSSPreset from 'postcss-preset-env';
+import del from 'rollup-plugin-delete';
 import postcss from 'rollup-plugin-postcss';
 import purgecss from 'rollup-plugin-purgecss';
 import { terser } from 'rollup-plugin-terser';
@@ -53,6 +54,7 @@ export default {
     },
   ],
   plugins: [
+    del({ targets: 'dist/*' }),
     typescript({
       useTsconfigDeclarationDir: true,
     }),

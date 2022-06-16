@@ -1,4 +1,3 @@
-import React from 'react';
 import { AutoSuggestOption } from '../../../lib/components/auto-suggest/auto-suggest.model';
 import { Badge } from '../../common/github-link';
 import { AppSettings } from '../app-settings';

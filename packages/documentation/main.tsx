@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/browser';
 import { Integrations } from '@sentry/tracing';
 import 'normalize.css';
 import React, { StrictMode, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';
 import { ThemeProvider } from '../lib/components';
@@ -63,6 +63,5 @@ Root.render(
         <AppBootStrap />
       </StrictMode>
     </RecoilRoot>
-  </BrowserRouter>,
-  document.getElementById('root')
+  </BrowserRouter>
 );

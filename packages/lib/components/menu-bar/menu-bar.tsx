@@ -1,11 +1,6 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, {
-  FunctionComponent,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react';
+import { FunctionComponent, useCallback, useMemo, useState } from 'react';
 import { Menu } from '..';
 import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { isDark } from '../common/utils';

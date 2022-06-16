@@ -1,4 +1,3 @@
-import React from 'react';
 import { Drawer } from '../../../lib/components';
 
 export const Bottom = (

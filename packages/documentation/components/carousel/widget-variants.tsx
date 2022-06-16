@@ -1,4 +1,3 @@
-import React from 'react';
 import { Carousel, Image } from '../../../lib/components';
 
 export const Horizontal = (

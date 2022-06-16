@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FunctionComponent, memo, useMemo } from 'react';
+import { FunctionComponent, memo, useMemo } from 'react';
 import { ChevronDownIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { isDark } from '../common/utils';

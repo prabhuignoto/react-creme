@@ -1,11 +1,10 @@
-import React from 'react';
 import { BlockQuote, Button } from '../../lib/components';
 import { Section } from '../../lib/components/section/section';
 import packages from '../../lib/package.json';
-import BrowserSupport from './browser-support';
-import HeroSection from './hero-section';
 import { Code } from './../common/syntax';
 import { SyntaxHighLighter } from './../common/syntax-highlighter';
+import BrowserSupport from './browser-support';
+import HeroSection from './hero-section';
 import './home.scss';
 import gettingStarted from './samples/getting-started';
 import gettingStartedTheme from './samples/getting-started-theme';

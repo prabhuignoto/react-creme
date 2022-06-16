@@ -1,4 +1,3 @@
-import React from 'react';
 import { Spinner } from '../../../lib/components';
 
 export const Default = <Spinner />;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Menu } from '../../../lib/components';
 
 export const AttachedToButton = (

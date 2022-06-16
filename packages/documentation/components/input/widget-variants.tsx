@@ -1,4 +1,3 @@
-import React from 'react';
 import { Input } from '../../../lib/components';
 import { ChevronRightIcon } from '../../../lib/icons';
 

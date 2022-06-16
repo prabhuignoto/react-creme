@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, {
+import {
   FunctionComponent,
   useCallback,
   useEffect,
