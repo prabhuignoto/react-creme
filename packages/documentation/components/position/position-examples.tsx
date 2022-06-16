@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { usePosition } from '../../../lib/components/common/effects/usePosition';

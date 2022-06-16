@@ -1,4 +1,4 @@
-import React, { CSSProperties, useLayoutEffect } from 'react';
+import { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
 import { Image, Reveal } from '../../../lib/components';
 import useMedia from '../../common/useMedia';
 const blankStyle = {
@@ -17,10 +17,10 @@ const imageWrapStyle = {
 } as CSSProperties;
 
 function widgets() {
-  const ref = React.useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const media = useMedia();
-  const [width, setWidth] = React.useState(0);
+  const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
     if (!media) {

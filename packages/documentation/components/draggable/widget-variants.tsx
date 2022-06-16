@@ -1,5 +1,5 @@
 export const ContainerBound = `
-  import React, { useEffect, useRef } from 'react';
+  import { useEffect, useRef } from 'react';
   import { useDraggable } from 'react-creme';
 
   const ref = useRef();
@@ -27,7 +27,7 @@ export const ContainerBound = `
 }`;
 
 export const ContainerBoundHorizontal = `
-  import React, { useEffect, useRef } from 'react';
+  import { useEffect, useRef } from 'react';
   import { useDraggable } from 'react-creme';
 
   const ref = useRef();
@@ -55,7 +55,7 @@ export const ContainerBoundHorizontal = `
 }`;
 
 export const ContainerBoundVertical = `
-  import React, { useEffect, useRef } from 'react';
+  import { useEffect, useRef } from 'react';
   import { useDraggable } from 'react-creme';
 
   const ref = useRef();
@@ -83,7 +83,7 @@ export const ContainerBoundVertical = `
 }`;
 
 export const Multiple = `
-  import React, { useEffect, useRef } from 'react';
+  import { useEffect, useRef } from 'react';
   import { useDraggable } from 'react-creme';
   const boundRef = useRef();
 

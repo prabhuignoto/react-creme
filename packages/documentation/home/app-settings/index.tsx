@@ -1,7 +1,7 @@
 import { faCog, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { Dialog, RadioGroup, Section } from '../../../lib/components';
 import { RadioGroupItemProps } from '../../../lib/components/radio-group/radio-group-model';

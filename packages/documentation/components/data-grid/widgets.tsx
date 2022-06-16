@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, DataGrid, Section } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
@@ -8,8 +8,8 @@ import { columnsConfig, data } from './grids-data';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = React.useState(0);
-  const [columns, setColumns] = React.useState<DataGridColumn[]>(columnsConfig);
+  const [width, setWidth] = useState(0);
+  const [columns, setColumns] = useState<DataGridColumn[]>(columnsConfig);
 
   useLayoutEffect(() => {
     if (!media) {

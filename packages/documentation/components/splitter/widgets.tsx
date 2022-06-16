@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useMemo } from 'react';
+import { useLayoutEffect, useMemo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section, Splitter } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
@@ -6,7 +6,7 @@ import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = React.useState(0);
+  const [width, setWidth] = useState(0);
   const theme = useRecoilValue(themeState);
 
   const isDark = useMemo(() => theme.darkMode, [theme]);

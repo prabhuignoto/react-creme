@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { ReactNode, useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 import './home-button.scss';
 
 interface HomeButtonProps {

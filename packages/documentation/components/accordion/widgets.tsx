@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
@@ -12,7 +12,7 @@ import {
 
 function Widgets() {
   const media = useMedia();
-  const [width, setWidth] = React.useState(0);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     if (!media) {

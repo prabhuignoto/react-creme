@@ -1,5 +1,5 @@
 import sdk from '@stackblitz/sdk';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { Progress } from '../../../lib/components';
 import './stackblitz.scss';
 

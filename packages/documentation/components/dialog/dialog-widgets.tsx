@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { BlockQuote, Button, Dialog, Section } from '../../../lib/components';
 import { asideState, responsiveState } from '../../atoms/home';
@@ -13,7 +13,7 @@ const Widget = () => {
   const [open5, setOpen5] = useState(false);
 
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = React.useState(0);
+  const [width, setWidth] = useState(0);
 
   const setAside = useSetRecoilState(asideState);
 

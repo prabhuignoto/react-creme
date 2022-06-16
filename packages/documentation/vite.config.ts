@@ -7,23 +7,11 @@ export default defineConfig({
   build: {
     outDir: 'expo_dist',
     reportCompressedSize: true,
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        unused: true,
-      },
-    },
   },
-  cacheDir: '.vite_cache',
+  // cacheDir: '.vite_cache',
   clearScreen: true,
   logLevel: 'info',
-  mode: 'universal',
+  // mode: 'universal',
   plugins: [react(), svgr()],
   publicDir: 'public',
-  server: {
-    fs: {
-      strict: false,
-    },
-  },
 });
