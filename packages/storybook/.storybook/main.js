@@ -25,21 +25,21 @@ module.exports = {
       use: [
         'style-loader',
         'css-loader',
-        {
-          loader: 'postcss-loader',
-          options: {
-            postcssOptions: {
-              plugins: [
-                [
-                  'postcss-preset-env',
-                  {
-                    // Options
-                  },
-                ],
-              ],
-            },
-          },
-        },
+        // {
+        //   loader: 'postcss-loader',
+        //   options: {
+        //     postcssOptions: {
+        //       plugins: [
+        //         [
+        //           'postcss-preset-env',
+        //           {
+        //             // Options
+        //           },
+        //         ],
+        //       ],
+        //     },
+        //   },
+        // },
         {
           loader: 'sass-loader',
           options: {
