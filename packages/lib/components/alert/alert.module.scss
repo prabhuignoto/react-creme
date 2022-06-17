@@ -10,12 +10,12 @@ $sizes: (sm, md, lg);
   color: theme.$white;
   display: grid;
   grid-template-columns: 3rem 1fr 2rem;
+  height: var(--height);
   justify-items: center;
   opacity: 1;
   overflow: hidden;
   padding: 0;
   width: 100%;
-  height: var(--height);
 
   &.alert_close.shrink {
     height: 0;
