@@ -33,32 +33,30 @@ function Widgets() {
     }
   }, [media]);
 
-  return (
-    width > 0 && (
-      <div className="rc-demo-widgets">
-        <Section title="Informational Text" size="md">
-          <BlockQuote>
-            Alerts can be closed or dismissed by default. Use the{' '}
-            <code>canDismiss</code> prop to change this behavior.
-          </BlockQuote>
-          <DemoWidget width={width}>{Information}</DemoWidget>
-          <DemoWidget width={width}>{Dismiss}</DemoWidget>
-        </Section>
-        <Section title="Success Message" size="md">
-          <DemoWidget width={width}>{Success}</DemoWidget>
-        </Section>
-        <Section title="Warning Message" size="md">
-          <DemoWidget width={width}>{Warning}</DemoWidget>
-        </Section>
-        <Section title="Error Message" size="md">
-          <DemoWidget width={width}>{Error}</DemoWidget>
-        </Section>
-        <Section title="Render Custom content" size="md">
-          <DemoWidget width={width}>{Custom}</DemoWidget>
-        </Section>
-      </div>
-    )
-  );
+  return width > 0 ? (
+    <div className="rc-demo-widgets">
+      <Section title="Informational Text" size="md">
+        <BlockQuote>
+          Alerts can be closed or dismissed by default. Use the{' '}
+          <code>canDismiss</code> prop to change this behavior.
+        </BlockQuote>
+        <DemoWidget width={width}>{Information}</DemoWidget>
+        <DemoWidget width={width}>{Dismiss}</DemoWidget>
+      </Section>
+      <Section title="Success Message" size="md">
+        <DemoWidget width={width}>{Success}</DemoWidget>
+      </Section>
+      <Section title="Warning Message" size="md">
+        <DemoWidget width={width}>{Warning}</DemoWidget>
+      </Section>
+      <Section title="Error Message" size="md">
+        <DemoWidget width={width}>{Error}</DemoWidget>
+      </Section>
+      <Section title="Render Custom content" size="md">
+        <DemoWidget width={width}>{Custom}</DemoWidget>
+      </Section>
+    </div>
+  ) : null;
 }
 
 export default Widgets;

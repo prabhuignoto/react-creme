@@ -22,6 +22,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   RTL = false,
   focusable = true,
   size = 'sm',
+  animation = 'shrink',
 }) => {
   const [close, setClose] = React.useState(false);
 
@@ -46,8 +47,9 @@ const Alert: React.FunctionComponent<AlertProps> = ({
         [styles.alert_close]: close,
         [styles.alert_rtl]: RTL,
         [styles[`alert_${size}`]]: true,
+        [styles[animation]]: true,
       }),
-    [state, close]
+    [state, close, animation]
   );
 
   const handleClose = useCallback(() => {
