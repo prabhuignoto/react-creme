@@ -45,7 +45,7 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
   }: DemoPageRendererProps) => {
     const media = useMedia();
 
-    const [width, setWidth] = useState(null);
+    const [width, setWidth] = useState<number[]>([]);
 
     useLayoutEffect(() => {
       if (!media) {
@@ -66,7 +66,7 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
     }, [media]);
 
     const columns: DataGridColumn[] = useMemo(() => {
-      if (!width || !media) {
+      if (width.length < 1 || !media) {
         return [];
       }
 
@@ -117,38 +117,36 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
           },
         ];
       }
-    }, [media, width]);
+    }, [media, width.length]);
 
-    return (
-      width && (
-        <div className={styles.wrapper}>
-          {title && (
-            <DemoPageHeader
-              title={title}
-              description={description}
-              pageIcon={pageIcon}
-              sourceId={sourceId}
-              editId={editId}
-              stackBlitzCodes={stackBlitzCodes}
-            />
-          )}
-          {features.length ? (
-            <Section noPadding height={50}>
-              <DemoPageFeatures features={features} />
-            </Section>
-          ) : null}
-          <DemoPageTabs
-            tabTitles={tabTitles}
-            media={media}
-            callbacks={callbacks}
-            demoWidget={demoWidget}
-            columns={columns}
+    return width.length ? (
+      <div className={styles.wrapper}>
+        {title && (
+          <DemoPageHeader
+            title={title}
+            description={description}
+            pageIcon={pageIcon}
+            sourceId={sourceId}
+            editId={editId}
             stackBlitzCodes={stackBlitzCodes}
-            properties={properties}
           />
-        </div>
-      )
-    );
+        )}
+        {features.length ? (
+          <Section noPadding height={50}>
+            <DemoPageFeatures features={features} />
+          </Section>
+        ) : null}
+        <DemoPageTabs
+          tabTitles={tabTitles}
+          media={media}
+          callbacks={callbacks}
+          demoWidget={demoWidget}
+          columns={columns}
+          stackBlitzCodes={stackBlitzCodes}
+          properties={properties}
+        />
+      </div>
+    ) : null;
   }
 );
 

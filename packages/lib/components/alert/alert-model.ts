@@ -5,6 +5,8 @@ export interface AlertProps {
   /**🟡 right to left */
   RTL?: boolean;
 
+  animation?: 'shrink' | 'fade';
+
   /**🟡 prop to dismiss the alert */
   canDismiss?: boolean;
 

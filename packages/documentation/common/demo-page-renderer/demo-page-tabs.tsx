@@ -17,7 +17,7 @@ export type DemoPageTabsProps = Pick<
   'tabTitles' | 'properties' | 'callbacks' | 'stackBlitzCodes' | 'demoWidget'
 > & {
   columns: DataGridColumn[];
-  media: MediaState;
+  media: MediaState | null;
 };
 
 const Icons = [
@@ -45,6 +45,8 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
       return properties && properties.length;
     }, [properties.length]);
 
+    console.log(properties);
+
     const Demo = demoWidget;
 
     return (
@@ -61,7 +63,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
               classNames="widget-fade"
               timeout={300}
             >
-              {media.isMobile || media.isTablet || media.isDesktop ? (
+              {media?.isMobile || media?.isTablet || media?.isDesktop ? (
                 Demo
               ) : (
                 <WidgetsWrapper>{Demo}</WidgetsWrapper>

@@ -6,18 +6,16 @@ import Footer from './home/footer/footer';
 import { Header } from './home/header';
 
 const Main = React.forwardRef<
-  { getBoundingClientRect: () => DOMRect },
+  { getBoundingClientRect: () => DOMRect | undefined },
   { media: MediaState; toggleOpen: () => void }
 >(({ media, toggleOpen }, ref) => {
   const sectionRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
 
   useImperativeHandle(ref, () => {
-    if (sectionRef.current) {
-      return {
-        getBoundingClientRect: () => sectionRef.current.getBoundingClientRect(),
-      };
-    }
+    return {
+      getBoundingClientRect: () => sectionRef.current?.getBoundingClientRect(),
+    };
   });
 
   const canShowHeader = useMemo(
@@ -46,5 +44,7 @@ const MainMemoized = React.memo(
 );
 
 Main.displayName = 'Main';
+
+MainMemoized.displayName = 'Main';
 
 export { MainMemoized as AppMain };

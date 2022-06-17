@@ -14,20 +14,27 @@ $sizes: (sm, md, lg);
   opacity: 1;
   overflow: hidden;
   padding: 0;
-  transition: height 0.25s ease-in-out, opacity 0.25s ease-in-out;
   width: 100%;
+  height: var(--height);
 
-  &:not(.alert_close) {
-    height: var(--height);
+  &.alert_close.shrink {
+    height: 0;
   }
 
-  &.alert_close {
-    height: 0;
+  &.alert_close.fade {
     opacity: 0;
   }
 
   &.alert_rtl {
     direction: rtl;
+  }
+
+  &.shrink {
+    transition: height 0.25s ease-in-out;
+  }
+
+  &.fade {
+    transition: opacity 0.25s ease-in-out;
   }
 }
 

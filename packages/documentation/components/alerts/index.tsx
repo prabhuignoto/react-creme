@@ -65,6 +65,14 @@ function index() {
           optional: 'Yes',
           type: 'string',
         },
+        {
+          default: 'shrink',
+          description:
+            'The animation to use when hiding the alert. Can be one of <code>fade</code> | <code>shrink</code>.',
+          name: 'animation',
+          optional: 'Yes',
+          type: 'string',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-fvmzp5']}
