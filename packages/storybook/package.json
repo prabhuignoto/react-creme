@@ -27,7 +27,7 @@
     "@types/node": "^18.0.0",
     "acorn": "^8.7.1",
     "babel-loader": "^8.2.5",
-    "chromatic": "^6.6.4",
+    "chromatic": "^6.7.0",
     "css-loader": "6.7.1",
     "postcss": "^8.0.0",
     "postcss-loader": "7.0.0",
