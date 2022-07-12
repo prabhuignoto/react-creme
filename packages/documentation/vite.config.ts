@@ -8,14 +8,12 @@ export default defineConfig({
     outDir: 'expo_dist',
     reportCompressedSize: true,
   },
-  // cacheDir: '.vite_cache',
   clearScreen: true,
   esbuild: {
     logOverride: { 'this-is-undefined-in-esm': 'silent' },
   },
 
   logLevel: 'info',
-  // mode: 'universal',
   plugins: [react(), svgr()],
   publicDir: 'public',
 });
