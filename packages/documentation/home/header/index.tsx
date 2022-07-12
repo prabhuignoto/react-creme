@@ -9,12 +9,16 @@ import { Logo } from '../logo';
 import './header.scss';
 
 const AlgoliaHit = ({ hit, children }: { children; hit: { url: string } }) => {
+  const route = `/${hit.url.split('/').pop()}`;
+
   return (
-    <div className="algolia-hit" style={{ width: '100%' }}>
-      <Link to={hit.url.split('/').pop()}>{children}</Link>
+    <div className="rc-algolia-hit" style={{ width: '100%' }}>
+      <Link to={route}>{children}</Link>
     </div>
   );
 };
+
+AlgoliaHit.displayName = 'AlgoliaHit';
 
 const Header: React.FC<{
   isMobile?: boolean;
@@ -35,6 +39,7 @@ const Header: React.FC<{
             appId={import.meta.env.VITE_APP_ALGOLIA_APP_ID as string}
             indexName={import.meta.env.VITE_APP_ALGOLIA_INDEX_NAME as string}
             hitComponent={AlgoliaHit}
+            disableUserPersonalization
           />
         </div>
       )}
