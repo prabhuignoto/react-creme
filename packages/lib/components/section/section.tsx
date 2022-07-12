@@ -45,11 +45,15 @@ const Section: React.FC<SectionProps> = ({
   const isDarkMode = useMemo(() => isDark(), []);
 
   const headerClass = useMemo(() => {
-    return classNames(styles.header, {
-      [styles.header_rtl]: RTL,
-      [styles[`header_${size}`]]: true,
-      [styles.dark]: isDarkMode,
-    });
+    return classNames(
+      styles.header,
+      {
+        [styles.header_rtl]: RTL,
+        [styles[`header_${size}`]]: true,
+        [styles.dark]: isDarkMode,
+      },
+      'rc-component-widget-heading'
+    );
   }, []);
 
   const getTitle = useMemo(() => {
