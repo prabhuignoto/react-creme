@@ -120,7 +120,7 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
     }, [media, width.length]);
 
     return width.length ? (
-      <div className={styles.wrapper}>
+      <article className={styles.wrapper}>
         {title && (
           <DemoPageHeader
             title={title}
@@ -145,7 +145,7 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
           stackBlitzCodes={stackBlitzCodes}
           properties={properties}
         />
-      </div>
+      </article>
     ) : null;
   }
 );
