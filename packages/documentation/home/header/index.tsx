@@ -22,9 +22,9 @@ const Header: React.FC<{
       {!isMobile && (
         <div className="algolia-container" style={{ marginLeft: 'auto' }}>
           <DocSearch
-            apiKey="265c5def59c32bb59531e98e01c9537d"
-            appId="UZV2STWBAE"
-            indexName="react-creme"
+            apiKey={process.env.REACT_APP_ALGOLIA_API_KEY as string}
+            appId={process.env.REACT_APP_ALGOLIA_APP_ID as string}
+            indexName={process.env.REACT_APP_ALGOLIA_INDEX_NAME as string}
           />
         </div>
       )}
