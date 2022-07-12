@@ -21,7 +21,7 @@ const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
   ({ title, editId, sourceId, stackBlitzCodes, description, pageIcon }) => {
     return (
       <PageHeader title={title} icon={pageIcon} size="lg">
-        <div>{description}</div>
+        <div className="rc-component-description">{description}</div>
         <div className={styles['rc-demo-page-links-container']}>
           {sourceId && (
             <Link
