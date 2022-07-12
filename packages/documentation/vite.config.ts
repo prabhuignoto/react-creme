@@ -10,6 +10,10 @@ export default defineConfig({
   },
   // cacheDir: '.vite_cache',
   clearScreen: true,
+  esbuild: {
+    logOverride: { 'this-is-undefined-in-esm': 'silent' },
+  },
+
   logLevel: 'info',
   // mode: 'universal',
   plugins: [react(), svgr()],
