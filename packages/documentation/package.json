@@ -21,6 +21,7 @@
     "snyk": "snyk test"
   },
   "dependencies": {
+    "@docsearch/react": "3",
     "@sentry/browser": "^7.6.0",
     "@sentry/tracing": "^7.6.0",
     "@stackblitz/sdk": "^1.8.0",
