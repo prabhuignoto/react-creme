@@ -52,7 +52,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@playwright/test": "^1.23.4",
+    "@playwright/test": "^1.24.0",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/react-instantsearch-dom": "^6.12.3",
@@ -73,8 +73,8 @@
     "react-transition-group": "^4.4.2",
     "recoil": "^0.7.4",
     "rimraf": "^3.0.2",
-    "sass": "^1.53.0",
-    "snyk": "^1.978.0",
+    "sass": "^1.54.0",
+    "snyk": "^1.980.0",
     "stylelint": "14.9.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
@@ -83,7 +83,7 @@
     "typescript-plugin-css-modules": "^3.4.0",
     "use-timer": "^2.0.1",
     "vite-plugin-react-svg": "^0.2.0",
-    "vite-plugin-svgr": "^2.2.0"
+    "vite-plugin-svgr": "^2.2.1"
   },
   "browserslist": [
     "last 3 versions",
