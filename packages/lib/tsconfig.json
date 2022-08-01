@@ -18,7 +18,13 @@
     "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "dist",
-    "types": ["react", "react-dom"],
+    "types": [
+      "react",
+      "react-dom",
+      "jest",
+      "node",
+      "@testing-library/jest-dom"
+    ],
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./components/*"],
@@ -31,6 +37,6 @@
     ]
   },
   "include": ["./components", "Globals.d.ts"],
-  "exclude": ["./**/*.test.tsx", "node_modules", "dist", "rollup.config.js"],
+  "exclude": ["node_modules", "dist", "rollup.config.js"],
   "files": ["components/react-creme.ts"]
 }

@@ -1,32 +1,31 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
 import { vi } from 'vitest';
 import { Rate } from '../rate';
 import styles from '../rate.module.scss';
 
 describe('Rate', () => {
-  it('renders correctly', () => {
+  it.concurrent('renders correctly', () => {
     const { getByRole, getAllByRole } = render(<Rate />);
 
     expect(getByRole('radiogroup')).toBeInTheDocument();
     expect(getAllByRole('radio')).toHaveLength(5);
   });
 
-  it('renders custom icon count', () => {
+  it.concurrent('renders custom icon count', () => {
     const { getByRole, getAllByRole } = render(<Rate iconCount={7} />);
 
     expect(getByRole('radiogroup')).toBeInTheDocument();
     expect(getAllByRole('radio')).toHaveLength(7);
   });
 
-  it('renders custom icon', () => {
+  it.concurrent('renders custom icon', () => {
     const { getAllByRole } = render(<Rate icon={<div>custom</div>} />);
 
     expect(getAllByRole('radio')).toHaveLength(5);
     expect(getAllByRole('img')).toHaveLength(5);
   });
 
-  it('should call onChange', () => {
+  it.concurrent('should call onChange', () => {
     const onChange = vi.fn();
     const { getAllByRole } = render(<Rate onChange={onChange} />);
 
@@ -38,7 +37,7 @@ describe('Rate', () => {
     }
   });
 
-  it('should change on hover', async () => {
+  it.concurrent('should change on hover', async () => {
     const onChange = vi.fn();
     const { getAllByRole } = render(<Rate onChange={onChange} />);
 
@@ -59,7 +58,7 @@ describe('Rate', () => {
     });
   });
 
-  it('check disabled state', () => {
+  it.concurrent('check disabled state', () => {
     const { getAllByRole } = render(<Rate disabled />);
 
     getAllByRole('radio').forEach(radio => {

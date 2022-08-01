@@ -1,10 +1,9 @@
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { MenuButton } from '../menu-button';
 
 describe('Menu Button', () => {
-  it('should render the Menu button', () => {
+  it.concurrent('should render the Menu button', () => {
     const { getByText } = render(
       <MenuButton items={['save', 'cancel', 'delete']} width={150} />
     );
@@ -12,7 +11,7 @@ describe('Menu Button', () => {
     expect(getByText('save')).toBeInTheDocument();
   });
 
-  it('should open menu on click', async () => {
+  it.concurrent('should open menu on click', async () => {
     const handler = vi.fn();
     const { getByRole, getByText, getByTestId } = render(
       <MenuButton
@@ -47,7 +46,7 @@ describe('Menu Button', () => {
     // });
   });
 
-  it('should call handler on click', async () => {
+  it.concurrent('should call handler on click', async () => {
     const handler = vi.fn();
     const { getByText } = render(
       <MenuButton
@@ -66,7 +65,7 @@ describe('Menu Button', () => {
     });
   });
 
-  it('should call handler from menu', async () => {
+  it.concurrent('should call handler from menu', async () => {
     const handler = vi.fn();
     const { getByText, getByRole } = render(
       <MenuButton

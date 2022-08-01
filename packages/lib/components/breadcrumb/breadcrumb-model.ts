@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export type BreadCrumbProps = {
   RTL?: boolean;
-  children: ReactNode | ReactNode[];
+  children?: ReactNode | ReactNode[];
   focusable?: boolean;
   icon?: 'chevron' | 'arrow' | 'slash';
   links: string[];

@@ -1,9 +1,8 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import { Progress } from '../progress';
 
 describe('Progress', () => {
-  it('should render progressbar in indeterminate mode', async () => {
+  it.concurrent('should render progressbar in indeterminate mode', async () => {
     const { getByRole } = render(
       <Progress
         type="indeterminate"
@@ -17,7 +16,7 @@ describe('Progress', () => {
     expect(getByRole('progressbar')).toBeInTheDocument();
   });
 
-  it('should render in determinate mode', () => {
+  it.concurrent('should render in determinate mode', () => {
     const { getByRole } = render(
       <Progress
         type="determinate"
@@ -31,7 +30,7 @@ describe('Progress', () => {
     expect(getByRole('progressbar')).toBeInTheDocument();
   });
 
-  it("should have all aria values", () => {
+  it.concurrent('should have all aria values', () => {
     const { getByRole } = render(
       <Progress
         type="determinate"
@@ -45,5 +44,5 @@ describe('Progress', () => {
     expect(getByRole('progressbar')).toHaveAttribute('aria-valuemin', '0');
     expect(getByRole('progressbar')).toHaveAttribute('aria-valuemax', '200');
     expect(getByRole('progressbar')).toHaveAttribute('aria-valuenow', '120');
-  })
+  });
 });

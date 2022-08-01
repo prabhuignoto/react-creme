@@ -1,16 +1,15 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import { Link } from '../link';
 
 describe('Link', () => {
-  it('should render a link', () => {
+  it.concurrent('should render a link', () => {
     const { getByText } = render(
       <Link href="http://www.google.com">Google</Link>
     );
     expect(getByText('Google')).toBeInTheDocument();
   });
 
-  it('should render a link with an icon', () => {
+  it.concurrent('should render a link with an icon', () => {
     const { getByText } = render(
       <Link href="http://www.google.com" icon="🔍">
         Google
@@ -19,7 +18,7 @@ describe('Link', () => {
     expect(getByText('Google')).toBeInTheDocument();
   });
 
-  it('should render a link with an icon and text', () => {
+  it.concurrent('should render a link with an icon and text', () => {
     const { getByText } = render(
       <Link href="http://www.google.com" icon="🔍">
         Google

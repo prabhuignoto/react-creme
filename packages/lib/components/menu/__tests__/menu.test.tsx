@@ -1,5 +1,4 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
 import { vi } from 'vitest';
 import { Menu } from '../menu';
 import { MenuItemProps } from '../menu-model';
@@ -8,12 +7,12 @@ const onSelected = vi.fn();
 
 const items: MenuItemProps[] = [
   { name: 'one' },
-  { name: 'two', disabled: true },
+  { disabled: true, name: 'two' },
   { name: 'three' },
 ];
 
 describe('Menu', () => {
-  it('should render the host component', () => {
+  it.concurrent('should render the host component', () => {
     const { getByText } = render(
       <Menu items={items}>
         <span>icon</span>
@@ -23,10 +22,10 @@ describe('Menu', () => {
     expect(getByText('icon')).toBeInTheDocument();
   });
 
-  it('should onSelection work as expected', async () => {
-    const onSelected = vi.fn();
+  it.concurrent('should onSelection work as expected', async () => {
+    const handler = vi.fn();
     const { getByText } = render(
-      <Menu items={items} onSelected={onSelected}>
+      <Menu items={items} onSelected={handler}>
         <span>icon</span>
       </Menu>
     );
@@ -38,10 +37,10 @@ describe('Menu', () => {
 
     fireEvent.click(getByText('one'));
 
-    expect(onSelected).toBeCalledWith('one');
+    expect(handler).toBeCalledWith('one');
   });
 
-  it('should menu toggle', async () => {
+  it.concurrent('should menu toggle', async () => {
     const { getByText, queryByText } = render(
       <Menu items={items} onSelected={onSelected}>
         <span>icon</span>
@@ -60,7 +59,7 @@ describe('Menu', () => {
     });
   });
 
-  it('should not select the disabled item', async () => {
+  it.concurrent('should not select the disabled item', async () => {
     const handler = vi.fn();
 
     const { getByText } = render(
@@ -78,7 +77,7 @@ describe('Menu', () => {
     });
   });
 
-  it('should focus on keyboard interactions', async () => {
+  it.concurrent('should focus on keyboard interactions', async () => {
     const { getByText, getByRole } = render(
       <Menu items={items} onSelected={onSelected}>
         <span>icon</span>

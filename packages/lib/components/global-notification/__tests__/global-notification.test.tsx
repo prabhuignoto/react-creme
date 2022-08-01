@@ -1,5 +1,4 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
 import { vi } from 'vitest';
 import { GlobalNotification } from '../global-notification';
 import styles from '../global-notification.module.scss';
@@ -7,7 +6,10 @@ import styles from '../global-notification.module.scss';
 describe('GlobalNotification', () => {
   it('should render global notification', async () => {
     const { getByText } = render(
-      <GlobalNotification message="Global Notification" />
+      <GlobalNotification message="Global Notification" />,
+      {
+        container: document.body,
+      }
     );
 
     await waitFor(() => {
@@ -15,9 +17,12 @@ describe('GlobalNotification', () => {
     });
   });
 
-  it('should render success state', async () => {
+  it.concurrent('should render success state', async () => {
     const { getByRole } = render(
-      <GlobalNotification message="Global Notification" state="success" />
+      <GlobalNotification message="Global Notification" state="success" />,
+      {
+        container: document.body,
+      }
     );
     await waitFor(() => {
       expect(getByRole('alert')).toBeInTheDocument();
@@ -47,7 +52,7 @@ describe('GlobalNotification', () => {
     });
   });
 
-  it('should render info state', async () => {
+  it.concurrent('should render info state', async () => {
     const { getByRole } = render(
       <GlobalNotification message="Global Notification" state="info" />
     );
