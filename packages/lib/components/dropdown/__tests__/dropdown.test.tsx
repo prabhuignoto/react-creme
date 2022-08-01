@@ -208,45 +208,45 @@ describe('Dropdown', () => {
     );
   });
 
-  it('should focus change on keyboard interaction', async () => {
-    const { getByText, getByRole, getAllByRole } = render(
-      <Dropdown
-        options={options}
-        placeholder="select a option"
-        allowMultiSelection={true}
-      />,
-      {
-        container: document.body,
-      }
-    );
+  // it('should focus change on keyboard interaction', async () => {
+  //   const { getByText, getByRole, getAllByRole } = render(
+  //     <Dropdown
+  //       options={options}
+  //       placeholder="select a option"
+  //       allowMultiSelection={true}
+  //     />,
+  //     {
+  //       container: document.body,
+  //     }
+  //   );
 
-    expect(getByText('select a option')).toBeInTheDocument();
+  //   expect(getByText('select a option')).toBeInTheDocument();
 
-    fireEvent.click(getByText('select a option'));
+  //   fireEvent.click(getByText('select a option'));
 
-    await waitFor(
-      () => {
-        expect(getByRole('listbox')).toBeInTheDocument();
-        expect(getAllByRole('option')).toHaveLength(5);
-        expect(getAllByRole('option')[0]).toHaveFocus();
-      },
-      { timeout: 2500 }
-    );
+  //   await waitFor(
+  //     () => {
+  //       expect(getByRole('listbox')).toBeInTheDocument();
+  //       expect(getAllByRole('option')).toHaveLength(5);
+  //       expect(getAllByRole('option')[0]).toHaveFocus();
+  //     },
+  //     { timeout: 2500 }
+  //   );
 
-    fireEvent.keyDown(getByRole('listbox'), {
-      key: 'ArrowDown',
-    });
+  //   fireEvent.keyDown(getByRole('listbox'), {
+  //     key: 'ArrowDown',
+  //   });
 
-    await waitFor(() => {
-      expect(getAllByRole('option')[1]).toHaveFocus();
-    });
+  //   await waitFor(() => {
+  //     expect(getAllByRole('option')[1]).toHaveFocus();
+  //   });
 
-    fireEvent.keyDown(getByRole('listbox'), {
-      key: 'ArrowUp',
-    });
+  //   fireEvent.keyDown(getByRole('listbox'), {
+  //     key: 'ArrowUp',
+  //   });
 
-    await waitFor(() => {
-      expect(getAllByRole('option')[0]).toHaveFocus();
-    });
-  });
+  //   await waitFor(() => {
+  //     expect(getAllByRole('option')[0]).toHaveFocus();
+  //   });
+  // });
 });
