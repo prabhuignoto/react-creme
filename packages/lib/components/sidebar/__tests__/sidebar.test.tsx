@@ -1,7 +1,6 @@
-import { render, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { Sidebar } from '../sidebar';
 
 describe('Sidebar', () => {
@@ -51,10 +50,10 @@ describe('Sidebar', () => {
       />
     );
 
-    userEvent.click(getByText('item1'));
+    fireEvent.click(getByText('item5'));
 
     await waitFor(() => {
-      expect(handler).toHaveBeenCalled();
+      expect(handler).toBeCalled();
     });
   });
 });
