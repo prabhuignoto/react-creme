@@ -28,8 +28,8 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
 
     const [expanded, setExpanded] = useState(false);
 
-    const handleChange = useCallback((open?: boolean, id?: string) => {
-      onSelect?.(id, open);
+    const handleChange = useCallback((open?: boolean, nodeId?: string) => {
+      onSelect?.(nodeId, open);
 
       if (open) {
         setExpanded(open);
@@ -66,7 +66,9 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
                     noUniqueId
                     id={node.id}
                     focusable={false}
-                    onChange={(_, selected) => handleChange(selected, node.id)}
+                    onChange={(_, nodeSelected) =>
+                      handleChange(nodeSelected, node.id)
+                    }
                     isChecked={node.selected}
                     noHoverStyle
                     autoHeight
@@ -75,7 +77,7 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
                 ) : null
               }
             >
-              {node.nodes?.length && (
+              {Boolean(node.nodes?.length) && (
                 <div
                   style={{
                     margin: '0.5rem 0',
