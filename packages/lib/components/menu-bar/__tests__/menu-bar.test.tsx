@@ -1,10 +1,10 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
-import { describe, vi, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 import { MenuBar } from '../menu-bar';
 
 const items = [
   {
+    id: '1',
     items: [
       {
         name: 'Open',
@@ -20,9 +20,9 @@ const items = [
       },
     ],
     name: 'File',
-    id: '1',
   },
   {
+    id: '2',
     items: [
       {
         name: 'Cut',
@@ -38,9 +38,9 @@ const items = [
       },
     ],
     name: 'Edit',
-    id: '2',
   },
   {
+    id: '3',
     items: [
       {
         name: 'About',
@@ -50,19 +50,18 @@ const items = [
       },
     ],
     name: 'Help',
-    id: '3',
   },
 ];
 
 describe('Menu Bar', () => {
-  it('should render menu bar items', () => {
+  it.concurrent('should render menu bar items', () => {
     const { getByText } = render(<MenuBar items={items} />);
 
     expect(getByText('File')).toBeInTheDocument();
     expect(getByText('Edit')).toBeInTheDocument();
   });
 
-  it('Should open Menu on click', async () => {
+  it.concurrent('Should open Menu on click', async () => {
     const { getByText } = render(<MenuBar items={items} />);
 
     expect(getByText('File')).toBeInTheDocument();
@@ -80,7 +79,7 @@ describe('Menu Bar', () => {
     });
   });
 
-  it('Should close menu when clicked outside', async () => {
+  it.concurrent('Should close menu when clicked outside', async () => {
     const { getByText, queryByText } = render(<MenuBar items={items} />);
 
     expect(getByText('File')).toBeInTheDocument();
@@ -98,7 +97,7 @@ describe('Menu Bar', () => {
     });
   });
 
-  it('Should call handler on selection', async () => {
+  it.concurrent('Should call handler on selection', async () => {
     const onSelection = vi.fn();
     const { getByText } = render(
       <MenuBar items={items} onSelect={onSelection} noUniqueId />

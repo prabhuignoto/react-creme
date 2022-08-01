@@ -1,12 +1,11 @@
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
-import { vi, describe, it } from 'vitest';
+import { fireEvent, render, waitFor } from '@testing-library/react';
+import { describe, it, vi } from 'vitest';
 import { Transfer } from '../transfer';
 
 const handler = vi.fn();
 
 describe('Transfer', () => {
-  it('should render transfer view', () => {
+  it.concurrent('should render transfer view', () => {
     const { getAllByRole } = render(
       <Transfer
         list1={['one', 'two', 'five', 'six']}
@@ -30,13 +29,16 @@ describe('Transfer', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should transfer right work as expected', async () => {
+  it.concurrent('should transfer right work as expected', async () => {
     const { getByText, container, getAllByRole } = render(
       <Transfer
         list1={['one', 'two', 'five', 'six']}
         list2={['three', 'four', 'seven', 'eight']}
         onChange={handler}
-      />
+      />,
+      {
+        container: document.body,
+      }
     );
 
     const five = getByText('five');
@@ -65,13 +67,16 @@ describe('Transfer', () => {
     }
   });
 
-  it('should transfer left work as expected', async () => {
+  it.concurrent('should transfer left work as expected', async () => {
     const { getByText, container, getAllByRole } = render(
       <Transfer
         list1={['one', 'two', 'five', 'six']}
         list2={['three', 'four', 'seven', 'eight']}
         onChange={handler}
-      />
+      />,
+      {
+        container: document.body,
+      }
     );
 
     const four = getByText('four');
@@ -100,7 +105,7 @@ describe('Transfer', () => {
     }
   });
 
-  // it("should transfer all to right work as expected", async () => {
+  // it.concurrent("should transfer all to right work as expected", async () => {
   //   const { getAllByRole, container } = render(
   //     <Transfer
   //       list1={["one", "two", "five", "six"]}
@@ -135,37 +140,39 @@ describe('Transfer', () => {
   //   }
   // });
 
-  // it("should transfer all to left work as expected", async () => {
+  // it.concurrent('should transfer all to left work as expected', async () => {
   //   const { getAllByRole, container } = render(
   //     <Transfer
-  //       list1={["one", "two", "five", "six"]}
-  //       list2={["three", "four", "seven", "eight"]}
+  //       list1={['one', 'two', 'five', 'six']}
+  //       list2={['three', 'four', 'seven', 'eight']}
   //       onChange={handler}
-  //     />
+  //     />,
+  //     {
+  //       container: document.body,
+  //     }
   //   );
 
-  //   const all = getAllByRole("listitem")[0].querySelector(
-  //     ".rc-checkbox-wrapper"
+  //   const all = getAllByRole('listitem')[0].querySelector(
+  //     '.rc-checkbox-wrapper'
   //   );
 
   //   if (all) {
   //     fireEvent.click(all);
-  //     const btnLeft = container.querySelector(".transfer-btn.left");
+
+  //     const btnLeft = container.querySelector('.transfer-btn.left');
 
   //     if (btnLeft) {
-  //       act(async () => {
-  //         fireEvent.click(btnLeft);
-  //         await waitFor(
-  //           async () => {
-  //             expect(
-  //               getAllByRole("list")[0].querySelectorAll("li")
-  //             ).toHaveLength(9);
-  //           },
-  //           {
-  //             timeout: 1000,
-  //           }
-  //         );
-  //       });
+  //       fireEvent.click(btnLeft);
+  //       await waitFor(
+  //         async () => {
+  //           expect(getAllByRole('list')[0].querySelectorAll('li')).toHaveLength(
+  //             9
+  //           );
+  //         },
+  //         {
+  //           timeout: 1000,
+  //         }
+  //       );
   //     }
   //   }
   // });

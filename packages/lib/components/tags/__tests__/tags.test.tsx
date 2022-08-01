@@ -1,5 +1,4 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
 import { vi } from 'vitest';
 import { Tags } from '../tags';
 import { TagItemProps } from '../tags-model';
@@ -13,11 +12,11 @@ const tags: TagItemProps[] = [
 
 const tagsWithDisabled: TagItemProps[] = [
   { name: 'one' },
-  { name: 'two', disabled: true },
+  { disabled: true, name: 'two' },
 ];
 
 describe('Tags', () => {
-  it('Should render default', () => {
+  it.concurrent('Should render default', () => {
     const { getByRole, getAllByRole } = render(<Tags items={tags} />);
 
     expect(getByRole('list')).toBeInTheDocument();
@@ -25,14 +24,14 @@ describe('Tags', () => {
     expect(getAllByRole('listitem')).toHaveLength(4);
   });
 
-  it('Should render disabled', () => {
+  it.concurrent('Should render disabled', () => {
     const { getAllByRole } = render(<Tags items={tagsWithDisabled} />);
 
     expect(getAllByRole('listitem')[1]).toHaveClass(styles.disabled);
   });
 
-  it('Should create new tag', async () => {
-    const { getByPlaceholderText, getByRole, getAllByRole } = render(
+  it.concurrent('Should create new tag', async () => {
+    const { getByPlaceholderText, getAllByRole } = render(
       <Tags items={tags} placeholder="Please enter a value ..." />
     );
     const input = getByPlaceholderText('Please enter a value ...');
@@ -44,10 +43,10 @@ describe('Tags', () => {
     });
 
     fireEvent.keyDown(input, {
-      key: 'Enter',
-      code: 'Enter',
-      keyCode: 13,
       charCode: 13,
+      code: 'Enter',
+      key: 'Enter',
+      keyCode: 13,
     });
 
     await waitFor(() => {
@@ -55,7 +54,7 @@ describe('Tags', () => {
     });
   });
 
-  it('Should delete a Tag', async () => {
+  it.concurrent('Should delete a Tag', async () => {
     const { getByText, getByRole, queryByText } = render(<Tags items={tags} />);
 
     const one = getByText('one');
@@ -75,7 +74,7 @@ describe('Tags', () => {
     }
   });
 
-  it('Should call onChange', async () => {
+  it.concurrent('Should call onChange', async () => {
     const handler = vi.fn();
     const { getByPlaceholderText } = render(
       <Tags
@@ -94,10 +93,10 @@ describe('Tags', () => {
     });
 
     fireEvent.keyUp(input, {
-      key: 'Enter',
-      code: 'Enter',
-      keyCode: 13,
       charCode: 13,
+      code: 'Enter',
+      key: 'Enter',
+      keyCode: 13,
     });
 
     await waitFor(() => {
@@ -106,8 +105,8 @@ describe('Tags', () => {
     });
   });
 
-  it('Should not allow creation of empty tags', async () => {
-    const { getByPlaceholderText, getAllByRole, container } = render(
+  it.concurrent('Should not allow creation of empty tags', async () => {
+    const { getByPlaceholderText, container } = render(
       <Tags items={tags} placeholder="Please enter a value ..." />
     );
 
@@ -123,10 +122,10 @@ describe('Tags', () => {
     });
 
     fireEvent.keyDown(input, {
-      key: 'Enter',
-      code: 'Enter',
-      keyCode: 13,
       charCode: 13,
+      code: 'Enter',
+      key: 'Enter',
+      keyCode: 13,
     });
 
     await waitFor(() => {
@@ -134,13 +133,13 @@ describe('Tags', () => {
     });
   });
 
-  it('should render custom sized tag', () => {
+  it.concurrent('should render custom sized tag', () => {
     const { container } = render(<Tags items={tags} size="md" />);
 
     expect(container.querySelectorAll(`.${styles.md}`)).toHaveLength(3);
   });
 
-  it('should not exceed max tags', async () => {
+  it.concurrent('should not exceed max tags', async () => {
     const { queryByPlaceholderText, container } = render(
       <Tags items={tags} placeholder="Please enter a value ..." maxTags={3} />
     );
@@ -151,7 +150,7 @@ describe('Tags', () => {
     expect(input).not.toBeInTheDocument();
   });
 
-  it('should not exceed max tags - after input entry', async () => {
+  it.concurrent('should not exceed max tags - after input entry', async () => {
     const { getByPlaceholderText, container } = render(
       <Tags items={tags} placeholder="Please enter a value ..." maxTags={4} />
     );
@@ -166,10 +165,10 @@ describe('Tags', () => {
     });
 
     fireEvent.keyUp(input, {
-      key: 'Enter',
-      code: 'Enter',
-      keyCode: 13,
       charCode: 13,
+      code: 'Enter',
+      key: 'Enter',
+      keyCode: 13,
     });
 
     await waitFor(() => {

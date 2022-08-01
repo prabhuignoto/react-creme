@@ -1,10 +1,9 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import { Skeleton } from '../skeleton';
 import styles from '../skeleton.module.scss';
 
 describe('Skeleton', () => {
-  it('should render skeleton', () => {
+  it.concurrent('should render skeleton', () => {
     const { getByTestId } = render(<Skeleton rows={5} />);
 
     expect(getByTestId('rc-skeleton')).toBeInTheDocument();
@@ -15,7 +14,7 @@ describe('Skeleton', () => {
     expect(children).toHaveLength(5);
   });
 
-  it('should render skeleton blocks', () => {
+  it.concurrent('should render skeleton blocks', () => {
     const { getByTestId } = render(<Skeleton rows={5} blocks={2} />);
 
     expect(getByTestId('rc-skeleton')).toBeInTheDocument();
@@ -26,7 +25,7 @@ describe('Skeleton', () => {
     expect(children).toHaveLength(10);
   });
 
-  it('should blink', () => {
+  it.concurrent('should blink', () => {
     const { getByTestId } = render(
       <Skeleton rows={5} animate rowHeight={20} />
     );

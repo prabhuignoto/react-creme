@@ -1,10 +1,9 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
 import { vi } from 'vitest';
 import { Tree } from '../tree';
 
 describe('Tree', () => {
-  it('should render tree', async () => {
+  it.concurrent('should render tree', async () => {
     const data = [
       {
         name: 'one',
@@ -12,7 +11,7 @@ describe('Tree', () => {
       },
     ];
 
-    const { getByRole, getAllByRole } = render(<Tree nodes={data} />);
+    const { getAllByRole } = render(<Tree nodes={data} />);
 
     await waitFor(() => {
       expect(getAllByRole('treeitem')).toHaveLength(3);
@@ -20,7 +19,7 @@ describe('Tree', () => {
     });
   });
 
-  it('should have expanded  aria attribute', () => {
+  it.concurrent('should have expanded  aria attribute', () => {
     const data = [
       {
         name: 'one',
@@ -36,7 +35,7 @@ describe('Tree', () => {
     );
   });
 
-  it('should expand and collapse', async () => {
+  it.concurrent('should expand and collapse', async () => {
     const data = [
       {
         name: 'one',
@@ -44,7 +43,7 @@ describe('Tree', () => {
       },
     ];
 
-    const { getAllByRole, getByRole } = render(<Tree nodes={data} />);
+    const { getAllByRole } = render(<Tree nodes={data} />);
 
     expect(getAllByRole('treeitem')[0]).toHaveAttribute(
       'aria-expanded',
@@ -52,7 +51,9 @@ describe('Tree', () => {
     );
 
     fireEvent.click(
-      getAllByRole('treeitem')[0].querySelector("[role='button']")
+      getAllByRole('treeitem')[0].querySelector(
+        "[role='button']"
+      ) as HTMLElement
     );
 
     await waitFor(() => {
@@ -63,7 +64,7 @@ describe('Tree', () => {
     });
   });
 
-  // it('should be checked', () => {
+  // it.concurrent('should be checked', () => {
   //   const data = [
   //     {
   //       name: 'one',
@@ -79,7 +80,7 @@ describe('Tree', () => {
   //   );
   // });
 
-  it('should call the node on selection', () => {
+  it.concurrent('should call the node on selection', () => {
     const data = [
       {
         name: 'one',
@@ -94,7 +95,9 @@ describe('Tree', () => {
     );
 
     fireEvent.click(
-      getAllByRole('treeitem')[0].querySelector("[role='button']")
+      getAllByRole('treeitem')[0].querySelector(
+        "[role='button']"
+      ) as HTMLElement
     );
 
     expect(onSelect).toHaveBeenCalled();

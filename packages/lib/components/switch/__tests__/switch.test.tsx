@@ -1,6 +1,5 @@
 import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
 import { vi } from 'vitest';
 import { Switch } from '../switch';
 import styles from '../switch.module.scss';
@@ -8,18 +7,18 @@ import styles from '../switch.module.scss';
 const handler = vi.fn();
 
 describe('Switch', () => {
-  it('should render default', () => {
+  it.concurrent('should render default', () => {
     const { container } = render(<Switch />);
     expect(container.firstChild).toBeInTheDocument();
   });
 
-  it('should be checked', () => {
+  it.concurrent('should be checked', () => {
     const { getByRole } = render(<Switch checked />);
 
     expect(getByRole('switch')).toHaveAttribute('aria-checked', 'true');
   });
 
-  it('should display toggle states', async () => {
+  it.concurrent('should display toggle states', async () => {
     const { getByRole } = render(<Switch onChange={handler} />);
 
     const switchItem = getByRole('switch');

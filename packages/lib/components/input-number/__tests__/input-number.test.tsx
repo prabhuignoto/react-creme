@@ -1,10 +1,9 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
-import { describe, vi, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 import { InputNumber } from '../input-number';
 
 describe('Input Number', () => {
-  it('should render the value', () => {
+  it.concurrent('should render the value', () => {
     const { getByDisplayValue } = render(
       <InputNumber value={6} start={1} end={10} />
     );
@@ -12,7 +11,7 @@ describe('Input Number', () => {
     expect(getByDisplayValue('6')).toBeInTheDocument();
   });
 
-  it('should increment the value', async () => {
+  it.concurrent('should increment the value', async () => {
     const { getByLabelText, getByDisplayValue } = render(
       <InputNumber start={1} end={10} />
     );
@@ -28,7 +27,7 @@ describe('Input Number', () => {
     });
   });
 
-  it('should decrement the value', async () => {
+  it.concurrent('should decrement the value', async () => {
     const { getByLabelText, getByDisplayValue } = render(
       <InputNumber start={5} end={10} value={7} />
     );
@@ -44,7 +43,7 @@ describe('Input Number', () => {
     });
   });
 
-  it('should call onChange handler with value', async () => {
+  it.concurrent('should call onChange handler with value', async () => {
     const onChange = vi.fn();
 
     const { getByLabelText } = render(
@@ -62,34 +61,43 @@ describe('Input Number', () => {
     });
   });
 
-  it('should auto reset when the value is out of range - greater', () => {
-    const { getByDisplayValue } = render(
-      <InputNumber start={5} end={10} value={12} />
-    );
+  it.concurrent(
+    'should auto reset when the value is out of range - greater',
+    () => {
+      const { getByDisplayValue } = render(
+        <InputNumber start={5} end={10} value={12} />
+      );
 
-    expect(getByDisplayValue('10')).toBeInTheDocument();
-  });
+      expect(getByDisplayValue('10')).toBeInTheDocument();
+    }
+  );
 
-  it('should auto reset when the value is out of range - lesser', () => {
-    const { getByDisplayValue } = render(
-      <InputNumber start={5} end={10} value={1} />
-    );
+  it.concurrent(
+    'should auto reset when the value is out of range - lesser',
+    () => {
+      const { getByDisplayValue } = render(
+        <InputNumber start={5} end={10} value={1} />
+      );
 
-    expect(getByDisplayValue('5')).toBeInTheDocument();
-  });
+      expect(getByDisplayValue('5')).toBeInTheDocument();
+    }
+  );
 
-  it('should increment or decrement on keyboard interaction', async () => {
-    const { getByDisplayValue, getByPlaceholderText } = render(
-      <InputNumber start={1} end={10} placeholder="choose a value" />
-    );
+  it.concurrent(
+    'should increment or decrement on keyboard interaction',
+    async () => {
+      const { getByDisplayValue, getByPlaceholderText } = render(
+        <InputNumber start={1} end={10} placeholder="choose a value" />
+      );
 
-    const input = getByPlaceholderText('choose a value');
+      const input = getByPlaceholderText('choose a value');
 
-    expect(input).toBeInTheDocument();
-    fireEvent.keyUp(input, { key: 'ArrowUp' });
-    expect(getByDisplayValue('2')).toBeInTheDocument();
+      expect(input).toBeInTheDocument();
+      fireEvent.keyUp(input, { key: 'ArrowUp' });
+      expect(getByDisplayValue('2')).toBeInTheDocument();
 
-    fireEvent.keyUp(input, { key: 'ArrowDown' });
-    expect(getByDisplayValue('1')).toBeInTheDocument();
-  });
+      fireEvent.keyUp(input, { key: 'ArrowDown' });
+      expect(getByDisplayValue('1')).toBeInTheDocument();
+    }
+  );
 });

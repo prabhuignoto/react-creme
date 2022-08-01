@@ -1,10 +1,9 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
 import { Tooltip } from '../tooltip';
 import styles from '../tooltip.module.scss';
 
 describe('Tooltip', () => {
-  it('Should render tooltip', () => {
+  it.concurrent('Should render tooltip', () => {
     const { getByRole } = render(
       <Tooltip position="top center" message="this is a test tooltip">
         <span>content</span>
@@ -14,7 +13,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip')).toBeInTheDocument();
   });
 
-  it('Should show/hide tooltip on hover', async () => {
+  it.concurrent('Should show/hide tooltip on hover', async () => {
     const { getByRole } = render(
       <Tooltip position="top center" message="this is a test tooltip">
         <span>content</span>
@@ -55,7 +54,7 @@ describe('Tooltip', () => {
     }
   });
 
-  it('should render tooltip statically', async () => {
+  it.concurrent('should render tooltip statically', async () => {
     const { getByRole } = render(
       <Tooltip position="top center" message="this is a test tooltip" isStatic>
         <span>content</span>
@@ -67,7 +66,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(styles.top_center);
   });
 
-  it('should render tooltip bottom center', () => {
+  it.concurrent('should render tooltip bottom center', () => {
     const { getByRole } = render(
       <Tooltip position="bottom center" message="this is a test tooltip">
         <span>content</span>
@@ -78,7 +77,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(styles.bottom_center);
   });
 
-  it('should render tooltip bottom left', () => {
+  it.concurrent('should render tooltip bottom left', () => {
     const { getByRole } = render(
       <Tooltip position="bottom left" message="this is a test tooltip">
         <span>content</span>
@@ -89,7 +88,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(styles.bottom_left);
   });
 
-  it('should render tooltip bottom right', () => {
+  it.concurrent('should render tooltip bottom right', () => {
     const { getByRole } = render(
       <Tooltip position="bottom right" message="this is a test tooltip">
         <span>content</span>
@@ -100,7 +99,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(styles.bottom_right);
   });
 
-  it('should render tooltip top left', () => {
+  it.concurrent('should render tooltip top left', () => {
     const { getByRole } = render(
       <Tooltip position="top left" message="this is a test tooltip">
         <span>content</span>
@@ -111,7 +110,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(styles.top_left);
   });
 
-  it('should render tooltip top right', () => {
+  it.concurrent('should render tooltip top right', () => {
     const { getByRole } = render(
       <Tooltip position="top right" message="this is a test tooltip">
         <span>content</span>
@@ -122,7 +121,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(styles.top_right);
   });
 
-  it('should render left center', () => {
+  it.concurrent('should render left center', () => {
     const { getByRole } = render(
       <Tooltip position="left center" message="this is a test tooltip">
         <span>content</span>
@@ -133,7 +132,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(styles.left_center);
   });
 
-  it('should render right center', () => {
+  it.concurrent('should render right center', () => {
     const { getByRole } = render(
       <Tooltip position="right center" message="this is a test tooltip">
         <span>content</span>
@@ -144,7 +143,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(styles.right_center);
   });
 
-  it('should render left top', () => {
+  it.concurrent('should render left top', () => {
     const { getByRole } = render(
       <Tooltip position="left top" message="this is a test tooltip">
         <span>content</span>
@@ -155,7 +154,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(styles.left_top);
   });
 
-  it('should render left bottom', () => {
+  it.concurrent('should render left bottom', () => {
     const { getByRole } = render(
       <Tooltip position="left bottom" message="this is a test tooltip">
         <span>content</span>
@@ -166,7 +165,7 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip').firstChild).toHaveClass(styles.left_bottom);
   });
 
-  it('should render Tooltip on click', async () => {
+  it.concurrent('should render Tooltip on click', async () => {
     const { getByRole, getByText } = render(
       <Tooltip
         position="left bottom"

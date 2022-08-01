@@ -214,7 +214,10 @@ describe('Dropdown', () => {
         options={options}
         placeholder="select a option"
         allowMultiSelection={true}
-      />
+      />,
+      {
+        container: document.body,
+      }
     );
 
     expect(getByText('select a option')).toBeInTheDocument();
