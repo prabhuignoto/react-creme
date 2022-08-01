@@ -84,9 +84,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     }
   }, [iconType, open]);
 
-  if (focusable) {
-    useFocusNew(ref, onToggle);
-  }
+  useFocusNew(focusable ? ref : null, onToggle);
 
   return (
     <div

@@ -1,9 +1,13 @@
 import { useCallback, useRef } from 'react';
 
 export default function useTrapFocus<T extends HTMLElement>(
-  timeout = 200,
-  onRender?: () => void
+  timeout: number | null = 200,
+  onRender?: (() => void) | null
 ) {
+  if (!timeout) {
+    return null;
+  }
+
   const focusTargets = useRef<T[] | null>([]);
   const targetRef = useRef<T | null>(null);
 

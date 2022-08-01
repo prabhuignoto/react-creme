@@ -38,8 +38,10 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   /**
    * Trap and cycle focus within the Drawer
    */
-  if (focusable) {
-    const { onInit, handleKeyDown } = useTrapFocus<HTMLDivElement>(200);
+  const trapFocus = useTrapFocus<HTMLDivElement>(focusable ? 200 : null);
+
+  if (trapFocus) {
+    const { onInit, handleKeyDown } = trapFocus;
     focusProps.current = { onKeyDown: handleKeyDown, ref: onInit, tabIndex: 0 };
   } else {
     focusProps.current = { tabIndex: 0 };

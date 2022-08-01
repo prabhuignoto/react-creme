@@ -50,9 +50,7 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
       } as HTMLDivElement)
   );
 
-  if (focusable) {
-    useFocusNew(buttonRef);
-  }
+  useFocusNew(focusable ? buttonRef : null);
 
   const focusableProps = useMemo(
     () => ({

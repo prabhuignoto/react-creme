@@ -28,9 +28,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
 
   const btnCloseRef = React.useRef<HTMLSpanElement>(null);
 
-  if (focusable) {
-    useFocus(btnCloseRef, () => setClose(true));
-  }
+  useFocus(focusable ? btnCloseRef : null, () => setClose(true));
 
   const style = useMemo(
     () =>

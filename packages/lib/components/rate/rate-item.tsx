@@ -1,8 +1,8 @@
-import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import RateIcon from '../../icons/star';
 import useFocusNew from '../common/effects/useFocusNew';
+import { isDark } from '../common/utils';
 import { RateItemViewProps } from './rate-model';
 import styles from './rate.module.scss';
 
@@ -21,9 +21,10 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = ({
   const ref = React.useRef<HTMLLIElement | null>(null);
   const isDarkMode = useMemo(() => isDark(), []);
 
-  if (focusable && !disabled) {
-    useFocusNew(ref, () => onSelect(index));
-  }
+  useFocusNew(
+    focusable && !disabled ? ref : null,
+    focusable ? () => onSelect(index) : null
+  );
 
   const rateItemClass = useMemo(
     () =>

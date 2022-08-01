@@ -80,9 +80,10 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
     });
   }, [selectedValue]);
 
-  if (focusable && containerRef) {
-    useFocusNew(containerRef, onToggle);
-  }
+  useFocusNew(
+    focusable && containerRef ? containerRef : null,
+    focusable ? onToggle : null
+  );
 
   useEffect(() => {
     if (focus) {

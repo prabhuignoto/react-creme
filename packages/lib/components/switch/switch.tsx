@@ -39,9 +39,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
     }
   };
 
-  if (focusable) {
-    useFocusNew(ref, handleToggle);
-  }
+  useFocusNew(focusable ? ref : null, focusable ? handleToggle : null);
 
   const isDarkMode = useMemo(() => isDark(), []);
 

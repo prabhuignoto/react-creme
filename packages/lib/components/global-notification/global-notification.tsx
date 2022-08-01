@@ -27,9 +27,10 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
 
   const btnCloseRef = useRef<HTMLSpanElement>(null);
 
-  if (focusable) {
-    useFocus(btnCloseRef, () => setOpen(false));
-  }
+  useFocus(
+    focusable ? btnCloseRef : null,
+    focusable ? () => setOpen(false) : null
+  );
 
   useEffect(() => {
     setTimeout(() => setOpen(true), delay);
