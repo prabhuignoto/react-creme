@@ -1,9 +1,8 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import { DataGridHeader } from '../data-grid-header';
 
 describe('DataGridHeader', () => {
-  it('should render the headers correctly', () => {
+  it.concurrent('should render the headers correctly', async () => {
     const { getByText } = render(
       <DataGridHeader
         columns={[
@@ -23,14 +22,14 @@ describe('DataGridHeader', () => {
     expect(getByText('value')).toBeInTheDocument();
   });
 
-  it('headers should be sortable', () => {
+  it.concurrent('headers should be sortable', async () => {
     const { getByText, getAllByRole } = render(
       <DataGridHeader
         columns={[
           {
             name: 'property',
-            type: 'string',
             sortable: true,
+            type: 'string',
           },
           {
             name: 'value',

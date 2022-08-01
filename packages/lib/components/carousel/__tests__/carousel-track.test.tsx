@@ -1,5 +1,4 @@
 import { fireEvent, render } from '@testing-library/react';
-import React from 'react';
 import { vi } from 'vitest';
 import { CarouselTrack } from '../carousel-track';
 import styles from '../carousel-track.module.scss';
@@ -7,7 +6,7 @@ import styles from '../carousel-track.module.scss';
 const handler = vi.fn();
 
 describe('Carousel Track', () => {
-  it('Should render the track', () => {
+  it.concurrent('Should render the track', async () => {
     const { getByRole, getAllByRole } = render(
       <CarouselTrack
         length={3}
@@ -23,7 +22,7 @@ describe('Carousel Track', () => {
     expect(getAllByRole('listitem')).toHaveLength(3);
   });
 
-  it('Should render the track snapshot', () => {
+  it('Should render the track snapshot', async () => {
     const { getByRole } = render(
       <CarouselTrack
         length={3}
@@ -38,7 +37,7 @@ describe('Carousel Track', () => {
     expect(getByRole('list')).toMatchSnapshot();
   });
 
-  it('Should call the handler', () => {
+  it.concurrent('Should call the handler', async () => {
     const { getAllByRole } = render(
       <CarouselTrack
         length={3}
@@ -55,7 +54,7 @@ describe('Carousel Track', () => {
     expect(handler).toBeCalledWith(2);
   });
 
-  it('Should the active selection is selected', () => {
+  it.concurrent('Should the active selection is selected', async () => {
     const { getAllByRole } = render(
       <CarouselTrack
         length={3}

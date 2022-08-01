@@ -1,10 +1,9 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import { DataGridCell } from '../data-grid-cell';
 import styles from '../data-grid.module.scss';
 
 describe('DataGridCell', () => {
-  it('should render the data grid cell', () => {
+  it.concurrent('should render the data grid cell', async () => {
     const { getByText, getByRole } = render(
       <DataGridCell name="name" value="john" />
     );
@@ -15,7 +14,7 @@ describe('DataGridCell', () => {
     expect(getByRole('cell')).toHaveClass(styles.cell);
   });
 
-  it('should render with border', () => {
+  it.concurrent('should render with border', async () => {
     const { getByRole } = render(
       <DataGridCell name="name" value="john" border />
     );

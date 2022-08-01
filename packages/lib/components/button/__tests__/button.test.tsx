@@ -1,13 +1,12 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
-import { vi } from 'vitest';
+import { it, vi } from 'vitest';
 import { Button } from '../button';
 import styles from '../button.module.scss';
 
 const handler = vi.fn();
 
 describe('Button', () => {
-  it('should render default', () => {
+  it.concurrent('should render default', async () => {
     const { container } = render(<Button />);
 
     const button = container.firstChild;
@@ -16,23 +15,23 @@ describe('Button', () => {
     expect(button).toHaveClass(styles.default);
   });
 
-  it('should render label', () => {
+  it.concurrent('should render label', async () => {
     const { getByText } = render(<Button label="My Button" />);
     expect(getByText('My Button')).toBeInTheDocument();
   });
 
-  it('should render size', () => {
+  it.concurrent('should render size', async () => {
     const { getByRole } = render(<Button label="My Button" size="lg" />);
     expect(getByRole('button')).toBeInTheDocument();
     expect(getByRole('button')).toHaveClass(styles.lg);
   });
 
-  it('should render button snapshot', () => {
+  it('should render button snapshot', async () => {
     const { getByRole } = render(<Button label="My Button" />);
     expect(getByRole('button')).toMatchSnapshot();
   });
 
-  it('should render disabled button', () => {
+  it.concurrent('should render disabled button', async () => {
     const handler = vi.fn();
 
     const { getByRole } = render(
@@ -46,9 +45,12 @@ describe('Button', () => {
     expect(handler).not.toBeCalled();
   });
 
-  it('should call handler', () => {
+  it.concurrent('should call handler', async () => {
     const { getByText } = render(
-      <Button label="My Button" onClick={handler} />
+      <Button label="My Button" onClick={handler} />,
+      {
+        container: document.body,
+      }
     );
 
     fireEvent.click(getByText('My Button'));
@@ -56,21 +58,27 @@ describe('Button', () => {
     expect(handler).toBeCalled();
   });
 
-  it('should call handler via keyboard action', async () => {
+  it.concurrent('should call handler via keyboard action', async () => {
     const { getByText } = render(
-      <Button label="My Button" onClick={handler} />
+      <Button label="My Button" onClick={handler} />,
+      {
+        container: document.body,
+      }
     );
 
     fireEvent.keyDown(getByText('My Button'), { key: 'Enter' });
 
-    await waitFor(() => {
+    await waitFor(async () => {
       expect(handler).toBeCalled();
     });
   });
 
-  it('should have focus', () => {
+  it.concurrent('should have focus', async () => {
     const { getByRole } = render(
-      <Button label="My Button" onClick={handler} focusable />
+      <Button label="My Button" onClick={handler} focusable />,
+      {
+        container: document.body,
+      }
     );
 
     fireEvent.focus(getByRole('button'));

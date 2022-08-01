@@ -1,12 +1,11 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import { describe, it } from 'vitest';
 import { Input } from '../../input/input';
 import { FormField } from '../form-field';
 import styles from '../form-field.module.scss';
 
 describe('Form Field', () => {
-  it('Should render the form field', () => {
+  it.concurrent('Should render the form field', async () => {
     const { getByText, getByPlaceholderText } = render(
       <FormField label="Name">
         <Input id="name" placeholder="please enter your name" />
@@ -17,7 +16,7 @@ describe('Form Field', () => {
     expect(getByPlaceholderText('please enter your name')).toBeInTheDocument();
   });
 
-  it('should render icon', () => {
+  it.concurrent('should render icon', async () => {
     const { getByTestId } = render(
       <FormField label="Name" icon={<i data-testid="icon" />}>
         <Input id="name" placeholder="please enter your name" />
@@ -27,7 +26,7 @@ describe('Form Field', () => {
     expect(getByTestId('icon')).toBeInTheDocument();
   });
 
-  it('should render RTL mode', () => {
+  it.concurrent('should render RTL mode', async () => {
     const { getByText, container } = render(
       <FormField label="Name" RTL>
         <Input id="name" placeholder="please enter your name" />
@@ -39,7 +38,7 @@ describe('Form Field', () => {
     expect(container.firstChild).toHaveClass(styles.rtl);
   });
 
-  it('should render custom size', () => {
+  it.concurrent('should render custom size', async () => {
     const { getByText, container } = render(
       <FormField label="Name" size="sm">
         <Input id="name" placeholder="please enter your name" />

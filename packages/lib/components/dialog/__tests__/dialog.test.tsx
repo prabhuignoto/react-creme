@@ -1,10 +1,9 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
 import { it, vi } from 'vitest';
 import { Dialog } from '../dialog';
 
 describe('Dialog', () => {
-  it('should render the dialog', () => {
+  it.concurrent('should render the dialog', async () => {
     const { getByRole, getByText } = render(<Dialog title="test title" />);
 
     expect(getByRole('dialog')).toBeInTheDocument();
@@ -12,11 +11,14 @@ describe('Dialog', () => {
     expect(getByText('test title')).toBeInTheDocument();
   });
 
-  it('should close the dialog', async () => {
+  it.concurrent('should close the dialog', async () => {
     const { getByText, queryByRole } = render(
       <Dialog title="test title">
         <span>dialog content</span>
-      </Dialog>
+      </Dialog>,
+      {
+        container: document.body,
+      }
     );
 
     expect(queryByRole('dialog')).toBeInTheDocument();
@@ -38,26 +40,36 @@ describe('Dialog', () => {
     const { queryByRole } = render(
       <Dialog title="test title" onOpen={onOpen}>
         <span>dialog content</span>
-      </Dialog>
+      </Dialog>,
+      {
+        container: document.body,
+      }
     );
 
-    await waitFor(async () => {
+    await waitFor(() => {
       expect(queryByRole('dialog')).toBeInTheDocument();
-      expect(onOpen).toHaveBeenCalled();
+      expect(onOpen).toBeCalled();
     });
   });
 
-  it('should render children', () => {
+  it('should render children', async () => {
     const { getByText } = render(
       <Dialog title="test title">
         <span>dialog content</span>
       </Dialog>
     );
 
-    expect(getByText('dialog content')).toBeInTheDocument();
+    await waitFor(
+      async () => {
+        expect(getByText('dialog content')).toBeInTheDocument();
+      },
+      {
+        timeout: 2000,
+      }
+    );
   });
 
-  it("should render dialog with animation type 'rise'", async () => {
+  it.concurrent("should render dialog with animation type 'rise'", async () => {
     const { getByRole } = render(
       <Dialog title="test title" animationType="rise">
         <span>dialog content</span>
@@ -68,7 +80,7 @@ describe('Dialog', () => {
     });
   });
 
-  it('should render dialog with custom animation duration', () => {
+  it('should render dialog with custom animation duration', async () => {
     const { getByRole } = render(
       <Dialog title="test title" animationType="pop" animationDuration={400}>
         <span>dialog content</span>

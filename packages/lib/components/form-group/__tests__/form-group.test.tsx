@@ -1,12 +1,11 @@
 import { fireEvent, render } from '@testing-library/react';
-import React from 'react';
-import { describe, vi, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 import { FormField } from '../../form-field/form-field';
 import { Input } from '../../input/input';
 import { FormGroup } from '../form-group';
 
 describe('Form Group', () => {
-  it('should render form fields', () => {
+  it.concurrent('should render form fields', () => {
     const { getByPlaceholderText, getByLabelText } = render(
       <FormGroup>
         <FormField label="Please enter the name">
@@ -19,7 +18,7 @@ describe('Form Group', () => {
     expect(getByLabelText('Please enter the name')).toBeInTheDocument();
   });
 
-  it('should render buttons', () => {
+  it.concurrent('should render buttons', () => {
     const { getByText } = render(
       <FormGroup>
         <FormField label="Please enter the name">
@@ -32,7 +31,7 @@ describe('Form Group', () => {
     expect(getByText('Cancel')).toBeInTheDocument();
   });
 
-  it('should call onSubmit and onCancel', () => {
+  it.concurrent('should call onSubmit and onCancel', () => {
     const onSubmit = vi.fn();
     const onCancel = vi.fn();
 

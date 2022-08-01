@@ -1,5 +1,4 @@
 import { fireEvent, render } from '@testing-library/react';
-import React from 'react';
 import { vi } from 'vitest';
 import { CarouselButton } from '../carousel-button';
 import styles from '../carousel.module.scss';
@@ -7,7 +6,7 @@ import styles from '../carousel.module.scss';
 const handler = vi.fn();
 
 describe('Carousel Button', () => {
-  it('should render with position', () => {
+  it.concurrent('should render with position', async () => {
     const { container } = render(
       <CarouselButton
         position="left"
@@ -21,7 +20,7 @@ describe('Carousel Button', () => {
     expect(container.firstChild).toHaveClass(styles.btn_left);
   });
 
-  it('should render carousel button snapshot', () => {
+  it('should render carousel button snapshot', async () => {
     const { getByRole } = render(
       <CarouselButton
         position="left"
@@ -34,7 +33,7 @@ describe('Carousel Button', () => {
     expect(getByRole('button')).toMatchSnapshot();
   });
 
-  it('should call the onClick handler', () => {
+  it.concurrent('should call the onClick handler', async () => {
     const { getByRole } = render(
       <CarouselButton
         position="left"

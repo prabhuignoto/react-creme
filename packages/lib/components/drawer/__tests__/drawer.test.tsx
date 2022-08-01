@@ -1,11 +1,9 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
-import vi from 'vitest';
 import { Drawer } from '../drawer';
 import styles from '../drawer.module.scss';
 
 describe('Drawer', () => {
-  it('should render the drawer', () => {
+  it.concurrent('should render the drawer', () => {
     const { getByRole, getByText } = render(
       <Drawer width={400}>
         <span>content</span>
@@ -25,14 +23,19 @@ describe('Drawer', () => {
     const { getByRole } = render(
       <Drawer width={400} position="right">
         <span>content</span>
-      </Drawer>
+      </Drawer>,
+      {
+        container: document.body,
+      }
     );
 
-    expect(getByRole('dialog')).toBeInTheDocument();
-    expect(getByRole('dialog')).toHaveClass(
-      styles.visible,
-      styles.slide_right_enter
-    );
+    await waitFor(() => {
+      expect(getByRole('dialog')).toBeInTheDocument();
+      expect(getByRole('dialog')).toHaveClass(
+        styles.visible,
+        styles.slide_right_enter
+      );
+    });
   });
 
   it('should render the drawer from bottom', async () => {
@@ -42,10 +45,12 @@ describe('Drawer', () => {
       </Drawer>
     );
 
-    expect(getByRole('dialog')).toHaveClass(
-      styles.visible,
-      styles.slide_bottom_enter
-    );
+    await waitFor(() => {
+      expect(getByRole('dialog')).toHaveClass(
+        styles.visible,
+        styles.slide_bottom_enter
+      );
+    });
   });
 
   it('should render the drawer from top', async () => {
@@ -62,7 +67,7 @@ describe('Drawer', () => {
   });
 
   it('should close the drawer', async () => {
-    const { container, queryByRole, getByRole } = render(
+    const { queryByRole, getByRole } = render(
       <Drawer>
         <span>content</span>
       </Drawer>

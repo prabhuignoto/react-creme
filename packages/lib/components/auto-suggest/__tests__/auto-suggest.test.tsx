@@ -1,6 +1,5 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
 import { vi } from 'vitest';
 import { AutoSuggest } from '../auto-suggest';
 
@@ -18,31 +17,33 @@ const suggestions = [
 }));
 
 describe('AutoSuggest', () => {
-  it('should render Auto Suggest', () => {
+  it.concurrent('should render Auto Suggest', async () => {
     const { getByTestId } = render(<AutoSuggest suggestions={suggestions} />);
     expect(getByTestId('rc-auto-suggest')).toBeInTheDocument();
   });
 
-  it('should render Auto Suggest with placeholder', () => {
-    const { getByTestId, getByText, getByPlaceholderText } = render(
+  it.concurrent('should render Auto Suggest with placeholder', async () => {
+    const { getByTestId, getByPlaceholderText } = render(
       <AutoSuggest suggestions={suggestions} placeholder="placeholder" />
     );
     expect(getByTestId('rc-auto-suggest')).toBeInTheDocument();
     expect(getByPlaceholderText('placeholder')).toBeInTheDocument();
   });
 
-  it('should render suggestions', async () => {
-    const { queryByRole, getByPlaceholderText, getAllByRole, getByTestId } =
-      render(
-        <AutoSuggest suggestions={suggestions} placeholder="enter input" />
-      );
+  it.concurrent('should render suggestions', async () => {
+    const { getByPlaceholderText, getByTestId } = render(
+      <AutoSuggest suggestions={suggestions} placeholder="enter input" />,
+      {
+        container: document.body,
+      }
+    );
 
     expect(getByPlaceholderText('enter input')).toBeInTheDocument();
 
     userEvent.type(getByPlaceholderText('enter input'), 'one');
 
     await waitFor(
-      () => {
+      async () => {
         expect(getByTestId('rc-overlay')).toBeInTheDocument();
         expect(getByTestId('rc-overlay').querySelectorAll('li')).toHaveLength(
           1
@@ -54,9 +55,12 @@ describe('AutoSuggest', () => {
     );
   });
 
-  it('should show the selected item', async () => {
-    const { getByRole, getByPlaceholderText, getByText, getByTestId } = render(
-      <AutoSuggest suggestions={suggestions} placeholder="enter input" />
+  it.concurrent('should show the selected item', async () => {
+    const { getByPlaceholderText, getByTestId } = render(
+      <AutoSuggest suggestions={suggestions} placeholder="enter input" />,
+      {
+        container: document.body,
+      }
     );
 
     fireEvent.change(getByPlaceholderText('enter input'), {
@@ -64,7 +68,7 @@ describe('AutoSuggest', () => {
     });
 
     await waitFor(
-      () => {
+      async () => {
         expect(getByTestId('rc-overlay')).toBeInTheDocument();
       },
       {
@@ -74,12 +78,12 @@ describe('AutoSuggest', () => {
 
     userEvent.click(getByTestId('rc-overlay').querySelectorAll('li')[0]);
 
-    await waitFor(() => {
+    await waitFor(async () => {
       expect(getByPlaceholderText('enter input')).toHaveValue('one');
     });
   });
 
-  it('should call onChange with the input', async () => {
+  it.concurrent('should call onChange with the input', async () => {
     const onChange = vi.fn();
     const { getByPlaceholderText } = render(
       <AutoSuggest
@@ -103,7 +107,7 @@ describe('AutoSuggest', () => {
     );
   });
 
-  it('should keyboard navigation work as expected', async () => {
+  it.concurrent('should keyboard navigation work as expected', async () => {
     const handler = vi.fn();
     const { getByPlaceholderText, getByText, getAllByRole, getByRole } = render(
       <AutoSuggest
