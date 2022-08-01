@@ -6,10 +6,10 @@ exports[`Tabs > should render snapshot 1`] = `
   role="tablist"
 >
   <div
-    aria-controls="rc-tab-panel-PiIaedOsa2tfB4981REKq"
+    aria-controls="rc-tab-panel-08Emr5J8Ru0ddkKUoXx-G"
     aria-selected="true"
     class="_tab_head_10lhs_1 _tab_head_selected_10lhs_168 _tab_head_flat_10lhs_165 _tab_head_sm_10lhs_5"
-    id="rc-tab-PiIaedOsa2tfB4981REKq"
+    id="rc-tab-08Emr5J8Ru0ddkKUoXx-G"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="0"
@@ -25,10 +25,10 @@ exports[`Tabs > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-iSPKHRyAY8yPK1n9gHPsB"
+    aria-controls="rc-tab-panel-cNMwo58br8N7oIvIpn_yf"
     aria-selected="false"
     class="_tab_head_10lhs_1 _tab_head_flat_10lhs_165 _tab_head_sm_10lhs_5"
-    id="rc-tab-iSPKHRyAY8yPK1n9gHPsB"
+    id="rc-tab-cNMwo58br8N7oIvIpn_yf"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
@@ -44,10 +44,10 @@ exports[`Tabs > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-controls="rc-tab-panel--XKyTqs5LMq_DVK6cphqo"
+    aria-controls="rc-tab-panel-8DvLty3lFOtTd9bjNhpgI"
     aria-selected="false"
     class="_tab_head_10lhs_1 _tab_head_flat_10lhs_165 _tab_head_sm_10lhs_5"
-    id="rc-tab--XKyTqs5LMq_DVK6cphqo"
+    id="rc-tab-8DvLty3lFOtTd9bjNhpgI"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"

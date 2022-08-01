@@ -24,7 +24,7 @@
     "autoprefixer": "^10.4.8",
     "cssnano": "^5.1.12",
     "esbuild": "^0.14.51",
-    "eslint": "^8.20.0",
+    "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jest": "^26.7.0",
