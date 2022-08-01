@@ -88,11 +88,14 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   /**
    * Setups focus
    */
-  if (focusable) {
-    useFocusNew(wrapperRef, () => {
-      setShowMenu(prev => !prev);
-    });
-  }
+  useFocusNew(
+    focusable ? wrapperRef : null,
+    focusable
+      ? () => {
+          setShowMenu(prev => !prev);
+        }
+      : null
+  );
 
   /**
    * Close menu on esc key

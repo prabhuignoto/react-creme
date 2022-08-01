@@ -143,9 +143,10 @@ const Image: React.FunctionComponent<ImageProps> = ({
     [focusable, expandImageOnClick]
   );
 
-  if (focusable) {
-    useFocusNew(wrapperRef, handleOverlayOpen);
-  }
+  useFocusNew(
+    focusable ? wrapperRef : null,
+    focusable ? handleOverlayOpen : null
+  );
 
   return (
     <div

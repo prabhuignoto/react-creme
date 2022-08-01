@@ -7,9 +7,12 @@ import styles from './focus.module.scss';
  * @param  {(ev?:Event)=>void} cb?
  */
 export default async function useFocusNew(
-  ref: React.RefObject<HTMLElement>,
-  cb?: (ev: MouseEvent | KeyboardEvent) => void
+  ref: React.RefObject<HTMLElement> | null,
+  cb?: ((ev: MouseEvent | KeyboardEvent) => void) | null
 ) {
+  if (!ref) {
+    return;
+  }
   const ring = useRef<HTMLSpanElement>();
 
   const isDarkMode = useMemo(() => isDark(), []);

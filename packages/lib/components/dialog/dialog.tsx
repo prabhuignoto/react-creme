@@ -1,4 +1,3 @@
-import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
@@ -6,6 +5,7 @@ import { useMemo, useRef } from 'react';
 import { CheckIcon, CloseIcon } from '../../icons';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
+import { isDark } from '../common/utils';
 import { withOverlay } from '../common/withOverlay';
 import { DialogProps } from './dialog-model';
 import styles from './dialog.module.scss';
@@ -28,9 +28,17 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
 
   const focusProps = useRef({});
 
-  if (focusable) {
-    const { onInit, handleKeyDown } = useTrapFocus<HTMLDivElement>(200, onOpen);
-    focusProps.current = { onKeyDown: handleKeyDown, ref: onInit, tabIndex: 0 };
+  const trapFocus = useTrapFocus<HTMLDivElement>(
+    focusable ? 200 : null,
+    focusable ? onOpen : null
+  );
+
+  if (trapFocus) {
+    focusProps.current = {
+      onKeyDown: trapFocus.handleKeyDown,
+      ref: trapFocus.onInit,
+      tabIndex: 0,
+    };
   } else {
     focusProps.current = { tabIndex: 0 };
   }

@@ -24,9 +24,7 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     const isDarkMode = useMemo(() => isDark(), []);
 
     // enable focus outlines
-    if (!disabled && focusable) {
-      useFocusNew(ref);
-    }
+    useFocusNew(!disabled && focusable ? ref : null);
 
     const headerLabelClass = useMemo(() => {
       return classNames(styles.tab_header_label, {

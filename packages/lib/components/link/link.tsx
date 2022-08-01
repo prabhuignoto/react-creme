@@ -28,8 +28,9 @@ const Link: React.FunctionComponent<LinkProps> = ({
   const ref = useRef(null);
   let focusProps = null;
 
+  useFocusNew(focusable ? ref : null);
+
   if (focusable) {
-    useFocusNew(ref);
     focusProps = {
       tabIndex: 0,
     };

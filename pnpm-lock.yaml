@@ -244,6 +244,7 @@ importers:
       '@types/testing-library__jest-dom': ^5.14.5
       '@vitejs/plugin-react': 2.0.0
       '@vitejs/plugin-react-refresh': ^1.3.6
+      '@vitest/browser': ^0.20.2
       '@vitest/ui': ^0.20.2
       c8: ^7.12.0
       classnames: ^2.3.1
@@ -289,6 +290,7 @@ importers:
       '@types/testing-library__jest-dom': 5.14.5
       '@vitejs/plugin-react': 2.0.0_vite@3.0.4
       '@vitejs/plugin-react-refresh': 1.3.6
+      '@vitest/browser': 0.20.2
       '@vitest/ui': 0.20.2
       c8: 7.12.0
       jsdom: 20.0.0
@@ -305,7 +307,7 @@ importers:
       typescript: 4.7.4
       typescript-plugin-css-modules: 3.4.0_typescript@4.7.4
       vite: 3.0.4
-      vitest: 0.20.2_qd3stezl7ttar7sqet5ibfstb4
+      vitest: 0.20.2_3iyhibrls3l65mrvcaaosdptl4
 
   packages/storybook:
     specifiers:
@@ -3026,6 +3028,13 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
 
+  /@jspm/core/2.0.0-beta.24:
+    resolution:
+      {
+        integrity: sha512-a4Bo/80Z6CoJNor5ldgs6002utmmbttP4JYd/FJ0Ob2fVdf6O6ha5SORBCqrnDnBvMc1TlrHY7dCfat5+H0a6A==,
+      }
+    dev: true
+
   /@mdx-js/mdx/1.6.22:
     resolution:
       {
@@ -3236,6 +3245,20 @@ packages:
       is-reference: 1.2.1
       magic-string: 0.25.9
       resolve: 1.22.1
+      rollup: 2.77.2
+    dev: true
+
+  /@rollup/plugin-inject/4.0.4_rollup@2.77.2:
+    resolution:
+      {
+        integrity: sha512-4pbcU4J/nS+zuHk+c+OL3WtmEQhqxlZ9uqfjQMQDOHOPld7PsCd8k5LWs8h5wjwJN7MgnAn768F2sDxEP4eNFQ==,
+      }
+    peerDependencies:
+      rollup: ^1.20.0 || ^2.0.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0_rollup@2.77.2
+      estree-walker: 2.0.2
+      magic-string: 0.25.9
       rollup: 2.77.2
     dev: true
 
@@ -5903,6 +5926,19 @@ packages:
       vite: 3.0.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@vitest/browser/0.20.2:
+    resolution:
+      {
+        integrity: sha512-tvmUSDFbZ7i8ORCxs2GexbTBRAK3BylzKqV21Oc5zBN2+Lakd6N23YvPdMtOl4tasVylSZ2tks42k1QbDHhdcw==,
+      }
+    dependencies:
+      local-pkg: 0.4.2
+      mlly: 0.5.5
+      modern-node-polyfills: 0.0.7
+      rollup-plugin-node-polyfills: 0.2.1
+      sirv: 2.0.2
     dev: true
 
   /@vitest/ui/0.20.2:
@@ -13724,6 +13760,13 @@ packages:
     engines: { node: '>=6' }
     hasBin: true
 
+  /jsonc-parser/3.1.0:
+    resolution:
+      {
+        integrity: sha512-DRf0QjnNeCUds3xTjKlQQ3DpJD51GvDjJfnxUVWg6PZTo2otSm+slzNAxU/35hF8/oJIKoG9slq30JYOsF2azg==,
+      }
+    dev: true
+
   /jsonfile/6.1.0:
     resolution:
       {
@@ -14811,6 +14854,30 @@ packages:
     hasBin: true
     dev: true
 
+  /mlly/0.5.5:
+    resolution:
+      {
+        integrity: sha512-2R4JT/SxRDPexomw4rmHYY/gWAGmL9Kkq1OR76Ua6w+P340a1aBDTWzKo2kAlxzrG82OdXs5VB9Lmcmyit0Obg==,
+      }
+    dependencies:
+      pathe: 0.3.3
+      pkg-types: 0.3.3
+    dev: true
+
+  /modern-node-polyfills/0.0.7:
+    resolution:
+      {
+        integrity: sha512-nQ1ckaD2n6rKvt3YW5kSqJTnA8MFQU+TTSn84PVyX7ySyy1ZXOxxbH95QIAT1WgqWosvSHO6tQK4LdM8J0E5AQ==,
+      }
+    dependencies:
+      '@jspm/core': 2.0.0-beta.24
+      '@rollup/plugin-inject': 4.0.4_rollup@2.77.2
+      acorn: 8.8.0
+      esbuild: 0.14.51
+      local-pkg: 0.4.2
+      rollup: 2.77.2
+    dev: true
+
   /move-concurrently/1.0.1:
     resolution:
       {
@@ -15887,6 +15954,13 @@ packages:
       }
     engines: { node: '>=8' }
 
+  /pathe/0.3.3:
+    resolution:
+      {
+        integrity: sha512-x3nrPvG0HDSDzUiJ0WqtzhN4MD+h5B+dFJ3/qyxVuARlr4Y3aJv8gri2cZzp9Z8sGs2a+aG9gNbKngh3gme57A==,
+      }
+    dev: true
+
   /pathval/1.1.1:
     resolution:
       {
@@ -16025,6 +16099,17 @@ packages:
     engines: { node: '>=10' }
     dependencies:
       find-up: 5.0.0
+    dev: true
+
+  /pkg-types/0.3.3:
+    resolution:
+      {
+        integrity: sha512-6AJcCMnjUQPQv/Wk960w0TOmjhdjbeaQJoSKWRQv9N3rgkessCu6J0Ydsog/nw1MbpnxHuPzYbfOn2KmlZO1FA==,
+      }
+    dependencies:
+      jsonc-parser: 3.1.0
+      mlly: 0.5.5
+      pathe: 0.3.3
     dev: true
 
   /playwright-core/1.24.2:
@@ -18771,6 +18856,27 @@ packages:
     engines: { node: '>=10' }
     dependencies:
       del: 5.1.0
+    dev: true
+
+  /rollup-plugin-inject/3.0.2:
+    resolution:
+      {
+        integrity: sha512-ptg9PQwzs3orn4jkgXJ74bfs5vYz1NCZlSQMBUA0wKcGp5i5pA1AO3fOUEte8enhGUC+iapTCzEWw2jEFFUO/w==,
+      }
+    deprecated: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
+    dependencies:
+      estree-walker: 0.6.1
+      magic-string: 0.25.9
+      rollup-pluginutils: 2.8.2
+    dev: true
+
+  /rollup-plugin-node-polyfills/0.2.1:
+    resolution:
+      {
+        integrity: sha512-4kCrKPTJ6sK4/gLL/U5QzVT8cxJcofO0OU74tnB19F40cmuAKSzH5/siithxlofFEjwvw1YAhPmbvGNA6jEroA==,
+      }
+    dependencies:
+      rollup-plugin-inject: 3.0.2
     dev: true
 
   /rollup-plugin-postcss/4.0.2_postcss@8.4.14:
@@ -21681,7 +21787,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitest/0.20.2_qd3stezl7ttar7sqet5ibfstb4:
+  /vitest/0.20.2_3iyhibrls3l65mrvcaaosdptl4:
     resolution:
       {
         integrity: sha512-AFXTHrwG4d2OO6SAL8WP5ZkOwLtgeF4tlrHfXFqrHc+5chNegeR53pge0lv/C4316SqJ2DbYaUBH8vh3CdF+BQ==,
@@ -21712,6 +21818,7 @@ packages:
       '@types/chai': 4.3.1
       '@types/chai-subset': 1.3.3
       '@types/node': 18.6.3
+      '@vitest/browser': 0.20.2
       '@vitest/ui': 0.20.2
       c8: 7.12.0
       chai: 4.3.6

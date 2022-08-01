@@ -29,11 +29,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
     const [checked, setChecked] = useState(isChecked);
     const ref = useRef(null);
     const isDarkMode = useMemo(() => isDark(), []);
-    const checkBoxId = noUniqueId
-      ? id
-        ? useRef(id)
-        : useRef(`label-${nanoid()}`)
-      : useRef(`label-${nanoid()}`);
+    const checkBoxId = noUniqueId ? useRef(id) : useRef(`label-${nanoid()}`);
 
     const toggleCheck = useCallback(
       (ev: React.MouseEvent) => {
@@ -48,9 +44,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
       [checked]
     );
 
-    if (focusable) {
-      useFocusNew(ref);
-    }
+    useFocusNew(focusable ? ref : null);
 
     const iconClass = useMemo(
       () =>
