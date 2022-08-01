@@ -10,9 +10,6 @@ export default async function useFocusNew(
   ref: React.RefObject<HTMLElement> | null,
   cb?: ((ev: MouseEvent | KeyboardEvent) => void) | null
 ) {
-  if (!ref) {
-    return;
-  }
   const ring = useRef<HTMLSpanElement>();
 
   const isDarkMode = useMemo(() => isDark(), []);
@@ -44,7 +41,7 @@ export default async function useFocusNew(
   }, []);
 
   useEffect(() => {
-    const ele = ref.current;
+    const ele = ref?.current;
     if (ele) {
       const focusRing = document.createElement('span');
       const { clientWidth, clientHeight } = ele;
@@ -74,10 +71,10 @@ export default async function useFocusNew(
 
   useEffect(() => {
     return () => {
-      if (ref.current) {
-        ref.current.removeEventListener('focus', focusHandler);
-        ref.current.removeEventListener('focusout', blurHandler);
-        ref.current.removeEventListener('keyup', handleKeyUp);
+      if (ref?.current) {
+        ref?.current.removeEventListener('focus', focusHandler);
+        ref?.current.removeEventListener('focusout', blurHandler);
+        ref?.current.removeEventListener('keyup', handleKeyUp);
       }
     };
   }, []);

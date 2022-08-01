@@ -4,15 +4,11 @@ export default function useTrapFocus<T extends HTMLElement>(
   timeout: number | null = 200,
   onRender?: (() => void) | null
 ) {
-  if (!timeout) {
-    return null;
-  }
-
   const focusTargets = useRef<T[] | null>([]);
   const targetRef = useRef<T | null>(null);
 
   const onInit = useCallback((node: T) => {
-    const ele = node as T;
+    const ele = node;
     if (ele) {
       targetRef.current = ele;
       focusTargets.current = Array.from(
@@ -58,5 +54,5 @@ export default function useTrapFocus<T extends HTMLElement>(
     }
   }, []);
 
-  return { handleKeyDown, onInit, targetRef };
+  return timeout ? { handleKeyDown, onInit, targetRef } : null;
 }
