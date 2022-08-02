@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   BlockQuote,
   Button,
@@ -9,13 +10,13 @@ import { GlobalNotificationState } from '../../../lib/components/global-notifica
 import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = useState(false);
 
   const onClose = () => {
     setShow(false);
   };
 
-  const [state, setState] = React.useState<GlobalNotificationState>('info');
+  const [state, setState] = useState<GlobalNotificationState>('info');
 
   return (
     <div className="rc-demo-widgets">

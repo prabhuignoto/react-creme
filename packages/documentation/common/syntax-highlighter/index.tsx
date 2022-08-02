@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { FunctionComponent, useMemo, useRef, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
 import nightOwl from 'react-syntax-highlighter/dist/esm/styles/hljs/night-owl';
 import tomorrowTheme from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright';
@@ -16,11 +16,8 @@ interface CodeModel {
 const wrapCode = (name, code) =>
   `import { ${name} } from "react-creme";\n\n${code}\n`;
 
-const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({
-  code,
-  name,
-}) => {
-  const [showNotification, setShowNotification] = React.useState(false);
+const SyntaxHighLighter: FunctionComponent<CodeModel> = ({ code, name }) => {
+  const [showNotification, setShowNotification] = useState(false);
   const theme = useRecoilValue(themeState);
   const syntaxTheme = useMemo(
     () => (theme.darkMode ? nightOwl : tomorrowTheme),
@@ -32,7 +29,7 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({
     setShowNotification(true);
   };
 
-  const ref = React.useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   return (
     <div className="rc-demo-code-block" ref={ref}>

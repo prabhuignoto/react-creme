@@ -32,40 +32,38 @@ function Widgets() {
     }
   }, [media]);
 
-  return (
-    width > 0 && (
-      <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
-        <Section title="Default render" size="md">
-          <DemoWidget width={width} name="Accordion">
-            {Default}
-          </DemoWidget>
-        </Section>
-        <Section title="Custom Icon alignment" size="md">
-          <BlockQuote>The icon can be aligned to the right</BlockQuote>
-          <DemoWidget width={width} name="Accordion">
-            {CustomIcon}
-          </DemoWidget>
-        </Section>
-        <Section title="Accordion expanded by default" size="md">
-          <BlockQuote>
-            Accordions can be expanded or collapsed by default. The example
-            shows a accordion expanded by default.
-          </BlockQuote>
-          <DemoWidget width={width} name="Accordion">
-            {Expanded}
-          </DemoWidget>
-        </Section>
-        <Section title="Custom sizes" size="md">
-          <DemoWidget width={width} name="Accordion">
-            {MediumSized}
-          </DemoWidget>
-          <DemoWidget width={width} name="Accordion">
-            {LargeSized}
-          </DemoWidget>
-        </Section>
-      </div>
-    )
-  );
+  return width > 0 ? (
+    <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
+      <Section title="Default render" size="md">
+        <DemoWidget width={width} name="Accordion">
+          {Default}
+        </DemoWidget>
+      </Section>
+      <Section title="Custom Icon alignment" size="md">
+        <BlockQuote>The icon can be aligned to the right</BlockQuote>
+        <DemoWidget width={width} name="Accordion">
+          {CustomIcon}
+        </DemoWidget>
+      </Section>
+      <Section title="Accordion expanded by default" size="md">
+        <BlockQuote>
+          Accordions can be expanded or collapsed by default. The example shows
+          a accordion expanded by default.
+        </BlockQuote>
+        <DemoWidget width={width} name="Accordion">
+          {Expanded}
+        </DemoWidget>
+      </Section>
+      <Section title="Custom sizes" size="md">
+        <DemoWidget width={width} name="Accordion">
+          {MediumSized}
+        </DemoWidget>
+        <DemoWidget width={width} name="Accordion">
+          {LargeSized}
+        </DemoWidget>
+      </Section>
+    </div>
+  ) : null;
 }
 
 export { Widgets };

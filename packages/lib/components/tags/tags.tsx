@@ -1,4 +1,3 @@
-import { RCInputElementProps } from '@components/input/input';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
@@ -8,6 +7,7 @@ import '../../design/list.scss';
 import { AutoSuggest } from '../auto-suggest/auto-suggest';
 import { AutoSuggestOption } from '../auto-suggest/auto-suggest.model';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { RCInputElementProps } from '../input/input';
 import { TagItem } from './tag-item';
 import { TagItemProps, TagsProps } from './tags-model';
 import styles from './tags.module.scss';

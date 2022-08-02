@@ -8,7 +8,6 @@ import { useFirstRender } from '../common/effects/useFirstRender';
 import { isValidString } from '../common/utils';
 import { Option } from '../dropdown/dropdown-model';
 import { Input, RCInputElementProps } from '../input/input';
-// import '../input/input.scss';
 import { SuggestionsMenuOverlay } from './auto-suggest-menu';
 import { AutoSuggestProps } from './auto-suggest.model';
 import styles from './auto-suggest.module.scss';

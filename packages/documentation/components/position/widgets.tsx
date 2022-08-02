@@ -1,5 +1,5 @@
 import { BlockQuote, Section, Tags } from '../../../lib/components';
-import { Position } from '../../../lib/components/common/effects/usePosition';
+import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { DemoWidget } from '../../common/demo-widget';
 import {
   PositionLeft,
