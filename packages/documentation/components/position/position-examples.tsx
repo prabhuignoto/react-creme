@@ -9,8 +9,8 @@ import './position-examples.scss';
 export const PositionComponent: React.FunctionComponent<{
   position: Position;
 }> = ({ position }) => {
-  const container = useRef<HTMLDivElement>();
-  const element = useRef<HTMLElement>();
+  const container = useRef<HTMLDivElement | null>(null);
+  const element = useRef<HTMLElement | null>(null);
   const theme = useRecoilValue(themeState);
 
   const { position: cssPosition, onInit } = usePosition(

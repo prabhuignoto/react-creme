@@ -1,10 +1,10 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 import { routes2 as otherRoutes } from './route-configs-2';
 
 const routes = [
   ...otherRoutes,
   {
-    component: React.lazy(() => import('../home')),
+    component: lazy(() => import('../home')),
     key: 'home',
     path: '/home',
   },
@@ -74,47 +74,47 @@ const routes = [
     path: '/dialog',
   },
   {
-    component: React.lazy(() => import('../components/draggable')),
+    component: lazy(() => import('../components/draggable')),
     key: 'draggable',
     path: '/draggable',
   },
   {
-    component: React.lazy(() => import('../components/drawer')),
+    component: lazy(() => import('../components/drawer')),
     key: 'drawer',
     path: '/drawer',
   },
   {
-    component: React.lazy(() => import('../components/dropdown')),
+    component: lazy(() => import('../components/dropdown')),
     key: 'dropdown',
     path: '/dropdown',
   },
   {
-    component: React.lazy(() => import('../components/page-header')),
+    component: lazy(() => import('../components/page-header')),
     key: 'page-header',
     path: '/page-header',
   },
   {
-    component: React.lazy(() => import('../components/link')),
+    component: lazy(() => import('../components/link')),
     key: 'link',
     path: '/link',
   },
   {
-    component: React.lazy(() => import('../components/input-number')),
+    component: lazy(() => import('../components/input-number')),
     key: 'input-number',
     path: '/input-number',
   },
   {
-    component: React.lazy(() => import('../components/kbd')),
+    component: lazy(() => import('../components/kbd')),
     key: 'kbd',
     path: '/kbd',
   },
   {
-    component: React.lazy(() => import('../components/pin')),
+    component: lazy(() => import('../components/pin')),
     key: 'pin',
     path: '/pin',
   },
   {
-    component: React.lazy(() => import('../components/spinner')),
+    component: lazy(() => import('../components/spinner')),
     key: 'spinner',
     path: '/spinner',
   },

@@ -1,5 +1,5 @@
 import { BlockQuote, Section, Tags } from '../../../lib/components';
-import { Position } from '../../../lib/components/common/effects/usePosition';
+import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { DemoWidget } from '../../common/demo-widget';
 import {
   PositionLeft,
@@ -49,27 +49,27 @@ function Widgets() {
         </div>
       </Section>
       <Section title="Positioned Left center" size="md">
-        <DemoWidget codeString={PositionLeftCode}>
+        <DemoWidget name="usePosition" codeString={PositionLeftCode}>
           <PositionLeft />
         </DemoWidget>
       </Section>
       <Section title="Positioned Right Bottom" size="md">
-        <DemoWidget codeString={PositionRightCode}>
+        <DemoWidget name="usePosition" codeString={PositionRightCode}>
           <PositionRightBottom />
         </DemoWidget>
       </Section>
       <Section title="Positioned Left Top" size="md">
-        <DemoWidget codeString={PositionTopCode}>
+        <DemoWidget name="usePosition" codeString={PositionTopCode}>
           <PositionLeftTop />
         </DemoWidget>
       </Section>
       <Section title="Positioned Right Top" size="md">
-        <DemoWidget codeString={PositionRightTopCode}>
+        <DemoWidget name="usePosition" codeString={PositionRightTopCode}>
           <PositionRightTop />
         </DemoWidget>
       </Section>
       <Section title="Positioned Left Bottom" size="md">
-        <DemoWidget codeString={PositionLeftBottomCode}>
+        <DemoWidget name="usePosition" codeString={PositionLeftBottomCode}>
           <PositionLeftBottom />
         </DemoWidget>
       </Section>

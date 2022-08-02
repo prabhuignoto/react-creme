@@ -30,21 +30,27 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render" size="md">
-        <DemoWidget width={width}>{Default}</DemoWidget>
+        <DemoWidget name="InputNumber" width={width}>
+          {Default}
+        </DemoWidget>
       </Section>
       <Section title="Border" size="md">
         <BlockQuote>
           The outlook of the Input Number component can be changed via the{' '}
           <code>border</code> prop.
         </BlockQuote>
-        <DemoWidget width={width}>{Border}</DemoWidget>
+        <DemoWidget name="InputNumber" width={width}>
+          {Border}
+        </DemoWidget>
       </Section>
       <Section title="RTL" size="md">
         <BlockQuote>
           with the <code>RTL</code> prop, the Input Number component will be
           rendered in RTL mode.
         </BlockQuote>
-        <DemoWidget width={width}>{RTL}</DemoWidget>
+        <DemoWidget name="InputNumber" width={width}>
+          {RTL}
+        </DemoWidget>
       </Section>
       <Section title="Sizes" size="md">
         <BlockQuote>
@@ -52,9 +58,15 @@ function Widgets() {
           <code>md</code> and <code>lg</code>. Use the theme provider to
           customize the sizes.
         </BlockQuote>
-        <DemoWidget width={width}>{Border}</DemoWidget>
-        <DemoWidget width={width}>{MediumSize}</DemoWidget>
-        <DemoWidget width={width}>{LargeSize}</DemoWidget>
+        <DemoWidget name="InputNumber" width={width}>
+          {Border}
+        </DemoWidget>
+        <DemoWidget name="InputNumber" width={width}>
+          {MediumSize}
+        </DemoWidget>
+        <DemoWidget name="InputNumber" width={width}>
+          {LargeSize}
+        </DemoWidget>
       </Section>
     </div>
   );

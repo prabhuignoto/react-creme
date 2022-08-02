@@ -26,22 +26,20 @@ function Widgets() {
       setWidth(400);
     }
   }, [media]);
-  return (
-    width && (
-      <div className="rc-demo-widgets">
-        <Section title="Default render" size="md">
-          <DemoWidget width={width} codeString={DefaultCode}>
-            {Default}
-          </DemoWidget>
-        </Section>
-        <Section title="RTL" size="md">
-          <DemoWidget width={width} codeString={RTLCode}>
-            {RTL}
-          </DemoWidget>
-        </Section>
-      </div>
-    )
-  );
+  return width ? (
+    <div className="rc-demo-widgets">
+      <Section title="Default render" size="md">
+        <DemoWidget name="FormGroup" width={width} codeString={DefaultCode}>
+          {Default}
+        </DemoWidget>
+      </Section>
+      <Section title="RTL" size="md">
+        <DemoWidget name="FormGroup" width={width} codeString={RTLCode}>
+          {RTL}
+        </DemoWidget>
+      </Section>
+    </div>
+  ) : null;
 }
 
 export default Widgets;

@@ -6,14 +6,22 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render" size="md">
-        <DemoWidget width={320}>{Default}</DemoWidget>
+        <DemoWidget name="Password" width={320}>
+          {Default}
+        </DemoWidget>
       </Section>
       <Section title="RTL" size="md">
-        <DemoWidget width={320}>{RTL}</DemoWidget>
+        <DemoWidget name="Password" width={320}>
+          {RTL}
+        </DemoWidget>
       </Section>
       <Section title="Custom Sizes" size="md">
-        <DemoWidget width={320}>{Medium}</DemoWidget>
-        <DemoWidget width={320}>{Large}</DemoWidget>
+        <DemoWidget name="Password" width={320}>
+          {Medium}
+        </DemoWidget>
+        <DemoWidget name="Password" width={320}>
+          {Large}
+        </DemoWidget>
       </Section>
     </div>
   );

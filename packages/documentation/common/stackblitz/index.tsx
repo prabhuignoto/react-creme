@@ -1,5 +1,5 @@
 import sdk from '@stackblitz/sdk';
-import React, { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { Progress } from '../../../lib/components';
 import './stackblitz.scss';
 
@@ -8,7 +8,7 @@ interface StackBlitzProps {
 }
 
 const StackBlitz: React.FunctionComponent<StackBlitzProps> = ({ id }) => {
-  const [loaded, setLoaded] = React.useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const onRef = useCallback(async node => {
     if (node) {

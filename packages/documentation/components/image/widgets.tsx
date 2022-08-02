@@ -6,13 +6,13 @@ function widgets() {
   return (
     <div className={'rc-demo-widgets'}>
       <Section title="Default render">
-        <DemoWidget>{Default}</DemoWidget>
+        <DemoWidget name="Image">{Default}</DemoWidget>
       </Section>
       <Section title="Expandable Image">
         <BlockQuote>
           use <code>expandImageOnClick</code> to make image expandable on click.
         </BlockQuote>
-        <DemoWidget>{Expand}</DemoWidget>
+        <DemoWidget name="Image">{Expand}</DemoWidget>
       </Section>
     </div>
   );

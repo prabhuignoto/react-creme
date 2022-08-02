@@ -10,7 +10,7 @@ import {
   faWindowMaximize,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { FunctionComponent, useEffect } from 'react';
+import { FunctionComponent, memo, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { Sidebar, Theme } from '../../lib/components';
@@ -28,7 +28,7 @@ interface SideBarHomeProps {
 const SideBar: FunctionComponent<{
   onSelect: (group: SidebarGroupModel, item: SidebarItemModel) => void;
   theme: Theme;
-}> = React.memo(
+}> = memo(
   ({ onSelect }) => {
     return (
       <div style={{ height: '100vh', width: '100%' }}>
@@ -67,13 +67,10 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
 
   const theme = useRecoilValue(themeState);
 
-  const handleSidebarSelect = (
-    group: SidebarGroupModel,
-    item: SidebarItemModel
-  ) => {
+  const handleSidebarSelect = (_group, item: SidebarItemModel) => {
     onSelect?.();
     const name = item.name.trim().toLowerCase().replace(/ /g, '-');
-    const value = item.value.trim().toLowerCase().replace(/ /g, '-');
+    const value = item.value?.trim().toLowerCase().replace(/ /g, '-');
 
     if (value === 'home') {
       navigate(`/home#${name}`);

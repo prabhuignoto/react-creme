@@ -83,10 +83,12 @@ const AppSettings: React.FunctionComponent = () => {
       };
     }
 
-    updateAppTheme(selectedTheme);
+    if (selectedTheme) {
+      updateAppTheme(selectedTheme);
+    }
   }, [theme]);
 
-  const handleThemeSelection = useCallback(selected => {
+  const handleThemeSelection = useCallback((selected: ThemeType) => {
     setTheme(selected);
   }, []);
 

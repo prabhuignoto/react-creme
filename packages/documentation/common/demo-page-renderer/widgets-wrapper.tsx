@@ -23,33 +23,33 @@ type Link = {
 const WidgetsWrapper: React.FunctionComponent<{
   children: ReactNode[] | ReactNode;
 }> = ({ children }) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   const [links, setLinks] = useState<Link[]>([]);
-  const resizeObserver = useRef<ResizeObserver>(null);
+  const resizeObserver = useRef<ResizeObserver | null>(null);
 
   // const [scrollPosition, setScrollPosition] = useState(0);
 
   const { darkMode } = useRecoilValue(themeState);
 
-  const currentRect = useRef<DOMRect>(null);
+  const currentRect = useRef<DOMRect | null>(null);
   // const scrollDirection = useRef<'up' | 'down' | null>(null);
 
   const setupLinks = useDebouncedCallback(() => {
     const headings: HTMLElement[] = Array.from(
-      ref.current.querySelectorAll('[role="heading"]')
+      (ref.current as HTMLElement)?.querySelectorAll('[role="heading"]')
     );
 
     setLinks(
       headings.map(head => ({
         id: head.id,
-        label: head.textContent,
+        label: head.textContent || '',
       }))
     );
   }, 100);
 
   const handleClick = useCallback((id: string) => {
-    const element = ref.current.querySelector(`#${id}`);
+    const element = ref.current?.querySelector(`#${id}`);
 
     if (element) {
       element.scrollIntoView({
@@ -66,7 +66,7 @@ const WidgetsWrapper: React.FunctionComponent<{
     }
   }, []);
 
-  const onWidgetsRendered = useCallback(node => {
+  const onWidgetsRendered = useCallback((node: HTMLDivElement) => {
     if (node) {
       ref.current = node;
       resizeObserver.current = new ResizeObserver(() => {
@@ -77,7 +77,7 @@ const WidgetsWrapper: React.FunctionComponent<{
     }
   }, []);
 
-  const onLinksRendered = useCallback(node => {
+  const onLinksRendered = useCallback((node: HTMLDivElement) => {
     if (node) {
       setTimeout(() => {
         currentRect.current = node.getBoundingClientRect();

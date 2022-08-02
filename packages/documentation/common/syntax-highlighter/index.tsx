@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import { FunctionComponent, useMemo, useRef, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
-import atom from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark';
 import nightOwl from 'react-syntax-highlighter/dist/esm/styles/hljs/night-owl';
+import tomorrowTheme from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright';
 import { useRecoilValue } from 'recoil';
 import { Notification } from '../../../lib/components/notification/notification';
 import { CopyIcon } from '../../../lib/icons';
@@ -10,22 +10,31 @@ import './syntax-highlighter.scss';
 
 interface CodeModel {
   code?: string;
+  name?: string;
+  wrap?: boolean;
 }
 
-const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
-  const [showNotification, setShowNotification] = React.useState(false);
+const wrapCode = (name?: string, code?: string) =>
+  `import { ${name} } from "react-creme";\n\n${code}\n`;
+
+const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
+  code,
+  name,
+  wrap = true,
+}) => {
+  const [showNotification, setShowNotification] = useState(false);
   const theme = useRecoilValue(themeState);
   const syntaxTheme = useMemo(
-    () => (theme.darkMode ? atom : nightOwl),
+    () => (theme.darkMode ? nightOwl : tomorrowTheme),
     [theme.darkMode]
   );
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(code);
+    await navigator.clipboard.writeText(code as string);
     setShowNotification(true);
   };
 
-  const ref = React.useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   return (
     <div className="rc-demo-code-block" ref={ref}>
@@ -60,7 +69,7 @@ const SyntaxHighLighter: React.FunctionComponent<CodeModel> = ({ code }) => {
         wrapLongLines
         wrapLines
       >
-        {code}
+        {wrap ? wrapCode(name, code) : code}
       </SyntaxHighlighter>
     </div>
   );

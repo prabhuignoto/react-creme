@@ -112,11 +112,11 @@ const useDrag: useDragFunctionType = (
       let clientY = 0;
 
       if (ev instanceof MouseEvent) {
-        clientX = (ev as MouseEvent).clientX;
-        clientY = (ev as MouseEvent).clientY;
+        clientX = ev.clientX;
+        clientY = ev.clientY;
       } else if (ev instanceof TouchEvent) {
-        clientX = (ev as TouchEvent).touches[0].clientX;
-        clientY = (ev as TouchEvent).touches[0].clientY;
+        clientX = ev.touches[0].clientX;
+        clientY = ev.touches[0].clientY;
       }
 
       // calculate the target's position for both horizontal and vertical mode.
@@ -136,8 +136,6 @@ const useDrag: useDragFunctionType = (
         const top = max(0, clientY - (parentTop || 0));
 
         if (top <= maxYValue.current && top >= minY) {
-          // target.current.style.top = `${top}px`;
-
           const percent = (top - rnd(offsetLeft * 0.5)) / parentHeight;
           setPercent(percent);
         }
@@ -150,11 +148,11 @@ const useDrag: useDragFunctionType = (
     let clientY = 0;
 
     if (ev instanceof MouseEvent) {
-      clientX = (ev as MouseEvent).clientX;
-      clientY = (ev as MouseEvent).clientY;
+      clientX = ev.clientX;
+      clientY = ev.clientY;
     } else if (ev instanceof TouchEvent) {
-      clientX = (ev as TouchEvent).touches[0].clientX;
-      clientY = (ev as TouchEvent).touches[0].clientY;
+      clientX = ev.touches[0].clientX;
+      clientY = ev.touches[0].clientY;
     }
 
     if (container.current) {
@@ -295,16 +293,16 @@ const useDrag: useDragFunctionType = (
         container.current?.addEventListener('touchmove', handleDrag);
         container.current?.addEventListener('touchstart', handleDragStart);
         container.current?.addEventListener('touchend', handleDragEnd);
-        target.current.removeEventListener('keydown', handleKeyDown);
+        target.current?.removeEventListener('keydown', handleKeyDown);
       } else {
         container.current?.addEventListener('mousedown', handleDragStart);
         container.current?.addEventListener('mouseup', handleDragEnd);
         container.current?.addEventListener('mousemove', handleDrag);
-        target.current.addEventListener('keydown', handleKeyDown);
+        target.current?.addEventListener('keydown', handleKeyDown);
       }
 
       if (moveToPositionOnClick) {
-        container.current.addEventListener('click', handleClick);
+        container.current?.addEventListener('click', handleClick);
       }
     };
 

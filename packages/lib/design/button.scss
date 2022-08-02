@@ -41,6 +41,7 @@
 
   &:hover:not(.rc-disabled) {
     background: $bg-hover;
+    box-shadow: none;
     color: $color-hover;
   }
 }
@@ -75,7 +76,7 @@
   }
 
   &:not(.dark) {
-    @extend %shadow-inset-small;
+    @extend %shadow-inset-medium;
     @include get-button-type(
       theme.$white,
       theme.$primary,
@@ -88,7 +89,6 @@
 %button-icon {
   @extend %button;
   border: 0;
-  // color: theme.$primary;
 }
 
 %button-icon:hover {

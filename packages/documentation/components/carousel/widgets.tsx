@@ -29,44 +29,42 @@ function widgets() {
     }
   }, [media]);
 
-  return (
-    width && (
-      <div className="rc-demo-widgets" style={{ minHeight: '1000px' }}>
-        <Section title="Horizontal layout" size="md">
-          <BlockQuote>
-            Renders the items in a horizontal layout with navigation controls
-            displayed at the bottom
-          </BlockQuote>
-          <DemoWidget width={width} height={height}>
-            {Horizontal}
-          </DemoWidget>
-        </Section>
-        <Section title="Vertical layout" size="md">
-          <BlockQuote>
-            Renders the items in a vertical layout with navigation controls
-            displayed to the left
-          </BlockQuote>
-          <DemoWidget width={width} height={height}>
-            {Vertical}
-          </DemoWidget>
-        </Section>
-        <Section title="Swipable" size="md">
-          <BlockQuote>
-            The carousel can be swipable. Swipe left or right to navigate.
-          </BlockQuote>
-          <DemoWidget width={width} height={height}>
-            <Carousel direction="horizontal" enableSwipe>
-              <Image src="https://bit.ly/3tYnFoD" />
-              <Image src="https://bit.ly/3q3YLmk" />
-              <Image src="https://bit.ly/3I8nuvN" />
-              <Image src="https://bit.ly/3JcM9ko" />
-              <span>1233</span>
-            </Carousel>
-          </DemoWidget>
-        </Section>
-      </div>
-    )
-  );
+  return width ? (
+    <div className="rc-demo-widgets" style={{ minHeight: '1000px' }}>
+      <Section title="Horizontal layout" size="md">
+        <BlockQuote>
+          Renders the items in a horizontal layout with navigation controls
+          displayed at the bottom
+        </BlockQuote>
+        <DemoWidget name="Carousel" width={width} height={height}>
+          {Horizontal}
+        </DemoWidget>
+      </Section>
+      <Section title="Vertical layout" size="md">
+        <BlockQuote>
+          Renders the items in a vertical layout with navigation controls
+          displayed to the left
+        </BlockQuote>
+        <DemoWidget name="Carousel" width={width} height={height}>
+          {Vertical}
+        </DemoWidget>
+      </Section>
+      <Section title="Swipable" size="md">
+        <BlockQuote>
+          The carousel can be swipable. Swipe left or right to navigate.
+        </BlockQuote>
+        <DemoWidget name="Carousel" width={width} height={height}>
+          <Carousel direction="horizontal" enableSwipe>
+            <Image src="https://bit.ly/3tYnFoD" />
+            <Image src="https://bit.ly/3q3YLmk" />
+            <Image src="https://bit.ly/3I8nuvN" />
+            <Image src="https://bit.ly/3JcM9ko" />
+            <span>1233</span>
+          </Carousel>
+        </DemoWidget>
+      </Section>
+    </div>
+  ) : null;
 }
 
 export default widgets;

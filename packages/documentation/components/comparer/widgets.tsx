@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Section } from '../../../lib/components';
 import { BlockQuote } from '../../../lib/components/block-quote/block-quote';
@@ -8,8 +8,8 @@ import { Horizontal, Vertical } from './widget-variants';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = React.useState<string | number>('90%');
-  const [height, setHeight] = React.useState<string | number>(450);
+  const [width, setWidth] = useState<string | number>('90%');
+  const [height, setHeight] = useState<string | number>(450);
 
   useLayoutEffect(() => {
     if (!media) {
@@ -39,7 +39,7 @@ function Widgets() {
           Compare two images side by side horizontally. The drag handle guides
           the user to the correct position.
         </BlockQuote>
-        <DemoWidget height={height} width={width}>
+        <DemoWidget name="ImageComparer" height={height} width={width}>
           {Horizontal}
         </DemoWidget>
       </Section>
@@ -48,7 +48,7 @@ function Widgets() {
           Compare two images side by side vertically. The drag handle guides the
           user to the correct position.
         </BlockQuote>
-        <DemoWidget height={height} width={width}>
+        <DemoWidget name="ImageComparer" height={height} width={width}>
           {Vertical}
         </DemoWidget>
       </Section>

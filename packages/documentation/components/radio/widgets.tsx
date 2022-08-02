@@ -3,6 +3,7 @@ import { useRecoilValue } from 'recoil';
 import { Radio, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+
 const style: CSSProperties = {
   minWidth: '50px',
 };
@@ -28,33 +29,31 @@ function widgets() {
     }
   }, [media]);
 
-  return (
-    width > 0 && (
-      <div className="rc-demo-widgets">
-        <Section title="Default render">
-          <DemoWidget>
-            <div style={{ ...style, width: `${width}px` }}>
-              <Radio label="Radio option one" />
-            </div>
-          </DemoWidget>
-        </Section>
-        <Section title="Checkbox disabled">
-          <DemoWidget>
-            <div style={{ ...style, width: `${width}px` }}>
-              <Radio label="Radio option two" size="md" disabled />
-            </div>
-          </DemoWidget>
-        </Section>
-        <Section title="Custom Size">
-          <DemoWidget>
-            <div style={{ ...style, width: `${width}px` }}>
-              <Radio label="Radio option three" size="lg" />
-            </div>
-          </DemoWidget>
-        </Section>
-      </div>
-    )
-  );
+  return width > 0 ? (
+    <div className="rc-demo-widgets">
+      <Section title="Default render">
+        <DemoWidget name="Radio">
+          <div style={{ ...style, width: `${width}px` }}>
+            <Radio label="Radio option one" />
+          </div>
+        </DemoWidget>
+      </Section>
+      <Section title="Checkbox disabled">
+        <DemoWidget name="Radio">
+          <div style={{ ...style, width: `${width}px` }}>
+            <Radio label="Radio option two" size="md" disabled />
+          </div>
+        </DemoWidget>
+      </Section>
+      <Section title="Custom Size">
+        <DemoWidget name="Radio">
+          <div style={{ ...style, width: `${width}px` }}>
+            <Radio label="Radio option three" size="lg" />
+          </div>
+        </DemoWidget>
+      </Section>
+    </div>
+  ) : null;
 }
 
 export default widgets;

@@ -29,8 +29,8 @@ function useDimensions() {
 }
 
 export function BoundToContainer() {
-  const ref = useRef();
-  const boundRef = useRef();
+  const ref = useRef(null);
+  const boundRef = useRef(null);
   useDraggable(ref, { boundTo: boundRef });
 
   const theme = useRecoilValue(themeState);
@@ -60,8 +60,8 @@ export function BoundToContainer() {
 }
 
 export function BoundToContainerHorizontal() {
-  const ref = useRef();
-  const boundRef = useRef();
+  const ref = useRef(null);
+  const boundRef = useRef(null);
   useDraggable(ref, { boundTo: boundRef, dragDirection: 'HORIZONTAL' });
   const theme = useRecoilValue(themeState);
 
@@ -91,9 +91,9 @@ export function BoundToContainerHorizontal() {
 }
 
 export function BoundToContainerVertical() {
-  const ref = useRef();
+  const ref = useRef(null);
   const theme = useRecoilValue(themeState);
-  const boundRef = useRef();
+  const boundRef = useRef(null);
   useDraggable(ref, { boundTo: boundRef, dragDirection: 'VERTICAL' });
   const dimensions = useDimensions();
 
@@ -121,7 +121,7 @@ export function BoundToContainerVertical() {
 }
 
 export function DraggableWidgets() {
-  const boundRef = useRef();
+  const boundRef = useRef(null);
   const theme = useRecoilValue(themeState);
 
   useDraggable(boundRef, {
@@ -166,5 +166,3 @@ export function DraggableWidgets() {
     </div>
   );
 }
-
-// console.log(ReactDOMServer.renderToString(<BoundToContainer />));

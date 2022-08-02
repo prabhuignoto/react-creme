@@ -46,56 +46,54 @@ function Widgets() {
     }
   }, [media]);
 
-  return (
-    width > 0 && (
-      <div className="rc-demo-widgets">
-        <Section title="Left aligned links" size="md">
-          <BlockQuote>
-            The navigation links are left aligned and clicking on them will
-            scroll to the section of the container that is being spyed on.
-          </BlockQuote>
-          <DemoWidget width={width} height={650}>
-            <ScrollSpy
-              links={[
-                'one',
-                'two',
-                'three',
-                'four',
-                'five',
-                'six',
-                'seven',
-                'eight',
-              ]}
-            >
-              {Array.from({ length: 8 }).map((_, i) => (
-                <div key={i}>
-                  <Para />
-                </div>
-              ))}
-            </ScrollSpy>
-          </DemoWidget>
-        </Section>
-        <Section title="Right aligned links" size="md">
-          <BlockQuote>
-            The navigation links are right aligned and clicking on them will
-            scroll to the section of the container that is being spyed on.
-          </BlockQuote>
-          <DemoWidget width={width} height={650}>
-            <ScrollSpy
-              linksPosition="right"
-              links={['one', 'two', 'three', 'four', 'five']}
-            >
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i}>
-                  <Para />
-                </div>
-              ))}
-            </ScrollSpy>
-          </DemoWidget>
-        </Section>
-      </div>
-    )
-  );
+  return width > 0 ? (
+    <div className="rc-demo-widgets">
+      <Section title="Left aligned links" size="md">
+        <BlockQuote>
+          The navigation links are left aligned and clicking on them will scroll
+          to the section of the container that is being spyed on.
+        </BlockQuote>
+        <DemoWidget name="ScrollSpy" width={width} height={650}>
+          <ScrollSpy
+            links={[
+              'one',
+              'two',
+              'three',
+              'four',
+              'five',
+              'six',
+              'seven',
+              'eight',
+            ]}
+          >
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i}>
+                <Para />
+              </div>
+            ))}
+          </ScrollSpy>
+        </DemoWidget>
+      </Section>
+      <Section title="Right aligned links" size="md">
+        <BlockQuote>
+          The navigation links are right aligned and clicking on them will
+          scroll to the section of the container that is being spyed on.
+        </BlockQuote>
+        <DemoWidget name="ScrollSpy" width={width} height={650}>
+          <ScrollSpy
+            linksPosition="right"
+            links={['one', 'two', 'three', 'four', 'five']}
+          >
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i}>
+                <Para />
+              </div>
+            ))}
+          </ScrollSpy>
+        </DemoWidget>
+      </Section>
+    </div>
+  ) : null;
 }
 
 export default Widgets;
