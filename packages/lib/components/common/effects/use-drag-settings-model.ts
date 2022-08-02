@@ -19,6 +19,6 @@ export interface Settings {
 
 export type useDragFunctionType = (
   container: RefObject<HTMLElement>,
-  dragTarget: RefObject<HTMLElement>,
+  target: RefObject<HTMLElement | null>,
   settings: Settings
 ) => [number, Dispatch<SetStateAction<number>>];

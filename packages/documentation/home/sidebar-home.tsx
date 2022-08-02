@@ -67,10 +67,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
 
   const theme = useRecoilValue(themeState);
 
-  const handleSidebarSelect = (
-    group: SidebarGroupModel,
-    item: SidebarItemModel
-  ) => {
+  const handleSidebarSelect = (_group, item: SidebarItemModel) => {
     onSelect?.();
     const name = item.name.trim().toLowerCase().replace(/ /g, '-');
     const value = item.value?.trim().toLowerCase().replace(/ /g, '-');

@@ -6,7 +6,7 @@ import { themeState } from '../../atoms/home';
 import { ReactComponent as MenuSVG } from '../../images/menu.svg';
 import './logo.scss';
 
-const Logo: React.FC<{ isMobile?: boolean; onMenuClick }> = ({
+const Logo: React.FC<{ isMobile?: boolean; onMenuClick: () => void }> = ({
   isMobile,
   onMenuClick,
 }) => {

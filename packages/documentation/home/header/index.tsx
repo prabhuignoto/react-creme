@@ -1,5 +1,6 @@
 //
 import { DocSearch } from '@docsearch/react';
+import { ReactNode } from 'react';
 
 import { Link } from 'react-router-dom';
 import { AutoSuggestOption } from '../../../lib/components/auto-suggest/auto-suggest.model';
@@ -8,7 +9,13 @@ import { AppSettings } from '../app-settings';
 import { Logo } from '../logo';
 import './header.scss';
 
-const AlgoliaHit = ({ hit, children }: { children; hit: { url: string } }) => {
+const AlgoliaHit = ({
+  hit,
+  children,
+}: {
+  children: ReactNode;
+  hit: { url: string };
+}) => {
   const route = `/${hit.url.split('/').pop()}`;
 
   return (

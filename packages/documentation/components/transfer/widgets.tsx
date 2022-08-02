@@ -27,27 +27,25 @@ function widgets() {
     }
   }, [media]);
 
-  return (
-    width > 0 && (
-      <div className="rc-demo-widgets">
-        <Section title="Default render" size="md">
-          <DemoWidget name="Transfer" width={width}>
-            {Default}
-          </DemoWidget>
-        </Section>
-        <Section title="Search" size="md">
-          <DemoWidget name="Transfer" width={width}>
-            {Searchable}
-          </DemoWidget>
-        </Section>
-        <Section title="RTL">
-          <DemoWidget name="Transfer" width={width}>
-            {RTL}
-          </DemoWidget>
-        </Section>
-      </div>
-    )
-  );
+  return width > 0 ? (
+    <div className="rc-demo-widgets">
+      <Section title="Default render" size="md">
+        <DemoWidget name="Transfer" width={width}>
+          {Default}
+        </DemoWidget>
+      </Section>
+      <Section title="Search" size="md">
+        <DemoWidget name="Transfer" width={width}>
+          {Searchable}
+        </DemoWidget>
+      </Section>
+      <Section title="RTL">
+        <DemoWidget name="Transfer" width={width}>
+          {RTL}
+        </DemoWidget>
+      </Section>
+    </div>
+  ) : null;
 }
 
 export default widgets;

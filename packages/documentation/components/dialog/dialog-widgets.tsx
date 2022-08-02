@@ -49,114 +49,111 @@ const Widget = () => {
     });
   };
 
-  return (
-    media &&
-    width > 0 && (
-      <div className="rc-demo-widgets">
-        <Section title="Default render" size="md">
-          <DemoWidget name="Dialog" width={110} component={Default}>
-            <Button onClick={() => setOpen(true)} label="Open dialog"></Button>
-            {open && (
-              <Dialog
-                onClose={() => {
-                  setOpen(false);
-                  handleOnClose();
-                }}
-                onOpen={handleOnOpen}
-                width={width}
-                height={250}
-                size="sm"
-              >
-                <span>Your content here !</span>
-              </Dialog>
-            )}
-          </DemoWidget>
-        </Section>
-        <Section title="Animation - Drop" size="md">
-          <BlockQuote>
-            Dialog can be animated in five ways. <code>pop</code>,{' '}
-            <code>drop</code>, <code>rise</code>, <code>slide-left</code> or{' '}
-            <code>slide-right</code>
-          </BlockQuote>
-          <DemoWidget name="Dialog" width={110} component={Drop}>
-            <Button onClick={() => setOpen5(true)} label="Open dialog"></Button>
-            {open5 && (
-              <Dialog
-                onClose={() => {
-                  setOpen5(false);
-                  handleOnClose();
-                }}
-                onOpen={handleOnOpen}
-                width={width}
-                height={250}
-                animationType="drop"
-                size="md"
-              >
-                <span>Your content here!</span>
-              </Dialog>
-            )}
-          </DemoWidget>
-        </Section>
-        <Section title="Animation - Rise" size="md">
-          <DemoWidget name="Dialog" width={110} component={Rise}>
-            <Button onClick={() => setOpen2(true)} label="Open dialog"></Button>
-            {open2 && (
-              <Dialog
-                onClose={() => {
-                  setOpen2(false);
-                  handleOnClose();
-                }}
-                onOpen={handleOnOpen}
-                width={width}
-                height={250}
-                animationType="rise"
-              >
-                <span>Your content here!</span>
-              </Dialog>
-            )}
-          </DemoWidget>
-        </Section>
-        <Section title="Animation - Slide from Left" size="md">
-          <DemoWidget name="Dialog" width={110} component={SlideLeft}>
-            <Button onClick={() => setOpen3(true)} label="Open dialog"></Button>
-            {open3 && (
-              <Dialog
-                onClose={() => {
-                  setOpen3(false);
-                  handleOnClose();
-                }}
-                onOpen={handleOnOpen}
-                width={width}
-                height={250}
-                animationType="slide-left"
-              >
-                <span>Your content here!</span>
-              </Dialog>
-            )}
-          </DemoWidget>
-        </Section>
-        <Section title="Animation - Slide from Right" size="md">
-          <DemoWidget name="Dialog" width={110} component={SlideRight}>
-            <Button onClick={() => setOpen4(true)} label="Open dialog"></Button>
-            {open4 && (
-              <Dialog
-                onClose={() => {
-                  setOpen4(false);
-                  handleOnClose();
-                }}
-                onOpen={handleOnOpen}
-                width={width}
-                height={250}
-                animationType="slide-right"
-              >
-                <span>Your content here!</span>
-              </Dialog>
-            )}
-          </DemoWidget>
-        </Section>
-      </div>
-    )
-  );
+  return media && width > 0 ? (
+    <div className="rc-demo-widgets">
+      <Section title="Default render" size="md">
+        <DemoWidget name="Dialog" width={110} component={Default}>
+          <Button onClick={() => setOpen(true)} label="Open dialog"></Button>
+          {open && (
+            <Dialog
+              onClose={() => {
+                setOpen(false);
+                handleOnClose();
+              }}
+              onOpen={handleOnOpen}
+              width={width}
+              height={250}
+              size="sm"
+            >
+              <span>Your content here !</span>
+            </Dialog>
+          )}
+        </DemoWidget>
+      </Section>
+      <Section title="Animation - Drop" size="md">
+        <BlockQuote>
+          Dialog can be animated in five ways. <code>pop</code>,{' '}
+          <code>drop</code>, <code>rise</code>, <code>slide-left</code> or{' '}
+          <code>slide-right</code>
+        </BlockQuote>
+        <DemoWidget name="Dialog" width={110} component={Drop}>
+          <Button onClick={() => setOpen5(true)} label="Open dialog"></Button>
+          {open5 && (
+            <Dialog
+              onClose={() => {
+                setOpen5(false);
+                handleOnClose();
+              }}
+              onOpen={handleOnOpen}
+              width={width}
+              height={250}
+              animationType="drop"
+              size="md"
+            >
+              <span>Your content here!</span>
+            </Dialog>
+          )}
+        </DemoWidget>
+      </Section>
+      <Section title="Animation - Rise" size="md">
+        <DemoWidget name="Dialog" width={110} component={Rise}>
+          <Button onClick={() => setOpen2(true)} label="Open dialog"></Button>
+          {open2 && (
+            <Dialog
+              onClose={() => {
+                setOpen2(false);
+                handleOnClose();
+              }}
+              onOpen={handleOnOpen}
+              width={width}
+              height={250}
+              animationType="rise"
+            >
+              <span>Your content here!</span>
+            </Dialog>
+          )}
+        </DemoWidget>
+      </Section>
+      <Section title="Animation - Slide from Left" size="md">
+        <DemoWidget name="Dialog" width={110} component={SlideLeft}>
+          <Button onClick={() => setOpen3(true)} label="Open dialog"></Button>
+          {open3 && (
+            <Dialog
+              onClose={() => {
+                setOpen3(false);
+                handleOnClose();
+              }}
+              onOpen={handleOnOpen}
+              width={width}
+              height={250}
+              animationType="slide-left"
+            >
+              <span>Your content here!</span>
+            </Dialog>
+          )}
+        </DemoWidget>
+      </Section>
+      <Section title="Animation - Slide from Right" size="md">
+        <DemoWidget name="Dialog" width={110} component={SlideRight}>
+          <Button onClick={() => setOpen4(true)} label="Open dialog"></Button>
+          {open4 && (
+            <Dialog
+              onClose={() => {
+                setOpen4(false);
+                handleOnClose();
+              }}
+              onOpen={handleOnOpen}
+              width={width}
+              height={250}
+              animationType="slide-right"
+            >
+              <span>Your content here!</span>
+            </Dialog>
+          )}
+        </DemoWidget>
+      </Section>
+    </div>
+  ) : null;
 };
 
 export default Widget;
