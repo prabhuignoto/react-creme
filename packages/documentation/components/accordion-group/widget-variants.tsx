@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import { AccordionGroup, Image } from '../../../lib/components';
 import { themeState } from '../../atoms/home';

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
@@ -36,26 +36,34 @@ function Widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render" size="md">
-          <DemoWidget width={width}>{Default}</DemoWidget>
+          <DemoWidget name="List" width={width}>
+            {Default}
+          </DemoWidget>
         </Section>
         <Section title="Multi selection mode" size="md">
           <BlockQuote>
             In Multi selection mode you can select multiple items.
           </BlockQuote>
-          <DemoWidget width={width}>{MultiSelection}</DemoWidget>
+          <DemoWidget name="List" width={width}>
+            {MultiSelection}
+          </DemoWidget>
         </Section>
         <Section title="Searchable list" size="md">
           <BlockQuote>
             With searchable list items can be quickly searched.
           </BlockQuote>
-          <DemoWidget width={width}>{Search}</DemoWidget>
+          <DemoWidget name="List" width={width}>
+            {Search}
+          </DemoWidget>
         </Section>
         <Section title="Virtualized" size="md">
           <BlockQuote>
             The virtualized list is a performance improvement over the default
             rendering. It renders only the visible items
           </BlockQuote>
-          <DemoWidget width={width}>{Virtualized}</DemoWidget>
+          <DemoWidget name="List" width={width}>
+            {Virtualized}
+          </DemoWidget>
         </Section>
       </div>
     )

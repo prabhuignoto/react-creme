@@ -1,4 +1,4 @@
-import { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
+import React, { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
 import { Image, Reveal } from '../../../lib/components';
 import useMedia from '../../common/useMedia';
 const blankStyle = {

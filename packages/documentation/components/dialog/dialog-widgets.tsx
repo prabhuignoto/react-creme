@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { BlockQuote, Button, Dialog, Section } from '../../../lib/components';
 import { asideState, responsiveState } from '../../atoms/home';
@@ -54,7 +54,7 @@ const Widget = () => {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render" size="md">
-          <DemoWidget width={110} component={Default}>
+          <DemoWidget name="Dialog" width={110} component={Default}>
             <Button onClick={() => setOpen(true)} label="Open dialog"></Button>
             {open && (
               <Dialog
@@ -78,7 +78,7 @@ const Widget = () => {
             <code>drop</code>, <code>rise</code>, <code>slide-left</code> or{' '}
             <code>slide-right</code>
           </BlockQuote>
-          <DemoWidget width={110} component={Drop}>
+          <DemoWidget name="Dialog" width={110} component={Drop}>
             <Button onClick={() => setOpen5(true)} label="Open dialog"></Button>
             {open5 && (
               <Dialog
@@ -98,7 +98,7 @@ const Widget = () => {
           </DemoWidget>
         </Section>
         <Section title="Animation - Rise" size="md">
-          <DemoWidget width={110} component={Rise}>
+          <DemoWidget name="Dialog" width={110} component={Rise}>
             <Button onClick={() => setOpen2(true)} label="Open dialog"></Button>
             {open2 && (
               <Dialog
@@ -117,7 +117,7 @@ const Widget = () => {
           </DemoWidget>
         </Section>
         <Section title="Animation - Slide from Left" size="md">
-          <DemoWidget width={110} component={SlideLeft}>
+          <DemoWidget name="Dialog" width={110} component={SlideLeft}>
             <Button onClick={() => setOpen3(true)} label="Open dialog"></Button>
             {open3 && (
               <Dialog
@@ -136,7 +136,7 @@ const Widget = () => {
           </DemoWidget>
         </Section>
         <Section title="Animation - Slide from Right" size="md">
-          <DemoWidget width={110} component={SlideRight}>
+          <DemoWidget name="Dialog" width={110} component={SlideRight}>
             <Button onClick={() => setOpen4(true)} label="Open dialog"></Button>
             {open4 && (
               <Dialog

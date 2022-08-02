@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Link, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
@@ -44,33 +44,43 @@ function widgets() {
             pressing enter.Tags can be easily removed by clicking on the close
             icon on the tag.
           </BlockQuote>
-          <DemoWidget width={width}>{Default}</DemoWidget>
+          <DemoWidget name="Tags" width={width}>
+            {Default}
+          </DemoWidget>
         </Section>
         <Section title="Tags - Filled style" size="md">
           <BlockQuote>
             Tags can be disabled by setting the <code>disabled</code>property to
             true.
           </BlockQuote>
-          <DemoWidget width={width}>{Disabled}</DemoWidget>
+          <DemoWidget name="Tags" width={width}>
+            {Disabled}
+          </DemoWidget>
         </Section>
         <Section title="Tags - Readonly" size="md">
           <BlockQuote>
             In readonly mode we can display a list of non editable tags.
           </BlockQuote>
-          <DemoWidget width={width}>{ReadOnly}</DemoWidget>
+          <DemoWidget name="Tags" width={width}>
+            {ReadOnly}
+          </DemoWidget>
         </Section>
         <Section title="Max Tags" size="md">
           <BlockQuote>
             Use the <code>maxTags</code> prop to limit the number of tags.
           </BlockQuote>
-          <DemoWidget width={width}>{MaxTags}</DemoWidget>
+          <DemoWidget name="Tags" width={width}>
+            {MaxTags}
+          </DemoWidget>
         </Section>
         <Section title="Tags - AutoComplete" size="md">
           <BlockQuote>
             Tags can also be configured to use the{' '}
             <Link href="/auto-suggest">AutoSuggest</Link> control.
           </BlockQuote>
-          <DemoWidget width={width}>{AutoComplete}</DemoWidget>
+          <DemoWidget name="Tags" width={width}>
+            {AutoComplete}
+          </DemoWidget>
         </Section>
         <Section title="Tags - Accent" size="md">
           <BlockQuote>
@@ -78,10 +88,14 @@ function widgets() {
             tags. Can be one of the following: <code>flat</code>,{' '}
             <code>rounded</code>.
           </BlockQuote>
-          <DemoWidget width={width}>{Accent}</DemoWidget>
+          <DemoWidget name="Tags" width={width}>
+            {Accent}
+          </DemoWidget>
         </Section>
         <Section title="Tags - Custom Size" size="md">
-          <DemoWidget width={width}>{LargeSize}</DemoWidget>
+          <DemoWidget name="Tags" width={width}>
+            {LargeSize}
+          </DemoWidget>
         </Section>
       </div>
     )

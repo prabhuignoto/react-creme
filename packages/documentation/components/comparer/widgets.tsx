@@ -39,7 +39,7 @@ function Widgets() {
           Compare two images side by side horizontally. The drag handle guides
           the user to the correct position.
         </BlockQuote>
-        <DemoWidget height={height} width={width}>
+        <DemoWidget name="ImageComparer" height={height} width={width}>
           {Horizontal}
         </DemoWidget>
       </Section>
@@ -48,7 +48,7 @@ function Widgets() {
           Compare two images side by side vertically. The drag handle guides the
           user to the correct position.
         </BlockQuote>
-        <DemoWidget height={height} width={width}>
+        <DemoWidget name="ImageComparer" height={height} width={width}>
           {Vertical}
         </DemoWidget>
       </Section>

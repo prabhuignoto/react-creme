@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Carousel, Image, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
@@ -37,7 +37,7 @@ function widgets() {
             Renders the items in a horizontal layout with navigation controls
             displayed at the bottom
           </BlockQuote>
-          <DemoWidget width={width} height={height}>
+          <DemoWidget name="Carousel" width={width} height={height}>
             {Horizontal}
           </DemoWidget>
         </Section>
@@ -46,7 +46,7 @@ function widgets() {
             Renders the items in a vertical layout with navigation controls
             displayed to the left
           </BlockQuote>
-          <DemoWidget width={width} height={height}>
+          <DemoWidget name="Carousel" width={width} height={height}>
             {Vertical}
           </DemoWidget>
         </Section>
@@ -54,7 +54,7 @@ function widgets() {
           <BlockQuote>
             The carousel can be swipable. Swipe left or right to navigate.
           </BlockQuote>
-          <DemoWidget width={width} height={height}>
+          <DemoWidget name="Carousel" width={width} height={height}>
             <Carousel direction="horizontal" enableSwipe>
               <Image src="https://bit.ly/3tYnFoD" />
               <Image src="https://bit.ly/3q3YLmk" />

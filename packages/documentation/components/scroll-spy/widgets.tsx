@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, ScrollSpy, Section } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
@@ -54,7 +54,7 @@ function Widgets() {
             The navigation links are left aligned and clicking on them will
             scroll to the section of the container that is being spyed on.
           </BlockQuote>
-          <DemoWidget width={width} height={650}>
+          <DemoWidget name="ScrollSpy" width={width} height={650}>
             <ScrollSpy
               links={[
                 'one',
@@ -80,7 +80,7 @@ function Widgets() {
             The navigation links are right aligned and clicking on them will
             scroll to the section of the container that is being spyed on.
           </BlockQuote>
-          <DemoWidget width={width} height={650}>
+          <DemoWidget name="ScrollSpy" width={width} height={650}>
             <ScrollSpy
               linksPosition="right"
               links={['one', 'two', 'three', 'four', 'five']}

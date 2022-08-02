@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import {
   BlockQuote,
@@ -47,7 +47,7 @@ const Widgets = () => {
             The notification can be positioned in different places on the
             screen.
           </BlockQuote>
-          <DemoWidget width={300}>
+          <DemoWidget name="Notification" width={300}>
             <Dropdown
               maxMenuHeight={300}
               placeholder="Select notification position"
@@ -106,7 +106,7 @@ const Widgets = () => {
             By default the notification is positioned at the top-left corner of
             the screen relative to the page.
           </BlockQuote>
-          <DemoWidget width={150}>
+          <DemoWidget name="Notification" width={150}>
             <Button label="Open Notification" onClick={() => setShow2(true)} />
           </DemoWidget>
         </Section>
@@ -136,7 +136,7 @@ const Widgets = () => {
             The notification can be closed automatically after a certain time
             using the autoClose property.
           </BlockQuote>
-          <DemoWidget width={150}>
+          <DemoWidget name="Notification" width={150}>
             <Button label="Open Notification" onClick={() => setShow3(true)} />
           </DemoWidget>
         </Section>

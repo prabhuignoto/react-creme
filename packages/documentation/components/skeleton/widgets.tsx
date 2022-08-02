@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
@@ -37,25 +37,33 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default rendering" size="md">
-          <DemoWidget width={width}>{Default}</DemoWidget>
+          <DemoWidget name="Skeleton" width={width}>
+            {Default}
+          </DemoWidget>
         </Section>
         <Section title="With Circle" size="md">
           <BlockQuote>
             Optional Circle figure can be added to the skeleton
           </BlockQuote>
-          <DemoWidget width={width}>{Circle}</DemoWidget>
+          <DemoWidget name="Skeleton" width={width}>
+            {Circle}
+          </DemoWidget>
         </Section>
         <Section title="Custom row count and height" size="md">
           <BlockQuote>
             The height of each row and the height of it can be customized.
           </BlockQuote>
-          <DemoWidget width={width}>{CustomRowAndHeight}</DemoWidget>
+          <DemoWidget name="Skeleton" width={width}>
+            {CustomRowAndHeight}
+          </DemoWidget>
         </Section>
         <Section title="Animated rows" size="md">
           <BlockQuote>
             Use the <code>animate</code> prop to animate the skeleton.
           </BlockQuote>
-          <DemoWidget width={width}>{Animate}</DemoWidget>
+          <DemoWidget name="Skeleton" width={width}>
+            {Animate}
+          </DemoWidget>
         </Section>
         <Section title="Custom block count" size="md">
           <BlockQuote>
@@ -64,10 +72,14 @@ function widgets() {
             displayed. The example shows how to create 2 blocks with 4 rows per
             block.
           </BlockQuote>
-          <DemoWidget width={width}>{CustomBlockCount}</DemoWidget>
+          <DemoWidget name="Skeleton" width={width}>
+            {CustomBlockCount}
+          </DemoWidget>
         </Section>
         <Section title="RTL">
-          <DemoWidget width={width}>{RTL}</DemoWidget>
+          <DemoWidget name="Skeleton" width={width}>
+            {RTL}
+          </DemoWidget>
         </Section>
       </div>
     )

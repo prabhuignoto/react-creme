@@ -1,5 +1,4 @@
-import * as Sentry from '@sentry/browser';
-import { Integrations } from '@sentry/tracing';
+// import * as Sentry from '@sentry/browser';
 import 'normalize.css';
 import React, { StrictMode, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
@@ -12,21 +11,21 @@ import useMedia from './common/useMedia';
 
 const Root = ReactDOM.createRoot(document.getElementById('root'));
 
-if (process.env.NODE_ENV === 'production') {
-  Sentry.init({
-    dsn: 'https://f95fae83de7c42e48df3691166d06de0@o1116896.ingest.sentry.io/6150784',
+// if (process.env.NODE_ENV === 'production') {
+//   Sentry.init({
+//     dsn: 'https://f95fae83de7c42e48df3691166d06de0@o1116896.ingest.sentry.io/6150784',
 
-    integrations: [new Integrations.BrowserTracing()],
-    // Alternatively, use `process.env.npm_package_version` for a dynamic release version
-    // if your build tool supports it.
-    release: 'my-project-name@2.3.12',
+//     integrations: [new Integrations.BrowserTracing()],
+//     // Alternatively, use `process.env.npm_package_version` for a dynamic release version
+//     // if your build tool supports it.
+//     release: 'my-project-name@2.3.12',
 
-    // Set tracesSampleRate to 1.0 to capture 100%
-    // of transactions for performance monitoring.
-    // We recommend adjusting this value in production
-    tracesSampleRate: 1.0,
-  });
-}
+//     // Set tracesSampleRate to 1.0 to capture 100%
+//     // of transactions for performance monitoring.
+//     // We recommend adjusting this value in production
+//     tracesSampleRate: 1.0,
+//   });
+// }
 
 const AppBootStrap = () => {
   const media = useMedia();

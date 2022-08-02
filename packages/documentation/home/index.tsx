@@ -1,8 +1,8 @@
 import { BlockQuote, Button } from '../../lib/components';
 import { Section } from '../../lib/components/section/section';
 import packages from '../../lib/package.json';
-import { Code } from './../common/syntax';
 import { SyntaxHighLighter } from './../common/syntax-highlighter';
+import { Code } from './../common/syntax-highlighter/syntax';
 import BrowserSupport from './browser-support';
 import HeroSection from './hero-section';
 import './home.scss';

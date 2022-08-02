@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import {
   BlockQuote,
@@ -80,7 +80,7 @@ const Widgets = () => {
             The Tooltip is activated by hovering over the target element and is
             auto closed the moment the mouse moves out of the target element.
           </BlockQuote>
-          <DemoWidget width={width}>
+          <DemoWidget name="Tooltip" width={width}>
             <Tooltip
               message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
               position={position}
@@ -107,7 +107,7 @@ const Widgets = () => {
             Sometimes it can be useful to have the Tooltip visible all the time.
             use the <code>isStatic</code> prop to achieve this.
           </BlockQuote>
-          <DemoWidget width={width}>
+          <DemoWidget name="Tooltip" width={width}>
             <Tooltip
               message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
               position={position}
@@ -128,7 +128,7 @@ const Widgets = () => {
             the <code>openOnClick</code> prop. In this mode a close button will
             be additionally rendered to close the tooltip.
           </BlockQuote>
-          <DemoWidget width={width}>
+          <DemoWidget name="Tooltip" width={width}>
             <Tooltip
               message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
               position={position}

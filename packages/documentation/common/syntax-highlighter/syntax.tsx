@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import jsxToString from 'react-element-to-jsx-string';
-import { SyntaxHighLighter } from './syntax-highlighter';
+import { SyntaxHighLighter } from '.';
 
 export const jsxToStringOptions = {
   maxInlineAttributesLineLength: 250,
@@ -14,12 +14,14 @@ export const jsxToStringOptions = {
 const Code: React.FunctionComponent<{
   children?: ReactNode;
   code?: string;
-}> = ({ children, code }) => {
+  name?: string;
+}> = ({ children, code, name }) => {
   return code ? (
-    <SyntaxHighLighter code={code}></SyntaxHighLighter>
+    <SyntaxHighLighter code={code} name={name}></SyntaxHighLighter>
   ) : (
     <SyntaxHighLighter
       code={jsxToString(children, jsxToStringOptions)}
+      name={name}
     ></SyntaxHighLighter>
   );
 };

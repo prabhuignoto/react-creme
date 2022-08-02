@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
@@ -38,11 +38,13 @@ function widgets() {
             The <code>header</code> and <code>footer</code> props allows to
             render custom contents in the card header and footer.
           </BlockQuote>
-          <DemoWidget width={width}>{Default}</DemoWidget>
+          <DemoWidget name="Card" width={width}>
+            {Default}
+          </DemoWidget>
         </Section>
         <Section title="Card without shadow" size="md">
           <BlockQuote>Card with no shadow but with a border.</BlockQuote>
-          <DemoWidget width={width} codeString={CustomImageCode}>
+          <DemoWidget name="Card" width={width} codeString={CustomImageCode}>
             {CustomImage}
           </DemoWidget>
         </Section>

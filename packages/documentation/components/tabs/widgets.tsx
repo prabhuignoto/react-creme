@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section, Tabs } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
@@ -41,21 +41,25 @@ function widgets() {
             In flat mode, the tabs are rendered as a horizontal list of tabs
             with a flat accent.
           </BlockQuote>
-          <DemoWidget width={width}>{Default}</DemoWidget>
+          <DemoWidget name="Tabs" width={width}>
+            {Default}
+          </DemoWidget>
         </Section>
         <Section title="Rounded tabs" size="md">
           <BlockQuote>
             In rounded mode, the tabs are rendered as a horizontal list of tabs
             with rounded borders.
           </BlockQuote>
-          <DemoWidget width={width}>{Rounded}</DemoWidget>
+          <DemoWidget name="Tabs" width={width}>
+            {Rounded}
+          </DemoWidget>
         </Section>
         <Section title="Rounded tabs with scroll" size="md">
           <BlockQuote>
             When the tabs are too long to fit in the available space, they can
             be scrolled with the help of the buttons to the right.
           </BlockQuote>
-          <DemoWidget width={width}>
+          <DemoWidget name="Tabs" width={width}>
             <Tabs
               minHeight={250}
               labels={[
@@ -89,14 +93,16 @@ function widgets() {
             Specific tabs can be disabled by passing an array of tab labels to
             the <em>disabledTabs</em> array
           </BlockQuote>
-          <DemoWidget width={width}>{Disabled}</DemoWidget>
+          <DemoWidget name="Tabs" width={width}>
+            {Disabled}
+          </DemoWidget>
         </Section>
         <Section title="Tabs with Icons" size="md">
           <BlockQuote>
             Specific tabs can be disabled by passing an array of tab labels to
             the <em>disabledTabs</em> array
           </BlockQuote>
-          <DemoWidget width={width} codeString={IconsCode}>
+          <DemoWidget name="Tabs" width={width} codeString={IconsCode}>
             {Icons}
           </DemoWidget>
         </Section>

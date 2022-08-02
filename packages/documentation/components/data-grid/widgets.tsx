@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, DataGrid, Section } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
@@ -51,7 +51,7 @@ function widgets() {
             In Comfortable mode, the display density is set to high and is
             preferable for better readability.
           </BlockQuote>
-          <DemoWidget width={width}>
+          <DemoWidget name="DataGrid" width={width}>
             <DataGrid
               layoutStyle="comfortable"
               border
@@ -67,7 +67,7 @@ function widgets() {
             for smaller viewport and when you want to cramp in more rows in the
             grid.
           </BlockQuote>
-          <DemoWidget width={width}>
+          <DemoWidget name="DataGrid" width={width}>
             <DataGrid
               layoutStyle="compact"
               fixedHeight
@@ -81,7 +81,7 @@ function widgets() {
           <BlockQuote>
             Individual columns can be configured to be sortable.
           </BlockQuote>
-          <DemoWidget width={width}>
+          <DemoWidget name="DataGrid" width={width}>
             <DataGrid
               layoutStyle="comfortable"
               border
@@ -101,7 +101,7 @@ function widgets() {
             Use the <code>zebra</code> property to alternate the background
             color of the rows.
           </BlockQuote>
-          <DemoWidget width={width}>
+          <DemoWidget name="DataGrid" width={width}>
             <DataGrid
               layoutStyle="comfortable"
               zebra

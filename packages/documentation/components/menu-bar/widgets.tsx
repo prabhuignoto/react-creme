@@ -1,3 +1,4 @@
+import React from 'react';
 import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -13,7 +14,7 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default Render" size="md">
-        <DemoWidget width={400} style={{ marginLeft: '2rem' }}>
+        <DemoWidget name="MenuBar" width={400} style={{ marginLeft: '2rem' }}>
           {Default}
         </DemoWidget>
       </Section>
@@ -21,7 +22,7 @@ function Widgets() {
         <BlockQuote>
           Use the <code>RTL</code> prop for right to left alignment
         </BlockQuote>
-        <DemoWidget width={400} style={{ marginLeft: '2rem' }}>
+        <DemoWidget name="MenuBar" width={400} style={{ marginLeft: '2rem' }}>
           {RTL}
         </DemoWidget>
       </Section>
@@ -31,6 +32,7 @@ function Widgets() {
           top level menu bar item
         </BlockQuote>
         <DemoWidget
+          name="MenuBar"
           width={400}
           style={{ marginLeft: '2rem' }}
           codeString={IconsCode}
@@ -42,10 +44,10 @@ function Widgets() {
         <BlockQuote>
           With the <code>size</code> prop customize the size of the menu bar.
         </BlockQuote>
-        <DemoWidget width={400} style={{ marginLeft: '2rem' }}>
+        <DemoWidget name="MenuBar" width={400} style={{ marginLeft: '2rem' }}>
           {Medium}
         </DemoWidget>
-        <DemoWidget width={400} style={{ marginLeft: '2rem' }}>
+        <DemoWidget name="MenuBar" width={400} style={{ marginLeft: '2rem' }}>
           {Large}
         </DemoWidget>
       </Section>

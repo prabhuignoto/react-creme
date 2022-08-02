@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
@@ -31,13 +31,19 @@ function widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <Section title="Default render" size="md">
-          <DemoWidget width={width}>{Default}</DemoWidget>
+          <DemoWidget name="Transfer" width={width}>
+            {Default}
+          </DemoWidget>
         </Section>
         <Section title="Search" size="md">
-          <DemoWidget width={width}>{Searchable}</DemoWidget>
+          <DemoWidget name="Transfer" width={width}>
+            {Searchable}
+          </DemoWidget>
         </Section>
         <Section title="RTL">
-          <DemoWidget width={width}>{RTL}</DemoWidget>
+          <DemoWidget name="Transfer" width={width}>
+            {RTL}
+          </DemoWidget>
         </Section>
       </div>
     )

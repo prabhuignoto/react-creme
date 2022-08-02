@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useState } from 'react';
+import React, { useLayoutEffect, useMemo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BlockQuote, Section, Splitter } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
@@ -45,7 +45,7 @@ function widgets() {
             Splits the container horizontally with a drag handle for resizing
             and there by controlling the width of the left and right panels.
           </BlockQuote>
-          <DemoWidget width={width}>
+          <DemoWidget name="Splitter" width={width}>
             <Splitter
               dir="horizontal"
               minSplitWidth={Math.round(width * 0.3)}
@@ -79,7 +79,7 @@ function widgets() {
             Splits the container vertically with a drag handle for resizing and
             there by controlling the height of the top and bottom panels.
           </BlockQuote>
-          <DemoWidget width={width}>
+          <DemoWidget name="Splitter" width={width}>
             <Splitter
               dir="vertical"
               minSplitHeight={400 * 0.25}

@@ -1,3 +1,4 @@
+import React from 'react';
 import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -21,7 +22,7 @@ function Widgets() {
           The draggable widget can be bound to a container. This means that the
           widget can only be dragged within the container.
         </BlockQuote>
-        <DemoWidget codeString={ContainerBound}>
+        <DemoWidget name="Draggable" codeString={ContainerBound}>
           <BoundToContainer />
         </DemoWidget>
       </Section>
@@ -30,12 +31,12 @@ function Widgets() {
           The draggable widget can be restricted to only drag in one direction.
           In this example, the widget can only be dragged horizontally.
         </BlockQuote>
-        <DemoWidget codeString={ContainerBoundHorizontal}>
+        <DemoWidget name="Draggable" codeString={ContainerBoundHorizontal}>
           <BoundToContainerHorizontal />
         </DemoWidget>
       </Section>
       <Section title="Drag in one Direction - Vertical" size="md">
-        <DemoWidget codeString={ContainerBoundVertical}>
+        <DemoWidget name="Draggable" codeString={ContainerBoundVertical}>
           <BoundToContainerVertical />
         </DemoWidget>
       </Section>
@@ -46,7 +47,7 @@ function Widgets() {
           be able to drag them all. The example shows multiple drag targets
           bound to a container.
         </BlockQuote>
-        <DemoWidget codeString={Multiple}>
+        <DemoWidget name="Draggable" codeString={Multiple}>
           <DraggableWidgets />
         </DemoWidget>
       </Section>

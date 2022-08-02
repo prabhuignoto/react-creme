@@ -56,6 +56,7 @@ function widgets() {
           />
         </div>
         <DemoWidget
+          name="GlobalNotification"
           component={
             <GlobalNotification
               message="This is a test message"
