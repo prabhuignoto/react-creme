@@ -41,8 +41,8 @@
 
   &:hover:not(.rc-disabled) {
     background: $bg-hover;
-    color: $color-hover;
     box-shadow: none;
+    color: $color-hover;
   }
 }
 
