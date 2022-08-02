@@ -11,12 +11,17 @@ import './syntax-highlighter.scss';
 interface CodeModel {
   code?: string;
   name?: string;
+  wrap?: boolean;
 }
 
 const wrapCode = (name?: string, code?: string) =>
   `import { ${name} } from "react-creme";\n\n${code}\n`;
 
-const SyntaxHighLighter: FunctionComponent<CodeModel> = ({ code, name }) => {
+const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
+  code,
+  name,
+  wrap = true,
+}) => {
   const [showNotification, setShowNotification] = useState(false);
   const theme = useRecoilValue(themeState);
   const syntaxTheme = useMemo(
@@ -64,7 +69,7 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({ code, name }) => {
         wrapLongLines
         wrapLines
       >
-        {wrapCode(name, code)}
+        {wrap ? wrapCode(name, code) : code}
       </SyntaxHighlighter>
     </div>
   );

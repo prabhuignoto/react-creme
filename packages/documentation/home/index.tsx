@@ -22,8 +22,8 @@ const Home: React.FunctionComponent = () => {
           <BlockQuote>
             Get started by installing the react-creme package via npm or yarn.
           </BlockQuote>
-          <Code>{`npm install --save react-creme`}</Code>
-          <Code>{`yarn add react-creme`}</Code>
+          <Code wrap={false}>{`npm install --save react-creme`}</Code>
+          <Code wrap={false}>{`yarn add react-creme`}</Code>
         </Section>
 
         {/* DEPENDENCIES */}
@@ -34,7 +34,7 @@ const Home: React.FunctionComponent = () => {
             on some utility libraries for id generation, debouncing and deep
             compare.
           </BlockQuote>
-          <Code>
+          <Code wrap={false}>
             {Object.keys(packages.dependencies)
               .map(key => `${key}@${packages.dependencies[key]}`)
               .join('\n')}
@@ -49,7 +49,10 @@ const Home: React.FunctionComponent = () => {
             The example below shows how to use the react-creme package to create
             a button element.
           </BlockQuote>
-          <SyntaxHighLighter code={gettingStarted}></SyntaxHighLighter>
+          <SyntaxHighLighter
+            code={gettingStarted}
+            wrap={false}
+          ></SyntaxHighLighter>
 
           <div style={{ width: '100px' }}>
             <Button
@@ -64,7 +67,10 @@ const Home: React.FunctionComponent = () => {
             react-creme comes with built in support for Themes. Customize the
             Colors, Font and Icon sizes with ease.
           </BlockQuote>
-          <SyntaxHighLighter code={gettingStartedTheme}></SyntaxHighLighter>
+          <SyntaxHighLighter
+            code={gettingStartedTheme}
+            wrap={false}
+          ></SyntaxHighLighter>
         </Section>
       </div>
     </div>

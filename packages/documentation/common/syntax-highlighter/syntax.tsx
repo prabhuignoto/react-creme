@@ -15,13 +15,15 @@ const Code: React.FunctionComponent<{
   children?: ReactNode;
   code?: string;
   name?: string;
-}> = ({ children, code, name }) => {
+  wrap?: boolean;
+}> = ({ children, code, name, wrap }) => {
   return code ? (
-    <SyntaxHighLighter code={code} name={name}></SyntaxHighLighter>
+    <SyntaxHighLighter code={code} name={name} wrap={wrap}></SyntaxHighLighter>
   ) : (
     <SyntaxHighLighter
       code={jsxToString(children, jsxToStringOptions)}
       name={name}
+      wrap={wrap}
     ></SyntaxHighLighter>
   );
 };
