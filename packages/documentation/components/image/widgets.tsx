@@ -1,4 +1,3 @@
-import React from 'react';
 import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import { Default, Expand } from './widget-variants';

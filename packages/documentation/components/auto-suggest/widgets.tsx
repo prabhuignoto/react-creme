@@ -1,4 +1,3 @@
-import React from 'react';
 import { Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import { Accent, Default, Large, Medium, RTL } from './widget-variants';

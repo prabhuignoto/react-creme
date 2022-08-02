@@ -1,6 +1,6 @@
 // import * as Sentry from '@sentry/browser';
 import 'normalize.css';
-import React, { StrictMode, useEffect } from 'react';
+import { StrictMode, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';

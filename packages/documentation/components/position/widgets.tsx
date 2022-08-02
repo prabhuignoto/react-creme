@@ -1,4 +1,3 @@
-import React from 'react';
 import { BlockQuote, Section, Tags } from '../../../lib/components';
 import { Position } from '../../../lib/components/common/effects/usePosition';
 import { DemoWidget } from '../../common/demo-widget';

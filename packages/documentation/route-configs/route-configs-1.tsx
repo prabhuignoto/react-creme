@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 import { routes2 as otherRoutes } from './route-configs-2';
 
 const routes = [

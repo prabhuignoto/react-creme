@@ -18,7 +18,8 @@
     "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "types": ["react", "react-dom", "vite-plugin-svgr/client"]
+    "types": ["react", "react-dom", "vite-plugin-svgr/client", "node"]
   },
-  "include": ["svg.d.ts", "Globals.d.ts"]
+  "include": ["svg.d.ts", "Globals.d.ts", "components/**/*.tsx"],
+  "exclude": ["node_modules", "expo_dist"]
 }

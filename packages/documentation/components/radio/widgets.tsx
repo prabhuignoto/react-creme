@@ -1,4 +1,4 @@
-import React, { CSSProperties, useLayoutEffect, useState } from 'react';
+import { CSSProperties, useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Radio, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';

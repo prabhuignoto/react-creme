@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Section } from '../../../lib/components';
 import { BlockQuote } from '../../../lib/components/block-quote/block-quote';

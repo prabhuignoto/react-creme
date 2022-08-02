@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { BlockQuote, Button, Dialog, Section } from '../../../lib/components';
 import { asideState, responsiveState } from '../../atoms/home';

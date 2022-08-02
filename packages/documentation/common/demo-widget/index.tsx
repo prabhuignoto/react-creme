@@ -1,4 +1,4 @@
-import React, { CSSProperties, memo } from 'react';
+import { CSSProperties, memo } from 'react';
 import { Accordion } from '../../../lib/components/accordion/accordion';
 import { CodeIcon } from '../../../lib/icons';
 import { Code } from '../syntax-highlighter/syntax';

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import deepEqual from 'fast-deep-equal';
-import React, { useCallback, useEffect, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
 import { Drawer } from '../lib/components';

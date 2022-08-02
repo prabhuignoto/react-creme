@@ -1,6 +1,6 @@
-// import React from 'react';
+//
 import { DocSearch } from '@docsearch/react';
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { AutoSuggestOption } from '../../../lib/components/auto-suggest/auto-suggest.model';
 import { Badge } from '../../common/github-link';

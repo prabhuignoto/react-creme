@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useMemo, useRef } from 'react';
+import { useImperativeHandle, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import AppRoutes from './app-routes';
 import { MediaState } from './atoms/home';

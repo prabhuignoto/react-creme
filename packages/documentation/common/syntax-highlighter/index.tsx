@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
 import nightOwl from 'react-syntax-highlighter/dist/esm/styles/hljs/night-owl';
 import tomorrowTheme from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright';
