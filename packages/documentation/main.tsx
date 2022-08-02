@@ -1,6 +1,6 @@
 // import * as Sentry from '@sentry/browser';
 import 'normalize.css';
-import { StrictMode, useEffect } from 'react';
+import React, { StrictMode, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -30,7 +30,7 @@ const Root = ReactDOM.createRoot(document.getElementById('root'));
 const AppBootStrap = () => {
   const media = useMedia();
   const setResponsiveState = useSetRecoilState(responsiveState);
-  const [canLoad, setCanLoad] = React.useState(false);
+  const [canLoad, setCanLoad] = useState(false);
   const theme = useRecoilValue(themeState);
 
   useEffect(() => {

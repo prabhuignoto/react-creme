@@ -13,7 +13,7 @@ interface CodeModel {
   name?: string;
 }
 
-const wrapCode = (name, code) =>
+const wrapCode = (name?: string, code?: string) =>
   `import { ${name} } from "react-creme";\n\n${code}\n`;
 
 const SyntaxHighLighter: FunctionComponent<CodeModel> = ({ code, name }) => {

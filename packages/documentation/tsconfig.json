@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ES2020",
     "moduleResolution": "Node",
@@ -20,6 +20,14 @@
     "noUnusedParameters": true,
     "types": ["react", "react-dom", "vite-plugin-svgr/client", "node"]
   },
-  "include": ["svg.d.ts", "Globals.d.ts", "components/**/*.tsx"],
+  "include": [
+    "svg.d.ts",
+    "Globals.d.ts",
+    "components/**/*.tsx",
+    "home/**/*.tsx",
+    "home/*.tsx",
+    "common/**/*.tsx",
+    "atoms/**/*.tsx"
+  ],
   "exclude": ["node_modules", "expo_dist"]
 }

@@ -1,6 +1,15 @@
 import classNames from 'classnames';
 import deepEqual from 'fast-deep-equal';
-import { useCallback, useEffect, useMemo, useRef } from 'react';
+import React from 'react';
+import {
+  FunctionComponent,
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
 import { Drawer } from '../lib/components';
@@ -12,17 +21,17 @@ import './App.scss';
 import { asideState, MediaState, themeState } from './atoms/home';
 import SidebarHome from './home/sidebar-home';
 
-const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
+const App: FunctionComponent<{ media: MediaState }> = memo(
   ({ media }: { media: MediaState }) => {
     const sectionRef = useRef(null);
-    const asideRef = useRef<HTMLElement>(null);
-    const [left, setLeft] = React.useState(-1);
-    const resizeObserver = useRef<ResizeObserver>();
+    const asideRef = useRef<HTMLElement | null>(null);
+    const [left, setLeft] = useState(-1);
+    const resizeObserver = useRef<ResizeObserver | null>(null);
 
     const [asideValue, setAsideValue] = useRecoilState(asideState);
 
-    const appRef = useRef<HTMLDivElement>(null);
-    const [openAside, setOpenAside] = React.useState(false);
+    const appRef = useRef<HTMLDivElement | null>(null);
+    const [openAside, setOpenAside] = useState(false);
 
     const theme = useRecoilValue(themeState);
 
@@ -56,7 +65,7 @@ const App: React.FunctionComponent<{ media: MediaState }> = React.memo(
       resizeObserver.current = new ResizeObserver(() => positionAside());
       resizeObserver.current.observe(document.body);
       return () => {
-        resizeObserver.current.disconnect();
+        resizeObserver.current?.disconnect();
       };
     }, []);
 
