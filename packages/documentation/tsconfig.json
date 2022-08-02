@@ -27,7 +27,9 @@
     "home/**/*.tsx",
     "home/*.tsx",
     "common/**/*.tsx",
-    "atoms/**/*.tsx"
+    "atoms/**/*.tsx",
+    "App.tsx",
+    "main.tsx"
   ],
   "exclude": ["node_modules", "expo_dist"]
 }

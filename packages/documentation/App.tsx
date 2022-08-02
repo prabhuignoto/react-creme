@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import deepEqual from 'fast-deep-equal';
-import React from 'react';
 import {
   FunctionComponent,
   memo,
