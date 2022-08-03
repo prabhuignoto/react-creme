@@ -45,8 +45,6 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
       return properties && properties.length;
     }, [properties.length]);
 
-    console.log(properties);
-
     const Demo = demoWidget;
 
     return (
@@ -54,7 +52,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
         labels={tabTitles}
         icons={canShowProperties ? Icons : IconsWithoutProperties}
         focusable={false}
-        size="sm"
+        size="md"
       >
         <div className={styles.widgets_container}>
           <Suspense fallback={<span>Loading Widgets...</span>}>

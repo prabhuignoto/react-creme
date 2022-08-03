@@ -144,6 +144,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
           listMaxHeight={listMaxHeight}
           sectionsCollapsible={sectionsCollapsible}
           icons={icons}
+          enableSearch={enableSearch}
         />
       </div>
     </div>

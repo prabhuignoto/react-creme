@@ -9,7 +9,6 @@ import { responsiveState, themeState, ThemeType } from '../../atoms/home';
 import {
   Blueberry,
   Dark,
-  Default,
   Glacier,
   Magnolia,
   NightGray,
@@ -66,7 +65,7 @@ const AppSettings: React.FunctionComponent = () => {
     let selectedTheme;
 
     if (themeToUpdate?.value === 'default') {
-      selectedTheme = { colors: { ...Default }, selectedTheme: 'default' };
+      selectedTheme = { colors: { ...Blueberry }, selectedTheme: 'default' };
     } else if (themeToUpdate?.value === 'glacier') {
       selectedTheme = { colors: { ...Glacier }, selectedTheme: 'glacier' };
     } else if (themeToUpdate?.value === 'blueberry') {
@@ -95,7 +94,7 @@ const AppSettings: React.FunctionComponent = () => {
   const handleDarkModeSwitch = useCallback(() => {
     setDarkMode(!darkMode);
     updateAppTheme(() => ({
-      colors: darkMode ? { ...Default } : { ...Dark },
+      colors: darkMode ? { ...Blueberry } : { ...Dark },
       darkMode: !darkMode,
       selectedTheme: 'default',
     }));

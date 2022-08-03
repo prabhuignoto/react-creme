@@ -1,22 +1,30 @@
 @use '../../design/theme.scss';
 @use '../../design/core.scss';
 
-$header-height: 35px;
 $sizes: (sm, md, lg);
 
 .header {
   @extend %left;
   align-items: center;
   color: theme.$primary;
-  height: $header-height;
-  justify-items: center;
+  height: var(--rc-accordion-header-height, 35px);
+  justify-items: flex-start;
   outline: 0;
   position: relative;
   text-transform: capitalize;
+  padding-left: 0.5rem;
 
   &:not(.header-icon) {
     display: grid;
     grid-template-columns: 2rem calc(100% - 2.5rem) 0.5rem;
+  }
+
+  &.colorize {
+    background: theme.$secondary;
+  }
+
+  &.full_width {
+    width: calc(100% - 0.5rem);
   }
 }
 
@@ -61,14 +69,27 @@ $sizes: (sm, md, lg);
     font-weight: 400;
   }
 
-  &.title-bold {
+  &.title_bold {
     font-weight: 500;
+    font-size: 1.1rem;
+  }
+
+  &.colorize {
+    color: theme.$primary;
   }
 }
 
 .icon {
   @extend %icon;
-  color: var(--icon-color, theme.$primary);
+
+  &:not(.colorize) {
+    color: var(--icon-color, theme.$primary);
+  }
+
+  &.colorize {
+    color: theme.$primary;
+  }
+
   cursor: pointer;
   transition: transform 0.2s ease-in;
 

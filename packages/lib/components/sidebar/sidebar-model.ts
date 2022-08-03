@@ -39,6 +39,7 @@ export type SidebarGroupsModel = Pick<
   | 'groupIconColor'
   | 'groupTitleColor'
   | 'icons'
+  | 'enableSearch'
 > & {
   groups: SidebarGroupModel[];
   onSelection: (option: ListOption[], id?: string) => void;
