@@ -22,5 +22,3 @@ bundle-analysis**
 
 storybook-static
 build-storybook.log
-**/coverage/
-packages/lib/coverage/**
