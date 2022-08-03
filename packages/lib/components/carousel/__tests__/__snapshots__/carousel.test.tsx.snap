@@ -56,13 +56,13 @@ exports[`Carousel > should render carousel snapshot 1`] = `
       >
         <div
           aria-label="Previous"
-          class="_sm_1mxw0_1 _icon_1mxw0_43 _btn_1mxw0_198"
+          class="_sm_war6f_1 _icon_war6f_43 _btn_war6f_202"
           role="button"
           style="outline: none; position: relative;"
           tabindex="0"
         >
           <span
-            class="_icon_container_1mxw0_43"
+            class="_icon_container_war6f_43"
             role="img"
           >
             <svg
@@ -103,13 +103,13 @@ exports[`Carousel > should render carousel snapshot 1`] = `
       >
         <div
           aria-label="Next"
-          class="_sm_1mxw0_1 _icon_1mxw0_43 _btn_1mxw0_198"
+          class="_sm_war6f_1 _icon_war6f_43 _btn_war6f_202"
           role="button"
           style="outline: none; position: relative;"
           tabindex="0"
         >
           <span
-            class="_icon_container_1mxw0_43"
+            class="_icon_container_war6f_43"
             role="img"
           >
             <svg

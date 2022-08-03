@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { useMemo, useRef } from 'react';
+import React, { CSSProperties, useMemo, useRef } from 'react';
 import { ChevronRightIcon, MinusIcon, PlusIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';
@@ -22,6 +22,9 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   selected,
   customContent,
   size = 'sm',
+  colorizeHeader = false,
+  fullWidth = false,
+  headerHeight,
 }) => {
   const isDarkMode = useMemo(() => isDark(), []);
 
@@ -34,6 +37,8 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
         [styles['focusable']]: focusable,
         [styles['selected']]: selected,
         [styles.dark]: isDarkMode,
+        [styles.colorize]: colorizeHeader,
+        [styles.full_width]: fullWidth,
       }),
     [alignIconRight, focusable, selected]
   );
@@ -56,10 +61,14 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   }, []);
 
   const titleClass = useMemo(() => {
-    return classnames(styles.title, {
-      [styles.title_bold]: isTitleBold,
-      [styles[`title_${size}`]]: true,
-    });
+    return classnames(
+      styles.title,
+      {
+        [styles[`title_${size}`]]: true,
+      },
+      isTitleBold ? styles.title_bold : '',
+      colorizeHeader ? styles.colorize : ''
+    );
   }, [isTitleBold]);
 
   const iconClass = useMemo(() => {
@@ -71,6 +80,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
       [styles['disable-icon']]: disableIcon,
       [styles[`icon-${size}`]]: true,
       [styles['icon-open']]: open,
+      [styles.colorize]: colorizeHeader,
     });
   }, [open, customIcon, disableIcon]);
 
@@ -94,6 +104,9 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
       role="button"
       {...focusProps}
       {...collapsibleProps}
+      style={
+        { '--rc-accordion-header-height': `${headerHeight}px` } as CSSProperties
+      }
     >
       <span className={iconClass} role="img">
         {icon}

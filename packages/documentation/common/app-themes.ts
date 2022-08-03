@@ -59,9 +59,9 @@ export const NightGray: Colors = {
 };
 
 export const Dark: Colors = {
-  primary: '#5893D4',
-  secondary: '#1597E5',
-  tertiary: '#1597E5',
+  primary: '#1597e5',
+  secondary: '#323232',
+  tertiary: '#5893D4',
   text: '#fff',
   textSelection: '#fff',
 };

@@ -6,6 +6,7 @@ export type AccordionProps = {
   autoSetBodyHeight?: boolean;
   border?: boolean;
   children?: ReactNode;
+  colorizeHeader?: boolean;
   customContent?: React.ReactNode;
   customIcon?: ReactNode;
   disableARIA?: boolean;
@@ -13,6 +14,8 @@ export type AccordionProps = {
   disableIcon?: boolean;
   expanded?: boolean | null;
   focusable?: boolean;
+  fullWidth?: boolean;
+  headerHeight?: number;
   iconColor?: string;
   iconType?: 'chevron' | 'plus';
   id?: string;
@@ -39,6 +42,9 @@ export type AccordionGroupProps = Pick<
   | 'focusable'
   | 'disableARIA'
   | 'size'
+  | 'fullWidth'
+  | 'colorizeHeader'
+  | 'headerHeight'
 > & {
   autoClose?: boolean;
   border?: boolean;
@@ -70,9 +76,12 @@ export type AccordionHeaderProps = Pick<
   | 'selected'
   | 'customContent'
   | 'size'
-> & {
-  accordionBodyId?: string;
-  accordionId?: string;
-  onToggle?: () => void;
-  open?: boolean | null;
-};
+  | 'fullWidth'
+  | 'headerHeight'
+> &
+  Pick<AccordionGroupProps, 'colorizeHeader'> & {
+    accordionBodyId?: string;
+    accordionId?: string;
+    onToggle?: () => void;
+    open?: boolean | null;
+  };

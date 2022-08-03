@@ -25,6 +25,9 @@ const AccordionGroup = ({
   disableIcon = false,
   disableARIA,
   size = 'sm',
+  fullWidth = false,
+  colorizeHeader = false,
+  headerHeight = 35,
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
@@ -98,6 +101,9 @@ const AccordionGroup = ({
             customIcon={icons && icons[index]}
             disableARIA={disableARIA}
             size={size}
+            fullWidth={fullWidth}
+            colorizeHeader={colorizeHeader}
+            headerHeight={headerHeight}
           >
             {children && children[index]}
           </Accordion>

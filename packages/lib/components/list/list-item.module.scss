@@ -35,11 +35,11 @@ $sizes: (sm, md, lg);
 
 .list_option:hover:not(.disabled) {
   &.dark {
-    background: theme.$charcoal-gray;
+    background: rgba(theme.$secondary-rgb, 0.5);
   }
 
   &:not(.dark) {
-    background: rgba(theme.$secondary-rgb, 0.25);
+    background: rgba(theme.$secondary-rgb, 0.5);
   }
 }
 
@@ -134,7 +134,7 @@ $sizes: (sm, md, lg);
   width: 100%;
 
   &.value-selected {
-    // color: theme.$text-color-on-selection;
+    color: theme.$text-color-on-selection;
   }
 }
 

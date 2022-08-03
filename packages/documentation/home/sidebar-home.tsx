@@ -33,7 +33,7 @@ const SideBar: FunctionComponent<{
     return (
       <div style={{ height: '100vh', width: '100%' }}>
         <Sidebar
-          // enableSearch
+          enableSearch={false}
           onSelect={onSelect}
           searchPlaceholder="Search Components ..."
           sectionsCollapsible={false}
