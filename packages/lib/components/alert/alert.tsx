@@ -23,6 +23,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   focusable = true,
   size = 'sm',
   animation = 'shrink',
+  ariaLabelClose = 'close alert',
 }) => {
   const [close, setClose] = React.useState(false);
 
@@ -86,7 +87,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
         <span
           className={styles.alert_close_btn}
           role="button"
-          aria-label="close alert"
+          aria-label={ariaLabelClose}
           ref={btnCloseRef}
           onClick={handleClose}
           tabIndex={focusable ? 0 : -1}

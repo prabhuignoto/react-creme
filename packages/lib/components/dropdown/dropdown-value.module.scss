@@ -99,14 +99,15 @@ $sizes: (sm, md, lg);
 
 .clear_icon {
   justify-self: center;
+  color: theme.$primary;
 
-  &.dark {
-    color: theme.$white;
-  }
+  // &.dark {
+  // color: theme.$white;
+  // }
 
-  &:not(.dark) {
-    color: theme.$charcoal-gray;
-  }
+  // &:not(.dark) {
+  // color: theme.$charcoal-gray;
+  // }
 
   &.clear_icon_hidden {
     pointer-events: none;

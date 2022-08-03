@@ -13,19 +13,19 @@ export const Drop = (
 );
 
 export const Rise = (
-  <Dialog width={450} height={300} animationType="rise">
+  <Dialog width={450} height={300} animationType="rise" size="md">
     <span>Your content here!</span>
   </Dialog>
 );
 
 export const SlideLeft = (
-  <Dialog width={450} height={300} animationType="slide-left">
+  <Dialog width={450} height={300} animationType="slide-left" size="md">
     <span>Your content here!</span>
   </Dialog>
 );
 
 export const SlideRight = (
-  <Dialog width={450} height={300} animationType="slide-right">
+  <Dialog width={450} height={300} animationType="slide-right" size="md">
     <span>Your content here!</span>
   </Dialog>
 );
