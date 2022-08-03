@@ -10,9 +10,9 @@ $sizes: (sm, md, lg);
   height: var(--rc-accordion-header-height, 35px);
   justify-items: flex-start;
   outline: 0;
+  padding-left: 0.5rem;
   position: relative;
   text-transform: capitalize;
-  padding-left: 0.5rem;
 
   &:not(.header-icon) {
     display: grid;
@@ -70,8 +70,8 @@ $sizes: (sm, md, lg);
   }
 
   &.title_bold {
-    font-weight: 500;
     font-size: 1.1rem;
+    font-weight: 500;
   }
 
   &.colorize {
@@ -81,6 +81,8 @@ $sizes: (sm, md, lg);
 
 .icon {
   @extend %icon;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
 
   &:not(.colorize) {
     color: var(--icon-color, theme.$primary);
@@ -89,9 +91,6 @@ $sizes: (sm, md, lg);
   &.colorize {
     color: theme.$primary;
   }
-
-  cursor: pointer;
-  transition: transform 0.2s ease-in;
 
   @each $size in $sizes {
     &.icon-#{$size} {
