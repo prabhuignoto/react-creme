@@ -53,7 +53,12 @@ function Widgets() {
           The navigation links are left aligned and clicking on them will scroll
           to the section of the container that is being spyed on.
         </BlockQuote>
-        <DemoWidget name="ScrollSpy" width={width} height={650}>
+        <DemoWidget
+          name="ScrollSpy"
+          width={width}
+          height={650}
+          showCodeByDefault={false}
+        >
           <ScrollSpy
             links={[
               'one',
@@ -79,7 +84,12 @@ function Widgets() {
           The navigation links are right aligned and clicking on them will
           scroll to the section of the container that is being spyed on.
         </BlockQuote>
-        <DemoWidget name="ScrollSpy" width={width} height={650}>
+        <DemoWidget
+          name="ScrollSpy"
+          width={width}
+          height={650}
+          showCodeByDefault={false}
+        >
           <ScrollSpy
             linksPosition="right"
             links={['one', 'two', 'three', 'four', 'five']}

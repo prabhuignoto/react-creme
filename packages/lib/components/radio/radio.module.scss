@@ -120,7 +120,7 @@ $heights: (
 
   &:not(.dark) {
     @extend %shadow-inset;
-    border: 1px solid theme.$secondary;
+    border: 1px solid rgba(theme.$primary-rgb, 0.25);
   }
 }
 

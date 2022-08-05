@@ -52,7 +52,7 @@ function Widgets() {
           <BlockQuote>
             With searchable list items can be quickly searched.
           </BlockQuote>
-          <DemoWidget name="List" width={width}>
+          <DemoWidget name="List" width={width} showCodeByDefault={false}>
             {Search}
           </DemoWidget>
         </Section>
@@ -61,7 +61,7 @@ function Widgets() {
             The virtualized list is a performance improvement over the default
             rendering. It renders only the visible items
           </BlockQuote>
-          <DemoWidget name="List" width={width}>
+          <DemoWidget name="List" width={width} showCodeByDefault={false}>
             {Virtualized}
           </DemoWidget>
         </Section>

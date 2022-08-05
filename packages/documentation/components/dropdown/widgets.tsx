@@ -43,7 +43,7 @@ function Widgets() {
         <BlockQuote>
           With multi selection, you can select multiple options.
         </BlockQuote>
-        <DemoWidget name="Dropdown" width={width}>
+        <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
           {MultiSelection}
         </DemoWidget>
       </Section>
@@ -51,7 +51,7 @@ function Widgets() {
         <BlockQuote>
           Available options can be filtered by typing in the search box.
         </BlockQuote>
-        <DemoWidget name="Dropdown" width={width}>
+        <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
           {Searchable}
         </DemoWidget>
       </Section>
@@ -60,7 +60,7 @@ function Widgets() {
           With virtualized, the options are rendered only when they are in the
           viewport of the menu.
         </BlockQuote>
-        <DemoWidget name="Dropdown" width={width}>
+        <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
           {Virtualized}
         </DemoWidget>
       </Section>

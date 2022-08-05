@@ -44,7 +44,7 @@ function widgets() {
           Splits the container horizontally with a drag handle for resizing and
           there by controlling the width of the left and right panels.
         </BlockQuote>
-        <DemoWidget name="Splitter" width={width}>
+        <DemoWidget name="Splitter" width={width} showCodeByDefault={false}>
           <Splitter
             dir="horizontal"
             minSplitWidth={Math.round(width * 0.3)}
@@ -78,7 +78,7 @@ function widgets() {
           Splits the container vertically with a drag handle for resizing and
           there by controlling the height of the top and bottom panels.
         </BlockQuote>
-        <DemoWidget name="Splitter" width={width}>
+        <DemoWidget name="Splitter" width={width} showCodeByDefault={false}>
           <Splitter
             dir="vertical"
             minSplitHeight={400 * 0.25}

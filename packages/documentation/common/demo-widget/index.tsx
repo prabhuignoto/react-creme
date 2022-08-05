@@ -1,4 +1,4 @@
-import { CSSProperties, memo } from 'react';
+import { CSSProperties, FunctionComponent, memo, ReactNode } from 'react';
 import { Accordion } from '../../../lib/components/accordion/accordion';
 import { CodeIcon } from '../../../lib/icons';
 import { Code } from '../syntax-highlighter/syntax';
@@ -17,11 +17,24 @@ interface WidgetProps {
   width?: string | number;
 }
 
-const DemoWidget: React.FC<WidgetProps> = memo(
+const CodeString: FunctionComponent<{
+  children?: ReactNode;
+  code?: string;
+  component?: ReactNode;
+  name?: string;
+}> = ({ code, name, component, children }) => {
+  return code ? (
+    <Code code={code} name={name} />
+  ) : (
+    <Code name={name}>{component || children}</Code>
+  );
+};
+
+const DemoWidget: FunctionComponent<WidgetProps> = memo(
   ({
     children,
     layout = 'vertical',
-    showCodeByDefault = false,
+    showCodeByDefault = true,
     customTitle = 'Show Code',
     width,
     height,
@@ -48,23 +61,27 @@ const DemoWidget: React.FC<WidgetProps> = memo(
         >
           {children}
         </div>
-        <div style={{}}>
-          <Accordion
-            title={customTitle}
-            border={false}
-            focusable={false}
-            expanded={showCodeByDefault}
-            disableCollapse={showCodeByDefault}
-            disableIcon={showCodeByDefault}
-            customIcon={<CodeIcon />}
-            size="sm"
-          >
-            {codeString ? (
-              <Code code={codeString} name={name} />
-            ) : (
-              <Code name={name}>{component ? component : children}</Code>
-            )}
-          </Accordion>
+        <div style={{ width: '100%' }}>
+          {!showCodeByDefault ? (
+            <Accordion
+              title={customTitle}
+              border={false}
+              focusable={false}
+              expanded={showCodeByDefault}
+              disableCollapse={showCodeByDefault}
+              disableIcon={showCodeByDefault}
+              customIcon={<CodeIcon />}
+              size="sm"
+            >
+              <CodeString name={name} code={codeString} component={component}>
+                {children}
+              </CodeString>
+            </Accordion>
+          ) : (
+            <CodeString name={name} code={codeString} component={component}>
+              {children}
+            </CodeString>
+          )}
         </div>
       </div>
     );
