@@ -55,11 +55,6 @@ const responsiveState = atom<MediaState>({
 const themeState = atom<ThemeState>({
   default: {
     colors: {
-      // primary: '#0074B7',
-      // secondary: '#BFD7ED',
-      // tertiary: '#003B73',
-      // text: '#003B73',
-      // textSelection: '#fff',
       ...Dark,
     },
     darkMode: true,
@@ -69,8 +64,8 @@ const themeState = atom<ThemeState>({
       sm: 14,
     },
     iconSizes: {
-      lg: 24,
-      md: 20,
+      lg: 26,
+      md: 22,
       sm: 16,
       xs: 12,
     },

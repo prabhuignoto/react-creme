@@ -7,6 +7,9 @@ export interface AlertProps {
 
   animation?: 'shrink' | 'fade';
 
+  /**🟡 prop to set the aria label */
+  ariaLabelClose?: string;
+
   /**🟡 prop to dismiss the alert */
   canDismiss?: boolean;
 

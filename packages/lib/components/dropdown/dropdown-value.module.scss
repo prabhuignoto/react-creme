@@ -98,15 +98,16 @@ $sizes: (sm, md, lg);
 }
 
 .clear_icon {
+  color: theme.$primary;
   justify-self: center;
 
-  &.dark {
-    color: theme.$white;
-  }
+  // &.dark {
+  // color: theme.$white;
+  // }
 
-  &:not(.dark) {
-    color: theme.$charcoal-gray;
-  }
+  // &:not(.dark) {
+  // color: theme.$charcoal-gray;
+  // }
 
   &.clear_icon_hidden {
     pointer-events: none;

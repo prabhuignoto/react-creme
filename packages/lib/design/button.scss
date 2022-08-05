@@ -76,7 +76,7 @@
   }
 
   &:not(.dark) {
-    @extend %shadow-inset-medium;
+    @extend %shadow-inset-small;
     @include get-button-type(
       theme.$white,
       theme.$primary,

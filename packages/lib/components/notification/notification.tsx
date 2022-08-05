@@ -20,7 +20,7 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   title,
   width = 350,
   disableHeader = false,
-  size = 'sm',
+  size = 'md',
 }) => {
   const isDarkMode = useMemo(() => isDark(), []);
 
