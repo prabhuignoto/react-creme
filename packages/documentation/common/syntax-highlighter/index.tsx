@@ -1,7 +1,8 @@
 import { FunctionComponent, useMemo, useRef, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
-import nightOwl from 'react-syntax-highlighter/dist/esm/styles/hljs/night-owl';
-import tomorrowTheme from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright';
+import dark from 'react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-dark';
+// import tomorrowTheme from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright';
+import light from 'react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-light';
 import { useRecoilValue } from 'recoil';
 import { Notification } from '../../../lib/components/notification/notification';
 import { CopyIcon } from '../../../lib/icons';
@@ -25,7 +26,7 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
   const [showNotification, setShowNotification] = useState(false);
   const theme = useRecoilValue(themeState);
   const syntaxTheme = useMemo(
-    () => (theme.darkMode ? nightOwl : tomorrowTheme),
+    () => (theme.darkMode ? dark : light),
     [theme.darkMode]
   );
 

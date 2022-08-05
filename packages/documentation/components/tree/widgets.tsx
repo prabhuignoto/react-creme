@@ -6,7 +6,7 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render" size="md">
-        <DemoWidget name="Tree" width={400}>
+        <DemoWidget name="Tree" width={400} showCodeByDefault={false}>
           {Default}
         </DemoWidget>
       </Section>
@@ -15,7 +15,7 @@ function Widgets() {
           In selection mode, individual nodes with its children can be selected
           through the checkbox
         </BlockQuote>
-        <DemoWidget name="Tree" width={400}>
+        <DemoWidget name="Tree" width={400} showCodeByDefault={false}>
           {Selection}
         </DemoWidget>
       </Section>
