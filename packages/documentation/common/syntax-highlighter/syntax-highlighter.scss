@@ -1,6 +1,6 @@
 .rc-demo-code-block {
   align-items: center;
-  background: rgb(1, 22, 39);
+  // background: rgb(1, 22, 39);
   border-radius: 4px;
   display: flex;
   justify-content: flex-start;
@@ -36,9 +36,7 @@
 
 .rc-demo-code-copy-btn {
   align-items: center;
-  background-color: rgba($color: #fff, $alpha: 0.2);
   border-radius: 4px;
-  color: #fff;
   cursor: pointer;
   display: flex;
   height: 2rem;
@@ -47,9 +45,13 @@
   right: 1rem;
   top: 0.5rem;
   width: 2rem;
+  background-color: var(--rc-secondary-color-hex);
+  color: var(--rc-primary-color-hex);
 
   &:hover {
-    background-color: rgba($color: #000, $alpha: 0.85);
+    color: var(--rc-secondary-color-hex);
+    background-color: var(--rc-primary-color-hex);
+    // background-color: rgba($color: #000, $alpha: 0.85);
   }
 
   svg {

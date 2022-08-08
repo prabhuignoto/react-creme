@@ -18,7 +18,9 @@ $heights: (
 .section {
   @extend %col;
   margin: 2rem 0;
-  width: 100%;
+  width: calc(100% - 1rem);
+  padding: 0.5rem;
+  @extend %border;
 }
 
 .header {
@@ -31,12 +33,12 @@ $heights: (
   width: 100%;
 
   &.dark {
-    border-bottom: 1px solid theme.$primary;
+    // border-bottom: 1px solid theme.$primary;
     color: theme.$white;
   }
 
   &:not(.dark) {
-    border-bottom: 1px solid theme.$secondary;
+    // border-bottom: 1px solid theme.$secondary;
     color: theme.$primary;
   }
 

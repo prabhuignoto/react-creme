@@ -167,7 +167,8 @@ code {
   align-items: center;
   display: flex;
   place-content: flex-start;
-  width: 100%;
+  width: calc(100% - 1rem);
+  padding: 0.5rem;
 }
 
 .rc-demo-widgets-wrapper {

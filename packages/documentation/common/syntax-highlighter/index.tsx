@@ -1,8 +1,8 @@
 import { FunctionComponent, useMemo, useRef, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
-import dark from 'react-syntax-highlighter/dist/esm/styles/hljs/hopscotch';
+import dark from 'react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-dark';
 // import tomorrowTheme from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright';
-import light from 'react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-light';
+import light from 'react-syntax-highlighter/dist/esm/styles/hljs/github';
 import { useRecoilValue } from 'recoil';
 import { Notification } from '../../../lib/components/notification/notification';
 import { CopyIcon } from '../../../lib/icons';
