@@ -26,7 +26,7 @@
   }
 
   &:not(.dark) {
-    border: 1px solid rgba(theme.$primary-rgb, 0.25);
+    border: 1px solid rgba(theme.$secondary-rgb, 0.5);
   }
 }
 

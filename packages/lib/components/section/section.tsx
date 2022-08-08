@@ -13,6 +13,7 @@ const Section: React.FC<SectionProps> = ({
   size = 'sm',
   noPadding = false,
   useHash = false,
+  border = true,
 }) => {
   const sectionStyle = useMemo(
     () =>
@@ -20,6 +21,11 @@ const Section: React.FC<SectionProps> = ({
         minHeight: `${height}px`,
       } as CSSProperties),
     [height]
+  );
+
+  const sectionClass = useMemo(
+    () => classNames(styles.section, border ? styles.border : ''),
+    []
   );
 
   const bodyStyle = useMemo(
@@ -71,7 +77,7 @@ const Section: React.FC<SectionProps> = ({
   }, []);
 
   return (
-    <div style={sectionStyle} className={styles.section} role="">
+    <div style={sectionStyle} className={sectionClass} role="">
       {getTitle && (
         <div className={headerClass} id={getId} role="heading">
           {getTitle}

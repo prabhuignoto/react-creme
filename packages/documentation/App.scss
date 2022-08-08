@@ -166,8 +166,9 @@ code {
 .rc-demo-widget {
   align-items: center;
   display: flex;
+  padding: 0.5rem;
   place-content: flex-start;
-  width: 100%;
+  width: calc(100% - 1rem);
 }
 
 .rc-demo-widgets-wrapper {

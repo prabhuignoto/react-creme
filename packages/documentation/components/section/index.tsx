@@ -54,6 +54,13 @@ function index() {
           optional: 'Yes',
           type: 'String',
         },
+        {
+          default: 'true',
+          description: 'Show a border around the section',
+          name: 'border',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
       ]}
     ></DemoPageRenderer>
   );
