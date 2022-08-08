@@ -36,7 +36,9 @@
 
 .rc-demo-code-copy-btn {
   align-items: center;
+  background-color: var(--rc-secondary-color-hex);
   border-radius: 4px;
+  color: var(--rc-primary-color-hex);
   cursor: pointer;
   display: flex;
   height: 2rem;
@@ -45,12 +47,10 @@
   right: 1rem;
   top: 0.5rem;
   width: 2rem;
-  background-color: var(--rc-secondary-color-hex);
-  color: var(--rc-primary-color-hex);
 
   &:hover {
-    color: var(--rc-secondary-color-hex);
     background-color: var(--rc-primary-color-hex);
+    color: var(--rc-secondary-color-hex);
     // background-color: rgba($color: #000, $alpha: 0.85);
   }
 

@@ -17,10 +17,10 @@ $heights: (
 
 .section {
   @extend %col;
-  margin: 2rem 0;
-  width: calc(100% - 1rem);
-  padding: 0.5rem;
   @extend %border;
+  margin: 2rem 0;
+  padding: 0.5rem;
+  width: calc(100% - 1rem);
 }
 
 .header {
