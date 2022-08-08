@@ -132,7 +132,7 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
           />
         )}
         {features.length ? (
-          <Section noPadding height={50}>
+          <Section noPadding height={50} border={false}>
             <DemoPageFeatures features={features} />
           </Section>
         ) : null}
