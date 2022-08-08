@@ -2,26 +2,26 @@
 
 exports[`Carousel > should render carousel snapshot 1`] = `
 <div
-  class="_container_1cdj9_1 _container_horizontal_1cdj9_16"
+  class="_container_mt1rx_1 _container_horizontal_mt1rx_16"
 >
   <div
-    class="_wrapper_1cdj9_33 _wrapper_horizontal_1cdj9_37"
+    class="_wrapper_mt1rx_33 _wrapper_horizontal_mt1rx_37"
     style="--min-height: 400px; --transition: cubic-bezier(0.55, 0.08, 0.68, 0.53);"
   >
     <ul
-      class="_carousel_1cdj9_56"
+      class="_carousel_mt1rx_56"
       role="list"
       style="transform: translateX(-0px); width: 0px;"
     >
       <li
         aria-hidden="false"
-        class="_item_1cdj9_1"
+        class="_item_mt1rx_1"
         data-visible="true"
         role="listitem"
         style="top: 0px; visibility: hidden; width: 0px;"
       >
         <div
-          class="_item_container_1cdj9_16"
+          class="_item_container_mt1rx_16"
         >
           <span>
             one
@@ -30,13 +30,13 @@ exports[`Carousel > should render carousel snapshot 1`] = `
       </li>
       <li
         aria-hidden="true"
-        class="_item_1cdj9_1"
+        class="_item_mt1rx_1"
         data-visible="false"
         role="listitem"
         style="top: 0px; visibility: hidden; width: 0px;"
       >
         <div
-          class="_item_container_1cdj9_16"
+          class="_item_container_mt1rx_16"
         >
           <span>
             two
@@ -46,23 +46,23 @@ exports[`Carousel > should render carousel snapshot 1`] = `
     </ul>
   </div>
   <div
-    class="_track_wrapper_1cdj9_16 _track_wrapper_horizontal_1cdj9_48"
+    class="_track_wrapper_mt1rx_16 _track_wrapper_horizontal_mt1rx_48"
   >
     <div
-      class="_track_wrapper_1cdj9_16 _track_wrapper_horizontal_doir4_16"
+      class="_track_wrapper_mt1rx_16 _track_wrapper_horizontal_doir4_16"
     >
       <span
-        class="_btn_1cdj9_82 _btn_left_1cdj9_95 _btn_horizontal_1cdj9_85 _btn_hide_1cdj9_91"
+        class="_btn_mt1rx_82 _btn_left_mt1rx_95 _btn_horizontal_mt1rx_85 _btn_hide_mt1rx_91"
       >
         <div
           aria-label="Previous"
-          class="_sm_war6f_1 _icon_war6f_43 _btn_war6f_202"
+          class="_sm_d6onr_1 _icon_d6onr_43 _btn_d6onr_202"
           role="button"
           style="outline: none; position: relative;"
           tabindex="0"
         >
           <span
-            class="_icon_container_war6f_43"
+            class="_icon_container_d6onr_43"
             role="img"
           >
             <svg
@@ -99,17 +99,17 @@ exports[`Carousel > should render carousel snapshot 1`] = `
         />
       </ul>
       <span
-        class="_btn_1cdj9_82 _btn_right_1cdj9_103 _btn_horizontal_1cdj9_85"
+        class="_btn_mt1rx_82 _btn_right_mt1rx_103 _btn_horizontal_mt1rx_85"
       >
         <div
           aria-label="Next"
-          class="_sm_war6f_1 _icon_war6f_43 _btn_war6f_202"
+          class="_sm_d6onr_1 _icon_d6onr_43 _btn_d6onr_202"
           role="button"
           style="outline: none; position: relative;"
           tabindex="0"
         >
           <span
-            class="_icon_container_war6f_43"
+            class="_icon_container_d6onr_43"
             role="img"
           >
             <svg

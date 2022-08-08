@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo, useRef, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
-import dark from 'react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-dark';
+import dark from 'react-syntax-highlighter/dist/esm/styles/hljs/hopscotch';
 // import tomorrowTheme from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright';
 import light from 'react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-light';
 import { useRecoilValue } from 'recoil';
@@ -62,12 +62,14 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
       </span>
       <SyntaxHighlighter
         language="javascript"
-        customStyle={{ padding: '1.25rem' }}
+        // customStyle={{ padding: '1.25rem' }}
         style={{ ...syntaxTheme, height: '100%' }}
-        lineProps={{
-          style: { whiteSpace: 'pre-wrap', wordBreak: 'break-all' },
-        }}
-        wrapLongLines
+        lineProps={
+          {
+            // style: { whiteSpace: 'pre-wrap', wordBreak: 'break-all' },
+          }
+        }
+        // wrapLongLines
         wrapLines
       >
         {wrap ? wrapCode(name, code) : code}
