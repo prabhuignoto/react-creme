@@ -105,7 +105,7 @@ export type { PageHeaderProps } from './components/page-header/page-header';
 export { Password } from './components/password/password';
 export type { PasswordProps } from './components/password/password';
 export { Pin } from './components/pin/pin';
-export type { PinProps } from './components/pin/pin';
+export type { PinProps } from './components/pin/pin.model';
 export { CircularProgress } from './components/progress/circular-progress';
 export type { CircularProgressProps } from './components/progress/circular-progress';
 export { Progress } from './components/progress/progress';

@@ -41,14 +41,14 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
   );
 
   const onIncrement = useCallback(
-    (ev: React.KeyboardEvent) => {
+    (ev?: React.KeyboardEvent | React.MouseEvent) => {
       if (number + 1 <= end) {
         const newVal = number + 1;
         setNumber(newVal);
         onChange?.(newVal);
       } else {
-        ev.preventDefault();
-        ev.stopPropagation();
+        ev?.preventDefault();
+        ev?.stopPropagation();
         setNumber(end);
       }
     },
@@ -56,13 +56,13 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
   );
 
   const onDecrement = useCallback(
-    (ev: React.KeyboardEvent) => {
+    (ev?: React.KeyboardEvent | React.MouseEvent) => {
       if (number - 1 >= start) {
         const newVal = number - 1;
         setNumber(newVal);
         onChange?.(newVal);
       } else {
-        ev.preventDefault();
+        ev?.preventDefault();
         setNumber(start);
       }
     },

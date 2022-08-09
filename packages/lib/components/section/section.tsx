@@ -79,7 +79,7 @@ const Section: React.FC<SectionProps> = ({
   return (
     <div style={sectionStyle} className={sectionClass}>
       {getTitle && (
-        <div className={headerClass} id={getId} role="heading" aria-level="3">
+        <div className={headerClass} id={getId} role="heading" aria-level={3}>
           {getTitle}
         </div>
       )}
