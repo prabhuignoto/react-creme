@@ -3,13 +3,13 @@
 exports[`Button > should render button snapshot 1`] = `
 <div
   aria-label="My Button"
-  class="_sm_d6onr_1 _default_d6onr_12 _btn_d6onr_202"
+  class="_sm_1wspk_1 _default_1wspk_12 _btn_1wspk_202"
   role="button"
   style="outline: none; position: relative;"
   tabindex="0"
 >
   <span
-    class="_label_d6onr_19"
+    class="_label_1wspk_19"
   >
     My Button
   </span>

@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const PostCSSpresetEnv = require('postcss-preset-env');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-// const NodeExternals = require('webpack-node-externals');
 const pkg = require('./package.json');
 const CopyPlugin = require('copy-webpack-plugin');
 const { BannerPlugin } = require('webpack');
@@ -18,19 +17,12 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 const config = {
   devtool: 'source-map',
   entry: './react-creme.ts',
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-  },
-  // NodeExternals({
-  //   allowlist: [
-  //     'nanoid',
-  //     'classnames',
-  //     'use-debounce',
-  //     'hex-rgb',
-  //     'fast-deep-equal',
-  //   ],
-  // }),
+  externals: [
+    {
+      react: 'react',
+      'react-dom': 'react-dom',
+    },
+  ],
   module: {
     rules: [
       {

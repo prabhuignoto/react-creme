@@ -83,7 +83,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     useFocusNew(focusable ? ref : null, focusable ? handleClick : null);
 
     return (
-      <li key={id} role="listitem" className={tagItemClass} style={style}>
+      <li key={id} className={tagItemClass} style={style}>
         <span className={tagName} title={name}>
           {name}
         </span>

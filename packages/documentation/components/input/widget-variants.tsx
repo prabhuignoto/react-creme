@@ -1,7 +1,7 @@
 import { Input } from '../../../lib/components';
 import { ChevronRightIcon } from '../../../lib/icons';
 
-export const Default = <Input enableClear></Input>;
+export const Default = <Input enableClear maxLength={10}></Input>;
 export const WithIcon = (
   <Input focusable>
     <ChevronRightIcon />

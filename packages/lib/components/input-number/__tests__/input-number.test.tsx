@@ -11,9 +11,12 @@ describe('Input Number', () => {
     expect(getByDisplayValue('6')).toBeInTheDocument();
   });
 
-  it.concurrent('should increment the value', async () => {
+  it('should increment the value', async () => {
     const { getByLabelText, getByDisplayValue } = render(
-      <InputNumber start={1} end={10} />
+      <InputNumber start={1} end={10} />,
+      {
+        container: document.body,
+      }
     );
 
     const increment = getByLabelText('increment');
@@ -27,7 +30,7 @@ describe('Input Number', () => {
     });
   });
 
-  it.concurrent('should decrement the value', async () => {
+  it('should decrement the value', async () => {
     const { getByLabelText, getByDisplayValue } = render(
       <InputNumber start={5} end={10} value={7} />
     );
@@ -83,21 +86,31 @@ describe('Input Number', () => {
     }
   );
 
-  it.concurrent(
-    'should increment or decrement on keyboard interaction',
-    async () => {
-      const { getByDisplayValue, getByPlaceholderText } = render(
-        <InputNumber start={1} end={10} placeholder="choose a value" />
-      );
+  it('should increment or decrement on keyboard interaction', async () => {
+    const { getByLabelText, getByDisplayValue } = render(
+      <InputNumber start={1} end={10} placeholder="choose a value" />,
+      {
+        container: document.body,
+      }
+    );
 
-      const input = getByPlaceholderText('choose a value');
+    const wrapper = getByLabelText('choose a value');
 
+    const input = wrapper.querySelector('input');
+
+    if (input) {
       expect(input).toBeInTheDocument();
-      fireEvent.keyUp(input, { key: 'ArrowUp' });
-      expect(getByDisplayValue('2')).toBeInTheDocument();
+      fireEvent.keyUp(input);
 
-      fireEvent.keyUp(input, { key: 'ArrowDown' });
-      expect(getByDisplayValue('1')).toBeInTheDocument();
+      await waitFor(() => {
+        expect(input).toHaveValue('2');
+      });
+
+      fireEvent.keyUp(input);
+
+      await waitFor(() => {
+        expect(getByDisplayValue('3')).toBeInTheDocument();
+      });
     }
-  );
+  });
 });

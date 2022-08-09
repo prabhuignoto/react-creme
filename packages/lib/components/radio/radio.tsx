@@ -57,7 +57,12 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
       }
     }, [canToggle, checked]);
 
-    useFocusNew(focusable ? radioRef : null, focusable ? toggleCheck : null);
+    const canFocus = useMemo(
+      () => focusable && !disabled,
+      [disabled, focusable]
+    );
+
+    useFocusNew(canFocus ? radioRef : null, canFocus ? toggleCheck : null);
 
     const radioWrapperClass = useMemo(() => {
       return cls(styles.wrapper, {
@@ -101,25 +106,23 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
       }
     }, [isChecked]);
 
-    const focusableProps = useMemo(
+    const htmlAttrs = useMemo(
       () => ({
         'aria-checked': !!checked,
-        onClick: toggleCheck,
+        ...(canFocus ? { onClick: toggleCheck } : null),
         ref: radioRef,
-        tabIndex: !disabled && focusable ? 0 : -1,
+        role: 'radio',
+        tabIndex: canFocus ? 0 : -1,
       }),
-      [checked]
+      [checked, disabled, canFocus]
     );
-
-    const wrapperProps = useMemo(() => focusableProps, []);
 
     return (
       <li
         className={radioWrapperClass}
         aria-labelledby={labelID.current}
-        role="radio"
         style={style}
-        {...wrapperProps}
+        {...htmlAttrs}
       >
         <div className={radioClass} id={idRef.current}>
           <span className={radioIconClass}></span>

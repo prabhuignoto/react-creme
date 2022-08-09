@@ -13,12 +13,12 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       class="_bread_crumb_node_1a3sh_1 _bread_crumb_node_sm_1a3sh_5"
     >
       <a
-        class="_link_1xbzr_1 _sm_1xbzr_19 _highlight_1xbzr_82"
+        class="_link_1nv7f_1 _sm_1nv7f_19 _highlight_1nv7f_82"
         style="outline: none; position: relative;"
         tabindex="0"
       >
         <span
-          class="_text_1xbzr_19"
+          class="_text_1nv7f_19"
         >
           google
         </span>
@@ -53,12 +53,12 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       class="_bread_crumb_node_1a3sh_1 _bread_crumb_node_sm_1a3sh_5"
     >
       <a
-        class="_link_1xbzr_1 _sm_1xbzr_19"
+        class="_link_1nv7f_1 _sm_1nv7f_19"
         style="outline: none; position: relative;"
         tabindex="0"
       >
         <span
-          class="_text_1xbzr_19"
+          class="_text_1nv7f_19"
         >
           yahoo
         </span>
@@ -93,12 +93,12 @@ exports[`Breadcrumb > should render snapshot 1`] = `
       class="_bread_crumb_node_1a3sh_1 _bread_crumb_node_sm_1a3sh_5"
     >
       <a
-        class="_link_1xbzr_1 _sm_1xbzr_19"
+        class="_link_1nv7f_1 _sm_1nv7f_19"
         style="outline: none; position: relative;"
         tabindex="0"
       >
         <span
-          class="_text_1xbzr_19"
+          class="_text_1nv7f_19"
         >
           amazon
         </span>
