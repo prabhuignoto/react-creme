@@ -16,6 +16,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
+    "noEmit": false,
     "declaration": true,
     "declarationDir": "dist",
     "types": [
@@ -36,7 +37,7 @@
       }
     ]
   },
-  "include": ["./components", "Globals.d.ts"],
+  "include": ["./components", "Globals.d.ts", "react-creme.ts"],
   "exclude": ["node_modules", "dist", "rollup.config.js"],
-  "files": ["components/react-creme.ts"]
+  "files": ["react-creme.ts"]
 }
