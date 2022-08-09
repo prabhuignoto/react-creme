@@ -4,7 +4,7 @@ import './footer-styles.scss';
 function Footer() {
   return (
     <div className="app-footer">
-      <a
+      {/* <a
         href="javascript:void(0);"
         style={{
           marginBottom: '1rem',
@@ -22,7 +22,7 @@ function Footer() {
         }}
       >
         Back to Top
-      </a>
+      </a> */}
       <div className="rc-demo-footer">
         <div className="rc-demo-footer-content">
           <a

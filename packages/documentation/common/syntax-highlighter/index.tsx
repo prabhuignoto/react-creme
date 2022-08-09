@@ -1,8 +1,9 @@
 import { FunctionComponent, useMemo, useRef, useState } from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
-import dark from 'react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-dark';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism';
+// import dark from 'react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-dark';
+import dark from 'react-syntax-highlighter/dist/esm/styles/prism/one-dark';
 // import tomorrowTheme from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright';
-import light from 'react-syntax-highlighter/dist/esm/styles/hljs/github';
+import light from 'react-syntax-highlighter/dist/esm/styles/prism/one-light';
 import { useRecoilValue } from 'recoil';
 import { Notification } from '../../../lib/components/notification/notification';
 import { CopyIcon } from '../../../lib/icons';
@@ -61,14 +62,12 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
         <CopyIcon />
       </span>
       <SyntaxHighlighter
-        language="javascript"
+        language="jsx"
         // customStyle={{ padding: '1.25rem' }}
         style={{ ...syntaxTheme, height: '100%' }}
-        lineProps={
-          {
-            // style: { whiteSpace: 'pre-wrap', wordBreak: 'break-all' },
-          }
-        }
+        lineProps={{
+          style: { whiteSpace: 'pre-wrap', wordBreak: 'break-all' },
+        }}
         // wrapLongLines
         wrapLines
       >

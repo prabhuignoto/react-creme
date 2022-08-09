@@ -36,8 +36,8 @@ export const Tangerine: Colors = {
 
 export const Blueberry: Colors = {
   primary: '#47597E',
-  secondary: '#DBE6FD',
-  tertiary: '#293B5F',
+  secondary: '#abc4fa',
+  tertiary: '#DBE6FD',
   text: '#000',
   textSelection: '#fff',
 };
@@ -61,7 +61,7 @@ export const NightGray: Colors = {
 export const Dark: Colors = {
   primary: '#1597e5',
   secondary: '#323232',
-  tertiary: '#5893D4',
+  tertiary: '#464646',
   text: '#fff',
   textSelection: '#fff',
 };

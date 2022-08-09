@@ -73,7 +73,7 @@ $sizes: (sm, md, lg);
   min-width: $min-width;
 
   &.dark {
-    background: theme.$gunmetal-gray;
+    background: theme.$primary;
   }
 
   &:not(.dark) {
