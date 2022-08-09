@@ -1,6 +1,6 @@
 {
   "name": "react-creme",
-  "version": "0.16.0",
+  "version": "0.16.2",
   "author": {
     "name": "Prabhu Murthy",
     "email": "prabhu.m.murthy@gmail.com"
@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "build": "npx cross-env NODE_ENV=production webpack --config webpack.config.js --progress",
+    "build:dev": "npx cross-env NODE_ENV=development webpack --config webpack.config.js --progress",
     "ci": "pnpm lint && pnpm test-ci && pnpm build",
     "eslint": "eslint ./components/**/*.{tsx,ts}",
     "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
