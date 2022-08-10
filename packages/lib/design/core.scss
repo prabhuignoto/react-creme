@@ -16,8 +16,8 @@
 
 %col-left {
   @extend %flex;
-  flex-direction: column;
   align-items: flex-start;
+  flex-direction: column;
 }
 
 %left {
