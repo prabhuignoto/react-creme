@@ -44,6 +44,7 @@ const Section: React.FC<SectionProps> = ({
         [styles.no_padding]: noPadding,
         [styles.no_title]: !title,
         [styles.rtl]: RTL,
+        [styles[`body_${size}`]]: true,
       }),
     [layout, title]
   );

@@ -18,9 +18,9 @@ $dark-mode: theme.$dark_mode;
     background: rgba(theme.$secondary-rgb, 0.5);
   }
 
-  &:not(:last-child) {
-    width: calc(100% - 1px);
-  }
+  width: 100%;
+  // &:not(:last-child) {
+  // }
 
   &:not(.searchable):first-child {
     border-top-left-radius: 4px;
@@ -30,12 +30,12 @@ $dark-mode: theme.$dark_mode;
     border-top-right-radius: 4px;
   }
 
-  &:last-child {
-    width: 100%;
-  }
+  // &:last-child {
+  // width: calc(100% - 1px);
+  // }
 
   .cell_val {
-    font-weight: 400;
+    font-weight: 500;
     width: 95%;
   }
 }

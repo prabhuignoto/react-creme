@@ -19,6 +19,10 @@ $heights: (
     @extend %border;
   }
 
+  &:not(.border) {
+    box-shadow: inset 0 0 3px 1px rgba($color: theme.$alto, $alpha: 0.5);
+  }
+
   &.rtl {
     direction: rtl;
   }

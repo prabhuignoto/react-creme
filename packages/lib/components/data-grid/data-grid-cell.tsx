@@ -5,7 +5,7 @@ import { DataGridCell as CellModel } from './data-grid-model';
 import styles from './data-grid.module.scss';
 
 const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
-  ({ value, border, fixedHeight, formatter }: CellModel) => {
+  ({ value, border, fixedHeight, formatter, isHeader }: CellModel) => {
     const isDarkMode = useMemo(() => isDark(), []);
 
     const columnClass = useMemo(() => {
@@ -16,11 +16,15 @@ const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
     }, [border]);
 
     const cellClass = useMemo(() => {
-      return classNames(styles.cell_val, {
-        [styles.cell_val_fixed]: fixedHeight,
-        [styles.dark]: isDarkMode,
-      });
-    }, []);
+      return classNames(
+        styles.cell_val,
+        {
+          [styles.cell_val_fixed]: fixedHeight,
+          [styles.dark]: isDarkMode,
+        },
+        isHeader ? styles.header : ''
+      );
+    }, [isHeader]);
 
     return (
       <div className={columnClass} role="cell">

@@ -51,11 +51,11 @@ $sizes: (sm, md, lg);
 
 .row:not(:last-child):not(.row_zebra) {
   &.dark {
-    border-bottom: 1px solid theme.$charcoal-gray;
+    border-bottom: 1px solid theme.$cod-gray;
   }
 
   &:not(.dark) {
-    border-bottom: 1px solid theme.$secondary;
+    border-bottom: 1px solid theme.$alto;
   }
 }
 
@@ -84,11 +84,18 @@ $sizes: (sm, md, lg);
 
 .cell_val {
   display: block;
-  font-weight: 300;
   line-height: 25px;
   padding: 0.5rem 0;
   padding-left: 0.25rem;
   width: 90%;
+
+  &.header {
+    font-weight: 500;
+  }
+
+  &:not(.header) {
+    font-weight: 300;
+  }
 
   &.dark {
     color: theme.$white;

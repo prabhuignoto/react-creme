@@ -21,6 +21,7 @@ export interface DataGridCell {
   border?: boolean;
   fixedHeight?: boolean;
   formatter?: (value: string | number) => string | number;
+  isHeader?: boolean;
   name: string;
   value: string | number;
 }
