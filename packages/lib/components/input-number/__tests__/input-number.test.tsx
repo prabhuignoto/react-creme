@@ -86,9 +86,12 @@ describe('Input Number', () => {
     }
   );
 
-  it.concurrent('should honour the max length property', async () => {
+  it('should honour the max length property', async () => {
     const { getByPlaceholderText } = render(
-      <InputNumber maxLength={3} placeholder="Please enter a value ..." />
+      <InputNumber maxLength={3} placeholder="Please enter a value ..." />,
+      {
+        container: document.body,
+      }
     );
 
     const input = getByPlaceholderText('Please enter a value ...');
@@ -97,10 +100,10 @@ describe('Input Number', () => {
 
     fireEvent.change(input, {
       target: {
-        value: 'test',
+        value: '1234',
       },
     });
 
-    await waitFor(() => expect((input as HTMLInputElement).value).toBe('tes'));
+    await waitFor(() => expect((input as HTMLInputElement).value).toBe('123'));
   });
 });
