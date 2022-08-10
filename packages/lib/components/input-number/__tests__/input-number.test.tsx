@@ -85,4 +85,22 @@ describe('Input Number', () => {
       expect(getByDisplayValue('5')).toBeInTheDocument();
     }
   );
+
+  it.concurrent('should honour the max length property', async () => {
+    const { getByPlaceholderText } = render(
+      <InputNumber maxLength={3} placeholder="Please enter a value ..." />
+    );
+
+    const input = getByPlaceholderText('Please enter a value ...');
+
+    expect(input).toBeInTheDocument();
+
+    fireEvent.change(input, {
+      target: {
+        value: 'test',
+      },
+    });
+
+    await waitFor(() => expect((input as HTMLInputElement).value).toBe('tes'));
+  });
 });

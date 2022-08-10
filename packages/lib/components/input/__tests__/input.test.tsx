@@ -99,4 +99,22 @@ describe('Input', () => {
 
     expect(container.firstChild).toHaveAttribute('role', 'combobox');
   });
+
+  it.concurrent('should honour the max length property', async () => {
+    const { getByPlaceholderText } = render(
+      <Input maxLength={3} placeholder="Please enter a value ..." />
+    );
+
+    const input = getByPlaceholderText('Please enter a value ...');
+
+    expect(input).toBeInTheDocument();
+
+    fireEvent.change(input, {
+      target: {
+        value: 'test',
+      },
+    });
+
+    await waitFor(() => expect((input as HTMLInputElement).value).toBe('tes'));
+  });
 });
