@@ -51,6 +51,9 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       value = '',
       transparentBg = false,
       alignCenter = false,
+      min = 0,
+      max = Number.MAX_VALUE,
+      maxLength = Number.MAX_VALUE,
     } = props;
 
     const [inputValue, setInputValue] = useState(value);
@@ -92,12 +95,12 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
     const handleInput = useCallback(
       (ev: React.ChangeEvent<HTMLInputElement>) => {
         if (controlled) {
-          const val = ev.target.value;
+          const val = ev.target.value.slice(0, maxLength);
           setInputValue(val);
           onChange?.(val);
         }
       },
-      [controlled]
+      [controlled, inputValue]
     );
 
     const handleUnControlled = useCallback(
@@ -188,6 +191,17 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       }
     }, [focusable]);
 
+    const numProps = useMemo(() => {
+      if (type === 'number') {
+        return {
+          max,
+          min,
+        };
+      } else {
+        return {};
+      }
+    }, []);
+
     const inputDisabled = useMemo(() => {
       return disabled;
     }, [disabled]);
@@ -216,6 +230,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           placeholder={placeholder}
           {...focusProps}
           {...controlledProps}
+          {...numProps}
           onKeyUp={onKeyUp}
           onKeyDown={onKeyDown}
           ref={inputRef}

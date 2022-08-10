@@ -138,7 +138,6 @@ const Tags: React.FunctionComponent<TagsProps> = ({
         [styles.tags_rtl]: RTL,
         [styles.tags_wrap]: wrap,
       })}
-      role="list"
       style={style}
     >
       {tagItems.map(({ id, name, disabled, readonly, markedForRemoval }) => (

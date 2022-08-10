@@ -13,6 +13,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
   layoutStyle,
   border,
   size,
+  searchable,
 }: DataGridHeaderProps) => {
   const isDarkMode = useMemo(() => isDark(), []);
   const [headerColumns, setHeaderColumns] = useState(
@@ -41,17 +42,26 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
   }, [layoutStyle]);
 
   const headerCellClass = useMemo(() => {
-    return classNames(styles.cell, {
-      [styles.border]: border,
-      [styles.dark]: isDarkMode,
-    });
+    return classNames(
+      styles.cell,
+      {
+        [styles.border]: border,
+        [styles.dark]: isDarkMode,
+      },
+      searchable ? styles.searchable : ''
+    );
   }, []);
 
   return (
     <div className={headerClass} style={style} role="row">
       {headerColumns.map(column => (
         <div className={headerCellClass} key={column.name}>
-          <DataGridCell name={column.name} value={column.name} border={false} />
+          <DataGridCell
+            name={column.name}
+            value={column.name}
+            border={false}
+            isHeader
+          />
           {column.sortable && (
             <span className={styles.sort_icon_wrapper}>
               <span

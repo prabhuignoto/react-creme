@@ -11,14 +11,14 @@ $sizes: (
 
 $heights: (
   sm: 30px,
-  md: 35px,
-  lg: 40px,
+  md: 40px,
+  lg: 50px,
 );
 
 .section {
   @extend %col;
   margin: 2rem 0;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   width: calc(100% - 1rem);
 
   &.border {
@@ -28,20 +28,18 @@ $heights: (
 
 .header {
   @extend %left;
-  font-size: 1rem;
   font-weight: 500;
-  height: 30px;
   padding-left: 1rem;
   text-decoration: none;
   width: 100%;
 
   &.dark {
-    // border-bottom: 1px solid theme.$primary;
+    border-bottom: 1px solid rgba(theme.$secondary-rgb, 0.5);
     color: theme.$white;
   }
 
   &:not(.dark) {
-    // border-bottom: 1px solid theme.$secondary;
+    border-bottom: 1px solid rgba(theme.$secondary-rgb, 0.5);
     color: theme.$primary;
   }
 
@@ -61,7 +59,7 @@ $heights: (
   }
 
   &:not(.no_padding) {
-    padding: 1.5rem 1rem 1rem;
+    padding: 1rem;
   }
 
   &:not(.rtl) {
@@ -72,9 +70,15 @@ $heights: (
     direction: rtl;
   }
 
-  &:not(.no_title) {
-    min-height: calc(100% - 30px);
+  @each $key, $val in $sizes {
+    &.body_#{$key}:not(.no_title) {
+      // height: map.get($heights, $key);
+      min-height: calc(100% - map.get($heights, $key));
+    }
   }
+
+  // &:not(.no_title) {
+  // }
 
   &.no_title {
     min-height: 100%;

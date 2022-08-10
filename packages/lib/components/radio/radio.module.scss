@@ -23,10 +23,14 @@ $heights: (
   display: grid;
   justify-items: center;
   padding: 0.25rem 0;
-  padding-left: 0.5rem;
+
+  &:not(.rtl) {
+    padding-left: 0.5rem;
+  }
 
   &.rtl {
     direction: rtl;
+    padding-right: 0.5rem;
   }
 
   &.full_width {
@@ -107,8 +111,8 @@ $heights: (
   }
 
   &.ico_checked {
-    background-color: theme.$primary;
-    border: 1px solid theme.$secondary;
+    // background-color: theme.$primary;
+    border: 1px solid theme.$primary;
   }
 }
 

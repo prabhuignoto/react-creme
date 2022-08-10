@@ -9,6 +9,7 @@ $dark-mode: theme.$dark_mode;
   color: theme.$black;
   height: 100%;
   text-transform: capitalize;
+  width: 100%;
 
   &.dark {
     background: rgba(theme.$charcoal-gray, 0.5);
@@ -18,21 +19,23 @@ $dark-mode: theme.$dark_mode;
     background: rgba(theme.$secondary-rgb, 0.5);
   }
 
-  &:not(:last-child) {
-    width: calc(100% - 1px);
-  }
+  // &:not(:last-child) {
+  // }
 
-  &:first-child {
+  &:not(.searchable):first-child {
     border-top-left-radius: 4px;
   }
 
-  &:last-child {
+  &:not(.searchable):last-child {
     border-top-right-radius: 4px;
-    width: 100%;
   }
 
+  // &:last-child {
+  // width: calc(100% - 1px);
+  // }
+
   .cell_val {
-    font-weight: 400;
+    font-weight: 500;
     width: 95%;
   }
 }

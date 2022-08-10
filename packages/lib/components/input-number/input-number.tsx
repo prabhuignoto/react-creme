@@ -25,6 +25,8 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
   focusable = true,
   honorBoundaries = true,
   alignCenter = true,
+  maxLength = Number.MAX_VALUE,
+  onDelete,
 }) => {
   const [number, setNumber] = useState(
     honorBoundaries
@@ -38,21 +40,34 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
       : value
   );
 
-  const onIncrement = useCallback(() => {
-    if (number + 1 <= end) {
-      const newVal = number + 1;
-      setNumber(newVal);
-      onChange?.(newVal);
-    }
-  }, [number]);
+  const onIncrement = useCallback(
+    (ev?: React.KeyboardEvent | React.MouseEvent) => {
+      if (number + 1 <= end) {
+        const newVal = number + 1;
+        setNumber(newVal);
+        onChange?.(newVal);
+      } else {
+        ev?.preventDefault();
+        ev?.stopPropagation();
+        setNumber(end);
+      }
+    },
+    [number]
+  );
 
-  const onDecrement = useCallback(() => {
-    if (number - 1 >= start) {
-      const newVal = number - 1;
-      setNumber(newVal);
-      onChange?.(newVal);
-    }
-  }, [number]);
+  const onDecrement = useCallback(
+    (ev?: React.KeyboardEvent | React.MouseEvent) => {
+      if (number - 1 >= start) {
+        const newVal = number - 1;
+        setNumber(newVal);
+        onChange?.(newVal);
+      } else {
+        ev?.preventDefault();
+        setNumber(start);
+      }
+    },
+    [number]
+  );
 
   const isDarkMode = useMemo(() => isDark(), []);
 
@@ -69,15 +84,12 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
 
   const handleKeyUp = useCallback(
     (ev: React.KeyboardEvent) => {
-      if (ev.key === 'ArrowUp') {
+      if (ev.key === 'Delete' || ev.key === 'Backspace') {
         ev.preventDefault();
-        onIncrement();
-      } else if (ev.key === 'ArrowDown') {
-        ev.preventDefault();
-        onDecrement();
+        onDelete?.();
       }
     },
-    [number]
+    [number, onIncrement, onDecrement]
   );
 
   const handleChange = useCallback(
@@ -99,10 +111,13 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         focusable={focusable}
         size={size}
         type="number"
+        min={start}
+        max={end}
         onKeyUp={handleKeyUp}
         placeholder={placeholder}
         onChange={handleChange}
         alignCenter={alignCenter}
+        maxLength={maxLength}
       />
       {!disableControls && (
         <div className={styles.controls}>

@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, KeyboardEvent, MouseEvent } from 'react';
 
 export interface ButtonProps {
   border?: boolean;
@@ -6,7 +6,7 @@ export interface ButtonProps {
   disabled?: boolean;
   focusable?: boolean;
   label?: string;
-  onClick?: () => void;
+  onClick?: (ev?: MouseEvent | KeyboardEvent) => void;
   primary?: boolean;
   size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;

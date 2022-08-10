@@ -2,19 +2,19 @@
 
 exports[`Accordion > should render snapshot 1`] = `
 <div
-  class="_accordion_nx9u4_1 _no-border_nx9u4_1"
+  class="_accordion_gunaa_1 _no-border_gunaa_1"
 >
   <div
-    aria-controls="accordion-body-b2vxJnn6xmoAbatFSZGDC"
+    aria-controls="accordion-body-I9AkrpFulPItHQJP0GsCs"
     aria-expanded="false"
-    class="_header_1iaip_1 undefined"
-    id="accordion-Pkl0GzA_-fFrjMswHUg-z"
+    class="_header_197zm_1 undefined"
+    id="accordion-PKh_3qOckrVJrOp8x3QS7"
     role="button"
     style="--rc-accordion-header-height: 35px; outline: none; position: relative;"
     tabindex="0"
   >
     <span
-      class="_icon_1iaip_29 undefined _icon-sm_1iaip_29"
+      class="_icon_197zm_29 undefined _icon-sm_197zm_29"
       role="img"
     >
       <svg
@@ -32,7 +32,7 @@ exports[`Accordion > should render snapshot 1`] = `
       </svg>
     </span>
     <span
-      class="_title_1iaip_5 _title_sm_1iaip_5"
+      class="_title_197zm_5 _title_sm_197zm_5"
     />
     <span
       class="_focus_ring_4fy2t_1"
@@ -40,9 +40,9 @@ exports[`Accordion > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-labelledby="accordion-Pkl0GzA_-fFrjMswHUg-z"
-    class="_body_nx9u4_29 _animate_nx9u4_34 _close_nx9u4_41"
-    id="accordion-body-b2vxJnn6xmoAbatFSZGDC"
+    aria-labelledby="accordion-PKh_3qOckrVJrOp8x3QS7"
+    class="_body_gunaa_29 _animate_gunaa_34 _close_gunaa_41"
+    id="accordion-body-I9AkrpFulPItHQJP0GsCs"
     style="--title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
   >
     <p>

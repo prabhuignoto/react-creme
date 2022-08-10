@@ -32,11 +32,15 @@ describe('Pin', () => {
     });
 
     fireEvent.change(inputs[1], { target: { value: '2' } });
-    fireEvent.change(inputs[2], { target: { value: '3' } });
-    fireEvent.change(inputs[3], { target: { value: '4' } });
 
     await waitFor(() => {
-      expect(onChange).toHaveBeenCalledWith(1234);
+      expect(onChange).toHaveBeenCalledWith(12);
+    });
+
+    fireEvent.change(inputs[2], { target: { value: '3' } });
+
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalledWith(123);
     });
   });
 

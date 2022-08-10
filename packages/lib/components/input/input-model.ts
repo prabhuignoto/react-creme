@@ -54,6 +54,21 @@ export interface InputProps {
   isAutoComplete?: boolean;
 
   /**
+   * 🔴 maximum value when the type is number
+   */
+  max?: number;
+
+  /**
+   * 🔴 maximum length of the Input
+   */
+  maxLength?: number;
+
+  /**
+   * 🔴 minimum value when the type is number
+   */
+  min?: number;
+
+  /**
    * 🔴 When enabled, the id needs to be manually passed
    */
   noUniqueId?: boolean;

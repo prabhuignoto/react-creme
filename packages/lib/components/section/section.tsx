@@ -44,6 +44,7 @@ const Section: React.FC<SectionProps> = ({
         [styles.no_padding]: noPadding,
         [styles.no_title]: !title,
         [styles.rtl]: RTL,
+        [styles[`body_${size}`]]: true,
       }),
     [layout, title]
   );
@@ -77,9 +78,9 @@ const Section: React.FC<SectionProps> = ({
   }, []);
 
   return (
-    <div style={sectionStyle} className={sectionClass} role="">
+    <div style={sectionStyle} className={sectionClass}>
       {getTitle && (
-        <div className={headerClass} id={getId} role="heading">
+        <div className={headerClass} id={getId} role="heading" aria-level={3}>
           {getTitle}
         </div>
       )}

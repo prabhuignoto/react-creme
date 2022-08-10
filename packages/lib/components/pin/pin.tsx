@@ -10,16 +10,8 @@ import {
 } from 'react';
 import { InputNumber } from '..';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { PinProps } from './pin.model';
 import styles from './pin.module.scss';
-
-export type PinProps = {
-  RTL?: boolean;
-  autoJump?: boolean;
-  border?: boolean;
-  length?: number;
-  onChange?: (val: number) => void;
-  size?: 'sm' | 'md' | 'lg';
-};
 
 const Pin: FunctionComponent<PinProps> = ({
   length = 4,
@@ -35,7 +27,7 @@ const Pin: FunctionComponent<PinProps> = ({
     }))
   );
 
-  const [val, setVal] = useState<string>('');
+  const [pinVal, setPinVal] = useState<string | null>(null);
   const isFirstRender = useFirstRender();
 
   const wrapperClass = useMemo(
@@ -45,6 +37,12 @@ const Pin: FunctionComponent<PinProps> = ({
 
   const wrapperRef = useRef<HTMLUListElement | null>(null);
 
+  const onRefLoad = useCallback((node: HTMLUListElement) => {
+    if (node) {
+      wrapperRef.current = node;
+    }
+  }, []);
+
   const handleChange = useCallback(
     (val: number, index: number) => {
       if (!Number.isNaN(val)) {
@@ -52,17 +50,31 @@ const Pin: FunctionComponent<PinProps> = ({
           const ele = wrapperRef.current.querySelectorAll('li')[index + 1];
           ele.querySelector('input')?.focus();
         }
-        setVal(prev => prev + val);
+        setPinVal(prev => (prev || '') + val);
       }
     },
-    [val]
+    [pinVal]
+  );
+
+  const handleDelete = useCallback(
+    (idx: number) => {
+      const _val = pinVal && pinVal.slice(0, idx);
+
+      if (_val && _val.length < length && idx > 0 && autoJump) {
+        wrapperRef.current
+          ?.querySelectorAll('li')
+          [idx - 1].querySelector('input')
+          ?.focus();
+      }
+    },
+    [pinVal]
   );
 
   useEffect(() => {
-    if (!isFirstRender.current) {
-      onChange?.(Number.parseInt(val));
+    if (!isFirstRender.current && pinVal) {
+      onChange?.(Number.parseInt(pinVal));
     }
-  }, [val]);
+  }, [pinVal]);
 
   const inputWrapperClass = useMemo(
     () => classNames(styles.input_wrapper, { [styles[size]]: true }),
@@ -70,17 +82,21 @@ const Pin: FunctionComponent<PinProps> = ({
   );
 
   return (
-    <ul className={wrapperClass} ref={wrapperRef}>
+    <ul className={wrapperClass} ref={onRefLoad}>
       {items.current.map(({ id }, index) => (
         <li key={id} className={styles.item}>
           <div className={inputWrapperClass}>
             <InputNumber
               size={size}
-              onChange={val => handleChange(val, index)}
+              onChange={value => handleChange(value, index)}
               disableControls
               value={NaN}
               honorBoundaries={false}
               border={border}
+              onDelete={() => handleDelete(index)}
+              start={1}
+              end={9}
+              maxLength={1}
             />
           </div>
         </li>

@@ -4,6 +4,7 @@ import {
   Accent,
   Default,
   Error,
+  MaxLength,
   RTL,
   Success,
   WithBorder,
@@ -54,6 +55,14 @@ function Widgets() {
         </BlockQuote>
         <DemoWidget name="Input" width={200}>
           {Accent}
+        </DemoWidget>
+      </Section>
+      <Section title="Max length" size="md">
+        <BlockQuote>
+          Inputs can be configured to have a maximum length.
+        </BlockQuote>
+        <DemoWidget name="Input" width={200}>
+          {MaxLength}
         </DemoWidget>
       </Section>
     </div>
