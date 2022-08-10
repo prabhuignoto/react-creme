@@ -9,6 +9,7 @@ $dark-mode: theme.$dark_mode;
   color: theme.$black;
   height: 100%;
   text-transform: capitalize;
+  width: 100%;
 
   &.dark {
     background: rgba(theme.$charcoal-gray, 0.5);
@@ -18,7 +19,6 @@ $dark-mode: theme.$dark_mode;
     background: rgba(theme.$secondary-rgb, 0.5);
   }
 
-  width: 100%;
   // &:not(:last-child) {
   // }
 
