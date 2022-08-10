@@ -58,7 +58,9 @@ const Pin: FunctionComponent<PinProps> = ({
 
   const handleDelete = useCallback(
     (idx: number) => {
-      if (pinVal && pinVal.length < length && idx > 0) {
+      const _val = pinVal && pinVal.slice(0, idx);
+
+      if (_val && _val.length < length && idx > 0 && autoJump) {
         wrapperRef.current
           ?.querySelectorAll('li')
           [idx - 1].querySelector('input')

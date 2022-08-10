@@ -25,3 +25,5 @@ export const Accent = (
     <ChevronRightIcon />
   </Input>
 );
+
+export const MaxLength = <Input maxLength={5}></Input>;

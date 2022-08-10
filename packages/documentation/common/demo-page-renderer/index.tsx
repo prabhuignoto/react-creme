@@ -85,11 +85,17 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
           {
             formatter: val => (val ? `<em>${val}</em>` : ''),
             name: 'name',
+            searchable: true,
             sortable: true,
             type: 'string',
             width: width[0],
           },
-          { name: 'description', type: 'string', width: width[1] },
+          {
+            name: 'description',
+            searchable: true,
+            type: 'string',
+            width: width[1],
+          },
           {
             formatter: val => (val ? `<em>${val}</em>` : ''),
             name: 'default',
@@ -104,11 +110,12 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
           {
             formatter: val => (val ? `<em>${val}</em>` : ''),
             name: 'name',
+            searchable: true,
             sortable: true,
             type: 'string',
             width: 150,
           },
-          { name: 'description', type: 'string' },
+          { name: 'description', searchable: true, type: 'string' },
           {
             formatter: val => (val ? `<em>${val}</em>` : ''),
             name: 'default',

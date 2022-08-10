@@ -44,6 +44,13 @@ function InputNumber() {
           optional: 'Yes',
           type: 'boolean',
         },
+        {
+          default: 'Number.MAX_VALUE',
+          description: 'The maximum length of the input.',
+          name: 'maxLength',
+          optional: 'Yes',
+          type: 'number',
+        },
       ]}
       callbacks={[
         {

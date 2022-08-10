@@ -7,7 +7,10 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { useDebouncedCallback } from 'use-debounce';
+import { SearchIcon } from '../../icons';
 import { isDark } from '../common/utils';
+import { Input } from '../input/input';
 import { DataGridHeader } from './data-grid-header';
 import {
   DataGridColumn,
@@ -58,6 +61,8 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
 
   const [width, setWidth] = useState(gridWidth);
 
+  const [searchInput, setSearchInput] = useState('');
+
   const [sortData, setSortData] = useState<{
     column?: string;
     dir?: SortDirection;
@@ -82,6 +87,11 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
       [styles.dark]: isDarkMode,
     });
   }, []);
+
+  const searchableColumns = useMemo(
+    () => columns.filter(col => col.searchable).map(c => c.name),
+    []
+  );
 
   const handleSort = useCallback((column: string, dir: SortDirection) => {
     setSortData({ column, dir });
@@ -147,7 +157,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
     [width, columnWidth]
   );
 
-  const sortedData = useMemo(() => {
+  const sortedData = useMemo<Record[]>(() => {
     return rowData.current.sort((a, b) => {
       if (sortData.dir === 'asc' && sortData.column) {
         if (a[sortData.column] < b[sortData.column]) {
@@ -171,8 +181,45 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
     });
   }, [sortData.dir]);
 
+  const filteredData = useMemo(() => {
+    if (searchInput) {
+      const searchRegExp = new RegExp(searchInput, 'ig');
+
+      return sortedData.filter(dat => {
+        const keys = Object.keys(dat);
+        return keys.some(key =>
+          (String(dat[key]) as string).match(searchRegExp)
+        );
+      });
+    } else {
+      return sortedData;
+    }
+  }, [sortedData.length, searchableColumns.length, searchInput]);
+
+  const searchable = useMemo(
+    () => searchableColumns.length > 0,
+    [searchableColumns.length]
+  );
+
+  const handleSearchInput = useDebouncedCallback(
+    (val: string) => setSearchInput(val),
+    350
+  );
+
   return (
     <div className={gridClass} ref={onRef} role="table">
+      {searchable ? (
+        <div className={styles.data_grid_search_box_wrapper}>
+          <Input
+            placeholder="Search..."
+            onChange={handleSearchInput}
+            accent="rounded"
+            size={size}
+          >
+            <SearchIcon />
+          </Input>
+        </div>
+      ) : null}
       <DataGridHeader
         columns={columns}
         style={style}
@@ -180,8 +227,9 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         layoutStyle={layoutStyle}
         border={border}
         size={size}
+        searchable={searchable}
       />
-      {sortedData.map(row => {
+      {filteredData.map(row => {
         return (
           <DataGridRow
             data={row}

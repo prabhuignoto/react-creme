@@ -7,6 +7,7 @@ export type InputNumberProps = {
   end?: number;
   focusable?: boolean;
   honorBoundaries?: boolean;
+  label?: string;
   maxLength?: number;
   onChange?: (value: number) => void;
   onDelete?: () => void;

@@ -85,32 +85,4 @@ describe('Input Number', () => {
       expect(getByDisplayValue('5')).toBeInTheDocument();
     }
   );
-
-  it('should increment or decrement on keyboard interaction', async () => {
-    const { getByLabelText, getByDisplayValue } = render(
-      <InputNumber start={1} end={10} placeholder="choose a value" />,
-      {
-        container: document.body,
-      }
-    );
-
-    const wrapper = getByLabelText('choose a value');
-
-    const input = wrapper.querySelector('input');
-
-    if (input) {
-      expect(input).toBeInTheDocument();
-      fireEvent.keyUp(input);
-
-      await waitFor(() => {
-        expect(input).toHaveValue('2');
-      });
-
-      fireEvent.keyUp(input);
-
-      await waitFor(() => {
-        expect(getByDisplayValue('3')).toBeInTheDocument();
-      });
-    }
-  });
 });

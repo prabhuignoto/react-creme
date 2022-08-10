@@ -77,7 +77,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
                   layoutStyle={'comfortable'}
                   columns={columns}
                   data={properties}
-                  border
+                  // border
                   rowHeight={68}
                 />
               </Section>
@@ -87,7 +87,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
                     layoutStyle={'comfortable'}
                     columns={columns}
                     data={callbacks}
-                    border
+                    // border
                     rowHeight={68}
                   />
                 </Section>

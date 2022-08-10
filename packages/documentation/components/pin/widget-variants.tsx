@@ -1,6 +1,6 @@
 import { Pin } from '../../../lib/components';
 
-export const Default = <Pin />;
+export const Default = <Pin autoJump />;
 export const CustomLength = (
   <Pin length={5} onChange={val => console.log(val)} />
 );

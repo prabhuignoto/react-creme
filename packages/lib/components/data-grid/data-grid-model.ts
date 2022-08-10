@@ -10,6 +10,7 @@ export interface DataGridColumn {
   formatter?: (value: string | number) => string | number;
   id?: string;
   name: string;
+  searchable?: boolean;
   sortOrder?: string;
   sortable?: boolean;
   type?: 'string' | 'number';
@@ -57,6 +58,7 @@ export type DataGridHeaderProps = Pick<
 > & {
   columnWidth?: number;
   onSort?: (column: string, dir: SortDirection) => void;
+  searchable?: boolean;
   style?: CSSProperties;
 };
 

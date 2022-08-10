@@ -22,12 +22,15 @@ $dark-mode: theme.$dark_mode;
     width: calc(100% - 1px);
   }
 
-  &:first-child {
+  &:not(.searchable):first-child {
     border-top-left-radius: 4px;
   }
 
-  &:last-child {
+  &:not(.searchable):last-child {
     border-top-right-radius: 4px;
+  }
+
+  &:last-child {
     width: 100%;
   }
 

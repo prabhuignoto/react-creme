@@ -17,6 +17,7 @@ const DataGridDemo: React.FunctionComponent = () => {
       features={[
         'Supports two layouts. Comfortable or Compact',
         'Sortable',
+        'Quick Search',
         'Two different outlooks for the table via the border property',
         'Zebra rendering',
       ]}

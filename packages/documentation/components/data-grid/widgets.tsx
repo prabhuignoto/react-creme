@@ -50,7 +50,7 @@ function widgets() {
           In Comfortable mode, the display density is set to high and is
           preferable for better readability.
         </BlockQuote>
-        <DemoWidget name="DataGrid" width={width}>
+        <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="comfortable"
             border
@@ -66,7 +66,7 @@ function widgets() {
           for smaller viewport and when you want to cramp in more rows in the
           grid.
         </BlockQuote>
-        <DemoWidget name="DataGrid" width={width}>
+        <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="compact"
             fixedHeight
@@ -80,7 +80,7 @@ function widgets() {
         <BlockQuote>
           Individual columns can be configured to be sortable.
         </BlockQuote>
-        <DemoWidget name="DataGrid" width={width}>
+        <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="comfortable"
             border
@@ -100,12 +100,31 @@ function widgets() {
           Use the <code>zebra</code> property to alternate the background color
           of the rows.
         </BlockQuote>
-        <DemoWidget name="DataGrid" width={width}>
+        <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="comfortable"
             zebra
             columns={columns}
             data={data}
+          />
+        </DemoWidget>
+      </Section>
+      <Section title="Searchable Grid" size="md">
+        <BlockQuote>
+          Use the <code>searchable</code> property to enable search
+          functionality in the grid.
+        </BlockQuote>
+        <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
+          <DataGrid
+            layoutStyle="comfortable"
+            columns={columns.map(x => {
+              if (x.name === 'name') {
+                return { ...x, searchable: true };
+              } else {
+                return x;
+              }
+            })}
+            data={data.slice(0)}
           />
         </DemoWidget>
       </Section>
