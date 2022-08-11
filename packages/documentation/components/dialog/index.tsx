@@ -1,8 +1,10 @@
 import { faWindowMaximize } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
-import Widgets from './dialog-widgets';
+
+const Widgets = React.lazy(() => import('./dialog-widgets'));
 
 function dialog() {
   return (

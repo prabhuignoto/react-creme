@@ -59,7 +59,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
             <CSSTransition
               key={tabTitles.join('')}
               classNames="widget-fade"
-              timeout={300}
+              timeout={500}
             >
               {media?.isMobile || media?.isTablet || media?.isDesktop ? (
                 Demo

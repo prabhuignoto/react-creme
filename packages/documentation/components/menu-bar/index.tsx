@@ -1,5 +1,7 @@
+import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
-import Widgets from './widgets';
+
+const Widgets = React.lazy(() => import('./widgets'));
 
 function menu() {
   return (
