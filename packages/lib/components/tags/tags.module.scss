@@ -93,7 +93,8 @@ $padding-sizes: (
 
   &.dark {
     @extend %border-radius;
-    background-color: theme.$charcoal-gray;
+    @extend %shadow-inset;
+    background-color: theme.$cod-gray;
     color: theme.$white;
   }
 }

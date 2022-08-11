@@ -38,7 +38,7 @@ $sizes: (sm, md, lg);
   }
 
   &:hover {
-    background: theme.$charcoal-gray;
+    background: theme.$primary;
   }
 }
 
@@ -56,7 +56,7 @@ $sizes: (sm, md, lg);
   color: theme.$white;
 
   &.dark {
-    background-color: theme.$charcoal-gray;
+    background-color: theme.$primary;
   }
 
   &:not(.dark) {

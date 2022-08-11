@@ -13,7 +13,6 @@
   }
 
   &:not(.dark) {
-    @extend %shadow-inset;
     @extend %border;
     background: theme.$white;
   }
