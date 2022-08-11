@@ -22,7 +22,7 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
   ({
     children,
     layout = 'vertical',
-    showCodeByDefault = true,
+    showCodeByDefault = false,
     customTitle = 'Show Code',
     width,
     height,

@@ -134,7 +134,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
   }, [expanded]);
 
   useEffect(() => {
-    if (children) {
+    if (children && open) {
       const height = ref.current?.scrollHeight;
 
       if (height && autoSetBodyHeight) {
@@ -143,7 +143,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
 
       onRendered?.();
     }
-  }, [children]);
+  }, [children, open]);
 
   const ARIA = useMemo(
     () =>
@@ -187,7 +187,13 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
         id={accordionBodyId.current}
         aria-labelledby={accordionID.current}
       >
-        {children}
+        {open ? (
+          children
+        ) : (
+          <div
+            style={{ height: `${bodyHeight}px`, visibility: 'hidden' }}
+          ></div>
+        )}
       </div>
     </div>
   );
