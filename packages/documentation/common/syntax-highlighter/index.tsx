@@ -31,8 +31,10 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
     [theme.darkMode]
   );
 
+  const codeString = useMemo(() => (wrap ? wrapCode(code) : code), []);
+
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(code as string);
+    await navigator.clipboard.writeText(codeString);
     setShowNotification(true);
   };
 
@@ -71,7 +73,7 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
         // wrapLongLines
         wrapLines
       >
-        {wrap ? wrapCode(name, code) : code}
+        {codeString}
       </SyntaxHighlighter>
     </div>
   );
