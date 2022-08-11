@@ -19,7 +19,7 @@ $heights: (
     @extend %border;
   }
 
-  &:not(.border) {
+  &:not(.border):not(.dark) {
     box-shadow: inset 0 0 3px 1px rgba($color: theme.$alto, $alpha: 0.5);
   }
 

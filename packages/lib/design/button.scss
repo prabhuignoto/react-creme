@@ -68,8 +68,8 @@
 %button-default {
   &.dark {
     @include get-button-type(
+      theme.$cod-gray,
       theme.$primary,
-      theme.$secondary,
       theme.$white,
       theme.$white
     );
