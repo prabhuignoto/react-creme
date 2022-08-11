@@ -9,16 +9,16 @@ describe('Tree', () => {
         name: 'one',
         nodes: [{ name: 'two', nodes: [{ name: 'three' }] }],
       },
+      { name: 'three' },
+      { name: 'four' },
     ];
 
-    const { getByText } = render(<Tree nodes={data} />, {
-      container: document.body,
-    });
+    const { getByText } = render(<Tree nodes={data} />);
 
     await waitFor(() => {
       expect(getByText('one')).toBeInTheDocument();
-      expect(getByText('two')).toBeInTheDocument();
       expect(getByText('three')).toBeInTheDocument();
+      expect(getByText('four')).toBeInTheDocument();
     });
   });
 
