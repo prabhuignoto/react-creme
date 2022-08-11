@@ -16,7 +16,7 @@ import { DemoPageTabs } from './demo-page-tabs';
 
 export interface DemoPageRendererProps {
   callbacks?: any[];
-  demoWidget: React.ReactNode;
+  demoWidget: any;
   description?: string | React.ReactNode;
   editId?: string;
   features?: string[];

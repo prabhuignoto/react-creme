@@ -1,7 +1,6 @@
-import { CSSProperties, FunctionComponent, memo, ReactNode } from 'react';
+import React, { CSSProperties, FunctionComponent, memo } from 'react';
 import { Accordion } from '../../../lib/components/accordion/accordion';
 import { CodeIcon } from '../../../lib/icons';
-import { Code } from '../syntax-highlighter/syntax';
 
 interface WidgetProps {
   children?: React.ReactNode;
@@ -17,18 +16,7 @@ interface WidgetProps {
   width?: string | number;
 }
 
-const CodeString: FunctionComponent<{
-  children?: ReactNode;
-  code?: string;
-  component?: ReactNode;
-  name?: string;
-}> = ({ code, name, component, children }) => {
-  return code ? (
-    <Code code={code} name={name} />
-  ) : (
-    <Code name={name}>{component || children}</Code>
-  );
-};
+const LazyCodeString = React.lazy(() => import('./code-string'));
 
 const DemoWidget: FunctionComponent<WidgetProps> = memo(
   ({
@@ -62,26 +50,36 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
           {children}
         </div>
         <div style={{ width: '100%' }}>
-          {!showCodeByDefault ? (
-            <Accordion
-              title={customTitle}
-              border={false}
-              focusable={false}
-              expanded={showCodeByDefault}
-              disableCollapse={showCodeByDefault}
-              disableIcon={showCodeByDefault}
-              customIcon={<CodeIcon />}
-              size="sm"
-            >
-              <CodeString name={name} code={codeString} component={component}>
+          <React.Suspense>
+            {!showCodeByDefault ? (
+              <Accordion
+                title={customTitle}
+                border={false}
+                focusable={false}
+                expanded={showCodeByDefault}
+                disableCollapse={showCodeByDefault}
+                disableIcon={showCodeByDefault}
+                customIcon={<CodeIcon />}
+                size="sm"
+              >
+                <LazyCodeString
+                  name={name}
+                  code={codeString}
+                  component={component}
+                >
+                  {children}
+                </LazyCodeString>
+              </Accordion>
+            ) : (
+              <LazyCodeString
+                name={name}
+                code={codeString}
+                component={component}
+              >
                 {children}
-              </CodeString>
-            </Accordion>
-          ) : (
-            <CodeString name={name} code={codeString} component={component}>
-              {children}
-            </CodeString>
-          )}
+              </LazyCodeString>
+            )}
+          </React.Suspense>
         </div>
       </div>
     );
