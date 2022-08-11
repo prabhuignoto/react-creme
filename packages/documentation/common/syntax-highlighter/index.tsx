@@ -21,7 +21,6 @@ const wrapCode = (name?: string, code?: string) =>
 
 const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
   code,
-  name,
   wrap = true,
 }) => {
   const [showNotification, setShowNotification] = useState(false);
