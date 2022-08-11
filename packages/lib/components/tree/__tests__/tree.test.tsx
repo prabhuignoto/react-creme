@@ -3,7 +3,7 @@ import { vi } from 'vitest';
 import { Tree } from '../tree';
 
 describe('Tree', () => {
-  it.concurrent('should render tree', async () => {
+  it('should render tree', async () => {
     const data = [
       {
         name: 'one',
@@ -11,15 +11,18 @@ describe('Tree', () => {
       },
     ];
 
-    const { getAllByRole } = render(<Tree nodes={data} />);
+    const { getByText } = render(<Tree nodes={data} />, {
+      container: document.body,
+    });
 
     await waitFor(() => {
-      expect(getAllByRole('treeitem')).toHaveLength(3);
-      expect(getAllByRole('tree')).toHaveLength(3);
+      expect(getByText('one')).toBeInTheDocument();
+      expect(getByText('two')).toBeInTheDocument();
+      expect(getByText('three')).toBeInTheDocument();
     });
   });
 
-  it.concurrent('should have expanded  aria attribute', () => {
+  it('should have expanded  aria attribute', () => {
     const data = [
       {
         name: 'one',
@@ -35,7 +38,7 @@ describe('Tree', () => {
     );
   });
 
-  it.concurrent('should expand and collapse', async () => {
+  it('should expand and collapse', async () => {
     const data = [
       {
         name: 'one',
@@ -80,7 +83,7 @@ describe('Tree', () => {
   //   );
   // });
 
-  it.concurrent('should call the node on selection', () => {
+  it('should call the node on selection', () => {
     const data = [
       {
         name: 'one',
