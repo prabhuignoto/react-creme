@@ -22,6 +22,7 @@ const wrapCode = (name?: string, code?: string) =>
 const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
   code,
   wrap = true,
+  name,
 }) => {
   const [showNotification, setShowNotification] = useState(false);
   const theme = useRecoilValue(themeState);
@@ -30,7 +31,7 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
     [theme.darkMode]
   );
 
-  const codeString = useMemo(() => (wrap ? wrapCode(code) : code), []);
+  const codeString = useMemo(() => (wrap ? wrapCode(name, code) : code), []);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(codeString);
