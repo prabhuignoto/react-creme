@@ -41,7 +41,7 @@ importers:
       react: ^18.2.0
       react-dom: ^18.2.0
       sass: ^1.54.4
-      snyk: ^1.985.0
+      snyk: ^1.986.0
       stylelint: 14.10.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -89,7 +89,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       sass: 1.54.4
-      snyk: 1.985.0
+      snyk: 1.986.0
       stylelint: 14.10.0
       stylelint-config-prettier: 9.0.3_stylelint@14.10.0
       stylelint-config-sass-guidelines: 9.0.1_azcu7ozukcosyoqn57hruaqjcq
@@ -120,7 +120,7 @@ importers:
       '@types/react-instantsearch-dom': ^6.12.3
       '@types/react-syntax-highlighter': ^15.5.4
       '@types/react-transition-group': ^4.4.5
-      '@vitejs/plugin-react': 2.0.0
+      '@vitejs/plugin-react': 2.0.1
       algoliasearch: ^4.14.2
       autoprefixer: ^10.4.8
       classnames: ^2.3.1
@@ -142,12 +142,11 @@ importers:
       react-router-dom: ^6.3.0
       react-syntax-highlighter: ^15.5.0
       react-transition-group: ^4.4.5
-      recoil: ^0.7.4
+      recoil: ^0.7.5
       resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
       sass: ^1.54.4
-      shiki: ^0.10.1
-      snyk: ^1.985.0
+      snyk: ^1.986.0
       stylelint: 14.10.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -156,7 +155,7 @@ importers:
       typescript-plugin-css-modules: ^3.4.0
       use-debounce: ^8.0.3
       use-timer: ^2.0.1
-      vite: 3.0.5
+      vite: 3.0.6
       vite-plugin-react-svg: ^0.2.0
       vite-plugin-svgr: ^2.2.1
     dependencies:
@@ -180,9 +179,8 @@ importers:
       react-syntax-highlighter: 15.5.0_react@node_modules+react
       react-transition-group: 4.4.5_bglh42yvbqvbk55odclj6m3qri
       resize-observer-polyfill: 1.5.1
-      shiki: 0.10.1
       use-debounce: 8.0.3_react@node_modules+react
-      vite: 3.0.5_sass@1.54.4
+      vite: 3.0.6_sass@1.54.4
     devDependencies:
       '@axe-core/react': 4.4.3
       '@babel/core': 7.18.10
@@ -197,7 +195,7 @@ importers:
       '@types/react-instantsearch-dom': 6.12.3
       '@types/react-syntax-highlighter': 15.5.4
       '@types/react-transition-group': 4.4.5
-      '@vitejs/plugin-react': 2.0.0_vite@3.0.5
+      '@vitejs/plugin-react': 2.0.1_vite@3.0.6
       autoprefixer: 10.4.8_postcss@8.4.16
       cssnano: 5.1.12_postcss@8.4.16
       esbuild: 0.15.1
@@ -206,10 +204,10 @@ importers:
       postcss-prefixer: 2.1.3
       postcss-preset-env: 7.7.2_postcss@8.4.16
       prettier: 2.7.1
-      recoil: 0.7.4_bglh42yvbqvbk55odclj6m3qri
+      recoil: 0.7.5_bglh42yvbqvbk55odclj6m3qri
       rimraf: 3.0.2
       sass: 1.54.4
-      snyk: 1.985.0
+      snyk: 1.986.0
       stylelint: 14.10.0
       stylelint-config-prettier: 9.0.3_stylelint@14.10.0
       stylelint-config-sass-guidelines: 9.0.1_azcu7ozukcosyoqn57hruaqjcq
@@ -217,8 +215,8 @@ importers:
       typescript: 4.7.4
       typescript-plugin-css-modules: 3.4.0_typescript@4.7.4
       use-timer: 2.0.1_bglh42yvbqvbk55odclj6m3qri
-      vite-plugin-react-svg: 0.2.0_ky6phy2urfjgqw3tyhowrb5nwe
-      vite-plugin-svgr: 2.2.1_vite@3.0.5
+      vite-plugin-react-svg: 0.2.0_v2cdbtgviroclykxfvemwjpkx4
+      vite-plugin-svgr: 2.2.1_vite@3.0.6
 
   packages/lib:
     specifiers:
@@ -233,8 +231,7 @@ importers:
       '@types/react-syntax-highlighter': ^15.5.4
       '@types/react-transition-group': ^4.4.5
       '@types/testing-library__jest-dom': ^5.14.5
-      '@vitejs/plugin-react': 2.0.0
-      '@vitejs/plugin-react-refresh': ^1.3.6
+      '@vitejs/plugin-react': 2.0.1
       '@vitest/browser': ^0.21.1
       '@vitest/ui': ^0.21.1
       autoprefixer: ^10.4.8
@@ -260,7 +257,7 @@ importers:
       typescript: ^4.7.4
       typescript-plugin-css-modules: ^3.4.0
       use-debounce: ^8.0.3
-      vite: 3.0.5
+      vite: 3.0.6
       vitest: 0.21.1
       webpack: ^5.74.0
       webpack-bundle-analyzer: ^4.5.0
@@ -284,8 +281,7 @@ importers:
       '@types/react-syntax-highlighter': 15.5.4
       '@types/react-transition-group': 4.4.5
       '@types/testing-library__jest-dom': 5.14.5
-      '@vitejs/plugin-react': 2.0.0_vite@3.0.5
-      '@vitejs/plugin-react-refresh': 1.3.6
+      '@vitejs/plugin-react': 2.0.1_vite@3.0.6
       '@vitest/browser': 0.21.1
       '@vitest/ui': 0.21.1
       autoprefixer: 10.4.8_postcss@8.4.16
@@ -306,7 +302,7 @@ importers:
       ts-toolbelt: 9.6.0
       typescript: 4.7.4
       typescript-plugin-css-modules: 3.4.0_typescript@4.7.4
-      vite: 3.0.5
+      vite: 3.0.6
       vitest: 0.21.1_zq2ovoxig7iznd5uyxhk5sph2u
       webpack: 5.74.0_webpack-cli@4.10.0
       webpack-bundle-analyzer: 4.5.0
@@ -331,7 +327,7 @@ importers:
       '@types/node': ^18.7.1
       acorn: ^8.8.0
       babel-loader: ^8.2.5
-      chromatic: ^6.7.3
+      chromatic: ^6.7.4
       css-loader: 6.7.1
       postcss: ^8.4.16
       postcss-loader: 7.0.1
@@ -363,7 +359,7 @@ importers:
       '@types/node': 18.7.1
       acorn: 8.8.0
       babel-loader: 8.2.5_xc6oct4hcywdrbo4ned6ytbybm
-      chromatic: 6.7.3
+      chromatic: 6.7.4
       css-loader: 6.7.1_webpack@5.74.0
       postcss: 8.4.16
       postcss-loader: 7.0.1_qjv4cptcpse3y5hrjkrbb7drda
@@ -1931,7 +1927,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.18.10
-      '@babel/plugin-transform-react-jsx': 7.18.6_@babel+core@7.18.10
+      '@babel/plugin-transform-react-jsx': 7.18.10_@babel+core@7.18.10
 
   /@babel/plugin-transform-react-jsx-self/7.18.6_@babel+core@7.18.10:
     resolution:
@@ -1991,7 +1987,6 @@ packages:
       '@babel/helper-plugin-utils': 7.18.9
       '@babel/plugin-syntax-jsx': 7.18.6_@babel+core@7.18.10
       '@babel/types': 7.18.10
-    dev: true
 
   /@babel/plugin-transform-react-jsx/7.18.6_@babel+core@7.18.10:
     resolution:
@@ -3139,7 +3134,7 @@ packages:
       }
     dev: true
 
-  /@rollup/plugin-inject/4.0.4_rollup@2.77.2:
+  /@rollup/plugin-inject/4.0.4_rollup@2.77.3:
     resolution:
       {
         integrity: sha512-4pbcU4J/nS+zuHk+c+OL3WtmEQhqxlZ9uqfjQMQDOHOPld7PsCd8k5LWs8h5wjwJN7MgnAn768F2sDxEP4eNFQ==,
@@ -3147,13 +3142,13 @@ packages:
     peerDependencies:
       rollup: ^1.20.0 || ^2.0.0
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.77.2
+      '@rollup/pluginutils': 3.1.0_rollup@2.77.3
       estree-walker: 2.0.2
       magic-string: 0.25.9
-      rollup: 2.77.2
+      rollup: 2.77.3
     dev: true
 
-  /@rollup/pluginutils/3.1.0_rollup@2.77.2:
+  /@rollup/pluginutils/3.1.0_rollup@2.77.3:
     resolution:
       {
         integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==,
@@ -3165,7 +3160,7 @@ packages:
       '@types/estree': 0.0.39
       estree-walker: 1.0.1
       picomatch: 2.3.1
-      rollup: 2.77.2
+      rollup: 2.77.3
     dev: true
 
   /@rollup/pluginutils/4.2.1:
@@ -5664,40 +5659,23 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: false
 
-  /@vitejs/plugin-react-refresh/1.3.6:
+  /@vitejs/plugin-react/2.0.1_vite@3.0.6:
     resolution:
       {
-        integrity: sha512-iNR/UqhUOmFFxiezt0em9CgmiJBdWR+5jGxB2FihaoJfqGt76kiwaKoVOJVU5NYcDWMdN06LbyN2VIGIoYdsEA==,
+        integrity: sha512-uINzNHmjrbunlFtyVkST6lY1ewSfz/XwLufG0PIqvLGnpk2nOIOa/1CACTDNcKi1/RwaCzJLmsXwm1NsUVV/NA==,
       }
-    engines: { node: '>=12.0.0' }
-    deprecated: This package has been deprecated in favor of @vitejs/plugin-react
-    dependencies:
-      '@babel/core': 7.18.10
-      '@babel/plugin-transform-react-jsx-self': 7.18.6_@babel+core@7.18.10
-      '@babel/plugin-transform-react-jsx-source': 7.18.6_@babel+core@7.18.10
-      '@rollup/pluginutils': 4.2.1
-      react-refresh: 0.10.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@vitejs/plugin-react/2.0.0_vite@3.0.5:
-    resolution:
-      {
-        integrity: sha512-zHkRR+X4zqEPNBbKV2FvWSxK7Q6crjMBVIAYroSU8Nbb4M3E5x4qOiLoqJBHtXgr27kfednXjkwr3lr8jS6Wrw==,
-      }
-    engines: { node: '>=14.18.0' }
+    engines: { node: ^14.18.0 || >=16.0.0 }
     peerDependencies:
       vite: ^3.0.0
     dependencies:
       '@babel/core': 7.18.10
-      '@babel/plugin-transform-react-jsx': 7.18.6_@babel+core@7.18.10
+      '@babel/plugin-transform-react-jsx': 7.18.10_@babel+core@7.18.10
       '@babel/plugin-transform-react-jsx-development': 7.18.6_@babel+core@7.18.10
       '@babel/plugin-transform-react-jsx-self': 7.18.6_@babel+core@7.18.10
       '@babel/plugin-transform-react-jsx-source': 7.18.6_@babel+core@7.18.10
       magic-string: 0.26.2
       react-refresh: 0.14.0
-      vite: 3.0.5_sass@1.54.4
+      vite: 3.0.6_sass@1.54.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7833,10 +7811,10 @@ packages:
     engines: { node: '>=10' }
     dev: true
 
-  /chromatic/6.7.3:
+  /chromatic/6.7.4:
     resolution:
       {
-        integrity: sha512-QVeP9LRj/4r/eVCyX+TybFEl7iyQ+6QzrkPChtoDhFw0B24B1y13Mya3FElltb+EPDsEG6V5VYzYnG+w/VPmaw==,
+        integrity: sha512-QW4i8RQsON0JVnFnRf+8y70aIJptvC0Oi/26YJ669Dl03WmJRpobNO5qWFPTiv3KFKMc1Qf6/qFsRVZCtn+bfA==,
       }
     hasBin: true
     dependencies:
@@ -10367,7 +10345,6 @@ packages:
       language-tags: 1.0.5
       minimatch: 3.1.2
       semver: 6.3.0
-    dev: false
 
   /eslint-plugin-node/11.1.0_eslint@8.21.0:
     resolution:
@@ -13499,6 +13476,7 @@ packages:
       {
         integrity: sha512-DRf0QjnNeCUds3xTjKlQQ3DpJD51GvDjJfnxUVWg6PZTo2otSm+slzNAxU/35hF8/oJIKoG9slq30JYOsF2azg==,
       }
+    dev: true
 
   /jsonfile/6.1.0:
     resolution:
@@ -14590,11 +14568,11 @@ packages:
       }
     dependencies:
       '@jspm/core': 2.0.0-beta.24
-      '@rollup/plugin-inject': 4.0.4_rollup@2.77.2
+      '@rollup/plugin-inject': 4.0.4_rollup@2.77.3
       acorn: 8.8.0
       esbuild: 0.14.54
       local-pkg: 0.4.2
-      rollup: 2.77.2
+      rollup: 2.77.3
     dev: true
 
   /move-concurrently/1.0.1:
@@ -17407,14 +17385,6 @@ packages:
       }
     dev: true
 
-  /react-refresh/0.10.0:
-    resolution:
-      {
-        integrity: sha512-PgidR3wST3dDYKr6b4pJoqQFpPGNKDSCDx4cZoshjXipw3LzO7mG1My2pwEzz2JVkF+inx3xRpDeQLFQGH/hsQ==,
-      }
-    engines: { node: '>=0.10.0' }
-    dev: true
-
   /react-refresh/0.11.0:
     resolution:
       {
@@ -17637,10 +17607,10 @@ packages:
       resolve: 1.22.1
     dev: true
 
-  /recoil/0.7.4_bglh42yvbqvbk55odclj6m3qri:
+  /recoil/0.7.5_bglh42yvbqvbk55odclj6m3qri:
     resolution:
       {
-        integrity: sha512-sCXvQGMfSprkNU4ZRkJV4B0qFQSURJMgsICqY1952WRlg66NMwYqi6n67vhnhn0qw4zHU1gHXJuMvRDaiRNFZw==,
+        integrity: sha512-GVShsj5+M/2GULWBs5WBJGcsNis/d3YvDiaKjYh3mLKXftjtmk9kfaQ8jwjoIXySCwn8/RhgJ4Sshwgzj2UpFA==,
       }
     peerDependencies:
       react: '>=16.13.1'
@@ -18113,10 +18083,10 @@ packages:
       estree-walker: 0.6.1
     dev: true
 
-  /rollup/2.77.2:
+  /rollup/2.77.3:
     resolution:
       {
-        integrity: sha512-m/4YzYgLcpMQbxX3NmAqDvwLATZzxt8bIegO78FZLl+lAgKJBd1DRAOeEiZcKOIOPjxE6ewHWHNgGEalFXuz1g==,
+        integrity: sha512-/qxNTG7FbmefJWoeeYJFbHehJ2HNWnjkAFRKzWN/45eNBBF/r8lo992CwcJXEzyVxs5FmfId+vTSTQDb+bxA+g==,
       }
     engines: { node: '>=10.0.0' }
     hasBin: true
@@ -18583,17 +18553,6 @@ packages:
       }
     engines: { node: '>=8' }
 
-  /shiki/0.10.1:
-    resolution:
-      {
-        integrity: sha512-VsY7QJVzU51j5o1+DguUd+6vmCmZ5v/6gYu4vyYAhzjuNQU6P/vmSy4uQaOhvje031qQMiW0d2BwgMH52vqMng==,
-      }
-    dependencies:
-      jsonc-parser: 3.1.0
-      vscode-oniguruma: 1.6.2
-      vscode-textmate: 5.2.0
-    dev: false
-
   /side-channel/1.0.4:
     resolution:
       {
@@ -18739,10 +18698,10 @@ packages:
       - supports-color
     dev: true
 
-  /snyk/1.985.0:
+  /snyk/1.986.0:
     resolution:
       {
-        integrity: sha512-znT9qMRf5VuZeRb4y4OoMjBeUkgeXyIkvb8KC2i6JPckKCiKgqInzB/uXRVieYlWQjUlMGlktfMizN3lJ/9vuQ==,
+        integrity: sha512-u61QevBUVWBUEaZhq+zElxLrLEuQ4tgWenzagTkmTgXqRAe/S5M4y7WJwQSHfie+qt6xn37BDl9/ACyH3XAFEg==,
       }
     engines: { node: '>=12' }
     hasBin: true
@@ -20815,7 +20774,7 @@ packages:
       vfile-message: 2.0.4
     dev: true
 
-  /vite-plugin-react-svg/0.2.0_ky6phy2urfjgqw3tyhowrb5nwe:
+  /vite-plugin-react-svg/0.2.0_v2cdbtgviroclykxfvemwjpkx4:
     resolution:
       {
         integrity: sha512-Qza30GSMb9SBp9Ma5Bq1O/GmZzkB97Tn6JJGPonuJ2h8NRZWESK69ux9lZHcdqekLnVxvDxabcJVOrygAeSyxQ==,
@@ -20827,13 +20786,13 @@ packages:
       '@svgr/core': 5.5.0
       '@svgr/plugin-jsx': 5.5.0
       '@svgr/plugin-svgo': 5.5.0
-      vite: 3.0.5_sass@1.54.4
+      vite: 3.0.6_sass@1.54.4
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
     dev: true
 
-  /vite-plugin-svgr/2.2.1_vite@3.0.5:
+  /vite-plugin-svgr/2.2.1_vite@3.0.6:
     resolution:
       {
         integrity: sha512-+EqwahbwjETJH/ssA/66dNYyKN1cO0AStq96MuXmq5maU7AePBMf2lDKfQna49tJZAjtRz+R899BWCsUUP45Fg==,
@@ -20843,15 +20802,15 @@ packages:
     dependencies:
       '@rollup/pluginutils': 4.2.1
       '@svgr/core': 6.3.1
-      vite: 3.0.5_sass@1.54.4
+      vite: 3.0.6_sass@1.54.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite/3.0.5:
+  /vite/3.0.6:
     resolution:
       {
-        integrity: sha512-bRvrt9Tw8EGW4jj64aYFTnVg134E8hgDxyl/eEHnxiGqYk7/pTPss6CWlurqPOUzqvEoZkZ58Ws+Iu8MB87iMA==,
+        integrity: sha512-pjfsWIzfUlQME/VAmU6SsjdHkTt6WAHysuqPkHDcjzNu6IGtxDSZ/VfRYOwHaCqX4M3Ivz0kxuSfAPM6gAIX+w==,
       }
     engines: { node: ^14.18.0 || >=16.0.0 }
     hasBin: true
@@ -20873,15 +20832,15 @@ packages:
       esbuild: 0.14.54
       postcss: 8.4.16
       resolve: 1.22.1
-      rollup: 2.77.2
+      rollup: 2.77.3
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vite/3.0.5_sass@1.54.4:
+  /vite/3.0.6_sass@1.54.4:
     resolution:
       {
-        integrity: sha512-bRvrt9Tw8EGW4jj64aYFTnVg134E8hgDxyl/eEHnxiGqYk7/pTPss6CWlurqPOUzqvEoZkZ58Ws+Iu8MB87iMA==,
+        integrity: sha512-pjfsWIzfUlQME/VAmU6SsjdHkTt6WAHysuqPkHDcjzNu6IGtxDSZ/VfRYOwHaCqX4M3Ivz0kxuSfAPM6gAIX+w==,
       }
     engines: { node: ^14.18.0 || >=16.0.0 }
     hasBin: true
@@ -20903,7 +20862,7 @@ packages:
       esbuild: 0.14.54
       postcss: 8.4.16
       resolve: 1.22.1
-      rollup: 2.77.2
+      rollup: 2.77.3
       sass: 1.54.4
     optionalDependencies:
       fsevents: 2.3.2
@@ -20948,7 +20907,7 @@ packages:
       local-pkg: 0.4.2
       tinypool: 0.2.4
       tinyspy: 1.0.0
-      vite: 3.0.5
+      vite: 3.0.6
     transitivePeerDependencies:
       - less
       - sass
@@ -20963,20 +20922,6 @@ packages:
         integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==,
       }
     dev: true
-
-  /vscode-oniguruma/1.6.2:
-    resolution:
-      {
-        integrity: sha512-KH8+KKov5eS/9WhofZR8M8dMHWN2gTxjMsG4jd04YhpbPR91fUj7rYQ2/XjeHCJWbg7X++ApRIU9NUwM2vTvLA==,
-      }
-    dev: false
-
-  /vscode-textmate/5.2.0:
-    resolution:
-      {
-        integrity: sha512-Uw5ooOQxRASHgu6C7GVvUxisKXfSgW4oFlO+aa+PAkgmH89O3CXxEEzNRNtHSqtXFTl0nAC1uYj0GMSH27uwtQ==,
-      }
-    dev: false
 
   /w3c-hr-time/1.0.2:
     resolution:

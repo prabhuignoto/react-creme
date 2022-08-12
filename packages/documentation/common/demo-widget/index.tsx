@@ -50,27 +50,17 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
           {children}
         </div>
         <div style={{ width: '100%' }}>
-          <React.Suspense>
-            {!showCodeByDefault ? (
-              <Accordion
-                title={customTitle}
-                border={false}
-                focusable={false}
-                expanded={showCodeByDefault}
-                disableCollapse={showCodeByDefault}
-                disableIcon={showCodeByDefault}
-                customIcon={<CodeIcon />}
-                size="sm"
-              >
-                <LazyCodeString
-                  name={name}
-                  code={codeString}
-                  component={component}
-                >
-                  {children}
-                </LazyCodeString>
-              </Accordion>
-            ) : (
+          {!showCodeByDefault ? (
+            <Accordion
+              title={customTitle}
+              border={false}
+              focusable={false}
+              expanded={showCodeByDefault}
+              disableCollapse={showCodeByDefault}
+              disableIcon={showCodeByDefault}
+              customIcon={<CodeIcon />}
+              size="sm"
+            >
               <LazyCodeString
                 name={name}
                 code={codeString}
@@ -78,8 +68,18 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
               >
                 {children}
               </LazyCodeString>
-            )}
-          </React.Suspense>
+            </Accordion>
+          ) : (
+            <React.Suspense>
+              <LazyCodeString
+                name={name}
+                code={codeString}
+                component={component}
+              >
+                {children}
+              </LazyCodeString>
+            </React.Suspense>
+          )}
         </div>
       </div>
     );
