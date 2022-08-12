@@ -16,7 +16,7 @@ interface WidgetProps {
   width?: string | number;
 }
 
-const LazyCodeString = React.lazy(() => import('./code-string'));
+import CodeString from './code-string';
 
 const DemoWidget: FunctionComponent<WidgetProps> = memo(
   ({
@@ -61,23 +61,17 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
               customIcon={<CodeIcon />}
               size="sm"
             >
-              <LazyCodeString
-                name={name}
-                code={codeString}
-                component={component}
-              >
-                {children}
-              </LazyCodeString>
+              <React.Suspense fallback={<span>loading ...</span>}>
+                <CodeString name={name} code={codeString} component={component}>
+                  {children}
+                </CodeString>
+              </React.Suspense>
             </Accordion>
           ) : (
-            <React.Suspense>
-              <LazyCodeString
-                name={name}
-                code={codeString}
-                component={component}
-              >
+            <React.Suspense fallback={<span>loading ...</span>}>
+              <CodeString name={name} code={codeString} component={component}>
                 {children}
-              </LazyCodeString>
+              </CodeString>
             </React.Suspense>
           )}
         </div>
