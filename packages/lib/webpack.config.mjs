@@ -1,14 +1,18 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
-const autoprefixer = require('autoprefixer');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
-const PostCSSpresetEnv = require('postcss-preset-env');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const pkg = require('./package.json');
-const CopyPlugin = require('copy-webpack-plugin');
-const { BannerPlugin } = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
+import autoprefixer from 'autoprefixer';
+import CopyPlugin from 'copy-webpack-plugin';
+import CSSNano from 'cssnano';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import path, { dirname } from 'path';
+import PostCSSpresetEnv from 'postcss-preset-env';
+import TerserPlugin from 'terser-webpack-plugin';
+import { fileURLToPath } from 'url';
+import webpack from 'webpack';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import pkg from './package.json' assert { type: 'json' };
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -17,12 +21,16 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 const config = {
   devtool: 'source-map',
   entry: './react-creme.ts',
+  experiments: {
+    outputModule: true,
+  },
   externals: [
     {
       react: 'react',
       'react-dom': 'react-dom',
     },
   ],
+  externalsType: 'module',
   module: {
     rules: [
       {
@@ -48,7 +56,7 @@ const config = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [autoprefixer(), PostCSSpresetEnv()],
+                plugins: [autoprefixer(), PostCSSpresetEnv(), CSSNano()],
               },
             },
           },
@@ -85,10 +93,13 @@ const config = {
   },
   output: {
     clean: true,
+    environment: {
+      module: true,
+    },
     filename: pkg.name + '.js',
     library: {
-      name: pkg.name,
-      type: 'umd',
+      // name: pkg.name,
+      type: 'module',
     },
     path: path.resolve(__dirname, 'dist'),
   },
@@ -108,7 +119,7 @@ const config = {
         },
       ],
     }),
-    new BannerPlugin({
+    new webpack.BannerPlugin({
       banner: `${pkg.name} v${pkg.version} | ${pkg.license} | ${pkg.homepage} | ${pkg.author}`,
     }),
     // Add your plugins here
@@ -119,7 +130,7 @@ const config = {
   },
 };
 
-module.exports = () => {
+export default () => {
   if (isProduction) {
     config.mode = 'production';
   } else {

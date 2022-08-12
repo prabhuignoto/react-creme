@@ -7,6 +7,7 @@
   },
   "description": "Modern UI Toolkit for React",
   "license": "MIT",
+  "type": "module",
   "publishConfig": {
     "cache": "cache/.npm",
     "registry": "https://registry.npmjs.org/"
@@ -18,8 +19,8 @@
     "design system"
   ],
   "scripts": {
-    "build": "npx cross-env NODE_ENV=production webpack --config webpack.config.js --progress",
-    "build:dev": "npx cross-env NODE_ENV=development webpack --config webpack.config.js --progress",
+    "build": "npx cross-env NODE_ENV=production webpack --config webpack.config.mjs --progress",
+    "build:dev": "npx cross-env NODE_ENV=development webpack --config webpack.config.mjs --progress",
     "ci": "pnpm lint && pnpm test-ci && pnpm build",
     "eslint": "eslint ./components/**/*.{tsx,ts}",
     "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
@@ -97,7 +98,7 @@
     "nth-check": "^2.0.1",
     "postcss": "^8.2.13"
   },
-  "main": "dist/react-creme.js",
+  "module": "dist/react-creme.js",
   "css": "dist/react-creme.css",
   "sideEffects": false
 }
