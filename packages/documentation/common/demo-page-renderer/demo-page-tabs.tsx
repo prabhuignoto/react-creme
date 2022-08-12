@@ -72,7 +72,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
         {canShowProperties ? (
           <div className={styles['rc-demo-prop-section']}>
             <Suspense fallback={<div></div>}>
-              <Section title="Properties">
+              <Section title="Properties" size="md">
                 <DataGrid
                   layoutStyle={'comfortable'}
                   columns={columns}
@@ -82,7 +82,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
                 />
               </Section>
               {callbacks && (
-                <Section title="Callbacks">
+                <Section title="Callbacks" size="md">
                   <DataGrid
                     layoutStyle={'comfortable'}
                     columns={columns}

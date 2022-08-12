@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "chromatic": "npx chromatic --project-token=571884165efd"
+    "build": "build-storybook",
+    "chromatic": "npx chromatic --project-token=571884165efd --allow-console-errors"
   },
   "author": "",
   "license": "MIT",
@@ -27,19 +28,26 @@
     "acorn": "^8.8.0",
     "babel-loader": "^8.2.5",
     "chromatic": "^6.7.4",
-    "css-loader": "6.7.1",
     "postcss": "^8.4.16",
     "postcss-loader": "7.0.1",
     "postcss-preset-env": "7.7.2",
     "sass": "^1.54.4",
-    "sass-loader": "13.0.2",
-    "style-loader": "3.3.1",
     "typescript": "^4.7.4",
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "sass-loader": "10.1.1",
+    "css-loader": "5.2.6",
+    "style-loader": "2.0.0"
   },
   "dependencies": {
     "react": "link:..\\..\\node_modules\\react",
     "react-dom": "link:..\\..\\node_modules\\react-dom"
+  },
+  "pnpm": {
+    "overrides": {
+      "sass-loader": "10.1.1",
+      "css-loader": "5.2.6",
+      "style-loader": "2.0.0"
+    }
   },
   "resolutions": {
     "glob-parent": "^5.1.2",
