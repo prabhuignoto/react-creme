@@ -1,0 +1,190 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/button.scss';
+@use '../../../design/animate.scss';
+@use '../../../design/position.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+$heights: (
+  sm: 30px,
+  md: 35px,
+  lg: 40px,
+);
+
+.input {
+  align-items: center;
+  justify-items: center;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+
+  &:not(.no_clear):not(.no_icon) {
+    display: grid;
+  }
+
+  &:not(.no_clear) {
+    display: grid;
+    grid-template-columns: 2rem calc(100% - 4rem) 2rem;
+  }
+
+  &.rtl {
+    direction: rtl;
+  }
+
+  &.border {
+    @extend %border;
+  }
+
+  &::after {
+    @include position.position-abs('center center');
+    border: 2px solid transparent;
+    border-radius: 4px;
+    content: '';
+    display: block;
+    height: 98%;
+    transition: border 0.1s ease-in, box-shadow 0.1s ease-in;
+    width: 98%;
+    z-index: -1;
+  }
+
+  &.focus::after {
+    border: 2px solid rgba(theme.$primary-rgb, 0.75);
+    box-shadow: 0 0 1px 4px rgba(theme.$primary-rgb, 0.2);
+  }
+
+  &:not(.border):not(.rounded) {
+    @extend %border-radius;
+  }
+
+  &.rounded {
+    @extend %border-radius-high;
+  }
+
+  &.transparent_bg_color {
+    background: transparent;
+  }
+
+  ::input-placeholder {
+    color: rgba($color: #000, $alpha: 0.35);
+    font-weight: 300;
+  }
+
+  ::placeholder {
+    font-weight: 300;
+  }
+
+  &.error.border {
+    @extend %border-error;
+  }
+
+  &.success {
+    @extend %border-success;
+  }
+
+  &.no_icon:not(.no_clear) {
+    display: grid;
+    grid-template-columns: calc(100% - 2rem) 2rem;
+  }
+
+  &.disabled {
+    @extend %disabled;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+}
+
+.input_text {
+  background: transparent;
+  border: 0;
+  height: 100%;
+  outline: 0;
+  padding: 0;
+  width: 100%;
+
+  &.input_dark {
+    color: theme.$white;
+  }
+
+  &:not(.input_dark) {
+    color: theme.$black;
+  }
+
+  &.align_center {
+    text-align: center;
+  }
+
+  &:not(.align_center):not(.with_icon):not(.RTL) {
+    padding-left: 1rem;
+  }
+
+  &:not(.align_center):not(.with_icon).RTL {
+    padding-right: 1rem;
+  }
+}
+
+.input:not(.border).default:not(.transparent_bg_color) {
+  &.input_dark {
+    background: theme.$gunmetal-gray;
+  }
+
+  &:not(.input_dark) {
+    background: theme.$light-bg;
+    box-shadow: inset 0 0 3px 1px rgba($color: theme.$alto, $alpha: 0.5);
+  }
+}
+
+@each $size in $sizes {
+  .#{$size} {
+    height: map.get($heights, $size);
+
+    input {
+      @extend %font-#{$size};
+    }
+
+    ::placeholder {
+      @extend %font-#{$size};
+    }
+
+    .icon {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.error:not(.border) {
+  border: 1px solid rgba(theme.$crimson, 0.5);
+
+  &.focus::after {
+    border: 2px solid theme.$crimson;
+    box-shadow: 0 0 1px 4px rgba(theme.$crimson, 0.25);
+  }
+}
+
+.success:not(.border) {
+  border: 1px solid rgba(theme.$success-green, 0.5);
+
+  &.focus::after {
+    border: 2px solid theme.$success-green;
+    box-shadow: 0 0 1px 4px rgba(theme.$success-green, 0.25);
+  }
+}
+
+.icon {
+  color: theme.$primary;
+}
+
+.clear {
+  color: theme.$primary;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+
+  &.hidden {
+    visibility: hidden;
+  }
+}

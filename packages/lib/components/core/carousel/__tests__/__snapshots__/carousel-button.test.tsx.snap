@@ -1,0 +1,34 @@
+// Vitest Snapshot v1
+
+exports[`Carousel Button > should render carousel button snapshot 1`] = `
+<div
+  aria-label="previous"
+  class="_sm_lbj5p_1 _icon_lbj5p_43 _btn_lbj5p_202"
+  role="button"
+  style="outline: none; position: relative;"
+  tabindex="0"
+>
+  <span
+    class="_icon_container_lbj5p_43"
+    role="img"
+  >
+    <svg
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9 18l6-6-6-6"
+      />
+    </svg>
+  </span>
+  <span
+    class="_focus_ring_4fy2t_1"
+    style="width: 6px; height: 6px;"
+  />
+</div>
+`;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { BlockQuote, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
+import Section from '../section';
 import {
   CustomIcon,
   Default,

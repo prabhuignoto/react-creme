@@ -1,0 +1,38 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+
+$transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
+
+.accordion {
+  @extend %col;
+  align-items: flex-start;
+  width: 100%;
+
+  &:not(.no-border) {
+    @extend %border;
+  }
+}
+
+.align-icon-rt {
+  direction: rtl;
+}
+
+.body {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
+
+  &.animate {
+    transition: $transition;
+  }
+
+  &.open {
+    max-height: var(--max-height, 100%);
+    opacity: 1;
+  }
+
+  &.close {
+    max-height: 0;
+    opacity: 0;
+  }
+}

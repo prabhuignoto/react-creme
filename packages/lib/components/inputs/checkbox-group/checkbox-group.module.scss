@@ -1,0 +1,12 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+
+.checkbox_group_wrapper {
+  &.checkbox_group_horizontal {
+    @extend %left;
+  }
+
+  &.checkbox_group_vertical {
+    @extend %col;
+  }
+}

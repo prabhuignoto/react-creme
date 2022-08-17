@@ -1,0 +1,74 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/position.scss';
+@use '../../../design/font.scss';
+@use 'sass:color';
+
+$sizes: (sm, md, lg);
+
+.block_quote {
+  align-items: center;
+  display: grid;
+  font-weight: 300;
+  grid-template-columns: 2rem auto;
+  justify-items: center;
+  margin: 0.5rem 0;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-top: 1rem;
+  text-align: left;
+
+  &.dark {
+    background: theme.$cod-gray;
+    border-left: 3px solid rgba(theme.$primary-rgb, 1);
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    background: rgba(theme.$secondary-rgb, 0.1);
+    border-left: 3px solid rgba(theme.$primary-rgb, 0.5);
+    color: theme.$black;
+  }
+
+  code {
+    @extend %border-radius;
+    background: rgba(theme.$primary-rgb, 0.75);
+    color: theme.$white;
+    display: inline-block;
+    font-style: normal;
+    margin: 0 0.2rem;
+    padding: 0 0.2rem;
+    position: relative;
+    text-decoration: none;
+    z-index: 0;
+  }
+
+  a {
+    display: inline-block;
+  }
+}
+
+@each $size in $sizes {
+  .block_quote_#{$size} {
+    .block_quote_icon {
+      @extend %icon-#{$size};
+    }
+
+    .block_quote_child_content {
+      @extend %font-#{$size};
+    }
+
+    code {
+      @extend %font-#{$size};
+    }
+  }
+}
+
+.block_quote_icon {
+  color: rgba(theme.$primary-rgb, 1);
+  margin-right: 0.5rem;
+}
+
+.block_quote_child_content {
+  justify-self: flex-start;
+}

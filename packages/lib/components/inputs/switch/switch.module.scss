@@ -1,0 +1,198 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/animate.scss';
+@use '../../../design/position.scss';
+@use '../../../design/font.scss';
+@use 'sass:map';
+
+$sizes: (
+  sm: (
+    height: 25px,
+    border-radius: 20px,
+  ),
+  md: (
+    height: 30px,
+    border-radius: 30px,
+  ),
+  lg: (
+    height: 35px,
+    border-radius: 40px,
+  ),
+);
+
+$knob-sizes: (
+  sm: 16px,
+  md: 20px,
+  lg: 24px,
+);
+
+$switch-width: (
+  sm: calc(map.get($knob-sizes, sm) * 3),
+  md: calc(map.get($knob-sizes, md) * 3),
+  lg: calc(map.get($knob-sizes, lg) * 3),
+);
+
+$start-left: 4px;
+
+.switch {
+  cursor: pointer;
+
+  min-width: 50px;
+  padding: 0.1rem;
+  user-select: none;
+  width: 100%;
+
+  &.disabled {
+    @extend %disabled;
+  }
+}
+
+.label_outside {
+  align-items: center;
+  display: grid;
+
+  @each $key, $value in $switch-width {
+    &.#{$key} {
+      grid-template-columns: $value calc(100% - $value);
+    }
+  }
+
+  &.dark {
+    color: theme.$white;
+  }
+}
+
+.disabled {
+  .knob {
+    box-shadow: none;
+  }
+}
+
+.track {
+  @extend %center;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+
+  @each $key, $val in $sizes {
+    &.#{$key} {
+      @each $attr, $value in $val {
+        #{$attr}: #{$value};
+      }
+
+      .label_on {
+        margin-right: map.get($knob-sizes, $key);
+      }
+
+      .label_off {
+        margin-left: map.get($knob-sizes, $key);
+      }
+    }
+  }
+}
+
+.track_on {
+  &.dark {
+    background: theme.$gunmetal-gray;
+    border: 1px solid theme.$gunmetal-gray;
+  }
+
+  &:not(.dark) {
+    @extend %shadow-inset-small;
+    @extend %border;
+  }
+}
+
+.track_off {
+  background-color: theme.$mercury;
+  border: 1px solid transparent;
+}
+
+.knob:not(.on):not(.on-load) {
+  @extend %shadow-small;
+
+  svg {
+    color: theme.$chinese-gray;
+  }
+}
+
+.knob {
+  @include animate.set-settings(0.2s);
+  @include position.position-abs('center left');
+  border-radius: 50%;
+  display: block;
+  left: $start-left;
+  transition: background-color 0.1s ease;
+  z-index: -1;
+
+  svg {
+    @include position.position-abs('center center');
+    color: theme.$white;
+    height: 75%;
+    width: 75%;
+  }
+
+  @each $key, $val in $knob-sizes {
+    &.knob_#{$key} {
+      $settings: (
+        from: (
+          left: $start-left,
+        ),
+        to: (
+          left: calc(100% - $val - 4px),
+        ),
+      );
+      background-color: theme.$white;
+      height: $val;
+      width: $val;
+
+      &.on_load {
+        background-color: theme.$primary;
+        left: calc(100% - $val - 4px);
+      }
+
+      &.disabled {
+        background-color: theme.$white;
+      }
+
+      &.on {
+        @extend %shadow-medium;
+        @include animate.set-keyframes(slide-right-#{$key}, $settings);
+        animation-name: slide-right-#{$key};
+        background-color: theme.$primary;
+        box-shadow: none;
+        left: calc(100% - $val - 4px);
+      }
+
+      &.off {
+        @include animate.set-keyframes(slide-left-#{$key}, $settings, true);
+        animation-name: slide-left-#{$key};
+        right: calc(100% - $val - 4px);
+      }
+    }
+  }
+}
+
+.label {
+  @extend %text-no-wrap;
+
+  &.label_on {
+    color: theme.$primary;
+  }
+
+  @each $key, $val in $sizes {
+    &.label_#{$key} {
+      @extend %font-#{$key};
+    }
+  }
+
+  &:not(.label_outside) {
+    @extend %center;
+  }
+
+  &.label_outside {
+    @extend %left;
+    margin-left: 0.5rem;
+  }
+}

@@ -1,0 +1,145 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+
+$compact-row-height: 35px;
+$comfortable-row-height: 50px;
+
+$sizes: (sm, md, lg);
+
+.data_grid {
+  @extend %col-left;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+
+  &.border {
+    @extend %border;
+  }
+}
+
+.row_zebra:nth-child(odd) {
+  .dark {
+    background-color: rgba(theme.$gunmetal-gray, 0.25);
+  }
+
+  &:not(.dark) {
+    background-color: rgba(theme.$light-bg, 0.75);
+  }
+}
+
+.row {
+  width: 100%;
+
+  &.row_compact {
+    min-height: var(--row-height, $compact-row-height);
+  }
+
+  &.row_comfortable {
+    min-height: var(--row-height, $comfortable-row-height);
+  }
+}
+
+.cell_border:not(:last-child) {
+  &.dark {
+    border-right: 1px solid theme.$charcoal-gray;
+  }
+
+  &:not(.dark) {
+    border-right: 1px solid theme.$secondary;
+  }
+}
+
+.row:not(:last-child):not(.row_zebra) {
+  &.dark {
+    border-bottom: 1px solid theme.$cod-gray;
+  }
+
+  &:not(.dark) {
+    border-bottom: 1px solid theme.$alto;
+  }
+}
+
+.row:hover {
+  &.dark {
+    background-color: theme.$cod-gray;
+  }
+
+  &:not(.dark) {
+    background-color: theme.$light-bg;
+  }
+}
+
+@each $size in $sizes {
+  .row_#{$size} {
+    .cell_val {
+      @extend %text-#{$size};
+    }
+  }
+}
+
+.cell {
+  @extend %center;
+  width: calc(100% - 1px);
+}
+
+.cell_val {
+  display: block;
+  line-height: 25px;
+  padding: 0.5rem 0;
+  padding-left: 0.25rem;
+  width: 90%;
+
+  &.header {
+    font-weight: 500;
+  }
+
+  &:not(.header) {
+    font-weight: 300;
+  }
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
+
+  &.cell_val_fixed {
+    @extend %text-no-wrap;
+  }
+
+  &:not(.cell_val_fixed) {
+    overflow-wrap: anywhere;
+  }
+
+  em,
+  code {
+    @extend %border-radius;
+    color: theme.$primary;
+    font-style: normal;
+    font-weight: 400;
+    padding: 0.1rem 0.25rem;
+  }
+}
+
+.cell_val:not(.dark) {
+  em,
+  code {
+    background-color: rgba(theme.$secondary-rgb, 0.25);
+  }
+}
+
+.cell_val.dark {
+  em,
+  code {
+    background-color: theme.$gunmetal-gray;
+  }
+}
+
+.data_grid_search_box_wrapper {
+  @extend %left;
+  margin: 0.5rem 0 1.5rem;
+  min-width: 300px;
+  padding-left: 0.5rem;
+}

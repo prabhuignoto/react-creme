@@ -1,0 +1,73 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/position.scss';
+@use '../../../design/animate.scss';
+
+$sizes: (sm, md, lg);
+
+.wrapper {
+  align-items: center;
+  column-gap: 0.25rem;
+  display: grid;
+  max-width: var(--max-width);
+  min-height: 35px;
+  min-width: 100px;
+
+  &.dark {
+    @extend %border-radius;
+    background-color: theme.$cod-gray;
+  }
+
+  &:not(.dark) {
+    @extend %border;
+    @extend %shadow-inset-small;
+  }
+
+  &.disabled {
+    @extend %disabled;
+  }
+
+  &:not(.rtl) {
+    grid-template-columns: calc(100% - 2rem) 1.75rem;
+  }
+}
+
+.rtl {
+  grid-template-columns: 1.75rem calc(100% - 2rem);
+
+  > :first-child {
+    order: 1;
+  }
+
+  > :last-child {
+    order: 0;
+    padding-left: 0.5rem;
+  }
+}
+
+@each $size in $sizes {
+  .#{$size} {
+    .icon {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.icon {
+  @extend %center;
+  cursor: pointer;
+  display: block;
+  position: relative;
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: var(--icon-color, theme.$primary);
+  }
+
+  &:hover {
+    background: theme.$secondary;
+  }
+}

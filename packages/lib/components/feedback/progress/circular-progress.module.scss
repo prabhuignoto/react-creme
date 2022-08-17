@@ -1,0 +1,86 @@
+@use '../../../design/theme';
+@use '../../../design/position';
+
+$sizes: (
+  xs: 16px,
+  sm: 32px,
+  md: 48px,
+  lg: 56px,
+);
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.circular_progress {
+  animation: spin 1s linear infinite;
+
+  border-radius: 100%;
+  display: block;
+  position: relative;
+  transform-origin: 50% 50%;
+  z-index: 0;
+
+  &.dark {
+    background: linear-gradient(
+      to right,
+      theme.$primary 50%,
+      theme.$black 50% 100%
+    );
+  }
+
+  &:not(.dark) {
+    background: linear-gradient(
+      to right,
+      theme.$primary 50%,
+      theme.$secondary 50% 100%
+    );
+  }
+
+  @each $key, $val in $sizes {
+    &.circular_progress_#{$key} {
+      height: #{$val};
+      width: #{$val};
+    }
+  }
+}
+
+.inner_circle_2 {
+  @include position.position-abs('center center');
+  border-radius: 50%;
+  display: block;
+  height: 85%;
+  width: 85%;
+  z-index: 2;
+
+  &.dark {
+    background: #000;
+  }
+
+  &:not(.dark) {
+    background: #fff;
+  }
+}
+
+.inner_circle_2::after {
+  @include position.position-abs('center center');
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 50%;
+  width: 50%;
+
+  &.dark {
+    background: #000;
+  }
+
+  &:not(.dark) {
+    background: #fff;
+  }
+}

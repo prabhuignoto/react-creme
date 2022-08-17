@@ -1,0 +1,15 @@
+{
+  "name": "@react-creme/core",
+  "version": "1.0.0",
+  "description": "React components for core",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prabhu Murthy",
+  "files": [
+    "dist/*"
+  ],
+  "module": "dist/core.js",
+  "css": "dist/core.css",
+  "sideEffects": false
+}

@@ -1,0 +1,168 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/animate.scss';
+@use '../../../design/position.scss';
+
+$sizes: (sm, md, lg);
+$arrow-dim-sm: 12px;
+$arrow-dim-md: 16px;
+$arrow-dim-lg: 20px;
+
+.wrapper {
+  @extend %center;
+
+  &:not(.fixed) {
+    position: relative;
+  }
+
+  &.fixed {
+    @include position.position-abs('center center');
+  }
+
+  &.static {
+    display: block;
+  }
+}
+
+.message {
+  $animation: (
+    from: (
+      opacity: 0,
+      visibility: hidden,
+    ),
+    to: (
+      opacity: 1,
+      visibility: visible,
+    ),
+  );
+
+  @extend %center;
+  @extend %border-radius;
+  @extend %shadow-medium;
+  @include animate.set-settings(0.25s);
+
+  @include animate.set-keyframes(animate_show, $animation);
+  @include animate.set-keyframes(animate_close, $animation, true);
+  background-color: var(-bg-color, theme.$white);
+  max-width: var(--max-width);
+  min-width: var(--min-width);
+  position: absolute;
+  visibility: hidden;
+  z-index: 99999;
+
+  &.dark::after {
+    background: theme.$gunmetal-gray;
+  }
+
+  &:not(.dark)::after {
+    background: theme.$white;
+  }
+
+  &.dark {
+    background: theme.$gunmetal-gray;
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    background: theme.$white;
+    color: var(--fore-color, theme.$primary);
+  }
+
+  &.show_tooltip {
+    animation-name: animate_show;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.hide_tooltip {
+    animation-name: animate_close;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.top_left::after,
+  &.top_center::after,
+  &.top_right::after {
+    bottom: -4px;
+  }
+
+  &.top_left::after,
+  &.bottom_left::after {
+    left: 15px;
+  }
+
+  &.top_right::after,
+  &.bottom_right::after {
+    right: 15px;
+  }
+
+  &.bottom_left::after,
+  &.bottom_center::after,
+  &.bottom_right::after {
+    top: -4px;
+  }
+
+  &.right_top::after,
+  &.right_center::after,
+  &.right_bottom::after {
+    left: -4px;
+  }
+
+  &.left_top::after,
+  &.left_center::after,
+  &.left_bottom::after {
+    right: -4px;
+  }
+
+  &.with_padding {
+    padding: 1rem;
+  }
+
+  &:not(.with_padding) {
+    padding: 0.5rem;
+  }
+}
+
+.message::after {
+  border-radius: 1px;
+  content: '';
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+@function get-arrow-dim($size) {
+  @if ($size == 'sm') {
+    @return $arrow-dim-sm;
+  } @else if($size == 'md') {
+    @return $arrow-dim-md;
+  } @else if($size == 'lg') {
+    @return $arrow-dim-lg;
+  }
+}
+
+@each $size in $sizes {
+  .message_#{$size} {
+    @extend %font-#{$size};
+    width: 90%;
+
+    &::after {
+      height: get-arrow-dim($size);
+      width: get-arrow-dim($size);
+    }
+
+    .close_btn {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.host_content {
+  @extend %center;
+}
+
+.close_btn_wrapper {
+  @include position.position-abs('top right');
+  right: 0.5rem;
+  top: 0.5rem;
+}

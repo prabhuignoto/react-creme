@@ -1,0 +1,50 @@
+@use '../../../design/core.scss';
+@use '../../../design/list.scss';
+@use '../../../design/theme.scss';
+
+.track {
+  &.track_horizontal {
+    @extend %center;
+    @extend %list-horizontal;
+  }
+
+  &.track_vertical {
+    @extend %list;
+    width: 3rem;
+  }
+}
+
+.track_item {
+  border-radius: 50%;
+  height: 10px;
+  margin: 4px;
+  width: 10px;
+
+  &.dark:not(.track_item_selected) {
+    background-color: theme.$gunmetal-gray;
+  }
+
+  &.track_item_selected {
+    background-color: theme.$primary;
+  }
+
+  &:not(.dark):not(.track_item_selected) {
+    background-color: theme.$alto;
+  }
+}
+
+.track_item:hover {
+  cursor: pointer;
+}
+
+.icon {
+  @extend %icon-md;
+}
+
+.track_wrapper_horizontal {
+  @extend %center;
+}
+
+.track_wrapper_vertical {
+  @extend %list;
+}

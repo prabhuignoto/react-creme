@@ -1,0 +1,138 @@
+// Vitest Snapshot v1
+
+exports[`Carousel > should render carousel snapshot 1`] = `
+<div
+  class="_container_i0c0i_1 _container_horizontal_i0c0i_16"
+>
+  <div
+    class="_wrapper_i0c0i_33 _wrapper_horizontal_i0c0i_37"
+    style="--min-height: 400px; --transition: cubic-bezier(0.55, 0.08, 0.68, 0.53);"
+  >
+    <ul
+      class="_carousel_i0c0i_56"
+      role="list"
+      style="transform: translateX(-0px); width: 0px;"
+    >
+      <li
+        aria-hidden="false"
+        class="_item_i0c0i_1"
+        data-visible="true"
+        role="listitem"
+        style="top: 0px; visibility: hidden; width: 0px;"
+      >
+        <div
+          class="_item_container_i0c0i_16"
+        >
+          <span>
+            one
+          </span>
+        </div>
+      </li>
+      <li
+        aria-hidden="true"
+        class="_item_i0c0i_1"
+        data-visible="false"
+        role="listitem"
+        style="top: 0px; visibility: hidden; width: 0px;"
+      >
+        <div
+          class="_item_container_i0c0i_16"
+        >
+          <span>
+            two
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="_track_wrapper_i0c0i_16 _track_wrapper_horizontal_i0c0i_48"
+  >
+    <div
+      class="_track_wrapper_i0c0i_16 _track_wrapper_horizontal_doir4_16"
+    >
+      <span
+        class="_btn_i0c0i_82 _btn_left_i0c0i_95 _btn_horizontal_i0c0i_85 _btn_hide_i0c0i_91"
+      >
+        <div
+          aria-label="Previous"
+          class="_sm_lbj5p_1 _icon_lbj5p_43 _btn_lbj5p_202"
+          role="button"
+          style="outline: none; position: relative;"
+          tabindex="0"
+        >
+          <span
+            class="_icon_container_lbj5p_43"
+            role="img"
+          >
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </span>
+          <span
+            class="_focus_ring_4fy2t_1"
+            style="width: 6px; height: 6px;"
+          />
+        </div>
+      </span>
+      <ul
+        class="_track_doir4_16 _track_horizontal_doir4_16"
+        role="list"
+      >
+        <li
+          class="_track_item_doir4_39 _track_item_selected_doir4_45"
+          role="listitem"
+        />
+        <li
+          class="_track_item_doir4_39"
+          role="listitem"
+        />
+      </ul>
+      <span
+        class="_btn_i0c0i_82 _btn_right_i0c0i_103 _btn_horizontal_i0c0i_85"
+      >
+        <div
+          aria-label="Next"
+          class="_sm_lbj5p_1 _icon_lbj5p_43 _btn_lbj5p_202"
+          role="button"
+          style="outline: none; position: relative;"
+          tabindex="0"
+        >
+          <span
+            class="_icon_container_lbj5p_43"
+            role="img"
+          >
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </span>
+          <span
+            class="_focus_ring_4fy2t_1"
+            style="width: 6px; height: 6px;"
+          />
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+`;

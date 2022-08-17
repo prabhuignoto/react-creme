@@ -1,0 +1,15 @@
+{
+  "name": "@react-creme/data",
+  "version": "1.0.0",
+  "description": "React components for inputs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prabhu Murthy",
+  "files": [
+    "dist/*"
+  ],
+  "module": "dist/data.js",
+  "css": "dist/data.css",
+  "sideEffects": false
+}

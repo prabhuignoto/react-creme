@@ -1,0 +1,17 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+
+.group {
+  @extend %col;
+  width: 100%;
+
+  &:not(.grp_no_border) {
+    @extend %border;
+  }
+}
+
+.group_item {
+  @extend %left;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}

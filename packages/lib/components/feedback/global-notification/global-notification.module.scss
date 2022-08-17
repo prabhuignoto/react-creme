@@ -1,0 +1,91 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/animate.scss';
+
+$sizes: (sm, md, lg);
+
+.global_notification {
+  @extend %center;
+  background: theme.$secondary;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  transition: height 0.2s cubic-bezier(0.075, 0.82, 0.165, 1),
+    top 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  width: 100%;
+  z-index: 99999;
+
+  &.success {
+    background: theme.$success-green;
+    color: theme.$white;
+  }
+
+  &.error {
+    background: theme.$crimson;
+    color: theme.$white;
+  }
+
+  &.warning {
+    background: theme.$amber;
+  }
+
+  &.info {
+    background: theme.$primary;
+  }
+}
+
+@each $size in $sizes {
+  .#{$size} {
+    .close_btn {
+      @extend %icon-#{$size};
+    }
+
+    .message {
+      @extend %font-#{$size};
+    }
+  }
+}
+
+.animation_shrink {
+  &.open {
+    height: var(--height);
+  }
+
+  &.close {
+    height: 0;
+  }
+}
+
+.animation_hide {
+  height: var(--height);
+
+  &.open {
+    top: 0;
+  }
+
+  &.close {
+    top: calc(var(--height) * -1);
+  }
+}
+
+.warning {
+  .close_btn {
+    color: #000;
+  }
+}
+
+.close_btn {
+  @extend %center;
+  color: theme.$white;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+
+.message {
+  @extend %left;
+  font-weight: 300;
+  margin-left: auto;
+}

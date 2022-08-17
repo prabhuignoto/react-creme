@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig-base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist"
+  },
+  "include": ["./**/*", "../../Globals.d.ts"],
+  "exclude": ["dist"],
+  "files": ["index.ts"],
+  "references": []
+}

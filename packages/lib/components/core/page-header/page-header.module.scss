@@ -1,0 +1,76 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/list.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+
+$heights: (
+  sm: 30px,
+  md: 35px,
+  lg: 40px,
+);
+
+.page_header {
+  margin-bottom: 1rem;
+  width: 100%;
+
+  h2 {
+    @extend %left;
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+}
+
+.page_header:not(.rtl) {
+  h2 {
+    text-align: left;
+  }
+}
+
+.rtl {
+  direction: rtl;
+
+  h2 {
+    text-align: right;
+  }
+}
+
+@each $size in $sizes {
+  .#{$size} {
+    .title {
+      @extend %text-#{$size};
+      height: map.get($heights, $size);
+    }
+  }
+}
+
+.icon {
+  @extend %icon;
+  color: theme.$primary;
+  margin-right: 0.5rem;
+
+  @each $size in $sizes {
+    &.icon_#{$size} {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.title_container {
+  @extend %left;
+  border-bottom: 1px solid theme.$gray;
+  width: 100%;
+}
+
+.content {
+  padding-top: 1rem;
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
+}

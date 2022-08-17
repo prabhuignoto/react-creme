@@ -1,0 +1,81 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/list.scss';
+@use '../../../design/animate.scss';
+
+$sizes: (
+  sm: 1rem,
+  md: 20px,
+  lg: 30px,
+);
+
+.wrapper {
+  @extend %list-horizontal;
+
+  &.disabled {
+    @extend %disabled;
+  }
+
+  &.rtl {
+    direction: rtl;
+  }
+}
+
+.item {
+  @include animate.set-settings();
+  cursor: pointer;
+  margin: 0 0.5rem;
+
+  &.disabled {
+    @extend %disabled;
+  }
+
+  span {
+    display: block;
+    height: 100%;
+    outline: 0;
+    width: 100%;
+  }
+
+  @each $key, $val in $sizes {
+    &.#{$key} {
+      height: #{$val};
+      width: #{$val};
+    }
+  }
+
+  &.dark svg {
+    fill: theme.$charcoal-gray;
+  }
+
+  &:not(.dark) svg {
+    fill: theme.$alto;
+  }
+}
+
+.item.active {
+  color: theme.$primary;
+
+  svg {
+    fill: theme.$primary;
+  }
+}
+
+.item.hovered {
+  svg {
+    fill: theme.$primary;
+  }
+}
+
+.item:hover {
+  svg {
+    fill: theme.$primary;
+  }
+}
+
+.item svg {
+  height: 100%;
+  stroke-width: 0;
+  transition: fill 0.1s ease-in;
+  width: 100%;
+}

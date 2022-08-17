@@ -1,0 +1,136 @@
+@use '../../../design/core.scss';
+@use '../../../design/list.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/font.scss';
+@use '../../../design/icon.scss';
+@use '../../../design/animate.scss';
+
+$sizes: (sm, md, lg);
+
+.wrapper {
+  @extend %shadow-inset;
+  @extend %border;
+  @extend %list-horizontal-left;
+
+  &.right_aligned {
+    direction: rtl;
+  }
+}
+
+.item {
+  @extend %center;
+  cursor: pointer;
+  min-width: 100px;
+  padding: 0.75rem 0.25rem;
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
+}
+
+.item.dark {
+  &:not(:last-child) {
+    border-right: 1px solid theme.$gunmetal-gray;
+  }
+
+  &:hover {
+    background: theme.$primary;
+  }
+}
+
+.item:not(.dark) {
+  &:not(:last-child) {
+    border-right: 1px solid theme.$light-bg;
+  }
+
+  &:hover {
+    background-color: theme.$secondary;
+  }
+}
+
+.item.active {
+  color: theme.$white;
+
+  &.dark {
+    background-color: theme.$primary;
+  }
+
+  &:not(.dark) {
+    background-color: theme.$primary;
+    color: theme.$white;
+  }
+}
+
+.name {
+  @extend %center;
+
+  &.rtl {
+    margin-right: 0.5rem;
+  }
+
+  &:not(.rtl) {
+    margin-left: 0.5rem;
+  }
+
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %text-#{$size};
+    }
+  }
+
+  &.active {
+    color: theme.$white;
+  }
+}
+
+.icon {
+  margin-left: 0.5rem;
+
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.chevron_icon {
+  $animation-settings: (
+    from: (
+      transform: rotate(0deg),
+    ),
+    to: (
+      transform: rotate(180deg),
+    ),
+  );
+  @include animate.set-settings(0.2s);
+  @include animate.set-keyframes(rotate, $animation-settings);
+  @include animate.set-keyframes(rotate-reverse, $animation-settings, true);
+
+  &.rtl {
+    margin-right: auto;
+  }
+
+  &:not(.rtl) {
+    margin-left: auto;
+  }
+
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %icon-#{$size};
+    }
+  }
+
+  &.rotate {
+    animation-name: rotate;
+    transform: rotate(180deg);
+  }
+
+  &.rotate_reverse {
+    animation-name: rotate-reverse;
+    transform: rotate(0deg);
+  }
+}

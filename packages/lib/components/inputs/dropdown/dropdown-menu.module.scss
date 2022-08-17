@@ -1,0 +1,99 @@
+@use '../../../design/core.scss';
+@use '../../../design/animate.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/list.scss';
+
+.container {
+  @extend %border-radius;
+  @extend %shadow-medium;
+  @include animate.set-settings(0.25s, cubic-bezier(0.17, 0.84, 0.44, 1));
+
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 6px;
+  visibility: hidden;
+  width: var(--menu-width);
+  z-index: 999;
+
+  &.dark {
+    background: theme.$cod-gray;
+  }
+
+  &:not(.dark) {
+    background: theme.$white;
+  }
+
+  * {
+    transform: blur(0);
+  }
+
+  &.open {
+    animation-name: open;
+    height: var(--menu-max-height);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.close {
+    animation-name: close;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.dropdown_options {
+  @extend %list;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+  max-height: var(--max-height);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.dropdown_option {
+  @extend %list-item-left;
+  padding: 0.5rem 0;
+  width: 100%;
+
+  &:hover {
+    background: theme.$light-bg;
+  }
+
+  &.disabled {
+    @extend %disabled;
+  }
+}
+
+.dropdown_option_value {
+  @extend %text-no-wrap;
+  padding-left: 1rem;
+  text-align: left;
+  width: 80%;
+}
+
+.dropdown_search_input {
+  margin: 1rem auto;
+  width: 90%;
+}
+
+$hide-anim: (
+  opacity: 0,
+  visibility: hidden,
+  height: 0,
+);
+$show-anim: (
+  opacity: 1,
+  visibility: visible,
+  height: var(--menu-max-height),
+);
+
+$dropdown-anim-settings: (
+  from: $hide-anim,
+  to: $show-anim,
+);
+
+@include animate.set-keyframes(open, $dropdown-anim-settings);
+@include animate.set-keyframes(close, $dropdown_anim-settings, true);

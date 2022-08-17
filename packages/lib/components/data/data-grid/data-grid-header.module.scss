@@ -1,0 +1,111 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+
+$sizes: (sm, md, lg);
+$dark-mode: theme.$dark_mode;
+
+.cell {
+  @extend %left;
+  color: theme.$black;
+  height: 100%;
+  text-transform: capitalize;
+  width: 100%;
+
+  &.dark {
+    background: rgba(theme.$charcoal-gray, 0.5);
+  }
+
+  &:not(.dark) {
+    background: rgba(theme.$secondary-rgb, 0.5);
+  }
+
+  // &:not(:last-child) {
+  // }
+
+  &:not(.searchable):first-child {
+    border-top-left-radius: 4px;
+  }
+
+  &:not(.searchable):last-child {
+    border-top-right-radius: 4px;
+  }
+
+  // &:last-child {
+  // width: calc(100% - 1px);
+  // }
+
+  .cell_val {
+    font-weight: 500;
+    width: 95%;
+  }
+}
+
+.border:not(:last-child) {
+  &.dark {
+    border-right: 1px solid theme.$charcoal-gray;
+  }
+
+  &:not(.dark) {
+    border-right: 1px solid theme.$secondary;
+  }
+}
+
+.sort_icon_wrapper {
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+
+%sort-icon {
+  @extend %icon-xs;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    fill: rgba(theme.$primary_rgb, 0.25);
+    stroke: none;
+  }
+}
+
+.sort_icon {
+  @extend %sort-icon;
+}
+
+.sort_icon_asc {
+  @extend %sort-icon;
+  margin-bottom: 0.2rem;
+}
+
+.sort_icon_desc {
+  @extend %sort-icon;
+  margin-top: 0.2rem;
+  transform: rotate(180deg);
+}
+
+.sort_icon_active {
+  svg {
+    fill: theme.$primary;
+  }
+}
+
+.header {
+  justify-items: center;
+  width: 100%;
+
+  &.compact {
+    height: 40px;
+  }
+
+  &.comfortable {
+    height: 50px;
+  }
+}
+
+@each $size in $sizes {
+  .#{$size} {
+    .cell_val {
+      @extend %text-#{$size};
+    }
+  }
+}

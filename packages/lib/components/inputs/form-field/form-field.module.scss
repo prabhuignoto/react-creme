@@ -1,0 +1,63 @@
+@use '../../../design/theme.scss';
+@use '../../../design/core.scss';
+@use '../../../design/font.scss';
+
+$sizes: (sm, md, lg);
+
+.form_field {
+  @extend %col;
+  align-items: flex-start;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  width: 100%;
+
+  &.rtl {
+    direction: rtl;
+  }
+
+  &.border {
+    @extend %border;
+  }
+
+  &.disabled {
+    @extend %disabled;
+  }
+}
+
+.icon {
+  color: theme.$primary;
+  margin: 0 0.5rem;
+}
+
+@each $size in $sizes {
+  .label_#{$size} {
+    @extend %text-#{$size};
+  }
+
+  .form-field-icon-#{$size} {
+    @extend %icon-#{$size};
+  }
+
+  .#{$size} {
+    display: block;
+  }
+}
+
+.label_container {
+  @extend %left;
+  margin-bottom: 1rem;
+}
+
+.label {
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$primary;
+  }
+}
+
+.input_container {
+  width: 100%;
+}

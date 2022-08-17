@@ -1,0 +1,94 @@
+@use '../../../design/theme.scss';
+@use '../../../design/core.scss';
+@use '../../../design/font.scss';
+@use '../../../design/icon.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+
+$heights: (
+  sm: 20px,
+  md: 25px,
+  lg: 30px,
+);
+
+$widths: (
+  sm: 50px,
+  md: 75px,
+  lg: 100px,
+);
+
+$thickness: var(--rc-kbd-thickness);
+
+.wrapper {
+  @extend %border-radius;
+  display: inline-block;
+  padding: 0.2rem;
+  text-align: center;
+
+  &.dark {
+    background-color: rgba(theme.$charcoal-gray, 1);
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    background-color: rgba(theme.$light-bg, 1);
+    color: theme.$black;
+  }
+}
+
+.left_raised {
+  &:not(.dark) {
+    box-shadow: 0 $thickness 0 $thickness rgba(theme.$chinese-gray, 0.9);
+  }
+
+  &.dark {
+    box-shadow: 0 $thickness 0 $thickness rgba(theme.$gunmetal-gray, 1);
+  }
+}
+
+.right_raised {
+  &:not(.dark) {
+    box-shadow: 0 $thickness 0 $thickness rgba(theme.$chinese-gray, 0.9);
+  }
+
+  &.dark {
+    box-shadow: 0 $thickness 0 $thickness rgba(theme.$gunmetal-gray, 1);
+  }
+}
+
+@each $size in $sizes {
+  .wrapper {
+    &.#{$size} {
+      @extend %font-#{$size};
+      height: #{map.get($heights, $size)};
+      line-height: #{map.get($heights, $size)};
+      min-width: map.get($widths, $size);
+    }
+  }
+}
+
+@each $size in $sizes {
+  .combination_#{$size} {
+    .plus {
+      @extend %icon-#{$size};
+    }
+  }
+}
+
+.plus {
+  margin: 0 0.5rem;
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$gunmetal-gray;
+  }
+}
+
+.combination {
+  @extend %left;
+  flex-wrap: wrap;
+}

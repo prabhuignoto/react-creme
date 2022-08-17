@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { CloseIcon } from '../../icons';
+import { CloseIcon } from './icons';
 import { OverlayProps } from './overlay-model';
 import './overlay.scss';
 import { OverlayContext, OverlayContextModel } from './withOverlay';

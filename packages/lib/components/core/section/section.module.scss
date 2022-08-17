@@ -1,0 +1,90 @@
+@use '../../../design/core.scss';
+@use '../../../design/theme.scss';
+@use '../../../design/list.scss';
+@use 'sass:map';
+
+$sizes: (
+  sm: 1rem,
+  md: 1.25rem,
+  lg: 1.5rem,
+);
+
+$heights: (
+  sm: 30px,
+  md: 40px,
+  lg: 50px,
+);
+
+.section {
+  @extend %col;
+  margin: 2rem 0;
+  padding: 0 0.5rem;
+  width: calc(100% - 1rem);
+
+  &.border {
+    @extend %border;
+  }
+}
+
+.header {
+  @extend %left;
+  font-weight: 500;
+  padding-left: 1rem;
+  text-decoration: none;
+  width: 100%;
+
+  &.dark {
+    border-bottom: 1px solid rgba(theme.$secondary-rgb, 0.5);
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    border-bottom: 1px solid rgba(theme.$secondary-rgb, 0.5);
+    color: theme.$primary;
+  }
+
+  @each $key, $val in $sizes {
+    &.header_#{$key} {
+      @extend %font-#{$key};
+      height: map.get($heights, $key);
+    }
+  }
+}
+
+.body {
+  width: calc(100% - 2rem);
+
+  &.no_padding {
+    padding: 0;
+  }
+
+  &:not(.no_padding) {
+    padding: 1rem;
+  }
+
+  &:not(.rtl) {
+    @extend %left;
+  }
+
+  &.rtl {
+    direction: rtl;
+  }
+
+  @each $key, $val in $sizes {
+    &.body_#{$key}:not(.no_title) {
+      // height: map.get($heights, $key);
+      min-height: calc(100% - map.get($heights, $key));
+    }
+  }
+
+  // &:not(.no_title) {
+  // }
+
+  &.no_title {
+    min-height: 100%;
+  }
+}
+
+.header_rtl {
+  @extend %right;
+}

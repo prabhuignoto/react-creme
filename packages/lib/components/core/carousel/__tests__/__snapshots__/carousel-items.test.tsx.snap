@@ -1,0 +1,40 @@
+// Vitest Snapshot v1
+
+exports[`Carousel items > Should render carousel items snapshot 1`] = `
+<ul
+  class="_carousel_i0c0i_56"
+  role="list"
+  style="transform: translateX(-300px); width: 600px;"
+>
+  <li
+    aria-hidden="true"
+    class="_item_i0c0i_1"
+    data-visible="false"
+    role="listitem"
+    style="left: 0px; top: 0px; visibility: visible; width: 300px;"
+  >
+    <div
+      class="_item_container_i0c0i_16"
+    >
+      <span>
+        one
+      </span>
+    </div>
+  </li>
+  <li
+    aria-hidden="false"
+    class="_item_i0c0i_1"
+    data-visible="true"
+    role="listitem"
+    style="left: 300px; top: 0px; visibility: visible; width: 300px;"
+  >
+    <div
+      class="_item_container_i0c0i_16"
+    >
+      <span>
+        two
+      </span>
+    </div>
+  </li>
+</ul>
+`;
