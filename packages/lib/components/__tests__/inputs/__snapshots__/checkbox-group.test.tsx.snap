@@ -1,0 +1,135 @@
+// Vitest Snapshot v1
+
+exports[`CheckboxGroup > should match snapshot 1`] = `
+<div>
+  <div
+    class="_checkbox_group_wrapper_15yvp_1 _checkbox_group_vertical_15yvp_1"
+    role="group"
+  >
+    <div
+      aria-checked="false"
+      aria-labelledby="1"
+      class="_wrapper_bn23n_49 _sm_bn23n_24 undefined _hover_bn23n_1"
+      role="checkbox"
+      style="outline: none; position: relative;"
+      tabindex="0"
+    >
+      <div
+        class="_checkbox_bn23n_49 _sm_bn23n_24"
+      >
+        <span
+          aria-label="checkbox icon"
+          class="_icon_bn23n_1 _sm_bn23n_24 undefined"
+          role="img"
+        >
+          <svg
+            class="prefix__feather prefix__feather-check"
+            fill="transparent"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 6L9 17l-5-5"
+            />
+          </svg>
+        </span>
+      </div>
+      <label
+        class="_label_bn23n_12 _label_sm_bn23n_12"
+        id="1"
+      >
+        Option 1
+      </label>
+      <span
+        class="_focus_ring_4fy2t_1"
+        style="width: 6px; height: 6px;"
+      />
+    </div>
+    <div
+      aria-checked="true"
+      aria-labelledby="2"
+      class="_wrapper_bn23n_49 _sm_bn23n_24 undefined _hover_bn23n_1"
+      role="checkbox"
+      style="outline: none; position: relative;"
+      tabindex="0"
+    >
+      <div
+        class="_checkbox_bn23n_49 _sm_bn23n_24"
+      >
+        <span
+          aria-label="checkbox icon"
+          class="_icon_bn23n_1 _checked_bn23n_140 _sm_bn23n_24 undefined"
+          role="img"
+        >
+          <svg
+            class="prefix__feather prefix__feather-check"
+            fill="transparent"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 6L9 17l-5-5"
+            />
+          </svg>
+        </span>
+      </div>
+      <label
+        class="_label_bn23n_12 _label_sm_bn23n_12"
+        id="2"
+      >
+        Option 2
+      </label>
+      <span
+        class="_focus_ring_4fy2t_1"
+        style="width: 6px; height: 6px;"
+      />
+    </div>
+    <div
+      aria-checked="false"
+      aria-disabled="true"
+      aria-labelledby="3"
+      class="_wrapper_bn23n_49 _sm_bn23n_24 _disabled_bn23n_58 undefined _hover_bn23n_1"
+      role="checkbox"
+    >
+      <div
+        class="_checkbox_bn23n_49 _sm_bn23n_24 _disabled_bn23n_58"
+      >
+        <span
+          aria-label="checkbox icon"
+          class="_icon_bn23n_1 _sm_bn23n_24 undefined"
+          role="img"
+        >
+          <svg
+            class="prefix__feather prefix__feather-check"
+            fill="transparent"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 6L9 17l-5-5"
+            />
+          </svg>
+        </span>
+      </div>
+      <label
+        class="_label_bn23n_12 _label_sm_bn23n_12"
+        id="3"
+      >
+        Option 3
+      </label>
+    </div>
+  </div>
+</div>
+`;

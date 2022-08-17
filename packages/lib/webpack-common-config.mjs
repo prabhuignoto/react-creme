@@ -14,9 +14,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default (name, pkg) => ({
-  context: path.resolve(__dirname, `components/${name}`),
+  // context: path.resolve(__dirname, `components/${name}`),
   devtool: 'source-map',
-  entry: { [name]: `./index.ts` },
+  entry: { [name]: `./components/${name}/index.ts` },
   experiments: {
     outputModule: true,
   },
@@ -128,7 +128,7 @@ export default (name, pkg) => ({
     //   ],
     // }),
     new webpack.BannerPlugin({
-      banner: `${pkg.name} v${pkg.version} | ${pkg.license} | ${pkg.homepage} | ${pkg.author.homepage}`,
+      banner: `${pkg.name} v${pkg.version} | ${pkg.license} | ${pkg.homepage} | ${pkg.author.name}`,
     }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/

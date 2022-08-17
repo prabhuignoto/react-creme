@@ -5,6 +5,7 @@
     "skipLibCheck": true
   },
   "include": ["./**/*", "../../Globals.d.ts"],
+  "exclude": ["dist"],
   "files": ["index.ts"],
   "references": []
 }

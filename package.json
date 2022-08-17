@@ -58,6 +58,7 @@
   },
   "scripts": {
     "lint": "turbo run lint",
+    "lint:pack": "turbo run lint:pack",
     "format": "turbo run format",
     "build": "turbo run build",
     "prepare": "husky install",

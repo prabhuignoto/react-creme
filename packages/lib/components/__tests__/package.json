@@ -1,0 +1,13 @@
+{
+  "name": "test-suite",
+  "private": true,
+  "scripts": {
+    "test-ci": "vitest --config ./vitest.config.ts",
+    "test": "vitest --config ./vitest.config.dev.ts --ui",
+    "test:quiet": "vitest --config ./vitest.config.dev.ts --silent --run"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "2.0.1",
+    "vitest": "^0.22.0"
+  }
+}

@@ -10,14 +10,7 @@
     "../../Globals.d.ts",
     "index.ts",
     "../common",
-    "../feedback",
-    "../__tests__/radio.test.tsx",
-    "../__tests__/pin.test.tsx",
-    "../__tests__/password.test.tsx",
-    "../__tests__/input-number.test.tsx",
-    "../__tests__/input.test.tsx"
-  ]
-  // "files": [
-  //   "index.ts"
-  // ]
+    "../feedback"
+  ],
+  "exclude": ["dist"]
 }

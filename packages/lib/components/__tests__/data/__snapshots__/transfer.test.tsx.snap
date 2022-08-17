@@ -1,0 +1,432 @@
+// Vitest Snapshot v1
+
+exports[`Transfer > should render transfer snapshot 1`] = `
+<div
+  class="_wrapper_fk1c5_12"
+>
+  <section
+    class="transfer-column1"
+  >
+    <div
+      class="_list_1wxdc_1 _list_border_1wxdc_1"
+      style="--rc-list-bg-color: #fff; --rc-list-max-height: 350px; --rc-list-min-height: 100px;"
+    >
+      <div
+        class="_wrapper_1wxdc_50"
+      >
+        <ul
+          aria-label="rc-list-label-undefined"
+          class="_list_options_1wxdc_12"
+          role="listbox"
+          style="--rc-list-height: 185px;"
+        >
+          <li
+            aria-checked="false"
+            class="_list_option_op9is_50"
+            role="option"
+            style="height: 40px; top: 5px;"
+            tabindex="0"
+          >
+            <div
+              style="width: 100%;"
+            >
+              <div
+                class="_value_wrapper_op9is_50 _sm_op9is_1"
+                style="--text-color: #000;"
+              >
+                <span
+                  class="_icon_op9is_25"
+                >
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="transparent"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="_value_op9is_1"
+                >
+                  five
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="_list_option_op9is_50"
+            role="option"
+            style="height: 40px; top: 50px;"
+            tabindex="0"
+          >
+            <div
+              style="width: 100%;"
+            >
+              <div
+                class="_value_wrapper_op9is_50 _sm_op9is_1"
+                style="--text-color: #000;"
+              >
+                <span
+                  class="_icon_op9is_25"
+                >
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="transparent"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="_value_op9is_1"
+                >
+                  one
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="_list_option_op9is_50"
+            role="option"
+            style="height: 40px; top: 95px;"
+            tabindex="0"
+          >
+            <div
+              style="width: 100%;"
+            >
+              <div
+                class="_value_wrapper_op9is_50 _sm_op9is_1"
+                style="--text-color: #000;"
+              >
+                <span
+                  class="_icon_op9is_25"
+                >
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="transparent"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="_value_op9is_1"
+                >
+                  six
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="_list_option_op9is_50"
+            role="option"
+            style="height: 40px; top: 140px;"
+            tabindex="0"
+          >
+            <div
+              style="width: 100%;"
+            >
+              <div
+                class="_value_wrapper_op9is_50 _sm_op9is_1"
+                style="--text-color: #000;"
+              >
+                <span
+                  class="_icon_op9is_25"
+                >
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="transparent"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="_value_op9is_1"
+                >
+                  two
+                </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section
+    class="_control_column_fk1c5_12"
+  >
+    <div
+      aria-label=""
+      class="_disabled_lbj5p_77 _sm_lbj5p_1 _icon_lbj5p_43 _btn_lbj5p_202"
+      role="button"
+      style="outline: none; position: relative;"
+      tabindex="0"
+    >
+      <span
+        class="_icon_container_lbj5p_43"
+        role="img"
+      >
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 18l6-6-6-6"
+          />
+        </svg>
+      </span>
+      <span
+        class="_focus_ring_4fy2t_1"
+        style="width: 6px; height: 6px;"
+      />
+    </div>
+    <div
+      aria-label=""
+      class="_disabled_lbj5p_77 _sm_lbj5p_1 _icon_lbj5p_43 _btn_lbj5p_202"
+      role="button"
+      style="transform: rotate(180deg); outline: none; position: relative;"
+      tabindex="0"
+    >
+      <span
+        class="_icon_container_lbj5p_43"
+        role="img"
+      >
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 18l6-6-6-6"
+          />
+        </svg>
+      </span>
+      <span
+        class="_focus_ring_4fy2t_1"
+        style="width: 6px; height: 6px;"
+      />
+    </div>
+  </section>
+  <section
+    class="transfer-column2"
+  >
+    <div
+      class="_list_1wxdc_1 _list_border_1wxdc_1"
+      style="--rc-list-bg-color: #fff; --rc-list-max-height: 350px; --rc-list-min-height: 100px;"
+    >
+      <div
+        class="_wrapper_1wxdc_50"
+      >
+        <ul
+          aria-label="rc-list-label-undefined"
+          class="_list_options_1wxdc_12"
+          role="listbox"
+          style="--rc-list-height: 185px;"
+        >
+          <li
+            aria-checked="false"
+            class="_list_option_op9is_50"
+            role="option"
+            style="height: 40px; top: 5px;"
+            tabindex="0"
+          >
+            <div
+              style="width: 100%;"
+            >
+              <div
+                class="_value_wrapper_op9is_50 _sm_op9is_1"
+                style="--text-color: #000;"
+              >
+                <span
+                  class="_icon_op9is_25"
+                >
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="transparent"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="_value_op9is_1"
+                >
+                  eight
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="_list_option_op9is_50"
+            role="option"
+            style="height: 40px; top: 50px;"
+            tabindex="0"
+          >
+            <div
+              style="width: 100%;"
+            >
+              <div
+                class="_value_wrapper_op9is_50 _sm_op9is_1"
+                style="--text-color: #000;"
+              >
+                <span
+                  class="_icon_op9is_25"
+                >
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="transparent"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="_value_op9is_1"
+                >
+                  four
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="_list_option_op9is_50"
+            role="option"
+            style="height: 40px; top: 95px;"
+            tabindex="0"
+          >
+            <div
+              style="width: 100%;"
+            >
+              <div
+                class="_value_wrapper_op9is_50 _sm_op9is_1"
+                style="--text-color: #000;"
+              >
+                <span
+                  class="_icon_op9is_25"
+                >
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="transparent"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="_value_op9is_1"
+                >
+                  seven
+                </span>
+              </div>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="_list_option_op9is_50"
+            role="option"
+            style="height: 40px; top: 140px;"
+            tabindex="0"
+          >
+            <div
+              style="width: 100%;"
+            >
+              <div
+                class="_value_wrapper_op9is_50 _sm_op9is_1"
+                style="--text-color: #000;"
+              >
+                <span
+                  class="_icon_op9is_25"
+                >
+                  <svg
+                    class="prefix__feather prefix__feather-check"
+                    fill="transparent"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 6L9 17l-5-5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="_value_op9is_1"
+                >
+                  three
+                </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+`;

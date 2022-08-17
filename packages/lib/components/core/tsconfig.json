@@ -6,7 +6,7 @@
     "composite": true,
     "rootDir": "."
   },
-  "include": ["./**/*", "../../Globals.d.ts", "index.ts", "../common/**/*"],
+  "include": ["./**/*", "../../Globals.d.ts", "index.ts", "../common"],
   "exclude": ["dist"],
   "files": ["index.ts"]
 }

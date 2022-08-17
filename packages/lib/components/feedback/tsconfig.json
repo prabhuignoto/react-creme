@@ -5,13 +5,7 @@
     "declarationDir": "./dist",
     "composite": true
   },
-  "include": [
-    "./**/*",
-    "../../Globals.d.ts",
-    "../__tests__/notification.test.tsx",
-    "../__tests__/progress.test.tsx",
-    "../__tests__/skeleton.test.tsx",
-    "../__tests__/spinner.test.tsx"
-  ],
+  "include": ["./**/*", "../../Globals.d.ts"],
+  "exclude": ["dist"],
   "files": ["index.ts"]
 }

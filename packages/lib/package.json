@@ -29,10 +29,7 @@
     "lint": "pnpm eslint && pnpm lint:css && pnpm prettier:check",
     "lint:css": "stylelint ./components/**/*.scss ./design/**/*.scss",
     "prettier:check": "prettier --check \"components/**/*.{ts,tsx}\"",
-    "snyk": "snyk test",
-    "test-ci": "vitest --config ./vitest.config.ts",
-    "test": "vitest --config ./vitest.config.dev.ts --ui",
-    "test:quiet": "vitest --config ./vitest.config.dev.ts --silent --run"
+    "snyk": "snyk test"
   },
   "dependencies": {
     "classnames": "^2.3.1",
