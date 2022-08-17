@@ -45,7 +45,7 @@ export default (name, pkg) => ({
             options: {
               configFile: path.resolve(
                 __dirname,
-                `./components/${name}/tsconfig.json`
+                `components/${name}/tsconfig.json`
               ),
               experimentalFileCaching: true,
               happyPackMode: true,

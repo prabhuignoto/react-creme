@@ -1,0 +1,54 @@
+import { fireEvent, render } from '@testing-library/react';
+import { describe, it, vi } from 'vitest';
+import { FormField } from '../inputs/form-field/form-field';
+import { Input } from '../inputs/input/input';
+import { FormGroup } from '../inputs/form-group/form-group';
+
+describe('Form Group', () => {
+  it.concurrent('should render form fields', () => {
+    const { getByPlaceholderText, getByLabelText } = render(
+      <FormGroup>
+        <FormField label="Please enter the name">
+          <Input id="name" placeholder="Name" enableClear />
+        </FormField>
+      </FormGroup>
+    );
+
+    expect(getByPlaceholderText('Name')).toBeInTheDocument();
+    expect(getByLabelText('Please enter the name')).toBeInTheDocument();
+  });
+
+  it.concurrent('should render buttons', () => {
+    const { getByText } = render(
+      <FormGroup>
+        <FormField label="Please enter the name">
+          <Input id="name" placeholder="Name" enableClear />
+        </FormField>
+      </FormGroup>
+    );
+
+    expect(getByText('Submit')).toBeInTheDocument();
+    expect(getByText('Cancel')).toBeInTheDocument();
+  });
+
+  it.concurrent('should call onSubmit and onCancel', () => {
+    const onSubmit = vi.fn();
+    const onCancel = vi.fn();
+
+    const { getByText } = render(
+      <FormGroup onSubmit={onSubmit} onCancel={onCancel}>
+        <FormField label="Please enter the name">
+          <Input id="name" placeholder="Name" enableClear />
+        </FormField>
+      </FormGroup>
+    );
+
+    fireEvent.click(getByText('Submit'));
+
+    expect(onSubmit).toHaveBeenCalled();
+
+    fireEvent.click(getByText('Cancel'));
+
+    expect(onCancel).toHaveBeenCalled();
+  });
+});

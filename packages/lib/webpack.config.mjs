@@ -11,12 +11,12 @@ import webpackCommonConfig from './webpack-common-config.mjs';
 const isProduction = process.env.NODE_ENV === 'production';
 
 const configs = [
-  webpackCommonConfig('feedback', feedbackPkg),
-  webpackCommonConfig('inputs', inputPkg),
-  webpackCommonConfig('overlay', overlayPkg),
-  webpackCommonConfig('core', corePkg),
+  // webpackCommonConfig('feedback', feedbackPkg),
+  // webpackCommonConfig('inputs', inputPkg),
+  // webpackCommonConfig('overlay', overlayPkg),
+  // webpackCommonConfig('core', corePkg),
   webpackCommonConfig('data', dataPkg),
-  webpackCommonConfig('common', commonPkg),
+  // webpackCommonConfig('common', commonPkg),
 ];
 
 export default () => {

@@ -2,19 +2,9 @@
   "extends": "../../tsconfig-base.json",
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "./dist"
+    "skipLibCheck": true
   },
   "include": ["./**/*", "../../Globals.d.ts"],
   "files": ["index.ts"],
-  "references": [
-    // {
-    //   "path": "../core"
-    // },
-    // {
-    //   "path": "../feedback"
-    // },
-    // {
-    //   "path": "../inputs"
-    // },
-  ]
+  "references": []
 }

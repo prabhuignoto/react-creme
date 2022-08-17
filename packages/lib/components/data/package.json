@@ -1,9 +1,9 @@
 {
   "name": "@react-creme/data",
-  "version": "1.0.0",
-  "description": "React components for inputs",
+  "version": "0.1.0",
+  "description": "react-creme data components",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "emit": "tsc -p tsconfig.json --outDir ./dist --emitDeclarationOnly"
   },
   "author": "Prabhu Murthy",
   "files": [

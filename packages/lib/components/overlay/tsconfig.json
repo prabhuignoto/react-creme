@@ -4,6 +4,12 @@
     "declaration": true,
     "declarationDir": "./dist"
   },
-  "include": ["./**/*", "../../Globals.d.ts"],
+  "include": [
+    "./**/*",
+    "../../Globals.d.ts",
+    "../__tests__/menu-bar.test.tsx",
+    "../__tests__/menu.test.tsx",
+    "../__tests__/drawer.test.tsx"
+  ],
   "files": ["index.ts"]
 }
