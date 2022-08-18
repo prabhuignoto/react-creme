@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { OverlayModel } from '../../common/overlay-model';
+import { OverlayModel } from '@common';
 
 export type MenuOption = Option & {
   visible: boolean;

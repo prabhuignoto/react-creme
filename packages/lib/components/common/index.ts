@@ -11,9 +11,11 @@ export { usePosition } from './effects/usePosition';
 export { default as useSortable } from './effects/useSortable';
 export { default as useSwipe } from './effects/useSwipe';
 export { default as useTrapFocus } from './effects/useTrapFocus';
-export { Overlay } from './overlay';
-export type { OverlayModel, OverlayProps } from './overlay-model';
-export { ThemeProvider } from './theme-provider';
+export { Overlay } from './overlay/overlay';
+export type { OverlayModel, OverlayProps } from './overlay/overlay-model';
+export { OverlayContext, withOverlay } from './overlay/withOverlay';
+export type { OverlayContextModel } from './overlay/withOverlay';
+export { ThemeProvider } from './theme/theme-provider';
 export type {
   Colors,
   FontSizes,
@@ -22,7 +24,7 @@ export type {
   Theme,
   ThemeColor,
   ThemeProviderProps,
-} from './theme-provider-model';
+} from './theme/theme-provider-model';
 export {
   isArray,
   isDark,
@@ -30,5 +32,3 @@ export {
   isUndefined,
   isValidString,
 } from './utils';
-export { OverlayContext, withOverlay } from './withOverlay';
-export type { OverlayContextModel } from './withOverlay';

@@ -1,5 +1,5 @@
+import { OverlayModel } from '@common';
 import React from 'react';
-import { OverlayModel } from '../../common/overlay-model';
 
 export interface DrawerProps extends OverlayModel<null> {
   children?: React.ReactNode | React.ReactNode[];

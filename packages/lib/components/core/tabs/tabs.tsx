@@ -1,3 +1,4 @@
+import { isDark } from '@common';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
@@ -9,7 +10,6 @@ import {
   useRef,
   useState,
 } from 'react';
-import { isDark } from '@common/utils';
 import { TabHeaders } from './tab-headers';
 import { TabPanel } from './TabPanel';
 import { TabItemProps, TabsProps } from './tabs-model';

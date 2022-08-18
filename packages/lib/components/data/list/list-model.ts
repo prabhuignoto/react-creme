@@ -1,4 +1,4 @@
-import { isUndefined } from '@common/utils';
+import { isUndefined } from '@common';
 import { nanoid } from 'nanoid';
 
 interface Option<T = string> {

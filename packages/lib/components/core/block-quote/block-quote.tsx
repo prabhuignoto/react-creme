@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import { InfoIcon } from '@common/icons';
-import { isDark } from '@common/utils';
+import { isDark } from '@common';
 import styles from './block-quote.module.scss';
 
 export interface BlockQuoteProps {

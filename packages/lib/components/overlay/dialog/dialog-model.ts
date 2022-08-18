@@ -1,5 +1,5 @@
 import React from 'react';
-import { OverlayModel } from '../../common/overlay-model';
+import { OverlayModel } from '@common';
 
 export interface DialogProps extends OverlayModel<null> {
   // duration of the animation

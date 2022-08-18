@@ -1,5 +1,5 @@
+import { OverlayModel } from '@common';
 import React, { CSSProperties, RefObject } from 'react';
-import { OverlayModel } from '../../common/overlay-model';
 export interface MenuProps {
   children: React.ReactNode;
   disabled?: boolean;
