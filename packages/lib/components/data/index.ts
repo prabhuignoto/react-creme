@@ -6,8 +6,8 @@ export type {
 export { Kbd } from './kbd/kbd';
 export type { KbdProps } from './kbd/kbd';
 export { KbdCombination } from './kbd/kbd-combination';
-export { List } from './list/list';
-export type { ListProps } from './list/list-model';
+export { List } from '../core/list/list';
+export type { ListProps } from '../core/list/list-model';
 export { Transfer } from './transfer/transfer';
 export type {
   TransferList,

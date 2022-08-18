@@ -1,6 +1,13 @@
+import { isUndefined } from '@common/utils';
 import { nanoid } from 'nanoid';
-import { isUndefined } from '../../common/utils';
-import { Option } from '../../inputs/dropdown/dropdown-model';
+
+interface Option<T = string> {
+  disabled?: boolean;
+  id?: string;
+  name: string;
+  selected?: boolean;
+  value?: T;
+}
 
 /** ✨ Component props */
 export type ListProps = {

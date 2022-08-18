@@ -1,10 +1,9 @@
+import { isDark, useFocusNew } from '@common';
+import { CheckIcon } from '@common/icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import useFocusNew from '../../common/effects/useFocusNew';
-import { CheckIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
 import { SwitchProps } from './switch-model';
 import styles from './switch.module.scss';
 

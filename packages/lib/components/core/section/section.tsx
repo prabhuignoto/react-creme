@@ -1,6 +1,6 @@
+import { isDark } from '@common';
 import classNames from 'classnames';
 import React, { CSSProperties, useMemo } from 'react';
-import { isDark } from '../../common/utils';
 import { SectionProps } from './section-model';
 import styles from './section.module.scss';
 

@@ -9,7 +9,8 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useFirstRender } from '../../common/effects/useFirstRender';
+// import { useFirstRender } from '../../common/effects/useFirstRender';
+import { useFirstRender } from '@common';
 import { AccordionHeader } from './accordion-header';
 import { AccordionProps } from './accordion-model';
 import styles from './accordion.module.scss';

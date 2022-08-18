@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronRightIcon } from '../../common/icons';
-import { Button } from '../../inputs/button/button';
+import { Button } from '../../core/button/button';
 import styles from './transfer.module.scss';
 
 interface TransferControlModel {

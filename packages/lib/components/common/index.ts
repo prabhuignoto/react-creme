@@ -1,7 +1,9 @@
 export type { useDragFunctionType } from './effects/use-drag-settings-model';
+export { useCloseOnEscape } from './effects/useCloseOnEsc';
 export { useDrag } from './effects/useDrag';
 export { default as useDraggable } from './effects/useDraggable';
 export { useFirstRender } from './effects/useFirstRender';
+export { default as useFocusNew } from './effects/useFocusNew';
 export { useKey } from './effects/useKey';
 export { useKeyNavigation } from './effects/useKeyNavigation';
 export { default as useOnClickOutside } from './effects/useOnClickOutside';

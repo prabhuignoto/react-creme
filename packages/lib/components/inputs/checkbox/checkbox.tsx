@@ -1,10 +1,9 @@
+import { isDark, useFocusNew } from '@common';
+import { CheckIcon } from '@common/icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import useFocusNew from '../../common/effects/useFocusNew';
-import { CheckIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
 import { CheckboxProps } from './checkbox-model';
 import styles from './checkbox.module.scss';
 

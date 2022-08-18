@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
+import { isDark, useFocusNew } from '@common';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useImperativeHandle, useMemo, useRef } from 'react';
-import useFocusNew from '../../common/effects/useFocusNew';
-import { isDark } from '../../common/utils';
-import { Spinner } from '../../feedback/spinner/spinner';
+import { Spinner } from '../spinner/spinner';
 import { ButtonProps } from './button-model';
 import styles from './button.module.scss';
 

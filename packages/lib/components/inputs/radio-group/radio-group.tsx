@@ -1,8 +1,8 @@
+import { useFirstRender } from '@common';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useFirstRender } from '../../common/effects/useFirstRender';
 import { Radio } from '../radio/radio';
 import { RadioGroupItemProps, RadioGroupProps } from './radio-group-model';
 import styles from './radio-group.module.scss';

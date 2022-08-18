@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
-import useFocusNew from '../../common/effects/useFocusNew';
-import { Spinner } from '../../feedback/spinner/spinner';
+import { useFocusNew } from '@common';
+import { Spinner } from '../spinner/spinner';
 import { ImageProps } from './image-model';
 import { ImageOverlay } from './image-overlay';
 import styles from './image.module.scss';

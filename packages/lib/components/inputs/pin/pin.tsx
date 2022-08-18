@@ -1,3 +1,4 @@
+import { useFirstRender } from '@common';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import {
@@ -9,7 +10,6 @@ import {
   useState,
 } from 'react';
 import { InputNumber } from '..';
-import { useFirstRender } from '../../common/effects/useFirstRender';
 import { PinProps } from './pin.model';
 import styles from './pin.module.scss';
 

@@ -1,3 +1,5 @@
+import { isDark, useFirstRender, useFocusNew, useKey } from '@common';
+import { CloseIcon } from '@common/icons';
 import classNames from 'classnames';
 import React, {
   CSSProperties,
@@ -6,11 +8,6 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { useFirstRender } from '../../common/effects/useFirstRender';
-import useFocusNew from '../../common/effects/useFocusNew';
-import { useKey } from '../../common/effects/useKey';
-import { CloseIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
 import { TagItemProps } from './tags-model';
 import styles from './tags.module.scss';
 

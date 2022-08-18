@@ -1,3 +1,6 @@
+import { isDark, useFirstRender, usePosition } from '@common';
+import { CloseIcon } from '@common/icons';
+import { Button } from '@core';
 import classNames from 'classnames';
 import * as React from 'react';
 import {
@@ -8,11 +11,6 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useFirstRender } from '../../common/effects/useFirstRender';
-import { usePosition } from '../../common/effects/usePosition';
-import { CloseIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
-import { Button } from '../../inputs/button/button';
 import { TooltipProps } from './tooltip-model';
 import styles from './tooltip.module.scss';
 

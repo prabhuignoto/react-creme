@@ -1,3 +1,4 @@
+import { useSwipe } from '@common';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
@@ -11,7 +12,6 @@ import {
   useState,
 } from 'react';
 import { useDebounce } from 'use-debounce';
-import useSwipe from '../../common/effects/useSwipe';
 import { CarouselItems } from './carousel-items';
 import { CarouselItemProps, CarouselProps } from './carousel-model';
 import { CarouselTrack } from './carousel-track';

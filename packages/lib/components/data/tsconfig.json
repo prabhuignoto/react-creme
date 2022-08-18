@@ -2,10 +2,24 @@
   "extends": "../../tsconfig-base.json",
   "compilerOptions": {
     "declaration": true,
-    "skipLibCheck": true
+    "declarationDir": "./dist",
+    "outDir": "./dist-lib",
+    "baseUrl": ".",
+    "composite": true,
+    "rootDir": "../"
   },
-  "include": ["./**/*", "../../Globals.d.ts"],
-  "exclude": ["dist"],
+  "include": ["./**/*", "../../Globals.d.ts", "../core/list"],
   "files": ["index.ts"],
-  "references": []
+  "exclude": ["dist/"],
+  "references": [
+    {
+      "path": "../common"
+    },
+    {
+      "path": "../core"
+    }
+    // {
+    //   "path": "../inputs"
+    // }
+  ]
 }

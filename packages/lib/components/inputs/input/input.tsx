@@ -1,4 +1,7 @@
 /* eslint-disable react/prop-types */
+import { isDark, useFirstRender } from '@common';
+import { CloseIcon } from '@common/icons';
+import { CircularProgress } from '@feedback';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, {
@@ -9,10 +12,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { CircularProgress } from '../../feedback/progress/circular-progress';
-import { CloseIcon } from '../../common/icons';
-import { useFirstRender } from '../../common/effects/useFirstRender';
-import { isDark } from '../../common/utils';
 import { InputProps } from './input-model';
 import styles from './input.module.scss';
 

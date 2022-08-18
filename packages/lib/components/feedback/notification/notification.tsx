@@ -1,11 +1,8 @@
+import { isDark, useCloseOnEscape, useSwipe, withOverlay } from '@common';
+import { CloseIcon } from '@common/icons';
 import classNames from 'classnames';
 import React, { CSSProperties, useEffect, useMemo, useRef } from 'react';
-import { useCloseOnEscape } from '../../common/effects/useCloseOnEsc';
-import useSwipe from '../../common/effects/useSwipe';
-import { CloseIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
-import { withOverlay } from '../../common/withOverlay';
-import { Button } from '../../inputs/button/button';
+import { Button } from '../../core/button/button';
 import { NotificationProps } from './notification-model';
 import styles from './notification.module.scss';
 

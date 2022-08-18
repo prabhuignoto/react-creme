@@ -1,6 +1,6 @@
+import { isDark } from '@common';
 import classNames from 'classnames';
 import { CSSProperties, FunctionComponent, useMemo } from 'react';
-import { isDark } from '../../common/utils';
 import { SkeletonRowProps } from './skeleton-model';
 import styles from './skeleton.module.scss';
 

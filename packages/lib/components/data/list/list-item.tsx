@@ -1,6 +1,6 @@
+import { isDark } from '@common';
 import cls from 'classnames';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-import { isDark } from '../../common/utils';
 import { ListItemContent } from './list-item-content';
 import styles from './list-item.module.scss';
 import { ListItemProps } from './list-model';

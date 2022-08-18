@@ -1,6 +1,5 @@
+import { Accordion, CheckBox } from '@core';
 import React, { useCallback, useMemo, useState } from 'react';
-import { Accordion } from '../../core/accordion/accordion';
-import { CheckBox } from '../../inputs/checkbox/checkbox';
 import { TreeNodeProps } from './tree-model';
 
 const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(

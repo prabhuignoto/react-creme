@@ -31,5 +31,10 @@
     "App.tsx",
     "main.tsx"
   ],
+  "references": [
+    {
+      "path": "../lib/components/core"
+    }
+  ],
   "exclude": ["node_modules", "expo_dist"]
 }

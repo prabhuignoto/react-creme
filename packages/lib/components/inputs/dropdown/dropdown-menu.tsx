@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { CSSProperties, useCallback, useEffect, useMemo } from 'react';
 import useClickOutside from '../../common/effects/useOnClickOutside';
 import { isDark } from '../../common/utils';
-import { List } from '../../data/list/list';
+import { List } from '../../core/list/list';
 import styles from './dropdown-menu.module.scss';
 import { DropdownMenuProps } from './dropdown-model';
 

@@ -1,3 +1,6 @@
+import { isDark, useFirstRender } from '@common';
+import { SearchIcon } from '@common/icons';
+import { Input } from '@inputs';
 import cls from 'classnames';
 import * as React from 'react';
 import {
@@ -9,10 +12,6 @@ import {
   useState,
 } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { SearchIcon } from '../../common/icons';
-import { useFirstRender } from '../../common/effects/useFirstRender';
-import { isDark } from '../../common/utils';
-import { Input } from '../../inputs/input/input';
 import { ListItems } from './list-items';
 import { ListOption, ListProps, ParseOptions } from './list-model';
 import styles from './list.module.scss';

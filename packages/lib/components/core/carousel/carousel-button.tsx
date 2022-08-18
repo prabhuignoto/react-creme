@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
-import { ChevronRightIcon } from '../../common/icons';
-import { Button } from '../../inputs/button/button';
+import { ChevronRightIcon } from '@common/icons';
+import { Button } from '../button/button';
 import { CarouselButtonProps } from './carousel-model';
 import styles from './carousel.module.scss';
 

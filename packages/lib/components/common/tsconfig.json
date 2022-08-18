@@ -2,10 +2,11 @@
   "extends": "../../tsconfig-base.json",
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "./dist"
+    "declarationDir": "./dist",
+    "outDir": "./dist-lib",
+    "composite": true
   },
   "include": ["./**/*", "../../Globals.d.ts"],
   "exclude": ["dist"],
-  "files": ["index.ts"],
-  "references": []
+  "files": ["index.ts"]
 }

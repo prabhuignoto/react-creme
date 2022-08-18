@@ -20,5 +20,6 @@ export { default as MoreVerticalIcon } from './more-vertical';
 export { default as PlusIcon } from './plus';
 export { default as SearchIcon } from './search';
 export { default as SpinnerIcon } from './spinner';
+export { default as RateIcon } from './star';
 export { default as TriangleIcon } from './triangle';
 export { default as WarningIcon } from './warning';

@@ -1,3 +1,5 @@
+import { useFocusNew } from '@common';
+import { CloseIcon } from '@common/icons';
 import classNames from 'classnames';
 import React, {
   CSSProperties,
@@ -7,8 +9,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import useFocus from '../../common/effects/useFocusNew';
-import { CloseIcon } from '../../common/icons';
 import { GlobalNotificationProps } from './global-notification.model';
 import styles from './global-notification.module.scss';
 
@@ -27,7 +27,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
 
   const btnCloseRef = useRef<HTMLSpanElement>(null);
 
-  useFocus(
+  useFocusNew(
     focusable ? btnCloseRef : null,
     focusable ? () => setOpen(false) : null
   );

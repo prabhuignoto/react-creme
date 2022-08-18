@@ -1,9 +1,9 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 export interface CarouselProps {
   autoPlay?: number;
   border?: boolean;
-  children: React.ReactNode | React.ReactNode;
+  children: ReactNode | ReactNode[];
   direction?: 'horizontal' | 'vertical';
   enableSwipe?: boolean;
   focusable?: boolean;
@@ -23,7 +23,7 @@ export interface CarouselItemProps {
 export interface CarouselItemsProps {
   activePage: number;
   carouselItems: CarouselItemProps[];
-  children: React.ReactNode[] | React.ReactNode;
+  children: ReactNode[] | ReactNode;
   direction: 'horizontal' | 'vertical';
   height: number;
   totalItems: number;

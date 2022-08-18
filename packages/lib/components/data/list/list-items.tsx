@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useKeyNavigation } from '@common';
 import React, {
   CSSProperties,
   useCallback,
@@ -7,7 +8,6 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { useKeyNavigation } from '../../common/effects/useKeyNavigation';
 import { ListItem } from './list-item';
 import { ListItemsProps, ListOption } from './list-model';
 import styles from './list.module.scss';

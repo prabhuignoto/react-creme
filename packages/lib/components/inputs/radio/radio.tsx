@@ -1,3 +1,4 @@
+import { isDark, useFirstRender, useFocusNew } from '@common';
 import cls from 'classnames';
 import { nanoid } from 'nanoid';
 import React, {
@@ -7,9 +8,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useFirstRender } from '../../common/effects/useFirstRender';
-import useFocusNew from '../../common/effects/useFocusNew';
-import { isDark } from '../../common/utils';
 import { RadioProps } from './radio-model';
 import styles from './radio.module.scss';
 

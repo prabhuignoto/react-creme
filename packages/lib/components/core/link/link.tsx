@@ -1,7 +1,6 @@
+import { isDark, useFocusNew } from '@common';
 import classNames from 'classnames';
 import React, { AnchorHTMLAttributes, useMemo, useRef } from 'react';
-import useFocusNew from '../../common/effects/useFocusNew';
-import { isDark } from '../../common/utils';
 import styles from './link.module.scss';
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {

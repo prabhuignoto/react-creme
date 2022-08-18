@@ -1,6 +1,6 @@
+import { isDark } from '@common';
 import classNames from 'classnames';
 import React, { CSSProperties, FunctionComponent, memo, useMemo } from 'react';
-import { isDark } from '../../common/utils';
 import styles from './kbd.module.scss';
 
 export type KbdProps = {

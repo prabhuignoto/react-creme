@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
-import { Accordion } from '../../../lib/components';
+import { Accordion } from '../../../lib/components/core/accordion/accordion';
 import { themeState } from '../../atoms/home';
 
 const TextContent = () => {

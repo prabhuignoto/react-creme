@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useEffect, useMemo, useState } from 'react';
-import { withOverlay } from '../../common/withOverlay';
+import { withOverlay } from '@common';
 import { Image } from './image';
 import { ImageOverlayProps } from './image-model';
 import styles from './image.module.scss';

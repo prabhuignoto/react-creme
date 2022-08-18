@@ -1,8 +1,7 @@
+import { isDark, useFocusNew } from '@common';
 import classnames from 'classnames';
 import React, { CSSProperties, useMemo, useRef } from 'react';
-import { ChevronRightIcon, MinusIcon, PlusIcon } from '../../common/icons';
-import useFocusNew from '../../common/effects/useFocusNew';
-import { isDark } from '../../common/utils';
+import { ChevronRightIcon, MinusIcon, PlusIcon } from '@common/icons';
 import styles from './accordion-header.module.scss';
 import { AccordionHeaderProps } from './accordion-model';
 

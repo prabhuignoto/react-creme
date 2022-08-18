@@ -1,4 +1,4 @@
-import { isDark } from '../../common/utils';
+import { isDark } from '@common';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { useMemo, useRef } from 'react';

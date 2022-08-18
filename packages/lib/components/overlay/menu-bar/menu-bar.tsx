@@ -1,9 +1,8 @@
+import { isDark, useOnClickOutside } from '@common';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import { FunctionComponent, useCallback, useMemo, useState } from 'react';
 import { Menu } from '..';
-import useOnClickOutside from '../../common/effects/useOnClickOutside';
-import { isDark } from '../../common/utils';
 import { MenuBarItem } from './item';
 import { MenuBarProps } from './menu-bar.model';
 import styles from './menu-bar.module.scss';

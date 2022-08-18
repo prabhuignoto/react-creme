@@ -1,8 +1,7 @@
+import { isDark, useFirstRender } from '@common';
+import { ChevronDownIcon } from '@common/icons';
 import classNames from 'classnames';
 import { FunctionComponent, memo, useMemo } from 'react';
-import { useFirstRender } from '../../common/effects/useFirstRender';
-import { ChevronDownIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
 import { MenuBarItemViewProps } from './menu-bar.model';
 import styles from './menu-bar.module.scss';
 

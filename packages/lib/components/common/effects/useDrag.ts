@@ -257,9 +257,12 @@ const useDrag: useDragFunctionType = (
         return;
       }
 
-      container.current.style.userSelect = 'none';
+      const containerEle = container.current as HTMLElement;
+      const targetEle = target.current as HTMLElement;
 
-      const { clientHeight, clientWidth } = container.current;
+      containerEle.style.userSelect = 'none';
+
+      const { clientHeight, clientWidth } = containerEle;
 
       if (!maxX) {
         maxXValue.current = clientWidth;
@@ -273,17 +276,17 @@ const useDrag: useDragFunctionType = (
         maxYValue.current = min(maxY, clientHeight);
       }
 
-      if (startValue && endValue) {
-        const percent = currentValue
+      if (startValue && endValue && targetEle) {
+        const _percent = currentValue
           ? (currentValue - startValue) / (endValue - startValue)
           : 0;
 
         if (currentValue) {
-          target.current.style.left = `${Math.round(clientWidth * percent)}px`;
-          setPercent(percent);
+          targetEle.style.left = `${Math.round(clientWidth * _percent)}px`;
+          setPercent(_percent);
         } else {
-          target.current.style.left = `${rnd(clientWidth * percent)}px`;
-          setPercent(percent);
+          targetEle.style.left = `${rnd(clientWidth * _percent)}px`;
+          setPercent(_percent);
         }
       }
 

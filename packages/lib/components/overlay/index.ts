@@ -4,6 +4,8 @@ export { Drawer } from './drawer/drawer';
 export type { DrawerProps } from './drawer/drawer-model';
 export { MenuBar } from './menu-bar/menu-bar';
 export type { MenuBarProps } from './menu-bar/menu-bar.model';
+export { MenuButton } from './menu-button/menu-button';
+export type { MenuButtonProps } from './menu-button/menu-button.model';
 export { Menu } from './menu/menu';
 export type { MenuProps } from './menu/menu-model';
 export { Tooltip } from './tooltip/tooltip';

@@ -1,14 +1,14 @@
+import { useFocusNew } from '@common';
 import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useCallback, useMemo } from 'react';
-import useFocus from '../../common/effects/useFocusNew';
 import {
   CheckIcon,
   CloseIcon,
   ErrorIcon,
   InfoIcon,
   WarningIcon,
-} from '../../common/icons';
+} from '@common/icons';
 import { AlertProps } from './alert-model';
 import styles from './alert.module.scss';
 
@@ -29,7 +29,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
 
   const btnCloseRef = React.useRef<HTMLSpanElement>(null);
 
-  useFocus(focusable ? btnCloseRef : null, () => setClose(true));
+  useFocusNew(focusable ? btnCloseRef : null, () => setClose(true));
 
   const style = useMemo(
     () =>

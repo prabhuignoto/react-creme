@@ -1,12 +1,10 @@
+import { isDark, useTrapFocus, withOverlay } from '@common';
+import { CheckIcon, CloseIcon } from '@common/icons';
+import { Button } from '@core';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
-import useTrapFocus from '../../common/effects/useTrapFocus';
-import { CheckIcon, CloseIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
-import { withOverlay } from '../../common/withOverlay';
-import { Button } from '../../inputs/button/button';
 import { DialogProps } from './dialog-model';
 import styles from './dialog.module.scss';
 

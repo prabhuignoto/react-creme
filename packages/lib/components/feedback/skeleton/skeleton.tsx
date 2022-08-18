@@ -1,7 +1,7 @@
+import { isDark } from '@common';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import { FunctionComponent, useCallback, useMemo, useState } from 'react';
-import { isDark } from '../../common/utils';
 import { SkeletonBlockProps, SkeletonProps } from './skeleton-model';
 import { SkeletonRow } from './skeleton-row';
 import styles from './skeleton.module.scss';

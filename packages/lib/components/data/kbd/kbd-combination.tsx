@@ -1,8 +1,8 @@
+import { isDark } from '@common';
+import { PlusIcon } from '@common/icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import { Fragment, FunctionComponent, ReactNode, useMemo, useRef } from 'react';
-import { PlusIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
 import { KbdCombinationProps } from './kbd';
 import styles from './kbd.module.scss';
 

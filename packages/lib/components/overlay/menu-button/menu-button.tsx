@@ -1,9 +1,9 @@
+import { isDark } from '@common';
+import { Button } from '@core';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
 import { ChevronDownIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
-import { Button } from '../../inputs/button/button';
 import { Menu } from '../menu/menu';
 import { MenuItemProps } from '../menu/menu-item';
 import { MenuButtonProps } from './menu-button.model';

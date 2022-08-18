@@ -1,16 +1,30 @@
 {
   "extends": "../../tsconfig-base.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "composite": true,
     "declaration": true,
     "declarationDir": "./dist",
-    "composite": true
+    "outDir": "./dist-lib",
+    "rootDir": "../"
   },
-  "include": [
-    "./**/*",
-    "../../Globals.d.ts",
-    "index.ts",
-    "../common",
-    "../feedback"
-  ],
-  "exclude": ["dist"]
+  "include": ["./**/*", "../../Globals.d.ts"],
+  "exclude": ["dist"],
+  "references": [
+    {
+      "path": "../common"
+    },
+    {
+      "path": "../feedback"
+    },
+    {
+      "path": "../core"
+    },
+    {
+      "path": "../overlay"
+    },
+    {
+      "path": "../data"
+    }
+  ]
 }

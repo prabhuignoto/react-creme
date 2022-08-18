@@ -3,10 +3,26 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist",
+    "outDir": "./dist-lib",
     "composite": true,
-    "rootDir": "."
+    "rootDir": "../",
+    "baseUrl": "."
   },
-  "include": ["./**/*", "../../Globals.d.ts", "index.ts", "../common"],
-  "exclude": ["dist"],
-  "files": ["index.ts"]
+  "include": [
+    "./**/*",
+    "../../Globals.d.ts",
+    "../inputs/input"
+    // "../layout",
+    // "../inputs"
+  ],
+  "exclude": [
+    "dist"
+    // "dist-lib"
+  ],
+  "files": ["index.ts"],
+  "references": [
+    {
+      "path": "../common"
+    }
+  ]
 }

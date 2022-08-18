@@ -1,3 +1,6 @@
+import { isDark } from '@common';
+import { SearchIcon } from '@common/icons';
+import { Input } from '@inputs';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, {
@@ -8,9 +11,6 @@ import React, {
   useState,
 } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { SearchIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
-import { Input } from '../../inputs/input/input';
 import { DataGridHeader } from './data-grid-header';
 import {
   DataGridColumn,

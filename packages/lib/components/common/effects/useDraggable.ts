@@ -260,13 +260,13 @@ const useDraggable: UseDraggable = (
         targetRef instanceof HTMLElement ? targetRef : targetRef.current;
 
       // if you want to make a single target draggable within a bound container
-      if (bound && !makeChildrenDraggable) {
+      if (bound && !makeChildrenDraggable && boundTo?.current) {
         boundToRect.current = boundTo.current?.getBoundingClientRect();
         boundTo.current.style.position = 'relative';
       }
 
       // is we want to make all children's draggable within bounds
-      if (makeChildrenDraggable && _targetRef) {
+      if (makeChildrenDraggable && _targetRef && boundTo) {
         boundToRect.current = _targetRef.getBoundingClientRect();
         _targetRef.style.position = 'relative';
       }

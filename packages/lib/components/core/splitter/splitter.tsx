@@ -1,3 +1,5 @@
+import { isDark, useDrag } from '@common';
+import { AlignJustify } from '@common/icons';
 import classNames from 'classnames';
 import React, {
   CSSProperties,
@@ -6,9 +8,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { AlignJustify } from '../../common/icons';
-import { useDrag } from '../../common/effects/useDrag';
-import { isDark } from '../../common/utils';
 import { SplitterProps } from './splitter-model';
 import styles from './splitter.module.scss';
 
@@ -123,15 +122,15 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
     if (node) {
       ref.current = node;
       const { clientWidth, clientHeight } = node;
-      let percent = 0;
+      let newPercent = 0;
 
       if (dir === 'horizontal') {
-        percent = minSplitWidth ? minSplitWidth / clientWidth : 0.5;
+        newPercent = minSplitWidth ? minSplitWidth / clientWidth : 0.5;
       } else if (dir === 'vertical') {
-        percent = minSplitHeight ? minSplitHeight / clientHeight : 0.5;
+        newPercent = minSplitHeight ? minSplitHeight / clientHeight : 0.5;
       }
 
-      setPercent(percent);
+      setPercent(newPercent);
     }
   }, []);
 

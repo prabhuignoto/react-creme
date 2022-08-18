@@ -1,11 +1,9 @@
+import { isDark, useDrag } from '@common';
+import { Tooltip } from '@overlay';
 import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { useDrag } from '../../common/effects/useDrag';
-import { isDark } from '../../common/utils';
-// import useFocus from '../../common/effects/useFocusNew';
-import { Tooltip } from '../../overlay/tooltip/tooltip';
 import { SliderProps } from './slider-model';
 import styles from './slider.module.scss';
 

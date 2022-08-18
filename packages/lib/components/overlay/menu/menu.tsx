@@ -1,3 +1,9 @@
+import {
+  useCloseOnEscape,
+  useFirstRender,
+  useFocusNew,
+  useOnClickOutside,
+} from '@common';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, {
@@ -7,10 +13,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useCloseOnEscape } from '../../common/effects/useCloseOnEsc';
-import { useFirstRender } from '../../common/effects/useFirstRender';
-import useFocusNew from '../../common/effects/useFocusNew';
-import useOnClickOutside from '../../common/effects/useOnClickOutside';
 import { MenuItemProps, MenuProps } from './menu-model';
 import { MenuOverlay, MenuOverlayProps } from './menu-overlay';
 import styles from './menu.module.scss';

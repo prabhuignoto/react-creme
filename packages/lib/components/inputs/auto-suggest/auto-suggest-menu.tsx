@@ -1,10 +1,7 @@
+import { OverlayModel, useOnClickOutside, withOverlay, isDark } from '@common';
 import classNames from 'classnames';
 import React, { CSSProperties, useEffect, useMemo, useRef } from 'react';
-import { withOverlay } from '../../../components/common/withOverlay';
-import useOnClickOutside from '../../common/effects/useOnClickOutside';
-import { OverlayModel } from '../../common/overlay-model';
-import { isDark } from '../../common/utils';
-import { List } from '../../data/list/list';
+import { List } from '@data';
 import { ListOption } from '../../list/list-model';
 import styles from './auto-suggest.module.scss';
 

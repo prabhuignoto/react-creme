@@ -22,3 +22,4 @@ bundle-analysis**
 
 storybook-static
 build-storybook.log
+dist-lib

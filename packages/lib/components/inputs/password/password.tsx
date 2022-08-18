@@ -1,3 +1,5 @@
+import { isDark } from '@common';
+import { Eye, EyeOff } from '@common/icons';
 import classNames from 'classnames';
 import {
   FunctionComponent,
@@ -6,9 +8,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { Eye, EyeOff } from '../../common/icons';
-import { isDark } from '../../common/utils';
-import { Input } from '../../inputs/input/input';
+import { Input } from '../input/input';
 import styles from './password.module.scss';
 
 export type PasswordProps = {

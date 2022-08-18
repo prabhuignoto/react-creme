@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
-import { isDark } from '../../common/utils';
+import { isDark } from '@common';
 import styles from './page-header.module.scss';
 
 export interface PageHeaderProps {

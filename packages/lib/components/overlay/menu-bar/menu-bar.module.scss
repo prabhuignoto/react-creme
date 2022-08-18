@@ -12,6 +12,10 @@ $sizes: (sm, md, lg);
   @extend %border;
   @extend %list-horizontal-left;
 
+  &.left_aligned {
+    direction: ltr;
+  }
+
   &.right_aligned {
     direction: rtl;
   }

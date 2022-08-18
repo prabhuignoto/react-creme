@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from '../list/list';
+import { List } from '../../core/list/list';
 import { TransferListProps } from './transfer-model';
 
 const TransferList: React.FunctionComponent<TransferListProps> = React.memo(

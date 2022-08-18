@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
-import { isDark } from '../../common/utils';
+import { isDark } from '@common/utils';
 import { CardProps } from './card-model';
 import styles from './card.module.scss';
 

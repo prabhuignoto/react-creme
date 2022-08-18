@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
+import { isDark, withOverlay } from '@common';
 import classNames from 'classnames';
 import React, { useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { useKeyNavigation } from '../../common/effects/useKeyNavigation';
-import { isDark } from '../../common/utils';
-import { withOverlay } from '../../common/withOverlay';
 import { MenuItem } from './menu-item';
 import { MenuOverlayModel } from './menu-model';
 import styles from './menu.module.scss';

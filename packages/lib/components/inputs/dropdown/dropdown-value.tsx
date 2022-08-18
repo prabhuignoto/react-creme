@@ -3,7 +3,7 @@ import React, { CSSProperties, useEffect, useMemo } from 'react';
 import useFocusNew from '../../common/effects/useFocusNew';
 import { ChevronDownIcon, CloseIcon } from '../../common/icons';
 import { isDark } from '../../common/utils';
-import { Tags } from '../../inputs/tags/tags';
+import { Tags } from '../tags/tags';
 import { DropdownValueProps } from './dropdown-model';
 import styles from './dropdown-value.module.scss';
 

@@ -1,4 +1,4 @@
-import { ListOption } from '../list/list-model';
+import { ListOption } from '../../core/list/list-model';
 
 export interface TransferProps {
   RTL?: boolean;

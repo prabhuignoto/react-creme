@@ -1,6 +1,6 @@
+import { isDark } from '@common';
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
-import { isDark } from '../../common/utils';
 import styles from './circular-progress.module.scss';
 
 export interface CircularProgressProps {

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
-import { isDark } from '../../common/utils';
+import { isDark } from '@common/utils';
 import { CarouselButton } from './carousel-button';
 import { CarouselTrackProps } from './carousel-model';
 import styles from './carousel-track.module.scss';

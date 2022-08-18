@@ -3,9 +3,19 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist",
+    "outDir": "./dist-lib",
+    "baseUrl": ".",
     "composite": true
   },
   "include": ["./**/*", "../../Globals.d.ts"],
-  "exclude": ["dist"],
-  "files": ["index.ts"]
+  "files": ["index.ts"],
+  "exclude": ["dist/"],
+  "references": [
+    {
+      "path": "../common"
+    },
+    {
+      "path": "../core"
+    }
+  ]
 }

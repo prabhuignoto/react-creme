@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import { FunctionComponent, useCallback, useMemo, useRef } from 'react';
-import { Button } from '../button/button';
+import { Button } from '@core';
 import { FormGroupProps, FormItemProps } from './form-group.model';
 import styles from './form-group.module.scss';
 

@@ -1,7 +1,6 @@
+import { isDark, useFocusNew } from '@common';
 import classNames from 'classnames';
 import React, { useEffect, useMemo, useRef } from 'react';
-import useFocusNew from '../../common/effects/useFocusNew';
-import { isDark } from '../../common/utils';
 import styles from './tab-header.module.scss';
 import { TabHeadProps } from './tabs-model';
 

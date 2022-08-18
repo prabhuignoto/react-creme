@@ -1,6 +1,6 @@
+import { isDark } from '@common';
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
-import { isDark } from '../../common/utils';
 import { DataGridCell as CellModel } from './data-grid-model';
 import styles from './data-grid.module.scss';
 

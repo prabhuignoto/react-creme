@@ -6,8 +6,8 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { ChevronRightIcon } from '../../common/icons';
-import { isDark } from '../../common/utils';
+import { ChevronRightIcon } from '@common/icons';
+import { isDark } from '@common/utils';
 import { TabHead } from './tab-head';
 import styles from './tab-header.module.scss';
 import { TabHeadersProps } from './tabs-model';

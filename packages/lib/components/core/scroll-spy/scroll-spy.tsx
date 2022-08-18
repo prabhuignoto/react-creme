@@ -1,7 +1,7 @@
+import { isDark } from '@common';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-import { isDark } from '../../common/utils';
 import {
   ScrollSpyContent,
   ScrollSpyLinkInternal,
