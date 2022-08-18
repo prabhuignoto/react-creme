@@ -1,6 +1,6 @@
 {
-  "name": "@react-creme/common",
-  "version": "0.1.0",
+  "name": "@react-creme/layout",
+  "version": "1.0.0",
   "description": "React components for inputs",
   "license": "MIT",
   "type": "module",
@@ -31,7 +31,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "module": "dist/common.js",
-  "css": "dist/common.css",
+  "module": "dist/inputs.js",
+  "css": "dist/inputs.css",
   "sideEffects": false
 }

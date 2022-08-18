@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { isDark, useFirstRender } from '@common';
 import { CloseIcon } from '@common/icons';
-import { CircularProgress } from '@feedback';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, {
@@ -12,6 +11,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { CircularProgress } from '../progress/circular-progress';
 import { InputProps } from './input-model';
 import styles from './input.module.scss';
 
@@ -27,7 +27,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
   (props, ref) => {
     const {
       RTL = false,
-      accent = 'flat',
+      // accent = 'flat',
       border = false,
       children,
       controlled = true,
@@ -131,7 +131,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           [styles.focus]: hasFocus,
           [styles['no_icon']]: !children,
           [styles.rtl]: RTL,
-          [styles[accent]]: true,
+          // [styles.accent]: true,
           [styles[size]]: true,
           [styles.transparent_bg_color]: transparentBg,
           [styles.input_dark]: isDarkMode,

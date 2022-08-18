@@ -1,5 +1,6 @@
 import { isDark } from '@common';
 import { Eye, EyeOff } from '@common/icons';
+import { Input } from '@core';
 import classNames from 'classnames';
 import {
   FunctionComponent,
@@ -8,7 +9,6 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { Input } from '../input/input';
 import styles from './password.module.scss';
 
 export type PasswordProps = {
@@ -57,7 +57,7 @@ const Password: FunctionComponent<PasswordProps> = ({
     () =>
       classNames(styles.unmask_icon, {
         [styles[size]]: true,
-        [styles.rtl]: RTL,
+        // [styles.rtl]: RTL,
       }),
     []
   );

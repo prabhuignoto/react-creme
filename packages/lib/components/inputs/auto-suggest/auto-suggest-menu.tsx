@@ -1,8 +1,7 @@
-import { OverlayModel, useOnClickOutside, withOverlay, isDark } from '@common';
+import { isDark, OverlayModel, useOnClickOutside, withOverlay } from '@common';
+import { List, ListOption } from '@data';
 import classNames from 'classnames';
 import React, { CSSProperties, useEffect, useMemo, useRef } from 'react';
-import { List } from '@data';
-import { ListOption } from '../../list/list-model';
 import styles from './auto-suggest.module.scss';
 
 type SuggestMenuData = {

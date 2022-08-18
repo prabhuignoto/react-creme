@@ -1,8 +1,7 @@
+import { isDark, useOnClickOutside } from '@common';
+import { List } from '@data';
 import classNames from 'classnames';
 import React, { CSSProperties, useCallback, useEffect, useMemo } from 'react';
-import useClickOutside from '../../common/effects/useOnClickOutside';
-import { isDark } from '../../common/utils';
-import { List } from '../../core/list/list';
 import styles from './dropdown-menu.module.scss';
 import { DropdownMenuProps } from './dropdown-model';
 
@@ -52,7 +51,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
 
   const handleClose = useCallback(() => open && onClose?.(), [open]);
 
-  const { onRef } = useClickOutside(handleClose);
+  const { onRef } = useOnClickOutside(handleClose);
 
   return (
     <div className={menuClass} style={menuStyle} ref={onRef}>

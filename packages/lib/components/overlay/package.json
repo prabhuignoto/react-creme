@@ -17,7 +17,8 @@
   },
   "scripts": {
     "emit": "tsc -p tsconfig.json --outDir ./dist --emitDeclarationOnly",
-    "lint:pack": "eslint ./**/*.{ts,tsx}"
+    "lint:pack": "eslint ./**/*.{ts,tsx}",
+    "format": "prettier --write ./**/*.{ts,tsx} --ignore-path ../../.prettierignore"
   },
   "author": {
     "name": "Prabhu Murthy",

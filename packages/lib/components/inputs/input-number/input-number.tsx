@@ -1,5 +1,6 @@
 import { isDark } from '@common';
 import { ChevronDownIcon } from '@common/icons';
+import { Button, Input } from '@core';
 import classNames from 'classnames';
 import React, {
   FunctionComponent,
@@ -7,8 +8,6 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { Button } from '../../core/button/button';
-import { Input } from '../input/input';
 import { InputNumberProps } from './input-number.model';
 import styles from './input-number.module.scss';
 

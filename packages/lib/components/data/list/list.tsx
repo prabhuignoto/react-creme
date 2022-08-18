@@ -1,6 +1,6 @@
 import { isDark, useFirstRender } from '@common';
 import { SearchIcon } from '@common/icons';
-import { Input } from '@inputs';
+import { Input } from '@core';
 import cls from 'classnames';
 import * as React from 'react';
 import {

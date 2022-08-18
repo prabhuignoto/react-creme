@@ -8,17 +8,8 @@
     "rootDir": "../",
     "baseUrl": "."
   },
-  "include": [
-    "./**/*",
-    "../../Globals.d.ts",
-    "../inputs/input"
-    // "../layout",
-    // "../inputs"
-  ],
-  "exclude": [
-    "dist"
-    // "dist-lib"
-  ],
+  "include": ["./**/*", "../../Globals.d.ts"],
+  "exclude": ["dist"],
   "files": ["index.ts"],
   "references": [
     {

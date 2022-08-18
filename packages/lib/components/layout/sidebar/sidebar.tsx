@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
-import { SearchIcon } from '../../common/icons';
-import { isArray, isDark } from '../../common/utils';
-import { Input } from '../../inputs/input/input';
-import { ListOption } from '../../list/list-model';
+import { SearchIcon } from '@common/icons';
+import { isArray, isDark } from '@common';
+import { Input } from '@core';
+import { ListOption } from '@data';
 import { SidebarGroups } from './sidebar-groups';
 import { SidebarGroupModel, SidebarProps } from './sidebar-model';
 import styles from './sidebar.module.scss';

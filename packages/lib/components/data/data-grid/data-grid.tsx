@@ -1,6 +1,6 @@
 import { isDark } from '@common';
 import { SearchIcon } from '@common/icons';
-import { Input } from '@inputs';
+import { Input } from '@core';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, {

@@ -1,13 +1,13 @@
+import { useFirstRender } from '@common';
+import { RCInputElementProps } from '@core';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import '../../../design/core.scss';
 import '../../../design/list.scss';
-import { AutoSuggest } from '../../data/auto-suggest/auto-suggest';
-import { AutoSuggestOption } from '../../data/auto-suggest/auto-suggest.model';
-import { useFirstRender } from '../../common/effects/useFirstRender';
-import { RCInputElementProps } from '../input/input';
+import { AutoSuggest } from '../auto-suggest/auto-suggest';
+import { AutoSuggestOption } from '../auto-suggest/auto-suggest.model';
 import { TagItem } from './tag-item';
 import { TagItemProps, TagsProps } from './tags-model';
 import styles from './tags.module.scss';

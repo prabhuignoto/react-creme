@@ -1,8 +1,7 @@
-import { isDark } from '@common';
+import { isDark, useFocusNew } from '@common';
 import { RateIcon } from '@common/icons';
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
-import useFocusNew from '../../common/effects/useFocusNew';
 import { RateItemViewProps } from './rate-model';
 import styles from './rate.module.scss';
 

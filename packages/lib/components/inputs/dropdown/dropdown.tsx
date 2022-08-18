@@ -1,8 +1,8 @@
+import { withOverlay } from '@common';
 import cls from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { withOverlay } from '../../common/withOverlay';
 import { DropDownMenu } from './dropdown-menu';
 import { DropdownMenuProps, DropdownProps, Option } from './dropdown-model';
 import { DropdownValue } from './dropdown-value';
@@ -59,7 +59,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const [menuClosing, setMenuClosing] = useState(false);
 
     // REFS
-    const containerRef = useRef(null);
+    const containerRef = useRef<HTMLDivElement | null>(null);
     const dropdownRef = useRef(null);
 
     // state to set the focus manually
@@ -141,7 +141,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
      */
     const menuStyle = useMemo(() => {
       if (containerRef.current) {
-        const { clientWidth } = containerRef.current;
+        const { clientWidth } = containerRef.current as HTMLElement;
         return {
           maxMenuHeight,
           width: clientWidth,

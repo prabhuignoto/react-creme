@@ -8,7 +8,7 @@
     "outDir": "./dist-lib",
     "rootDir": "../"
   },
-  "include": ["./**/*", "../../Globals.d.ts"],
+  "include": ["./**/*", "../../Globals.d.ts", "../core/input", "../core/radio"],
   "exclude": ["dist"],
   "references": [
     {

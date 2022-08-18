@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useFirstRender } from '../../common/effects/useFirstRender';
-import { ListOption } from '../../core/list/list-model';
+import { ListOption } from '../list/list-model';
 import { TransferControlColumn } from './transfer-control-column';
 import { TransferList } from './transfer-list';
 import { TransferListInternalModel, TransferProps } from './transfer-model';

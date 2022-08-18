@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { CheckBox } from '../../inputs/checkbox/checkbox';
+import { CheckBox } from '@core';
 import styles from './transfer-list.module.scss';
 import { TransferListItemModel } from './transfer-model';
 

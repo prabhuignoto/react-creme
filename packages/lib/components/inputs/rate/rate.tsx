@@ -1,9 +1,9 @@
+import { useFirstRender } from '@common';
 import { RateIcon } from '@common/icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { useFirstRender } from '../../common/effects/useFirstRender';
 import { RateItem } from './rate-item';
 import { RateItemProps, RateProps } from './rate-model';
 import styles from './rate.module.scss';

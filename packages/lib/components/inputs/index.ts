@@ -1,25 +1,22 @@
 export { Button } from '../core/button/button';
 export type { ButtonProps } from '../core/button/button-model';
+
 export { CheckBoxGroup } from './checkbox-group/checkbox-group';
 export type { CheckboxGroupProps } from './checkbox-group/checkbox-group';
-export { CheckBox } from './checkbox/checkbox';
-export type { CheckboxProps } from './checkbox/checkbox-model';
 export { FormField } from './form-field/form-field';
 export type { FormFieldProps } from './form-field/form-field.model';
 export { FormGroup } from './form-group/form-group';
 export type { FormGroupProps } from './form-group/form-group.model';
 export { InputNumber } from './input-number/input-number';
 export type { InputNumberProps } from './input-number/input-number.model';
-export { Input } from './input/input';
-export type { InputProps } from './input/input-model';
 export { Password } from './password/password';
 export type { PasswordProps } from './password/password';
 export { Pin } from './pin/pin';
 export type { PinProps } from './pin/pin.model';
 export { RadioGroup } from './radio-group/radio-group';
 export type { RadioGroupProps } from './radio-group/radio-group-model';
-export { Radio } from './radio/radio';
-export type { RadioProps } from './radio/radio-model';
+export { Radio } from '../core/radio/radio';
+export type { RadioProps } from '../core/radio/radio-model';
 export { Rate } from './rate/rate';
 export type { RateProps } from './rate/rate-model';
 export { Switch } from './switch/switch';

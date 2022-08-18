@@ -4,7 +4,8 @@
   "scripts": {
     "test-ci": "vitest --config ./vitest.config.ts",
     "test": "vitest --config ./vitest.config.dev.ts --ui",
-    "test:quiet": "vitest --config ./vitest.config.dev.ts --silent --run"
+    "test:quiet": "vitest --config ./vitest.config.dev.ts --silent --run",
+    "format": "prettier --write ./**/*.{ts,tsx} --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "2.0.1",

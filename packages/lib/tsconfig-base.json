@@ -17,6 +17,8 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
+    "incremental": true,
+    // "tsBuildInfoFile": "./buildcache/fe",
     "types": [
       "react",
       "react-dom",

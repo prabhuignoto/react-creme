@@ -1,13 +1,12 @@
+import { isValidString, useFirstRender } from '@common';
+import { SearchIcon } from '@common/icons';
+import { ListOption } from '@data';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { useFirstRender } from '../../common/effects/useFirstRender';
-import { SearchIcon } from '../../common/icons';
-import { isValidString } from '../../common/utils';
-import { Option } from '../../dropdown/dropdown-model';
-import { Input, RCInputElementProps } from '../../inputs/input/input';
+import { Input, RCInputElementProps } from '@core';
 import { SuggestionsMenuOverlay } from './auto-suggest-menu';
 import { AutoSuggestProps } from './auto-suggest.model';
 import styles from './auto-suggest.module.scss';
@@ -35,7 +34,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
     }: AutoSuggestProps,
     ref
   ) => {
-    const [suggestionItems, setSuggestionItems] = React.useState<Option[]>(
+    const [suggestionItems, setSuggestionItems] = React.useState<ListOption[]>(
       suggestions.length
         ? suggestions.map(({ name, value }) => ({
             id: nanoid(),
@@ -73,7 +72,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
       }
     }, [regexTester, selected, isDirty, suggestionItems.length, apiBacked]);
 
-    const listItems = useMemo<Option[]>(
+    const listItems = useMemo<ListOption[]>(
       () =>
         regexTester
           ? suggestionItems.filter(item => regexTester.test(item.name))
@@ -95,7 +94,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
       setIsDirty(true);
     }, []);
 
-    const handleSelection = useCallback((selected: Option[]) => {
+    const handleSelection = useCallback((selected: ListOption[]) => {
       if (Array.isArray(selected) && selected.length > 0) {
         const selectedItem = selected[0];
         setFocusMenu(false);

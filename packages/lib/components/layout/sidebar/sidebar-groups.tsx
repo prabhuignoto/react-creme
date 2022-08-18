@@ -1,6 +1,6 @@
 import React, { CSSProperties, useMemo } from 'react';
-import { AccordionGroup } from '../accordion-group/accordion-group';
-import { List } from '../../data/list/list';
+import { AccordionGroup } from '@core';
+import { List } from '@data';
 import { SidebarGroupsModel } from './sidebar-model';
 import styles from './sidebar.module.scss';
 

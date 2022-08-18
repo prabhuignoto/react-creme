@@ -1,9 +1,8 @@
+import { CheckBox, CheckboxProps } from '@core';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { useCallback, useMemo } from 'react';
-import { CheckBox } from '../checkbox/checkbox';
-import { CheckboxProps } from '../checkbox/checkbox-model';
 import styles from './checkbox-group.module.scss';
 
 export interface CheckboxGroupProps {
