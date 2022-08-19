@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Tabs } from '../../../lib/components';
+import { Tabs } from '@core';
 
 const icons = [
   <FontAwesomeIcon icon={faAddressBook} key="1" />,

@@ -1,4 +1,4 @@
-import { ImageComparer } from '../../../lib/components';
+import { ImageComparer } from '@layout';
 
 export const Horizontal = (
   <ImageComparer

@@ -1,4 +1,5 @@
-import { Card, Tooltip } from '../../../lib/components';
+import { Card } from '@core';
+import { Tooltip } from '@overlay';
 
 export const TopCenter = () => (
   <Tooltip

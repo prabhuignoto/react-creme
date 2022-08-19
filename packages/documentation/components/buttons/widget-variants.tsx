@@ -1,5 +1,5 @@
-import { Button } from '../../../lib/components';
-import { SearchIcon } from '../../../lib/icons';
+import { Button } from '@core';
+import { SearchIcon } from '@common/icons';
 
 export const Default = <Button label="save" onClick={() => alert('test')} />;
 

@@ -1,4 +1,4 @@
-import { RadioGroup } from '../../../lib/components';
+import { RadioGroup } from '@inputs';
 
 export const Default = (
   <RadioGroup

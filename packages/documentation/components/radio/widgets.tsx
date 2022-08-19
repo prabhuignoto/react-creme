@@ -1,6 +1,6 @@
+import { Radio, Section } from '@core';
 import { CSSProperties, useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { Radio, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 

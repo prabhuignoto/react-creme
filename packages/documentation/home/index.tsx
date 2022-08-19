@@ -1,5 +1,4 @@
-import { BlockQuote, Button } from '../../lib/components';
-import { Section } from '../../lib/components/section/section';
+import { BlockQuote, Button, Section } from '@core';
 import packages from '../../lib/package.json';
 import { SyntaxHighLighter } from './../common/syntax-highlighter';
 import { Code } from './../common/syntax-highlighter/syntax';

@@ -1,4 +1,4 @@
-import { Transfer } from '../../../lib/components';
+import { Transfer } from '@data';
 
 export const Default = (
   <Transfer

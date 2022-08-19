@@ -1,4 +1,4 @@
-import { Sidebar } from '../../../lib/components';
+import { Sidebar } from '@layout';
 
 export const Default = (
   <Sidebar

@@ -1,5 +1,5 @@
-import { Rate } from '../../../lib/components';
-import { SearchIcon } from '../../../lib/icons';
+import { Rate } from '@inputs';
+import { SearchIcon } from '@common/icons';
 
 export const Default = <Rate size="md" />;
 

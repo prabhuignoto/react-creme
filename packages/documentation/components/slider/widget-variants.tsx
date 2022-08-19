@@ -1,4 +1,4 @@
-import { Slider } from '../../../lib/components';
+import { Slider } from '@inputs';
 
 export const Default = (
   <Slider

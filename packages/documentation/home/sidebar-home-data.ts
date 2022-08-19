@@ -1,4 +1,4 @@
-import { SidebarGroupModel } from '../../lib/components/sidebar/sidebar-model';
+import { SidebarGroupModel } from '../../lib/components/layout';
 
 export default [
   {

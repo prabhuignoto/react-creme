@@ -2,7 +2,7 @@ import { isDark, useOnClickOutside } from '@common';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import { FunctionComponent, useCallback, useMemo, useState } from 'react';
-import { Menu } from '..';
+import { Menu } from '@core';
 import { MenuBarItem } from './item';
 import { MenuBarProps } from './menu-bar.model';
 import styles from './menu-bar.module.scss';

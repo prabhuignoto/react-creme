@@ -1,4 +1,4 @@
-import { Pin } from '../../../lib/components';
+import { Pin } from '@inputs';
 
 export const Default = <Pin autoJump />;
 export const CustomLength = (

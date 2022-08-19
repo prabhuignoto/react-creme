@@ -1,5 +1,5 @@
+import { Link, Section } from '@core';
 import { Link as LinkIcon } from 'react-feather';
-import { Link, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 
 function Widgets() {

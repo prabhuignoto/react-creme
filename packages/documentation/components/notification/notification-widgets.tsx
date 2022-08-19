@@ -1,13 +1,8 @@
+import { BlockQuote, Button, Section } from '@core';
+import { Notification, NotificationPosition } from '@feedback';
+import { Dropdown } from '@inputs';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import {
-  BlockQuote,
-  Button,
-  Dropdown,
-  Notification,
-  Section,
-} from '../../../lib/components';
-import { NotificationPosition } from '../../../lib/components/notification/notification-model';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 

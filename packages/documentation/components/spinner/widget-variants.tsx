@@ -1,4 +1,4 @@
-import { Spinner } from '../../../lib/components';
+import { Spinner } from '@core';
 
 export const Default = <Spinner />;
 

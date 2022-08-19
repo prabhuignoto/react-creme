@@ -1,4 +1,4 @@
-import { List } from '../../../lib/components';
+import { List } from '@data';
 
 export const Default = (
   <List

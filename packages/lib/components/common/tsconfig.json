@@ -3,7 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist",
-    "outDir": "./dist-lib",
+    "outDir": "./dist",
     "composite": true
   },
   "include": ["./**/*", "../../Globals.d.ts"],

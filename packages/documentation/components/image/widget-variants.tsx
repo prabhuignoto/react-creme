@@ -1,4 +1,4 @@
-import { Image } from '../../../lib/components';
+import { Image } from '@core';
 
 export const Default = (
   <Image

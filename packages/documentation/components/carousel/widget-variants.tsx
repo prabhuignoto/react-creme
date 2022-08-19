@@ -1,4 +1,4 @@
-import { Carousel, Image } from '../../../lib/components';
+import { Carousel, Image } from '@core';
 
 export const Horizontal = (
   <Carousel direction="horizontal" focusable>

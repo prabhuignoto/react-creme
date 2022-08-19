@@ -18,7 +18,17 @@
     "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "types": ["react", "react-dom", "vite/client", "node"]
+    "types": ["react", "react-dom", "vite/client", "node"],
+    "paths": {
+      "@common": ["../lib/components/common"],
+      "@common/icons": ["../lib/components/common/icons"],
+      "@feedback": ["../lib/components/feedback"],
+      "@core": ["../lib/components/core"],
+      "@overlay": ["../lib/components/overlay"],
+      "@data": ["../lib/components/data"],
+      "@inputs": ["../lib/components/inputs"],
+      "@layout": ["../lib/components/layout"]
+    }
   },
   "include": [
     "svg.d.ts",
@@ -29,11 +39,30 @@
     "common/**/*.tsx",
     "atoms/**/*.tsx",
     "App.tsx",
-    "main.tsx"
+    "main.tsx",
+    "../lib"
   ],
   "references": [
     {
       "path": "../lib/components/core"
+    },
+    {
+      "path": "../lib/components/common"
+    },
+    {
+      "path": "../lib/components/data"
+    },
+    {
+      "path": "../lib/components/feedback"
+    },
+    {
+      "path": "../lib/components/inputs"
+    },
+    {
+      "path": "../lib/components/layout"
+    },
+    {
+      "path": "../lib/components/overlay"
     }
   ],
   "exclude": ["node_modules", "expo_dist"]

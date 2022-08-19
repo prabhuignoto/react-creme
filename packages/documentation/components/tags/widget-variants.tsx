@@ -1,4 +1,4 @@
-import { Tags } from '../../../lib/components';
+import { Tags } from '@inputs';
 
 const items = [
   { disabled: false, name: 'python' },

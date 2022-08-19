@@ -1,4 +1,4 @@
-import { Kbd, KbdCombination } from '../../../lib/components';
+import { Kbd, KbdCombination } from '@data';
 
 export const Default = <Kbd>Shift</Kbd>;
 

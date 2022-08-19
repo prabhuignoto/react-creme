@@ -21,6 +21,11 @@
   "scripts": {
     "build": "npx cross-env NODE_ENV=production webpack --config webpack.config.mjs --progress",
     "build:dev": "npx cross-env NODE_ENV=development webpack --config webpack.config.mjs --progress",
+    "build:core": "npx cross-env NODE_ENV=development webpack --config webpack.config.core.mjs --progress",
+    "build:common": "npx cross-env NODE_ENV=development webpack --config webpack.config.common.mjs --progress",
+    "build:overlay": "npx cross-env NODE_ENV=development webpack --config webpack.config.overlay.mjs --progress",
+    "build:inputs": "npx cross-env NODE_ENV=development webpack --config webpack.config.inputs.mjs --progress",
+    "build:data": "npx cross-env NODE_ENV=development webpack --config webpack.config.data.mjs --progress",
     "ci": "pnpm lint && pnpm test-ci && pnpm build",
     "eslint": "eslint ./components/**/*.{tsx,ts}",
     "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",

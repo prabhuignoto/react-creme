@@ -1,4 +1,4 @@
-import { BlockQuote, Section } from '../../../lib/components';
+import { BlockQuote, Section } from '@core';
 import { DemoWidget } from '../../common/demo-widget';
 import { CustomSpeed, Default, Large, Medium } from './widget-variants';
 

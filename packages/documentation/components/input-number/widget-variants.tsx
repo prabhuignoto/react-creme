@@ -1,4 +1,4 @@
-import { InputNumber } from '../../../lib/components';
+import { InputNumber } from '@inputs';
 
 export const Default = <InputNumber start={3} end={10} placeholder="choose" />;
 export const Border = <InputNumber border start={12} value={19} />;

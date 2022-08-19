@@ -3,7 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist",
-    "outDir": "./dist-lib",
+    "outDir": "./dist",
     "baseUrl": ".",
     "composite": true,
     "rootDir": "../"

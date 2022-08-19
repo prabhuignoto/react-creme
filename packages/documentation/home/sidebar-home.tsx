@@ -1,3 +1,4 @@
+import { Theme } from '@core';
 import {
   faBell,
   faBorderAll,
@@ -10,14 +11,10 @@ import {
   faWindowMaximize,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Sidebar, SidebarGroupModel, SidebarItemModel } from '@layout';
 import { FunctionComponent, memo, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { Sidebar, Theme } from '../../lib/components';
-import {
-  SidebarGroupModel,
-  SidebarItemModel,
-} from '../../lib/components/sidebar/sidebar-model';
 import { themeState } from '../atoms/home';
 import data from './sidebar-home-data';
 

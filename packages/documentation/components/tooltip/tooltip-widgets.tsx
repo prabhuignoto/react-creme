@@ -1,14 +1,8 @@
+import { BlockQuote, Card, Image, Section } from '@core';
+import { Dropdown } from '@inputs';
+import { Tooltip, ToolTipPosition } from '@overlay';
 import { useEffect, useMemo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import {
-  BlockQuote,
-  Card,
-  Dropdown,
-  Image,
-  Section,
-  Tooltip,
-} from '../../../lib/components';
-import { ToolTipPosition } from '../../../lib/components/tooltip/tooltip-model';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 

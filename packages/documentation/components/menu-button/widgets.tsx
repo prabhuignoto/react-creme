@@ -1,5 +1,5 @@
-import { Section } from '../../../lib/components';
-import { MenuButton } from '../../../lib/components/menu-button/menu-button';
+import { Section } from '@core';
+import { MenuButton } from '@overlay';
 import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {

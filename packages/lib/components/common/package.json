@@ -26,12 +26,13 @@
   },
   "homepage": "https://github.com/prabhuignoto/react-creme",
   "files": [
-    "dist/*"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
   },
-  "module": "dist/common.js",
+  "module": "dist/index.js",
+  "main": "dist/index.js",
   "css": "dist/common.css",
   "sideEffects": false
 }

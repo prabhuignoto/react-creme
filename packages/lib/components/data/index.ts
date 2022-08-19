@@ -1,7 +1,13 @@
 export { DataGrid } from './data-grid/data-grid';
 export type {
+  DataGridCell,
+  DataGridColumn,
   DataGridHeaderProps,
+  DataGridModel,
   DataGridProps,
+  DataRow,
+  Record,
+  SortDirection,
 } from './data-grid/data-grid-model';
 export { Kbd } from './kbd/kbd';
 export type { KbdProps } from './kbd/kbd';

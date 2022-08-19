@@ -1,6 +1,7 @@
+import { BlockQuote, Button, Section } from '@core';
+import { Dialog } from '@overlay';
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { BlockQuote, Button, Dialog, Section } from '../../../lib/components';
 import { asideState, responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { Default, Drop, Rise, SlideLeft, SlideRight } from './widget-variants';

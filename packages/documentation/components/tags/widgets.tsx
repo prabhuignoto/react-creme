@@ -1,6 +1,6 @@
+import { BlockQuote, Link, Section } from '@core';
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Link, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {

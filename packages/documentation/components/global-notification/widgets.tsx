@@ -1,12 +1,8 @@
+import { BlockQuote, Button, Section } from '@core';
 import { useState } from 'react';
-import {
-  BlockQuote,
-  Button,
-  GlobalNotification,
-  RadioGroup,
-  Section,
-} from '../../../lib/components';
-import { GlobalNotificationState } from '../../../lib/components/global-notification/global-notification.model';
+
+import { GlobalNotification, GlobalNotificationState } from '@feedback';
+import { RadioGroup } from '@inputs';
 import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {

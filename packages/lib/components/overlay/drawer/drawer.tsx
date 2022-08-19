@@ -1,9 +1,9 @@
 import { isDark, useTrapFocus, withOverlay } from '@common';
 import { CloseIcon } from '@common/icons';
+import { Button } from '@core';
 import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
-import { Button } from '../../core/button/button';
 import { DrawerProps } from './drawer-model';
 import styles from './drawer.module.scss';
 

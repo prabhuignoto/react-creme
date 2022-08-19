@@ -4,7 +4,7 @@ import { StrictMode, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';
-import { ThemeProvider } from '../lib/components';
+import { ThemeProvider } from '../lib/components/core/theme/theme-provider';
 import App from './App';
 import { responsiveState, themeState } from './atoms/home';
 import useMedia from './common/useMedia';

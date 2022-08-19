@@ -1,6 +1,6 @@
+import { BlockQuote, Section, Splitter } from '@core';
 import { useLayoutEffect, useMemo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section, Splitter } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 

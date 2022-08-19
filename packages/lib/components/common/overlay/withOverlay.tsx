@@ -34,6 +34,7 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
   }
 ) {
   const Component = React.forwardRef<HTMLElement, T>((props: T, ref) => {
+    debugger;
     const classPrefix = useRef('overlay');
     const overlayRef = useRef<HTMLDivElement | null>(null);
     const {

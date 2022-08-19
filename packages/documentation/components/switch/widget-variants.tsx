@@ -1,4 +1,4 @@
-import { Switch } from '../../../lib/components/switch/switch';
+import { Switch } from '@inputs';
 
 export const Default = (
   <Switch

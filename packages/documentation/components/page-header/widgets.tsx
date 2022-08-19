@@ -1,4 +1,4 @@
-import { BlockQuote, PageHeader, Section } from '../../../lib/components';
+import { BlockQuote, PageHeader, Section } from '@core';
 import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {

@@ -1,4 +1,4 @@
-import { CheckBoxGroup } from '../../../lib/components';
+import { CheckBoxGroup } from '@inputs';
 
 export const Default = (
   <CheckBoxGroup

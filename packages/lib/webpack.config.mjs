@@ -12,11 +12,9 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const configs = [
   // webpackCommonConfig('feedback', feedbackPkg),
-  // webpackCommonConfig('inputs', inputPkg),
-  // webpackCommonConfig('overlay', overlayPkg),
-  // webpackCommonConfig('core', corePkg),
-  webpackCommonConfig('data', dataPkg),
   // webpackCommonConfig('common', commonPkg),
+  // webpackCommonConfig('inputs', inputPkg),
+  // webpackCommonConfig('data', dataPkg),
 ];
 
 export default () => {

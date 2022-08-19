@@ -1,10 +1,5 @@
 import { atom } from 'recoil';
-import {
-  Colors,
-  FontSizes,
-  IconSizes,
-  Sizes,
-} from '../../lib/components/common/theme-provider-model';
+import { Colors, FontSizes, IconSizes, Sizes } from '../../lib/components/core';
 import { Dark } from '../common/app-themes';
 
 export type ThemeType =

@@ -1,4 +1,4 @@
-import { Dialog } from '../../../lib/components';
+import { Dialog } from '@overlay';
 
 export const Default = (
   <Dialog width={450} height={300} animationType="pop">

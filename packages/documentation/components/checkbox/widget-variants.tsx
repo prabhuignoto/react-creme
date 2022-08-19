@@ -1,4 +1,4 @@
-import { CheckBox } from '../../../lib/components';
+import { CheckBox } from '@core';
 
 export const Default = (
   <CheckBox

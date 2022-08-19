@@ -1,6 +1,6 @@
+import { BlockQuote, ScrollSpy, Section } from '@core';
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, ScrollSpy, Section } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 

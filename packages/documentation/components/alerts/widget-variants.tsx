@@ -1,4 +1,5 @@
-import { Alert, Button } from '../../../lib/components';
+import { Button } from '@core';
+import { Alert } from '@feedback';
 
 export const Information = <Alert message="This is a information text" />;
 

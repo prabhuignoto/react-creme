@@ -5,7 +5,7 @@
     "composite": true,
     "declaration": true,
     "declarationDir": "./dist",
-    "outDir": "./dist-lib",
+    "outDir": "./dist",
     "rootDir": "../"
   },
   "include": ["./**/*", "../../Globals.d.ts", "../core/input", "../core/radio"],

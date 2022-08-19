@@ -1,10 +1,11 @@
+import { Section } from '@core';
 import { faCog, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { RadioGroup, RadioGroupItemProps } from '@inputs';
+import { Dialog } from '@overlay';
 import classNames from 'classnames';
 import { useCallback, useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { Dialog, RadioGroup, Section } from '../../../lib/components';
-import { RadioGroupItemProps } from '../../../lib/components/radio-group/radio-group-model';
 import { responsiveState, themeState, ThemeType } from '../../atoms/home';
 import {
   Blueberry,

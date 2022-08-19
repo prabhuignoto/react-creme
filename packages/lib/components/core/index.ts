@@ -1,3 +1,13 @@
+export { ThemeProvider } from '../core/theme/theme-provider';
+export type {
+  Colors,
+  FontSizes,
+  IconSizes,
+  Sizes,
+  Theme,
+  ThemeColor,
+  ThemeProviderProps,
+} from '../core/theme/theme-provider-model';
 export { AccordionGroup } from './accordion-group/accordion-group';
 export { Accordion } from './accordion/accordion';
 export type {
@@ -23,6 +33,12 @@ export type { RCInputElementProps } from './input/input';
 export type { InputProps } from './input/input-model';
 export { Link } from './link/link';
 export type { LinkProps } from './link/link';
+export { Menu } from './menu/menu';
+export type {
+  MenuItemProps,
+  MenuOverlayModel,
+  MenuProps,
+} from './menu/menu-model';
 export { PageHeader } from './page-header/page-header';
 export type { PageHeaderProps } from './page-header/page-header';
 export { CircularProgress } from './progress/circular-progress';

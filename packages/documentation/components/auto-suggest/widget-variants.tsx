@@ -1,4 +1,4 @@
-import { AutoSuggest } from '../../../lib/components';
+import { AutoSuggest } from '@inputs';
 
 export const Default = (
   <AutoSuggest

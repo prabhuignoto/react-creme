@@ -1,4 +1,4 @@
-import { Section } from '../../../lib/components';
+import { Section } from '@core';
 import { DemoWidget } from '../../common/demo-widget';
 import { Default, Large, Medium, RTL } from './widget-variants';
 

@@ -1,4 +1,4 @@
-import { Dropdown } from '../../../lib/components';
+import { Dropdown } from '@inputs';
 
 export const SingleSelection = (
   <Dropdown

@@ -1,4 +1,4 @@
-import { Tree } from '../../../lib/components';
+import { Tree } from '@data';
 
 const data = [
   {

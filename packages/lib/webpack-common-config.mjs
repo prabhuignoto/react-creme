@@ -1,12 +1,15 @@
 import autoprefixer from 'autoprefixer';
 import CSSNano from 'cssnano';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path, { dirname } from 'path';
 import PostCSSpresetEnv from 'postcss-preset-env';
 import TerserPlugin from 'terser-webpack-plugin';
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { fileURLToPath } from 'url';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import RemoveFilesPlugin from 'remove-files-webpack-plugin';
 const stylesHandler = MiniCssExtractPlugin.loader;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -14,7 +17,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default (name, pkg) => ({
-  // context: path.resolve(__dirname, `components/${name}`),
   devtool: 'source-map',
   entry: { [name]: `./components/${name}/index.ts` },
   experiments: {
@@ -48,7 +50,9 @@ export default (name, pkg) => ({
                 `components/${name}/tsconfig.json`
               ),
               experimentalFileCaching: true,
-              happyPackMode: true,
+              // happyPackMode: true,
+              projectReferences: true,
+              transpileOnly: true,
             },
           },
         ],
@@ -103,7 +107,7 @@ export default (name, pkg) => ({
     environment: {
       module: true,
     },
-    filename: `[name].js`,
+    filename: `index.js`,
     library: {
       // name: pkg.name,
       type: 'module',
@@ -119,6 +123,18 @@ export default (name, pkg) => ({
       analyzerMode: 'static',
       openAnalyzer: false,
     }),
+
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        build: true,
+        configFile: path.resolve(__dirname, `components/${name}/tsconfig.json`),
+        // context: path.resolve(__dirname, `components`),
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+      },
+    }),
     // new CopyPlugin({
     //   patterns: [
     //     {
@@ -130,10 +146,24 @@ export default (name, pkg) => ({
     new webpack.BannerPlugin({
       banner: `${pkg.name} v${pkg.version} | ${pkg.license} | ${pkg.homepage} | ${pkg.author.name}`,
     }),
+    new RemoveFilesPlugin({
+      before: {
+        log: true,
+        root: path.resolve(__dirname, `components/${name}/dist`),
+      },
+    }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: path.resolve(__dirname, `components/${name}/tsconfig.json`),
+      }),
+    ],
+  },
+  stats: {
+    warningsFilter: /export .* was not found in/,
   },
 });

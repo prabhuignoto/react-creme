@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
-import { AccordionGroup, Image } from '../../../lib/components';
+import { AccordionGroup, Image } from '@core';
 import { themeState } from '../../atoms/home';
 
 const Para = () => {

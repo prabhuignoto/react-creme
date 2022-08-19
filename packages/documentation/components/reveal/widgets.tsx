@@ -1,5 +1,5 @@
 import { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
-import { Image, Reveal } from '../../../lib/components';
+import { Image, Reveal } from '@core';
 import useMedia from '../../common/useMedia';
 const blankStyle = {
   alignItems: 'flex-start',

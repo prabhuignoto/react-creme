@@ -31,7 +31,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "module": "dist/data/index.js",
+  "module": "dist/index.js",
+  "main": "dist/index.js",
   "css": "dist/data/data.css",
   "sideEffects": false
 }

@@ -11,7 +11,7 @@ import {
 } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
-import { Drawer } from '../lib/components';
+import { Drawer } from '../lib/components/overlay';
 import '../lib/design/core.scss';
 import '../lib/design/list.scss';
 import '../lib/design/theme.scss';
@@ -113,11 +113,11 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
             <SidebarHome />
           </aside>
         )}
-        {canRenderAside && (
+        {/* {canRenderAside && (
           <Drawer onClose={onClose} showClose focusable={false}>
             <SidebarHome onSelect={onSelect} />
           </Drawer>
-        )}
+        )} */}
         <AppMain media={media} toggleOpen={toggleOpen} ref={sectionRef} />
       </div>
     );

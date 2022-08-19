@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Carousel, Image, Section } from '../../../lib/components';
+import { BlockQuote, Carousel, Image, Section } from '@core';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { Horizontal, Vertical } from './widget-variants';

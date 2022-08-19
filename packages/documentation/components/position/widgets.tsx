@@ -1,4 +1,5 @@
-import { BlockQuote, Section, Tags } from '../../../lib/components';
+import { BlockQuote, Section } from '@core';
+import { Tags } from '@inputs';
 import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { DemoWidget } from '../../common/demo-widget';
 import {

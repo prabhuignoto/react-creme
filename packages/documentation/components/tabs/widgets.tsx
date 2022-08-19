@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section, Tabs } from '../../../lib/components';
+import { BlockQuote, Section, Tabs } from '@core';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {

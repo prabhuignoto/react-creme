@@ -1,4 +1,4 @@
-import { BreadCrumb } from '../../../lib/components';
+import { BreadCrumb } from '@core';
 
 export const Default = (
   <BreadCrumb links={['Home', 'Features', 'Bread Crumb']}></BreadCrumb>

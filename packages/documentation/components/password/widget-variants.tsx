@@ -1,4 +1,4 @@
-import { Password } from '../../../lib/components';
+import { Password } from '@inputs';
 
 export const Default = <Password onChange={val => console.log(val)} />;
 export const RTL = <Password RTL />;

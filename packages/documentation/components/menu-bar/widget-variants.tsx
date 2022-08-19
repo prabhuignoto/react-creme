@@ -2,7 +2,7 @@ import { faHackerNews } from '@fortawesome/free-brands-svg-icons';
 import { faFile, faSearch, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { MenuBar } from '../../../lib/components';
+import { MenuBar } from '@overlay';
 
 const icons = [
   <FontAwesomeIcon icon={faFile} key="1" />,

@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section } from '../../../lib/components';
+import { BlockQuote, Section } from '@core';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { CustomLayout, Default, Disabled, RTL } from './widget-variants';

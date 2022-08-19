@@ -1,5 +1,5 @@
-import { Input } from '../../../lib/components';
-import { ChevronRightIcon } from '../../../lib/icons';
+import { Input } from '@core';
+import { ChevronRightIcon } from '@common/icons';
 
 export const Default = <Input enableClear maxLength={10}></Input>;
 export const WithIcon = (

@@ -1,4 +1,4 @@
-import { CircularProgress, Progress } from '../../../lib/components';
+import { CircularProgress, Progress } from '@core';
 
 export const Success = (
   <Progress

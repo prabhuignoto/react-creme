@@ -1,11 +1,5 @@
+import { BlockQuote, Button, CircularProgress, Progress, Section } from '@core';
 import { useTimer } from 'use-timer';
-import {
-  BlockQuote,
-  Button,
-  CircularProgress,
-  Progress,
-  Section,
-} from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 
 const Widgets: React.FunctionComponent = () => {

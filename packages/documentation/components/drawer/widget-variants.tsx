@@ -1,4 +1,4 @@
-import { Drawer } from '../../../lib/components';
+import { Drawer } from '@overlay';
 
 export const Bottom = (
   <Drawer position="bottom" height={400}>

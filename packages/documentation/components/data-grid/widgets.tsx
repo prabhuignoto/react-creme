@@ -1,7 +1,7 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, DataGrid, Section } from '../../../lib/components';
-import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
+import { BlockQuote, Section } from '@core';
+import { DataGrid, DataGridColumn } from '@data';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { columnsConfig, data } from './grids-data';

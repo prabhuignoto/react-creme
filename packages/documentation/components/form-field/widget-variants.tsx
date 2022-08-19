@@ -1,8 +1,8 @@
 import { faFlag, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { FormField, Input } from '../../../lib/components';
-import { Dropdown } from '../../../lib/components/dropdown/dropdown';
+import { Input } from '@core';
+import { Dropdown, FormField } from '@inputs';
 
 export const Default = (
   <FormField label="Please enter the name">

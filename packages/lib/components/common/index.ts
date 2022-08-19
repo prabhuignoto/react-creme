@@ -15,16 +15,6 @@ export { Overlay } from './overlay/overlay';
 export type { OverlayModel, OverlayProps } from './overlay/overlay-model';
 export { OverlayContext, withOverlay } from './overlay/withOverlay';
 export type { OverlayContextModel } from './overlay/withOverlay';
-export { ThemeProvider } from './theme/theme-provider';
-export type {
-  Colors,
-  FontSizes,
-  IconSizes,
-  Sizes,
-  Theme,
-  ThemeColor,
-  ThemeProviderProps,
-} from './theme/theme-provider-model';
 export {
   isArray,
   isDark,
