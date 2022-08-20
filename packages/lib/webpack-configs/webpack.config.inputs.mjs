@@ -1,12 +1,11 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 // import inputPkg from './components/inputs/package.json' assert { type: 'json' };
-import overlayPkg from './components/overlay/package.json' assert { type: 'json' };
-
-import webpackCommonConfig from './webpack-common-config.mjs';
+import webpackSharedConfig from '../webpack-shared-config.mjs';
+import inputsPkg from '../components/inputs/package.json' assert { type: 'json' };
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const configs = [webpackCommonConfig('overlay', overlayPkg)];
+const configs = [webpackSharedConfig('inputs', inputsPkg)];
 
 export default () => {
   if (isProduction) {

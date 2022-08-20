@@ -1,5 +1,4 @@
-import { Button } from '@core';
-import { Menu } from '@overlay';
+import { Button, Menu } from '@core';
 
 export const AttachedToButton = (
   <Menu

@@ -3,13 +3,13 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist",
-    "outDir": "./dist",
+    "outDir": "./build",
     "baseUrl": ".",
-    "composite": true
+    "composite": true,
+    "incremental": true
   },
-  "include": ["./**/*", "../../Globals.d.ts"],
+  "include": ["./**/*", "../../Globals.d.ts", "index.ts"],
   "exclude": ["dist"],
-  "files": ["index.ts"],
   "references": [
     {
       "path": "../common"

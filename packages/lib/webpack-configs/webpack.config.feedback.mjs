@@ -1,11 +1,11 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 // import inputPkg from './components/inputs/package.json' assert { type: 'json' };
-import inputsPkg from './components/inputs/package.json' assert { type: 'json' };
-import webpackCommonConfig from './webpack-common-config.mjs';
+import feedbackPkg from '../components/feedback/package.json' assert { type: 'json' };
+import webpackSharedConfig from '../webpack-shared-config.mjs';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const configs = [webpackCommonConfig('inputs', inputsPkg)];
+const configs = [webpackSharedConfig('feedback', feedbackPkg)];
 
 export default () => {
   if (isProduction) {

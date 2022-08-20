@@ -42,7 +42,7 @@
     "react-transition-group": "^4.4.5",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^8.0.3",
-    "vite": "3.0.8"
+    "vite": "3.0.9"
   },
   "devDependencies": {
     "@axe-core/react": "^4.4.3",
@@ -69,8 +69,8 @@
     "prettier": "^2.7.1",
     "recoil": "^0.7.5",
     "rimraf": "^3.0.2",
-    "sass": "^1.54.4",
-    "snyk": "^1.988.0",
+    "sass": "^1.54.5",
+    "snyk": "^1.989.0",
     "stylelint": "14.10.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
