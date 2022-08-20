@@ -1,15 +1,14 @@
 {
   "extends": "../../tsconfig-base.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "composite": true,
     "declaration": true,
     "declarationDir": "./dist",
-    "outDir": "./dist",
-    "baseUrl": ".",
-    "composite": true
+    "outDir": "./dist"
   },
   "include": ["./**/*", "../../Globals.d.ts"],
   "exclude": ["dist"],
-  "files": ["index.ts"],
   "references": [
     {
       "path": "../common"

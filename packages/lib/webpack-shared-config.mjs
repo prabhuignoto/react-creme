@@ -17,9 +17,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default (name, pkg) => ({
-  // cache: {
-  //   type: 'filesystem',
-  // },
+  cache: {
+    type: 'filesystem',
+  },
   devtool: 'source-map',
   entry: { [name]: `./components/${name}/index.ts` },
   experiments: {
@@ -52,7 +52,7 @@ export default (name, pkg) => ({
             options: {
               compilerOptions: {
                 declaration: true,
-                declarationDir: './',
+                incremental: true,
               },
               configFile: path.resolve(
                 __dirname,

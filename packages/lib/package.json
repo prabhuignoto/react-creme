@@ -19,35 +19,24 @@
     "design system"
   ],
   "scripts": {
-    "build": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/webpack.config.mjs --progress",
-    "build:dev": "npx cross-env NODE_ENV=development webpack --config ./webpack-configs/webpack.config.mjs --progress",
-    "build:core": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/webpack.config.core.mjs --progress",
-    "build:common": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/webpack.config.common.mjs --progress",
-    "build:overlay": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/webpack.config.overlay.mjs --progress",
-    "build:inputs": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/webpack.config.inputs.mjs --progress",
-    "build:data": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/webpack.config.data.mjs --progress",
-    "build:feedback": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/webpack.config.feedback.mjs --progress",
-    "build:layout": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/webpack.config.layout.mjs --progress",
+    "build:common": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/common.mjs --progress",
+    "build:core": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/core.mjs --progress",
+    "build:data": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/data.mjs --progress",
+    "build:feedback": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/feedback.mjs --progress",
+    "build:inputs": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/inputs.mjs --progress",
+    "build:layout": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/layout.mjs --progress",
+    "build:overlay": "npx cross-env NODE_ENV=production webpack --config ./webpack-configs/overlay.mjs --progress",
     "ci": "pnpm lint && pnpm test-ci && pnpm build",
     "eslint": "eslint ./components/**/*.{tsx,ts}",
-    "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
     "fix-css": "stylelint ./components/**/*.scss ./design/**/*.scss --fix",
+    "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
     "format": "prettier --write \"components/**/*.{js,jsx,ts,tsx}\"",
     "lint": "pnpm eslint && pnpm lint:css && pnpm prettier:check",
     "lint:css": "stylelint ./components/**/*.scss ./design/**/*.scss",
     "prettier:check": "prettier --check \"components/**/*.{ts,tsx}\"",
-    "snyk": "snyk test"
-  },
-  "dependencies": {
-    "classnames": "^2.3.1",
-    "fast-deep-equal": "^3.1.3",
-    "hex-rgb": "^5.0.0",
-    "nanoid": "^4.0.0",
-    "use-debounce": "^8.0.3"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "snyk": "snyk test",
+    "build:main": "pnpm build:common && pnpm build:core",
+    "build:lib": "pnpm build:data && pnpm build:feedback && pnpm build:inputs && pnpm build:layout && pnpm build:overlay"
   },
   "devDependencies": {
     "@csstools/postcss-sass": "^5.0.1",
