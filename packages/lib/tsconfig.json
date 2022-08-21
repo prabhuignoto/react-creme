@@ -18,7 +18,9 @@
     "jsx": "react-jsx",
     "noEmit": false,
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "rootDir": ".",
     "types": [
       "react",
       "react-dom",
