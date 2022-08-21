@@ -13,6 +13,7 @@ import { fileURLToPath } from 'url';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import pkg from './package.json' assert { type: 'json' };
+import { StatsWriterPlugin } from 'webpack-stats-plugin';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -162,6 +163,11 @@ const config = {
         include: ['./dist'],
       },
     }),
+    new StatsWriterPlugin({
+      stats: {
+        all: true,
+      },
+    }),
     // new RelativeCiAgentWebpackPlugin({
     //   payloadFilepath: path.join(ARTIFACTS_DIR, 'stats.json'),
     // }),
@@ -173,6 +179,7 @@ const config = {
   },
   stats: {
     assets: true,
+    chunks: true,
     modules: true,
     warningsFilter: /export .* was not found in/,
   },

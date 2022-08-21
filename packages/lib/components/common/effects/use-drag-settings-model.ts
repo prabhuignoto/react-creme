@@ -3,6 +3,7 @@ import { Dispatch, RefObject, SetStateAction } from 'react';
 export interface Settings {
   currentValue?: number;
   direction: 'horizontal' | 'vertical';
+  disabled?: boolean;
   endValue?: number;
   maxX?: number;
   maxY?: number;

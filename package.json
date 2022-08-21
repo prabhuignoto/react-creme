@@ -58,7 +58,8 @@
     "thread-loader": "^3.0.4",
     "ts-toolbelt": "^9.6.0",
     "turbo": "^1.4.3",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "webpack-stats-plugin": "^1.1.0"
   },
   "scripts": {
     "lint": "turbo run lint",

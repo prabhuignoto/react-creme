@@ -46,6 +46,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   const [percent] = useDrag(trackerRef, controlRef, {
     currentValue: sliderValue,
     direction: 'horizontal',
+    disabled,
     endValue: end,
     moveToPositionOnClick: true,
     observeContainer: true,

@@ -26,6 +26,7 @@ const useDrag: useDragFunctionType = (
     observeContainer = false,
     moveToPositionOnClick = false,
     updatePosition = true,
+    disabled,
   }
 ) => {
   const dragStarted = useRef(false);
@@ -99,7 +100,12 @@ const useDrag: useDragFunctionType = (
    * Event handler for drag operation
    */
   const handleDrag = useCallback((ev: MouseEvent | TouchEvent) => {
-    if (dragStarted.current && target.current && container.current) {
+    if (
+      dragStarted.current &&
+      target.current &&
+      container.current &&
+      !disabled
+    ) {
       ev.preventDefault();
       const {
         left: parentLeft,
@@ -146,6 +152,10 @@ const useDrag: useDragFunctionType = (
   const handleClick = (ev: MouseEvent | TouchEvent) => {
     let clientX = 0;
     let clientY = 0;
+
+    if (disabled) {
+      return;
+    }
 
     if (ev instanceof MouseEvent) {
       clientX = ev.clientX;
