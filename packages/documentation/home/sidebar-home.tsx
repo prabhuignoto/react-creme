@@ -94,7 +94,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
 
   return (
     <div style={{ width: '100%' }}>
-      <SideBar onSelect={handleSidebarSelect} theme={theme} />
+      {/* <SideBar onSelect={handleSidebarSelect} theme={theme} /> */}
     </div>
   );
 };

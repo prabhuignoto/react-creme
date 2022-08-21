@@ -1,3 +1,5 @@
+import { Accordion } from '@core';
+import '@core/dist/core.css';
 import classNames from 'classnames';
 import deepEqual from 'fast-deep-equal';
 import {
@@ -11,14 +13,11 @@ import {
 } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
-import { Drawer } from '../lib/components/overlay';
 import '../lib/design/core.scss';
 import '../lib/design/list.scss';
 import '../lib/design/theme.scss';
-import { AppMain } from './App-Main';
 import './App.scss';
 import { asideState, MediaState, themeState } from './atoms/home';
-import SidebarHome from './home/sidebar-home';
 
 const App: FunctionComponent<{ media: MediaState }> = memo(
   ({ media }: { media: MediaState }) => {
@@ -104,7 +103,7 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
 
     return (
       <div className={appClass} ref={onAppRef}>
-        {media && !media.isMobile && (
+        {/* {media && !media.isMobile && (
           <aside
             className={sidebarClass}
             ref={asideRef}
@@ -112,13 +111,18 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
           >
             <SidebarHome />
           </aside>
-        )}
+        )} */}
         {/* {canRenderAside && (
           <Drawer onClose={onClose} showClose focusable={false}>
             <SidebarHome onSelect={onSelect} />
           </Drawer>
         )} */}
-        <AppMain media={media} toggleOpen={toggleOpen} ref={sectionRef} />
+        {/* <AppMain media={media} toggleOpen={toggleOpen} ref={sectionRef} /> */}
+        <Accordion title="prabhu">
+          <div>
+            <p>prabhu</p>
+          </div>
+        </Accordion>
       </div>
     );
   },

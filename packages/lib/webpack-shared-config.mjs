@@ -100,6 +100,7 @@ export default (name, pkg) => ({
     minimizer: [
       new TerserPlugin({
         extractComments: false,
+        parallel: true,
         terserOptions: {
           compress: {
             drop_console: true,

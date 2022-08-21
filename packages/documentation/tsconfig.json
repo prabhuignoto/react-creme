@@ -3,7 +3,7 @@
     "target": "ES2020",
     "lib": ["DOM", "DOM.Iterable", "ES2020"],
     "useDefineForClassFields": true,
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -23,7 +23,7 @@
       "@common": ["../lib/components/common"],
       "@common/icons": ["../lib/components/common/icons"],
       "@feedback": ["../lib/components/feedback"],
-      "@core": ["../lib/components/core"],
+      "@core": ["../lib/components/core/index.ts"],
       "@overlay": ["../lib/components/overlay"],
       "@data": ["../lib/components/data"],
       "@inputs": ["../lib/components/inputs"],
@@ -42,28 +42,28 @@
     "main.tsx",
     "../lib"
   ],
-  "references": [
-    {
-      "path": "../lib/components/core"
-    },
-    {
-      "path": "../lib/components/common"
-    },
-    {
-      "path": "../lib/components/data"
-    },
-    {
-      "path": "../lib/components/feedback"
-    },
-    {
-      "path": "../lib/components/inputs"
-    },
-    {
-      "path": "../lib/components/layout"
-    },
-    {
-      "path": "../lib/components/overlay"
-    }
-  ],
+  // "references": [
+  //   {
+  //     "path": "../lib/components/core"
+  //   },
+  //   {
+  //     "path": "../lib/components/common"
+  //   },
+  //   {
+  //     "path": "../lib/components/data"
+  //   },
+  //   {
+  //     "path": "../lib/components/feedback"
+  //   },
+  //   {
+  //     "path": "../lib/components/inputs"
+  //   },
+  //   {
+  //     "path": "../lib/components/layout"
+  //   },
+  //   {
+  //     "path": "../lib/components/overlay"
+  //   }
+  // ],
   "exclude": ["node_modules", "expo_dist"]
 }

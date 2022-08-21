@@ -1,4 +1,4 @@
-export { ThemeProvider } from '../core/theme/theme-provider';
+export { ThemeProvider } from './theme/theme-provider';
 export type {
   Colors,
   FontSizes,
@@ -7,7 +7,7 @@ export type {
   Theme,
   ThemeColor,
   ThemeProviderProps,
-} from '../core/theme/theme-provider-model';
+} from './theme/theme-provider-model';
 export { AccordionGroup } from './accordion-group/accordion-group';
 export { Accordion } from './accordion/accordion';
 export type {
