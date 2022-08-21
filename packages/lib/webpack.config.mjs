@@ -3,9 +3,11 @@
 import autoprefixer from 'autoprefixer';
 import CopyPlugin from 'copy-webpack-plugin';
 import CSSNano from 'cssnano';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path, { dirname } from 'path';
 import PostCSSpresetEnv from 'postcss-preset-env';
+import RemovePlugin from 'remove-files-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import { fileURLToPath } from 'url';
 import webpack from 'webpack';
@@ -18,7 +20,24 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const stylesHandler = MiniCssExtractPlugin.loader;
 
+import threadLoader from 'thread-loader';
+
+threadLoader.warmup(
+  {
+    // pool options, like passed to loader options
+    // must match loader options to boot the correct pool
+  },
+  [
+    // modules to load
+    // can be any module, i. e.
+    'babel-loader',
+    'ts-loader',
+  ]
+);
 const config = {
+  cache: {
+    type: 'filesystem',
+  },
   devtool: 'source-map',
   entry: './react-creme.ts',
   experiments: {
@@ -37,6 +56,7 @@ const config = {
         exclude: /node_modules/,
         test: /\.(tsx|ts)$/,
         use: [
+          'thread-loader',
           {
             loader: 'babel-loader',
             options: {
@@ -44,7 +64,13 @@ const config = {
               presets: ['@babel/preset-env', '@babel/preset-react'],
             },
           },
-          'ts-loader',
+          {
+            loader: 'ts-loader',
+            options: {
+              happyPackMode: true,
+              transpileOnly: true,
+            },
+          },
         ],
       },
       {
@@ -80,6 +106,7 @@ const config = {
     minimize: isProduction,
     minimizer: [
       new TerserPlugin({
+        parallel: true,
         terserOptions: {
           compress: {
             drop_console: true,
@@ -119,14 +146,35 @@ const config = {
         },
       ],
     }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+      },
+    }),
     new webpack.BannerPlugin({
       banner: `${pkg.name} v${pkg.version} | ${pkg.license} | ${pkg.homepage} | ${pkg.author}`,
     }),
+    new RemovePlugin({
+      before: {
+        include: ['./dist'],
+      },
+    }),
+    // new RelativeCiAgentWebpackPlugin({
+    //   payloadFilepath: path.join(ARTIFACTS_DIR, 'stats.json'),
+    // }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+  },
+  stats: {
+    assets: true,
+    modules: true,
+    warningsFilter: /export .* was not found in/,
   },
 };
 
