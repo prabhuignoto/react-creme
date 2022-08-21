@@ -41,3 +41,10 @@ jobs:
           flags: unittests
           name: codecov-umbrella
           verbose: true
+
+      - name: Send webpack stats to RelativeCI
+        uses: relative-ci/agent-action@v2
+        with:
+          webpackStatsFile: ./packages/lib/dist/stats.json
+          key: ${{ secrets.RELATIVE_CI_KEY }}
+          token: ${{ secrets.GITHUB_TOKEN }}
