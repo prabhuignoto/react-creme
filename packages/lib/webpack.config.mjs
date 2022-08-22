@@ -175,6 +175,9 @@ const config = {
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
   resolve: {
+    alias: {
+      '@design': path.resolve(__dirname, './design'),
+    },
     extensions: ['.tsx', '.ts', '.js'],
   },
   stats: {

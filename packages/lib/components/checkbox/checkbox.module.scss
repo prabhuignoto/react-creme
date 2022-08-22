@@ -1,6 +1,6 @@
-@use '../../design/core.scss';
-@use '../../design/animate.scss';
-@use '../../design/theme.scss';
+@use '@design/core.scss';
+@use '@design/animate.scss';
+@use '@design/theme.scss';
 @use 'sass:map';
 
 $sizes: (sm, md, lg);

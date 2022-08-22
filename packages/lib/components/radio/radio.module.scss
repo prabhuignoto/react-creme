@@ -1,8 +1,8 @@
-@use '../../design/core.scss';
-@use '../../design/position.scss';
-@use '../../design/theme.scss';
-@use '../../design/animate.scss';
-@use '../../design/animations.scss';
+@use '@design/core.scss';
+@use '@design/position.scss';
+@use '@design/theme.scss';
+@use '@design/animate.scss';
+@use '@design/animations.scss';
 @use 'sass:map';
 
 $sizes: (

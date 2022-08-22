@@ -22,3 +22,4 @@ export { default as SearchIcon } from './search';
 export { default as SpinnerIcon } from './spinner';
 export { default as TriangleIcon } from './triangle';
 export { default as WarningIcon } from './warning';
+export { default as UserIcon } from './user';

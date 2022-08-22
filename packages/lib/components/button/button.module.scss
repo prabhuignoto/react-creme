@@ -1,7 +1,7 @@
-@use '../../design/core.scss';
-@use '../../design/theme.scss';
-@use '../../design/button.scss';
-@use '../../design/animate.scss';
+@use '@design/core.scss';
+@use '@design/theme.scss';
+@use '@design/button.scss';
+@use '@design/animate.scss';
 @use 'sass:map';
 
 $types: (primary, default, danger);
