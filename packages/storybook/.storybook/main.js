@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: [
     '../stories/**/Accordion.stories.tsx',
@@ -49,6 +51,12 @@ module.exports = {
         },
       ],
     });
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@icons': path.resolve(__dirname, '../../lib/icons/index.ts'),
+      '@design': path.resolve(__dirname, '../../lib/design'),
+    };
 
     // Return the altered config
     return config;

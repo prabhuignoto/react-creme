@@ -87,11 +87,19 @@ const config = {
                 plugins: [
                   autoprefixer(),
                   PostCSSpresetEnv({
-                    browsers: ['last 2 versions', 'ie >= 11'],
+                    browsers: [
+                      'last 2 versions',
+                      'ie >= 11',
+                      'not op_mini all',
+                    ],
                   }),
                   CSSNano(),
                   doiuse({
-                    browsers: ['last 2 versions', 'ie >= 11'],
+                    browsers: [
+                      'last 2 versions',
+                      'ie >= 11',
+                      'not op_mini all',
+                    ],
                   }),
                 ],
               },
