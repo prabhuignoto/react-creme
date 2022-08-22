@@ -1,3 +1,4 @@
+import { ChevronDownIcon } from '@icons';
 import classNames from 'classnames';
 import React, {
   FunctionComponent,
@@ -5,7 +6,6 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { ChevronDownIcon } from '../../icons';
 import { Button } from '../button/button';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';

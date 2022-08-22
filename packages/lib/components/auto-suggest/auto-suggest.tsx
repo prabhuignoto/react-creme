@@ -1,9 +1,8 @@
+import { SearchIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import * as React from 'react';
-import { useCallback, useEffect, useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { isValidString } from '../common/utils';
 import { Option } from '../dropdown/dropdown-model';

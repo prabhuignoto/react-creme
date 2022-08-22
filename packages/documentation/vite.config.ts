@@ -20,6 +20,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@design': path.resolve(__dirname, '../lib/design'),
+      '@icons': path.resolve(__dirname, '../lib/icons'),
     },
   },
 });

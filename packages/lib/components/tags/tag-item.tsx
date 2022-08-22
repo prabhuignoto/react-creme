@@ -1,3 +1,4 @@
+import { CloseIcon } from '@icons';
 import classNames from 'classnames';
 import React, {
   CSSProperties,
@@ -6,7 +7,6 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
 import { useKey } from '../common/effects/useKey';

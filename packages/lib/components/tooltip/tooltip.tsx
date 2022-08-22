@@ -1,3 +1,4 @@
+import { CloseIcon } from '@icons';
 import classNames from 'classnames';
 import * as React from 'react';
 import {
@@ -9,7 +10,6 @@ import {
   useState,
 } from 'react';
 import { Button } from '..';
-import { CloseIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { usePosition } from '../common/effects/usePosition';
 import { isDark } from '../common/utils';

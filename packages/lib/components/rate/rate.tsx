@@ -1,8 +1,8 @@
+import { RateIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import RateIcon from '../../icons/star';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { RateItem } from './rate-item';
 import { RateItemProps, RateProps } from './rate-model';

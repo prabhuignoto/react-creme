@@ -1,6 +1,6 @@
+import { ArrowRightIcon, ChevronRightIcon, MinusIcon } from '@icons';
 import classNames from 'classnames';
 import React, { FunctionComponent, useCallback, useMemo, useRef } from 'react';
-import { ArrowRightIcon, ChevronRightIcon, MinusIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { Link } from '../link/link';
 import { BreadCrumbItemProps } from './breadcrumb-model';

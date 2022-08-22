@@ -1,3 +1,4 @@
+import { SearchIcon } from '@icons';
 import cls from 'classnames';
 import * as React from 'react';
 import {
@@ -9,7 +10,6 @@ import {
   useState,
 } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { SearchIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';

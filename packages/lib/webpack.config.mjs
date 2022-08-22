@@ -12,8 +12,9 @@ import TerserPlugin from 'terser-webpack-plugin';
 import { fileURLToPath } from 'url';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import pkg from './package.json' assert { type: 'json' };
 import { StatsWriterPlugin } from 'webpack-stats-plugin';
+import pkg from './package.json' assert { type: 'json' };
+import doiuse from 'doiuse';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -83,7 +84,16 @@ const config = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [autoprefixer(), PostCSSpresetEnv(), CSSNano()],
+                plugins: [
+                  autoprefixer(),
+                  PostCSSpresetEnv({
+                    browsers: ['last 2 versions', 'ie >= 11'],
+                  }),
+                  CSSNano(),
+                  doiuse({
+                    browsers: ['last 2 versions', 'ie >= 11'],
+                  }),
+                ],
               },
             },
           },
@@ -177,6 +187,7 @@ const config = {
   resolve: {
     alias: {
       '@design': path.resolve(__dirname, './design'),
+      '@icons': path.resolve(__dirname, './icons'),
     },
     extensions: ['.tsx', '.ts', '.js'],
   },
