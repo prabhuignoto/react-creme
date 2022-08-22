@@ -22,11 +22,6 @@ export const routes = [
     path: '/list',
   },
   {
-    component: lazy(() => import('../components/avatar')),
-    key: 'avatar',
-    path: '/avatar',
-  },
-  {
     component: lazy(() => import('../components/menu')),
     key: 'menu',
     path: '/menu',
