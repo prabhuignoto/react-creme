@@ -1,6 +1,6 @@
+import { CheckIcon } from '@icons';
 import cls from 'classnames';
 import React, { CSSProperties, useMemo } from 'react';
-import { CheckIcon } from '../../icons';
 import styles from './list-item.module.scss';
 import { ListItemContentProps } from './list-model';
 

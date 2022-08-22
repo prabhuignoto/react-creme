@@ -20,7 +20,8 @@
     "declaration": true,
     "declarationDir": "./dist",
     "outDir": "./dist",
-    "rootDir": ".",
+    // "rootDir": ".",
+    "rootDirs": ["./components", "./design", "./icons"],
     "types": [
       "react",
       "react-dom",
@@ -31,7 +32,7 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./components/*"],
-      "@design": ["./design/*"]
+      "@icons": ["./icons/index.ts"]
     },
     "plugins": [
       {

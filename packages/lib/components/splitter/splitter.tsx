@@ -1,3 +1,4 @@
+import { AlignJustify } from '@icons';
 import classNames from 'classnames';
 import React, {
   CSSProperties,
@@ -6,7 +7,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { AlignJustify } from '../../icons';
 import { useDrag } from '../common/effects/useDrag';
 import { isDark } from '../common/utils';
 import { SplitterProps } from './splitter-model';

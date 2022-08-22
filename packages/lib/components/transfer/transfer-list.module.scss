@@ -1,7 +1,7 @@
-@use '../../design/core.scss';
-@use '../../design/list.scss';
-@use '../../design/theme.scss';
-@use '../../design/position.scss';
+@use '@design/core.scss';
+@use '@design/list.scss';
+@use '@design/theme.scss';
+@use '@design/position.scss';
 
 .transfer_list {
   @extend %list;

@@ -1,6 +1,6 @@
+import { TriangleIcon } from '@icons';
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
-import { TriangleIcon } from '../../icons';
 import { isDark } from '../common/utils';
 import { DataGridCell } from './data-grid-cell';
 import styles from './data-grid-header.module.scss';

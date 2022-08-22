@@ -1,7 +1,7 @@
-@use '../../design/core.scss';
-@use '../../design/theme.scss';
-@use '../../design/position.scss';
-@use '../../design/font.scss';
+@use '@design/core.scss';
+@use '@design/theme.scss';
+@use '@design/position.scss';
+@use '@design/font.scss';
 @use 'sass:color';
 
 $sizes: (sm, md, lg);

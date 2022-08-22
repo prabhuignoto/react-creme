@@ -25,6 +25,7 @@
     "@vitest/coverage-c8": "^0.22.1",
     "autoprefixer": "^10.4.8",
     "cssnano": "^5.1.13",
+    "doiuse": "^4.4.1",
     "esbuild": "^0.15.5",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",

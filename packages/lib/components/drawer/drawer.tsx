@@ -1,7 +1,7 @@
+import { CloseIcon } from '@icons';
 import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
-import { CloseIcon } from '../../icons';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
 import { isDark } from '../common/utils';

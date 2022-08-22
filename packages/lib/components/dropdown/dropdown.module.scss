@@ -1,7 +1,7 @@
-@use '../../design/theme.scss';
-@use '../../design/core.scss';
-@use '../../design/list.scss';
-@use '../../design/animate.scss';
+@use '@design/theme.scss';
+@use '@design/core.scss';
+@use '@design/list.scss';
+@use '@design/animate.scss';
 
 .dropdown {
   position: relative;

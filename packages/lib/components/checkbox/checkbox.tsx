@@ -1,8 +1,8 @@
+import { CheckIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { CheckIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';
 import { CheckboxProps } from './checkbox-model';

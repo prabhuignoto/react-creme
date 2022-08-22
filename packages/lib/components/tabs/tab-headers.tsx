@@ -1,3 +1,4 @@
+import { ChevronRightIcon } from '@icons';
 import classNames from 'classnames';
 import React, {
   useCallback,
@@ -6,7 +7,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { ChevronRightIcon } from '../../icons';
 import { isDark } from '../common/utils';
 import { TabHead } from './tab-head';
 import styles from './tab-header.module.scss';

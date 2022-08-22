@@ -1,5 +1,5 @@
+import { ChevronRightIcon } from '@icons';
 import React from 'react';
-import { ChevronRightIcon } from '../../icons';
 import { Button } from '../button/button';
 import styles from './transfer.module.scss';
 

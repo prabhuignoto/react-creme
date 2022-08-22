@@ -1,3 +1,4 @@
+import { CloseIcon } from '@icons';
 import classNames from 'classnames';
 import React, {
   CSSProperties,
@@ -7,7 +8,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { CloseIcon } from '../../icons';
 import useFocus from '../common/effects/useFocusNew';
 import { GlobalNotificationProps } from './global-notification.model';
 import styles from './global-notification.module.scss';

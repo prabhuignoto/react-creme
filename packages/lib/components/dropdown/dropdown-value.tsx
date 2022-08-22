@@ -1,6 +1,6 @@
+import { ChevronDownIcon, CloseIcon } from '@icons';
 import cls from 'classnames';
 import React, { CSSProperties, useEffect, useMemo } from 'react';
-import { ChevronDownIcon, CloseIcon } from '../../icons';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';
 import { Tags } from '../tags/tags';

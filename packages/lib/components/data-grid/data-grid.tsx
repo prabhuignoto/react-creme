@@ -1,3 +1,4 @@
+import { SearchIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, {
@@ -8,7 +9,6 @@ import React, {
   useState,
 } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { SearchIcon } from '../../icons';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { DataGridHeader } from './data-grid-header';

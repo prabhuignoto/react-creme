@@ -1,6 +1,6 @@
-@use '../../design/core.scss';
-@use '../../design/theme.scss';
-@use '../../design/position.scss';
+@use '@design/core.scss';
+@use '@design/theme.scss';
+@use '@design/position.scss';
 
 .wrapper {
   @extend %center;

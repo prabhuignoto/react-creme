@@ -1,6 +1,6 @@
+import { ChevronDownIcon } from '@icons';
 import classNames from 'classnames';
 import { FunctionComponent, memo, useMemo } from 'react';
-import { ChevronDownIcon } from '../../icons';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { isDark } from '../common/utils';
 import { MenuBarItemViewProps } from './menu-bar.model';

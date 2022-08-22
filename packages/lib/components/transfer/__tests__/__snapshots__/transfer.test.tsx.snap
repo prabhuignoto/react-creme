@@ -2,21 +2,21 @@
 
 exports[`Transfer > should render transfer snapshot 1`] = `
 <div
-  class="_wrapper_wouhv_12"
+  class="_wrapper_fk1c5_12"
 >
   <section
     class="transfer-column1"
   >
     <div
-      class="_list_jxh9k_1 _list_border_jxh9k_1"
+      class="_list_1wxdc_1 _list_border_1wxdc_1"
       style="--rc-list-bg-color: #fff; --rc-list-max-height: 350px; --rc-list-min-height: 100px;"
     >
       <div
-        class="_wrapper_jxh9k_50"
+        class="_wrapper_1wxdc_50"
       >
         <ul
           aria-label="rc-list-label-undefined"
-          class="_list_options_jxh9k_12"
+          class="_list_options_1wxdc_12"
           role="listbox"
           style="--rc-list-height: 185px;"
         >
@@ -185,17 +185,17 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     </div>
   </section>
   <section
-    class="_control_column_wouhv_12"
+    class="_control_column_fk1c5_12"
   >
     <div
       aria-label=""
-      class="_disabled_1wspk_77 _sm_1wspk_1 _icon_1wspk_43 _btn_1wspk_202"
+      class="_disabled_lbj5p_77 _sm_lbj5p_1 _icon_lbj5p_43 _btn_lbj5p_202"
       role="button"
       style="outline: none; position: relative;"
       tabindex="0"
     >
       <span
-        class="_icon_container_1wspk_43"
+        class="_icon_container_lbj5p_43"
         role="img"
       >
         <svg
@@ -219,13 +219,13 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     </div>
     <div
       aria-label=""
-      class="_disabled_1wspk_77 _sm_1wspk_1 _icon_1wspk_43 _btn_1wspk_202"
+      class="_disabled_lbj5p_77 _sm_lbj5p_1 _icon_lbj5p_43 _btn_lbj5p_202"
       role="button"
       style="transform: rotate(180deg); outline: none; position: relative;"
       tabindex="0"
     >
       <span
-        class="_icon_container_1wspk_43"
+        class="_icon_container_lbj5p_43"
         role="img"
       >
         <svg
@@ -252,15 +252,15 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     class="transfer-column2"
   >
     <div
-      class="_list_jxh9k_1 _list_border_jxh9k_1"
+      class="_list_1wxdc_1 _list_border_1wxdc_1"
       style="--rc-list-bg-color: #fff; --rc-list-max-height: 350px; --rc-list-min-height: 100px;"
     >
       <div
-        class="_wrapper_jxh9k_50"
+        class="_wrapper_1wxdc_50"
       >
         <ul
           aria-label="rc-list-label-undefined"
-          class="_list_options_jxh9k_12"
+          class="_list_options_1wxdc_12"
           role="listbox"
           style="--rc-list-height: 185px;"
         >

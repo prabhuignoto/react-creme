@@ -1,9 +1,9 @@
-@use '../../design/core.scss';
-@use '../../design/button.scss';
-@use '../../design/theme.scss';
-@use '../../design/animate.scss';
-@use '../../design/position.scss';
-@use '../../design/util.scss';
+@use '@design/core.scss';
+@use '@design/button.scss';
+@use '@design/theme.scss';
+@use '@design/animate.scss';
+@use '@design/position.scss';
+@use '@design/util.scss';
 
 .drawer {
   $min-width: var(--min-width);

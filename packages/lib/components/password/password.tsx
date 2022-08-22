@@ -1,3 +1,4 @@
+import { Eye, EyeOff } from '@icons';
 import classNames from 'classnames';
 import {
   FunctionComponent,
@@ -6,7 +7,6 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { Eye, EyeOff } from '../../icons';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import styles from './password.module.scss';

@@ -1,7 +1,7 @@
-@use '../../design/border.scss';
-@use '../../design/core.scss';
-@use '../../design/font.scss';
-@use '../../design/list.scss';
+@use '@design/border.scss';
+@use '@design/core.scss';
+@use '@design/font.scss';
+@use '@design/list.scss';
 
 $pin-item-margin: 1rem;
 $sizes: (

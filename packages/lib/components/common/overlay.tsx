@@ -1,3 +1,4 @@
+import { CloseIcon } from '@icons';
 import classNames from 'classnames';
 import React, {
   CSSProperties,
@@ -9,7 +10,6 @@ import React, {
   useState,
 } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { CloseIcon } from '../../icons';
 import { OverlayProps } from './overlay-model';
 import './overlay.scss';
 import { OverlayContext, OverlayContextModel } from './withOverlay';

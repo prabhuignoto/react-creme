@@ -1,6 +1,6 @@
+import { InfoIcon } from '@icons';
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
-import { InfoIcon } from '../../icons';
 import { isDark } from '../common/utils';
 import styles from './block-quote.module.scss';
 

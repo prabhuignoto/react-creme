@@ -1,6 +1,6 @@
+import { SpinnerIcon } from '@icons';
 import classNames from 'classnames';
 import { CSSProperties, FunctionComponent, useMemo } from 'react';
-import { SpinnerIcon } from '../../icons';
 import { isDark } from '../common/utils';
 import styles from './spinner.module.scss';
 

@@ -1,7 +1,7 @@
+import { AlignJustify } from '@icons';
 import classNames from 'classnames';
 import * as React from 'react';
 import { CSSProperties, useCallback, useMemo, useRef, useState } from 'react';
-import { AlignJustify } from '../../icons';
 import { useDrag } from '../common/effects/useDrag';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { Image } from '../image/image';

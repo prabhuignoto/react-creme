@@ -1,7 +1,7 @@
+import { ChevronDownIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
-import { ChevronDownIcon } from '../../icons';
 import { Button } from '../button/button';
 import { isDark } from '../common/utils';
 import { Menu } from '../menu/menu';
