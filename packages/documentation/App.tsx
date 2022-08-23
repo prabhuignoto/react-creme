@@ -9,6 +9,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import { useLocation } from 'react-router';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import ResizeObserver from 'resize-observer-polyfill';
 import { Drawer } from '../lib/components';
@@ -40,8 +41,19 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
       });
     }, [left]);
 
+    const location = useLocation();
+
+    const isLanding = useMemo(() => {
+      return location.pathname === '/landing';
+    }, [location.pathname]);
+
     const positionAside = useCallback(() => {
-      if (sectionRef.current && asideRef.current && !media.isMobile) {
+      if (
+        sectionRef.current &&
+        asideRef.current &&
+        !media.isMobile &&
+        !isLanding
+      ) {
         const asideWidth = asideRef.current.offsetWidth;
         const { left: sectionLeft } =
           sectionRef.current.getBoundingClientRect();
@@ -51,7 +63,7 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
           setLeft(0);
         }
       }
-    }, [media]);
+    }, [media, isLanding]);
 
     const onAppRef = (el: HTMLDivElement) => {
       if (el) {
@@ -85,8 +97,8 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
     const toggleOpen = useCallback(() => setOpenAside(prev => !prev), []);
 
     const canRenderAside = useMemo(() => {
-      return media && media.isMobile && openAside;
-    }, [media, openAside]);
+      return media && media.isMobile && openAside && !isLanding;
+    }, [media, openAside, isLanding]);
 
     const onClose = useCallback(() => {
       setOpenAside(false);
@@ -98,13 +110,18 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
     };
 
     const appClass = useMemo(
-      () => classNames('app', theme.darkMode ? 'dark' : ''),
-      [theme.darkMode]
+      () =>
+        classNames(
+          'app',
+          theme.darkMode ? 'dark' : '',
+          isLanding ? 'is-landing' : ''
+        ),
+      [theme.darkMode, isLanding]
     );
 
     return (
       <div className={appClass} ref={onAppRef}>
-        {media && !media.isMobile && (
+        {media && !media.isMobile && !isLanding && (
           <aside
             className={sidebarClass}
             ref={asideRef}

@@ -21,6 +21,7 @@ export default defineConfig({
     alias: {
       '@design': path.resolve(__dirname, '../lib/design'),
       '@icons': path.resolve(__dirname, '../lib/icons'),
+      '@lib': path.resolve(__dirname, '../lib/components/index.ts'),
     },
   },
 });

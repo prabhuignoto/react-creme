@@ -53,4 +53,12 @@
 .rc-demo-logo-text {
   font-size: 1.5rem;
   font-weight: 500;
+
+  &:not(.dark) {
+    color: #000;
+  }
+
+  &.dark {
+    color: #fff;
+  }
 }

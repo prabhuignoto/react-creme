@@ -14,6 +14,11 @@ const routes = [
     path: '/',
   },
   {
+    component: lazy(() => import('../home/landing/landing')),
+    key: 'landing',
+    path: '/landing',
+  },
+  {
     component: lazy(() => import('../components/accordion')),
     key: 'accordion',
     path: '/accordion',

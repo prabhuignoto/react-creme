@@ -54,7 +54,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/bluebird": "^3.5.36",
     "@types/jest": "^28.1.7",
-    "@types/node": "^18.7.8",
+    "@types/node": "^18.7.11",
     "@types/react-syntax-highlighter": "^15.5.4",
     "@types/react-transition-group": "^4.4.5",
     "@types/testing-library__jest-dom": "^5.14.5",
@@ -82,7 +82,7 @@
     "vite": "3.0.9",
     "vitest": "0.22.1",
     "webpack": "^5.74.0",
-    "webpack-bundle-analyzer": "^4.6.0",
+    "webpack-bundle-analyzer": "^4.6.1",
     "webpack-cli": "^4.10.0",
     "webpack-node-externals": "^3.0.0"
   },

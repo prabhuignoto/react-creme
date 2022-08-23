@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cx from 'classnames';
 
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
@@ -16,14 +16,14 @@ const Logo: React.FC<{ isMobile?: boolean; onMenuClick: () => void }> = ({
   return (
     <div className="rc-demo-app-logo-container" onClick={onMenuClick}>
       {isMobile && (
-        <span
-          className={classNames('rc-demo-menu-icon', darkMode ? 'dark' : '')}
-        >
+        <span className={cx('rc-demo-menu-icon', darkMode ? 'dark' : '')}>
           <MenuSVG />
         </span>
       )}
       <div onClick={() => navigate('/')} className="rc-demo-app-logo">
-        <span className="rc-demo-logo-text">React Creme</span>
+        <span className={cx('rc-demo-logo-text', darkMode ? 'dark' : '')}>
+          React Creme
+        </span>
       </div>
     </div>
   );

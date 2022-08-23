@@ -8,9 +8,17 @@ import { routes } from './route-configs/route-configs-1';
 function AppRoutes() {
   const location = useLocation();
 
+  const isLanding = useMemo(() => {
+    return location.pathname === '/landing';
+  }, [location.pathname]);
+
   const contentClass = useMemo(
     () =>
-      classNames('section-content', location.pathname === '/' ? 'home' : ''),
+      classNames(
+        'section-content',
+        location.pathname === '/' ? 'home' : '',
+        isLanding ? 'is-landing' : ''
+      ),
     [location]
   );
 

@@ -26,15 +26,15 @@ function HeroSection() {
           dark: theme.darkMode,
         })}
       >
-        <header className="rc-doc-app-hero-header">
+        {/* <header className="rc-doc-app-hero-header">
           <span className="rc-doc-app-icon"></span>
           <span className="rc-doc-app-title">react-creme</span>
-        </header>
+        </header> */}
 
         <Badges />
 
         {/* FEATURES SECTION */}
-        <ul className="rc-doc-app-features">
+        {/* <ul className="rc-doc-app-features">
           {Features.map(({ icon, title }, index) => (
             <li
               key={index}
@@ -54,7 +54,7 @@ function HeroSection() {
               </span>
             </li>
           ))}
-        </ul>
+        </ul> */}
         {media.isMobile && (
           <div className="home-menu">
             <HomeButton onClick={handleOpenSidebar} size="md">
@@ -62,7 +62,7 @@ function HeroSection() {
             </HomeButton>
           </div>
         )}
-        <div className="github-home-btn">
+        {/* <div className="github-home-btn">
           <HomeButton
             label="Github"
             size="md"
@@ -70,8 +70,8 @@ function HeroSection() {
           >
             <FontAwesomeIcon icon={faGithub} />
           </HomeButton>
-        </div>
-        <div className="rc-home-buttons">
+        </div> */}
+        {/* <div className="rc-home-buttons">
           <HomeButton
             label="Explore Storybook"
             size="md"
@@ -90,7 +90,7 @@ function HeroSection() {
           >
             <FontAwesomeIcon icon={faGithubAlt} />
           </HomeButton>
-        </div>
+        </div> */}
       </section>
     )
   );

@@ -1,8 +1,10 @@
 //
 import { DocSearch } from '@docsearch/react';
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 
-import { Link } from 'react-router-dom';
+import { isDark } from '@lib';
+import cx from 'classnames';
+import { Link, useLocation } from 'react-router-dom';
 import { AutoSuggestOption } from '../../../lib/components/auto-suggest/auto-suggest.model';
 import { Badge } from '../../common/github-link';
 import { AppSettings } from '../app-settings';
@@ -32,8 +34,19 @@ const Header: React.FC<{
   onOpen?: () => void;
   onSearchSelection: (selected: AutoSuggestOption) => void;
 }> = ({ isMobile, onOpen }) => {
+  const location = useLocation();
+  const isDarkMode = useMemo(() => isDark(), []);
+
+  const isLanding = useMemo(() => location.pathname === '/landing', [location]);
+
   return (
-    <header className="app-header">
+    <header
+      className={cx(
+        'app-header',
+        isLanding ? 'is-landing' : '',
+        isDarkMode ? 'dark' : ''
+      )}
+    >
       <div className="logo_wrapper">
         <Logo isMobile={isMobile} onMenuClick={onOpen} />
       </div>
