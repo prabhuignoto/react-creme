@@ -1,13 +1,12 @@
-import { faGithub, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faBookOpen } from '@fortawesome/free-solid-svg-icons';
+// import { faGithub, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { useCallback } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { asideState, responsiveState, themeState } from '../../atoms/home';
 import { HomeButton } from '../../home/home-button';
-import { Features } from '../../home/home-data';
-import { Badges } from '../badges';
+// import { Badges } from '../badges';
 import './hero-section.scss';
 
 function HeroSection() {
@@ -31,7 +30,7 @@ function HeroSection() {
           <span className="rc-doc-app-title">react-creme</span>
         </header> */}
 
-        <Badges />
+        {/* <Badges /> */}
 
         {/* FEATURES SECTION */}
         {/* <ul className="rc-doc-app-features">
