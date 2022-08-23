@@ -9,7 +9,7 @@ import { AutoSuggestOption } from '../../../lib/components/auto-suggest/auto-sug
 import { Badge } from '../../common/github-link';
 import { AppSettings } from '../app-settings';
 import { Logo } from '../logo';
-import './header.scss';
+import styles from './header.module.scss';
 
 const AlgoliaHit = ({
   hit,
@@ -47,13 +47,15 @@ const Header: React.FC<{
         isDarkMode ? 'dark' : ''
       )}
     >
-      <div className="logo_wrapper">
+      <div className={styles.logo_wrapper}>
         <Logo isMobile={isMobile} onMenuClick={onOpen} />
       </div>
       <Badge label="alpha" />
-      {/* <ThemeSwitcher /> */}
       {!isMobile && (
-        <div className="algolia-container" style={{ marginLeft: 'auto' }}>
+        <div
+          className={styles.algolia_container}
+          style={{ marginLeft: 'auto' }}
+        >
           <DocSearch
             apiKey={import.meta.env.VITE_APP_ALGOLIA_API_KEY as string}
             appId={import.meta.env.VITE_APP_ALGOLIA_APP_ID as string}

@@ -1,4 +1,4 @@
-.rc-demo-logo {
+.logo {
   background-image: url('../../images/cafe.svg');
   background-position: center;
   background-repeat: no-repeat;
@@ -9,7 +9,7 @@
   width: 20px;
 }
 
-.rc-demo-app-logo-container {
+.container {
   align-items: center;
   border-radius: 4px;
   cursor: pointer;
@@ -21,14 +21,14 @@
   }
 }
 
-.rc-demo-app-logo {
+.app_logo {
   align-items: center;
   display: flex;
   justify-content: center;
   justify-self: flex-start;
 }
 
-.rc-demo-menu-icon {
+.menu_icon {
   align-items: center;
   display: flex;
   height: 1.5rem;
@@ -50,12 +50,12 @@
   }
 }
 
-.rc-demo-logo-text {
-  font-size: 1.5rem;
+.logo_text {
+  font-size: 1.25rem;
   font-weight: 500;
 
   &:not(.dark) {
-    color: #000;
+    color: #fff;
   }
 
   &.dark {
