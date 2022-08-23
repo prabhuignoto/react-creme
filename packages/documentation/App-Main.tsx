@@ -23,23 +23,23 @@ const Main = React.forwardRef<
     };
   });
 
-  const canShowHeader = useMemo(
-    () => location.pathname !== '/' && location.pathname !== '/home',
-    [location.pathname]
-  );
+  // const canShowHeader = useMemo(
+  //   () => location.pathname !== '/' && location.pathname !== '/home',
+  //   [location.pathname]
+  // );
 
   return (
     <section
       className={classNames('app-main-section', isLanding ? 'is-landing' : '')}
       ref={sectionRef}
     >
-      {canShowHeader && (
-        <Header
-          isMobile={media && media.isMobile}
-          onOpen={toggleOpen}
-          onSearchSelection={path => navigate(path.value)}
-        />
-      )}
+      {/* {canShowHeader && ( */}
+      <Header
+        isMobile={media && media.isMobile}
+        onOpen={toggleOpen}
+        onSearchSelection={path => navigate(path.value)}
+      />
+      {/* )} */}
       <AppRoutes />
       <Footer />
     </section>

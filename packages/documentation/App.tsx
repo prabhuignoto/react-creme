@@ -51,8 +51,8 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
       if (
         sectionRef.current &&
         asideRef.current &&
-        !media.isMobile &&
-        !isLanding
+        !media.isMobile
+        // !isLanding
       ) {
         const asideWidth = asideRef.current.offsetWidth;
         const { left: sectionLeft } =
