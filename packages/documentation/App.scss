@@ -51,13 +51,13 @@ code {
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin-top: 60px;
   overflow-x: hidden;
   overflow-y: hidden;
   position: fixed;
   top: 0;
   visibility: hidden;
   width: var(--aside-width);
-  margin-top: 60px;
 }
 
 .app-aside-visible {
@@ -69,8 +69,8 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 140vh;
   margin-top: 56px;
+  min-height: 140vh;
 
   &:not(.is-landing) {
     width: calc(100% - var(--aside-width));
@@ -198,11 +198,11 @@ code {
   align-self: flex-start;
   display: flex;
   height: 50px;
+  left: 0;
   padding: 0.25rem 0;
-  width: 100%;
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  width: 100%;
   z-index: 999;
 
   &:not(.dark) {

@@ -1,15 +1,15 @@
 .landing {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
 }
 
 .features_wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   padding: 4rem 0;
   // background: rgba(var(--rc-primary-color-rgb), 1);
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

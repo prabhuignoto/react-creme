@@ -1,10 +1,10 @@
 .content {
+  border-radius: 8px;
+  column-gap: 2rem;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  border-radius: 8px;
-  padding: 3rem;
-  column-gap: 2rem;
   justify-items: center;
+  padding: 3rem;
 }
 
 @media (min-width: 768px) {
@@ -39,19 +39,19 @@
 }
 
 .right_column {
+  align-items: center;
+  align-self: flex-end;
   display: grid;
+  gap: 1rem;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-  align-items: center;
-  gap: 1rem;
-  align-self: flex-end;
   width: 100%;
 }
 
 .header {
+  color: var(--rc-primary-color-hex);
   font-size: 2rem;
   font-weight: 500;
-  color: var(--rc-primary-color-hex);
   margin: 0.2rem 0;
 }
 
@@ -66,12 +66,12 @@
 }
 
 .get_started_btn {
-  border-radius: 4px;
   background-color: var(--rc-secondary-color-hex);
-  color: var(--rc-color-white);
-  padding: 1rem;
   border: 0;
-  width: 200px;
+  border-radius: 4px;
+  color: var(--rc-color-white);
   font-size: 1.2rem;
   margin-top: 3rem;
+  padding: 1rem;
+  width: 200px;
 }
