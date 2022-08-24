@@ -29,6 +29,22 @@ const data = [
   { name: 'twenty two' },
 ];
 
+const dataSmall = [
+  {
+    name: 'File',
+    nodes: [
+      {
+        name: 'Open',
+      },
+    ],
+  },
+  {
+    name: 'Edit',
+  },
+];
+
+export const SmallTree = <Tree nodes={dataSmall} size="sm" selectable />;
+
 export const Default = (
   // <Tree
   //   height={400}

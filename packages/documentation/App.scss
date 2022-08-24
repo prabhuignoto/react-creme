@@ -1,6 +1,5 @@
 .app {
   --aside-width: 300px;
-  // background: #000;
   background: #fff;
   display: flex;
   justify-content: flex-end;
@@ -13,7 +12,6 @@
 }
 
 body {
-  // background: #000;
   background: #fff;
   margin: 0;
   padding: 0;
@@ -51,9 +49,9 @@ code {
 
 .app-aside {
   align-items: center;
-  // background: #000;
   display: flex;
   flex-direction: column;
+  margin-top: 60px;
   overflow-x: hidden;
   overflow-y: hidden;
   position: fixed;
@@ -71,8 +69,16 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-top: 56px;
   min-height: 140vh;
-  width: calc(100% - var(--aside-width));
+
+  &:not(.is-landing) {
+    width: calc(100% - var(--aside-width));
+  }
+
+  &.is-landing {
+    width: 100%;
+  }
 }
 
 .section-content {
@@ -91,45 +97,45 @@ code {
 }
 
 @media (min-width: 768px) {
-  .app {
+  .app:not(.is-landing) {
     --aside-width: 200px;
     width: 100%;
   }
 }
 
 @media (min-width: 992px) {
-  .app {
+  .app:not(.is-landing) {
     --aside-width: 280px;
     width: 100%;
   }
 }
 
 @media (min-width: 1200px) {
-  .app {
+  .app:not(.is-landing) {
     --aside-width: 300px;
     width: 100%;
   }
 
-  .section-content:not(.home) {
+  .section-content:not(.home):not(.is-landing) {
     width: calc(100% - 300px);
   }
 }
 
 @media (min-width: 1600px) {
-  .app {
+  .app:not(.is-landing) {
     --aside-width: 350px;
     width: 100%;
   }
 }
 
 @media (min-width: 1920px) {
-  .app {
+  .app:not(.is-landing) {
     width: 100%;
   }
 }
 
 @media (min-width: 2560px) {
-  .app {
+  .app:not(.is-landing) {
     width: 1800px;
   }
 
@@ -139,7 +145,7 @@ code {
 }
 
 @media (min-width: 3840px) {
-  .app {
+  .app:not(.is-landing) {
     width: 2560px;
   }
 }
@@ -192,12 +198,24 @@ code {
   align-self: flex-start;
   display: flex;
   height: 50px;
-  margin-bottom: 2rem;
-  width: 98%;
+  left: 0;
+  padding: 0.25rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  &:not(.dark) {
+    background: rgba($color: var(--rc-primary-color-rgb), $alpha: 0.95);
+  }
+
+  &.dark {
+    background: rgba($color: var(--rc-secondary-color-rgb), $alpha: 0.95);
+  }
 }
 
 @media (min-width: 1200px) {
-  .app-header {
+  .app-header:not(.is-landing) {
     width: calc(100% - 300px);
   }
 }

@@ -1,6 +1,5 @@
-.rc-demo-footer {
+.footer {
   align-items: center;
-  background: var(--rc-primary-color-hex);
   border-radius: 2px;
   color: #fff;
   display: flex;
@@ -8,6 +7,14 @@
   font-size: 14px;
   min-height: 100px;
   width: 100%;
+
+  &.dark {
+    background: var(--rc-secondary-color-hex);
+  }
+
+  &:not(.dark) {
+    background: var(--rc-primary-color-hex);
+  }
 
   a {
     color: #fff;
@@ -27,7 +34,7 @@
   }
 }
 
-.rc-demo-footer > * {
+.footer > * {
   padding: 0.5rem;
 
   &:hover {
@@ -37,11 +44,11 @@
   }
 }
 
-.rc-demo-footer-content {
+.footer_content {
   margin-left: 1rem;
 }
 
-.github-link {
+.github_link {
   // margin-left: auto;
   margin-right: 1rem;
 
@@ -61,12 +68,12 @@
   }
 }
 
-.rc-footer-credit {
+.credit {
   margin-left: auto;
   margin-right: auto;
 }
 
-.app-footer {
+.app_footer {
   align-self: flex-start;
   margin-top: auto;
   width: 100%;

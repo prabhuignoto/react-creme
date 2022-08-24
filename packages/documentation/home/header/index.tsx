@@ -1,13 +1,15 @@
 //
 import { DocSearch } from '@docsearch/react';
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 
-import { Link } from 'react-router-dom';
+import { isDark } from '@lib';
+import cx from 'classnames';
+import { Link, useLocation } from 'react-router-dom';
 import { AutoSuggestOption } from '../../../lib/components/auto-suggest/auto-suggest.model';
 import { Badge } from '../../common/github-link';
 import { AppSettings } from '../app-settings';
 import { Logo } from '../logo';
-import './header.scss';
+import styles from './header.module.scss';
 
 const AlgoliaHit = ({
   hit,
@@ -32,15 +34,31 @@ const Header: React.FC<{
   onOpen?: () => void;
   onSearchSelection: (selected: AutoSuggestOption) => void;
 }> = ({ isMobile, onOpen }) => {
+  const location = useLocation();
+  const isDarkMode = useMemo(() => isDark(), []);
+
+  const isLanding = useMemo(
+    () => location.pathname === '/landing' || location.pathname === '/',
+    [location]
+  );
+
   return (
-    <header className="app-header">
-      <div className="logo_wrapper">
+    <header
+      className={cx(
+        'app-header',
+        isLanding ? 'is-landing' : '',
+        isDarkMode ? 'dark' : ''
+      )}
+    >
+      <div className={styles.logo_wrapper}>
         <Logo isMobile={isMobile} onMenuClick={onOpen} />
       </div>
       <Badge label="alpha" />
-      {/* <ThemeSwitcher /> */}
       {!isMobile && (
-        <div className="algolia-container" style={{ marginLeft: 'auto' }}>
+        <div
+          className={styles.algolia_container}
+          style={{ marginLeft: 'auto' }}
+        >
           <DocSearch
             apiKey={import.meta.env.VITE_APP_ALGOLIA_API_KEY as string}
             appId={import.meta.env.VITE_APP_ALGOLIA_APP_ID as string}

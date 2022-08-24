@@ -11,6 +11,7 @@ export { CheckBoxGroup } from './checkbox-group/checkbox-group';
 export { CheckBox } from './checkbox/checkbox';
 export { ThemeProvider } from './common/theme-provider';
 export type { Theme } from './common/theme-provider-model';
+export { isArray, isDark, isTouchDevice } from './common/utils';
 export { DataGrid } from './data-grid/data-grid';
 export { Dialog } from './dialog/dialog';
 export { Drawer } from './drawer/drawer';

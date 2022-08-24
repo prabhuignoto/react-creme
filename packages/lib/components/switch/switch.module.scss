@@ -37,10 +37,10 @@ $start-left: 4px;
 .switch {
   cursor: pointer;
 
-  min-width: 50px;
+  min-width: var(--min-width);
   padding: 0.1rem;
   user-select: none;
-  width: 100%;
+  // width: 100%;
 
   &.disabled {
     @extend %disabled;

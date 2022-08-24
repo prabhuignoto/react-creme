@@ -1,9 +1,13 @@
+import { isDark } from '@lib';
+import cx from 'classnames';
+import { useMemo } from 'react';
 import { ReactComponent as GithubSVG } from '../../images/github.svg';
-import './footer-styles.scss';
+import styles from './footer.module.scss';
 
 function Footer() {
+  const isDarkMode = useMemo(() => isDark(), []);
   return (
-    <div className="app-footer">
+    <div className={styles.app_footer}>
       {/* <a
         href="javascript:void(0);"
         style={{
@@ -23,8 +27,8 @@ function Footer() {
       >
         Back to Top
       </a> */}
-      <div className="rc-demo-footer">
-        <div className="rc-demo-footer-content">
+      <div className={cx(styles.footer, isDarkMode ? styles.dark : '')}>
+        <div className={styles.footer_content}>
           <a
             href="https://www.twitter.com/prabhumurthy2"
             target="_blank"
@@ -33,7 +37,7 @@ function Footer() {
             Made with ❤️ by @prabhuignoto
           </a>
         </div>
-        <div className="rc-footer-credit">
+        <div className={styles.credit}>
           <a
             href="https://github.com/prabhuignoto/react-creme/"
             target="_blank"
@@ -42,7 +46,7 @@ function Footer() {
             💪 Proudly built with @react-creme
           </a>
         </div>
-        <div className="rc-footer-author">
+        <div className="author">
           <a
             href="https://www.prabhumurthy.com"
             target="_blank"
@@ -51,7 +55,7 @@ function Footer() {
             &copy; {new Date().getFullYear()} PrabhuMurthy.com
           </a>
         </div>
-        <div className="github-link">
+        <div className={styles.github_link}>
           <a
             href="https://github.com/prabhuignoto"
             target="__blank"

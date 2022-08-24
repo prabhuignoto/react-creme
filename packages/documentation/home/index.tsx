@@ -4,7 +4,7 @@ import packages from '../../lib/package.json';
 import { SyntaxHighLighter } from './../common/syntax-highlighter';
 import { Code } from './../common/syntax-highlighter/syntax';
 import BrowserSupport from './browser-support';
-import HeroSection from './hero-section';
+// import HeroSection from './hero-section';
 import './home.scss';
 import gettingStarted from './samples/getting-started';
 import gettingStartedTheme from './samples/getting-started-theme';
@@ -13,7 +13,7 @@ const Home: React.FunctionComponent = () => {
   return (
     <div className="rc-doc-home-page">
       {/* HERO SECTION */}
-      <HeroSection />
+      {/* <HeroSection /> */}
 
       {/* GETTING STARTED SECTION */}
       <div className="rc-home-main-content">

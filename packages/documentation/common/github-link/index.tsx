@@ -1,7 +1,9 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+import { useMemo } from 'react';
 
+import { isDark } from '@lib';
 import { useRecoilValue } from 'recoil';
 import { themeState } from '../../atoms/home';
 import styles from './github-link.module.scss';
@@ -24,8 +26,13 @@ const GithubLink = () => {
 };
 
 const Badge = ({ label }: { label: string }) => {
+  const isDarkMode = useMemo(() => isDark(), []);
+
   return (
-    <div className={styles.badge} aria-label="alpha">
+    <div
+      className={classNames(styles.badge, isDarkMode ? styles.dark : '')}
+      aria-label="alpha"
+    >
       {label}
     </div>
   );

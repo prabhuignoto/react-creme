@@ -1,0 +1,63 @@
+import { faAccessibleIcon } from '@fortawesome/free-brands-svg-icons';
+import {
+  faCubes,
+  faFeather,
+  faPalette,
+  faScrewdriverWrench,
+  faWrench,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Hero } from './hero';
+import { NavBar } from './navbar';
+import { ProductFeatureProps, ProductFeatures } from './product-feature';
+import styles from './styles/landing.module.scss';
+
+const features: ProductFeatureProps[] = [
+  {
+    description: `The documentation is built on top of React, React Router, and React Hooks.
+      It is built with TypeScript and styled-components.`,
+    icon: <FontAwesomeIcon icon={faFeather} key="feather" size="2x" />,
+    title: 'Light weight and Modular',
+  },
+  {
+    description: `Fully customizable UI elements with fine grained control over the look and feel.`,
+    icon: <FontAwesomeIcon icon={faWrench} key="wrench" size="2x" />,
+    title: 'Customizable UI elements',
+  },
+  {
+    description: `Ready to use components for common scenarios and use cases`,
+    icon: <FontAwesomeIcon icon={faCubes} key="feather2" size="2x" />,
+    title: 'Built from the ground up for modern web browsers',
+  },
+  {
+    description: `Accessibility is one of the core principles of react-creme and the components are built with industry standard Accessibility`,
+    icon: <FontAwesomeIcon icon={faAccessibleIcon} key="feather" size="2x" />,
+    title: 'Best in class Accessibility',
+  },
+  {
+    description: `Customize the colors of the UI elements with ease`,
+    icon: <FontAwesomeIcon icon={faPalette} key="feather2" size="2x" />,
+    title: 'Solid support for color schemes',
+  },
+  {
+    description: `The documentation is built on top of React, React Router, and React Hooks`,
+    icon: (
+      <FontAwesomeIcon icon={faScrewdriverWrench} key="feather2" size="2x" />
+    ),
+    title: 'Light weight and Modular',
+  },
+];
+
+const LandingPage = () => {
+  return (
+    <div className={styles.landing}>
+      <NavBar />
+      <Hero />
+      <div className={styles.features_wrapper}>
+        <ProductFeatures items={features} />
+      </div>
+    </div>
+  );
+};
+
+export default LandingPage;

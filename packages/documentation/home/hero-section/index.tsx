@@ -1,13 +1,12 @@
-import { faGithub, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faBookOpen } from '@fortawesome/free-solid-svg-icons';
+// import { faGithub, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { useCallback } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { asideState, responsiveState, themeState } from '../../atoms/home';
 import { HomeButton } from '../../home/home-button';
-import { Features } from '../../home/home-data';
-import { Badges } from '../badges';
+// import { Badges } from '../badges';
 import './hero-section.scss';
 
 function HeroSection() {
@@ -26,15 +25,15 @@ function HeroSection() {
           dark: theme.darkMode,
         })}
       >
-        <header className="rc-doc-app-hero-header">
+        {/* <header className="rc-doc-app-hero-header">
           <span className="rc-doc-app-icon"></span>
           <span className="rc-doc-app-title">react-creme</span>
-        </header>
+        </header> */}
 
-        <Badges />
+        {/* <Badges /> */}
 
         {/* FEATURES SECTION */}
-        <ul className="rc-doc-app-features">
+        {/* <ul className="rc-doc-app-features">
           {Features.map(({ icon, title }, index) => (
             <li
               key={index}
@@ -54,7 +53,7 @@ function HeroSection() {
               </span>
             </li>
           ))}
-        </ul>
+        </ul> */}
         {media.isMobile && (
           <div className="home-menu">
             <HomeButton onClick={handleOpenSidebar} size="md">
@@ -62,7 +61,7 @@ function HeroSection() {
             </HomeButton>
           </div>
         )}
-        <div className="github-home-btn">
+        {/* <div className="github-home-btn">
           <HomeButton
             label="Github"
             size="md"
@@ -70,8 +69,8 @@ function HeroSection() {
           >
             <FontAwesomeIcon icon={faGithub} />
           </HomeButton>
-        </div>
-        <div className="rc-home-buttons">
+        </div> */}
+        {/* <div className="rc-home-buttons">
           <HomeButton
             label="Explore Storybook"
             size="md"
@@ -90,7 +89,7 @@ function HeroSection() {
           >
             <FontAwesomeIcon icon={faGithubAlt} />
           </HomeButton>
-        </div>
+        </div> */}
       </section>
     )
   );

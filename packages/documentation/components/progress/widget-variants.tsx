@@ -22,6 +22,17 @@ export const Error = (
   />
 );
 
+export const SuccessBig = (
+  <Progress
+    type="determinate"
+    maxValue={50}
+    currentValue={45}
+    showProgressValue
+    size="md"
+    status="success"
+  />
+);
+
 export const Infinite = (
   <Progress
     type="indeterminate"

@@ -1,5 +1,6 @@
+import classNames from 'classnames';
 import React, { useImperativeHandle, useMemo, useRef } from 'react';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import AppRoutes from './app-routes';
 import { MediaState } from './atoms/home';
 import Footer from './home/footer/footer';
@@ -12,26 +13,36 @@ const Main = React.forwardRef<
   const sectionRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
 
+  const location = useLocation();
+
+  const isLanding = useMemo(
+    () => location.pathname === '/landing' || location.pathname === '/',
+    [location]
+  );
+
   useImperativeHandle(ref, () => {
     return {
       getBoundingClientRect: () => sectionRef.current?.getBoundingClientRect(),
     };
   });
 
-  const canShowHeader = useMemo(
-    () => location.pathname !== '/' && location.pathname !== '/home',
-    [location.pathname]
-  );
+  // const canShowHeader = useMemo(
+  //   () => location.pathname !== '/' && location.pathname !== '/home',
+  //   [location.pathname]
+  // );
 
   return (
-    <section className="app-main-section" ref={sectionRef}>
-      {canShowHeader && (
-        <Header
-          isMobile={media && media.isMobile}
-          onOpen={toggleOpen}
-          onSearchSelection={path => navigate(path.value)}
-        />
-      )}
+    <section
+      className={classNames('app-main-section', isLanding ? 'is-landing' : '')}
+      ref={sectionRef}
+    >
+      {/* {canShowHeader && ( */}
+      <Header
+        isMobile={media && media.isMobile}
+        onOpen={toggleOpen}
+        onSearchSelection={path => navigate(path.value)}
+      />
+      {/* )} */}
       <AppRoutes />
       <Footer />
     </section>

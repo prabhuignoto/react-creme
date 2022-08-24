@@ -6,14 +6,11 @@ import { Dropdown } from '../../../lib/components/dropdown/dropdown';
 
 export const Default = (
   <FormGroup>
-    <FormField
-      label="Please enter the name"
-      icon={<FontAwesomeIcon icon={faUser} />}
-    >
+    <FormField label="First Name" icon={<FontAwesomeIcon icon={faUser} />}>
       <Input id="name" placeholder="Name" enableClear />
     </FormField>
     <FormField
-      label="Please select a Country"
+      label="Select your Country"
       icon={<FontAwesomeIcon icon={faFlag} />}
     >
       <Dropdown

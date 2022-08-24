@@ -1,0 +1,23 @@
+.hero {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 980px;
+  width: 100%;
+
+  &:not(.dark) {
+    background: linear-gradient(
+      to left bottom,
+      rgba(#bfdbf7, 1) 20%,
+      rgba(#e1e5f2, 1)
+    );
+  }
+
+  &.dark {
+    background: linear-gradient(
+      to right bottom,
+      rgba(#b8c0ff, 0.3) 10%,
+      rgba(#1e1e1e, 0.9)
+    );
+  }
+}

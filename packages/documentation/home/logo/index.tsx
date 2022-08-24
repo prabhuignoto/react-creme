@@ -1,29 +1,31 @@
-import classNames from 'classnames';
+import cx from 'classnames';
+import { useMemo } from 'react';
 
+import { isDark } from '@lib';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { themeState } from '../../atoms/home';
 import { ReactComponent as MenuSVG } from '../../images/menu.svg';
-import './logo.scss';
+import styles from './logo.module.scss';
 
 const Logo: React.FC<{ isMobile?: boolean; onMenuClick: () => void }> = ({
   isMobile,
   onMenuClick,
 }) => {
-  const { darkMode } = useRecoilValue(themeState);
+  const isDarkMode = useMemo(() => isDark(), []);
+
+  // const { darkMode } = useRecoilValue(themeState);
   const navigate = useNavigate();
 
   return (
-    <div className="rc-demo-app-logo-container" onClick={onMenuClick}>
+    <div className={cx(styles.container)} onClick={onMenuClick}>
       {isMobile && (
-        <span
-          className={classNames('rc-demo-menu-icon', darkMode ? 'dark' : '')}
-        >
+        <span className={cx(styles.menu_icon, isDarkMode ? 'dark' : '')}>
           <MenuSVG />
         </span>
       )}
-      <div onClick={() => navigate('/')} className="rc-demo-app-logo">
-        <span className="rc-demo-logo-text">React Creme</span>
+      <div onClick={() => navigate('/')} className={styles.app_logo}>
+        <span className={cx(styles.logo_text, isDarkMode ? styles.dark : '')}>
+          React Creme
+        </span>
       </div>
     </div>
   );

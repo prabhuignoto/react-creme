@@ -62,6 +62,7 @@ const items = [
 export const Default = <MenuBar items={items} />;
 export const RTL = <MenuBar items={items} RTL />;
 export const Icons = <MenuBar items={items} icons={icons} />;
+export const IconsSmall = <MenuBar items={items.slice(0, 2)} icons={icons} />;
 export const Medium = <MenuBar items={items} size="md" />;
 export const Large = <MenuBar items={items} size="lg" />;
 

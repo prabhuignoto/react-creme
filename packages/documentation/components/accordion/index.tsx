@@ -24,10 +24,10 @@ const Accordion = () => {
       sourceId="accordion/accordion.tsx"
       editId="accordion"
       features={[
-        'Customizable Icon',
+        'Set the accordion to expanded or collapsed on load',
+        'Customizable accordion icons',
         'RTL Support',
-        'Expanded state on Load',
-        'Custom sizes',
+        'Support for custom sizes: small, medium and large',
       ]}
       pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}
       callbacks={[
