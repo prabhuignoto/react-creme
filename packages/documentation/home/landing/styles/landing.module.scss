@@ -9,7 +9,10 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  padding: 4rem 0;
   // background: rgba(var(--rc-primary-color-rgb), 1);
   width: 100%;
+
+  @media (min-width: 43rem) {
+    padding: 2rem 0;
+  }
 }

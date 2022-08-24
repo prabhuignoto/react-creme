@@ -1,3 +1,5 @@
+@use '@design/theme.scss';
+
 .logo {
   background-image: url('../../images/cafe.svg');
   background-position: center;
@@ -15,10 +17,6 @@
   cursor: pointer;
   display: flex;
   padding: 0.5rem;
-
-  &:hover {
-    // background-color: rgba(var(--rc-primary-color-rgb), 0.1);
-  }
 }
 
 .app_logo {
@@ -37,7 +35,7 @@
   width: 1.5rem;
 
   &.dark {
-    color: #fff;
+    color: theme.$primary;
   }
 
   &:not(.dark) {
