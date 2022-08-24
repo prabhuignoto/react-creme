@@ -1,3 +1,5 @@
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, isDark } from '@lib';
 import cx from 'classnames';
 import { useMemo } from 'react';
@@ -26,12 +28,17 @@ const HeroContent = () => {
           Start building your React applications with a clean and modern design
           system.
         </p>
-        <Button
-          label="Get Started"
-          onClick={handleGetStarted}
-          size="lg"
-          style={{ width: '100px' }}
-        />
+        <div className={styles.buttons}>
+          <Button
+            label="Get Started"
+            onClick={handleGetStarted}
+            size="lg"
+            type="primary"
+          ></Button>
+          <Button label="Github" size="lg" style={{ width: '100px' }}>
+            <FontAwesomeIcon icon={faGithub} size="1x" />
+          </Button>
+        </div>
         {/* <button className={styles.get_started_btn} onClick={handleGetStarted}>
           Get Started
         </button> */}

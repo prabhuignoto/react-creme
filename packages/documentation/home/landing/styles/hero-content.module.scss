@@ -1,10 +1,15 @@
+@use '@design/theme.scss';
+
 .content {
   border-radius: 8px;
+  padding: 3rem;
+}
+
+@mixin grid {
   column-gap: 2rem;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2fr;
   justify-items: center;
-  padding: 3rem;
 }
 
 @media (min-width: 768px) {
@@ -15,19 +20,37 @@
 
 @media (min-width: 1024px) {
   .content {
+    display: flex;
+    flex-direction: column;
     max-width: 800px;
   }
 }
 
 @media (min-width: 1280px) {
   .content {
+    @include grid;
     max-width: 1000px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .content {
+    @include grid;
+    max-width: 1240px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .content {
+    @include grid;
+    max-width: 1700px;
   }
 }
 
 @media (min-width: 2560px) {
   .content {
-    max-width: 1800px;
+    @include grid;
+    max-width: 2000px;
   }
 }
 
@@ -49,14 +72,15 @@
 }
 
 .header {
-  color: var(--rc-primary-color-hex);
-  font-size: 2rem;
+  color: theme.$primary;
+  font-size: 3rem;
   font-weight: 500;
   margin: 0.2rem 0;
+  text-transform: uppercase;
 }
 
 .sub_text {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 300;
   margin: 1rem 0;
 
@@ -74,4 +98,13 @@
   margin-top: 3rem;
   padding: 1rem;
   width: 200px;
+}
+
+.buttons {
+  display: flex;
+  margin: 3rem 0 0;
+
+  :first-child {
+    margin-right: 1rem;
+  }
 }

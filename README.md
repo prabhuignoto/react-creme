@@ -39,7 +39,7 @@ Modern UI Toolkit for React
 
 - ⚙️ Minimal Third party dependencies.
 
-- 🪶 At ~42kb minified and gzipped, `react-creme` is a lightweight component library.
+- 🪶 At ~52kb minified and gzipped, `react-creme` is a lightweight component library.
 
 <h2>Table of Contents</h2>
 

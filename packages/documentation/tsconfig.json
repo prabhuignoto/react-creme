@@ -21,7 +21,8 @@
     "types": ["react", "react-dom", "vite/client", "node"],
     "paths": {
       "@icons": ["../lib/icons/index.ts"],
-      "@lib": ["../lib/components/index.ts"]
+      "@lib": ["../lib/components/index.ts"],
+      "@design": ["../lib/design/"]
     }
   },
   "include": [

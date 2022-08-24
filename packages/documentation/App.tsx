@@ -44,15 +44,16 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
     const location = useLocation();
 
     const isLanding = useMemo(() => {
-      return location.pathname === '/landing';
+      const { pathname } = location;
+      return pathname === '/landing' || pathname === '/';
     }, [location.pathname]);
 
     const positionAside = useCallback(() => {
       if (
         sectionRef.current &&
         asideRef.current &&
-        !media.isMobile
-        // !isLanding
+        !media.isMobile &&
+        !isLanding
       ) {
         const asideWidth = asideRef.current.offsetWidth;
         const { left: sectionLeft } =

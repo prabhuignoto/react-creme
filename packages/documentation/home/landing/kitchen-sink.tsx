@@ -2,9 +2,9 @@ import cx from 'classnames';
 import { FunctionComponent } from 'react';
 import { CheckBox, Image, Rate, Slider, Switch } from '../../../lib/components';
 import { Default as FormGroup } from '../../components/form-group/widget-variants';
-import { Error } from '../../components/progress/widget-variants';
+// import { IconsSmall as MenuBar } from '../../components/menu-bar/widget-variants';
+import { SuccessBig } from '../../components/progress/widget-variants';
 import { Circle } from '../../components/skeleton/widget-variants';
-// import { SmallTree } from '../../components/tree/widget-variants';
 import styles from './styles/kitchen-sink.module.scss';
 
 export type SinkProps = {
@@ -45,7 +45,7 @@ const Sink2: FunctionComponent<SinkProps> = ({ isDark }) => {
         <Image
           width={400}
           height={250}
-          loaderSize="md"
+          loaderSize="lg"
           src="https://bit.ly/3q1ID4W"
         />
       </div>
@@ -59,7 +59,12 @@ const Sink3: FunctionComponent<SinkProps> = ({ isDark }) => {
       {/* <div className={styles.widget}>{SmallTree}</div> */}
       <div className={styles.widget}>
         <div className={styles.widget_wrap}>{Circle}</div>
-        <div className={styles.widget_wrap}>{Error}</div>
+        <div className={styles.widget_wrap}>
+          <div className={styles.widget_wrap_2}>
+            {SuccessBig}
+            {/* {MenuBar} */}
+          </div>
+        </div>
       </div>
       <div className={styles.widget}>{FormGroup}</div>
     </div>

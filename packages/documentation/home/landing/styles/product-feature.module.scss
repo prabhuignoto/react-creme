@@ -1,3 +1,5 @@
+@use '@design/theme.scss';
+
 .feature {
   align-items: flex-start;
   border-radius: 6px;
@@ -110,7 +112,7 @@
   }
 
   &.dark {
-    color: #fff;
+    color: theme.$steel-gray;
   }
 }
 
@@ -125,7 +127,6 @@
   margin: 0;
   padding: 1rem;
   row-gap: 2rem;
-  // background: #fff;
   width: 100%;
 }
 

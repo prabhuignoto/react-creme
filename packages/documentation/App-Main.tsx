@@ -15,7 +15,10 @@ const Main = React.forwardRef<
 
   const location = useLocation();
 
-  const isLanding = useMemo(() => location.pathname === '/landing', [location]);
+  const isLanding = useMemo(
+    () => location.pathname === '/landing' || location.pathname === '/',
+    [location]
+  );
 
   useImperativeHandle(ref, () => {
     return {

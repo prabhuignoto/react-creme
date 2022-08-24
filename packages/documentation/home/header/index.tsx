@@ -37,7 +37,10 @@ const Header: React.FC<{
   const location = useLocation();
   const isDarkMode = useMemo(() => isDark(), []);
 
-  const isLanding = useMemo(() => location.pathname === '/landing', [location]);
+  const isLanding = useMemo(
+    () => location.pathname === '/landing' || location.pathname === '/',
+    [location]
+  );
 
   return (
     <header

@@ -51,8 +51,9 @@
 }
 
 .logo_text {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
+  text-transform: uppercase;
 
   &:not(.dark) {
     color: #fff;
