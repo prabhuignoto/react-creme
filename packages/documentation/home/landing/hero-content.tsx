@@ -4,6 +4,7 @@ import { Button, isDark } from '@lib';
 import cx from 'classnames';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router';
+import { Badges } from '../badges';
 import { Sink1, Sink2, Sink3 } from './kitchen-sink';
 import styles from './styles/hero-content.module.scss';
 
@@ -39,9 +40,7 @@ const HeroContent = () => {
             <FontAwesomeIcon icon={faGithub} size="1x" />
           </Button>
         </div>
-        {/* <button className={styles.get_started_btn} onClick={handleGetStarted}>
-          Get Started
-        </button> */}
+        <Badges />
       </div>
       <div className={styles.right_column}>
         <Sink1 isDark={isDarkMode} />

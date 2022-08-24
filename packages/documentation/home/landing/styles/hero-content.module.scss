@@ -2,7 +2,11 @@
 
 .content {
   border-radius: 8px;
-  padding: 3rem;
+  padding: 1rem;
+
+  @media (min-width: 1920px) {
+    margin-top: 3rem;
+  }
 }
 
 @mixin grid {
@@ -14,15 +18,9 @@
 
 @media (min-width: 768px) {
   .content {
-    max-width: 600px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .content {
     display: flex;
     flex-direction: column;
-    max-width: 800px;
+    max-width: 100%;
   }
 }
 
@@ -58,17 +56,27 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-width: 400px;
+  margin: 1rem 0;
+  width: 95%;
+
+  @media (min-width: 43rem) {
+    min-width: 400px;
+  }
 }
 
 .right_column {
   align-items: center;
-  align-self: flex-end;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+
+  @media (min-width: 43rem) {
+    align-self: flex-end;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
 }
 
 .header {
@@ -102,7 +110,7 @@
 
 .buttons {
   display: flex;
-  margin: 3rem 0 0;
+  margin: 1rem 0;
 
   > :first-child {
     margin-right: 1rem;

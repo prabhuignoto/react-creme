@@ -1,9 +1,24 @@
 .hero {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   justify-content: center;
-  min-height: 980px;
   width: 100%;
+
+  @media (min-width: 1rem) {
+    min-height: 1200px;
+  }
+
+  @media (min-width: 43rem) {
+    min-height: 980px;
+  }
+
+  @media (min-width: 768px) {
+    min-height: 1080px;
+  }
+
+  @media (min-width: 1280px) {
+    min-height: 820px;
+  }
 
   &:not(.dark) {
     background: linear-gradient(

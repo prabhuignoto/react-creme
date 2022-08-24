@@ -73,7 +73,10 @@ code {
   min-height: 140vh;
 
   &:not(.is-landing) {
-    width: calc(100% - var(--aside-width));
+    @media (min-width: 43rem) {
+      // margin-top: 0;
+      width: calc(100% - var(--aside-width));
+    }
   }
 
   &.is-landing {

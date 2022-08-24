@@ -1,11 +1,10 @@
 .rc-doc-badges {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   list-style: none;
-  margin-bottom: 2rem;
-  min-height: 60px;
+  // min-height: 60px;
   padding: 0;
   width: 95%;
 }
