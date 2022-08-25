@@ -14,9 +14,7 @@ export default defineConfig({
     reportCompressedSize: true,
     rollupOptions: {
       output: {
-        assetFileNames: `[name]${hash}.[ext]`,
         chunkFileNames: `[name]${hash}.js`,
-        entryFileNames: `[name]${hash}.js`,
       },
     },
   },
