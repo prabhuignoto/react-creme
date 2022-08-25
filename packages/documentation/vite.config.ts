@@ -3,17 +3,27 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
+const generateHash = () => Math.floor(Math.random() * 90000) + 10000;
+
+const hash = generateHash();
+
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     outDir: 'expo_dist',
     reportCompressedSize: true,
+    rollupOptions: {
+      output: {
+        assetFileNames: `[name]${hash}.[ext]`,
+        chunkFileNames: `[name]${hash}.js`,
+        entryFileNames: `[name]${hash}.js`,
+      },
+    },
   },
   clearScreen: true,
   esbuild: {
     logOverride: { 'this-is-undefined-in-esm': 'silent' },
   },
-
   logLevel: 'info',
   plugins: [react(), svgr()],
   publicDir: 'public',
