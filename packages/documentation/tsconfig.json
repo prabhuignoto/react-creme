@@ -27,7 +27,7 @@
   },
   "include": [
     "svg.d.ts",
-    "Globals.d.ts",
+    "./Globals.d.ts",
     "components/**/*.tsx",
     "home/**/*.tsx",
     "home/*.tsx",

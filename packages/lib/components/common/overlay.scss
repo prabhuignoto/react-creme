@@ -43,7 +43,7 @@
 }
 
 .rc-overlay-close-btn {
-  @extend %icon-md;
+  @extend %icon-lg;
   @include position.position-abs('top right');
   border-radius: 50%;
   cursor: pointer;
@@ -51,7 +51,7 @@
   top: 1rem;
 
   &:hover::after {
-    background: rgba($color: #000, $alpha: 0.75);
+    background: rgba($color: var(--rc-primary-color-rgb), $alpha: 1);
   }
 
   &::after {
