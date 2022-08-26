@@ -1,5 +1,8 @@
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import PostCSSImport from 'postcss-import';
+import PostCSSPresetEnv from 'postcss-preset-env';
+import PostCSSReporter from 'postcss-reporter';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
@@ -19,6 +22,11 @@ export default defineConfig({
     },
   },
   clearScreen: true,
+  css: {
+    postcss: {
+      plugins: [PostCSSImport(), PostCSSPresetEnv(), PostCSSReporter()],
+    },
+  },
   esbuild: {
     logOverride: { 'this-is-undefined-in-esm': 'silent' },
   },

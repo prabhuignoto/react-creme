@@ -99,13 +99,13 @@ $start-left: 4px;
   }
 
   &:not(.dark) {
-    @extend %shadow-inset-small;
+    @extend %shadow-inset-xs;
     @extend %border;
   }
 }
 
 .track_off {
-  background-color: theme.$mercury;
+  background-color: theme.$chinese-gray;
   border: 1px solid transparent;
 }
 
@@ -113,7 +113,7 @@ $start-left: 4px;
   @extend %shadow-small;
 
   svg {
-    color: theme.$chinese-gray;
+    color: theme.$steel-gray;
   }
 }
 

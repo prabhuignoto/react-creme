@@ -5,7 +5,7 @@
   padding: 1rem;
 
   @media (min-width: 1920px) {
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 }
 
@@ -27,14 +27,14 @@
 @media (min-width: 1280px) {
   .content {
     @include grid;
-    max-width: 1000px;
+    max-width: 100%;
   }
 }
 
 @media (min-width: 1440px) {
   .content {
     @include grid;
-    max-width: 1240px;
+    max-width: 1340px;
   }
 }
 
@@ -59,7 +59,7 @@
   margin: 1rem 0;
   width: 95%;
 
-  @media (min-width: 43rem) {
+  @media (min-width: 768px) {
     min-width: 400px;
   }
 }
@@ -70,7 +70,7 @@
   flex-direction: column;
   width: 100%;
 
-  @media (min-width: 43rem) {
+  @media (min-width: 768px) {
     align-self: flex-end;
     display: grid;
     gap: 1rem;
