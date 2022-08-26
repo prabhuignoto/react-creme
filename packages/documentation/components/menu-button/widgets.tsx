@@ -6,7 +6,11 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section title="Default render" size="md">
-        <DemoWidget name="MenuButton" width={100}>
+        <DemoWidget
+          name="MenuButton"
+          width={100}
+          style={{ marginLeft: '10px' }}
+        >
           <MenuButton
             items={['save', 'save as new', 'discard']}
             width={150}
@@ -15,7 +19,7 @@ function widgets() {
         </DemoWidget>
       </Section>
       <Section title="Right to Left" size="md">
-        <DemoWidget name="MenuButton">
+        <DemoWidget name="MenuButton" style={{ marginLeft: '10px' }}>
           <MenuButton
             items={['save', 'save as new', 'discard']}
             width={100}
@@ -24,7 +28,7 @@ function widgets() {
         </DemoWidget>
       </Section>
       <Section title="Custom sizes" size="md">
-        <DemoWidget name="MenuButton">
+        <DemoWidget name="MenuButton" style={{ marginLeft: '10px' }}>
           <MenuButton
             size="md"
             items={['save', 'save as new', 'discard']}

@@ -16,6 +16,10 @@ $sizes: (sm, md, lg);
   &:not(.icon) {
     min-width: 50px;
   }
+
+  &:not(.flat) {
+    @extend %border-radius;
+  }
 }
 
 @each $value in $types {
@@ -95,7 +99,7 @@ $sizes: (sm, md, lg);
 }
 
 .icon_container {
-  margin-right: 0.25rem;
+  // margin-right: 0.25rem;
 }
 
 .progress_wrapper {

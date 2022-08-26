@@ -10,7 +10,7 @@ $sizes: (
 );
 
 .wrapper {
-  @extend %list-horizontal;
+  @extend %list-horizontal-left;
 
   &.disabled {
     @extend %disabled;

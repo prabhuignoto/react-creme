@@ -47,6 +47,7 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
       align,
       data,
       placementOffset,
+      leftOffset,
     } = props;
 
     const {
@@ -116,6 +117,7 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
               disableBackdrop={disableBackdrop}
               hideDocumentOverflow={hideDocumentOverflow}
               placementOffset={placementOffset}
+              leftOffset={leftOffset}
             >
               <Node
                 {...props}

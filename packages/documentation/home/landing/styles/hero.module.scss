@@ -4,14 +4,6 @@
   justify-content: center;
   width: 100%;
 
-  @media (min-width: 1rem) {
-    min-height: 1200px;
-  }
-
-  @media (min-width: 43rem) {
-    min-height: 980px;
-  }
-
   @media (min-width: 768px) {
     min-height: 1080px;
   }

@@ -10,6 +10,7 @@ export interface MenuProps {
   id?: string;
   isClosing?: boolean;
   items: MenuItemProps[];
+  leftOffset?: number;
   onClose?: (id?: string) => void;
   onOpen?: (id?: string) => void;
   onSelected?: (val: string) => void;
@@ -26,7 +27,7 @@ export type MenuItemProps = Pick<MenuProps, 'disabled'> & {
 
 export type MenuOverlayModel = Pick<
   MenuProps,
-  'focusable' | 'items' | 'size' | 'dockPosition' | 'hideArrow'
+  'focusable' | 'items' | 'size' | 'dockPosition' | 'hideArrow' | 'leftOffset'
 > & {
   onSelection?: (val: string) => void;
   ref?: RefObject<HTMLUListElement | null>;

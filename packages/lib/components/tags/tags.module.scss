@@ -47,7 +47,7 @@ $padding-sizes: (
 
   justify-items: center;
   margin: 0.5rem 0.25rem;
-  max-width: var(--width);
+  max-width: calc(var(--width) + 1rem);
   min-width: 40px;
 
   padding: 0.4rem 0.5rem;
