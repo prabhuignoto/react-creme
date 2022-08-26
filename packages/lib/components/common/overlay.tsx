@@ -27,6 +27,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   placementOffset = 0,
   placementReference,
   showCloseButton = false,
+  leftOffset = 0,
 }) => {
   const context = useContext(OverlayContext) as OverlayContextModel;
 
@@ -75,7 +76,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     if (placementRef && placement && overlayDimensions && overlayRef) {
       const child = placementRef.firstChild as HTMLElement;
       const { top, left, right, height, width } = child.getBoundingClientRect();
-      const positionRight = right - overlayDimensions.width;
+      const positionRight = right - overlayDimensions.width + leftOffset;
       const overlayChild = overlayRef.firstChild as HTMLElement;
 
       return {
@@ -84,11 +85,12 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         }px`,
         left: `${
           context?.align === 'left'
-            ? left
+            ? left + leftOffset
             : context.align === 'center'
             ? left +
               Math.round(width / 2) -
-              Math.round(overlayChild.clientWidth / 2)
+              Math.round(overlayChild.clientWidth / 2) +
+              leftOffset
             : positionRight
         }px`,
         pointerEvents: 'all',

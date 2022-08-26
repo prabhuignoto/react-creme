@@ -19,6 +19,7 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
     onClick,
     size = 'sm',
     style = {},
+    accent = 'rounded',
   } = props;
 
   const isDarkMode = useMemo(() => isDark(), []);
@@ -31,6 +32,7 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
           [styles.no_border]: !border,
           [styles.disabled]: disabled,
           [styles.dark]: isDarkMode,
+          [styles[accent]]: true,
         },
         [styles[size], styles[type], styles.btn]
       ),

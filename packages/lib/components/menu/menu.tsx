@@ -18,7 +18,7 @@ import styles from './menu.module.scss';
 const Menu: React.FunctionComponent<MenuProps> = ({
   children,
   dockPosition = 'left',
-  focusable = true,
+  focusable = false,
   id,
   items = [],
   onClose,
@@ -28,6 +28,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   style,
   gutter = 12,
   hideArrow = false,
+  leftOffset = 0,
 }: MenuProps) => {
   const [menuItems] = useState<MenuItemProps[]>(
     items.map(item => ({
@@ -188,6 +189,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
             align={dockPosition}
             dockPosition={dockPosition}
             hideArrow={hideArrow}
+            leftOffset={leftOffset}
           />
         </div>
       )}

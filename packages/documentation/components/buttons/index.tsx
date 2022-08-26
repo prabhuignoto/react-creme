@@ -49,6 +49,14 @@ function buttons() {
           type: 'Boolean',
         },
         {
+          default: 'rounded',
+          description:
+            'Configures the accent of the button. Can be <em>flat</em> | <em>rounded</em>',
+          name: 'accent',
+          optional: 'Yes',
+          type: 'String',
+        },
+        {
           default: 'sm',
           description: `Sets the size of the button. <br> <em>sm</em> | <em>md</em> | <em>lg</em>`,
           name: 'size',

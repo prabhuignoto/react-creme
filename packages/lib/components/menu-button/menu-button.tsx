@@ -69,6 +69,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         border={false}
         focusable={focusable}
         size={size}
+        accent="flat"
         onClick={() => handleChange(items[0])}
       />
       <Menu
@@ -77,7 +78,9 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         onSelected={handleChange}
         dockPosition={menuPosition}
         size={size}
-        gutter={20}
+        gutter={15}
+        hideArrow
+        leftOffset={10 * (RTL ? -1 : 1)}
       >
         <span className={iconClass} role="img">
           <ChevronDownIcon />

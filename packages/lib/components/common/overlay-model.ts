@@ -3,6 +3,7 @@ import React, { RefObject } from 'react';
 interface OverlayCommon {
   align?: 'left' | 'right' | 'center';
   hideDocumentOverflow?: boolean;
+  leftOffset?: number;
   onClose?: () => void;
   onClosing?: () => void;
   onOpen?: () => void;
@@ -30,6 +31,7 @@ export interface OverlayProps {
   containedToParent?: boolean;
   disableBackdrop?: boolean;
   hideDocumentOverflow?: boolean;
+  leftOffset?: number;
   onClose?: () => void;
   onClosing?: () => void;
   onOpen?: () => void;

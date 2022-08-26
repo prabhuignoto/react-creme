@@ -9,11 +9,11 @@
   white-space: nowrap;
 
   &:not(.dark) {
-    @extend %border;
+    // @extend %border;
   }
 
   &.dark {
-    @extend %border-radius;
+    // @extend %border-radius;
   }
 
   svg {

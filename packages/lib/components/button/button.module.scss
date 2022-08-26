@@ -16,6 +16,10 @@ $sizes: (sm, md, lg);
   &:not(.icon) {
     min-width: 50px;
   }
+
+  &:not(.flat) {
+    @extend %border-radius;
+  }
 }
 
 @each $value in $types {

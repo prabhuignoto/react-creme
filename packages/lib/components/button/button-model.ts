@@ -1,6 +1,7 @@
 import React, { CSSProperties, KeyboardEvent, MouseEvent } from 'react';
 
 export interface ButtonProps {
+  accent?: 'flat' | 'rounded';
   border?: boolean;
   children?: React.ReactNode;
   disabled?: boolean;
