@@ -12,6 +12,7 @@ import {
   Glacier,
   Magnolia,
   NightGray,
+  Ocean,
 } from '../../common/app-themes';
 import { GithubLink } from '../../common/github-link';
 import styles from './app-settings.module.scss';
@@ -37,6 +38,10 @@ const themes: RadioGroupItemProps<ThemeType>[] = [
     checked: true,
     label: 'Dark',
     value: 'dark',
+  },
+  {
+    label: 'Ocean',
+    value: 'ocean',
   },
 ];
 
@@ -72,6 +77,8 @@ const AppSettings: React.FunctionComponent = () => {
       selectedTheme = { colors: { ...Blueberry }, selectedTheme: 'blueberry' };
     } else if (themeToUpdate?.value === 'night-gray') {
       selectedTheme = { colors: { ...NightGray }, selectedTheme: 'neon' };
+    } else if (themeToUpdate?.value === 'ocean') {
+      selectedTheme = { colors: { ...Ocean }, selectedTheme: 'ocean' };
     } else if (themeToUpdate?.value === 'magnolia') {
       selectedTheme = { colors: { ...Magnolia }, selectedTheme: 'magnolia' };
     } else if (themeToUpdate?.value === 'dark') {

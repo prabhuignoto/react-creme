@@ -206,7 +206,7 @@ code {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 0;
 
   &:not(.dark) {
     background: rgba($color: var(--rc-primary-color-rgb), $alpha: 0.95);

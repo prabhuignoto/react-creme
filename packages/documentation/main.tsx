@@ -58,9 +58,9 @@ const AppBootStrap = () => {
 Root.render(
   <BrowserRouter>
     <RecoilRoot>
-      <StrictMode>
-        <AppBootStrap />
-      </StrictMode>
+      {/* <StrictMode> */}
+      <AppBootStrap />
+      {/* </StrictMode> */}
     </RecoilRoot>
   </BrowserRouter>
 );

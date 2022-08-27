@@ -29,7 +29,8 @@ export function isValidString(value: any): boolean {
 }
 
 export function isDark(): boolean {
-  return (
-    document.documentElement.style.getPropertyValue('--rc-dark-mode') === 'true'
-  );
+  const result =
+    document.documentElement.style.getPropertyValue('--rc-dark-mode') ===
+    'true';
+  return result;
 }

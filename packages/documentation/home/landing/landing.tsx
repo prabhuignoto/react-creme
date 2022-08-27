@@ -27,7 +27,7 @@ const features: ProductFeatureProps[] = [
   {
     description: `Ready to use components for common scenarios and use cases`,
     icon: <FontAwesomeIcon icon={faCubes} key="feather2" size="2x" />,
-    title: 'Built from the ground up for modern web browsers',
+    title: '45+ UI Components',
   },
   {
     description: `Accessibility is one of the core principles of react-creme and the components are built with industry standard Accessibility`,
