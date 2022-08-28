@@ -1,7 +1,7 @@
 import { faAccessibleIcon } from '@fortawesome/free-brands-svg-icons';
 import {
+  faCog,
   faCubes,
-  faFeather,
   faPalette,
   faScrewdriverWrench,
   faWrench,
@@ -14,10 +14,9 @@ import styles from './styles/landing.module.scss';
 
 const features: ProductFeatureProps[] = [
   {
-    description: `The documentation is built on top of React, React Router, and React Hooks.
-      It is built with TypeScript and styled-components.`,
-    icon: <FontAwesomeIcon icon={faFeather} key="feather" size="2x" />,
-    title: 'Light weight and Modular',
+    description: `Build enterprise grade react applications with confidence and ease`,
+    icon: <FontAwesomeIcon icon={faCog} key="feather" size="2x" />,
+    title: 'Enterprise grade',
   },
   {
     description: `Fully customizable UI elements with fine grained control over the look and feel.`,
@@ -27,7 +26,7 @@ const features: ProductFeatureProps[] = [
   {
     description: `Ready to use components for common scenarios and use cases`,
     icon: <FontAwesomeIcon icon={faCubes} key="feather2" size="2x" />,
-    title: 'Built from the ground up for modern web browsers',
+    title: '45+ UI Components',
   },
   {
     description: `Accessibility is one of the core principles of react-creme and the components are built with industry standard Accessibility`,
@@ -40,11 +39,11 @@ const features: ProductFeatureProps[] = [
     title: 'Solid support for color schemes',
   },
   {
-    description: `The documentation is built on top of React, React Router, and React Hooks`,
+    description: `Type safe and robust UI Components`,
     icon: (
       <FontAwesomeIcon icon={faScrewdriverWrench} key="feather2" size="2x" />
     ),
-    title: 'Light weight and Modular',
+    title: 'Built with Typescript',
   },
 ];
 

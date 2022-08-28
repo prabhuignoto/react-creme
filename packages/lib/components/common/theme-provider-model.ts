@@ -20,12 +20,20 @@ export type IconSizes = Pick<Sizes, 'sm' | 'md' | 'lg'> & {
   xs: number;
 };
 
+export type zIndexes = {
+  dialog: number;
+  globalNotification: number;
+  menu: number;
+  notification: number;
+};
+
 export type Theme = {
   colors?: Colors;
   darkMode?: boolean;
   fontSizes?: FontSizes;
   iconSizes?: IconSizes;
   sizes?: Sizes;
+  zIndexes?: zIndexes;
 };
 
 export interface ThemeProviderProps {

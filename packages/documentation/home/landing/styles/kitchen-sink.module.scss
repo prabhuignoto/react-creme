@@ -17,6 +17,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
+
+  @media (min-width: 480px) and (max-width: 767px) {
+    height: 180px;
+  }
 }
 
 .sink2 {

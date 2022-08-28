@@ -18,6 +18,14 @@ export const Glacier: Colors = {
   textSelection: '#000',
 };
 
+export const Ocean: Colors = {
+  primary: '#023e8a',
+  secondary: '#0077b6',
+  tertiary: '#03045e',
+  text: '#000',
+  textSelection: '#fff',
+};
+
 export const Coffee: Colors = {
   primary: '#b38867',
   secondary: '#ddbc95',

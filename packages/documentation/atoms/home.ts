@@ -14,6 +14,7 @@ export type ThemeType =
   | 'night-gray'
   | 'dark'
   | 'magnolia'
+  | 'ocean'
   | 'light-gray';
 
 type ThemeState = {

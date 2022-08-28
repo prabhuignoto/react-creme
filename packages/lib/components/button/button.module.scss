@@ -17,7 +17,11 @@ $sizes: (sm, md, lg);
     min-width: 50px;
   }
 
-  &:not(.flat) {
+  &:not(.flat):not(.dark) {
+    @extend %border;
+  }
+
+  &.dark:not(.flat) {
     @extend %border-radius;
   }
 }

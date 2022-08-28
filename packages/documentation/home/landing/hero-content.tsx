@@ -26,7 +26,7 @@ const HeroContent = () => {
       <div className={styles.left_column}>
         <h1 className={styles.header}>React Creme</h1>
         <p className={subTextClass}>
-          Start building your React applications with a clean and modern design
+          Start building React applications with a clean and modern design
           system.
         </p>
         <div className={styles.buttons}>
