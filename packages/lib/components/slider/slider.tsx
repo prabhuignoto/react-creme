@@ -144,8 +144,9 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     () =>
       classNames(styles.track, {
         [styles.dark]: isDarkMode,
+        [styles.dragging]: dragging,
       }),
-    []
+    [dragging]
   );
 
   return (

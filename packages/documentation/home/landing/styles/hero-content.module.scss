@@ -70,7 +70,7 @@
   flex-direction: column;
   width: 100%;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     align-self: flex-end;
     display: grid;
     gap: 1rem;

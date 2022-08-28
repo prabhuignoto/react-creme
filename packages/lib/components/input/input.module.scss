@@ -110,6 +110,10 @@ $heights: (
     color: theme.$white;
   }
 
+  &[type='number'] {
+    appearance: textfield;
+  }
+
   &:not(.input_dark) {
     color: theme.$black;
   }

@@ -16,7 +16,7 @@
 .control {
   @include position.position-abs('center left');
   background: theme.$primary;
-  cursor: pointer;
+  cursor: grab;
   height: var(--size);
   outline: 0;
   position: absolute;
@@ -30,6 +30,10 @@
 
   &.control_square {
     border-radius: 2px;
+  }
+
+  &.control_dragging {
+    cursor: grabbing;
   }
 
   &.control_dragging,
@@ -54,6 +58,10 @@
 
   &:not(.dark) {
     background: theme.$gray;
+  }
+
+  &.dragging {
+    cursor: grabbing;
   }
 }
 
