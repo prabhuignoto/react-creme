@@ -1,7 +1,6 @@
 import deepEqual from 'fast-deep-equal';
 import hexToRgb from 'hex-rgb';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import defaultTheme from './theme-default';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Colors,
   FontSizes,
@@ -9,17 +8,39 @@ import {
   Theme,
   ThemeColor,
   ThemeProviderProps,
-  zIndexes,
 } from './theme-provider-model';
 
-export const ThemeContext = React.createContext<Theme | null>(null);
-
 const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
-  ({ theme, children }) => {
-    const [currentTheme, setCurrentTheme] = useState<Theme>({
-      ...defaultTheme,
-      ...theme,
-    });
+  ({
+    theme = {
+      colors: {
+        primary: '#47597E',
+        secondary: '#DBE6FD',
+        tertiary: '#293B5F',
+        text: '#000',
+        textSelection: '#293B5F',
+      },
+      darkMode: false,
+      fontSizes: {
+        lg: 24,
+        md: 20,
+        sm: 16,
+      },
+      iconSizes: {
+        lg: 24,
+        md: 20,
+        sm: 16,
+        xs: 12,
+      },
+      sizes: {
+        lg: 24,
+        md: 20,
+        sm: 16,
+      },
+    },
+    children,
+  }) => {
+    const [currentTheme, setCurrentTheme] = useState<Theme>(theme);
 
     const [stylesApplied, setStylesApplied] = useState<{
       colors: boolean;
@@ -31,7 +52,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
       icons: false,
     });
 
-    const rootStyle = useRef<string>('');
+    const ThemeContext = React.createContext<Theme>(currentTheme);
 
     /**
      * Setup colors
@@ -49,13 +70,16 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
         });
       }
 
-      const colors = result.reduce(
-        (a, { color, hex, rgb }) =>
-          a + `--rc-${color}-color-hex:${hex};--rc-${color}-color-rgb:${rgb};`,
-        ''
-      );
-
-      rootStyle.current += colors;
+      result.forEach(({ color, rgb, hex }) => {
+        (document.querySelector(':root') as HTMLElement)?.style.setProperty(
+          `--rc-${color}-color-rgb`,
+          rgb.join(',')
+        );
+        (document.querySelector(':root') as HTMLElement)?.style.setProperty(
+          `--rc-${color}-color-hex`,
+          hex
+        );
+      });
 
       setStylesApplied(prev => ({ ...prev, colors: true }));
     }, [currentTheme.colors?.primary]);
@@ -78,7 +102,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
         ''
       );
 
-      rootStyle.current += ';' + fontSizes;
+      document.documentElement.style.cssText += ';' + fontSizes;
 
       setStylesApplied(prev => ({ ...prev, fonts: true }));
     }, []);
@@ -101,7 +125,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
         ''
       );
 
-      rootStyle.current += ';' + sizes;
+      document.documentElement.style.cssText += ';' + sizes;
     }, [currentTheme.sizes?.sm]);
 
     /**
@@ -122,57 +146,24 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
         ''
       );
 
-      rootStyle.current += ';' + iconSizes;
+      document.documentElement.style.cssText += ';' + iconSizes;
 
       setStylesApplied(prev => ({ ...prev, icons: true }));
     }, []);
 
-    //setup z-indexes
     useEffect(() => {
-      const result = [];
-
-      for (const key in currentTheme.zIndexes) {
-        result.push({
-          index: currentTheme.zIndexes[key as keyof zIndexes],
-          type: key as keyof Sizes,
-        });
-      }
-
-      const zIndexes = result.reduce(
-        (a, { type, index }) => a + `--rc-z-index-${type}: ${index};`,
-        ''
-      );
-
-      rootStyle.current += ';' + zIndexes;
-    }, [currentTheme.sizes?.sm]);
-
-    useEffect(() => {
-      if (currentTheme.zIndexes?.dialog) {
-        const style = document.createElement('style');
-        document.head.appendChild(style);
-        style.textContent = `:root{${rootStyle.current};--rc-dark-mode: ${
-          theme?.darkMode ? 'true' : 'false'
-        };}`;
-      }
-    }, [
-      currentTheme.zIndexes?.dialog,
-      document.styleSheets.length,
-      theme?.darkMode,
-    ]);
-
-    useEffect(() => {
-      if (theme && !deepEqual(theme, currentTheme)) {
+      if (!deepEqual(theme, currentTheme)) {
         setCurrentTheme(theme);
       }
     }, [theme, currentTheme]);
 
     useEffect(() => {
-      if (theme?.darkMode) {
+      if (theme.darkMode) {
         document.documentElement.style.cssText += ';--rc-dark-mode:true;';
       } else {
         document.documentElement.style.cssText += ';--rc-dark-mode:false;';
       }
-    }, [theme?.darkMode]);
+    }, [theme.darkMode]);
 
     const canRender = useMemo(
       () => stylesApplied.colors && stylesApplied.fonts && stylesApplied.icons,

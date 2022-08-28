@@ -8,6 +8,7 @@ export function isArray(value: any): boolean {
   return Array.isArray(value);
 }
 
+// checks if the device is touch based
 export const isTouchDevice = (() => {
   return (
     !!(
@@ -24,13 +25,14 @@ export const isTouchDevice = (() => {
   );
 })() as boolean;
 
+// checks if the given value is a string
 export function isValidString(value: any): boolean {
   return typeof value === 'string' && !isUndefined(value) && value !== null;
 }
 
+// checks if the app is in dark mode
 export function isDark(): boolean {
-  const result =
-    document.documentElement.style.getPropertyValue('--rc-dark-mode') ===
-    'true';
-  return result;
+  return (
+    document.documentElement.style.getPropertyValue('--rc-dark-mode') === 'true'
+  );
 }
