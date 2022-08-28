@@ -17,11 +17,15 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
-  height: 160px;
+  // height: 160px;
 
-  @media (min-width: 768px) {
-    height: 180px;
+  @media (min-width: 300px) and (max-width: 767px) {
+    height: 160px;
   }
+
+  // @media (min-width: 1024px) {
+  //   height: 90%;
+  // }
 }
 
 .sink2 {

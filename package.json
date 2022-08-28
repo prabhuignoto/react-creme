@@ -80,6 +80,7 @@
     "snyk": "turbo run snyk",
     "fix-css": "turbo run fix-css",
     "fix-js": "turbo run fix-js",
+    "fix-all": "npx concurrently \"pnpm fix-css\" \"pnpm fix-js\"",
     "clean": "pnpm fix-css & pnpm fix-js & pnpm format & pnpm lint"
   },
   "repository": {

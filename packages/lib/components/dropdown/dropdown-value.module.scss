@@ -7,18 +7,19 @@
 $sizes: (sm, md, lg);
 
 .container {
-  @extend %shadow-inset;
+  @extend %shadow-inset-small;
   align-items: center;
   cursor: pointer;
   font-size: 14px;
   height: 100%;
   padding: 0.1rem 0;
   width: 100%;
+  // @extend %border;
 
   &.dark {
     @extend %border-radius;
     @extend %shadow-inset;
-    background-color: theme.$cod-gray;
+    background-color: theme.$gunmetal-gray;
     color: theme.$white;
   }
 

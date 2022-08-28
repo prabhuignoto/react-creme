@@ -6,3 +6,4 @@ dts
 temp
 typings
 webpack.config.js
+*.d.ts
