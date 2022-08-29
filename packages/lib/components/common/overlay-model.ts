@@ -4,6 +4,7 @@ interface OverlayCommon {
   align?: 'left' | 'right' | 'center';
   hideDocumentOverflow?: boolean;
   leftOffset?: number;
+  name?: string;
   onClose?: () => void;
   onClosing?: () => void;
   onOpen?: () => void;
@@ -32,6 +33,7 @@ export interface OverlayProps {
   disableBackdrop?: boolean;
   hideDocumentOverflow?: boolean;
   leftOffset?: number;
+  name?: string;
   onClose?: () => void;
   onClosing?: () => void;
   onOpen?: () => void;

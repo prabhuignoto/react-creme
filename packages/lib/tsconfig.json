@@ -41,6 +41,6 @@
     ]
   },
   "include": ["./components", "Globals.d.ts", "react-creme.ts"],
-  "exclude": ["node_modules", "dist", "rollup.config.js"],
+  "exclude": ["node_modules", "dist"],
   "files": ["react-creme.ts"]
 }

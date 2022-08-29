@@ -26,7 +26,8 @@ export default {
     sm: 16,
   },
   zIndexes: {
-    dialog: 99999,
+    dialog: 999999,
+    drawer: 99999,
     globalNotification: 9999,
     menu: 999,
     notification: 9999,

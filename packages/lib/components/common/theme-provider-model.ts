@@ -22,6 +22,7 @@ export type IconSizes = Pick<Sizes, 'sm' | 'md' | 'lg'> & {
 
 export type zIndexes = {
   dialog: number;
+  drawer: number;
   globalNotification: number;
   menu: number;
   notification: number;
