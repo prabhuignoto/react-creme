@@ -138,6 +138,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
      */
     useEffect(() => {
       const result = [];
+      console.log(currentTheme.zIndexes);
 
       for (const key in currentTheme.zIndexes) {
         result.push({
@@ -159,7 +160,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
         'data:text/css;charset=UTF-8,' +
         encodeURIComponent(`:root{${rootStyle.current}}`);
       document.head.appendChild(link);
-    }, [currentTheme.zIndexes?.dialog]);
+    }, [currentTheme.zIndexes?.dialog, JSON.stringify(currentTheme.colors)]);
 
     useEffect(() => {
       if (!deepEqual(theme, currentTheme)) {

@@ -77,10 +77,10 @@
   align-items: center;
   color: #fff;
   display: flex;
-  height: 1.25rem;
+  height: 1rem;
   justify-content: center;
   position: relative;
-  width: 1.25rem;
+  width: 1rem;
   z-index: 1;
 
   @media (min-width: 768px) {
@@ -90,6 +90,7 @@
 
   @media (min-width: 1024px) {
     height: 1.5rem;
+    width: 1.5rem;
   }
 
   &:not(.dark)::after {
@@ -108,12 +109,12 @@
     border-radius: 50%;
     content: '';
     display: block;
-    height: 2rem;
+    height: 1.5rem;
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
-    width: 2rem;
+    width: 1.5rem;
     z-index: -1;
 
     @media (min-width: 768px) {

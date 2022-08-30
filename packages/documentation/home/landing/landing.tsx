@@ -16,7 +16,7 @@ const features: ProductFeatureProps[] = [
   {
     description: `Build enterprise grade react applications with confidence and ease`,
     icon: <FontAwesomeIcon icon={faCog} key="feather" size="2x" />,
-    title: 'Enterprise grade',
+    title: 'Enterprise grade components',
   },
   {
     description: `Fully customizable UI elements with fine grained control over the look and feel.`,

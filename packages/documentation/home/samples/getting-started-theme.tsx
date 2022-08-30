@@ -20,6 +20,13 @@ const AppTheme = {
     sm: 16,
     xs: 12,
   },
+  zIndexes: {
+    dialog: 999999,
+    drawer: 99999,
+    globalNotification: 9999,
+    menu: 999,
+    notification: 9999,
+  },
 };
 
 const App = () => {

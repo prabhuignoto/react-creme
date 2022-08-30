@@ -20,7 +20,7 @@ const Sink1: FunctionComponent<SinkProps> = ({ isDark }) => {
       <div className={styles.widget}>
         <Switch size="md" width={80} />
       </div>
-      <div className={styles.widget}>
+      <div className={cx(styles.widget, styles.hide_on_mobiles)}>
         <Switch size="sm" width={80} label="checked" />
       </div>
       <div className={styles.widget}>
@@ -29,7 +29,7 @@ const Sink1: FunctionComponent<SinkProps> = ({ isDark }) => {
       <div className={styles.widget}>
         <Rate size="lg" iconCount={3} value={2} />
       </div>
-      <div className={styles.widget}>
+      <div className={cx(styles.widget, styles.hide_on_mobiles)}>
         <div style={{ height: '30px' }}>
           <CheckBox label="Selected" isChecked />
         </div>
@@ -66,7 +66,9 @@ const Sink3: FunctionComponent<SinkProps> = ({ isDark }) => {
           </div>
         </div>
       </div>
-      <div className={styles.widget}>{FormGroup}</div>
+      <div className={cx(styles.widget, styles.hide_on_mobiles)}>
+        {FormGroup}
+      </div>
     </div>
   );
 };
