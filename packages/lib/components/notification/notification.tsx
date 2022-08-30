@@ -107,6 +107,7 @@ const Notification = withOverlay<NotificationProps, null>(
   NotificationComponent,
   {
     backdropColor: 'transparent',
+    name: 'notification',
     // disableBackdrop: true,
   }
 );

@@ -28,6 +28,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   placementReference,
   showCloseButton = false,
   leftOffset = 0,
+  name,
 }) => {
   const context = useContext(OverlayContext) as OverlayContextModel;
 
@@ -221,7 +222,10 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       onClick={handleCloseOnClick}
       data-testid="rc-overlay"
       ref={onRef}
-      style={{ backgroundColor: backdropColor }}
+      style={{
+        backgroundColor: backdropColor,
+        zIndex: `var(--rc-zIndex-${name})`,
+      }}
       onKeyUp={handleClose}
     >
       <div

@@ -114,6 +114,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
 
 const Drawer = withOverlay<DrawerProps, null>(DrawerComponent, {
   disableAnimation: false,
+  name: 'drawer',
 });
 
 Drawer.displayName = 'Drawer';

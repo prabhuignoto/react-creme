@@ -3,6 +3,7 @@
 import autoprefixer from 'autoprefixer';
 import CopyPlugin from 'copy-webpack-plugin';
 import CSSNano from 'cssnano';
+import doiuse from 'doiuse';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path, { dirname } from 'path';
@@ -14,14 +15,12 @@ import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { StatsWriterPlugin } from 'webpack-stats-plugin';
 import pkg from './package.json' assert { type: 'json' };
-import doiuse from 'doiuse';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 const stylesHandler = MiniCssExtractPlugin.loader;
-
 import threadLoader from 'thread-loader';
 
 threadLoader.warmup(

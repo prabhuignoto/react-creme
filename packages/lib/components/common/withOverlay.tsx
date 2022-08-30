@@ -10,6 +10,7 @@ type Settings = {
   disableAnimation?: boolean;
   disableBackdrop?: boolean;
   hideDocumentOverflow?: boolean;
+  name?: string;
   placement?: 'bottom' | 'top';
 };
 
@@ -31,6 +32,7 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
     disableAnimation: false,
     disableBackdrop: false,
     hideDocumentOverflow: false,
+    name: '',
   }
 ) {
   const Component = React.forwardRef<HTMLElement, T>((props: T, ref) => {
@@ -48,6 +50,7 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
       data,
       placementOffset,
       leftOffset,
+      // name
     } = props;
 
     const {
@@ -55,6 +58,7 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
       disableBackdrop,
       disableAnimation,
       hideDocumentOverflow,
+      name,
     } = settings;
     const [portalWrapperCreated, setPortalWrapperCreated] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
@@ -118,6 +122,7 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
               hideDocumentOverflow={hideDocumentOverflow}
               placementOffset={placementOffset}
               leftOffset={leftOffset}
+              name={name}
             >
               <Node
                 {...props}

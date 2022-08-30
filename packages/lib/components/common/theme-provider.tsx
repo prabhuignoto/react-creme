@@ -1,6 +1,7 @@
 import deepEqual from 'fast-deep-equal';
 import hexToRgb from 'hex-rgb';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import themeDefault from './theme-default';
 import {
   Colors,
   FontSizes,
@@ -8,39 +9,20 @@ import {
   Theme,
   ThemeColor,
   ThemeProviderProps,
+  zIndexes,
 } from './theme-provider-model';
 
 const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
-  ({
-    theme = {
-      colors: {
-        primary: '#47597E',
-        secondary: '#DBE6FD',
-        tertiary: '#293B5F',
-        text: '#000',
-        textSelection: '#293B5F',
-      },
-      darkMode: false,
-      fontSizes: {
-        lg: 24,
-        md: 20,
-        sm: 16,
-      },
-      iconSizes: {
-        lg: 24,
-        md: 20,
-        sm: 16,
-        xs: 12,
-      },
-      sizes: {
-        lg: 24,
-        md: 20,
-        sm: 16,
-      },
-    },
-    children,
-  }) => {
-    const [currentTheme, setCurrentTheme] = useState<Theme>(theme);
+  ({ theme = themeDefault, children }) => {
+    const [currentTheme, setCurrentTheme] = useState<Theme>(
+      Object.assign(
+        {},
+        {
+          ...themeDefault,
+          ...theme,
+        }
+      )
+    );
 
     const [stylesApplied, setStylesApplied] = useState<{
       colors: boolean;
@@ -53,6 +35,8 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
     });
 
     const ThemeContext = React.createContext<Theme>(currentTheme);
+
+    const rootStyle = useRef('');
 
     /**
      * Setup colors
@@ -70,16 +54,14 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
         });
       }
 
-      result.forEach(({ color, rgb, hex }) => {
-        (document.querySelector(':root') as HTMLElement)?.style.setProperty(
-          `--rc-${color}-color-rgb`,
-          rgb.join(',')
-        );
-        (document.querySelector(':root') as HTMLElement)?.style.setProperty(
-          `--rc-${color}-color-hex`,
-          hex
-        );
-      });
+      const colors = result.reduce(
+        (a, { color, hex, rgb }) =>
+          a +
+          `--rc-${color}-color-rgb: ${rgb};--rc-${color}-color-hex: ${hex};`,
+        ''
+      );
+
+      rootStyle.current += colors;
 
       setStylesApplied(prev => ({ ...prev, colors: true }));
     }, [currentTheme.colors?.primary]);
@@ -102,7 +84,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
         ''
       );
 
-      document.documentElement.style.cssText += ';' + fontSizes;
+      rootStyle.current += fontSizes;
 
       setStylesApplied(prev => ({ ...prev, fonts: true }));
     }, []);
@@ -125,7 +107,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
         ''
       );
 
-      document.documentElement.style.cssText += ';' + sizes;
+      rootStyle.current += sizes;
     }, [currentTheme.sizes?.sm]);
 
     /**
@@ -146,10 +128,38 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
         ''
       );
 
-      document.documentElement.style.cssText += ';' + iconSizes;
+      rootStyle.current += iconSizes;
 
       setStylesApplied(prev => ({ ...prev, icons: true }));
     }, []);
+
+    /**
+     * Setup z-indexes
+     */
+    useEffect(() => {
+      const result = [];
+
+      for (const key in currentTheme.zIndexes) {
+        result.push({
+          size: currentTheme.zIndexes[key as keyof zIndexes],
+          zIndex: key as keyof zIndexes,
+        });
+      }
+
+      const iconSizes = result.reduce(
+        (a, { zIndex, size }) => a + `--rc-zIndex-${zIndex}: ${size};`,
+        ''
+      );
+
+      rootStyle.current += iconSizes;
+
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href =
+        'data:text/css;charset=UTF-8,' +
+        encodeURIComponent(`:root{${rootStyle.current}}`);
+      document.head.appendChild(link);
+    }, [currentTheme.zIndexes?.dialog]);
 
     useEffect(() => {
       if (!deepEqual(theme, currentTheme)) {

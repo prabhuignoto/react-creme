@@ -133,6 +133,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
 const Dialog = withOverlay<DialogProps, null>(DialogComponent, {
   disableAnimation: false,
   hideDocumentOverflow: true,
+  name: 'dialog',
 });
 
 Dialog.displayName = 'Dialog';
