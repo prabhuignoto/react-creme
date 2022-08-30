@@ -15,7 +15,8 @@ $settings: (
 
 .wrapper {
   @extend %border-radius;
-  min-height: var(--min-height);
+  height: 100%;
+  // min-height: var(--min-height);
   width: 100%;
 
   &.dark {

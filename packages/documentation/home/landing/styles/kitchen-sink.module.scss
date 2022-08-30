@@ -4,9 +4,8 @@
   border-radius: 12px;
   height: 300px;
   justify-items: center;
-  justify-items: center;
-  padding: 1rem;
-  width: calc(100% - 2rem);
+  padding: 0.5rem;
+  width: calc(100% - 1rem);
 
   &.dark {
     background: #1e1e1e;
@@ -14,18 +13,20 @@
 }
 
 .sink1 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 1fr;
   // height: 160px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
 
   @media (min-width: 300px) and (max-width: 767px) {
     height: 160px;
+    // border: 1px solid red;
   }
 
-  // @media (min-width: 1024px) {
-  //   height: 90%;
-  // }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .sink2 {
@@ -39,10 +40,17 @@
 }
 
 .sink3 {
+  align-items: center;
   display: flex;
   flex-direction: column;
+  justify-items: center;
   margin: 1rem 0;
-  min-height: 600px;
+  min-height: 200px;
+  // border: 1px solid red;
+
+  @media (min-width: 300px) and (max-width: 767px) {
+    min-height: 300px;
+  }
 
   @media (min-width: 768px) {
     display: grid;
@@ -63,7 +71,7 @@
   flex-direction: column;
   height: 100%;
   justify-content: center;
-  width: 90%;
+  width: 95%;
 }
 
 .widget_wrap {
@@ -80,4 +88,10 @@
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+
+.hide_on_mobiles {
+  @media (min-width: 300px) and (max-width: 767px) {
+    display: none;
+  }
 }

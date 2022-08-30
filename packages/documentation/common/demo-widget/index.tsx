@@ -24,7 +24,7 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
     layout = 'vertical',
     showCodeByDefault = false,
     customTitle = 'Show Code',
-    width,
+    width = '100%',
     height,
     component,
     codeString,
@@ -44,7 +44,7 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
           style={{
             height: height ? `${height}px` : '100%',
             margin: '1rem 0',
-            width: width ? `${width}px` : '100%',
+            width: Number.isInteger(width) ? `${width}px` : width,
           }}
         >
           {children}

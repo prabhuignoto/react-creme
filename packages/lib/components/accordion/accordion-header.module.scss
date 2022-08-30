@@ -20,7 +20,7 @@ $sizes: (sm, md, lg);
   }
 
   &.colorize {
-    background: rgba(theme.$secondary-rgb, 0.3);
+    background: rgba(theme.$secondary-rgb, 0.2);
   }
 
   &.full_width {
@@ -70,7 +70,7 @@ $sizes: (sm, md, lg);
   }
 
   &.title_bold {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
   }
 

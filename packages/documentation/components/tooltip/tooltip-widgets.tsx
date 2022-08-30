@@ -19,7 +19,7 @@ const Widgets = () => {
   const theme = useRecoilValue(themeState);
   const isDark = useMemo(() => theme.darkMode, []);
 
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState<string | number>(0);
 
   useEffect(() => {
     if (!media) {
@@ -31,10 +31,10 @@ const Widgets = () => {
       setWidth(650);
     } else if (media.isDesktop) {
       setWidth(550);
+    } else if (media.isMobile) {
+      setWidth(320);
     } else if (media.isTablet) {
       setWidth(500);
-    } else if (media.isMobile) {
-      setWidth(330);
     }
   }, [media]);
 
