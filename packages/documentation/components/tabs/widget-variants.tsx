@@ -42,6 +42,7 @@ export const Default = (
     activeTab="two"
     size="sm"
     minHeight={250}
+    width="100%"
     // focusable
   >
     <span>one</span>

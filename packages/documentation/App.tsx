@@ -132,7 +132,7 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
           </aside>
         )}
         {canRenderAside && (
-          <Drawer onClose={onClose} showClose focusable={false}>
+          <Drawer onClose={onClose} focusable={false}>
             <SidebarHome onSelect={onSelect} />
           </Drawer>
         )}

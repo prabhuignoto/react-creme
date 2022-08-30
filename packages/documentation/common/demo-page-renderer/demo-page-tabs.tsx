@@ -1,6 +1,6 @@
 import { faBook, faCode, faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FunctionComponent, memo, Suspense, useMemo } from 'react';
+import { FunctionComponent, Suspense, useMemo } from 'react';
 import { BookOpen, Code } from 'react-feather';
 import { CSSTransition } from 'react-transition-group';
 import { DemoPageRendererProps } from '.';
@@ -18,6 +18,7 @@ export type DemoPageTabsProps = Pick<
 > & {
   columns: DataGridColumn[];
   media: MediaState | null;
+  showStackBlitzEmbed: boolean;
 };
 
 const Icons = [
@@ -31,79 +32,76 @@ const IconsWithoutProperties = [
   <Code size={18} key="code" />,
 ];
 
-const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
-  ({
-    tabTitles,
-    callbacks,
-    stackBlitzCodes,
-    media,
-    demoWidget,
-    columns,
-    properties,
-  }) => {
-    const canShowProperties = useMemo(() => {
-      return properties && properties.length;
-    }, [properties.length]);
+const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
+  tabTitles,
+  callbacks,
+  stackBlitzCodes,
+  media,
+  demoWidget,
+  columns,
+  properties,
+  showStackBlitzEmbed = true,
+}) => {
+  const canShowProperties = useMemo(() => {
+    return properties && properties.length;
+  }, [properties.length]);
 
-    const Demo = demoWidget;
+  const Demo = demoWidget;
 
-    return (
-      <Tabs
-        labels={tabTitles}
-        icons={canShowProperties ? Icons : IconsWithoutProperties}
-        focusable={false}
-        size="md"
-      >
-        <div className={styles.widgets_container}>
-          <Suspense fallback={<span>Loading Widgets...</span>}>
-            <CSSTransition
-              key={tabTitles.join('')}
-              classNames="widget-fade"
-              timeout={500}
-            >
-              {media?.isMobile || media?.isTablet || media?.isDesktop ? (
-                Demo
-              ) : (
-                <WidgetsWrapper>{Demo}</WidgetsWrapper>
-              )}
-            </CSSTransition>
-          </Suspense>
-        </div>
-        {canShowProperties ? (
-          <div className={styles['rc-demo-prop-section']}>
-            <Suspense fallback={<div></div>}>
-              <Section title="Properties" size="md">
+  return (
+    <Tabs
+      labels={tabTitles}
+      icons={
+        canShowProperties
+          ? showStackBlitzEmbed
+            ? Icons
+            : Icons.slice(0, tabTitles.length - 1)
+          : IconsWithoutProperties
+      }
+      focusable={false}
+      size="md"
+    >
+      <div className={styles.widgets_container}>
+        <Suspense fallback={<span>Loading Widgets...</span>}>
+          <CSSTransition
+            key={tabTitles.join('')}
+            classNames="widget-fade"
+            timeout={500}
+          >
+            {media?.isMobile || media?.isTablet || media?.isDesktop ? (
+              Demo
+            ) : (
+              <WidgetsWrapper>{Demo}</WidgetsWrapper>
+            )}
+          </CSSTransition>
+        </Suspense>
+      </div>
+      {canShowProperties ? (
+        <div className={styles['rc-demo-prop-section']}>
+          <Suspense fallback={<div></div>}>
+            <Section title="Properties" size="md">
+              <DataGrid
+                layoutStyle={'comfortable'}
+                columns={columns}
+                data={properties}
+                // border
+                rowHeight={68}
+              />
+            </Section>
+            {callbacks && (
+              <Section title="Callbacks" size="md">
                 <DataGrid
                   layoutStyle={'comfortable'}
                   columns={columns}
-                  data={properties}
+                  data={callbacks}
                   // border
                   rowHeight={68}
                 />
               </Section>
-              {callbacks && (
-                <Section title="Callbacks" size="md">
-                  <DataGrid
-                    layoutStyle={'comfortable'}
-                    columns={columns}
-                    data={callbacks}
-                    // border
-                    rowHeight={68}
-                  />
-                </Section>
-              )}
-            </Suspense>
-          </div>
-        ) : (
-          <div className={styles['rc-demo-stack-blitz-collection']}>
-            {stackBlitzCodes &&
-              stackBlitzCodes.map(code => (
-                <div className={styles['rc-demo-stack-blitz']} key={code}>
-                  <StackBlitz id={code} />
-                </div>
-              ))}
-          </div>
-        )}
+            )}
+          </Suspense>
+        </div>
+      ) : (
         <div className={styles['rc-demo-stack-blitz-collection']}>
           {stackBlitzCodes &&
             stackBlitzCodes.map(code => (
@@ -112,10 +110,20 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = memo(
               </div>
             ))}
         </div>
-      </Tabs>
-    );
-  }
-);
+      )}
+      {showStackBlitzEmbed ? (
+        <div className={styles['rc-demo-stack-blitz-collection']}>
+          {stackBlitzCodes &&
+            stackBlitzCodes.map(code => (
+              <div className={styles['rc-demo-stack-blitz']} key={code}>
+                <StackBlitz id={code} />
+              </div>
+            ))}
+        </div>
+      ) : null}
+    </Tabs>
+  );
+};
 
 DemoPageTabs.displayName = 'DemoPageTabs';
 

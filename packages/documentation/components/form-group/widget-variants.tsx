@@ -80,7 +80,7 @@ export const RTL = (
       RTL
       icon={<FontAwesomeIcon icon={faUser} />}
     >
-      <Input id="name" placeholder="Name" enableClear />
+      <Input id="name" placeholder="Name" enableClear RTL />
     </FormField>
     <FormField
       label="Please select a Country"
@@ -118,7 +118,7 @@ export const RTLCode = `<FormGroup RTL>
     RTL
     icon={<FontAwesomeIcon icon={faUser} />}
   >
-    <Input id="name" placeholder="Name" enableClear />
+    <Input id="name" placeholder="Name" enableClear RTL />
   </FormField>
   <FormField
     label="Please select a Country"

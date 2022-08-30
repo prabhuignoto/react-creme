@@ -18,7 +18,7 @@ export const State = (
 
 export const RTL = (
   <FormField label="Please enter the name" RTL>
-    <Input id="name" placeholder="Name" enableClear />
+    <Input id="name" placeholder="Name" enableClear RTL />
   </FormField>
 );
 

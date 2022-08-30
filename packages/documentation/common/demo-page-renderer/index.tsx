@@ -32,7 +32,7 @@ export interface DemoPageRendererProps {
 const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
   ({
     demoWidget,
-    tabTitles,
+    tabTitles = [],
     properties,
     callbacks,
     title,
@@ -46,6 +46,8 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
     const media = useMedia();
 
     const [width, setWidth] = useState<number[]>([]);
+    const [tabs, setTabs] = useState<string[]>(tabTitles);
+    const [showStackBlitzEmbed, setShowStackBlitzEmbed] = useState(true);
 
     useLayoutEffect(() => {
       if (!media) {
@@ -59,8 +61,12 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
       } else if (media.isDesktop) {
         setWidth([150, 250, 150]);
       } else if (media.isTablet) {
+        setTabs(tabTitles.slice(0, tabTitles.length - 1));
+        setShowStackBlitzEmbed(false);
         setWidth([120, 200, 120]);
       } else if (media.isMobile) {
+        setTabs(tabTitles.slice(0, tabTitles.length - 1));
+        setShowStackBlitzEmbed(false);
         setWidth([120, 120, 120]);
       }
     }, [media]);
@@ -144,13 +150,14 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
           </Section>
         ) : null}
         <DemoPageTabs
-          tabTitles={tabTitles}
+          tabTitles={tabs}
           media={media}
           callbacks={callbacks}
           demoWidget={demoWidget}
           columns={columns}
           stackBlitzCodes={stackBlitzCodes}
           properties={properties}
+          showStackBlitzEmbed={showStackBlitzEmbed}
         />
       </article>
     ) : null;
