@@ -95,6 +95,10 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
       );
   }, [activeTabId]);
 
+  const visibleTabs = useMemo(() => {
+    return items.current.filter(item => labels.indexOf(item.name) > -1);
+  }, [labels.length]);
+
   // handles the tab selection
   const handleTabSelection = useCallback((id: string) => {
     setActiveTabId(id);
@@ -162,7 +166,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   return (
     <div className={rcTabsClass} style={tabsStyle} onKeyDown={handleKeyDown}>
       <TabHeaders
-        items={items.current}
+        items={visibleTabs}
         handleTabSelection={handleTabSelection}
         tabStyle={tabStyle}
         focusable={focusable}

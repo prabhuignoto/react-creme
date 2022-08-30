@@ -120,6 +120,7 @@
 
 .close-btn-wrapper {
   @include position.position-abs('top right');
+  background: theme.$primary;
   right: 0.5rem;
   top: 0.5rem;
 }

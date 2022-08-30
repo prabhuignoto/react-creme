@@ -13,7 +13,7 @@ import {
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState<string | number>(0);
 
   useLayoutEffect(() => {
     if (!media) {
@@ -29,7 +29,7 @@ function widgets() {
     } else if (media.isTablet) {
       setWidth(500);
     } else if (media.isMobile) {
-      setWidth(320);
+      setWidth(300);
     }
   }, [media]);
 

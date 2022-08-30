@@ -56,7 +56,7 @@
 
   &::after {
     @include position.position-abs('center center');
-    background: rgba($color: #000, $alpha: 0.5);
+    background: rgba($color: #000, $alpha: 0.75);
     border-radius: 50%;
     content: '';
     display: block;
