@@ -84,10 +84,11 @@ $sizes: (sm, md, lg);
 
 .cell_val {
   display: block;
+  height: calc(100% - 1rem);
   line-height: 25px;
   padding: 0.5rem 0;
   padding-left: 0.25rem;
-  width: 90%;
+  width: calc(100% - 0rem);
 
   &.header {
     font-weight: 500;
