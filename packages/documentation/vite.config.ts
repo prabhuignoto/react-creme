@@ -20,6 +20,7 @@ export default defineConfig({
         chunkFileNames: `[name]${hash}.js`,
       },
     },
+    sourcemap: true,
   },
   clearScreen: true,
   css: {
