@@ -10,6 +10,7 @@ import path, { dirname } from 'path';
 import PostCSSpresetEnv from 'postcss-preset-env';
 import RemovePlugin from 'remove-files-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
+import threadLoader from 'thread-loader';
 import { fileURLToPath } from 'url';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -21,7 +22,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 
 const stylesHandler = MiniCssExtractPlugin.loader;
-import threadLoader from 'thread-loader';
 
 threadLoader.warmup(
   {
@@ -51,6 +51,11 @@ const config = {
     },
   ],
   externalsType: 'module',
+  ignoreWarnings: [
+    {
+      message: /export .* was not found in/,
+    },
+  ],
   module: {
     rules: [
       {
@@ -202,7 +207,7 @@ const config = {
     assets: true,
     chunks: true,
     modules: true,
-    warningsFilter: /export .* was not found in/,
+    // warningsFilter: /export .* was not found in/,
   },
 };
 

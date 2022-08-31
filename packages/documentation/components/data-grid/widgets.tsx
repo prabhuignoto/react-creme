@@ -28,7 +28,7 @@ function widgets() {
         { name: 'dept', type: 'string' },
       ]);
     } else if (media.isTablet) {
-      setWidth(580);
+      setWidth(500);
       setColumns([
         { name: 'name', type: 'string', width: 200 },
         { name: 'dept', type: 'string', width: 200 },
