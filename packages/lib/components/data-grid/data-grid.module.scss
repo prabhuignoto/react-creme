@@ -162,16 +162,16 @@ $sizes: (sm, md, lg);
   @extend %left;
   height: 100%;
   width: 100%;
+}
 
-  &.zebra {
-    // border: 1px solid blue;
-    &.dark {
-      background-color: rgba(theme.$gunmetal-gray, 0.25);
-    }
+.zebra {
+  // border: 1px solid blue;
+  &.dark {
+    background-color: rgba(theme.$gunmetal-gray, 0.25);
+  }
 
-    &:not(.dark) {
-      background-color: rgba(theme.$light-bg, 0.75);
-    }
+  &:not(.dark) {
+    background-color: rgba(theme.$light-bg, 0.75);
   }
 }
 
