@@ -31,13 +31,13 @@ function widgets() {
     } else if (media.isTablet) {
       setWidth(450);
     } else if (media.isMobile) {
-      setWidth(320);
+      setWidth('100%');
     }
   }, [media]);
 
   return width ? (
     <div className="rc-demo-widgets">
-      <Section title="Tags - default" size="md">
+      <Section title="Tags - default">
         <BlockQuote>
           New tags can be added to the list by typing in the input field and
           pressing enter.Tags can be easily removed by clicking on the close
@@ -47,7 +47,7 @@ function widgets() {
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Tags - Filled style" size="md">
+      <Section title="Tags - Filled style">
         <BlockQuote>
           Tags can be disabled by setting the <code>disabled</code>property to
           true.
@@ -56,7 +56,7 @@ function widgets() {
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section title="Tags - Readonly" size="md">
+      <Section title="Tags - Readonly">
         <BlockQuote>
           In readonly mode we can display a list of non editable tags.
         </BlockQuote>
@@ -64,7 +64,7 @@ function widgets() {
           {ReadOnly}
         </DemoWidget>
       </Section>
-      <Section title="Max Tags" size="md">
+      <Section title="Max Tags">
         <BlockQuote>
           Use the <code>maxTags</code> prop to limit the number of tags.
         </BlockQuote>
@@ -72,7 +72,7 @@ function widgets() {
           {MaxTags}
         </DemoWidget>
       </Section>
-      <Section title="Tags - AutoComplete" size="md">
+      <Section title="Tags - AutoComplete">
         <BlockQuote>
           Tags can also be configured to use the{' '}
           <Link href="/auto-suggest">AutoSuggest</Link> control.
@@ -81,7 +81,7 @@ function widgets() {
           {AutoComplete}
         </DemoWidget>
       </Section>
-      <Section title="Tags - Accent" size="md">
+      <Section title="Tags - Accent">
         <BlockQuote>
           Use the <code>accent</code> property to change the outlook of the
           tags. Can be one of the following: <code>flat</code>,{' '}

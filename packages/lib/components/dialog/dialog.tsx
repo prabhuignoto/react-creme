@@ -131,6 +131,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
 };
 
 const Dialog = withOverlay<DialogProps, null>(DialogComponent, {
+  backdropColor: 'rgba(0, 0, 0, 0.85)',
   disableAnimation: false,
   hideDocumentOverflow: true,
   name: 'dialog',
