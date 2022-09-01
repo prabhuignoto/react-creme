@@ -20,6 +20,7 @@ import {
 } from './data-grid-model';
 import { DataGridRow } from './data-grid-row';
 import styles from './data-grid.module.scss';
+import ResizeObserver from 'resize-observer-polyfill';
 
 const DataGrid: React.FunctionComponent<DataGridProps> = ({
   border = false,

@@ -16,6 +16,7 @@ import { CarouselItems } from './carousel-items';
 import { CarouselItemProps, CarouselProps } from './carousel-model';
 import { CarouselTrack } from './carousel-track';
 import styles from './carousel.module.scss';
+import ResizeObserver from 'resize-observer-polyfill';
 
 const Carousel: React.FunctionComponent<CarouselProps> = ({
   autoPlay = 0,

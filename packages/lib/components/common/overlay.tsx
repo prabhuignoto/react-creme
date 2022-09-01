@@ -13,6 +13,7 @@ import { useDebouncedCallback } from 'use-debounce';
 import { OverlayProps } from './overlay-model';
 import './overlay.scss';
 import { OverlayContext, OverlayContextModel } from './withOverlay';
+import ResizeObserver from 'resize-observer-polyfill';
 
 const Overlay: React.FunctionComponent<OverlayProps> = ({
   backdropColor = 'rgba(0, 0, 0, 0.5)',

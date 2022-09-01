@@ -53,7 +53,7 @@ const Header: React.FC<{
       <div className={styles.logo_wrapper}>
         <Logo isMobile={isMobile} onMenuClick={onOpen} />
       </div>
-      <Badge label="alpha" />
+      <Badge label="beta" />
       {!isMobile && (
         <div
           className={styles.algolia_container}
