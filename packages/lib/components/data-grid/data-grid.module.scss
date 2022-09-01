@@ -16,16 +16,6 @@ $sizes: (sm, md, lg);
   }
 }
 
-.row_zebra:nth-child(odd) {
-  .dark {
-    background-color: rgba(theme.$gunmetal-gray, 0.25);
-  }
-
-  &:not(.dark) {
-    background-color: rgba(theme.$light-bg, 0.75);
-  }
-}
-
 .row {
   width: 100%;
 
@@ -82,18 +72,15 @@ $sizes: (sm, md, lg);
 }
 
 .cell {
-  @extend %center;
+  @extend %left;
   width: calc(100% - 1px);
 }
 
 .cell_val {
-  align-items: center;
-  display: flex;
-  height: calc(100% - 1rem);
-  justify-content: flex-start;
+  display: block;
   line-height: 25px;
-  padding: 0.5rem 0;
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  text-align: left;
   width: calc(100% - 1rem);
 
   &.header {
@@ -124,12 +111,15 @@ $sizes: (sm, md, lg);
   code {
     @extend %border-radius;
     color: theme.$primary;
-    display: block;
     font-style: normal;
     font-weight: 400;
     margin: 0 0.25rem;
     padding: 0 0.25rem;
     white-space: nowrap;
+  }
+
+  code {
+    white-space: normal;
   }
 }
 
@@ -152,4 +142,20 @@ $sizes: (sm, md, lg);
   margin: 0.5rem 0 1.5rem;
   min-width: 300px;
   padding-left: 0.5rem;
+}
+
+.cell_wrapper {
+  @extend %left;
+  height: 100%;
+  width: 100%;
+}
+
+.zebra {
+  &.dark {
+    background-color: rgba(theme.$gunmetal-gray, 0.25);
+  }
+
+  &:not(.dark) {
+    background-color: rgba(theme.$light-bg, 0.75);
+  }
 }

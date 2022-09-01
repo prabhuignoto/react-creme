@@ -73,7 +73,7 @@ const Widgets = () => {
           ></Dropdown>
         </div>
       </Section>
-      <Section title="On Hover" size="md">
+      <Section title="On Hover">
         <BlockQuote>
           The Tooltip is activated by hovering over the target element and is
           auto closed the moment the mouse moves out of the target element.
@@ -100,7 +100,7 @@ const Widgets = () => {
           </Tooltip>
         </DemoWidget>
       </Section>
-      <Section title="Static Tooltip" size="md">
+      <Section title="Static Tooltip">
         <BlockQuote>
           Sometimes it can be useful to have the Tooltip visible all the time.
           use the <code>isStatic</code> prop to achieve this.
@@ -120,7 +120,7 @@ const Widgets = () => {
           </Tooltip>
         </DemoWidget>
       </Section>
-      <Section title="Activate Tooltip on click" size="md">
+      <Section title="Activate Tooltip on click">
         <BlockQuote>
           Tooltip can be also activated by clicking on the target element via
           the <code>openOnClick</code> prop. In this mode a close button will be

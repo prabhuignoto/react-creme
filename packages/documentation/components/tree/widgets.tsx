@@ -5,12 +5,12 @@ import { Default, Selection } from './widget-variants';
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default render" size="md">
+      <Section title="Default render">
         <DemoWidget name="Tree" width={400} showCodeByDefault={false}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Selection Mode" size="md">
+      <Section title="Selection Mode">
         <BlockQuote>
           In selection mode, individual nodes with its children can be selected
           through the checkbox
@@ -19,7 +19,7 @@ function Widgets() {
           {Selection}
         </DemoWidget>
       </Section>
-      {/* <Section title="Custom Icon" size="md">
+      {/* <Section title="Custom Icon" >
         <BlockQuote>
           Use a custom icon for the expand and collapse actions.
         </BlockQuote>

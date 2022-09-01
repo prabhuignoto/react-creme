@@ -32,7 +32,7 @@
   transition: background 0.1s linear;
 
   &.control_dragged {
-    background: rgba(theme.$primary-rgb, 100%);
+    background: rgba(theme.$primary-rgb, 1);
   }
 }
 

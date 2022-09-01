@@ -91,7 +91,7 @@ function widgets() {
           {Accent}
         </DemoWidget>
       </Section>
-      <Section title="Tags - Custom Size" size="md">
+      <Section title="Tags - Custom Size">
         <DemoWidget name="Tags" width={width}>
           {LargeSize}
         </DemoWidget>

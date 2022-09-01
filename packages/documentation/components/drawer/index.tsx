@@ -46,7 +46,7 @@ function drawer() {
           type: 'Number',
         },
         {
-          default: 'cubic-bezier(0.79, 0.14, 0.15, 0.86',
+          default: '<code>cubic-bezier(0.79, 0.14, 0.15, 0.86</code>',
           description: 'Custom transition for the animation',
           name: 'transition',
           optional: 'Yes',

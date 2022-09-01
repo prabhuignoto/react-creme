@@ -8,7 +8,7 @@ import { Horizontal, Vertical } from './widget-variants';
 
 function Widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = useState<string | number>('90%');
+  const [width, setWidth] = useState<string | number>('100%');
   const [height, setHeight] = useState<string | number>(450);
 
   useLayoutEffect(() => {
@@ -19,7 +19,7 @@ function Widgets() {
     if (media.isExtraLargeScreen) {
       setWidth(850);
     } else if (media.isBigScreen) {
-      setWidth(550);
+      setWidth(650);
     } else if (media.isDesktop) {
       setWidth(500);
       setHeight(300);
@@ -34,7 +34,7 @@ function Widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="Horizontal Comparison" size="md">
+      <Section title="Horizontal Comparison">
         <BlockQuote>
           Compare two images side by side horizontally. The drag handle guides
           the user to the correct position.
@@ -43,7 +43,7 @@ function Widgets() {
           {Horizontal}
         </DemoWidget>
       </Section>
-      <Section title="Vertical comparison" size="md">
+      <Section title="Vertical comparison">
         <BlockQuote>
           Compare two images side by side vertically. The drag handle guides the
           user to the correct position.

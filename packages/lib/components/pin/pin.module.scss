@@ -11,7 +11,7 @@ $sizes: (
 );
 
 .wrapper {
-  @extend %list-horizontal-left;
+  @extend %list-horizontal-left-wrap;
 
   li {
     // padding: 0.5rem;
@@ -20,7 +20,7 @@ $sizes: (
 }
 
 .wrapper.RTL {
-  @extend %list-horizontal-left;
+  @extend %list-horizontal-left-wrap;
   direction: rtl;
 
   li:not(:first-child) {

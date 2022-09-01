@@ -10,7 +10,7 @@ $sizes: (
 );
 
 $heights: (
-  sm: 30px,
+  sm: 35px,
   md: 40px,
   lg: 50px,
 );
@@ -28,7 +28,7 @@ $heights: (
 
 .header {
   @extend %left;
-  font-weight: 500;
+  font-weight: 400;
   padding-left: 1rem;
   text-decoration: none;
   width: 100%;

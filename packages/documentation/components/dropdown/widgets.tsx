@@ -34,12 +34,12 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section title="Single selection" size="md">
+      <Section title="Single selection">
         <DemoWidget name="Dropdown" width={width}>
           {SingleSelection}
         </DemoWidget>
       </Section>
-      <Section title="Multi selection" size="md">
+      <Section title="Multi selection">
         <BlockQuote>
           With multi selection, you can select multiple options.
         </BlockQuote>
@@ -47,7 +47,7 @@ function Widgets() {
           {MultiSelection}
         </DemoWidget>
       </Section>
-      <Section title="Search" size="md">
+      <Section title="Search">
         <BlockQuote>
           Available options can be filtered by typing in the search box.
         </BlockQuote>
@@ -55,7 +55,7 @@ function Widgets() {
           {Searchable}
         </DemoWidget>
       </Section>
-      <Section title="Virtualized" size="md">
+      <Section title="Virtualized">
         <BlockQuote>
           With virtualized, the options are rendered only when they are in the
           viewport of the menu.
@@ -64,7 +64,7 @@ function Widgets() {
           {Virtualized}
         </DemoWidget>
       </Section>
-      <Section title="RTL" size="md">
+      <Section title="RTL">
         <BlockQuote>
           With virtualized, the options are rendered only when they are in the
           viewport of the menu.

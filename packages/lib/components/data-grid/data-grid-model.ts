@@ -24,6 +24,7 @@ export interface DataGridCell {
   isHeader?: boolean;
   name: string;
   value: string | number;
+  zebra?: boolean;
 }
 
 export type DataRow = Pick<

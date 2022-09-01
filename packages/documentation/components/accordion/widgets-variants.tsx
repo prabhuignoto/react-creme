@@ -64,7 +64,7 @@ export const Expanded = (
 );
 
 export const MediumSized = (
-  <Accordion title="Lorem Ipsum" size="md">
+  <Accordion title="Lorem Ipsum">
     <TextContent />
   </Accordion>
 );

@@ -34,18 +34,18 @@ function Widgets() {
 
   return width > 0 ? (
     <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
-      <Section title="Default render" size="md">
+      <Section title="Default render">
         <DemoWidget width={width} name="Accordion">
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Custom Icon alignment" size="md">
+      <Section title="Custom Icon alignment">
         <BlockQuote>The icon can be aligned to the right</BlockQuote>
         <DemoWidget width={width} name="Accordion">
           {CustomIcon}
         </DemoWidget>
       </Section>
-      <Section title="Accordion expanded by default" size="md">
+      <Section title="Accordion expanded by default">
         <BlockQuote>
           Accordions can be expanded or collapsed by default. The example shows
           a accordion expanded by default.
@@ -54,7 +54,7 @@ function Widgets() {
           {Expanded}
         </DemoWidget>
       </Section>
-      <Section title="Custom sizes" size="md">
+      <Section title="Custom sizes">
         <DemoWidget width={width} name="Accordion">
           {MediumSized}
         </DemoWidget>

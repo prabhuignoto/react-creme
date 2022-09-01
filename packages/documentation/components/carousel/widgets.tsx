@@ -31,7 +31,7 @@ function widgets() {
 
   return width ? (
     <div className="rc-demo-widgets" style={{ minHeight: '1000px' }}>
-      <Section title="Horizontal layout" size="md">
+      <Section title="Horizontal layout">
         <BlockQuote>
           Renders the items in a horizontal layout with navigation controls
           displayed at the bottom
@@ -40,7 +40,7 @@ function widgets() {
           {Horizontal}
         </DemoWidget>
       </Section>
-      <Section title="Vertical layout" size="md">
+      <Section title="Vertical layout">
         <BlockQuote>
           Renders the items in a vertical layout with navigation controls
           displayed to the left
@@ -49,7 +49,7 @@ function widgets() {
           {Vertical}
         </DemoWidget>
       </Section>
-      <Section title="Swipable" size="md">
+      <Section title="Swipable">
         <BlockQuote>
           The carousel can be swipable. Swipe left or right to navigate.
         </BlockQuote>
