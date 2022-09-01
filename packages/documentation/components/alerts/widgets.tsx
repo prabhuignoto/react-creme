@@ -35,7 +35,7 @@ function Widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Informational Text" size="md">
+      <Section title="Informational Text">
         <BlockQuote>
           Alerts can be closed or dismissed by default. Use the{' '}
           <code>canDismiss</code> prop to change this behavior.
@@ -47,22 +47,22 @@ function Widgets() {
           {Dismiss}
         </DemoWidget>
       </Section>
-      <Section title="Success Message" size="md">
+      <Section title="Success Message">
         <DemoWidget name="Alert" width={width}>
           {Success}
         </DemoWidget>
       </Section>
-      <Section title="Warning Message" size="md">
+      <Section title="Warning Message">
         <DemoWidget name="Alert" width={width}>
           {Warning}
         </DemoWidget>
       </Section>
-      <Section title="Error Message" size="md">
+      <Section title="Error Message">
         <DemoWidget name="Alert" width={width}>
           {Error}
         </DemoWidget>
       </Section>
-      <Section title="Render Custom content" size="md">
+      <Section title="Render Custom content">
         <DemoWidget name="Alert" width={width}>
           {Custom}
         </DemoWidget>

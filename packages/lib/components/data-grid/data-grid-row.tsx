@@ -1,7 +1,7 @@
-import { isDark } from '../common/utils';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { useMemo, useRef } from 'react';
+import { isDark } from '../common/utils';
 import { DataGridCell } from './data-grid-cell';
 import { DataRow } from './data-grid-model';
 import styles from './data-grid.module.scss';
@@ -17,7 +17,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
   size,
 }: DataRow) => {
   const isDarkMode = useMemo(() => isDark(), []);
-  const cellsData = useRef<{ [key: string]: string | number }[]>(
+  const cellsData = useRef<{ [key: string]: string | number | boolean }[]>(
     Object.keys(data)
       .filter(k => k !== 'id')
       .map(key => ({
@@ -32,11 +32,11 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
       [styles[`row_${layoutStyle}`]]: true,
       [styles.border]: border,
       rc_row_fixed_height: fixedHeight,
-      [styles.row_zebra]: zebra,
+      // [styles.row_zebra]: zebra,
       [styles[`row_${size}`]]: true,
       [styles.dark]: isDarkMode,
     });
-  }, [layoutStyle]);
+  }, [layoutStyle, zebra]);
 
   return (
     <div className={rowClass} style={style} role="row">
@@ -54,6 +54,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
               border={border}
               fixedHeight={fixedHeight}
               formatter={formatter}
+              zebra={zebra}
             />
           );
         }

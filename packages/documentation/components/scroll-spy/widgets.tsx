@@ -48,7 +48,7 @@ function Widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Left aligned links" size="md">
+      <Section title="Left aligned links">
         <BlockQuote>
           The navigation links are left aligned and clicking on them will scroll
           to the section of the container that is being spyed on.
@@ -79,7 +79,7 @@ function Widgets() {
           </ScrollSpy>
         </DemoWidget>
       </Section>
-      <Section title="Right aligned links" size="md">
+      <Section title="Right aligned links">
         <BlockQuote>
           The navigation links are right aligned and clicking on them will
           scroll to the section of the container that is being spyed on.

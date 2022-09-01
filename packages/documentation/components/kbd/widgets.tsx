@@ -13,7 +13,7 @@ import {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default rendering" size="md">
+      <Section title="Default rendering">
         <DemoWidget name="Kbd">{Default}</DemoWidget>
       </Section>
       <Section title="Keyboard combinations">

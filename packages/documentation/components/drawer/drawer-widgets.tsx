@@ -32,7 +32,7 @@ const Widget: React.FunctionComponent = () => {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="Docked Right" height={100} size="md">
+      <Section title="Docked Right" height={100}>
         <DemoWidget name="Drawer" width={120} component={Right}>
           <Button onClick={() => setOpen(true)} label="Open drawer"></Button>
         </DemoWidget>
@@ -42,7 +42,7 @@ const Widget: React.FunctionComponent = () => {
           <span>This is a test</span>
         </Drawer>
       )}
-      <Section title="Docked Left" height={100} size="md">
+      <Section title="Docked Left" height={100}>
         <DemoWidget name="Drawer" width={120} component={Left}>
           <Button onClick={() => setOpen2(true)} label="Open drawer"></Button>
         </DemoWidget>
@@ -52,7 +52,7 @@ const Widget: React.FunctionComponent = () => {
           <span>This is a test</span>
         </Drawer>
       )}
-      <Section title="Docked Top" height={100} size="md">
+      <Section title="Docked Top" height={100}>
         <DemoWidget name="Drawer" width={120} component={Top}>
           <Button onClick={() => setOpen3(true)} label="Open drawer"></Button>
         </DemoWidget>
@@ -62,7 +62,7 @@ const Widget: React.FunctionComponent = () => {
           <span>This is a test</span>
         </Drawer>
       )}
-      <Section title="Docked Bottom" height={100} size="md">
+      <Section title="Docked Bottom" height={100}>
         <DemoWidget name="Drawer" width={120} component={Bottom}>
           <Button onClick={() => setOpen4(true)} label="Open drawer"></Button>
         </DemoWidget>

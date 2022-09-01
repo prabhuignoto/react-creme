@@ -12,12 +12,12 @@ import {
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default render" size="md">
+      <Section title="Default render">
         <DemoWidget name="CheckBox" width={220}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Disabled State" size="md">
+      <Section title="Disabled State">
         <BlockQuote>
           Use the <code>disabled</code> prop to disable the checkbox.
         </BlockQuote>
@@ -25,7 +25,7 @@ function widgets() {
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section title="Large size" size="md">
+      <Section title="Large size">
         <BlockQuote>
           The size of the checkbox can be customized. Supports three sizes:
           small, medium, large.
@@ -34,7 +34,7 @@ function widgets() {
           {Large}
         </DemoWidget>
       </Section>
-      <Section title="Custom Checkbox style" size="md">
+      <Section title="Custom Checkbox style">
         <BlockQuote>
           Change the outlook of the Checkbox via the <code>checkBoxStyle</code>{' '}
           prop.
@@ -43,7 +43,7 @@ function widgets() {
           {CustomStyle}
         </DemoWidget>
       </Section>
-      <Section title="All Sizes" size="md">
+      <Section title="All Sizes">
         <DemoWidget name="CheckBox" width={200}>
           {CustomStyle}
         </DemoWidget>

@@ -28,7 +28,7 @@ export default {
   zIndexes: {
     dialog: 9999999,
     drawer: 99999,
-    globalNotification: 999996,
+    globalNotification: 999999,
     imageOverlay: 99999,
     menu: 999,
     notification: 9999,

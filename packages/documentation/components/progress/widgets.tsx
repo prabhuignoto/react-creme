@@ -16,7 +16,7 @@ const Widgets: React.FunctionComponent = () => {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default rendering" size="md">
+      <Section title="Default rendering">
         <div className="rc-demo-widget" style={{ marginBottom: '1rem' }}>
           <div style={{ margin: '0 1rem' }}>
             <Button onClick={start} label="Start"></Button>
@@ -47,7 +47,7 @@ const Widgets: React.FunctionComponent = () => {
           />
         </DemoWidget>
       </Section>
-      <Section title="States" size="md">
+      <Section title="States">
         <BlockQuote>
           The progress bar can be in a success or error state.
         </BlockQuote>
@@ -73,7 +73,7 @@ const Widgets: React.FunctionComponent = () => {
           />
         </DemoWidget>
       </Section>
-      <Section title="Indeterminate progress" size="md">
+      <Section title="Indeterminate progress">
         <BlockQuote>
           Useful for operations that take a long time to complete.
         </BlockQuote>
@@ -81,13 +81,13 @@ const Widgets: React.FunctionComponent = () => {
           <Progress type="indeterminate" showProgressValue size="sm" />
         </DemoWidget>
       </Section>
-      <Section title="Indeterminate Progress - Bob" size="md">
+      <Section title="Indeterminate Progress - Bob">
         <BlockQuote>Infinite progress with a bob animation</BlockQuote>
         <DemoWidget name="Progress">
           <Progress type="indeterminate" size="md" indeterminateStyle="bob" />
         </DemoWidget>
       </Section>
-      <Section title="Circular Progress" size="md">
+      <Section title="Circular Progress">
         <BlockQuote>
           Infinite progress is also available in circular mode.
         </BlockQuote>
@@ -97,7 +97,7 @@ const Widgets: React.FunctionComponent = () => {
           </div>
         </DemoWidget>
       </Section>
-      {/* <Section title="Circular Progress - Double ring" size="md">
+      {/* <Section title="Circular Progress - Double ring" >
         <div className="rc-demo-widget">
           <CircularProgress size={40} style="double-ring" />
         </div>

@@ -12,12 +12,12 @@ import {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default Render" size="md">
+      <Section title="Default Render">
         <DemoWidget name="MenuBar" width={400} style={{ marginLeft: '2rem' }}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="RTL" size="md">
+      <Section title="RTL">
         <BlockQuote>
           Use the <code>RTL</code> prop for right to left alignment
         </BlockQuote>
@@ -25,7 +25,7 @@ function Widgets() {
           {RTL}
         </DemoWidget>
       </Section>
-      <Section title="Icons" size="md">
+      <Section title="Icons">
         <BlockQuote>
           The <code>icons</code> prop can be used to add a custom icon for each
           top level menu bar item
@@ -39,7 +39,7 @@ function Widgets() {
           {Icons}
         </DemoWidget>
       </Section>
-      <Section title="Custom Sizes" size="md">
+      <Section title="Custom Sizes">
         <BlockQuote>
           With the <code>size</code> prop customize the size of the menu bar.
         </BlockQuote>

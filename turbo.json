@@ -3,6 +3,7 @@
   "pipeline": {
     "format": {},
     "lint": {},
+    "build-lib": {},
     "build": {
       "outputs": ["dist/**", "dts/**", "typings/**", "expo_dist"]
     },

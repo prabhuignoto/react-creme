@@ -11,27 +11,27 @@ import {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default Render" size="md">
+      <Section title="Default Render">
         <DemoWidget name="CheckBoxGroup" width={100}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Preselected Option" size="md">
+      <Section title="Preselected Option">
         <DemoWidget name="CheckBoxGroup" width={200}>
           {PreSelected}
         </DemoWidget>
       </Section>
-      <Section title="Disabled Option" size="md">
+      <Section title="Disabled Option">
         <DemoWidget name="CheckBoxGroup" width={200}>
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section title="Checkbox Group - Round style" size="md">
+      <Section title="Checkbox Group - Round style">
         <DemoWidget name="CheckBoxGroup" width={150}>
           {CustomStyle}
         </DemoWidget>
       </Section>
-      <Section title="Checkbox Group - RTL" size="md">
+      <Section title="Checkbox Group - RTL">
         <DemoWidget name="CheckBoxGroup" width={150}>
           {RTL}
         </DemoWidget>

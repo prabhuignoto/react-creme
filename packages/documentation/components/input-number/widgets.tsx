@@ -29,12 +29,12 @@ function Widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default render" size="md">
+      <Section title="Default render">
         <DemoWidget name="InputNumber" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Border" size="md">
+      <Section title="Border">
         <BlockQuote>
           The outlook of the Input Number component can be changed via the{' '}
           <code>border</code> prop.
@@ -43,7 +43,7 @@ function Widgets() {
           {Border}
         </DemoWidget>
       </Section>
-      <Section title="RTL" size="md">
+      <Section title="RTL">
         <BlockQuote>
           with the <code>RTL</code> prop, the Input Number component will be
           rendered in RTL mode.
@@ -52,7 +52,7 @@ function Widgets() {
           {RTL}
         </DemoWidget>
       </Section>
-      <Section title="Sizes" size="md">
+      <Section title="Sizes">
         <BlockQuote>
           The component supports 3 different sizes: <code>sm</code>,{' '}
           <code>md</code> and <code>lg</code>. Use the theme provider to

@@ -57,7 +57,7 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
       if (media.isExtraLargeScreen) {
         setWidth([200, 450, 200]);
       } else if (media.isBigScreen) {
-        setWidth([150, 200]);
+        setWidth([150, 300]);
       } else if (media.isDesktop) {
         setWidth([150, 250, 150]);
       } else if (media.isTablet) {

@@ -39,7 +39,7 @@ function widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Horizontal mode" size="md">
+      <Section title="Horizontal mode">
         <BlockQuote>
           Splits the container horizontally with a drag handle for resizing and
           there by controlling the width of the left and right panels.
@@ -73,7 +73,7 @@ function widgets() {
           </Splitter>
         </DemoWidget>
       </Section>
-      <Section title="Vertical Mode" size="md">
+      <Section title="Vertical Mode">
         <BlockQuote>
           Splits the container vertically with a drag handle for resizing and
           there by controlling the height of the top and bottom panels.

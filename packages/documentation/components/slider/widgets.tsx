@@ -36,12 +36,12 @@ const Widgets = () => {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Default Render" size="md">
+      <Section title="Default Render">
         <DemoWidget name="Slider" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Positioning the Tooltip" size="md">
+      <Section title="Positioning the Tooltip">
         <BlockQuote>
           The tooltip can be positioned to either <code>top</code> or{' '}
           <code>bottom</code>. The Example here shows the tooltip positioned to
@@ -51,12 +51,12 @@ const Widgets = () => {
           {CustomTooltipPosition}
         </DemoWidget>
       </Section>
-      <Section title="Preselected Value" size="md">
+      <Section title="Preselected Value">
         <DemoWidget name="Slider" width={width}>
           {PreSelected}
         </DemoWidget>
       </Section>
-      <Section title="Show Tooltip on Hover" size="md">
+      <Section title="Show Tooltip on Hover">
         <BlockQuote>
           With the <code>showTooltipOnHover</code>, the tooltip will be
           displayed only when the user hovers over the slider control.
@@ -65,7 +65,7 @@ const Widgets = () => {
           {TooltipOnHover}
         </DemoWidget>
       </Section>
-      <Section title="Formatted value" size="md">
+      <Section title="Formatted value">
         <BlockQuote>
           The slider can also display the value in a formatted way.
         </BlockQuote>
@@ -73,7 +73,7 @@ const Widgets = () => {
           {TooltipFormatted}
         </DemoWidget>
       </Section>
-      <Section title="Disabled state" size="md">
+      <Section title="Disabled state">
         <BlockQuote>
           The slide can be disabled via the <code>disabled</code> prop.
         </BlockQuote>

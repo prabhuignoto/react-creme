@@ -229,7 +229,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         size={size}
         searchable={searchable}
       />
-      {filteredData.map(row => {
+      {filteredData.map((row, index) => {
         return (
           <DataGridRow
             data={row}
@@ -240,7 +240,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
             layoutStyle={layoutStyle}
             border={border}
             fixedHeight={fixedHeight}
-            zebra={zebra}
+            zebra={zebra && index % 2 === 1}
             rowHeight={rowHeight}
             size={size}
           />

@@ -19,10 +19,10 @@ export const smallSized = (
 );
 
 export const mediumSized = (
-  <KbdCombination size="md">
-    <Kbd size="md">Shift</Kbd>
-    <Kbd size="md">Alt</Kbd>
-    <Kbd size="md">X</Kbd>
+  <KbdCombination>
+    <Kbd>Shift</Kbd>
+    <Kbd>Alt</Kbd>
+    <Kbd>X</Kbd>
   </KbdCombination>
 );
 
@@ -43,13 +43,13 @@ export const ButtonRaisedRight = (
 );
 export const Thickness = (
   <KbdCombination>
-    <Kbd buttonRaised="right" thickness={5} size="md">
+    <Kbd buttonRaised="right" thickness={5}>
       Shift
     </Kbd>
-    <Kbd buttonRaised="right" thickness={5} size="md">
+    <Kbd buttonRaised="right" thickness={5}>
       Alt
     </Kbd>
-    <Kbd buttonRaised="right" thickness={5} size="md">
+    <Kbd buttonRaised="right" thickness={5}>
       X
     </Kbd>
   </KbdCombination>

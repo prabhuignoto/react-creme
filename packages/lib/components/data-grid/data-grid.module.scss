@@ -16,15 +16,15 @@ $sizes: (sm, md, lg);
   }
 }
 
-.row_zebra:nth-child(odd) {
-  .dark {
-    background-color: rgba(theme.$gunmetal-gray, 0.25);
-  }
+// .row_zebra:nth-child(odd) {
+//   .dark {
+//     background-color: rgba(theme.$gunmetal-gray, 0.25);
+//   }
 
-  &:not(.dark) {
-    background-color: rgba(theme.$light-bg, 0.75);
-  }
-}
+//   &:not(.dark) {
+//     background-color: rgba(theme.$light-bg, 0.75);
+//   }
+// }
 
 .row {
   width: 100%;
@@ -82,19 +82,18 @@ $sizes: (sm, md, lg);
 }
 
 .cell {
-  @extend %center;
+  @extend %left;
   width: calc(100% - 1px);
 }
 
 .cell_val {
-  align-items: center;
-  display: flex;
-  height: calc(100% - 1rem);
-  justify-content: flex-start;
+  display: block;
   line-height: 25px;
-  padding: 0.5rem 0;
-  padding: 0.5rem;
-  width: calc(100% - 1rem);
+  // height: calc(100% - 1rem);
+  padding-left: 0.5rem;
+  text-align: left;
+  width: 98%;
+  width: calc(100% - 0.5rem);
 
   &.header {
     font-weight: 500;
@@ -124,12 +123,16 @@ $sizes: (sm, md, lg);
   code {
     @extend %border-radius;
     color: theme.$primary;
-    display: block;
+    // display: block;
     font-style: normal;
     font-weight: 400;
     margin: 0 0.25rem;
     padding: 0 0.25rem;
     white-space: nowrap;
+  }
+
+  code {
+    white-space: normal;
   }
 }
 
@@ -153,3 +156,25 @@ $sizes: (sm, md, lg);
   min-width: 300px;
   padding-left: 0.5rem;
 }
+
+.outer {
+  // display: block;
+  @extend %left;
+  height: 100%;
+  width: 100%;
+
+  &.zebra {
+    // border: 1px solid blue;
+    &.dark {
+      background-color: rgba(theme.$gunmetal-gray, 0.25);
+    }
+
+    &:not(.dark) {
+      background-color: rgba(theme.$light-bg, 0.75);
+    }
+  }
+}
+
+// .row_zebra {
+//   border: 1px solid red;
+// }

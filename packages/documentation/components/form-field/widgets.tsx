@@ -36,12 +36,12 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section title="Default render" size="md">
+      <Section title="Default render">
         <DemoWidget name="FormField" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Custom Icon" size="md">
+      <Section title="Custom Icon">
         <BlockQuote>
           Use the <code>icon</code> prop to add an icon to the form field.
         </BlockQuote>
@@ -49,12 +49,12 @@ function Widgets() {
           {Icon}
         </DemoWidget>
       </Section>
-      <Section title="Field with state" size="md">
+      <Section title="Field with state">
         <DemoWidget name="FormField" width={width}>
           {State}
         </DemoWidget>
       </Section>
-      <Section title="Dropdown Field" size="md">
+      <Section title="Dropdown Field">
         <DemoWidget
           name="FormField"
           width={width}
@@ -63,7 +63,7 @@ function Widgets() {
           {DropdownField}
         </DemoWidget>
       </Section>
-      <Section title="RTL Render" size="md">
+      <Section title="RTL Render">
         <DemoWidget name="FormField" width={width}>
           {RTL}
         </DemoWidget>

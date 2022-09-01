@@ -60,9 +60,9 @@ const themeState = atom<ThemeState>({
     },
     darkMode: true,
     fontSizes: {
-      lg: 20,
-      md: 18,
-      sm: 16,
+      lg: 18,
+      md: 16,
+      sm: 14,
     },
     iconSizes: {
       lg: 26,

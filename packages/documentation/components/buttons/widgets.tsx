@@ -12,18 +12,18 @@ import {
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default render" size="md">
+      <Section title="Default render">
         <DemoWidget name="Button" width={80}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Icon" size="md">
+      <Section title="Icon">
         <BlockQuote>Insert a custom icon to the button.</BlockQuote>
         <DemoWidget name="Button" width={150}>
           {Icon}
         </DemoWidget>
       </Section>
-      <Section title="Loading state" size="md">
+      <Section title="Loading state">
         <BlockQuote>
           Use the <code>type</code> property to change the button to a loading
           state.
@@ -32,13 +32,13 @@ function widgets() {
           {SearchingState}
         </DemoWidget>
       </Section>
-      <Section title="Disabled" size="md">
+      <Section title="Disabled">
         <BlockQuote>Buttons can be disabled</BlockQuote>
         <DemoWidget name="Button" width={120}>
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section title="Medium sized button" size="md">
+      <Section title="Medium sized button">
         <BlockQuote>
           Customize the size of the button by using the <code>size</code> prop
         </BlockQuote>
@@ -46,7 +46,7 @@ function widgets() {
           {Medium}
         </DemoWidget>
       </Section>
-      <Section title="Button with State (Extra large)" size="md">
+      <Section title="Button with State (Extra large)">
         <BlockQuote>
           Buttons can be in different states. Example shows button in{' '}
           <code>danger</code> state

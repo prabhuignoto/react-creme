@@ -99,7 +99,7 @@ const Widgets = () => {
           <span>test</span>
         </Notification>
       )}
-      <Section title="Notification - Default" size="md">
+      <Section title="Notification - Default">
         <BlockQuote>
           By default the notification is positioned at the top-left corner of
           the screen relative to the page.
@@ -108,7 +108,7 @@ const Widgets = () => {
           <Button label="Open Notification" onClick={() => setShow2(true)} />
         </DemoWidget>
       </Section>
-      <Section title="Notification - Contained Mode" size="md">
+      <Section title="Notification - Contained Mode">
         <BlockQuote>
           In this example the notification is positioned relative to the parent
           element.
@@ -129,7 +129,7 @@ const Widgets = () => {
           />
         </div>
       </Section>
-      <Section title="Notification - Auto Close" size="md">
+      <Section title="Notification - Auto Close">
         <BlockQuote>
           The notification can be closed automatically after a certain time
           using the autoClose property.

@@ -1,7 +1,6 @@
 @use 'core.scss';
 
 %list-common {
-  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -32,9 +31,19 @@
   @include core.get-flex(center);
 }
 
+%list-horizontal-wrap {
+  @extend %list-horizontal;
+  flex-wrap: wrap;
+}
+
 %list-horizontal-left {
   @extend %list-common;
   @include core.get-flex(flex-start);
+}
+
+%list-horizontal-left-wrap {
+  @extend %list-horizontal-left;
+  flex-wrap: wrap;
 }
 
 %list-horizontal-right {
