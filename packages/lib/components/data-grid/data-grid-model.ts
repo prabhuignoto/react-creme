@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 
 export type Record = {
-  [key: string]: string | number | boolean;
+  [key: string]: string | number;
 };
 
 export interface DataGridColumn {

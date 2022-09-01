@@ -17,7 +17,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = ({
   size,
 }: DataRow) => {
   const isDarkMode = useMemo(() => isDark(), []);
-  const cellsData = useRef<{ [key: string]: string | number | boolean }[]>(
+  const cellsData = useRef<{ [key: string]: string | number }[]>(
     Object.keys(data)
       .filter(k => k !== 'id')
       .map(key => ({
