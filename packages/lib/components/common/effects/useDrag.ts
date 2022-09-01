@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { isTouchDevice } from '../utils';
+import ResizeObserver from 'resize-observer-polyfill';
 import { useDragFunctionType } from './use-drag-settings-model';
 
 const rnd = Math.round;

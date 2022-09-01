@@ -9,7 +9,7 @@ $dark-mode: theme.$dark_mode;
   color: theme.$black;
   height: 100%;
   text-transform: capitalize;
-  width: 100%;
+  width: calc(100% - 1px);
 
   &.dark {
     background: rgba(theme.$charcoal-gray, 0.5);

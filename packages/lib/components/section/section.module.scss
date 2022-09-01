@@ -27,11 +27,19 @@ $heights: (
 }
 
 .header {
-  @extend %left;
   font-weight: 400;
-  padding-left: 1rem;
   text-decoration: none;
-  width: 100%;
+  width: calc(100% - 1rem);
+
+  &.header_rtl {
+    @extend %right;
+    padding-left: 1rem;
+  }
+
+  &:not(.header_rtl) {
+    @extend %left;
+    padding-right: 1rem;
+  }
 
   &.dark {
     border-bottom: 1px solid rgba(theme.$secondary-rgb, 0.5);
@@ -72,19 +80,16 @@ $heights: (
 
   @each $key, $val in $sizes {
     &.body_#{$key}:not(.no_title) {
-      // height: map.get($heights, $key);
       min-height: calc(100% - map.get($heights, $key));
     }
   }
-
-  // &:not(.no_title) {
-  // }
 
   &.no_title {
     min-height: 100%;
   }
 }
 
-.header_rtl {
-  @extend %right;
-}
+// .header_rtl {
+//   @extend %right;
+//   padding-right: 1rem;
+// }

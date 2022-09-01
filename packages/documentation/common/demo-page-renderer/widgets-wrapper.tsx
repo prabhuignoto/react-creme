@@ -13,6 +13,7 @@ import { useRecoilValue } from 'recoil';
 import { useDebouncedCallback } from 'use-debounce';
 import { themeState } from '../../atoms/home';
 import './widget-wrapper.scss';
+import ResizeObserver from 'resize-observer-polyfill';
 
 type Link = {
   id: string;
