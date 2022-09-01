@@ -36,7 +36,7 @@ const DataGridCell: React.FunctionComponent<CellModel> = ({
     <div className={columnClass} role="cell">
       <span
         className={classNames(
-          styles.outer,
+          styles.cell_wrapper,
           zebra ? styles.zebra : '',
           isDarkMode ? styles.dark : ''
         )}

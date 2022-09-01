@@ -16,16 +16,6 @@ $sizes: (sm, md, lg);
   }
 }
 
-// .row_zebra:nth-child(odd) {
-//   .dark {
-//     background-color: rgba(theme.$gunmetal-gray, 0.25);
-//   }
-
-//   &:not(.dark) {
-//     background-color: rgba(theme.$light-bg, 0.75);
-//   }
-// }
-
 .row {
   width: 100%;
 
@@ -89,11 +79,9 @@ $sizes: (sm, md, lg);
 .cell_val {
   display: block;
   line-height: 25px;
-  // height: calc(100% - 1rem);
-  padding-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
   text-align: left;
-  width: 98%;
-  width: calc(100% - 0.5rem);
+  width: calc(100% - 1rem);
 
   &.header {
     font-weight: 500;
@@ -123,7 +111,6 @@ $sizes: (sm, md, lg);
   code {
     @extend %border-radius;
     color: theme.$primary;
-    // display: block;
     font-style: normal;
     font-weight: 400;
     margin: 0 0.25rem;
@@ -157,15 +144,13 @@ $sizes: (sm, md, lg);
   padding-left: 0.5rem;
 }
 
-.outer {
-  // display: block;
+.cell_wrapper {
   @extend %left;
   height: 100%;
   width: 100%;
 }
 
 .zebra {
-  // border: 1px solid blue;
   &.dark {
     background-color: rgba(theme.$gunmetal-gray, 0.25);
   }
@@ -174,7 +159,3 @@ $sizes: (sm, md, lg);
     background-color: rgba(theme.$light-bg, 0.75);
   }
 }
-
-// .row_zebra {
-//   border: 1px solid red;
-// }
