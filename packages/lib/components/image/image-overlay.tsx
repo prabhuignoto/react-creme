@@ -42,7 +42,8 @@ const ImageOverlayComponent: React.FunctionComponent<ImageOverlayProps> = ({
 };
 
 const ImageOverlay = withOverlay(ImageOverlayComponent, {
-  backdropColor: 'rgba(0,0,0,0.5)',
+  backdropColor: 'rgba(0,0,0,0.85)',
+  name: 'imageOverlay',
 });
 
 export { ImageOverlayComponent };

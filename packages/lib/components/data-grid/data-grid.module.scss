@@ -3,7 +3,6 @@
 
 $compact-row-height: 35px;
 $comfortable-row-height: 50px;
-
 $sizes: (sm, md, lg);
 
 .data_grid {
@@ -73,6 +72,11 @@ $sizes: (sm, md, lg);
   .row_#{$size} {
     .cell_val {
       @extend %text-#{$size};
+
+      em,
+      code {
+        @extend %text-#{$size};
+      }
     }
   }
 }
@@ -83,12 +87,14 @@ $sizes: (sm, md, lg);
 }
 
 .cell_val {
-  display: block;
+  align-items: center;
+  display: flex;
   height: calc(100% - 1rem);
+  justify-content: flex-start;
   line-height: 25px;
   padding: 0.5rem 0;
-  padding-left: 0.25rem;
-  width: calc(100% - 0rem);
+  padding: 0.5rem;
+  width: calc(100% - 1rem);
 
   &.header {
     font-weight: 500;
@@ -118,9 +124,12 @@ $sizes: (sm, md, lg);
   code {
     @extend %border-radius;
     color: theme.$primary;
+    display: block;
     font-style: normal;
     font-weight: 400;
-    padding: 0.1rem 0.25rem;
+    margin: 0 0.25rem;
+    padding: 0 0.25rem;
+    white-space: nowrap;
   }
 }
 

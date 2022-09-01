@@ -12,6 +12,11 @@ $sizes: (
 
 .wrapper {
   @extend %list-horizontal-left;
+
+  li {
+    // padding: 0.5rem;
+    margin: 0 0.5rem;
+  }
 }
 
 .wrapper.RTL {
@@ -19,13 +24,13 @@ $sizes: (
   direction: rtl;
 
   li:not(:first-child) {
-    margin-right: $pin-item-margin;
+    // margin-right: $pin-item-margin;
   }
 }
 
 .wrapper:not(.RTL) {
   li:not(:first-child) {
-    margin-left: $pin-item-margin;
+    // margin-left: $pin-item-margin;
   }
 }
 
@@ -42,6 +47,7 @@ $sizes: (
 .input_wrapper {
   @each $key, $val in $sizes {
     &.#{$key} {
+      height: $val;
       width: $val;
     }
   }
