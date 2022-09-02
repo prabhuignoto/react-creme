@@ -48,6 +48,3 @@ jobs:
           webpackStatsFile: ./packages/lib/dist/stats.json
           key: ${{ secrets.RELATIVE_CI_KEY }}
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Percy
-        run: npx pnpm percy
