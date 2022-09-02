@@ -23,6 +23,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npx pnpm install --frozen-lockfile
+      - run: npx pnpm run build-story
 
       - name: Build and upload snapshots to Percy
         run: npx pnpm percy
