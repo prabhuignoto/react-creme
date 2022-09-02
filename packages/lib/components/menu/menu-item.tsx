@@ -1,19 +1,19 @@
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
-import { isDark } from '../common/utils';
 import styles from './menu-item.module.scss';
-
-export interface MenuItemProps {
-  disabled?: boolean;
-  focus?: boolean;
-  handleSelection?: (name: string) => void;
-  isDivider?: boolean;
-  name?: string;
-}
+import { MenuItemProps } from './menu-model';
 
 const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
-  ({ disabled, name, isDivider, handleSelection, focus }) => {
+  ({
+    disabled,
+    name,
+    isDivider,
+    handleSelection,
+    focus,
+    size = 'sm',
+    isDark,
+  }) => {
     const ref = useRef<HTMLLIElement | null>(null);
 
     const onRef = useCallback(
@@ -33,6 +33,17 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
       }
     }, []);
 
+    const menuItemClass = useMemo(
+      () =>
+        classNames(styles.item, {
+          [styles.disabled]: disabled,
+          [styles.divider]: isDivider,
+          [styles.dark]: isDark,
+          [styles[size]]: true,
+        }),
+      [isDark]
+    );
+
     useEffect(() => {
       if (focus) {
         ref.current?.focus();
@@ -41,15 +52,9 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
 
     useFocusNew(ref, handleClick as () => void);
 
-    const isDarkMode = useMemo(() => isDark(), []);
-
     return (
       <li
-        className={classNames(styles.item, {
-          [styles.disabled]: disabled,
-          [styles.divider]: isDivider,
-          [styles.dark]: isDarkMode,
-        })}
+        className={menuItemClass}
         onClick={handleClick}
         ref={onRef}
         role="menuitem"

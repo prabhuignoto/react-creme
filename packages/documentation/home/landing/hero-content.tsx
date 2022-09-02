@@ -21,6 +21,10 @@ const HeroContent = () => {
     [isDarkMode]
   );
 
+  const openGithubLinkOnNewTab = () => {
+    window.open('https://github.com/prabhuignoto/react-creme', '_blank');
+  };
+
   return (
     <div className={styles.content}>
       <div className={styles.left_column}>
@@ -36,7 +40,12 @@ const HeroContent = () => {
             size="lg"
             type="primary"
           ></Button>
-          <Button label="Github" size="lg" style={{ width: '100px' }}>
+          <Button
+            label="Github"
+            size="lg"
+            style={{ width: '100px' }}
+            onClick={openGithubLinkOnNewTab}
+          >
             <FontAwesomeIcon icon={faGithub} size="1x" />
           </Button>
         </div>

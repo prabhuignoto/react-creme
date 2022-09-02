@@ -1,3 +1,4 @@
+import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from '../../lib/components';
 
 export const parameters = {
@@ -13,9 +14,11 @@ export const parameters = {
 export const decorators = [
   Story => (
     <ThemeProvider>
-      <div style={{ margin: '3em' }}>
-        <Story />
-      </div>
+      <RecoilRoot>
+        <div style={{ margin: '3em' }}>
+          <Story />
+        </div>
+      </RecoilRoot>
     </ThemeProvider>
   ),
 ];

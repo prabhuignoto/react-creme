@@ -4,6 +4,9 @@
     "format": {},
     "lint": {},
     "build-lib": {},
+    "percy": {
+      "outputs": ["storybook-static"]
+    },
     "build": {
       "outputs": ["dist/**", "dts/**", "typings/**", "expo_dist"]
     },

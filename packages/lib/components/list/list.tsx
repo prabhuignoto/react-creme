@@ -42,6 +42,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
       virtualized = false,
       selectedIndex = -1,
       size = 'sm',
+      disableBgColor = false,
     }: ListProps,
     ref
   ) => {
@@ -62,6 +63,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
           [styles.list_border]: border,
           [styles.list_search]: enableSearch,
           [styles.dark]: isDarkMode,
+          [styles.disable_bg_color]: disableBgColor,
         }),
       []
     );

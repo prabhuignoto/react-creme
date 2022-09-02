@@ -5,7 +5,7 @@ import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
 import { Button } from '../button/button';
 import { isDark } from '../common/utils';
 import { Menu } from '../menu/menu';
-import { MenuItemProps } from '../menu/menu-item';
+import { MenuItemProps } from '../menu/menu-model';
 import { MenuButtonProps } from './menu-button.model';
 import styles from './menu-button.module.scss';
 

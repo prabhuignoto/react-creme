@@ -16,6 +16,8 @@ export type ListProps = {
   // 🔷 border color of the list
   border?: boolean;
 
+  disableBgColor?: boolean;
+
   // 🔷 enables search
   enableSearch?: boolean;
 

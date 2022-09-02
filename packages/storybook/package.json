@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "build-storybook",
-    "chromatic": "npx chromatic --project-token=571884165efd --allow-console-errors"
+    "build": "build-storybook --quiet",
+    "chromatic": "npx chromatic --project-token=571884165efd --allow-console-errors",
+    "percy": "npx @percy/cli storybook --quiet --config ./.percy.yml ./storybook-static",
+    "ci": "pnpm build"
   },
   "author": "",
   "license": "MIT",
@@ -15,6 +17,8 @@
     "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
+    "@percy/cli": "^1.10.1",
+    "@percy/storybook": "^4.3.3",
     "@storybook/addon-a11y": "^6.5.10",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-docs": "^6.5.10",
@@ -27,7 +31,7 @@
     "@types/node": "^18.7.14",
     "acorn": "^8.8.0",
     "babel-loader": "^8.2.5",
-    "chromatic": "^6.8.0",
+    "chromatic": "^6.8.1",
     "css-loader": "5.2.6",
     "postcss": "^8.4.16",
     "postcss-loader": "7.0.1",

@@ -18,7 +18,8 @@
   z-index: 999;
 
   &.dark {
-    background: theme.$cod-gray;
+    @extend %shadow-medium-dark;
+    background: theme.$raisin-black;
   }
 
   &:not(.dark) {

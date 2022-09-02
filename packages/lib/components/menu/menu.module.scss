@@ -26,7 +26,7 @@
   position: relative;
 
   &.dark {
-    background: theme.$gunmetal-gray;
+    background: theme.$raisin-black;
   }
 
   &:not(.dark) {
@@ -42,14 +42,14 @@
   }
 }
 
-.arrow::after {
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  content: '';
-  display: blocks;
-  position: absolute;
-  top: -8px;
-}
+// .arrow::after {
+//   border-left: 10px solid transparent;
+//   border-right: 10px solid transparent;
+//   content: '';
+//   display: block;
+//   position: absolute;
+//   top: -8px;
+// }
 
 .left {
   &.arrow::after {
