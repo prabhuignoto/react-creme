@@ -1,5 +1,5 @@
+import { MenuItemProps } from '../menu/menu-model';
 import { ReactNode } from 'react';
-import { MenuItemProps } from '../menu/menu-item';
 
 export type MenuBarProps = {
   RTL?: boolean;
