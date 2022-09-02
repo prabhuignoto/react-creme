@@ -5,7 +5,15 @@ import styles from './menu-item.module.scss';
 import { MenuItemProps } from './menu-model';
 
 const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
-  ({ disabled, name, isDivider, handleSelection, focus, size, isDark }) => {
+  ({
+    disabled,
+    name,
+    isDivider,
+    handleSelection,
+    focus,
+    size = 'sm',
+    isDark,
+  }) => {
     const ref = useRef<HTMLLIElement | null>(null);
 
     const onRef = useCallback(
