@@ -14,7 +14,8 @@
   z-index: 999;
 
   &.dark {
-    background: theme.$charcoal-gray;
+    // background: theme.$charcoal-gray;
+    // background: #333333;
   }
 
   &:not(.dark) {

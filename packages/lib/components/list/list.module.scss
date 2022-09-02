@@ -9,6 +9,10 @@
   justify-items: center;
   width: 100%;
 
+  &:not(.disable_bg_color).dark {
+    background: theme.$raisin-black;
+  }
+
   &:not(.list_search) {
     @extend %col;
   }

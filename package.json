@@ -54,7 +54,7 @@
     "react-dom": "^18.2.0",
     "remove-files-webpack-plugin": "^1.5.0",
     "sass": "^1.54.8",
-    "snyk": "^1.995.0",
+    "snyk": "^1.996.0",
     "stylelint": "14.11.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
@@ -62,7 +62,7 @@
     "stylelint-scss": "^4.3.0",
     "thread-loader": "^3.0.4",
     "ts-toolbelt": "^9.6.0",
-    "turbo": "^1.4.3",
+    "turbo": "^1.4.4",
     "typescript": "^4.8.2",
     "webpack": "^5.74.0",
     "webpack-stats-plugin": "^1.1.0"
@@ -83,7 +83,7 @@
     "fix-css": "turbo run fix-css",
     "fix-js": "turbo run fix-js",
     "fix-all": "npx concurrently \"pnpm fix-css\" \"pnpm fix-js\"",
-    "clean": "pnpm fix-css & pnpm fix-js & pnpm format & pnpm lint"
+    "clean": "pnpm fix-all & pnpm format & pnpm lint"
   },
   "repository": {
     "type": "git",

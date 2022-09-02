@@ -41,7 +41,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
           [styles.dark]: isDarkMode,
         },
       ]),
-    [open, isClosing]
+    [open, isClosing, isDarkMode]
   );
 
   useEffect(() => {

@@ -46,7 +46,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
           [styles.dark]: isDarkMode,
           [styles.arrow]: !hideArrow,
         }),
-      []
+      [isDarkMode]
     );
 
     /**
@@ -78,6 +78,8 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
             disabled={disabled}
             handleSelection={onSelection}
             key={id}
+            size={size}
+            isDark={isDarkMode}
             focus={
               focusable
                 ? selection > -1

@@ -150,6 +150,10 @@ $start-left: 4px;
       &.on_load {
         background-color: theme.$primary;
         left: calc(100% - $val - 4px);
+
+        svg {
+          color: theme.$white;
+        }
       }
 
       &.disabled {

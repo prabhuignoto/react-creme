@@ -58,6 +58,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
                 backGroundColor="transparent"
                 label={title}
                 enableSearch={enableSearch}
+                disableBgColor
               ></List>
             );
           })}
