@@ -7,7 +7,7 @@
     "dev": "start-storybook -p 6006",
     "build": "build-storybook",
     "chromatic": "npx chromatic --project-token=571884165efd --allow-console-errors",
-    "percy": "npx percy storybook --config --quiet ./.percy.yml ./storybook-static",
+    "percy": "npx percy storybook --quiet --config ./.percy.yml ./storybook-static",
     "ci": "pnpm build"
   },
   "author": "",
