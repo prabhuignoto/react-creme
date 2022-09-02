@@ -6,8 +6,6 @@ name: Node.js CI
 on:
   push:
     branches: [master]
-  pull_request:
-    branches: [master]
 
 jobs:
   percy:
@@ -20,6 +18,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npx pnpm install --frozen-lockfile
 
       - name: Build and upload snapshots to Percy
         run: npx pnpm percy
