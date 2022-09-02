@@ -4,6 +4,7 @@
     "format": {},
     "lint": {},
     "build-lib": {},
+    "build-story": {},
     "percy": {
       "outputs": ["storybook-static"]
     },

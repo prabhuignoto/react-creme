@@ -84,7 +84,8 @@
     "fix-js": "turbo run fix-js",
     "fix-all": "npx concurrently \"pnpm fix-css\" \"pnpm fix-js\"",
     "clean": "pnpm fix-all & pnpm format & pnpm lint",
-    "percy": "turbo run percy"
+    "percy": "turbo run percy",
+    "build-story": "turbo run build-story"
   },
   "repository": {
     "type": "git",
