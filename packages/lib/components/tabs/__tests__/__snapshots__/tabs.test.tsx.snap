@@ -2,20 +2,20 @@
 
 exports[`Tabs > should render snapshot 1`] = `
 <div
-  class="_tab_headers_10lhs_42 _flat_10lhs_96"
+  class="_tab_headers_nyod1_42 _flat_nyod1_96"
   role="tablist"
 >
   <div
-    aria-controls="rc-tab-panel-LDQeRO_cvURAlO7RLP2zs"
+    aria-controls="rc-tab-panel-YZZGAqhm8F4aNdNMcSZpl"
     aria-selected="true"
-    class="_tab_head_10lhs_1 _tab_head_selected_10lhs_168 _tab_head_flat_10lhs_165 _tab_head_sm_10lhs_5"
-    id="rc-tab-LDQeRO_cvURAlO7RLP2zs"
+    class="_tab_head_nyod1_1 _tab_head_selected_nyod1_168 _tab_head_flat_nyod1_165 _tab_head_sm_nyod1_5"
+    id="rc-tab-YZZGAqhm8F4aNdNMcSZpl"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="0"
   >
     <span
-      class="_tab_header_label_10lhs_5 undefined"
+      class="_tab_header_label_nyod1_5 undefined"
     >
       one
     </span>
@@ -25,16 +25,16 @@ exports[`Tabs > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-FsQgTz1uQXpZGUSkhW4LV"
+    aria-controls="rc-tab-panel-n6LzCjAEEFZpuDzKqmhgV"
     aria-selected="false"
-    class="_tab_head_10lhs_1 _tab_head_flat_10lhs_165 _tab_head_sm_10lhs_5"
-    id="rc-tab-FsQgTz1uQXpZGUSkhW4LV"
+    class="_tab_head_nyod1_1 _tab_head_flat_nyod1_165 _tab_head_sm_nyod1_5"
+    id="rc-tab-n6LzCjAEEFZpuDzKqmhgV"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
   >
     <span
-      class="_tab_header_label_10lhs_5 undefined"
+      class="_tab_header_label_nyod1_5 undefined"
     >
       two
     </span>
@@ -44,16 +44,16 @@ exports[`Tabs > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-eK0z5oX7Yxj1ZUpjCpk3B"
+    aria-controls="rc-tab-panel-yTDY4_dBuUpmt9sjoqcQi"
     aria-selected="false"
-    class="_tab_head_10lhs_1 _tab_head_flat_10lhs_165 _tab_head_sm_10lhs_5"
-    id="rc-tab-eK0z5oX7Yxj1ZUpjCpk3B"
+    class="_tab_head_nyod1_1 _tab_head_flat_nyod1_165 _tab_head_sm_nyod1_5"
+    id="rc-tab-yTDY4_dBuUpmt9sjoqcQi"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
   >
     <span
-      class="_tab_header_label_10lhs_5 undefined"
+      class="_tab_header_label_nyod1_5 undefined"
     >
       three
     </span>
