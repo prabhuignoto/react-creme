@@ -38,13 +38,13 @@ const Card: React.FunctionComponent<CardProps> = ({
 
   const cardHeaderClass = useMemo(() => {
     return classNames(styles.header, {
-      [styles[`card-align-${alignHeader}`]]: true,
+      [styles[`align_${alignHeader}`]]: true,
     });
   }, []);
 
   const cardFooterClass = useMemo(() => {
     return classNames(styles.footer, {
-      [styles[`card-align-${alignFooter}`]]: true,
+      [styles[`align_${alignFooter}`]]: true,
     });
   }, []);
 

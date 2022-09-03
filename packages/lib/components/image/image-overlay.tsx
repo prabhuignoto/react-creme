@@ -10,6 +10,7 @@ const ImageOverlayComponent: React.FunctionComponent<ImageOverlayProps> = ({
   isClosing,
   height = 0,
   width = 0,
+  loaderSize = 'sm',
 }) => {
   const [docWidth, docHeight] = [
     Math.round(document.body.clientWidth * 0.9),
@@ -36,6 +37,7 @@ const ImageOverlayComponent: React.FunctionComponent<ImageOverlayProps> = ({
         width={Math.min(docWidth, width)}
         height={Math.min(docHeight, height)}
         isOverlay
+        loaderSize={loaderSize}
       />
     </div>
   );

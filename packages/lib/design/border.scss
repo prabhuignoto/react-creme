@@ -22,7 +22,7 @@
   @extend %border-radius;
 
   &.dark {
-    border: 1px solid rgba(theme.$charcoal-gray, 1);
+    border: 1px solid rgba(theme.$gunmetal-gray, 1);
   }
 
   &:not(.dark) {

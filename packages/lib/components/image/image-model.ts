@@ -3,6 +3,7 @@ import React from 'react';
 
 export interface ImageOverlayProps extends OverlayModel<null> {
   height?: number;
+  loaderSize?: 'sm' | 'md' | 'lg';
   src: string;
   width?: number;
 }

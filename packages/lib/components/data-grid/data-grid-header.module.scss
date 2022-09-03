@@ -9,7 +9,7 @@ $dark-mode: theme.$dark_mode;
   color: theme.$black;
   height: 100%;
   text-transform: capitalize;
-  width: calc(100% - 1px);
+  width: calc(100% - 0px);
 
   &.dark {
     background: rgba(theme.$charcoal-gray, 0.5);
@@ -19,9 +19,6 @@ $dark-mode: theme.$dark_mode;
     background: rgba(theme.$secondary-rgb, 0.5);
   }
 
-  // &:not(:last-child) {
-  // }
-
   &:not(.searchable):first-child {
     border-top-left-radius: 4px;
   }
@@ -29,10 +26,6 @@ $dark-mode: theme.$dark_mode;
   &:not(.searchable):last-child {
     border-top-right-radius: 4px;
   }
-
-  // &:last-child {
-  // width: calc(100% - 1px);
-  // }
 
   .cell_val {
     font-weight: 500;
