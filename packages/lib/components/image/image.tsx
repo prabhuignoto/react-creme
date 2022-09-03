@@ -179,6 +179,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
           width={imageNaturalDimension.current?.width}
           height={imageNaturalDimension.current?.height}
           showClose
+          loaderSize={loaderSize}
         />
       )}
     </div>

@@ -1,5 +1,14 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use 'sass:map';
+
+$sizes: (sm, md, lg);
+
+$header-heights: (
+  sm: 30px,
+  md: 35px,
+  lg: 40px,
+);
 
 .wrapper {
   @extend %col;
@@ -11,7 +20,7 @@
   width: 100%;
 
   &.dark {
-    background: theme.$gunmetal-gray;
+    background: theme.$raisin-black;
   }
 
   &:not(.dark) {
@@ -34,7 +43,7 @@
 
 .header {
   @extend %left;
-  border-bottom: 1px solid theme.$gray;
+  border-bottom: 1px solid rgba(theme.$secondary-rgb, 0.5);
   height: 100%;
   width: 95%;
 
@@ -49,14 +58,14 @@
 
 .body {
   @extend %center;
-  height: 95%;
+  height: calc(100% - 2rem);
   padding: 1rem;
-  width: 95%;
+  width: calc(100% - 2rem);
 }
 
 .footer {
   @extend %left;
-  border-top: 1px solid theme.$gray;
+  border-top: 1px solid rgba(theme.$secondary-rgb, 0.5);
   height: 100%;
   margin-top: auto;
   width: 95%;

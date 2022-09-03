@@ -22,13 +22,14 @@
     "outDir": "./dist",
     // "rootDir": ".",
     "rootDirs": ["./components", "./design", "./icons"],
-    "types": [
-      "react",
-      "react-dom",
-      "jest",
-      "node",
-      "@testing-library/jest-dom"
-    ],
+    // "types": [
+    //   "react",
+    //   "react-dom",
+    //   "jest",
+    //   "node",
+    //   "vite/client",
+    //   "@testing-library/jest-dom"
+    // ],
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./components/*"],
@@ -40,7 +41,7 @@
       }
     ]
   },
-  "include": ["./components", "Globals.d.ts", "react-creme.ts"],
+  "include": ["./components/**/*.tsx", "Globals.d.ts", "react-creme.ts"],
   "exclude": ["node_modules", "dist"],
   "files": ["react-creme.ts"]
 }

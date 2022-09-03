@@ -7,7 +7,7 @@ const Header = () => {
   const theme = useRecoilValue(themeState);
   const isDark = useMemo(() => theme.darkMode, [theme]);
 
-  return <h2 style={{ color: isDark ? '#fff' : '#000' }}>header</h2>;
+  return <span style={{ color: isDark ? '#fff' : '#000' }}>header</span>;
 };
 const Footer = () => {
   const theme = useRecoilValue(themeState);
@@ -19,14 +19,8 @@ const Footer = () => {
 };
 
 export const Default = (
-  <Card alignHeader="left" header={<Header />} footer={<Footer />} height={250}>
-    <Skeleton
-      animate
-      rowHeight={7}
-      rows={6}
-      style={{ marginTop: '1rem' }}
-      showCircle
-    ></Skeleton>
+  <Card alignHeader="left" header={<Header />} footer={<Footer />} height={350}>
+    <Skeleton animate rowHeight={7} rows={6} showCircle></Skeleton>
   </Card>
 );
 

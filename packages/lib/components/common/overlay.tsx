@@ -9,11 +9,11 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
 import { useDebouncedCallback } from 'use-debounce';
 import { OverlayProps } from './overlay-model';
 import './overlay.scss';
 import { OverlayContext, OverlayContextModel } from './withOverlay';
-import ResizeObserver from 'resize-observer-polyfill';
 
 const Overlay: React.FunctionComponent<OverlayProps> = ({
   backdropColor = 'rgba(0, 0, 0, 0.5)',
@@ -152,9 +152,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   /**
    * Synchronizes the position of the overlay content with the scroll position
    */
-  const handleWindowScroll = useCallback(
+  const handleWindowScroll = useDebouncedCallback(
     () => setRetriggerStyleCal(new Date().getTime()),
-    []
+    10
   );
 
   // onMount process
