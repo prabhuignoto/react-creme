@@ -3,33 +3,33 @@
 exports[`Breadcrumb > should render snapshot 1`] = `
 <ul
   aria-label="breadcrumbs"
-  class="_bread_crumbs_wrapper_1a3sh_42"
+  class="_bread_crumbs_wrapper_6647d9"
   role="navigation"
 >
   <li
-    class="_bread_crumb_1a3sh_1"
+    class="_bread_crumb_6647d9"
   >
     <span
-      class="_bread_crumb_node_1a3sh_1 _bread_crumb_node_sm_1a3sh_5"
+      class="_bread_crumb_node_6647d9 _bread_crumb_node_sm_6647d9"
     >
       <a
-        class="_link_17m9z_1 _sm_17m9z_19 _highlight_17m9z_82"
+        class="_link_dd7717 _sm_dd7717 _highlight_dd7717"
         style="outline: none; position: relative;"
         tabindex="0"
       >
         <span
-          class="_text_17m9z_19"
+          class="_text_dd7717"
         >
           google
         </span>
         <span
-          class="_focus_ring_4fy2t_1"
+          class="_focus_ring_4c7b07"
           style="width: 6px; height: 6px;"
         />
       </a>
     </span>
     <span
-      class="_bread_crumb_icon_1a3sh_17 _bread_crumb_icon_sm_1a3sh_17"
+      class="_bread_crumb_icon_6647d9 _bread_crumb_icon_sm_6647d9"
     >
       <svg
         fill="none"
@@ -47,29 +47,29 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     </span>
   </li>
   <li
-    class="_bread_crumb_1a3sh_1"
+    class="_bread_crumb_6647d9"
   >
     <span
-      class="_bread_crumb_node_1a3sh_1 _bread_crumb_node_sm_1a3sh_5"
+      class="_bread_crumb_node_6647d9 _bread_crumb_node_sm_6647d9"
     >
       <a
-        class="_link_17m9z_1 _sm_17m9z_19"
+        class="_link_dd7717 _sm_dd7717"
         style="outline: none; position: relative;"
         tabindex="0"
       >
         <span
-          class="_text_17m9z_19"
+          class="_text_dd7717"
         >
           yahoo
         </span>
         <span
-          class="_focus_ring_4fy2t_1"
+          class="_focus_ring_4c7b07"
           style="width: 6px; height: 6px;"
         />
       </a>
     </span>
     <span
-      class="_bread_crumb_icon_1a3sh_17 _bread_crumb_icon_sm_1a3sh_17"
+      class="_bread_crumb_icon_6647d9 _bread_crumb_icon_sm_6647d9"
     >
       <svg
         fill="none"
@@ -87,23 +87,23 @@ exports[`Breadcrumb > should render snapshot 1`] = `
     </span>
   </li>
   <li
-    class="_bread_crumb_1a3sh_1"
+    class="_bread_crumb_6647d9"
   >
     <span
-      class="_bread_crumb_node_1a3sh_1 _bread_crumb_node_sm_1a3sh_5"
+      class="_bread_crumb_node_6647d9 _bread_crumb_node_sm_6647d9"
     >
       <a
-        class="_link_17m9z_1 _sm_17m9z_19"
+        class="_link_dd7717 _sm_dd7717"
         style="outline: none; position: relative;"
         tabindex="0"
       >
         <span
-          class="_text_17m9z_19"
+          class="_text_dd7717"
         >
           amazon
         </span>
         <span
-          class="_focus_ring_4fy2t_1"
+          class="_focus_ring_4c7b07"
           style="width: 6px; height: 6px;"
         />
       </a>

@@ -2,19 +2,19 @@
 
 exports[`Accordion > should render snapshot 1`] = `
 <div
-  class="_accordion_ijvkp_1 _no-border_ijvkp_1"
+  class="_accordion_f93c7f _no-border_f93c7f"
 >
   <div
-    aria-controls="accordion-body-39csppBA7PZD31L1Rvz2n"
+    aria-controls="accordion-body-za9MQ83HYlqQrXrLjXwv2"
     aria-expanded="false"
-    class="_header_1jffa_1 undefined"
-    id="accordion-d5dCTfIlxkBbAK3jS0Zae"
+    class="_header_c2ceb5 _focusable_c2ceb5"
+    id="accordion-NpD_zkOtI9jl0ZD7WdqEu"
     role="button"
     style="--rc-accordion-header-height: 35px; outline: none; position: relative;"
     tabindex="0"
   >
     <span
-      class="_icon_1jffa_29 undefined _icon-sm_1jffa_29"
+      class="_icon_c2ceb5 _icon-chevron_c2ceb5 _icon-sm_c2ceb5"
       role="img"
     >
       <svg
@@ -32,17 +32,17 @@ exports[`Accordion > should render snapshot 1`] = `
       </svg>
     </span>
     <span
-      class="_title_1jffa_5 _title_sm_1jffa_5"
+      class="_title_c2ceb5 _title_sm_c2ceb5"
     />
     <span
-      class="_focus_ring_4fy2t_1"
+      class="_focus_ring_4c7b07"
       style="width: 6px; height: 6px;"
     />
   </div>
   <div
-    aria-labelledby="accordion-d5dCTfIlxkBbAK3jS0Zae"
-    class="_body_ijvkp_29 _animate_ijvkp_34 _close_ijvkp_41"
-    id="accordion-body-39csppBA7PZD31L1Rvz2n"
+    aria-labelledby="accordion-NpD_zkOtI9jl0ZD7WdqEu"
+    class="_body_f93c7f _animate_f93c7f _close_f93c7f"
+    id="accordion-body-za9MQ83HYlqQrXrLjXwv2"
     style="--title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
   >
     <div

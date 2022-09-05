@@ -85,10 +85,10 @@
       $slide-settings: $slide-right-settings;
     }
 
-    @include animate.set-keyframes(slide-#{$position}-enter, $slide-settings);
+    @include animate.set-keyframes(slide_#{$position}_enter, $slide-settings);
 
     @include animate.set-keyframes(
-      slide-#{$position}-exit,
+      slide_#{$position}_exit,
       $slide-settings,
       true
     );
@@ -101,13 +101,13 @@
       }
     }
 
-    &.slide-#{$position}-enter {
-      animation-name: slide-#{$position}-enter;
+    &.slide_#{$position}_enter {
+      animation-name: slide_#{$position}_enter;
       #{$position}: 0;
     }
 
-    &.slide-#{$position}-exit {
-      animation-name: slide-#{$position}-exit;
+    &.slide_#{$position}_exit {
+      animation-name: slide_#{$position}_exit;
 
       @if $position == left or $position == right {
         #{$position}: util.negative($min-width);
