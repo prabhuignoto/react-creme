@@ -56,7 +56,7 @@ jobs:
       - name: snyk
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: npx pnpm snyk
+        run: npm run snyk
 
   codecov:
     runs-on: ubuntu-latest
