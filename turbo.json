@@ -3,8 +3,9 @@
   "pipeline": {
     "format": {},
     "lint": {},
-    "build-lib": {},
-    "build-story": {},
+    "build:lib": {},
+    "build:doc": {},
+    "build:story": {},
     "percy": {
       "outputs": ["storybook-static"]
     },

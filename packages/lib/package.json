@@ -34,7 +34,7 @@
     "test": "vitest --config ./vitest.config.dev.ts --ui",
     "test:quiet": "vitest --config ./vitest.config.dev.ts --silent --run",
     "emit": "tsc -p ./tsconfig.json --emitDeclarationOnly",
-    "build-lib": "pnpm build"
+    "build:lib": "pnpm build"
   },
   "dependencies": {
     "classnames": "^2.3.1",
