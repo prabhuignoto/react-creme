@@ -1,18 +1,18 @@
-import { BlockQuote, PageHeader, Section } from '../../../lib/components';
+import { PageHeader, Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section>
+      <Section size="md">
         <DemoWidget name="PageHeader" fullWidth>
           <PageHeader title="Page Header" />
         </DemoWidget>
       </Section>
-      <Section>
-        <BlockQuote>
+      <Section size="md">
+        <Text>
           use the <code>RTL</code> prop to support right to left languages.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="PageHeader" fullWidth>
           <PageHeader title="Page Header (Right to Left)" RTL>
             This is a test content

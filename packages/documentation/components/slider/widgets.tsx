@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -36,47 +36,45 @@ const Widgets = () => {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Default Render">
+      <Section size="md" title="Default Render">
         <DemoWidget name="Slider" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Positioning the Tooltip">
-        <BlockQuote>
+      <Section size="md" title="Positioning the Tooltip">
+        <Text>
           The tooltip can be positioned to either <code>top</code> or{' '}
           <code>bottom</code>. The Example here shows the tooltip positioned to
           the bottom of the slider.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Slider" width={width}>
           {CustomTooltipPosition}
         </DemoWidget>
       </Section>
-      <Section title="Preselected Value">
+      <Section size="md" title="Preselected Value">
         <DemoWidget name="Slider" width={width}>
           {PreSelected}
         </DemoWidget>
       </Section>
-      <Section title="Show Tooltip on Hover">
-        <BlockQuote>
+      <Section size="md" title="Show Tooltip on Hover">
+        <Text>
           With the <code>showTooltipOnHover</code>, the tooltip will be
           displayed only when the user hovers over the slider control.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Slider" width={width}>
           {TooltipOnHover}
         </DemoWidget>
       </Section>
-      <Section title="Formatted value">
-        <BlockQuote>
-          The slider can also display the value in a formatted way.
-        </BlockQuote>
+      <Section size="md" title="Formatted value">
+        <Text>The slider can also display the value in a formatted way.</Text>
         <DemoWidget name="Slider" width={width}>
           {TooltipFormatted}
         </DemoWidget>
       </Section>
-      <Section title="Disabled state">
-        <BlockQuote>
+      <Section size="md" title="Disabled state">
+        <Text>
           The slide can be disabled via the <code>disabled</code> prop.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Slider" width={width}>
           {Disabled}
         </DemoWidget>

@@ -1,0 +1,42 @@
+@use '@design/core.scss';
+@use '@design/theme.scss';
+
+$sizes: (sm, md, lg);
+
+.container {
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %text-#{$size};
+
+      em,
+      code {
+        @extend %text-#{$size};
+      }
+    }
+  }
+
+  &.dark {
+    color: #fff;
+  }
+
+  &:not(:dark) {
+    color: #000;
+  }
+
+  &.RTL {
+    @extend %right;
+  }
+
+  &:not(.RTL) {
+    @extend %left;
+  }
+
+  em,
+  code {
+    @extend %border-radius;
+    background: theme.$secondary;
+    display: inline-block;
+    margin: 0 0.25rem;
+    padding: 0.2rem 0.25rem;
+  }
+}

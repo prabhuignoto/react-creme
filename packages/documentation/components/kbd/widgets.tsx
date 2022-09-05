@@ -1,4 +1,4 @@
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import {
   ButtonRaisedRight,
@@ -13,36 +13,36 @@ import {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default rendering">
+      <Section size="md" title="Default rendering">
         <DemoWidget name="Kbd">{Default}</DemoWidget>
       </Section>
-      <Section title="Keyboard combinations">
-        <BlockQuote>
+      <Section size="md" title="Keyboard combinations">
+        <Text>
           Keyboard combinations allows you to render a combination of keys.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Kbd">{WithCombination}</DemoWidget>
       </Section>
-      <Section title="Custom sizes">
-        <BlockQuote>
+      <Section size="md" title="Custom sizes">
+        <Text>
           Three sizes are available: <code>sm</code>, <code>md</code>, and{' '}
           <code>lg</code>
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Kbd">{smallSized}</DemoWidget>
         <DemoWidget name="Kbd">{mediumSized}</DemoWidget>
         <DemoWidget name="Kbd">{largeSized}</DemoWidget>
       </Section>
-      <Section title="Button raised direction">
-        <BlockQuote>
+      <Section size="md" title="Button raised direction">
+        <Text>
           The element is raised to the right by default. This can be changed via
           the <code>buttonRaised</code> prop.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Kbd">{ButtonRaisedRight}</DemoWidget>
       </Section>
-      <Section title="Keyboard Thickness">
-        <BlockQuote>
+      <Section size="md" title="Keyboard Thickness">
+        <Text>
           Customize the thickness of the keyboard with the{' '}
           <code>thickness</code> prop.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Kbd">{Thickness}</DemoWidget>
       </Section>
     </div>

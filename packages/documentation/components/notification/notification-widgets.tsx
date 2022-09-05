@@ -1,11 +1,11 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import {
-  BlockQuote,
   Button,
   Dropdown,
   Notification,
   Section,
+  Text,
 } from '../../../lib/components';
 import { NotificationPosition } from '../../../lib/components/notification/notification-model';
 import { responsiveState } from '../../atoms/home';
@@ -41,10 +41,10 @@ const Widgets = () => {
   const [position, setPosition] = useState<NotificationPosition>('top-left');
   return width ? (
     <div className="rc-demo-widgets">
-      <Section>
-        <BlockQuote>
+      <Section size="md">
+        <Text>
           The notification can be positioned in different places on the screen.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Notification" width={300}>
           <Dropdown
             maxMenuHeight={300}
@@ -99,20 +99,20 @@ const Widgets = () => {
           <span>test</span>
         </Notification>
       )}
-      <Section title="Notification - Default">
-        <BlockQuote>
+      <Section size="md" title="Notification - Default">
+        <Text>
           By default the notification is positioned at the top-left corner of
           the screen relative to the page.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Notification" width={150}>
           <Button label="Open Notification" onClick={() => setShow2(true)} />
         </DemoWidget>
       </Section>
-      <Section title="Notification - Contained Mode">
-        <BlockQuote>
+      <Section size="md" title="Notification - Contained Mode">
+        <Text>
           In this example the notification is positioned relative to the parent
           element.
-        </BlockQuote>
+        </Text>
         <div
           className="rc-demo-widget"
           style={{
@@ -129,11 +129,11 @@ const Widgets = () => {
           />
         </div>
       </Section>
-      <Section title="Notification - Auto Close">
-        <BlockQuote>
+      <Section size="md" title="Notification - Auto Close">
+        <Text>
           The notification can be closed automatically after a certain time
           using the autoClose property.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Notification" width={150}>
           <Button label="Open Notification" onClick={() => setShow3(true)} />
         </DemoWidget>

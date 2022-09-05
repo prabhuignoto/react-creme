@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from 'react';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
 import {
@@ -35,11 +35,11 @@ function Widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Informational Text">
-        <BlockQuote>
+      <Section size="md" title="Informational Text">
+        <Text>
           Alerts can be closed or dismissed by default. Use the{' '}
           <code>canDismiss</code> prop to change this behavior.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Alert" width={width}>
           {Information}
         </DemoWidget>
@@ -47,22 +47,22 @@ function Widgets() {
           {Dismiss}
         </DemoWidget>
       </Section>
-      <Section title="Success Message">
+      <Section size="md" title="Success Message">
         <DemoWidget name="Alert" width={width}>
           {Success}
         </DemoWidget>
       </Section>
-      <Section title="Warning Message">
+      <Section size="md" title="Warning Message">
         <DemoWidget name="Alert" width={width}>
           {Warning}
         </DemoWidget>
       </Section>
-      <Section title="Error Message">
+      <Section size="md" title="Error Message">
         <DemoWidget name="Alert" width={width}>
           {Error}
         </DemoWidget>
       </Section>
-      <Section title="Render Custom content">
+      <Section size="md" title="Render Custom content">
         <DemoWidget name="Alert" width={width}>
           {Custom}
         </DemoWidget>

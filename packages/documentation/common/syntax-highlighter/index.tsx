@@ -70,7 +70,7 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
         lineProps={{
           style: { whiteSpace: 'pre-wrap', wordBreak: 'break-all' },
         }}
-        // wrapLongLines
+        wrapLongLines
         wrapLines
       >
         {codeString}

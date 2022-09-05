@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { Border, Default, LargeSize, MediumSize, RTL } from './widget-variants';
@@ -29,35 +29,35 @@ function Widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="InputNumber" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Border">
-        <BlockQuote>
+      <Section size="md" title="Border">
+        <Text>
           The outlook of the Input Number component can be changed via the{' '}
           <code>border</code> prop.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="InputNumber" width={width}>
           {Border}
         </DemoWidget>
       </Section>
-      <Section title="RTL">
-        <BlockQuote>
+      <Section size="md" title="RTL">
+        <Text>
           with the <code>RTL</code> prop, the Input Number component will be
           rendered in RTL mode.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="InputNumber" width={width}>
           {RTL}
         </DemoWidget>
       </Section>
-      <Section title="Sizes">
-        <BlockQuote>
+      <Section size="md" title="Sizes">
+        <Text>
           The component supports 3 different sizes: <code>sm</code>,{' '}
           <code>md</code> and <code>lg</code>. Use the theme provider to
           customize the sizes.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="InputNumber" width={width}>
           {Border}
         </DemoWidget>

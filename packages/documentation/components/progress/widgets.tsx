@@ -1,10 +1,10 @@
 import { useTimer } from 'use-timer';
 import {
-  BlockQuote,
   Button,
   CircularProgress,
   Progress,
   Section,
+  Text,
 } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 
@@ -16,7 +16,7 @@ const Widgets: React.FunctionComponent = () => {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default rendering">
+      <Section size="md" title="Default rendering">
         <div className="rc-demo-widget" style={{ marginBottom: '1rem' }}>
           <div style={{ margin: '0 1rem' }}>
             <Button onClick={start} label="Start"></Button>
@@ -47,10 +47,8 @@ const Widgets: React.FunctionComponent = () => {
           />
         </DemoWidget>
       </Section>
-      <Section title="States">
-        <BlockQuote>
-          The progress bar can be in a success or error state.
-        </BlockQuote>
+      <Section size="md" title="States">
+        <Text>The progress bar can be in a success or error state.</Text>
         <DemoWidget name="Progress">
           <Progress
             type="determinate"
@@ -73,31 +71,27 @@ const Widgets: React.FunctionComponent = () => {
           />
         </DemoWidget>
       </Section>
-      <Section title="Indeterminate progress">
-        <BlockQuote>
-          Useful for operations that take a long time to complete.
-        </BlockQuote>
+      <Section size="md" title="Indeterminate progress">
+        <Text>Useful for operations that take a long time to complete.</Text>
         <DemoWidget name="Progress">
           <Progress type="indeterminate" showProgressValue size="sm" />
         </DemoWidget>
       </Section>
-      <Section title="Indeterminate Progress - Bob">
-        <BlockQuote>Infinite progress with a bob animation</BlockQuote>
+      <Section size="md" title="Indeterminate Progress - Bob">
+        <Text>Infinite progress with a bob animation</Text>
         <DemoWidget name="Progress">
           <Progress type="indeterminate" size="md" indeterminateStyle="bob" />
         </DemoWidget>
       </Section>
-      <Section title="Circular Progress">
-        <BlockQuote>
-          Infinite progress is also available in circular mode.
-        </BlockQuote>
+      <Section size="md" title="Circular Progress">
+        <Text>Infinite progress is also available in circular mode.</Text>
         <DemoWidget name="Progress">
           <div style={{ margin: '0 0.5rem' }}>
             <CircularProgress size={'md'} />
           </div>
         </DemoWidget>
       </Section>
-      {/* <Section title="Circular Progress - Double ring" >
+      {/* <Section size="md"  title="Circular Progress - Double ring" >
         <div className="rc-demo-widget">
           <CircularProgress size={40} style="double-ring" />
         </div>

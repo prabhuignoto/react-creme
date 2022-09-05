@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { Default, Searchable } from './widget-variants';
@@ -27,16 +27,16 @@ function widgets() {
   }, [media]);
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
-        <BlockQuote>Sections are collapsible by default.</BlockQuote>
+      <Section size="md" title="Default render">
+        <Text>Sections are collapsible by default.</Text>
         <DemoWidget name="Sidebar" width={width} height={400}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Search">
-        <BlockQuote>
+      <Section size="md" title="Search">
+        <Text>
           Can optionally include a search bar for filtering the sidebar.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Sidebar" width={width} height={400}>
           {Searchable}
         </DemoWidget>

@@ -1,4 +1,4 @@
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import {
   Default,
@@ -12,45 +12,45 @@ import {
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="Button" width={80}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Icon">
-        <BlockQuote>Insert a custom icon to the button.</BlockQuote>
+      <Section size="md" title="Icon">
+        <Text>Insert a custom icon to the button.</Text>
         <DemoWidget name="Button" width={150}>
           {Icon}
         </DemoWidget>
       </Section>
-      <Section title="Loading state">
-        <BlockQuote>
+      <Section size="md" title="Loading state">
+        <Text>
           Use the <code>type</code> property to change the button to a loading
           state.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Button" width={120}>
           {SearchingState}
         </DemoWidget>
       </Section>
-      <Section title="Disabled">
-        <BlockQuote>Buttons can be disabled</BlockQuote>
+      <Section size="md" title="Disabled">
+        <Text>Buttons can be disabled</Text>
         <DemoWidget name="Button" width={120}>
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section title="Medium sized button">
-        <BlockQuote>
+      <Section size="md" title="Medium sized button">
+        <Text>
           Customize the size of the button by using the <code>size</code> prop
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Button" width={130}>
           {Medium}
         </DemoWidget>
       </Section>
-      <Section title="Button with State (Extra large)">
-        <BlockQuote>
+      <Section size="md" title="Button with State (Extra large)">
+        <Text>
           Buttons can be in different states. Example shows button in{' '}
           <code>danger</code> state
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Button" width={150}>
           {Large}
         </DemoWidget>

@@ -1,4 +1,4 @@
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import {
   CustomStyle,
@@ -12,38 +12,38 @@ import {
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="CheckBox" width={220}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Disabled State">
-        <BlockQuote>
+      <Section size="md" title="Disabled State">
+        <Text>
           Use the <code>disabled</code> prop to disable the checkbox.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="CheckBox" width={200}>
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section title="Large size">
-        <BlockQuote>
+      <Section size="md" title="Large size">
+        <Text>
           The size of the checkbox can be customized. Supports three sizes:
           small, medium, large.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="CheckBox" width={200}>
           {Large}
         </DemoWidget>
       </Section>
-      <Section title="Custom Checkbox style">
-        <BlockQuote>
+      <Section size="md" title="Custom Checkbox style">
+        <Text>
           Change the outlook of the Checkbox via the <code>checkBoxStyle</code>{' '}
           prop.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="CheckBox" width={150}>
           {CustomStyle}
         </DemoWidget>
       </Section>
-      <Section title="All Sizes">
+      <Section size="md" title="All Sizes">
         <DemoWidget name="CheckBox" width={200}>
           {CustomStyle}
         </DemoWidget>

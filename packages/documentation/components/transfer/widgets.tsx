@@ -29,17 +29,17 @@ function widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="Transfer" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Search">
+      <Section size="md" title="Search">
         <DemoWidget name="Transfer" width={width}>
           {Searchable}
         </DemoWidget>
       </Section>
-      <Section title="RTL">
+      <Section size="md" title="RTL">
         <DemoWidget name="Transfer" width={width}>
           {RTL}
         </DemoWidget>

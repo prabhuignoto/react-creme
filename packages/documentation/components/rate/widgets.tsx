@@ -1,4 +1,4 @@
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import {
   CustomIcon,
@@ -12,43 +12,43 @@ import {
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Rating default">
+      <Section size="md" title="Rating default">
         <DemoWidget name="Rate" width={200}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Custom icon count">
-        <BlockQuote>
+      <Section size="md" title="Custom icon count">
+        <Text>
           Use the <code>iconCount</code> prop to customize the number of icons.
           The example renders the component with 3 icons.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Rate" width={200}>
           {CustomIconCount}
         </DemoWidget>
       </Section>
-      <Section title="Custom Icon">
-        <BlockQuote>
+      <Section size="md" title="Custom Icon">
+        <Text>
           Customize the icon with the <code>icon</code> prop.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Rate" width={200}>
           {CustomIcon}
         </DemoWidget>
       </Section>
-      <Section title="Custom size">
-        <BlockQuote>
+      <Section size="md" title="Custom size">
+        <Text>
           Choose a custom size with the <code>size</code> prop. The prop value
           can be <code>sm</code>, <code>md</code> or <code>lg</code>.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Rate" width={200}>
           {CustomSize}
         </DemoWidget>
       </Section>
-      <Section title="Disabled state">
+      <Section size="md" title="Disabled state">
         <DemoWidget name="Rate" width={200}>
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section title="RTL">
+      <Section size="md" title="RTL">
         <DemoWidget name="Rate" width={200}>
           {RTL}
         </DemoWidget>

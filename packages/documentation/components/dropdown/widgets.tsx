@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -34,41 +34,39 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section title="Single selection">
+      <Section size="md" title="Single selection">
         <DemoWidget name="Dropdown" width={width}>
           {SingleSelection}
         </DemoWidget>
       </Section>
-      <Section title="Multi selection">
-        <BlockQuote>
-          With multi selection, you can select multiple options.
-        </BlockQuote>
+      <Section size="md" title="Multi selection">
+        <Text>With multi selection, you can select multiple options.</Text>
         <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
           {MultiSelection}
         </DemoWidget>
       </Section>
-      <Section title="Search">
-        <BlockQuote>
+      <Section size="md" title="Search">
+        <Text>
           Available options can be filtered by typing in the search box.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
           {Searchable}
         </DemoWidget>
       </Section>
-      <Section title="Virtualized">
-        <BlockQuote>
+      <Section size="md" title="Virtualized">
+        <Text>
           With virtualized, the options are rendered only when they are in the
           viewport of the menu.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
           {Virtualized}
         </DemoWidget>
       </Section>
-      <Section title="RTL">
-        <BlockQuote>
+      <Section size="md" title="RTL">
+        <Text>
           With virtualized, the options are rendered only when they are in the
           viewport of the menu.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Dropdown" width={width}>
           {RTL}
         </DemoWidget>

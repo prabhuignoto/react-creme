@@ -49,6 +49,7 @@ export { Splitter } from './splitter/splitter';
 export { Switch } from './switch/switch';
 export { Tabs } from './tabs/tabs';
 export { Tags } from './tags/tags';
+export { Text } from './text/text';
 export { Tooltip } from './tooltip/tooltip';
 export { Transfer } from './transfer/transfer';
 export { Tree } from './tree/tree';

@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Carousel, Image, Section } from '../../../lib/components';
+import { Carousel, Image, Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { Horizontal, Vertical } from './widget-variants';
@@ -31,28 +31,28 @@ function widgets() {
 
   return width ? (
     <div className="rc-demo-widgets" style={{ minHeight: '1000px' }}>
-      <Section title="Horizontal layout">
-        <BlockQuote>
+      <Section size="md" title="Horizontal layout">
+        <Text>
           Renders the items in a horizontal layout with navigation controls
           displayed at the bottom
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Carousel" width={width} height={height}>
           {Horizontal}
         </DemoWidget>
       </Section>
-      <Section title="Vertical layout">
-        <BlockQuote>
+      <Section size="md" title="Vertical layout">
+        <Text>
           Renders the items in a vertical layout with navigation controls
           displayed to the left
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Carousel" width={width} height={height}>
           {Vertical}
         </DemoWidget>
       </Section>
-      <Section title="Swipable">
-        <BlockQuote>
+      <Section size="md" title="Swipable">
+        <Text>
           The carousel can be swipable. Swipe left or right to navigate.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Carousel" width={width} height={height}>
           <Carousel direction="horizontal" enableSwipe>
             <Image src="https://bit.ly/3tYnFoD" />

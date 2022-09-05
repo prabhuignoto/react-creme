@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { CustomLayout, Default, Disabled, RTL } from './widget-variants';
@@ -28,29 +28,29 @@ function Widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="RadioGroup" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Custom layout">
-        <BlockQuote>
+      <Section size="md" title="Custom layout">
+        <Text>
           The Layout of the RadioGroup can be customized to be either{' '}
           <code>row</code> or <code>column</code>.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="RadioGroup" width={width * 3}>
           {CustomLayout}
         </DemoWidget>
       </Section>
-      <Section title="Disabled option">
-        <BlockQuote>
+      <Section size="md" title="Disabled option">
+        <Text>
           Disable a specific option by setting the disabled property to true.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="RadioGroup" width={width}>
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section title="RTL">
+      <Section size="md" title="RTL">
         <DemoWidget name="RadioGroup" width={width}>
           {RTL}
         </DemoWidget>

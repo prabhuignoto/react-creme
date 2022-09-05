@@ -1,28 +1,28 @@
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import { Default, Selection } from './widget-variants';
 
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="Tree" width={400} showCodeByDefault={false}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Selection Mode">
-        <BlockQuote>
+      <Section size="md" title="Selection Mode">
+        <Text>
           In selection mode, individual nodes with its children can be selected
           through the checkbox
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Tree" width={400} showCodeByDefault={false}>
           {Selection}
         </DemoWidget>
       </Section>
-      {/* <Section title="Custom Icon" >
-        <BlockQuote>
+      {/* <Section size="md"  title="Custom Icon" >
+        <Text>
           Use a custom icon for the expand and collapse actions.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Tree" width={300}>{CustomIcon}</DemoWidget>
       </Section> */}
     </div>

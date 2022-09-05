@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import {
-  BlockQuote,
   Button,
   GlobalNotification,
   RadioGroup,
   Section,
+  Text,
 } from '../../../lib/components';
 import { GlobalNotificationState } from '../../../lib/components/global-notification/global-notification.model';
 import { DemoWidget } from '../../common/demo-widget';
@@ -20,12 +20,12 @@ function widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default Render">
-        <BlockQuote>
+      <Section size="md" title="Default Render">
+        <Text>
           The global notification component can be configured to be in four
           states: <code>info</code>, <code>success</code>, <code>warning</code>{' '}
           and <code>error</code>.
-        </BlockQuote>
+        </Text>
         <div className="rc-demo-widget" style={{ width: '250px' }}>
           <RadioGroup
             items={[

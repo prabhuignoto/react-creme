@@ -31,21 +31,21 @@ function widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="Radio">
           <div style={{ ...style, width: `${width}px` }}>
             <Radio label="Radio option one" />
           </div>
         </DemoWidget>
       </Section>
-      <Section title="Checkbox disabled">
+      <Section size="md" title="Checkbox disabled">
         <DemoWidget name="Radio">
           <div style={{ ...style, width: `${width}px` }}>
             <Radio label="Radio option two" size="md" disabled />
           </div>
         </DemoWidget>
       </Section>
-      <Section title="Custom Size">
+      <Section size="md" title="Custom Size">
         <DemoWidget name="Radio">
           <div style={{ ...style, width: `${width}px` }}>
             <Radio label="Radio option three" size="lg" />

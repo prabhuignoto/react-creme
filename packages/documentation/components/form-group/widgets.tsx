@@ -28,12 +28,12 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="FormGroup" width={width} codeString={DefaultCode}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="RTL">
+      <Section size="md" title="RTL">
         <DemoWidget name="FormGroup" width={width} codeString={RTLCode}>
           {RTL}
         </DemoWidget>

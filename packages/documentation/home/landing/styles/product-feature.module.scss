@@ -24,25 +24,25 @@
   }
 
   &:not(.dark) {
-    background: linear-gradient(
-        to left top,
-        rgba(#b8c0ff, 0.5) 5%,
-        rgba(#fff, 0.85)
-      ),
-      linear-gradient(to right bottom, rgba(#b8c0ff, 0.5) 9%, rgba(#fff, 0.5));
+    // background: linear-gradient(
+    //     to left top,
+    //     rgba(#b8c0ff, 0.5) 5%,
+    //     rgba(#fff, 0.85)
+    //   ),
+    //   linear-gradient(to right bottom, rgba(#b8c0ff, 0.5) 9%, rgba(#fff, 0.5));
   }
 
   &.dark {
-    background: linear-gradient(
-        to left top,
-        rgba(#1e1e1e, 0.5) 5%,
-        rgba(#4a4a4a, 0.5)
-      ),
-      linear-gradient(
-        to right bottom,
-        rgba(#1e1e1e, 0.5) 9%,
-        rgba(#4a4a4a, 0.5)
-      );
+    // background: linear-gradient(
+    //     to left top,
+    //     rgba(#1e1e1e, 0.5) 5%,
+    //     rgba(#4a4a4a, 0.5)
+    //   ),
+    //   linear-gradient(
+    //     to right bottom,
+    //     rgba(#1e1e1e, 0.5) 9%,
+    //     rgba(#4a4a4a, 0.5)
+    //   );
   }
 }
 

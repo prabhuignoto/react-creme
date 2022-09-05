@@ -1,17 +1,17 @@
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import { Default, Expand } from './widget-variants';
 
 function widgets() {
   return (
     <div className={'rc-demo-widgets'}>
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="Image">{Default}</DemoWidget>
       </Section>
-      <Section title="Expandable Image">
-        <BlockQuote>
+      <Section size="md" title="Expandable Image">
+        <Text>
           use <code>expandImageOnClick</code> to make image expandable on click.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Image">{Expand}</DemoWidget>
       </Section>
     </div>
