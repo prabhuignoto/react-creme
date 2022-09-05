@@ -86,7 +86,7 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
           },
           { name: 'description', type: 'string' },
         ];
-      } else if (media.isBigScreen || media.isExtraLargeScreen) {
+      } else if (media.isExtraLargeScreen) {
         return [
           {
             formatter: val => (val ? `<em>${val}</em>` : ''),
