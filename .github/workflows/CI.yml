@@ -33,7 +33,7 @@ jobs:
           command: npx pnpm ci
           max_attempts: 2
           delay: 5
-          timeout_seconds: 15
+          timeout_minutes: 7
           retry_on: error
 
       - name: snyk
