@@ -53,6 +53,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npx pnpm install --frozen-lockfile
+
       - name: snyk
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
