@@ -21,7 +21,7 @@
   "scripts": {
     "build": "npx cross-env NODE_ENV=production webpack --config webpack.config.mjs --progress && pnpm emit",
     "build:dev": "npx cross-env NODE_ENV=development webpack --config webpack.config.mjs --progress",
-    "ci": "pnpm lint && pnpm test-ci && pnpm build",
+    "ci": "pnpm lint && pnpm build",
     "eslint": "eslint ./components/**/*.{tsx,ts}",
     "fix-js": "eslint ./components/**/*.{tsx,ts} --fix",
     "fix-css": "stylelint ./components/**/*.scss ./design/**/*.scss --fix",
