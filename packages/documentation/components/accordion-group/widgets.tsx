@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from 'react';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
 import {
@@ -36,45 +36,45 @@ function Widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets" style={{ minHeight: '1200px' }}>
-      <Section title="Default Render">
+      <Section size="md" title="Default Render">
         <DemoWidget name="AccordionGroup" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Initial state">
-        <BlockQuote>
+      <Section size="md" title="Initial state">
+        <Text>
           Set a default state for the AccordionGroup on load. This is useful if
           you want to keep the accordions closed or open on load. The example
           shows the accordions open on load
-        </BlockQuote>
+        </Text>
         <DemoWidget name="AccordionGroup" width={width}>
           {InitialState}
         </DemoWidget>
       </Section>
-      <Section title="Auto Closing Sections">
-        <BlockQuote>
+      <Section size="md" title="Auto Closing Sections">
+        <Text>
           The AccordionGroup can be configured to close all other sections when
           one is open.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="AccordionGroup" width={width}>
           {AutoClosingSections}
         </DemoWidget>
       </Section>
-      <Section title="Custom Icon">
-        <BlockQuote>
+      <Section size="md" title="Custom Icon">
+        <Text>
           The AccordionGroup can be configured to use custom icons and the
           alignment of the icon can be changed.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="AccordionGroup" width={width}>
           {CustomIcon}
         </DemoWidget>
       </Section>
-      <Section title="Icon Positioning">
+      <Section size="md" title="Icon Positioning">
         <DemoWidget name="AccordionGroup" width={width}>
           {IconCustomPositioning}
         </DemoWidget>
       </Section>
-      <Section title="Custom Sizes">
+      <Section size="md" title="Custom Sizes">
         <DemoWidget name="AccordionGroup" width={width}>
           {MediumSized}
         </DemoWidget>

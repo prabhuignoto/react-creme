@@ -157,6 +157,8 @@ export type {
 } from './components/tabs/tabs-model';
 export { Tags } from './components/tags/tags';
 export type { TagItemProps, TagsProps } from './components/tags/tags-model';
+export { Text } from './components/text/text';
+export type { TextProps } from './components/text/text';
 export { Tooltip } from './components/tooltip/tooltip';
 export type {
   ToolTipPosition,

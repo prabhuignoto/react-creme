@@ -1,7 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { Section } from '../../../lib/components';
-import { BlockQuote } from '../../../lib/components/block-quote/block-quote';
+import { Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { Horizontal, Vertical } from './widget-variants';
@@ -34,20 +33,20 @@ function Widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="Horizontal Comparison">
-        <BlockQuote>
+      <Section size="md" title="Horizontal Comparison">
+        <Text>
           Compare two images side by side horizontally. The drag handle guides
           the user to the correct position.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="ImageComparer" height={height} width={width}>
           {Horizontal}
         </DemoWidget>
       </Section>
-      <Section title="Vertical comparison">
-        <BlockQuote>
+      <Section size="md" title="Vertical comparison">
+        <Text>
           Compare two images side by side vertically. The drag handle guides the
           user to the correct position.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="ImageComparer" height={height} width={width}>
           {Vertical}
         </DemoWidget>

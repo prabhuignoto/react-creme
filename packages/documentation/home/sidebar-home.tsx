@@ -31,7 +31,7 @@ const SideBar: FunctionComponent<{
 }> = memo(
   ({ onSelect }) => {
     return (
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: 'calc(100vh - 50px)', width: '100%' }}>
         <Sidebar
           enableSearch={false}
           onSelect={onSelect}

@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -36,25 +36,25 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="FormField" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Custom Icon">
-        <BlockQuote>
+      <Section size="md" title="Custom Icon">
+        <Text>
           Use the <code>icon</code> prop to add an icon to the form field.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="FormField" width={width} codeString={IconCode}>
           {Icon}
         </DemoWidget>
       </Section>
-      <Section title="Field with state">
+      <Section size="md" title="Field with state">
         <DemoWidget name="FormField" width={width}>
           {State}
         </DemoWidget>
       </Section>
-      <Section title="Dropdown Field">
+      <Section size="md" title="Dropdown Field">
         <DemoWidget
           name="FormField"
           width={width}
@@ -63,7 +63,7 @@ function Widgets() {
           {DropdownField}
         </DemoWidget>
       </Section>
-      <Section title="RTL Render">
+      <Section size="md" title="RTL Render">
         <DemoWidget name="FormField" width={width}>
           {RTL}
         </DemoWidget>

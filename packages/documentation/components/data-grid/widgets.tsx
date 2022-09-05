@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, DataGrid, Section } from '../../../lib/components';
+import { DataGrid, Section, Text } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
@@ -45,11 +45,11 @@ function widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Comfortable View">
-        <BlockQuote>
+      <Section size="md" title="Comfortable View">
+        <Text>
           In Comfortable mode, the display density is set to high and is
           preferable for better readability.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="comfortable"
@@ -60,12 +60,12 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section title="Compact View">
-        <BlockQuote>
+      <Section size="md" title="Compact View">
+        <Text>
           In Compact mode, the display density is set to low and is preferred
           for smaller viewport and when you want to cramp in more rows in the
           grid.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="compact"
@@ -76,10 +76,8 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section title="Sortable">
-        <BlockQuote>
-          Individual columns can be configured to be sortable.
-        </BlockQuote>
+      <Section size="md" title="Sortable">
+        <Text>Individual columns can be configured to be sortable.</Text>
         <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="comfortable"
@@ -95,11 +93,11 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section title="Custom Table outlook">
-        <BlockQuote>
+      <Section size="md" title="Custom Table outlook">
+        <Text>
           Use the <code>zebra</code> property to alternate the background color
           of the rows.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="comfortable"
@@ -109,11 +107,11 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section title="Searchable Grid">
-        <BlockQuote>
+      <Section size="md" title="Searchable Grid">
+        <Text>
           Use the <code>searchable</code> property to enable search
           functionality in the grid.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="comfortable"

@@ -1,4 +1,4 @@
-import { BlockQuote, Section, Tags } from '../../../lib/components';
+import { Section, Tags, Text } from '../../../lib/components';
 import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -34,12 +34,12 @@ const positions: Position[] = [
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section noPadding>
-        <BlockQuote>
+      <Section size="md" noPadding>
+        <Text>
           The below examples show how to use the <code>usePosition</code> hook
           to position an element relative to a container element. The hook
           support 12 different positions.
-        </BlockQuote>
+        </Text>
         <div style={{ width: '70%' }}>
           <Tags
             tagWidth={100}
@@ -48,27 +48,27 @@ function Widgets() {
           />
         </div>
       </Section>
-      <Section title="Positioned Left center">
+      <Section size="md" title="Positioned Left center">
         <DemoWidget name="usePosition" codeString={PositionLeftCode}>
           <PositionLeft />
         </DemoWidget>
       </Section>
-      <Section title="Positioned Right Bottom">
+      <Section size="md" title="Positioned Right Bottom">
         <DemoWidget name="usePosition" codeString={PositionRightCode}>
           <PositionRightBottom />
         </DemoWidget>
       </Section>
-      <Section title="Positioned Left Top">
+      <Section size="md" title="Positioned Left Top">
         <DemoWidget name="usePosition" codeString={PositionTopCode}>
           <PositionLeftTop />
         </DemoWidget>
       </Section>
-      <Section title="Positioned Right Top">
+      <Section size="md" title="Positioned Right Top">
         <DemoWidget name="usePosition" codeString={PositionRightTopCode}>
           <PositionRightTop />
         </DemoWidget>
       </Section>
-      <Section title="Positioned Left Bottom">
+      <Section size="md" title="Positioned Left Bottom">
         <DemoWidget name="usePosition" codeString={PositionLeftBottomCode}>
           <PositionLeftBottom />
         </DemoWidget>

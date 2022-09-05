@@ -194,6 +194,10 @@ code {
   display: flex;
   flex-direction: column;
   width: 98%;
+
+  p {
+    color: #fff;
+  }
 }
 
 .app-header {

@@ -22,14 +22,14 @@
     "outDir": "./dist",
     // "rootDir": ".",
     "rootDirs": ["./components", "./design", "./icons"],
-    // "types": [
-    //   "react",
-    //   "react-dom",
-    //   "jest",
-    //   "node",
-    //   "vite/client",
-    //   "@testing-library/jest-dom"
-    // ],
+    "types": [
+      "react",
+      "react-dom",
+      "jest",
+      "node",
+      "vite/client",
+      "@testing-library/jest-dom"
+    ],
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./components/*"],

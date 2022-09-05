@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, ScrollSpy, Section } from '../../../lib/components';
+import { ScrollSpy, Section, Text } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 
@@ -48,11 +48,11 @@ function Widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Left aligned links">
-        <BlockQuote>
+      <Section size="md" title="Left aligned links">
+        <Text>
           The navigation links are left aligned and clicking on them will scroll
           to the section of the container that is being spyed on.
-        </BlockQuote>
+        </Text>
         <DemoWidget
           name="ScrollSpy"
           width={width}
@@ -79,11 +79,11 @@ function Widgets() {
           </ScrollSpy>
         </DemoWidget>
       </Section>
-      <Section title="Right aligned links">
-        <BlockQuote>
+      <Section size="md" title="Right aligned links">
+        <Text>
           The navigation links are right aligned and clicking on them will
           scroll to the section of the container that is being spyed on.
-        </BlockQuote>
+        </Text>
         <DemoWidget
           name="ScrollSpy"
           width={width}

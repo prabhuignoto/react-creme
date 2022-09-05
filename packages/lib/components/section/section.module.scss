@@ -54,6 +54,7 @@ $heights: (
   @each $key, $val in $sizes {
     &.header_#{$key} {
       @extend %font-#{$key};
+      color: theme.$primary;
       height: map.get($heights, $key);
     }
   }

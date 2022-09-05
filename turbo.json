@@ -3,8 +3,9 @@
   "pipeline": {
     "format": {},
     "lint": {},
-    "build-lib": {},
-    "build-story": {},
+    "build:lib": {},
+    "build:doc": {},
+    "build:story": {},
     "percy": {
       "outputs": ["storybook-static"]
     },
@@ -12,6 +13,9 @@
       "outputs": ["dist/**", "dts/**", "typings/**", "expo_dist"]
     },
     "test": {
+      "outputs": ["coverage", ".jest-cache"]
+    },
+    "test:ci": {
       "outputs": ["coverage", ".jest-cache"]
     },
     "dev": {

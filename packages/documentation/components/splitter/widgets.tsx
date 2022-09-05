@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section, Splitter } from '../../../lib/components';
+import { Section, Splitter, Text } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 
@@ -39,11 +39,11 @@ function widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Horizontal mode">
-        <BlockQuote>
+      <Section size="md" title="Horizontal mode">
+        <Text>
           Splits the container horizontally with a drag handle for resizing and
           there by controlling the width of the left and right panels.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Splitter" width={width} showCodeByDefault={false}>
           <Splitter
             dir="horizontal"
@@ -73,11 +73,11 @@ function widgets() {
           </Splitter>
         </DemoWidget>
       </Section>
-      <Section title="Vertical Mode">
-        <BlockQuote>
+      <Section size="md" title="Vertical Mode">
+        <Text>
           Splits the container vertically with a drag handle for resizing and
           there by controlling the height of the top and bottom panels.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Splitter" width={width} showCodeByDefault={false}>
           <Splitter
             dir="vertical"

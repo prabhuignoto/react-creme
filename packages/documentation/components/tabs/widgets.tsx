@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section, Tabs } from '../../../lib/components';
+import { Section, Tabs, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -35,29 +35,29 @@ function widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section title="Flat tabs">
-        <BlockQuote>
+      <Section size="md" title="Flat tabs">
+        <Text>
           In flat mode, the tabs are rendered as a horizontal list of tabs with
           a flat accent.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Tabs" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Rounded tabs">
-        <BlockQuote>
+      <Section size="md" title="Rounded tabs">
+        <Text>
           In rounded mode, the tabs are rendered as a horizontal list of tabs
           with rounded borders.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Tabs" width={width}>
           {Rounded}
         </DemoWidget>
       </Section>
-      <Section title="Rounded tabs with scroll">
-        <BlockQuote>
+      <Section size="md" title="Rounded tabs with scroll">
+        <Text>
           When the tabs are too long to fit in the available space, they can be
           scrolled with the help of the buttons to the right.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Tabs" width={width}>
           <Tabs
             minHeight={250}
@@ -87,20 +87,20 @@ function widgets() {
           </Tabs>
         </DemoWidget>
       </Section>
-      <Section title="Flat tabs (Disabled)">
-        <BlockQuote>
+      <Section size="md" title="Flat tabs (Disabled)">
+        <Text>
           Specific tabs can be disabled by passing an array of tab labels to the{' '}
           <em>disabledTabs</em> array
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Tabs" width={width}>
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section title="Tabs with Icons">
-        <BlockQuote>
+      <Section size="md" title="Tabs with Icons">
+        <Text>
           Specific tabs can be disabled by passing an array of tab labels to the{' '}
           <em>disabledTabs</em> array
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Tabs" width={width} codeString={IconsCode}>
           {Icons}
         </DemoWidget>

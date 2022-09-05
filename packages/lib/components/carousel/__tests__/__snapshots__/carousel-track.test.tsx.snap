@@ -2,19 +2,19 @@
 
 exports[`Carousel Track > Should render the track snapshot 1`] = `
 <ul
-  class="_track_doir4_16 _track_horizontal_doir4_16"
+  class="_track_4fc414 _track_horizontal_4fc414"
   role="list"
 >
   <li
-    class="_track_item_doir4_39"
+    class="_track_item_4fc414"
     role="listitem"
   />
   <li
-    class="_track_item_doir4_39 _track_item_selected_doir4_45"
+    class="_track_item_4fc414 _track_item_selected_4fc414"
     role="listitem"
   />
   <li
-    class="_track_item_doir4_39"
+    class="_track_item_4fc414"
     role="listitem"
   />
 </ul>

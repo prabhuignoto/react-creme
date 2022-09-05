@@ -72,8 +72,8 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   const drawerClass = useMemo(
     () =>
       classNames([styles.drawer, styles[`${position}`]], {
-        [styles[`slide-${position}-enter`]]: activate && !isClosing,
-        [styles[`slide-${position}-exit`]]: isClosing,
+        [styles[`slide_${position}_enter`]]: activate && !isClosing,
+        [styles[`slide_${position}_exit`]]: isClosing,
         [styles.visible]: activate,
         [styles[`${size}`]]: size,
         [styles.dark]: isDarkMode,

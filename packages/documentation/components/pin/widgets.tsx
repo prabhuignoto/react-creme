@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -36,31 +36,31 @@ function widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget name="Pin" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Custom length">
-        <BlockQuote>
+      <Section size="md" title="Custom length">
+        <Text>
           Customize the number of pins via the <code>length</code> property
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Pin" width={width}>
           {CustomLength}
         </DemoWidget>
       </Section>
-      <Section title="RTL">
-        <BlockQuote>
+      <Section size="md" title="RTL">
+        <Text>
           Use the <code>RTL</code> prop to render the pin in RTL mode.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Pin" width={width}>
           {RTL}
         </DemoWidget>
       </Section>
-      <Section title="Custom Sizes">
-        <BlockQuote>
+      <Section size="md" title="Custom Sizes">
+        <Text>
           Customize the pin size with the <code>size</code> prop
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Pin" width={width}>
           {SmallSized}
         </DemoWidget>

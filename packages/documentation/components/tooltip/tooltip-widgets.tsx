@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import {
-  BlockQuote,
   Card,
   Dropdown,
   Image,
   Section,
+  Text,
   Tooltip,
 } from '../../../lib/components';
 import { ToolTipPosition } from '../../../lib/components/tooltip/tooltip-model';
@@ -40,11 +40,11 @@ const Widgets = () => {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section>
-        <BlockQuote>
+      <Section size="md">
+        <Text>
           Tooltip component can be anchored to a target element in 12 different
           positions. Change the position of the tooltip using the dropdown.
-        </BlockQuote>
+        </Text>
         <div className="rc-demo-widget" style={{ width: '320px' }}>
           <Dropdown
             placeholder="choose a position"
@@ -73,11 +73,11 @@ const Widgets = () => {
           ></Dropdown>
         </div>
       </Section>
-      <Section title="On Hover">
-        <BlockQuote>
+      <Section size="md" title="On Hover">
+        <Text>
           The Tooltip is activated by hovering over the target element and is
           auto closed the moment the mouse moves out of the target element.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Tooltip" width={width}>
           <Tooltip
             message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
@@ -100,11 +100,11 @@ const Widgets = () => {
           </Tooltip>
         </DemoWidget>
       </Section>
-      <Section title="Static Tooltip">
-        <BlockQuote>
+      <Section size="md" title="Static Tooltip">
+        <Text>
           Sometimes it can be useful to have the Tooltip visible all the time.
           use the <code>isStatic</code> prop to achieve this.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Tooltip" width={width}>
           <Tooltip
             message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
@@ -120,12 +120,12 @@ const Widgets = () => {
           </Tooltip>
         </DemoWidget>
       </Section>
-      <Section title="Activate Tooltip on click">
-        <BlockQuote>
+      <Section size="md" title="Activate Tooltip on click">
+        <Text>
           Tooltip can be also activated by clicking on the target element via
           the <code>openOnClick</code> prop. In this mode a close button will be
           additionally rendered to close the tooltip.
-        </BlockQuote>
+        </Text>
         <DemoWidget name="Tooltip" width={width}>
           <Tooltip
             message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BlockQuote, Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
 import {
@@ -34,27 +34,27 @@ function Widgets() {
 
   return width > 0 ? (
     <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
-      <Section title="Default render">
+      <Section size="md" title="Default render">
         <DemoWidget width={width} name="Accordion">
           {Default}
         </DemoWidget>
       </Section>
-      <Section title="Custom Icon alignment">
-        <BlockQuote>The icon can be aligned to the right</BlockQuote>
+      <Section size="md" title="Custom Icon alignment">
+        <Text>The icon can be aligned to the right</Text>
         <DemoWidget width={width} name="Accordion">
           {CustomIcon}
         </DemoWidget>
       </Section>
-      <Section title="Accordion expanded by default">
-        <BlockQuote>
+      <Section size="md" title="Accordion expanded by default">
+        <Text>
           Accordions can be expanded or collapsed by default. The example shows
           a accordion expanded by default.
-        </BlockQuote>
+        </Text>
         <DemoWidget width={width} name="Accordion">
           {Expanded}
         </DemoWidget>
       </Section>
-      <Section title="Custom sizes">
+      <Section size="md" title="Custom sizes">
         <DemoWidget width={width} name="Accordion">
           {MediumSized}
         </DemoWidget>

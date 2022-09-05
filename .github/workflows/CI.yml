@@ -10,7 +10,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  build_lib:
     runs-on: ubuntu-latest
 
     strategy:
@@ -25,13 +25,61 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npx pnpm install --frozen-lockfile
-      - run: npx pnpm ci
+      - run: npx pnpm build:lib
+
+      - name: Send webpack stats to RelativeCI
+        uses: relative-ci/agent-action@v2
+        with:
+          webpackStatsFile: ./packages/lib/dist/stats.json
+          key: ${{ secrets.RELATIVE_CI_KEY }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  build_doc:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npx pnpm install --frozen-lockfile
+      - run: npx pnpm build:doc
+
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: npx pnpm install --frozen-lockfile
+
       - name: snyk
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: npx pnpm snyk
+        run: npx pnpm run snyk
 
-      # Runs a single command using the runners shell
+  unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npx pnpm install --frozen-lockfile
+
+      - name: test
+        run: npx pnpm run test:ci
+
       - name: Codecov
         uses: codecov/codecov-action@v2
         with:
@@ -41,10 +89,3 @@ jobs:
           flags: unittests
           name: codecov-umbrella
           verbose: true
-
-      - name: Send webpack stats to RelativeCI
-        uses: relative-ci/agent-action@v2
-        with:
-          webpackStatsFile: ./packages/lib/dist/stats.json
-          key: ${{ secrets.RELATIVE_CI_KEY }}
-          token: ${{ secrets.GITHUB_TOKEN }}
