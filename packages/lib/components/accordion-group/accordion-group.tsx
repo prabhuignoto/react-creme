@@ -27,7 +27,7 @@ const AccordionGroup = ({
   size = 'sm',
   fullWidth = false,
   colorizeHeader = false,
-  headerHeight = 35,
+  headerHeight = 30,
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
