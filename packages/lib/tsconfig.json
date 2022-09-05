@@ -28,8 +28,7 @@
       "jest",
       "node",
       "vite/client",
-      "@testing-library/jest-dom",
-      "Globals.d.ts"
+      "@testing-library/jest-dom"
     ],
     "baseUrl": ".",
     "paths": {
