@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build-story": "build-storybook --quiet",
+    "build:story": "build-storybook --quiet",
     "chromatic": "npx chromatic --project-token=571884165efd --allow-console-errors",
     "percy": "npx percy storybook --quiet --config ./.percy.yml ./storybook-static",
-    "ci": "pnpm build-story"
+    "ci": "pnpm build:story"
   },
   "author": "",
   "license": "MIT",

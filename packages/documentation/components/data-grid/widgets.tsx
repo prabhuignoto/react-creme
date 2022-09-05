@@ -8,7 +8,7 @@ import { columnsConfig, data } from './grids-data';
 
 function widgets() {
   const media = useRecoilValue(responsiveState);
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState<string | number>(0);
   const [columns, setColumns] = useState<DataGridColumn[]>(columnsConfig);
 
   useLayoutEffect(() => {
@@ -17,25 +17,30 @@ function widgets() {
     }
 
     if (media.isExtraLargeScreen) {
-      setWidth(950);
+      setWidth('100%');
     } else if (media.isBigScreen) {
-      setWidth(720);
+      setWidth('100%');
+      setColumns([
+        { name: 'name', type: 'string' },
+        { name: 'marks', type: 'number' },
+        { name: 'dept', type: 'string' },
+      ]);
     } else if (media.isDesktop) {
-      setWidth(620);
+      setWidth('100%');
       setColumns([
         { name: 'name', type: 'string' },
         { name: 'marks', type: 'number' },
         { name: 'dept', type: 'string' },
       ]);
     } else if (media.isTablet) {
-      setWidth(500);
+      setWidth('100%');
       setColumns([
         { name: 'name', type: 'string', width: 200 },
         { name: 'dept', type: 'string', width: 200 },
         { name: 'marks', type: 'number' },
       ]);
     } else if (media.isMobile) {
-      setWidth(320);
+      setWidth('100%');
       setColumns([
         { name: 'name', type: 'string' },
         { name: 'marks', type: 'number' },
@@ -43,7 +48,7 @@ function widgets() {
     }
   }, [media]);
 
-  return width > 0 ? (
+  return width ? (
     <div className="rc-demo-widgets">
       <Section size="md" title="Comfortable View">
         <Text>

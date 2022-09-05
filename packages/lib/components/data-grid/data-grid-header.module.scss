@@ -9,7 +9,7 @@ $dark-mode: theme.$dark_mode;
   color: theme.$black;
   height: 100%;
   text-transform: capitalize;
-  width: calc(100% - 0px);
+  width: calc(100% - 1px);
 
   &.dark {
     background: rgba(theme.$charcoal-gray, 0.5);
@@ -29,7 +29,7 @@ $dark-mode: theme.$dark_mode;
 
   .cell_val {
     font-weight: 500;
-    width: 95%;
+    width: 100%;
   }
 }
 
