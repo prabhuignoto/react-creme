@@ -94,7 +94,10 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
         {...clickableProps}
         {...ariaProps}
       >
-        <div className={styles.list_item_wrapper} style={{ width: '100%' }}>
+        <div
+          className={styles.list_item_wrapper}
+          style={{ height: '100%', width: '100%' }}
+        >
           <ListItemContent
             key={id}
             name={name}

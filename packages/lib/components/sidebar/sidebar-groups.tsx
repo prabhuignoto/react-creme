@@ -47,7 +47,7 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
                 options={items}
                 border={false}
                 rowGap={5}
-                itemHeight={35}
+                itemHeight={30}
                 maxHeight={listMaxHeight}
                 onSelection={option => onSelection(option, id)}
                 noUniqueIds

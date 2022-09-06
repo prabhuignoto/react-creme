@@ -69,6 +69,13 @@ function accordionGroup() {
           optional: 'Yes',
           type: 'String',
         },
+        {
+          default: '40',
+          description: 'Height of the header in px',
+          name: 'headerHeight',
+          optional: 'Yes',
+          type: 'Number',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       demoWidget={<Widgets />}

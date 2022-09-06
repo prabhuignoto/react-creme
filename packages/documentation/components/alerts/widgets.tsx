@@ -40,30 +40,30 @@ function Widgets() {
           Alerts can be closed or dismissed by default. Use the{' '}
           <code>canDismiss</code> prop to change this behavior.
         </Text>
-        <DemoWidget name="Alert" width={width}>
+        <DemoWidget name="Alert" width={width} showCodeByDefault>
           {Information}
         </DemoWidget>
-        <DemoWidget name="Alert" width={width}>
+        <DemoWidget name="Alert" width={width} showCodeByDefault>
           {Dismiss}
         </DemoWidget>
       </Section>
       <Section size="md" title="Success Message">
-        <DemoWidget name="Alert" width={width}>
+        <DemoWidget name="Alert" width={width} showCodeByDefault>
           {Success}
         </DemoWidget>
       </Section>
       <Section size="md" title="Warning Message">
-        <DemoWidget name="Alert" width={width}>
+        <DemoWidget name="Alert" width={width} showCodeByDefault>
           {Warning}
         </DemoWidget>
       </Section>
       <Section size="md" title="Error Message">
-        <DemoWidget name="Alert" width={width}>
+        <DemoWidget name="Alert" width={width} showCodeByDefault>
           {Error}
         </DemoWidget>
       </Section>
       <Section size="md" title="Render Custom content">
-        <DemoWidget name="Alert" width={width}>
+        <DemoWidget name="Alert" width={width} showCodeByDefault>
           {Custom}
         </DemoWidget>
       </Section>

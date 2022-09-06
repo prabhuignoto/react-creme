@@ -6,7 +6,6 @@ $sizes: (sm, md, lg);
 .container {
   color: theme.$text-color;
   display: inline;
-  line-height: 35px;
   @each $size in $sizes {
     &.#{$size} {
       @extend %text-#{$size};
@@ -26,11 +25,20 @@ $sizes: (sm, md, lg);
     text-align: left;
   }
 
+  &:not(.dark) em,
+  &:not(.dark) code {
+    color: theme.$primary;
+  }
+
+  &.dark em,
+  &.dark code {
+    color: theme.$text-color;
+  }
+
   em,
   code {
     @extend %border-radius;
     background: theme.$secondary;
-    // display: inline;
     margin: 0 0.25rem;
     padding: 0.2rem 0.25rem;
   }

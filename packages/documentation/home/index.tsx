@@ -1,4 +1,4 @@
-import { BlockQuote, Button } from '../../lib/components';
+import { Text, Button } from '../../lib/components';
 import { Section } from '../../lib/components/section/section';
 import packages from '../../lib/package.json';
 import { SyntaxHighLighter } from './../common/syntax-highlighter';
@@ -19,21 +19,21 @@ const Home: React.FunctionComponent = () => {
       <div className="rc-home-main-content">
         {/* SETUP */}
         <Section title="Installation" size="md" hashPrefix="home">
-          <BlockQuote>
+          <Text>
             Get started by installing the react-creme package via npm or yarn.
-          </BlockQuote>
+          </Text>
           <Code wrap={false}>{`npm install --save react-creme`}</Code>
           <Code wrap={false}>{`yarn add react-creme`}</Code>
         </Section>
 
         {/* DEPENDENCIES */}
         <Section title="Dependencies" size="md" hashPrefix="home">
-          <BlockQuote>
+          <Text>
             react-creme is designed to be lean and does not depend on any other
             major library for styling or for any other features. It only depends
             on some utility libraries for id generation, debouncing and deep
             compare.
-          </BlockQuote>
+          </Text>
           <Code wrap={false}>
             {Object.keys(packages.dependencies)
               .map(key => `${key}@${packages.dependencies[key]}`)
@@ -45,10 +45,10 @@ const Home: React.FunctionComponent = () => {
         <BrowserSupport />
 
         <Section title="Usage" size="md" hashPrefix="home">
-          <BlockQuote>
+          <Text>
             The example below shows how to use the react-creme package to create
             a button element.
-          </BlockQuote>
+          </Text>
           <SyntaxHighLighter
             code={gettingStarted}
             wrap={false}
@@ -63,10 +63,10 @@ const Home: React.FunctionComponent = () => {
         </Section>
 
         <Section title="Theme" size="md" hashPrefix="home">
-          <BlockQuote>
+          <Text>
             react-creme comes with built in support for Themes. Customize the
             Colors, Font and Icon sizes with ease.
-          </BlockQuote>
+          </Text>
           <SyntaxHighLighter
             code={gettingStartedTheme}
             wrap={false}

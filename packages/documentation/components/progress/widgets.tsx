@@ -28,7 +28,7 @@ const Widgets: React.FunctionComponent = () => {
             <Button onClick={reset} label="Reset"></Button>
           </div>
         </div>
-        <DemoWidget name="Progress">
+        <DemoWidget name="Progress" showCodeByDefault>
           <Progress
             type="determinate"
             width={300}
@@ -38,7 +38,7 @@ const Widgets: React.FunctionComponent = () => {
             showProgressValue
           />
         </DemoWidget>
-        <DemoWidget name="Progress">
+        <DemoWidget name="Progress" showCodeByDefault>
           <Progress
             type="determinate"
             maxValue={50}
@@ -49,7 +49,7 @@ const Widgets: React.FunctionComponent = () => {
       </Section>
       <Section size="md" title="States">
         <Text>The progress bar can be in a success or error state.</Text>
-        <DemoWidget name="Progress">
+        <DemoWidget name="Progress" showCodeByDefault>
           <Progress
             type="determinate"
             // width={300}
@@ -59,7 +59,7 @@ const Widgets: React.FunctionComponent = () => {
             status="success"
           />
         </DemoWidget>
-        <DemoWidget name="Progress">
+        <DemoWidget name="Progress" showCodeByDefault>
           <Progress
             type="determinate"
             // width={300}
@@ -73,19 +73,19 @@ const Widgets: React.FunctionComponent = () => {
       </Section>
       <Section size="md" title="Indeterminate progress">
         <Text>Useful for operations that take a long time to complete.</Text>
-        <DemoWidget name="Progress">
+        <DemoWidget name="Progress" showCodeByDefault>
           <Progress type="indeterminate" showProgressValue size="sm" />
         </DemoWidget>
       </Section>
       <Section size="md" title="Indeterminate Progress - Bob">
         <Text>Infinite progress with a bob animation</Text>
-        <DemoWidget name="Progress">
+        <DemoWidget name="Progress" showCodeByDefault>
           <Progress type="indeterminate" size="md" indeterminateStyle="bob" />
         </DemoWidget>
       </Section>
       <Section size="md" title="Circular Progress">
         <Text>Infinite progress is also available in circular mode.</Text>
-        <DemoWidget name="Progress">
+        <DemoWidget name="Progress" showCodeByDefault>
           <div style={{ margin: '0 0.5rem' }}>
             <CircularProgress size={'md'} />
           </div>

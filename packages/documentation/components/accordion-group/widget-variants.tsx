@@ -1,18 +1,20 @@
-import { useMemo } from 'react';
+import { CSSProperties, FunctionComponent, useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import { AccordionGroup, Image } from '../../../lib/components';
 import { themeState } from '../../atoms/home';
 
-const Para = () => {
+const Para: FunctionComponent<{ rtl?: boolean }> = ({ rtl }) => {
   const theme = useRecoilValue(themeState);
 
   const isDark = useMemo(() => theme.darkMode, [theme]);
 
   const style = useMemo(
-    () => ({
-      color: isDark ? '#fff' : '#000',
-    }),
-    [isDark]
+    () =>
+      ({
+        color: isDark ? '#fff' : '#000',
+        direction: rtl ? 'rtl' : 'ltr',
+      } as CSSProperties),
+    [isDark, rtl]
   );
   return (
     <p style={style}>
@@ -86,10 +88,10 @@ export const CustomIcon = (
   </AccordionGroup>
 );
 
-export const IconCustomPositioning = (
+export const RTL = (
   <AccordionGroup
     titles={['one', 'two', 'three', 'four']}
-    border={false}
+    border
     alignIconRight
   >
     {Array.from({ length: 4 }).map((_, i) => (

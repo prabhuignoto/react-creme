@@ -6,10 +6,10 @@ import {
   AutoClosingSections,
   CustomIcon,
   Default,
-  IconCustomPositioning,
   InitialState,
   LargeSized,
   MediumSized,
+  RTL,
 } from './widget-variants';
 
 function Widgets() {
@@ -69,9 +69,9 @@ function Widgets() {
           {CustomIcon}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Icon Positioning">
+      <Section size="md" title="RTL">
         <DemoWidget name="AccordionGroup" width={width}>
-          {IconCustomPositioning}
+          {RTL}
         </DemoWidget>
       </Section>
       <Section size="md" title="Custom Sizes">
