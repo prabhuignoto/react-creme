@@ -4,19 +4,18 @@
 $sizes: (sm, md, lg);
 
 .header {
-  @extend %left;
   align-items: center;
   color: theme.$primary;
   height: var(--rc-accordion-header-height, 35px);
   justify-items: flex-start;
   outline: 0;
-  padding-left: 0.5rem;
   position: relative;
   text-transform: capitalize;
+  user-select: none;
+  width: 100%;
 
-  &:not(.header-icon) {
-    display: grid;
-    grid-template-columns: 1.5rem calc(100% - 2rem) 0.5rem;
+  &:not(.disable-icon) {
+    @extend %left;
   }
 
   &.colorize {
@@ -26,6 +25,10 @@ $sizes: (sm, md, lg);
   &.full_width {
     width: calc(100% - 0.5rem);
   }
+
+  &.align-icon-rt {
+    direction: rtl;
+  }
 }
 
 .header:not(.disable-collapse):hover {
@@ -33,7 +36,7 @@ $sizes: (sm, md, lg);
   cursor: pointer;
 
   &.dark {
-    background: theme.$gunmetal-gray;
+    background: theme.$raisin-black;
   }
 
   &:not(.dark) {
@@ -56,14 +59,8 @@ $sizes: (sm, md, lg);
 .title {
   @extend %left;
   display: block;
-  white-space: nowrap;
-
-  @each $size in $sizes {
-    &.title_#{$size} {
-      @extend %text-#{$size};
-      line-height: #{$size}-line-height;
-    }
-  }
+  padding: 0 0.25rem;
+  width: calc(100% - 0.5rem);
 
   &:not(.title_bold) {
     font-weight: 400;
@@ -79,6 +76,27 @@ $sizes: (sm, md, lg);
   }
 }
 
+@each $size in $sizes {
+  $icon-size: var(--rc-icon-size-#{$size});
+  .title_#{$size} {
+    @extend %text-#{$size};
+    line-height: #{$size}-line-height;
+  }
+
+  .icon-#{$size} {
+    @extend %icon-#{$size};
+  }
+
+  .header {
+    &.#{size}:not(.disable-icon) {
+      column-gap: 2px;
+      display: grid;
+      grid-template-columns: $icon-size calc(100% - $icon-size);
+      justify-items: center;
+    }
+  }
+}
+
 .icon {
   @extend %icon;
   cursor: pointer;
@@ -90,12 +108,6 @@ $sizes: (sm, md, lg);
 
   &.colorize {
     color: theme.$primary;
-  }
-
-  @each $size in $sizes {
-    &.icon-#{$size} {
-      @extend %icon-#{$size};
-    }
   }
 
   &.icon-open:not(.icon-plus):not(.custom-icon) {

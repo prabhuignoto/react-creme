@@ -27,7 +27,7 @@ const AccordionGroup = ({
   size = 'sm',
   fullWidth = false,
   colorizeHeader = false,
-  headerHeight = 30,
+  headerHeight = 40,
 }: AccordionGroupProps) => {
   const [items, setItems] = React.useState<Array<AccordionItemProps>>(
     Array.isArray(children)
@@ -87,7 +87,6 @@ const AccordionGroup = ({
             id={item.id}
             onExpanded={handleExpand}
             onCollapsed={handleCollapse}
-            border={border}
             title={titles[index]}
             expanded={item.expanded}
             alignIconRight={alignIconRight}

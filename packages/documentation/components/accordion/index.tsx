@@ -58,7 +58,7 @@ const Accordion = () => {
         {
           default: '',
           description:
-            'Callback function executed when the accordion is rendered.',
+            'Callback function executed when the accordion is rendered',
           name: 'onRendered',
           optional: 'Yes',
           type: 'Function',
@@ -74,7 +74,7 @@ const Accordion = () => {
         },
         {
           default: 'false',
-          description: 'Aligns the expand/collapse icon to the Right.',
+          description: 'Aligns the expand/collapse icon to the Right',
           name: 'alignIconRight',
           optional: 'Yes',
           type: 'Boolean',
@@ -102,28 +102,28 @@ const Accordion = () => {
         },
         {
           default: 'cubic-bezier(0.19, 1, 0.22, 1)',
-          description: 'Custom transition function.',
+          description: 'Custom transition function',
           name: 'transition',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: 'false',
-          description: 'Enables focus outline.',
+          description: 'Enables focus outline',
           name: 'focusable',
           optional: 'Yes',
           type: 'Boolean',
         },
         {
           default: '#000',
-          description: 'Color of the title.',
+          description: 'Color of the title',
           name: 'titleColor',
           optional: 'Yes',
           type: 'String',
         },
         {
           default: '#000',
-          description: 'Color of the icons.',
+          description: 'Color of the icons',
           name: 'iconColor',
           optional: 'Yes',
           type: 'String',
@@ -138,10 +138,17 @@ const Accordion = () => {
         {
           default: 'md',
           description:
-            'Size of the accordion. Can be <code>sm</code>, <code>md</code> or <code>lg</code>. Controls the size of the Fonts and Icons.',
+            'Size of the accordion. Can be <code>sm</code>, <code>md</code> or <code>lg</code>. Controls the size of the Fonts and Icons',
           name: 'size',
           optional: 'Yes',
           type: 'String',
+        },
+        {
+          default: '40',
+          description: 'Height of the header in px',
+          name: 'headerHeight',
+          optional: 'Yes',
+          type: 'Number',
         },
       ]}
       demoWidget={<Widgets />}

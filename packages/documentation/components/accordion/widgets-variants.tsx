@@ -1,18 +1,16 @@
 import { useMemo } from 'react';
-import { useRecoilValue } from 'recoil';
-import { Accordion } from '../../../lib/components';
-import { themeState } from '../../atoms/home';
+import { Accordion, isDark } from '../../../lib/components';
 
 const TextContent = () => {
-  const theme = useRecoilValue(themeState);
+  // const theme = useRecoilValue(themeState);
 
-  const isDark = useMemo(() => theme.darkMode, [theme]);
+  const isDarkMode = useMemo(() => isDark(), []);
 
   const style = useMemo(
     () => ({
       color: isDark ? '#fff' : '#000',
     }),
-    [isDark]
+    [isDarkMode]
   );
 
   return (
@@ -45,14 +43,16 @@ const TextContent = () => {
   );
 };
 
+TextContent.displayName = 'TextContent';
+
 export const Default = (
   <Accordion title="Lorem Ipsum" focusable>
     <TextContent />
   </Accordion>
 );
 
-export const CustomIcon = (
-  <Accordion title="Lorem Ipsum" alignIconRight>
+export const RTL = (
+  <Accordion title="Lorem Ipsum" alignIconRight border>
     <TextContent />
   </Accordion>
 );
@@ -70,7 +70,13 @@ export const MediumSized = (
 );
 
 export const LargeSized = (
-  <Accordion title="Lorem Ipsum" size="lg">
+  <Accordion title="Lorem Ipsum" size="lg" headerHeight={50}>
+    <TextContent />
+  </Accordion>
+);
+
+export const CustomIcon = (
+  <Accordion title="Lorem Ipsum" customIcon={<span role="img">🔥</span>}>
     <TextContent />
   </Accordion>
 );

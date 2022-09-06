@@ -39,6 +39,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
         [styles.dark]: isDarkMode,
         [styles.colorize]: colorizeHeader,
         [styles.full_width]: fullWidth,
+        [styles.size]: true,
       }),
     [alignIconRight, focusable, selected]
   );

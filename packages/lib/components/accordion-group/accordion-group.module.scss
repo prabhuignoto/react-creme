@@ -2,7 +2,7 @@
 @use '@design/theme.scss';
 
 .group {
-  @extend %col;
+  @extend %col-left;
   width: 100%;
 
   &:not(.grp_no_border) {
