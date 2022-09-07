@@ -32,7 +32,7 @@ importers:
       eslint-plugin-jsx-a11y: ^6.6.1
       eslint-plugin-node: 11.1.0
       eslint-plugin-promise: 6.0.1
-      eslint-plugin-react: ^7.31.6
+      eslint-plugin-react: ^7.31.7
       eslint-plugin-sort-keys-fix: ^1.1.2
       eslint-plugin-typescript-sort-keys: ^2.1.0
       fork-ts-checker-webpack-plugin: ^7.2.13
@@ -41,7 +41,7 @@ importers:
       postcss: ^8.4.16
       postcss-bem-linter: ^3.3.0
       postcss-import: ^15.0.0
-      postcss-preset-env: ^7.8.0
+      postcss-preset-env: ^7.8.1
       postcss-reporter: ^7.0.5
       postcss-scss: ^4.0.4
       prettier: ^2.7.1
@@ -50,7 +50,7 @@ importers:
       react-dom: ^18.2.0
       remove-files-webpack-plugin: ^1.5.0
       sass: ^1.54.8
-      snyk: ^1.997.0
+      snyk: ^1.999.0
       stylelint: 14.11.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -92,7 +92,7 @@ importers:
       eslint-plugin-jsx-a11y: 6.6.1_eslint@8.23.0
       eslint-plugin-node: 11.1.0_eslint@8.23.0
       eslint-plugin-promise: 6.0.1_eslint@8.23.0
-      eslint-plugin-react: 7.31.6_eslint@8.23.0
+      eslint-plugin-react: 7.31.7_eslint@8.23.0
       eslint-plugin-sort-keys-fix: 1.1.2
       eslint-plugin-typescript-sort-keys: 2.1.0_iurrlxgqcgk5svigzxakafpeuu
       fork-ts-checker-webpack-plugin: 7.2.13_frxmcuunqqqeqipt45cd6rjuvu
@@ -101,7 +101,7 @@ importers:
       postcss: 8.4.16
       postcss-bem-linter: 3.3.0
       postcss-import: 15.0.0_postcss@8.4.16
-      postcss-preset-env: 7.8.0_postcss@8.4.16
+      postcss-preset-env: 7.8.1_postcss@8.4.16
       postcss-reporter: 7.0.5_postcss@8.4.16
       postcss-scss: 4.0.4_postcss@8.4.16
       prettier: 2.7.1
@@ -110,7 +110,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       remove-files-webpack-plugin: 1.5.0_jocfejeu7nc2tbm3hu6gslcolu
       sass: 1.54.8
-      snyk: 1.997.0
+      snyk: 1.999.0
       stylelint: 14.11.0
       stylelint-config-prettier: 9.0.3_stylelint@14.11.0
       stylelint-config-sass-guidelines: 9.0.1_74u2qasxp5mudia6vln5kcfuni
@@ -137,7 +137,7 @@ importers:
       '@fortawesome/free-brands-svg-icons': ^6.2.0
       '@fortawesome/free-solid-svg-icons': ^6.2.0
       '@fortawesome/react-fontawesome': ^0.2.0
-      '@playwright/test': ^1.25.1
+      '@playwright/test': ^1.25.2
       '@stackblitz/sdk': ^1.8.0
       '@types/react': ^18.0.18
       '@types/react-dom': ^18.0.6
@@ -155,7 +155,7 @@ importers:
       postcss: ^8.4.16
       postcss-bem-linter: ^3.3.0
       postcss-prefixer: ^2.1.3
-      postcss-preset-env: ^7.8.0
+      postcss-preset-env: ^7.8.1
       prettier: ^2.7.1
       react: link:..\..\node_modules\react
       react-dom: link:..\..\node_modules\react-dom
@@ -170,7 +170,7 @@ importers:
       resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
       sass: ^1.54.8
-      snyk: ^1.997.0
+      snyk: ^1.999.0
       stylelint: 14.11.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-sass-guidelines: ^9.0.1
@@ -213,7 +213,7 @@ importers:
       '@babel/preset-env': 7.19.0_@babel+core@7.19.0
       '@babel/preset-react': 7.18.6_@babel+core@7.19.0
       '@csstools/postcss-sass': 5.0.1_postcss@8.4.16
-      '@playwright/test': 1.25.1
+      '@playwright/test': 1.25.2
       '@types/react': 18.0.18
       '@types/react-dom': 18.0.6
       '@types/react-instantsearch-dom': 6.12.3
@@ -226,12 +226,12 @@ importers:
       postcss: 8.4.16
       postcss-bem-linter: 3.3.0
       postcss-prefixer: 2.1.3_postcss@8.4.16
-      postcss-preset-env: 7.8.0_postcss@8.4.16
+      postcss-preset-env: 7.8.1_postcss@8.4.16
       prettier: 2.7.1
       recoil: 0.7.5_bglh42yvbqvbk55odclj6m3qri
       rimraf: 3.0.2
       sass: 1.54.8
-      snyk: 1.997.0
+      snyk: 1.999.0
       stylelint: 14.11.0
       stylelint-config-prettier: 9.0.3_stylelint@14.11.0
       stylelint-config-sass-guidelines: 9.0.1_74u2qasxp5mudia6vln5kcfuni
@@ -272,7 +272,7 @@ importers:
       nanoid: ^4.0.0
       postcss: ^8.4.16
       postcss-loader: 7.0.1
-      postcss-preset-env: ^7.8.0
+      postcss-preset-env: ^7.8.1
       resize-observer-polyfill: ^1.5.1
       sass-loader: 13.0.2
       terser-webpack-plugin: ^5.3.6
@@ -318,7 +318,7 @@ importers:
       mini-css-extract-plugin: 2.6.1_webpack@5.74.0
       postcss: 8.4.16
       postcss-loader: 7.0.1_qjv4cptcpse3y5hrjkrbb7drda
-      postcss-preset-env: 7.8.0_postcss@8.4.16
+      postcss-preset-env: 7.8.1_postcss@8.4.16
       resize-observer-polyfill: 1.5.1
       sass-loader: 13.0.2_webpack@5.74.0
       terser-webpack-plugin: 5.3.6_webpack@5.74.0
@@ -357,7 +357,7 @@ importers:
       css-loader: 5.2.6
       postcss: ^8.4.16
       postcss-loader: 7.0.1
-      postcss-preset-env: 7.8.0
+      postcss-preset-env: 7.8.1
       react: link:..\..\node_modules\react
       react-dom: link:..\..\node_modules\react-dom
       sass: ^1.54.8
@@ -391,7 +391,7 @@ importers:
       css-loader: 5.2.6_webpack@5.74.0
       postcss: 8.4.16
       postcss-loader: 7.0.1_qjv4cptcpse3y5hrjkrbb7drda
-      postcss-preset-env: 7.8.0_postcss@8.4.16
+      postcss-preset-env: 7.8.1_postcss@8.4.16
       sass: 1.54.8
       sass-loader: 10.1.1_sass@1.54.8+webpack@5.74.0
       style-loader: 2.0.0_webpack@5.74.0
@@ -2595,10 +2595,10 @@ packages:
     dev: true
     optional: true
 
-  /@csstools/postcss-cascade-layers/1.0.5_postcss@8.4.16:
+  /@csstools/postcss-cascade-layers/1.0.6_postcss@8.4.16:
     resolution:
       {
-        integrity: sha512-Id/9wBT7FkgFzdEpiEWrsVd4ltDxN0rI0QS0SChbeQiSuux3z21SJCRLu6h2cvCEUmaRi+VD0mHFj+GJD4GFnw==,
+        integrity: sha512-ei4Vh4AJwTCXTNj7uzwduoZDO7nLPksQ0TI7OzUlyFq4P4Uhu6hU7R4AlLimDP/s6D3PQdHmRL4f7UOy370UHA==,
       }
     engines: { node: ^12 || ^14 || >=16 }
     peerDependencies:
@@ -3484,16 +3484,16 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@playwright/test/1.25.1:
+  /@playwright/test/1.25.2:
     resolution:
       {
-        integrity: sha512-IJ4X0yOakXtwkhbnNzKkaIgXe6df7u3H3FnuhI9Jqh+CdO0e/lYQlDLYiyI9cnXK8E7UAppAWP+VqAv6VX7HQg==,
+        integrity: sha512-6qPznIR4Fw02OMbqXUPMG6bFFg1hDVNEdihKy0t9K0dmRbus1DyP5Q5XFQhGwEHQkLG5hrSfBuu9CW/foqhQHQ==,
       }
     engines: { node: '>=14' }
     hasBin: true
     dependencies:
-      '@types/node': 18.7.13
-      playwright-core: 1.25.1
+      '@types/node': 18.7.15
+      playwright-core: 1.25.2
     dev: true
 
   /@pmmmwh/react-refresh-webpack-plugin/0.5.7_metx475lqcp4j5c75za4zf7xbi:
@@ -5746,13 +5746,6 @@ packages:
       }
     dev: true
 
-  /@types/node/18.7.13:
-    resolution:
-      {
-        integrity: sha512-46yIhxSe5xEaJZXWdIBP7GU4HDTG8/eo0qd9atdiL+lFpA03y8KS+lkTN834TWJj5767GbWv4n/P6efyTFt1Dw==,
-      }
-    dev: true
-
   /@types/node/18.7.15:
     resolution:
       {
@@ -7927,7 +7920,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001390
-      electron-to-chromium: 1.4.242
+      electron-to-chromium: 1.4.243
       node-releases: 2.0.6
       update-browserslist-db: 1.0.7_browserslist@4.21.3
 
@@ -9914,10 +9907,10 @@ packages:
     resolution: { integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0= }
     dev: true
 
-  /electron-to-chromium/1.4.242:
+  /electron-to-chromium/1.4.243:
     resolution:
       {
-        integrity: sha512-nPdgMWtjjWGCtreW/2adkrB2jyHjClo9PtVhR6rW+oxa4E4Wom642Tn+5LslHP3XPL5MCpkn5/UEY60EXylNeQ==,
+        integrity: sha512-BgLD2gBX43OSXwlT01oYRRD5NIB4n3okTRxkzEAC6G0SZG4TTlyrWMjbOo0fajCwqwpRtMHXQNMjtRN6qpNtfw==,
       }
 
   /element-resize-detector/1.2.4:
@@ -10992,10 +10985,10 @@ packages:
       eslint: 8.23.0
     dev: false
 
-  /eslint-plugin-react/7.31.6_eslint@8.23.0:
+  /eslint-plugin-react/7.31.7_eslint@8.23.0:
     resolution:
       {
-        integrity: sha512-CXu4eu28sb8Sd2+cyUYsJVyDvpTlaXPG+bOzzpS9IzZKtye96AYX3ZmHQ6ayn/OAIQ/ufDJP8ElPWd63Pepn9w==,
+        integrity: sha512-8NldBTeYp/kQoTV1uT0XF6HcmDqbgZ0lNPkN0wlRw8DJKXEnaWu+oh/6gt3xIhzvQ35wB2Y545fJhIbJSZ2NNw==,
       }
     engines: { node: '>=4' }
     peerDependencies:
@@ -16499,10 +16492,10 @@ packages:
       pathe: 0.3.5
     dev: true
 
-  /playwright-core/1.25.1:
+  /playwright-core/1.25.2:
     resolution:
       {
-        integrity: sha512-lSvPCmA2n7LawD2Hw7gSCLScZ+vYRkhU8xH0AapMyzwN+ojoDqhkH/KIEUxwNu2PjPoE/fcE0wLAksdOhJ2O5g==,
+        integrity: sha512-0yTbUE9lIddkEpLHL3u8PoCL+pWiZtj5A/j3U7YoNjcmKKDGBnCrgHJMzwd2J5vy6l28q4ki3JIuz7McLHhl1A==,
       }
     engines: { node: '>=14' }
     hasBin: true
@@ -16955,7 +16948,7 @@ packages:
       klona: 2.0.5
       postcss: 8.4.16
       semver: 7.3.7
-      webpack: 5.74.0_webpack-cli@4.10.0
+      webpack: 5.74.0
     dev: true
 
   /postcss-logical/5.0.4_postcss@8.4.16:
@@ -17352,16 +17345,16 @@ packages:
       postcss: 8.4.16
     dev: true
 
-  /postcss-preset-env/7.8.0_postcss@8.4.16:
+  /postcss-preset-env/7.8.1_postcss@8.4.16:
     resolution:
       {
-        integrity: sha512-leqiqLOellpLKfbHkD06E04P6d9ZQ24mat6hu4NSqun7WG0UhspHR5Myiv/510qouCjoo4+YJtNOqg5xHaFnCA==,
+        integrity: sha512-8884CHxQaoN1i4iEK+JvzOe8emODb5R4p/0dw4yEdo7QM4RdUk2sBx0fnzFyJt8BLfZSCGeVkKZ4HC564waBpQ==,
       }
     engines: { node: ^12 || ^14 || >=16 }
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      '@csstools/postcss-cascade-layers': 1.0.5_postcss@8.4.16
+      '@csstools/postcss-cascade-layers': 1.0.6_postcss@8.4.16
       '@csstools/postcss-color-function': 1.1.1_postcss@8.4.16
       '@csstools/postcss-font-format-keywords': 1.0.1_postcss@8.4.16
       '@csstools/postcss-hwb-function': 1.0.2_postcss@8.4.16
@@ -19541,10 +19534,10 @@ packages:
       - supports-color
     dev: true
 
-  /snyk/1.997.0:
+  /snyk/1.999.0:
     resolution:
       {
-        integrity: sha512-3Sd7XTOytpud06DMtFGXglxWkpqR1W6QBJIB+T6LcU8f9+cTWmKW8MMgJ6ivsMPF89m49NCSqXjNFDcZbTt/gQ==,
+        integrity: sha512-beLFrn9DShnkr9EVlw4/V2F7p2GHnFdDvMG1vAOIvIrxCixtqUHPUHwCkYcmUR35NLrJeVrCdzXxS5sXwLuppQ==,
       }
     engines: { node: '>=12' }
     hasBin: true

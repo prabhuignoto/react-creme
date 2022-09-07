@@ -18,7 +18,6 @@
   align-items: center;
   color: theme.$white;
   display: flex;
-  font-size: font.$font-size-sm;
   height: 35px;
   justify-content: flex-start;
   overflow: hidden;
@@ -26,6 +25,10 @@
   text-decoration: none;
   text-overflow: ellipsis;
   width: calc(100% - 1rem);
+
+  span {
+    font-size: font.$font-size-sm;
+  }
 
   &:hover {
     background-color: rgba(theme.$white, 0.1);
@@ -63,6 +66,7 @@
 }
 
 .rc-doc-links-container {
+  font-size: 14px;
   position: fixed;
   right: 0;
   top: 0;
