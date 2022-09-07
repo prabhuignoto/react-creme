@@ -4,6 +4,7 @@
 $sizes: (sm, md, lg);
 
 .header {
+  @extend %border-radius;
   align-items: center;
   color: theme.$primary;
   height: var(--rc-accordion-header-height, 35px);
