@@ -36,7 +36,7 @@ const Widgets = () => {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default Render">
+      <Section size="md" title="" border={false}>
         <DemoWidget name="Slider" width={width}>
           {Default}
         </DemoWidget>
