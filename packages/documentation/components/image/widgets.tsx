@@ -5,7 +5,7 @@ import { Default, Expand } from './widget-variants';
 function widgets() {
   return (
     <div className={'rc-demo-widgets'}>
-      <Section size="md" title="Default render">
+      <Section size="md" title="Default">
         <DemoWidget name="Image">{Default}</DemoWidget>
       </Section>
       <Section size="md" title="Expandable Image">

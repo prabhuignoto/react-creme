@@ -5,7 +5,7 @@ import { Accent, Default, Large, Medium, RTL } from './widget-variants';
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default Render">
+      <Section size="md" title="Default">
         <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={false}>
           {Default}
         </DemoWidget>

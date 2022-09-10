@@ -5,7 +5,7 @@ import { Default, Large, Medium, RTL } from './widget-variants';
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default render">
+      <Section size="md" title="Default">
         <DemoWidget name="Password" width={320}>
           {Default}
         </DemoWidget>

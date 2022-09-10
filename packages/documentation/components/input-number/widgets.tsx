@@ -29,7 +29,7 @@ function Widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default render">
+      <Section size="md" title="Default">
         <DemoWidget name="InputNumber" width={width}>
           {Default}
         </DemoWidget>

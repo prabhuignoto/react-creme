@@ -27,7 +27,7 @@ const Home: React.FunctionComponent = () => {
         </Section>
 
         {/* DEPENDENCIES */}
-        <Section title="Dependencies" size="md" hashPrefix="home">
+        {/* <Section title="Dependencies" size="md" hashPrefix="home">
           <Text>
             react-creme is designed to be lean and does not depend on any other
             major library for styling or for any other features. It only depends
@@ -39,10 +39,10 @@ const Home: React.FunctionComponent = () => {
               .map(key => `${key}@${packages.dependencies[key]}`)
               .join('\n')}
           </Code>
-        </Section>
+        </Section> */}
 
         {/* Browser Support */}
-        <BrowserSupport />
+        {/* <BrowserSupport /> */}
 
         <Section title="Usage" size="md" hashPrefix="home">
           <Text>

@@ -11,7 +11,7 @@ import {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default Render">
+      <Section size="md" title="Default">
         <DemoWidget name="CheckBoxGroup" width={100}>
           {Default}
         </DemoWidget>

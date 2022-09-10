@@ -102,6 +102,7 @@ export const Icons = (
     minHeight={250}
     disabledTabs={['two', 'one']}
     icons={icons}
+    size="sm"
   >
     <span>one</span>
     <span>two</span>

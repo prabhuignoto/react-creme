@@ -36,7 +36,7 @@ function Widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets" style={{ minHeight: '1200px' }}>
-      <Section size="md" title="Default Render">
+      <Section size="md" title="Default">
         <DemoWidget name="AccordionGroup" width={width}>
           {Default}
         </DemoWidget>

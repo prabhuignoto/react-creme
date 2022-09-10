@@ -5,7 +5,7 @@ import { Default, Selection } from './widget-variants';
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default render">
+      <Section size="md" title="Default">
         <DemoWidget name="Tree" width={400} showCodeByDefault={false}>
           {Default}
         </DemoWidget>
