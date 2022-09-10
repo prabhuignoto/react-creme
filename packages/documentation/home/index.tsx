@@ -1,9 +1,9 @@
 import { Text, Button } from '../../lib/components';
 import { Section } from '../../lib/components/section/section';
-import packages from '../../lib/package.json';
+// import packages from '../../lib/package.json';
 import { SyntaxHighLighter } from './../common/syntax-highlighter';
 import { Code } from './../common/syntax-highlighter/syntax';
-import BrowserSupport from './browser-support';
+// import BrowserSupport from './browser-support';
 // import HeroSection from './hero-section';
 import './home.scss';
 import gettingStarted from './samples/getting-started';
