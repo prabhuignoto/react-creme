@@ -31,7 +31,7 @@ function widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default render">
+      <Section size="md" title="Default">
         <DemoWidget name="Radio">
           <div style={{ ...style, width: `${width}px` }}>
             <Radio label="Radio option one" />

@@ -12,7 +12,7 @@ import {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default render">
+      <Section size="md" title="Default">
         <DemoWidget name="BreadCrumb" width={450}>
           {Default}
         </DemoWidget>

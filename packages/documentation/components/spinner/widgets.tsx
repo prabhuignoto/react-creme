@@ -5,7 +5,7 @@ import { CustomSpeed, Default, Large, Medium } from './widget-variants';
 const Widgets = () => {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default Render">
+      <Section size="md" title="Default">
         <DemoWidget name="Spinner" width={200}>
           {Default}
         </DemoWidget>

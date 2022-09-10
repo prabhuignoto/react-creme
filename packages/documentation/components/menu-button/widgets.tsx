@@ -5,7 +5,7 @@ import { DemoWidget } from '../../common/demo-widget';
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default render">
+      <Section size="md" title="Default">
         <DemoWidget
           name="MenuButton"
           width={100}

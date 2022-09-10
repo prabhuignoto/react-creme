@@ -36,7 +36,7 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default render">
+      <Section size="md" title="Default">
         <DemoWidget name="FormField" width={width}>
           {Default}
         </DemoWidget>

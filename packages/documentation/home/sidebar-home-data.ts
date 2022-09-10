@@ -7,14 +7,14 @@ export default [
         name: 'Installation',
         value: 'home',
       },
-      {
-        name: 'Dependencies',
-        value: 'home',
-      },
-      {
-        name: 'Browser Support',
-        value: 'home',
-      },
+      // {
+      //   name: 'Dependencies',
+      //   value: 'home',
+      // },
+      // {
+      //   name: 'Browser Support',
+      //   value: 'home',
+      // },
       {
         name: 'Usage',
         value: 'home',

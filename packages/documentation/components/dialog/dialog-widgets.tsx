@@ -51,7 +51,7 @@ const Widget = () => {
 
   return media && width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default render">
+      <Section size="md" title="Default">
         <DemoWidget name="Dialog" width={110} component={Default}>
           <Button onClick={() => setOpen(true)} label="Open dialog"></Button>
           {open && (

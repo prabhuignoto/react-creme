@@ -5,7 +5,7 @@ import { DemoWidget } from '../../common/demo-widget';
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default Render">
+      <Section size="md" title="Default">
         <DemoWidget name="Link" width={100}>
           <Link href="http://www.google.com">google.com</Link>
         </DemoWidget>

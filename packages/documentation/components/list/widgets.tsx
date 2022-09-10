@@ -35,7 +35,7 @@ function Widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section size="md" title="Default render">
+        <Section size="md" title="Default">
           <DemoWidget name="List" width={width}>
             {Default}
           </DemoWidget>
