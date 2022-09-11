@@ -18,6 +18,11 @@
   border-top-left-radius: 4px;
 }
 
+%border-radius-top {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
 %border {
   @extend %border-radius;
 

@@ -93,7 +93,7 @@ const config = {
                   PostCSSpresetEnv({
                     browsers: [
                       'last 2 versions',
-                      'ie >= 11',
+                      'not IE 11',
                       'not op_mini all',
                     ],
                   }),
@@ -104,6 +104,7 @@ const config = {
                       'ie >= 11',
                       'not op_mini all',
                     ],
+                    ignore: ['rem'],
                   }),
                 ],
               },

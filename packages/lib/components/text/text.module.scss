@@ -27,19 +27,20 @@ $sizes: (sm, md, lg);
 
   &:not(.dark) em,
   &:not(.dark) code {
-    color: theme.$primary;
+    background: rgba(theme.$primary-rgb, 0.75);
+    color: theme.$white;
   }
 
   &.dark em,
   &.dark code {
+    background: theme.$secondary;
     color: theme.$text-color;
   }
 
   em,
   code {
     @extend %border-radius;
-    background: theme.$secondary;
-    margin: 0 0.25rem;
-    padding: 0.2rem 0.25rem;
+    line-height: 1.25rem;
+    padding: 0 4px;
   }
 }
