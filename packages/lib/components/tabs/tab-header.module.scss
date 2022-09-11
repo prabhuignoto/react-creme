@@ -33,7 +33,6 @@ $sizes: (sm, md, lg);
 
   &.tab_headers_rounded {
     left: 3px;
-    // border: 1px solid red;
     position: absolute;
     top: 0;
   }
@@ -102,6 +101,7 @@ $sizes: (sm, md, lg);
 }
 
 .tab_head {
+  @extend %border-radius-top;
   min-width: 120px;
   position: relative;
   user-select: none;
@@ -136,7 +136,7 @@ $sizes: (sm, md, lg);
 
   &.tab_head_selected.dark {
     background: theme.$raisin-black;
-    border: 1px solid transparent;
+    // border: 1px solid red;
   }
 
   &.tab_head_selected:not(.dark) {
@@ -159,8 +159,16 @@ $sizes: (sm, md, lg);
   &.tab_head_with_icon {
     align-items: center;
     display: grid;
-    grid-template-columns: 2.5rem calc(100% - 2rem) 0.5rem;
     justify-items: center;
+
+    @each $size in $sizes {
+      $ico-size: calc(var(--rc-icon-size-#{$size}) * 1.5);
+
+      &.tab_head_#{$size} {
+        column-gap: 4px;
+        grid-template-columns: $ico-size calc(100% - $ico-size);
+      }
+    }
   }
 }
 
