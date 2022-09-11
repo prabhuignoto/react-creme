@@ -19,10 +19,11 @@
 
 .tab_panels {
   @extend %list;
-  min-height: 200px;
-  top: 45px;
+  margin-top: 42px;
+  min-height: 245px;
   width: 100%;
   z-index: 0;
+  // background: red;
 }
 
 .panel_border {
@@ -33,7 +34,7 @@
   margin-left: 0.1rem;
 
   &.dark {
-    border: 1px solid theme.$charcoal-gray;
+    border: 1px solid theme.$raisin-black;
   }
 
   &:not(.dark) {

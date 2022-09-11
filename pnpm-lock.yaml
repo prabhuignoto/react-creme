@@ -16,7 +16,7 @@ importers:
       '@sentry/tracing': ^7.12.1
       '@types/bluebird': ^3.5.36
       '@types/node': ^18.7.16
-      '@types/react': ^18.0.18
+      '@types/react': ^18.0.19
       '@types/react-dom': ^18.0.6
       '@typescript-eslint/eslint-plugin': ^5.36.2
       '@typescript-eslint/parser': ^5.36.2
@@ -28,7 +28,7 @@ importers:
       eslint: ^8.23.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-import: 2.26.0
-      eslint-plugin-jest: ^27.0.3
+      eslint-plugin-jest: ^27.0.4
       eslint-plugin-jsx-a11y: ^6.6.1
       eslint-plugin-node: 11.1.0
       eslint-plugin-promise: 6.0.1
@@ -76,7 +76,7 @@ importers:
       '@sentry/tracing': 7.12.1
       '@types/bluebird': 3.5.36
       '@types/node': 18.7.16
-      '@types/react': 18.0.18
+      '@types/react': 18.0.19
       '@types/react-dom': 18.0.6
       '@typescript-eslint/eslint-plugin': 5.36.2_2l2r3i3lm6jysqd4ac3ql4n2mm
       '@typescript-eslint/parser': 5.36.2_itqs5654cmlnjraw6gjzqacppi
@@ -88,7 +88,7 @@ importers:
       eslint: 8.23.0
       eslint-config-prettier: 8.5.0_eslint@8.23.0
       eslint-plugin-import: 2.26.0_iepzrjnvahcxaf6zc7cutko6om
-      eslint-plugin-jest: 27.0.3_yc43jc4jd25utk4oxxpy5i3ybe
+      eslint-plugin-jest: 27.0.4_yc43jc4jd25utk4oxxpy5i3ybe
       eslint-plugin-jsx-a11y: 6.6.1_eslint@8.23.0
       eslint-plugin-node: 11.1.0_eslint@8.23.0
       eslint-plugin-promise: 6.0.1_eslint@8.23.0
@@ -139,7 +139,7 @@ importers:
       '@fortawesome/react-fontawesome': ^0.2.0
       '@playwright/test': ^1.25.2
       '@stackblitz/sdk': ^1.8.0
-      '@types/react': ^18.0.18
+      '@types/react': ^18.0.19
       '@types/react-dom': ^18.0.6
       '@types/react-instantsearch-dom': ^6.12.3
       '@types/react-syntax-highlighter': ^15.5.5
@@ -183,7 +183,7 @@ importers:
       vite-plugin-react-svg: ^0.2.0
       vite-plugin-svgr: ^2.2.1
     dependencies:
-      '@docsearch/react': 3.2.1_4maksl5wadem24ah5qh5rerrkm
+      '@docsearch/react': 3.2.1_qsnefmytolfd4mhf65v35mgwqm
       '@fortawesome/fontawesome-svg-core': 6.2.0
       '@fortawesome/free-brands-svg-icons': 6.2.0
       '@fortawesome/free-solid-svg-icons': 6.2.0
@@ -214,7 +214,7 @@ importers:
       '@babel/preset-react': 7.18.6_@babel+core@7.19.0
       '@csstools/postcss-sass': 5.0.1_postcss@8.4.16
       '@playwright/test': 1.25.2
-      '@types/react': 18.0.18
+      '@types/react': 18.0.19
       '@types/react-dom': 18.0.6
       '@types/react-instantsearch-dom': 6.12.3
       '@types/react-syntax-highlighter': 15.5.5
@@ -2818,7 +2818,7 @@ packages:
       }
     dev: false
 
-  /@docsearch/react/3.2.1_4maksl5wadem24ah5qh5rerrkm:
+  /@docsearch/react/3.2.1_qsnefmytolfd4mhf65v35mgwqm:
     resolution:
       {
         integrity: sha512-EzTQ/y82s14IQC5XVestiK/kFFMe2aagoYFuTAIfIb/e+4FU7kSMKonRtLwsCiLQHmjvNQq+HO+33giJ5YVtaQ==,
@@ -2838,7 +2838,7 @@ packages:
       '@algolia/autocomplete-core': 1.7.1
       '@algolia/autocomplete-preset-algolia': 1.7.1_algoliasearch@4.14.2
       '@docsearch/css': 3.2.1
-      '@types/react': 18.0.18
+      '@types/react': 18.0.19
       algoliasearch: 4.14.2
       react: link:node_modules\react
       react-dom: link:node_modules\react-dom
@@ -5909,7 +5909,7 @@ packages:
         integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==,
       }
     dependencies:
-      '@types/react': 18.0.18
+      '@types/react': 18.0.19
 
   /@types/react-instantsearch-core/6.26.2:
     resolution:
@@ -5917,7 +5917,7 @@ packages:
         integrity: sha512-Z7uNsE4wYUDws7QtP3ZKN/UK5xbKLwY76ZiIIWhNQgPXDV0QG3F/6Qn82MChNUiel/nqXCnCr/ZAj7oa5jsMyg==,
       }
     dependencies:
-      '@types/react': 18.0.18
+      '@types/react': 18.0.19
       algoliasearch: 4.14.2
       algoliasearch-helper: 3.11.0_algoliasearch@4.14.2
     dev: true
@@ -5928,7 +5928,7 @@ packages:
         integrity: sha512-HAQG74v7OzsUhdjNermd0A8c7LWRLsrMCsFCY6+7HEXK1hikeCs/Hmy6xjFhZVfFEWvpvX78vxJELafoAnuv8Q==,
       }
     dependencies:
-      '@types/react': 18.0.18
+      '@types/react': 18.0.19
       '@types/react-instantsearch-core': 6.26.2
     dev: true
 
@@ -5938,7 +5938,7 @@ packages:
         integrity: sha512-QH3JZQXa2usAvJvSsdSUJ4Yu4j8ReuZpgRrEW+XP+Rmosbn425YshW9iGEb/pAARm8496axHhHUPRH3UmTiB6A==,
       }
     dependencies:
-      '@types/react': 18.0.18
+      '@types/react': 18.0.19
     dev: true
 
   /@types/react-transition-group/4.4.5:
@@ -5947,13 +5947,13 @@ packages:
         integrity: sha512-juKD/eiSM3/xZYzjuzH6ZwpP+/lejltmiS3QEzV/vmb/Q8+HfDmxu+Baga8UEMGBqV88Nbg4l2hY/K2DkyaLLA==,
       }
     dependencies:
-      '@types/react': 18.0.18
+      '@types/react': 18.0.19
     dev: true
 
-  /@types/react/18.0.18:
+  /@types/react/18.0.19:
     resolution:
       {
-        integrity: sha512-6hI08umYs6NaiHFEEGioXnxJ+oEhY3eRz8VCUaudZmGdtvPviCJB8mgaMxaDWAdPSYd4eFavrPk2QIolwbLYrg==,
+        integrity: sha512-BDc3Q+4Q3zsn7k9xZrKfjWyJsSlEDMs38gD1qp2eDazLCdcPqAT+vq1ND+Z8AGel/UiwzNUk8ptpywgNQcJ1MQ==,
       }
     dependencies:
       '@types/prop-types': 15.7.5
@@ -10980,10 +10980,10 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-jest/27.0.3_yc43jc4jd25utk4oxxpy5i3ybe:
+  /eslint-plugin-jest/27.0.4_yc43jc4jd25utk4oxxpy5i3ybe:
     resolution:
       {
-        integrity: sha512-nAbUw+doEUUj0YM0k6C1hqVOxu2QX9l5alPG1bpBEWX/uQW3u/W4jrwGIfaZ9gKVBmUEYUNTgVoFaVIwPBXL+Q==,
+        integrity: sha512-BuvY78pHMpMJ6Cio7sKg6jrqEcnRYPUc4Nlihku4vKx3FjlmMINSX4vcYokZIe+8TKcyr1aI5Kq7vYwgJNdQSA==,
       }
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
     peerDependencies:

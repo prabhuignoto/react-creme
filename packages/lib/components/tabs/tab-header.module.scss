@@ -30,6 +30,13 @@ $sizes: (sm, md, lg);
   &:not(.tab_headers_dark).flat::after {
     background: theme.$platinum;
   }
+
+  &.tab_headers_rounded {
+    left: 3px;
+    // border: 1px solid red;
+    position: absolute;
+    top: 0;
+  }
 }
 
 .tab_headers_flat {
@@ -127,6 +134,16 @@ $sizes: (sm, md, lg);
     color: theme.$primary;
   }
 
+  &.tab_head_selected.dark {
+    background: theme.$raisin-black;
+    border: 1px solid transparent;
+  }
+
+  &.tab_head_selected:not(.dark) {
+    background: rgba(theme.$secondary-rgb, 0.25);
+    border: 1px solid transparent;
+  }
+
   &:not(.tab_head_selected) {
     cursor: pointer;
   }
@@ -211,9 +228,9 @@ $sizes: (sm, md, lg);
   position: relative;
 
   &.dark {
-    border-left: 1px solid theme.$charcoal-gray;
-    border-right: 1px solid theme.$charcoal-gray;
-    border-top: 1px solid theme.$charcoal-gray;
+    border-left: 1px solid theme.$raisin-black;
+    border-right: 1px solid theme.$raisin-black;
+    border-top: 1px solid theme.$raisin-black;
   }
 
   &:not(.dark) {
@@ -225,22 +242,23 @@ $sizes: (sm, md, lg);
 
 .tab_head_rounded.tab_head_selected {
   &.dark::after {
-    background: theme.$black;
+    background: theme.$primary;
   }
 
   &:not(.dark)::after {
-    background: theme.$white;
+    background: theme.$primary;
   }
 }
 
 .tab_head_rounded.tab_head_selected::after {
   @include position.position-abs('bottom center');
-  bottom: -2px;
+  bottom: 0;
   content: '';
   display: block;
   height: 3px;
   width: 100%;
-  z-index: -1;
+  width: 100%;
+  z-index: 1;
 }
 
 .tab_head_icon {
