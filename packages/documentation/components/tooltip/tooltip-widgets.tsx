@@ -40,10 +40,11 @@ const Widgets = () => {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md">
+      <Section size="md" border={false}>
         <Text>
-          Tooltip component can be anchored to a target element in 12 different
-          positions. Change the position of the tooltip using the dropdown.
+          Tooltip component can be anchored to a target element in{' '}
+          <em>12 different positions</em>. Change the position of the tooltip in
+          the following examples via this select.
         </Text>
         <div className="rc-demo-widget" style={{ width: '320px' }}>
           <Dropdown

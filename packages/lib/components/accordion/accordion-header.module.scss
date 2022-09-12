@@ -60,6 +60,9 @@ $sizes: (sm, md, lg);
 .title {
   @extend %left;
   display: block;
+  height: var(--rc-accordion-header-height, 35px);
+  line-height: var(--rc-accordion-header-height, 35px);
+  margin: auto 0;
   padding: 0 0.25rem;
   width: calc(100% - 0.5rem);
 
@@ -116,6 +119,6 @@ $sizes: (sm, md, lg);
   }
 
   &.disable-icon {
-    visibility: hidden;
+    display: none;
   }
 }

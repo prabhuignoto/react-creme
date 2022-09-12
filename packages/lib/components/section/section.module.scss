@@ -17,7 +17,7 @@ $heights: (
 
 .section {
   @extend %col;
-  margin: 2rem 0;
+  margin: 1.25rem 0;
   padding: 0 0.5rem;
   width: calc(100% - 1rem);
 
@@ -61,14 +61,14 @@ $heights: (
 }
 
 .body {
-  width: calc(100% - 2rem);
+  width: calc(100% - 1rem);
 
   &.no_padding {
     padding: 0;
   }
 
   &:not(.no_padding) {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   &:not(.rtl) {

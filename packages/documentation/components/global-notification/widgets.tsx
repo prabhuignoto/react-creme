@@ -20,7 +20,7 @@ function widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <Text>
           The global notification component can be configured to be in four
           states: <code>info</code>, <code>success</code>, <code>warning</code>{' '}

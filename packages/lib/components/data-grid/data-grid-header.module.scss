@@ -9,7 +9,14 @@ $dark-mode: theme.$dark_mode;
   color: theme.$black;
   height: 100%;
   text-transform: capitalize;
-  width: calc(100% - 0px);
+
+  &.cell_border {
+    width: calc(100% - 1px);
+  }
+
+  &:not(.cell_border) {
+    width: 100%;
+  }
 
   &.dark {
     background: rgba(theme.$charcoal-gray, 0.5);

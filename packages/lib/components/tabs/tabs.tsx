@@ -130,6 +130,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     return classNames(styles.tab_panels, {
       [styles.panel_border]: tabStyle === 'rounded',
       [styles.dark]: isDarkMode,
+      [styles[tabStyle]]: true,
     });
   }, []);
 
