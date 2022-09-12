@@ -40,6 +40,7 @@ $sizes: (sm, md, lg);
   em,
   code {
     @extend %border-radius;
+    font-style: normal;
     line-height: 1.25rem;
     padding: 0 4px;
   }

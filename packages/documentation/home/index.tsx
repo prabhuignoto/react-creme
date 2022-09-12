@@ -1,4 +1,4 @@
-import { Text, Button } from '../../lib/components';
+import { Button, Text } from '../../lib/components';
 import { Section } from '../../lib/components/section/section';
 // import packages from '../../lib/package.json';
 import { SyntaxHighLighter } from './../common/syntax-highlighter';
@@ -20,7 +20,8 @@ const Home: React.FunctionComponent = () => {
         {/* SETUP */}
         <Section title="Installation" size="md" hashPrefix="home">
           <Text>
-            Get started by installing the react-creme package via npm or yarn.
+            Get started by installing the <em>react-creme</em> package via npm
+            or yarn.
           </Text>
           <Code wrap={false}>{`npm install --save react-creme`}</Code>
           <Code wrap={false}>{`yarn add react-creme`}</Code>
@@ -47,7 +48,7 @@ const Home: React.FunctionComponent = () => {
         <Section title="Usage" size="md" hashPrefix="home">
           <Text>
             The example below shows how to use the react-creme package to create
-            a button element.
+            a simple button element.
           </Text>
           <SyntaxHighLighter
             code={gettingStarted}
@@ -64,8 +65,12 @@ const Home: React.FunctionComponent = () => {
 
         <Section title="Theme" size="md" hashPrefix="home">
           <Text>
-            react-creme comes with built in support for Themes. Customize the
-            Colors, Font and Icon sizes with ease.
+            <em>react-creme</em> comes wit a powerful <em>ThemeProvider</em>{' '}
+            wrapper to customize the colors, font , icon sizes with ease.
+          </Text>
+          <Text>
+            The following example demonstrates how to use the{' '}
+            <em>ThemeProvider</em> to customize your app built with react-creme.
           </Text>
           <SyntaxHighLighter
             code={gettingStartedTheme}

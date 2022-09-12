@@ -19,11 +19,14 @@
 
 .tab_panels {
   @extend %list;
-  margin-top: 42px;
   min-height: 245px;
+  padding-top: 0.5rem;
   width: 100%;
   z-index: 0;
-  // background: red;
+
+  &.rounded {
+    margin-top: 42px;
+  }
 }
 
 .panel_border {

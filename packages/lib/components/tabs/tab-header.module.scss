@@ -115,6 +115,7 @@ $sizes: (sm, md, lg);
   }
 
   &:hover {
+    background: rgba(theme.$secondary-rgb, 0.2);
     color: theme.$primary;
   }
 
@@ -136,12 +137,10 @@ $sizes: (sm, md, lg);
 
   &.tab_head_selected.dark {
     background: theme.$raisin-black;
-    // border: 1px solid red;
   }
 
   &.tab_head_selected:not(.dark) {
     background: rgba(theme.$secondary-rgb, 0.25);
-    border: 1px solid transparent;
   }
 
   &:not(.tab_head_selected) {
@@ -149,7 +148,7 @@ $sizes: (sm, md, lg);
   }
 
   &:not(:first-child) {
-    margin-left: 0.75rem;
+    margin-left: 0.5rem;
   }
 
   &:not(.tab_head_with_icon) {

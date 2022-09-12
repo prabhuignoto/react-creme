@@ -41,9 +41,14 @@ const Widgets = () => {
   const [position, setPosition] = useState<NotificationPosition>('top-left');
   return width ? (
     <div className="rc-demo-widgets">
-      <Section size="md">
+      <Section size="md" border={false}>
         <Text>
-          The notification can be positioned in different places on the screen.
+          The notification component can be configured and positioned in six
+          different ways: <code>top-left</code>, <code>top-right</code>,{' '}
+          <code>bottom-left</code>, <code>bottom-right</code>,{' '}
+          <code>top-center</code> and <code>bottom-center</code>. Use the
+          dropdown to change the position of the notification in the examples
+          below.
         </Text>
         <DemoWidget name="Notification" width={300}>
           <Dropdown
@@ -132,7 +137,7 @@ const Widgets = () => {
       <Section size="md" title="Notification - Auto Close">
         <Text>
           The notification can be closed automatically after a certain time
-          using the autoClose property.
+          using the <code>autoClose</code> property.
         </Text>
         <DemoWidget name="Notification" width={150}>
           <Button label="Open Notification" onClick={() => setShow3(true)} />
