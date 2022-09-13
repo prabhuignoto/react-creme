@@ -8,7 +8,7 @@ import styles from './focus.module.scss';
  */
 export default async function useFocusNew(
   ref: React.RefObject<HTMLElement> | null,
-  cb?: ((ev: MouseEvent | KeyboardEvent) => void) | null
+  cb?: ((ev: PointerEvent | KeyboardEvent) => void) | null
 ) {
   const ring = useRef<HTMLSpanElement>();
 
@@ -34,11 +34,17 @@ export default async function useFocusNew(
     removeFocus();
   }, []);
 
-  const handleKeyUp = useCallback((ev: KeyboardEvent) => {
+  const handleKeyUp = (ev: KeyboardEvent) => {
+    const target = ev.target as HTMLElement;
+
+    if (!target.classList.contains(styles.focus_ring_active)) {
+      focusHandler();
+    }
+
     if (ev.key === 'Enter' || ev.key === ' ') {
       cb?.(ev);
     }
-  }, []);
+  };
 
   useEffect(() => {
     const ele = ref?.current;
@@ -63,7 +69,6 @@ export default async function useFocusNew(
       ele.appendChild(focusRing);
       ring.current = focusRing;
 
-      ele.addEventListener('focus', focusHandler);
       ele.addEventListener('focusout', blurHandler);
       ele.addEventListener('keyup', handleKeyUp);
     }
@@ -72,7 +77,6 @@ export default async function useFocusNew(
   useEffect(() => {
     return () => {
       if (ref?.current) {
-        ref?.current.removeEventListener('focus', focusHandler);
         ref?.current.removeEventListener('focusout', blurHandler);
         ref?.current.removeEventListener('keyup', handleKeyUp);
       }

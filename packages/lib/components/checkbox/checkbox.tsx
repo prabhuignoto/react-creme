@@ -2,7 +2,7 @@ import { CheckIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import * as React from 'react';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';
 import { CheckboxProps } from './checkbox-model';
@@ -31,20 +31,21 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
     const isDarkMode = useMemo(() => isDark(), []);
     const checkBoxId = useRef(noUniqueId ? id : `label-${nanoid()}`);
 
-    const toggleCheck = useCallback(
-      (ev: React.MouseEvent) => {
-        ev.preventDefault();
-        ev.stopPropagation();
+    const toggleCheck = (
+      ev: PointerEvent | KeyboardEvent | React.MouseEvent
+    ) => {
+      ev.preventDefault();
+      ev.stopPropagation();
 
-        if (!disabled) {
-          setChecked(!checked);
-          onChange && onChange(checkBoxId.current, !checked);
-        }
-      },
-      [checked]
-    );
+      if (!disabled) {
+        setChecked(val => {
+          onChange && onChange(checkBoxId.current, !val);
+          return !val;
+        });
+      }
+    };
 
-    useFocusNew(focusable ? ref : null);
+    useFocusNew(focusable ? ref : null, ev => toggleCheck(ev));
 
     const iconClass = useMemo(
       () =>

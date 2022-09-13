@@ -180,16 +180,19 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
     const focusProps = useMemo(() => {
       if (focusable) {
         return {
-          onBlur: () => setHasFocus(false),
+          onBlur: () => {
+            setHasFocus(false);
+          },
           onFocus: (ev: React.FocusEvent) => {
-            setHasFocus(true);
+            // setHasFocus(true);
             onFocus?.(ev);
           },
         };
       } else {
+        // alert("kunj")
         return {};
       }
-    }, [focusable]);
+    }, [focusable, hasFocus]);
 
     const numProps = useMemo(() => {
       if (type === 'number') {
@@ -215,6 +218,14 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       [inputValue, showSpinner]
     );
 
+    const handleKeyUp = (ev: React.KeyboardEvent) => {
+      if (!hasFocus) {
+        setHasFocus(true);
+        inputRef.current?.focus();
+      }
+      onKeyUp?.(ev);
+    };
+
     return (
       <div
         className={inputClass}
@@ -231,7 +242,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           {...focusProps}
           {...controlledProps}
           {...numProps}
-          onKeyUp={onKeyUp}
+          onKeyUp={handleKeyUp}
           onKeyDown={onKeyDown}
           ref={inputRef}
           id={inputId.current}

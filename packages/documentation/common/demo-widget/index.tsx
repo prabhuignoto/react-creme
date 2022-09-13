@@ -1,6 +1,6 @@
 import React, { CSSProperties, FunctionComponent, memo } from 'react';
 import { Accordion } from '../../../lib/components/accordion/accordion';
-import { CodeIcon } from '../../../lib/icons';
+// import { CodeIcon } from '../../../lib/icons';
 
 interface WidgetProps {
   children?: React.ReactNode;
@@ -58,7 +58,7 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
               expanded={showCodeByDefault}
               disableCollapse={showCodeByDefault}
               disableIcon={showCodeByDefault}
-              customIcon={<CodeIcon />}
+              // customIcon={<CodeIcon />}
               size="sm"
             >
               <React.Suspense fallback={<span>loading ...</span>}>

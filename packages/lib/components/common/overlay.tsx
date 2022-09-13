@@ -57,7 +57,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
   const retrigger = useDebouncedCallback(() => {
     setRetriggerStyleCal(new Date().getTime());
-  }, 25);
+  }, 5);
 
   const overlayWrapperClass = useMemo(() => {
     return classNames(['rc-overlay-wrapper'], {
@@ -96,7 +96,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
             : positionRight
         }px`,
         pointerEvents: 'all',
-        position: 'absolute',
+        position: 'fixed',
       } as CSSProperties;
     }
   }, [placementReference, retriggerStyleCal, overlayDimensions?.width]);
@@ -152,10 +152,11 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   /**
    * Synchronizes the position of the overlay content with the scroll position
    */
-  const handleWindowScroll = useDebouncedCallback(
-    () => setRetriggerStyleCal(new Date().getTime()),
-    10
-  );
+  // const handleWindowScroll = useDebouncedCallback(
+  //   () => setRetriggerStyleCal(new Date().getTime()),
+  //   10
+  // );
+  const handleWindowScroll = useCallback(() => closeProcess(), []);
 
   // onMount process
   useEffect(() => {

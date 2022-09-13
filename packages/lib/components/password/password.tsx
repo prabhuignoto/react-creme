@@ -72,7 +72,6 @@ const Password: FunctionComponent<PasswordProps> = ({
         <Input
           type={type}
           onChange={onChange}
-          focusable={false}
           size={size}
           border={border}
           RTL={RTL}
