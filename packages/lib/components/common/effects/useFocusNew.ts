@@ -34,13 +34,17 @@ export default async function useFocusNew(
     removeFocus();
   }, []);
 
-  const handleKeyUp = useCallback((ev: KeyboardEvent) => {
-    focusHandler();
+  const handleKeyUp = (ev: KeyboardEvent) => {
+    const target = ev.target as HTMLElement;
+
+    if (!target.classList.contains(styles.focus_ring_active)) {
+      focusHandler();
+    }
 
     if (ev.key === 'Enter' || ev.key === ' ') {
       cb?.(ev);
     }
-  }, []);
+  };
 
   useEffect(() => {
     const ele = ref?.current;

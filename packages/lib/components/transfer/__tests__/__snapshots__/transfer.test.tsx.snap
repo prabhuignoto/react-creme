@@ -29,7 +29,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           >
             <div
               class="_list_item_wrapper_59faf9"
-              style="width: 100%;"
+              style="height: 100%; width: 100%;"
             >
               <div
                 class="_value_wrapper_59faf9 _sm_59faf9"
@@ -70,7 +70,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           >
             <div
               class="_list_item_wrapper_59faf9"
-              style="width: 100%;"
+              style="height: 100%; width: 100%;"
             >
               <div
                 class="_value_wrapper_59faf9 _sm_59faf9"
@@ -111,7 +111,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           >
             <div
               class="_list_item_wrapper_59faf9"
-              style="width: 100%;"
+              style="height: 100%; width: 100%;"
             >
               <div
                 class="_value_wrapper_59faf9 _sm_59faf9"
@@ -152,7 +152,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           >
             <div
               class="_list_item_wrapper_59faf9"
-              style="width: 100%;"
+              style="height: 100%; width: 100%;"
             >
               <div
                 class="_value_wrapper_59faf9 _sm_59faf9"
@@ -277,7 +277,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           >
             <div
               class="_list_item_wrapper_59faf9"
-              style="width: 100%;"
+              style="height: 100%; width: 100%;"
             >
               <div
                 class="_value_wrapper_59faf9 _sm_59faf9"
@@ -318,7 +318,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           >
             <div
               class="_list_item_wrapper_59faf9"
-              style="width: 100%;"
+              style="height: 100%; width: 100%;"
             >
               <div
                 class="_value_wrapper_59faf9 _sm_59faf9"
@@ -359,7 +359,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           >
             <div
               class="_list_item_wrapper_59faf9"
-              style="width: 100%;"
+              style="height: 100%; width: 100%;"
             >
               <div
                 class="_value_wrapper_59faf9 _sm_59faf9"
@@ -400,7 +400,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           >
             <div
               class="_list_item_wrapper_59faf9"
-              style="width: 100%;"
+              style="height: 100%; width: 100%;"
             >
               <div
                 class="_value_wrapper_59faf9 _sm_59faf9"
