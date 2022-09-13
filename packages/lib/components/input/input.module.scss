@@ -49,7 +49,7 @@ $heights: (
   }
 
   &.focus::after {
-    border: 2px solid rgba(theme.$primary-rgb, 0.75);
+    border: 2px solid rgba(theme.$primary-rgb, 0.95);
     box-shadow: 0 0 1px 4px rgba(theme.$primary-rgb, 0.2);
   }
 
