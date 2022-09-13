@@ -50,7 +50,7 @@ $sizes: (sm, md, lg);
 
 .row:hover {
   &.dark {
-    background-color: theme.$raisin-black;
+    background-color: theme.$licorice;
   }
 
   &:not(.dark) {
