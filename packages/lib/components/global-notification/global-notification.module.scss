@@ -14,7 +14,6 @@ $sizes: (sm, md, lg);
   transition: height 0.2s cubic-bezier(0.075, 0.82, 0.165, 1),
     top 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   width: 100%;
-  // z-index: var(--rc-zIndex-globalNotification);
 
   &.success {
     background: theme.$success-green;
