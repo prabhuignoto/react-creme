@@ -35,6 +35,8 @@ export default async function useFocusNew(
   }, []);
 
   const handleKeyUp = useCallback((ev: KeyboardEvent) => {
+    focusHandler();
+
     if (ev.key === 'Enter' || ev.key === ' ') {
       cb?.(ev);
     }
@@ -63,7 +65,6 @@ export default async function useFocusNew(
       ele.appendChild(focusRing);
       ring.current = focusRing;
 
-      ele.addEventListener('focus', focusHandler);
       ele.addEventListener('focusout', blurHandler);
       ele.addEventListener('keyup', handleKeyUp);
     }
@@ -72,7 +73,6 @@ export default async function useFocusNew(
   useEffect(() => {
     return () => {
       if (ref?.current) {
-        ref?.current.removeEventListener('focus', focusHandler);
         ref?.current.removeEventListener('focusout', blurHandler);
         ref?.current.removeEventListener('keyup', handleKeyUp);
       }

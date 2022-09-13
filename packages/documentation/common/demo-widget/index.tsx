@@ -58,7 +58,7 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
               expanded={showCodeByDefault}
               disableCollapse={showCodeByDefault}
               disableIcon={showCodeByDefault}
-              customIcon={<CodeIcon />}
+              // customIcon={<CodeIcon />}
               size="sm"
             >
               <React.Suspense fallback={<span>loading ...</span>}>
