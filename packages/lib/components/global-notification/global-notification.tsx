@@ -9,6 +9,7 @@ import React, {
   useState,
 } from 'react';
 import useFocus from '../common/effects/useFocusNew';
+import { withOverlay } from '../common/withOverlay';
 import { GlobalNotificationProps } from './global-notification.model';
 import styles from './global-notification.module.scss';
 
@@ -88,4 +89,12 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
 
 GlobalNotification.displayName = 'GlobalNotification';
 
-export { GlobalNotification };
+const GlobalNotificationOverlay = withOverlay<GlobalNotificationProps, null>(
+  GlobalNotification,
+  {
+    backdropColor: 'transparent',
+    name: 'globalNotification',
+  }
+);
+
+export { GlobalNotificationOverlay as GlobalNotification };

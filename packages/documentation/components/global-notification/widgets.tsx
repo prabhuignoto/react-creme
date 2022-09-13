@@ -64,6 +64,7 @@ function widgets() {
               delay={500}
               closeAfter={4000}
               state={state}
+              height={65}
               size="lg"
             />
           }
@@ -76,6 +77,7 @@ function widgets() {
             closeAfter={4000}
             state={state}
             size="lg"
+            height={65}
           />
         )}
       </Section>
