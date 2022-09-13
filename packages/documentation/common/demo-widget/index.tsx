@@ -1,6 +1,6 @@
 import React, { CSSProperties, FunctionComponent, memo } from 'react';
 import { Accordion } from '../../../lib/components/accordion/accordion';
-import { CodeIcon } from '../../../lib/icons';
+// import { CodeIcon } from '../../../lib/icons';
 
 interface WidgetProps {
   children?: React.ReactNode;
