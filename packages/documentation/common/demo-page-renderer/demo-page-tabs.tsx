@@ -86,6 +86,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
                 data={properties}
                 // border
                 rowHeight={68}
+                size="md"
               />
             </Section>
             {callbacks && (

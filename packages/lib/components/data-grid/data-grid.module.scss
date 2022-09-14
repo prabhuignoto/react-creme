@@ -114,7 +114,7 @@ $sizes: (sm, md, lg);
     font-style: normal;
     font-weight: 400;
     margin: 0 0.25rem;
-    padding: 0 0.25rem;
+    padding: 0.25rem 0.35rem;
     white-space: nowrap;
   }
 
@@ -133,7 +133,8 @@ $sizes: (sm, md, lg);
 .cell_val.dark {
   em,
   code {
-    background-color: theme.$gunmetal-gray;
+    // background-color: theme.$gunmetal-gray;
+    background-color: theme.$jet-black;
   }
 }
 

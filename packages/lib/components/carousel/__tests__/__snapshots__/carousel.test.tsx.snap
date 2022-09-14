@@ -56,7 +56,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
       >
         <div
           aria-label="Previous"
-          class="_rounded_155e98 _sm_155e98 _icon_155e98 _btn_155e98"
+          class="_rounded_155e98 _md_155e98 _icon_155e98 _btn_155e98"
           role="button"
           style="outline: none; position: relative;"
           tabindex="0"
@@ -103,7 +103,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
       >
         <div
           aria-label="Next"
-          class="_rounded_155e98 _sm_155e98 _icon_155e98 _btn_155e98"
+          class="_rounded_155e98 _md_155e98 _icon_155e98 _btn_155e98"
           role="button"
           style="outline: none; position: relative;"
           tabindex="0"
