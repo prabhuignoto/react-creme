@@ -69,7 +69,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         border={false}
         focusable={focusable}
         size={size}
-        accent="flat"
+        // accent="flat"
         onClick={() => handleChange(items[0])}
       />
       <Menu

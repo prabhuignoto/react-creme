@@ -1,7 +1,10 @@
 import { fireEvent, render } from '@testing-library/react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import { vi } from 'vitest';
 import { Alert } from '../alert';
 import styles from '../alert.module.scss';
+
+expect.extend(toHaveNoViolations);
 
 describe('Alert', () => {
   it.concurrent('should render the alert', async () => {
@@ -49,5 +52,11 @@ describe('Alert', () => {
       </Alert>
     );
     expect(getByText('custom content')).toBeInTheDocument();
+  });
+
+  it('should not be any axe violations', async () => {
+    const { container } = render(<Alert message="test" state="info" />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });
