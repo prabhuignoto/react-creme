@@ -66,7 +66,14 @@ describe('GlobalNotification', () => {
   it('should call onClose on dismissed', async () => {
     const onClose = vi.fn();
     const { getByRole } = render(
-      <GlobalNotification message="Global Notification" onClose={onClose} />
+      <GlobalNotification
+        message="Global Notification"
+        onClose={onClose}
+        state="info"
+      />,
+      {
+        container: document.body,
+      }
     );
 
     await waitFor(() => {
@@ -74,6 +81,9 @@ describe('GlobalNotification', () => {
 
       const closeButton = getByRole('button');
       fireEvent.click(closeButton);
+    });
+
+    await waitFor(() => {
       expect(onClose).toHaveBeenCalled();
     });
   });

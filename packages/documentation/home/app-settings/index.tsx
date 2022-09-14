@@ -6,32 +6,18 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { Dialog, RadioGroup, Section } from '../../../lib/components';
 import { RadioGroupItemProps } from '../../../lib/components/radio-group/radio-group-model';
 import { responsiveState, themeState, ThemeType } from '../../atoms/home';
-import {
-  Blueberry,
-  Dark,
-  Glacier,
-  Magnolia,
-  NightGray,
-} from '../../common/app-themes';
+import { Blueberry, Cream, Dark } from '../../common/app-themes';
 import { GithubLink } from '../../common/github-link';
 import styles from './app-settings.module.scss';
 
 const themes: RadioGroupItemProps<ThemeType>[] = [
   {
-    label: 'Default',
-    value: 'default',
+    label: 'Sky',
+    value: 'sky',
   },
   {
     label: 'Blueberry',
     value: 'blueberry',
-  },
-  {
-    label: 'Night Gray',
-    value: 'night-gray',
-  },
-  {
-    label: 'Magnolia',
-    value: 'magnolia',
   },
   {
     checked: true,
@@ -64,16 +50,10 @@ const AppSettings: React.FunctionComponent = () => {
 
     let selectedTheme;
 
-    if (themeToUpdate?.value === 'default') {
-      selectedTheme = { colors: { ...Blueberry }, selectedTheme: 'default' };
-    } else if (themeToUpdate?.value === 'glacier') {
-      selectedTheme = { colors: { ...Glacier }, selectedTheme: 'glacier' };
+    if (themeToUpdate?.value === 'sky') {
+      selectedTheme = { colors: { ...Cream }, selectedTheme: 'default' };
     } else if (themeToUpdate?.value === 'blueberry') {
       selectedTheme = { colors: { ...Blueberry }, selectedTheme: 'blueberry' };
-    } else if (themeToUpdate?.value === 'night-gray') {
-      selectedTheme = { colors: { ...NightGray }, selectedTheme: 'neon' };
-    } else if (themeToUpdate?.value === 'magnolia') {
-      selectedTheme = { colors: { ...Magnolia }, selectedTheme: 'magnolia' };
     } else if (themeToUpdate?.value === 'dark') {
       selectedTheme = {
         colors: { ...Dark },
