@@ -51,7 +51,7 @@ function widgets() {
           Buttons can be in different states. Example shows button in{' '}
           <code>danger</code> state
         </Text>
-        <DemoWidget name="Button" width={150}>
+        <DemoWidget name="Button" width={130}>
           {Large}
         </DemoWidget>
       </Section>

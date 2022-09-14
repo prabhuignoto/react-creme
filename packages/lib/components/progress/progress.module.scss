@@ -37,7 +37,7 @@
 
 .progress_fill {
   display: block;
-  transition: width 0.2s ease-in;
+  transition: width 0.5s ease-in;
   width: var(--width);
   z-index: 0;
 
@@ -53,8 +53,12 @@
     background: theme.$crimson;
   }
 
-  &.progressive {
+  &.progressive:not(.rtl) {
     @extend %border-radius-left;
+  }
+
+  &.progressive.rtl {
+    @extend %border-radius-right;
   }
 
   &:not(.indeterminate) {

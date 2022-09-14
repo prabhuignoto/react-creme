@@ -1,38 +1,42 @@
 import React from 'react';
 
-export interface CarouselProps {
+export type CarouselProps = {
   autoPlay?: number;
   border?: boolean;
-  children: React.ReactNode | React.ReactNode;
+  children: React.ReactNode | React.ReactNode[];
   direction?: 'horizontal' | 'vertical';
   enableSwipe?: boolean;
   focusable?: boolean;
   height?: number;
+  size?: 'sm' | 'md' | 'lg';
   transition?: string;
-}
+};
 
-export interface CarouselItemProps {
+export type CarouselItemProps = {
   height: number;
   id: string;
   left?: string;
   top?: string;
   visible?: boolean;
   width: number;
-}
+};
 
-export interface CarouselItemsProps {
+export type CarouselItemsProps = Pick<
+  CarouselProps,
+  'children' | 'direction' | 'size'
+> & {
   activePage: number;
   carouselItems: CarouselItemProps[];
-  children: React.ReactNode[] | React.ReactNode;
-  direction: 'horizontal' | 'vertical';
   height: number;
   totalItems: number;
   width: number;
-}
+};
 
-export interface CarouselTrackProps {
+export type CarouselTrackProps = Pick<
+  CarouselProps,
+  'direction' | 'focusable' | 'size'
+> & {
   activeIndex: number;
-  direction: 'horizontal' | 'vertical';
   focusable?: boolean;
   handleSelection: (index: number) => void;
   hideNext?: boolean;
@@ -40,13 +44,14 @@ export interface CarouselTrackProps {
   length: number;
   onNext: () => void;
   onPrevious: () => void;
-}
+};
 
-export interface CarouselButtonProps {
-  direction: 'horizontal' | 'vertical';
-  focusable?: boolean;
+export type CarouselButtonProps = Pick<
+  CarouselProps,
+  'direction' | 'focusable' | 'size'
+> & {
   hide?: boolean;
   label: string;
   onClick: () => void;
   position: 'left' | 'right';
-}
+};

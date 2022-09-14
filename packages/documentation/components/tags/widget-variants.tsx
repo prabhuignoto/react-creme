@@ -13,7 +13,7 @@ export const Default = (
     placeholder="Choose a language..."
     items={items}
     onChange={val => console.log(val)}
-    tagWidth={60}
+    tagWidth={70}
     focusable
   />
 );
@@ -48,6 +48,7 @@ export const AutoComplete = (
     onChange={val => console.log(val)}
     autoComplete
     suggestions={['one', 'two']}
+    tagWidth={75}
   />
 );
 
@@ -57,7 +58,7 @@ export const Accent = (
     items={items}
     maxTags={15}
     onChange={val => console.log(val)}
-    tagWidth={70}
+    tagWidth={75}
     tagStyle="fill"
     accent="rounded"
   />

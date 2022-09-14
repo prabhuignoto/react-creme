@@ -12,6 +12,7 @@ const CarouselButton: React.FunctionComponent<CarouselButtonProps> = ({
   direction,
   focusable,
   label,
+  size,
 }: CarouselButtonProps) => {
   return (
     <span
@@ -28,7 +29,13 @@ const CarouselButton: React.FunctionComponent<CarouselButtonProps> = ({
         }
       )}
     >
-      <Button type="icon" onClick={onClick} focusable={focusable} label={label}>
+      <Button
+        type="icon"
+        onClick={onClick}
+        focusable={focusable}
+        label={label}
+        size={size}
+      >
         <ChevronRightIcon />
       </Button>
     </span>

@@ -39,9 +39,9 @@ $sizes: (sm, md, lg);
 
   em,
   code {
-    @extend %border-radius;
+    @extend %border-radius-default;
     font-style: normal;
-    line-height: 1.25rem;
+    // line-height: 1.25rem;
     padding: 0 4px;
   }
 }

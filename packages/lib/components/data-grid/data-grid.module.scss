@@ -109,7 +109,7 @@ $sizes: (sm, md, lg);
 
   em,
   code {
-    @extend %border-radius;
+    @extend %border-radius-default;
     color: theme.$primary;
     font-style: normal;
     font-weight: 400;

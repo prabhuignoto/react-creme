@@ -18,6 +18,7 @@ export interface TagsProps {
   size?: 'sm' | 'md' | 'lg';
   style?: CSSProperties;
   suggestions?: string[];
+  tagHeight?: number;
   tagStyle?: 'default' | 'fill';
   tagWidth?: number;
   wrap?: boolean;

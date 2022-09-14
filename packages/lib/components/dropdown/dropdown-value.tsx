@@ -110,6 +110,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
               tagWidth={60}
               RTL={RTL}
               wrap={false}
+              tagHeight={18}
             />
           </div>
         ) : (

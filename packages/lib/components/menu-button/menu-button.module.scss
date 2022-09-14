@@ -26,15 +26,9 @@ $sizes: (sm, md, lg);
   &.disabled {
     @extend %disabled;
   }
-
-  &:not(.rtl) {
-    grid-template-columns: calc(100% - 2rem) 1.75rem;
-  }
 }
 
 .rtl {
-  grid-template-columns: 1.75rem calc(100% - 2rem);
-
   > :first-child {
     order: 1;
   }
@@ -46,6 +40,18 @@ $sizes: (sm, md, lg);
 }
 
 @each $size in $sizes {
+  $ico-size: var(--rc-icon-size-#{$size});
+
+  .wrapper {
+    &:not(.rtl) {
+      grid-template-columns: calc(100% - $ico-size) $ico-size;
+    }
+
+    &.rtl {
+      grid-template-columns: $ico-size calc(100% - $ico-size);
+    }
+  }
+
   .#{$size} {
     .icon {
       @extend %icon-#{$size};
