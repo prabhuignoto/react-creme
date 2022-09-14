@@ -99,13 +99,13 @@ $btn-lg-height: 28px;
   &:not(.icon) {
     @if $size == small {
       height: $btn-sm-height;
-      padding: calc($btn-sm-height * 0.2) calc($btn-sm-height * 0.2);
+      padding: calc($btn-sm-height * 0.3) calc($btn-sm-height * 0.3);
     } @else if $size == large {
       height: $btn-md-height;
-      padding: calc($btn-md-height * 0.4) calc($btn-md-height * 0.4);
+      padding: calc($btn-md-height * 0.3) calc($btn-md-height * 0.4);
     } @else if $size == medium {
       height: $btn-lg-height;
-      padding: calc($btn-lg-height * 0.3) calc($btn-lg-height * 0.3);
+      padding: calc($btn-lg-height * 0.25) calc($btn-lg-height * 0.3);
     }
   }
 
