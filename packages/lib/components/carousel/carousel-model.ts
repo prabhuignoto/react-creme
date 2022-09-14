@@ -23,10 +23,11 @@ export type CarouselItemProps = {
 
 export type CarouselItemsProps = Pick<
   CarouselProps,
-  'children' | 'direction' | 'height' | 'size'
+  'children' | 'direction' | 'size'
 > & {
   activePage: number;
   carouselItems: CarouselItemProps[];
+  height: number;
   totalItems: number;
   width: number;
 };
