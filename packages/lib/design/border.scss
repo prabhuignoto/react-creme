@@ -1,6 +1,10 @@
 @use 'theme.scss';
 
 %border-radius {
+  border-radius: 6px;
+}
+
+%border-radius-default {
   border-radius: 4px;
 }
 

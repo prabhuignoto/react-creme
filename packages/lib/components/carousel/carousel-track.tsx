@@ -16,6 +16,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
   hidePrevious,
   hideNext,
   focusable,
+  size,
 }: CarouselTrackProps) => {
   const isDarkMode = useMemo(() => isDark(), []);
 
@@ -51,6 +52,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
         direction={direction}
         focusable={focusable}
         label="Previous"
+        size={size}
       />
       <ul className={carouselTrackClass} role="list">
         {Array.from({ length }).map((_, index) => (
@@ -73,6 +75,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
         direction={direction}
         focusable={focusable}
         label="Next"
+        size={size}
       />
     </div>
   );

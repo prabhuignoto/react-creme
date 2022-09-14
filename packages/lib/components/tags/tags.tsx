@@ -28,6 +28,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   focusable = true,
   accent = 'flat',
   wrap = true,
+  tagHeight = null,
 }) => {
   // STATES
   const [tagItems, setTagItems] = useState<TagItemProps[]>(
@@ -138,7 +139,15 @@ const Tags: React.FunctionComponent<TagsProps> = ({
         [styles.tags_rtl]: RTL,
         [styles.tags_wrap]: wrap,
       })}
-      style={style}
+      style={Object.assign(
+        {},
+        style,
+        tagHeight
+          ? {
+              '--tag-height': `${tagHeight}px`,
+            }
+          : {}
+      )}
     >
       {tagItems.map(({ id, name, disabled, readonly, markedForRemoval }) => (
         <TagItem

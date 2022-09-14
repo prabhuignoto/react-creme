@@ -67,7 +67,8 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
           styles.progress_fill,
           styles[type],
           styles[indeterminateStyle],
-          progressComplete ? styles.complete : '',
+          progressComplete ? styles.complete : styles.progressive,
+          RTL ? styles.rtl : '',
         ],
         {
           [styles[`progress_fill_${status}`]]: true,

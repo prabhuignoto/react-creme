@@ -1,7 +1,13 @@
 @use '@design/theme.scss';
 @use '@design/core.scss';
+@use 'sass:map';
 
 $sizes: (sm, md, lg);
+$header-heights: (
+  sm: 35px,
+  md: 40px,
+  lg: 45px,
+);
 
 .header {
   @extend %border-radius;
@@ -13,7 +19,6 @@ $sizes: (sm, md, lg);
   position: relative;
   text-transform: capitalize;
   user-select: none;
-  width: 100%;
 
   &:not(.disable-icon) {
     @extend %left;
@@ -60,18 +65,16 @@ $sizes: (sm, md, lg);
 .title {
   @extend %left;
   display: block;
-  height: var(--rc-accordion-header-height, 35px);
-  line-height: var(--rc-accordion-header-height, 35px);
   margin: auto 0;
   padding: 0 0.25rem;
-  width: calc(100% - 0.5rem);
+  // height: var(--rc-accordion-header-height, 35px);
+  width: calc(100%);
 
   &:not(.title_bold) {
     font-weight: 400;
   }
 
   &.title_bold {
-    font-size: 1rem;
     font-weight: 500;
   }
 
@@ -82,9 +85,11 @@ $sizes: (sm, md, lg);
 
 @each $size in $sizes {
   $icon-size: var(--rc-icon-size-#{$size});
+
   .title_#{$size} {
     @extend %text-#{$size};
     line-height: #{$size}-line-height;
+    // border: 1px solid red;
   }
 
   .icon-#{$size} {
@@ -92,6 +97,17 @@ $sizes: (sm, md, lg);
   }
 
   .header {
+    &.size {
+      height: var(
+        --rc-accordion-header-height,
+        map-get($header-heights, $size)
+      );
+      line-height: var(
+        --rc-accordion-header-height,
+        map-get($header-heights, $size)
+      );
+    }
+
     &.#{size}:not(.disable-icon) {
       column-gap: 2px;
       display: grid;
@@ -102,7 +118,7 @@ $sizes: (sm, md, lg);
 }
 
 .icon {
-  @extend %icon;
+  // @extend %icon;
   cursor: pointer;
   transition: transform 0.2s ease-in;
 

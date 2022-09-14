@@ -7,9 +7,15 @@
 $sizes: (sm, md, lg);
 
 $padding-sizes: (
-  sm: 0.5rem,
+  sm: 0.25rem,
   md: 0.5rem,
-  lg: 0.5rem,
+  lg: 0.75rem,
+);
+
+$tag-heights: (
+  sm: 30px,
+  md: 35px,
+  lg: 40px,
 );
 
 .tags_wrapper {
@@ -50,7 +56,7 @@ $padding-sizes: (
   max-width: calc(var(--width) + 1rem);
   min-width: 40px;
 
-  padding: 0.4rem 0.5rem;
+  padding: 0.2rem 0.4rem;
   transform: scale(1);
 
   user-select: none;
@@ -117,6 +123,19 @@ $padding-sizes: (
 }
 
 @each $size in $sizes {
+  .tag {
+    $ico-size: var(--rc-icon-size-#{$size});
+    align-items: center;
+    column-gap: 2px;
+    display: grid;
+    justify-items: center;
+
+    &.#{$size} {
+      grid-template-columns: calc(var(--width) - $ico-size - 2px) $ico-size;
+      height: var(--tag-height, map-get($tag-heights, $size));
+    }
+  }
+
   .#{$size} {
     .icon {
       @extend %icon-#{$size};

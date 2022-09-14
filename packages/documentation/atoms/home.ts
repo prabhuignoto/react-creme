@@ -57,10 +57,10 @@ const themeState = atom<ThemeState>({
       sm: 14,
     },
     iconSizes: {
-      lg: 26,
-      md: 22,
-      sm: 16,
-      xs: 12,
+      lg: 28,
+      md: 24,
+      sm: 20,
+      xs: 16,
     },
     selectedTheme: 'default',
     sizes: {

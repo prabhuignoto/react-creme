@@ -1,20 +1,16 @@
 @use 'theme.scss';
 @use 'core.scss';
 
+$btn-sm-height: 20px;
+$btn-md-height: 24px;
+$btn-lg-height: 28px;
+
 %button {
   @extend %center;
   background: none;
   cursor: pointer;
   transition: background-color 50ms ease-in;
   white-space: nowrap;
-
-  &:not(.dark) {
-    // @extend %border;
-  }
-
-  &.dark {
-    // @extend %border-radius;
-  }
 
   svg {
     color: theme.$primary;
@@ -102,14 +98,14 @@
 
   &:not(.icon) {
     @if $size == small {
-      height: 20px;
-      padding: calc(20px * 0.25) calc(20px * 0.3);
+      height: $btn-sm-height;
+      padding: calc($btn-sm-height * 0.2) calc($btn-sm-height * 0.2);
     } @else if $size == large {
-      height: 30px;
-      padding: calc(30px * 0.25) calc(30px * 0.3);
+      height: $btn-md-height;
+      padding: calc($btn-md-height * 0.4) calc($btn-md-height * 0.4);
     } @else if $size == medium {
-      height: 25px;
-      padding: calc(25px * 0.25) calc(25px * 0.3);
+      height: $btn-lg-height;
+      padding: calc($btn-lg-height * 0.3) calc($btn-lg-height * 0.3);
     }
   }
 

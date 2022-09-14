@@ -10,13 +10,13 @@ import {
   useRef,
   useState,
 } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
 import { useDebounce } from 'use-debounce';
 import useSwipe from '../common/effects/useSwipe';
 import { CarouselItems } from './carousel-items';
 import { CarouselItemProps, CarouselProps } from './carousel-model';
 import { CarouselTrack } from './carousel-track';
 import styles from './carousel.module.scss';
-import ResizeObserver from 'resize-observer-polyfill';
 
 const Carousel: React.FunctionComponent<CarouselProps> = ({
   autoPlay = 0,
@@ -24,9 +24,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   direction = 'horizontal',
   height = 400,
   transition = 'cubic-bezier(0.55, 0.08, 0.68, 0.53)',
-  // enableSwipe = false,
   focusable = true,
   border = false,
+  size = 'md',
 }) => {
   // const carouselRef = useRef<HTMLDivElement | null>(null);
   const [carouselItems, setCarouselItems] = useState<CarouselItemProps[]>(
@@ -230,6 +230,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
             hideNext={hideNextButton}
             hidePrevious={hidePreviousButton}
             focusable={focusable}
+            size={size}
           />
         )}
       </div>

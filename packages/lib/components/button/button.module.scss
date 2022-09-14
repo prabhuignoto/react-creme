@@ -32,7 +32,7 @@ $sizes: (sm, md, lg);
 
     &.disabled {
       @extend %disabled;
-      border: 1px solid theme.$chinese-gray;
+      border: 1px solid transparent;
     }
   }
 }
@@ -89,11 +89,11 @@ $sizes: (sm, md, lg);
     background: theme.$cod-gray;
   }
 
-  &:hover.dark {
+  &:hover.dark:not(.disabled) {
     background: theme.$primary;
   }
 
-  &:hover.dark svg {
+  &:hover.dark:not(.disabled) svg {
     color: theme.$white;
   }
 }
