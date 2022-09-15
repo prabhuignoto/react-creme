@@ -32,7 +32,7 @@ $heights: (
   @extend %border-radius;
 
   &.dark {
-    background: theme.$gunmetal-gray;
+    background: theme.$chinese-black;
   }
 
   &:not(.dark) {

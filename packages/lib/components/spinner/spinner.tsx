@@ -11,7 +11,7 @@ export interface SpinnerProps {
 
 const Spinner: FunctionComponent<SpinnerProps> = ({
   size = 'sm',
-  speed = 'medium',
+  speed = 'slow',
 }) => {
   const isDarkMode = useMemo(() => isDark(), []);
 

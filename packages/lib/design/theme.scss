@@ -1,18 +1,20 @@
+// all hex
 $primary: var(--rc-primary-color-hex);
 $secondary: var(--rc-secondary-color-hex);
 $tertiary: var(--rc-tertiary-color-hex);
 $text-color-on-selection: var(--rc-textSelection-color-hex);
 $text-color: var(--rc-text-color-hex);
 
+// all rgb
 $primary-rgb: var(--rc-primary-color-rgb);
 $secondary-rgb: var(--rc-secondary-color-rgb);
 $tertiary-rgb: var(--rc-tertiary-color-rgb);
 $text-color-on-selection-rgb: var(--rc-textSelection-color-rgb);
 $text-color-rgb: var(--rc-text-color-rgb);
 
-$size-sm: var(--rc-size-sm);
-$size-md: var(--rc-size-md);
-$size-lg: var(--rc-size-lg);
+// $size-sm: var(--rc-size-sm);
+// $size-md: var(--rc-size-md);
+// $size-lg: var(--rc-size-lg);
 
 $white: #fff;
 $black: #000;
