@@ -1,0 +1,34 @@
+@use '@design/theme.scss';
+@use '@design/core.scss';
+@use '@design/position.scss';
+
+@mixin halo() {
+  &::after {
+    @include position.position-abs('center center');
+    background: transparent;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 120%;
+    opacity: 0;
+    transition: background 0.2s ease-in, height 0.2s ease-in, width 0.2s ease-in;
+    width: 120%;
+    z-index: -1;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  &.dark {
+    &:hover::after {
+      background: rgba(theme.$secondary-rgb, 0.5);
+    }
+  }
+
+  &:not(.dark) {
+    &:hover::after {
+      background: rgba(theme.$secondary-rgb, 0.5);
+    }
+  }
+}

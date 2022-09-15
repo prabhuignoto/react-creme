@@ -1,7 +1,9 @@
 @use '@design/theme.scss';
 @use '@design/core.scss';
 @use '@design/animate.scss';
+@use '@design/position.scss';
 @use '@design/font.scss';
+@use '@design/effects.scss';
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -14,7 +16,7 @@ $sizes: (sm, md, lg);
   padding: 0.1rem 0;
   width: 100%;
 
-  &:not(.dark) {
+  &:not(.dark):not(.open) {
     @extend %shadow-inset-small;
   }
 
@@ -88,30 +90,21 @@ $sizes: (sm, md, lg);
 }
 
 .chevron_icon {
+  @include effects.halo();
   color: var(--chevron-icon-color, theme.$primary);
   justify-self: center;
   order: 4;
+  position: relative;
   transition: transform 0.2s ease-in;
-
-  // &.dark {
-  //   color: theme.$white;
-  // }
-
-  // &:not(.dark) {
-  // }
+  z-index: 1;
 }
 
 .clear_icon {
+  @include effects.halo();
   color: theme.$primary;
   justify-self: center;
-
-  // &.dark {
-  // color: theme.$white;
-  // }
-
-  // &:not(.dark) {
-  // color: theme.$charcoal-gray;
-  // }
+  position: relative;
+  z-index: 1;
 
   &.clear_icon_hidden {
     pointer-events: none;
