@@ -59,7 +59,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
           : IconsWithoutProperties
       }
       focusable={false}
-      size="md"
+      size="sm"
     >
       <div className={styles.widgets_container}>
         <Suspense fallback={<span>Loading Widgets...</span>}>

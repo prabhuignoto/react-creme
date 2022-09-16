@@ -70,7 +70,7 @@
     "recoil": "^0.7.5",
     "rimraf": "^3.0.2",
     "sass": "^1.54.9",
-    "snyk": "^1.1005.0",
+    "snyk": "^1.1006.0",
     "stylelint": "14.11.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",

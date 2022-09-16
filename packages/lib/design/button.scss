@@ -9,7 +9,7 @@ $btn-lg-height: 28px;
   @extend %center;
   background: none;
   cursor: pointer;
-  transition: background-color 50ms ease-in;
+  transition: background 0.2s ease-in;
   white-space: nowrap;
 
   svg {
