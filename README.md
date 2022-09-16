@@ -10,7 +10,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=react-creme&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=react-creme)
 [![CodeFactor](https://www.codefactor.io/repository/github/prabhuignoto/react-creme/badge)](https://www.codefactor.io/repository/github/prabhuignoto/react-creme)
 [![CodeQL](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/prabhuignoto/react-creme/actions/workflows/codeql-analysis.yml)
-[![dev status](https://img.shields.io/badge/status-alpha-green)](https://img.shields.io/badge/status-alpha-green)
+[![dev status](https://img.shields.io/badge/status-beta-green)](https://img.shields.io/badge/status-beta-green)
 [![GitHub license](https://img.shields.io/github/license/prabhuignoto/react-creme)](https://github.com/prabhuignoto/react-creme/blob/master/LICENSE)
 ![npm](https://img.shields.io/npm/v/react-creme)
 </br>
@@ -39,7 +39,7 @@ Modern UI Toolkit for React
 
 - ⚙️ Minimal Third party dependencies.
 
-- 🪶 At ~52kb minified and gzipped, `react-creme` is a lightweight component library.
+- 🪶 At ~55kb minified and gzipped, `react-creme` is a lightweight component library.
 
 <h2>Table of Contents</h2>
 

@@ -31,7 +31,7 @@ const Badge = ({ label }: { label: string }) => {
   return (
     <div
       className={classNames(styles.badge, isDarkMode ? styles.dark : '')}
-      aria-label="alpha"
+      aria-label="beta"
     >
       {label}
     </div>

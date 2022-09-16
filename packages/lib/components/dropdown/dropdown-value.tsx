@@ -29,7 +29,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   const rcDropdownValueClass = useMemo(
     () =>
       cls(styles.container, {
-        [styles.open]: disabled,
+        [styles.open]: showMenu,
         [styles.menu]: showMenu,
         [styles.multi]: allowMultiSelection,
         [styles.rtl]: RTL,

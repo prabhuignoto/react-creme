@@ -80,6 +80,8 @@ $heights: (
 }
 
 .icon {
+  transition: background 0.1s linear;
+
   &.dark {
     @extend %border-radius;
     background: theme.$charcoal-gray;
@@ -114,6 +116,7 @@ $heights: (
   display: block;
   font-weight: 300;
   padding-left: 0.5rem;
+  user-select: none;
 
   &.dark {
     color: theme.$white;
