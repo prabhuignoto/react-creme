@@ -1,0 +1,41 @@
+@use '@design/core.scss';
+@use '@design/theme.scss';
+
+.sort_icon_wrapper {
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+
+%sort-icon {
+  @extend %icon-xs;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    fill: rgba(theme.$primary_rgb, 0.25);
+    stroke: none;
+  }
+}
+
+.sort_icon {
+  @extend %sort-icon;
+}
+
+.sort_icon_asc {
+  @extend %sort-icon;
+  margin-bottom: 0.2rem;
+}
+
+.sort_icon_desc {
+  @extend %sort-icon;
+  margin-top: 0.2rem;
+  transform: rotate(180deg);
+}
+
+.sort_icon_active {
+  svg {
+    fill: theme.$primary;
+  }
+}
