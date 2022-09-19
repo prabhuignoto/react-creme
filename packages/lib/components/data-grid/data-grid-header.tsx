@@ -4,6 +4,7 @@ import React, { useMemo, useState } from 'react';
 import { isDark } from '../common/utils';
 import { DataGridCell } from './data-grid-cell';
 import styles from './data-grid-header.module.scss';
+import iconStyles from './data-grid-icons.module.scss';
 import { DataGridHeaderProps, SortDirection } from './data-grid-model';
 
 const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
@@ -63,10 +64,10 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
             isHeader
           />
           {column.sortable && (
-            <span className={styles.sort_icon_wrapper}>
+            <span className={iconStyles.sort_icon_wrapper}>
               <span
-                className={classNames(styles.sort_icon_asc, {
-                  [styles.sort_icon_active]: column.sortDirection === 'asc',
+                className={classNames(iconStyles.sort_icon_asc, {
+                  [iconStyles.sort_icon_active]: column.sortDirection === 'asc',
                 })}
                 role="button"
                 onClick={() => handleSort(column.name, 'asc')}
@@ -74,8 +75,9 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
                 <TriangleIcon />
               </span>
               <span
-                className={classNames(styles.sort_icon_desc, {
-                  [styles.sort_icon_active]: column.sortDirection === 'desc',
+                className={classNames(iconStyles.sort_icon_desc, {
+                  [iconStyles.sort_icon_active]:
+                    column.sortDirection === 'desc',
                 })}
                 role="button"
                 onClick={() => handleSort(column.name, 'desc')}

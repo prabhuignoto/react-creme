@@ -34,6 +34,14 @@ $dark-mode: theme.$dark_mode;
     border-top-right-radius: 4px;
   }
 
+  &:not(.border):first-child {
+    @extend %border-radius-left;
+  }
+
+  &:not(.border):last-child {
+    @extend %border-radius-right;
+  }
+
   .cell_val {
     font-weight: 500;
     width: 100%;
@@ -47,45 +55,6 @@ $dark-mode: theme.$dark_mode;
 
   &:not(.dark) {
     border-right: 1px solid theme.$secondary;
-  }
-}
-
-.sort_icon_wrapper {
-  margin-left: auto;
-  margin-right: 0.5rem;
-}
-
-%sort-icon {
-  @extend %icon-xs;
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-
-  svg {
-    fill: rgba(theme.$primary_rgb, 0.25);
-    stroke: none;
-  }
-}
-
-.sort_icon {
-  @extend %sort-icon;
-}
-
-.sort_icon_asc {
-  @extend %sort-icon;
-  margin-bottom: 0.2rem;
-}
-
-.sort_icon_desc {
-  @extend %sort-icon;
-  margin-top: 0.2rem;
-  transform: rotate(180deg);
-}
-
-.sort_icon_active {
-  svg {
-    fill: theme.$primary;
   }
 }
 
