@@ -26,7 +26,7 @@
   position: relative;
 
   &.dark {
-    background: theme.$raisin-black;
+    background: theme.$dark-control-bg;
   }
 
   &:not(.dark) {
@@ -41,15 +41,6 @@
     border-bottom: 10px solid theme.$white;
   }
 }
-
-// .arrow::after {
-//   border-left: 10px solid transparent;
-//   border-right: 10px solid transparent;
-//   content: '';
-//   display: block;
-//   position: absolute;
-//   top: -8px;
-// }
 
 .left {
   &.arrow::after {

@@ -9,7 +9,7 @@
 
   &.dark {
     @extend %border-radius;
-    background: theme.$gunmetal-gray;
+    background: theme.$dark-control-bg;
   }
 
   &:not(.dark) {

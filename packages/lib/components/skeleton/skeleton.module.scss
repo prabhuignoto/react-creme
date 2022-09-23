@@ -20,7 +20,7 @@ $settings: (
   width: 100%;
 
   &.dark {
-    background: theme.$gunmetal-gray;
+    background: theme.$dark-control-bg;
   }
 
   &:not(.dark) {

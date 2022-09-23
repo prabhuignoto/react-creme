@@ -24,11 +24,11 @@ $sizes: (sm, md, lg);
   }
 
   &.tab_headers_dark::after {
-    background: theme.$charcoal-gray;
+    background: theme.$dark-control-bg;
   }
 
   &:not(.tab_headers_dark).flat::after {
-    background: theme.$platinum;
+    background: theme.$dark-control-bg;
   }
 
   &.tab_headers_rounded {
@@ -136,7 +136,7 @@ $sizes: (sm, md, lg);
   }
 
   &.tab_head_selected.dark {
-    background: theme.$raisin-black;
+    background: theme.$dark-control-bg;
   }
 
   &.tab_head_selected:not(.dark) {
@@ -235,9 +235,9 @@ $sizes: (sm, md, lg);
   position: relative;
 
   &.dark {
-    border-left: 1px solid theme.$raisin-black;
-    border-right: 1px solid theme.$raisin-black;
-    border-top: 1px solid theme.$raisin-black;
+    border-left: 1px solid theme.$dark-control-bg;
+    border-right: 1px solid theme.$dark-control-bg;
+    border-top: 1px solid theme.$dark-control-bg;
   }
 
   &:not(.dark) {

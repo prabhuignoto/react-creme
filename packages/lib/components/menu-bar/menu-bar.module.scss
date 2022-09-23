@@ -34,7 +34,7 @@ $sizes: (sm, md, lg);
 
 .item.dark {
   &:not(:last-child) {
-    border-right: 1px solid theme.$gunmetal-gray;
+    border-right: 1px solid theme.$dark-control-bg;
   }
 
   &:hover {

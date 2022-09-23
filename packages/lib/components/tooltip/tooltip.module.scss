@@ -51,7 +51,7 @@ $arrow-dim-lg: 20px;
   z-index: 99999;
 
   &.dark::after {
-    background: theme.$gunmetal-gray;
+    background: theme.$dark-control-bg;
   }
 
   &:not(.dark)::after {
@@ -59,7 +59,7 @@ $arrow-dim-lg: 20px;
   }
 
   &.dark {
-    background: theme.$gunmetal-gray;
+    background: theme.$dark-control-bg;
     color: theme.$white;
   }
 

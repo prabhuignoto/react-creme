@@ -118,8 +118,8 @@ $heights: (
 
 .icon:not(.ico_checked) {
   &.dark {
-    background-color: theme.$charcoal-gray;
-    border: 1px solid theme.$gunmetal-gray;
+    background-color: theme.$dark-control-bg;
+    border: 1px solid theme.$dark-control-bg;
   }
 
   &:not(.dark) {

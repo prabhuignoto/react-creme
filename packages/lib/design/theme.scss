@@ -12,9 +12,19 @@ $tertiary-rgb: var(--rc-tertiary-color-rgb);
 $text-color-on-selection-rgb: var(--rc-textSelection-color-rgb);
 $text-color-rgb: var(--rc-text-color-rgb);
 
-// $size-sm: var(--rc-size-sm);
-// $size-md: var(--rc-size-md);
-// $size-lg: var(--rc-size-lg);
+$dark-input-bg: var(--rc-darkInputBg-color-hex);
+$dark-input-color: var(--rc-darkInputColor-color-hex);
+$dark-hover: var(--rc-darkHover-color-hex);
+$dark-control-bg: var(--rc-darkControlBg-color-hex);
+$dark-control-border-hex: var(--rc-darkControlBorder-color-hex);
+$dark-active-selection: var(--rc-darkActiveSelection-color-hex);
+
+$dark-input-bg-rgb: var(--rc-darkInput-bg-color-rgb);
+$dark-input-color-rgb: var(--rc-darkInput-color-color-rgb);
+$dark-hover-rgb: var(--rc-darkHover-color-rgb);
+$dark-control-bg-rgb: var(--rc-darkControlBg-color-rgb);
+$dark-control-border-rgb: var(--rc-darkControlBorder-color-rgb);
+$dark-active-selection-rgb: var(--rc-darkActiveSelection-color-rgb);
 
 $white: #fff;
 $black: #000;

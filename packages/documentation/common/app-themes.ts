@@ -2,7 +2,7 @@ import { Colors } from '../../lib/components/common/theme-provider-model';
 
 export type AppTheme = 'Default' | 'Glacier' | 'Coffee' | 'Blueberry';
 
-export const Default: Colors = {
+export const Default: Partial<Colors> = {
   primary: '#0074B7',
   secondary: '#BFD7ED',
   tertiary: '#003B73',
@@ -10,7 +10,7 @@ export const Default: Colors = {
   textSelection: '#fff',
 };
 
-export const Blueberry: Colors = {
+export const Blueberry: Partial<Colors> = {
   primary: '#47597E',
   secondary: '#abc4fa',
   tertiary: '#DBE6FD',
@@ -18,7 +18,7 @@ export const Blueberry: Colors = {
   textSelection: '#fff',
 };
 
-export const Dark: Colors = {
+export const Dark: Partial<Colors> = {
   primary: '#1597e5',
   secondary: '#323232',
   tertiary: '#464646',
@@ -26,7 +26,7 @@ export const Dark: Colors = {
   textSelection: '#fff',
 };
 
-export const Cream: Colors = {
+export const Cream: Partial<Colors> = {
   primary: '#1572A1',
   secondary: '#9AD0EC',
   tertiary: '#D3DEDC',

@@ -20,7 +20,7 @@ $header-heights: (
   width: 100%;
 
   &.dark {
-    background: theme.$raisin-black;
+    background: theme.$dark-control-bg;
   }
 
   &:not(.dark) {

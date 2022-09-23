@@ -61,7 +61,7 @@
   visibility: hidden;
 
   &.dark {
-    background-color: theme.$gunmetal-gray;
+    background-color: theme.$dark-control-bg;
   }
 
   &:not(.dark) {

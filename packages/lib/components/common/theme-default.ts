@@ -1,7 +1,17 @@
-import { Theme } from './theme-provider-model';
+import { Colors, Theme } from './theme-provider-model';
+
+export const darkColors: Partial<Colors> = {
+  darkActiveSelection: '#ff0',
+  darkControlBg: '#2b2b2b',
+  darkControlBorder: '#4a4a4a',
+  darkHover: '#343434',
+  darkInputBg: '#171717',
+  darkInputColor: '#fff',
+};
 
 export default {
   colors: {
+    ...darkColors,
     primary: '#47597E',
     secondary: '#DBE6FD',
     tertiary: '#293B5F',

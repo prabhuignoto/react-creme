@@ -42,7 +42,8 @@ $header-heights: (
   cursor: pointer;
 
   &.dark {
-    background: theme.$licorice;
+    // background: theme.$licorice;
+    background: theme.$white;
   }
 
   &:not(.dark) {
@@ -54,7 +55,7 @@ $header-heights: (
   @extend %border-radius;
 
   &.dark {
-    background: theme.$gunmetal-gray;
+    background: theme.$dark-active-selection;
   }
 
   &:not(.dark) {

@@ -59,7 +59,7 @@ $heights: (
 
 .title_container {
   @extend %left;
-  border-bottom: 1px solid rgba(theme.$secondary-rgb, 0.5);
+  border-bottom: 1px solid theme.$dark-control-bg;
   width: 100%;
 }
 
