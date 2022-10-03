@@ -43,7 +43,7 @@ $header-heights: (
 
   &.dark {
     // background: theme.$licorice;
-    background: theme.$white;
+    background: theme.$dark-control-bg;
   }
 
   &:not(.dark) {

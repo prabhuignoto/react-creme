@@ -28,7 +28,7 @@ $sizes: (sm, md, lg);
   }
 
   &:not(.tab_headers_dark).flat::after {
-    background: theme.$dark-control-bg;
+    background: theme.$platinum;
   }
 
   &.tab_headers_rounded {
