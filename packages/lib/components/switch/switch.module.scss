@@ -94,8 +94,8 @@ $start-left: 4px;
 
 .track_on {
   &.dark {
-    background: theme.$gunmetal-gray;
-    border: 1px solid theme.$gunmetal-gray;
+    background: theme.$dark-control-bg;
+    border: 1px solid theme.$dark-control-bg;
   }
 
   &:not(.dark) {

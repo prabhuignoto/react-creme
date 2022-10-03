@@ -48,6 +48,11 @@ const responsiveState = atom<MediaState>({
 const themeState = atom<ThemeState>({
   default: {
     colors: {
+      primary: '#47597E',
+      secondary: '#DBE6FD',
+      tertiary: '#293B5F',
+      text: '#000',
+      textSelection: '#293B5F',
       ...Dark,
     },
     darkMode: true,

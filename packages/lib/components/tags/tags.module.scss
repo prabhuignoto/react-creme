@@ -100,7 +100,7 @@ $tag-heights: (
   &.dark {
     @extend %border-radius;
     @extend %shadow-inset;
-    background-color: theme.$cod-gray;
+    background-color: theme.$dark-control-bg;
     color: theme.$white;
   }
 }

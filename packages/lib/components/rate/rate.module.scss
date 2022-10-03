@@ -45,7 +45,7 @@ $sizes: (
   }
 
   &.dark svg {
-    fill: theme.$charcoal-gray;
+    fill: theme.$dark-control-bg;
   }
 
   &:not(.dark) svg {

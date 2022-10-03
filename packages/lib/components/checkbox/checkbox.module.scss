@@ -57,7 +57,7 @@ $heights: (
   @extend %border-radius;
 
   &.dark {
-    background-color: theme.$gunmetal-gray;
+    background-color: theme.$dark-hover;
   }
 
   &:not(.dark) {
@@ -84,7 +84,7 @@ $heights: (
 
   &.dark {
     @extend %border-radius;
-    background: theme.$charcoal-gray;
+    background: theme.$dark-input-bg;
   }
 
   &:not(.dark) {

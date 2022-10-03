@@ -86,7 +86,7 @@ $sizes: (sm, md, lg);
   }
 
   &.dark:not(.disabled) {
-    background: theme.$cod-gray;
+    background: theme.$dark-control-bg;
   }
 
   &:hover.dark:not(.disabled) {
@@ -100,10 +100,6 @@ $sizes: (sm, md, lg);
 
 .icon_container + .label {
   margin-left: 0.25rem;
-}
-
-.icon_container {
-  // margin-right: 0.25rem;
 }
 
 .progress_wrapper {

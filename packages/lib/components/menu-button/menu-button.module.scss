@@ -15,7 +15,7 @@ $sizes: (sm, md, lg);
 
   &.dark {
     @extend %border-radius;
-    background-color: theme.$cod-gray;
+    background-color: theme.$dark-control-bg;
   }
 
   &:not(.dark) {

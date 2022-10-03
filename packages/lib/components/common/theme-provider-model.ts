@@ -1,6 +1,15 @@
 import { ReactNode } from 'react';
 
-export type Colors = {
+export type DarkColors = {
+  darkActiveSelection?: string;
+  darkControlBg?: string;
+  darkControlBorder?: string;
+  darkHover?: string;
+  darkInputBg?: string;
+  darkInputColor?: string;
+};
+
+export type Colors = DarkColors & {
   primary: string;
   secondary: string;
   tertiary: string;

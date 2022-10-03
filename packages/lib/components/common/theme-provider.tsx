@@ -1,7 +1,7 @@
 import deepEqual from 'fast-deep-equal';
 import hexToRgb from 'hex-rgb';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import themeDefault from './theme-default';
+import themeDefault, { darkColors } from './theme-default';
 import {
   Colors,
   FontSizes,
@@ -43,25 +43,30 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = React.memo(
      */
     useEffect(() => {
       const result = [];
+      const colors = { ...darkColors, ...currentTheme.colors };
 
-      for (const key in currentTheme.colors) {
-        result.push({
-          color: key as ThemeColor,
-          hex: currentTheme.colors[key as keyof Colors],
-          rgb: hexToRgb(currentTheme.colors[key as keyof Colors], {
-            format: 'array',
-          }).slice(0, 3),
-        });
+      for (const key in colors) {
+        const color = colors[key as keyof Colors];
+
+        if (color) {
+          result.push({
+            color: key as ThemeColor,
+            hex: colors[key as keyof Colors],
+            rgb: hexToRgb(color, {
+              format: 'array',
+            }).slice(0, 3),
+          });
+        }
       }
 
-      const colors = result.reduce(
+      const colorsHexRgb = result.reduce(
         (a, { color, hex, rgb }) =>
           a +
           `--rc-${color}-color-rgb: ${rgb};--rc-${color}-color-hex: ${hex};`,
         ''
       );
 
-      rootStyle.current += colors;
+      rootStyle.current += colorsHexRgb;
 
       setStylesApplied(prev => ({ ...prev, colors: true }));
     }, [currentTheme.colors?.primary]);
