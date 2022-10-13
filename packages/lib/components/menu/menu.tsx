@@ -12,7 +12,7 @@ import { useFirstRender } from '../common/effects/useFirstRender';
 import useFocusNew from '../common/effects/useFocusNew';
 import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { MenuItemProps, MenuProps } from './menu-model';
-import { MenuOverlay, MenuOverlayProps } from './menu-overlay';
+import { MenuOverlay } from './menu-overlay';
 import styles from './menu.module.scss';
 
 const Menu: React.FunctionComponent<MenuProps> = ({
@@ -77,11 +77,11 @@ const Menu: React.FunctionComponent<MenuProps> = ({
    * Handler executed when the menu is rendered the first time
    */
   const handleOnOpen = useCallback(() => {
-    const menu = menuRef.current as MenuOverlayProps;
+    const menu = menuRef.current as HTMLUListElement;
 
     setTimeout(() => {
-      if (menu.element) {
-        menu.element.querySelectorAll('li')[0].focus();
+      if (menu) {
+        menu.querySelectorAll('li')[0].focus();
       }
     }, 10);
   }, []);
