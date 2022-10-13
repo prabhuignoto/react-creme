@@ -10,6 +10,8 @@ export { Alert } from './components/alert/alert';
 export type { AlertProps } from './components/alert/alert-model';
 export { AutoSuggest } from './components/auto-suggest/auto-suggest';
 export type { AutoSuggestProps } from './components/auto-suggest/auto-suggest.model';
+export { Avatar } from './components/avatar/avatar';
+export type { AvatarProps } from './components/avatar/avatar.model';
 export { BlockQuote } from './components/block-quote/block-quote';
 export type { BlockQuoteProps } from './components/block-quote/block-quote';
 export { BreadCrumb } from './components/breadcrumb/breadcrumb';

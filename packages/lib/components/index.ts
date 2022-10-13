@@ -2,6 +2,7 @@ export { AccordionGroup } from './accordion-group/accordion-group';
 export { Accordion } from './accordion/accordion';
 export { Alert } from './alert/alert';
 export { AutoSuggest } from './auto-suggest/auto-suggest';
+export { Avatar } from './avatar/avatar';
 export { BlockQuote } from './block-quote/block-quote';
 export { BreadCrumb } from './breadcrumb/breadcrumb';
 export { Button } from './button/button';
