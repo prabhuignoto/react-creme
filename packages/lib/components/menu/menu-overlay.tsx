@@ -97,7 +97,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
 MenuContainer.displayName = 'Menu';
 
 const MenuOverlay = withOverlay<MenuOverlayModel, null>(
-  MenuContainer as React.ForwardRefExoticComponent<MenuOverlayModel>,
+  MenuContainer as unknown as React.ForwardRefExoticComponent<MenuOverlayModel>,
   {
     backdropColor: 'transparent',
     placement: 'bottom',
