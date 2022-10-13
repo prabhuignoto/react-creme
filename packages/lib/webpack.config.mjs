@@ -3,7 +3,6 @@
 import autoprefixer from 'autoprefixer';
 import CopyPlugin from 'copy-webpack-plugin';
 import CSSNano from 'cssnano';
-import doiuse from 'doiuse';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path, { dirname } from 'path';
@@ -98,14 +97,6 @@ const config = {
                     ],
                   }),
                   CSSNano(),
-                  doiuse({
-                    browsers: [
-                      'last 2 versions',
-                      'ie >= 11',
-                      'not op_mini all',
-                    ],
-                    ignore: ['rem'],
-                  }),
                 ],
               },
             },
