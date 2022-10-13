@@ -38,7 +38,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   );
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isFirstRender = useFirstRender();
-  const menuRef = useRef<HTMLUListElement | null>(null);
+  const menuRef = useRef(null);
   const [showMenu, setShowMenu] = useState(false);
 
   /**
@@ -77,7 +77,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
    * Handler executed when the menu is rendered the first time
    */
   const handleOnOpen = useCallback(() => {
-    const menu = menuRef.current as MenuOverlayProps;
+    const menu = menuRef.current as unknown as MenuOverlayProps;
 
     setTimeout(() => {
       if (menu.element) {
