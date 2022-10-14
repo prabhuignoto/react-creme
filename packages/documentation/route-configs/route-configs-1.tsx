@@ -128,6 +128,11 @@ const routes = [
     key: 'spinner',
     path: '/spinner',
   },
+  {
+    component: lazy(() => import('../components/avatar')),
+    key: 'avatar',
+    path: '/avatar',
+  },
 ];
 
 export { routes };

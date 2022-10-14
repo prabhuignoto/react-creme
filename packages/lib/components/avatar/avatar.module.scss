@@ -1,0 +1,28 @@
+@use '@design/core.scss';
+@use '@design/theme.scss';
+
+$size: (sm, md, lg);
+
+.avatar {
+  @extend %center;
+  background: theme.$primary;
+  border-radius: 50%;
+
+  @each $size in $size {
+    &.#{$size} {
+      height: var(--rc-icon-size-#{$size});
+      width: var(--rc-icon-size-#{$size});
+    }
+  }
+}
+
+.icon_container {
+  @extend %center;
+  color: theme.$white;
+  height: 70%;
+  width: 70%;
+
+  svg {
+    fill: theme.$white;
+  }
+}
