@@ -24,7 +24,7 @@ const Avatar: FunctionComponent<AvatarProps> = ({
   }, [children, size]);
 
   return (
-    <div className={wrapperClass}>
+    <div className={wrapperClass} role="img">
       <span className={styles.icon_container}>{content}</span>
     </div>
   );
