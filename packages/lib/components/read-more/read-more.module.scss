@@ -1,0 +1,24 @@
+@use '@design/core.scss';
+@use '@design/position.scss';
+
+.wrapper {
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  margin: 0;
+
+  &:not(.rtl) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &.rtl {
+    @extend %right;
+  }
+}
+
+.button {
+  border: 0;
+}

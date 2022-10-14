@@ -125,6 +125,8 @@ export type {
   RateItemViewProps,
   RateProps,
 } from './components/rate/rate-model';
+export { ReadMore } from './components/read-more/read-more';
+export type { ReadMoreProps } from './components/read-more/read-more.model';
 export { Reveal } from './components/reveal/reveal';
 export type { RevealProps } from './components/reveal/reveal-model';
 export { ScrollSpy } from './components/scroll-spy/scroll-spy';

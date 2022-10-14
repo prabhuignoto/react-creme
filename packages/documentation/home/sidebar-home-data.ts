@@ -47,6 +47,7 @@ export default [
       { name: 'page header' },
       { name: 'Image' },
       { name: 'Avatar' },
+      { name: 'Read More' },
     ],
     title: 'content',
   },

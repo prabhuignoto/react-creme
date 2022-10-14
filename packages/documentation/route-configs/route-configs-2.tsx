@@ -151,6 +151,11 @@ export const routes = [
     key: 'password',
     path: '/password',
   },
+  {
+    component: lazy(() => import('../components/read-more')),
+    key: 'read-more',
+    path: '/read-more',
+  },
 ];
 
 export { routes as routes2 };

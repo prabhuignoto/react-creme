@@ -7,20 +7,20 @@ import { Widgets } from './widgets';
 const Description = (
   <div>
     <p className="rc-component-description">
-      {`Avatar is a component that displays a user's profile picture or initials.`}
+      {`Read more is a component that allows you to hide a large amount of text and show it only when the user clicks on the "Read more" button.`}
     </p>
   </div>
 );
 
-const Accordion = () => {
+const ReadMore = () => {
   return (
     <DemoPageRenderer
       description={Description}
-      title="Avatar"
+      title="Read More"
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-s9qxmk']}
-      sourceId="avatar/avatar.tsx"
-      editId="avatar"
+      sourceId="read-more/read-more.tsx"
+      editId="read-more"
       features={[
         'Custom Avatar sizes: small, medium and large',
         'Support for rendering custom icon',
@@ -55,4 +55,4 @@ const Accordion = () => {
   );
 };
 
-export default Accordion;
+export default ReadMore;
