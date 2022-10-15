@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cx from 'classnames';
 import {
   CSSProperties,
   FunctionComponent,
@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import { isDark } from '..';
 import { ReadMoreProps } from './read-more.model';
 import styles from './read-more.module.scss';
 
@@ -14,17 +15,42 @@ const ReadMore: FunctionComponent<ReadMoreProps> = ({
   children,
   RTL,
   size = 'sm',
-  linesToShow = 2,
+  linesToShow =4,
   readMoreText = 'Read more',
+  showLessText = 'Show less',
+  position = 'right',
 }) => {
   const ref = useRef<HTMLParagraphElement | null>(null);
   const [lineHeight, setLineHeight] = useState(0);
   const [totalHeight, setTotalHeight] = useState(0);
   const [showMore, setShowMore] = useState(false);
+  const isDarkMode = useMemo(() => isDark(), []);
+
+  const containerClass = useMemo(
+    () => cx(styles.container, styles[position], RTL ? styles.rtl : ''),
+    [RTL]
+  );
 
   const readMoreClass = useMemo(
-    () => classNames(styles.wrapper, styles[size], RTL ? styles.rtl : ''),
-    []
+    () =>
+      cx(
+        styles.wrapper,
+        styles[size],
+        RTL ? styles.rtl : '',
+        isDarkMode ? styles.dark : ''
+      ),
+    [isDarkMode]
+  );
+
+  const buttonClass = useMemo(
+    () =>
+      cx(
+        styles.button,
+        isDarkMode ? styles.dark : '',
+        styles[size],
+        styles[position]
+      ),
+    [isDarkMode]
   );
 
   const onRef = useCallback((node: HTMLParagraphElement) => {
@@ -57,14 +83,14 @@ const ReadMore: FunctionComponent<ReadMoreProps> = ({
   }, [contentHeight]);
 
   return (
-    <>
+    <div className={containerClass}>
       <p ref={onRef} className={readMoreClass} style={style as CSSProperties}>
         {children}
       </p>
-      <button onClick={toggleShowMore} className={styles.button}>
-        {readMoreText}
+      <button onClick={toggleShowMore} className={buttonClass}>
+        {showMore ? showLessText : readMoreText}
       </button>
-    </>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
@@ -22,30 +22,46 @@ const ReadMore = () => {
       sourceId="read-more/read-more.tsx"
       editId="read-more"
       features={[
-        'Custom Avatar sizes: small, medium and large',
-        'Support for rendering custom icon',
+        'Customizable size: small, medium and large',
+        'Configure the number of lines to be shown',
+        'Supports RTL',
       ]}
-      pageIcon={<FontAwesomeIcon icon={faUser} size="2x" />}
+      pageIcon={<FontAwesomeIcon icon={faEllipsis} size="2x" />}
       properties={[
         {
           default: '',
-          description: 'renders custom icon',
-          name: 'children',
+          description: 'Renders the component in RTL mode',
+          name: 'RTL',
           optional: 'Yes',
-          type: 'ReactNode',
+          type: 'Boolean',
         },
         {
           default: 'sm',
-          description:
-            'Size of the Avatar, can be <em>sm</em>, <em>md</em> or <em>lg</em>',
+          description: 'Controls the size of the component',
           name: 'size',
           optional: 'Yes',
           type: 'String',
         },
         {
-          default: "''",
-          description: 'renders a single letter instead of an icon',
-          name: 'letter',
+          default: '4',
+          description: 'Number of lines to be shown when the text is collapsed',
+          name: 'linesToShow',
+          optional: 'Yes',
+          type: 'Number',
+        },
+        {
+          default: 'Read More',
+          description:
+            'Text to be shown on the button when the text is collapsed',
+          name: 'readMoreText',
+          optional: 'Yes',
+          type: 'String',
+        },
+        {
+          default: 'Show Less',
+          description:
+            'Text to be shown on the button when the text is expanded',
+          name: 'showLessText',
           optional: 'Yes',
           type: 'String',
         },

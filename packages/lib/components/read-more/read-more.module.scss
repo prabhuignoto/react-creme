@@ -1,5 +1,18 @@
 @use '@design/core.scss';
 @use '@design/position.scss';
+@use '@design/theme.scss';
+
+$sizes: (sm, md, lg);
+
+.container {
+  &.rtl {
+    @extend %col-right;
+  }
+
+  &:not(.rtl) {
+    @extend %col-left;
+  }
+}
 
 .wrapper {
   margin: 0;
@@ -15,10 +28,35 @@
   }
 
   &.rtl {
-    @extend %right;
+    text-align: right;
+  }
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
+
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %text-#{$size};
+    }
   }
 }
 
 .button {
   border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.25rem;
+
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %text-#{$size};
+      color: theme.$primary;
+    }
+  }
 }
