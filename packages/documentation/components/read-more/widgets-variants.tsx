@@ -21,6 +21,8 @@ const Content = () => (
   </>
 );
 
+Content.displayName = 'Content';
+
 export const Default = (
   <ReadMore linesToShow={5}>
     <Content />
