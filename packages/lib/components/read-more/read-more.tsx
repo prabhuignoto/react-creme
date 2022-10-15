@@ -15,7 +15,7 @@ const ReadMore: FunctionComponent<ReadMoreProps> = ({
   children,
   RTL,
   size = 'sm',
-  linesToShow =4,
+  linesToShow = 4,
   readMoreText = 'Read more',
   showLessText = 'Show less',
   position = 'right',
