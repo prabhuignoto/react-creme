@@ -22,7 +22,7 @@ const Accordion = () => {
       sourceId="avatar/avatar.tsx"
       editId="avatar"
       features={[
-        'Custom Avatar sizes: small, medium and large',
+        'Custom Avatar sizes',
         'Support for rendering custom icon',
       ]}
       pageIcon={<FontAwesomeIcon icon={faUser} size="2x" />}
