@@ -22,7 +22,7 @@ const ReadMore = () => {
       sourceId="read-more/read-more.tsx"
       editId="read-more"
       features={[
-        'Customizable size: small, medium and large',
+        'Custom sizes',
         'Configure the number of lines to be shown',
         'Supports RTL',
       ]}
