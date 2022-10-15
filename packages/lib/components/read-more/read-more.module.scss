@@ -1,0 +1,62 @@
+@use '@design/core.scss';
+@use '@design/position.scss';
+@use '@design/theme.scss';
+
+$sizes: (sm, md, lg);
+
+.container {
+  &.rtl {
+    @extend %col-right;
+  }
+
+  &:not(.rtl) {
+    @extend %col-left;
+  }
+}
+
+.wrapper {
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+
+  &:not(.rtl) {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &.rtl {
+    text-align: right;
+  }
+
+  &.dark {
+    color: theme.$white;
+  }
+
+  &:not(.dark) {
+    color: theme.$black;
+  }
+
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %text-#{$size};
+    }
+  }
+}
+
+.button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  margin-top: 0.25rem;
+  padding: 0;
+
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %text-#{$size};
+      color: theme.$primary;
+    }
+  }
+}

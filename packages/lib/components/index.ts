@@ -40,6 +40,7 @@ export { Progress } from './progress/progress';
 export { RadioGroup } from './radio-group/radio-group';
 export { Radio } from './radio/radio';
 export { Rate } from './rate/rate';
+export { ReadMore } from './read-more/read-more';
 export { Reveal } from './reveal/reveal';
 export { ScrollSpy } from './scroll-spy/scroll-spy';
 export { Section } from './section/section';

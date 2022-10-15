@@ -56,7 +56,7 @@
     "@types/bluebird": "^3.5.37",
     "@types/jest": "^29.1.2",
     "@types/jest-axe": "^3.5.5",
-    "@types/node": "^18.8.5",
+    "@types/node": "^18.11.0",
     "@types/react-syntax-highlighter": "^15.5.5",
     "@types/react-transition-group": "^4.4.5",
     "@types/testing-library__jest-dom": "^5.14.5",

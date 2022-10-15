@@ -30,4 +30,6 @@ const Avatar: FunctionComponent<AvatarProps> = ({
   );
 };
 
+Avatar.displayName = 'Avatar';
+
 export { Avatar };

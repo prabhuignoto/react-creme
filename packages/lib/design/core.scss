@@ -20,6 +20,12 @@
   flex-direction: column;
 }
 
+%col-right {
+  @extend %flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
 %left {
   @extend %flex;
   justify-content: flex-start;
