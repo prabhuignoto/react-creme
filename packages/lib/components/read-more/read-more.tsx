@@ -94,4 +94,6 @@ const ReadMore: FunctionComponent<ReadMoreProps> = ({
   );
 };
 
+ReadMore.displayName = 'ReadMore';
+
 export { ReadMore };
