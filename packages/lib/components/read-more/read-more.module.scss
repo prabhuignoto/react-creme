@@ -47,11 +47,11 @@ $sizes: (sm, md, lg);
 }
 
 .button {
-  border: 0;
   background: none;
+  border: 0;
   cursor: pointer;
-  padding: 0;
   margin-top: 0.25rem;
+  padding: 0;
 
   @each $size in $sizes {
     &.#{$size} {
