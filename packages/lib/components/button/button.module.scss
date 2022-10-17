@@ -24,6 +24,14 @@ $sizes: (sm, md, lg);
   &.dark:not(.flat) {
     @extend %border-radius;
   }
+
+  &:not(:active) {
+    transition: transform 80ms ease-in;
+  }
+
+  &:active:not(.disabled) {
+    transform: scale(0.95);
+  }
 }
 
 @each $value in $types {

@@ -27,24 +27,6 @@ const Home: React.FunctionComponent = () => {
           <Code wrap={false}>{`yarn add react-creme`}</Code>
         </Section>
 
-        {/* DEPENDENCIES */}
-        {/* <Section title="Dependencies" size="md" hashPrefix="home">
-          <Text>
-            react-creme is designed to be lean and does not depend on any other
-            major library for styling or for any other features. It only depends
-            on some utility libraries for id generation, debouncing and deep
-            compare.
-          </Text>
-          <Code wrap={false}>
-            {Object.keys(packages.dependencies)
-              .map(key => `${key}@${packages.dependencies[key]}`)
-              .join('\n')}
-          </Code>
-        </Section> */}
-
-        {/* Browser Support */}
-        {/* <BrowserSupport /> */}
-
         <Section title="Usage" size="md" hashPrefix="home">
           <Text>
             The example below shows how to use the react-creme package to create

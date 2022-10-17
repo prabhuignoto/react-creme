@@ -6,7 +6,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { Dialog, RadioGroup, Section } from '../../../lib/components';
 import { RadioGroupItemProps } from '../../../lib/components/radio-group/radio-group-model';
 import { responsiveState, themeState, ThemeType } from '../../atoms/home';
-import { Blueberry, Cream, Dark } from '../../common/app-themes';
+import { Blueberry, Cream, Dark, Gray } from '../../common/app-themes';
 import { GithubLink } from '../../common/github-link';
 import styles from './app-settings.module.scss';
 
@@ -18,6 +18,10 @@ const themes: RadioGroupItemProps<ThemeType>[] = [
   {
     label: 'Blueberry',
     value: 'blueberry',
+  },
+  {
+    label: 'Gray',
+    value: 'gray',
   },
   {
     checked: true,
@@ -54,6 +58,8 @@ const AppSettings: React.FunctionComponent = () => {
       selectedTheme = { colors: { ...Cream }, selectedTheme: 'default' };
     } else if (themeToUpdate?.value === 'blueberry') {
       selectedTheme = { colors: { ...Blueberry }, selectedTheme: 'blueberry' };
+    } else if (themeToUpdate?.value === 'gray') {
+      selectedTheme = { colors: { ...Gray }, selectedTheme: 'Gray' };
     } else if (themeToUpdate?.value === 'dark') {
       selectedTheme = {
         colors: { ...Dark },

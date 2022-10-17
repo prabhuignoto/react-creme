@@ -8,6 +8,7 @@ $sizes: (sm, md, lg);
 .wrapper {
   align-items: center;
   column-gap: 0.25rem;
+  cursor: pointer;
   display: grid;
   max-width: var(--max-width);
   min-height: 35px;
@@ -25,6 +26,23 @@ $sizes: (sm, md, lg);
 
   &.disabled {
     @extend %disabled;
+  }
+
+  &:not(:active) {
+    transition: transform 100ms ease-in;
+  }
+
+  &:active:not(.disabled) {
+    transform: scale(0.97);
+  }
+}
+
+.wrapper:hover {
+  background: theme.$primary;
+  color: theme.$white;
+
+  svg {
+    color: theme.$white;
   }
 }
 
@@ -61,19 +79,23 @@ $sizes: (sm, md, lg);
 
 .icon {
   @extend %center;
+  color: var(--icon-color, theme.$primary);
   cursor: pointer;
   display: block;
   position: relative;
 
-  &.dark {
-    color: theme.$white;
-  }
-
-  &:not(.dark) {
-    color: var(--icon-color, theme.$primary);
-  }
-
   &:hover {
     background: theme.$secondary;
+  }
+}
+
+.label {
+  @extend %center;
+  cursor: pointer;
+
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %text-#{$size};
+    }
   }
 }
