@@ -21,10 +21,7 @@ const Accordion = () => {
       stackBlitzCodes={['react-ts-s9qxmk']}
       sourceId="avatar/avatar.tsx"
       editId="avatar"
-      features={[
-        'Custom Avatar sizes',
-        'Support for rendering custom icon',
-      ]}
+      features={['Custom Avatar sizes', 'Support for rendering custom icon']}
       pageIcon={<FontAwesomeIcon icon={faUser} size="2x" />}
       properties={[
         {

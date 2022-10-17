@@ -19,7 +19,7 @@
 
   &.dark {
     @extend %shadow-medium-dark;
-    background: theme.$raisin-black;
+    background: theme.$dark-control-bg;
   }
 
   &:not(.dark) {

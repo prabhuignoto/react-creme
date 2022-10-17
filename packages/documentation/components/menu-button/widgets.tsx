@@ -13,7 +13,7 @@ function widgets() {
         >
           <MenuButton
             items={['save', 'save as new', 'discard']}
-            width={150}
+            width={100}
             size="sm"
           />
         </DemoWidget>
@@ -32,7 +32,7 @@ function widgets() {
           <MenuButton
             size="md"
             items={['save', 'save as new', 'discard']}
-            width={150}
+            width={100}
             RTL
           />
         </DemoWidget>

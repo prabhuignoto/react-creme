@@ -33,3 +33,11 @@ export const Cream: Colors = {
   text: '#000',
   textSelection: '#fff',
 };
+
+export const Gray: Colors = {
+  primary: '#495057',
+  secondary: '#adb5bd',
+  tertiary: '#D3DEDC',
+  text: '#000',
+  textSelection: '#fff',
+};

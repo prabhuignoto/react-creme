@@ -7,7 +7,7 @@ import {
 } from '../../lib/components/common/theme-provider-model';
 import { Dark } from '../common/app-themes';
 
-export type ThemeType = 'default' | 'blueberry' | 'dark' | 'sky';
+export type ThemeType = 'default' | 'blueberry' | 'dark' | 'sky' | 'gray';
 
 type ThemeState = {
   colors?: Colors;

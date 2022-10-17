@@ -1,8 +1,7 @@
 import { ChevronDownIcon } from '@icons';
-import classNames from 'classnames';
+import cx from 'classnames';
 import { nanoid } from 'nanoid';
 import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
-import { Button } from '../button/button';
 import { isDark } from '../common/utils';
 import { Menu } from '../menu/menu';
 import { MenuItemProps } from '../menu/menu-model';
@@ -34,7 +33,7 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
 
   const menuButtonClass = useMemo(
     () =>
-      classNames(styles.wrapper, {
+      cx(styles.wrapper, {
         [styles.disabled]: disabled,
         [styles.rtl]: RTL,
         [styles[size]]: true,
@@ -56,22 +55,27 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
 
   const iconClass = useMemo(
     () =>
-      classNames(styles.icon, {
+      cx(styles.icon, {
         [styles.dark]: isDarkMode,
       }),
     []
   );
 
+  const labelClass = useMemo(
+    () => cx(styles.label, { [styles.dark]: isDarkMode }, styles[size]),
+    []
+  );
+
   return (
     <div className={menuButtonClass} style={menuStyle}>
-      <Button
-        label={items[0]}
-        border={false}
-        focusable={focusable}
-        size={size}
-        // accent="flat"
+      <div
+        role="button"
+        aria-label={items[0]}
         onClick={() => handleChange(items[0])}
-      />
+      >
+        <label className={labelClass}>{items[0]}</label>
+      </div>
+
       <Menu
         items={menuItems.current}
         focusable={focusable}

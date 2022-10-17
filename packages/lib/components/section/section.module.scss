@@ -43,13 +43,13 @@ $heights: (
 
   &.dark {
     // border-bottom: 1px solid rgba(theme.$secondary-rgb, 0.5);
-    border-bottom: 1px solid theme.$dark-control-border-hex;
+    border-bottom: 1px solid theme.$primary;
     color: theme.$white;
   }
 
   &:not(.dark) {
     // border-bottom: 1px solid rgba(theme.$secondary-rgb, 0.5);
-    border-bottom: 1px solid theme.$dark-control-border-hex;
+    border-bottom: 1px solid theme.$primary;
     color: theme.$primary;
   }
 

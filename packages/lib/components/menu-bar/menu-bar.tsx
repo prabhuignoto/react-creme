@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import { FunctionComponent, useCallback, useMemo, useState } from 'react';
 import { Menu } from '..';
+import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { isDark } from '../common/utils';
 import { MenuBarItem } from './item';
 import { MenuBarProps } from './menu-bar.model';
@@ -26,9 +27,9 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
     []
   );
 
-  // const { onRef } = useOnClickOutside(() => {
-  //   setItems(prev => prev.map(item => ({ ...item, active: false })));
-  // });
+  const { onRef } = useOnClickOutside(() => {
+    setItems(prev => prev.map(item => ({ ...item, active: false })));
+  });
 
   const [_items, setItems] = useState(
     items.map(item => ({
@@ -71,8 +72,8 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
   const hasIcons = useMemo(() => !!icons.length, []);
 
   return (
-    // <ul className={menuBarClass} ref={onRef}>
-    <ul className={menuBarClass}>
+    // <ul className={menuBarClass}>
+    <ul className={menuBarClass} ref={onRef}>
       {_items.map((item, index) => (
         <Menu
           items={item.items}
