@@ -13,7 +13,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FunctionComponent, memo, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { Sidebar, Theme } from '../../lib/components';
+import { Sidebar } from '../../lib/components';
+import { Theme } from '../../lib/components/common/theme-provider-model';
 import {
   SidebarGroupModel,
   SidebarItemModel,
