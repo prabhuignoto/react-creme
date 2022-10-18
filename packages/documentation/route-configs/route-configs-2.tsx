@@ -156,6 +156,11 @@ export const routes = [
     key: 'read-more',
     path: '/read-more',
   },
+  {
+    component: lazy(() => import('../components/gallery')),
+    key: 'gallery',
+    path: '/gallery',
+  },
 ];
 
 export { routes as routes2 };

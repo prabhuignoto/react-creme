@@ -1,0 +1,11 @@
+$grid-dimension-cols: var(--rc-gallery-grid-dimension-cols);
+$grid-dimension-rows: var(--rc-gallery-grid-dimension-rows);
+$image-dimension: var(--rc-gallery-image-dimension);
+$gap: var(--rc-gallery-gap);
+
+.gallery {
+  display: grid;
+  gap: var(--rc-gallery-gap);
+  grid-template-columns: repeat($grid-dimension-cols, $image-dimension);
+  grid-template-rows: repeat($grid-dimension-rows, $image-dimension);
+}

@@ -69,6 +69,8 @@ export type {
   MenuOption,
   Option,
 } from './components/dropdown/dropdown-model';
+export { Gallery } from './components/gallery/gallery';
+export type { GalleryProps } from './components/gallery/gallery.model';
 export { GlobalNotification } from './components/global-notification/global-notification';
 export type { GlobalNotificationProps } from './components/global-notification/global-notification.model';
 export { ImageComparer } from './components/image-comparer/image-comparer';
