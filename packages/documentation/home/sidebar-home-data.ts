@@ -46,6 +46,7 @@ export default [
       { name: 'Card' },
       { name: 'page header' },
       { name: 'Image' },
+      { name: 'Gallery' },
       { name: 'Avatar' },
       { name: 'Read More' },
     ],
