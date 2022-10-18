@@ -50,4 +50,6 @@ const Gallery: FunctionComponent<GalleryProps> = ({
   );
 };
 
+Gallery.displayName = 'Gallery';
+
 export { Gallery };
