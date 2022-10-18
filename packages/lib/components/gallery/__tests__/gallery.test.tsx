@@ -32,6 +32,10 @@ describe('Gallery', () => {
     expect(container.firstChild).toHaveStyle(
       `--rc-gallery-grid-dimension-cols: 2; --rc-gallery-grid-dimension-rows: 2;`
     );
+
+    expect(
+      (container.firstChild as HTMLElement).querySelectorAll('img')
+    ).toHaveLength(4);
   });
 
   it("should render all the imageURL's", () => {
