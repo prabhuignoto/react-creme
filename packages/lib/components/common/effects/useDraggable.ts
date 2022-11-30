@@ -40,10 +40,7 @@ const useDraggable: UseDraggable = (
 
     const parent = (targetRef as RefObject<HTMLElement>).current;
 
-    if (
-      makeChildrenDraggable &&
-      (target === parent || target.parentElement !== parent)
-    ) {
+    if (makeChildrenDraggable && target === parent) {
       return;
     }
 
@@ -137,7 +134,19 @@ const useDraggable: UseDraggable = (
 
       const { canMoveLeft, canMoveTop } = checkBounds(newLeft, newTop);
 
-      const element = makeChildrenDraggable ? dragTarget.current : target;
+      let element = null;
+
+      if (makeChildrenDraggable) {
+        const elements = boundTo?.current?.children;
+        if (elements) {
+          const target = Array.from(elements).find(item =>
+            item.contains(dragTarget.current)
+          ) as HTMLElement;
+          element = target;
+        }
+      } else {
+        element = target;
+      }
 
       if (!element) {
         return;
