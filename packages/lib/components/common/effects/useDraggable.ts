@@ -40,7 +40,10 @@ const useDraggable: UseDraggable = (
 
     const parent = (targetRef as RefObject<HTMLElement>).current;
 
-    if (makeChildrenDraggable && target === (parent as HTMLElement)) {
+    if (
+      makeChildrenDraggable &&
+      (target === parent || target.parentElement !== parent)
+    ) {
       return;
     }
 

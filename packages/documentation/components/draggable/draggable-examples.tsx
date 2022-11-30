@@ -158,7 +158,9 @@ export function DraggableWidgets() {
               width: `${dimensions.width / 3}px`,
             }}
             className="rc-demo-drag-inner-box"
-          ></div>
+          >
+            <span>reddit</span>
+          </div>
           <div
             style={{
               height: `${dimensions.height / 3}px`,
