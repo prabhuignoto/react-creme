@@ -42,7 +42,7 @@ const useDraggable: UseDraggable = (
 
     if (
       makeChildrenDraggable &&
-      (target === (parent as HTMLElement) || target.parentElement !== parent)
+      (target === parent || target.parentElement !== parent)
     ) {
       return;
     }
