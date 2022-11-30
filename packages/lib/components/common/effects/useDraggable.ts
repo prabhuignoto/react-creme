@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import { isTouchDevice } from '../utils';
 import { Position, UseDraggable } from './draggable-model';
@@ -37,6 +37,12 @@ const useDraggable: UseDraggable = (
 
   const handleMouseDown = useCallback((ev: MouseEvent | TouchEvent) => {
     const target = ev.target as HTMLElement;
+
+    const parent = (targetRef as RefObject<HTMLElement>).current;
+
+    if (makeChildrenDraggable && target === (parent as HTMLElement)) {
+      return;
+    }
 
     tapDetectionTimer.current = window.setTimeout(() => {
       mousePressed.current = true;
@@ -214,15 +220,11 @@ const useDraggable: UseDraggable = (
         setTimeout(() => {
           boundToRect.current = target.getBoundingClientRect();
         }, 500);
-        Array.from<HTMLElement>(target.querySelectorAll(':scope > *')).forEach(
-          item => {
-            if (isTouch) {
-              item.addEventListener('touchstart', handleMouseDown);
-            } else {
-              item.addEventListener('mousedown', handleMouseDown);
-            }
-          }
-        );
+        if (isTouch) {
+          target.addEventListener('touchstart', handleMouseDown);
+        } else {
+          target.addEventListener('mousedown', handleMouseDown);
+        }
       } else {
         if (isTouch) {
           target.addEventListener('touchstart', handleMouseDown);
