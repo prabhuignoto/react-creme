@@ -131,6 +131,14 @@ export function DraggableWidgets() {
 
   const dimensions = useDimensions();
 
+  const [enable, setEnable] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setEnable(true);
+    }, 2000);
+  }, []);
+
   return (
     <div
       style={{
@@ -142,27 +150,31 @@ export function DraggableWidgets() {
       ref={boundRef}
       className="rc-demo-drag-outer-box"
     >
-      <div
-        style={{
-          height: `${dimensions.height / 3}px`,
-          width: `${dimensions.width / 3}px`,
-        }}
-        className="rc-demo-drag-inner-box"
-      ></div>
-      <div
-        style={{
-          height: `${dimensions.height / 3}px`,
-          width: `${dimensions.width / 3}px`,
-        }}
-        className="rc-demo-drag-inner-box"
-      ></div>
-      <div
-        style={{
-          height: `${dimensions.height / 3}px`,
-          width: `${dimensions.width / 3}px`,
-        }}
-        className="rc-demo-drag-inner-box"
-      ></div>
+      {enable ? (
+        <>
+          <div
+            style={{
+              height: `${dimensions.height / 3}px`,
+              width: `${dimensions.width / 3}px`,
+            }}
+            className="rc-demo-drag-inner-box"
+          ></div>
+          <div
+            style={{
+              height: `${dimensions.height / 3}px`,
+              width: `${dimensions.width / 3}px`,
+            }}
+            className="rc-demo-drag-inner-box"
+          ></div>
+          <div
+            style={{
+              height: `${dimensions.height / 3}px`,
+              width: `${dimensions.width / 3}px`,
+            }}
+            className="rc-demo-drag-inner-box"
+          ></div>
+        </>
+      ) : null}
     </div>
   );
 }
