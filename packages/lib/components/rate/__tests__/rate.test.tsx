@@ -37,7 +37,7 @@ describe('Rate', () => {
     }
   });
 
-  it.concurrent('should change on hover', async () => {
+  it('should change on hover', async () => {
     const onChange = vi.fn();
     const { getAllByRole } = render(<Rate onChange={onChange} />);
 

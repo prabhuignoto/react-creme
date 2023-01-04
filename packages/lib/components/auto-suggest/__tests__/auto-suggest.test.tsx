@@ -83,7 +83,7 @@ describe('AutoSuggest', () => {
     });
   });
 
-  it.concurrent('should call onChange with the input', async () => {
+  it('should call onChange with the input', async () => {
     const onChange = vi.fn();
     const { getByPlaceholderText } = render(
       <AutoSuggest
@@ -107,7 +107,7 @@ describe('AutoSuggest', () => {
     );
   });
 
-  it.concurrent('should keyboard navigation work as expected', async () => {
+  it('should keyboard navigation work as expected', async () => {
     const handler = vi.fn();
     const { getByPlaceholderText, getByText, getAllByRole, getByRole } = render(
       <AutoSuggest
