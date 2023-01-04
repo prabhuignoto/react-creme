@@ -5,10 +5,10 @@ exports[`Accordion > should render snapshot 1`] = `
   class="_accordion_f93c7f _no-border_f93c7f"
 >
   <div
-    aria-controls="accordion-body-OZtCSO8jEY4Mi5R5GY1iQ"
+    aria-controls="accordion-body-Ji4YKQao8N7QwlyJBSSpM"
     aria-expanded="false"
     class="_header_c2ceb5 _focusable_c2ceb5 _size_c2ceb5"
-    id="accordion-WOnc9d9wUtKzskMVASBAK"
+    id="accordion-hziW0bGtT5HXfH6ukp8TW"
     role="button"
     style="--rc-accordion-header-height: 40px; outline: none; position: relative;"
     tabindex="0"
@@ -40,9 +40,9 @@ exports[`Accordion > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-labelledby="accordion-WOnc9d9wUtKzskMVASBAK"
+    aria-labelledby="accordion-hziW0bGtT5HXfH6ukp8TW"
     class="_body_f93c7f _animate_f93c7f _close_f93c7f"
-    id="accordion-body-OZtCSO8jEY4Mi5R5GY1iQ"
+    id="accordion-body-Ji4YKQao8N7QwlyJBSSpM"
     style="--title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
   >
     <div
