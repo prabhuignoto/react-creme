@@ -7,9 +7,19 @@ import { Widgets } from './widgets';
 const Description = (
   <div>
     <p className="rc-component-description">
-      Accordion is a design element that expands in place to expose some hidden
-      information. Unlike overlays, accordions push the page content down
-      instead of being superposed on top of page content.
+      An accordion UI element is a type of graphical user interface element that
+      allows users to expand and collapse sections of content within a webpage
+      or application. It is often used to display a large amount of content in a
+      more organized and manageable way.
+    </p>
+    <p>
+      The accordion UI element consists of a series of vertically stacked
+      sections, each with a header and a corresponding body of content. When a
+      user clicks on the header of a section, the body of content for that
+      section expands and becomes visible, while the bodies of content for the
+      other sections are collapsed and hidden. The accordion UI element is
+      commonly used in web and mobile design to present a large amount of
+      information in a compact and organized way.
     </p>
   </div>
 );

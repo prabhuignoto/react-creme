@@ -4,11 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      A form field is a user interface (UI) component that allows users to input
+      and interact with data within a form. Form fields can be used to collect a
+      wide range of information, including text, numbers, dates, and files. Some
+      common types of form fields include text fields, password fields,
+      checkboxes, radio buttons, and dropdown menus.
+    </p>
+  </div>
+);
+
 function formField() {
   return (
     <DemoPageRenderer
       title="Form field"
-      description="Form field component"
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
       sourceId="dropdown/dropdown.tsx"
       editId="dropdown"

@@ -4,11 +4,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      A form group is a UI component that is used to group related form
+      elements, such as checkboxes, radio buttons, or input fields, together.
+      Form groups can be used to structure and organize forms, making them
+      easier for users to fill out.
+    </p>
+    <p>
+      Form groups are typically used in conjunction with labels and form
+      controls, which are used to provide context and instructions for the form
+      elements within the group. Form groups can be styled using CSS to match
+      the overall design of a website or application.
+    </p>
+  </div>
+);
+
 function formGroup() {
   return (
     <DemoPageRenderer
       title="Form Group"
-      description="Form group is a container for form fields."
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
       sourceId="form-group/form-group.tsx"
       editId="form-group"

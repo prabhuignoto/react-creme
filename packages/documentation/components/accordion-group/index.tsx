@@ -4,13 +4,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p className="rc-component-description">
+      An accordion group is a type of interface element that allows users to
+      toggle the display of content within a container by clicking on a heading
+      element. The content within the group is often organized into a series of
+      collapsible panels, each with its own heading element.
+    </p>
+    <p>
+      When a panel is expanded, the content within it becomes visible, while the
+      content in other panels is hidden. Accordion groups are often used to
+      organize and present large amounts of information in a compact,
+      easy-to-navigate format.
+    </p>
+  </div>
+);
 function accordionGroup() {
   return (
     <DemoPageRenderer
       title="Accordion Group"
       stackBlitzCodes={['react-ts-kq6o5l']}
-      description={`Accordion group is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them.
-      It is one of many ways you can expose content to users`}
+      description={Description}
       sourceId="accordion-group/accordion-group.tsx"
       editId="accordion-group"
       pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}

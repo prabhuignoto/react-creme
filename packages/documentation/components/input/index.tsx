@@ -4,11 +4,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      An input text component is a type of input UI component that allows a user
+      to enter text. It is commonly used in web and mobile application
+      development. The component is usually implemented as a text box, which is
+      a rectangular box where the user can type in text using a keyboard.
+    </p>
+  </div>
+);
+
 function index() {
   return (
     <DemoPageRenderer
       title="Inputs"
-      description="Input fields allow users to enter text into a UI. Leading icon(optional) — describe the type of input a text field requires."
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faKeyboard} size="2x" />}
       sourceId="input/input.tsx"
       editId="input"

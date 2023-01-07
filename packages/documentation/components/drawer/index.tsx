@@ -4,6 +4,22 @@ import DemoPageRenderer from '../../common/demo-page-renderer';
 
 const Widgets = React.lazy(() => import('./drawer-widgets'));
 
+const Description = (
+  <div>
+    <p>
+      A drawer UI component is a user interface element that is used to display
+      and organize content in a sliding panel that can be opened and closed. It
+      is typically used to display menu options, settings, or additional content
+      that is not critical to the main task at hand.
+    </p>
+    <p>
+      Drawer UI components are often found in mobile or web applications and can
+      be activated by a button or swipe gesture. They can also be used to
+      display notifications or alerts in a non-intrusive manner.
+    </p>
+  </div>
+);
+
 function drawer() {
   return (
     <DemoPageRenderer
@@ -11,8 +27,7 @@ function drawer() {
       stackBlitzCodes={['react-ts-jngeyv']}
       pageIcon={<Sidebar />}
       title="Drawer"
-      description={`Drawer is a container that can be opened and closed and can be docked to any side of the screen.
-       It can be used as a navigation drawer or a side drawer.`}
+      description={Description}
       editId="drawer"
       sourceId="drawer/drawer.tsx"
       features={[

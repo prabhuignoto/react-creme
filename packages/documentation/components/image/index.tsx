@@ -4,11 +4,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      An image UI component is a component in a user interface that displays an
+      image. It is commonly used in web and mobile application development. The
+      image can be static or dynamic, and it can be displayed in various sizes
+      and aspect ratios.
+    </p>
+  </div>
+);
+
 function image() {
   return (
     <DemoPageRenderer
       title="Image"
-      description="Embed images in your app with the Image component."
+      description={Description}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-fujyxg']}
       pageIcon={<FontAwesomeIcon icon={faImage} size="2x" />}

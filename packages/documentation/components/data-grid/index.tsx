@@ -8,12 +8,24 @@ import './data-grid.scss';
 
 const Widgets = React.lazy(() => import('./widgets'));
 
+const Description = (
+  <div>
+    <p className="rc-component-description">
+      A data grid UI component is a visual representation of data in a
+      structured table format, typically displayed within a graphical user
+      interface (GUI). It allows users to view and manipulate large sets of data
+      in an organized and efficient manner. Data grids typically include
+      features such as sorting, filtering, pagination, and column resizing.
+    </p>
+  </div>
+);
+
 const DataGridDemo: React.FunctionComponent = () => {
   return (
     <DemoPageRenderer
       demoWidget={<Widgets />}
       title="Data Grid"
-      description={`The Data grid is a simple data table that can be used to display a collection of records.`}
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faTable} size="2x" />}
       editId="data-grid"
       sourceId="data-grid/data-grid.tsx"

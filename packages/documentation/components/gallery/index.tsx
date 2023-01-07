@@ -4,11 +4,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p className="rc-component-description">
+      A gallery UI component is a type of interface element that is used to
+      display a collection of images, videos, or other multimedia content in a
+      grid or other layout. A gallery can be used to showcase a selection of
+      products, artworks, or other items.
+    </p>
+    <p>
+      Galleries are commonly used on websites and applications that need to
+      present a large number of visual assets in an organized and visually
+      appealing way.
+    </p>
+  </div>
+);
+
 function formGroup() {
   return (
     <DemoPageRenderer
       title="Gallery"
-      description="Gallery is a component that displays a collection of images in an organized grid."
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faImages} size="2x" />}
       sourceId="gallery/gallery.tsx"
       editId="gallery"
