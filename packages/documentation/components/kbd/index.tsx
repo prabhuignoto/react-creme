@@ -1,13 +1,24 @@
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      KBD component represents a user input, such as a keyboard key or a command
+      entered by the user. It is typically displayed in the user's operating
+      system's default monospace font, and is often used to represent keyboard
+      shortcuts or command-line inputs.
+    </p>
+  </div>
+);
+
 function menu() {
   return (
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={[]}
       title="Kbd"
-      description="Renders a keyboard key or a combination of keys."
+      description={Description}
       sourceId="menu/menu.tsx"
       editId="menu"
       features={['Keyboard combinations', 'Custom thickness', 'Custom sizes']}

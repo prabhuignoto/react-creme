@@ -1,11 +1,21 @@
 import DemoPageRenderer from './../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      A link UI component is a component in a user interface that allows the
+      user to navigate to another location, either within the same application
+      or to a different website.
+    </p>
+  </div>
+);
+
 function Link() {
   return (
     <DemoPageRenderer
       title="Link"
-      description="Link is a component that can be used to create a link."
+      description={Description}
       tabTitles={['examples', 'properties', 'stackblitz']}
       features={[
         'Custom sizes',

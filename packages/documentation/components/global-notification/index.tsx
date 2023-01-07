@@ -4,11 +4,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      A global notification UI component is a type of interface element that is
+      used to display a message or alert to users throughout an application or
+      website. Global notifications are often used to inform users of important
+      updates, events, or other information that they need to be aware of.
+    </p>
+    <p>
+      Global notifications are typically designed to be highly visible and
+      attention-grabbing, so that users are sure to see them. They may include
+      buttons or other interactive elements that allow users to take action,
+      such as dismissing the notification or following a link to learn more.
+    </p>
+  </div>
+);
+
 function index() {
   return (
     <DemoPageRenderer
       title="Global notification"
-      description="Grabs the attention of the user by displaying a notification in the top of the screen."
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faBullhorn} size="2x" />}
       sourceId="global-notification/global-notification.tsx"
       editId="global-notification"

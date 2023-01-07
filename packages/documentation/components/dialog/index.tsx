@@ -6,12 +6,23 @@ import DemoPageRenderer from '../../common/demo-page-renderer';
 
 const Widgets = React.lazy(() => import('./dialog-widgets'));
 
+const Description = (
+  <div>
+    <p>
+      A dialog UI component is a user interface element that allows users to
+      interact with a prompt or message in a pop-up window or modal. It is often
+      used to display important information or request user input, such as
+      confirmation or input fields. Dialog UI components can be triggered by
+      buttons, links, or other actions within the user interface.
+    </p>
+  </div>
+);
+
 function dialog() {
   return (
     <DemoPageRenderer
       title="Dialog"
-      description={`A dialog is an overlay that requires the user to interact with it and designed to elicit a response from the user.
-      Dialogs inform users about critical information, require users to make decisions, or involve multiple tasks`}
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faWindowMaximize} size="2x" />}
       sourceId="dialog/dialog.tsx"
       editId="dialog"

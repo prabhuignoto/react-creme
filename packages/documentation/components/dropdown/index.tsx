@@ -4,11 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      A dropdown is a user interface (UI) component that allows users to select
+      one value from a list of options. It is often implemented as a list of
+      items that can be expanded or collapsed to reveal or hide the options.
+      Dropdowns are commonly used in forms and other web applications to allow
+      users to make a selection from a predefined list of options.
+    </p>
+  </div>
+);
+
 function dropdown() {
   return (
     <DemoPageRenderer
       title="Dropdown"
-      description="Dropdown is a component that allows the user to select a value from a list of options."
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
       sourceId="dropdown/dropdown.tsx"
       editId="dropdown"
