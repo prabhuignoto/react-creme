@@ -2,7 +2,7 @@ import { faBook, faCode, faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FunctionComponent, Suspense, useMemo } from 'react';
 import { BookOpen, Code } from 'react-feather';
-import { CSSTransition } from 'react-transition-group';
+// import { CSSTransition } from 'react-transition-group';
 import { DemoPageRendererProps } from '.';
 import { Section, Tabs } from '../../../lib/components';
 import { DataGrid } from '../../../lib/components/data-grid/data-grid';
