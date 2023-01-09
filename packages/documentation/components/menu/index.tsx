@@ -3,16 +3,33 @@ import DemoPageRenderer from '../../common/demo-page-renderer';
 
 const Widgets = React.lazy(() => import('./widgets'));
 
+const Description = (
+  <div>
+    <p>
+      A Menu component is a graphical control element that provides a list of
+      options for a user to choose from. It is often used as a way for a user to
+      navigate through a user interface, select different options or features,
+      or perform actions within an application or website. A menu may be
+      displayed as a list of options that can be accessed by clicking on a
+      button.
+    </p>
+  </div>
+);
+
 function menu() {
   return (
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-gxoozp']}
       title="Menu"
-      description="Menu is a component that can be used to display a list of items. It can be docked to any target element and aligned to three supported positions: left, right, and center."
+      description={Description}
       sourceId="menu/menu.tsx"
       editId="menu"
-      features={['Custom sizes', 'Easily align to left, right, or center']}
+      features={[
+        'Custom sizes',
+        '3 unique docking positions',
+        'Attach menu to any type of target element',
+      ]}
       callbacks={[
         {
           default: '',
@@ -60,8 +77,8 @@ function menu() {
           type: 'Array',
         },
         {
-          default: '',
-          description: `Any custom CSS`,
+          default: '{}',
+          description: `Custom style object to be applied to the menu`,
           name: 'style',
           optional: 'Yes',
           type: 'Object',
@@ -72,6 +89,20 @@ function menu() {
           name: 'focusable',
           optional: 'Yes',
           type: 'Boolean',
+        },
+        {
+          default: 'False',
+          description: 'Hides the arrow on the menu',
+          name: 'hideArrow',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: '12',
+          description: 'The gutter between the menu and the target element',
+          name: 'gutter',
+          optional: 'Yes',
+          type: 'Number',
         },
       ]}
       demoWidget={<Widgets />}

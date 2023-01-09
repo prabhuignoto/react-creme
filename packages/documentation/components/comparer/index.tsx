@@ -10,8 +10,9 @@ const Description = (
       An image comparer UI component is a user interface element that allows
       users to compare two images side by side. It typically includes a visual
       display of the two images, as well as controls for adjusting the size and
-      position of each image in the comparison. This type of component is often used in applications such as photo
-      editing software or document comparison tools.
+      position of each image in the comparison. This type of component is often
+      used in applications such as photo editing software or document comparison
+      tools.
     </p>
   </div>
 );

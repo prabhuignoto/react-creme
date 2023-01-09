@@ -9,6 +9,7 @@ $sizes: (sm, md, lg);
   @each $size in $sizes {
     &.#{$size} {
       @extend %text-#{$size};
+      line-height: 150%;
 
       em,
       code {
@@ -41,7 +42,7 @@ $sizes: (sm, md, lg);
   code {
     @extend %border-radius-default;
     font-style: normal;
-    // line-height: 1.25rem;
-    padding: 0 4px;
+    padding: 0.1rem 0.25rem;
+    // padding: 0 4px;
   }
 }
