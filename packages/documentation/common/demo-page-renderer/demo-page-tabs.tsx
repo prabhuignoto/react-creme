@@ -63,17 +63,17 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
     >
       <div className={styles.widgets_container}>
         <Suspense fallback={<span>Loading Widgets...</span>}>
-          <CSSTransition
+          {/* <CSSTransition
             key={tabTitles.join('')}
             classNames="widget-fade"
             timeout={500}
-          >
+          > */}
             {media?.isMobile || media?.isTablet || media?.isDesktop ? (
               Demo
             ) : (
               <WidgetsWrapper>{Demo}</WidgetsWrapper>
             )}
-          </CSSTransition>
+          {/* </CSSTransition> */}
         </Suspense>
       </div>
       {canShowProperties ? (
