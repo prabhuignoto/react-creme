@@ -6,8 +6,8 @@ $sizes: (sm, md, lg);
 
 .item {
   height: 35px;
-  width: calc(100% - 0.4rem);
   padding: 0 0.2rem;
+  width: calc(100% - 0.4rem);
 
   &:first-child {
     border-top-left-radius: 4px;
