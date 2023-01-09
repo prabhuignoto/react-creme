@@ -12,12 +12,21 @@ const MenuBarItem: FunctionComponent<MenuBarItemViewProps> = memo(
 
     const isFirstRender = useFirstRender();
 
+    const menuBarItemClass = useMemo(
+      () =>
+        classNames(
+          styles.item,
+          isDarkMode && styles.dark,
+          {
+            [styles.active]: active,
+          },
+          RTL ? styles.rtl : ''
+        ),
+      [RTL]
+    );
+
     return (
-      <li
-        className={classNames(styles.item, isDarkMode && styles.dark, {
-          [styles.active]: active,
-        })}
-      >
+      <li className={menuBarItemClass}>
         {showIcon && (
           <span className={classNames(styles.icon, styles.size)}>{icon}</span>
         )}
@@ -48,9 +57,9 @@ const MenuBarItem: FunctionComponent<MenuBarItemViewProps> = memo(
       </li>
     );
   },
-  (prev, next) => prev.active === next.active
+  (prev, next) =>
+    prev.active === next.active && prev.isMenuOpen === next.isMenuOpen
 );
-
 MenuBarItem.displayName = 'MenuBarItem';
 
 export { MenuBarItem };

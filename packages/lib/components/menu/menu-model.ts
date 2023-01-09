@@ -1,6 +1,7 @@
 import React, { CSSProperties, RefObject } from 'react';
 import { OverlayModel } from '../common/overlay-model';
 export interface MenuProps {
+  RTL?: boolean;
   children: React.ReactNode;
   disabled?: boolean;
   dockPosition?: 'left' | 'right' | 'center';
@@ -18,7 +19,10 @@ export interface MenuProps {
   style?: CSSProperties;
 }
 
-export type MenuItemProps = Pick<MenuProps, 'disabled' | 'size' | 'id'> & {
+export type MenuItemProps = Pick<
+  MenuProps,
+  'disabled' | 'size' | 'id' | 'RTL'
+> & {
   focus?: boolean;
   handleSelection?: (name: string) => void;
   isDark?: boolean;
@@ -28,7 +32,13 @@ export type MenuItemProps = Pick<MenuProps, 'disabled' | 'size' | 'id'> & {
 
 export type MenuOverlayModel = Pick<
   MenuProps,
-  'focusable' | 'items' | 'size' | 'dockPosition' | 'hideArrow' | 'leftOffset'
+  | 'focusable'
+  | 'items'
+  | 'size'
+  | 'dockPosition'
+  | 'hideArrow'
+  | 'leftOffset'
+  | 'RTL'
 > & {
   onSelection?: (val: string) => void;
   ref?: RefObject<HTMLUListElement | null>;
