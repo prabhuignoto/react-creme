@@ -19,7 +19,10 @@ export interface MenuProps {
   style?: CSSProperties;
 }
 
-export type MenuItemProps = Pick<MenuProps, 'disabled' | 'size' | 'id'> & {
+export type MenuItemProps = Pick<
+  MenuProps,
+  'disabled' | 'size' | 'id' | 'RTL'
+> & {
   focus?: boolean;
   handleSelection?: (name: string) => void;
   isDark?: boolean;

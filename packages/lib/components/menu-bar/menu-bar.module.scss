@@ -17,7 +17,6 @@ $sizes: (sm, md, lg);
   }
 
   &:not(.dark) {
-    @extend %shadow-inset;
     background: rgba(theme.$secondary-rgb, 0.25);
   }
 
@@ -41,10 +40,10 @@ $sizes: (sm, md, lg);
     color: theme.$black;
   }
 
-  &::after {
+  &:not(:last-child)::after {
     content: '';
     display: block;
-    height: 70%;
+    height: 75%;
     position: absolute;
     width: 1px;
   }
@@ -56,8 +55,8 @@ $sizes: (sm, md, lg);
     right: -1px;
   }
 
-  &:not(:last-child).rtl {
-    border-left: 1px solid theme.$dark-control-bg;
+  &:not(:last-child).rtl::after {
+    background: theme.$dark-control-bg;
     left: -1px;
   }
 
@@ -110,10 +109,6 @@ $sizes: (sm, md, lg);
     &.#{$size} {
       @extend %text-#{$size};
     }
-  }
-
-  &.active {
-    color: theme.$white;
   }
 }
 

@@ -85,6 +85,7 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
           onClose={() => handleOnClose(item.id)}
           onSelected={name => handleSelection(item.id, item.name, name)}
           focusable={focusable}
+          RTL={RTL}
         >
           <MenuBarItem
             active={item.active}

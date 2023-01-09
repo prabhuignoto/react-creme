@@ -5,9 +5,9 @@
 $sizes: (sm, md, lg);
 
 .item {
-  @extend %list-item-left;
   height: 35px;
-  width: 100%;
+  width: calc(100% - 0.4rem);
+  padding: 0 0.2rem;
 
   &:first-child {
     border-top-left-radius: 4px;
@@ -29,6 +29,14 @@ $sizes: (sm, md, lg);
 
   &:not(.dark) {
     color: theme.$black;
+  }
+
+  &.rtl {
+    @extend %list-item-right;
+  }
+
+  &:not(.rtl) {
+    @extend %list-item-left;
   }
 }
 

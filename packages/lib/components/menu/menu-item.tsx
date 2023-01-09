@@ -13,6 +13,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
     focus,
     size = 'sm',
     isDark,
+    RTL = false,
   }) => {
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -40,6 +41,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
           [styles.divider]: isDivider,
           [styles.dark]: isDark,
           [styles[size]]: true,
+          [styles.rtl]: RTL
         }),
       [isDark]
     );
