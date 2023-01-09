@@ -29,6 +29,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   gutter = 12,
   hideArrow = false,
   leftOffset = 0,
+  RTL = false,
 }: MenuProps) => {
   const [menuItems] = useState<MenuItemProps[]>(
     items.map(item => ({
@@ -190,6 +191,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
             dockPosition={dockPosition}
             hideArrow={hideArrow}
             leftOffset={leftOffset}
+            RTL={RTL}
           />
         </div>
       )}

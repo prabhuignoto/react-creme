@@ -34,6 +34,7 @@ function menu() {
           type: 'boolean',
         },
         {
+          default: 'false',
           description:
             'Set to true to disable the unique id generation for menu items',
           name: 'noUniqueId',
@@ -53,6 +54,13 @@ function menu() {
           name: 'focusable',
           optional: 'Yes',
           type: 'boolean',
+        },
+        {
+          default: '[]',
+          description: 'Array of icons to be used in the menu bar',
+          name: 'icons',
+          optional: 'Yes',
+          type: 'Array',
         },
       ]}
       demoWidget={<Widgets />}

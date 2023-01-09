@@ -8,9 +8,18 @@
 $sizes: (sm, md, lg);
 
 .wrapper {
-  @extend %shadow-inset;
-  @extend %border;
+  @extend %border-radius;
   @extend %list-horizontal-left;
+  width: 100%;
+
+  &.dark {
+    background: theme.$chinese-black;
+  }
+
+  &:not(.dark) {
+    @extend %shadow-inset;
+    background: rgba(theme.$secondary-rgb, 0.25);
+  }
 
   &.right_aligned {
     direction: rtl;
@@ -22,6 +31,7 @@ $sizes: (sm, md, lg);
   cursor: pointer;
   min-width: 100px;
   padding: 0.75rem 0.25rem;
+  position: relative;
 
   &.dark {
     color: theme.$white;
@@ -30,25 +40,45 @@ $sizes: (sm, md, lg);
   &:not(.dark) {
     color: theme.$black;
   }
+
+  &::after {
+    content: '';
+    display: block;
+    height: 70%;
+    position: absolute;
+    width: 1px;
+  }
 }
 
 .item.dark {
-  &:not(:last-child) {
-    border-right: 1px solid theme.$dark-control-bg;
+  &:not(:last-child):not(.rtl)::after {
+    background: theme.$dark-control-bg;
+    right: -1px;
+  }
+
+  &:not(:last-child).rtl {
+    border-left: 1px solid theme.$dark-control-bg;
+    left: -1px;
   }
 
   &:hover {
     background: theme.$primary;
+    border-radius: 2px;
   }
 }
 
 .item:not(.dark) {
-  &:not(:last-child) {
-    border-right: 1px solid theme.$light-bg;
+  &:not(:last-child):not(.rtl) {
+    border-right: 1px solid rgba(theme.$secondary-rgb, 0.5);
+  }
+
+  &:not(:last-child).rtl {
+    border-left: 1px solid rgba(theme.$secondary-rgb, 0.5);
   }
 
   &:hover {
     background-color: theme.$secondary;
+    border-radius: 2px;
   }
 }
 

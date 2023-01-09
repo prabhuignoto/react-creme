@@ -72,7 +72,6 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
   const hasIcons = useMemo(() => !!icons.length, []);
 
   return (
-    // <ul className={menuBarClass}>
     <ul className={menuBarClass} ref={onRef}>
       {_items.map((item, index) => (
         <Menu
