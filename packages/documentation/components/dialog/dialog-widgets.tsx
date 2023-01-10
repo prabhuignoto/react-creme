@@ -64,6 +64,7 @@ const Widget = () => {
               width={width}
               height={250}
               size="sm"
+              title="Dialog title"
             >
               <span>Your content here !</span>
             </Dialog>
@@ -89,6 +90,7 @@ const Widget = () => {
               height={250}
               animationType="drop"
               size="md"
+              title="Dialog title"
             >
               <span>Your content here!</span>
             </Dialog>
@@ -108,6 +110,7 @@ const Widget = () => {
               width={width}
               height={250}
               animationType="rise"
+              title="Dialog Title"
             >
               <span>Your content here!</span>
             </Dialog>
@@ -127,6 +130,7 @@ const Widget = () => {
               width={width}
               height={250}
               animationType="slide-left"
+              title="Dialog Title"
             >
               <span>Your content here!</span>
             </Dialog>
@@ -146,6 +150,7 @@ const Widget = () => {
               width={width}
               height={250}
               animationType="slide-right"
+              title="Dialog Title"
             >
               <span>Your content here!</span>
             </Dialog>
