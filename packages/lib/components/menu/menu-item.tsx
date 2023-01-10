@@ -41,7 +41,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
           [styles.divider]: isDivider,
           [styles.dark]: isDark,
           [styles[size]]: true,
-          [styles.rtl]: RTL
+          [styles.rtl]: RTL,
         }),
       [isDark]
     );

@@ -21,7 +21,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
       size = 'sm',
       dockPosition = 'left',
       hideArrow,
-      RTL = false
+      RTL = false,
     }: MenuOverlayModel,
     ref
   ) => {
