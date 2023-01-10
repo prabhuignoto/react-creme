@@ -94,6 +94,21 @@ function tooltip() {
           optional: 'Yes',
           type: 'Boolean',
         },
+        {
+          default: 'true',
+          description: 'Enables additional padding',
+          name: 'enablePadding',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'sm',
+          description:
+            'Custom size for the tooltip, this targets the font size and control size (close button)',
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-pwaial']}

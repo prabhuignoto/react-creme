@@ -82,6 +82,11 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     onClose?.();
   };
 
+  const titleClass = useMemo(
+    () => classNames(styles.title, isDarkMode ? styles.dark : ''),
+    [isDarkMode]
+  );
+
   return (
     <div
       className={dialogClass}
@@ -91,7 +96,7 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
       {...focusProps.current}
     >
       <header className={styles.header}>
-        <h2 className={styles.title} id={id.current}>
+        <h2 className={titleClass} id={id.current}>
           {title}
         </h2>
         <div className={styles.button_wrapper}>
