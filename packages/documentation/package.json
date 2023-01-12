@@ -21,7 +21,7 @@
     "snyk": "snyk test"
   },
   "dependencies": {
-    "@docsearch/react": "^3.3.1",
+    "@docsearch/react": "^3.3.2",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
@@ -61,7 +61,7 @@
     "@vitejs/plugin-react": "3.0.1",
     "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.14",
-    "esbuild": "^0.16.16",
+    "esbuild": "^0.16.17",
     "postcss": "^8.4.21",
     "postcss-bem-linter": "^3.3.0",
     "postcss-prefixer": "^2.1.3",
@@ -70,7 +70,7 @@
     "recoil": "^0.7.6",
     "rimraf": "^3.0.2",
     "sass": "^1.57.1",
-    "snyk": "^1.1082.0",
+    "snyk": "^1.1085.0",
     "stylelint": "14.16.1",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-sass-guidelines": "^9.0.1",
