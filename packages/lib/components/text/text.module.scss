@@ -28,13 +28,13 @@ $sizes: (sm, md, lg);
 
   &:not(.dark) em,
   &:not(.dark) code {
-    background: rgba(theme.$primary-rgb, 0.75);
-    color: theme.$white;
+    background: rgba(theme.$primary-rgb, 0.2);
+    color: theme.$black;
   }
 
   &.dark em,
   &.dark code {
-    background: theme.$secondary;
+    background: rgba(theme.$secondary-rgb, 0.95);
     color: theme.$text-color;
   }
 
@@ -42,7 +42,7 @@ $sizes: (sm, md, lg);
   code {
     @extend %border-radius-default;
     font-style: normal;
-    padding: 0.1rem 0.25rem;
+    padding: 1px 2px;
     // padding: 0 4px;
   }
 }
