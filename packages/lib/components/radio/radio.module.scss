@@ -105,6 +105,7 @@ $heights: (
   border-radius: 50%;
   display: block;
   position: relative;
+  border: 1px solid theme.$primary;
 
   &:hover:not(.disabled) {
     @extend %shadow-inset;
@@ -112,14 +113,14 @@ $heights: (
 
   &.ico_checked {
     // background-color: theme.$primary;
-    border: 1px solid theme.$primary;
+    // border: 1px solid theme.$primary;
   }
 }
 
 .icon:not(.ico_checked) {
   &.dark {
-    background-color: theme.$dark-control-bg;
-    border: 1px solid theme.$dark-control-bg;
+    // background-color: theme.$dark-control-bg;
+    // border: 1px solid theme.$dark-control-bg;
   }
 
   &:not(.dark) {
