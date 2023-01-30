@@ -4,12 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      A progress bar is a graphical UI component that is used to visually
+      represent the progress of a task. The bar can also be animated to give the
+      impression of movement. Progress bars are commonly used in applications
+      and websites to show the progress of file downloads, data transfers, and
+      other tasks that take a significant amount of time to complete.
+    </p>
+  </div>
+);
+
 function progress() {
   return (
     <DemoPageRenderer
       title="Progress"
-      description={`Progress bars are used to show the completion status of an operation.
-      They can be used to show the progress of a task, or the progress of a process.`}
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faSpinner} size="2x" />}
       editId="progress"
       sourceId="progress/progress.tsx"

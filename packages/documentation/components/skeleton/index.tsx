@@ -4,11 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      {`A skeleton UI component is a visual placeholder used to indicate loading
+      content. It has the same layout and dimensions as the final content, but
+      with a gray or empty background. It's used to give users an idea of where
+      the content will be placed and how it will be formatted, while providing
+      visual feedback that the content is loading.`}
+    </p>
+  </div>
+);
+
 function skeleton() {
   return (
     <DemoPageRenderer
       title="Skeleton"
-      description="Skeleton is a lightweight component that can be used to display a loading state."
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faSpinner} size="2x" />}
       sourceId="skeleton/skeleton.tsx"
       editId="skeleton"

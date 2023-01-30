@@ -7,6 +7,7 @@ interface WidgetProps {
   codeString?: string;
   component?: React.ReactElement;
   customTitle?: string;
+  disableCode?: boolean;
   fullWidth?: boolean;
   height?: string | number;
   layout?: 'horizontal' | 'vertical';
@@ -29,6 +30,7 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
     component,
     codeString,
     name,
+    disableCode,
   }: WidgetProps) => {
     return (
       <div
@@ -50,7 +52,7 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
           {children}
         </div>
         <div style={{ width: '100%' }}>
-          {!showCodeByDefault ? (
+          {!showCodeByDefault && !disableCode ? (
             <Accordion
               title={customTitle}
               border={false}
