@@ -4,11 +4,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      A PIN code component is a form field for capturing personal identification
+      numbers. It has a label, obscured input field, and may have features such
+      as max length and automatic lock. Its purpose is to securely collect PIN
+      codes with a user-friendly experience.
+    </p>
+  </div>
+);
+
 function Pin() {
   return (
     <DemoPageRenderer
       title="Pin"
-      description="Input for entering a pin code."
+      description={Description}
       features={['Auto focusing input', 'RTL support', 'Custom pin length']}
       callbacks={[
         {
