@@ -4,6 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      A spinner UI component is a graphical element that is used to indicate
+      that a process is ongoing. It is often displayed when a webpage or
+      application is loading data or performing a task in the background. It is
+      typically used to provide visual feedback to the user that an action is in
+      progress, rather than indicating that the program has frozen or crashed.
+    </p>
+  </div>
+);
+
 function spinner() {
   return (
     <DemoPageRenderer
@@ -11,7 +23,7 @@ function spinner() {
       pageIcon={<FontAwesomeIcon icon={faSlidersH} size="2x" />}
       sourceId="spinner/spinner.tsx"
       editId="spinner"
-      features={[]}
+      features={['Custom sizes', 'Adjustable spinning speed']}
       properties={[
         {
           default: 'sm',
@@ -34,7 +46,7 @@ function spinner() {
       stackBlitzCodes={['react-ts-acenzu']}
       demoWidget={<Widgets />}
       title="Spinner"
-      description="A spinner is a rotating element that indicates the loading state of a page or a ui element."
+      description={Description}
     ></DemoPageRenderer>
   );
 }

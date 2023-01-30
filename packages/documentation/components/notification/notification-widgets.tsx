@@ -10,6 +10,7 @@ import {
 import { NotificationPosition } from '../../../lib/components/notification/notification-model';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { AutoCloseString, DefaultCodeString } from './code-strings';
 
 const Widgets = () => {
   const ref = useRef(null);
@@ -38,7 +39,7 @@ const Widgets = () => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
-  const [position, setPosition] = useState<NotificationPosition>('top-left');
+  const [position, setPosition] = useState<NotificationPosition>('top-right');
   return width ? (
     <div className="rc-demo-widgets">
       <Section size="md" border={false}>
@@ -109,7 +110,11 @@ const Widgets = () => {
           By default the notification is positioned at the top-left corner of
           the screen relative to the page.
         </Text>
-        <DemoWidget name="Notification" width={150}>
+        <DemoWidget
+          name="Notification"
+          width={150}
+          codeString={DefaultCodeString}
+        >
           <Button label="Open Notification" onClick={() => setShow2(true)} />
         </DemoWidget>
       </Section>
@@ -139,7 +144,11 @@ const Widgets = () => {
           The notification can be closed automatically after a certain time
           using the <code>autoClose</code> property.
         </Text>
-        <DemoWidget name="Notification" width={150}>
+        <DemoWidget
+          name="Notification"
+          width={150}
+          codeString={AutoCloseString}
+        >
           <Button label="Open Notification" onClick={() => setShow3(true)} />
         </DemoWidget>
       </Section>

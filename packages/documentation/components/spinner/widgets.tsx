@@ -6,7 +6,7 @@ const Widgets = () => {
   return (
     <div className="rc-demo-widgets">
       <Section size="md" title="Default">
-        <DemoWidget name="Spinner" width={200}>
+        <DemoWidget name="Spinner" width={200} showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>
@@ -15,7 +15,7 @@ const Widgets = () => {
           The speed of the spinner can be adjusted through the{' '}
           <code>speed</code> prop.
         </Text>
-        <DemoWidget name="Spinner" width={200}>
+        <DemoWidget name="Spinner" width={200} showCodeByDefault>
           {CustomSpeed}
         </DemoWidget>
       </Section>
@@ -24,13 +24,13 @@ const Widgets = () => {
           Three different sizes are available for the spinner. <code>sm</code>,{' '}
           <code>md</code> and <code>lg</code>.
         </Text>
-        <DemoWidget name="Spinner" width={200}>
+        <DemoWidget name="Spinner" width={200} showCodeByDefault>
           {Default}
         </DemoWidget>
-        <DemoWidget name="Spinner" width={200}>
+        <DemoWidget name="Spinner" width={200} showCodeByDefault>
           {Medium}
         </DemoWidget>
-        <DemoWidget name="Spinner" width={200}>
+        <DemoWidget name="Spinner" width={200} showCodeByDefault>
           {Large}
         </DemoWidget>
       </Section>

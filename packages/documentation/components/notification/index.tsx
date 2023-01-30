@@ -4,11 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './notification-widgets';
 
+const Description = (
+  <div>
+    <p>
+      A notification UI component is a visual element that is used to inform
+      users of important events or updates in an application or website. They
+      are often used to draw attention to important information that the user
+      might otherwise miss. Notifications can be temporary, disappearing after a
+      set amount of time, or they can be permanent and require user action to
+      dismiss.
+    </p>
+  </div>
+);
+
 function notification() {
   return (
     <DemoPageRenderer
       title="Notification"
-      description="Notification is a component that can be used to display any important message to the user. Notifications can be dismissed manually or automatically."
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faBell} size="2x" />}
       sourceId="notification/notification.tsx"
       editId="notification"
