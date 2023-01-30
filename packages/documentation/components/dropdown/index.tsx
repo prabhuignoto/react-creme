@@ -7,11 +7,13 @@ import Widgets from './widgets';
 const Description = (
   <div>
     <p>
-      A dropdown is a user interface (UI) component that allows users to select
-      one value from a list of options. It is often implemented as a list of
-      items that can be expanded or collapsed to reveal or hide the options.
-      Dropdowns are commonly used in forms and other web applications to allow
-      users to make a selection from a predefined list of options.
+      A Dropdown UI component is a graphical user interface element that
+      provides a list of options for a user to choose from. The list is usually
+      displayed as a drop-down menu when the user clicks on a toggle button or a
+      control. Dropdown components are commonly used in forms, navigation menus,
+      and other UI elements to allow users to make selections and provide input
+      to the system. They provide an efficient and user-friendly way to present
+      a large number of options in a limited amount of space.
     </p>
   </div>
 );

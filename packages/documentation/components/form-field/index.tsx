@@ -7,11 +7,17 @@ import Widgets from './widgets';
 const Description = (
   <div>
     <p>
-      A form field is a user interface (UI) component that allows users to input
-      and interact with data within a form. Form fields can be used to collect a
-      wide range of information, including text, numbers, dates, and files. Some
-      common types of form fields include text fields, password fields,
-      checkboxes, radio buttons, and dropdown menus.
+      A form field component is a fundamental building block of a form, and is
+      used to collect information from a user. It typically consists of a label,
+      input field, and, in some cases, validation messages to provide feedback
+      to the user.
+    </p>
+    <p>
+      Form fields can be of various types, including text input fields,
+      drop-down menus, checkboxes, and radio buttons, among others. The purpose
+      of a form field component is to ensure that the user provides the required
+      information in a clear, concise and standardized manner, making it easier
+      for the form to be processed and understood.
     </p>
   </div>
 );

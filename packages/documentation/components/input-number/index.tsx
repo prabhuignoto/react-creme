@@ -4,14 +4,14 @@ import Widgets from './widgets';
 const Description = (
   <div>
     <p>
-      An input number component is a type of input UI component that allows a
-      user to enter a number. It is commonly used in web and mobile application
-      development. The component is usually implemented as a text box with
-      additional features to support the entry of numeric values.
+      An Input number component is a type of form field component that allows a
+      user to enter numerical values. It typically consists of a label, an input
+      box where the user can type or click on up/down arrows to select a number.
     </p>
     <p>
-      These include a up and down buttons to increment or decrement the value,
-      and restrictions on the type of characters that can be entered.
+      Its purpose is to provide a standardized and user-friendly way for users
+      to input numerical data in a form, while ensuring that the data entered is
+      valid and within a specified range.
     </p>
   </div>
 );

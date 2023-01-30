@@ -44,6 +44,10 @@ $sizes: (sm, md, lg);
   svg {
     color: theme.$white;
   }
+
+  .label:not(.dark) {
+    color: theme.$white;
+  }
 }
 
 .rtl {
@@ -85,7 +89,7 @@ $sizes: (sm, md, lg);
   position: relative;
 
   &:hover {
-    background: theme.$secondary;
+    // background: theme.$primary;
   }
 }
 
@@ -97,5 +101,9 @@ $sizes: (sm, md, lg);
     &.#{$size} {
       @extend %text-#{$size};
     }
+  }
+
+  &:not(.dark):hover {
+    color: theme.$white;
   }
 }

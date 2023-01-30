@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { Link, Section, Text } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -43,7 +43,7 @@ function widgets() {
           pressing enter.Tags can be easily removed by clicking on the close
           icon on the tag.
         </Text>
-        <DemoWidget name="Tags" width={width}>
+        <DemoWidget name="Tags" width={width} showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>
@@ -72,10 +72,9 @@ function widgets() {
           {MaxTags}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Tags - AutoComplete">
+      <Section size="md" title="Tags - AutoSuggest">
         <Text>
-          Tags can also be configured to use the{' '}
-          <Link href="/auto-suggest">AutoSuggest</Link> control.
+          Tags can also be configured to use with the AutoSuggest control.
         </Text>
         <DemoWidget name="Tags" width={width}>
           {AutoComplete}
