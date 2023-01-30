@@ -37,7 +37,7 @@ const App = () => {
   return <div>
     <button onClick={() => setShow(true)}>Open Notification</button>
     {
-      show ? 
+      show ?
       <Notification position="top-left" title="Hello World" onClose={() => setShow(false)} autoClose={3000}>
         <span>test</span>
       </Notification> : null
