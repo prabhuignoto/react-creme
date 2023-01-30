@@ -103,9 +103,9 @@ $heights: (
 
 .icon {
   border-radius: 50%;
+  border: 1px solid theme.$primary;
   display: block;
   position: relative;
-  border: 1px solid theme.$primary;
 
   &:hover:not(.disabled) {
     @extend %shadow-inset;
