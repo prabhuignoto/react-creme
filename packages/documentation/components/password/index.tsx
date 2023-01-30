@@ -4,16 +4,35 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      A password UI component is a form field used to capture a password,
+      typically for authentication purposes. It consists of a label and an input
+      field where the user can enter their password.{' '}
+    </p>
+    <p>
+      The input field is usually obscured, displaying asterisks instead of the
+      actual characters typed, to protect the password from being seen. The
+      purpose of a password UI component is to securely collect and store
+      passwords while providing a convenient and user-friendly experience.
+    </p>
+  </div>
+);
+
 function Password() {
   return (
     <DemoPageRenderer
       title="Password"
-      description={`A password field is a special text field on a web form that doesn't display what the user types.
-      Each keystroke is represented on the screen by a placeholder character, such as an asterisk or a bullet, so that someone looking over the user's shoulder can't see what they type`}
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faEye} size="2x" />}
       sourceId="password/password.tsx"
       editId="password"
-      features={[]}
+      features={[
+        'UI Control for showing and hiding password',
+        'Customizable size',
+        'RTL Support',
+      ]}
       properties={[
         {
           default: 'false',

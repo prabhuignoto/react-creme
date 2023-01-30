@@ -4,11 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      {`A checkbox is a GUI component that allows a user to make multiple
+      selections from a set of options. It is represented as a small square or
+      rectangle that can be either checked or unchecked to indicate the user's
+      selection. Checkboxes are often used in forms or surveys to gather data
+      and are a simple and efficient way for users to make multiple selections.`}
+    </p>
+  </div>
+);
+
 function checkbox() {
   return (
     <DemoPageRenderer
       title="Checkbox"
-      description={`A checkbox (check box, tickbox, tick box) is a Graphical widget that permits the user to make a binary choice.`}
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faCheckSquare} size="2x" />}
       editId="checkbox"
       sourceId="checkbox/checkbox.tsx"

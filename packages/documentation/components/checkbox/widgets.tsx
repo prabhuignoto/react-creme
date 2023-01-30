@@ -13,7 +13,7 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section size="md" title="Default">
-        <DemoWidget name="CheckBox" width={220}>
+        <DemoWidget name="CheckBox" width={220} showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>
@@ -21,7 +21,7 @@ function widgets() {
         <Text>
           Use the <code>disabled</code> prop to disable the checkbox.
         </Text>
-        <DemoWidget name="CheckBox" width={200}>
+        <DemoWidget name="CheckBox" width={200} showCodeByDefault>
           {Disabled}
         </DemoWidget>
       </Section>
@@ -30,7 +30,7 @@ function widgets() {
           The size of the checkbox can be customized. Supports three sizes:
           small, medium, large.
         </Text>
-        <DemoWidget name="CheckBox" width={200}>
+        <DemoWidget name="CheckBox" width={200} showCodeByDefault>
           {Large}
         </DemoWidget>
       </Section>
@@ -39,18 +39,18 @@ function widgets() {
           Change the outlook of the Checkbox via the <code>checkBoxStyle</code>{' '}
           prop.
         </Text>
-        <DemoWidget name="CheckBox" width={150}>
+        <DemoWidget name="CheckBox" width={150} showCodeByDefault>
           {CustomStyle}
         </DemoWidget>
       </Section>
       <Section size="md" title="All Sizes">
-        <DemoWidget name="CheckBox" width={200}>
+        <DemoWidget name="CheckBox" width={200} showCodeByDefault>
           {CustomStyle}
         </DemoWidget>
-        <DemoWidget name="CheckBox" width={200}>
+        <DemoWidget name="CheckBox" width={200} showCodeByDefault>
           {Medium}
         </DemoWidget>
-        <DemoWidget name="CheckBox" width={200}>
+        <DemoWidget name="CheckBox" width={200} showCodeByDefault>
           {LargeRounded}
         </DemoWidget>
       </Section>

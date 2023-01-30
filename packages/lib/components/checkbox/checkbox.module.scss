@@ -80,15 +80,15 @@ $heights: (
 }
 
 .icon {
+
+  @extend %border-primary;
   transition: background 0.1s linear;
 
   &.dark {
-    @extend %border-radius;
-    background: theme.$dark-input-bg;
+    // background: theme.$dark-input-bg;
   }
 
   &:not(.dark) {
-    @extend %border;
     background: theme.$white;
   }
 

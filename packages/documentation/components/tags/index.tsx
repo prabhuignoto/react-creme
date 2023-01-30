@@ -4,13 +4,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      A tags UI component allows users to add and manage tags, which are short
+      labels that categorize or describe content. It typically consists of a
+      text input field, where users can type in new tags, and a list of existing
+      tags that can be deleted. The purpose of the tags UI component is to
+      provide a flexible and user-friendly way to organize and categorize
+      content.
+    </p>
+  </div>
+);
+
 function tags() {
   return (
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-hppcze']}
       title="Tags"
-      description="Tags are used to group and categorize content. They can be used to filter content, or to display additional information.."
+      description={Description}
       pageIcon={<FontAwesomeIcon icon={faTags} size="2x" />}
       sourceId="tags/tags.tsx"
       editId="tags"
