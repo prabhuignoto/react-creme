@@ -42,7 +42,7 @@
     "react-transition-group": "^4.4.5",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^9.0.3",
-    "vite": "4.0.4"
+    "vite": "4.1.1"
   },
   "devDependencies": {
     "@axe-core/react": "^4.6.0",
@@ -58,7 +58,7 @@
     "@types/react-instantsearch-dom": "^6.12.3",
     "@types/react-syntax-highlighter": "^15.5.6",
     "@types/react-transition-group": "^4.4.5",
-    "@vitejs/plugin-react": "3.0.1",
+    "@vitejs/plugin-react": "3.1.0",
     "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.14",
     "esbuild": "^0.17.5",
@@ -70,7 +70,7 @@
     "recoil": "^0.7.6",
     "rimraf": "^4.1.2",
     "sass": "^1.58.0",
-    "snyk": "^1.1094.0",
+    "snyk": "^1.1096.0",
     "stylelint": "14.16.1",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-sass-guidelines": "^9.0.1",
