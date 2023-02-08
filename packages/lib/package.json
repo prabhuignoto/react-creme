@@ -40,7 +40,7 @@
     "classnames": "^2.3.2",
     "fast-deep-equal": "^3.1.3",
     "hex-rgb": "^5.0.0",
-    "nanoid": "^4.0.0",
+    "nanoid": "^4.0.1",
     "use-debounce": "^9.0.3"
   },
   "peerDependencies": {
@@ -56,7 +56,7 @@
     "@types/bluebird": "^3.5.38",
     "@types/jest": "^29.4.0",
     "@types/jest-axe": "^3.5.5",
-    "@types/node": "^18.11.19",
+    "@types/node": "^18.13.0",
     "@types/react-syntax-highlighter": "^15.5.6",
     "@types/react-transition-group": "^4.4.5",
     "@types/testing-library__jest-dom": "^5.14.5",
