@@ -2,13 +2,13 @@ import { render } from '@testing-library/react';
 import { Card } from '../card';
 
 describe('Card', () => {
-  it.concurrent('should render a basic card', async () => {
+  it('should render a basic card', async () => {
     const { container } = render(<Card />);
 
     expect(container.firstChild).toBeInTheDocument();
   });
 
-  it.concurrent('should render header and footer', async () => {
+  it('should render header and footer', async () => {
     const { container, getByText } = render(
       <Card header={<span>header</span>} footer={<span>footer</span>} />
     );

@@ -20,7 +20,7 @@ const options = [
 ];
 
 describe('CheckboxGroup', () => {
-  it.concurrent('should render checkbox group', () => {
+  it('should render checkbox group', () => {
     const { getByRole, getByText, getAllByRole } = render(
       <CheckBoxGroup options={options} />
     );
@@ -40,13 +40,13 @@ describe('CheckboxGroup', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it.concurrent('should check for isChecked', () => {
+  it('should check for isChecked', () => {
     const { getAllByRole } = render(<CheckBoxGroup options={options} />);
 
     expect(getAllByRole('checkbox')[1]).toBeChecked();
   });
 
-  it.concurrent('check for disabled option', () => {
+  it('check for disabled option', () => {
     const { getAllByRole } = render(<CheckBoxGroup options={options} />);
 
     expect(getAllByRole('checkbox')[2]).toHaveAttribute(
@@ -55,7 +55,7 @@ describe('CheckboxGroup', () => {
     );
   });
 
-  it.concurrent('should handle on change', async () => {
+  it('should handle on change', async () => {
     const optionsData = [
       {
         id: '1',

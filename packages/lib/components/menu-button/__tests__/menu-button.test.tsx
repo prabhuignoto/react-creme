@@ -3,15 +3,15 @@ import { vi } from 'vitest';
 import { MenuButton } from '../menu-button';
 
 describe('Menu Button', () => {
-  it.concurrent('should render the Menu button', () => {
+  it('should render the Menu button', () => {
     const { getByText } = render(
       <MenuButton items={['save', 'cancel', 'delete']} width={150} />
     );
 
-    expect(getByText('save')).toBeInTheDocument();
+    expect(getByText(/^save$/i)).toBeInTheDocument();
   });
 
-  it.concurrent('should open menu on click', async () => {
+  it('should open menu on click', async () => {
     const handler = vi.fn();
     const { getByRole, getByText, getByTestId } = render(
       <MenuButton
@@ -28,9 +28,9 @@ describe('Menu Button', () => {
     await waitFor(
       () => {
         expect(getByTestId('rc-overlay')).toBeInTheDocument();
-        expect(getByText('save')).toBeInTheDocument();
-        expect(getByText('cancel')).toBeInTheDocument();
-        expect(getByText('delete')).toBeInTheDocument();
+        expect(getByText(/^save$/i)).toBeInTheDocument();
+        expect(getByText(/^cancel$/i)).toBeInTheDocument();
+        expect(getByText(/^delete$/i)).toBeInTheDocument();
       },
       {
         timeout: 2000,
@@ -46,7 +46,7 @@ describe('Menu Button', () => {
     // });
   });
 
-  it.concurrent('should call handler on click', async () => {
+  it('should call handler on click', async () => {
     const handler = vi.fn();
     const { getByText } = render(
       <MenuButton
@@ -65,7 +65,7 @@ describe('Menu Button', () => {
     });
   });
 
-  it.concurrent('should call handler from menu', async () => {
+  it('should call handler from menu', async () => {
     const handler = vi.fn();
     const { getByText, getByRole } = render(
       <MenuButton

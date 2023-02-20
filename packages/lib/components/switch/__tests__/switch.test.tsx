@@ -7,18 +7,18 @@ import styles from '../switch.module.scss';
 const handler = vi.fn();
 
 describe('Switch', () => {
-  it.concurrent('should render default', () => {
+  it('should render default', () => {
     const { container } = render(<Switch />);
     expect(container.firstChild).toBeInTheDocument();
   });
 
-  it.concurrent('should be checked', () => {
+  it('should be checked', () => {
     const { getByRole } = render(<Switch checked />);
 
     expect(getByRole('switch')).toHaveAttribute('aria-checked', 'true');
   });
 
-  it.concurrent('should display toggle states', async () => {
+  it('should display toggle states', async () => {
     const { getByRole } = render(<Switch onChange={handler} />);
 
     const switchItem = getByRole('switch');

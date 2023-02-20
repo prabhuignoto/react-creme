@@ -22,7 +22,7 @@ const items: CarouselItemProps[] = [
 ];
 
 describe('Carousel items', () => {
-  it.concurrent('Should render carousel items', async () => {
+  it('Should render carousel items', async () => {
     const { getByRole, getAllByRole } = render(
       <CarouselItems
         carouselItems={items}

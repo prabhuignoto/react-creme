@@ -6,7 +6,7 @@ import styles from '../button.module.scss';
 const handler = vi.fn();
 
 describe('Button', () => {
-  it.concurrent('should render default', async () => {
+  it('should render default', async () => {
     const { container } = render(<Button />);
 
     const button = container.firstChild;
@@ -15,12 +15,12 @@ describe('Button', () => {
     expect(button).toHaveClass(styles.default);
   });
 
-  it.concurrent('should render label', async () => {
+  it('should render label', async () => {
     const { getByText } = render(<Button label="My Button" />);
     expect(getByText('My Button')).toBeInTheDocument();
   });
 
-  it.concurrent('should render size', async () => {
+  it('should render size', async () => {
     const { getByRole } = render(<Button label="My Button" size="lg" />);
     expect(getByRole('button')).toBeInTheDocument();
     expect(getByRole('button')).toHaveClass(styles.lg);
@@ -31,7 +31,7 @@ describe('Button', () => {
     expect(getByRole('button')).toMatchSnapshot();
   });
 
-  it.concurrent('should render disabled button', async () => {
+  it('should render disabled button', async () => {
     const handler = vi.fn();
 
     const { getByRole } = render(
@@ -45,7 +45,7 @@ describe('Button', () => {
     expect(handler).not.toBeCalled();
   });
 
-  it.concurrent('should call handler', async () => {
+  it('should call handler', async () => {
     const { getByText } = render(
       <Button label="My Button" onClick={handler} />,
       {
@@ -58,7 +58,7 @@ describe('Button', () => {
     expect(handler).toBeCalled();
   });
 
-  it.concurrent('should call handler via keyboard action', async () => {
+  it('should call handler via keyboard action', async () => {
     const { getByText } = render(
       <Button label="My Button" onClick={handler} />,
       {
@@ -73,7 +73,7 @@ describe('Button', () => {
     });
   });
 
-  it.concurrent('should have focus', async () => {
+  it('should have focus', async () => {
     const { getByRole } = render(
       <Button label="My Button" onClick={handler} focusable />,
       {

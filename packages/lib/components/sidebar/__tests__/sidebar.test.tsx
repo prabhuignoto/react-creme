@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Sidebar } from '../sidebar';
 
 describe('Sidebar', () => {
-  it.concurrent('should render', () => {
+  it('should render', () => {
     const { getAllByRole, getByText } = render(
       <Sidebar
         groups={[
@@ -27,7 +27,7 @@ describe('Sidebar', () => {
     expect(getByText('one')).toBeInTheDocument();
   });
 
-  it.concurrent('should call handler', async () => {
+  it('should call handler', async () => {
     const handler = vi.fn();
     const { getByText } = render(
       <Sidebar

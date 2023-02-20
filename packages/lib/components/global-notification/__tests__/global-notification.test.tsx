@@ -17,7 +17,7 @@ describe('GlobalNotification', () => {
     });
   });
 
-  it.concurrent('should render success state', async () => {
+  it('should render success state', async () => {
     const { getByRole } = render(
       <GlobalNotification message="Global Notification" state="success" />,
       {
@@ -52,7 +52,7 @@ describe('GlobalNotification', () => {
     });
   });
 
-  it.concurrent('should render info state', async () => {
+  it('should render info state', async () => {
     const { getByRole } = render(
       <GlobalNotification message="Global Notification" state="info" />
     );

@@ -6,7 +6,7 @@ import styles from '../carousel.module.scss';
 const handler = vi.fn();
 
 describe('Carousel Button', () => {
-  it.concurrent('should render with position', async () => {
+  it('should render with position', async () => {
     const { container } = render(
       <CarouselButton
         position="left"
@@ -33,7 +33,7 @@ describe('Carousel Button', () => {
     expect(getByRole('button')).toMatchSnapshot();
   });
 
-  it.concurrent('should call the onClick handler', async () => {
+  it('should call the onClick handler', async () => {
     const { getByRole } = render(
       <CarouselButton
         position="left"

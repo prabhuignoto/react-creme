@@ -12,7 +12,7 @@ const items: MenuItemProps[] = [
 ];
 
 describe('Menu', () => {
-  it.concurrent('should render the host component', () => {
+  it('should render the host component', () => {
     const { getByText } = render(
       <Menu items={items}>
         <span>icon</span>
@@ -22,7 +22,7 @@ describe('Menu', () => {
     expect(getByText('icon')).toBeInTheDocument();
   });
 
-  it.concurrent('should onSelection work as expected', async () => {
+  it('should onSelection work as expected', async () => {
     const handler = vi.fn();
     const { getByText } = render(
       <Menu items={items} onSelected={handler}>
@@ -40,7 +40,7 @@ describe('Menu', () => {
     expect(handler).toBeCalledWith('one');
   });
 
-  it.concurrent('should menu toggle', async () => {
+  it('should menu toggle', async () => {
     const { getByText, queryByText } = render(
       <Menu items={items} onSelected={onSelected}>
         <span>icon</span>
@@ -59,7 +59,7 @@ describe('Menu', () => {
     });
   });
 
-  it.concurrent('should not select the disabled item', async () => {
+  it('should not select the disabled item', async () => {
     const handler = vi.fn();
 
     const { getByText } = render(
@@ -77,7 +77,7 @@ describe('Menu', () => {
     });
   });
 
-  it.concurrent('should focus on keyboard interactions', async () => {
+  it('should focus on keyboard interactions', async () => {
     const { getByText, getByRole } = render(
       <Menu items={items} onSelected={onSelected}>
         <span>icon</span>

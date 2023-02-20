@@ -2,7 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import { Notification } from '../notification';
 
 describe('Notification', () => {
-  it.concurrent('should render the notification', async () => {
+  it('should render the notification', async () => {
     const { getByRole, getByText } = render(
       <Notification width={400} position="top-left" title="test notification">
         <span>content</span>
@@ -21,7 +21,7 @@ describe('Notification', () => {
     );
   });
 
-  it.concurrent('should close the notification', async () => {
+  it('should close the notification', async () => {
     const { queryByRole } = render(
       <Notification position="bottom-left" title="test notification">
         <span>content</span>

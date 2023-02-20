@@ -3,12 +3,12 @@ import { vi } from 'vitest';
 import { Password } from '../password';
 
 describe('Password', () => {
-  it.concurrent('should render the password', () => {
+  it('should render the password', () => {
     const { getByLabelText } = render(<Password />);
     expect(getByLabelText('Please enter the password...')).toBeInTheDocument();
   });
 
-  it.concurrent('should call the handler on change', async () => {
+  it('should call the handler on change', async () => {
     const onChange = vi.fn();
 
     const { getByPlaceholderText } = render(
@@ -26,7 +26,7 @@ describe('Password', () => {
     });
   });
 
-  it.concurrent('should change type on toggle', () => {
+  it('should change type on toggle', () => {
     const { getByPlaceholderText, getByRole } = render(
       <Password placeholder="enter password" />
     );
@@ -50,7 +50,7 @@ describe('Password', () => {
     // });
   });
 
-  it.concurrent('should clear input', async () => {
+  it('should clear input', async () => {
     const { getByPlaceholderText, getByRole } = render(
       <Password placeholder="enter password" />
     );

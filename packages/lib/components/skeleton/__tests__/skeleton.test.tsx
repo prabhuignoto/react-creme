@@ -3,7 +3,7 @@ import { Skeleton } from '../skeleton';
 import styles from '../skeleton.module.scss';
 
 describe('Skeleton', () => {
-  it.concurrent('should render skeleton', () => {
+  it('should render skeleton', () => {
     const { getByTestId } = render(<Skeleton rows={5} />);
 
     expect(getByTestId('rc-skeleton')).toBeInTheDocument();
@@ -14,7 +14,7 @@ describe('Skeleton', () => {
     expect(children).toHaveLength(5);
   });
 
-  it.concurrent('should render skeleton blocks', () => {
+  it('should render skeleton blocks', () => {
     const { getByTestId } = render(<Skeleton rows={5} blocks={2} />);
 
     expect(getByTestId('rc-skeleton')).toBeInTheDocument();
@@ -25,7 +25,7 @@ describe('Skeleton', () => {
     expect(children).toHaveLength(10);
   });
 
-  it.concurrent('should blink', () => {
+  it('should blink', () => {
     const { getByTestId } = render(
       <Skeleton rows={5} animate rowHeight={20} />
     );

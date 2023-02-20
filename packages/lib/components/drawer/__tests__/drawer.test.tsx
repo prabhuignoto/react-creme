@@ -3,7 +3,7 @@ import { Drawer } from '../drawer';
 import styles from '../drawer.module.scss';
 
 describe('Drawer', () => {
-  it.concurrent('should render the drawer', () => {
+  it('should render the drawer', () => {
     const { getByRole, getByText } = render(
       <Drawer width={400}>
         <span>content</span>

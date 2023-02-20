@@ -2,7 +2,7 @@ import { render, waitFor } from '@testing-library/react';
 import { Carousel } from '../carousel';
 
 describe('Carousel', () => {
-  it.concurrent('should render carousel', async () => {
+  it('should render carousel', async () => {
     const { getByText } = render(
       <Carousel direction="horizontal">
         <span>one</span>
@@ -32,7 +32,7 @@ describe('Carousel', () => {
     );
   });
 
-  it.concurrent('should render vertical carousel', async () => {
+  it('should render vertical carousel', async () => {
     const { getByText } = render(
       <Carousel direction="vertical">
         <span>one</span>

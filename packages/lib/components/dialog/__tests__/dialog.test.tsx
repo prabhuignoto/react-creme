@@ -3,7 +3,7 @@ import { it, vi } from 'vitest';
 import { Dialog } from '../dialog';
 
 describe('Dialog', () => {
-  it.concurrent('should render the dialog', async () => {
+  it('should render the dialog', async () => {
     const { getByRole, getByText } = render(<Dialog title="test title" />);
 
     expect(getByRole('dialog')).toBeInTheDocument();
@@ -11,7 +11,7 @@ describe('Dialog', () => {
     expect(getByText('test title')).toBeInTheDocument();
   });
 
-  it.concurrent('should close the dialog', async () => {
+  it('should close the dialog', async () => {
     const { getByText, queryByRole } = render(
       <Dialog title="test title">
         <span>dialog content</span>
@@ -69,7 +69,7 @@ describe('Dialog', () => {
     );
   });
 
-  it.concurrent("should render dialog with animation type 'rise'", async () => {
+  it("should render dialog with animation type 'rise'", async () => {
     const { getByRole } = render(
       <Dialog title="test title" animationType="rise">
         <span>dialog content</span>

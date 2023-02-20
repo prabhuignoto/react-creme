@@ -1,0 +1,21 @@
+name: Create Pull Request
+on:
+  push:
+    branches:
+      # Create pull requests only for non-master branches
+      - "!master"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: "Automated Pull Request"
+          title: "Automated Pull Request"
+          branch: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
