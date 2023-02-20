@@ -17,12 +17,12 @@ const suggestions = [
 }));
 
 describe('AutoSuggest', () => {
-  it.concurrent('should render Auto Suggest', async () => {
+  it('should render Auto Suggest', async () => {
     const { getByTestId } = render(<AutoSuggest suggestions={suggestions} />);
     expect(getByTestId('rc-auto-suggest')).toBeInTheDocument();
   });
 
-  it.concurrent('should render Auto Suggest with placeholder', async () => {
+  it('should render Auto Suggest with placeholder', async () => {
     const { getByTestId, getByPlaceholderText } = render(
       <AutoSuggest suggestions={suggestions} placeholder="placeholder" />
     );
@@ -30,7 +30,7 @@ describe('AutoSuggest', () => {
     expect(getByPlaceholderText('placeholder')).toBeInTheDocument();
   });
 
-  it.concurrent('should render suggestions', async () => {
+  it('should render suggestions', async () => {
     const { getByPlaceholderText, getByTestId } = render(
       <AutoSuggest suggestions={suggestions} placeholder="enter input" />,
       {
@@ -55,7 +55,7 @@ describe('AutoSuggest', () => {
     );
   });
 
-  it.concurrent('should show the selected item', async () => {
+  it('should show the selected item', async () => {
     const { getByPlaceholderText, getByTestId } = render(
       <AutoSuggest suggestions={suggestions} placeholder="enter input" />,
       {

@@ -4,28 +4,28 @@ import { Rate } from '../rate';
 import styles from '../rate.module.scss';
 
 describe('Rate', () => {
-  it.concurrent('renders correctly', () => {
+  it('renders correctly', () => {
     const { getByRole, getAllByRole } = render(<Rate />);
 
     expect(getByRole('radiogroup')).toBeInTheDocument();
     expect(getAllByRole('radio')).toHaveLength(5);
   });
 
-  it.concurrent('renders custom icon count', () => {
+  it('renders custom icon count', () => {
     const { getByRole, getAllByRole } = render(<Rate iconCount={7} />);
 
     expect(getByRole('radiogroup')).toBeInTheDocument();
     expect(getAllByRole('radio')).toHaveLength(7);
   });
 
-  it.concurrent('renders custom icon', () => {
+  it('renders custom icon', () => {
     const { getAllByRole } = render(<Rate icon={<div>custom</div>} />);
 
     expect(getAllByRole('radio')).toHaveLength(5);
     expect(getAllByRole('img')).toHaveLength(5);
   });
 
-  it.concurrent('should call onChange', () => {
+  it('should call onChange', () => {
     const onChange = vi.fn();
     const { getAllByRole } = render(<Rate onChange={onChange} />);
 
@@ -58,7 +58,7 @@ describe('Rate', () => {
     });
   });
 
-  it.concurrent('check disabled state', () => {
+  it('check disabled state', () => {
     const { getAllByRole } = render(<Rate disabled />);
 
     getAllByRole('radio').forEach(radio => {

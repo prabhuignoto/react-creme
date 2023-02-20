@@ -2,7 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import { Tabs } from '../tabs';
 
 describe('Tabs', () => {
-  it.concurrent('should render tabs', () => {
+  it('should render tabs', () => {
     const { getByRole } = render(
       <Tabs labels={['one', 'two', 'three']}>
         <span>one content</span>
@@ -14,7 +14,7 @@ describe('Tabs', () => {
     expect(getByRole('tablist')).toBeInTheDocument();
   });
 
-  it.concurrent('should render tab content on selection', async () => {
+  it('should render tab content on selection', async () => {
     const { getByText } = render(
       <Tabs labels={['one', 'two', 'three']}>
         <span>one content</span>
@@ -44,7 +44,7 @@ describe('Tabs', () => {
     expect(getByRole('tablist')).toMatchSnapshot();
   });
 
-  it.concurrent('should render a specific tab on load', () => {
+  it('should render a specific tab on load', () => {
     const { getByText, queryByText } = render(
       <Tabs labels={['one', 'two', 'three']} activeTab="two">
         <span>one content</span>

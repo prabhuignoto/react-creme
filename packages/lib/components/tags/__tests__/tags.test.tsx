@@ -16,7 +16,7 @@ const tagsWithDisabled: TagItemProps[] = [
 ];
 
 describe('Tags', () => {
-  it.concurrent('Should render default', () => {
+  it('Should render default', () => {
     const { getByRole, getAllByRole } = render(<Tags items={tags} />);
 
     expect(getByRole('list')).toBeInTheDocument();
@@ -24,13 +24,13 @@ describe('Tags', () => {
     expect(getAllByRole('listitem')).toHaveLength(4);
   });
 
-  it.concurrent('Should render disabled', () => {
+  it('Should render disabled', () => {
     const { getAllByRole } = render(<Tags items={tagsWithDisabled} />);
 
     expect(getAllByRole('listitem')[1]).toHaveClass(styles.disabled);
   });
 
-  it.concurrent('Should create new tag', async () => {
+  it('Should create new tag', async () => {
     const { getByPlaceholderText, getAllByRole } = render(
       <Tags items={tags} placeholder="Please enter a value ..." />
     );
@@ -54,7 +54,7 @@ describe('Tags', () => {
     });
   });
 
-  it.concurrent('Should delete a Tag', async () => {
+  it('Should delete a Tag', async () => {
     const { getByText, getByRole, queryByText } = render(<Tags items={tags} />);
 
     const one = getByText('one');
@@ -74,7 +74,7 @@ describe('Tags', () => {
     }
   });
 
-  it.concurrent('Should call onChange', async () => {
+  it('Should call onChange', async () => {
     const handler = vi.fn();
     const { getByPlaceholderText } = render(
       <Tags
@@ -105,7 +105,7 @@ describe('Tags', () => {
     });
   });
 
-  it.concurrent('Should not allow creation of empty tags', async () => {
+  it('Should not allow creation of empty tags', async () => {
     const { getByPlaceholderText, container } = render(
       <Tags items={tags} placeholder="Please enter a value ..." />
     );
@@ -133,13 +133,13 @@ describe('Tags', () => {
     });
   });
 
-  it.concurrent('should render custom sized tag', () => {
+  it('should render custom sized tag', () => {
     const { container } = render(<Tags items={tags} size="md" />);
 
     expect(container.querySelectorAll(`.${styles.md}`)).toHaveLength(3);
   });
 
-  it.concurrent('should not exceed max tags', async () => {
+  it('should not exceed max tags', async () => {
     const { queryByPlaceholderText, container } = render(
       <Tags items={tags} placeholder="Please enter a value ..." maxTags={3} />
     );
@@ -150,7 +150,7 @@ describe('Tags', () => {
     expect(input).not.toBeInTheDocument();
   });
 
-  it.concurrent('should not exceed max tags - after input entry', async () => {
+  it('should not exceed max tags - after input entry', async () => {
     const { getByPlaceholderText, container } = render(
       <Tags items={tags} placeholder="Please enter a value ..." maxTags={4} />
     );

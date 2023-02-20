@@ -5,14 +5,14 @@ import { Radio } from '../radio';
 const onChange = vi.fn();
 
 describe('Radio', () => {
-  it.concurrent('should render the radio component', () => {
+  it('should render the radio component', () => {
     const { getByRole, getByText } = render(<Radio label="my-label" />);
 
     expect(getByRole('radio')).toBeInTheDocument();
     expect(getByText('my-label')).toBeInTheDocument();
   });
 
-  it.concurrent('should call the handler on selection', () => {
+  it('should call the handler on selection', () => {
     const { getByRole } = render(
       <Radio label="my-label" onChange={onChange} id="123" />
     );

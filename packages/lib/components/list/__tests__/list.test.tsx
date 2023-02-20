@@ -14,14 +14,14 @@ const options = [
 ];
 
 describe('List', () => {
-  it.concurrent('should render list', () => {
+  it('should render list', () => {
     const { getByRole } = render(<List options={options} />);
 
     expect(getByRole('listbox')).toBeInTheDocument();
     expect(getByRole('listbox').querySelectorAll('li')).toHaveLength(5);
   });
 
-  it.concurrent('should call handler', async () => {
+  it('should call handler', async () => {
     const { getByRole } = render(
       <List options={options} onSelection={handler} />
     );
@@ -37,7 +37,7 @@ describe('List', () => {
     }
   });
 
-  it.concurrent('should handle search', async () => {
+  it('should handle search', async () => {
     const { container, getByRole } = render(<List options={options} />);
 
     const input = container.querySelector(".rc-input input[type='text'");
@@ -77,7 +77,7 @@ describe('List', () => {
     }
   });
 
-  it.concurrent('should render multi selection', async () => {
+  it('should render multi selection', async () => {
     const { getByRole, getAllByRole } = render(
       <List options={options} allowMultiSelection onSelection={handler} />
     );
@@ -89,63 +89,86 @@ describe('List', () => {
     expect(handler).toBeCalled();
   });
 
-  it.concurrent(
-    'should list items get focus on keyboard interaction',
-    async () => {
-      const handler = vi.fn();
+  it('should list items get focus on keyboard interaction', async () => {
+    const handler = vi.fn();
 
-      const { getByRole, getAllByRole } = render(
-        <List options={options} onSelection={handler} />
-      );
+    const { getByRole, getAllByRole } = render(
+      <List options={options} onSelection={handler} />
+    );
 
-      expect(getByRole('listbox')).toBeInTheDocument();
+    expect(getByRole('listbox')).toBeInTheDocument();
 
-      fireEvent.click(getAllByRole('option')[0]);
+    fireEvent.click(getAllByRole('option')[0]);
 
-      await waitFor(() => {
-        expect(getAllByRole('option')[0]).toHaveFocus();
-      });
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
 
-      fireEvent.keyUp(getByRole('listbox'), {
-        key: 'ArrowDown',
-      });
+    fireEvent.keyUp(getByRole('listbox'), {
+      key: 'ArrowDown',
+    });
 
-      await waitFor(() => {
-        expect(getAllByRole('option')[0]).toHaveFocus();
-      });
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
 
-      fireEvent.keyUp(getByRole('listbox'), {
-        key: 'ArrowUp',
-      });
+    fireEvent.keyUp(getByRole('listbox'), {
+      key: 'ArrowUp',
+    });
 
-      await waitFor(() => {
-        expect(getAllByRole('option')[0]).toHaveFocus();
-      });
+    await waitFor(() => {
+      expect(getAllByRole('option')[0]).toHaveFocus();
+    });
 
-      fireEvent.keyPress(getAllByRole('option')[0], {
-        key: 'Enter',
-      });
+    fireEvent.keyPress(getAllByRole('option')[0], {
+      key: 'Enter',
+    });
 
-      await waitFor(() => {
-        expect(handler).toBeCalled();
-      });
-    }
-  );
+    await waitFor(() => {
+      expect(handler).toBeCalled();
+    });
+  });
 
-  it.concurrent(
-    'should handle selection for single selection mode',
-    async () => {
-      const handler = vi.fn();
-      const { getByRole, getAllByRole } = render(
-        <List options={options} onSelection={handler} noUniqueIds />
-      );
+  it('should handle selection for single selection mode', async () => {
+    const handler = vi.fn();
+    const { getByRole, getAllByRole } = render(
+      <List options={options} onSelection={handler} noUniqueIds />
+    );
 
-      expect(getByRole('listbox')).toBeInTheDocument();
-      expect(getAllByRole('option')).toHaveLength(5);
+    expect(getByRole('listbox')).toBeInTheDocument();
+    expect(getAllByRole('option')).toHaveLength(5);
 
-      fireEvent.click(getAllByRole('option')[0]);
+    fireEvent.click(getAllByRole('option')[0]);
 
-      await waitFor(() => {
+    await waitFor(() => {
+      expect(handler).toBeCalledWith([
+        {
+          id: 'brazil',
+          name: 'brazil',
+          value: 'brazil',
+        },
+      ]);
+    });
+  });
+
+  it('should handle selection for multi selection mode', async () => {
+    const handler = vi.fn();
+    const { getByRole, getAllByRole } = render(
+      <List
+        options={options}
+        allowMultiSelection={true}
+        onSelection={handler}
+        noUniqueIds
+      />
+    );
+
+    expect(getByRole('listbox')).toBeInTheDocument();
+    expect(getAllByRole('option')).toHaveLength(5);
+
+    fireEvent.click(getAllByRole('option')[0]);
+
+    await waitFor(
+      () => {
         expect(handler).toBeCalledWith([
           {
             id: 'brazil',
@@ -153,40 +176,8 @@ describe('List', () => {
             value: 'brazil',
           },
         ]);
-      });
-    }
-  );
-
-  it.concurrent(
-    'should handle selection for multi selection mode',
-    async () => {
-      const handler = vi.fn();
-      const { getByRole, getAllByRole } = render(
-        <List
-          options={options}
-          allowMultiSelection={true}
-          onSelection={handler}
-          noUniqueIds
-        />
-      );
-
-      expect(getByRole('listbox')).toBeInTheDocument();
-      expect(getAllByRole('option')).toHaveLength(5);
-
-      fireEvent.click(getAllByRole('option')[0]);
-
-      await waitFor(
-        () => {
-          expect(handler).toBeCalledWith([
-            {
-              id: 'brazil',
-              name: 'brazil',
-              value: 'brazil',
-            },
-          ]);
-        },
-        { timeout: 1000 }
-      );
-    }
-  );
+      },
+      { timeout: 1000 }
+    );
+  });
 });

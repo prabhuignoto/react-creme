@@ -3,7 +3,7 @@ import { describe, it, vi } from 'vitest';
 import { Pin } from '../pin';
 
 describe('Pin', () => {
-  it.concurrent('should render the pin input', () => {
+  it('should render the pin input', () => {
     const { container } = render(<Pin />);
 
     const inputs = container.querySelectorAll("li input[type='number']");
@@ -11,7 +11,7 @@ describe('Pin', () => {
     expect(inputs.length).toBe(4);
   });
 
-  it.concurrent('should render custom pin length', () => {
+  it('should render custom pin length', () => {
     const { container } = render(<Pin length={6} />);
 
     const inputs = container.querySelectorAll("li input[type='number']");
@@ -19,7 +19,7 @@ describe('Pin', () => {
     expect(inputs.length).toBe(6);
   });
 
-  it.concurrent('should call the handler', async () => {
+  it('should call the handler', async () => {
     const onChange = vi.fn();
     const { container } = render(<Pin onChange={onChange} />);
 
@@ -44,7 +44,7 @@ describe('Pin', () => {
     });
   });
 
-  it.concurrent('should next input have focus', async () => {
+  it('should next input have focus', async () => {
     const { container } = render(<Pin />);
 
     const inputs = container.querySelectorAll("li input[type='number']");
@@ -56,7 +56,7 @@ describe('Pin', () => {
     });
   });
 
-  it.concurrent('should not auto jump', () => {
+  it('should not auto jump', () => {
     const { container } = render(<Pin autoJump={false} />);
 
     const inputs = container.querySelectorAll("li input[type='number']");

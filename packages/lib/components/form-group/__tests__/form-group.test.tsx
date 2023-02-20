@@ -5,7 +5,7 @@ import { Input } from '../../input/input';
 import { FormGroup } from '../form-group';
 
 describe('Form Group', () => {
-  it.concurrent('should render form fields', () => {
+  it('should render form fields', () => {
     const { getByPlaceholderText, getByLabelText } = render(
       <FormGroup>
         <FormField label="Please enter the name">
@@ -18,7 +18,7 @@ describe('Form Group', () => {
     expect(getByLabelText('Please enter the name')).toBeInTheDocument();
   });
 
-  it.concurrent('should render buttons', () => {
+  it('should render buttons', () => {
     const { getByText } = render(
       <FormGroup>
         <FormField label="Please enter the name">
@@ -31,7 +31,7 @@ describe('Form Group', () => {
     expect(getByText('Cancel')).toBeInTheDocument();
   });
 
-  it.concurrent('should call onSubmit and onCancel', () => {
+  it('should call onSubmit and onCancel', () => {
     const onSubmit = vi.fn();
     const onCancel = vi.fn();
 

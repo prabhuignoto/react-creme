@@ -1,0 +1,23 @@
+// Vitest Snapshot v1
+
+exports[`Section > should render Section correctly 1`] = `
+<div
+  class="_section_f5d1fc _border_f5d1fc"
+  style="min-height: 150px;"
+>
+  <div
+    aria-level="3"
+    class="_header_f5d1fc _header_sm_f5d1fc rc-component-widget-heading"
+    id="test"
+    role="heading"
+  >
+    test
+  </div>
+  <div
+    class="_body_f5d1fc _row_f5d1fc _body_sm_f5d1fc"
+    style="align-items: stretch; flex-direction: column;"
+  >
+    <span />
+  </div>
+</div>
+`;

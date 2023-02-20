@@ -10,14 +10,14 @@ const items = [
 const handler = vi.fn();
 
 describe('Radio Group', () => {
-  it.concurrent('should render the radio group', () => {
+  it('should render the radio group', () => {
     const { getByRole, getAllByRole } = render(<RadioGroup items={items} />);
 
     expect(getByRole('radiogroup')).toBeInTheDocument();
     expect(getAllByRole('radio')).toHaveLength(2);
   });
 
-  it.concurrent('should call the handler', async () => {
+  it('should call the handler', async () => {
     const { getAllByRole } = render(
       <RadioGroup items={items} onSelected={handler} />
     );

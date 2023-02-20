@@ -22,7 +22,7 @@ const optionsSelected = [
 const onSelected = vi.fn();
 
 describe('Dropdown', () => {
-  it.concurrent('should handler be called', async () => {
+  it('should handler be called', async () => {
     const { getByTestId, getByText } = render(
       <Dropdown
         options={options}
@@ -57,7 +57,7 @@ describe('Dropdown', () => {
     });
   });
 
-  it.concurrent('should auto close menu', async () => {
+  it('should auto close menu', async () => {
     const handler = vi.fn();
     const { getByTestId, queryByTestId, getByText } = render(
       <Dropdown
@@ -99,7 +99,7 @@ describe('Dropdown', () => {
     });
   });
 
-  it.concurrent('should render disabled', async () => {
+  it('should render disabled', async () => {
     const optionsDisabled = [
       { name: 'usa', value: 'usa' },
       { name: 'uk', value: 'uk' },
@@ -131,7 +131,7 @@ describe('Dropdown', () => {
     expect(container?.firstChild?.firstChild).toHaveAttribute('tabindex', '-1');
   });
 
-  it.concurrent('should render allowMultiSelection mode', async () => {
+  it('should render allowMultiSelection mode', async () => {
     const { getByText, getByTestId } = render(
       <Dropdown
         options={optionsSelected}
@@ -154,41 +154,38 @@ describe('Dropdown', () => {
     });
   });
 
-  it.concurrent(
-    'should clear selection on pressing the clear button',
-    async () => {
-      const { container, getByText, getByTestId } = render(
-        <Dropdown
-          options={options}
-          placeholder="select a option"
-          allowMultiSelection={true}
-        />
-      );
+  it('should clear selection on pressing the clear button', async () => {
+    const { container, getByText, getByTestId } = render(
+      <Dropdown
+        options={options}
+        placeholder="select a option"
+        allowMultiSelection={true}
+      />
+    );
 
-      fireEvent.click(getByText('select a option'));
+    fireEvent.click(getByText('select a option'));
 
-      await waitFor(() => {
-        expect(getByTestId('rc-overlay')).toBeInTheDocument();
-        expect(getByText('india')).toBeInTheDocument();
-      });
+    await waitFor(() => {
+      expect(getByTestId('rc-overlay')).toBeInTheDocument();
+      expect(getByText('india')).toBeInTheDocument();
+    });
 
-      fireEvent.click(
-        getByTestId('rc-overlay').querySelectorAll('[role="option"]')[1]
-      );
+    fireEvent.click(
+      getByTestId('rc-overlay').querySelectorAll('[role="option"]')[1]
+    );
 
-      await waitFor(() => {
-        expect(container.querySelectorAll('.rc-tag').length).toBe(1);
-      });
+    await waitFor(() => {
+      expect(container.querySelectorAll('.rc-tag').length).toBe(1);
+    });
 
-      fireEvent.click(getByTestId('clear-icon'));
+    fireEvent.click(getByTestId('clear-icon'));
 
-      await waitFor(() => {
-        expect(container.querySelectorAll('.rc-tag').length).toBe(0);
-      });
-    }
-  );
+    await waitFor(() => {
+      expect(container.querySelectorAll('.rc-tag').length).toBe(0);
+    });
+  });
 
-  it.concurrent('should first element have the focus', async () => {
+  it('should first element have the focus', async () => {
     const { getByText, getByRole, getAllByRole } = render(
       <Dropdown
         options={options}

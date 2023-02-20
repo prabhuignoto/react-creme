@@ -67,7 +67,7 @@ describe('Tree', () => {
     });
   });
 
-  // it.concurrent('should be checked', () => {
+  // it('should be checked', () => {
   //   const data = [
   //     {
   //       name: 'one',

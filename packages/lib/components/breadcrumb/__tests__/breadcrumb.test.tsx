@@ -3,7 +3,7 @@ import { it, vi } from 'vitest';
 import { BreadCrumb } from '../breadcrumb';
 
 describe('Breadcrumb', () => {
-  it.concurrent('should render', async () => {
+  it('should render', async () => {
     const { getByRole, getByText } = render(
       <BreadCrumb links={['google', 'yahoo', 'amazon']}></BreadCrumb>
     );
@@ -15,7 +15,7 @@ describe('Breadcrumb', () => {
     });
   });
 
-  it.concurrent('should handler is called', async () => {
+  it('should handler is called', async () => {
     const handler = vi.fn();
     const { getByText } = render(
       <BreadCrumb

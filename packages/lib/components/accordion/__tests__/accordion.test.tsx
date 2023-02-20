@@ -5,7 +5,7 @@ import headerStyles from '../accordion-header.module.scss';
 import styles from '../accordion.module.scss';
 
 describe('Accordion', () => {
-  it.concurrent('should render accordion', () => {
+  it('should render accordion', () => {
     const { container } = render(
       <Accordion>
         <p>this is a test</p>
@@ -26,7 +26,7 @@ describe('Accordion', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it.concurrent('should toggle content', async () => {
+  it('should toggle content', async () => {
     const { getByRole, container } = render(
       <Accordion>
         <p>this is a test</p>
@@ -40,7 +40,7 @@ describe('Accordion', () => {
     });
   });
 
-  it.concurrent('should call onExpanded', async () => {
+  it('should call onExpanded', async () => {
     const onExpanded = vi.fn();
 
     const { getByRole } = render(
@@ -57,7 +57,7 @@ describe('Accordion', () => {
     expect(onExpanded).toHaveBeenCalled();
   });
 
-  it.concurrent('should render custom sizes', async () => {
+  it('should render custom sizes', async () => {
     const { getByRole } = render(
       <Accordion size="sm">
         <p>this is a test</p>

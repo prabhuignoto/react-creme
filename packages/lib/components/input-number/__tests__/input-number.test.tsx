@@ -3,7 +3,7 @@ import { describe, it, vi } from 'vitest';
 import { InputNumber } from '../input-number';
 
 describe('Input Number', () => {
-  it.concurrent('should render the value', () => {
+  it('should render the value', () => {
     const { getByDisplayValue } = render(
       <InputNumber value={6} start={1} end={10} />
     );
@@ -46,7 +46,7 @@ describe('Input Number', () => {
     });
   });
 
-  it.concurrent('should call onChange handler with value', async () => {
+  it('should call onChange handler with value', async () => {
     const onChange = vi.fn();
 
     const { getByLabelText } = render(
@@ -64,27 +64,21 @@ describe('Input Number', () => {
     });
   });
 
-  it.concurrent(
-    'should auto reset when the value is out of range - greater',
-    () => {
-      const { getByDisplayValue } = render(
-        <InputNumber start={5} end={10} value={12} />
-      );
+  it('should auto reset when the value is out of range - greater', () => {
+    const { getByDisplayValue } = render(
+      <InputNumber start={5} end={10} value={12} />
+    );
 
-      expect(getByDisplayValue('10')).toBeInTheDocument();
-    }
-  );
+    expect(getByDisplayValue('10')).toBeInTheDocument();
+  });
 
-  it.concurrent(
-    'should auto reset when the value is out of range - lesser',
-    () => {
-      const { getByDisplayValue } = render(
-        <InputNumber start={5} end={10} value={1} />
-      );
+  it('should auto reset when the value is out of range - lesser', () => {
+    const { getByDisplayValue } = render(
+      <InputNumber start={5} end={10} value={1} />
+    );
 
-      expect(getByDisplayValue('5')).toBeInTheDocument();
-    }
-  );
+    expect(getByDisplayValue('5')).toBeInTheDocument();
+  });
 
   it('should honour the max length property', async () => {
     const { getByPlaceholderText } = render(

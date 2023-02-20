@@ -6,20 +6,20 @@ import styles from '../input.module.scss';
 const handler = vi.fn();
 
 describe('Input', () => {
-  it.concurrent('should render default', () => {
+  it('should render default', () => {
     const { getAllByRole } = render(<Input />);
 
     expect(getAllByRole('textbox')[0]).toBeInTheDocument();
     expect(getAllByRole('textbox')[0]).toHaveClass(styles.default);
   });
 
-  it.concurrent('should have the aria label', () => {
+  it('should have the aria label', () => {
     const { container } = render(<Input state="error" placeholder="error" />);
 
     expect(container.firstChild).toHaveAttribute('aria-label', 'error');
   });
 
-  it.concurrent('should call onchange', async () => {
+  it('should call onchange', async () => {
     const { getByPlaceholderText } = render(<Input onChange={handler} />);
     const input = getByPlaceholderText('Please enter a value ...');
 
@@ -36,7 +36,7 @@ describe('Input', () => {
     await waitFor(() => expect(handler).toBeCalled());
   });
 
-  it.concurrent('should clear work', async () => {
+  it('should clear work', async () => {
     const handler = vi.fn();
     const { getByTestId, getByPlaceholderText } = render(
       <Input
@@ -60,7 +60,7 @@ describe('Input', () => {
     await waitFor(async () => expect(handler).toBeCalledWith(''));
   });
 
-  it.concurrent('should call onFocus', () => {
+  it('should call onFocus', () => {
     const { getByPlaceholderText } = render(<Input onFocus={handler} />);
     const input = getByPlaceholderText('Please enter a value ...');
 
@@ -69,38 +69,38 @@ describe('Input', () => {
     expect(handler).toBeCalled();
   });
 
-  it.concurrent('should be disabled', () => {
+  it('should be disabled', () => {
     const { getByPlaceholderText } = render(<Input disabled />);
     const input = getByPlaceholderText('Please enter a value ...');
 
     expect(input).toBeDisabled();
   });
 
-  it.concurrent('should be in success state', () => {
+  it('should be in success state', () => {
     const { container } = render(<Input state="success" />);
 
     expect(container.firstChild).toHaveClass(styles.success);
   });
 
-  it.concurrent('should be in error state', () => {
+  it('should be in error state', () => {
     const { container } = render(<Input state="error" />);
 
     expect(container.firstChild).toHaveClass(styles.error);
   });
 
-  it.concurrent('should render the spinner', () => {
+  it('should render the spinner', () => {
     const { getByTestId } = render(<Input showSpinner />);
 
     expect(getByTestId('rc-input-spinner')).toBeInTheDocument();
   });
 
-  it.concurrent('should render as autocomplete', () => {
+  it('should render as autocomplete', () => {
     const { container } = render(<Input isAutoComplete />);
 
     expect(container.firstChild).toHaveAttribute('role', 'combobox');
   });
 
-  it.concurrent('should honour the max length property', async () => {
+  it('should honour the max length property', async () => {
     const { getByPlaceholderText } = render(
       <Input maxLength={3} placeholder="Please enter a value ..." />
     );

@@ -6,7 +6,7 @@ import styles from '../carousel-track.module.scss';
 const handler = vi.fn();
 
 describe('Carousel Track', () => {
-  it.concurrent('Should render the track', async () => {
+  it('Should render the track', async () => {
     const { getByRole, getAllByRole } = render(
       <CarouselTrack
         length={3}
@@ -37,7 +37,7 @@ describe('Carousel Track', () => {
     expect(getByRole('list')).toMatchSnapshot();
   });
 
-  it.concurrent('Should call the handler', async () => {
+  it('Should call the handler', async () => {
     const { getAllByRole } = render(
       <CarouselTrack
         length={3}
@@ -54,7 +54,7 @@ describe('Carousel Track', () => {
     expect(handler).toBeCalledWith(2);
   });
 
-  it.concurrent('Should the active selection is selected', async () => {
+  it('Should the active selection is selected', async () => {
     const { getAllByRole } = render(
       <CarouselTrack
         length={3}

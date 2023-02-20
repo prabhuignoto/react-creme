@@ -54,14 +54,14 @@ const items = [
 ];
 
 describe('Menu Bar', () => {
-  it.concurrent('should render menu bar items', () => {
+  it('should render menu bar items', () => {
     const { getByText } = render(<MenuBar items={items} />);
 
     expect(getByText('File')).toBeInTheDocument();
     expect(getByText('Edit')).toBeInTheDocument();
   });
 
-  it.concurrent('Should open Menu on click', async () => {
+  it('Should open Menu on click', async () => {
     const { getByText } = render(<MenuBar items={items} />);
 
     expect(getByText('File')).toBeInTheDocument();
@@ -79,10 +79,12 @@ describe('Menu Bar', () => {
     });
   });
 
-  it.concurrent('Should close menu when clicked outside', async () => {
+  it('Should close menu when clicked outside', async () => {
     const { getByText, queryByText } = render(<MenuBar items={items} />);
 
-    expect(getByText('File')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(getByText('File')).toBeInTheDocument();
+    });
 
     fireEvent.click(getByText('File'));
 
@@ -97,7 +99,7 @@ describe('Menu Bar', () => {
     });
   });
 
-  it.concurrent('Should call handler on selection', async () => {
+  it('Should call handler on selection', async () => {
     const onSelection = vi.fn();
     const { getByText } = render(
       <MenuBar items={items} onSelect={onSelection} noUniqueId />

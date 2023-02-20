@@ -18,7 +18,7 @@ const menuStyle: DropdownMenuStyleModel = {
 };
 
 describe('DropdownMenu', () => {
-  it.concurrent('should render dropdown menu', async () => {
+  it('should render dropdown menu', async () => {
     const { getByRole } = render(
       <DropDownMenu
         options={options}

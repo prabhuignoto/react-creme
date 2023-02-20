@@ -5,7 +5,7 @@ import { Transfer } from '../transfer';
 const handler = vi.fn();
 
 describe('Transfer', () => {
-  it.concurrent('should render transfer view', () => {
+  it('should render transfer view', () => {
     const { getAllByRole } = render(
       <Transfer
         list1={['one', 'two', 'five', 'six']}
@@ -29,7 +29,7 @@ describe('Transfer', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it.concurrent('should transfer right work as expected', async () => {
+  it('should transfer right work as expected', async () => {
     const { getByText, container, getAllByRole } = render(
       <Transfer
         list1={['one', 'two', 'five', 'six']}
@@ -67,7 +67,7 @@ describe('Transfer', () => {
     }
   });
 
-  it.concurrent('should transfer left work as expected', async () => {
+  it('should transfer left work as expected', async () => {
     const { getByText, container, getAllByRole } = render(
       <Transfer
         list1={['one', 'two', 'five', 'six']}
@@ -105,7 +105,7 @@ describe('Transfer', () => {
     }
   });
 
-  // it.concurrent("should transfer all to right work as expected", async () => {
+  // it("should transfer all to right work as expected", async () => {
   //   const { getAllByRole, container } = render(
   //     <Transfer
   //       list1={["one", "two", "five", "six"]}
@@ -140,7 +140,7 @@ describe('Transfer', () => {
   //   }
   // });
 
-  // it.concurrent('should transfer all to left work as expected', async () => {
+  // it('should transfer all to left work as expected', async () => {
   //   const { getAllByRole, container } = render(
   //     <Transfer
   //       list1={['one', 'two', 'five', 'six']}

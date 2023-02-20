@@ -6,20 +6,20 @@ import styles from '../checkbox.module.scss';
 const handler = vi.fn();
 
 describe('Checkbox', () => {
-  it.concurrent('should render default', async () => {
+  it('should render default', async () => {
     const { container } = render(<CheckBox label="My Checkbox" />);
 
     expect(container.firstChild).toBeInTheDocument();
   });
 
-  it.concurrent('should render disabled', async () => {
+  it('should render disabled', async () => {
     const { getByRole } = render(<CheckBox label="My Checkbox" disabled />);
 
     expect(getByRole('checkbox')).toHaveClass(styles.disabled);
     expect(getByRole('checkbox')).toHaveAttribute('aria-disabled', 'true');
   });
 
-  it.concurrent('should render default prop isChecked', async () => {
+  it('should render default prop isChecked', async () => {
     const { container } = render(<CheckBox label="My Checkbox" isChecked />);
 
     expect(container.querySelector('.' + styles.icon)).toHaveClass(
@@ -27,7 +27,7 @@ describe('Checkbox', () => {
     );
   });
 
-  it.concurrent('should call the handler', async () => {
+  it('should call the handler', async () => {
     const { getByRole } = render(
       <CheckBox label="My Checkbox" onChange={handler} noUniqueId id="12445" />
     );
@@ -38,13 +38,13 @@ describe('Checkbox', () => {
     expect(handler).toHaveBeenCalledWith('12445', true);
   });
 
-  it.concurrent('should receive focus', async () => {
+  it('should receive focus', async () => {
     const { getByRole } = render(<CheckBox label="My Checkbox" focusable />);
 
     expect(getByRole('checkbox')).toHaveAttribute('tabindex', '0');
   });
 
-  it.concurrent('should be checked by default', async () => {
+  it('should be checked by default', async () => {
     const { getByRole } = render(<CheckBox label="My Checkbox" isChecked />);
 
     expect(getByRole('checkbox')).toHaveAttribute('aria-checked', 'true');
