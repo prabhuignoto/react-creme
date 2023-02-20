@@ -13,13 +13,13 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section size="md" title="Default">
-        <DemoWidget name="Button" width={80}>
+        <DemoWidget name="Button" width={80} showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>
       <Section size="md" title="Icon">
         <Text>Insert a custom icon to the button.</Text>
-        <DemoWidget name="Button" width={150}>
+        <DemoWidget name="Button" width={150} showCodeByDefault>
           {Icon}
         </DemoWidget>
       </Section>
@@ -28,13 +28,13 @@ function widgets() {
           Use the <code>type</code> property to change the button to a loading
           state.
         </Text>
-        <DemoWidget name="Button" width={120}>
+        <DemoWidget name="Button" width={120} showCodeByDefault>
           {SearchingState}
         </DemoWidget>
       </Section>
       <Section size="md" title="Disabled">
         <Text>Buttons can be disabled</Text>
-        <DemoWidget name="Button" width={120}>
+        <DemoWidget name="Button" width={120} showCodeByDefault>
           {Disabled}
         </DemoWidget>
       </Section>
@@ -42,7 +42,7 @@ function widgets() {
         <Text>
           Customize the size of the button by using the <code>size</code> prop
         </Text>
-        <DemoWidget name="Button" width={130}>
+        <DemoWidget name="Button" width={130} showCodeByDefault>
           {Medium}
         </DemoWidget>
       </Section>
@@ -51,7 +51,7 @@ function widgets() {
           Buttons can be in different states. Example shows button in{' '}
           <code>danger</code> state
         </Text>
-        <DemoWidget name="Button" width={130}>
+        <DemoWidget name="Button" width={130} showCodeByDefault>
           {Large}
         </DemoWidget>
       </Section>
