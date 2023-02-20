@@ -18,4 +18,4 @@ jobs:
           commit-message: "Automated Pull Request"
           title: "Automated Pull Request"
           branch: ${{ github.ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GIT_TOKEN }}

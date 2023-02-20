@@ -12,7 +12,7 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section size="md" title="Default">
-        <DemoWidget name="CheckBoxGroup" width={100}>
+        <DemoWidget name="CheckBoxGroup" width={100} showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>

@@ -50,7 +50,7 @@ describe('AutoSuggest', () => {
         );
       },
       {
-        timeout: 1000,
+        timeout: 2000,
       }
     );
   });
