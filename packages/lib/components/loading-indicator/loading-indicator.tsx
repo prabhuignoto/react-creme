@@ -6,12 +6,12 @@ import styles from './loading-indicator.module.scss';
 const speeds = {
   fast: 250,
   normal: 500,
-  slow: 1000,
+  slow: 750,
 };
 
 const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
   count = 3,
-  shape = 'circle',
+  shape = 'square',
   rtl = false,
   speed = 'slow',
 }) => {
