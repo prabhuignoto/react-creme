@@ -1,6 +1,12 @@
 import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
-import { CustomSpeed, Default, RTL, SquareShape } from './widget-variants';
+import {
+  CircleShape,
+  CustomSize,
+  CustomSpeed,
+  Default,
+  RTL,
+} from './widget-variants';
 
 function Widgets() {
   return (
@@ -28,7 +34,7 @@ function Widgets() {
           style={{ marginLeft: '2rem' }}
           showCodeByDefault
         >
-          {SquareShape}
+          {CircleShape}
         </DemoWidget>
       </Section>
       <Section size="md" title="Custom Speed">
@@ -59,6 +65,21 @@ function Widgets() {
           showCodeByDefault
         >
           {RTL}
+        </DemoWidget>
+      </Section>
+      <Section size="md" title="Custom size">
+        <Text>
+          Customize the size of the loading indicator by passing the
+          <code>size</code> prop with value <code>sm</code>, <code>md</code> or{' '}
+          <code>lg</code>. The default size is <code>md</code>.
+        </Text>
+        <DemoWidget
+          name="Menu"
+          width={200}
+          style={{ marginLeft: '2rem' }}
+          showCodeByDefault
+        >
+          {CustomSize}
         </DemoWidget>
       </Section>
     </div>

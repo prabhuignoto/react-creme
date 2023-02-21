@@ -22,3 +22,5 @@ bundle-analysis**
 
 storybook-static
 build-storybook.log
+
+debug.log

@@ -1,6 +1,7 @@
 @use '@design/list.scss';
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/icon.scss';
 
 $sizes: (sm, md, lg);
 
@@ -28,6 +29,12 @@ $sizes: (sm, md, lg);
 
   &.default {
     background: theme.$black;
+  }
+
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %icon-#{$size};
+    }
   }
 }
 

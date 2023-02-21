@@ -14,6 +14,7 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
   shape = 'square',
   rtl = false,
   speed = 'slow',
+  size = "md"
 }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
@@ -50,6 +51,7 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
               { [styles[shape]]: true },
               styles.indicator,
               styles.flash,
+              styles[size],
               activeIndex === index ? styles.animate : styles.default
             )}
           ></li>
