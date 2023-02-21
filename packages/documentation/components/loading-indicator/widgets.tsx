@@ -1,16 +1,11 @@
 import { Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
-import { Default } from './widget-variants';
+import { CustomSpeed, Default, RTL, SquareShape } from './widget-variants';
 
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Menu attached to a Button">
-        {/* <Text>
-          Menus can be attached to <code>react-creme</code> components or even
-          native elements. Simply wrap the Menu control in the target component
-          and use the appropriate <code>dockPosition</code> to position the menu
-        </Text> */}
+      <Section size="md" title="Default">
         <DemoWidget
           name="Menu"
           width={200}
@@ -20,34 +15,36 @@ function Widgets() {
           {Default}
         </DemoWidget>
       </Section>
-      {/* <Section size="md" title="Docking positions">
-        <Text>
-          Menus can be docked to three positions: <code>left</code>,{' '}
-          <code>right</code> or <code>center</code>. The example below shows a
-          menu docked and aligned to the center of the button.
-        </Text>
+      <Section size="md" title="Custom shape">
         <DemoWidget
           name="Menu"
-          width={120}
+          width={200}
           style={{ marginLeft: '2rem' }}
           showCodeByDefault
         >
-          {AttachedToIcon}
+          {SquareShape}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Menu attached to a native Element">
-        <Text>
-          The example below shows a menu attached to a native element (button).
-        </Text>
+      <Section size="md" title="Custom Speed">
         <DemoWidget
           name="Menu"
-          width={100}
+          width={200}
           style={{ marginLeft: '2rem' }}
           showCodeByDefault
         >
-          {AttachedToNativeElement}
+          {CustomSpeed}
         </DemoWidget>
-      </Section> */}
+      </Section>
+      <Section size="md" title="Right to Left">
+        <DemoWidget
+          name="Menu"
+          width={200}
+          style={{ marginLeft: '2rem' }}
+          showCodeByDefault
+        >
+          {RTL}
+        </DemoWidget>
+      </Section>
     </div>
   );
 }
