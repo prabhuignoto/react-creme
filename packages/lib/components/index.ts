@@ -29,6 +29,7 @@ export { Kbd } from './kbd/kbd';
 export { KbdCombination } from './kbd/kbd-combination';
 export { Link } from './link/link';
 export { List } from './list/list';
+export { LoadingIndicator } from './loading-indicator/loading-indicator';
 export { MenuBar } from './menu-bar/menu-bar';
 export { Menu } from './menu/menu';
 export { Notification } from './notification/notification';

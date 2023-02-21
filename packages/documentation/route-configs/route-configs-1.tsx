@@ -133,6 +133,11 @@ const routes = [
     key: 'avatar',
     path: '/avatar',
   },
+  {
+    component: lazy(() => import('../components/loading-indicator')),
+    key: 'loading-indicator',
+    path: '/loading-indicator',
+  },
 ];
 
 export { routes };

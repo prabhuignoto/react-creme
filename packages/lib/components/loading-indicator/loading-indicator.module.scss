@@ -1,0 +1,38 @@
+@use '@design/list.scss';
+@use '@design/core.scss';
+@use '@design/theme.scss';
+
+$sizes: (sm, md, lg);
+
+.wrapper {
+  @extend %list-horizontal;
+
+  &.rtl {
+    direction: rtl;
+  }
+}
+
+.indicator {
+  height: 1rem;
+  margin-right: 0.5rem;
+  position: relative;
+  width: 1rem;
+
+  &:not(.square) {
+    border-radius: 50%;
+  }
+
+  &.square {
+    border-radius: 1px;
+  }
+
+  &.default {
+    background: theme.$black;
+  }
+}
+
+.animate {
+  &.flash {
+    background: theme.$primary;
+  }
+}
