@@ -93,6 +93,8 @@ export type {
   ListOption,
   ListProps,
 } from './components/list/list-model';
+export { LoadingIndicator } from './components/loading-indicator/loading-indicator';
+export type { LoadingIndicatorProps } from './components/loading-indicator/loading-indicator.model';
 export { MenuBar } from './components/menu-bar/menu-bar';
 export type {
   MenuBarItemProps,
