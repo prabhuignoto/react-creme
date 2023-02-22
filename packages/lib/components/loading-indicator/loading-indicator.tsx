@@ -85,4 +85,6 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
   );
 };
 
+LoadingIndicator.displayName = 'LoadingIndicator';
+
 export { LoadingIndicator };
