@@ -6,6 +6,7 @@ import {
   CustomSpeed,
   Default,
   FineGrainedSize,
+  LoadingIndicatorCount,
   RTL,
 } from './widget-variants';
 
@@ -17,7 +18,7 @@ function Widgets() {
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom shape">
+      <Section size="md" title="Shape">
         <Text>
           The shape of the loading indicator can be changed to circle by passing
           the
@@ -28,7 +29,7 @@ function Widgets() {
           {CircleShape}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom Speed">
+      <Section size="md" title="Speed">
         <Text>
           The speed of the loading indicator can be changed by passing the
           <code>speed</code> prop with value <code>slow</code>,{' '}
@@ -38,11 +39,20 @@ function Widgets() {
           {CustomSpeed}
         </DemoWidget>
       </Section>
+      <Section size="md" title="Custom length">
+        <Text>
+          The number of items in the loading indicator can be changed by passing
+          the <code>count</code> prop with a number value. The default count is{' '}
+          <code>3</code>.
+        </Text>
+        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
+          {LoadingIndicatorCount}
+        </DemoWidget>
+      </Section>
       <Section size="md" title="Right to Left">
         <Text>
           The loading indicator can be displayed from right to left by passing
-          the <code>rtl</code> prop with value <code>true</code>. The default
-          direction is left to right.
+          the <code>rtl</code>. The default direction is left to right.
         </Text>
         <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
           {RTL}
@@ -63,6 +73,11 @@ function Widgets() {
         </DemoWidget>
       </Section>
       <Section size="md" title="Custom size">
+        <Text>
+          If you want to take complete control over the size of the loading
+          indicator, you can pass the <code>customSize</code> prop with a number
+          value (pixels). This will override the <code>size</code> prop.
+        </Text>
         <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
           {FineGrainedSize}
         </DemoWidget>

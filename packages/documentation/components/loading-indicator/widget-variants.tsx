@@ -11,3 +11,5 @@ export const CustomSpeed = <LoadingIndicator speed="fast" size="sm" />;
 export const CustomSize = <LoadingIndicator size="lg" />;
 
 export const FineGrainedSize = <LoadingIndicator customSize={10} />;
+
+export const LoadingIndicatorCount = <LoadingIndicator count={7} size="sm" />;
