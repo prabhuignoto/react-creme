@@ -53,7 +53,7 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
   }, [customSize, transition]);
 
   return (
-    <ul className={wrapperClass}>
+    <ul className={wrapperClass} role="progressbar">
       {Array(count)
         .fill(0)
         .map((_, index) => (
