@@ -8,9 +8,10 @@ const Widgets = React.lazy(() => import('./widgets'));
 const Description = (
   <div>
     <p>
-      The loading indicator is a component that is used to indicate that a
-      process is in progress. It is used to show that the user should wait for
-      the process to finish.
+      A loading indicator component is a visual element that is commonly used in
+      user interfaces to indicate that a process or action is taking place in
+      the background, and the user needs to wait for the process to complete
+      before they can interact with the interface.
     </p>
   </div>
 );

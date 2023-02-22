@@ -14,7 +14,11 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section size="md" title="Default">
-        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
+        <DemoWidget
+          name="LoadingIndicator"
+          width={200}
+          style={{ marginLeft: '2rem' }}
+        >
           {Default}
         </DemoWidget>
       </Section>
@@ -25,7 +29,11 @@ function Widgets() {
           <code>shape</code> prop with value <code>circle</code>. The default
           shape is square.
         </Text>
-        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
+        <DemoWidget
+          name="LoadingIndicator"
+          width={200}
+          style={{ marginLeft: '2rem' }}
+        >
           {CircleShape}
         </DemoWidget>
       </Section>
@@ -35,7 +43,11 @@ function Widgets() {
           <code>speed</code> prop with value <code>slow</code>,{' '}
           <code>normal</code> or <code>fast</code>. The default speed is normal.
         </Text>
-        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
+        <DemoWidget
+          name="LoadingIndicator"
+          width={200}
+          style={{ marginLeft: '2rem' }}
+        >
           {CustomSpeed}
         </DemoWidget>
       </Section>
@@ -45,7 +57,11 @@ function Widgets() {
           the <code>count</code> prop with a number value. The default count is{' '}
           <code>3</code>.
         </Text>
-        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
+        <DemoWidget
+          name="LoadingIndicator"
+          width={200}
+          style={{ marginLeft: '2rem' }}
+        >
           {LoadingIndicatorCount}
         </DemoWidget>
       </Section>
@@ -54,7 +70,11 @@ function Widgets() {
           The loading indicator can be displayed from right to left by passing
           the <code>rtl</code>. The default direction is left to right.
         </Text>
-        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
+        <DemoWidget
+          name="LoadingIndicator"
+          width={200}
+          style={{ marginLeft: '2rem' }}
+        >
           {RTL}
         </DemoWidget>
       </Section>
@@ -68,7 +88,11 @@ function Widgets() {
           The sizes can be managed by adjusting the iconSizes settings in the
           ThemeProvider
         </BlockQuote>
-        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
+        <DemoWidget
+          name="LoadingIndicator"
+          width={200}
+          style={{ marginLeft: '2rem' }}
+        >
           {CustomSize}
         </DemoWidget>
       </Section>
@@ -78,7 +102,11 @@ function Widgets() {
           indicator, you can pass the <code>customSize</code> prop with a number
           value (pixels). This will override the <code>size</code> prop.
         </Text>
-        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
+        <DemoWidget
+          name="LoadingIndicator"
+          width={200}
+          style={{ marginLeft: '2rem' }}
+        >
           {FineGrainedSize}
         </DemoWidget>
       </Section>
