@@ -1,10 +1,11 @@
-import { Section, Text } from '../../../lib/components';
+import { BlockQuote, Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import {
   CircleShape,
   CustomSize,
   CustomSpeed,
   Default,
+  FineGrainedSize,
   RTL,
 } from './widget-variants';
 
@@ -12,12 +13,7 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <Section size="md" title="Default">
-        <DemoWidget
-          name="Menu"
-          width={200}
-          style={{ marginLeft: '2rem' }}
-          showCodeByDefault
-        >
+        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
           {Default}
         </DemoWidget>
       </Section>
@@ -28,12 +24,7 @@ function Widgets() {
           <code>shape</code> prop with value <code>circle</code>. The default
           shape is square.
         </Text>
-        <DemoWidget
-          name="Menu"
-          width={200}
-          style={{ marginLeft: '2rem' }}
-          showCodeByDefault
-        >
+        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
           {CircleShape}
         </DemoWidget>
       </Section>
@@ -43,12 +34,7 @@ function Widgets() {
           <code>speed</code> prop with value <code>slow</code>,{' '}
           <code>normal</code> or <code>fast</code>. The default speed is normal.
         </Text>
-        <DemoWidget
-          name="Menu"
-          width={200}
-          style={{ marginLeft: '2rem' }}
-          showCodeByDefault
-        >
+        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
           {CustomSpeed}
         </DemoWidget>
       </Section>
@@ -58,28 +44,27 @@ function Widgets() {
           the <code>rtl</code> prop with value <code>true</code>. The default
           direction is left to right.
         </Text>
-        <DemoWidget
-          name="Menu"
-          width={200}
-          style={{ marginLeft: '2rem' }}
-          showCodeByDefault
-        >
+        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
           {RTL}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom size">
+      <Section size="md" title="Size">
         <Text>
-          Customize the size of the loading indicator by passing the
+          Customize the size of the loading indicator by passing the{' '}
           <code>size</code> prop with value <code>sm</code>, <code>md</code> or{' '}
           <code>lg</code>. The default size is <code>md</code>.
         </Text>
-        <DemoWidget
-          name="Menu"
-          width={200}
-          style={{ marginLeft: '2rem' }}
-          showCodeByDefault
-        >
+        <BlockQuote>
+          The sizes can be managed by adjusting the iconSizes settings in the
+          ThemeProvider
+        </BlockQuote>
+        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
           {CustomSize}
+        </DemoWidget>
+      </Section>
+      <Section size="md" title="Custom size">
+        <DemoWidget name="Menu" width={200} style={{ marginLeft: '2rem' }}>
+          {FineGrainedSize}
         </DemoWidget>
       </Section>
     </div>

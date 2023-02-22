@@ -6,12 +6,9 @@ const Widgets = React.lazy(() => import('./widgets'));
 const Description = (
   <div>
     <p>
-      A Menu component is a graphical control element that provides a list of
-      options for a user to choose from. It is often used as a way for a user to
-      navigate through a user interface, select different options or features,
-      or perform actions within an application or website. A menu may be
-      displayed as a list of options that can be accessed by clicking on a
-      button.
+      The loading indicator is a component that is used to indicate that a
+      process is in progress. It is used to show that the user should wait for
+      the process to finish.
     </p>
   </div>
 );
@@ -21,87 +18,60 @@ function menu() {
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       stackBlitzCodes={['react-ts-gxoozp']}
-      title="Menu"
+      title="Loading Indicator"
       description={Description}
-      sourceId="menu/menu.tsx"
-      editId="menu"
+      sourceId="loading-indicator/loading-indicator.tsx"
+      editId="loading-indicator"
       features={[
-        'Custom sizes',
-        '3 unique docking positions',
-        'Attach menu to any type of target element',
-      ]}
-      callbacks={[
-        {
-          default: '',
-          description: `Callback fired when the menu is opened`,
-          name: 'onOpen',
-          optional: 'Yes',
-          type: 'Function',
-        },
-        {
-          default: '',
-          description: `Callback fired when the menu is closed`,
-          name: 'onClose',
-          optional: 'Yes',
-          type: 'Function',
-        },
-        {
-          default: '',
-          description: `Callback fired when a menu items is selected`,
-          name: 'onSelected',
-          optional: 'Yes',
-          type: 'Function',
-        },
+        'Customizable shape,speed and size',
+        'Customizable number of items',
+        'RTL support',
       ]}
       properties={[
         {
-          default: 'sm',
-          description: `The size of the menu. Can be <em>sm</em>, <em>md</em> <em>lg</em>`,
-          name: 'size',
-          optional: 'Yes',
+          default: 3,
+          description: 'Number of items in the loading indicator',
+          name: 'count',
+          optional: true,
+          type: 'Number',
+        },
+        {
+          default: 'square',
+          description:
+            'Shape of the loading indicator. can be <code>square</code> or <code>circle</code>',
+          name: 'shape',
+          optional: true,
           type: 'String',
         },
         {
-          default: 'left',
-          description: `Docking position of the menu. <br>
-          <em>'left'</em> | <em>'right'</em> | <em>center</em>`,
-          name: 'align',
-          optional: 'Yes',
-          type: 'string',
-        },
-        {
-          default: '[]',
-          description: `Collection of Menu Items`,
-          name: 'items',
-          optional: 'Yes',
-          type: 'Array',
-        },
-        {
-          default: '{}',
-          description: `Custom style object to be applied to the menu`,
-          name: 'style',
-          optional: 'Yes',
-          type: 'Object',
-        },
-        {
-          default: 'True',
-          description: `makes the component focusable via keyboard`,
-          name: 'focusable',
-          optional: 'Yes',
+          default: 'false',
+          description: 'Direction of the loading indicator',
+          name: 'rtl',
+          optional: true,
           type: 'Boolean',
         },
         {
-          default: 'False',
-          description: 'Hides the arrow on the menu',
-          name: 'hideArrow',
-          optional: 'Yes',
-          type: 'Boolean',
+          default: 'slow',
+          description:
+            'Speed of the loading indicator. can be <code>slow</code>, <code>normal</code> or <code>fast</code>',
+          name: 'speed',
+          optional: true,
+          type: 'String',
         },
         {
-          default: '12',
-          description: 'The gutter between the menu and the target element',
-          name: 'gutter',
-          optional: 'Yes',
+          default: 'md',
+          description:
+            'Size of the loading indicator. can be <code>sm</code>, <code>md</code> or <code>lg</code>',
+          name: 'size',
+          optional: true,
+          type: 'String',
+        },
+        {
+          default: '0',
+          description:
+            'Custom size of the loading indicator. Allows to set a custom size in pixels',
+          name: 'customSize',
+          optional: true,
           type: 'Number',
         },
       ]}

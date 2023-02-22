@@ -14,7 +14,8 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
   shape = 'square',
   rtl = false,
   speed = 'slow',
-  size = "md"
+  size = 'md',
+  customSize = 0,
 }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
@@ -33,11 +34,23 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
     return cls(styles.wrapper, rtl ? styles.rtl : '');
   }, [rtl]);
 
-  const itemStyle = useMemo(() => {
+  const transition = useMemo(() => {
     return {
       transition: `background ${speeds[speed]}ms ease-in-out`,
     };
   }, [speed]);
+
+  const itemStyle = useMemo(() => {
+    if (customSize) {
+      return {
+        ...transition,
+        height: `${customSize}px`,
+        width: `${customSize}px`,
+      };
+    } else {
+      return transition;
+    }
+  }, [customSize, transition]);
 
   return (
     <ul className={wrapperClass}>
@@ -52,6 +65,7 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
               styles.indicator,
               styles.flash,
               styles[size],
+              customSize ? styles.custom_size : '',
               activeIndex === index ? styles.animate : styles.default
             )}
           ></li>

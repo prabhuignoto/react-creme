@@ -14,10 +14,8 @@ $sizes: (sm, md, lg);
 }
 
 .indicator {
-  height: 1rem;
   margin-right: 0.5rem;
   position: relative;
-  width: 1rem;
 
   &:not(.square) {
     border-radius: 50%;
@@ -31,9 +29,11 @@ $sizes: (sm, md, lg);
     background: theme.$black;
   }
 
-  @each $size in $sizes {
-    &.#{$size} {
-      @extend %icon-#{$size};
+  &:not(.custom_size) {
+    @each $size in $sizes {
+      &.#{$size} {
+        @extend %icon-#{$size};
+      }
     }
   }
 }
