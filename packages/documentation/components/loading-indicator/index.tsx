@@ -63,7 +63,7 @@ function menu() {
           type: 'String',
         },
         {
-          default: 'md',
+          default: 'sm',
           description:
             'Size of the loading indicator. can be <code>sm</code>, <code>md</code> or <code>lg</code>',
           name: 'size',

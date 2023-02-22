@@ -15,7 +15,7 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
   shape = 'square',
   rtl = false,
   speed = 'slow',
-  size = 'md',
+  size = 'sm',
   customSize = 0,
 }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -63,11 +63,11 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
   }, [customSize, transition]);
 
   return (
-    <ul className={wrapperClass} role="progressbar">
+    <div className={wrapperClass} role="progressbar">
       {Array(count)
         .fill(0)
         .map((_, index) => (
-          <li
+          <span
             key={index}
             style={itemStyle}
             className={cls(
@@ -79,9 +79,9 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
               isDarkMode ? styles.dark : '',
               activeIndex === index ? styles.animate : styles.default
             )}
-          ></li>
+          ></span>
         ))}
-    </ul>
+    </div>
   );
 };
 

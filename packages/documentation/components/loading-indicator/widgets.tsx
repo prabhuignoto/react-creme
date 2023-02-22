@@ -82,7 +82,7 @@ function Widgets() {
         <Text>
           Customize the size of the loading indicator by passing the{' '}
           <code>size</code> prop with value <code>sm</code>, <code>md</code> or{' '}
-          <code>lg</code>. The default size is <code>md</code>.
+          <code>lg</code>. The default size is <code>sm</code>.
         </Text>
         <BlockQuote>
           The sizes can be managed by adjusting the iconSizes settings in the
