@@ -20,6 +20,7 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
     size = 'sm',
     style = {},
     accent = 'rounded',
+    isBusy = false,
   } = props;
 
   const isDarkMode = useMemo(() => isDark(), []);
@@ -30,13 +31,13 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
         {
           [styles[`default`]]: type === 'progress',
           [styles.no_border]: !border,
-          [styles.disabled]: disabled,
+          [styles.disabled]: disabled || isBusy,
           [styles.dark]: isDarkMode,
           [styles[accent]]: true,
         },
         [styles[size], styles[type], styles.btn]
       ),
-    [disabled, isDarkMode]
+    [disabled, isDarkMode, isBusy]
   );
 
   // setup for focus

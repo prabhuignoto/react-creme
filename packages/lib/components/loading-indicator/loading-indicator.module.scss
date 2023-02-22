@@ -1,0 +1,49 @@
+@use '@design/list.scss';
+@use '@design/core.scss';
+@use '@design/theme.scss';
+@use '@design/icon.scss';
+
+$sizes: (sm, md, lg);
+
+.wrapper {
+  @extend %list-horizontal-left;
+
+  &.rtl {
+    direction: rtl;
+  }
+}
+
+.indicator {
+  margin-right: 0.5rem;
+  position: relative;
+
+  &:not(.square) {
+    border-radius: 50%;
+  }
+
+  &.square {
+    border-radius: 1px;
+  }
+
+  &.dark {
+    background: theme.$black;
+  }
+
+  &:not(.dark) {
+    background: theme.$white;
+  }
+
+  &:not(.custom_size) {
+    @each $size in $sizes {
+      &.#{$size} {
+        @extend %icon-#{$size};
+      }
+    }
+  }
+}
+
+.animate {
+  &.flash {
+    background: theme.$primary;
+  }
+}
