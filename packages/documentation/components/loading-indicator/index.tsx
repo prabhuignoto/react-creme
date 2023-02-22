@@ -1,3 +1,5 @@
+import { faBarsProgress } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -22,6 +24,7 @@ function menu() {
       description={Description}
       sourceId="loading-indicator/loading-indicator.tsx"
       editId="loading-indicator"
+      pageIcon={<FontAwesomeIcon icon={faBarsProgress} size="2x" />}
       features={[
         'Customizable shape,speed and size',
         'Customizable number of items',
