@@ -25,8 +25,12 @@ $sizes: (sm, md, lg);
     border-radius: 1px;
   }
 
-  &.default {
+  &.dark {
     background: theme.$black;
+  }
+
+  &:not(.dark) {
+    background: theme.$white;
   }
 
   &:not(.custom_size) {

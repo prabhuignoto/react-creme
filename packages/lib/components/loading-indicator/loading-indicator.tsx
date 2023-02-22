@@ -1,5 +1,6 @@
 import cls from 'classnames';
-import { FunctionComponent, useEffect, useMemo, useState } from 'react';
+import { FunctionComponent, useEffect, useMemo, useRef, useState } from 'react';
+import { isDark } from '../common/utils';
 import { LoadingIndicatorProps } from './loading-indicator.model';
 import styles from './loading-indicator.module.scss';
 
@@ -19,16 +20,25 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
+  const timerRef = useRef<number>(0);
+
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      if (activeIndex >= 0 && activeIndex < count - 1) {
-        setActiveIndex(prev => prev + 1);
-      } else {
-        setActiveIndex(0);
-      }
+    timerRef.current = window.setInterval(() => {
+      setActiveIndex(prev => {
+        if (prev >= 0 && prev < count - 1) {
+          return prev + 1;
+        } else {
+          return 0;
+        }
+      });
     }, speeds[speed]);
-    return () => clearInterval(timer);
-  }, [activeIndex]);
+  }, []);
+
+  useEffect(() => {
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  const isDarkMode = useMemo(() => isDark(), []);
 
   const wrapperClass = useMemo(() => {
     return cls(styles.wrapper, rtl ? styles.rtl : '');
@@ -66,6 +76,7 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
               styles.flash,
               styles[size],
               customSize ? styles.custom_size : '',
+              isDarkMode ? styles.dark : '',
               activeIndex === index ? styles.animate : styles.default
             )}
           ></li>
