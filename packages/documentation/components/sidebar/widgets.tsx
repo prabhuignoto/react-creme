@@ -25,6 +25,7 @@ function widgets() {
       setWidth(500);
     }
   }, [media]);
+
   return width > 0 ? (
     <div className="rc-demo-widgets">
       <Section size="md" title="Default">
