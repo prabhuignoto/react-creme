@@ -33,7 +33,7 @@ function widgets() {
     }
   }, [media]);
 
-  return width > 0 ? (
+  return +width > 0 || width ? (
     <div className="rc-demo-widgets">
       <Section size="md" title="Flat tabs">
         <Text>
