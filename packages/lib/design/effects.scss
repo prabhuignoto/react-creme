@@ -32,3 +32,11 @@
     }
   }
 }
+
+@mixin include-transition($property, $duration: 0.2s, $timing: ease-in) {
+  transition: $property $duration $timing;
+}
+
+@mixin include-transition-multiple($props, $duration: 0.2s, $timing: ease-in) {
+  transition: $props $duration $timing;
+}
