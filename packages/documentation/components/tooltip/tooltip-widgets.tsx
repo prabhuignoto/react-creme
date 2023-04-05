@@ -38,7 +38,7 @@ const Widgets = () => {
     }
   }, [media]);
 
-  return width > 0 ? (
+  return +width > 0 || width ? (
     <div className="rc-demo-widgets">
       <Section size="md" border={false}>
         <Text>

@@ -3,6 +3,7 @@
 @use '@design/theme.scss';
 @use '@design/animate.scss';
 @use '@design/animations.scss';
+@use '@design/effects.scss';
 @use 'sass:map';
 
 $sizes: (
@@ -52,6 +53,7 @@ $heights: (
 
 .wrapper:hover:not(.disabled) {
   @extend %border-radius;
+  @include effects.include-transition(background);
 
   &.dark {
     background: theme.$gunmetal-gray;
@@ -80,14 +82,19 @@ $heights: (
         position: relative;
         width: $val;
 
-        &.ico_checked::after {
+        &::after {
           @include position.position-abs('center center');
           background: theme.$primary;
+          @include effects.include-transition-multiple(height width);
           border-radius: 100%;
           content: '';
           display: block;
           height: 65%;
           width: 65%;
+        }
+
+        &:not(.ico_checked)::after {
+          background: transparent;
         }
       }
     }
