@@ -95,8 +95,6 @@ $heights: (
 
         &:not(.ico_checked)::after {
           background: transparent;
-          height: 0px;
-          width: 0px;
         }
       }
     }
