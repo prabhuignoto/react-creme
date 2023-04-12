@@ -132,7 +132,7 @@ $tag-heights: (
 
     &.#{$size} {
       grid-template-columns: calc(var(--width) - $ico-size - 2px) $ico-size;
-      height: var(--tag-height, map-get($tag-heights, $size));
+      height: var(--tag-height, map.get($tag-heights, $size));
     }
   }
 
