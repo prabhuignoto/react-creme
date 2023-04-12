@@ -144,7 +144,7 @@ $heights: (
 
 @each $size in $sizes {
   .#{$size} {
-    height: map.get($heights, $size);
+    height: map-get($heights, $size);
 
     input {
       @extend %font-#{$size};

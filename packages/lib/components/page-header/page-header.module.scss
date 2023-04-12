@@ -40,7 +40,7 @@ $heights: (
   .#{$size} {
     .title {
       @extend %text-#{$size};
-      height: map.get($heights, $size);
+      height: map-get($heights, $size);
     }
   }
 }

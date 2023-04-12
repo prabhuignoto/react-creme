@@ -41,7 +41,7 @@ $heights: (
       display: flex;
 
       &:not(.auto_height) {
-        min-height: map.get($heights, $key);
+        min-height: map-get($heights, $key);
       }
     }
   }
@@ -80,7 +80,6 @@ $heights: (
 }
 
 .icon {
-
   @extend %border-primary;
   transition: background 0.1s linear;
 

@@ -27,9 +27,9 @@ $knob-sizes: (
 );
 
 $switch-width: (
-  sm: calc(map.get($knob-sizes, sm) * 3),
-  md: calc(map.get($knob-sizes, md) * 3),
-  lg: calc(map.get($knob-sizes, lg) * 3),
+  sm: calc(map-get($knob-sizes, sm) * 3),
+  md: calc(map-get($knob-sizes, md) * 3),
+  lg: calc(map-get($knob-sizes, lg) * 3),
 );
 
 $start-left: 4px;
@@ -82,11 +82,11 @@ $start-left: 4px;
       }
 
       .label_on {
-        margin-right: map.get($knob-sizes, $key);
+        margin-right: map-get($knob-sizes, $key);
       }
 
       .label_off {
-        margin-left: map.get($knob-sizes, $key);
+        margin-left: map-get($knob-sizes, $key);
       }
     }
   }
