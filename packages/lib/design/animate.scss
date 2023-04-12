@@ -13,13 +13,13 @@
 
   @keyframes #{$name} {
     #{$from} {
-      @each $name, $value in map-get($attrs, 'from') {
+      @each $name, $value in map.get($attrs, 'from') {
         #{$name}: #{$value};
       }
     }
 
     #{$to} {
-      @each $name, $value in map-get($attrs, 'to') {
+      @each $name, $value in map.get($attrs, 'to') {
         #{$name}: #{$value};
       }
     }

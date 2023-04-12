@@ -57,7 +57,7 @@ $heights: (
     &.header_#{$key} {
       @extend %font-#{$key};
       color: theme.$primary;
-      height: map-get($heights, $key);
+      height: map.get($heights, $key);
     }
   }
 }
@@ -83,7 +83,7 @@ $heights: (
 
   @each $key, $val in $sizes {
     &.body_#{$key}:not(.no_title) {
-      min-height: calc(100% - map-get($heights, $key));
+      min-height: calc(100% - map.get($heights, $key));
     }
   }
 

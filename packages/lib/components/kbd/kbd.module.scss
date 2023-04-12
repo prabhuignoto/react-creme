@@ -61,9 +61,9 @@ $thickness: var(--rc-kbd-thickness);
   .wrapper {
     &.#{$size} {
       @extend %font-#{$size};
-      height: #{map-get($heights, $size)};
-      line-height: #{map-get($heights, $size)};
-      min-width: map-get($widths, $size);
+      height: #{map.get($heights, $size)};
+      line-height: #{map.get($heights, $size)};
+      min-width: map.get($widths, $size);
     }
   }
 }

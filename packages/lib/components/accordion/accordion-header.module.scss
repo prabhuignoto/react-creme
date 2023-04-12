@@ -101,11 +101,11 @@ $header-heights: (
     &.size {
       height: var(
         --rc-accordion-header-height,
-        map-get($header-heights, $size)
+        map.get($header-heights, $size)
       );
       line-height: var(
         --rc-accordion-header-height,
-        map-get($header-heights, $size)
+        map.get($header-heights, $size)
       );
     }
 

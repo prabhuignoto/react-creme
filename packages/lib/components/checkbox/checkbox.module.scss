@@ -41,7 +41,7 @@ $heights: (
       display: flex;
 
       &:not(.auto_height) {
-        min-height: map-get($heights, $key);
+        min-height: map.get($heights, $key);
       }
     }
   }

@@ -3,6 +3,7 @@
 @use '@design/theme.scss';
 @use '@design/animate.scss';
 @use '@design/position.scss';
+@use 'sass:map';
 
 $sizes: (sm, md, lg);
 
@@ -132,7 +133,7 @@ $tag-heights: (
 
     &.#{$size} {
       grid-template-columns: calc(var(--width) - $ico-size - 2px) $ico-size;
-      height: var(--tag-height, map-get($tag-heights, $size));
+      height: var(--tag-height, map.get($tag-heights, $size));
     }
   }
 
