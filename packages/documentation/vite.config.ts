@@ -3,6 +3,7 @@ import path from 'path';
 import PostCSSImport from 'postcss-import';
 import PostCSSPresetEnv from 'postcss-preset-env';
 import PostCSSReporter from 'postcss-reporter';
+import PostSCSS from 'postcss-scss';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
@@ -25,6 +26,7 @@ export default defineConfig({
   clearScreen: true,
   css: {
     postcss: {
+      parser: PostSCSS,
       plugins: [PostCSSImport(), PostCSSPresetEnv(), PostCSSReporter()],
     },
   },
