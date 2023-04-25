@@ -1,5 +1,5 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faGithub } from '@fortawesome/free-brands-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, isDark } from '@lib';
 import cx from 'classnames';
 import { useMemo } from 'react';
