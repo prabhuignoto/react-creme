@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  // curved border
+  // clip-path: polygon(0 50%, 100% 0, 100% 85%, 0 100%);
 
   @media (min-width: 768px) {
     min-height: 1080px;

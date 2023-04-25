@@ -39,7 +39,9 @@ const ProductFeature: FunctionComponent<ProductFeatureProps> = ({
   return (
     <div className={featureClass}>
       <header className={styles.header}>
-        <div className={iconClass}>{icon}</div>
+        <div className={styles.icon_container}>
+          <div className={iconClass}>{icon}</div>
+        </div>
         <h3 className={titleClass}>{title}</h3>
       </header>
       <p className={descriptionClass}>{description}</p>
@@ -50,10 +52,15 @@ const ProductFeature: FunctionComponent<ProductFeatureProps> = ({
 const ProductFeatures: FunctionComponent<{ items: ProductFeatureProps[] }> = ({
   items,
 }) => {
+  const isDarkMode = useMemo(() => isDark(), []);
+
   return (
     <ul className={styles.features}>
       {items.map((item, index) => (
-        <li key={index} className={styles.feature_item}>
+        <li
+          key={index}
+          className={cx(styles.feature_item, isDarkMode ? styles.dark : '')}
+        >
           <ProductFeature key={index} {...item} />
         </li>
       ))}

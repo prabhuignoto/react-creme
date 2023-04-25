@@ -4,7 +4,7 @@ import { Button, isDark } from '@lib';
 import cx from 'classnames';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router';
-import { Badges } from '../badges';
+// import { Badges } from '../badges';
 import { Sink1, Sink2, Sink3 } from './kitchen-sink';
 import styles from './styles/hero-content.module.scss';
 
@@ -21,9 +21,9 @@ const HeroContent = () => {
     [isDarkMode]
   );
 
-  const openGithubLinkOnNewTab = () => {
-    window.open('https://github.com/prabhuignoto/react-creme', '_blank');
-  };
+  // const openGithubLinkOnNewTab = () => {
+  //   window.open('https://github.com/prabhuignoto/react-creme', '_blank');
+  // };
 
   return (
     <div className={styles.content}>
@@ -40,16 +40,16 @@ const HeroContent = () => {
             size="lg"
             type="primary"
           ></Button>
-          <Button
+          {/* <Button
             label="Github"
             size="lg"
             style={{ width: '100px' }}
             onClick={openGithubLinkOnNewTab}
           >
             <FontAwesomeIcon icon={faGithub} size="1x" />
-          </Button>
+          </Button> */}
         </div>
-        <Badges />
+        {/* <Badges /> */}
       </div>
       <div className={styles.right_column}>
         <Sink1 isDark={isDarkMode} />
