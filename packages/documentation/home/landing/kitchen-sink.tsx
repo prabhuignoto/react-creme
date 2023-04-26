@@ -9,8 +9,8 @@ import {
   Switch,
 } from '../../../lib/components';
 import { Default as FormGroup } from '../../components/form-group/widget-variants';
-import { IconsSmall as MenuBar } from '../../components/menu-bar/widget-variants';
-import { SuccessBig } from '../../components/progress/widget-variants';
+// import { IconsSmall as MenuBar } from '../../components/menu-bar/widget-variants';
+// import { SuccessBig } from '../../components/progress/widget-variants';
 // import { Circle } from '../../components/skeleton/widget-variants';
 import styles from './styles/kitchen-sink.module.scss';
 
