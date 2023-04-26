@@ -96,7 +96,7 @@
     "> 5%"
   ],
   "files": [
-    "dist/*"
+    "dist/**/*"
   ],
   "resolutions": {
     "nth-check": "^2.0.1",

@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  // curved border
+  // clip-path: polygon(0 50%, 100% 0, 100% 85%, 0 100%);
 
   @media (min-width: 768px) {
     min-height: 1080px;
@@ -13,18 +15,10 @@
   }
 
   &:not(.dark) {
-    background: linear-gradient(
-      to left bottom,
-      rgba(#bfdbf7, 1) 20%,
-      rgba(#e1e5f2, 1)
-    );
+    background: linear-gradient(to right, #f93, #fc3, #f93);
   }
 
   &.dark {
-    background: linear-gradient(
-      to right bottom,
-      rgba(#b8c0ff, 0.3) 10%,
-      rgba(#1e1e1e, 0.9)
-    );
+    background: linear-gradient(to right, #1c2237, #292d47, #1c2237);
   }
 }

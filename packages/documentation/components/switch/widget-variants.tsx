@@ -10,7 +10,7 @@ export const Default = (
 );
 
 export const LabelOutside = (
-  <Switch label="Settings" labelOutside focusable checked />
+  <Switch label="Settings" labelOutside focusable checked width={200} />
 );
 
 export const CheckIcon = (

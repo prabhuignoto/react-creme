@@ -10,8 +10,9 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  margin: 2rem 0;
 
   @media (min-width: 768px) {
-    // padding-top: 3rem;
+    padding: 3rem 0;
   }
 }
