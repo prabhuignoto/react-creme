@@ -9,7 +9,7 @@ import path, { dirname } from 'path';
 import PostCSSpresetEnv from 'postcss-preset-env';
 import RemovePlugin from 'remove-files-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
-import threadLoader from 'thread-loader';
+// import threadLoader from 'thread-loader';
 import { fileURLToPath } from 'url';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -22,18 +22,18 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const stylesHandler = MiniCssExtractPlugin.loader;
 
-threadLoader.warmup(
-  {
-    // pool options, like passed to loader options
-    // must match loader options to boot the correct pool
-  },
-  [
-    // modules to load
-    // can be any module, i. e.
-    'babel-loader',
-    'ts-loader',
-  ]
-);
+// threadLoader.warmup(
+//   {
+//     // pool options, like passed to loader options
+//     // must match loader options to boot the correct pool
+//   },
+//   [
+//     // modules to load
+//     // can be any module, i. e.
+//     'babel-loader',
+//     'ts-loader',
+//   ]
+// );
 
 const config = {
   cache: {

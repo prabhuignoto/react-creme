@@ -42,7 +42,7 @@
     "react-transition-group": "^4.4.5",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^9.0.4",
-    "vite": "4.3.1"
+    "vite": "4.3.2"
   },
   "devDependencies": {
     "@axe-core/react": "^4.6.1",
@@ -53,8 +53,8 @@
     "@babel/preset-react": "^7.18.6",
     "@csstools/postcss-sass": "^5.0.1",
     "@playwright/test": "^1.32.3",
-    "@types/react": "^18.0.38",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
     "@types/react-instantsearch-dom": "^6.12.3",
     "@types/react-syntax-highlighter": "^15.5.6",
     "@types/react-transition-group": "^4.4.5",
@@ -69,8 +69,8 @@
     "prettier": "^2.8.8",
     "recoil": "^0.7.7",
     "rimraf": "^5.0.0",
-    "sass": "^1.62.0",
-    "snyk": "^1.1144.0",
+    "sass": "^1.62.1",
+    "snyk": "^1.1146.0",
     "stylelint": "15.6.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-sass-guidelines": "^10.0.0",
