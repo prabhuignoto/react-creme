@@ -26,7 +26,8 @@
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    min-width: 400px;
+    // min-width: 400px;
+    width: calc(100% - 1rem);
   }
 }
 
@@ -38,6 +39,11 @@
     display: grid;
     grid-template-columns: 1fr;
     margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    // min-width: 400px;
+    width: calc(100% - 1rem);
   }
 }
 
@@ -51,7 +57,7 @@
   // border: 1px solid red;
 
   @media (min-width: 300px) and (max-width: 767px) {
-    min-height: 300px;
+    min-height: 400px;
   }
 
   @media (min-width: 768px) {
