@@ -4,11 +4,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
 
+const Description = (
+  <div>
+    <p>
+      An Autosuggest UI Component is a type of user interface element that
+      provides users with a list of suggested words or phrases as they type. It
+      is designed to provide users with a more efficient and convenient way to
+      search for information by quickly narrowing down the results list.
+    </p>
+    <p>
+      Autosuggest UI components can be used in a variety of applications, such
+      as web search engines, online dictionaries, and documentation sites.
+    </p>
+  </div>
+);
+
 function index() {
   return (
     <DemoPageRenderer
       title="Auto Suggest"
-      description="Auto Suggest is a component that allows the user to type in a value and get a list of suggestions. The user can then select a suggestion from the list."
+      description={Description}
       stackBlitzCodes={['react-ts-hf5mto']}
       pageIcon={<FontAwesomeIcon icon={faMagic} size="2x" />}
       sourceId="auto-suggest/auto-suggest.tsx"

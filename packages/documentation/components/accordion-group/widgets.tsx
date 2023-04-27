@@ -3,6 +3,15 @@ import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
 import {
+  AutoClosing,
+  CustomIconCode,
+  DefaultCode,
+  InitialStateCode,
+  LargeSizedCode,
+  MediumSizedCode,
+  RTLCode,
+} from './code-strings';
+import {
   AutoClosingSections,
   CustomIcon,
   Default,
@@ -37,7 +46,11 @@ function Widgets() {
   return width > 0 ? (
     <div className="rc-demo-widgets" style={{ minHeight: '1200px' }}>
       <Section size="md" title="Default">
-        <DemoWidget name="AccordionGroup" width={width}>
+        <DemoWidget
+          name="AccordionGroup"
+          width={width}
+          codeString={DefaultCode}
+        >
           {Default}
         </DemoWidget>
       </Section>
@@ -47,7 +60,11 @@ function Widgets() {
           you want to keep the accordions closed or open on load. The example
           shows the accordions open on load
         </Text>
-        <DemoWidget name="AccordionGroup" width={width}>
+        <DemoWidget
+          name="AccordionGroup"
+          width={width}
+          codeString={InitialStateCode}
+        >
           {InitialState}
         </DemoWidget>
       </Section>
@@ -56,7 +73,11 @@ function Widgets() {
           The AccordionGroup can be configured to close all other sections when
           one is open.
         </Text>
-        <DemoWidget name="AccordionGroup" width={width}>
+        <DemoWidget
+          name="AccordionGroup"
+          width={width}
+          codeString={AutoClosing}
+        >
           {AutoClosingSections}
         </DemoWidget>
       </Section>
@@ -65,20 +86,32 @@ function Widgets() {
           The AccordionGroup can be configured to use custom icons and the
           alignment of the icon can be changed.
         </Text>
-        <DemoWidget name="AccordionGroup" width={width}>
+        <DemoWidget
+          name="AccordionGroup"
+          width={width}
+          codeString={CustomIconCode}
+        >
           {CustomIcon}
         </DemoWidget>
       </Section>
       <Section size="md" title="RTL">
-        <DemoWidget name="AccordionGroup" width={width}>
+        <DemoWidget name="AccordionGroup" width={width} codeString={RTLCode}>
           {RTL}
         </DemoWidget>
       </Section>
       <Section size="md" title="Custom Sizes">
-        <DemoWidget name="AccordionGroup" width={width}>
+        <DemoWidget
+          name="AccordionGroup"
+          width={width}
+          codeString={MediumSizedCode}
+        >
           {MediumSized}
         </DemoWidget>
-        <DemoWidget name="AccordionGroup" width={width}>
+        <DemoWidget
+          name="AccordionGroup"
+          width={width}
+          codeString={LargeSizedCode}
+        >
           {LargeSized}
         </DemoWidget>
       </Section>

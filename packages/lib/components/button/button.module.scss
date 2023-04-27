@@ -26,11 +26,11 @@ $sizes: (sm, md, lg);
   }
 
   &:not(:active) {
-    transition: transform 80ms ease-in;
+    transition: transform 100ms ease-in;
   }
 
   &:active:not(.disabled) {
-    transform: scale(0.95);
+    transform: scale(0.97);
   }
 }
 
