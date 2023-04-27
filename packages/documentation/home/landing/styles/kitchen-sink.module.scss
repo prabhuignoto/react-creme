@@ -13,7 +13,6 @@
 }
 
 .sink1 {
-  // height: 160px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -21,12 +20,10 @@
 
   @media (min-width: 300px) and (max-width: 767px) {
     height: 160px;
-    // border: 1px solid red;
   }
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    // min-width: 400px;
     width: calc(100% - 1rem);
   }
 }
@@ -42,7 +39,6 @@
   }
 
   @media (min-width: 768px) {
-    // min-width: 400px;
     width: calc(100% - 1rem);
   }
 }
@@ -54,10 +50,9 @@
   justify-items: center;
   margin: 1rem 0;
   min-height: 200px;
-  // border: 1px solid red;
 
   @media (min-width: 300px) and (max-width: 767px) {
-    min-height: 400px;
+    display: none;
   }
 
   @media (min-width: 768px) {

@@ -38,7 +38,6 @@
 .title {
   font-size: 1rem;
   font-weight: 500;
-  // margin: 0.25rem 0;
   text-transform: capitalize;
   text-align: center;
 
@@ -187,14 +186,11 @@
 
 .features {
   display: grid;
-  // grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  // grid-template-rows: 1fr 1fr;
   justify-items: center;
   list-style: none;
   justify-content: center;
   margin: 0;
-  // padding: 1rem;
+  padding: 0;
   row-gap: 0.5rem;
   width: calc(100% - 2rem);
 
@@ -232,20 +228,12 @@
 
   // background: #333333;
   &.dark {
-    background-image: radial-gradient(
-        circle at 50% 50%,
-        #222 0%,
-        #000 100%
-      ),
+    background-image: radial-gradient(circle at 50% 50%, #222 0%, #000 100%),
       linear-gradient(to bottom right, #000 0%, #fff 100%);
   }
 
   &:not(.dark) {
-    background-image: radial-gradient(
-        circle at 50% 50%,
-        #fff 0%,
-        #f2f2f2 100%
-      ),
+    background-image: radial-gradient(circle at 50% 50%, #fff 0%, #f2f2f2 100%),
       linear-gradient(to bottom right, #000 0%, #fff 100%);
   }
 }
