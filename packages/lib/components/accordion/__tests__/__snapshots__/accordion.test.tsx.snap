@@ -1,14 +1,14 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Accordion > should render snapshot 1`] = `
 <div
   class="_accordion_f93c7f _no-border_f93c7f"
 >
   <div
-    aria-controls="accordion-body-VFiTSWFT0kSHZOLAV5_eb"
+    aria-controls="accordion-body-XfRrlOZr-kAK81oCjc2g4"
     aria-expanded="false"
     class="_header_c2ceb5 _focusable_c2ceb5 _size_c2ceb5"
-    id="accordion-XcPx70POxnDL77uUma9OY"
+    id="accordion-arH2_AXQ4MB5xQEXQYl78"
     role="button"
     style="--rc-accordion-header-height: 40px; outline: none; position: relative;"
     tabindex="0"
@@ -40,9 +40,9 @@ exports[`Accordion > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-labelledby="accordion-XcPx70POxnDL77uUma9OY"
+    aria-labelledby="accordion-arH2_AXQ4MB5xQEXQYl78"
     class="_body_f93c7f _animate_f93c7f _close_f93c7f"
-    id="accordion-body-VFiTSWFT0kSHZOLAV5_eb"
+    id="accordion-body-XfRrlOZr-kAK81oCjc2g4"
     style="--title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
   >
     <div

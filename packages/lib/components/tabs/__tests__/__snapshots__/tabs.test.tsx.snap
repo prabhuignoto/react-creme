@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Tabs > should render snapshot 1`] = `
 <div
@@ -6,10 +6,10 @@ exports[`Tabs > should render snapshot 1`] = `
   role="tablist"
 >
   <div
-    aria-controls="rc-tab-panel-Djueinh5LaxYyAcTwEfqY"
+    aria-controls="rc-tab-panel-ICLcMV2nxy4U-Z5-zTeHg"
     aria-selected="true"
     class="_tab_head_43d7a7 _tab_head_selected_43d7a7 _tab_head_flat_43d7a7 _tab_head_sm_43d7a7"
-    id="rc-tab-Djueinh5LaxYyAcTwEfqY"
+    id="rc-tab-ICLcMV2nxy4U-Z5-zTeHg"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="0"
@@ -25,10 +25,10 @@ exports[`Tabs > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-VdfGn4mP7ev8M-Z1qMSgC"
+    aria-controls="rc-tab-panel-tX_JkUtuqzFJxLsvGI6sC"
     aria-selected="false"
     class="_tab_head_43d7a7 _tab_head_flat_43d7a7 _tab_head_sm_43d7a7"
-    id="rc-tab-VdfGn4mP7ev8M-Z1qMSgC"
+    id="rc-tab-tX_JkUtuqzFJxLsvGI6sC"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
@@ -44,10 +44,10 @@ exports[`Tabs > should render snapshot 1`] = `
     />
   </div>
   <div
-    aria-controls="rc-tab-panel-Z3qPr4OqVyUEbY-Q0cSCw"
+    aria-controls="rc-tab-panel-FfPzjyeHz09hmWbs5kFXY"
     aria-selected="false"
     class="_tab_head_43d7a7 _tab_head_flat_43d7a7 _tab_head_sm_43d7a7"
-    id="rc-tab-Z3qPr4OqVyUEbY-Q0cSCw"
+    id="rc-tab-FfPzjyeHz09hmWbs5kFXY"
     role="tab"
     style="outline: none; position: relative;"
     tabindex="-1"
