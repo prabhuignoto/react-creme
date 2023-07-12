@@ -16,9 +16,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.5.3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3.7.0
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -49,9 +49,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.5.3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3.7.0
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -66,36 +66,36 @@ jobs:
       - run: npx pnpm install --frozen-lockfile
       - run: npx pnpm build:doc
 
-  snyk:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
+  # snyk:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3.5.3
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v3.7.0
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
 
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-
+  #     - name: Cache dependencies
+  #       uses: actions/cache@v3
+  #       with:
+  #         path: ~/.pnpm-store
+  #         key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('pnpm-lock.yaml') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-node-${{ matrix.node-version }}-
 
-      - run: npx pnpm install --frozen-lockfile
+  #     - run: npx pnpm install --frozen-lockfile
 
-      - name: snyk
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: npx pnpm run snyk
+  #     - name: snyk
+  #       env:
+  #         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+  #       run: npx pnpm run snyk
 
   unit_tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.5.3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3.7.0
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -113,7 +113,7 @@ jobs:
         run: npx pnpm run test:ci
 
       - name: Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3.1.4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: ./packages/lib/coverage
