@@ -50,7 +50,7 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
         focus: () => {
           buttonRef.current?.focus();
         },
-      } as HTMLDivElement)
+      }) as HTMLDivElement
   );
 
   useFocusNew(focusable ? buttonRef : null);

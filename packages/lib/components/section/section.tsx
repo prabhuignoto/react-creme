@@ -19,7 +19,7 @@ const Section: React.FC<SectionProps> = ({
     () =>
       ({
         minHeight: `${height}px`,
-      } as CSSProperties),
+      }) as CSSProperties,
     [height]
   );
 
@@ -33,7 +33,7 @@ const Section: React.FC<SectionProps> = ({
       ({
         alignItems: layout === 'column' ? 'center' : 'stretch',
         flexDirection: layout === 'column' ? 'row' : 'column',
-      } as CSSProperties),
+      }) as CSSProperties,
     []
   );
 

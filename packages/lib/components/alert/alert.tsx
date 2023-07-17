@@ -29,7 +29,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
     () =>
       ({
         '--height': `${height}px`,
-      } as CSSProperties),
+      }) as CSSProperties,
     [state]
   );
 

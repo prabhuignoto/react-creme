@@ -81,7 +81,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
       ({
         '--height': Number.isInteger(height) ? `${height}px` : '100%',
         '--width': Number.isInteger(width) ? `${width}px` : '100%',
-      } as CSSProperties),
+      }) as CSSProperties,
     []
   );
 

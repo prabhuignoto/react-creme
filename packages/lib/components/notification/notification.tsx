@@ -45,7 +45,7 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
       ({
         '--min-height': `${height}px`,
         '--min-width': `${width}px`,
-      } as CSSProperties),
+      }) as CSSProperties,
     []
   );
 

@@ -76,7 +76,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
       () =>
         ({
           '--width': `${tagWidth}px`,
-        } as CSSProperties),
+        }) as CSSProperties,
       []
     );
 

@@ -51,7 +51,7 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
     () =>
       ({
         '--width': type === 'determinate' ? `${fillWidth}px` : '50%',
-      } as CSSProperties),
+      }) as CSSProperties,
     [fillWidth]
   );
 
@@ -83,7 +83,7 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
         '--height':
           size === 'lg' ? `${40}px` : size === 'md' ? `${20}px` : `${10}px`,
         '--width': `${width}px`,
-      } as CSSProperties),
+      }) as CSSProperties,
     []
   );
 

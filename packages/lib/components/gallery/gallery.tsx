@@ -19,7 +19,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
         '--rc-gallery-grid-dimension-cols': gridDimension[0],
         '--rc-gallery-grid-dimension-rows': gridDimension[1],
         '--rc-gallery-image-dimension': `${imageDimension}px`,
-      } as CSSProperties),
+      }) as CSSProperties,
     []
   );
 
