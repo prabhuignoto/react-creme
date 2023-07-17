@@ -98,7 +98,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
       ({
         '--min-width': `${width}px`,
         ...style,
-      } as React.CSSProperties),
+      }) as React.CSSProperties,
     []
   );
 

@@ -160,7 +160,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
       ({
         '--min-height': `${height}px`,
         '--transition': transition,
-      } as CSSProperties),
+      }) as CSSProperties,
     []
   );
 

@@ -65,7 +65,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
             prev.map(content => {
               const found = ids.find(id => id[0] === content.id) as [
                 string,
-                boolean
+                boolean,
               ];
 
               return found

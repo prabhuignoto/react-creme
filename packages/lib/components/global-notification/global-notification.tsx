@@ -62,7 +62,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
     () =>
       ({
         '--height': `${height}px`,
-      } as CSSProperties),
+      }) as CSSProperties,
     []
   );
 

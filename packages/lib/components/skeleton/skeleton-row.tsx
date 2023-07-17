@@ -25,7 +25,7 @@ const SkeletonRow: FunctionComponent<
     () =>
       ({
         '--height': `${rowHeight}px`,
-      } as CSSProperties),
+      }) as CSSProperties,
     [rowHeight]
   );
 

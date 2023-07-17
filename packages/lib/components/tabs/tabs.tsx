@@ -112,7 +112,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         '--icons-color': iconsColor,
         '--rc-tabs-min-height': `${minHeight}px`,
         '--rc-tabs-min-width': Number.isInteger(width) ? `${width}px` : width,
-      } as CSSProperties),
+      }) as CSSProperties,
     []
   );
 

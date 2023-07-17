@@ -32,7 +32,7 @@ const Kbd: FunctionComponent<KbdProps> = memo(
       () =>
         ({
           '--rc-kbd-thickness': `${thickness}px`,
-        } as CSSProperties),
+        }) as CSSProperties,
       []
     );
 

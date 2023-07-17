@@ -125,7 +125,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
       ({
         '--bg-color': bgColor,
         '--fore-color': foreColor,
-      } as CSSProperties),
+      }) as CSSProperties,
     []
   );
 
