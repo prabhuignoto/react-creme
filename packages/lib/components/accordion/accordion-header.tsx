@@ -6,6 +6,28 @@ import { isDark } from '../common/utils';
 import styles from './accordion-header.module.scss';
 import { AccordionHeaderProps } from './accordion-model';
 
+/**
+ * AccordionHeader component that renders the header of the accordion
+ * @param disableIcon - boolean to disable the icon
+ * @param focusable - boolean to make the header focusable
+ * @param alignIconRight - boolean to align the icon to the right
+ * @param disableCollapse - boolean to disable the collapse functionality
+ * @param accordionBodyId - id of the accordion body
+ * @param isTitleBold - boolean to make the title bold
+ * @param title - title of the accordion header
+ * @param customIcon - custom icon to be used instead of the default icons
+ * @param iconType - type of the icon to be used
+ * @param onToggle - function to be called when the header is toggled
+ * @param accordionId - id of the accordion
+ * @param open - boolean to indicate if the accordion is open
+ * @param selected - boolean to indicate if the accordion is selected
+ * @param customContent - custom content to be used instead of the title
+ * @param size - size of the accordion header
+ * @param colorizeHeader - boolean to colorize the header
+ * @param fullWidth - boolean to make the header full width
+ * @param headerHeight - height of the accordion header
+ * @returns AccordionHeader component
+ */
 const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   disableIcon,
   focusable,
@@ -15,7 +37,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   isTitleBold,
   title,
   customIcon,
-  iconType,
+  iconType = 'plus',
   onToggle,
   accordionId,
   open,
@@ -28,73 +50,111 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
 }) => {
   const isDarkMode = useMemo(() => isDark(), []);
 
-  const accordionHeaderClass = useMemo(
-    () =>
-      classnames(styles.header, {
-        [styles['align-icon-rt']]: alignIconRight,
-        [styles['disable-collapse']]: disableCollapse,
-        [styles['disable-icon']]: disableIcon,
-        [styles['focusable']]: focusable,
-        [styles['selected']]: selected,
-        [styles.dark]: isDarkMode,
-        [styles.colorize]: colorizeHeader,
-        [styles.full_width]: fullWidth,
-        [styles.size]: true,
-      }),
-    [alignIconRight, focusable, selected]
-  );
+  // classnames for the accordion header
+  const accordionHeaderClass = useMemo(() => {
+    const classes = [
+      styles.header,
+      alignIconRight && styles['align-icon-rt'],
+      disableCollapse && styles['disable-collapse'],
+      disableIcon && styles['disable-icon'],
+      focusable && styles['focusable'],
+      selected && styles['selected'],
+      isDarkMode && styles.dark,
+      colorizeHeader && styles.colorize,
+      fullWidth && styles.full_width,
+      styles.size,
+    ].filter(Boolean);
+
+    return classnames(classes);
+  }, [
+    alignIconRight,
+    disableCollapse,
+    disableIcon,
+    focusable,
+    selected,
+    isDarkMode,
+    colorizeHeader,
+    fullWidth,
+  ]);
 
   const ref = useRef(null);
 
-  const focusProps = useMemo(
-    () => (focusable && !disableCollapse ? { tabIndex: 0 } : null),
-    [focusable, disableCollapse]
-  );
+  // focus props for the accordion header
+  const focusProps = useMemo(() => {
+    if (focusable && !disableCollapse) {
+      return { tabIndex: 0 };
+    }
+  }, [focusable, disableCollapse]);
 
+  // collapsible props for the accordion header
   const collapsibleProps = useMemo(() => {
-    return !disableCollapse
-      ? {
-          'aria-controls': accordionBodyId,
-          'aria-expanded': !!open,
-          onClick: onToggle,
+    if (disableCollapse) {
+      return null;
+    }
+
+    return {
+      'aria-controls': accordionBodyId,
+      'aria-expanded': !!open,
+      onClick: onToggle,
+      onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          onToggle?.();
         }
-      : null;
-  }, []);
-
-  const titleClass = useMemo(() => {
-    return classnames(
-      styles.title,
-      {
-        [styles[`title_${size}`]]: true,
       },
-      isTitleBold ? styles.title_bold : '',
-      colorizeHeader ? styles.colorize : ''
-    );
-  }, [isTitleBold]);
+    };
+  }, [accordionBodyId, open, onToggle]);
 
+  // classnames for the title of the accordion header
+  const titleClass = useMemo(() => {
+    const classes = [
+      styles.title,
+      styles[`title_${size}`],
+      isTitleBold && styles.title_bold,
+      colorizeHeader && styles.colorize,
+    ].filter(Boolean);
+
+    return classnames(classes);
+  }, [size, isTitleBold, colorizeHeader]);
+
+  // classnames for the icon of the accordion header
   const iconClass = useMemo(() => {
-    const classes: string[] = [];
+    const classes = [
+      styles.icon,
+      customIcon && styles['custom-icon'],
+      styles[`icon-${iconType}`],
+      disableIcon && styles['disable-icon'],
+      styles[`icon-${size}`],
+      open && styles['icon-open'],
+      colorizeHeader && styles.colorize,
+    ].filter(Boolean);
 
-    return classnames([...classes, styles['icon']], {
-      [styles['custom-icon']]: customIcon,
-      [styles[`icon-${iconType}`]]: true,
-      [styles['disable-icon']]: disableIcon,
-      [styles[`icon-${size}`]]: true,
-      [styles['icon-open']]: open,
-      [styles.colorize]: colorizeHeader,
-    });
-  }, [open, customIcon, disableIcon]);
+    return classnames(classes);
+  }, [customIcon, disableIcon, iconType, size, open, colorizeHeader]);
+
+  // icon to be used in the accordion header
+  const icons = useRef({
+    chevron: <ChevronRightIcon />,
+    minus: <MinusIcon />,
+    plus: <PlusIcon />,
+  });
 
   const icon = useMemo(() => {
     if (customIcon) {
       return customIcon;
-    } else if (iconType === 'chevron') {
-      return <ChevronRightIcon />;
-    } else if (iconType === 'plus') {
-      return open ? <MinusIcon /> : <PlusIcon />;
     }
-  }, [iconType, open]);
 
+    const _icons = icons.current;
+
+    if (iconType === 'plus') {
+      return open ? _icons.minus : _icons.plus;
+    }
+
+    return _icons[iconType] || null;
+  }, [customIcon, iconType, open]);
+
+  // hook to focus the accordion header
   useFocusNew(focusable ? ref : null, onToggle);
 
   return (
@@ -102,7 +162,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
       className={accordionHeaderClass}
       id={accordionId}
       ref={ref}
-      role="button"
+      role="heading"
       {...focusProps}
       {...collapsibleProps}
       style={

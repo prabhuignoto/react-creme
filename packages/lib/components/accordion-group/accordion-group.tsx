@@ -1,13 +1,33 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { useCallback, useLayoutEffect, useMemo } from 'react';
+import { useCallback, useLayoutEffect, useMemo, useState } from 'react';
 import { Accordion } from '../accordion/accordion';
-import {
-  AccordionGroupProps,
-  AccordionItemProps,
-} from '../accordion/accordion-model';
+import { AccordionGroupProps } from '../accordion/accordion-model';
 import styles from './accordion-group.module.scss';
 
+/**
+ * AccordionGroup component that renders a group of Accordion components.
+ * @param {boolean} alignIconRight - Whether to align the icon to the right or not. Default is false.
+ * @param {boolean} autoClose - Whether to automatically close other accordions when one is expanded. Default is false.
+ * @param {boolean} border - Whether to show a border around the group. Default is false.
+ * @param {React.ReactNode} children - The content of the AccordionGroup component.
+ * @param {boolean} expanded - Whether to expand the accordion by default. Default is false.
+ * @param {string} iconColor - The color of the icon. Default is undefined.
+ * @param {string} iconType - The type of the icon. Default is 'chevron'.
+ * @param {string} titleColor - The color of the title. Default is '#000'.
+ * @param {string[]} titles - The titles of the accordions.
+ * @param {boolean} isTitleBold - Whether to make the title bold or not. Default is false.
+ * @param {boolean} disableCollapse - Whether to disable collapsing of the accordion. Default is false.
+ * @param {boolean} focusable - Whether the accordion is focusable or not. Default is true.
+ * @param {React.ReactNode[]} icons - The custom icons for the accordions.
+ * @param {boolean} disableIcon - Whether to disable the icon or not. Default is false.
+ * @param {boolean} disableARIA - Whether to disable ARIA attributes or not. Default is false.
+ * @param {string} size - The size of the accordion. Default is 'sm'.
+ * @param {boolean} fullWidth - Whether to make the accordion full width or not. Default is false.
+ * @param {boolean} colorizeHeader - Whether to colorize the header or not. Default is false.
+ * @param {number} headerHeight - The height of the header. Default is 40.
+ * @returns {JSX.Element} - The AccordionGroup component.
+ */
 const AccordionGroup = ({
   alignIconRight = false,
   autoClose = false,
@@ -28,40 +48,66 @@ const AccordionGroup = ({
   fullWidth = false,
   colorizeHeader = false,
   headerHeight = 40,
-}: AccordionGroupProps) => {
-  const [items, setItems] = React.useState<Array<AccordionItemProps>>(
-    Array.isArray(children)
-      ? children.map(() => ({
-          expanded: expanded,
-          id: nanoid(),
-        }))
-      : []
-  );
+}: AccordionGroupProps): JSX.Element => {
+  const [items, setItems] = useState(() => {
+    if (Array.isArray(children)) {
+      return children.map(() => ({
+        expanded,
+        id: nanoid(),
+      }));
+    }
 
+    return [];
+  });
+
+  /**
+   * Handles the expansion of an accordion.
+   * @param {string} id - The id of the accordion.
+   */
   const handleExpand = useCallback((id: string) => {
-    setItems(prev =>
-      prev.map(item => ({
-        ...item,
-        expanded: autoClose ? item.id === id : item.id === id || item.expanded,
-      }))
+    setItems(prevItems =>
+      prevItems.map(item => {
+        if (item.id === id) {
+          return { ...item, expanded: true };
+        }
+
+        if (!autoClose) {
+          return item;
+        }
+
+        return { ...item, expanded: false };
+      })
     );
   }, []);
 
+  /**
+   * Handles the collapsing of an accordion.
+   * @param {string} id - The id of the accordion.
+   */
   const handleCollapse = useCallback((id: string) => {
-    setItems(prev =>
-      prev.map(item => ({
-        ...item,
-        expanded: autoClose ? false : item.id === id ? false : item.expanded,
-      }))
+    setItems(prevItems =>
+      prevItems.map(item => {
+        if (item.id === id) {
+          return { ...item, expanded: false };
+        }
+
+        return item;
+      })
     );
   }, []);
 
+  /**
+   * The class name of the AccordionGroup component.
+   */
   const groupClass = useMemo(() => {
     return classNames(styles.group, {
       [styles.grp_no_border]: !border,
     });
   }, []);
 
+  /**
+   * Sets the items of the AccordionGroup component.
+   */
   useLayoutEffect(() => {
     if (titles.length) {
       setItems(() =>

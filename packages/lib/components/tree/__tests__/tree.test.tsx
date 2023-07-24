@@ -55,7 +55,7 @@ describe('Tree', () => {
 
     fireEvent.click(
       getAllByRole('treeitem')[0].querySelector(
-        "[role='button']"
+        "[role='heading']"
       ) as HTMLElement
     );
 
@@ -99,7 +99,7 @@ describe('Tree', () => {
 
     fireEvent.click(
       getAllByRole('treeitem')[0].querySelector(
-        "[role='button']"
+        "[role='heading']"
       ) as HTMLElement
     );
 

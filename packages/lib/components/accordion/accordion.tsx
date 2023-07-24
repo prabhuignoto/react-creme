@@ -14,6 +14,7 @@ import { AccordionHeader } from './accordion-header';
 import { AccordionProps } from './accordion-model';
 import styles from './accordion.module.scss';
 
+// Define the Accordion component
 const Accordion: React.FunctionComponent<AccordionProps> = ({
   alignIconRight = false,
   autoSetBodyHeight = true,
@@ -44,14 +45,18 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
   colorizeHeader = false,
   headerHeight = 40,
 }: AccordionProps) => {
+  // Generate unique IDs for the accordion and its body
   const accordionID = useRef(id || `accordion-${nanoid()}`);
   const accordionBodyId = useRef(`accordion-body-${nanoid()}`);
 
+  // Create a reference to the accordion's div element
   const ref = useRef<HTMLDivElement | null>(null);
 
+  // Define state variables for the accordion's open/closed state and body height
   const [open, setOpen] = useState(expanded);
   const [bodyHeight, setBodyHeight] = useState(0);
 
+  // Define a function to toggle the accordion's open/closed state
   const toggleAccordion = useCallback(() => {
     enableCallback.current = true;
 
@@ -61,9 +66,13 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     });
   }, [open]);
 
+  // Create a reference to track whether the callback function has been enabled
   const enableCallback = useRef(false);
+
+  // Determine if this is the first render of the component
   const isFirstRender = useFirstRender();
 
+  // Define the class name for the accordion's body
   const accordionBodyClass = useMemo(
     () =>
       cls(styles.body, {
@@ -74,6 +83,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     [open]
   );
 
+  // Define the inline style for the accordion's body
   const style = useMemo(
     () => ({
       '--icon-color': iconColor,
@@ -83,6 +93,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     [open, bodyHeight]
   );
 
+  // Define the inline style for the accordion's body with height
   const styleWithHeight = useMemo(
     () =>
       style && !disableCollapse
@@ -98,6 +109,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     [autoSetBodyHeight, bodyHeight, style, open]
   );
 
+  // Define the class name for the accordion
   const accordionClass = useMemo(
     () =>
       cls(styles.accordion, {
@@ -107,12 +119,14 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     [border, open, alignIconRight]
   );
 
+  // Define a callback function to set the ref to the accordion's div element
   const onInitRef = useCallback((node: HTMLDivElement) => {
     if (node) {
       ref.current = node as HTMLDivElement;
     }
   }, []);
 
+  // Call the onExpanded or onCollapsed callback function when the accordion's open/closed state changes
   useEffect(() => {
     if (isFirstRender.current || !enableCallback.current) {
       return;
@@ -125,6 +139,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     }
   }, [open]);
 
+  // Set the accordion's open/closed state to the value of the expanded prop
   useEffect(() => {
     enableCallback.current = false;
 
@@ -133,6 +148,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     }
   }, [expanded]);
 
+  // Set the height of the accordion's body when it is rendered
   useEffect(() => {
     if (children && open) {
       const height = ref.current?.scrollHeight;
@@ -145,6 +161,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     }
   }, [children, open]);
 
+  // Define the ARIA attributes for the accordion
   const ARIA = useMemo(
     () =>
       !disableARIA && {
@@ -154,6 +171,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     []
   );
 
+  // Render the accordion
   return (
     <div className={accordionClass}>
       <AccordionHeader
@@ -186,6 +204,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
         ref={onInitRef}
         id={accordionBodyId.current}
         aria-labelledby={accordionID.current}
+        role="region"
       >
         {open ? (
           children
@@ -199,6 +218,8 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
   );
 };
 
+// Set the display name for the Accordion component
 Accordion.displayName = 'Accordion';
 
+// Export the Accordion component
 export { Accordion };
