@@ -33,7 +33,7 @@ describe('Accordion', () => {
       </Accordion>
     );
 
-    fireEvent.click(getByRole('button'));
+    fireEvent.click(getByRole('heading'));
 
     await waitFor(async () => {
       expect(container.firstChild).toHaveClass(styles.open);
@@ -52,7 +52,7 @@ describe('Accordion', () => {
       }
     );
 
-    fireEvent.click(getByRole('button'));
+    fireEvent.click(getByRole('heading'));
 
     expect(onExpanded).toHaveBeenCalled();
   });
