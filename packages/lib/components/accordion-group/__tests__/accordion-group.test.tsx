@@ -1,10 +1,4 @@
-import {
-  findByText,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { AccordionGroup } from '../accordion-group';
 import { describe, expect, it } from 'vitest';
 import userEvent from '@testing-library/user-event';
