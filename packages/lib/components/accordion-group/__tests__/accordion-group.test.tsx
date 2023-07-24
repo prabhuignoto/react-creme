@@ -51,7 +51,7 @@ describe('AccordionGroup', () => {
   });
 
   it('multiple accordions stay open if no autoClose', async () => {
-    const { getByText, findByText } = render(
+    const { getByText } = render(
       <AccordionGroup titles={['Title 1', 'Title 2']}>
         <div>Content 1</div>
         <div>Content 2</div>
@@ -64,7 +64,9 @@ describe('AccordionGroup', () => {
     userEvent.click(title1);
     userEvent.click(title2);
 
-    expect(await findByText('Content 1')).toBeVisible();
-    expect(await findByText('Content 2')).toBeVisible();
+    waitFor(() => {
+      expect(getByText('Content 1')).toBeVisible();
+      expect(getByText('Content 2')).toBeVisible();
+    });
   });
 });
