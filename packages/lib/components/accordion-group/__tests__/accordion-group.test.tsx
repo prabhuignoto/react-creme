@@ -62,11 +62,14 @@ describe('AccordionGroup', () => {
     const title2 = getByText('Title 2');
 
     userEvent.click(title1);
-    userEvent.click(title2);
-
     waitFor(() => {
       expect(getByText('Content 1')).toBeVisible();
-      expect(getByText('Content 2')).toBeVisible();
+    });
+
+    userEvent.click(title2);
+    waitFor(() => {
+      expect(getByText('Content 1')).toBeVisible();
+      expect(getByText('Content 2')).not.toBeVisible();
     });
   });
 });
