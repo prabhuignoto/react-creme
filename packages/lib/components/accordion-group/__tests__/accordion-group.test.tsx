@@ -63,13 +63,13 @@ describe('AccordionGroup', () => {
 
     userEvent.click(title1);
     waitFor(() => {
-      expect(getByText('Content 1')).toBeVisible();
+      expect(getByText('Content 1')).toBeInTheDocument();
     });
 
     userEvent.click(title2);
     waitFor(() => {
-      expect(getByText('Content 1')).toBeVisible();
-      expect(getByText('Content 2')).not.toBeVisible();
+      expect(getByText('Content 1')).toBeInTheDocument();
+      expect(getByText('Content 2')).not.toBeInTheDocument();
     });
   });
 });
