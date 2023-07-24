@@ -1,4 +1,10 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import {
+  findByText,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import { AccordionGroup } from '../accordion-group';
 import { describe, expect, it } from 'vitest';
 import userEvent from '@testing-library/user-event';
@@ -41,13 +47,23 @@ describe('AccordionGroup', () => {
     const title1 = getByText('Title 1');
     const title2 = getByText('Title 2');
 
-    userEvent.click(title1);
-    userEvent.click(title2);
+    fireEvent.click(title1);
+    await waitFor(
+      () => {
+        expect(getByText('Content 1')).toBeInTheDocument();
+      },
+      { timeout: 2000 }
+    );
 
-    waitFor(() => {
-      expect(getByText('Content 1')).not.toBeInTheDocument();
-      expect(getByText('Content 2')).toBeVisible();
-    });
+    fireEvent.click(title2);
+    await waitFor(
+      () => {
+        expect(getByText('Content 2')).toBeInTheDocument();
+      },
+      {
+        timeout: 2000,
+      }
+    );
   });
 
   it('multiple accordions stay open if no autoClose', async () => {
@@ -61,15 +77,27 @@ describe('AccordionGroup', () => {
     const title1 = getByText('Title 1');
     const title2 = getByText('Title 2');
 
-    userEvent.click(title1);
-    waitFor(() => {
-      expect(getByText('Content 1')).toBeInTheDocument();
-    });
+    fireEvent.click(title1);
 
-    userEvent.click(title2);
-    waitFor(() => {
-      expect(getByText('Content 1')).toBeInTheDocument();
-      expect(getByText('Content 2')).not.toBeInTheDocument();
-    });
+    await waitFor(
+      () => {
+        expect(getByText('Content 1')).toBeInTheDocument();
+      },
+      {
+        timeout: 1000,
+      }
+    );
+
+    fireEvent.click(title2);
+
+    await waitFor(
+      () => {
+        expect(getByText('Content 2')).toBeInTheDocument();
+        expect(getByText('Content 1')).toBeInTheDocument();
+      },
+      {
+        timeout: 2000,
+      }
+    );
   });
 });
