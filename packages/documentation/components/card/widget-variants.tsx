@@ -27,7 +27,7 @@ export const Default = (
 export const CustomImage = (
   <Card alignHeader="left" height={250} shadow={false}>
     <Image
-      src="https://mmc.tirto.id/image/otf/500x0/2016/07/26/TIRTO-20140522_batman_warner-bros_ratio-16x9.jpg"
+      src="https://images.unsplash.com/photo-1690184432588-81068877d852"
       loaderSize="md"
     />
   </Card>
@@ -35,6 +35,6 @@ export const CustomImage = (
 
 export const CustomImageCode = `
   <Card alignHeader="left" height={250} shadow={false}>
-    <Image src="https://mmc.tirto.id/image/otf/500x0/2016/07/26/TIRTO-20140522_batman_warner-bros_ratio-16x9.jpg" loaderSize='md' />
+    <Image src="https://images.unsplash.com/photo-1690184432588-81068877d852" loaderSize='md' />
   </Card>
 `;

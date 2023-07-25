@@ -192,6 +192,8 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     class="_control_column_ce9ebc"
   >
     <div
+      aria-busy="false"
+      aria-disabled="true"
       aria-label=""
       class="_disabled_155e98 _rounded_155e98 _sm_155e98 _icon_155e98 _btn_155e98"
       role="button"
@@ -200,7 +202,6 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     >
       <span
         class="_icon_container_155e98"
-        role="img"
       >
         <svg
           fill="none"
@@ -222,6 +223,8 @@ exports[`Transfer > should render transfer snapshot 1`] = `
       />
     </div>
     <div
+      aria-busy="false"
+      aria-disabled="true"
       aria-label=""
       class="_disabled_155e98 _rounded_155e98 _sm_155e98 _icon_155e98 _btn_155e98"
       role="button"
@@ -230,7 +233,6 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     >
       <span
         class="_icon_container_155e98"
-        role="img"
       >
         <svg
           fill="none"

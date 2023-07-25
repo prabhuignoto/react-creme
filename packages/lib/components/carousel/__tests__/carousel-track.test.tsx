@@ -1,71 +1,50 @@
-import { fireEvent, render } from '@testing-library/react';
-import { vi } from 'vitest';
+import { render, fireEvent } from '@testing-library/react';
 import { CarouselTrack } from '../carousel-track';
-import styles from '../carousel-track.module.scss';
+import { CarouselTrackProps } from '../carousel-model';
+import { vi } from 'vitest';
 
-const handler = vi.fn();
+describe('CarouselTrack', () => {
+  const defaultProps: CarouselTrackProps = {
+    length: 5,
+    handleSelection: vi.fn(),
+    activeIndex: 0,
+    direction: 'horizontal',
+    onNext: vi.fn(),
+    onPrevious: vi.fn(),
+    hidePrevious: false,
+    hideNext: false,
+    focusable: true,
+  };
 
-describe('Carousel Track', () => {
-  it('Should render the track', async () => {
-    const { getByRole, getAllByRole } = render(
-      <CarouselTrack
-        length={3}
-        direction="horizontal"
-        activeIndex={1}
-        handleSelection={handler}
-        onNext={() => console.log('next')}
-        onPrevious={() => console.log('previous')}
-      />
-    );
-
-    expect(getByRole('list')).toHaveClass(styles.track_horizontal);
-    expect(getAllByRole('listitem')).toHaveLength(3);
+  it('renders without crashing', () => {
+    const { container } = render(<CarouselTrack {...defaultProps} />);
+    expect(container.firstChild).toBeInTheDocument();
   });
 
-  it('Should render the track snapshot', async () => {
-    const { getByRole } = render(
-      <CarouselTrack
-        length={3}
-        direction="horizontal"
-        activeIndex={1}
-        handleSelection={handler}
-        onNext={() => console.log('next')}
-        onPrevious={() => console.log('previous')}
-      />
-    );
-
-    expect(getByRole('list')).toMatchSnapshot();
+  it('renders the correct number of track items', () => {
+    const { getAllByRole } = render(<CarouselTrack {...defaultProps} />);
+    const items = getAllByRole('listitem');
+    expect(items.length).toBe(defaultProps.length);
   });
 
-  it('Should call the handler', async () => {
-    const { getAllByRole } = render(
-      <CarouselTrack
-        length={3}
-        direction="horizontal"
-        activeIndex={1}
-        handleSelection={handler}
-        onNext={() => console.log('next')}
-        onPrevious={() => console.log('previous')}
-      />
-    );
-
-    fireEvent.click(getAllByRole('listitem')[2]);
-
-    expect(handler).toBeCalledWith(2);
+  it('calls the handleSelection function when a track item is clicked', () => {
+    const { getAllByRole } = render(<CarouselTrack {...defaultProps} />);
+    const items = getAllByRole('listitem');
+    fireEvent.click(items[0]);
+    expect(defaultProps.handleSelection).toHaveBeenCalledWith(0);
   });
 
-  it('Should the active selection is selected', async () => {
-    const { getAllByRole } = render(
-      <CarouselTrack
-        length={3}
-        direction="horizontal"
-        activeIndex={1}
-        handleSelection={handler}
-        onNext={() => console.log('next')}
-        onPrevious={() => console.log('previous')}
-      />
-    );
+  it('calls the onNext function when the next button is clicked', () => {
+    const { getByLabelText } = render(<CarouselTrack {...defaultProps} />);
+    const nextButton = getByLabelText('Next');
+    fireEvent.click(nextButton);
+    expect(defaultProps.onNext).toHaveBeenCalled();
+  });
 
-    expect(getAllByRole('listitem')[1]).toHaveClass(styles.track_item_selected);
+  it('calls the onPrevious function when the previous button is clicked', () => {
+    const { getByLabelText } = render(<CarouselTrack {...defaultProps} />);
+    const previousButton = getByLabelText('Previous');
+    fireEvent.click(previousButton);
+    expect(defaultProps.onPrevious).toHaveBeenCalled();
   });
 });

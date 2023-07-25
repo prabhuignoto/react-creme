@@ -1,6 +1,6 @@
 import { SearchIcon } from '@icons';
 import cls from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import {
   CSSProperties,
   useCallback,

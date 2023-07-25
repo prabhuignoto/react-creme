@@ -1,7 +1,7 @@
 // Import necessary modules and icons
 import { CheckIcon, CloseIcon, ErrorIcon, InfoIcon, WarningIcon } from '@icons';
 import classNames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import { CSSProperties, useCallback, useMemo } from 'react';
 import useFocus from '../common/effects/useFocusNew';
 import { AlertProps } from './alert-model';

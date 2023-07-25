@@ -1,50 +1,59 @@
-import { fireEvent, render } from '@testing-library/react';
-import { vi } from 'vitest';
+/**
+ * @file This file defines the unit tests for the CarouselButton component.
+ * @module CarouselButtonTest
+ */
+
+import { render, fireEvent } from '@testing-library/react';
 import { CarouselButton } from '../carousel-button';
+import { vi } from 'vitest';
 import styles from '../carousel.module.scss';
 
-const handler = vi.fn();
-
-describe('Carousel Button', () => {
-  it('should render with position', async () => {
-    const { container } = render(
-      <CarouselButton
-        position="left"
-        onClick={handler}
-        direction="horizontal"
-        label="Previous"
-      />
-    );
-
-    expect(container.firstChild).toBeInTheDocument();
-    expect(container.firstChild).toHaveClass(styles.btn_left);
-  });
-
-  it('should render carousel button snapshot', async () => {
+describe('CarouselButton', () => {
+  // Test the onClick prop.
+  it('should call onClick when clicked', () => {
+    const handleClick = vi.fn();
     const { getByRole } = render(
-      <CarouselButton
-        position="left"
-        onClick={handler}
-        direction="vertical"
-        label="previous"
-      />
-    );
-
-    expect(getByRole('button')).toMatchSnapshot();
-  });
-
-  it('should call the onClick handler', async () => {
-    const { getByRole } = render(
-      <CarouselButton
-        position="left"
-        onClick={handler}
-        direction="horizontal"
-        label="Previous"
-      />
+      <CarouselButton onClick={handleClick} label="Next" />
     );
 
     fireEvent.click(getByRole('button'));
+    expect(handleClick).toHaveBeenCalled();
+  });
 
-    expect(handler).toBeCalled();
+  // Test the label prop.
+  it('should display the correct label', () => {
+    const label = 'Next';
+    const { getByLabelText } = render(
+      <CarouselButton onClick={() => {}} label={label} />
+    );
+
+    expect(getByLabelText(label)).toBeInTheDocument();
+  });
+
+  // Test the hide prop.
+  it('should hide the button when hide is true', () => {
+    const { container } = render(
+      <CarouselButton onClick={() => {}} label="Next" hide={true} />
+    );
+
+    expect(container.firstChild).toHaveClass(styles.btn_hide);
+  });
+
+  // Test the position prop.
+  it('should have the correct position class', () => {
+    const { container } = render(
+      <CarouselButton onClick={() => {}} label="Next" position="left" />
+    );
+
+    expect(container.firstChild).toHaveClass(styles.btn_left);
+  });
+
+  // Test the direction prop.
+  it('should have the correct direction class', () => {
+    const { container } = render(
+      <CarouselButton onClick={() => {}} label="Next" direction="horizontal" />
+    );
+
+    expect(container.firstChild).toHaveClass(styles.btn_horizontal);
   });
 });

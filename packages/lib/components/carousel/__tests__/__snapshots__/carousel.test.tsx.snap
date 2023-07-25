@@ -18,7 +18,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
         class="_item_2a71fc"
         data-visible="true"
         role="listitem"
-        style="top: 0px; visibility: hidden; width: 0px;"
+        style="left: 0px; top: 0px; visibility: visible; width: 0px;"
       >
         <div
           class="_item_container_2a71fc"
@@ -33,7 +33,7 @@ exports[`Carousel > should render carousel snapshot 1`] = `
         class="_item_2a71fc"
         data-visible="false"
         role="listitem"
-        style="top: 0px; visibility: hidden; width: 0px;"
+        style="left: 0px; top: 0px; visibility: hidden; width: 0px;"
       >
         <div
           class="_item_container_2a71fc"
@@ -55,6 +55,8 @@ exports[`Carousel > should render carousel snapshot 1`] = `
         class="_btn_2a71fc _btn_left_2a71fc _btn_horizontal_2a71fc _btn_hide_2a71fc"
       >
         <div
+          aria-busy="false"
+          aria-disabled="false"
           aria-label="Previous"
           class="_rounded_155e98 _md_155e98 _icon_155e98 _btn_155e98"
           role="button"
@@ -63,7 +65,6 @@ exports[`Carousel > should render carousel snapshot 1`] = `
         >
           <span
             class="_icon_container_155e98"
-            role="img"
           >
             <svg
               fill="none"
@@ -102,6 +103,8 @@ exports[`Carousel > should render carousel snapshot 1`] = `
         class="_btn_2a71fc _btn_right_2a71fc _btn_horizontal_2a71fc"
       >
         <div
+          aria-busy="false"
+          aria-disabled="false"
           aria-label="Next"
           class="_rounded_155e98 _md_155e98 _icon_155e98 _btn_155e98"
           role="button"
@@ -110,7 +113,6 @@ exports[`Carousel > should render carousel snapshot 1`] = `
         >
           <span
             class="_icon_container_155e98"
-            role="img"
           >
             <svg
               fill="none"

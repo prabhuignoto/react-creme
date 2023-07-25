@@ -1,7 +1,7 @@
 import { CheckIcon, CloseIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import * as React from 'react';
+import React from 'react';
 import { useMemo, useRef } from 'react';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import * as React from 'react';
+import React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { Radio } from '../radio/radio';

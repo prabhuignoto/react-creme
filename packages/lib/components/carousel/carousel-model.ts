@@ -80,5 +80,5 @@ export type CarouselButtonProps = Pick<
   hide?: boolean;
   label: string;
   onClick: () => void;
-  position: 'left' | 'right';
+  position?: 'left' | 'right';
 };

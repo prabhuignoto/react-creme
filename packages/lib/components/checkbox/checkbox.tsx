@@ -1,7 +1,7 @@
 import { CheckIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import * as React from 'react';
+import React from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';

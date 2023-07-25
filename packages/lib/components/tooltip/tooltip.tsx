@@ -1,6 +1,6 @@
 import { CloseIcon } from '@icons';
 import classNames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import {
   CSSProperties,
   useCallback,

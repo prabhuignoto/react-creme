@@ -1,11 +1,23 @@
+/**
+ * @file This file defines the CarouselTrack component.
+ * @module CarouselTrack
+ */
+
 import classNames from 'classnames';
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { isDark } from '../common/utils';
 import { CarouselButton } from './carousel-button';
 import { CarouselTrackProps } from './carousel-model';
 import styles from './carousel-track.module.scss';
 import rootStyles from './carousel.module.scss';
 
+/**
+ * CarouselTrack is a React Function Component for displaying a track of the carousel.
+ * It receives several props to handle its behavior and styling.
+ *
+ * @param {Object} CarouselTrackProps - The properties that define the CarouselTrack component.
+ * @returns {JSX.Element} The CarouselTrack component.
+ */
 const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
   length,
   handleSelection,
@@ -18,8 +30,10 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
   focusable,
   size,
 }: CarouselTrackProps) => {
+  // Determine if the dark mode is enabled.
   const isDarkMode = useMemo(() => isDark(), []);
 
+  // Compute the classnames for the carousel track.
   const carouselTrackClass = useMemo(
     () =>
       classNames([
@@ -31,6 +45,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
     []
   );
 
+  // Compute the classnames for the carousel container.
   const carouselContainerClass = useMemo(
     () =>
       classNames([
@@ -38,11 +53,17 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
         direction === 'horizontal'
           ? styles.track_wrapper_horizontal
           : styles.track_wrapper_vertical,
-        // [styles[`track-wrapper-${direction}`]]: true,
       ]),
     [direction]
   );
 
+  // Callback function to handle the selection of a track item.
+  const handleItemSelection = useCallback(
+    (index: number) => handleSelection(index),
+    [handleSelection]
+  );
+
+  // Render the CarouselTrack component.
   return (
     <div className={carouselContainerClass}>
       <CarouselButton
@@ -64,7 +85,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
               index === activeIndex ? styles.track_item_selected : '',
               isDarkMode ? styles.dark : '',
             ])}
-            onClick={() => handleSelection(index)}
+            onClick={() => handleItemSelection(index)}
           ></li>
         ))}
       </ul>

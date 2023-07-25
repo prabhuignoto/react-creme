@@ -2,6 +2,8 @@
 
 exports[`Button > should render button snapshot 1`] = `
 <div
+  aria-busy="false"
+  aria-disabled="false"
   aria-label="My Button"
   class="_rounded_155e98 _sm_155e98 _default_155e98 _btn_155e98"
   role="button"
