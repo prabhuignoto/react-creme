@@ -85,4 +85,34 @@ describe('Button', () => {
 
     expect(getByRole('button')).toHaveAttribute('tabIndex', '0');
   });
+
+  it('should render button in busy state', () => {
+    const { getByRole } = render(<Button label="My Button" isBusy />);
+    expect(getByRole('button')).toHaveClass(styles.disabled);
+    expect(getByRole('button')).toHaveAttribute('aria-busy', 'true');
+  });
+
+  it('should render button without border', () => {
+    const { getByRole } = render(<Button label="My Button" border={false} />);
+    expect(getByRole('button')).toHaveClass(styles.no_border);
+  });
+
+  it('should render button with correct accent', () => {
+    const { getByRole } = render(<Button label="My Button" accent="flat" />);
+    expect(getByRole('button')).toHaveClass(styles.flat);
+  });
+
+  it('should render children correctly', () => {
+    const { getByText } = render(
+      <Button>
+        <div>Child Node</div>
+      </Button>
+    );
+    expect(getByText('Child Node')).toBeInTheDocument();
+  });
+
+  it('should render progress button correctly', () => {
+    const { getByRole } = render(<Button type="progress" />);
+    expect(getByRole('button')).toHaveClass(styles.progress);
+  });
 });

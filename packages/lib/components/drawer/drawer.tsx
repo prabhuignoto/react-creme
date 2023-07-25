@@ -1,6 +1,6 @@
 import { CloseIcon } from '@icons';
 import classNames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';

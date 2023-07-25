@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import * as React from 'react';
+import React from 'react';
 import {
   CSSProperties,
   useCallback,

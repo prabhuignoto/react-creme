@@ -1,6 +1,6 @@
 import cls from 'classnames';
 import { nanoid } from 'nanoid';
-import * as React from 'react';
+import React from 'react';
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { withOverlay } from '../common/withOverlay';
 import { DropDownMenu } from './dropdown-menu';
