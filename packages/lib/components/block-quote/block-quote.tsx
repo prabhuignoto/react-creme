@@ -10,26 +10,41 @@ export interface BlockQuoteProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
+/**
+ * BlockQuote Component - Encapsulates content inside a stylized blockquote.
+ *
+ * @component
+ *
+ * @param {object} props - The component's props
+ * @param {ReactNode} props.children - The content to be rendered inside the blockquote
+ * @param {boolean} props.showInfoIcon - Determines if the InfoIcon should be displayed (default: true)
+ * @param {'sm'|'md'|'lg'} props.size - The size of the blockquote (small by default)
+ *
+ * @returns {ReactNode} React component
+ */
 const BlockQuote: React.FC<BlockQuoteProps> = ({
   children,
   showInfoIcon = true,
   size = 'sm',
 }) => {
   const isDarkMode = useMemo(() => isDark(), []);
+
   const blockQuoteClass = useMemo(
     () =>
       classNames(styles.block_quote, {
         [styles[`block_quote_${size}`]]: size,
         [styles.dark]: isDarkMode,
       }),
-    []
+    [size, isDarkMode]
   );
 
   return (
     <div className={blockQuoteClass}>
-      <span className={styles.block_quote_icon}>
-        {showInfoIcon && <InfoIcon />}
-      </span>
+      {showInfoIcon && (
+        <span className={styles.block_quote_icon}>
+          <InfoIcon />
+        </span>
+      )}
       <div className={styles.block_quote_child_content}>{children}</div>
     </div>
   );

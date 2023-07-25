@@ -31,7 +31,8 @@
     "prettier:check": "prettier --check \"components/**/*.{ts,tsx}\"",
     "snyk": "snyk test",
     "test:ci": "vitest --config ./vitest.config.ts",
-    "test": "vitest --config ./vitest.config.dev.ts --ui",
+    "test": "vitest --config ./vitest.config.dev.ts",
+    "test-ui": "vitest --config ./vitest.config.dev.ts --ui",
     "test:quiet": "vitest --config ./vitest.config.dev.ts --silent --run",
     "emit": "tsc -p ./tsconfig.json --emitDeclarationOnly",
     "build:lib": "pnpm build"
