@@ -22,20 +22,19 @@
   .aside {
     order: 2;
   }
-
   .content {
     order: 1;
   }
 }
 
-.aside {
+.aside,
+.list {
   @extend %center;
   width: 100%;
 }
 
 .list {
-  @extend %list-left;
-  width: 100%;
+  flex-direction: column;
 }
 
 .list_item {
@@ -51,12 +50,13 @@
     color: theme.$white;
   }
 
-  &:not(.dark).active {
-    color: theme.$white;
-  }
-
-  &:not(.dark):not(.active) {
-    color: theme.$black;
+  &:not(.dark) {
+    &.active {
+      color: theme.$white;
+    }
+    &:not(.active) {
+      color: theme.$black;
+    }
   }
 }
 
@@ -83,7 +83,6 @@
   &.dark {
     color: theme.$primary;
   }
-
   &:not(.dark) {
     color: theme.$black;
   }

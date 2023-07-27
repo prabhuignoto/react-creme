@@ -1,21 +1,32 @@
 name: Create Pull Request
+
 on:
   push:
-    branches:
-      # Create pull requests only for non-master branches
-      - "!master"
+    # Sequence of patterns matched against refs/heads
+    branches-ignore:
+      # Ignore main branch
+      - 'master'
+
 jobs:
-  build:
+  createPullRequest:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.5.3
-        with:
-          ref: ${{ github.ref }}
-      - name: Create Pull Request
+      # Checks out your repository under $GITHUB_WORKSPACE
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Create Pull Request
+      - name: Create PR
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: "Automated Pull Request"
-          title: "Automated Pull Request"
-          branch: ${{ github.ref }}
-          token: ${{ secrets.GIT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: 'New changes from ${GITHUB_REF##*/}'
+          base: 'master'
+          # Change 'master' to your primary branch if necessary
+          branch: 'automated-pr/${{ github.head_ref }}'
+          delete-branch: true
+          # Adding some default labels
+          labels: 'auto-pr'
+          # Draft pull requests are not considered to be ready for review
+          draft: true

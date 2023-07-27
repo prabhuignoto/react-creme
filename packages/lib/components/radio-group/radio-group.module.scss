@@ -25,7 +25,7 @@
   @extend %list-item-left;
   margin: 0.5rem;
 
-  &.radio_grp_item_disabled {
+  &.disabled {
     @extend %disabled;
   }
 }

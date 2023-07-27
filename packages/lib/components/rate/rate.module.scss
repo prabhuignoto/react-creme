@@ -44,38 +44,22 @@ $sizes: (
     }
   }
 
-  &.dark svg {
-    fill: theme.$dark-control-bg;
-  }
-
-  &:not(.dark) svg {
+  svg {
     fill: theme.$alto;
+    height: 100%;
+    stroke-width: 0;
+    transition: fill 0.1s ease-in;
+    width: 100%;
+
+    // Assuming that .dark is applied to the .item and not to the svg
+    .dark & {
+      fill: theme.$dark-control-bg;
+    }
   }
-}
 
-.item.active {
-  color: theme.$primary;
-
-  svg {
+  &.active svg,
+  &.hovered svg,
+  &:hover svg {
     fill: theme.$primary;
   }
-}
-
-.item.hovered {
-  svg {
-    fill: theme.$primary;
-  }
-}
-
-.item:hover {
-  svg {
-    fill: theme.$primary;
-  }
-}
-
-.item svg {
-  height: 100%;
-  stroke-width: 0;
-  transition: fill 0.1s ease-in;
-  width: 100%;
 }

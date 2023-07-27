@@ -9,6 +9,14 @@ import {
 } from './scroll-spy.model';
 import styles from './scroll-spy.module.scss';
 
+/**
+ * ScrollSpy Component
+ * @param {Object} ScrollSpyProps - The properties that define the ScrollSpy component.
+ *    @property {string[]} links - The list of scroll spy links to display in the side menu.
+ *    @property {React.ReactNode | React.ReactNode[]} children - The content to be displayed in the scroll spy sections.
+ *    @property {string} linksPosition - The position of the side menu links ('left' or 'right').
+ * @returns {JSX.Element} The ScrollSpy component.
+ */
 const ScrollSpy: React.FC<ScrollSpyProps> = ({
   links = [],
   children = [],
@@ -17,14 +25,15 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
   const scrollSpyContentRef = React.useRef<HTMLDivElement | null>(null);
   const spy = useRef<IntersectionObserver>();
 
-  // tracks the scroll direction
+  // Tracks the scroll direction
   const scrollDirection = useRef<'up' | 'down'>();
 
-  // tracks the last selected link index
+  // Tracks the last selected link index
   const lastSelectedIndex = useRef<number>(0);
 
   const isDarkMode = useMemo(() => isDark(), []);
 
+  // State to store the scroll spy links data
   const [scrollSpyLinks, setScrollSpyLinks] = React.useState<
     ScrollSpyLinkInternal[]
   >(
@@ -35,6 +44,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
     }))
   );
 
+  // State to store the scroll spy content data
   const [contents, setContents] = React.useState<ScrollSpyContent[]>(
     Array.isArray(children)
       ? children.map((_, index) => ({
@@ -51,6 +61,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
         ]
   );
 
+  // Function to handle ref and set up the IntersectionObserver
   const onRef = useCallback((node: HTMLDivElement | null) => {
     if (node) {
       scrollSpyContentRef.current = node;
@@ -95,6 +106,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
     }
   }, []);
 
+  // Update the active link based on intersection
   useEffect(() => {
     const found = contents
       .filter(c => c.active)
@@ -114,6 +126,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
     }
   }, [JSON.stringify(contents)]);
 
+  // Function to scroll to the selected section
   const handleScrollTo = useCallback((id: string, index: number) => {
     if (lastSelectedIndex.current < index) {
       scrollDirection.current = 'down';
@@ -137,6 +150,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
     }
   }, []);
 
+  // Function to handle scroll wheel event
   const handleScroll = useCallback((ev: React.WheelEvent) => {
     if (ev.deltaY > 0) {
       scrollDirection.current = 'down';

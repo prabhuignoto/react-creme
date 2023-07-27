@@ -5,27 +5,23 @@
 $sizes: (sm, md, lg);
 
 .container {
+  @extend %col-left;
+
   &.rtl {
     @extend %col-right;
-  }
-
-  &:not(.rtl) {
-    @extend %col-left;
   }
 }
 
 .wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   margin: 0;
   overflow: hidden;
   padding: 0;
   position: relative;
-
-  &:not(.rtl) {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
+  color: theme.$black;
 
   &.rtl {
     text-align: right;
@@ -33,10 +29,6 @@ $sizes: (sm, md, lg);
 
   &.dark {
     color: theme.$white;
-  }
-
-  &:not(.dark) {
-    color: theme.$black;
   }
 
   @each $size in $sizes {

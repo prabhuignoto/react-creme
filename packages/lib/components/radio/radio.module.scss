@@ -11,27 +11,29 @@ $sizes: (
   md: 24px,
   lg: 28px,
 );
-
 $heights: (
   sm: 32px,
   md: 48px,
   lg: 56px,
 );
 
-.wrapper {
-  @extend %left;
+%common-properties {
   cursor: pointer;
+  @extend %left;
+}
+
+.wrapper {
+  @extend %common-properties;
   display: grid;
   justify-items: center;
   padding: 0.25rem 0;
-
-  &:not(.rtl) {
-    padding-left: 0.5rem;
-  }
+  padding-left: 0.5rem;
+  direction: ltr;
 
   &.rtl {
     direction: rtl;
     padding-right: 0.5rem;
+    padding-left: 0;
   }
 
   &.full_width {
@@ -65,8 +67,7 @@ $heights: (
 }
 
 .radio {
-  @extend %left;
-  cursor: pointer;
+  @extend %common-properties;
   height: 100%;
   position: relative;
   user-select: none;
@@ -84,32 +85,25 @@ $heights: (
 
         &::after {
           @include position.position-abs('center center');
-          background: theme.$primary;
           @include effects.include-transition-multiple(height width);
           border-radius: 100%;
           content: '';
           display: block;
           height: 65%;
           width: 65%;
+          background: transparent;
         }
 
-        &:not(.ico_checked)::after {
-          background: transparent;
+        &.ico_checked::after {
+          background: theme.$primary;
         }
       }
     }
   }
 }
 
-%pseudo-common {
-  background-color: theme.$primary;
-  border-radius: 50%;
-  content: '';
-  display: block;
-}
-
 .icon {
-  border: 1px solid theme.$primary;
+  border: 1px solid rgba(theme.$primary-rgb, 0.25);
   border-radius: 50%;
   display: block;
   position: relative;
@@ -119,34 +113,22 @@ $heights: (
   }
 
   &.ico_checked {
-    // background-color: theme.$primary;
-    // border: 1px solid theme.$primary;
-  }
-}
-
-.icon:not(.ico_checked) {
-  &.dark {
-    // background-color: theme.$dark-control-bg;
-    // border: 1px solid theme.$dark-control-bg;
+    border: 1px solid theme.$primary;
   }
 
-  &:not(.dark) {
-    @extend %shadow-inset;
-    border: 1px solid rgba(theme.$primary-rgb, 0.25);
+  &.dark:not(.ico_checked) {
+    // assuming that the values for these are defined in the theme or another imported file
+    border: 1px solid theme.$dark-control-bg;
   }
 }
 
 .label {
-  @extend %left;
-  cursor: pointer;
+  @extend %common-properties;
+  color: theme.$black;
   padding-left: 0.5rem;
 
   &.dark {
     color: theme.$white;
-  }
-
-  &:not(.dark) {
-    color: theme.$black;
   }
 
   &.disabled {
@@ -155,6 +137,7 @@ $heights: (
 
   &.rtl {
     padding-right: 0.5rem;
+    padding-left: 0;
   }
 
   @each $key, $val in $sizes {
