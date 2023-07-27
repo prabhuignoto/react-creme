@@ -1,7 +1,7 @@
+// Import necessary libraries and components
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React from 'react';
-import { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { CheckBox } from '../checkbox/checkbox';
 import { CheckboxProps } from '../checkbox/checkbox-model';
 import styles from './checkbox-group.module.scss';
@@ -24,10 +24,28 @@ export interface CheckboxGroupProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
+/**
+ * CheckBoxGroup Component
+ *
+ * This is a custom checkbox group component that supports various customization options.
+ * It receives several props to handle its behavior and styling.
+ *
+ * @param {Object} CheckboxGroupProps - The properties that define the CheckBoxGroup component.
+ * @returns {JSX.Element} The CheckBoxGroup component.
+ *
+ * @param {boolean} RTL - If true, applies right-to-left styles to the checkbox group.
+ * @param {boolean} border - Adds a border to the checkbox group.
+ * @param {string} checkboxStyle - Determines the style of the checkboxes (e.g., 'square' or 'round').
+ * @param {boolean} disabled - Disables the checkbox group if true.
+ * @param {string} layout - Determines the layout of the checkbox group (e.g., 'horizontal' or 'vertical').
+ * @param {boolean} noUniqueIds - If true, uses the provided ids as is without generating unique ids.
+ * @param {function} onChange - The function to call when the checkbox state changes.
+ * @param {Array} options - The array of CheckboxProps for each checkbox in the group.
+ * @param {string} size - The size of the checkbox group ('sm', 'md', 'lg').
+ */
 const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   options = [],
   disabled,
-  // border,
   layout = 'vertical',
   checkboxStyle = 'square',
   onChange,
@@ -35,6 +53,7 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   RTL = false,
   size = 'sm',
 }) => {
+  // Define the class for the checkbox group wrapper
   const wrapperClass = useMemo(() => {
     return classNames([
       styles.checkbox_group_wrapper,
@@ -44,44 +63,43 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
     ]);
   }, [layout, disabled]);
 
-  const [items, setItems] = React.useState(
-    options
-      ? options.map(option => ({
-          ...(!noUniqueIds ? { id: nanoid() } : { id: option.id }),
-          ...option,
-          isChecked: option.isChecked || false,
-        }))
-      : []
+  // Initialize the state for the checkboxes in the group
+  const [items, setItems] = useState(
+    options.map(option => ({
+      ...(!noUniqueIds ? { id: nanoid() } : { id: option.id }),
+      ...option,
+      isChecked: option.isChecked || false,
+    }))
   );
 
+  // Define the handler for checkbox state change
   const handleChange = useCallback(
     (id?: string, selected = false) => {
       if (!id) {
         return;
       }
 
-      setItems(items => {
-        const _newItems = items.map(item => {
-          return {
-            ...item,
-            isChecked: item.id === id ? selected : !!item.isChecked,
-          };
-        });
+      setItems(prevItems => {
+        const updatedItems = prevItems.map(item => ({
+          ...item,
+          isChecked: item.id === id ? selected : !!item.isChecked,
+        }));
 
         onChange?.(
-          _newItems.map(item => ({
+          updatedItems.map(item => ({
             id: item.id,
             isChecked: item.isChecked,
             name: item.label,
           }))
         );
 
-        return _newItems;
+        return updatedItems;
       });
     },
-    [items.length]
+    [onChange]
   );
 
+  // Render the checkbox group
   return (
     <div className={wrapperClass} role="group">
       {items.map(item => {

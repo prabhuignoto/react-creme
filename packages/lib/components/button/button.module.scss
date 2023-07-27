@@ -7,109 +7,156 @@
 $types: (primary, default, danger);
 $sizes: (sm, md, lg);
 
-.btn {
+// Base button styles
+@mixin baseButtonStyles {
+  // Styles for button without border
   &.no_border {
     border: 0;
     box-shadow: none;
   }
 
+  // Minimum width for buttons without icon
   &:not(.icon) {
     min-width: 50px;
   }
 
+  // Border styles for non-flat and non-dark buttons
   &:not(.flat):not(.dark) {
     @extend %border;
   }
 
+  // Border radius for dark buttons that are not flat
   &.dark:not(.flat) {
     @extend %border-radius;
   }
 
+  // Transition for non-active buttons
   &:not(:active) {
     transition: transform 100ms ease-in;
   }
 
+  // Scale down when button is active and not disabled
   &:active:not(.disabled) {
     transform: scale(0.97);
   }
 }
 
-@each $value in $types {
-  .#{$value} {
-    @extend %button-#{$value};
+.btn {
+  @include baseButtonStyles;
+}
 
-    &.disabled {
-      @extend %disabled;
-      border: 1px solid transparent;
+// Styles for different types of buttons
+@mixin buttonTypes {
+  @each $value in $types {
+    .#{$value} {
+      @extend %button-#{$value};
+
+      // Styles for disabled buttons
+      &.disabled {
+        @extend %disabled;
+        border: 1px solid transparent;
+      }
     }
   }
 }
 
-@each $size in $sizes {
-  .#{$size} {
-    @extend %text-#{$size};
-    @extend %button-#{$size};
+@include buttonTypes;
 
-    .icon_container {
-      @extend %icon-#{$size};
-    }
+// Styles for different sizes of buttons
+@mixin buttonSizes {
+  @each $size in $sizes {
+    .#{$size} {
+      @extend %text-#{$size};
+      @extend %button-#{$size};
 
-    .label {
-      @extend %font-#{$size};
+      // Styles for icon container
+      .icon_container {
+        @extend %icon-#{$size};
+      }
+
+      // Styles for label
+      .label {
+        @extend %font-#{$size};
+      }
     }
   }
 }
 
-.label {
+@include buttonSizes;
+
+// Base label styles
+@mixin baseLabelStyles {
   @extend %text-no-wrap;
   text-transform: capitalize;
 }
 
-@each $size in $sizes {
-  .#{$size} {
-    .label {
-      @extend %font-#{$size};
-    }
+.label {
+  @include baseLabelStyles;
+}
 
-    .icon {
-      @extend %icon-#{$size};
+// Styles for different sizes of labels and icons
+@mixin labelAndIconSizes {
+  @each $size in $sizes {
+    .#{$size} {
+      .label {
+        @extend %font-#{$size};
+      }
+
+      .icon {
+        @extend %icon-#{$size};
+      }
     }
   }
 }
 
-.icon {
+@include labelAndIconSizes;
+
+// Base icon styles
+@mixin baseIconStyles {
   border-radius: 50%;
 
+  // Styles for disabled icon
   &.disabled {
     @extend %disabled;
   }
 
+  // Background color for non-disabled and non-dark icons
   &:not(.disabled):not(.dark) {
     background: theme.$light-bg;
   }
 
+  // Hover styles for non-disabled and non-dark icons
   &:hover:not(.disabled):not(.dark) {
     background: theme.$primary;
     color: theme.$white;
   }
 
+  // Background color for dark icons that are not disabled
   &.dark:not(.disabled) {
     background: theme.$dark-control-bg;
   }
 
+  // Hover styles for dark icons that are not disabled
   &:hover.dark:not(.disabled) {
     background: theme.$primary;
   }
 
+  // Color for SVG inside dark icons on hover
   &:hover.dark:not(.disabled) svg {
     color: theme.$white;
   }
 }
 
+.icon {
+  @include baseIconStyles;
+}
+
+// Styles for label when it follows an icon container
 .icon_container + .label {
   margin-left: 0.25rem;
 }
 
+// Styles for progress wrapper
 .progress_wrapper {
   margin-right: 0.5rem;
 }

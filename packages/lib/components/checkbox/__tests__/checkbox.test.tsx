@@ -49,4 +49,36 @@ describe('Checkbox', () => {
 
     expect(getByRole('checkbox')).toHaveAttribute('aria-checked', 'true');
   });
+
+  // Test if the checkbox is unchecked by default when the `isChecked` prop is not provided
+  it('should be unchecked by default if isChecked prop is not provided', async () => {
+    const { getByRole } = render(<CheckBox label="My Checkbox" />);
+
+    expect(getByRole('checkbox')).toHaveAttribute('aria-checked', 'false');
+  });
+
+  // Test if the `onChange` handler is not called when the checkbox is disabled and clicked
+  it('should not call the handler if the checkbox is disabled', async () => {
+    const callback = vi.fn();
+    const { getByRole } = render(
+      <CheckBox label="My Checkbox" onChange={callback} disabled />
+    );
+
+    fireEvent.click(getByRole('checkbox'));
+
+    expect(callback).not.toBeCalled();
+  });
+
+  // Test if the checkbox is not focusable when the `focusable` prop is `false` or not provided
+  it('should not be focusable if focusable prop is false or not provided', async () => {
+    const { getByRole, rerender } = render(
+      <CheckBox label="My Checkbox" focusable={false} />
+    );
+
+    expect(getByRole('checkbox')).not.toHaveAttribute('tabindex', '0');
+
+    rerender(<CheckBox label="My Checkbox" focusable={false} />);
+
+    expect(getByRole('checkbox')).not.toHaveAttribute('tabindex', '0');
+  });
 });
