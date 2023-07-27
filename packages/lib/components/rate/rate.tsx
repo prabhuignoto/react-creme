@@ -1,13 +1,32 @@
 import { RateIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { RateItem } from './rate-item';
 import { RateItemProps, RateProps } from './rate-model';
 import styles from './rate.module.scss';
 
+/**
+ * Rate Component
+ *    @property {boolean} focusable - Whether the rate is focusable (default: true).
+ *    @property {React.ReactElement} icon - The custom icon to use for the rate items.
+ *    @property {number} iconCount - The total number of rate items (default: 5).
+ *    @property {Function} onChange - Callback function called when the rate value changes.
+ *    @property {Array} ratingValues - An array of custom rating values (optional).
+ *    @property {string} size - The size of the rate items ('sm', 'md', or 'lg', default: 'sm').
+ *    @property {number} value - The current rate value (default: 0).
+ *    @property {boolean} disabled - Whether the rate is disabled (default: false).
+ *    @property {boolean} RTL - Whether the layout is right-to-left (default: false).
+ * @returns {JSX.Element} The Rate component.
+ */
 const Rate: React.FunctionComponent<RateProps> = ({
   focusable = true,
   icon,
@@ -19,7 +38,8 @@ const Rate: React.FunctionComponent<RateProps> = ({
   disabled = false,
   RTL = false,
 }) => {
-  const [items, setItems] = React.useState<RateItemProps[]>(
+  // State to manage the rate items (active and hovered states)
+  const [items, setItems] = useState<RateItemProps[]>(
     Array.from({ length: iconCount }).map(() => ({
       active: false,
       hovered: false,
@@ -27,27 +47,34 @@ const Rate: React.FunctionComponent<RateProps> = ({
     }))
   );
 
-  const lastSelectedIndex = React.useRef<number>(-1);
-  const lastHoverIndex = React.useRef<number>(-1);
+  // Refs to keep track of last selected and hovered index
+  const lastSelectedIndex = useRef<number>(-1);
+  const lastHoverIndex = useRef<number>(-1);
 
-  const [selectedIndex, setSelectedIndex] = React.useState<number>(
+  // State to manage the currently selected and hovered index
+  const [selectedIndex, setSelectedIndex] = useState<number>(
     value ? value - 1 : -1
   );
-  const [hoverIndex, setHoverIndex] = React.useState<number>(-1);
+  const [hoverIndex, setHoverIndex] = useState<number>(-1);
 
-  const handleSelection = useCallback((idx: number) => {
-    setSelectedIndex(idx);
-    lastSelectedIndex.current = idx;
+  // Function to handle rate item selection
+  const handleSelection = useCallback(
+    (idx: number) => {
+      setSelectedIndex(idx);
+      lastSelectedIndex.current = idx;
 
-    if (!onChange) return;
+      if (!onChange) return;
 
-    if (ratingValues.length) {
-      onChange(ratingValues[idx]);
-    } else {
-      onChange(idx + 1);
-    }
-  }, []);
+      if (ratingValues.length) {
+        onChange(ratingValues[idx]);
+      } else {
+        onChange(idx + 1);
+      }
+    },
+    [onChange, ratingValues]
+  );
 
+  // Debounced functions to handle rate item hover and leave
   const handleHover = useDebouncedCallback((idx: number) => {
     if (!disabled) {
       setHoverIndex(idx);
@@ -64,6 +91,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
     }
   }, 10);
 
+  // Effect to update the active state of rate items when the selected index changes
   useEffect(() => {
     setItems(prev =>
       prev.map((item, index) => ({
@@ -73,6 +101,8 @@ const Rate: React.FunctionComponent<RateProps> = ({
     );
   }, [selectedIndex]);
 
+  // Effect to update the hovered state of rate items when the hover index changes
+  const isFirstRender = useFirstRender();
   useEffect(() => {
     if (!isFirstRender.current) {
       setItems(prev =>
@@ -84,14 +114,13 @@ const Rate: React.FunctionComponent<RateProps> = ({
     }
   }, [hoverIndex]);
 
-  const isFirstRender = useFirstRender();
-
+  // Calculate the class for the rate wrapper based on disabled and RTL status
   const rateWrapperClass = useMemo(() => {
     return classNames(styles.wrapper, {
       [styles.disabled]: disabled,
       [styles.rtl]: RTL,
     });
-  }, [disabled]);
+  }, [disabled, RTL]);
 
   return (
     <ul
@@ -99,23 +128,21 @@ const Rate: React.FunctionComponent<RateProps> = ({
       role="radiogroup"
       onMouseLeave={handleLeave}
     >
-      {items.map(({ id, active, hovered }, index) => {
-        return (
-          <RateItem
-            key={id}
-            active={active}
-            hovered={hovered}
-            icon={icon || <RateIcon />}
-            id={id}
-            index={index}
-            onSelect={handleSelection}
-            onMouseOver={handleHover}
-            size={size}
-            focusable={focusable}
-            disabled={disabled}
-          />
-        );
-      })}
+      {items.map(({ id, active, hovered }, index) => (
+        <RateItem
+          key={id}
+          active={active}
+          hovered={hovered}
+          icon={icon || <RateIcon />}
+          id={id}
+          index={index}
+          onSelect={handleSelection}
+          onMouseOver={handleHover}
+          size={size}
+          focusable={focusable}
+          disabled={disabled}
+        />
+      ))}
     </ul>
   );
 };
