@@ -17,15 +17,15 @@ $heights: (
   lg: 45px,
 );
 
-.wrapper {
+// Base wrapper styles
+@mixin baseWrapperStyles {
   @extend %left;
   align-items: center;
   cursor: pointer;
   display: grid;
   height: 100%;
   justify-items: center;
-  padding: 0.25rem 0;
-  padding: 0 0.5rem;
+  padding: 0.25rem 0.5rem;
   width: 100%;
 
   &.rtl {
@@ -47,25 +47,42 @@ $heights: (
   }
 }
 
-.border {
+.wrapper {
+  @include baseWrapperStyles;
+}
+
+// Border styles
+@mixin borderStyles {
   &:not(.dark) {
     @extend %border;
   }
 }
 
-.hover:hover {
-  @extend %border-radius;
+.border {
+  @include borderStyles;
+}
 
-  &.dark {
-    background-color: theme.$dark-hover;
-  }
+// Hover styles
+@mixin hoverStyles {
+  &:hover {
+    @extend %border-radius;
 
-  &:not(.dark) {
-    background: rgba(theme.$secondary-rgb, 0.25);
+    &.dark {
+      background-color: theme.$dark-hover;
+    }
+
+    &:not(.dark) {
+      background: rgba(theme.$secondary-rgb, 0.25);
+    }
   }
 }
 
-.checkbox {
+.hover {
+  @include hoverStyles;
+}
+
+// Base checkbox styles
+@mixin baseCheckboxStyles {
   @extend %left;
   user-select: none;
   z-index: 1;
@@ -79,7 +96,12 @@ $heights: (
   }
 }
 
-.icon {
+.checkbox {
+  @include baseCheckboxStyles;
+}
+
+// Base icon styles
+@mixin baseIconStyles {
   @extend %border-primary;
   transition: background 0.1s linear;
 
@@ -109,7 +131,12 @@ $heights: (
   }
 }
 
-.label {
+.icon {
+  @include baseIconStyles;
+}
+
+// Base label styles
+@mixin baseLabelStyles {
   @extend %text-no-wrap;
   cursor: pointer;
   display: block;
@@ -132,10 +159,19 @@ $heights: (
   }
 }
 
-@each $size in $sizes {
-  .#{$size} {
-    &.icon {
-      @extend %icon-#{$size};
+.label {
+  @include baseLabelStyles;
+}
+
+// Styles for different sizes of icons
+@mixin iconSizes {
+  @each $size in $sizes {
+    .#{$size} {
+      &.icon {
+        @extend %icon-#{$size};
+      }
     }
   }
 }
+
+@include iconSizes;

@@ -92,4 +92,65 @@ describe('CheckboxGroup', () => {
       expect(handler).toHaveBeenCalled();
     });
   });
+
+  // 1. Test if the checkbox group can handle an empty array of options
+  it('should handle empty options', () => {
+    const { queryByRole } = render(<CheckBoxGroup options={[]} />);
+
+    expect(queryByRole('group')).toBeInTheDocument();
+    expect(queryByRole('checkbox')).toBeNull();
+  });
+
+  // 2. Test if the `onChange` handler is not called when a disabled checkbox is clicked
+  it('should not call the handler if the checkbox is disabled', async () => {
+    const handler = vi.fn();
+    const { getAllByRole } = render(
+      <CheckBoxGroup options={options} onChange={handler} />
+    );
+
+    fireEvent.click(getAllByRole('checkbox')[2]);
+
+    await waitFor(() => {
+      expect(handler).not.toBeCalled();
+    });
+  });
+
+  // 3. Test if the `onChange` handler is called with the correct arguments
+  it('should call the handler with the correct arguments', async () => {
+    const handler = vi.fn();
+    const { getAllByRole } = render(
+      <CheckBoxGroup
+        options={[
+          {
+            id: '1',
+            isChecked: false,
+            label: 'Option 1',
+          },
+          {
+            id: '2',
+            isChecked: true,
+            label: 'Option 2',
+          },
+        ]}
+        onChange={handler}
+      />
+    );
+
+    fireEvent.click(getAllByRole('checkbox')[0]);
+
+    await waitFor(() => {
+      expect(handler).toBeCalledWith([
+        {
+          id: '1',
+          isChecked: true,
+          name: 'Option 1',
+        },
+        {
+          id: '2',
+          isChecked: true,
+          name: 'Option 2',
+        },
+      ]);
+    });
+  });
 });
