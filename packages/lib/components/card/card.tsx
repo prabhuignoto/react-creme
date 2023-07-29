@@ -11,7 +11,6 @@ import { useMemo } from 'react';
  *
  * @component
  *
- * @param {object} props - The component's props
  * @param {'left'|'right'|'center'} props.alignFooter - The alignment of the footer. Default is 'left'.
  * @param {'left'|'right'|'center'} props.alignHeader - The alignment of the header. Default is 'left'.
  * @param {boolean} props.border - Determines whether the card has a border. Default is false.

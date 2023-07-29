@@ -13,7 +13,6 @@ import styles from './button.module.scss';
  *
  * @component
  *
- * @param {object} props - The component's props
  * @param {boolean} props.border - Determines whether the button has a border. Default is true.
  * @param {ReactNode} props.children - The content inside the button. Can be text or an element.
  * @param {boolean} props.disabled - Determines whether the button is disabled. Default is false.

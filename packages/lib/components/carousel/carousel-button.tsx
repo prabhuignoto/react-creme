@@ -10,13 +10,6 @@ import { Button } from '../button/button';
 import { CarouselButtonProps } from './carousel-model';
 import styles from './carousel.module.scss';
 
-/**
- * CarouselButton is a React Function Component for displaying the next and previous buttons of the carousel.
- * It receives several props to handle its behavior and styling.
- *
- * @param {Object} CarouselButtonProps - The properties that define the CarouselButton component.
- * @returns {JSX.Element} The CarouselButton component.
- */
 const CarouselButton: React.FunctionComponent<CarouselButtonProps> = ({
   onClick,
   position = 'left',

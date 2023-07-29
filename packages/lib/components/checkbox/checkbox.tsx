@@ -11,7 +11,6 @@ import styles from './checkbox.module.scss';
  * CheckBox is a React Function Component for displaying a custom checkbox with various customization options.
  * It receives several props to handle its behavior and styling.
  *
- * @param {Object} CheckboxProps - The properties that define the CheckBox component.
  * @returns {JSX.Element} The CheckBox component.
  *
  * @param {boolean} autoHeight - Adjusts the height of the checkbox automatically.

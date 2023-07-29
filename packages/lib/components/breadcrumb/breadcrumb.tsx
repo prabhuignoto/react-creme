@@ -17,7 +17,6 @@ interface BreadCrumbItemModel {
  *
  * A list of links that help indicate the current page's location in the app navigation hierarchy.
  *
- * @param {object} props - Properties passed down from parent
  * @param {ReactNode} props.children - React nodes for the breadcrumb's content
  * @param {function} props.onSelected - Callback to handle selection events
  * @param {string} props.icon - The icon type for the breadcrumbs

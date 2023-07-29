@@ -1,53 +1,45 @@
-import { RefObject, useEffect, useRef } from 'react';
+import { RefObject, useEffect } from 'react';
 
 interface Settings {
   rowGap: number;
 }
 
+// Define the hook
 const useSortable: (
   ref: RefObject<HTMLElement>,
   settings?: Settings
-) => void = ref => {
-  const totalItems = useRef<number>(0);
-
-  const parentRef = useRef<HTMLElement | null>(null);
-
+) => void = (ref, settings = { rowGap: 0 }) => {
   useEffect(() => {
     const node = ref.current;
 
+    // Ensure the node exists
     if (node) {
-      parentRef.current = node;
-
       const items = Array.from(
         node?.querySelectorAll(':scope > *')
       ) as HTMLElement[];
 
-      if (node && items?.length) {
-        totalItems.current = items.length;
+      // Check if the node has any child elements
+      if (items?.length) {
+        const totalHeight = items.reduce(
+          (a, b) => a + b.clientHeight + settings.rowGap,
+          0
+        );
 
-        node.style.cssText +=
-          ';' +
-          `
-          position: relative;
-          height: ${items.reduce((a, b) => a + b.clientHeight, 0)}px;
-          border: 1px solid red;
-          `;
+        // Modify parent styles
+        node.style.cssText += `;position: relative;height: ${totalHeight}px;border: 1px solid red;`;
 
+        // Adjust each child item's position
         items.forEach((item, index) => {
-          const ele = item as HTMLElement;
-          ele.style.position = 'absolute';
+          const accumulatedHeight = items
+            .slice(0, index)
+            .reduce((a, b) => a + b.clientHeight + settings.rowGap, 0);
 
-          if (index > 0) {
-            ele.style.top = `${items
-              .slice(0, index)
-              .reduce((a, b) => a + b.clientHeight, 0)}px`;
-          } else {
-            ele.style.top = '0px';
-          }
+          item.style.position = 'absolute';
+          item.style.top = `${accumulatedHeight}px`;
         });
       }
     }
-  }, [ref]);
+  }, [ref, settings]);
 };
 
 export default useSortable;
