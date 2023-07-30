@@ -19,7 +19,7 @@ export type TabHeadProps = Pick<
   icon?: ReactNode;
 
   // unique id
-  id: string;
+  id?: string;
 
   // name of the tab head
   name?: string;

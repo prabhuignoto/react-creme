@@ -1,59 +1,58 @@
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { expect, describe, it } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Tabs } from '../tabs';
 
-describe('Tabs', () => {
-  it('should render tabs', () => {
-    const { getByRole } = render(
-      <Tabs labels={['one', 'two', 'three']}>
-        <span>one content</span>
-        <span>two content</span>
-        <span>three content</span>
-      </Tabs>
-    );
+describe('<Tabs />', () => {
+  const labels = ['Tab1', 'Tab2', 'Tab3'];
+  const children = [
+    <div key="1">Content 1</div>,
+    <div key="2">Content 2</div>,
+    <div key="3">Content 3</div>,
+  ];
 
-    expect(getByRole('tablist')).toBeInTheDocument();
-  });
+  it('renders correctly', () => {
+    render(<Tabs labels={labels} children={children} />);
 
-  it('should render tab content on selection', async () => {
-    const { getByText } = render(
-      <Tabs labels={['one', 'two', 'three']}>
-        <span>one content</span>
-        <span>two content</span>
-        <span>three content</span>
-      </Tabs>
-    );
-
-    expect(getByText('one content')).toBeInTheDocument();
-
-    fireEvent.click(getByText('two'));
-
-    await waitFor(async () => {
-      expect(getByText('two')).toBeInTheDocument();
+    // Check if all labels are present
+    labels.forEach(label => {
+      expect(screen.getByText(label)).toBeVisible();
     });
+
+    // Check if the first tab's content is rendered
+    expect(screen.getByText('Content 1')).toBeVisible();
+
+    // Check if other tabs' content is not rendered
+    expect(screen.queryByText('Content 2')).toBeNull();
+    expect(screen.queryByText('Content 3')).toBeNull();
   });
 
-  it('should render snapshot', () => {
-    const { getByRole } = render(
-      <Tabs labels={['one', 'two', 'three']}>
-        <span>one content</span>
-        <span>two content</span>
-        <span>three content</span>
-      </Tabs>
-    );
+  it('handles tab selection', () => {
+    render(<Tabs labels={labels} children={children} />);
 
-    expect(getByRole('tablist')).toMatchSnapshot();
+    // Select the second tab
+    fireEvent.click(screen.getByText('Tab2'));
+
+    // Check if the second tab's content is rendered
+    expect(screen.getByText('Content 2')).toBeVisible();
+
+    // Check if other tabs' content is not rendered
+    expect(screen.queryByText('Content 1')).toBeNull();
+    expect(screen.queryByText('Content 3')).toBeNull();
   });
 
-  it('should render a specific tab on load', () => {
-    const { getByText, queryByText } = render(
-      <Tabs labels={['one', 'two', 'three']} activeTab="two">
-        <span>one content</span>
-        <span>two content</span>
-        <span>three content</span>
-      </Tabs>
-    );
+  it('handles keyboard navigation', () => {
+    render(<Tabs labels={labels} children={children} />);
 
-    expect(getByText('two content')).toBeInTheDocument();
-    expect(queryByText('three content')).not.toBeInTheDocument();
+    // Navigate to the second tab with the right arrow key
+    fireEvent.keyDown(screen.getByText('Tab1'), { key: 'ArrowRight' });
+
+    // Check if the second tab's content is rendered
+    expect(screen.getByText('Content 2')).toBeVisible();
+
+    // Navigate back to the first tab with the left arrow key
+    fireEvent.keyDown(screen.getByText('Tab2'), { key: 'ArrowLeft' });
+
+    // Check if the first tab's content is rendered
+    expect(screen.getByText('Content 1')).toBeVisible();
   });
 });
