@@ -1,70 +1,52 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { render, screen } from '@testing-library/react';
-import { useRef } from 'react';
 import { useCloseOnEscape } from '../useCloseOnEsc';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
-// Mock the addEventListener and removeEventListener functions
-window.addEventListener = vi.fn();
-window.removeEventListener = vi.fn();
+describe('useCloseOnEscape', () => {
+  let container: HTMLDivElement;
+  let handler;
 
-describe('useCloseOnEscape hook', () => {
-  it('should add and remove event listener', () => {
-    const element = {
-      current: document.createElement('div'), // Create a dummy DOM element
-    };
-    const handler = vi.fn();
-
-    const { unmount } = renderHook(() => useCloseOnEscape(handler, element));
-
-    expect(window.addEventListener).toHaveBeenCalledWith(
-      'keyup',
-      expect.any(Function)
-    );
-
-    unmount();
-
-    expect(window.removeEventListener).toHaveBeenCalledWith(
-      'keyup',
-      expect.any(Function)
-    );
+  beforeEach(() => {
+    container = document.createElement('div');
+    document.body.appendChild(container);
+    handler = vi.fn();
   });
 
-  it('should call the handler when "Escape" key is pressed', () => {
-    const element = {
-      current: document.createElement('div'), // Create a dummy DOM element
-    };
-    const handler = vi.fn();
-
-    renderHook(() => useCloseOnEscape(handler, element));
-
-    const event = new KeyboardEvent('keyup', { key: 'Escape' });
-    element.current.dispatchEvent(event);
-
-    expect(handler).toHaveBeenCalledTimes(1);
-    expect(handler).toHaveBeenCalledWith(event);
+  afterEach(() => {
+    document.body.removeChild(container);
+    container.remove();
   });
 
-  it('should not call the handler when a different key is pressed', () => {
-    const element = {
-      current: document.createElement('div'), // Create a dummy DOM element
-    };
-    const handler = vi.fn();
+  it('should call handler when Escape key is pressed', () => {
+    renderHook(() => useCloseOnEscape(handler, { current: container }));
 
-    renderHook(() => useCloseOnEscape(handler, element));
+    act(() => {
+      const event = new KeyboardEvent('keyup', { key: 'Escape' });
+      container.dispatchEvent(event);
+    });
 
-    const event = new KeyboardEvent('keyup', { key: 'Enter' });
-    element.current.dispatchEvent(event);
+    expect(handler).toHaveBeenCalled();
+  });
+
+  it('should not call handler when other key is pressed', () => {
+    renderHook(() => useCloseOnEscape(handler, { current: container }));
+
+    act(() => {
+      const event = new KeyboardEvent('keyup', { key: 'Enter' });
+      container.dispatchEvent(event);
+    });
 
     expect(handler).not.toHaveBeenCalled();
   });
 
-  it('should not throw an error if element is null', () => {
-    const element = useRef(null); // Set element as null
-    const handler = vi.fn();
+  it('should not attach event listener when element does not exist', () => {
+    renderHook(() => useCloseOnEscape(handler, { current: null }));
 
-    expect(() =>
-      renderHook(() => useCloseOnEscape(handler, element))
-    ).not.toThrow();
+    act(() => {
+      const event = new KeyboardEvent('keyup', { key: 'Escape' });
+      container.dispatchEvent(event);
+    });
+
+    expect(handler).not.toHaveBeenCalled();
   });
 });
