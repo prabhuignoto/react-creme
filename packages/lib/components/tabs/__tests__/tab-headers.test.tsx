@@ -1,5 +1,4 @@
-import { fireEvent, render, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render } from '@testing-library/react';
 import { TabHeaders } from '../tab-headers';
 import { vi, describe, expect, it } from 'vitest';
 
