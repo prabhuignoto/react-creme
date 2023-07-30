@@ -12,7 +12,6 @@ const getClassNames = classNames;
  *
  * @component
  *
- * @param {object} props - The component's props
  * @param {'sm'|'md'|'lg'} props.size - The size of the avatar (small by default)
  * @param {ReactNode} props.children - The content to be rendered inside the avatar
  * @param {string} props.letter - The letter to be displayed when no children are provided

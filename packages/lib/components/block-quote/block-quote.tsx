@@ -15,7 +15,6 @@ export interface BlockQuoteProps {
  *
  * @component
  *
- * @param {object} props - The component's props
  * @param {ReactNode} props.children - The content to be rendered inside the blockquote
  * @param {boolean} props.showInfoIcon - Determines if the InfoIcon should be displayed (default: true)
  * @param {'sm'|'md'|'lg'} props.size - The size of the blockquote (small by default)

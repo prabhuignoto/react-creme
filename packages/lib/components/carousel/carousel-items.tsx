@@ -7,13 +7,7 @@ import React, { CSSProperties, ReactNode, useMemo } from 'react';
 import { CarouselItemsProps } from './carousel-model';
 import styles from './carousel.module.scss';
 
-/**
- * CarouselItems is a React Function Component for displaying the items of the carousel.
- * It receives several props to handle its behavior and styling.
- *
- * @param {Object} CarouselItemsProps - The properties that define the CarouselItems component.
- * @returns {JSX.Element} The CarouselItems component.
- */
+
 const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
   activePage = 0,
   carouselItems,

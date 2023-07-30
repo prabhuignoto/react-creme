@@ -30,8 +30,6 @@ export interface CheckboxGroupProps {
  * This is a custom checkbox group component that supports various customization options.
  * It receives several props to handle its behavior and styling.
  *
- * @param {Object} CheckboxGroupProps - The properties that define the CheckBoxGroup component.
- * @returns {JSX.Element} The CheckBoxGroup component.
  *
  * @param {boolean} RTL - If true, applies right-to-left styles to the checkbox group.
  * @param {boolean} border - Adds a border to the checkbox group.
@@ -42,6 +40,8 @@ export interface CheckboxGroupProps {
  * @param {function} onChange - The function to call when the checkbox state changes.
  * @param {Array} options - The array of CheckboxProps for each checkbox in the group.
  * @param {string} size - The size of the checkbox group ('sm', 'md', 'lg').
+ *
+ * @returns {JSX.Element} The CheckBoxGroup component.
  */
 const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   options = [],

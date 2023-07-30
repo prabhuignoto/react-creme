@@ -11,7 +11,6 @@ import styles from './scroll-spy.module.scss';
 
 /**
  * ScrollSpy Component
- * @param {Object} ScrollSpyProps - The properties that define the ScrollSpy component.
  *    @property {string[]} links - The list of scroll spy links to display in the side menu.
  *    @property {React.ReactNode | React.ReactNode[]} children - The content to be displayed in the scroll spy sections.
  *    @property {string} linksPosition - The position of the side menu links ('left' or 'right').

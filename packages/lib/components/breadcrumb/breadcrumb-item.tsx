@@ -11,7 +11,6 @@ import styles from './breadcrumb.module.scss';
  *
  * An individual breadcrumb item, which consists of a link and an optional icon.
  *
- * @param {object} props - Properties passed down from parent
  * @param {string} props.id - Unique identifier for the breadcrumb item
  * @param {function} props.onSelected - Callback to handle selection events
  * @param {boolean} props.showChevron - Flag to control the display of chevron icon
