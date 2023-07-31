@@ -4,6 +4,18 @@ import useFocusNew from '../common/effects/useFocusNew';
 import styles from './menu-item.module.scss';
 import { MenuItemProps } from './menu-model';
 
+/**
+ * MenuItem Component
+ *    @property {boolean} disabled - Whether the menu item is disabled.
+ *    @property {string} name - The name of the menu item.
+ *    @property {boolean} isDivider - Whether the menu item is a divider.
+ *    @property {(name: string) => void} handleSelection - Function to handle menu item selection.
+ *    @property {boolean} focus - Whether the menu item is focused.
+ *    @property {string} size - The size of the menu item.
+ *    @property {boolean} isDark - Whether the menu item is in dark mode.
+ *    @property {boolean} RTL - Whether the menu item is right-to-left.
+ * @returns {JSX.Element} The MenuItem component.
+ */
 const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
   ({
     disabled,
@@ -26,13 +38,16 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
       [focus]
     );
 
-    const handleClick = useCallback((ev: React.MouseEvent) => {
-      ev.preventDefault();
-      ev.stopPropagation();
-      if (!disabled && name) {
-        handleSelection?.(name);
-      }
-    }, []);
+    const handleClick = useCallback(
+      (ev: React.MouseEvent) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (!disabled && name) {
+          handleSelection?.(name);
+        }
+      },
+      [disabled, name, handleSelection]
+    );
 
     const menuItemClass = useMemo(
       () =>
@@ -43,7 +58,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
           [styles[size]]: true,
           [styles.rtl]: RTL,
         }),
-      [isDark]
+      [disabled, isDivider, isDark, size, RTL]
     );
 
     useEffect(() => {

@@ -12,6 +12,17 @@ export type MenuOverlayProps = Partial<HTMLUListElement> & {
   element: HTMLUListElement | null;
 };
 
+/**
+ * MenuContainer Component
+ *    @property {MenuItemProps[]} items - The items of the menu.
+ *    @property {(name: string) => void} onSelection - Function to handle menu selection.
+ *    @property {boolean} focusable - Whether the menu is focusable.
+ *    @property {string} size - The size of the menu.
+ *    @property {string} dockPosition - The dock position of the menu.
+ *    @property {boolean} hideArrow - Whether to hide the arrow of the menu.
+ *    @property {boolean} RTL - Whether the menu is right-to-left.
+ * @returns {JSX.Element} The MenuContainer component.
+ */
 const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
   (
     {
@@ -28,9 +39,6 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
     const listRef = useRef<HTMLUListElement | null>(null);
     const isDarkMode = useMemo(() => isDark(), []);
 
-    /**
-     * Handle key navigation
-     */
     const { selection, setSelection } = useKeyNavigation(
       listRef,
       -1,
@@ -47,29 +55,21 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
           [styles.dark]: isDarkMode,
           [styles.arrow]: !hideArrow,
         }),
-      [isDarkMode]
+      [size, dockPosition, isDarkMode, hideArrow]
     );
 
-    /**
-     * Imperative handle for managing focus
-     */
-    useImperativeHandle(ref, () => {
-      return {
-        element: listRef.current,
-        focus: () => {
-          listRef.current?.focus();
-        },
-      };
-    });
+    useImperativeHandle(ref, () => ({
+      element: listRef.current,
+      focus: () => {
+        listRef.current?.focus();
+      },
+    }));
 
-    /**
-     * Sets the focus on the first item on load
-     */
     useEffect(() => {
       if (focusable) {
         setSelection(0);
       }
-    }, []);
+    }, [focusable, setSelection]);
 
     return (
       <ul className={menuClass} role="menu" ref={listRef} tabIndex={0}>

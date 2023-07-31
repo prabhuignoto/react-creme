@@ -3,12 +3,19 @@
 @use '@design/animate.scss';
 @use '@design/theme.scss';
 
-.wrapper {
-  @extend %center;
-  height: 100%;
-  position: relative;
+$dark-control-bg: theme.$dark-control-bg;
+$gunmetal-gray: theme.$gunmetal-gray;
+$white: theme.$white;
+
+@mixin menu-theme($bg, $arrow) {
+  background: $bg;
+
+  &::after {
+    border-bottom: 10px solid $arrow;
+  }
 }
 
+.wrapper,
 .content_wrapper {
   @extend %center;
   height: 100%;
@@ -16,9 +23,7 @@
 }
 
 .menu {
-  @extend %list;
-  @extend %border-radius;
-  @extend %col;
+  @extend %list, %border-radius, %col;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   min-width: 150px;
   outline: none;
@@ -26,32 +31,29 @@
   position: relative;
 
   &.dark {
-    background: theme.$dark-control-bg;
+    @include menu-theme($dark-control-bg, $gunmetal-gray);
   }
 
   &:not(.dark) {
-    background: theme.$white;
-  }
-
-  &.dark::after {
-    border-bottom: 10px solid theme.$gunmetal-gray;
-  }
-
-  &:not(.dark)::after {
-    border-bottom: 10px solid theme.$white;
+    @include menu-theme($white, $white);
   }
 }
 
-.left {
-  &.arrow::after {
-    left: 1rem;
-  }
+.left.arrow::after,
+.right.arrow::after {
+  position: absolute;
+  top: -10px;
+  content: '';
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
 }
 
-.right {
-  &.arrow::after {
-    right: 1rem;
-  }
+.left.arrow::after {
+  left: 1rem;
+}
+
+.right.arrow::after {
+  right: 1rem;
 }
 
 .overlay_wrapper {

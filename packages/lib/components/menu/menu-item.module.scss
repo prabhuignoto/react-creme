@@ -3,6 +3,20 @@
 @use '@design/theme.scss';
 
 $sizes: (sm, md, lg);
+$white: theme.$white;
+$black: theme.$black;
+$chinese-black: theme.$chinese-black;
+$light-bg: theme.$light-bg;
+$primary: theme.$primary;
+
+@mixin item-theme($color, $bg: null) {
+  color: $color;
+
+  &:hover {
+    background: $bg;
+    cursor: pointer;
+  }
+}
 
 .item {
   height: 35px;
@@ -24,11 +38,11 @@ $sizes: (sm, md, lg);
   }
 
   &.dark {
-    color: theme.$white;
+    @include item-theme($white, $chinese-black);
   }
 
   &:not(.dark) {
-    color: theme.$black;
+    @include item-theme($black, $light-bg);
   }
 
   &.rtl {
@@ -37,20 +51,6 @@ $sizes: (sm, md, lg);
 
   &:not(.rtl) {
     @extend %list-item-left;
-  }
-}
-
-.item:hover {
-  cursor: pointer;
-
-  &.dark {
-    background: theme.$chinese-black;
-    color: theme.$white;
-  }
-
-  &:not(.dark) {
-    background: theme.$light-bg;
-    color: theme.$primary;
   }
 }
 

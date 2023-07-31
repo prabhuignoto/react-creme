@@ -6,18 +6,43 @@
 @use '@design/animate.scss';
 
 $sizes: (sm, md, lg);
+$chinese-black: theme.$chinese-black;
+$secondary-rgb: theme.$secondary-rgb;
+$white: theme.$white;
+$black: theme.$black;
+$dark-control-bg: theme.$dark-control-bg;
+$primary: theme.$primary;
+$secondary: theme.$secondary;
+
+@mixin item-theme($color, $bg: null, $border: null) {
+  color: $color;
+
+  // &:not(:last-child)::after {
+  //   content: '';
+  //   display: block;
+  //   height: 75%;
+  //   position: absolute;
+  //   width: 1px;
+  //   background: $border;
+  //   right: 0;
+  // }
+
+  &:hover {
+    background: $bg;
+    border-radius: 2px;
+  }
+}
 
 .wrapper {
-  @extend %border-radius;
-  @extend %list-horizontal-left;
+  @extend %border-radius, %list-horizontal-left;
   width: 100%;
 
   &.dark {
-    background: theme.$chinese-black;
+    background: $chinese-black;
   }
 
   &:not(.dark) {
-    background: rgba(theme.$secondary-rgb, 0.25);
+    background: rgba($secondary-rgb, 0.25);
   }
 
   &.right_aligned {
@@ -33,93 +58,40 @@ $sizes: (sm, md, lg);
   position: relative;
 
   &.dark {
-    color: theme.$white;
+    @include item-theme($white, $primary, $dark-control-bg);
   }
 
   &:not(.dark) {
-    color: theme.$black;
-  }
-
-  &:not(:last-child)::after {
-    content: '';
-    display: block;
-    height: 75%;
-    position: absolute;
-    width: 1px;
-  }
-}
-
-.item.dark {
-  &:not(:last-child):not(.rtl)::after {
-    background: theme.$dark-control-bg;
-    right: -1px;
-  }
-
-  &:not(:last-child).rtl::after {
-    background: theme.$dark-control-bg;
-    left: -1px;
-  }
-
-  &:hover {
-    background: theme.$primary;
-    border-radius: 2px;
-  }
-}
-
-.item:not(.dark) {
-  &:not(:last-child):not(.rtl) {
-    border-right: 1px solid rgba(theme.$secondary-rgb, 0.5);
-  }
-
-  &:not(:last-child).rtl {
-    border-left: 1px solid rgba(theme.$secondary-rgb, 0.5);
-  }
-
-  &:hover {
-    background-color: theme.$secondary;
-    border-radius: 2px;
+    @include item-theme($black, $secondary, rgba($secondary-rgb, 0.5));
   }
 }
 
 .item.active {
-  color: theme.$white;
+  color: $white;
+  background-color: $primary;
+}
 
-  &.dark {
-    background-color: theme.$primary;
-  }
-
-  &:not(.dark) {
-    background-color: theme.$primary;
-    color: theme.$white;
+.name,
+.icon,
+.chevron_icon {
+  @each $size in $sizes {
+    &.#{$size} {
+      @extend %text-#{$size}, %icon-#{$size};
+    }
   }
 }
 
 .name {
   @extend %center;
+  margin-left: 0.5rem;
 
   &.rtl {
     margin-right: 0.5rem;
-  }
-
-  &:not(.rtl) {
-    margin-left: 0.5rem;
-  }
-
-  @each $size in $sizes {
-    &.#{$size} {
-      @extend %text-#{$size};
-    }
   }
 }
 
 .icon {
   margin-left: 0.5rem;
-
-  @each $size in $sizes {
-    &.#{$size} {
-      @extend %icon-#{$size};
-    }
-  }
 }
 
 .chevron_icon {
@@ -135,18 +107,10 @@ $sizes: (sm, md, lg);
   @include animate.set-keyframes(rotate, $animation-settings);
   @include animate.set-keyframes(rotate-reverse, $animation-settings, true);
 
+  margin-left: auto;
+
   &.rtl {
     margin-right: auto;
-  }
-
-  &:not(.rtl) {
-    margin-left: auto;
-  }
-
-  @each $size in $sizes {
-    &.#{$size} {
-      @extend %icon-#{$size};
-    }
   }
 
   &.rotate {

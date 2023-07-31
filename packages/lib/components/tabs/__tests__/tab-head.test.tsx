@@ -108,5 +108,4 @@ describe('TabHead', () => {
     );
     expect(getByLabelText('tab-icon')).toBeTruthy();
   });
-
 });

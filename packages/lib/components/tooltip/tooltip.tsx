@@ -16,6 +16,7 @@ import { isDark } from '../common/utils';
 import { TooltipProps } from './tooltip-model';
 import styles from './tooltip.module.scss';
 
+// Tooltip component for displaying helpful information in a small pop-up box.
 const Tooltip: React.FunctionComponent<TooltipProps> = ({
   children,
   fixedAtCenter = false,
@@ -31,16 +32,17 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   openOnClick = false,
   enablePadding = true,
 }: TooltipProps) => {
+  // Reference to the tooltip and wrapper div elements
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
 
-  // flag to check if the component is rendering for the first time
+  // Check for the component's first render
   const isFirstRender = useFirstRender();
 
-  // state to show/hide the tooltip
+  // State for showing/hiding the tooltip
   const [showTooltip, setShowTooltip] = useState(isStatic);
 
-  // helper to position the tooltip
+  // Helper function for tooltip positioning
   const { position: cssPosition, onInit } = usePosition(
     wrapperRef,
     tooltipRef,
@@ -51,7 +53,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
     }
   );
 
-  // handlers for showing/hiding tooltip
+  // Handlers for showing/hiding the tooltip
   const onShow = useCallback(
     () => !isStatic && setShowTooltip(true),
     [isStatic]
@@ -61,9 +63,10 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
     [isStatic]
   );
 
+  // Check for dark mode
   const isDarkMode = useMemo(() => isDark(), []);
 
-  // CSS
+  // Tooltip CSS class configuration
   const toolTipMessageClass = useMemo(
     () =>
       classNames([
@@ -114,6 +117,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
     }
   }, []);
 
+  // On tooltip rendered
   useEffect(() => {
     if (cssPosition) {
       onTooltipRendered?.();

@@ -15,6 +15,24 @@ import { MenuItemProps, MenuProps } from './menu-model';
 import { MenuOverlay, MenuOverlayProps } from './menu-overlay';
 import styles from './menu.module.scss';
 
+/**
+ * Menu Component
+ *    @property {React.ReactNode} children - The children nodes.
+ *    @property {string} dockPosition - The dock position of the menu.
+ *    @property {boolean} focusable - Whether the menu is focusable.
+ *    @property {string} id - The id of the menu.
+ *    @property {MenuItemProps[]} items - The items of the menu.
+ *    @property {() => void} onClose - Function to handle menu close.
+ *    @property {() => void} onOpen - Function to handle menu open.
+ *    @property {(name: string) => void} onSelected - Function to handle menu selection.
+ *    @property {string} size - The size of the menu.
+ *    @property {React.CSSProperties} style - The style of the menu.
+ *    @property {number} gutter - The gutter of the menu.
+ *    @property {boolean} hideArrow - Whether to hide the arrow of the menu.
+ *    @property {number} leftOffset - The left offset of the menu.
+ *    @property {boolean} RTL - Whether the menu is right-to-left.
+ * @returns {JSX.Element} The Menu component.
+ */
 const Menu: React.FunctionComponent<MenuProps> = ({
   children,
   dockPosition = 'left',
@@ -42,9 +60,6 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   const menuRef = useRef(null);
   const [showMenu, setShowMenu] = useState(false);
 
-  /**
-   * Handle the menu opening and closing
-   */
   const toggleMenu = useCallback(() => {
     setShowMenu(prev => {
       if (prev) {
@@ -52,31 +67,23 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       }
       return !prev;
     });
-  }, []);
+  }, [onClose]);
 
-  /**
-   * Handles the menu selection
-   */
-  const handleSelection = useCallback((name: string) => {
-    if (onSelected) {
-      onSelected(name);
-    }
-    setShowMenu(false);
-    onClose?.();
-    wrapperRef.current?.focus();
-  }, []);
+  const handleSelection = useCallback(
+    (name: string) => {
+      onSelected?.(name);
+      setShowMenu(false);
+      onClose?.();
+      wrapperRef.current?.focus();
+    },
+    [onSelected, onClose]
+  );
 
-  /**
-   * Handles menu closure
-   */
   const closeMenu = useCallback(() => {
     setShowMenu(false);
     wrapperRef.current?.focus();
   }, []);
 
-  /**
-   * Handler executed when the menu is rendered the first time
-   */
   const handleOnOpen = useCallback(() => {
     const menu = menuRef.current as unknown as MenuOverlayProps;
 
@@ -87,9 +94,6 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     }, 10);
   }, []);
 
-  /**
-   * Setups focus
-   */
   useFocusNew(
     focusable ? wrapperRef : null,
     focusable
@@ -99,9 +103,6 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       : null
   );
 
-  /**
-   * Close menu on esc key
-   */
   useCloseOnEscape(() => setShowMenu(false), wrapperRef);
 
   useEffect(() => {
@@ -111,9 +112,9 @@ const Menu: React.FunctionComponent<MenuProps> = ({
 
     if (showMenu && wrapperRef.current) {
       wrapperRef.current.focus();
-      onOpen && onOpen(id);
+      onOpen?.(id);
     }
-  }, [showMenu]);
+  }, [showMenu, onOpen, id]);
 
   const onInitRef = useCallback((node: HTMLDivElement) => {
     if (node) {
@@ -121,26 +122,20 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     }
   }, []);
 
-  /**
-   * classNames
-   */
   const menuContentWrapperClass = useMemo(
     () =>
       classNames([styles.menu_content_wrapper], {
         [styles.menu_content_focusable]: !focusable,
       }),
-    [showMenu, focusable]
+    [focusable]
   );
 
   const menuWrapperClass = useMemo(() => {
     return classNames([styles.menu_wrapper], {
       [styles[`menu-wrapper-${size}`]]: true,
     });
-  }, []);
+  }, [size]);
 
-  /**
-   * setup the focus props
-   */
   const focusProps = useMemo(
     () =>
       focusable
@@ -160,7 +155,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
 
       return prev;
     });
-  }, []);
+  }, [onClose]);
 
   const { onRef } = useOnClickOutside(handleClickOnOutside);
 

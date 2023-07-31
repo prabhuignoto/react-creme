@@ -1,13 +1,24 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import { FunctionComponent, useCallback, useMemo, useState } from 'react';
-import { Menu } from '..';
 import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { isDark } from '../common/utils';
+import { Menu } from '..';
 import { MenuBarItem } from './item';
 import { MenuBarProps } from './menu-bar.model';
 import styles from './menu-bar.module.scss';
 
+/**
+ * MenuBar Component
+ *    @property {Array} items - The items of the menu bar.
+ *    @property {boolean} RTL - Whether the menu bar is right-to-left.
+ *    @property {(selection: { id?: string; path: string }) => void} onSelect - Function to handle menu item selection.
+ *    @property {boolean} noUniqueId - Whether to use unique id for menu items.
+ *    @property {string} size - The size of the menu bar.
+ *    @property {Array} icons - The icons of the menu bar.
+ *    @property {boolean} focusable - Whether the menu bar is focusable.
+ * @returns {JSX.Element} The MenuBar component.
+ */
 const MenuBar: FunctionComponent<MenuBarProps> = ({
   items,
   RTL = false,
@@ -24,7 +35,7 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
         RTL ? styles.right_aligned : styles.left_aligned,
         isDarkMode ? styles.dark : '',
       ]),
-    []
+    [RTL, isDarkMode]
   );
 
   const { onRef } = useOnClickOutside(() => {
@@ -57,7 +68,7 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
         path: parentName + '/' + child,
       });
     },
-    []
+    [onSelect]
   );
 
   const handleOnClose = useCallback((id?: string) => {
@@ -69,7 +80,7 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
     );
   }, []);
 
-  const hasIcons = useMemo(() => !!icons.length, []);
+  const hasIcons = useMemo(() => !!icons.length, [icons]);
 
   return (
     <ul className={menuBarClass} ref={onRef}>

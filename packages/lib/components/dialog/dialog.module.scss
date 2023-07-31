@@ -4,8 +4,26 @@
 @use '@design/animate.scss';
 @use '@design/animations.scss';
 
+$animations: (pop, drop, rise, slide-left, slide-right);
+$dark: theme.$dark-control-bg;
+$white: theme.$white;
+$primary: theme.$primary;
+
+@mixin dialog-theme($color) {
+  background-color: $color;
+}
+
+@mixin title-color($color) {
+  color: $color;
+}
+
+@mixin animation-name($animation, $type) {
+  &.#{$animation}_#{$type} {
+    animation-name: rc-animation-#{$animation}-#{$type};
+  }
+}
+
 .dialog {
-  $animations: (pop, drop, rise, slide-left, slide-right);
   @extend %col;
   @include animate.set-settings(var(--rc-dialog-animation-duration));
 
@@ -14,48 +32,38 @@
 
   &.dark {
     @extend %border-radius;
-    background-color: theme.$dark-control-bg;
+    @include dialog-theme($dark);
   }
 
   &:not(.dark) {
-    @extend %shadow-inset;
-    @extend %border;
-    background-color: theme.$white;
+    @extend %shadow-inset, %border;
+    @include dialog-theme($white);
   }
 
   @each $animation in $animations {
     @include animations.set-animation($animation, from);
     @include animations.set-animation($animation, to);
+    @include animation-name($animation, enter);
+    @include animation-name($animation, leave);
   }
+}
 
-  @each $animation in $animations {
-    &.#{$animation}_enter {
-      animation-name: rc-animation-#{$animation}-enter;
-    }
-
-    &.#{$animation}_leave {
-      animation-name: rc-animation-#{$animation}-leave;
-    }
-  }
+.header, .body, .footer {
+  width: 100%;
 }
 
 .header {
   @extend %left;
   margin: 0.25rem 0;
-  width: 100%;
 }
 
 .body {
   @extend %center;
-  width: 100%;
 }
 
 .footer {
   @extend %right;
-  margin-bottom: 1rem;
-  margin-right: 2rem;
-  margin-top: auto;
-  width: 100%;
+  margin: auto 2rem 1rem 0;
 
   [role='button']:first-of-type {
     margin-right: 0.5rem;
@@ -73,16 +81,14 @@
   padding-left: 1rem;
 
   &.dark {
-    color: theme.$white;
+    @include title-color($white);
   }
 
   &:not(.dark) {
-    color: theme.$primary;
+    @include title-color($primary);
   }
 }
 
 .button_wrapper {
-  margin-left: auto;
-  margin-right: 0.5rem;
-  margin-top: 0.25rem;
+  margin: 0.25rem 0.5rem 0 auto;
 }

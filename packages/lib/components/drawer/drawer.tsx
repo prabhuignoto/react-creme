@@ -1,7 +1,12 @@
 import { CloseIcon } from '@icons';
 import classNames from 'classnames';
-import React from 'react';
-import { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  CSSProperties,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
 import { isDark } from '../common/utils';
@@ -9,6 +14,19 @@ import { withOverlay } from '../common/withOverlay';
 import { DrawerProps } from './drawer-model';
 import styles from './drawer.module.scss';
 
+/**
+ * DrawerComponent
+ *    @property {React.ReactNode} children - The children nodes.
+ *    @property {boolean} focusable - Whether the drawer is focusable.
+ *    @property {number} height - The height of the drawer.
+ *    @property {boolean} isClosing - Whether the drawer is closing.
+ *    @property {() => void} onClose - Function to handle drawer close.
+ *    @property {string} position - The position of the drawer.
+ *    @property {string} transition - The transition of the drawer.
+ *    @property {number} width - The width of the drawer.
+ *    @property {string} size - The size of the drawer.
+ * @returns {JSX.Element} The DrawerComponent.
+ */
 const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   children,
   focusable = true,
@@ -20,24 +38,10 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   width = 300,
   size = 'sm',
 }) => {
-  /**
-   * state for activating the drawer
-   */
   const [activate, setActivate] = useState(false);
-
-  /**
-   * Ref for the close button
-   */
   const buttonRef = useRef<HTMLDivElement | null>(null);
-
-  /**
-   * Focus specific props will be stored in this ref
-   */
   const focusProps = useRef({});
 
-  /**
-   * Trap and cycle focus within the Drawer
-   */
   const trapFocus = useTrapFocus<HTMLDivElement>(focusable ? 200 : null);
 
   if (trapFocus) {
@@ -47,9 +51,6 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
     focusProps.current = { tabIndex: 0 };
   }
 
-  /**
-   * memoized styles for the drawer
-   */
   const style = useMemo<CSSProperties>(() => {
     let newHeight: string | number = '100%';
 
@@ -62,13 +63,10 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
       '--min-width': `${width}px`,
       '--transition': transition,
     } as CSSProperties;
-  }, []);
+  }, [height, width, transition, position]);
 
   const isDarkMode = useMemo(() => isDark(), []);
 
-  /**
-   * memoized classnames for the drawer
-   */
   const drawerClass = useMemo(
     () =>
       classNames([styles.drawer, styles[`${position}`]], {
@@ -78,12 +76,9 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
         [styles[`${size}`]]: size,
         [styles.dark]: isDarkMode,
       }),
-    [activate, isClosing]
+    [activate, isClosing, position, size, isDarkMode]
   );
 
-  /**
-   * Activate the drawer on load
-   */
   useEffect(() => {
     setActivate(true);
   }, []);
@@ -112,6 +107,12 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   );
 };
 
+/**
+ * Drawer
+ *    @property {DrawerProps} DrawerProps - The properties of the Drawer.
+ *    @property {null} null - No additional properties.
+ * @returns {JSX.Element} The Drawer component with an overlay.
+ */
 const Drawer = withOverlay<DrawerProps, null>(DrawerComponent, {
   disableAnimation: false,
   name: 'drawer',
