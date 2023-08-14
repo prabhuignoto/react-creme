@@ -7,7 +7,6 @@ import React, { CSSProperties, ReactNode, useMemo } from 'react';
 import { CarouselItemsProps } from './carousel-model';
 import styles from './carousel.module.scss';
 
-
 const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
   activePage = 0,
   carouselItems,

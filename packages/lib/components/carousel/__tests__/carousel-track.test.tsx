@@ -5,15 +5,15 @@ import { vi } from 'vitest';
 
 describe('CarouselTrack', () => {
   const defaultProps: CarouselTrackProps = {
-    length: 5,
-    handleSelection: vi.fn(),
     activeIndex: 0,
     direction: 'horizontal',
+    focusable: true,
+    handleSelection: vi.fn(),
+    hideNext: false,
+    hidePrevious: false,
+    length: 5,
     onNext: vi.fn(),
     onPrevious: vi.fn(),
-    hidePrevious: false,
-    hideNext: false,
-    focusable: true,
   };
 
   it('renders without crashing', () => {

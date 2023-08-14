@@ -14,23 +14,21 @@ $sizes: (
   @extend %list-horizontal-left-wrap;
 
   li {
-    // padding: 0.5rem;
     margin: 0 0.5rem;
   }
-}
 
-.wrapper.RTL {
-  @extend %list-horizontal-left-wrap;
-  direction: rtl;
+  &.RTL {
+    direction: rtl;
 
-  li:not(:first-child) {
-    // margin-right: $pin-item-margin;
+    li:not(:first-child) {
+      margin-right: $pin-item-margin;
+    }
   }
-}
 
-.wrapper:not(.RTL) {
-  li:not(:first-child) {
-    // margin-left: $pin-item-margin;
+  &:not(.RTL) {
+    li:not(:first-child) {
+      margin-left: $pin-item-margin;
+    }
   }
 }
 
