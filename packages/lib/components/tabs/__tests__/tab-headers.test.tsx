@@ -6,11 +6,11 @@ describe('TabHeaders', () => {
   let handleTabSelection = vi.fn();
 
   const defaultProps = {
-    items: [
-      { id: '1', name: 'Tab 1', disabled: false },
-      { id: '2', name: 'Tab 2', disabled: false },
-    ],
     activeTabId: '1',
+    items: [
+      { disabled: false, id: '1', name: 'Tab 1' },
+      { disabled: false, id: '2', name: 'Tab 2' },
+    ],
   };
 
   beforeEach(() => {

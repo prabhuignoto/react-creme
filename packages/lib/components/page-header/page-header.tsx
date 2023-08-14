@@ -11,6 +11,15 @@ export interface PageHeaderProps {
   title: string;
 }
 
+/**
+ * PageHeader Component
+ *    @property {boolean} RTL - Whether the layout is right-to-left (default: false).
+ *    @property {React.ReactNode | React.ReactNode[]} children - Child components or elements.
+ *    @property {React.ReactNode} icon - An optional icon to display in the header.
+ *    @property {string} size - The size of the header ('sm', 'md', or 'lg', default: 'sm').
+ *    @property {string} title - The title text for the header.
+ * @returns {JSX.Element} The PageHeader component.
+ */
 const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   title,
   children,
@@ -18,31 +27,33 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   size = 'sm',
   icon,
 }) => {
+  // Determine if dark mode is enabled
   const isDarkMode = useMemo(() => isDark(), []);
+
+  // Compute class for header, including RTL and size considerations
   const headerClass = useMemo(() => {
     return classNames(styles.page_header, {
       [styles.rtl]: RTL,
       [styles[`${size}`]]: size,
     });
-  }, []);
+  }, [RTL, size]);
 
-  const titleClass = useMemo(() => {
-    return classNames(styles.title);
-  }, []);
+  // Compute class for title
+  const titleClass = useMemo(() => classNames(styles.title), []);
 
+  // Compute class for header icon
   const headerIconClass = useMemo(() => {
     return classNames(styles.icon, {
       [styles[`icon_${size}`]]: true,
     });
-  }, []);
+  }, [size]);
 
-  const contentClass = useMemo(
-    () =>
-      classNames(styles.content, {
-        [styles.dark]: isDarkMode,
-      }),
-    []
-  );
+  // Compute class for content, including dark mode considerations
+  const contentClass = useMemo(() => {
+    return classNames(styles.content, {
+      [styles.dark]: isDarkMode,
+    });
+  }, [isDarkMode]);
 
   return (
     <header className={headerClass}>

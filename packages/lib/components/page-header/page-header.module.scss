@@ -3,14 +3,15 @@
 @use '@design/list.scss';
 @use 'sass:map';
 
+// Define available sizes and corresponding heights
 $sizes: (sm, md, lg);
-
 $heights: (
   sm: 30px,
   md: 35px,
   lg: 40px,
 );
 
+// Base styles for page header
 .page_header {
   margin-bottom: 1rem;
   width: 100%;
@@ -19,32 +20,17 @@ $heights: (
     @extend %left;
     margin: 0.5rem 0;
     width: 100%;
+    text-align: left; // Default text alignment
   }
-}
 
-.page_header:not(.rtl) {
-  h2 {
-    text-align: left;
-  }
-}
-
-.rtl {
-  direction: rtl;
-
-  h2 {
-    text-align: right;
-  }
-}
-
-@each $size in $sizes {
-  .#{$size} {
-    .title {
-      @extend %text-#{$size};
-      height: map.get($heights, $size);
+  &.rtl {
+    h2 {
+      text-align: right; // RTL text alignment
     }
   }
 }
 
+// Styles for header icon
 .icon {
   @extend %icon;
   color: theme.$primary;
@@ -57,12 +43,14 @@ $heights: (
   }
 }
 
+// Styles for title container
 .title_container {
   @extend %left;
   border-bottom: 1px solid theme.$dark-control-bg;
   width: 100%;
 }
 
+// Styles for content
 .content {
   padding-top: 1rem;
 
@@ -72,5 +60,15 @@ $heights: (
 
   &:not(.dark) {
     color: theme.$black;
+  }
+}
+
+// Generate styles for different header sizes
+@each $size in $sizes {
+  .#{$size} {
+    .title {
+      @extend %text-#{$size};
+      height: map.get($heights, $size);
+    }
   }
 }

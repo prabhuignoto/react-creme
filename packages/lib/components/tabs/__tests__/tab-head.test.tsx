@@ -10,13 +10,13 @@ describe('TabHead', () => {
   const defaultProps: Partial<TabHeadProps> = {
     disabled: false,
     focusable: true,
+    icon: null,
     id: '1',
     name: 'Test Tab',
-    selected: false,
-    tabStyle: 'flat',
-    icon: null,
     parentHasFocus: false,
+    selected: false,
     size: 'md',
+    tabStyle: 'flat',
   };
 
   beforeEach(() => {
@@ -108,5 +108,4 @@ describe('TabHead', () => {
     );
     expect(getByLabelText('tab-icon')).toBeTruthy();
   });
-
 });

@@ -8,9 +8,9 @@ import { CarouselItems } from '../carousel-items';
 
 describe('CarouselItems', () => {
   const carouselItems = [
-    { id: '1', left: '0', top: '0', width: 100, height: 100 },
-    { id: '2', left: '100', top: '0', width: 100, height: 100 },
-    { id: '3', left: '200', top: '0', width: 100, height: 100 },
+    { height: 100, id: '1', left: '0', top: '0', width: 100 },
+    { height: 100, id: '2', left: '100', top: '0', width: 100 },
+    { height: 100, id: '3', left: '200', top: '0', width: 100 },
   ];
 
   // Test the activePage prop.
