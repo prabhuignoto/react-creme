@@ -1,6 +1,6 @@
-@use '@design/theme.scss';
-@use '@design/core.scss';
-@use '@design/position.scss';
+@use 'theme.scss';
+@use 'core.scss';
+@use 'position.scss';
 
 @mixin halo() {
   &::after {

@@ -1,6 +1,6 @@
 {
-  "npmClient": "pnpm",
-  "pipeline": {
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
     "format": {},
     "lint": {},
     "build:lib": {},
@@ -19,7 +19,8 @@
       "outputs": ["coverage", ".jest-cache"]
     },
     "dev": {
-      "outputs": [".vite_cache"]
+      "cache": false,
+      "persistent": true
     },
     "ci": {
       "outputs": ["dist/**", "dts/**", "typings/**", "expo_dist", "coverage"]

@@ -1,4 +1,4 @@
-@import 'theme';
+@use 'theme';
 
 $font-size-sm: var(--rc-font-size-sm);
 $font-size-md: var(--rc-font-size-md);
@@ -18,15 +18,15 @@ $font-size-lg: var(--rc-font-size-lg);
 
 %text-sm {
   @extend %font-sm;
-  color: $text-color;
+  color: theme.$text-color;
 }
 
 %text-md {
   @extend %font-md;
-  color: $text-color;
+  color: theme.$text-color;
 }
 
 %text-lg {
   @extend %font-lg;
-  color: $text-color;
+  color: theme.$text-color;
 }

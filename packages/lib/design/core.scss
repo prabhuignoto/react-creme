@@ -1,8 +1,8 @@
 @use 'position.scss';
-@import 'border';
-@import 'shadow';
-@import 'font';
-@import 'icon';
+@use 'border';
+@use 'shadow';
+@use 'font';
+@use 'icon';
 
 %flex {
   align-items: center;
