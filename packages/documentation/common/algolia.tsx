@@ -1,6 +1,6 @@
 import { faAlgolia } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import algoliasearch from 'algoliasearch/lite';
+import { algoliasearch } from 'algoliasearch';
 import { useState } from 'react';
 import { AutoSuggest } from '../../lib/components/auto-suggest/auto-suggest';
 import { AutoSuggestOption } from '../../lib/components/auto-suggest/auto-suggest.model';
@@ -10,7 +10,7 @@ const searchClient = algoliasearch(
   'dfb0dd05a40e024acbd771f909a0ed4f'
 );
 
-const index = searchClient.initIndex('react_creme_search');
+// const index = searchClient('react_creme_search');
 
 const AutoSuggestUI: React.FC<{
   onSelection: ({ name, value }: AutoSuggestOption) => void;
