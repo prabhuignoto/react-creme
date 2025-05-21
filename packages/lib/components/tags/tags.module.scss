@@ -205,7 +205,9 @@ $tag-heights: (
   display: block;
   text-align: center;
   width: 100%;
+}
 
+.name {
   @each $size in $sizes {
     &.name_#{$size} {
       @extend %font-#{$size};

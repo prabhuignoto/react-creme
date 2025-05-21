@@ -28,7 +28,6 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   colorizeHeader = false,
   fullWidth = false,
   headerHeight,
-  iconColor,
 }) => {
   const isDarkMode = useMemo(() => isDark(), []);
   const ref = useRef<HTMLDivElement | null>(null);

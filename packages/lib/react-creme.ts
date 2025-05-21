@@ -13,7 +13,6 @@ export type { AutoSuggestProps } from './components/auto-suggest/auto-suggest.mo
 export { Avatar } from './components/avatar/avatar';
 export type { AvatarProps } from './components/avatar/avatar.model';
 export { BlockQuote } from './components/block-quote/block-quote';
-export type { BlockQuoteProps } from './components/block-quote/block-quote';
 export { BreadCrumb } from './components/breadcrumb/breadcrumb';
 export type {
   BreadCrumbItemProps,

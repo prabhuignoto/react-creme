@@ -5,18 +5,21 @@ import CopyPlugin from 'copy-webpack-plugin';
 import CSSNano from 'cssnano';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import path, { dirname } from 'path';
+import path, { dirname, join } from 'path';
 import PostCSSpresetEnv from 'postcss-preset-env';
 import RemovePlugin from 'remove-files-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 // import threadLoader from 'thread-loader';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { StatsWriterPlugin } from 'webpack-stats-plugin';
-import pkg from './package.json' assert { type: 'json' };
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const pkg = JSON.parse(fs.readFileSync(join(__dirname, './package.json'), 'utf-8'));
+
 
 const isProduction = process.env.NODE_ENV === 'production';
 

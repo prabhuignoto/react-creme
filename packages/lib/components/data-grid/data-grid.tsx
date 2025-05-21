@@ -73,7 +73,6 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
       : {}
   );
 
-  const gridRef = useRef<HTMLDivElement>(null);
   const resizeObserver = useRef<ResizeObserver | null>(null);
   const isDarkMode = useMemo(() => isDark(), []);
 
@@ -110,37 +109,26 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
     return 100; // Default width
   }, [width, columns]);
 
-  const onRef = useCallback(
+  // Replace onRef with a callback ref that does not assign to .current
+  const handleGridRef = useCallback(
     (node: HTMLDivElement | null) => {
       if (node) {
-        gridRef.current = node;
-
         if (!gridWidth) {
           setWidth(node.offsetWidth);
+        }
+        // Attach resize observer here
+        resizeObserver.current = new ResizeObserver(() => {
+          setWidth(node.offsetWidth);
+        });
+        resizeObserver.current.observe(node);
+      } else {
+        if (resizeObserver.current) {
+          resizeObserver.current.disconnect();
         }
       }
     },
     [gridWidth]
   );
-
-  useEffect(() => {
-    if (gridRef.current) {
-      resizeObserver.current = new ResizeObserver(() => {
-        if (gridRef.current) {
-          setWidth(gridRef.current.offsetWidth);
-        }
-      });
-
-      // Observe the grid element instead of body for more targeted resize detection
-      resizeObserver.current.observe(gridRef.current);
-    }
-
-    return () => {
-      if (resizeObserver.current) {
-        resizeObserver.current.disconnect();
-      }
-    };
-  }, []);
 
   const style = useMemo(
     () => ({
@@ -208,7 +196,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   );
 
   return (
-    <div className={gridClass} ref={onRef} role="table">
+    <div className={gridClass} ref={handleGridRef} role="table">
       {searchable && (
         <div className={styles.data_grid_search_box_wrapper}>
           <Input

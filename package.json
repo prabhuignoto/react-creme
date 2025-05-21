@@ -112,8 +112,12 @@
   },
   "packageManager": "pnpm@6.27.1",
   "devDependencies": {
+    "@swc/plugin-emotion": "^9.0.4",
     "@testing-library/react-hooks": "^8.0.1",
+    "@vitejs/plugin-react-swc": "^3.9.0",
     "@vitest/coverage-v8": "^0.34.3",
-    "postcss-scss": "^4.0.7"
+    "postcss-scss": "^4.0.7",
+    "vite-plugin-lightningcss": "^0.0.5",
+    "vite-plugin-pwa": "^1.0.0"
   }
 }

@@ -1,5 +1,4 @@
 import * as Sentry from '@sentry/react';
-import { BrowserTracing } from '@sentry/tracing';
 import 'normalize.css';
 import { StrictMode, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
@@ -16,7 +15,15 @@ if (process.env.NODE_ENV === 'production') {
   Sentry.init({
     dsn: 'https://f95fae83de7c42e48df3691166d06de0@o1116896.ingest.sentry.io/6150784',
 
-    integrations: [new BrowserTracing()],
+    integrations: [
+      new Sentry.BrowserTracing({
+        // Routing instrumentation
+        routingInstrumentation: Sentry.reactRouterV5Instrumentation(
+          () => { /* You can use your router's history here */ },
+          [] // Add your route configs here
+        ),
+      }),
+    ],
     // Alternatively, use `process.env.npm_package_version` for a dynamic release version
     // if your build tool supports it.
     release: 'my-project-name@2.3.12',
