@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom } from 'jotai';
 import {
   Colors,
   FontSizes,
@@ -26,7 +26,7 @@ export type MediaState = {
   isTablet: boolean;
 };
 
-const asideState = atom({
+export const asideState = atom({
   default: {
     isAnyOverlayOpen: false,
     isOpen: false,
@@ -34,7 +34,7 @@ const asideState = atom({
   key: 'asideState',
 });
 
-const responsiveState = atom<MediaState>({
+export const responsiveState = atom<MediaState>({
   default: {
     isBigScreen: false,
     isDesktop: false,
@@ -45,7 +45,7 @@ const responsiveState = atom<MediaState>({
   key: 'responsiveState',
 });
 
-const themeState = atom<ThemeState>({
+export const themeState = atom<ThemeState>({
   default: {
     colors: {
       primary: '#47597E',
@@ -76,5 +76,3 @@ const themeState = atom<ThemeState>({
   },
   key: 'themeState',
 });
-
-export { asideState, responsiveState, themeState };

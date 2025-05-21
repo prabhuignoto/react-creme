@@ -3,16 +3,16 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { useCallback } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { asideState, responsiveState, themeState } from '../../atoms/home';
 import { HomeButton } from '../../home/home-button';
 // import { Badges } from '../badges';
 import './hero-section.scss';
 
 function HeroSection() {
-  const media = useRecoilValue(responsiveState);
-  const setAsideState = useSetRecoilState(asideState);
-  const theme = useRecoilValue(themeState);
+  const media = useAtomValue(responsiveState);
+  const setAsideState = useSetAtom(asideState);
+  const theme = useAtomValue(themeState);
 
   const handleOpenSidebar = useCallback(() => {
     setAsideState({ isAnyOverlayOpen: false, isOpen: true });

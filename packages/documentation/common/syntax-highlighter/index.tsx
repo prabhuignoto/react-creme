@@ -4,7 +4,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism';
 import dark from 'react-syntax-highlighter/dist/esm/styles/prism/one-dark';
 // import tomorrowTheme from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow-night-bright';
 import light from 'react-syntax-highlighter/dist/esm/styles/prism/one-light';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { Notification } from '../../../lib/components/notification/notification';
 import { CopyIcon } from '../../../lib/icons';
 import { themeState } from '../../atoms/home';
@@ -25,7 +25,7 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
   name,
 }) => {
   const [showNotification, setShowNotification] = useState(false);
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
   const syntaxTheme = useMemo(
     () => (theme.darkMode ? dark : light),
     [theme.darkMode]

@@ -1,13 +1,13 @@
 import { useLayoutEffect, useMemo, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { Section, Splitter, Text } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 
 function widgets() {
-  const media = useRecoilValue(responsiveState);
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState(0);
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
 
   const isDark = useMemo(() => theme.darkMode, [theme]);
 

@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 import { useMemo } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { BlockQuote, Section } from '../../../lib/components';
 import { themeState } from '../../atoms/home';
 import { supportedBrowsers } from '../../home/home-data';
 import styles from './browser-support.module.scss';
 
 function BrowserSupport() {
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
 
   const isDarkMode = useMemo(() => !!theme.darkMode, []);
 

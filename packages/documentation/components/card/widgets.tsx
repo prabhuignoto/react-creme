@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
@@ -10,7 +10,7 @@ function widgets() {
 
   const [width, setWidth] = useState(0);
 
-  const responsive = useRecoilValue(responsiveState);
+  const responsive = useAtomValue(responsiveState);
 
   useLayoutEffect(() => {
     if (!responsive) {

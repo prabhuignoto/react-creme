@@ -1,13 +1,19 @@
+import React, { StrictMode, useEffect, useState } from 'react';
+import ReactDOM from 'react-dom/client';
+import {
+  createRoutesFromChildren,
+  matchRoutes,
+  useLocation,
+  useNavigationType,
+} from 'react-router';
 import * as Sentry from '@sentry/react';
 import 'normalize.css';
-import { StrictMode, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';
+import { Provider as JotaiProvider, useAtomValue, useSetAtom } from 'jotai';
 import { ThemeProvider } from '../lib/components';
 import App from './App';
 import { responsiveState, themeState } from './atoms/home';
 import useMedia from './common/useMedia';
+import { BrowserRouter } from 'react-router-dom';
 
 const Root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -16,12 +22,12 @@ if (process.env.NODE_ENV === 'production') {
     dsn: 'https://f95fae83de7c42e48df3691166d06de0@o1116896.ingest.sentry.io/6150784',
 
     integrations: [
-      new Sentry.BrowserTracing({
-        // Routing instrumentation
-        routingInstrumentation: Sentry.reactRouterV5Instrumentation(
-          () => { /* You can use your router's history here */ },
-          [] // Add your route configs here
-        ),
+      Sentry.reactRouterV7BrowserTracingIntegration({
+        useEffect: React.useEffect,
+        useLocation,
+        useNavigationType,
+        createRoutesFromChildren,
+        matchRoutes,
       }),
     ],
     // Alternatively, use `process.env.npm_package_version` for a dynamic release version
@@ -37,9 +43,9 @@ if (process.env.NODE_ENV === 'production') {
 
 const AppBootStrap = () => {
   const media = useMedia();
-  const setResponsiveState = useSetRecoilState(responsiveState);
+  const setResponsiveState = useSetAtom(responsiveState);
   const [canLoad, setCanLoad] = useState(false);
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
 
   useEffect(() => {
     if (!media) {
@@ -65,10 +71,10 @@ const AppBootStrap = () => {
 
 Root.render(
   <BrowserRouter>
-    <RecoilRoot>
+    <JotaiProvider>
       <StrictMode>
         <AppBootStrap />
       </StrictMode>
-    </RecoilRoot>
+    </JotaiProvider>
   </BrowserRouter>
 );

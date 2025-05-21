@@ -1,16 +1,16 @@
 import { useMemo } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { Card, Image, Skeleton } from '../../../lib/components';
 import { themeState } from '../../atoms/home';
 
 const Header = () => {
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
   const isDark = useMemo(() => theme.darkMode, [theme]);
 
   return <span style={{ color: isDark ? '#fff' : '#000' }}>header</span>;
 };
 const Footer = () => {
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
   const isDark = useMemo(() => theme.darkMode, [theme]);
 
   return (

@@ -1,4 +1,4 @@
-import { RecoilRoot } from 'recoil';
+import { Provider as JotaiProvider } from 'jotai';
 import { ThemeProvider } from '../../lib/components';
 
 export const parameters = {
@@ -14,11 +14,11 @@ export const parameters = {
 export const decorators = [
   Story => (
     <ThemeProvider>
-      <RecoilRoot>
+      <JotaiProvider>
         <div style={{ margin: '3em' }}>
           <Story />
         </div>
-      </RecoilRoot>
+      </JotaiProvider>
     </ThemeProvider>
   ),
 ];

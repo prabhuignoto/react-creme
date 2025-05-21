@@ -1,5 +1,5 @@
 import { CSSProperties, useLayoutEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { Radio, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
@@ -9,7 +9,7 @@ const style: CSSProperties = {
 };
 
 function widgets() {
-  const media = useRecoilValue(responsiveState);
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {

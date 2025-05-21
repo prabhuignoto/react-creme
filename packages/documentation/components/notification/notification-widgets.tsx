@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import {
   Button,
   Dropdown,
@@ -15,7 +15,7 @@ import { AutoCloseString, DefaultCodeString } from './code-strings';
 const Widgets = () => {
   const ref = useRef(null);
 
-  const media = useRecoilValue(responsiveState);
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {

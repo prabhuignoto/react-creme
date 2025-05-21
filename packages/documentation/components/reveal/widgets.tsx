@@ -1,5 +1,7 @@
 import { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
 import { Image, Reveal } from '../../../lib/components';
+import { useAtomValue } from 'jotai';
+import { responsiveState } from '../../store';
 import useMedia from '../../common/useMedia';
 const blankStyle = {
   alignItems: 'flex-start',
@@ -19,7 +21,7 @@ const imageWrapStyle = {
 function widgets() {
   const ref = useRef<HTMLDivElement>(null);
 
-  const media = useMedia();
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {

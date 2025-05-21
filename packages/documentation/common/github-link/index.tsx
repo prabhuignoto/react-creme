@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import { useMemo } from 'react';
 
 import { isDark } from '@lib';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { themeState } from '../../atoms/home';
 import styles from './github-link.module.scss';
 
 const GithubLink = () => {
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
 
   return (
     <div className={classNames(styles.link, theme.darkMode ? styles.dark : '')}>

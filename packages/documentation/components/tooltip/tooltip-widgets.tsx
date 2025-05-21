@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import {
   Card,
   Dropdown,
@@ -15,8 +15,8 @@ import { DemoWidget } from '../../common/demo-widget';
 const Widgets = () => {
   const [position, setPosition] = useState<ToolTipPosition>('bottom center');
 
-  const media = useRecoilValue(responsiveState);
-  const theme = useRecoilValue(themeState);
+  const media = useAtomValue(responsiveState);
+  const theme = useAtomValue(themeState);
   const isDark = useMemo(() => theme.darkMode, []);
 
   const [width, setWidth] = useState<string | number>(0);
