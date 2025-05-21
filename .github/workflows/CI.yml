@@ -170,8 +170,3 @@ jobs:
           flags: unittests
           name: codecov-umbrella
           verbose: true
-
-      - name: Run Relative CI
-        uses: relative-ci/agent-action@v2
-        with:
-          config: relative-ci.config.js # Optional, if a custom config file is used

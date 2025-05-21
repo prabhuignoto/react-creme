@@ -42,17 +42,31 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 const config = {
   cache: {
     type: 'filesystem',
+    buildDependencies: {
+      config: [__filename], // Include config in cache invalidation
+    },
+    cacheDirectory: path.resolve(__dirname, '.webpack_cache'),
   },
-  devtool: 'source-map',
+  devtool: isProduction ? 'source-map' : 'eval-source-map',
   entry: './react-creme.ts',
   experiments: {
     outputModule: true,
+    topLevelAwait: true,
+    asyncWebAssembly: true,
   },
   externals: [
+    'react',
+    'react-dom',
     {
-      react: 'react',
-      'react-dom': 'react-dom',
+      lodash: {
+        commonjs: 'lodash',
+        commonjs2: 'lodash',
+        amd: 'lodash',
+        root: '_',
+      },
     },
+    /^@material-ui\/.+$/,
+    /^@mui\/.+$/,
   ],
   externalsType: 'module',
   ignoreWarnings: [
