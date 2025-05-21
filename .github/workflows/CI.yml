@@ -51,12 +51,12 @@ jobs:
 
       - run: pnpm build:lib
 
-      - name: Send webpack stats to RelativeCI
-        uses: relative-ci/agent-action@v2
-        with:
-          webpackStatsFile: ./packages/lib/dist/stats.json
-          key: ${{ secrets.RELATIVE_CI_KEY }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Send webpack stats to RelativeCI
+      #   uses: relative-ci/agent-action@v2
+      #   with:
+      #     webpackStatsFile: ./packages/lib/dist/stats.json
+      #     key: ${{ secrets.RELATIVE_CI_KEY }}
+      #     token: ${{ secrets.GITHUB_TOKEN }}
 
   build_doc:
     runs-on: ubuntu-latest
