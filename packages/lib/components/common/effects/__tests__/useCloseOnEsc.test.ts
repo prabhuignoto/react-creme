@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { useCloseOnEscape } from '../useCloseOnEsc';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 

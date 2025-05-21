@@ -10,7 +10,7 @@ export default async function useFocusNew(
   ref: React.RefObject<HTMLElement> | null,
   cb?: ((ev: PointerEvent | KeyboardEvent) => void) | null
 ) {
-  const ring = useRef<HTMLSpanElement>();
+  const ring = useRef<HTMLSpanElement | null>(null);
 
   const isDarkMode = useMemo(() => isDark(), []);
 

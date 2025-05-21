@@ -59,6 +59,8 @@ describe('AccordionHeader', () => {
   it('applies alignIconRight class when alignIconRight is true', () => {
     const { container } = render(<AccordionHeader alignIconRight />);
 
-    expect(container.firstChild).toHaveClass('align-icon-rt');
+    expect((container.firstElementChild as HTMLElement).className).toMatch(
+      /_align-icon-rt_/
+    );
   });
 });

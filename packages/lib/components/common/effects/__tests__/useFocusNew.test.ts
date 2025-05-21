@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { useRef } from 'react';
 import { describe, it, assert } from 'vitest';
 import useFocusNew from '../useFocusNew';
@@ -8,14 +8,12 @@ describe('useFocusNew hook', () => {
   it('should add focus ring when keyup event is triggered', () => {
     const ref = { current: document.createElement('div') };
     const callback = () => {};
-    const { rerender } = renderHook(() => useFocusNew(ref, callback));
+    const { result } = renderHook(() => useFocusNew(ref, callback));
 
     act(() => {
       const event = new KeyboardEvent('keyup', { key: 'Enter' });
       ref.current.dispatchEvent(event);
     });
-
-    rerender();
 
     assert(
       ref.current.querySelector(`.${styles.focus_ring_active}`) !== null,
@@ -26,14 +24,12 @@ describe('useFocusNew hook', () => {
   it('should remove focus ring when focusout event is triggered', () => {
     const ref = { current: document.createElement('div') };
     const callback = () => {};
-    const { rerender } = renderHook(() => useFocusNew(ref, callback));
+    const { result } = renderHook(() => useFocusNew(ref, callback));
 
     act(() => {
       const event = new Event('focusout');
       ref.current.dispatchEvent(event);
     });
-
-    rerender();
 
     assert(
       ref.current.querySelector(`.${styles.focus_ring_inactive}`) !== null,
@@ -48,14 +44,12 @@ describe('useFocusNew hook', () => {
     };
     const ref = { current: document.createElement('div') };
 
-    const { rerender } = renderHook(() => useFocusNew(ref, callback));
+    const { result } = renderHook(() => useFocusNew(ref, callback));
 
     act(() => {
       const event = new KeyboardEvent('keyup', { key: 'Enter' });
       ref.current.dispatchEvent(event);
     });
-
-    rerender();
 
     assert.equal(
       callCount,
