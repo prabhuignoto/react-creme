@@ -28,7 +28,7 @@ jobs:
       - name: Setup PNPM
         uses: pnpm/action-setup@v3
         with:
-          version: 9  # Specify a fixed version (v8 is stable)
+          version: 9 # Specify a fixed version (v8 is stable)
           run_install: false # We'll run install manually with specific flags
 
       # Enable caching of the PNPM store
@@ -75,7 +75,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v3
         with:
@@ -135,7 +135,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v3
         with:
@@ -170,3 +170,8 @@ jobs:
           flags: unittests
           name: codecov-umbrella
           verbose: true
+
+      - name: Run Relative CI
+        uses: relative-ci/agent-action@v2
+        with:
+          config: relative-ci.config.js # Optional, if a custom config file is used

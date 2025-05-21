@@ -48,8 +48,8 @@ const MenuBarItem: FunctionComponent<MenuBarItemViewProps> = memo(
             isMenuOpen
               ? styles.rotate
               : !isFirstRender.current
-              ? styles.rotate_reverse
-              : ''
+                ? styles.rotate_reverse
+                : ''
           )}
         >
           <ChevronDownIcon />

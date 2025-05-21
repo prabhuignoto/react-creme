@@ -122,8 +122,8 @@ const useDraggable: UseDraggable = (
         ev instanceof MouseEvent
           ? ev
           : ev instanceof TouchEvent
-          ? ev.touches[0]
-          : null;
+            ? ev.touches[0]
+            : null;
 
       if (!event) {
         return;

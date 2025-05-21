@@ -68,8 +68,8 @@ const usePosition: FunctionType = function (
           const prop = alignToEdge
             ? positionY
             : isPositionY('left')
-            ? 'right'
-            : 'left'; // Determine the horizontal property to set
+              ? 'right'
+              : 'left'; // Determine the horizontal property to set
           const value = alignToEdge ? 0 : `${eleWidth - tooltipHalfWidth}px`; // Determine the value to set
           cssPosition = {
             bottom: `${heightWithSpace}px`,
@@ -82,8 +82,8 @@ const usePosition: FunctionType = function (
           const prop = alignToEdge
             ? positionY
             : isPositionY('left')
-            ? 'right'
-            : 'left'; // Determine the horizontal property to set
+              ? 'right'
+              : 'left'; // Determine the horizontal property to set
           const value = alignToEdge ? 0 : `${eleWidth - tooltipHalfWidth}px`; // Determine the value to set
           cssPosition = {
             [prop]: value,

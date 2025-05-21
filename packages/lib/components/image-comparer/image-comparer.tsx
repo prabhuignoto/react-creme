@@ -100,8 +100,8 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
       const percentToUse = percent
         ? Math.round(percent * 100)
         : isFirstRender.current
-        ? 50
-        : 0;
+          ? 50
+          : 0;
       return {
         clipPath:
           direction === 'horizontal'
