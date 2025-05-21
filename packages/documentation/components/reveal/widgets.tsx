@@ -1,8 +1,8 @@
 import { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
 import { Image, Reveal } from '../../../lib/components';
 import { useAtomValue } from 'jotai';
-import { responsiveState } from '../../store';
-import useMedia from '../../common/useMedia';
+import { responsiveState } from '../../atoms/home';
+
 const blankStyle = {
   alignItems: 'flex-start',
   display: 'flex',
@@ -28,10 +28,10 @@ function widgets() {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
-      setWidth(650);
-    } else if (media.isMobile) {
+    if (media.isMobile) {
       setWidth(450);
+    } else if (media.isTablet) {
+      setWidth(650);
     } else if (media.isDesktop) {
       setWidth(750);
     } else if (media.isBigScreen) {
