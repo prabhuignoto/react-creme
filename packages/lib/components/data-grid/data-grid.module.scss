@@ -1,9 +1,29 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
 
+// Define variables at the top for better maintainability
 $compact-row-height: 35px;
 $comfortable-row-height: 50px;
 $sizes: (sm, md, lg);
+$cell-padding: 0.25rem 0.5rem;
+$border-radius: 4px;
+
+// Mixins for common styles
+@mixin dark-border {
+  border-right: 1px solid theme.$charcoal-gray;
+}
+
+@mixin light-border {
+  border-right: 1px solid theme.$secondary;
+}
+
+@mixin dark-bottom-border {
+  border-bottom: 1px solid theme.$cod-gray;
+}
+
+@mixin light-bottom-border {
+  border-bottom: 1px solid theme.$alto;
+}
 
 .data_grid {
   @extend %col-left;
@@ -14,8 +34,13 @@ $sizes: (sm, md, lg);
   &.border {
     @extend %border;
   }
+
+  &.dark {
+    // Add any dark mode specific styling for the grid container
+  }
 }
 
+// Row styles
 .row {
   width: 100%;
 
@@ -26,28 +51,42 @@ $sizes: (sm, md, lg);
   &.row_comfortable {
     min-height: var(--row-height, $comfortable-row-height);
   }
+
+  // Apply zebra striping
+  &.zebra {
+    &.dark {
+      background-color: rgba(theme.$gunmetal-gray, 0.25);
+    }
+
+    &:not(.dark) {
+      background-color: rgba(theme.$light-bg, 0.75);
+    }
+  }
 }
 
+// Cell border styles
 .cell_border:not(:last-child) {
   &.dark {
-    border-right: 1px solid theme.$charcoal-gray;
+    @include dark-border;
   }
 
   &:not(.dark) {
-    border-right: 1px solid theme.$secondary;
+    @include light-border;
   }
 }
 
+// Row border styles
 .row:not(:last-child):not(.row_zebra) {
   &.dark {
-    border-bottom: 1px solid theme.$cod-gray;
+    @include dark-bottom-border;
   }
 
   &:not(.dark) {
-    border-bottom: 1px solid theme.$alto;
+    @include light-bottom-border;
   }
 }
 
+// Row hover styles
 .row:hover {
   &.dark {
     background-color: theme.$licorice;
@@ -58,6 +97,7 @@ $sizes: (sm, md, lg);
   }
 }
 
+// Text sizes for different grid sizes
 @each $size in $sizes {
   .row_#{$size} {
     .cell_val {
@@ -71,15 +111,17 @@ $sizes: (sm, md, lg);
   }
 }
 
+// Cell styles
 .cell {
   @extend %left;
   width: calc(100% - 1px);
 }
 
+// Cell content styles
 .cell_val {
   display: block;
   line-height: 25px;
-  padding: 0.25rem 0.5rem;
+  padding: $cell-padding;
   text-align: left;
   width: calc(100% - 1rem);
 
@@ -107,6 +149,7 @@ $sizes: (sm, md, lg);
     overflow-wrap: anywhere;
   }
 
+  // Styling for emphasized text and code blocks
   em,
   code {
     @extend %border-radius-default;
@@ -123,6 +166,7 @@ $sizes: (sm, md, lg);
   }
 }
 
+// Color variations for emphasized text
 .cell_val:not(.dark) {
   em,
   code {
@@ -133,11 +177,11 @@ $sizes: (sm, md, lg);
 .cell_val.dark {
   em,
   code {
-    // background-color: theme.$gunmetal-gray;
     background-color: theme.$jet-black;
   }
 }
 
+// Search box styles
 .data_grid_search_box_wrapper {
   @extend %left;
   margin: 0.5rem 0 1.5rem;
@@ -145,12 +189,14 @@ $sizes: (sm, md, lg);
   padding-left: 0.5rem;
 }
 
+// Cell wrapper styles
 .cell_wrapper {
   @extend %left;
   height: 100%;
   width: 100%;
 }
 
+// Zebra stripe styles
 .zebra {
   &.dark {
     background-color: rgba(theme.$gunmetal-gray, 0.25);

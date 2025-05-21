@@ -1,50 +1,36 @@
-@use '@design/core.scss';
-@use '@design/theme.scss';
-@use '@design/position.scss';
-@use '@design/font.scss';
-@use 'sass:color';
+@use '../../design/theme' as *;
+@use '../../design/border' as *;
+@use '../../design/icon' as *;
+@use '../../design/font' as *;
 
 $sizes: (sm, md, lg);
 
 .block_quote {
   @extend %border-radius;
-  align-items: center;
   display: grid;
-  font-weight: 300;
   grid-template-columns: 2rem auto;
-  justify-items: center;
-  line-height: 30px;
+  align-items: center;
+  padding: 0.5rem;
   margin: 0.5rem 0;
-  padding: 0.5rem 0;
-  padding-left: 0.5rem;
   text-align: left;
 
   &.dark {
-    background: theme.$cod-gray;
-    border-left: 3px solid rgba(theme.$primary-rgb, 1);
-    color: theme.$white;
+    background: $cod-gray;
+    border-left: 3px solid $primary;
+    color: $white;
   }
 
   &:not(.dark) {
-    background: rgba(theme.$secondary-rgb, 0.1);
-    border-left: 3px solid rgba(theme.$primary-rgb, 0.5);
-    color: theme.$black;
+    background: rgba($primary-rgb, 0.5);
+    border-left: 3px solid $primary;
+    color: $black;
   }
 
   code {
     @extend %border-radius;
-    background: rgba(theme.$primary-rgb, 0.75);
-    color: theme.$white;
-    font-style: normal;
-    margin: 0 0.2rem;
+    background: $primary-light;
+    color: $white;
     padding: 0 0.2rem;
-    position: relative;
-    text-decoration: none;
-    z-index: 0;
-  }
-
-  a {
-    display: inline-block;
   }
 }
 
@@ -57,15 +43,11 @@ $sizes: (sm, md, lg);
     .block_quote_child_content {
       @extend %font-#{$size};
     }
-
-    code {
-      @extend %font-#{$size};
-    }
   }
 }
 
 .block_quote_icon {
-  color: rgba(theme.$primary-rgb, 1);
+  color: $primary;
   margin-right: 0.5rem;
 }
 

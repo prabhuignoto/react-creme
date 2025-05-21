@@ -1,6 +1,6 @@
 import { ChevronRightIcon, MinusIcon, PlusIcon } from '@icons';
 import classnames from 'classnames';
-import React, { CSSProperties, useMemo, useRef } from 'react';
+import React, { CSSProperties, useMemo, useRef, useCallback } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';
 import styles from './accordion-header.module.scss';
@@ -8,25 +8,6 @@ import { AccordionHeaderProps } from './accordion-model';
 
 /**
  * AccordionHeader component that renders the header of the accordion
- * @param disableIcon - boolean to disable the icon
- * @param focusable - boolean to make the header focusable
- * @param alignIconRight - boolean to align the icon to the right
- * @param disableCollapse - boolean to disable the collapse functionality
- * @param accordionBodyId - id of the accordion body
- * @param isTitleBold - boolean to make the title bold
- * @param title - title of the accordion header
- * @param customIcon - custom icon to be used instead of the default icons
- * @param iconType - type of the icon to be used
- * @param onToggle - function to be called when the header is toggled
- * @param accordionId - id of the accordion
- * @param open - boolean to indicate if the accordion is open
- * @param selected - boolean to indicate if the accordion is selected
- * @param customContent - custom content to be used instead of the title
- * @param size - size of the accordion header
- * @param colorizeHeader - boolean to colorize the header
- * @param fullWidth - boolean to make the header full width
- * @param headerHeight - height of the accordion header
- * @returns AccordionHeader component
  */
 const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   disableIcon,
@@ -47,8 +28,10 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   colorizeHeader = false,
   fullWidth = false,
   headerHeight,
+  iconColor,
 }) => {
   const isDarkMode = useMemo(() => isDark(), []);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   // classnames for the accordion header
   const accordionHeaderClass = useMemo(() => {
@@ -77,14 +60,25 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     fullWidth,
   ]);
 
-  const ref = useRef(null);
-
   // focus props for the accordion header
   const focusProps = useMemo(() => {
     if (focusable && !disableCollapse) {
       return { tabIndex: 0 };
     }
+    return undefined;
   }, [focusable, disableCollapse]);
+
+  // Handle keyboard events for accessibility
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (e.key === ' ') {
+        e.preventDefault();
+        e.stopPropagation();
+        onToggle?.();
+      }
+    },
+    [onToggle]
+  );
 
   // collapsible props for the accordion header
   const collapsibleProps = useMemo(() => {
@@ -96,15 +90,9 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
       'aria-controls': accordionBodyId,
       'aria-expanded': !!open,
       onClick: onToggle,
-      onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => {
-        if (e.key === ' ') {
-          e.preventDefault();
-          e.stopPropagation();
-          onToggle?.();
-        }
-      },
+      onKeyDown: handleKeyDown,
     };
-  }, [accordionBodyId, open, onToggle]);
+  }, [accordionBodyId, open, onToggle, handleKeyDown, disableCollapse]);
 
   // classnames for the title of the accordion header
   const titleClass = useMemo(() => {
@@ -133,13 +121,14 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     return classnames(classes);
   }, [customIcon, disableIcon, iconType, size, open, colorizeHeader]);
 
-  // icon to be used in the accordion header
+  // Pre-defined icons
   const icons = useRef({
     chevron: <ChevronRightIcon />,
     minus: <MinusIcon />,
     plus: <PlusIcon />,
   });
 
+  // Choose the appropriate icon based on type and state
   const icon = useMemo(() => {
     if (customIcon) {
       return customIcon;
@@ -155,7 +144,17 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   }, [customIcon, iconType, open]);
 
   // hook to focus the accordion header
-  useFocusNew(focusable ? ref : null, onToggle);
+  useFocusNew(
+    focusable ? (ref as React.RefObject<HTMLElement>) : null,
+    onToggle
+  );
+
+  // Calculate the style object with header height
+  const headerStyle = useMemo(() => {
+    return {
+      '--rc-accordion-header-height': `${headerHeight}px`,
+    } as CSSProperties;
+  }, [headerHeight]);
 
   return (
     <div
@@ -165,9 +164,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
       role="heading"
       {...focusProps}
       {...collapsibleProps}
-      style={
-        { '--rc-accordion-header-height': `${headerHeight}px` } as CSSProperties
-      }
+      style={headerStyle}
     >
       <span className={iconClass} role="img">
         {icon}

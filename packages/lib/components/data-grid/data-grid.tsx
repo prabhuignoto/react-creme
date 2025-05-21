@@ -12,12 +12,7 @@ import { useDebouncedCallback } from 'use-debounce';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { DataGridHeader } from './data-grid-header';
-import {
-  DataGridColumn,
-  DataGridProps,
-  Record,
-  SortDirection,
-} from './data-grid-model';
+import { DataGridProps, Record, SortDirection } from './data-grid-model';
 import { DataGridRow } from './data-grid-row';
 import styles from './data-grid.module.scss';
 import ResizeObserver from 'resize-observer-polyfill';
@@ -33,52 +28,53 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   zebra = false,
   size = 'sm',
 }: DataGridProps) => {
-  const sortableColumns = useRef(columns.filter(col => col.sortable));
-  const sortableColumnFirst = useRef<DataGridColumn>(
-    sortableColumns.current.length ? sortableColumns.current[0] : null
-  );
+  // Move these to useMemo to avoid recalculation on every render
+  const sortableColumns = useMemo(() => {
+    return [...columns].filter(col => col.sortable);
+  }, [columns]);
 
-  const rowData = useRef<Record[]>(
-    sortableColumnFirst.current !== null
-      ? data
-          .map(item => ({
-            id: nanoid(),
-            ...item,
-          }))
-          .sort((a: Record, b: Record) => {
-            const name = sortableColumnFirst.current?.name;
+  const sortableColumnFirst = useMemo(() => {
+    return sortableColumns.length ? sortableColumns[0] : null;
+  }, [sortableColumns]);
 
-            if (name) {
-              return a[name] < b[name] ? -1 : 1;
-            } else {
-              return 0;
-            }
-          })
-      : data.map(item => ({
-          id: nanoid(),
-          ...item,
-        }))
-  );
+  // Transform data once when component mounts or when data changes
+  const [rowData, setRowData] = useState<Record[]>([]);
+
+  useEffect(() => {
+    const newData = data.map(item => ({
+      id: nanoid(),
+      ...item,
+    }));
+
+    if (sortableColumnFirst && sortableColumnFirst.name) {
+      newData.sort((a, b) => {
+        const name = sortableColumnFirst.name;
+        return (a[name as keyof typeof a] ?? '') <
+          (b[name as keyof typeof b] ?? '')
+          ? -1
+          : 1;
+      });
+    }
+
+    setRowData(newData);
+  }, [data, sortableColumnFirst]);
 
   const [width, setWidth] = useState(gridWidth);
-
   const [searchInput, setSearchInput] = useState('');
-
   const [sortData, setSortData] = useState<{
     column?: string;
     dir?: SortDirection;
   }>(
-    sortableColumns.current.length > 0
+    sortableColumns.length > 0
       ? {
-          column: sortableColumns.current[0].name,
+          column: sortableColumns[0].name,
           dir: 'asc',
         }
       : {}
   );
-  const gridRef = useRef<HTMLDivElement>();
 
-  const resizeObserver = useRef<ResizeObserver>();
-
+  const gridRef = useRef<HTMLDivElement>(null);
+  const resizeObserver = useRef<ResizeObserver | null>(null);
   const isDarkMode = useMemo(() => isDark(), []);
 
   const gridClass = useMemo(() => {
@@ -87,11 +83,11 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
       'data-grid-zebra': zebra,
       [styles.dark]: isDarkMode,
     });
-  }, []);
+  }, [border, zebra, isDarkMode]);
 
   const searchableColumns = useMemo(
     () => columns.filter(col => col.searchable).map(c => c.name),
-    []
+    [columns]
   );
 
   const handleSort = useCallback((column: string, dir: SortDirection) => {
@@ -104,12 +100,15 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         .map(c => c.width || 0)
         .reduce((a, b) => a + b, 0);
 
-      return Math.floor(
-        (width - usedWidth) /
-          (columns.length - columns.filter(col => col.width).length)
-      );
+      const remainingColumns = columns.filter(col => !col.width).length;
+
+      // Avoid division by zero
+      if (remainingColumns === 0) return 100;
+
+      return Math.floor((width - usedWidth) / remainingColumns);
     }
-  }, [width]);
+    return 100; // Default width
+  }, [width, columns]);
 
   const onRef = useCallback(
     (node: HTMLDivElement | null) => {
@@ -117,7 +116,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         gridRef.current = node;
 
         if (!gridWidth) {
-          setWidth((node as HTMLElement).offsetWidth);
+          setWidth(node.offsetWidth);
         }
       }
     },
@@ -127,10 +126,13 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   useEffect(() => {
     if (gridRef.current) {
       resizeObserver.current = new ResizeObserver(() => {
-        setWidth((gridRef.current as HTMLElement).offsetWidth);
+        if (gridRef.current) {
+          setWidth(gridRef.current.offsetWidth);
+        }
       });
 
-      resizeObserver.current.observe(document.body);
+      // Observe the grid element instead of body for more targeted resize detection
+      resizeObserver.current.observe(gridRef.current);
     }
 
     return () => {
@@ -138,7 +140,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         resizeObserver.current.disconnect();
       }
     };
-  }, [width]);
+  }, []);
 
   const style = useMemo(
     () => ({
@@ -155,51 +157,49 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         })
         .join(' '),
     }),
-    [width, columnWidth]
+    [gridWidth, rowHeight, columns, columnWidth]
   );
 
-  const sortedData = useMemo<Record[]>(() => {
-    return rowData.current.sort((a, b) => {
-      if (sortData.dir === 'asc' && sortData.column) {
-        if (a[sortData.column] < b[sortData.column]) {
-          return -1;
-        } else if (a[sortData.column] > b[sortData.column]) {
-          return 1;
-        }
+  // Memoize sorted data to prevent unnecessary re-renders
+  const sortedData = useMemo(() => {
+    if (!sortData.column) return rowData;
 
-        return 0;
-      } else if (sortData.column) {
-        if (a[sortData.column] < b[sortData.column]) {
-          return 1;
-        } else if (a[sortData.column] > b[sortData.column]) {
-          return -1;
-        }
+    return [...rowData].sort((a, b) => {
+      const { column, dir } = sortData;
+      if (!column) return 0;
 
-        return 0;
+      const aVal = a[column] ?? '';
+      const bVal = b[column] ?? '';
+
+      const compareResult = aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
+      return dir === 'asc' ? compareResult : -compareResult;
+    });
+  }, [rowData, sortData]);
+
+  // Optimize search filtering
+  const filteredData = useMemo(() => {
+    if (!searchInput) return sortedData;
+
+    const searchRegExp = new RegExp(searchInput, 'ig');
+
+    return sortedData.filter(dat => {
+      // Only search through searchable columns if specified
+      if (searchableColumns.length > 0) {
+        return searchableColumns.some(
+          key => dat[key] && String(dat[key]).match(searchRegExp)
+        );
       }
 
-      return 0;
+      // Otherwise search through all columns
+      return Object.keys(dat)
+        .filter(key => key !== 'id')
+        .some(key => dat[key] && String(dat[key]).match(searchRegExp));
     });
-  }, [sortData.dir]);
-
-  const filteredData = useMemo(() => {
-    if (searchInput) {
-      const searchRegExp = new RegExp(searchInput, 'ig');
-
-      return sortedData.filter(dat => {
-        const keys = Object.keys(dat);
-        return keys.some(key =>
-          (String(dat[key]) as string).match(searchRegExp)
-        );
-      });
-    } else {
-      return sortedData;
-    }
-  }, [sortedData.length, searchableColumns.length, searchInput]);
+  }, [sortedData, searchInput, searchableColumns]);
 
   const searchable = useMemo(
     () => searchableColumns.length > 0,
-    [searchableColumns.length]
+    [searchableColumns]
   );
 
   const handleSearchInput = useDebouncedCallback(
@@ -209,7 +209,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
 
   return (
     <div className={gridClass} ref={onRef} role="table">
-      {searchable ? (
+      {searchable && (
         <div className={styles.data_grid_search_box_wrapper}>
           <Input
             placeholder="Search..."
@@ -220,7 +220,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
             <SearchIcon />
           </Input>
         </div>
-      ) : null}
+      )}
       <DataGridHeader
         columns={columns}
         style={style}
@@ -230,23 +230,21 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         size={size}
         searchable={searchable}
       />
-      {filteredData.map((row, index) => {
-        return (
-          <DataGridRow
-            data={row}
-            key={row.id}
-            columnWidth={columnWidth}
-            columnConfigs={columns}
-            style={style}
-            layoutStyle={layoutStyle}
-            border={border}
-            fixedHeight={fixedHeight}
-            zebra={zebra && index % 2 === 1}
-            rowHeight={rowHeight}
-            size={size}
-          />
-        );
-      })}
+      {filteredData.map((row, index) => (
+        <DataGridRow
+          data={row}
+          key={row.id}
+          columnWidth={columnWidth}
+          columnConfigs={columns}
+          style={style}
+          layoutStyle={layoutStyle}
+          border={border}
+          fixedHeight={fixedHeight}
+          zebra={zebra && index % 2 === 1}
+          rowHeight={rowHeight}
+          size={size}
+        />
+      ))}
     </div>
   );
 };

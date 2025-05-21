@@ -44,7 +44,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   // Ref to store the count of the carousel items.
   const trackCount = useRef(Array.isArray(children) ? children.length : 0);
   // Ref to store the autoPlay interval id.
-  const autoPlayRef = useRef<number>();
+  const autoPlayRef = useRef<number | undefined>(undefined);
 
   // State to store the index of the active (currently displayed) item.
   const [activePage, setActivePage] = useState(0);
@@ -96,6 +96,10 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Effect to update the carousel items whenever the dimensions change.
   useLayoutEffect(() => {
+    if (resizeObserver.current) {
+      resizeObserver.current.disconnect();
+    }
+
     if (slideWidth && slideHeight && Array.isArray(children)) {
       const prop = direction === 'horizontal' ? 'left' : 'top';
       setCarouselItems(
@@ -112,7 +116,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
         }))
       );
     }
-  }, [debouncedSlideWidth, debouncedSlideHeight]);
+  }, [debouncedSlideWidth, debouncedSlideHeight, direction, children]);
 
   // Memoized value to determine whether to hide the next button.
   const hideNextButton = useMemo(

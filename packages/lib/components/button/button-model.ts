@@ -1,5 +1,12 @@
 import React, { CSSProperties, KeyboardEvent, MouseEvent } from 'react';
 
+/**
+ * @property {boolean} isBusy - Indicates if the button is in a loading state.
+ * @property {boolean} focusable - Determines if the button can be focused.
+ * @property {string} label - Text label for the button.
+ * @property {function} onClick - Callback function for button click events.
+ */
+
 // export interface ButtonProps defines the props that will be passed to a custom React Button component
 export interface ButtonProps {
   // accent can take either the value 'flat' or 'rounded' (optional)

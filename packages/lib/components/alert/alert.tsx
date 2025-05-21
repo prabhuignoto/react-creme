@@ -1,13 +1,18 @@
 // Import necessary modules and icons
 import { CheckIcon, CloseIcon, ErrorIcon, InfoIcon, WarningIcon } from '@icons';
 import classNames from 'classnames';
-import React from 'react';
-import { CSSProperties, useCallback, useMemo } from 'react';
+import React, {
+  CSSProperties,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import useFocus from '../common/effects/useFocusNew';
 import { AlertProps } from './alert-model';
 import styles from './alert.module.scss';
 
-// Create an object mapping alert states to icons
+// Memoize icons to prevent unnecessary re-renders
 const icons = {
   error: <ErrorIcon />,
   info: <InfoIcon />,
@@ -31,24 +36,24 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   ariaLabelClose = 'close alert',
 }) => {
   // Define local state for handling close functionality
-  const [close, setClose] = React.useState(false);
+  const [close, setClose] = useState(false);
 
   // Create a ref to the close button
-  const btnCloseRef = React.useRef<HTMLSpanElement>(null);
+  const btnCloseRef = useRef<HTMLSpanElement>(null);
 
-  // Use custom hook to handle focus and set close state
-  useFocus(focusable ? btnCloseRef : null, () => setClose(true));
+  // Only apply focus effect if focusable is true
+  useFocus(
+    focusable ? (btnCloseRef as React.RefObject<HTMLElement>) : null,
+    () => setClose(true)
+  );
 
-  // Memoize the CSS styles based on the alert state
-  const style = useMemo(
-    () =>
-      ({
-        '--height': `${height}px`,
-      }) as CSSProperties,
+  // Optimize style memoization
+  const style = useMemo<CSSProperties>(
+    () => ({ '--height': `${height}px` }) as CSSProperties,
     [height]
   );
 
-  // Memoize the CSS classnames based on various properties
+  // Optimize class memoization
   const messageClass = useMemo(
     () =>
       classNames(styles.alert, {
@@ -61,23 +66,30 @@ const Alert: React.FunctionComponent<AlertProps> = ({
     [state, close, RTL, size, animation]
   );
 
-  // Define a function to handle the close action
+  // Optimize close handler
   const handleClose = useCallback(() => {
     setClose(true);
     onDismiss?.();
   }, [onDismiss]);
 
+  // Get the appropriate icon
+  const icon = useMemo(() => icons[state] || icons.info, [state]);
+
   // Return the rendered component
   return (
-    <div className={messageClass} style={style} role="alert">
+    <div
+      className={messageClass}
+      style={style}
+      role="alert"
+      aria-live="assertive"
+    >
       <div className={styles.alert_icon_wrapper}>
         <span
           className={styles.alert_icon}
           role="img"
           aria-label={`alert-icon-${state}`}
         >
-          {icons[state] || icons.info}{' '}
-          {/* Use the icon corresponding to the state */}
+          {icon}
         </span>
       </div>
       <span className={styles.alert_content}>{children || message}</span>
@@ -89,6 +101,12 @@ const Alert: React.FunctionComponent<AlertProps> = ({
           ref={btnCloseRef}
           onClick={handleClose}
           tabIndex={focusable ? 0 : -1}
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleClose();
+            }
+          }}
         >
           <CloseIcon />
         </span>

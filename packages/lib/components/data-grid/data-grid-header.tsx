@@ -1,6 +1,6 @@
 import { TriangleIcon } from '@icons';
 import classNames from 'classnames';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 import { isDark } from '../common/utils';
 import { DataGridCell } from './data-grid-cell';
 import styles from './data-grid-header.module.scss';
@@ -17,41 +17,77 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
   searchable,
 }: DataGridHeaderProps) => {
   const isDarkMode = useMemo(() => isDark(), []);
-  const [headerColumns, setHeaderColumns] = useState(
+  const [headerColumns, setHeaderColumns] = useState(() =>
     columns.map(col => ({
       ...col,
       sortDirection: 'asc',
+      sortable: col.sortable ?? false, // Ensure sortable property exists
     }))
   );
 
-  const handleSort = (column: string, dir: SortDirection) => {
-    setHeaderColumns(columns =>
-      columns.map(col => ({
-        ...col,
-        sortDirection: col.name === column ? dir : 'none',
-      }))
-    );
+  const handleSort = useCallback(
+    (column: string, dir: SortDirection) => {
+      setHeaderColumns(prevColumns =>
+        prevColumns.map(col => ({
+          ...col,
+          sortDirection: col.name === column ? dir : 'none',
+        }))
+      );
 
-    onSort && onSort(column, dir);
-  };
+      if (onSort) {
+        onSort(column, dir);
+      }
+    },
+    [onSort]
+  );
 
   const headerClass = useMemo(() => {
     return classNames(styles.header, {
       [styles[`${layoutStyle}`]]: true,
       [styles[`${size}`]]: true,
     });
-  }, [layoutStyle]);
+  }, [layoutStyle, size]);
 
   const headerCellClass = useMemo(() => {
-    return classNames(
-      styles.cell,
-      {
-        [styles.border]: border,
-        [styles.dark]: isDarkMode,
-      },
-      searchable ? styles.searchable : ''
-    );
-  }, []);
+    return classNames(styles.cell, {
+      [styles.border]: border,
+      [styles.dark]: isDarkMode,
+      [styles.searchable]: searchable,
+    });
+  }, [border, isDarkMode, searchable]);
+
+  // Memoize the sort icon rendering for better performance
+  const renderSortIcons = useCallback(
+    (column: { sortable: any; sortDirection: string; name: string }) => {
+      if (!column.sortable) return null;
+
+      return (
+        <span className={iconStyles.sort_icon_wrapper}>
+          <span
+            className={classNames(iconStyles.sort_icon_asc, {
+              [iconStyles.sort_icon_active]: column.sortDirection === 'asc',
+            })}
+            role="button"
+            onClick={() => handleSort(column.name, 'asc')}
+            aria-label={`Sort ${column.name} ascending`}
+          >
+            <TriangleIcon />
+          </span>
+          <span
+            className={classNames(iconStyles.sort_icon_desc, {
+              [iconStyles.sort_icon_active]: column.sortDirection === 'desc',
+            })}
+            role="button"
+            onClick={() => handleSort(column.name, 'desc')}
+            aria-label={`Sort ${column.name} descending`}
+          >
+            <TriangleIcon />
+          </span>
+        </span>
+      );
+    },
+    [handleSort]
+  );
 
   return (
     <div className={headerClass} style={style} role="row">
@@ -63,29 +99,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
             border={false}
             isHeader
           />
-          {column.sortable && (
-            <span className={iconStyles.sort_icon_wrapper}>
-              <span
-                className={classNames(iconStyles.sort_icon_asc, {
-                  [iconStyles.sort_icon_active]: column.sortDirection === 'asc',
-                })}
-                role="button"
-                onClick={() => handleSort(column.name, 'asc')}
-              >
-                <TriangleIcon />
-              </span>
-              <span
-                className={classNames(iconStyles.sort_icon_desc, {
-                  [iconStyles.sort_icon_active]:
-                    column.sortDirection === 'desc',
-                })}
-                role="button"
-                onClick={() => handleSort(column.name, 'desc')}
-              >
-                <TriangleIcon />
-              </span>
-            </span>
-          )}
+          {renderSortIcons(column)}
         </div>
       ))}
     </div>

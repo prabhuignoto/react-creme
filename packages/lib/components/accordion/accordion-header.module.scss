@@ -35,19 +35,18 @@ $header-heights: (
   &.align-icon-rt {
     direction: rtl;
   }
-}
 
-.header:not(.disable-collapse):hover {
-  @extend %border-radius;
-  cursor: pointer;
+  &:not(.disable-collapse):hover {
+    @extend %border-radius;
+    cursor: pointer;
 
-  &.dark {
-    // background: theme.$licorice;
-    background: theme.$dark-control-bg;
-  }
+    &.dark {
+      background: theme.$dark-control-bg;
+    }
 
-  &:not(.dark) {
-    background: rgba(theme.$secondary-rgb, 0.25);
+    &:not(.dark) {
+      background: rgba(theme.$secondary-rgb, 0.25);
+    }
   }
 }
 
@@ -68,7 +67,6 @@ $header-heights: (
   display: block;
   margin: auto 0;
   padding: 0 0.25rem;
-  // height: var(--rc-accordion-header-height, 35px);
   width: calc(100%);
 
   &:not(.title_bold) {
@@ -90,7 +88,6 @@ $header-heights: (
   .title_#{$size} {
     @extend %text-#{$size};
     line-height: #{$size}-line-height;
-    // border: 1px solid red;
   }
 
   .icon-#{$size} {
@@ -119,7 +116,6 @@ $header-heights: (
 }
 
 .icon {
-  // @extend %icon;
   cursor: pointer;
   transition: transform 0.2s ease-in;
 

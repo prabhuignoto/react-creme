@@ -7,6 +7,8 @@ $size: (sm, md, lg);
   @extend %center;
   background: theme.$primary;
   border-radius: 50%;
+  height: var(--rc-icon-size-sm);
+  width: var(--rc-icon-size-sm);
 
   @each $size in $size {
     &.#{$size} {
@@ -23,6 +25,6 @@ $size: (sm, md, lg);
   width: 70%;
 
   svg {
-    fill: theme.$white;
+    fill: currentColor;
   }
 }

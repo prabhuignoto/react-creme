@@ -4,55 +4,55 @@ import { isDark } from '../common/utils';
 import { DataGridCell as CellModel } from './data-grid-model';
 import styles from './data-grid.module.scss';
 
-const DataGridCell: React.FunctionComponent<CellModel> = ({
-  value,
-  border,
-  fixedHeight,
-  formatter,
-  isHeader,
-  zebra,
-}: CellModel) => {
-  const isDarkMode = useMemo(() => isDark(), []);
+// Apply React.memo to prevent unnecessary re-renders
+const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
+  ({ value, border, fixedHeight, formatter, isHeader, zebra }: CellModel) => {
+    const isDarkMode = useMemo(() => isDark(), []);
 
-  const columnClass = useMemo(() => {
-    return classNames(styles.cell, {
-      [styles.cell_border]: border,
-      [styles.dark]: isDarkMode,
-    });
-  }, [border]);
+    const columnClass = useMemo(() => {
+      return classNames(styles.cell, {
+        [styles.cell_border]: border,
+        [styles.dark]: isDarkMode,
+      });
+    }, [border, isDarkMode]);
 
-  const cellClass = useMemo(() => {
-    return classNames(
-      styles.cell_val,
-      {
+    const cellClass = useMemo(() => {
+      return classNames(styles.cell_val, {
         [styles.cell_val_fixed]: fixedHeight,
         [styles.dark]: isDarkMode,
-      },
-      isHeader ? styles.header : ''
-    );
-  }, [isHeader]);
+        [styles.header]: isHeader,
+      });
+    }, [fixedHeight, isDarkMode, isHeader]);
 
-  return (
-    <div className={columnClass} role="cell">
-      <span
-        className={classNames(
-          styles.cell_wrapper,
-          zebra ? styles.zebra : '',
-          isDarkMode ? styles.dark : ''
-        )}
-      >
-        <span
-          className={cellClass}
-          dangerouslySetInnerHTML={{
-            __html: formatter
-              ? (formatter(value) as string)
-              : (value as string),
-          }}
-        ></span>
-      </span>
-    </div>
-  );
-};
+    const wrapperClass = useMemo(() => {
+      return classNames(styles.cell_wrapper, {
+        [styles.zebra]: zebra,
+        [styles.dark]: isDarkMode && zebra,
+      });
+    }, [zebra, isDarkMode]);
+
+    // Format the value only when needed
+    const formattedValue = useMemo(() => {
+      if (formatter) {
+        return formatter(value);
+      }
+      return value;
+    }, [value, formatter]);
+
+    return (
+      <div className={columnClass} role="cell">
+        <span className={wrapperClass}>
+          <span
+            className={cellClass}
+            dangerouslySetInnerHTML={{
+              __html: formattedValue as string,
+            }}
+          ></span>
+        </span>
+      </div>
+    );
+  }
+);
 
 DataGridCell.displayName = 'DataGridCell';
 

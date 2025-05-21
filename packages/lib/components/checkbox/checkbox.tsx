@@ -51,7 +51,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
     const [checked, setChecked] = useState(isChecked);
 
     // Ref for checkbox
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
 
     // Memoized value for dark mode status
     const isDarkMode = useMemo(() => isDark(), []);
@@ -75,7 +75,9 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
     };
 
     // Custom hook for focus management
-    useFocusNew(focusable ? ref : null, ev => toggleCheck(ev));
+    useFocusNew(focusable ? (ref as React.RefObject<HTMLElement>) : null, ev =>
+      toggleCheck(ev)
+    );
 
     // Class names for different elements, memoized for performance
     const iconClass = useMemo(
@@ -86,7 +88,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
           [styles[`${checkBoxStyle}`]]: true,
           [styles.dark]: isDarkMode,
         }),
-      [checked]
+      [checked, size, checkBoxStyle, isDarkMode]
     );
 
     const labelClass = useMemo(
@@ -96,7 +98,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
           [styles.label_rtl]: RTL,
           [styles.dark]: isDarkMode,
         }),
-      []
+      [size, RTL, isDarkMode]
     );
 
     const checkBoxClass = useMemo(
@@ -106,7 +108,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
           [styles[size]]: true,
           [styles.disabled]: disabled,
         }),
-      [disabled]
+      [focusIcon, size, disabled]
     );
 
     const wrapperClass = useMemo(
@@ -121,7 +123,16 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
           [styles.rtl]: RTL,
           [styles.dark]: isDarkMode,
         }),
-      [size, disabled]
+      [
+        size,
+        autoHeight,
+        border,
+        disabled,
+        focusIcon,
+        noHoverStyle,
+        RTL,
+        isDarkMode,
+      ]
     );
 
     // Props for focus management

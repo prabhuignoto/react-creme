@@ -1,8 +1,5 @@
 @use '@design/core.scss';
-@use '@design/list.scss';
 @use '@design/theme.scss';
-@use '@design/animate.scss';
-@use '@design/font.scss';
 
 $sizes: (sm, md, lg);
 
@@ -17,17 +14,14 @@ $sizes: (sm, md, lg);
 }
 
 .bread_crumb {
-  @extend %list-item;
+  @extend %list-item !optional;
   cursor: pointer;
 }
 
 .bread_crumb_icon {
-  &:not(.rtl_icon) {
-    margin-left: 0.5rem;
-  }
+  margin-inline: 0.5rem;
 
   &.rtl_icon {
-    margin-right: 0.5rem;
     transform: rotate(-180deg);
   }
 
@@ -54,8 +48,4 @@ $sizes: (sm, md, lg);
       }
     }
   }
-}
-
-.slash {
-  transform: rotate(120deg);
 }

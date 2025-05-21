@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import { useCallback, useLayoutEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Accordion } from '../accordion/accordion';
 import { AccordionGroupProps } from '../accordion/accordion-model';
 import styles from './accordion-group.module.scss';
@@ -43,83 +43,53 @@ const AccordionGroup = ({
   focusable = true,
   icons,
   disableIcon = false,
-  disableARIA,
+  disableARIA = false,
   size = 'sm',
   fullWidth = false,
   colorizeHeader = false,
   headerHeight = 40,
 }: AccordionGroupProps): JSX.Element => {
-  const [items, setItems] = useState(() => {
-    if (Array.isArray(children)) {
-      return children.map(() => ({
-        expanded,
-        id: nanoid(),
-      }));
-    }
+  const [items, setItems] = useState(() =>
+    titles.map(() => ({ expanded, id: nanoid() }))
+  );
 
-    return [];
-  });
-
-  /**
-   * Handles the expansion of an accordion.
-   * @param {string} id - The id of the accordion.
-   */
-  const handleExpand = useCallback((id: string) => {
-    setItems(prevItems =>
-      prevItems.map(item => {
-        if (item.id === id) {
-          return { ...item, expanded: true };
-        }
-
-        if (!autoClose) {
-          return item;
-        }
-
-        return { ...item, expanded: false };
-      })
-    );
-  }, []);
-
-  /**
-   * Handles the collapsing of an accordion.
-   * @param {string} id - The id of the accordion.
-   */
-  const handleCollapse = useCallback((id: string) => {
-    setItems(prevItems =>
-      prevItems.map(item => {
-        if (item.id === id) {
-          return { ...item, expanded: false };
-        }
-
-        return item;
-      })
-    );
-  }, []);
-
-  /**
-   * The class name of the AccordionGroup component.
-   */
-  const groupClass = useMemo(() => {
-    return classNames(styles.group, {
-      [styles.grp_no_border]: !border,
-    });
-  }, []);
-
-  /**
-   * Sets the items of the AccordionGroup component.
-   */
-  useLayoutEffect(() => {
-    if (titles.length) {
-      setItems(() =>
-        titles.map(() => ({
-          expanded: expanded,
-          id: nanoid(),
+  const handleExpand = useCallback(
+    (id: string) => {
+      setItems(prevItems =>
+        prevItems.map(item => ({
+          ...item,
+          expanded: item.id === id ? true : autoClose ? false : item.expanded,
         }))
       );
-    } else {
-      setItems([]);
-    }
-  }, [titles.length]);
+    },
+    [autoClose]
+  );
+
+  const handleCollapse = useCallback((id: string) => {
+    setItems(prevItems =>
+      prevItems.map(item => ({
+        ...item,
+        expanded: item.id === id ? false : item.expanded,
+      }))
+    );
+  }, []);
+
+  const groupClass = useMemo(
+    () =>
+      classNames(styles.group, {
+        [styles.grp_no_border]: !border,
+      }),
+    [border]
+  );
+
+  useEffect(() => {
+    setItems(() =>
+      titles.map(() => ({
+        expanded,
+        id: nanoid(),
+      }))
+    );
+  }, [titles, expanded]);
 
   return (
     <div className={groupClass}>
@@ -127,7 +97,7 @@ const AccordionGroup = ({
         <div
           className={styles.group_item}
           key={item.id}
-          role={!disableARIA ? 'group' : ''}
+          role={!disableARIA ? 'group' : undefined}
         >
           <Accordion
             id={item.id}
@@ -143,14 +113,14 @@ const AccordionGroup = ({
             disableCollapse={disableCollapse}
             disableIcon={disableIcon}
             focusable={focusable}
-            customIcon={icons && icons[index]}
+            customIcon={icons?.[index]}
             disableARIA={disableARIA}
             size={size}
             fullWidth={fullWidth}
             colorizeHeader={colorizeHeader}
             headerHeight={headerHeight}
           >
-            {children && children[index]}
+            {Array.isArray(children) ? children[index] : children}
           </Accordion>
         </div>
       ))}

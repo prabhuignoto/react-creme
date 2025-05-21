@@ -1,26 +1,28 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 export type Record = {
-  [key: string]: string | number;
+  id?: string;
+  [key: string]: string | number | undefined;
 };
 
 export interface DataGridColumn {
-  align?: string;
+  align?: 'left' | 'center' | 'right';
   format?: string;
-  formatter?: (value: string | number) => string | number;
+  formatter?: (value: string | number) => string | number | ReactNode;
   id?: string;
   name: string;
   searchable?: boolean;
   sortOrder?: string;
   sortable?: boolean;
-  type?: 'string' | 'number';
+  type?: 'string' | 'number' | 'date' | 'boolean';
   width?: number;
+  sortDirection?: SortDirection;
 }
 
 export interface DataGridCell {
   border?: boolean;
   fixedHeight?: boolean;
-  formatter?: (value: string | number) => string | number;
+  formatter?: (value: string | number) => string | number | ReactNode;
   isHeader?: boolean;
   name: string;
   value: string | number;

@@ -1,7 +1,9 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
 
-$transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
+$transition:
+  max-height 0.5s var(--transition),
+  opacity 0.5s var(--transition);
 
 .accordion {
   @extend %col-left;
@@ -9,15 +11,10 @@ $transition: max-height 0.5s var(--transition), opacity 0.5s var(--transition);
   height: calc(100% - 0.5rem);
   padding: 0.25rem;
   width: 100%;
-  width: calc(100% - 0.5rem);
 
   &:not(.no-border) {
     @extend %border;
   }
-}
-
-.align-icon-rt {
-  direction: rtl;
 }
 
 .body {
