@@ -54,7 +54,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
     const listRef = useRef<HTMLUListElement | null>(null);
 
     const { selection, setSelection } = useKeyNavigation(
-      listRef,
+      listRef as React.RefObject<HTMLElement>,
       selectedIndex,
       options.length
     );

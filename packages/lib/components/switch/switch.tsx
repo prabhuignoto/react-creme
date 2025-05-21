@@ -21,7 +21,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
   showCheckIcon = false,
 }) => {
   const [state, setState] = useState(checked);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const id = useRef(`rc-switch-${nanoid()}`);
 
   // flag to check if the component is rendering the first time
@@ -39,7 +39,10 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
     }
   };
 
-  useFocusNew(focusable ? ref : null, focusable ? handleToggle : null);
+  useFocusNew(
+    focusable ? (ref as React.RefObject<HTMLElement>) : null,
+    focusable ? handleToggle : null
+  );
 
   const isDarkMode = useMemo(() => isDark(), []);
 

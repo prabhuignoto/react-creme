@@ -52,7 +52,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
       }
     }, [focus]);
 
-    useFocusNew(ref, handleClick as () => void);
+    useFocusNew(ref as React.RefObject<HTMLElement>, handleClick as () => void);
 
     return (
       <li

@@ -24,7 +24,7 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
   border = true,
   handleBarWidth = 6,
 }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLElement>(null);
   const controlRef = useRef<HTMLSpanElement>(null);
   const gapWidthHalf = useMemo(
     () => round(handleBarWidth / 2),
@@ -35,17 +35,21 @@ const Splitter: React.FunctionComponent<SplitterProps> = ({
 
   const isDarkMode = useMemo(() => isDark(), []);
 
-  const [percent, setPercent] = useDrag(ref, controlRef, {
-    direction: dir,
-    maxX: maxSplitWidth,
-    maxY: maxSplitHeight,
-    minX: minSplitWidth,
-    minY: minSplitHeight,
-    observeContainer: true,
-    onDragEnd: () => setDragStarted(false),
-    onDragStart: () => setDragStarted(true),
-    updatePosition: false,
-  });
+  const [percent, setPercent] = useDrag(
+    ref as React.RefObject<HTMLElement>,
+    controlRef,
+    {
+      direction: dir,
+      maxX: maxSplitWidth,
+      maxY: maxSplitHeight,
+      minX: minSplitWidth,
+      minY: minSplitHeight,
+      observeContainer: true,
+      onDragEnd: () => setDragStarted(false),
+      onDragStart: () => setDragStarted(true),
+      updatePosition: false,
+    }
+  );
 
   const isHorizontal = useMemo(() => dir === 'horizontal', []);
 

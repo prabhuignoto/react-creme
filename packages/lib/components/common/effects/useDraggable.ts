@@ -15,13 +15,13 @@ const useDraggable: UseDraggable = (
   const elementRef = useRef<HTMLElement | null>(null);
 
   const mousePressed = useRef(false);
-  const rect = useRef<DOMRect>();
-  const boundToRect = useRef<DOMRect | null>();
+  const rect = useRef<DOMRect | undefined>(undefined);
+  const boundToRect = useRef<DOMRect | null>(null);
   const start = useRef<{ x: number; y: number }>({
     x: 0,
     y: 0,
   });
-  const tapDetectionTimer = useRef<number>();
+  const tapDetectionTimer = useRef<number | undefined>(undefined);
 
   const dragTarget = useRef<HTMLElement | null>(null);
 

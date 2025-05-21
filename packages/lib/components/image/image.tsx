@@ -144,7 +144,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
   );
 
   useFocusNew(
-    focusable ? wrapperRef : null,
+    focusable ? (wrapperRef as React.RefObject<HTMLElement>) : null,
     focusable ? handleOverlayOpen : null
   );
 

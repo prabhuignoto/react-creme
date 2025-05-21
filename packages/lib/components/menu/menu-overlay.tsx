@@ -32,7 +32,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
      * Handle key navigation
      */
     const { selection, setSelection } = useKeyNavigation(
-      listRef,
+      listRef as React.RefObject<HTMLElement>,
       -1,
       items.length,
       0,

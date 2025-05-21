@@ -20,7 +20,7 @@ interface Settings {
 }
 
 export type FunctionType = (
-  ele: RefObject<HTMLDivElement>,
+  ele: RefObject<HTMLDivElement> | null,
   toolTip: RefObject<HTMLElement>,
   pos: Position,
   settings?: Settings

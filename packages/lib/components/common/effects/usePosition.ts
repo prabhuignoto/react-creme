@@ -18,7 +18,7 @@ const usePosition: FunctionType = function (
 
   // Define the onInit function
   const onInit = useCallback(() => {
-    const containerEle = container.current; // Get the container element
+    const containerEle = container?.current; // Get the container element if it exists
     const targetEle = target.current; // Get the target element
 
     // If both elements exist

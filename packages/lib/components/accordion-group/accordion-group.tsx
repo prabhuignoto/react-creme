@@ -48,7 +48,7 @@ const AccordionGroup = ({
   fullWidth = false,
   colorizeHeader = false,
   headerHeight = 40,
-}: AccordionGroupProps): JSX.Element => {
+}: AccordionGroupProps) => {
   const [items, setItems] = useState(() =>
     titles.map(() => ({ expanded, id: nanoid() }))
   );

@@ -32,7 +32,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     focusable,
     accent,
   }: TagItemViewProps) => {
-    const ref = useRef(null);
+    const ref = useRef<HTMLSpanElement>(null);
 
     const isFirstRender = useFirstRender();
 
@@ -40,7 +40,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
       id && handleRemove(id);
     }, []);
 
-    useKey(ref, handleClick);
+    useKey(ref as React.RefObject<HTMLElement>, handleClick);
 
     const editable = useMemo(() => !disabled && !readonly, []);
 
@@ -80,7 +80,10 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
       []
     );
 
-    useFocusNew(focusable ? ref : null, focusable ? handleClick : null);
+    useFocusNew(
+      focusable ? (ref as React.RefObject<HTMLElement>) : null,
+      focusable ? handleClick : null
+    );
 
     return (
       <li key={id} className={tagItemClass} style={style}>

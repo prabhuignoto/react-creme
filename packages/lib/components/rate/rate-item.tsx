@@ -39,7 +39,7 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = ({
 
   // Hook to manage focus and keyboard navigation for the rate item
   useFocusNew(
-    focusable && !disabled ? ref : null,
+    focusable && !disabled ? (ref as React.RefObject<HTMLElement>) : null,
     focusable ? () => onSelect(index) : null
   );
 

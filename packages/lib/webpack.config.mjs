@@ -18,8 +18,9 @@ import { StatsWriterPlugin } from 'webpack-stats-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const pkg = JSON.parse(fs.readFileSync(join(__dirname, './package.json'), 'utf-8'));
-
+const pkg = JSON.parse(
+  fs.readFileSync(join(__dirname, './package.json'), 'utf-8')
+);
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -183,8 +184,9 @@ const config = {
       },
     }),
     new StatsWriterPlugin({
+      filename: 'stats.json', // Output file name
       stats: {
-        all: true,
+        all: true, // Include all stats information
       },
     }),
     // new RelativeCiAgentWebpackPlugin({

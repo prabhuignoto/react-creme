@@ -33,10 +33,10 @@ const useDrag: useDragFunctionType = (
   const dragStarted = useRef(false);
   const [percent, setPercent] = useState(rnd(startValue / endValue));
 
-  const containerRect = useRef<DOMRect>();
-  const resizeObserver = useRef<ResizeObserver>();
+  const containerRect = useRef<DOMRect | null>(null);
+  const resizeObserver = useRef<ResizeObserver | null>(null);
 
-  const dragStartTimer = useRef<number>();
+  const dragStartTimer = useRef<number | null>(null);
 
   const maxXValue = useRef<number>(0);
   const maxYValue = useRef<number>(0);
@@ -209,7 +209,9 @@ const useDrag: useDragFunctionType = (
    * Event handler for drag end operation
    */
   const handleDragEnd = useCallback(() => {
-    window.clearTimeout(dragStartTimer.current);
+    if (dragStartTimer.current !== null) {
+      window.clearTimeout(dragStartTimer.current);
+    }
     dragStarted.current = false;
     onDragEnd && onDragEnd();
   }, []);
@@ -290,10 +292,14 @@ const useDrag: useDragFunctionType = (
           : 0;
 
         if (currentValue) {
-          target.current.style.left = `${Math.round(clientWidth * percent)}px`;
+          if (target.current) {
+            target.current.style.left = `${Math.round(clientWidth * percent)}px`;
+          }
           setPercent(percent);
         } else {
-          target.current.style.left = `${rnd(clientWidth * percent)}px`;
+          if (target.current) {
+            target.current.style.left = `${rnd(clientWidth * percent)}px`;
+          }
           setPercent(percent);
         }
       }
