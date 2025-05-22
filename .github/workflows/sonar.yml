@@ -22,17 +22,23 @@ jobs:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
 
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@v2
+      - name: Set up Java
+        uses: actions/setup-java@v3
         with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v5
+        with:
+          projectBaseDir: packages/lib/
           args: >
             -Dsonar.organization=react-creme
             -Dsonar.projectKey=react-creme
-            -Dsonar.sources=packages/lib/
-            -Dsonar.coverage
+            -Dsonar.sources=.
+            -Dsonar.exclusions=coverage/**
             -Dsonar.test.exclusions=tests/**
-            -Dsonar.exclusions=packages/lib/coverage/**
-            -Dsonar.javascript.lcov.reportPaths=packages/lib/coverage/lcov.info
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.verbose=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
