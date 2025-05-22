@@ -17,11 +17,15 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     include: ['./components/**/*.test.tsx', './components/**/*.test.ts'],
-    maxThreads: 12,
-    minThreads: 5,
+    poolOptions: {
+      threads: {
+        maxThreads: 12,
+        minThreads: 5,
+      },
+    },
     setupFiles: './test-setup.ts',
     silent: true,
-    threads: true,
+    clearMocks: true,
     update: true,
   },
 });

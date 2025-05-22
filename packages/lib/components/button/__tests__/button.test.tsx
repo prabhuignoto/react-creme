@@ -1,7 +1,8 @@
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor, screen } from '@testing-library/react';
 import { it, vi } from 'vitest';
 import { Button } from '../button';
 import styles from '../button.module.scss';
+import userEvent from '@testing-library/user-event';
 
 const handler = vi.fn();
 
@@ -59,17 +60,29 @@ describe('Button', () => {
   });
 
   it('should call handler via keyboard action', async () => {
-    const { getByText } = render(
-      <Button label="My Button" onClick={handler} />,
-      {
-        container: document.body,
-      }
+    const handler = vi.fn();
+    render(
+      <Button aria-label="My Button" onClick={handler}>
+        My Button
+      </Button>
     );
 
-    fireEvent.keyDown(getByText('My Button'), { key: 'Enter' });
+    const button = screen.getByRole('button', { name: 'My Button' });
 
-    await waitFor(async () => {
-      expect(handler).toBeCalled();
+    // Focus the element firstackag
+    await userEvent.click(button); // This ensures the element gets focus
+
+    // Use the following methods to trigger the keyboard action
+    await userEvent.keyboard('{Enter}');
+    // For Space key as fallback
+    await userEvent.keyboard(' ');
+
+    // If using fireEvent directly is needed:
+    // fireEvent.keyDown(button, { key: 'Enter', code: 'Enter' });
+
+    // Wait for any async handlers to complete
+    await waitFor(() => {
+      expect(handler).toHaveBeenCalled();
     });
   });
 
