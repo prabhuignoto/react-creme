@@ -9,7 +9,8 @@ vi.mock('../../common/effects/useOnClickOutside', () => {
 
   return {
     default: (callback: () => void) => {
-      const id = Math.random().toString();
+      // Use a more deterministic ID generation for testing
+      const id = `click-outside-${Date.now()}-${handlers.size}`;
       handlers.set(id, callback);
 
       return {
