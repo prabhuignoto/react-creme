@@ -1,38 +1,79 @@
-import { InfoIcon } from '@icons';
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import { isDark } from '../common/utils';
 import styles from './block-quote.module.scss';
 
-interface BlockQuoteProps {
+export interface BlockQuoteProps {
+  /**
+   * Content to be rendered inside the blockquote
+   */
   children: React.ReactNode;
-  showInfoIcon?: boolean;
-  size?: 'sm' | 'md' | 'lg';
+
+  /**
+   * Citation text to be displayed
+   */
+  cite?: string;
+
+  /**
+   * Alignment of the blockquote
+   * @default 'left'
+   */
+  align?: 'left' | 'right' | 'center';
+
+  /**
+   * Style of the blockquote
+   * @default 'default'
+   */
+  style?: 'default' | 'simple' | 'fancy';
+
+  /**
+   * Additional class name for the blockquote
+   */
+  className?: string;
+
+  /**
+   * Additional props to be spread to the blockquote element
+   */
+  [key: string]: any;
 }
 
-const BlockQuote: React.FC<BlockQuoteProps> = React.memo(
-  ({ children, showInfoIcon = true, size = 'sm' }) => {
-    const blockQuoteClass = useMemo(
-      () =>
-        classNames(styles.block_quote, styles[`block_quote_${size}`], {
-          [styles.dark]: isDark(),
-        }),
-      [size]
-    );
+/**
+ * BlockQuote component for displaying quoted content
+ */
+export const BlockQuote: React.FC<BlockQuoteProps> = ({
+  children,
+  cite,
+  align = 'left',
+  style = 'default',
+  className,
+  ...rest
+}) => {
+  const isDarkMode = useMemo(() => isDark(), []);
 
-    return (
-      <div className={blockQuoteClass}>
-        {showInfoIcon && (
-          <span className={styles.block_quote_icon}>
-            <InfoIcon />
-          </span>
-        )}
-        <div className={styles.block_quote_child_content}>{children}</div>
-      </div>
-    );
-  }
-);
+  const blockQuoteClass = useMemo(
+    () =>
+      classNames(
+        styles.quote,
+        styles[`quote_${align}`],
+        styles[`quote_${style}`],
+        {
+          [styles.dark]: isDarkMode,
+        },
+        className
+      ),
+    [align, style, isDarkMode, className]
+  );
+
+  return (
+    <blockquote className={blockQuoteClass} {...rest}>
+      <div className={styles.content}>{children}</div>
+      {cite && (
+        <footer className={styles.cite}>
+          <cite>— {cite}</cite>
+        </footer>
+      )}
+    </blockquote>
+  );
+};
 
 BlockQuote.displayName = 'BlockQuote';
-
-export { BlockQuote };

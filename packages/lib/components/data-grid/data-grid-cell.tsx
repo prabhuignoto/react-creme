@@ -40,7 +40,12 @@ const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
     }, [value, formatter]);
 
     return (
-      <div className={columnClass} role="cell">
+      <div
+        className={classNames(columnClass, {
+          [styles.zebra]: zebra, // Ensure zebra class is applied here
+        })}
+        role="cell"
+      >
         <span className={wrapperClass}>
           <span
             className={cellClass}

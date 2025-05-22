@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { CSSProperties, useEffect, useMemo, useRef } from 'react';
 import { withOverlay } from '../../components/common/withOverlay';
-import useOnClickOutside from '../common/effects/useOnClickOutside';
+import useOnClickOutside from '../../common/effects/useOnClickOutside';
 import { OverlayModel } from '../common/overlay-model';
 import { isDark } from '../common/utils';
 import { List } from '../list/list';

@@ -26,3 +26,5 @@ build-storybook.log
 debug.log
 
 coverage
+
+.webpack_cache/

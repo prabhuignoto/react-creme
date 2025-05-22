@@ -21,4 +21,21 @@ describe('DataGridCell', () => {
 
     expect(getByRole('cell')).toHaveClass(styles.cell_border);
   });
+
+  it('should render formatted value when formatter is provided', async () => {
+    const formatter = (value: string | number) => `Formatted: ${value}`;
+    const { getByText } = render(
+      <DataGridCell name="name" value="john" formatter={formatter} />
+    );
+
+    expect(getByText('Formatted: john')).toBeInTheDocument();
+  });
+
+  it('should apply zebra styling', async () => {
+    const { getByRole } = render(
+      <DataGridCell name="name" value="john" zebra />
+    );
+
+    expect(getByRole('cell')).toHaveClass(styles.zebra);
+  });
 });

@@ -5,6 +5,106 @@
 
 $sizes: (sm, md, lg);
 
+.quote {
+  border-left: 4px solid $gray-400;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+
+  &.dark {
+    border-left-color: $gray-600;
+    color: $white;
+  }
+
+  &_left {
+    text-align: left;
+  }
+
+  &_center {
+    text-align: center;
+    border-left: none;
+    border-top: 2px solid $gray-400;
+    border-bottom: 2px solid $gray-400;
+
+    &.dark {
+      border-top-color: $gray-600;
+      border-bottom-color: $gray-600;
+    }
+  }
+
+  &_right {
+    text-align: right;
+    border-left: none;
+    border-right: 4px solid $gray-400;
+
+    &.dark {
+      border-right-color: $gray-600;
+    }
+  }
+
+  &_simple {
+    border: none;
+    font-style: normal;
+
+    .content::before {
+      content: '"';
+      font-size: 1.5em;
+    }
+
+    .content::after {
+      content: '"';
+      font-size: 1.5em;
+    }
+  }
+
+  &_fancy {
+    border: none;
+    position: relative;
+    padding: 1.5rem 2rem;
+
+    &::before,
+    &::after {
+      position: absolute;
+      color: $gray-400;
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    &::before {
+      content: '"';
+      left: 0;
+      top: 0;
+    }
+
+    &::after {
+      content: '"';
+      right: 0;
+      bottom: -0.5rem;
+    }
+
+    &.dark::before,
+    &.dark::after {
+      color: $gray-600;
+    }
+  }
+}
+
+.content {
+  margin-bottom: 0.5rem;
+}
+
+.cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.9em;
+  margin-top: 0.5rem;
+
+  cite {
+    font-style: normal;
+    opacity: 0.8;
+  }
+}
+
 .block_quote {
   @extend %border-radius;
   display: grid;
