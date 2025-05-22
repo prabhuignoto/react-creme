@@ -106,7 +106,7 @@ $heights: (
   transition: background 0.1s linear;
 
   &.dark {
-    // background: theme.$dark-input-bg;
+    background: theme.$dark-input-bg;
   }
 
   &:not(.dark) {
@@ -123,11 +123,11 @@ $heights: (
 
   &.checked {
     background: theme.$primary;
-  }
 
-  &.checked svg {
-    color: theme.$white;
-    display: block;
+    svg {
+      color: theme.$white;
+      display: block;
+    }
   }
 }
 

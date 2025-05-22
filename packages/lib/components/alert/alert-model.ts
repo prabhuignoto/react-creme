@@ -1,36 +1,70 @@
 import { ReactNode } from 'react';
 
-/** ✨ Component props **/
+/**
+ * Alert component props interface
+ * @typedef {Object} AlertProps
+ */
 export interface AlertProps {
-  /**🟡 right to left */
+  /**
+   * Right to left text direction
+   * @default false
+   */
   RTL?: boolean;
 
+  /**
+   * Animation type when alert closes
+   * @default 'shrink'
+   */
   animation?: 'shrink' | 'fade';
 
-  /**🟡 prop to set the aria label */
+  /**
+   * Aria label for close button
+   * @default 'close alert'
+   */
   ariaLabelClose?: string;
 
-  /**🟡 prop to dismiss the alert */
+  /**
+   * Whether the alert can be dismissed
+   * @default true
+   */
   canDismiss?: boolean;
 
-  /**🟡 react children */
+  /**
+   * React children to render inside alert
+   */
   children?: ReactNode;
 
-  /**🟡 prop to enable focus on the alert */
+  /**
+   * Whether the alert can be focused
+   * @default true
+   */
   focusable?: boolean;
 
-  /**🟡 sets the height */
+  /**
+   * Height of the alert in pixels
+   * @default 100
+   */
   height?: number;
 
-  /**🟡 message that will be displayed inside the alert */
+  /**
+   * Message to display inside the alert
+   */
   message?: string;
 
-  /**🟡 callback executed on dismiss */
+  /**
+   * Callback executed when alert is dismissed
+   */
   onDismiss?: () => void;
 
-  /**🟡 prop to set the size */
+  /**
+   * Size of the alert
+   * @default 'sm'
+   */
   size?: 'sm' | 'md' | 'lg';
 
-  /**🟡 state of the alert */
+  /**
+   * State/type of the alert
+   * @default 'info'
+   */
   state?: 'success' | 'error' | 'warning' | 'info';
 }

@@ -1,31 +1,57 @@
 {
-  "npmClient": "pnpm",
-  "pipeline": {
-    "format": {},
-    "lint": {},
-    "build:lib": {},
-    "build:doc": {},
-    "build:story": {},
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "format": {
+      "cache": true
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["dist/**"]
+    },
+    "build:doc": {
+      "dependsOn": ["build:lib"],
+      "outputs": ["dist/**"]
+    },
+    "build:story": {
+      "dependsOn": ["build:lib"],
+      "outputs": ["storybook-static/**"]
+    },
     "percy": {
+      "dependsOn": ["build:story"],
       "outputs": ["storybook-static"]
     },
     "build": {
+      "dependsOn": ["^build"],
       "outputs": ["dist/**", "dts/**", "typings/**", "expo_dist"]
     },
     "test": {
-      "outputs": ["coverage", ".jest-cache"]
+      "dependsOn": ["build"],
+      "outputs": ["coverage/**", ".jest-cache/**"]
     },
     "test:ci": {
-      "outputs": ["coverage", ".jest-cache"]
+      "dependsOn": ["build"],
+      "outputs": ["coverage/**", ".jest-cache/**"]
     },
     "dev": {
-      "outputs": [".vite_cache"]
+      "cache": false,
+      "persistent": true
     },
     "ci": {
+      "dependsOn": ["^build", "test:ci"],
       "outputs": ["dist/**", "dts/**", "typings/**", "expo_dist", "coverage"]
     },
-    "snyk": {},
-    "fix-css": {},
-    "fix-js": {}
+    "snyk": {
+      "cache": true
+    },
+    "fix-css": {
+      "cache": true
+    },
+    "fix-js": {
+      "cache": true
+    }
   }
 }

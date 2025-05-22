@@ -34,11 +34,11 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
     },
   ]);
 
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useCloseOnEscape(() => {
     onClose && onClose();
-  }, ref);
+  }, ref as React.RefObject<HTMLDivElement>);
 
   const wrapperStyle = useMemo(
     () =>

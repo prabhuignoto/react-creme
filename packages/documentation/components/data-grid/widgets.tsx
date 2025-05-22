@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { DataGrid, Section, Text } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
 import { responsiveState } from '../../atoms/home';
@@ -7,7 +7,7 @@ import { DemoWidget } from '../../common/demo-widget';
 import { columnsConfig, data } from './grids-data';
 
 function widgets() {
-  const media = useRecoilValue(responsiveState);
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState<string | number>(0);
   const [columns, setColumns] = useState<DataGridColumn[]>(columnsConfig);
 

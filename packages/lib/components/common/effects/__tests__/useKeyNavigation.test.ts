@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { useKeyNavigation } from '../useKeyNavigation';
 import { describe, expect, beforeEach, afterEach, it } from 'vitest';
 

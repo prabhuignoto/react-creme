@@ -43,18 +43,22 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   const onDragEnd = useCallback(() => setDragging(false), []);
 
   // setup the slider dragging function
-  const [percent] = useDrag(trackerRef, controlRef, {
-    currentValue: sliderValue,
-    direction: 'horizontal',
-    disabled,
-    endValue: end,
-    moveToPositionOnClick: true,
-    observeContainer: true,
-    offsetLeft: start,
-    onDragEnd,
-    onDragStart,
-    startValue: start,
-  });
+  const [percent] = useDrag(
+    trackerRef as React.RefObject<HTMLElement>,
+    controlRef as React.RefObject<HTMLElement>,
+    {
+      currentValue: sliderValue,
+      direction: 'horizontal',
+      disabled,
+      endValue: end,
+      moveToPositionOnClick: true,
+      observeContainer: true,
+      offsetLeft: start,
+      onDragEnd,
+      onDragStart,
+      startValue: start,
+    }
+  );
 
   const onTrackerInit = useCallback((node: HTMLDivElement) => {
     if (node) {

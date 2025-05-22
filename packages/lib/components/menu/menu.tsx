@@ -91,7 +91,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
    * Setups focus
    */
   useFocusNew(
-    focusable ? wrapperRef : null,
+    focusable ? (wrapperRef as React.RefObject<HTMLElement>) : null,
     focusable
       ? () => {
           setShowMenu(prev => !prev);
@@ -102,7 +102,10 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   /**
    * Close menu on esc key
    */
-  useCloseOnEscape(() => setShowMenu(false), wrapperRef);
+  useCloseOnEscape(
+    () => setShowMenu(false),
+    wrapperRef as React.RefObject<HTMLDivElement>
+  );
 
   useEffect(() => {
     if (isFirstRender.current) {
@@ -179,7 +182,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
           <MenuOverlay
             items={menuItems}
             onSelection={handleSelection}
-            placementReference={wrapperRef}
+            placementReference={wrapperRef as React.RefObject<HTMLElement>}
             placement="bottom"
             onClose={closeMenu}
             onOpen={handleOnOpen}

@@ -64,7 +64,9 @@ $start-left: 4px;
 
 .disabled {
   .knob {
-    box-shadow: none;
+    & {
+      box-shadow: none;
+    }
   }
 }
 
@@ -165,7 +167,9 @@ $start-left: 4px;
         @include animate.set-keyframes(slide-right-#{$key}, $settings);
         animation-name: slide-right-#{$key};
         background-color: theme.$primary;
-        box-shadow: none;
+        & {
+          box-shadow: none;
+        }
         left: calc(100% - $val - 4px);
       }
 

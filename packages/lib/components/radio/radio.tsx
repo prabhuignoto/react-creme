@@ -51,7 +51,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
     const labelID = useRef(`label-${idRef.current}`);
 
     // Reference to the radio container element for focus handling
-    const radioRef = useRef<HTMLLIElement | null>(null);
+    const radioRef = useRef<HTMLLIElement>(null);
 
     // State to manage the checked state of the radio
     const [checked, setChecked] = useState<boolean | null>(isChecked);
@@ -88,7 +88,10 @@ const Radio: React.FunctionComponent<RadioProps> = React.memo(
     );
 
     // Set up focus management using custom hook
-    useFocusNew(canFocus ? radioRef : null, canFocus ? toggleCheck : null);
+    useFocusNew(
+      canFocus ? (radioRef as React.RefObject<HTMLElement>) : null,
+      canFocus ? toggleCheck : null
+    );
 
     // Calculate classes for the radio wrapper element
     const radioWrapperClass = useMemo(() => {

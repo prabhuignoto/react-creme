@@ -2,7 +2,7 @@ import { faCog, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { useCallback, useEffect, useState } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useAtom, useAtomValue } from 'jotai';
 import { Dialog, RadioGroup, Section } from '../../../lib/components';
 import { RadioGroupItemProps } from '../../../lib/components/radio-group/radio-group-model';
 import { responsiveState, themeState, ThemeType } from '../../atoms/home';
@@ -33,8 +33,8 @@ const themes: RadioGroupItemProps<ThemeType>[] = [
 const AppSettings: React.FunctionComponent = () => {
   const [showSettings, setShowSettings] = useState(false);
   const [width, setWidth] = useState(0);
-  const { isMobile } = useRecoilValue(responsiveState);
-  const [appTheme, updateAppTheme] = useRecoilState(themeState);
+  const { isMobile } = useAtomValue(responsiveState);
+  const [appTheme, updateAppTheme] = useAtom(themeState);
   const [theme, setTheme] = useState<ThemeType>(
     appTheme.selectedTheme || ({} as ThemeType)
   );

@@ -25,10 +25,10 @@ const Link: React.FunctionComponent<LinkProps> = ({
   size = 'sm',
   highlight = false,
 }) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLAnchorElement>(null);
   let focusProps = null;
 
-  useFocusNew(focusable ? ref : null);
+  useFocusNew(focusable ? (ref as React.RefObject<HTMLElement>) : null);
 
   if (focusable) {
     focusProps = {

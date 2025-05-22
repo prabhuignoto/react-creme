@@ -12,7 +12,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FunctionComponent, memo, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { Sidebar } from '../../lib/components';
 import { Theme } from '../../lib/components/common/theme-provider-model';
 import {
@@ -66,7 +66,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
   const navigate = useNavigate();
   const location = useLocation();
 
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
 
   const handleSidebarSelect = (_group, item: SidebarItemModel) => {
     onSelect?.();

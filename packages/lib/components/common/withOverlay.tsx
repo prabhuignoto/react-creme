@@ -26,7 +26,11 @@ export const OverlayContext = React.createContext<OverlayContextModel | null>(
 );
 
 const withOverlay = function <T extends OverlayModel<U>, U>(
-  Node: React.FunctionComponent<T> | React.ForwardRefExoticComponent<T>,
+  Node:
+    | React.FunctionComponent<T & { isClosing?: boolean; onClose?: () => void }>
+    | React.ForwardRefExoticComponent<
+        T & { isClosing?: boolean; onClose?: () => void }
+      >,
   settings: Settings = {
     backdropColor: 'rgba(0,0,0,0.5)',
     disableAnimation: false,
@@ -35,7 +39,7 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
     name: '',
   }
 ) {
-  const Component = React.forwardRef<HTMLElement, T>((props: T, ref) => {
+  const Component = React.forwardRef<HTMLElement, T>((props, ref) => {
     const classPrefix = useRef('overlay');
     const overlayRef = useRef<HTMLDivElement | null>(null);
     const {
@@ -125,7 +129,7 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
               name={name}
             >
               <Node
-                {...props}
+                {...(props as T)}
                 onClose={handleChildClose}
                 isClosing={isClosing}
                 ref={ref}

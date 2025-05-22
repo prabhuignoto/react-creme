@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { useDebouncedCallback } from 'use-debounce';
 import { themeState } from '../../atoms/home';
 import './widget-wrapper.scss';
@@ -31,7 +31,7 @@ const WidgetsWrapper: React.FunctionComponent<{
 
   // const [scrollPosition, setScrollPosition] = useState(0);
 
-  const { darkMode } = useRecoilValue(themeState);
+  const { darkMode } = useAtomValue(themeState);
 
   const currentRect = useRef<DOMRect | null>(null);
   // const scrollDirection = useRef<'up' | 'down' | null>(null);

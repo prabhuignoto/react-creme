@@ -39,4 +39,28 @@ describe('AccordionHeader', () => {
       'true'
     );
   });
+
+  it('does not call onToggle when disableCollapse is true', async () => {
+    const onToggle = vi.fn();
+
+    render(<AccordionHeader onToggle={onToggle} disableCollapse />);
+
+    await userEvent.click(screen.getByRole('heading'));
+
+    expect(onToggle).not.toHaveBeenCalled();
+  });
+
+  it('does not render icon when disableIcon is true', () => {
+    render(<AccordionHeader disableIcon />);
+
+    expect(screen.getByRole('heading').querySelector('img')).toBeNull();
+  });
+
+  it('applies alignIconRight class when alignIconRight is true', () => {
+    const { container } = render(<AccordionHeader alignIconRight />);
+
+    expect((container.firstElementChild as HTMLElement).className).toMatch(
+      /_align-icon-rt_/
+    );
+  });
 });

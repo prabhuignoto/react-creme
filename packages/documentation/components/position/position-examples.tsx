@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useCallback, useRef } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { usePosition } from '../../../lib/components/common/effects/usePosition';
 import { themeState } from '../../atoms/home';
@@ -11,7 +11,7 @@ export const PositionComponent: React.FunctionComponent<{
 }> = ({ position }) => {
   const container = useRef<HTMLDivElement | null>(null);
   const element = useRef<HTMLElement | null>(null);
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
 
   const { position: cssPosition, onInit } = usePosition(
     container,

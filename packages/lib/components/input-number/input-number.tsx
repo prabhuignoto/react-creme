@@ -34,8 +34,8 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         ? value > end
           ? end
           : value < start
-          ? start
-          : value
+            ? start
+            : value
         : start
       : value
   );

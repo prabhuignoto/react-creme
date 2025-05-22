@@ -8,31 +8,31 @@ on:
 name: Sonar Workflow
 
 jobs:
-  sonarcloud:
+  sonarqube:
+    name: SonarQube
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Cache SonarCloud dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
 
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
         with:
+          projectBaseDir: packages/lib/
           args: >
-            -Dsonar.organization=react-creme
-            -Dsonar.projectKey=react-creme
-            -Dsonar.sources=packages/lib/
-            -Dsonar.coverage
+            -Dsonar.organization=prabhuignoto
+            -Dsonar.projectKey=prabhuignoto_react-creme
+            -Dsonar.exclusions=coverage/**
             -Dsonar.test.exclusions=tests/**
-            -Dsonar.exclusions=packages/lib/coverage/**
-            -Dsonar.javascript.lcov.reportPaths=packages/lib/coverage/lcov.info
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.verbose=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

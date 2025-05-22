@@ -42,8 +42,8 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
 
   // helper to position the tooltip
   const { position: cssPosition, onInit } = usePosition(
-    wrapperRef,
-    tooltipRef,
+    wrapperRef as React.RefObject<HTMLDivElement>,
+    tooltipRef as React.RefObject<HTMLDivElement>,
     position,
     {
       alignToEdge: true,

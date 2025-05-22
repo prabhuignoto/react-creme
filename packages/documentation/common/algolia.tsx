@@ -1,8 +1,13 @@
 import { faAlgolia } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import algoliasearch from 'algoliasearch/lite';
-import { useState } from 'react';
-import { AutoSuggest } from '../../lib/components/auto-suggest/auto-suggest';
+import { algoliasearch } from 'algoliasearch';
+import {
+  InstantSearch,
+  SearchBox,
+  Hits,
+  Configure,
+  useInstantSearch,
+} from 'react-instantsearch';
 import { AutoSuggestOption } from '../../lib/components/auto-suggest/auto-suggest.model';
 
 const searchClient = algoliasearch(
@@ -10,50 +15,56 @@ const searchClient = algoliasearch(
   'dfb0dd05a40e024acbd771f909a0ed4f'
 );
 
-const index = searchClient.initIndex('react_creme_search');
-
-const AutoSuggestUI: React.FC<{
-  onSelection: ({ name, value }: AutoSuggestOption) => void;
-}> = ({ onSelection }) => {
-  const [suggestions, setSuggestions] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = (value: string) => {
-    const fetchSuggestions = async () => {
-      try {
-        const results = await index.search(value, {
-          hitsPerPage: 10,
-        });
-        setSuggestions(
-          results.hits.map<AutoSuggestOption>((hit: any) => ({
-            name: hit.key,
-            value: hit.path,
-          }))
-        );
-        setLoading(false);
-      } catch (error) {
-        console.warn(error);
-      }
-    };
-
-    if (value) {
-      fetchSuggestions();
-      setLoading(true);
-    }
-  };
-
+// Custom hit component to display search results
+const Hit = ({ hit, onSelection }) => {
   return (
-    <AutoSuggest
-      suggestions={suggestions}
-      suggestionsWidth={250}
-      showSpinner={loading}
-      placeholder="Search with Algolia..."
-      onSelection={onSelection}
-      onChange={handleChange}
-      apiBacked
-      icon={<FontAwesomeIcon icon={faAlgolia} size="2x" />}
-    />
+    <div
+      className="hit-item"
+      onClick={() => onSelection({ name: hit.key, value: hit.path })}
+    >
+      <div className="hit-name">{hit.key}</div>
+      <div className="hit-path">{hit.path}</div>
+    </div>
   );
 };
 
-export default AutoSuggestUI;
+// Optional: Custom component to show empty results or error states
+const EmptyQueryBoundary = ({ children }) => {
+  const { results } = useInstantSearch();
+
+  if (!results.__isArtificial && results.nbHits === 0) {
+    return <div className="no-results">No results found</div>;
+  }
+
+  return children;
+};
+
+const AlgoliaSearch: React.FC<{
+  onSelection: ({ name, value }: AutoSuggestOption) => void;
+}> = ({ onSelection }) => {
+  return (
+    <InstantSearch searchClient={searchClient} indexName="react_creme_search">
+      <div className="search-container">
+        <SearchBox
+          placeholder="Search with Algolia..."
+          submitIconComponent={() => (
+            <FontAwesomeIcon icon={faAlgolia} size="2x" />
+          )}
+          className="algolia-searchbox"
+        />
+        <Configure hitsPerPage={10} />
+        <div className="hits-container">
+          <EmptyQueryBoundary>
+            <Hits
+              hitComponent={({ hit }) => (
+                <Hit hit={hit} onSelection={onSelection} />
+              )}
+            />
+          </EmptyQueryBoundary>
+        </div>
+      </div>
+    </InstantSearch>
+  );
+};
+
+export default AlgoliaSearch;

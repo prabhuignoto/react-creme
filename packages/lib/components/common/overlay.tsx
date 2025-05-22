@@ -89,11 +89,11 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
           context?.align === 'left'
             ? left + leftOffset
             : context.align === 'center'
-            ? left +
-              Math.round(width / 2) -
-              Math.round(overlayChild.clientWidth / 2) +
-              leftOffset
-            : positionRight
+              ? left +
+                Math.round(width / 2) -
+                Math.round(overlayChild.clientWidth / 2) +
+                leftOffset
+              : positionRight
         }px`,
         pointerEvents: 'all',
         position: 'fixed',

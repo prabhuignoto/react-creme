@@ -1,50 +1,136 @@
-@use '@design/core.scss';
-@use '@design/theme.scss';
-@use '@design/position.scss';
-@use '@design/font.scss';
-@use 'sass:color';
+@use '../../design/theme' as *;
+@use '../../design/border' as *;
+@use '../../design/icon' as *;
+@use '../../design/font' as *;
 
 $sizes: (sm, md, lg);
 
+.quote {
+  border-left: 4px solid $gray-400;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+
+  &.dark {
+    border-left-color: $gray-600;
+    color: $white;
+  }
+
+  &_left {
+    text-align: left;
+  }
+
+  &_center {
+    text-align: center;
+    border-left: none;
+    border-top: 2px solid $gray-400;
+    border-bottom: 2px solid $gray-400;
+
+    &.dark {
+      border-top-color: $gray-600;
+      border-bottom-color: $gray-600;
+    }
+  }
+
+  &_right {
+    text-align: right;
+    border-left: none;
+    border-right: 4px solid $gray-400;
+
+    &.dark {
+      border-right-color: $gray-600;
+    }
+  }
+
+  &_simple {
+    border: none;
+    font-style: normal;
+
+    .content::before {
+      content: '"';
+      font-size: 1.5em;
+    }
+
+    .content::after {
+      content: '"';
+      font-size: 1.5em;
+    }
+  }
+
+  &_fancy {
+    border: none;
+    position: relative;
+    padding: 1.5rem 2rem;
+
+    &::before,
+    &::after {
+      position: absolute;
+      color: $gray-400;
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    &::before {
+      content: '"';
+      left: 0;
+      top: 0;
+    }
+
+    &::after {
+      content: '"';
+      right: 0;
+      bottom: -0.5rem;
+    }
+
+    &.dark::before,
+    &.dark::after {
+      color: $gray-600;
+    }
+  }
+}
+
+.content {
+  margin-bottom: 0.5rem;
+}
+
+.cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.9em;
+  margin-top: 0.5rem;
+
+  cite {
+    font-style: normal;
+    opacity: 0.8;
+  }
+}
+
 .block_quote {
   @extend %border-radius;
-  align-items: center;
   display: grid;
-  font-weight: 300;
   grid-template-columns: 2rem auto;
-  justify-items: center;
-  line-height: 30px;
+  align-items: center;
+  padding: 0.5rem;
   margin: 0.5rem 0;
-  padding: 0.5rem 0;
-  padding-left: 0.5rem;
   text-align: left;
 
   &.dark {
-    background: theme.$cod-gray;
-    border-left: 3px solid rgba(theme.$primary-rgb, 1);
-    color: theme.$white;
+    background: $cod-gray;
+    border-left: 3px solid $primary;
+    color: $white;
   }
 
   &:not(.dark) {
-    background: rgba(theme.$secondary-rgb, 0.1);
-    border-left: 3px solid rgba(theme.$primary-rgb, 0.5);
-    color: theme.$black;
+    background: rgba($primary-rgb, 0.5);
+    border-left: 3px solid $primary;
+    color: $black;
   }
 
   code {
     @extend %border-radius;
-    background: rgba(theme.$primary-rgb, 0.75);
-    color: theme.$white;
-    font-style: normal;
-    margin: 0 0.2rem;
+    background: $primary-light;
+    color: $white;
     padding: 0 0.2rem;
-    position: relative;
-    text-decoration: none;
-    z-index: 0;
-  }
-
-  a {
-    display: inline-block;
   }
 }
 
@@ -57,15 +143,11 @@ $sizes: (sm, md, lg);
     .block_quote_child_content {
       @extend %font-#{$size};
     }
-
-    code {
-      @extend %font-#{$size};
-    }
   }
 }
 
 .block_quote_icon {
-  color: rgba(theme.$primary-rgb, 1);
+  color: $primary;
   margin-right: 0.5rem;
 }
 

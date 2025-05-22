@@ -37,7 +37,7 @@ const BreadCrumbItem: FunctionComponent<BreadCrumbItemProps> = React.memo(
     const ref = useRef<HTMLSpanElement>(null);
 
     // Hook to set the focus
-    useFocusNew(ref);
+    useFocusNew(ref as React.RefObject<HTMLElement>);
 
     // Determine the icon CSS classes based on the provided props
     const breadCrumbIcon = useMemo(() => {

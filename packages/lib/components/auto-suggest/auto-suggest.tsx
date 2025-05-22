@@ -35,15 +35,16 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
     ref
   ) => {
     const [suggestionItems, setSuggestionItems] = React.useState<Option[]>(
-      suggestions.length
-        ? suggestions.map(({ name, value }) => ({
-            id: nanoid(),
-            name,
-            value,
-          }))
-        : []
+      () =>
+        suggestions.length
+          ? suggestions.map(({ name, value }) => ({
+              id: nanoid(),
+              name,
+              value,
+            }))
+          : []
     );
-    const [isDirty, setIsDirty] = React.useState(false);
+    // Removed unused isDirty state to reduce unnecessary complexity
 
     const id = useRef(`rc-autocomplete-${nanoid()}`);
     const rootRef = useRef<HTMLDivElement>(null);
@@ -70,14 +71,15 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
       } else if (!selected && regexTester) {
         return suggestionItems.some(item => regexTester.test(item.name));
       }
-    }, [regexTester, selected, isDirty, suggestionItems.length, apiBacked]);
+      return false;
+    }, [regexTester, selected, apiBacked, suggestionItems]);
 
     const listItems = useMemo<Option[]>(
       () =>
-        regexTester
+        regexTester && suggestionItems.length
           ? suggestionItems.filter(item => regexTester.test(item.name))
           : [],
-      [matchFound, regexTester, isDirty]
+      [regexTester, suggestionItems]
     );
 
     const autoSuggestClass = useMemo(
@@ -85,36 +87,38 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
         classNames(styles.auto_suggest, {
           [styles.rtl]: rtl,
         }),
-      []
+      [rtl]
     );
 
     const handleChange = useCallback((value: string) => {
       setInput(value);
       setSelected(false);
-      setIsDirty(true);
+      // Removed setIsDirty call as isDirty state is no longer used
     }, []);
 
-    const handleSelection = useCallback((selected: Option[]) => {
-      if (Array.isArray(selected) && selected.length > 0) {
-        const selectedItem = selected[0];
-        setFocusMenu(false);
-        setIsDirty(true);
+    const handleSelection = useCallback(
+      (selected: Option[]) => {
+        if (Array.isArray(selected) && selected.length > 0) {
+          const selectedItem = selected[0];
+          setFocusMenu(false);
 
-        if (selectedItem) {
-          const { name, value } = selectedItem;
-          setInput(name);
-          setSelected(true);
-          onSelection?.({
-            name,
-            value: value || '',
-          });
-        }
+          if (selectedItem) {
+            const { name, value } = selectedItem;
+            setInput(name);
+            setSelected(true);
+            onSelection?.({
+              name,
+              value: value || '',
+            });
+          }
 
-        if (inputRef.current) {
-          inputRef.current.focus();
+          if (inputRef.current) {
+            inputRef.current.focus();
+          }
         }
-      }
-    }, []);
+      },
+      [onSelection]
+    );
 
     const isFirstRender = useFirstRender();
 
@@ -126,16 +130,16 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
           setSuggestionItems([]);
         }
       }
-    }, [input]);
+    }, [input, apiBacked, onChangeDebounced, isFirstRender]);
 
     useEffect(() => {
       if (!isFirstRender.current && isValidString(value)) {
         setInput(value);
       }
-    }, [value]);
+    }, [value, isFirstRender]);
 
     useEffect(() => {
-      if (!isFirstRender.current && suggestions.length) {
+      if (!isFirstRender.current && suggestions?.length) {
         setSuggestionItems(
           suggestions.map(({ name, value }) => ({
             id: nanoid(),
@@ -144,39 +148,41 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
           }))
         );
       }
-    }, [suggestions.length]);
+    }, [suggestions, isFirstRender]);
 
-    const handleKeyUp = useCallback((ev: React.KeyboardEvent) => {
-      if (ev.key === 'ArrowDown') {
-        setFocusMenu(true);
-      } else if (ev.key === 'Escape') {
-        setIsDirty(true);
-        setSelected(false);
+    const handleKeyUp = useCallback(
+      (ev: React.KeyboardEvent) => {
+        if (ev.key === 'ArrowDown') {
+          setFocusMenu(true);
+        } else if (ev.key === 'Escape') {
+          setSelected(false);
 
-        setTimeout(() => {
-          setFocusMenu(false);
-        }, 200);
-      }
-      onKeyUp?.(ev);
-    }, []);
+          setTimeout(() => {
+            setFocusMenu(false);
+          }, 200);
+        }
+        onKeyUp?.(ev);
+      },
+      [onKeyUp]
+    );
 
-    const handleOnClose = () => {
+    const handleOnClose = useCallback(() => {
       setFocusMenu(false);
-      setIsDirty(true);
       inputRef.current?.focus();
-    };
+    }, []);
 
     const data = useMemo(() => {
       return apiBacked
         ? { focus: focusMenu, items: suggestionItems }
         : { focus: focusMenu, items: listItems };
-    }, [focusMenu, listItems.length, suggestionItems.length]);
+    }, [focusMenu, listItems, suggestionItems, apiBacked]);
 
     const iconToRender = useMemo(() => {
       if (!disableIcon) {
         return icon || <SearchIcon />;
       }
-    }, []);
+      return null;
+    }, [icon, disableIcon]);
 
     return (
       <div
@@ -209,7 +215,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
           <SuggestionsMenuOverlay
             id={id.current}
             onSelection={handleSelection}
-            placementReference={rootRef}
+            placementReference={rootRef as React.RefObject<HTMLElement>}
             align="left"
             placement="bottom"
             width={suggestionsWidth}

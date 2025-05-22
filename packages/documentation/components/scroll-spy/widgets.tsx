@@ -1,11 +1,11 @@
+import { useAtomValue } from 'jotai';
 import { useLayoutEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
 import { ScrollSpy, Section, Text } from '../../../lib/components';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 
 const Para = () => {
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
 
   return (
     <p style={{ color: theme.darkMode ? '#fff' : '#000' }}>
@@ -25,7 +25,7 @@ const Para = () => {
 };
 
 function Widgets() {
-  const media = useRecoilValue(responsiveState);
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {

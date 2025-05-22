@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { Button, Drawer, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
@@ -10,7 +10,7 @@ const Widget: React.FunctionComponent = () => {
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
   const [open4, setOpen4] = useState(false);
-  const media = useRecoilValue(responsiveState);
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {

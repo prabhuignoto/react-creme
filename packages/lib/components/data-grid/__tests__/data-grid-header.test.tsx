@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { DataGridHeader } from '../data-grid-header';
+import { vi } from 'vitest'; // Replace jest with vi from vitest
 
 describe('DataGridHeader', () => {
   it('should render the headers correctly', async () => {
@@ -42,5 +44,28 @@ describe('DataGridHeader', () => {
     expect(getByText('property')).toBeInTheDocument();
     expect(getByText('value')).toBeInTheDocument();
     expect(getAllByRole('button')).toHaveLength(2);
+  });
+
+  it('should trigger sorting when sort icons are clicked', async () => {
+    const mockOnSort = vi.fn(); // Use vi.fn() instead of jest.fn()
+    const { getAllByRole } = render(
+      <DataGridHeader
+        columns={[
+          {
+            name: 'property',
+            sortable: true,
+            type: 'string',
+          },
+        ]}
+        onSort={mockOnSort}
+      />
+    );
+
+    const sortButtons = getAllByRole('button');
+    await userEvent.click(sortButtons[0]); // Ascending sort
+    expect(mockOnSort).toHaveBeenCalledWith('property', 'asc');
+
+    await userEvent.click(sortButtons[1]); // Descending sort
+    expect(mockOnSort).toHaveBeenCalledWith('property', 'desc');
   });
 });

@@ -9,33 +9,27 @@ $sizes: (sm, md, lg);
 
 // Base button styles
 @mixin baseButtonStyles {
-  // Styles for button without border
   &.no_border {
     border: 0;
     box-shadow: none;
   }
 
-  // Minimum width for buttons without icon
   &:not(.icon) {
     min-width: 50px;
   }
 
-  // Border styles for non-flat and non-dark buttons
   &:not(.flat):not(.dark) {
     @extend %border;
   }
 
-  // Border radius for dark buttons that are not flat
   &.dark:not(.flat) {
     @extend %border-radius;
   }
 
-  // Transition for non-active buttons
   &:not(:active) {
     transition: transform 100ms ease-in;
   }
 
-  // Scale down when button is active and not disabled
   &:active:not(.disabled) {
     transform: scale(0.97);
   }

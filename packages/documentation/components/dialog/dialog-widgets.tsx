@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { Button, Dialog, Section, Text } from '../../../lib/components';
 import { asideState, responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
@@ -12,10 +12,10 @@ const Widget = () => {
   const [open4, setOpen4] = useState(false);
   const [open5, setOpen5] = useState(false);
 
-  const media = useRecoilValue(responsiveState);
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState(0);
 
-  const setAside = useSetRecoilState(asideState);
+  const setAside = useSetAtom(asideState);
 
   useLayoutEffect(() => {
     if (!media) {

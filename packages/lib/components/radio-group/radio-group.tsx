@@ -49,7 +49,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   const [changeTracker, setChangeTracker] = useState<number>();
 
   // Reference to the currently active radio item
-  const active = useRef<string>();
+  const active = useRef<string | null>(null);
 
   // Function to handle changes in the radio group selection
   const handleChange = useCallback(
@@ -62,7 +62,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
             isChecked: item.id === id || false,
           }))
         );
-        active.current = id;
+        active.current = id ?? null;
         setChangeTracker(Date.now());
       }
     },

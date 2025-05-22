@@ -64,7 +64,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
       onChange?.(!prev);
       return !prev;
     });
-  }, [open]);
+  }, [onChange]);
 
   // Create a reference to track whether the callback function has been enabled
   const enableCallback = useRef(false);
@@ -80,7 +80,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
         [styles.close]: !open,
         [styles.open]: open && !isFirstRender.current,
       }),
-    [open]
+    [open, animate, isFirstRender]
   );
 
   // Define the inline style for the accordion's body
@@ -90,7 +90,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
       '--title-color': titleColor,
       '--transition': transition,
     }),
-    [open, bodyHeight]
+    [iconColor, titleColor, transition]
   );
 
   // Define the inline style for the accordion's body with height
@@ -106,7 +106,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
               : '0px',
           }
         : {},
-    [autoSetBodyHeight, bodyHeight, style, open]
+    [style, disableCollapse, open, bodyHeight]
   );
 
   // Define the class name for the accordion
@@ -116,13 +116,13 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
         [styles['no-border']]: !border,
         [styles['open']]: open,
       }),
-    [border, open, alignIconRight]
+    [border, open]
   );
 
   // Define a callback function to set the ref to the accordion's div element
   const onInitRef = useCallback((node: HTMLDivElement) => {
     if (node) {
-      ref.current = node as HTMLDivElement;
+      ref.current = node;
     }
   }, []);
 
@@ -137,7 +137,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     } else {
       onCollapsed && onCollapsed(accordionID.current);
     }
-  }, [open]);
+  }, [open, onExpanded, onCollapsed, isFirstRender]);
 
   // Set the accordion's open/closed state to the value of the expanded prop
   useEffect(() => {
@@ -159,7 +159,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
 
       onRendered?.();
     }
-  }, [children, open]);
+  }, [children, open, autoSetBodyHeight, onRendered]);
 
   // Define the ARIA attributes for the accordion
   const ARIA = useMemo(
@@ -168,7 +168,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
         'aria-controls': accordionBodyId.current,
         'aria-expanded': open,
       },
-    []
+    [disableARIA, open]
   );
 
   // Render the accordion
@@ -189,8 +189,6 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
         open={open}
         onToggle={toggleAccordion}
         {...ARIA}
-        aria-controls={accordionBodyId.current}
-        aria-expanded={open}
         selected={selected}
         customContent={customContent}
         size={size}

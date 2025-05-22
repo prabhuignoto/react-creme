@@ -36,7 +36,9 @@ $settings: (
   height: var(--height);
   margin: 0.5rem 0;
   padding-left: 0.5rem;
-  z-index: -1;
+  & {
+    z-index: -1;
+  }
 
   &.animate:not(.disable_animation) {
     animation-direction: reverse;

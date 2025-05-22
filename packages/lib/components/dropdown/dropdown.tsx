@@ -59,8 +59,10 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     const [menuClosing, setMenuClosing] = useState(false);
 
     // REFS
-    const containerRef = useRef(null);
-    const dropdownRef = useRef(null);
+    const containerRef = useRef<HTMLDivElement>(
+      null
+    ) as React.RefObject<HTMLDivElement>;
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
     // state to set the focus manually
     const [focusManual, setFocusManual] = useState(false);
@@ -223,7 +225,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
             options={dropdownOptions}
             open={showMenu}
             allowMultiSelection={allowMultiSelection}
-            placementReference={dropdownRef}
+            placementReference={dropdownRef as React.RefObject<HTMLElement>}
             placement="bottom"
             onClose={handleMenuClose}
             onOpen={handleMenuOpen}

@@ -1,12 +1,12 @@
 import { useLayoutEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { Default, RTL, Searchable } from './widget-variants';
 
 function widgets() {
-  const media = useRecoilValue(responsiveState);
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {

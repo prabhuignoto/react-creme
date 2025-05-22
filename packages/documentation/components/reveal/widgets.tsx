@@ -1,6 +1,8 @@
 import { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
 import { Image, Reveal } from '../../../lib/components';
-import useMedia from '../../common/useMedia';
+import { useAtomValue } from 'jotai';
+import { responsiveState } from '../../atoms/home';
+
 const blankStyle = {
   alignItems: 'flex-start',
   display: 'flex',
@@ -19,17 +21,17 @@ const imageWrapStyle = {
 function widgets() {
   const ref = useRef<HTMLDivElement>(null);
 
-  const media = useMedia();
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
     if (!media) {
       return;
     }
-    if (media.isTablet) {
-      setWidth(650);
-    } else if (media.isMobile) {
+    if (media.isMobile) {
       setWidth(450);
+    } else if (media.isTablet) {
+      setWidth(650);
     } else if (media.isDesktop) {
       setWidth(750);
     } else if (media.isBigScreen) {

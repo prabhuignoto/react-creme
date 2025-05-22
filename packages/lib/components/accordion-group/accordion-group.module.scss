@@ -5,8 +5,8 @@
   @extend %col-left;
   width: 100%;
 
-  &:not(.grp_no_border) {
-    @extend %border;
+  &.grp_no_border {
+    @extend %no-border !optional;
   }
 }
 

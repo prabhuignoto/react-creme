@@ -10,7 +10,7 @@ import {
   useState,
 } from 'react';
 import { useLocation } from 'react-router';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useAtom, useAtomValue } from 'jotai';
 import ResizeObserver from 'resize-observer-polyfill';
 import { Drawer } from '../lib/components';
 import '../lib/design/core.scss';
@@ -28,12 +28,12 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
     const [left, setLeft] = useState(-1);
     const resizeObserver = useRef<ResizeObserver | null>(null);
 
-    const [asideValue, setAsideValue] = useRecoilState(asideState);
+    const [asideValue, setAsideValue] = useAtom(asideState);
 
     const appRef = useRef<HTMLDivElement | null>(null);
     const [openAside, setOpenAside] = useState(false);
 
-    const theme = useRecoilValue(themeState);
+    const theme = useAtomValue(themeState);
 
     const sidebarClass = useMemo(() => {
       return classNames('app-aside', {

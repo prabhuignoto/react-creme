@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import useDraggable from '../../../lib/components/common/effects/useDraggable';
 import { responsiveState, themeState } from '../../atoms/home';
 
 function useDimensions() {
   const [dimensions, setDimensions] = useState({ height: 0, width: 0 });
 
-  const media = useRecoilValue(responsiveState);
+  const media = useAtomValue(responsiveState);
 
   useEffect(() => {
     if (!media) {
@@ -33,7 +33,7 @@ export function BoundToContainer() {
   const boundRef = useRef(null);
   useDraggable(ref, { boundTo: boundRef });
 
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
   const dimensions = useDimensions();
 
   return (
@@ -63,7 +63,7 @@ export function BoundToContainerHorizontal() {
   const ref = useRef(null);
   const boundRef = useRef(null);
   useDraggable(ref, { boundTo: boundRef, dragDirection: 'HORIZONTAL' });
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
 
   const dimensions = useDimensions();
 
@@ -92,7 +92,7 @@ export function BoundToContainerHorizontal() {
 
 export function BoundToContainerVertical() {
   const ref = useRef(null);
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
   const boundRef = useRef(null);
   useDraggable(ref, { boundTo: boundRef, dragDirection: 'VERTICAL' });
   const dimensions = useDimensions();
@@ -122,7 +122,7 @@ export function BoundToContainerVertical() {
 
 export function DraggableWidgets() {
   const boundRef = useRef(null);
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
 
   useDraggable(boundRef, {
     boundTo: boundRef,

@@ -1,5 +1,6 @@
 // all hex
 $primary: var(--rc-primary-color-hex);
+$primary-light: var(--rc-primary-light-color-hex, #f0f0f0);
 $secondary: var(--rc-secondary-color-hex);
 $tertiary: var(--rc-tertiary-color-hex);
 $text-color-on-selection: var(--rc-textSelection-color-hex);
@@ -25,6 +26,17 @@ $dark-hover-rgb: var(--rc-darkHover-color-rgb);
 $dark-control-bg-rgb: var(--rc-darkControlBg-color-rgb);
 $dark-control-border-rgb: var(--rc-darkControlBorder-color-rgb);
 $dark-active-selection-rgb: var(--rc-darkActiveSelection-color-rgb);
+
+// Gray shades
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
 
 $white: #fff;
 $black: #000;

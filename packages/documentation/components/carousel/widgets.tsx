@@ -1,12 +1,12 @@
 import { useLayoutEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { Carousel, Image, Section, Text } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import { Horizontal, Vertical } from './widget-variants';
 
 function widgets() {
-  const media = useRecoilValue(responsiveState);
+  const media = useAtomValue(responsiveState);
   const [width, setWidth] = useState<string | number>(0);
   const [height, setHeight] = useState<string | number>(350);
 

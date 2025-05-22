@@ -218,7 +218,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
         </svg>
       </span>
       <span
-        class="_focus_ring_4c7b07"
+        class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
         style="width: 6px; height: 6px;"
       />
     </div>
@@ -249,7 +249,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
         </svg>
       </span>
       <span
-        class="_focus_ring_4c7b07"
+        class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
         style="width: 6px; height: 6px;"
       />
     </div>

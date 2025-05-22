@@ -18,17 +18,25 @@ export default defineConfig({
     coverage: {
       clean: true,
       enabled: true,
+      all: true, // Include all files in the coverage report
+      include: ['components/**/*.{ts,tsx}'], // Include specific files for coverage
+      exclude: ['**/node_modules/**', '**/dist/**'], // Exclude unnecessary files
       reporter: ['html', 'lcov', 'clover', 'cobertura'],
       reportsDirectory: './coverage',
     },
     environment: 'jsdom',
     globals: true,
     include: ['./components/**/*.test.tsx', './components/**/*.test.ts'],
-    maxThreads: 20,
-    minThreads: 10,
+    poolOptions: {
+      threads: {
+        maxThreads: 20,
+        minThreads: 10,
+      },
+    },
     setupFiles: './test-setup.ts',
     silent: true,
-    threads: true,
+    clearMocks: true, // Automatically clear mocks between tests
+    testTimeout: 30000, // Set a global timeout of 30 seconds for tests
     update: true,
     watch: false,
   },

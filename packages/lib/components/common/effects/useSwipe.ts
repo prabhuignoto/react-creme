@@ -25,7 +25,7 @@ const useSwipe: SwipeFunc = (strength = 'medium') => {
   const rect = useRef<DOMRect | null>(null);
   const startPosition = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const endPosition = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-  const elementRef = useRef<HTMLElement>();
+  const elementRef = useRef<HTMLElement | null>(null);
   const threshold = SwipeStrengthSettings[strength];
   const [swipeState, setSwipeState] = useState<SwipeState>({
     dir: 'NONE',

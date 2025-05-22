@@ -71,7 +71,7 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
       }) as HTMLDivElement
   );
 
-  useFocusNew(focusable ? buttonRef : null);
+  useFocusNew(focusable ? (buttonRef as React.RefObject<HTMLElement>) : null);
 
   // determine if the button can be focused
   const tabIndex = focusable ? 0 : -1;

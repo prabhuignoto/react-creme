@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { CSSProperties, useEffect, useMemo, useRef } from 'react';
 import { withOverlay } from '../../components/common/withOverlay';
-import useOnClickOutside from '../common/effects/useOnClickOutside';
+import useOnClickOutside from '../../common/effects/useOnClickOutside';
 import { OverlayModel } from '../common/overlay-model';
 import { isDark } from '../common/utils';
 import { List } from '../list/list';
@@ -32,8 +32,10 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
   onClose,
 }) => {
   // Define styles dynamically based on width prop.
-  const style = useMemo(() => {
-    return width ? { '--suggestions-width': `${width}px` } : null;
+  const style = useMemo<CSSProperties | undefined>(() => {
+    return width
+      ? ({ '--suggestions-width': `${width}px` } as CSSProperties)
+      : undefined;
   }, [width]);
 
   // useRef to store a reference to the HTMLUListElement.
@@ -55,20 +57,24 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
   const isDarkMode = useMemo(() => isDark(), []);
 
   // Calculate the classnames for the div wrapper.
-  const suggestionsClass = classNames(styles.suggestions_wrapper, {
-    [styles.dark]: isDarkMode,
-  });
+  const suggestionsClass = useMemo(
+    () =>
+      classNames(styles.suggestions_wrapper, {
+        [styles.dark]: isDarkMode,
+      }),
+    [isDarkMode]
+  );
 
   // Render the List inside a div wrapper.
   return (
     <div
       className={suggestionsClass}
-      style={style as CSSProperties}
+      style={style}
       ref={onRef}
       data-testid="suggestions-wrapper"
     >
       <List
-        options={data?.items as ListOption[]}
+        options={data?.items || []}
         onSelection={onSelection}
         showCheckIcon={false}
         itemHeight={35}

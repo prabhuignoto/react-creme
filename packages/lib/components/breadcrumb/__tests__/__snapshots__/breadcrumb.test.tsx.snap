@@ -23,7 +23,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
           google
         </span>
         <span
-          class="_focus_ring_4c7b07"
+          class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
           style="width: 6px; height: 6px;"
         />
       </a>
@@ -63,7 +63,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
           yahoo
         </span>
         <span
-          class="_focus_ring_4c7b07"
+          class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
           style="width: 6px; height: 6px;"
         />
       </a>
@@ -103,7 +103,7 @@ exports[`Breadcrumb > should render snapshot 1`] = `
           amazon
         </span>
         <span
-          class="_focus_ring_4c7b07"
+          class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
           style="width: 6px; height: 6px;"
         />
       </a>

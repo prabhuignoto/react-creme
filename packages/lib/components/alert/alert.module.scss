@@ -3,41 +3,44 @@
 @use '@design/animate.scss';
 
 $sizes: (sm, md, lg);
+$transition-time: 0.25s;
 
 .alert {
   @extend %border-radius;
-  align-items: center;
-  color: theme.$white;
   display: grid;
   grid-template-columns: 3rem 1fr 2rem;
-  height: var(--height);
+  align-items: center;
   justify-items: center;
+  height: var(--height);
+  width: 100%;
+  color: theme.$white;
   opacity: 1;
   overflow: hidden;
   padding: 0;
-  width: 100%;
 
-  &.alert_close.shrink {
-    height: 0;
+  // Animation variants
+  &.shrink {
+    transition: height $transition-time ease-in-out;
+
+    &.alert_close {
+      height: 0;
+    }
   }
 
-  &.alert_close.fade {
-    opacity: 0;
+  &.fade {
+    transition: opacity $transition-time ease-in-out;
+
+    &.alert_close {
+      opacity: 0;
+    }
   }
 
   &.alert_rtl {
     direction: rtl;
   }
-
-  &.shrink {
-    transition: height 0.25s ease-in-out;
-  }
-
-  &.fade {
-    transition: opacity 0.25s ease-in-out;
-  }
 }
 
+// Generate size variants
 @each $size in $sizes {
   .alert_#{$size} {
     .alert_icon {
@@ -54,6 +57,7 @@ $sizes: (sm, md, lg);
   }
 }
 
+// State variations
 .alert_success {
   background-color: theme.$success-green;
 
@@ -78,9 +82,10 @@ $sizes: (sm, md, lg);
   background-color: theme.$blue;
 }
 
+// Component parts
 .alert_icon_wrapper {
   @extend %center;
-  background: rgba($color: theme.$white, $alpha: 0.2);
+  background: rgba(theme.$white, 0.2);
   height: 100%;
   width: 100%;
 }
@@ -105,7 +110,8 @@ $sizes: (sm, md, lg);
   cursor: pointer;
   margin-top: 0.5rem;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: rgba(theme.$black, 0.2);
   }
 

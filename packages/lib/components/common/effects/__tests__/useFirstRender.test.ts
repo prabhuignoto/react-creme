@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { useFirstRender } from '../useFirstRender';
 import { describe, it, expect } from 'vitest';
 

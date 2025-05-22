@@ -15,7 +15,7 @@ type UseCloseOnEscapeFn = (
  * @param {RefObject<HTMLDivElement>} element - The reference to the DOM element to which the event listener is attached.
  */
 const useCloseOnEscape: UseCloseOnEscapeFn = (handler, element) => {
-  const savedHandler = useRef<(ev: KeyboardEvent) => void>();
+  const savedHandler = useRef<(ev: KeyboardEvent) => void>(handler);
 
   useEffect(() => {
     // Store the latest handler function in a ref

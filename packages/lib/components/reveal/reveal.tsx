@@ -16,7 +16,7 @@ import styles from './reveal.module.scss';
  * @returns {JSX.Element} The Reveal component.
  */
 const Reveal: React.FunctionComponent<RevealProps> = ({ children, parent }) => {
-  const observer = useRef<IntersectionObserver>();
+  const observer = useRef<IntersectionObserver | null>(null);
 
   // State to track whether the parent is available
   const [isParentAvailable, setIsParentAvailable] = useState(false);

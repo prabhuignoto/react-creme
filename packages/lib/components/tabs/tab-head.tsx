@@ -40,7 +40,9 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
     const isDarkMode = isDark();
 
     // Apply focus if the tab head is focusable
-    useFocusNew(!disabled && focusable ? ref : null);
+    useFocusNew(
+      !disabled && focusable ? (ref as React.RefObject<HTMLElement>) : null
+    );
 
     // Class names for the tab head elements
     const headerLabelClass = `${styles.tab_header_label} ${

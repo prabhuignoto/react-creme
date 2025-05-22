@@ -2,8 +2,6 @@ import { useMemo } from 'react';
 import { Accordion, isDark } from '../../../lib/components';
 
 const TextContent = () => {
-  // const theme = useRecoilValue(themeState);
-
   const isDarkMode = useMemo(() => isDark(), []);
 
   const style = useMemo(

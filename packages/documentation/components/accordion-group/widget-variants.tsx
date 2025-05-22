@@ -1,10 +1,10 @@
 import { CSSProperties, FunctionComponent, useMemo } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useAtomValue } from 'jotai';
 import { AccordionGroup, Image } from '../../../lib/components';
 import { themeState } from '../../atoms/home';
 
 const Para: FunctionComponent<{ rtl?: boolean }> = ({ rtl }) => {
-  const theme = useRecoilValue(themeState);
+  const theme = useAtomValue(themeState);
 
   const isDark = useMemo(() => theme.darkMode, [theme]);
 
@@ -13,7 +13,7 @@ const Para: FunctionComponent<{ rtl?: boolean }> = ({ rtl }) => {
       ({
         color: isDark ? '#fff' : '#000',
         direction: rtl ? 'rtl' : 'ltr',
-      } as CSSProperties),
+      }) as CSSProperties,
     [isDark, rtl]
   );
   return (

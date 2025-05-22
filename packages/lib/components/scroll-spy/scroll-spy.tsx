@@ -22,10 +22,10 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
   linksPosition = 'left',
 }) => {
   const scrollSpyContentRef = React.useRef<HTMLDivElement | null>(null);
-  const spy = useRef<IntersectionObserver>();
+  const spy = useRef<IntersectionObserver | null>(null);
 
   // Tracks the scroll direction
-  const scrollDirection = useRef<'up' | 'down'>();
+  const scrollDirection = useRef<'up' | 'down' | null>(null);
 
   // Tracks the last selected link index
   const lastSelectedIndex = useRef<number>(0);

@@ -16,7 +16,7 @@ exports[`Button > should render button snapshot 1`] = `
     My Button
   </span>
   <span
-    class="_focus_ring_4c7b07"
+    class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
     style="width: 6px; height: 6px;"
   />
 </div>

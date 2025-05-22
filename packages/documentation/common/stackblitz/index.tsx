@@ -10,17 +10,23 @@ interface StackBlitzProps {
 const StackBlitz: React.FunctionComponent<StackBlitzProps> = ({ id }) => {
   const [loaded, setLoaded] = useState(false);
 
-  const onRef = useCallback(async node => {
-    if (node) {
-      await sdk.embedProjectId(node, id, {
-        height: '100%',
-        hideExplorer: true,
-        hideNavigation: true,
-        openFile: 'index.tsx',
-      });
-      setLoaded(true);
-    }
-  }, []);
+  const onRef = useCallback(
+    node => {
+      if (node) {
+        sdk
+          .embedProjectId(node, id, {
+            height: '100%',
+            hideExplorer: true,
+            hideNavigation: true,
+            openFile: 'index.tsx',
+          })
+          .then(() => {
+            setLoaded(true);
+          });
+      }
+    },
+    [id]
+  );
 
   return (
     <div className="stackblitz-container">
