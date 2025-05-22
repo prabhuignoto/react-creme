@@ -28,8 +28,11 @@ jobs:
         with:
           projectBaseDir: packages/lib/
           args: >
+            -Dsonar.organization=prabhuignoto
+            -Dsonar.projectKey=prabhuignoto_react-creme
             -Dsonar.exclusions=coverage/**
             -Dsonar.test.exclusions=tests/**
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.verbose=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
