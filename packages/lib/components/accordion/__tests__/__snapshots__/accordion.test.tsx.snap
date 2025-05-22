@@ -5,10 +5,10 @@ exports[`Accordion > should render snapshot 1`] = `
   class="_accordion_f93c7f _no-border_f93c7f"
 >
   <div
-    aria-controls="accordion-body-DeMmMpid6I8ytCFkQVSs5"
+    aria-controls="accordion-body-YkuBLKr4k998FurHMOqUk"
     aria-expanded="false"
     class="_header_c2ceb5 _focusable_c2ceb5 _size_c2ceb5"
-    id="accordion--3zlEy8HW2MVbfVjYw6m_"
+    id="accordion-8a-wHoskZsg5j1Ov9lMsU"
     role="heading"
     style="--rc-accordion-header-height: 40px; outline: none; position: relative;"
     tabindex="0"
@@ -35,14 +35,14 @@ exports[`Accordion > should render snapshot 1`] = `
       class="_title_c2ceb5 _title_sm_c2ceb5"
     />
     <span
-      class="_focus_ring_4c7b07"
+      class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
       style="width: 6px; height: 6px;"
     />
   </div>
   <div
-    aria-labelledby="accordion--3zlEy8HW2MVbfVjYw6m_"
+    aria-labelledby="accordion-8a-wHoskZsg5j1Ov9lMsU"
     class="_body_f93c7f _animate_f93c7f _close_f93c7f"
-    id="accordion-body-DeMmMpid6I8ytCFkQVSs5"
+    id="accordion-body-YkuBLKr4k998FurHMOqUk"
     role="region"
     style="--title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
   >

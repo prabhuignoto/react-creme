@@ -45,7 +45,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         Option 1
       </label>
       <span
-        class="_focus_ring_4c7b07"
+        class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
         style="width: 6px; height: 6px;"
       />
     </div>
@@ -88,7 +88,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         Option 2
       </label>
       <span
-        class="_focus_ring_4c7b07"
+        class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
         style="width: 6px; height: 6px;"
       />
     </div>

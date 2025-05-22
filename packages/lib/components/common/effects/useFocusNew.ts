@@ -6,7 +6,7 @@ import styles from './focus.module.scss';
  * @param  {React.RefObject<HTMLElement>} ref
  * @param  {(ev?:Event)=>void} cb?
  */
-export default async function useFocusNew(
+export default function useFocusNew(
   ref: React.RefObject<HTMLElement> | null,
   cb?: ((ev: PointerEvent | KeyboardEvent) => void) | null
 ) {
@@ -16,6 +16,7 @@ export default async function useFocusNew(
 
   const focusHandler = useCallback(() => {
     const ele = ring.current;
+
     if (ele) {
       ele.classList.remove(styles.focus_ring_inactive);
       ele.classList.add(styles.focus_ring_active);
@@ -35,11 +36,7 @@ export default async function useFocusNew(
   }, []);
 
   const handleKeyUp = (ev: KeyboardEvent) => {
-    const target = ev.target as HTMLElement;
-
-    if (!target.classList.contains(styles.focus_ring_active)) {
-      focusHandler();
-    }
+    focusHandler();
 
     if (ev.key === 'Enter' || ev.key === ' ') {
       cb?.(ev);
@@ -61,18 +58,18 @@ export default async function useFocusNew(
       ].filter(cls => !!cls);
 
       focusRing.classList.add(...classesToAdd);
+      focusRing.classList.add(styles.focus_ring_inactive); // Add inactive class initially
       focusRing.style.cssText = `
         width: ${clientWidth + 6}px;
         height: ${clientHeight + 6}px; 
       `;
-      ring.current = ele;
       ele.appendChild(focusRing);
       ring.current = focusRing;
 
       ele.addEventListener('focusout', blurHandler);
       ele.addEventListener('keyup', handleKeyUp);
     }
-  }, [ref]);
+  }, [ref, isDarkMode, blurHandler, handleKeyUp]);
 
   useEffect(() => {
     return () => {
@@ -81,5 +78,5 @@ export default async function useFocusNew(
         ref?.current.removeEventListener('keyup', handleKeyUp);
       }
     };
-  }, []);
+  }, [ref, blurHandler, handleKeyUp]);
 }

@@ -41,6 +41,18 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
     [onSort]
   );
 
+  // Handle keyboard events for sort icons
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent, column: string, direction: SortDirection) => {
+      // Trigger on Enter or Space key
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault(); // Prevent scrolling on Space
+        handleSort(column, direction);
+      }
+    },
+    [handleSort]
+  );
+
   const headerClass = useMemo(() => {
     return classNames(styles.header, {
       [styles[`${layoutStyle}`]]: true,
@@ -69,7 +81,9 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
             })}
             role="button"
             onClick={() => handleSort(column.name, 'asc')}
+            onKeyDown={e => handleKeyDown(e, column.name, 'asc')}
             aria-label={`Sort ${column.name} ascending`}
+            tabIndex={0}
           >
             <TriangleIcon />
           </span>
@@ -79,14 +93,16 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
             })}
             role="button"
             onClick={() => handleSort(column.name, 'desc')}
+            onKeyDown={e => handleKeyDown(e, column.name, 'desc')}
             aria-label={`Sort ${column.name} descending`}
+            tabIndex={0}
           >
             <TriangleIcon />
           </span>
         </span>
       );
     },
-    [handleSort]
+    [handleSort, handleKeyDown]
   );
 
   return (
