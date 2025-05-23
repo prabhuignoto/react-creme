@@ -34,7 +34,7 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
 
   // Use a callback for click outside handler for better performance
   const handleClickOutside = useCallback(() => {
-    setItems(prev => prev.map(item => ({ ...item, active: false })));
+    setMenuItems(prev => prev.map(item => ({ ...item, active: false })));
   }, []);
 
   const { onRef } = useOnClickOutside(handleClickOutside);
@@ -51,10 +51,10 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
     [items, noUniqueId]
   );
 
-  const [_items, setItems] = useState(initialItems);
+  const [menuItems, setMenuItems] = useState(initialItems);
 
   const handleOnOpen = useCallback((id?: string) => {
-    setItems(prev =>
+    setMenuItems(prev =>
       prev.map(item => ({
         ...item,
         active: item.id === id,
@@ -74,7 +74,7 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
   );
 
   const handleOnClose = useCallback((id?: string) => {
-    setItems(prev =>
+    setMenuItems(prev =>
       prev.map(item => ({
         ...item,
         isMenuOpen: item.id === id ? false : item.isMenuOpen,
@@ -86,7 +86,7 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
 
   return (
     <ul className={menuBarClass} ref={onRef}>
-      {_items.map((item, index) => (
+      {menuItems.map((item, index) => (
         <Menu
           items={item.items}
           dockPosition={RTL ? 'right' : 'left'}

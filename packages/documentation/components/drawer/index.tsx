@@ -24,7 +24,6 @@ function drawer() {
   return (
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-jngeyv']}
       pageIcon={<Sidebar />}
       title="Drawer"
       description={Description}

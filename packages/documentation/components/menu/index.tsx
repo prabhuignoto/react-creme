@@ -20,7 +20,6 @@ function menu() {
   return (
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-gxoozp']}
       title="Menu"
       description={Description}
       sourceId="menu/menu.tsx"

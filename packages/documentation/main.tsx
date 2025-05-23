@@ -15,31 +15,25 @@ import { responsiveState, themeState } from './atoms/home';
 import useMedia from './common/useMedia';
 import { BrowserRouter } from 'react-router-dom';
 
-const Root = ReactDOM.createRoot(document.getElementById('root'));
-
-if (process.env.NODE_ENV === 'production') {
-  Sentry.init({
-    dsn: 'https://f95fae83de7c42e48df3691166d06de0@o1116896.ingest.sentry.io/6150784',
-
-    integrations: [
-      Sentry.reactRouterV7BrowserTracingIntegration({
-        useEffect: React.useEffect,
-        useLocation,
-        useNavigationType,
-        createRoutesFromChildren,
-        matchRoutes,
-      }),
-    ],
-    // Alternatively, use `process.env.npm_package_version` for a dynamic release version
-    // if your build tool supports it.
-    release: 'my-project-name@2.3.12',
-
-    // Set tracesSampleRate to 1.0 to capture 100%
-    // of transactions for performance monitoring.
-    // We recommend adjusting this value in production
-    tracesSampleRate: 1.0,
-  });
-}
+// Performance optimization - defer non-critical initialization
+const initSentry = () => {
+  if (process.env.NODE_ENV === 'production') {
+    Sentry.init({
+      dsn: 'https://f95fae83de7c42e48df3691166d06de0@o1116896.ingest.sentry.io/6150784',
+      integrations: [
+        Sentry.reactRouterV7BrowserTracingIntegration({
+          useEffect: React.useEffect,
+          useLocation,
+          useNavigationType,
+          createRoutesFromChildren,
+          matchRoutes,
+        }),
+      ],
+      release: 'my-project-name@2.3.12',
+      tracesSampleRate: 0.2, // Reduced from 1.0 to improve performance
+    });
+  }
+};
 
 const AppBootStrap = () => {
   const media = useMedia();
@@ -48,33 +42,34 @@ const AppBootStrap = () => {
   const theme = useAtomValue(themeState);
 
   useEffect(() => {
-    if (!media) {
-      return;
+    // Defer sentry initialization
+    initSentry();
+    // Initialize only critical features first
+    if (media) {
+      setResponsiveState(media);
+      setCanLoad(true);
     }
+  }, [media, setResponsiveState]);
 
-    setResponsiveState({
-      isBigScreen: media.isBigScreen,
-      isDesktop: media.isDesktop,
-      isExtraLargeScreen: media.isExtraLargeScreen,
-      isMobile: media.isMobile,
-      isTablet: media.isTablet,
-    });
-    setCanLoad(true);
-  }, [media]);
+  if (!canLoad) {
+    return null; // Or a lightweight loading indicator
+  }
 
-  return canLoad ? (
+  return (
     <ThemeProvider theme={theme}>
       <App media={media} />
     </ThemeProvider>
-  ) : null;
+  );
 };
 
-Root.render(
-  <BrowserRouter>
+// Use concurrent features
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <StrictMode>
     <JotaiProvider>
-      <StrictMode>
+      <BrowserRouter>
         <AppBootStrap />
-      </StrictMode>
+      </BrowserRouter>
     </JotaiProvider>
-  </BrowserRouter>
+  </StrictMode>
 );

@@ -82,7 +82,6 @@ function skeleton() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-1jank5']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

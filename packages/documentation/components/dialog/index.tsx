@@ -94,7 +94,6 @@ function dialog() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-9dnouy']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

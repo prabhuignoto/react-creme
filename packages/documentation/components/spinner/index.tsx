@@ -43,7 +43,6 @@ function spinner() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-acenzu']}
       demoWidget={<Widgets />}
       title="Spinner"
       description={Description}

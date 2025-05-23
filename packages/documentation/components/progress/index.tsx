@@ -92,7 +92,6 @@ function progress() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-asnqkz']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

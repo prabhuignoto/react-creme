@@ -21,7 +21,6 @@ function image() {
       title="Image"
       description={Description}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-fujyxg']}
       pageIcon={<FontAwesomeIcon icon={faImage} size="2x" />}
       sourceId="image/image.tsx"
       editId="image"

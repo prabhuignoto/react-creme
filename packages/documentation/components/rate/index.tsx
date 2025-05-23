@@ -80,7 +80,6 @@ function rate() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-lqtbt6']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

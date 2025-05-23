@@ -75,7 +75,6 @@ function index() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-fvmzp5']}
       demoWidget={<Widgets />}
     />
   );

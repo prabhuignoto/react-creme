@@ -26,7 +26,6 @@ function radioGroup() {
       title="Radio Group"
       description={Description}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-m9yskx']}
       pageIcon={<FontAwesomeIcon icon={faTasks} size="2x" />}
       sourceId="radio-group/radio-group.tsx"
       editId="radio-group"

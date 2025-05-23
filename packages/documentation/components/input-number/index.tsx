@@ -77,7 +77,6 @@ function InputNumber() {
           type: 'function',
         },
       ]}
-      stackBlitzCodes={['red']}
       demoWidget={<Widgets />}
       sourceId="input-number/input-number.tsx"
       editId="input-number"

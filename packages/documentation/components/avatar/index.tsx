@@ -18,7 +18,6 @@ const Accordion = () => {
       description={Description}
       title="Avatar"
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-s9qxmk']}
       sourceId="avatar/avatar.tsx"
       editId="avatar"
       features={['Custom Avatar sizes', 'Support for rendering custom icon']}

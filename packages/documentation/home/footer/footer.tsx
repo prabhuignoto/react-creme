@@ -14,7 +14,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, isDark } from '@lib';
 import cx from 'classnames';
-import { useMemo, useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import styles from './footer.module.scss';
 
 const Footer = () => {

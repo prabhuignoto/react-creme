@@ -23,7 +23,6 @@ function carousel() {
   return (
     <DemoPageRenderer
       demoWidget={<Widgets />}
-      stackBlitzCodes={['react-ts-kgea3r']}
       title="Carousel"
       description={Description}
       pageIcon={<FontAwesomeIcon icon={faFilm} size="2x" />}

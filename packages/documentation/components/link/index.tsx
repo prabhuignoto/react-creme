@@ -61,7 +61,6 @@ function Link() {
           type: 'string',
         },
       ]}
-      stackBlitzCodes={['red']}
       demoWidget={<Widgets />}
       sourceId="link/link.tsx"
       editId="link"

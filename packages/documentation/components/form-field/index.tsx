@@ -92,7 +92,6 @@ function formField() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-b9syfa']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

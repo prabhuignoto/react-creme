@@ -109,7 +109,6 @@ function slider() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-acenzu']}
       demoWidget={<Widgets />}
       title="Slider"
       description="Slider is a control that allows users to select a specific value (or range of values).

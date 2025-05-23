@@ -74,7 +74,6 @@ function Password() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-dnneps']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

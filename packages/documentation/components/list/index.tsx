@@ -124,7 +124,6 @@ function list() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-18dr2b']}
     ></DemoPageRenderer>
   );
 }

@@ -83,7 +83,6 @@ function menuButton() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-kdxxkx']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

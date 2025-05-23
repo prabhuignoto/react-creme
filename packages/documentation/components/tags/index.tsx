@@ -21,7 +21,6 @@ function tags() {
   return (
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-hppcze']}
       title="Tags"
       description={Description}
       pageIcon={<FontAwesomeIcon icon={faTags} size="2x" />}

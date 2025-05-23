@@ -24,7 +24,6 @@ function index() {
     <DemoPageRenderer
       title="Auto Suggest"
       description={Description}
-      stackBlitzCodes={['react-ts-hf5mto']}
       pageIcon={<FontAwesomeIcon icon={faMagic} size="2x" />}
       sourceId="auto-suggest/auto-suggest.tsx"
       editId="auto-suggest"

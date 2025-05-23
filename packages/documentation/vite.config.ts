@@ -18,14 +18,26 @@ const hash = generateHash();
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true,
+    },
     outDir: 'expo_dist',
     reportCompressedSize: true,
     rollupOptions: {
       output: {
-        chunkFileNames: `[name]${hash}.js`,
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          'ui-core': ['../lib/components/index.ts'],
+        },
+        chunkFileNames: `chunks/[name]-[hash].js`,
+        entryFileNames: `entries/[name]-[hash].js`,
+        assetFileNames: `assets/[name]-[hash].[ext]`,
       },
     },
-    sourcemap: true,
+    sourcemap: process.env.NODE_ENV === 'development',
+    target: 'esnext',
+    minify: 'esbuild',
   },
   css: {
     postcss: {
@@ -45,5 +57,21 @@ export default defineConfig({
       '@icons': resolve(__dirname, '../lib/icons'),
       '@lib': resolve(__dirname, '../lib/components/index.ts'),
     },
+  },
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'hoist-non-react-statics',
+    ],
+    esbuildOptions: {
+      mainFields: ['module', 'main'],
+      resolveExtensions: ['.js', '.jsx', '.ts', '.tsx'],
+      format: 'esm',
+    },
+  },
+  server: {
+    cors: true,
   },
 });

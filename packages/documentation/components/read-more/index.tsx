@@ -18,7 +18,6 @@ const ReadMore = () => {
       description={Description}
       title="Read More"
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-s9qxmk']}
       sourceId="read-more/read-more.tsx"
       editId="read-more"
       features={[

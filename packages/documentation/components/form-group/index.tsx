@@ -58,7 +58,6 @@ function formGroup() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

@@ -42,7 +42,6 @@ function tree() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-bpfa5b']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

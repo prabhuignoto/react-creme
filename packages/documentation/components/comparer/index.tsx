@@ -50,7 +50,6 @@ function comparer() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-4ogs2d']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

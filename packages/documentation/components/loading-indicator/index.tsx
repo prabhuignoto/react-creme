@@ -20,7 +20,6 @@ function menu() {
   return (
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-gxoozp']}
       title="Loading Indicator"
       description={Description}
       sourceId="loading-indicator/loading-indicator.tsx"

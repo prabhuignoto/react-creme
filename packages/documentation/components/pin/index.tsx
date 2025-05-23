@@ -63,7 +63,6 @@ function Pin() {
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
       demoWidget={<Widgets />}
-      stackBlitzCodes={['react-ts-un6jde']}
       sourceId="pin/pin.tsx"
       editId="pin"
       pageIcon={<FontAwesomeIcon icon={faKeyboard} />}

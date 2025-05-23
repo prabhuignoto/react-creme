@@ -79,7 +79,6 @@ function switchComponent() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-p8rf9h']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

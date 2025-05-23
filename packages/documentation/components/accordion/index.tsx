@@ -30,7 +30,6 @@ const Accordion = () => {
       description={Description}
       title="Accordion"
       tabTitles={['Examples', 'Properties', 'CodeSandbox']}
-      stackBlitzCodes={['react-ts-s9qxmk']}
       sourceId="accordion/accordion.tsx"
       editId="accordion"
       features={[

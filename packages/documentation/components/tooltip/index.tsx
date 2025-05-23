@@ -111,7 +111,6 @@ function tooltip() {
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-pwaial']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

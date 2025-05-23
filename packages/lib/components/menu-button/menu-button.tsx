@@ -79,7 +79,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
     [isDarkMode, size]
   );
 
-  const menuButtonRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleButtonClick = useCallback(() => {
@@ -97,13 +97,12 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   );
 
   return (
-    <div
+    <button
       className={menuButtonClass}
       style={menuStyle}
       onClick={handleButtonClick}
-      ref={menuButtonRef}
-      role="button"
-      tabIndex={disabled ? -1 : 0}
+      ref={menuButtonRef as React.RefObject<HTMLButtonElement>}
+      disabled={disabled}
       aria-haspopup="true"
       aria-expanded={menuOpen}
       onKeyDown={e => {
@@ -113,7 +112,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
         }
       }}
     >
-      <div role="button" aria-label={items[0]} onClick={handlePrimaryClick}>
+      <div aria-label={items[0]} onClick={handlePrimaryClick}>
         <label className={labelClass}>{items[0]}</label>
       </div>
 
@@ -131,7 +130,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
           <ChevronDownIcon />
         </span>
       </Menu>
-    </div>
+    </button>
   );
 };
 

@@ -16,7 +16,6 @@ function menu() {
   return (
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={[]}
       title="Kbd"
       description={Description}
       sourceId="menu/menu.tsx"

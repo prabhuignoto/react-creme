@@ -16,7 +16,6 @@ function Position() {
       properties={[]}
       tabTitles={['Examples', 'Stackblitz']}
       demoWidget={<Widgets />}
-      stackBlitzCodes={['react-ts-un6jde']}
       sourceId="common/effects/usePosition.ts"
       editId="position"
       pageIcon={<FontAwesomeIcon icon={faArrows} />}

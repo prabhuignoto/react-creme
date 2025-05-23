@@ -7,7 +7,6 @@ function buttons() {
       title="Buttons"
       description={`Buttons are styled links that grab the user's attention and help drive them in a particular direction.
       Buttons can link us to other pages or complete an action like submitting a form or making a purchase`}
-      stackBlitzCodes={['react-ts-uy6jjh']}
       features={[
         'Custom sizes',
         'Button Types',

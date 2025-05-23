@@ -24,7 +24,6 @@ function accordionGroup() {
   return (
     <DemoPageRenderer
       title="Accordion Group"
-      stackBlitzCodes={['react-ts-kq6o5l']}
       description={Description}
       sourceId="accordion-group/accordion-group.tsx"
       editId="accordion-group"
