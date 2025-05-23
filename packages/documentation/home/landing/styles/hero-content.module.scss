@@ -1,8 +1,13 @@
 @use '@design/theme.scss';
 
 .content {
-  border-radius: 8px;
-  padding: 1rem;
+  border-radius: 12px;
+  padding: 3rem 1.5rem;
+  position: relative;
+  z-index: var(
+    --z-content,
+    20
+  ); /* Use the hero's CSS variable if available, otherwise fall back to 20 */
 
   @media (min-width: 1920px) {
     margin-top: 2rem;
@@ -10,10 +15,11 @@
 }
 
 @mixin grid {
-  column-gap: 2rem;
+  column-gap: 3rem;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1.5fr;
   justify-items: center;
+  align-items: center;
 }
 
 .content {
@@ -22,7 +28,9 @@
   flex-direction: column;
   justify-content: center;
   max-width: 100%;
+  animation: none; // Removed fadeIn animation
 }
+
 // @media (min-width: 768px) {
 // }
 
@@ -61,7 +69,9 @@
   justify-content: flex-start;
   margin: 1rem 0;
   width: 95%;
-  // border: 1px solid blue;
+  position: relative;
+  z-index: 2;
+  animation: none; // Removed slideInLeft animation
 
   @media (min-width: 768px) {
     min-width: 400px;
@@ -73,33 +83,89 @@
   display: flex;
   flex-direction: column;
   width: 95%;
+  position: relative;
+  z-index: 1;
+  animation: none; // Removed slideInRight animation
 
   @media (min-width: 1024px) {
     align-self: flex-end;
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     width: 100%;
-    padding: 1rem;
+    padding: 1.5rem;
+  }
+
+  & > div {
+    transition: all 0.3s ease;
+    transform-origin: center;
+
+    &:nth-child(1) {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    &:nth-child(2) {
+      animation: float 7s ease-in-out infinite 0.5s;
+    }
+
+    &:nth-child(3) {
+      animation: float 5s ease-in-out infinite 1s;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
   }
 }
 
 .header {
-  color: theme.$primary;
-  font-size: 3rem;
-  font-weight: 500;
-  margin: 0.2rem 0;
-  text-transform: uppercase;
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  background: linear-gradient(
+    135deg,
+    var(--rc-primary-color-hex) 0%,
+    var(--rc-tertiary-color-hex) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  letter-spacing: -1px;
+  line-height: 1.1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(
+      to right,
+      var(--rc-primary-color-hex),
+      var(--rc-tertiary-color-hex)
+    );
+    border-radius: 2px;
+  }
 }
 
 .sub_text {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 300;
-  margin: 1rem 0;
+  margin: 2rem 0;
+  line-height: 1.5;
+  opacity: 0.9;
+  max-width: 500px;
+
+  &:not(.dark) {
+    color: #333;
+  }
 
   &.dark {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.9);
   }
 }
 
@@ -116,9 +182,41 @@
 
 .buttons {
   display: flex;
-  margin: 1rem 0;
+  margin: 2rem 0;
 
   > :first-child {
-    margin-right: 1rem;
+    margin-right: 1.2rem;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: left 0.7s ease;
+      z-index: -1;
+    }
+
+    &:hover::after {
+      left: 100%;
+    }
   }
 }

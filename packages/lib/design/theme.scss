@@ -13,12 +13,30 @@ $tertiary-rgb: var(--rc-tertiary-color-rgb);
 $text-color-on-selection-rgb: var(--rc-textSelection-color-rgb);
 $text-color-rgb: var(--rc-text-color-rgb);
 
-$dark-input-bg: var(--rc-darkInputBg-color-hex);
-$dark-input-color: var(--rc-darkInputColor-color-hex);
-$dark-hover: var(--rc-darkHover-color-hex);
-$dark-control-bg: var(--rc-darkControlBg-color-hex);
-$dark-control-border-hex: var(--rc-darkControlBorder-color-hex);
-$dark-active-selection: var(--rc-darkActiveSelection-color-hex);
+$dark-input-bg: var(
+  --rc-darkInputBg-color-hex,
+  #2a2a2a
+); /* Brighter dark input background */
+$dark-input-color: var(
+  --rc-darkInputColor-color-hex,
+  #f0f0f0
+); /* Lighter dark input text */
+$dark-hover: var(
+  --rc-darkHover-color-hex,
+  #3c3c3c
+); /* Brighter hover for dark mode */
+$dark-control-bg: var(
+  --rc-darkControlBg-color-hex,
+  #2c2c2c
+); /* Brighter dark control background */
+$dark-control-border-hex: var(
+  --rc-darkControlBorder-color-hex,
+  #5a5a5a
+); /* Lighter border for dark controls */
+$dark-active-selection: var(
+  --rc-darkActiveSelection-color-hex,
+  #007bff
+); /* Adjusted active selection color */
 
 $dark-input-bg-rgb: var(--rc-darkInput-bg-color-rgb);
 $dark-input-color-rgb: var(--rc-darkInput-color-color-rgb);
@@ -57,12 +75,12 @@ $dark-mode: var(--rc-dark-mode);
 $steel-gray: #71797e;
 $charcoal-gray: #4a4a4a;
 $light-gray: #f7f7f7;
-$cod-gray: #1e1e1e;
+$cod-gray: #2f2f2f; /* Brighter version of cod-gray */
 $light-gray: #f7f7f7;
 $chinese-gray: #ccc;
-$raisin-black: #1f2022;
-$gunmetal-gray: #2b2b2b;
-$jet-black: #343434;
-$matte-black: #28282b;
-$licorice: #191919;
-$chinese-black: #171717;
+$raisin-black: #2a2a2a; /* Brighter version of raisin-black */
+$gunmetal-gray: #3a3a3a; /* Brighter version of gunmetal-gray */
+$jet-black: #4a4a4a; /* Brighter version of jet-black */
+$matte-black: #383838; /* Brighter version of matte-black */
+$licorice: #292929; /* Brighter version of licorice */
+$chinese-black: #272727; /* Brighter version of chinese-black */

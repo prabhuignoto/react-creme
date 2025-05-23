@@ -30,8 +30,9 @@ const HeroContent = () => {
       <div className={styles.left_column}>
         <h1 className={styles.header}>React Creme</h1>
         <p className={subTextClass}>
-          Start building React applications with a clean and modern design
-          system.
+          Elevate your React applications with React Creme, a modern UI design
+          system for building beautiful, accessible, and high-performance user
+          interfaces.
         </p>
         <div className={styles.buttons}>
           <Button
@@ -39,15 +40,13 @@ const HeroContent = () => {
             onClick={handleGetStarted}
             size="lg"
             type="primary"
-          ></Button>
-          {/* <Button
-            label="Github"
+          />
+          <Button
+            label="Explore Components"
+            onClick={() => nav('/components')}
             size="lg"
-            style={{ width: '100px' }}
-            onClick={openGithubLinkOnNewTab}
-          >
-            <FontAwesomeIcon icon={faGithub} size="1x" />
-          </Button> */}
+            type="default"
+          />
         </div>
         {/* <Badges /> */}
       </div>

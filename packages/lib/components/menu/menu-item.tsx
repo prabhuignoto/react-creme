@@ -4,7 +4,7 @@ import useFocusNew from '../common/effects/useFocusNew';
 import styles from './menu-item.module.scss';
 import { MenuItemProps } from './menu-model';
 
-const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
+const MenuItem: React.FC<MenuItemProps> = React.memo(
   ({
     disabled,
     name,
@@ -17,22 +17,33 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
   }) => {
     const ref = useRef<HTMLLIElement | null>(null);
 
-    const onRef = useCallback(
-      (node: HTMLLIElement) => {
-        if (node) {
-          ref.current = node;
-        }
-      },
-      [focus]
-    );
-
-    const handleClick = useCallback((ev: React.MouseEvent) => {
-      ev.preventDefault();
-      ev.stopPropagation();
-      if (!disabled && name) {
-        handleSelection?.(name);
+    const onRef = useCallback((node: HTMLLIElement) => {
+      if (node) {
+        ref.current = node;
       }
     }, []);
+
+    const handleClick = useCallback(
+      (ev: React.MouseEvent) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (!disabled && name) {
+          handleSelection?.(name);
+        }
+      },
+      [disabled, name, handleSelection]
+    );
+
+    const handleKeyDown = useCallback(
+      (ev: React.KeyboardEvent) => {
+        if ((ev.key === 'Enter' || ev.key === ' ') && !disabled && name) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          handleSelection?.(name);
+        }
+      },
+      [disabled, name, handleSelection]
+    );
 
     const menuItemClass = useMemo(
       () =>
@@ -43,7 +54,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
           [styles[size]]: true,
           [styles.rtl]: RTL,
         }),
-      [isDark]
+      [disabled, isDivider, isDark, size, RTL]
     );
 
     useEffect(() => {
@@ -54,20 +65,37 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
 
     useFocusNew(ref as React.RefObject<HTMLElement>, handleClick as () => void);
 
+    if (isDivider) {
+      return (
+        <li className={menuItemClass} role="separator" aria-hidden="true" />
+      );
+    }
+
     return (
       <li
         className={menuItemClass}
         onClick={handleClick}
+        onKeyDown={handleKeyDown}
         ref={onRef}
         role="menuitem"
         tabIndex={0}
+        aria-disabled={disabled}
       >
-        {!isDivider && <span className={styles.name}>{name}</span>}
+        <span className={styles.name}>{name}</span>
       </li>
     );
   },
   (prev, next) => {
-    return prev.disabled === next.disabled && prev.focus === next.focus;
+    // More comprehensive memoization check
+    return (
+      prev.disabled === next.disabled &&
+      prev.focus === next.focus &&
+      prev.name === next.name &&
+      prev.isDivider === next.isDivider &&
+      prev.size === next.size &&
+      prev.isDark === next.isDark &&
+      prev.RTL === next.RTL
+    );
   }
 );
 

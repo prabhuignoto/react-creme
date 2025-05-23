@@ -42,33 +42,68 @@ const Header: React.FC<{
     [location]
   );
 
+  const navLinks = [
+    { to: '/components', label: 'Components' },
+    { to: '/documentation', label: 'Documentation' },
+    { to: '/examples', label: 'Examples' },
+  ];
+
   return (
     <header
       className={cx(
-        'app-header',
+        styles.header,
         isLanding ? 'is-landing' : '',
         isDarkMode ? 'dark' : ''
       )}
     >
+      {isMobile && (
+        <button className={styles.mobile_menu_button} onClick={onOpen}>
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </button>
+      )}
+
       <div className={styles.logo_wrapper}>
         <Logo isMobile={isMobile} onMenuClick={onOpen} />
+        <span className={styles.logo_text}>React Creme</span>
       </div>
-      <Badge label="beta" />
+
       {!isMobile && (
-        <div
-          className={styles.algolia_container}
-          style={{ marginLeft: 'auto' }}
-        >
-          <DocSearch
-            apiKey={import.meta.env.VITE_APP_ALGOLIA_API_KEY as string}
-            appId={import.meta.env.VITE_APP_ALGOLIA_APP_ID as string}
-            indexName={import.meta.env.VITE_APP_ALGOLIA_INDEX_NAME as string}
-            hitComponent={AlgoliaHit}
-            disableUserPersonalization
-          />
-        </div>
+        <nav className={styles.nav_links}>
+          {navLinks.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className={cx(styles.nav_link, {
+                [styles.active]: location.pathname.startsWith(to),
+              })}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
       )}
-      <AppSettings />
+
+      <div className={styles.header_right}>
+        {!isMobile && (
+          <div className={styles.algolia_container}>
+            <DocSearch
+              apiKey={import.meta.env.VITE_APP_ALGOLIA_API_KEY as string}
+              appId={import.meta.env.VITE_APP_ALGOLIA_APP_ID as string}
+              indexName={import.meta.env.VITE_APP_ALGOLIA_INDEX_NAME as string}
+              hitComponent={AlgoliaHit}
+              disableUserPersonalization
+            />
+          </div>
+        )}
+
+        <div className={styles.badge_container}>
+          <Badge label="beta" />
+        </div>
+
+        <AppSettings />
+      </div>
     </header>
   );
 };

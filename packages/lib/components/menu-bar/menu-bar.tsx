@@ -1,6 +1,11 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import { FunctionComponent, useCallback, useMemo, useState } from 'react';
+import React, {
+  FunctionComponent,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
 import { Menu } from '..';
 import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { isDark } from '../common/utils';
@@ -24,21 +29,29 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
         RTL ? styles.right_aligned : styles.left_aligned,
         isDarkMode ? styles.dark : '',
       ]),
-    []
+    [RTL, isDarkMode]
   );
 
-  const { onRef } = useOnClickOutside(() => {
+  // Use a callback for click outside handler for better performance
+  const handleClickOutside = useCallback(() => {
     setItems(prev => prev.map(item => ({ ...item, active: false })));
-  });
+  }, []);
 
-  const [_items, setItems] = useState(
-    items.map(item => ({
-      ...item,
-      active: false,
-      id: noUniqueId ? item.id : nanoid(),
-      isMenuOpen: false,
-    }))
+  const { onRef } = useOnClickOutside(handleClickOutside);
+
+  // Initialize items state with useMemo for initialization
+  const initialItems = useMemo(
+    () =>
+      items.map(item => ({
+        ...item,
+        active: false,
+        id: noUniqueId ? item.id : nanoid(),
+        isMenuOpen: false,
+      })),
+    [items, noUniqueId]
   );
+
+  const [_items, setItems] = useState(initialItems);
 
   const handleOnOpen = useCallback((id?: string) => {
     setItems(prev =>
@@ -57,7 +70,7 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
         path: parentName + '/' + child,
       });
     },
-    []
+    [onSelect]
   );
 
   const handleOnClose = useCallback((id?: string) => {
@@ -69,7 +82,7 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
     );
   }, []);
 
-  const hasIcons = useMemo(() => !!icons.length, []);
+  const hasIcons = useMemo(() => !!icons.length, [icons.length]);
 
   return (
     <ul className={menuBarClass} ref={onRef}>
@@ -103,6 +116,8 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
   );
 };
 
-MenuBar.displayName = 'MenuBar';
+// Memoize the MenuBar component for better performance
+const MemoizedMenuBar = React.memo(MenuBar);
+MemoizedMenuBar.displayName = 'MenuBar';
 
-export { MenuBar };
+export { MemoizedMenuBar as MenuBar };

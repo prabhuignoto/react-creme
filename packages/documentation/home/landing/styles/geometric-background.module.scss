@@ -1,0 +1,97 @@
+.geometric-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: var(
+    --z-geometric,
+    5
+  ); /* Use the hero's CSS variable if available, otherwise fall back to 5 */
+  overflow: hidden;
+  pointer-events: none; /* Ensures the elements don't block interaction */
+}
+
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  opacity: 0.1;
+  animation: rotate 20s linear infinite;
+
+  &:nth-child(1) {
+    border-width: 0 100px 173px 100px;
+    border-color: transparent transparent #3498db transparent;
+    top: 10%;
+    left: 5%;
+    animation-duration: 35s;
+  }
+
+  &:nth-child(2) {
+    border-width: 150px 86.6px 0 86.6px;
+    border-color: #9b59b6 transparent transparent transparent;
+    bottom: 5%;
+    right: 10%;
+    animation-duration: 45s;
+    animation-delay: 2s;
+  }
+
+  &:nth-child(3) {
+    border-width: 0 50px 86.6px 50px;
+    border-color: transparent transparent #2ecc71 transparent;
+    top: 30%;
+    right: 20%;
+    animation-duration: 30s;
+    animation-delay: 7s;
+  }
+
+  &:nth-child(4) {
+    border-width: 86.6px 50px 0 50px;
+    border-color: #e74c3c transparent transparent transparent;
+    bottom: 30%;
+    left: 20%;
+    animation-duration: 40s;
+    animation-delay: 5s;
+  }
+}
+
+.square {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  opacity: 0.08;
+  animation: rotate 30s linear infinite;
+
+  &:nth-child(5) {
+    background-color: #f1c40f;
+    top: 60%;
+    left: 70%;
+    transform: rotate(30deg);
+    animation-duration: 50s;
+    animation-delay: 3s;
+  }
+
+  &:nth-child(6) {
+    background-color: #1abc9c;
+    top: 15%;
+    right: 45%;
+    transform: rotate(15deg);
+    animation-duration: 45s;
+    animation-delay: 8s;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(0.8);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}

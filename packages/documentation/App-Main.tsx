@@ -3,7 +3,7 @@ import React, { useImperativeHandle, useMemo, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import AppRoutes from './app-routes';
 import { MediaState } from './atoms/home';
-import Footer from './home/footer/footer';
+import { Footer } from './home/footer/footer';
 import { Header } from './home/header';
 
 const Main = React.forwardRef<

@@ -15,7 +15,7 @@ import { MenuItemProps, MenuProps } from './menu-model';
 import { MenuOverlay, MenuOverlayProps } from './menu-overlay';
 import styles from './menu.module.scss';
 
-const Menu: React.FunctionComponent<MenuProps> = ({
+const Menu: React.FC<MenuProps> = ({
   children,
   dockPosition = 'left',
   focusable = false,
@@ -31,7 +31,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   leftOffset = 0,
   RTL = false,
 }: MenuProps) => {
-  const [menuItems] = useState<MenuItemProps[]>(
+  const [menuItems] = useState<MenuItemProps[]>(() =>
     items.map(item => ({
       id: nanoid(),
       ...item,
@@ -52,19 +52,22 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       }
       return !prev;
     });
-  }, []);
+  }, [onClose]);
 
   /**
    * Handles the menu selection
    */
-  const handleSelection = useCallback((name: string) => {
-    if (onSelected) {
-      onSelected(name);
-    }
-    setShowMenu(false);
-    onClose?.();
-    wrapperRef.current?.focus();
-  }, []);
+  const handleSelection = useCallback(
+    (name: string) => {
+      if (onSelected) {
+        onSelected(name);
+      }
+      setShowMenu(false);
+      onClose?.();
+      wrapperRef.current?.focus();
+    },
+    [onSelected, onClose]
+  );
 
   /**
    * Handles menu closure
@@ -82,7 +85,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
 
     setTimeout(() => {
       if (menu.element) {
-        menu.element.querySelectorAll('li')[0].focus();
+        menu.element.querySelectorAll('li')[0]?.focus();
       }
     }, 10);
   }, []);
@@ -114,9 +117,9 @@ const Menu: React.FunctionComponent<MenuProps> = ({
 
     if (showMenu && wrapperRef.current) {
       wrapperRef.current.focus();
-      onOpen && onOpen(id);
+      onOpen?.(id);
     }
-  }, [showMenu]);
+  }, [showMenu, id, onOpen, isFirstRender]);
 
   const onInitRef = useCallback((node: HTMLDivElement) => {
     if (node) {
@@ -132,14 +135,14 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       classNames([styles.menu_content_wrapper], {
         [styles.menu_content_focusable]: !focusable,
       }),
-    [showMenu, focusable]
+    [focusable]
   );
 
   const menuWrapperClass = useMemo(() => {
     return classNames([styles.menu_wrapper], {
       [styles[`menu-wrapper-${size}`]]: true,
     });
-  }, []);
+  }, [size]);
 
   /**
    * setup the focus props
@@ -163,7 +166,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
 
       return prev;
     });
-  }, []);
+  }, [onClose]);
 
   const { onRef } = useOnClickOutside(handleClickOnOutside);
 
@@ -202,6 +205,8 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   );
 };
 
-Menu.displayName = 'Menu';
+// Memoize the Menu component for better performance
+const MemoizedMenu = React.memo(Menu);
+MemoizedMenu.displayName = 'Menu';
 
-export { Menu };
+export { MemoizedMenu as Menu };

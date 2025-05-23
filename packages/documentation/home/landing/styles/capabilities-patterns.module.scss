@@ -1,0 +1,84 @@
+.patterns {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.gradient_spot1 {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--rc-primary-color-rgb), 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: floatAnimation 20s ease-in-out infinite alternate;
+}
+
+.gradient_spot2 {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--rc-secondary-color-rgb), 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: floatAnimation 15s ease-in-out infinite alternate-reverse;
+}
+
+.gradient_spot3 {
+  position: absolute;
+  top: 50%;
+  right: 30%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--rc-tertiary-color-rgb), 0.12) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(35px);
+  animation: floatAnimation 18s ease-in-out infinite alternate;
+}
+
+.wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  opacity: 0.4;
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(15px, 15px);
+  }
+}

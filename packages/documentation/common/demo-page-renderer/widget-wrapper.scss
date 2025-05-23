@@ -2,9 +2,25 @@
 @use '../../../lib/design/font.scss';
 @use '../../../lib/design/core.scss';
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .rc-doc-widgets-collection {
   justify-self: flex-start;
   width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--rc-bg-color);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .rc-doc-widgets-wrapper {
@@ -12,6 +28,18 @@
   height: 100%;
   justify-items: center;
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  position: relative;
+
+  @media (min-width: 992px) {
+    grid-template-columns: minmax(0, 1fr) 250px;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
 }
 
 .rc-doc-link {

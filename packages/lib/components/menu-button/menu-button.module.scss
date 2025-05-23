@@ -10,9 +10,19 @@ $sizes: (sm, md, lg);
   column-gap: 0.25rem;
   cursor: pointer;
   display: grid;
+  grid-template-columns: 1fr auto;
   max-width: var(--max-width);
   min-height: 35px;
   min-width: 100px;
+  position: relative;
+  border-radius: 4px;
+  outline: none;
+  user-select: none;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px theme.$primary-light;
+    outline: none;
+  }
 
   &.dark {
     @extend %border-radius;
@@ -26,10 +36,12 @@ $sizes: (sm, md, lg);
 
   &.disabled {
     @extend %disabled;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 
   &:not(:active) {
-    transition: transform 100ms ease-in;
+    transition: all 150ms ease-in-out;
   }
 
   &:active:not(.disabled) {
@@ -42,7 +54,7 @@ $sizes: (sm, md, lg);
   color: theme.$white;
 
   svg {
-    color: theme.$white;
+    color: var(--icon-color, theme.$white);
   }
 
   .label:not(.dark) {
@@ -50,60 +62,59 @@ $sizes: (sm, md, lg);
   }
 }
 
-.rtl {
-  > :first-child {
-    order: 1;
+.clickable {
+  cursor: pointer;
+
+  * {
+    pointer-events: none;
   }
 
-  > :last-child {
-    order: 0;
-    padding-left: 0.5rem;
-  }
-}
-
-@each $size in $sizes {
-  $ico-size: var(--rc-icon-size-#{$size});
-
-  .wrapper {
-    &:not(.rtl) {
-      grid-template-columns: calc(100% - $ico-size) $ico-size;
-    }
-
-    &.rtl {
-      grid-template-columns: $ico-size calc(100% - $ico-size);
-    }
-  }
-
-  .#{$size} {
-    .icon {
-      @extend %icon-#{$size};
-    }
+  div[role='button'] {
+    pointer-events: auto;
   }
 }
 
 .icon {
-  @extend %center;
-  color: var(--icon-color, theme.$primary);
-  cursor: pointer;
-  display: block;
-  position: relative;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin-right: 0.5rem;
+  width: 20px;
 
-  &:hover {
-    // background: theme.$primary;
+  svg {
+    color: var(--icon-color, theme.$primary);
+    height: 12px;
+    width: 12px;
+  }
+
+  &.dark svg {
+    color: var(--icon-color, theme.$white);
   }
 }
 
 .label {
-  @extend %center;
-  cursor: pointer;
+  color: theme.$primary;
+  font-weight: 500;
+  line-height: 35px;
+  margin-left: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
-  @each $size in $sizes {
-    &.#{$size} {
-      @extend %text-#{$size};
-    }
+  &.dark {
+    color: theme.$white;
   }
 
-  &:not(.dark):hover {
-    color: theme.$white;
+  &.sm {
+    @extend %text-sm;
+  }
+
+  &.md {
+    @extend %text-md;
+  }
+
+  &.lg {
+    @extend %text-lg;
   }
 }

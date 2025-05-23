@@ -1,4 +1,4 @@
-import { faBook, faCode, faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FunctionComponent, Suspense, useMemo } from 'react';
 import { BookOpen, Code } from 'react-feather';
@@ -7,24 +7,21 @@ import { DemoPageRendererProps } from '.';
 import { Section, Tabs } from '../../../lib/components';
 import { DataGrid } from '../../../lib/components/data-grid/data-grid';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
-import StackBlitz from '../stackblitz';
 import { MediaState } from '../useMedia';
 import styles from './demo-page-renderer.module.scss';
 import WidgetsWrapper from './widgets-wrapper';
 
 export type DemoPageTabsProps = Pick<
   DemoPageRendererProps,
-  'tabTitles' | 'properties' | 'callbacks' | 'stackBlitzCodes' | 'demoWidget'
+  'tabTitles' | 'properties' | 'callbacks' | 'demoWidget'
 > & {
   columns: DataGridColumn[];
   media: MediaState | null;
-  showStackBlitzEmbed: boolean;
 };
 
 const Icons = [
   <FontAwesomeIcon icon={faBook} key="book-open" />,
   <FontAwesomeIcon icon={faSlidersH} key="sliders" />,
-  <FontAwesomeIcon icon={faCode} key="code" />,
 ];
 
 const IconsWithoutProperties = [
@@ -35,12 +32,10 @@ const IconsWithoutProperties = [
 const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
   tabTitles,
   callbacks,
-  stackBlitzCodes,
   media,
   demoWidget,
   columns,
   properties,
-  showStackBlitzEmbed = true,
 }) => {
   const canShowProperties = useMemo(() => {
     return properties && properties.length;
@@ -51,13 +46,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
   return (
     <Tabs
       labels={tabTitles}
-      icons={
-        canShowProperties
-          ? showStackBlitzEmbed
-            ? Icons
-            : Icons.slice(0, tabTitles.length - 1)
-          : IconsWithoutProperties
-      }
+      icons={canShowProperties ? Icons : IconsWithoutProperties}
       focusable={false}
       size="sm"
     >
@@ -68,11 +57,11 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
             classNames="widget-fade"
             timeout={500}
           > */}
-            {media?.isMobile || media?.isTablet || media?.isDesktop ? (
-              Demo
-            ) : (
-              <WidgetsWrapper>{Demo}</WidgetsWrapper>
-            )}
+          {media?.isMobile || media?.isTablet || media?.isDesktop ? (
+            Demo
+          ) : (
+            <WidgetsWrapper>{Demo}</WidgetsWrapper>
+          )}
           {/* </CSSTransition> */}
         </Suspense>
       </div>
@@ -101,25 +90,6 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
               </Section>
             )}
           </Suspense>
-        </div>
-      ) : (
-        <div className={styles['rc-demo-stack-blitz-collection']}>
-          {stackBlitzCodes &&
-            stackBlitzCodes.map(code => (
-              <div className={styles['rc-demo-stack-blitz']} key={code}>
-                <StackBlitz id={code} />
-              </div>
-            ))}
-        </div>
-      )}
-      {showStackBlitzEmbed ? (
-        <div className={styles['rc-demo-stack-blitz-collection']}>
-          {stackBlitzCodes &&
-            stackBlitzCodes.map(code => (
-              <div className={styles['rc-demo-stack-blitz']} key={code}>
-                <StackBlitz id={code} />
-              </div>
-            ))}
         </div>
       ) : null}
     </Tabs>

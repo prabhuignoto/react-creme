@@ -1,0 +1,114 @@
+@use '@design/animate.scss';
+
+.patterns {
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.grid {
+  height: 100%;
+  left: 0;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.shapes {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.shape {
+  border-radius: 50%;
+  opacity: 0.15;
+  position: absolute;
+  transform: translateZ(0);
+
+  &.shape0 {
+    background: linear-gradient(
+      135deg,
+      var(--rc-primary-color-hex),
+      var(--rc-tertiary-color-hex)
+    );
+    height: 120px;
+    width: 120px;
+    animation: float 15s ease-in-out infinite;
+  }
+
+  &.shape1 {
+    background: linear-gradient(
+      45deg,
+      var(--rc-secondary-color-hex),
+      var(--rc-primary-color-hex)
+    );
+    height: 80px;
+    width: 80px;
+    animation: float 18s ease-in-out infinite;
+  }
+
+  &.shape2 {
+    background: linear-gradient(
+      90deg,
+      var(--rc-tertiary-color-hex),
+      var(--rc-secondary-color-hex)
+    );
+    border-radius: 4px;
+    height: 60px;
+    transform: rotate(45deg);
+    width: 60px;
+    animation:
+      float 20s ease-in-out infinite,
+      rotate 30s linear infinite;
+  }
+}
+
+.gradientOverlay {
+  background:
+    radial-gradient(
+      circle at 70% 20%,
+      hsla(var(--rc-primary-color-hsl), 0.03) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 30% 70%,
+      hsla(var(--rc-secondary-color-hsl), 0.03) 0%,
+      transparent 50%
+    );
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

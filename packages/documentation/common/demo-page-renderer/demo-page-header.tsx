@@ -1,8 +1,4 @@
-import {
-  faCode,
-  faEdit,
-  faExternalLink,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCode, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FunctionComponent, memo, ReactNode } from 'react';
 import { Link, PageHeader } from '../../../lib/components';
@@ -13,12 +9,11 @@ type DemoHeaderProps = {
   editId?: string;
   pageIcon?: React.ReactNode;
   sourceId?: string;
-  stackBlitzCodes?: string[];
   title: string;
 };
 
 const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
-  ({ title, editId, sourceId, stackBlitzCodes, description, pageIcon }) => {
+  ({ title, editId, sourceId, description, pageIcon }) => {
     return (
       <PageHeader title={title} icon={pageIcon} size="lg">
         {typeof description !== 'string' ? (
@@ -45,16 +40,6 @@ const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
               href={`https://github.com/prabhuignoto/react-creme/tree/master/packages/documentation/components/${editId}/index.tsx`}
             >
               Edit this Page
-            </Link>
-          )}
-          {stackBlitzCodes?.length && (
-            <Link
-              target="_blank"
-              accent="button"
-              icon={<FontAwesomeIcon icon={faExternalLink} />}
-              href={`https://stackblitz.com/edit/${stackBlitzCodes[0]}`}
-            >
-              Open in StackBlitz
             </Link>
           )}
         </div>

@@ -6,8 +6,7 @@ const Widgets = React.lazy(() => import('./widgets'));
 function menu() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-gxoodzp']}
+      tabTitles={['Examples', 'Properties']}
       title="Menu Bar"
       description={`A menu bar is a graphical control element which contains drop-down menus.
         The menu bar's purpose is to supply a common housing for window- or

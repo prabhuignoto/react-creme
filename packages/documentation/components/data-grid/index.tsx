@@ -89,8 +89,7 @@ const DataGridDemo: React.FunctionComponent = () => {
           type: 'string',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
-      stackBlitzCodes={['react-ts-vebq81']}
+      tabTitles={['Examples', 'Properties']}
     ></DemoPageRenderer>
   );
 };

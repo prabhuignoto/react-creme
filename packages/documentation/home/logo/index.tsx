@@ -27,9 +27,9 @@ const Logo: React.FC<{ isMobile?: boolean; onMenuClick: () => void }> = ({
         </span>
       )}
       <div onClick={() => navigate('/')} className={styles.app_logo}>
-        <span className={cx(styles.logo_text, isDarkMode ? styles.dark : '')}>
+        {/* <span className={cx(styles.logo_text, isDarkMode ? styles.dark : '')}>
           React Creme
-        </span>
+        </span> */}
       </div>
     </div>
   );
