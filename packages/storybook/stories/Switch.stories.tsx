@@ -4,9 +4,9 @@ import {
   CheckIcon,
   Default,
   Disabled,
-  ExtraLarge,
   LabelOutside,
   Large,
+  Medium,
 } from '../../documentation/components/switch/widget-variants';
 import { Switch } from '../../lib/components';
 
@@ -25,6 +25,6 @@ export default {
 export const DefaultSwitch = () => <>{Default}</>;
 export const DisabledSwitch = () => <>{Disabled}</>;
 export const LargeSwitch = () => <>{Large}</>;
-export const ExtraLargeSwitch = () => <>{ExtraLarge}</>;
+export const MediumSwitch = () => <>{Medium}</>;
 export const LabelOutsideSwitch = () => <>{LabelOutside}</>;
 export const CheckIconSwitch = () => <>{CheckIcon}</>;

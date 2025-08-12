@@ -1,31 +1,31 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "lib": ["dom", "dom.iterable", "ES2020"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ES2020",
-    "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
-    "noEmit": false,
     "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "declarationDir": "./dist",
     "outDir": "./dist",
-    // "rootDir": ".",
     "rootDirs": ["./components", "./design", "./icons"],
     "types": [
       "react",
       "react-dom",
-      "jest",
       "node",
       "vite/client",
       "@testing-library/jest-dom"
@@ -33,6 +33,7 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./components/*"],
+      "@design/*": ["./design/*"],
       "@icons": ["./icons/index.ts"]
     },
     "plugins": [
@@ -41,7 +42,15 @@
       }
     ]
   },
-  "include": ["./components/**/*.tsx", "Globals.d.ts", "react-creme.ts"],
-  "exclude": ["node_modules", "dist"],
+  "include": [
+    "./components/**/*.tsx",
+    "./components/**/*.ts",
+    "./design/**/*.ts",
+    "./icons/**/*.tsx",
+    "./icons/**/*.ts",
+    "Globals.d.ts",
+    "react-creme.ts"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.test.tsx", "**/*.test.ts"],
   "files": ["react-creme.ts"]
 }

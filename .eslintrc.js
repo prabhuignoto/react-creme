@@ -10,6 +10,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
     'plugin:react/recommended',
+    'plugin:jsx-a11y/recommended',
     'prettier',
     'plugin:react/jsx-runtime',
   ],
@@ -48,5 +49,7 @@ module.exports = {
     react: {
       version: 'detect',
     },
+    // Ensure Storybook 8 packages resolve
+    'storybook/config-api': true,
   },
 };

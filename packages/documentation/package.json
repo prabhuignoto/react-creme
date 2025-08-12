@@ -8,7 +8,7 @@
   "description": "Modern UI Toolkit for React",
   "license": "MIT",
   "scripts": {
-    "build:doc": "rimraf ./expo_dist && tsc && vite build",
+    "build:doc": "rimraf ./expo_dist && vite build",
     "ci": "pnpm lint && pnpm build:doc",
     "dev": "vite",
     "fix-css": "stylelint . --fix",
@@ -32,8 +32,8 @@
     "fast-deep-equal": "^3.1.3",
     "jotai": "^2.12.4",
     "normalize.css": "^8.0.1",
-    "react": "link:..\\..\\node_modules\\react",
-    "react-dom": "link:..\\..\\node_modules\\react-dom",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-element-to-jsx-string": "^15.0.0",
     "react-feather": "^2.0.10",
     "react-instantsearch": "^7.15.7",
@@ -44,7 +44,7 @@
     "react-transition-group": "^4.4.5",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^9.0.4",
-    "vite": "4.3.9"
+    "vite": "6.3.5"
   },
   "devDependencies": {
     "@axe-core/react": "^4.7.2",
@@ -56,11 +56,11 @@
     "@csstools/postcss-sass": "^5.0.1",
     "@playwright/test": "^1.35.0",
     "@types/react": "^19.1.5",
-    "@types/react-dom": "^18.2.4",
+    "@types/react-dom": "^19.1.5",
     "@types/react-instantsearch-dom": "^6.12.3",
     "@types/react-syntax-highlighter": "^15.5.7",
     "@types/react-transition-group": "^4.4.6",
-    "@vitejs/plugin-react": "4.0.0",
+    "@vitejs/plugin-react": "4.4.1",
     "autoprefixer": "^10.4.14",
     "cssnano": "^6.0.1",
     "esbuild": "^0.18.0",
