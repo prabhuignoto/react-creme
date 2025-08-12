@@ -1,4 +1,4 @@
-import { ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Accordion } from '../../lib/components';
 
@@ -17,7 +17,7 @@ const Para = () => (
   </p>
 );
 
-export default {
+const meta: Meta<typeof Accordion> = {
   component: Accordion,
   decorators: [
     (Story: () => JSX.Element) => (
@@ -27,7 +27,12 @@ export default {
     ),
   ],
   title: 'Accordion',
-} as ComponentMeta<typeof Accordion>;
+  tags: ['autodocs'],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Accordion>;
 
 export const CustomIconExample = () => (
   <Accordion

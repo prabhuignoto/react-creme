@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "storybook dev -p 6006",
-    "build:story": "storybook build --quiet",
+    "dev": "storybook dev -p 6006 --config-dir ../../.storybook --no-open",
+    "build:story": "storybook build --config-dir ../../.storybook --quiet",
     "chromatic": "npx chromatic --project-token=571884165efd --allow-console-errors",
     "percy": "npx percy storybook --quiet --config ./.percy.yml ./storybook-static",
     "ci": "pnpm build:story",
@@ -25,6 +25,7 @@
     "@storybook/addon-actions": "^8.5.0",
     "@storybook/addon-docs": "^8.5.0",
     "@storybook/addon-essentials": "^8.5.0",
+    "@storybook/addon-themes": "^8.5.0",
     "@storybook/addon-interactions": "^8.5.0",
     "@storybook/addon-links": "^8.5.0",
     "@storybook/react": "^8.5.0",

@@ -19,7 +19,9 @@
     },
     "build:story": {
       "dependsOn": ["build:lib"],
-      "outputs": ["storybook-static/**"]
+      "outputs": ["storybook-static/**"],
+      "cache": true,
+      "env": ["STORYBOOK"]
     },
     "percy": {
       "dependsOn": ["build:story"],

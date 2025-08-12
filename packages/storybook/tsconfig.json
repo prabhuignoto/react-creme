@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "noEmit": true,
-    "types": ["react", "react-dom"]
+    "types": ["react", "react-dom", "vite/client"]
   },
   "exclude": ["./node_modules/**/*"]
 }
