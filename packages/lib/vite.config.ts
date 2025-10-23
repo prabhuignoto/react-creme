@@ -2,7 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import postcssImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
-import cssnano from 'cssnano';
+import { browserslistToTargets } from 'lightningcss';
+import browserslist from 'browserslist';
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -18,12 +19,12 @@ export default defineConfig({
       },
     },
     postcss: {
-      plugins: [
-        postcssImport(),
-        postcssPresetEnv({ stage: 1 }),
-        cssnano({ preset: 'default' }),
-      ],
+      plugins: [postcssImport(), postcssPresetEnv({ stage: 1 })],
     },
+    lightningcss: {
+      targets: browserslistToTargets(browserslist('>= 0.5%')),
+    },
+    transformer: 'lightningcss',
     modules: {
       localsConvention: 'camelCase',
       generateScopedName: '[name]__[local]___[hash:base64:5]',
@@ -52,13 +53,7 @@ export default defineConfig({
     },
     cssCodeSplit: false,
     sourcemap: true,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
+    minify: 'esbuild',
   },
   resolve: {
     alias: {

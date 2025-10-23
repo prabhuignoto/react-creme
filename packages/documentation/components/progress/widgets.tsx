@@ -1,3 +1,4 @@
+import React from 'react';
 import { useTimer } from 'use-timer';
 import {
   Button,

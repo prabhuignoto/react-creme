@@ -39,8 +39,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   // show or hide scroll buttons
   const canShowControls = useMemo(() => {
     if (tabHeadersRef.current) {
-      const { clientWidth, scrollWidth } =
-        tabHeadersRef?.current as HTMLElement;
+      const { clientWidth, scrollWidth } = tabHeadersRef.current;
 
       return clientWidth < scrollWidth;
     }

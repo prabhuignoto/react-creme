@@ -5,18 +5,18 @@ import { Splitter } from '../splitter';
 // Mock the CSS module
 vi.mock('../splitter.module.scss', () => ({
   default: {
-    wrapper: 'wrapper',
-    wrapper_horizontal: 'wrapper_horizontal',
-    wrapper_vertical: 'wrapper_vertical',
-    wrapper_border: 'wrapper_border',
     control: 'control',
+    control_dragged: 'control_dragged',
     control_horizontal: 'control_horizontal',
     control_vertical: 'control_vertical',
-    control_dragged: 'control_dragged',
+    dark: 'dark',
+    disable: 'disable',
     drag_square: 'drag_square',
     partition: 'partition',
-    disable: 'disable',
-    dark: 'dark',
+    wrapper: 'wrapper',
+    wrapper_border: 'wrapper_border',
+    wrapper_horizontal: 'wrapper_horizontal',
+    wrapper_vertical: 'wrapper_vertical',
   },
 }));
 

@@ -17,8 +17,8 @@ describe('DataGrid', () => {
           { name: 'age', type: 'number' },
         ]}
         data={[
-          { name: 'John', age: 30 },
-          { name: 'Jane', age: 25 },
+          { age: 30, name: 'John' },
+          { age: 25, name: 'Jane' },
         ]}
       />
     );
@@ -33,12 +33,12 @@ describe('DataGrid', () => {
     const { getByPlaceholderText, queryByText } = render(
       <DataGrid
         columns={[
-          { name: 'name', type: 'string', searchable: true },
+          { name: 'name', searchable: true, type: 'string' },
           { name: 'age', type: 'number' },
         ]}
         data={[
-          { name: 'John', age: 30 },
-          { name: 'Jane', age: 25 },
+          { age: 30, name: 'John' },
+          { age: 25, name: 'Jane' },
         ]}
       />
     );
@@ -58,12 +58,12 @@ describe('DataGrid', () => {
     const { getByText, getAllByRole } = render(
       <DataGrid
         columns={[
-          { name: 'name', type: 'string', sortable: true },
+          { name: 'name', sortable: true, type: 'string' },
           { name: 'age', type: 'number' },
         ]}
         data={[
-          { name: 'John', age: 30 },
-          { name: 'Jane', age: 25 },
+          { age: 30, name: 'John' },
+          { age: 25, name: 'Jane' },
         ]}
       />
     );

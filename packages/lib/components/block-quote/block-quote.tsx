@@ -5,6 +5,17 @@ import styles from './block-quote.module.scss';
 
 export interface BlockQuoteProps {
   /**
+   * Additional props to be spread to the blockquote element
+   */
+  [key: string]: any;
+
+  /**
+   * Alignment of the blockquote
+   * @default 'left'
+   */
+  align?: 'left' | 'right' | 'center';
+
+  /**
    * Content to be rendered inside the blockquote
    */
   children: React.ReactNode;
@@ -15,26 +26,15 @@ export interface BlockQuoteProps {
   cite?: string;
 
   /**
-   * Alignment of the blockquote
-   * @default 'left'
+   * Additional class name for the blockquote
    */
-  align?: 'left' | 'right' | 'center';
+  className?: string;
 
   /**
    * Style of the blockquote
    * @default 'default'
    */
   style?: 'default' | 'simple' | 'fancy';
-
-  /**
-   * Additional class name for the blockquote
-   */
-  className?: string;
-
-  /**
-   * Additional props to be spread to the blockquote element
-   */
-  [key: string]: any;
 }
 
 /**

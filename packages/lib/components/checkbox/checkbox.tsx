@@ -68,7 +68,9 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
 
       if (!disabled) {
         setChecked(val => {
-          onChange && onChange(checkBoxId.current, !val);
+          if (onChange) {
+            onChange(checkBoxId.current, !val);
+          }
           return !val;
         });
       }

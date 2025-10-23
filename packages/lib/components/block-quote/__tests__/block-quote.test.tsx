@@ -5,16 +5,16 @@ import { BlockQuote } from '../block-quote';
 // Mock the CSS module
 vi.mock('../block-quote.module.scss', () => ({
   default: {
+    cite: 'cite',
+    content: 'content',
+    dark: 'dark',
     quote: 'quote',
-    quote_left: 'quote_left',
-    quote_right: 'quote_right',
     quote_center: 'quote_center',
     quote_default: 'quote_default',
-    quote_simple: 'quote_simple',
     quote_fancy: 'quote_fancy',
-    content: 'content',
-    cite: 'cite',
-    dark: 'dark',
+    quote_left: 'quote_left',
+    quote_right: 'quote_right',
+    quote_simple: 'quote_simple',
   },
 }));
 

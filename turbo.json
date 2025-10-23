@@ -8,6 +8,14 @@
       "dependsOn": ["^build"],
       "outputs": []
     },
+    "oxlint": {
+      "cache": true,
+      "outputs": []
+    },
+    "knip": {
+      "cache": false,
+      "outputs": []
+    },
     "build:lib": {
       "dependsOn": ["^build:lib"],
       "outputs": ["dist/**"],

@@ -1,8 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
 import { useKey } from '../useKey';
-import { useRef } from 'react';
-import userEvent from '@testing-library/user-event';
-import { within } from '@testing-library/dom';
 import { describe, it, assert } from 'vitest';
 
 describe('useKey hook', () => {

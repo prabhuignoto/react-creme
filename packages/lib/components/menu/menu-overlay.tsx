@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import classNames from 'classnames';
 import React, { useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { useKeyNavigation } from '../common/effects/useKeyNavigation';

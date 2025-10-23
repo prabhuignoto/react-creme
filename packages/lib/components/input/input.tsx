@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { CloseIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';

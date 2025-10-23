@@ -52,7 +52,9 @@ const useDrag: useDragFunctionType = (
         // detect if the user intended a drag operation
         dragStartTimer.current = window.setTimeout(() => {
           dragStarted.current = true;
-          onDragStart && onDragStart();
+          if (onDragStart) {
+            onDragStart();
+          }
         }, 30);
 
         // get the bounding client rect
@@ -213,7 +215,9 @@ const useDrag: useDragFunctionType = (
       window.clearTimeout(dragStartTimer.current);
     }
     dragStarted.current = false;
-    onDragEnd && onDragEnd();
+    if (onDragEnd) {
+      onDragEnd();
+    }
   }, []);
 
   /**
@@ -231,7 +235,9 @@ const useDrag: useDragFunctionType = (
         }
       });
 
-      container.current && resizeObserver.current.observe(container.current);
+      if (container.current) {
+        resizeObserver.current.observe(container.current);
+      }
     }
 
     /**

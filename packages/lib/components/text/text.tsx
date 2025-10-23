@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FunctionComponent, useMemo } from 'react';
+import React, { FunctionComponent, useMemo } from 'react';
 import { isDark } from '../common/utils';
 import styles from './text.module.scss';
 

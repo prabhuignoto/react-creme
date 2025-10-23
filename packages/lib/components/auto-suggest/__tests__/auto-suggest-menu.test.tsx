@@ -14,6 +14,13 @@ vi.mock('../../common/effects/useOnClickOutside', () => {
       handlers.set(id, callback);
 
       return {
+        __getCallbacks: () => handlers,
+
+        // Expose a function to trigger the callback for testing
+        __triggerCallback: (id: string) => {
+          const cb = handlers.get(id);
+          if (cb) cb();
+        },
         onRef: (element: HTMLElement | null) => {
           // Store the callback id on the element
           if (element) {
@@ -21,12 +28,6 @@ vi.mock('../../common/effects/useOnClickOutside', () => {
           }
           return element;
         },
-        // Expose a function to trigger the callback for testing
-        __triggerCallback: (id: string) => {
-          const cb = handlers.get(id);
-          if (cb) cb();
-        },
-        __getCallbacks: () => handlers,
       };
     },
   };

@@ -6,7 +6,7 @@ describe('DataGridRow', () => {
   it('should render the row with correct data', async () => {
     const { getByText } = render(
       <DataGridRow
-        data={{ name: 'John', age: 30 }}
+        data={{ age: 30, name: 'John' }}
         columnConfigs={[
           { name: 'name', type: 'string' },
           { name: 'age', type: 'number' },

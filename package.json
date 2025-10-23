@@ -7,65 +7,67 @@
     "documentation": "documentation"
   },
   "dependencies": {
-    "@babel/core": "^7.22.11",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
-    "@babel/plugin-transform-classes": "^7.22.6",
-    "@babel/plugin-transform-runtime": "^7.22.10",
-    "@babel/preset-env": "^7.22.10",
+    "@babel/core": "^7.28.4",
+    "@babel/plugin-transform-classes": "^7.28.4",
+    "@babel/plugin-transform-runtime": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.11",
     "@relative-ci/agent": "^4.1.8",
-    "@sentry/react": "^9.22.0",
+    "@sentry/react": "^10.21.0",
     "@sentry/tracing": "^7.65.0",
     "@types/bluebird": "^3.5.38",
-    "@types/node": "^22.15.21",
-    "@types/react": "^19.1.5",
-    "@types/react-dom": "^19.1.5",
-    "@typescript-eslint/eslint-plugin": "^8.32.1",
-    "@typescript-eslint/parser": "^8.32.1",
+    "@types/node": "^24.9.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
     "autoprefixer": "^10.4.15",
-    "cssnano": "^7.0.7",
-    "esbuild": "^0.25.4",
-    "eslint": "^9.27.0",
+    "cssnano": "^7.1.1",
+    "esbuild": "^0.25.11",
+    "@eslint/js": "^9.38.0",
+    "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-jest": "^28.11.0",
+    "globals": "^15.14.0",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "7.2.1",
     "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^3.3.0",
     "fork-ts-checker-webpack-plugin": "^9.1.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.0.0",
+    "lint-staged": "^16.2.6",
     "postcss": "^8.4.28",
     "postcss-bem-linter": "^4.0.1",
     "postcss-import": "^16.1.0",
-    "postcss-preset-env": "^10.1.6",
+    "postcss-preset-env": "^10.4.0",
     "postcss-reporter": "^7.0.5",
     "prettier": "^3.0.2",
     "pretty-quick": "^4.1.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "remove-files-webpack-plugin": "^1.5.0",
-    "sass": "^1.90.0",
-    "snyk": "^1.1207.0",
-    "stylelint": "16.19.1",
+    "sass": "^1.93.2",
+    "snyk": "^1.1300.1",
+    "stylelint": "16.25.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-sass-guidelines": "^12.1.0",
     "stylelint-order": "^7.0.0",
     "stylelint-scss": "^6.12.0",
     "thread-loader": "^4.0.2",
     "ts-toolbelt": "^9.6.0",
-    "turbo": "^2.5.3",
-    "typescript": "^5.2.2",
-    "webpack": "^5.88.2",
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3",
+    "webpack": "^5.102.1",
     "webpack-stats-plugin": "^1.1.3"
   },
   "scripts": {
-    "lint": "turbo run lint",
+    "lint": "turbo run oxlint && turbo run lint",
+    "oxlint": "oxlint . --deny-warnings",
     "format": "turbo run format",
     "build": "turbo run build",
     "prepare": "husky install",
@@ -84,7 +86,9 @@
     "clean": "pnpm fix-all & pnpm format & pnpm lint",
     "percy": "turbo run percy",
     "build-story": "turbo run build-story",
-    "relative-ci": "relative-ci"
+    "relative-ci": "relative-ci",
+    "knip": "knip",
+    "knip:production": "knip --production"
   },
   "repository": {
     "type": "git",
@@ -100,27 +104,40 @@
     "packages/*"
   ],
   "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": ">=20.18.1",
+    "pnpm": ">=10.14.0"
+  },
   "lint-staged": {
-    "**/*.tsx": [
-      "npx prettier --write",
-      "npx eslint --fix",
-      "git add"
+    "**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
     ],
-    "**/*.scss": [
-      "npx prettier --write",
-      "npx stylelint",
-      "git add"
+    "**/*.{js,jsx,mjs,cjs}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "**/*.{scss,css}": [
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "**/*.{json,md,yml,yaml}": [
+      "prettier --write"
     ]
   },
   "devDependencies": {
-    "@swc/plugin-emotion": "^9.0.4",
+    "@swc/plugin-emotion": "^11.1.0",
     "@testing-library/react-hooks": "^8.0.1",
-    "@vitejs/plugin-react-swc": "^3.9.0",
-    "@vitest/coverage-v8": "^3.1.4",
+    "@vitejs/plugin-react-swc": "^4.1.0",
+    "@vitest/coverage-v8": "^4.0.1",
+    "browserslist": "^4.24.2",
+    "knip": "^5.46.0",
+    "lightningcss": "^1.29.0",
+    "oxlint": "^1.24.0",
     "postcss-scss": "^4.0.7",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "stylelint-config-recommended": "^14.0.1",
+    "stylelint-config-recommended": "^17.0.0",
+    "stylelint-config-standard-scss": "^16.0.0",
     "vite-plugin-lightningcss": "^0.0.5",
-    "vite-plugin-pwa": "^1.0.0"
+    "vite-plugin-pwa": "^1.1.0"
   }
 }

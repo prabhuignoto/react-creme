@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { OverlayModel } from '../common/overlay-model';
 
 export type MenuOption = Option & {

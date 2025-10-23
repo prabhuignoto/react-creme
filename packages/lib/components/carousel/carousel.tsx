@@ -63,7 +63,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Callback function to handle "Next" action in the carousel.
   const handleNext = useCallback(() => {
-    activePage < trackCount.current - 1 && setActivePage(prev => prev + 1);
+    if (activePage < trackCount.current - 1) {
+      setActivePage(prev => prev + 1);
+    }
   }, [activePage]);
 
   // Callback function to handle "Previous" action in the carousel.

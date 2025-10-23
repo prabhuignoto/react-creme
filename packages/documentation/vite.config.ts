@@ -21,28 +21,28 @@ export default defineConfig({
     reportCompressedSize: true,
     rollupOptions: {
       output: {
+        assetFileNames: `assets/[name]-[hash][extname]`,
         chunkFileNames: `assets/[name]-[hash].js`,
         entryFileNames: `assets/[name]-[hash].js`,
-        assetFileNames: `assets/[name]-[hash][extname]`,
       },
     },
     sourcemap: true,
   },
   css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler',
-        silenceDeprecations: ['mixed-decls'],
-      },
+    modules: {
+      exportGlobals: true,
+      generateScopedName: '[name]__[local]___[hash:base64:5]',
+      localsConvention: 'camelCase',
     },
     postcss: {
       parser: PostSCSS,
       plugins: [PostCSSImport(), PostCSSPresetEnv(), PostCSSReporter()],
     },
-    modules: {
-      localsConvention: 'camelCase',
-      generateScopedName: '[name]__[local]___[hash:base64:5]',
-      exportGlobals: true,
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+        silenceDeprecations: ['mixed-decls'],
+      },
     },
   },
   esbuild: {

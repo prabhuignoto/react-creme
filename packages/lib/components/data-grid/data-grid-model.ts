@@ -1,8 +1,8 @@
 import { CSSProperties, ReactNode } from 'react';
 
 export type Record = {
-  id?: string;
   [key: string]: string | number | undefined;
+  id?: string;
 };
 
 export interface DataGridColumn {
@@ -12,11 +12,11 @@ export interface DataGridColumn {
   id?: string;
   name: string;
   searchable?: boolean;
+  sortDirection?: SortDirection;
   sortOrder?: string;
   sortable?: boolean;
   type?: 'string' | 'number' | 'date' | 'boolean';
   width?: number;
-  sortDirection?: SortDirection;
 }
 
 export interface DataGridCell {

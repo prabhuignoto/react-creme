@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Button, Drawer, Section } from '../../../lib/components';
 import { responsiveState } from '../../atoms/home';

@@ -114,7 +114,9 @@ const Menu: React.FunctionComponent<MenuProps> = ({
 
     if (showMenu && wrapperRef.current) {
       wrapperRef.current.focus();
-      onOpen && onOpen(id);
+      if (onOpen) {
+        onOpen(id);
+      }
     }
   }, [showMenu]);
 

@@ -80,7 +80,9 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   );
 
   const handleChange = useCallback((val?: string) => {
-    val && setInputValue(val.trim());
+    if (val) {
+      setInputValue(val.trim());
+    }
   }, []);
 
   const handleAdd = useCallback(

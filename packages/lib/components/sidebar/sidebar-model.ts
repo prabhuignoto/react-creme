@@ -1,3 +1,4 @@
+import React from 'react';
 import { ListOption } from '../list/list-model';
 
 export interface SidebarProps {

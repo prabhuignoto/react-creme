@@ -6,6 +6,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 React Creme is a modern UI toolkit for React featuring 45+ high-quality, accessible, and themeable components. The project is built as a Turborepo monorepo with pnpm workspaces, containing a component library, documentation site, and Storybook for component development.
 
+### Modern Tooling (2025)
+
+This project uses cutting-edge tooling and configurations:
+
+- **Build**: Vite 6.3.5 with LightningCSS for CSS optimization
+- **Linting**: ESLint 9+ flat config + Oxlint (50-100x faster)
+- **Testing**: Vitest 3.1.4 with jsdom
+- **TypeScript**: 5.9.3 with strict mode and modern compiler options
+- **Package Manager**: pnpm 10.14.0
+- **Monorepo**: Turborepo 2.5.8
+- **Code Quality**: Knip for unused code detection
+- **CI/CD**: GitHub Actions with pnpm caching
+- **Node**: v20.18.1 LTS (see `.nvmrc`)
+
 ## Repository Structure
 
 ```
@@ -23,6 +37,23 @@ react-creme/
 - **Design System**: Global styles, tokens, and mixins are in `design/` (theme.scss, tokens.scss, effects.scss, etc.)
 - **Entry Point**: `react-creme.ts` exports all public components and types
 - **Build System**: Uses Vite (migrated from Webpack) with CSS Modules support
+
+## ⚠️ Important: Monorepo Tooling
+
+This is a **Turborepo monorepo**. All modern tooling (oxlint, knip, ESLint) is **monorepo-aware** and works across all packages.
+
+**See `MONOREPO_TOOLING.md` for detailed architecture and workflow.**
+
+### First Time Setup
+
+```bash
+# Install all dependencies (including oxlint, knip, lightningcss)
+pnpm install
+
+# Verify installation
+pnpm oxlint --version
+pnpm knip --version
+```
 
 ## Common Development Commands
 
@@ -73,19 +104,22 @@ cd packages/lib && pnpm test-ui
 cd packages/lib && vitest --run components/button
 ```
 
-### Linting & Formatting
+### Linting & Formatting (Monorepo-Wide)
 
 ```bash
-# Run all linters
+# Run all linters across all packages (oxlint → ESLint)
 pnpm lint
 
-# Format code
+# Run fast linting only (oxlint) - <1 second!
+pnpm oxlint
+
+# Format all packages
 pnpm format
 
-# Fix JavaScript/TypeScript issues
+# Fix JavaScript/TypeScript across all packages
 pnpm fix-js
 
-# Fix CSS/SCSS issues
+# Fix CSS/SCSS across all packages
 pnpm fix-css
 
 # Fix everything
@@ -93,7 +127,24 @@ pnpm fix-all
 
 # Run full quality check
 pnpm clean
+
+# Check for unused code/dependencies (monorepo-aware)
+pnpm knip
+pnpm knip:production  # Production dependencies only
+
+# Run with Turbo filters (specific packages)
+pnpm lint --filter=react-creme        # Lib only
+pnpm lint --filter=*docu*             # Documentation only
+pnpm oxlint --filter=react-creme      # Fast lint lib only
 ```
+
+**How it works:**
+
+- Turbo orchestrates tasks across packages in parallel
+- Oxlint runs first (50-100x faster) as a pre-check
+- ESLint runs after for comprehensive checking
+- Results are cached for faster subsequent runs
+- See `MONOREPO_TOOLING.md` for architecture details
 
 ### Running Single Package Commands
 
@@ -224,9 +275,23 @@ vitest --coverage               # Run with coverage report
 
 ## Code Style & Standards
 
-### TypeScript
+### ESLint Configuration (Flat Config - 2025)
 
-- Strict mode enabled
+- **Config File**: `eslint.config.mjs` (modern flat config format)
+- **Fast Linting**: Oxlint runs first in pre-commit hooks (50-100x faster)
+- **IDE Support**: Full TypeScript-aware linting
+- **Note**: The old `.eslintrc.js` has been removed (deprecated in ESLint v10)
+
+### TypeScript (Strict Mode + Modern Options)
+
+- **Version**: 5.9.3 across all packages
+- **Target**: ES2022 with modern browser support
+- **Strict mode enabled** with additional safety:
+  - `exactOptionalPropertyTypes: true`
+  - `noUncheckedIndexedAccess: true`
+  - `noPropertyAccessFromIndexSignature: true`
+  - `verbatimModuleSyntax: true` (replaces importsNotUsedAsValues)
+  - `incremental: true` for faster builds
 - All components are typed with explicit props interfaces in `-model.ts` files
 - Use `React.forwardRef` for components that need ref forwarding
 - Export types alongside components in `react-creme.ts`
@@ -308,16 +373,17 @@ vitest --coverage               # Run with coverage report
 
 ## Git Workflow
 
-### Pre-commit Hooks
+### Pre-commit Hooks (Enhanced 2025)
 
-Husky is configured to run `pretty-quick --staged` on pre-commit to ensure all staged files are properly formatted.
+Husky is configured with a modern pre-commit workflow:
 
-### Lint-Staged
+1. **Oxlint** runs first (50-100x faster than ESLint) for quick feedback
+2. **lint-staged** then runs comprehensive checks:
+   - TypeScript/JavaScript: Prettier → ESLint
+   - SCSS/CSS: Prettier → Stylelint
+   - JSON/Markdown/YAML: Prettier
 
-Configured to run on `.tsx` and `.scss` files:
-
-- TypeScript: Prettier → ESLint → git add
-- SCSS: Prettier → Stylelint → git add
+**Note**: No manual `git add` needed (lint-staged handles it automatically)
 
 ## Dependencies to Know
 
@@ -330,13 +396,21 @@ Configured to run on `.tsx` and `.scss` files:
 - **hex-rgb**: Color utilities
 - **fast-deep-equal**: Deep equality checks
 
-### Build Tools
+### Build Tools (2025)
 
-- **vite**: Build tool and dev server
-- **turbo**: Monorepo task runner
-- **typescript**: v5.2.2
-- **vitest**: Test runner
+- **vite**: v6.3.5 - Modern build tool with HMR
+- **lightningcss**: CSS optimization (faster than cssnano)
+- **esbuild**: JavaScript minification (faster than terser)
+- **turbo**: v2.5.8 - Monorepo task orchestration
+- **typescript**: v5.9.3 - Latest with modern strict options
+- **vitest**: v3.1.4 - Test runner
 - **@vitejs/plugin-react**: Vite React plugin
+
+### Code Quality Tools (New in 2025)
+
+- **oxlint**: v1.0+ - Rust-based ultra-fast linter
+- **knip**: Unused code/dependency detection
+- **eslint**: v9+ with flat config format
 
 ## Debugging Tips
 
@@ -347,6 +421,17 @@ If builds fail:
 1. Clear node_modules: `rm -rf node_modules && pnpm install`
 2. Clear Turbo cache: `rm -rf .turbo`
 3. Clear Vite cache: `rm -rf packages/lib/node_modules/.vite`
+4. Clear TypeScript build cache: `find . -name ".tsbuildinfo" -delete`
+5. Ensure correct Node version: `nvm use` (reads from `.nvmrc`)
+
+### Linting Issues
+
+If ESLint shows errors after upgrade:
+
+1. The project now uses ESLint flat config (`eslint.config.mjs`)
+2. Make sure you're using ESLint v9+
+3. Run `pnpm oxlint` first for fast feedback
+4. Check that your IDE ESLint extension supports flat config
 
 ### CSS Module Type Issues
 
@@ -365,13 +450,27 @@ CSS Module types are auto-generated by `typescript-plugin-css-modules`. If types
 
 ## Important Files
 
-- **turbo.json**: Turborepo task pipeline configuration
-- **packages/lib/vite.config.ts**: Library build configuration
+### Configuration Files (2025)
+
+- **eslint.config.mjs**: ESLint flat config (modern format)
+- **.oxlintrc.json**: Oxlint configuration for fast linting
+- **.knip.json**: Knip configuration with workspace awareness for monorepo
+- **.nvmrc**: Node.js version specification (20.18.1)
+- **.browserslistrc**: Browser targets for 2025
+- **turbo.json**: Turborepo task pipeline (includes oxlint, knip tasks)
+- **MONOREPO_TOOLING.md**: Detailed guide on how tooling works across packages
+- **packages/lib/vite.config.ts**: Library build with LightningCSS
 - **packages/lib/vitest.config.ts**: Test configuration for CI
 - **packages/lib/vitest.config.dev.ts**: Test configuration for development
 - **.storybook/main.ts**: Storybook configuration
 - **packages/lib/react-creme.ts**: Library entry point with all exports
 - **packages/lib/design/**: Global design system tokens and utilities
+
+### Deprecated/Removed Files
+
+- ~~`.eslintrc.js`~~ → Replaced with `eslint.config.mjs` (flat config)
+- ~~`webpack.config.mjs`~~ → Removed (project uses Vite)
+- ~~`tsconfig.webpack.json`~~ → Removed (no longer needed)
 
 ## Contribution Guidelines
 

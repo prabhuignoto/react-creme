@@ -70,7 +70,7 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
 
   // Memoize the sort icon rendering for better performance
   const renderSortIcons = useCallback(
-    (column: { sortable: any; sortDirection: string; name: string }) => {
+    (column: { name: string; sortDirection: string; sortable: any }) => {
       if (!column.sortable) return null;
 
       return (

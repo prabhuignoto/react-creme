@@ -133,9 +133,13 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     }
 
     if (open) {
-      onExpanded && onExpanded(accordionID.current);
+      if (onExpanded) {
+        onExpanded(accordionID.current);
+      }
     } else {
-      onCollapsed && onCollapsed(accordionID.current);
+      if (onCollapsed) {
+        onCollapsed(accordionID.current);
+      }
     }
   }, [open, onExpanded, onCollapsed, isFirstRender]);
 

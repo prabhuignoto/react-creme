@@ -28,8 +28,8 @@ jobs:
       - name: Setup PNPM
         uses: pnpm/action-setup@v3
         with:
-          version: 9 # Specify a fixed version (v8 is stable)
-          run_install: false # We'll run install manually with specific flags
+          version: 10.14.0
+          run_install: false
 
       # Enable caching of the PNPM store
       - name: Get pnpm store directory
@@ -79,7 +79,7 @@ jobs:
       - name: Setup PNPM
         uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 10.14.0
           run_install: false
 
       - name: Get pnpm store directory
@@ -139,7 +139,7 @@ jobs:
       - name: Setup PNPM
         uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 10.14.0
           run_install: false
 
       - name: Get pnpm store directory

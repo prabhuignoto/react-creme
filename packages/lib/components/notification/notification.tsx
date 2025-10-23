@@ -37,7 +37,9 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   const ref = useRef<HTMLDivElement>(null);
 
   useCloseOnEscape(() => {
-    onClose && onClose();
+    if (onClose) {
+      onClose();
+    }
   }, ref as React.RefObject<HTMLDivElement>);
 
   const wrapperStyle = useMemo(
@@ -51,7 +53,11 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
 
   useEffect(() => {
     if (autoClose) {
-      setTimeout(() => onClose && onClose(), autoClose);
+      setTimeout(() => {
+        if (onClose) {
+          onClose();
+        }
+      }, autoClose);
     }
   }, []);
 
@@ -67,7 +73,9 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
     if (state) {
       const xPosition = position?.split('-')[1] || '';
       if (state.offset > 0 && state.dir.toLowerCase() === xPosition) {
-        onClose && onClose();
+        if (onClose) {
+          onClose();
+        }
       }
     }
   }, [state, canSwipeToClose, position]);

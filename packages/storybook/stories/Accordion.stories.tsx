@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import React from 'react';
 import { Accordion } from '../../lib/components';
 
@@ -31,8 +31,6 @@ const meta: Meta<typeof Accordion> = {
 };
 
 export default meta;
-
-type Story = StoryObj<typeof Accordion>;
 
 export const CustomIconExample = () => (
   <Accordion

@@ -1,30 +1,24 @@
-# This is a browserslist configuration file for the year 2023
+# Browserslist configuration for 2025
+# Modern browsers with ES2022+ support
 
-# Target browsers that have more than 1% market share globally
-> 1%
+# Browsers with >0.5% market share globally
+> 0.5%
 
-# Support the last 2 versions of major browsers
+# Last 2 versions of major browsers
 last 2 versions
 
-# Support the latest version of these browsers
+# Exclude dead browsers
 not dead
 
-# Specific browsers and their versions that we want to support
-# This list is based on current trends and expected usage in 2023
-# You may adjust this based on your project's requirements and target audience
+# Modern browser versions (2025 targets)
+chrome >= 109
+firefox >= 115
+safari >= 16.4
+edge >= 109
 
-# Latest Chrome, Firefox, and Safari versions in 2023
-chrome >= 93
-firefox >= 102
-safari >= 15
+# Mobile browsers (2025)
+ios >= 16.4
+android >= 109
 
-# Latest Edge versions in 2023
-edge >= 99
-
-# Latest iOS and Android versions in 2023
-ios >= 15
-android >= 13
-
-# Specific IE version, if required (though its usage is expected to be minimal in 2023)
-# Uncomment the next line if you need to support IE in your project
-# ie >= 11
+# Explicitly exclude IE (no longer supported)
+not ie > 0

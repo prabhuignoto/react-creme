@@ -33,11 +33,11 @@ if (process.env.NODE_ENV === 'production') {
 
     integrations: [
       Sentry.reactRouterV7BrowserTracingIntegration({
+        createRoutesFromChildren,
+        matchRoutes,
         useEffect: React.useEffect,
         useLocation,
         useNavigationType,
-        createRoutesFromChildren,
-        matchRoutes,
       }),
     ],
     // Alternatively, use `process.env.npm_package_version` for a dynamic release version
