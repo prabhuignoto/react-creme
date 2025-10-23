@@ -53,12 +53,14 @@
 
   @extend %shadow-small;
   @extend %top-center;
-  @include animate.set-settings(0.25s, var(--transition));
+  // CSS properties before animation mixins to comply with Sass mixed-decls
   height: var(--min-height);
   min-width: $min-width;
   outline: 0;
   position: relative;
   visibility: hidden;
+  // Animation mixins that generate @keyframes (nested rules) come after properties
+  @include animate.set-settings(0.25s, var(--transition));
 
   &.dark {
     background-color: theme.$dark-control-bg;

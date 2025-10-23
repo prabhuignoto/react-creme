@@ -30,15 +30,17 @@ $settings: (
 
 .row {
   @extend %border-radius;
-  @include animate.set-settings(2s, linear, true);
-  @include animate.set-keyframes(animate_skeleton, $settings);
+
+  // CSS properties before animation mixins to comply with Sass mixed-decls
   display: block;
   height: var(--height);
   margin: 0.5rem 0;
   padding-left: 0.5rem;
-  & {
-    z-index: -1;
-  }
+  z-index: -1;
+
+  // Animation mixins that generate @keyframes (nested rules) come after properties
+  @include animate.set-settings(2s, linear, true);
+  @include animate.set-keyframes(animate_skeleton, $settings);
 
   &.animate:not(.disable_animation) {
     animation-direction: reverse;

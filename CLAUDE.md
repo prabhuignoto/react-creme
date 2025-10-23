@@ -245,6 +245,53 @@ vitest --coverage               # Run with coverage report
 - Follow BEM-like naming within modules
 - Use Stylelint rules defined in root config
 
+#### Sass Best Practices (Mixed Declarations)
+
+**CRITICAL**: Modern Sass (1.77.7+) enforces CSS-compliant ordering within selectors to match the CSS specification. Always follow this order:
+
+1. **Variable declarations** (`$var: value;`)
+2. **@extend directives** (`@extend %placeholder;`)
+3. **Regular CSS properties** (`color: red; margin: 0;`)
+4. **Nested rules** (`& {}`, `&.class {}`, `&:hover {}`)
+5. **@include directives that generate nested rules** (e.g., `@include animate.set-keyframes(...)`)
+
+**Example:**
+
+```scss
+.component {
+  // 1. Variables first
+  $settings: (
+    from: (
+      ...,
+    ),
+    to: (
+      ...,
+    ),
+  );
+
+  // 2. Extends next
+  @extend %border-radius;
+
+  // 3. Properties before any nested rules
+  display: block;
+  color: theme.$primary;
+  padding: 1rem;
+
+  // 4. Nested selectors
+  &:hover {
+    opacity: 0.8;
+  }
+
+  // 5. Animation mixins last (they generate @keyframes)
+  @include animate.set-settings(0.25s);
+  @include animate.set-keyframes('fade-in', $settings);
+}
+```
+
+**Why?** Sass 1.92.0+ enforces CSS-compliant ordering where declarations must appear before nested rules. Violating this causes deprecation warnings and will break in future versions.
+
+**Configuration:** The project uses Vite with `api: 'modern-compiler'` and `silenceDeprecations: ['mixed-decls']` as a temporary measure, but all code should follow the proper ordering.
+
 ### Linting
 
 - ESLint configuration is in root `package.json` (lint-staged section)

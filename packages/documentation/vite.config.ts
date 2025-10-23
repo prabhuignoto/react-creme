@@ -29,6 +29,12 @@ export default defineConfig({
     sourcemap: true,
   },
   css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+        silenceDeprecations: ['mixed-decls'],
+      },
+    },
     postcss: {
       parser: PostSCSS,
       plugins: [PostCSSImport(), PostCSSPresetEnv(), PostCSSReporter()],

@@ -67,11 +67,13 @@ $progress-fill-colors: (
 
   &.indeterminate {
     @extend %border-radius;
-    @include position.position-abs('top left');
-    @include animate.set-settings(2s, linear, true);
+    // CSS properties before animation mixins to comply with Sass mixed-decls
     animation-name: indeterminate-progress;
     border: 1px solid theme.$primary;
     height: calc(var(--height) - 2px);
+    // Animation mixins that generate @keyframes (nested rules) come after properties
+    @include position.position-abs('top left');
+    @include animate.set-settings(2s, linear, true);
   }
 
   &.bob {

@@ -48,20 +48,21 @@ $tag-heights: (
       opacity: 1,
     ),
   );
-  @include animate.set-settings(0.1s, linear);
-  @include animate.set-keyframes('fade-in', $settings);
-  @include animate.set-keyframes('fade-out', $settings, true);
 
+  // CSS properties before animation mixins to comply with Sass mixed-decls
   justify-items: center;
   margin: 0.5rem 0.25rem;
   max-width: calc(var(--width) + 1rem);
   min-width: 40px;
-
   padding: 0.2rem 0.4rem;
   transform: scale(1);
-
   user-select: none;
   visibility: visible;
+
+  // Animation mixins that generate @keyframes (nested rules) come after properties
+  @include animate.set-settings(0.1s, linear);
+  @include animate.set-keyframes('fade-in', $settings);
+  @include animate.set-keyframes('fade-out', $settings, true);
 
   &:not(.disabled):not(.readonly) {
     display: grid;

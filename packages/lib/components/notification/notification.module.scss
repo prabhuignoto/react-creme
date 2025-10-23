@@ -68,9 +68,11 @@ $sizes: (sm, md, lg);
   @extend %shadow-medium;
   @extend %border-radius;
   @extend %col;
-  @include animate.set-settings(0.25s);
+  // CSS properties before animation mixins to comply with Sass mixed-decls
   min-height: $min-height;
   min-width: $min-width;
+  // Animation mixins that generate @keyframes (nested rules) come after properties
+  @include animate.set-settings(0.25s);
 
   &.dark {
     background: theme.$raisin-black;

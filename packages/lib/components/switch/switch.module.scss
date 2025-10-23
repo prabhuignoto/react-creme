@@ -120,13 +120,15 @@ $start-left: 4px;
 }
 
 .knob {
-  @include animate.set-settings(0.2s);
-  @include position.position-abs('center left');
+  // CSS properties before animation mixins to comply with Sass mixed-decls
   border-radius: 50%;
   display: block;
   left: $start-left;
   transition: background-color 0.1s ease;
   z-index: -1;
+  // Animation mixins that generate @keyframes (nested rules) come after properties
+  @include animate.set-settings(0.2s);
+  @include position.position-abs('center left');
 
   svg {
     @include position.position-abs('center center');
@@ -139,11 +141,11 @@ $start-left: 4px;
     &.knob_#{$key} {
       $settings: (
         from: (
-          left: $start-left,
-        ),
+            left: $start-left,
+          ),
         to: (
-          left: calc(100% - $val - 4px),
-        ),
+            left: calc(100% - $val - 4px),
+          ),
       );
       background-color: theme.$white;
       height: $val;
@@ -164,19 +166,26 @@ $start-left: 4px;
 
       &.on {
         @extend %shadow-medium;
-        @include animate.set-keyframes(slide-right-#{$key}, $settings);
+        // CSS properties before nested rules to comply with Sass mixed-decls
         animation-name: slide-right-#{$key};
         background-color: theme.$primary;
+        left: calc(100% - $val - 4px);
+
+        // Nested rules come after properties
         & {
           box-shadow: none;
         }
-        left: calc(100% - $val - 4px);
+
+        // Animation mixins that generate @keyframes (nested rules) come last
+        @include animate.set-keyframes(slide-right-#{$key}, $settings);
       }
 
       &.off {
-        @include animate.set-keyframes(slide-left-#{$key}, $settings, true);
+        // CSS properties before animation mixins to comply with Sass mixed-decls
         animation-name: slide-left-#{$key};
         right: calc(100% - $val - 4px);
+        // Animation mixins that generate @keyframes (nested rules) come after properties
+        @include animate.set-keyframes(slide-left-#{$key}, $settings, true);
       }
     }
   }

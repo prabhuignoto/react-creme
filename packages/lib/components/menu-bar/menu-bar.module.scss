@@ -131,9 +131,6 @@ $sizes: (sm, md, lg);
       transform: rotate(180deg),
     ),
   );
-  @include animate.set-settings(0.2s);
-  @include animate.set-keyframes(rotate, $animation-settings);
-  @include animate.set-keyframes(rotate-reverse, $animation-settings, true);
 
   &.rtl {
     margin-right: auto;
@@ -142,6 +139,11 @@ $sizes: (sm, md, lg);
   &:not(.rtl) {
     margin-left: auto;
   }
+
+  // Animation mixins that generate @keyframes (nested rules) come after properties
+  @include animate.set-settings(0.2s);
+  @include animate.set-keyframes(rotate, $animation-settings);
+  @include animate.set-keyframes(rotate-reverse, $animation-settings, true);
 
   @each $size in $sizes {
     &.#{$size} {

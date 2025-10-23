@@ -39,6 +39,12 @@ const config: StorybookConfig = {
       },
       css: {
         ...config.css,
+        preprocessorOptions: {
+          scss: {
+            api: 'modern-compiler',
+            silenceDeprecations: ['mixed-decls'],
+          },
+        },
         modules: {
           ...(config.css as any)?.modules,
           localsConvention: 'camelCase',
