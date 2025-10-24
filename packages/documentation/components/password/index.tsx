@@ -73,7 +73,7 @@ function Password() {
           type: 'function',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-dnneps']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

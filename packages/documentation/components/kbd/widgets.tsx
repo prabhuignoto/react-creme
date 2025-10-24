@@ -1,4 +1,6 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { Section, Text } from '../../../lib/components';
+import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
 import {
   ButtonRaisedRight,
@@ -9,6 +11,14 @@ import {
   Thickness,
   WithCombination,
 } from './widget-variants';
+
+const jsxToStringOptions = {
+  maxInlineAttributesLineLength: 250,
+  showDefaultProps: true,
+  showFunctions: true,
+  sortProps: true,
+  tabStop: 4,
+};
 
 function Widgets() {
   return (

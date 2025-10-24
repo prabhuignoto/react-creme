@@ -41,7 +41,7 @@ function tree() {
           type: 'string',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-bpfa5b']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

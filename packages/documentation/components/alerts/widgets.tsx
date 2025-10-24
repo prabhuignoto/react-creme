@@ -1,5 +1,7 @@
 import { useLayoutEffect, useState } from 'react';
+import jsxToString from 'react-element-to-jsx-string';
 import { Section, Text } from '../../../lib/components';
+import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
 import {
@@ -10,6 +12,14 @@ import {
   Success,
   Warning,
 } from './widget-variants';
+
+const jsxToStringOptions = {
+  maxInlineAttributesLineLength: 250,
+  showDefaultProps: true,
+  showFunctions: true,
+  sortProps: true,
+  tabStop: 4,
+};
 
 function Widgets() {
   const media = useMedia();

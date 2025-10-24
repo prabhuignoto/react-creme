@@ -1,4 +1,6 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { Section, Tags, Text } from '../../../lib/components';
+import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -30,6 +32,14 @@ const positions: Position[] = [
   'right bottom',
   'right center',
 ];
+
+const jsxToStringOptions = {
+  maxInlineAttributesLineLength: 250,
+  showDefaultProps: true,
+  showFunctions: true,
+  sortProps: true,
+  tabStop: 4,
+};
 
 function Widgets() {
   return (

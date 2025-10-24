@@ -98,7 +98,7 @@ function index() {
         },
       ]}
       demoWidget={<Widgets />}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-k4qtvk']}
     ></DemoPageRenderer>
   );

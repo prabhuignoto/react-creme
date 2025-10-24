@@ -1,0 +1,273 @@
+/* ============================================
+   Sandpack Demo - Modern Styling
+   ============================================ */
+
+.sandpack-demo-container {
+  position: relative;
+  width: 100%;
+  margin: var(--spacing-lg) 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Sandpack wrapper customization */
+.sandpack-wrapper {
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.sandpack-layout {
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+}
+
+/* StackBlitz fallback styling */
+.sandpack-stackblitz-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: var(--spacing-2xl);
+}
+
+.sandpack-fallback-message {
+  text-align: center;
+  max-width: 500px;
+
+  h3 {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  p {
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+.sandpack-stackblitz-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--rc-primary-color-hex, #007bff);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+
+  &:hover {
+    background: color-mix(in srgb, var(--rc-primary-color-hex, #007bff) 90%, black);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--rc-primary-color-hex, #007bff);
+    outline-offset: 2px;
+  }
+}
+
+/* Placeholder state */
+.sandpack-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: var(--spacing-2xl);
+}
+
+.sandpack-placeholder-content {
+  text-align: center;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  p {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+}
+
+/* Error state */
+.sandpack-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: var(--spacing-xl);
+
+  p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+}
+
+/* Dark mode adjustments */
+.dark {
+  .sandpack-stackblitz-fallback,
+  .sandpack-placeholder,
+  .sandpack-error {
+    background: #1e1e1e;
+    border-color: #333;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sandpack-demo-container {
+    margin: var(--spacing-md) 0;
+  }
+
+  .sandpack-stackblitz-fallback,
+  .sandpack-placeholder {
+    min-height: 300px;
+    padding: var(--spacing-xl);
+  }
+
+  .sandpack-fallback-message,
+  .sandpack-placeholder-content {
+    h3 {
+      font-size: 1.125rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
+  }
+
+  .sandpack-stackblitz-link {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 0.875rem;
+  }
+}
+
+/* Override Sandpack's default styles to match our theme */
+:global {
+  /* Sandpack container */
+  .sp-wrapper {
+    --sp-colors-surface1: var(--bg-primary) !important;
+    --sp-colors-surface2: var(--bg-secondary) !important;
+    --sp-colors-surface3: var(--bg-tertiary, #f5f5f5) !important;
+    --sp-colors-clickable: var(--text-primary) !important;
+    --sp-colors-base: var(--text-primary) !important;
+    --sp-colors-disabled: var(--text-tertiary) !important;
+    --sp-colors-hover: var(--text-secondary) !important;
+    --sp-colors-accent: var(--rc-primary-color-hex, #007bff) !important;
+
+    /* Border radius */
+    --sp-border-radius: 12px !important;
+
+    /* Typography */
+    --sp-font-body: var(--font-sans) !important;
+    --sp-font-mono: var(--font-mono) !important;
+    --sp-font-size: 14px !important;
+    --sp-line-height: 1.6 !important;
+  }
+
+  /* Dark mode overrides */
+  .dark .sp-wrapper {
+    --sp-colors-surface1: #1e1e1e !important;
+    --sp-colors-surface2: #2d2d2d !important;
+    --sp-colors-surface3: #3a3a3a !important;
+  }
+
+  /* Sandpack tabs */
+  .sp-tabs {
+    border-bottom: 1px solid var(--border-color) !important;
+
+    .sp-tab-button {
+      font-family: var(--font-sans) !important;
+      font-size: 0.875rem !important;
+      transition: all var(--transition-fast) !important;
+
+      &:hover {
+        background: var(--bg-secondary) !important;
+      }
+    }
+  }
+
+  /* Sandpack code editor */
+  .sp-code-editor {
+    .cm-scroller {
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-color) transparent;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 4px;
+
+        &:hover {
+          background: var(--text-secondary);
+        }
+      }
+    }
+  }
+
+  /* Sandpack preview */
+  .sp-preview {
+    border-left: 1px solid var(--border-color) !important;
+
+    iframe {
+      border: none !important;
+    }
+  }
+
+  /* Loading overlay */
+  .sp-overlay {
+    background: var(--bg-primary) !important;
+  }
+
+  /* Error overlay */
+  .sp-error-message {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    padding: var(--spacing-md) !important;
+  }
+}

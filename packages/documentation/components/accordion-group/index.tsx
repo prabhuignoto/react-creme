@@ -92,7 +92,7 @@ function accordionGroup() {
           type: 'Number',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

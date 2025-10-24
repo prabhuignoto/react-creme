@@ -30,7 +30,7 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
     component,
     codeString,
     name,
-    disableCode,
+    disableCode = true, // Code display moved to Section header action
   }: WidgetProps) => {
     return (
       <div
@@ -45,37 +45,11 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
         <div
           style={{
             height: height ? `${height}px` : '100%',
-            margin: '1rem 0',
+            margin: '0.5rem 0',
             width: Number.isInteger(width) ? `${width}px` : width,
           }}
         >
           {children}
-        </div>
-        <div style={{ width: '100%' }}>
-          {!showCodeByDefault && !disableCode ? (
-            <Accordion
-              title={customTitle}
-              border={false}
-              focusable={false}
-              expanded={showCodeByDefault}
-              disableCollapse={showCodeByDefault}
-              disableIcon={showCodeByDefault}
-              // customIcon={<CodeIcon />}
-              size="sm"
-            >
-              <React.Suspense fallback={<span>loading ...</span>}>
-                <CodeString name={name} code={codeString} component={component}>
-                  {children}
-                </CodeString>
-              </React.Suspense>
-            </Accordion>
-          ) : (
-            <React.Suspense fallback={<span>loading ...</span>}>
-              <CodeString name={name} code={codeString} component={component}>
-                {children}
-              </CodeString>
-            </React.Suspense>
-          )}
         </div>
       </div>
     );

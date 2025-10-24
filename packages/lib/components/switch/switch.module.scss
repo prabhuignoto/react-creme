@@ -36,14 +36,34 @@ $start-left: 4px;
 
 .switch {
   cursor: pointer;
-
   min-width: var(--min-width);
   padding: 0.1rem;
   user-select: none;
-  // width: 100%;
+  border-radius: 24px;
+  transition: all 0.2s ease;
+
+  // Focus indicator - WCAG 2.4.7 compliant
+  &:focus-visible {
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
+  }
 
   &.disabled {
     @extend %disabled;
+    cursor: not-allowed;
+
+    &:focus-visible {
+      outline-color: theme.$chinese-gray;
+    }
+  }
+
+  &.read_only {
+    cursor: default;
+    opacity: 0.8;
+
+    &:focus-visible {
+      outline-color: theme.$steel-gray;
+    }
   }
 }
 
@@ -66,7 +86,30 @@ $start-left: 4px;
   .knob {
     & {
       box-shadow: none;
+      background-color: #d4d4d8 !important;
+
+      &.dark {
+        background-color: theme.$steel-gray !important;
+      }
     }
+  }
+}
+
+// Loading state
+.loading_spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
@@ -95,20 +138,47 @@ $start-left: 4px;
 }
 
 .track_on {
+  // Improved visual clarity - clear blue for ON state
+  background: theme.$primary;
+  border: 1px solid theme.$primary;
+  transition: all 0.2s ease;
+
   &.dark {
-    background: theme.$dark-control-bg;
-    border: 1px solid theme.$dark-control-bg;
+    background: theme.$primary;
+    border: 1px solid theme.$primary;
   }
 
   &:not(.dark) {
-    @extend %shadow-inset-xs;
-    @extend %border;
+    background: theme.$primary;
+    border: 1px solid theme.$primary;
   }
 }
 
 .track_off {
-  background-color: theme.$chinese-gray;
-  border: 1px solid transparent;
+  // Clear gray for OFF state - better contrast
+  background-color: #e4e4e7;
+  border: 1px solid #d4d4d8;
+  transition: all 0.2s ease;
+
+  &.dark {
+    background-color: theme.$cod-gray;
+    border: 1px solid theme.$chinese-gray;
+  }
+}
+
+.track_disabled {
+  background: #f5f5f5 !important;
+  border: 1px solid #e0e0e0 !important;
+  filter: grayscale(100%);
+
+  &.dark {
+    background: theme.$cod-gray !important;
+    border: 1px solid theme.$steel-gray !important;
+  }
+}
+
+.track_read_only {
+  opacity: 0.8;
 }
 
 .knob:not(.on):not(.on-load) {

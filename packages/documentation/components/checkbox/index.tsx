@@ -97,7 +97,7 @@ function checkbox() {
           type: 'String',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-wrjrdy']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

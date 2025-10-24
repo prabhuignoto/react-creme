@@ -20,7 +20,7 @@ const Description = (
 function tags() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-hppcze']}
       title="Tags"
       description={Description}

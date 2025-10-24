@@ -101,7 +101,7 @@ function notification() {
           type: 'String',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-fwgs9r']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

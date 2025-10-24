@@ -1,5 +1,7 @@
 import { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
+import jsxToString from 'react-element-to-jsx-string';
 import { Image, Reveal } from '../../../lib/components';
+import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { useAtomValue } from 'jotai';
 import { responsiveState } from '../../atoms/home';
 
@@ -17,6 +19,14 @@ const imageWrapStyle = {
   margin: '0 auto',
   width: '450px',
 } as CSSProperties;
+
+const jsxToStringOptions = {
+  maxInlineAttributesLineLength: 250,
+  showDefaultProps: true,
+  showFunctions: true,
+  sortProps: true,
+  tabStop: 4,
+};
 
 function widgets() {
   const ref = useRef<HTMLDivElement>(null);

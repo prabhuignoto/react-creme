@@ -29,7 +29,7 @@ const Accordion = () => {
     <DemoPageRenderer
       description={Description}
       title="Accordion"
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-s9qxmk']}
       sourceId="accordion/accordion.tsx"
       editId="accordion"

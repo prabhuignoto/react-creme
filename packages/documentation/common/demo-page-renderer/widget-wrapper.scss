@@ -66,6 +66,8 @@
 }
 
 .rc-doc-links-container {
+  /* Disabled old ToC - using new TableOfContents component instead */
+  display: none !important;
   font-size: 14px;
   position: fixed;
   right: 0;

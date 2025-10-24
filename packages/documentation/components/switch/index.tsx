@@ -78,7 +78,7 @@ function switchComponent() {
           type: 'Object',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-p8rf9h']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

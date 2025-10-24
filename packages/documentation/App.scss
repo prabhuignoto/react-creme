@@ -1,253 +1,587 @@
-.app {
-  --aside-width: 300px;
-  background: #fff;
-  display: flex;
-  justify-content: flex-end;
-  margin: 0 auto;
-  position: relative;
+/* ============================================
+   CSS Custom Properties (Design Tokens) - Modern 2025
+   ============================================ */
+:root {
+  /* Layout */
+  --aside-width: 260px;
+  --toc-width: 260px;
+  --header-height: 64px;
+  --max-content-width: 1200px;
 
-  &.dark {
-    background-color: #000;
-  }
+  /* Breakpoints (matching modern standards) */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+
+  /* Spacing - Generous modern spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 6rem;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --line-height-normal: 1.6;
+  --line-height-tight: 1.4;
+  --line-height-relaxed: 1.75;
+
+  /* Colors (Light mode - Modern palette) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-tertiary: #f5f5f5;
+  --bg-elevated: #ffffff;
+  --text-primary: #18181b;
+  --text-secondary: #71717a;
+  --text-tertiary: #a1a1aa;
+  --border-color: #e4e4e7;
+  --border-light: #f4f4f5;
+  --accent-primary: #3b82f6;
+  --accent-hover: #2563eb;
+
+  /* Glass-morphism */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-blur: 12px;
+
+  /* Shadows - Subtle modern elevation */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.08);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-index layers */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-header: 30;
+  --z-modal: 40;
+  --z-tooltip: 50;
+
+  /* Border radius - Modern, consistent */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 }
 
-body {
-  background: #fff;
-  margin: 0;
-  padding: 0;
+/* ============================================
+   Dark Mode Variables
+   ============================================ */
+.dark {
+  --bg-primary: #09090b;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #27272a;
+  --bg-elevated: #18181b;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --border-color: #27272a;
+  --border-light: #3f3f46;
+  --glass-bg: rgba(0, 0, 0, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-pre {
-  border-radius: 4px;
-  padding-left: 1rem !important;
+/* ============================================
+   Global Reset & Base Styles
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body,
-html,
+html {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: var(--line-height-normal);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Support for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+body,
 button,
-div,
-section,
-ul,
 input,
-label,
-button,
+select,
+textarea {
+  font-family: var(--font-sans);
+}
+
 code,
 kbd,
-span {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 300;
+pre,
+samp {
+  font-family: var(--font-mono);
 }
 
 code {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+
   span {
-    font-family: 'Source Code Pro', monospace;
-    font-size: 14px;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
     font-weight: 500;
   }
 }
 
+pre {
+  border-radius: 8px;
+  padding-left: var(--spacing-md) !important;
+  overflow-x: auto;
+}
+
+/* ============================================
+   Modern Grid Layout (CSS Grid)
+   ============================================ */
+.app {
+  display: grid;
+  grid-template-columns: var(--aside-width) 1fr var(--toc-width);
+  grid-template-rows: var(--header-height) 1fr;
+  grid-template-areas:
+    "sidebar header header"
+    "sidebar main toc";
+  min-height: 100vh;
+  background: var(--bg-primary);
+  margin: 0 auto;
+  position: relative;
+  transition: grid-template-columns var(--transition-base);
+
+  /* Landing page layout (no sidebars) */
+  &.is-landing {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main";
+  }
+
+  &.dark {
+    background-color: var(--bg-primary);
+  }
+}
+
+/* ============================================
+   Sidebar (Left - Component Navigation) - Modern Design
+   ============================================ */
 .app-aside {
-  align-items: center;
-  display: flex;
+  grid-area: sidebar;
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border-light);
+  z-index: var(--z-sticky);
+  display: flex !important;
   flex-direction: column;
-  margin-top: 60px;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  position: fixed;
-  top: 0;
-  visibility: hidden;
-  width: var(--aside-width);
+  transition: transform var(--transition-base);
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 100vh;
+
+  /* Ensure child components can expand naturally */
+  > * {
+    width: 100%;
+  }
+
+  /* Override library Sidebar component to allow natural expansion */
+  :global {
+    .rc-sidebar {
+      display: flex !important;
+      flex-direction: column;
+      width: 100%;
+      height: auto !important;
+      overflow: visible !important;
+    }
+
+    /* Remove fixed height from groups wrapper - matches pattern sidebar-module__groups_wrapper___* */
+    div[class*='sidebar-module__groups_wrapper___'] {
+      height: auto !important;
+      overflow: visible !important;
+    }
+
+    /* Remove fixed height from content wrapper */
+    div[class*='sidebar-module__content_wrapper___'] {
+      height: auto !important;
+    }
+  }
 }
 
 .app-aside-visible {
-  visibility: visible;
+  transform: translateX(0);
+  display: flex !important;
+  visibility: visible !important;
 }
 
-.app-main-section {
+/* ============================================
+   Header (Fixed at top)
+   ============================================ */
+.app-header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  display: flex;
   align-items: center;
+  height: var(--header-height);
+  padding: 0 var(--spacing-lg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
+  transition: all var(--transition-base);
+
+  &:not(.dark) {
+    background: var(--glass-bg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &.dark {
+    background: var(--glass-bg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Scroll effect (add via JS class) */
+  &.scrolled {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* ============================================
+   Main Content Area - Sticky Footer Layout
+   ============================================ */
+.app-main-section {
+  grid-area: main;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 56px;
-  min-height: 140vh;
-
-  &:not(.is-landing) {
-    @media (min-width: 43rem) {
-      // margin-top: 0;
-      width: calc(100% - var(--aside-width));
-    }
-  }
+  min-height: calc(100vh - var(--header-height));
+  background: var(--bg-primary);
+  container-type: inline-size;
+  container-name: main-content;
+  overflow-x: hidden;
+  min-width: 0;
 
   &.is-landing {
     width: 100%;
+    max-width: 100%;
   }
 }
 
 .section-content {
-  align-items: flex-start;
-  display: flex;
-  justify-content: center;
-  margin-right: auto;
-  min-height: 120vh;
-  width: 100%;
-}
-
-@media (max-width: 480px) {
-  .app-main-section {
-    width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .app:not(.is-landing) {
-    --aside-width: 200px;
-    width: 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  .app:not(.is-landing) {
-    --aside-width: 280px;
-    width: 100%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .app:not(.is-landing) {
-    --aside-width: 300px;
-    width: 100%;
-  }
-
-  .section-content:not(.home):not(.is-landing) {
-    width: calc(100% - 300px);
-  }
-}
-
-@media (min-width: 1600px) {
-  .app:not(.is-landing) {
-    --aside-width: 350px;
-    width: 100%;
-  }
-}
-
-@media (min-width: 1920px) {
-  .app:not(.is-landing) {
-    width: 100%;
-  }
-}
-
-@media (min-width: 2560px) {
-  .app:not(.is-landing) {
-    width: 1800px;
-  }
-
-  .section-content:not(.home) {
-    width: 100%;
-  }
-}
-
-@media (min-width: 3840px) {
-  .app:not(.is-landing) {
-    width: 2560px;
-  }
-}
-
-.aside a {
-  margin: 0.5rem 0;
-}
-
-.rc-demo-page {
-  align-items: center;
+  /* Grow to fill available space, pushing footer to bottom */
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-3xl); /* Reduced top padding from 3xl to xl */
+  overflow-x: hidden;
+
+  /* Ensure content area fills viewport to prevent footer from appearing mid-page
+     This is especially important during initial load before demo components render */
+  min-height: calc(100vh - var(--header-height) - var(--spacing-xl) - var(--spacing-3xl));
+
+  @media (max-width: 768px) {
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+    min-height: calc(100vh - var(--header-height) - var(--spacing-lg) - var(--spacing-xl));
+  }
+}
+
+/* ============================================
+   Table of Contents (Right Sidebar) - Modern Design
+   ============================================ */
+.app-toc {
+  grid-area: toc;
+  position: sticky;
+  top: var(--header-height);
+  align-self: start;
+  max-height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  border-left: 1px solid var(--border-light);
+  background: var(--bg-primary);
+  z-index: var(--z-sticky);
+
+  /* Modern minimal scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+
+    &:hover {
+      background: var(--text-tertiary);
+    }
+  }
+}
+
+/* ============================================
+   Demo Page Components
+   ============================================ */
+.rc-demo-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  width: 100%;
   min-height: 100vh;
-  width: 95%;
 }
 
 .rc-demo-prop-section {
   display: flex;
-  margin: 1rem 0;
-  width: 95%;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+/* ============================================
+   Demo Widget Container - Modern Card Design
+   ============================================ */
+.rc-demo-widgets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  width: 100%;
+
+  /* Target Section components inside demo widgets - Card style */
+  .rc-section {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-lg) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: all var(--transition-base) !important;
+    overflow: hidden !important;
+
+    &:hover {
+      box-shadow: var(--shadow-card-hover) !important;
+      border-color: var(--accent-primary) !important;
+      transform: translateY(-2px);
+    }
+
+    /* Section header */
+    .rc-section-header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-light);
+      padding: var(--spacing-lg) var(--spacing-xl) !important;
+      font-weight: 600;
+      font-size: var(--font-size-base);
+      letter-spacing: -0.01em;
+    }
+
+    /* Section body */
+    .rc-section-body {
+      padding: var(--spacing-xl) !important;
+    }
+  }
 }
 
 .rc-demo-widget {
-  align-items: center;
   display: flex;
-  padding: 0.5rem;
-  place-content: flex-start;
-  width: calc(100% - 1rem);
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .rc-demo-widgets-wrapper {
-  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 1rem;
+  gap: var(--spacing-2xl);
   width: 100%;
+  padding-top: var(--spacing-xl);
+  container-type: inline-size;
+  overflow-x: hidden;
 }
 
+/* Code blocks inside demo widgets - ensure proper overflow */
+.rc-demo-widget,
 .rc-demo-widgets {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  width: 98%;
+  .rc-demo-code-block-shiki {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+  }
 
-  p {
-    color: #fff;
+  /* Ensure accordion doesn't constrain code width */
+  .rc-accordion {
+    overflow: visible !important;
+    width: 100% !important;
+  }
+
+  /* Ensure accordion body doesn't constrain code width */
+  .rc-accordion-body {
+    overflow: visible !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  /* Ensure Section body doesn't constrain content */
+  .rc-section-body {
+    overflow: visible !important;
+    max-width: none !important;
+    width: 100% !important;
   }
 }
 
-.app-header {
-  align-items: center;
-  align-self: flex-start;
-  display: flex;
-  height: 50px;
-  left: 0;
-  padding: 0.25rem 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-
-  &:not(.dark) {
-    background: rgba($color: var(--rc-primary-color-rgb), $alpha: 0.95);
-  }
-
-  &.dark {
-    background: rgba($color: var(--rc-secondary-color-rgb), $alpha: 0.95);
-  }
-}
-
-@media (min-width: 1200px) {
-  .app-header:not(.is-landing) {
-    width: calc(100% - 300px);
-  }
-}
-
-@media (min-width: 2560px) {
-  .app-header {
-    width: 100%;
-  }
-}
-
+/* ============================================
+   Logo & Branding
+   ============================================ */
 .rc-demo-app-logo {
-  align-items: center;
-  color: var(--rc-primary-color-hex);
   display: flex;
-  font-size: 1.5rem;
-  font-weight: 500;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--rc-primary-color-hex);
   text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
-.rc-demo-logo-icon-wrapper svg {
-  height: 100%;
-  width: 100%;
-}
-
+.rc-demo-logo-icon-wrapper svg,
 .rc-demo-app-logo svg {
-  max-height: 100%;
-  max-width: 100%;
+  height: 32px;
+  width: auto;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.aside a {
+  margin: var(--spacing-sm) 0;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--rc-primary-color-hex, #007bff);
+  }
+}
+
+/* ============================================
+   Responsive Breakpoints
+   ============================================ */
+
+/* Tablet: Hide TOC, collapse sidebar to drawer */
+@media (max-width: 1024px) {
+  .app:not(.is-landing) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main";
+  }
+
+  .app-aside {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    width: var(--aside-width);
+    height: 100vh;
+    z-index: calc(var(--z-modal) - 1);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .app-toc {
+    display: none;
+  }
+
+  .section-content {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+/* Mobile: Smaller spacing */
+@media (max-width: 640px) {
+  :root {
+    --aside-width: 280px;
+    --header-height: 56px;
+  }
+
+  .app-header {
+    padding: 0 var(--spacing-md);
+  }
+
+  .section-content {
+    padding: var(--spacing-md);
+  }
+
+  .rc-demo-page {
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Large screens: Wider layout, max-width constraints */
+@media (min-width: 1280px) {
+  :root {
+    --aside-width: 300px;
+    --toc-width: 260px;
+  }
+}
+
+/* Extra large: Even wider */
+@media (min-width: 1536px) {
+  :root {
+    --aside-width: 320px;
+    --toc-width: 280px;
+    --max-content-width: 1600px;
+  }
+}
+
+/* Ultra-wide: Constrain max width */
+@media (min-width: 2560px) {
+  .app:not(.is-landing) {
+    max-width: 2400px;
+    margin: 0 auto;
+  }
 }

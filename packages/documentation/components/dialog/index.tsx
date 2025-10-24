@@ -93,7 +93,7 @@ function dialog() {
           type: 'String',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-9dnouy']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

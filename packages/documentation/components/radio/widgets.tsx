@@ -1,11 +1,21 @@
 import { CSSProperties, useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
+import jsxToString from 'react-element-to-jsx-string';
 import { Radio, Section } from '../../../lib/components';
+import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 
 const style: CSSProperties = {
   minWidth: '50px',
+};
+
+const jsxToStringOptions = {
+  maxInlineAttributesLineLength: 250,
+  showDefaultProps: true,
+  showFunctions: true,
+  sortProps: true,
+  tabStop: 4,
 };
 
 function widgets() {

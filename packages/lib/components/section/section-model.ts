@@ -11,4 +11,6 @@ export interface SectionProps {
   size?: 'sm' | 'md' | 'lg';
   title?: string;
   useHash?: boolean;
+  /** Optional footer element to display at the bottom (e.g., Show Code toggle) */
+  footer?: React.ReactNode;
 }

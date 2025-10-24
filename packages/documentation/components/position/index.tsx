@@ -14,7 +14,7 @@ function Position() {
         'Supports 12 positions',
       ]}
       properties={[]}
-      tabTitles={['Examples', 'Stackblitz']}
+      tabTitles={['Examples', 'Playground']}
       demoWidget={<Widgets />}
       stackBlitzCodes={['react-ts-un6jde']}
       sourceId="common/effects/usePosition.ts"

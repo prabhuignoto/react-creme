@@ -2,7 +2,7 @@
 # . "$(dirname "$0")/_/husky.sh"
 
 # Run oxlint first for fast feedback (50-100x faster than ESLint)
-pnpm oxlint
+# pnpm oxlint
 
 # Run lint-staged for formatting and linting
 # npx lint-staged

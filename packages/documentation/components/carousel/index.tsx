@@ -64,7 +64,7 @@ function carousel() {
           type: 'Number',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
     ></DemoPageRenderer>
   );
 }

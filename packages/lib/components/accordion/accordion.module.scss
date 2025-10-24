@@ -20,8 +20,7 @@ $transition:
 .body {
   height: calc(100% - 0.5rem);
   margin: 0 auto;
-  overflow: hidden;
-  width: calc(100% - 0.5rem);
+  width: 100%;
 
   &.animate {
     transition: $transition;
@@ -30,10 +29,12 @@ $transition:
   &.open {
     max-height: var(--max-height, 100%);
     opacity: 1;
+    overflow: visible;
   }
 
   &.close {
     max-height: 0;
     opacity: 0;
+    overflow: hidden;
   }
 }

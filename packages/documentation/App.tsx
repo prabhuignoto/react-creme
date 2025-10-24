@@ -11,7 +11,6 @@ import {
 } from 'react';
 import { useLocation } from 'react-router';
 import { useAtom, useAtomValue } from 'jotai';
-import ResizeObserver from 'resize-observer-polyfill';
 import { Drawer } from '../lib/components';
 import '../lib/design/core.scss';
 import '../lib/design/list.scss';
@@ -20,27 +19,14 @@ import { AppMain } from './App-Main';
 import './App.scss';
 import { asideState, MediaState, themeState } from './atoms/home';
 import SidebarHome from './home/sidebar-home';
+import TableOfContents from './common/table-of-contents';
 
 const App: FunctionComponent<{ media: MediaState }> = memo(
   ({ media }: { media: MediaState }) => {
     const sectionRef = useRef(null);
-    const asideRef = useRef<HTMLElement | null>(null);
-    const [left, setLeft] = useState(-1);
-    const resizeObserver = useRef<ResizeObserver | null>(null);
-
     const [asideValue, setAsideValue] = useAtom(asideState);
-
-    const appRef = useRef<HTMLDivElement | null>(null);
     const [openAside, setOpenAside] = useState(false);
-
     const theme = useAtomValue(themeState);
-
-    const sidebarClass = useMemo(() => {
-      return classNames('app-aside', {
-        'app-aside-visible': left > -1,
-      });
-    }, [left]);
-
     const location = useLocation();
 
     const isLanding = useMemo(() => {
@@ -48,67 +34,50 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
       return pathname === '/landing' || pathname === '/';
     }, [location.pathname]);
 
-    const positionAside = useCallback(() => {
-      if (
-        sectionRef.current &&
-        asideRef.current &&
-        !media.isMobile &&
-        !isLanding
-      ) {
-        const asideWidth = asideRef.current.offsetWidth;
-        const { left: sectionLeft } =
-          sectionRef.current.getBoundingClientRect();
-        if (sectionLeft - asideWidth > 0) {
-          setLeft(sectionLeft - asideWidth);
-        } else {
-          setLeft(0);
-        }
-      }
-    }, [media, isLanding]);
+    const isMobileOrTablet = useMemo(() => {
+      return media && (media.isMobile || media.isTablet);
+    }, [media]);
 
-    const onAppRef = (el: HTMLDivElement) => {
-      if (el) {
-        appRef.current = el;
-        positionAside();
-      }
-    };
+    // Sidebar visibility class for mobile drawer
+    const sidebarClass = useMemo(() => {
+      return classNames('app-aside', {
+        'app-aside-visible': openAside && isMobileOrTablet,
+      });
+    }, [openAside, isMobileOrTablet]);
 
-    useEffect(() => {
-      resizeObserver.current = new ResizeObserver(() => positionAside());
-      resizeObserver.current.observe(document.body);
-      return () => {
-        resizeObserver.current?.disconnect();
-      };
-    }, []);
-
+    // Dark mode body background
     useEffect(() => {
       if (theme.darkMode) {
-        document.body.style.backgroundColor = '#000';
+        document.body.classList.add('dark');
+        document.body.style.backgroundColor = 'var(--bg-primary)';
       } else {
-        document.body.style.backgroundColor = '#fff';
+        document.body.classList.remove('dark');
+        document.body.style.backgroundColor = 'var(--bg-primary)';
       }
     }, [theme.darkMode]);
 
+    // Handle aside state from Jotai
     useEffect(() => {
       if (asideValue.isOpen) {
         setOpenAside(true);
       }
-    }, [asideValue]);
+    }, [asideValue.isOpen]);
 
     const toggleOpen = useCallback(() => setOpenAside(prev => !prev), []);
 
-    const canRenderAside = useMemo(() => {
-      return media && media.isMobile && openAside && !isLanding;
-    }, [media, openAside, isLanding]);
+    const canRenderDrawer = useMemo(() => {
+      return isMobileOrTablet && openAside && !isLanding;
+    }, [isMobileOrTablet, openAside, isLanding]);
 
     const onClose = useCallback(() => {
       setOpenAside(false);
       setAsideValue({ isAnyOverlayOpen: false, isOpen: false });
-    }, []);
+    }, [setAsideValue]);
 
-    const onSelect = () => {
+    const onSelect = useCallback(() => {
       setOpenAside(false);
-    };
+      setAsideValue({ isAnyOverlayOpen: false, isOpen: false });
+    }, [setAsideValue]);
 
     const appClass = useMemo(
       () =>
@@ -120,23 +89,40 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
       [theme.darkMode, isLanding]
     );
 
+    // Show sidebar in grid on desktop, hide on mobile/tablet
+    const showDesktopSidebar = useMemo(() => {
+      return !isMobileOrTablet && !isLanding;
+    }, [isMobileOrTablet, isLanding]);
+
     return (
-      <div className={appClass} ref={onAppRef}>
-        {media && !media.isMobile && !isLanding && (
-          <aside
-            className={sidebarClass}
-            ref={asideRef}
-            style={{ left: `${left}px` }}
-          >
+      <div className={appClass}>
+        {/* Desktop: Sidebar in Grid */}
+        {showDesktopSidebar && (
+          <aside className="app-aside app-aside-visible">
             <SidebarHome />
           </aside>
         )}
-        {canRenderAside && (
+
+        {/* Mobile/Tablet: Sidebar in Drawer */}
+        {canRenderDrawer && (
           <Drawer onClose={onClose} focusable={false}>
             <SidebarHome onSelect={onSelect} />
           </Drawer>
         )}
+
+        {/* Main content area */}
         <AppMain media={media} toggleOpen={toggleOpen} ref={sectionRef} />
+
+        {/* Table of Contents for desktop */}
+        {showDesktopSidebar && (
+          <aside className="app-toc">
+            <TableOfContents
+              containerSelector=".section-content"
+              headingLevels={['h2', 'h3']}
+              scrollOffset={80}
+            />
+          </aside>
+        )}
       </div>
     );
   },

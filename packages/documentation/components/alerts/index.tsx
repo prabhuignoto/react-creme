@@ -74,7 +74,7 @@ function index() {
           type: 'string',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-fvmzp5']}
       demoWidget={<Widgets />}
     />

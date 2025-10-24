@@ -1,4 +1,6 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { Section, Text } from '../../../lib/components';
+import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
 import { CustomSpeed, Default, Large, Medium } from './widget-variants';
 

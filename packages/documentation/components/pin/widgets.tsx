@@ -1,6 +1,8 @@
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
+import jsxToString from 'react-element-to-jsx-string';
 import { Section, Text } from '../../../lib/components';
+import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 import {
@@ -11,6 +13,14 @@ import {
   RTL,
   SmallSized,
 } from './widget-variants';
+
+const jsxToStringOptions = {
+  maxInlineAttributesLineLength: 250,
+  showDefaultProps: true,
+  showFunctions: true,
+  sortProps: true,
+  tabStop: 4,
+};
 
 function widgets() {
   const media = useAtomValue(responsiveState);

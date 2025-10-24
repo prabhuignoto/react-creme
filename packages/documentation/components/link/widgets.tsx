@@ -1,6 +1,16 @@
 import { Link as LinkIcon } from 'react-feather';
+import jsxToString from 'react-element-to-jsx-string';
 import { Link, Section } from '../../../lib/components';
+import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
+
+const jsxToStringOptions = {
+  maxInlineAttributesLineLength: 250,
+  showDefaultProps: true,
+  showFunctions: true,
+  sortProps: true,
+  tabStop: 4,
+};
 
 function Widgets() {
   return (

@@ -1,6 +1,8 @@
 import { useAtomValue } from 'jotai';
 import { useLayoutEffect, useState } from 'react';
+import jsxToString from 'react-element-to-jsx-string';
 import { ScrollSpy, Section, Text } from '../../../lib/components';
+import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
 
@@ -22,6 +24,14 @@ const Para = () => {
       porttitor quam porta in.
     </p>
   );
+};
+
+const jsxToStringOptions = {
+  maxInlineAttributesLineLength: 250,
+  showDefaultProps: true,
+  showFunctions: true,
+  sortProps: true,
+  tabStop: 4,
 };
 
 function Widgets() {

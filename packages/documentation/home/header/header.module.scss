@@ -1,8 +1,98 @@
-.algolia_container {
-  margin-left: auto;
-  margin-right: 1rem;
-}
+/* ============================================
+   Modern Header Styles with Glass-morphism
+   ============================================ */
 
 .logo_wrapper {
-  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.algolia_container {
+  margin-left: auto;
+  margin-right: var(--spacing-md);
+  flex: 0 1 400px;
+  max-width: 500px;
+
+  /* Modern search box styling */
+  :global {
+    .DocSearch-Button {
+      height: 40px;
+      border-radius: 8px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      transition: all var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+
+      &:hover {
+        border-color: var(--rc-primary-color-hex, #007bff);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+      }
+
+      .DocSearch-Button-Placeholder {
+        font-size: 14px;
+      }
+
+      .DocSearch-Search-Icon {
+        width: 16px;
+        height: 16px;
+        color: var(--text-secondary);
+      }
+    }
+
+    /* Search shortcuts */
+    .DocSearch-Button-Keys {
+      display: flex;
+      gap: 4px;
+
+      kbd {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: 2px 6px;
+        font-size: 12px;
+        font-weight: 600;
+        box-shadow: var(--shadow-sm);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex: 0 0 auto;
+    margin-right: var(--spacing-sm);
+    max-width: 200px;
+  }
+}
+
+/* Keyboard shortcut hint (optional enhancement) */
+.search_hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+
+  kbd {
+    background: var(--bg-primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    border: 1px solid var(--border-color);
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }

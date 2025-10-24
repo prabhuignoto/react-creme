@@ -60,7 +60,7 @@ function transfer() {
           type: 'string',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-q3izbn']}
     ></DemoPageRenderer>
   );

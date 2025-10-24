@@ -7,10 +7,16 @@ import {
   useState,
 } from 'react';
 import { Section } from '../../../lib/components';
-import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
 import useMedia from '../useMedia';
+import { useResponsiveColumns } from '../hooks/useResponsiveColumns';
 import DemoPageFeatures from './demo-page-features';
 import { DemoPageHeader } from './demo-page-header';
+import { DemoContextProvider, useCodePanelState, useDemoActions } from './demo-context';
+import { FloatingCodePanel } from './components/floating-code-panel';
+import { QuickActionsToolbar } from './components/quick-actions-toolbar';
+import { useDemoShortcuts } from './hooks/use-demo-shortcuts';
+import { extractCodeFromElement, wrapWithImport } from './utils/code-extractor';
+import { getStackBlitzUrl } from './utils/url-builder';
 import styles from './demo-page-renderer.module.scss';
 import { DemoPageTabs } from './demo-page-tabs';
 
@@ -27,7 +33,154 @@ export interface DemoPageRendererProps {
   tabTitles: string[];
   title?: string;
   typeDefStrings?: string[];
+  playgroundCode?: string;
 }
+
+/**
+ * Inner component that has access to DemoContext
+ */
+const DemoPageContent: FunctionComponent<DemoPageRendererProps & {
+  tabs: string[];
+  showStackBlitzEmbed: boolean;
+  columns: any;
+  media: any;
+}> = ({
+  title,
+  description,
+  pageIcon,
+  sourceId,
+  editId,
+  stackBlitzCodes,
+  features,
+  tabs,
+  media,
+  callbacks,
+  demoWidget,
+  columns,
+  properties,
+  showStackBlitzEmbed,
+  playgroundCode,
+}) => {
+  const codePanel = useCodePanelState();
+  const actions = useDemoActions();
+
+  // Extract code from demo widget for display in code panel
+  const demoCode = useMemo(() => {
+    try {
+      const code = extractCodeFromElement(demoWidget);
+      const componentName = title || 'Component';
+      return wrapWithImport(code, componentName);
+    } catch (error) {
+      console.error('Failed to extract code from demo:', error);
+      return '// Code extraction failed';
+    }
+  }, [demoWidget, title]);
+
+  const codeSnippet = useMemo(() => ({
+    code: demoCode,
+    language: 'tsx' as const,
+    fileName: `${title || 'demo'}.tsx`,
+  }), [demoCode, title]);
+
+  // Quick action handlers
+  const handleCopyCode = () => {
+    navigator.clipboard.writeText(demoCode);
+    console.log('Code copied to clipboard');
+  };
+
+  const handleToggleCodePanel = () => {
+    actions.toggleCodePanel();
+  };
+
+  const handleOpenStackBlitz = () => {
+    if (stackBlitzCodes && stackBlitzCodes.length > 0) {
+      const url = getStackBlitzUrl(stackBlitzCodes[0]);
+      window.open(url, '_blank');
+    }
+  };
+
+  const handleReset = () => {
+    console.log('Demo reset requested');
+    window.location.reload();
+  };
+
+  const handleFullscreen = () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      document.documentElement.requestFullscreen();
+    }
+  };
+
+  // Wire up keyboard shortcuts
+  useDemoShortcuts({
+    handlers: {
+      onCopyCode: handleCopyCode,
+      onToggleCode: handleToggleCodePanel,
+      onOpenStackBlitz: handleOpenStackBlitz,
+      onReset: handleReset,
+      onFullscreen: handleFullscreen,
+    },
+  });
+
+  return (
+    <>
+      <article className={styles.wrapper}>
+        {title && (
+          <DemoPageHeader
+            title={title}
+            description={description}
+            pageIcon={pageIcon}
+            sourceId={sourceId}
+            editId={editId}
+            stackBlitzCodes={stackBlitzCodes}
+          />
+        )}
+        {features && features.length > 0 && (
+          <Section noPadding height={50} border={false}>
+            <DemoPageFeatures features={features} />
+          </Section>
+        )}
+
+        {/* Quick Actions Toolbar - Disabled per user request */}
+        {/* <QuickActionsToolbar
+          onCopyCode={handleCopyCode}
+          onToggleCode={handleToggleCodePanel}
+          onOpenStackBlitz={stackBlitzCodes?.length ? handleOpenStackBlitz : undefined}
+          onReset={handleReset}
+          onFullscreen={handleFullscreen}
+          showShortcuts={true}
+        /> */}
+
+        <DemoPageTabs
+          tabTitles={tabs}
+          media={media}
+          callbacks={callbacks}
+          demoWidget={demoWidget}
+          columns={columns}
+          stackBlitzCodes={stackBlitzCodes}
+          properties={properties}
+          showStackBlitzEmbed={showStackBlitzEmbed}
+          title={title}
+          playgroundCode={playgroundCode}
+        />
+      </article>
+
+      {/* Floating Code Panel - appears when opened via context */}
+      {codePanel.isOpen && (
+        <FloatingCodePanel
+          snippet={codeSnippet}
+          isOpen={codePanel.isOpen}
+          width={codePanel.width}
+          minWidth={codePanel.minWidth}
+          maxWidth={codePanel.maxWidth}
+          onClose={actions.toggleCodePanel}
+          onResize={actions.setCodePanelWidth}
+        />
+      )}
+    </>
+  );
+};
 
 const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
   ({
@@ -42,125 +195,93 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
     sourceId,
     editId,
     features = [],
+    playgroundCode,
   }: DemoPageRendererProps) => {
     const media = useMedia();
 
-    const [width, setWidth] = useState<number[]>([]);
+    // Determine responsive configuration based on media state
     const [tabs, setTabs] = useState<string[]>(tabTitles);
     const [showStackBlitzEmbed, setShowStackBlitzEmbed] = useState(true);
 
+    // Synchronously update tabs and embed visibility based on media
     useLayoutEffect(() => {
-      if (!media) {
-        return;
-      }
+      if (!media) return;
+
+      const isMobileOrTablet = media.isMobile || media.isTablet;
+      setTabs(isMobileOrTablet ? tabTitles.slice(0, -1) : tabTitles);
+      setShowStackBlitzEmbed(!isMobileOrTablet);
+    }, [media, tabTitles]);
+
+    // Use custom hook for responsive columns with proper memoization
+    const customWidths = useMemo(() => {
+      if (!media) return undefined;
 
       if (media.isExtraLargeScreen) {
-        setWidth([200, 450, 200]);
+        return { name: 200, description: 450, default: 200 };
       } else if (media.isBigScreen) {
-        setWidth([150, 300]);
-      } else if (media.isDesktop) {
-        setWidth([150, 250, 150]);
+        return { name: 150, description: 300, default: 150 };
       } else if (media.isTablet) {
-        setTabs(tabTitles.slice(0, tabTitles.length - 1));
-        setShowStackBlitzEmbed(false);
-        setWidth([120, 200, 120]);
+        return { name: 120, description: 200, default: 120 };
       } else if (media.isMobile) {
-        setTabs(tabTitles.slice(0, tabTitles.length - 1));
-        setShowStackBlitzEmbed(false);
-        setWidth([120, 120, 120]);
+        return { name: 120, description: 120, default: 120 };
       }
+      return { name: 150, description: 250, default: 150 };
     }, [media]);
 
-    const columns: DataGridColumn[] = useMemo(() => {
-      if (width.length < 1 || !media) {
-        return [];
-      }
+    const columns = useResponsiveColumns(media, customWidths);
 
-      if (media.isMobile) {
-        return [
-          {
-            formatter: val => (val ? `<em>${val}</em>` : ''),
-            name: 'name',
-            sortable: true,
-            type: 'string',
-          },
-          { name: 'description', type: 'string' },
-        ];
-      } else if (media.isExtraLargeScreen) {
-        return [
-          {
-            formatter: val => (val ? `<em>${val}</em>` : ''),
-            name: 'name',
-            searchable: true,
-            sortable: true,
-            type: 'string',
-            width: width[0],
-          },
-          {
-            name: 'description',
-            searchable: true,
-            type: 'string',
-            width: width[1],
-          },
-          {
-            formatter: val => (val ? `<em>${val}</em>` : ''),
-            name: 'default',
-            type: 'string',
-            width: width[2],
-          },
-          { name: 'optional', type: 'string' },
-          { name: 'type', type: 'string' },
-        ];
-      } else {
-        return [
-          {
-            formatter: val => (val ? `<em>${val}</em>` : ''),
-            name: 'name',
-            searchable: true,
-            sortable: true,
-            type: 'string',
-            width: 150,
-          },
-          { name: 'description', searchable: true, type: 'string' },
-          {
-            formatter: val => (val ? `<em>${val}</em>` : ''),
-            name: 'default',
-            type: 'string',
-            width: 150,
-          },
-        ];
-      }
-    }, [media, width.length]);
+    // Determine initial viewport based on media state
+    const initialViewport = useMemo(() => {
+      if (!media) return 'desktop';
+      if (media.isMobile) return 'mobile';
+      if (media.isTablet) return 'tablet';
+      return 'desktop';
+    }, [media]);
 
-    return width.length ? (
-      <article className={styles.wrapper}>
-        {title && (
-          <DemoPageHeader
-            title={title}
-            description={description}
-            pageIcon={pageIcon}
-            sourceId={sourceId}
-            editId={editId}
-            stackBlitzCodes={stackBlitzCodes}
-          />
-        )}
-        {features.length ? (
-          <Section noPadding height={50} border={false}>
-            <DemoPageFeatures features={features} />
-          </Section>
-        ) : null}
-        <DemoPageTabs
-          tabTitles={tabs}
-          media={media}
-          callbacks={callbacks}
+    // Always render content (no conditional null return) to prevent layout shift
+    return (
+      <DemoContextProvider
+        defaultVariant=""
+        defaultViewport={initialViewport}
+        defaultTheme="auto"
+        initialCodePanel={{
+          isOpen: false,
+          width: 600,
+          minWidth: 300,
+          maxWidth: 1000,
+          defaultTab: 'code',
+        }}
+      >
+        <DemoPageContent
           demoWidget={demoWidget}
-          columns={columns}
-          stackBlitzCodes={stackBlitzCodes}
+          tabTitles={tabTitles}
           properties={properties}
+          callbacks={callbacks}
+          title={title}
+          description={description}
+          stackBlitzCodes={stackBlitzCodes}
+          pageIcon={pageIcon}
+          sourceId={sourceId}
+          editId={editId}
+          features={features}
+          tabs={tabs}
           showStackBlitzEmbed={showStackBlitzEmbed}
+          columns={columns}
+          media={media}
+          playgroundCode={playgroundCode}
         />
-      </article>
-    ) : null;
+      </DemoContextProvider>
+    );
+  },
+  (prev, next) => {
+    // More efficient memo comparison - only re-render if these specific props change
+    return (
+      prev.title === next.title &&
+      prev.demoWidget === next.demoWidget &&
+      prev.properties === next.properties &&
+      prev.callbacks === next.callbacks &&
+      prev.features?.length === next.features?.length
+    );
   }
 );
 

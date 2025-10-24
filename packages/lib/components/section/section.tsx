@@ -14,6 +14,7 @@ const Section: React.FC<SectionProps> = ({
   noPadding = false,
   useHash = false,
   border = true,
+  footer,
 }) => {
   const sectionStyle = useMemo(
     () =>
@@ -80,13 +81,18 @@ const Section: React.FC<SectionProps> = ({
   return (
     <div style={sectionStyle} className={sectionClass}>
       {getTitle && (
-        <div className={headerClass} id={getId} role="heading" aria-level={3}>
+        <h3 className={headerClass} id={getId}>
           {getTitle}
-        </div>
+        </h3>
       )}
       <div style={bodyStyle} className={bodyClass}>
         {children}
       </div>
+      {footer && (
+        <div className={styles.footer}>
+          {footer}
+        </div>
+      )}
     </div>
   );
 };
