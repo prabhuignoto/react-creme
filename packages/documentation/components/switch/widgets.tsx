@@ -15,18 +15,18 @@ function widgets() {
       style={{ display: 'flex', flexDirection: 'column' }}
       className="rc-demo-widgets"
     >
-      <Section size="md" title="Switch - default">
+      <Section size="md" title="Switch - default" border={false}>
         <DemoWidget name="Switch" width={100}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Switch with label outside">
+      <Section size="md" title="Switch with label outside" border={false}>
         <Text>The label can be placed outside the switch.</Text>
         <DemoWidget name="Switch" width={150}>
           {LabelOutside}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Switch with Check status">
+      <Section size="md" title="Switch with Check status" border={false}>
         <Text>
           Use <code>showCheckIcon</code> property to display a check icon inside
           the toggle control.
@@ -35,13 +35,13 @@ function widgets() {
           {CheckIcon}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Disabled">
+      <Section size="md" title="Disabled" border={false}>
         <Text>Use the disabled property to disable the switch.</Text>
         <DemoWidget name="Switch" width={90}>
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Medium">
+      <Section size="md" title="Medium" border={false}>
         <Text>
           Switch comes in three sizes: small, medium, and large. This example
           shows a large size switch.
@@ -50,7 +50,7 @@ function widgets() {
           {Medium}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Large">
+      <Section size="md" title="Large" border={false}>
         <DemoWidget name="Switch" width={240}>
           {Large}
         </DemoWidget>

@@ -5,6 +5,7 @@ import { SectionProps } from './section-model';
 import styles from './section.module.scss';
 
 const Section: React.FC<SectionProps> = ({
+  background = false,
   children,
   title,
   height = 150,
@@ -25,8 +26,8 @@ const Section: React.FC<SectionProps> = ({
   );
 
   const sectionClass = useMemo(
-    () => classNames(styles.section, border ? styles.border : ''),
-    []
+    () => classNames(styles.section, border ? styles.border : '', background ? styles.background : ''),
+    [border, background]
   );
 
   const bodyStyle = useMemo(

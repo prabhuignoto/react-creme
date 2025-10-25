@@ -142,7 +142,7 @@ const DemoPageContent: FunctionComponent<DemoPageRendererProps & {
           </Section>
         )}
 
-        {/* Quick Actions Toolbar - Disabled per user request */}
+        {/* Quick Actions Toolbar - Hidden (using individual section accordions instead) */}
         {/* <QuickActionsToolbar
           onCopyCode={handleCopyCode}
           onToggleCode={handleToggleCodePanel}
@@ -166,8 +166,8 @@ const DemoPageContent: FunctionComponent<DemoPageRendererProps & {
         />
       </article>
 
-      {/* Floating Code Panel - appears when opened via context */}
-      {codePanel.isOpen && (
+      {/* Floating Code Panel - Hidden (using individual section accordions instead) */}
+      {/* {codePanel.isOpen && (
         <FloatingCodePanel
           snippet={codeSnippet}
           isOpen={codePanel.isOpen}
@@ -177,7 +177,7 @@ const DemoPageContent: FunctionComponent<DemoPageRendererProps & {
           onClose={actions.toggleCodePanel}
           onResize={actions.setCodePanelWidth}
         />
-      )}
+      )} */}
     </>
   );
 };

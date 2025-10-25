@@ -26,7 +26,7 @@ const jsxToStringOptions = {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Bound to Container">
+      <Section size="md" title="Bound to Container" border={false}>
         <Text>
           The draggable widget can be bound to a container. This means that the
           widget can only be dragged within the container.
@@ -35,7 +35,7 @@ function Widgets() {
           <BoundToContainer />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Drag in one Direction - Horizontal">
+      <Section size="md" title="Drag in one Direction - Horizontal" border={false}>
         <Text>
           The draggable widget can be restricted to only drag in one direction.
           In this example, the widget can only be dragged horizontally.
@@ -44,12 +44,12 @@ function Widgets() {
           <BoundToContainerHorizontal />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Drag in one Direction - Vertical">
+      <Section size="md" title="Drag in one Direction - Vertical" border={false}>
         <DemoWidget name="Draggable" codeString={ContainerBoundVertical}>
           <BoundToContainerVertical />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Multiple">
+      <Section size="md" title="Multiple" border={false}>
         <Text>
           You can also make all elements in a container draggable. This is
           useful if you have a container with multiple elements and you want to

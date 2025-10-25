@@ -22,12 +22,12 @@ const jsxToStringOptions = {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget name="BreadCrumb" width={450}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom Icon - slash">
+      <Section size="md" title="Custom Icon - slash" border={false}>
         <Text>
           The icon can be changed by setting the <code>icon</code> property to
           any of the values <code>slash</code> <code>arrow</code> or{' '}
@@ -37,12 +37,12 @@ function Widgets() {
           {Slash}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom Icon - arrow">
+      <Section size="md" title="Custom Icon - arrow" border={false}>
         <DemoWidget name="BreadCrumb" width={450}>
           {CustomIcon}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom Size - Medium">
+      <Section size="md" title="Custom Size - Medium" border={false}>
         <Text>
           The size can be changed by setting the <code>size</code> property to{' '}
           <code>sm</code> <code>md</code> or <code>lg</code>.
@@ -51,12 +51,12 @@ function Widgets() {
           {SelectedIndex}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom Size - Large">
+      <Section size="md" title="Custom Size - Large" border={false}>
         <DemoWidget name="BreadCrumb" width={400}>
           {CustomSize}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
+      <Section size="md" title="RTL" border={false}>
         <DemoWidget name="BreadCrumb" width={400}>
           {RTL}
         </DemoWidget>

@@ -23,7 +23,7 @@ const jsxToStringOptions = {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget
           name="LoadingIndicator"
           width={200}
@@ -32,7 +32,7 @@ function Widgets() {
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Shape">
+      <Section size="md" title="Shape" border={false}>
         <Text>
           The shape of the loading indicator can be changed to circle by passing
           the
@@ -47,7 +47,7 @@ function Widgets() {
           {CircleShape}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Speed">
+      <Section size="md" title="Speed" border={false}>
         <Text>
           The speed of the loading indicator can be changed by passing the
           <code>speed</code> prop with value <code>slow</code>,{' '}
@@ -61,7 +61,7 @@ function Widgets() {
           {CustomSpeed}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom length">
+      <Section size="md" title="Custom length" border={false}>
         <Text>
           The number of items in the loading indicator can be changed by passing
           the <code>count</code> prop with a number value. The default count is{' '}
@@ -75,7 +75,7 @@ function Widgets() {
           {LoadingIndicatorCount}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Right to Left">
+      <Section size="md" title="Right to Left" border={false}>
         <Text>
           The loading indicator can be displayed from right to left by passing
           the <code>rtl</code>. The default direction is left to right.
@@ -88,7 +88,7 @@ function Widgets() {
           {RTL}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Size">
+      <Section size="md" title="Size" border={false}>
         <Text>
           Customize the size of the loading indicator by passing the{' '}
           <code>size</code> prop with value <code>sm</code>, <code>md</code> or{' '}
@@ -106,7 +106,7 @@ function Widgets() {
           {CustomSize}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom size">
+      <Section size="md" title="Custom size" border={false}>
         <Text>
           If you want to take complete control over the size of the loading
           indicator, you can pass the <code>customSize</code> prop with a number

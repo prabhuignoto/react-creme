@@ -1,0 +1,95 @@
+/* ============================================
+   Demo Widget - Subtle Code Toggle Button
+   ============================================ */
+
+.demo-widget__code-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--spacing-sm);
+}
+
+.demo-widget__code-toggle {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  margin: var(--spacing-sm) 0;
+
+  /* Subtle appearance */
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+
+  /* Typography */
+  font-size: 0.6875rem; /* 11px - very small and subtle */
+  font-weight: 500;
+  font-family: var(--font-sans);
+  color: var(--text-secondary, #666);
+
+  /* Interaction */
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.15s ease);
+  outline: none;
+
+  /* Icon sizing */
+  svg {
+    flex-shrink: 0;
+    width: 11px;
+    height: 11px;
+    transition: transform var(--transition-fast, 0.15s ease);
+
+    &.rotated {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* Hover state */
+  &:hover {
+    background: var(--bg-secondary, rgba(0, 0, 0, 0.03));
+    border-color: var(--border-color, rgba(0, 0, 0, 0.2));
+    color: var(--text-primary, #333);
+  }
+
+  /* Focus state for accessibility */
+  &:focus-visible {
+    outline: 2px solid var(--rc-primary-color-hex, #007bff);
+    outline-offset: 2px;
+  }
+
+  /* Active state */
+  &:active {
+    transform: translateY(1px);
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+}
+
+.demo-widget__code-content {
+  width: 100%;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s ease-in-out;
+
+  &.collapsed {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  &.expanded {
+    max-height: 3000px; /* Large enough for most code blocks */
+    opacity: 1;
+  }
+}

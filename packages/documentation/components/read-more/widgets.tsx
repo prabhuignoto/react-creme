@@ -38,17 +38,17 @@ function Widgets() {
 
   return width > 0 ? (
     <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget width={width} name="Read More" showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
+      <Section size="md" title="RTL" border={false}>
         <DemoWidget width={width} name="Read More" showCodeByDefault>
           {RTL}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom sizes">
+      <Section size="md" title="Custom sizes" border={false}>
         <DemoWidget width={width} name="Read More" showCodeByDefault>
           {MediumSized}
         </DemoWidget>

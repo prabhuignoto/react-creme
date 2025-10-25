@@ -15,26 +15,26 @@ const jsxToStringOptions = {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
-        <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={false}>
+      <Section size="md" title="Default" border={false}>
+        <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={true}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Rounded Accent">
-        <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={false}>
+      <Section size="md" title="Rounded Accent" border={false}>
+        <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={true}>
           {Accent}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
-        <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={false}>
+      <Section size="md" title="RTL" border={false}>
+        <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={true}>
           {RTL}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom sizes">
-        <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={false}>
+      <Section size="md" title="Custom sizes" border={false}>
+        <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={true}>
           {Medium}
         </DemoWidget>
-        <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={false}>
+        <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={true}>
           {Large}
         </DemoWidget>
       </Section>

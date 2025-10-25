@@ -38,7 +38,7 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <Text>
           Here we have created a 3 x 3 grid using the inbuilt Image component.
         </Text>
@@ -46,7 +46,7 @@ function Widgets() {
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="From Image URL's">
+      <Section size="md" title="From Image URL's" border={false}>
         <Text>{`Gallery can be created using just the Image URL's.`}</Text>
         <DemoWidget name="Gallery" width={width} showCodeByDefault>
           {WithImages}

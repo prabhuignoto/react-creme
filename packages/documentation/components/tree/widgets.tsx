@@ -15,17 +15,17 @@ const jsxToStringOptions = {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
-        <DemoWidget name="Tree" width={400} showCodeByDefault={false}>
+      <Section size="md" title="Default" border={false}>
+        <DemoWidget name="Tree" width={400} showCodeByDefault={true}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Selection Mode">
+      <Section size="md" title="Selection Mode" border={false}>
         <Text>
           In selection mode, individual nodes with its children can be selected
           through the checkbox
         </Text>
-        <DemoWidget name="Tree" width={400} showCodeByDefault={false}>
+        <DemoWidget name="Tree" width={400} showCodeByDefault={true}>
           {Selection}
         </DemoWidget>
       </Section>

@@ -22,12 +22,12 @@ const jsxToStringOptions = {
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Rating default">
+      <Section size="md" title="Rating default" border={false}>
         <DemoWidget name="Rate" width={200}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom icon count">
+      <Section size="md" title="Custom icon count" border={false}>
         <Text>
           Use the <code>iconCount</code> prop to customize the number of icons.
           The example renders the component with 3 icons.
@@ -36,7 +36,7 @@ function widgets() {
           {CustomIconCount}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom Icon">
+      <Section size="md" title="Custom Icon" border={false}>
         <Text>
           Customize the icon with the <code>icon</code> prop.
         </Text>
@@ -44,7 +44,7 @@ function widgets() {
           {CustomIcon}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom size">
+      <Section size="md" title="Custom size" border={false}>
         <Text>
           Choose a custom size with the <code>size</code> prop. The prop value
           can be <code>sm</code>, <code>md</code> or <code>lg</code>.
@@ -53,12 +53,12 @@ function widgets() {
           {CustomSize}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Disabled state">
+      <Section size="md" title="Disabled state" border={false}>
         <DemoWidget name="Rate" width={200}>
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
+      <Section size="md" title="RTL" border={false}>
         <DemoWidget name="Rate" width={200}>
           {RTL}
         </DemoWidget>

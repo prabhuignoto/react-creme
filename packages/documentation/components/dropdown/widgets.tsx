@@ -44,35 +44,35 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Single selection">
+      <Section size="md" title="Single selection" border={false}>
         <DemoWidget name="Dropdown" width={width}>
           {SingleSelection}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Multi selection">
+      <Section size="md" title="Multi selection" border={false}>
         <Text>With multi selection, you can select multiple options.</Text>
-        <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
+        <DemoWidget name="Dropdown" width={width} showCodeByDefault={true}>
           {MultiSelection}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Search">
+      <Section size="md" title="Search" border={false}>
         <Text>
           Available options can be filtered by typing in the search box.
         </Text>
-        <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
+        <DemoWidget name="Dropdown" width={width} showCodeByDefault={true}>
           {Searchable}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Virtualized">
+      <Section size="md" title="Virtualized" border={false}>
         <Text>
           With virtualized, the options are rendered only when they are in the
           viewport of the menu.
         </Text>
-        <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
+        <DemoWidget name="Dropdown" width={width} showCodeByDefault={true}>
           {Virtualized}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
+      <Section size="md" title="RTL" border={false}>
         <Text>
           With virtualized, the options are rendered only when they are in the
           viewport of the menu.

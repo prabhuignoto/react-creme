@@ -15,17 +15,17 @@ const jsxToStringOptions = {
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget name="Password" width={320} showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
+      <Section size="md" title="RTL" border={false}>
         <DemoWidget name="Password" width={320} showCodeByDefault>
           {RTL}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom Sizes">
+      <Section size="md" title="Custom Sizes" border={false}>
         <DemoWidget name="Password" width={320} showCodeByDefault>
           {Medium}
         </DemoWidget>

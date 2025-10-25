@@ -20,9 +20,20 @@ $heights: (
   margin: 0.75rem 0;
   padding: 0 0.5rem;
   width: calc(100% - 1rem);
+  transition: background-color 0.2s ease;
 
   &.border {
     @extend %border;
+  }
+
+  &.background {
+    background-color: rgba(0, 0, 0, 0.015);
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
   }
 }
 

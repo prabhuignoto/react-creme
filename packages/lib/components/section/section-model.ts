@@ -2,6 +2,7 @@ import React from 'react';
 
 export interface SectionProps {
   RTL?: boolean;
+  background?: boolean;
   border?: boolean;
   children: React.ReactNode | React.ReactNode[];
   hashPrefix?: string;

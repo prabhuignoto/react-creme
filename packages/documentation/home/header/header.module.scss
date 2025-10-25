@@ -11,6 +11,13 @@
   &:hover {
     transform: scale(1.02);
   }
+
+  /* Ensure logo/text is visible in both modes */
+  color: var(--text-primary);
+
+  a, svg {
+    color: var(--text-primary);
+  }
 }
 
 .algolia_container {
@@ -37,12 +44,13 @@
 
       .DocSearch-Button-Placeholder {
         font-size: 14px;
+        color: var(--text-primary) !important;
       }
 
       .DocSearch-Search-Icon {
         width: 16px;
         height: 16px;
-        color: var(--text-secondary);
+        color: var(--text-primary) !important;
       }
     }
 
@@ -59,6 +67,7 @@
         font-size: 12px;
         font-weight: 600;
         box-shadow: var(--shadow-sm);
+        color: var(--text-primary) !important;
       }
     }
   }
@@ -81,7 +90,7 @@
   border-radius: 6px;
   font-size: 12px;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   transition: all var(--transition-fast);
 
   kbd {
@@ -90,6 +99,7 @@
     border-radius: 4px;
     font-family: var(--font-mono);
     border: 1px solid var(--border-color);
+    color: var(--text-primary);
   }
 
   @media (max-width: 768px) {

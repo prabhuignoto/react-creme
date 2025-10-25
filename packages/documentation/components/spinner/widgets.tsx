@@ -7,12 +7,12 @@ import { CustomSpeed, Default, Large, Medium } from './widget-variants';
 const Widgets = () => {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget name="Spinner" width={200} showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom Speed">
+      <Section size="md" title="Custom Speed" border={false}>
         <Text>
           The speed of the spinner can be adjusted through the{' '}
           <code>speed</code> prop.
@@ -21,7 +21,7 @@ const Widgets = () => {
           {CustomSpeed}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom sizes">
+      <Section size="md" title="Custom sizes" border={false}>
         <Text>
           Three different sizes are available for the spinner. <code>sm</code>,{' '}
           <code>md</code> and <code>lg</code>.

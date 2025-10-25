@@ -49,12 +49,12 @@ function widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Horizontal mode">
+      <Section size="md" title="Horizontal mode" border={false}>
         <Text>
           Splits the container horizontally with a drag handle for resizing and
           there by controlling the width of the left and right panels.
         </Text>
-        <DemoWidget name="Splitter" width={width} showCodeByDefault={false}>
+        <DemoWidget name="Splitter" width={width} showCodeByDefault={true}>
           <Splitter
             dir="horizontal"
             minSplitWidth={Math.round(width * 0.3)}
@@ -83,12 +83,12 @@ function widgets() {
           </Splitter>
         </DemoWidget>
       </Section>
-      <Section size="md" title="Vertical Mode">
+      <Section size="md" title="Vertical Mode" border={false}>
         <Text>
           Splits the container vertically with a drag handle for resizing and
           there by controlling the height of the top and bottom panels.
         </Text>
-        <DemoWidget name="Splitter" width={width} showCodeByDefault={false}>
+        <DemoWidget name="Splitter" width={width} showCodeByDefault={true}>
           <Splitter
             dir="vertical"
             minSplitHeight={400 * 0.25}

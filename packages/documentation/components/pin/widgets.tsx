@@ -46,12 +46,12 @@ function widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget name="Pin" width={width} showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom length">
+      <Section size="md" title="Custom length" border={false}>
         <Text>
           Customize the number of pins via the <code>length</code> property
         </Text>
@@ -59,7 +59,7 @@ function widgets() {
           {CustomLength}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
+      <Section size="md" title="RTL" border={false}>
         <Text>
           Use the <code>RTL</code> prop to render the pin in RTL mode.
         </Text>
@@ -67,7 +67,7 @@ function widgets() {
           {RTL}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom Sizes">
+      <Section size="md" title="Custom Sizes" border={false}>
         <Text>
           Customize the pin size with the <code>size</code> prop
         </Text>

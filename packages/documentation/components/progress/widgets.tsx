@@ -17,7 +17,7 @@ const Widgets: React.FunctionComponent = () => {
 
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default rendering">
+      <Section size="md" title="Default rendering" border={false}>
         <div className="rc-demo-widget" style={{ marginBottom: '1rem' }}>
           <div style={{ margin: '0 1rem' }}>
             <Button onClick={start} label="Start"></Button>
@@ -48,7 +48,7 @@ const Widgets: React.FunctionComponent = () => {
           />
         </DemoWidget>
       </Section>
-      <Section size="md" title="States">
+      <Section size="md" title="States" border={false}>
         <Text>The progress bar can be in a success or error state.</Text>
         <DemoWidget name="Progress" showCodeByDefault>
           <Progress
@@ -72,19 +72,19 @@ const Widgets: React.FunctionComponent = () => {
           />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Indeterminate progress">
+      <Section size="md" title="Indeterminate progress" border={false}>
         <Text>Useful for operations that take a long time to complete.</Text>
         <DemoWidget name="Progress" showCodeByDefault>
           <Progress type="indeterminate" showProgressValue size="sm" />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Indeterminate Progress - Bob">
+      <Section size="md" title="Indeterminate Progress - Bob" border={false}>
         <Text>Infinite progress with a bob animation</Text>
         <DemoWidget name="Progress" showCodeByDefault>
           <Progress type="indeterminate" size="md" indeterminateStyle="bob" />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Circular Progress">
+      <Section size="md" title="Circular Progress" border={false}>
         <Text>Infinite progress is also available in circular mode.</Text>
         <DemoWidget name="Progress" showCodeByDefault>
           <div style={{ margin: '0 0.5rem' }}>
