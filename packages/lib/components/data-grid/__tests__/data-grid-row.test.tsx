@@ -29,4 +29,13 @@ describe('DataGridRow', () => {
 
     expect(container.firstChild).toHaveClass(styles.zebra);
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<DataGridRow />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

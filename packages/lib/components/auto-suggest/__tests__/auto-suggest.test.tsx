@@ -1,6 +1,6 @@
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
-import { vi } from 'vitest';
 import { AutoSuggest } from '../auto-suggest';
 
 const suggestions = [
@@ -17,133 +17,170 @@ const suggestions = [
 }));
 
 describe('AutoSuggest', () => {
-  it('should render Auto Suggest', async () => {
-    const { getByTestId } = render(<AutoSuggest suggestions={suggestions} />);
-    expect(getByTestId('rc-auto-suggest')).toBeInTheDocument();
-  });
-
-  it('should render Auto Suggest with placeholder', async () => {
-    const { getByTestId, getByPlaceholderText } = render(
-      <AutoSuggest suggestions={suggestions} placeholder="placeholder" />
-    );
-    expect(getByTestId('rc-auto-suggest')).toBeInTheDocument();
-    expect(getByPlaceholderText('placeholder')).toBeInTheDocument();
-  });
-
-  it('should render suggestions', async () => {
-    const { getByPlaceholderText, getByTestId } = render(
-      <AutoSuggest suggestions={suggestions} placeholder="enter input" />,
-      {
-        container: document.body,
-      }
-    );
-
-    expect(getByPlaceholderText('enter input')).toBeInTheDocument();
-
-    userEvent.type(getByPlaceholderText('enter input'), 'one');
-
-    await waitFor(
-      async () => {
-        expect(getByTestId('rc-overlay')).toBeInTheDocument();
-        expect(getByTestId('rc-overlay').querySelectorAll('li')).toHaveLength(
-          1
-        );
-      },
-      {
-        timeout: 2000,
-      }
-    );
-  });
-
-  it('should show the selected item', async () => {
-    const { getByPlaceholderText, getByTestId } = render(
-      <AutoSuggest suggestions={suggestions} placeholder="enter input" />,
-      {
-        container: document.body,
-      }
-    );
-
-    fireEvent.change(getByPlaceholderText('enter input'), {
-      target: { value: 'one' },
+  describe('Rendering', () => {
+    it('should render auto suggest component', () => {
+      render(<AutoSuggest suggestions={suggestions} />);
+      expect(screen.getByTestId('rc-auto-suggest')).toBeInTheDocument();
     });
 
-    await waitFor(
-      async () => {
-        expect(getByTestId('rc-overlay')).toBeInTheDocument();
-      },
-      {
-        timeout: 2000,
-      }
-    );
-
-    userEvent.click(getByTestId('rc-overlay').querySelectorAll('li')[0]);
-
-    await waitFor(async () => {
-      expect(getByPlaceholderText('enter input')).toHaveValue('one');
+    it('should render with placeholder', () => {
+      render(
+        <AutoSuggest suggestions={suggestions} placeholder="placeholder" />
+      );
+      expect(screen.getByTestId('rc-auto-suggest')).toBeInTheDocument();
+      expect(screen.getByPlaceholderText('placeholder')).toBeInTheDocument();
     });
   });
 
-  it('should call onChange with the input', async () => {
-    const onChange = vi.fn();
-    const { getByPlaceholderText } = render(
-      <AutoSuggest
-        suggestions={suggestions}
-        placeholder="enter input"
-        onChange={onChange}
-      />
-    );
+  describe('User Interactions', () => {
+    it('should show suggestions when typing', async () => {
+      const user = userEvent.setup();
 
-    fireEvent.change(getByPlaceholderText('enter input'), {
-      target: { value: 'open' },
+      render(
+        <AutoSuggest suggestions={suggestions} placeholder="enter input" />,
+        {
+          container: document.body,
+        }
+      );
+
+      const input = screen.getByPlaceholderText('enter input');
+      await user.type(input, 'one');
+
+      await waitFor(
+        () => {
+          expect(screen.getByTestId('rc-overlay')).toBeInTheDocument();
+          expect(
+            screen.getByTestId('rc-overlay').querySelectorAll('li')
+          ).toHaveLength(1);
+        },
+        {
+          timeout: 2000,
+        }
+      );
     });
 
-    await waitFor(
-      () => {
-        expect(onChange).toHaveBeenCalledWith('open');
-      },
-      {
-        timeout: 2000,
-      }
-    );
+    it('should select item from suggestions', async () => {
+      const user = userEvent.setup();
+
+      render(
+        <AutoSuggest suggestions={suggestions} placeholder="enter input" />,
+        {
+          container: document.body,
+        }
+      );
+
+      const input = screen.getByPlaceholderText('enter input');
+      await user.type(input, 'one');
+
+      await waitFor(
+        () => {
+          expect(screen.getByTestId('rc-overlay')).toBeInTheDocument();
+        },
+        {
+          timeout: 2000,
+        }
+      );
+
+      const items = screen.getByTestId('rc-overlay').querySelectorAll('li');
+      await user.click(items[0]);
+
+      await waitFor(() => {
+        expect(screen.getByPlaceholderText('enter input')).toHaveValue('one');
+      });
+    });
+
+    it('should call onChange handler when typing', async () => {
+      const user = userEvent.setup();
+      const onChange = vi.fn();
+
+      render(
+        <AutoSuggest
+          suggestions={suggestions}
+          placeholder="enter input"
+          onChange={onChange}
+        />
+      );
+
+      const input = screen.getByPlaceholderText('enter input');
+      await user.type(input, 'open');
+
+      await waitFor(
+        () => {
+          expect(onChange).toHaveBeenCalledWith('open');
+        },
+        {
+          timeout: 2000,
+        }
+      );
+    });
+
+    it('should support keyboard navigation', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(
+        <AutoSuggest
+          suggestions={suggestions}
+          placeholder="enter input"
+          onChange={handler}
+        />,
+        {
+          container: document.body,
+        }
+      );
+
+      const input = screen.getByPlaceholderText('enter input');
+      await user.type(input, 'six');
+
+      await waitFor(() => {
+        expect(screen.getByText('six')).toBeInTheDocument();
+        expect(screen.getAllByRole('option')).toHaveLength(2);
+      });
+
+      // Navigate down
+      input.focus();
+      await user.keyboard('{ArrowDown}');
+
+      await waitFor(() => {
+        expect(screen.getAllByRole('option')[0]).toHaveFocus();
+      });
+
+      // Navigate down again
+      await user.keyboard('{ArrowDown}');
+
+      await waitFor(() => {
+        expect(screen.getAllByRole('option')[1]).toHaveFocus();
+      });
+    });
   });
 
-  it('should keyboard navigation work as expected', async () => {
-    const handler = vi.fn();
-    const { getByPlaceholderText, getByText, getAllByRole, getByRole } = render(
-      <AutoSuggest
-        suggestions={suggestions}
-        placeholder="enter input"
-        onChange={handler}
-      />
-    );
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(
+        <AutoSuggest suggestions={suggestions} placeholder="Search" />
+      );
+      const results = await axe(container);
 
-    fireEvent.change(getByPlaceholderText('enter input'), {
-      target: { value: 'six' },
+      expect(results).toHaveNoViolations();
     });
 
-    await waitFor(() => {
-      expect(getByText('six')).toBeInTheDocument();
-      expect(getAllByRole('option')).toHaveLength(2);
-    });
+    it('should support keyboard navigation with proper ARIA roles', async () => {
+      const user = userEvent.setup();
 
-    fireEvent.keyUp(getByPlaceholderText('enter input'), {
-      key: 'ArrowDown',
-    });
+      render(
+        <AutoSuggest suggestions={suggestions} placeholder="enter input" />,
+        {
+          container: document.body,
+        }
+      );
 
-    await waitFor(() => {
-      expect(getAllByRole('option')[0]).toHaveFocus();
-    });
+      const input = screen.getByPlaceholderText('enter input');
+      await user.type(input, 'one');
 
-    await waitFor(() => {
-      expect(getByRole('listbox')).toBeInTheDocument();
-    });
-
-    fireEvent.keyDown(getByRole('listbox'), {
-      key: 'ArrowDown',
-    });
-
-    await waitFor(() => {
-      expect(getAllByRole('option')[1]).toHaveFocus();
+      await waitFor(() => {
+        expect(screen.getByRole('listbox')).toBeInTheDocument();
+        expect(screen.getAllByRole('option')).toHaveLength(1);
+      });
     });
   });
 });

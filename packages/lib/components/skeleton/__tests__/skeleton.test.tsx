@@ -37,4 +37,13 @@ describe('Skeleton', () => {
     expect(children[0].firstChild).toHaveClass(styles.animate);
     // expect(children[0].firstChild).toHaveStyle("--height: 20px");
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Skeleton />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

@@ -27,4 +27,13 @@ describe('Radio Group', () => {
       expect(handler).toBeCalledWith('one');
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<RadioGroup />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

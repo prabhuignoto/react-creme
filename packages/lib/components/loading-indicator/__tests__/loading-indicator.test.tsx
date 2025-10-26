@@ -43,4 +43,13 @@ describe('Loading Indicator', () => {
       'transition: background 500ms ease-in-out;'
     );
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<LoadingIndicator />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

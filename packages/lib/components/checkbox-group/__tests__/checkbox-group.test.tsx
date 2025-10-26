@@ -153,4 +153,13 @@ describe('CheckboxGroup', () => {
       ]);
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<CheckBoxGroup />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

@@ -176,4 +176,13 @@ describe('Transfer', () => {
   //     }
   //   }
   // });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Transfer source={["Item 1", "Item 2"]} target={[]} />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

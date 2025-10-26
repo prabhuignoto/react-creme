@@ -355,7 +355,7 @@ vitest --coverage               # Run with coverage report
 
 **Why?** Sass 1.92.0+ enforces CSS-compliant ordering where declarations must appear before nested rules. Violating this causes deprecation warnings and will break in future versions.
 
-**Configuration:** The project uses Vite with `api: 'modern-compiler'` and `silenceDeprecations: ['mixed-decls']` as a temporary measure, but all code should follow the proper ordering.
+**Configuration:** The project uses Vite with `api: 'modern-compiler'` for modern Sass behavior. All code follows proper CSS/Sass ordering (declarations before nested rules).
 
 ### Linting
 

@@ -12,4 +12,13 @@ describe('Text', () => {
     const { getByText } = render(<Text RTL>Text</Text>);
     expect(getByText('Text')).toHaveClass(styles.RTL);
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Text />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

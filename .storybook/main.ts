@@ -42,7 +42,6 @@ const config: StorybookConfig = {
         preprocessorOptions: {
           scss: {
             api: 'modern-compiler',
-            silenceDeprecations: ['mixed-decls'],
           },
         },
         modules: {

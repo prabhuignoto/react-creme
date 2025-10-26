@@ -181,4 +181,13 @@ describe('Splitter', () => {
     // Check the inline style has width property
     expect(control?.getAttribute('style')).toContain('width: 10px');
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Splitter />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

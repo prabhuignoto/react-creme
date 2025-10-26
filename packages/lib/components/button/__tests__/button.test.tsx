@@ -1,131 +1,165 @@
-import { fireEvent, render, waitFor, screen } from '@testing-library/react';
-import { it, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import userEvent from '@testing-library/user-event';
 import { Button } from '../button';
 import styles from '../button.module.scss';
-import userEvent from '@testing-library/user-event';
-
-const handler = vi.fn();
 
 describe('Button', () => {
-  it('should render default', async () => {
-    const { container } = render(<Button />);
+  describe('Rendering', () => {
+    it('should render default button', () => {
+      const { container } = render(<Button />);
+      const button = container.firstChild;
 
-    const button = container.firstChild;
+      expect(button).toBeInTheDocument();
+      expect(button).toHaveClass(styles.default);
+    });
 
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveClass(styles.default);
-  });
+    it('should render with label text', () => {
+      render(<Button label="My Button" />);
+      expect(screen.getByText('My Button')).toBeInTheDocument();
+    });
 
-  it('should render label', async () => {
-    const { getByText } = render(<Button label="My Button" />);
-    expect(getByText('My Button')).toBeInTheDocument();
-  });
+    it('should render with correct size class', () => {
+      render(<Button label="My Button" size="lg" />);
+      const button = screen.getByRole('button');
 
-  it('should render size', async () => {
-    const { getByRole } = render(<Button label="My Button" size="lg" />);
-    expect(getByRole('button')).toBeInTheDocument();
-    expect(getByRole('button')).toHaveClass(styles.lg);
-  });
+      expect(button).toBeInTheDocument();
+      expect(button).toHaveClass(styles.lg);
+    });
 
-  it('should render button snapshot', async () => {
-    const { getByRole } = render(<Button label="My Button" />);
-    expect(getByRole('button')).toMatchSnapshot();
-  });
+    it('should render children correctly', () => {
+      render(
+        <Button>
+          <div>Child Node</div>
+        </Button>
+      );
+      expect(screen.getByText('Child Node')).toBeInTheDocument();
+    });
 
-  it('should render disabled button', async () => {
-    const handler = vi.fn();
-
-    const { getByRole } = render(
-      <Button label="My Button" disabled onClick={handler} />
-    );
-
-    expect(getByRole('button')).toHaveClass(styles.disabled);
-
-    fireEvent.click(getByRole('button'));
-
-    expect(handler).not.toBeCalled();
-  });
-
-  it('should call handler', async () => {
-    const { getByText } = render(
-      <Button label="My Button" onClick={handler} />,
-      {
-        container: document.body,
-      }
-    );
-
-    fireEvent.click(getByText('My Button'));
-
-    expect(handler).toBeCalled();
-  });
-
-  it('should call handler via keyboard action', async () => {
-    const handler = vi.fn();
-    render(
-      <Button aria-label="My Button" onClick={handler}>
-        My Button
-      </Button>
-    );
-
-    const button = screen.getByRole('button', { name: 'My Button' });
-
-    // Focus the element firstackag
-    await userEvent.click(button); // This ensures the element gets focus
-
-    // Use the following methods to trigger the keyboard action
-    await userEvent.keyboard('{Enter}');
-    // For Space key as fallback
-    await userEvent.keyboard(' ');
-
-    // If using fireEvent directly is needed:
-    // fireEvent.keyDown(button, { key: 'Enter', code: 'Enter' });
-
-    // Wait for any async handlers to complete
-    await waitFor(() => {
-      expect(handler).toHaveBeenCalled();
+    it('should render button snapshot', () => {
+      render(<Button label="My Button" />);
+      expect(screen.getByRole('button')).toMatchSnapshot();
     });
   });
 
-  it('should have focus', async () => {
-    const { getByRole } = render(
-      <Button label="My Button" onClick={handler} focusable />,
-      {
-        container: document.body,
-      }
-    );
+  describe('States', () => {
+    it('should render disabled button and prevent clicks', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
 
-    fireEvent.focus(getByRole('button'));
+      render(<Button label="My Button" disabled onClick={handler} />);
+      const button = screen.getByRole('button');
 
-    expect(getByRole('button')).toHaveAttribute('tabIndex', '0');
+      expect(button).toHaveClass(styles.disabled);
+
+      await user.click(button);
+
+      expect(handler).not.toHaveBeenCalled();
+    });
+
+    it('should render button in busy state', () => {
+      render(<Button label="My Button" isBusy />);
+      const button = screen.getByRole('button');
+
+      expect(button).toHaveClass(styles.disabled);
+      expect(button).toHaveAttribute('aria-busy', 'true');
+    });
+
+    it('should render button without border', () => {
+      render(<Button label="My Button" border={false} />);
+      expect(screen.getByRole('button')).toHaveClass(styles.no_border);
+    });
+
+    it('should render button with correct accent', () => {
+      render(<Button label="My Button" accent="flat" />);
+      expect(screen.getByRole('button')).toHaveClass(styles.flat);
+    });
+
+    it('should render progress button correctly', () => {
+      render(<Button type="progress" />);
+      expect(screen.getByRole('button')).toHaveClass(styles.progress);
+    });
   });
 
-  it('should render button in busy state', () => {
-    const { getByRole } = render(<Button label="My Button" isBusy />);
-    expect(getByRole('button')).toHaveClass(styles.disabled);
-    expect(getByRole('button')).toHaveAttribute('aria-busy', 'true');
+  describe('User Interactions', () => {
+    it('should call onClick handler when clicked', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(<Button label="My Button" onClick={handler} />);
+
+      await user.click(screen.getByText('My Button'));
+
+      expect(handler).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call handler via Enter key', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(
+        <Button aria-label="My Button" onClick={handler}>
+          My Button
+        </Button>
+      );
+
+      const button = screen.getByRole('button', { name: 'My Button' });
+      button.focus();
+
+      await user.keyboard('{Enter}');
+
+      expect(handler).toHaveBeenCalled();
+    });
+
+    it('should call handler via Space key', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(<Button label="My Button" onClick={handler} />);
+
+      const button = screen.getByRole('button');
+      button.focus();
+
+      await user.keyboard(' ');
+
+      expect(handler).toHaveBeenCalled();
+    });
+
+    it('should be focusable when focusable prop is true', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(<Button label="My Button" onClick={handler} focusable />);
+
+      const button = screen.getByRole('button');
+      await user.tab();
+
+      expect(button).toHaveAttribute('tabIndex', '0');
+    });
   });
 
-  it('should render button without border', () => {
-    const { getByRole } = render(<Button label="My Button" border={false} />);
-    expect(getByRole('button')).toHaveClass(styles.no_border);
-  });
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Button label="Click me" />);
+      const results = await axe(container);
 
-  it('should render button with correct accent', () => {
-    const { getByRole } = render(<Button label="My Button" accent="flat" />);
-    expect(getByRole('button')).toHaveClass(styles.flat);
-  });
+      expect(results).toHaveNoViolations();
+    });
 
-  it('should render children correctly', () => {
-    const { getByText } = render(
-      <Button>
-        <div>Child Node</div>
-      </Button>
-    );
-    expect(getByText('Child Node')).toBeInTheDocument();
-  });
+    it('should have proper ARIA attributes when busy', async () => {
+      const { container } = render(<Button label="Loading" isBusy />);
+      const button = screen.getByRole('button');
+      const results = await axe(container);
 
-  it('should render progress button correctly', () => {
-    const { getByRole } = render(<Button type="progress" />);
-    expect(getByRole('button')).toHaveClass(styles.progress);
+      expect(button).toHaveAttribute('aria-busy', 'true');
+      expect(results).toHaveNoViolations();
+    });
+
+    it('should have proper ARIA attributes when disabled', async () => {
+      const { container } = render(<Button label="Disabled" disabled />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

@@ -70,4 +70,13 @@ describe('Gallery', () => {
       `--rc-gallery-grid-dimension-cols: 3; --rc-gallery-grid-dimension-rows: 2;`
     );
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Image />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

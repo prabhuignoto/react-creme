@@ -21,4 +21,13 @@ describe('Radio', () => {
 
     expect(onChange).toBeCalledWith({ id: '123', selected: true });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Radio />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

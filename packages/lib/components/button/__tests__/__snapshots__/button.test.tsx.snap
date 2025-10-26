@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Button > should render button snapshot 1`] = `
+exports[`Button > Rendering > should render button snapshot 1`] = `
 <div
   aria-busy="false"
   aria-disabled="false"

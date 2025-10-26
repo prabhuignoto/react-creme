@@ -126,4 +126,13 @@ describe('Slider Component', () => {
     );
     expect(slider.getAttribute('aria-label')).toBe('slider');
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Slider />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

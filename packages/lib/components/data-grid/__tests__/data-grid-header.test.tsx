@@ -68,4 +68,13 @@ describe('DataGridHeader', () => {
     await userEvent.click(sortButtons[1]); // Descending sort
     expect(mockOnSort).toHaveBeenCalledWith('property', 'desc');
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<DataGridHeader />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

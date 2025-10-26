@@ -100,4 +100,13 @@ describe('Input Number', () => {
 
     await waitFor(() => expect((input as HTMLInputElement).value).toBe('123'));
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<InputNumber />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

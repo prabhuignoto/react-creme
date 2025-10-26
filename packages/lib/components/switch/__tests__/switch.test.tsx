@@ -186,4 +186,13 @@ describe('Switch', () => {
       expect(handler).not.toHaveBeenCalled();
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Switch label="Test switch" />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

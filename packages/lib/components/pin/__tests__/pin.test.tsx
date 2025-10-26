@@ -65,4 +65,13 @@ describe('Pin', () => {
 
     expect(inputs[1]).not.toHaveFocus();
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Pin />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

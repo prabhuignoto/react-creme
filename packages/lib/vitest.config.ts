@@ -20,9 +20,24 @@ export default defineConfig({
       enabled: true,
       all: true, // Include all files in the coverage report
       include: ['components/**/*.{ts,tsx}'], // Include specific files for coverage
-      exclude: ['**/node_modules/**', '**/dist/**'], // Exclude unnecessary files
-      reporter: ['html', 'lcov', 'clover', 'cobertura'],
+      exclude: [
+        '**/node_modules/**',
+        '**/dist/**',
+        '**/__tests__/**', // Exclude test files from coverage
+        '**/*.test.{ts,tsx}',
+        '**/*-model.ts', // Exclude type-only files
+      ],
+      reporter: ['html', 'lcov', 'clover', 'cobertura', 'json', 'text', 'junit'],
       reportsDirectory: './coverage',
+      // Coverage thresholds - fail CI if not met
+      thresholds: {
+        branches: 70,
+        functions: 75,
+        lines: 80,
+        statements: 80,
+      },
+      // Per-file thresholds for critical components
+      perFile: false,
     },
     environment: 'jsdom',
     globals: true,

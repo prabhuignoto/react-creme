@@ -10,30 +10,11 @@ import {
 } from '@lib';
 import cx from 'classnames';
 import { FunctionComponent, useMemo } from 'react';
+import { SHOWCASE_GALLERY_IMAGES, SHOWCASE_GRID_DATA } from '../constants';
 import styles from '../styles/live-showcase.module.scss';
 
 const LiveShowcase: FunctionComponent = () => {
   const isDarkMode = useMemo(() => isDark(), []);
-
-  // Curated images for Gallery
-  const galleryImages = [
-    'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1611095564945-db7f3cb7e02c?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1621609764180-2ca554a9d6f2?w=300&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1611095973763-414019e72400?w=300&h=300&fit=crop',
-  ];
-
-  const gridData = [
-    { Component: 'Button', 'Bundle Impact': '~2kb', Status: '✓ Ready' },
-    { Component: 'DataGrid', 'Bundle Impact': '~8kb', Status: '✓ Ready' },
-    { Component: 'Gallery', 'Bundle Impact': '~5kb', Status: '✓ Ready' },
-    { Component: 'Switch', 'Bundle Impact': '~1.5kb', Status: '✓ Ready' },
-    { Component: 'Rate', 'Bundle Impact': '~3kb', Status: '✓ Ready' },
-  ];
 
   return (
     <section className={cx(styles.showcase_section, isDarkMode ? styles.dark : '')}>
@@ -61,7 +42,7 @@ const LiveShowcase: FunctionComponent = () => {
                   { name: 'Bundle Impact', type: 'string' },
                   { name: 'Status', type: 'string' },
                 ]}
-                data={gridData}
+                data={SHOWCASE_GRID_DATA}
                 border
                 layoutStyle="comfortable"
               />
@@ -104,7 +85,7 @@ const LiveShowcase: FunctionComponent = () => {
             </div>
             <div className={styles.card_content}>
               <Gallery
-                imagesURL={galleryImages}
+                imagesURL={SHOWCASE_GALLERY_IMAGES}
                 gridDimension={[4, 2]}
                 gap={10}
                 imageDimension={140}

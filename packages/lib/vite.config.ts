@@ -15,7 +15,6 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         api: 'modern-compiler',
-        silenceDeprecations: ['mixed-decls'],
       },
     },
     postcss: {

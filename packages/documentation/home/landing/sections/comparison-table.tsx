@@ -2,18 +2,8 @@ import { isDark } from '@lib';
 import cx from 'classnames';
 import { FunctionComponent, useMemo } from 'react';
 import { Check, X, AlertCircle } from 'react-feather';
+import { COMPARISON_DATA, LIBRARY_NAMES, ComparisonStatus } from '../constants';
 import styles from '../styles/comparison-table.module.scss';
-
-type ComparisonStatus = 'yes' | 'no' | 'partial';
-
-interface ComparisonRow {
-  feature: string;
-  reactCreme: ComparisonStatus | string;
-  mui: ComparisonStatus | string;
-  antDesign: ComparisonStatus | string;
-  chakra: ComparisonStatus | string;
-  shadcn: ComparisonStatus | string;
-}
 
 const ComparisonTable: FunctionComponent = () => {
   const isDarkMode = useMemo(() => isDark(), []);
@@ -31,72 +21,7 @@ const ComparisonTable: FunctionComponent = () => {
     return <span className={cx(styles.text_value, isHighlight && styles.highlight_text)}>{value}</span>;
   };
 
-  const data: ComparisonRow[] = [
-    {
-      feature: 'Bundle Size',
-      reactCreme: '~55kb',
-      mui: '~350kb',
-      antDesign: '~280kb',
-      chakra: '~200kb',
-      shadcn: 'Minimal',
-    },
-    {
-      feature: 'React 19 Support',
-      reactCreme: 'yes',
-      mui: 'no',
-      antDesign: 'no',
-      chakra: 'no',
-      shadcn: 'yes',
-    },
-    {
-      feature: 'CSS Approach',
-      reactCreme: 'Modules',
-      mui: 'CSS-in-JS',
-      antDesign: 'CSS-in-JS',
-      chakra: 'CSS-in-JS',
-      shadcn: 'Tailwind',
-    },
-    {
-      feature: 'TypeScript Strict',
-      reactCreme: 'yes',
-      mui: 'partial',
-      antDesign: 'partial',
-      chakra: 'partial',
-      shadcn: 'yes',
-    },
-    {
-      feature: 'Design Opinion',
-      reactCreme: 'Neutral',
-      mui: 'Material',
-      antDesign: 'Ant',
-      chakra: 'Mild',
-      shadcn: 'None',
-    },
-    {
-      feature: 'npm Install',
-      reactCreme: 'yes',
-      mui: 'yes',
-      antDesign: 'yes',
-      chakra: 'yes',
-      shadcn: 'no',
-    },
-    {
-      feature: 'Dark Mode',
-      reactCreme: 'yes',
-      mui: 'yes',
-      antDesign: 'yes',
-      chakra: 'yes',
-      shadcn: 'yes',
-    },
-    {
-      feature: 'Tree-Shakeable',
-      reactCreme: 'yes',
-      mui: 'partial',
-      antDesign: 'partial',
-      chakra: 'partial',
-      shadcn: 'yes',
-    },
-  ];
+  const libraries = ['reactCreme', 'mui', 'antDesign', 'chakra', 'shadcn'] as const;
 
   return (
     <section className={cx(styles.comparison_section, isDarkMode ? styles.dark : '')}>
@@ -108,6 +33,7 @@ const ComparisonTable: FunctionComponent = () => {
           </p>
         </div>
 
+        {/* Desktop Table View */}
         <div className={styles.table_wrapper}>
           <table className={styles.comparison_table}>
             <thead>
@@ -126,7 +52,7 @@ const ComparisonTable: FunctionComponent = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((row, index) => (
+              {COMPARISON_DATA.map((row, index) => (
                 <tr key={index} className={styles.data_row}>
                   <td className={styles.feature_cell}>{row.feature}</td>
                   <td className={cx(styles.value_cell, styles.highlight_column)}>
@@ -140,6 +66,34 @@ const ComparisonTable: FunctionComponent = () => {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Mobile Card View */}
+        <div className={styles.mobile_comparison}>
+          {COMPARISON_DATA.map((row, index) => (
+            <div key={index} className={styles.comparison_card}>
+              <div className={styles.card_feature}>{row.feature}</div>
+              <div className={styles.card_libraries}>
+                {libraries.map((lib) => (
+                  <div
+                    key={lib}
+                    className={cx(
+                      styles.library_comparison,
+                      lib === 'reactCreme' && styles.highlight
+                    )}
+                  >
+                    <span className={styles.library_name_mobile}>
+                      {LIBRARY_NAMES[lib]}
+                      {lib === 'reactCreme' && <span className={styles.badge}>⭐</span>}
+                    </span>
+                    <span className={styles.library_value}>
+                      {renderCell(row[lib], lib === 'reactCreme')}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
         <div className={styles.table_legend}>

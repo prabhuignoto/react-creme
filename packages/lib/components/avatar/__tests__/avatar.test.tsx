@@ -28,4 +28,13 @@ describe('Avatar', () => {
     const { getByText } = render(<Avatar letter="A" />);
     expect(getByText('A')).toBeInTheDocument();
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Avatar />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

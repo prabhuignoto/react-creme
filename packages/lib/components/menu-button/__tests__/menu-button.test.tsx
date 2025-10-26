@@ -88,4 +88,13 @@ describe('Menu Button', () => {
       expect(handler).toBeCalledWith('cancel');
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<MenuButton />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

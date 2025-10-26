@@ -38,4 +38,13 @@ describe('DataGridCell', () => {
 
     expect(getByRole('cell')).toHaveClass(styles.zebra);
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<DataGridCell />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

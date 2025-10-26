@@ -121,4 +121,13 @@ describe('Accordion', () => {
 
     expect(container.firstChild).not.toHaveClass(styles.open);
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Accordion />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

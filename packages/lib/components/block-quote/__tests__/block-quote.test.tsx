@@ -132,4 +132,13 @@ describe('BlockQuote', () => {
     );
     expect(screen.getByTestId('custom-testid')).toBeInTheDocument();
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<BlockQuote />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

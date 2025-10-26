@@ -105,4 +105,13 @@ describe('Tree', () => {
 
     expect(onSelect).toHaveBeenCalled();
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Tree nodes={[{name: "Node 1", value: "1"}]} />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

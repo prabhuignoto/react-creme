@@ -1,6 +1,6 @@
-import { render, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
-import { vi } from 'vitest';
 import { DataGrid } from '../data-grid';
 
 // Mock the debounce function to execute immediately in tests
@@ -8,71 +8,74 @@ vi.mock('use-debounce', () => ({
   useDebouncedCallback: (fn: any) => fn,
 }));
 
-describe('DataGrid', () => {
-  it('should render the grid with data', async () => {
-    const { getByText } = render(
-      <DataGrid
-        columns={[
-          { name: 'name', type: 'string' },
-          { name: 'age', type: 'number' },
-        ]}
-        data={[
-          { age: 30, name: 'John' },
-          { age: 25, name: 'Jane' },
-        ]}
-      />
-    );
+const mockColumns = [
+  { name: 'name', type: 'string' as const },
+  { name: 'age', type: 'number' as const },
+];
 
-    expect(getByText('John')).toBeInTheDocument();
-    expect(getByText('Jane')).toBeInTheDocument();
+const mockData = [
+  { age: 30, name: 'John' },
+  { age: 25, name: 'Jane' },
+];
+
+describe('DataGrid', () => {
+  it('should render the grid with data', () => {
+    render(<DataGrid columns={mockColumns} data={mockData} />);
+
+    expect(screen.getByText('John')).toBeInTheDocument();
+    expect(screen.getByText('Jane')).toBeInTheDocument();
   });
 
   it('should filter data based on search input', async () => {
     const user = userEvent.setup();
 
-    const { getByPlaceholderText, queryByText } = render(
+    render(
       <DataGrid
         columns={[
           { name: 'name', searchable: true, type: 'string' },
           { name: 'age', type: 'number' },
         ]}
-        data={[
-          { age: 30, name: 'John' },
-          { age: 25, name: 'Jane' },
-        ]}
+        data={mockData}
       />
     );
 
-    // Get the search input and type in it
-    const searchInput = getByPlaceholderText('Search...');
+    const searchInput = screen.getByPlaceholderText('Search...');
     await user.type(searchInput, 'Jane');
 
-    // Wait for the filtering to take effect
     await waitFor(() => {
-      expect(queryByText('John')).not.toBeInTheDocument();
-      expect(queryByText('Jane')).toBeInTheDocument();
+      expect(screen.queryByText('John')).not.toBeInTheDocument();
+      expect(screen.getByText('Jane')).toBeInTheDocument();
     });
   });
 
   it('should sort data when a sortable column is clicked', async () => {
-    const { getByText, getAllByRole } = render(
+    const user = userEvent.setup();
+
+    render(
       <DataGrid
         columns={[
           { name: 'name', sortable: true, type: 'string' },
           { name: 'age', type: 'number' },
         ]}
-        data={[
-          { age: 30, name: 'John' },
-          { age: 25, name: 'Jane' },
-        ]}
+        data={mockData}
       />
     );
 
-    const sortButtons = getAllByRole('button');
-    sortButtons[0].click(); // Sort ascending
-    expect(getByText('Jane')).toBeInTheDocument();
+    const sortButtons = screen.getAllByRole('button');
 
-    sortButtons[1].click(); // Sort descending
-    expect(getByText('John')).toBeInTheDocument();
+    await user.click(sortButtons[0]); // Sort ascending
+    expect(screen.getByText('Jane')).toBeInTheDocument();
+
+    await user.click(sortButtons[1]); // Sort descending
+    expect(screen.getByText('John')).toBeInTheDocument();
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<DataGrid columns={mockColumns} data={mockData} />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

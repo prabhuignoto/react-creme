@@ -49,4 +49,13 @@ describe('Form Field', () => {
 
     expect(container.firstChild).toHaveClass(styles.sm);
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Input />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

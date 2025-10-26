@@ -63,4 +63,13 @@ describe('AccordionHeader', () => {
       /_align-icon-rt_/
     );
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<AccordionHeader />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

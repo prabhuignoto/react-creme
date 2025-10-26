@@ -66,4 +66,13 @@ describe('TabHeaders', () => {
   //   fireEvent.click(getByText('Tab 2').parentElement as HTMLElement);
   //   expect(getByText('Tab 2').parentElement).toHaveFocus();
   // });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<TabHeaders />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

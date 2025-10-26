@@ -100,4 +100,13 @@ describe('Dialog', () => {
       expect(getAllByRole('button')[0]).toHaveFocus();
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Dialog />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

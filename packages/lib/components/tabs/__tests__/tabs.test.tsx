@@ -55,4 +55,13 @@ describe('<Tabs />', () => {
     // Check if the first tab's content is rendered
     expect(screen.getByText('Content 1')).toBeVisible();
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Tabs />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

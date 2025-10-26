@@ -176,4 +176,13 @@ describe('Tags', () => {
       expect(input).not.toBeVisible();
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Tags />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

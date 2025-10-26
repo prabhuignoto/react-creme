@@ -16,4 +16,13 @@ describe('Image', () => {
       expect(container.firstChild as HTMLElement).toHaveStyle('--width: 100%');
     }
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Image />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

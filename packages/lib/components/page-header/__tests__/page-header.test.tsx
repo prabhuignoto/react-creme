@@ -11,4 +11,13 @@ describe('PageHeader', () => {
     const { getByText } = render(<PageHeader title="Tests">Test</PageHeader>);
     expect(getByText('Test')).toBeInTheDocument();
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<PageHeader />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

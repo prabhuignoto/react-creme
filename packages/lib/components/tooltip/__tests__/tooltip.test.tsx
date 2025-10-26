@@ -199,4 +199,13 @@ describe('Tooltip', () => {
       expect(getByRole('tooltip').firstChild).toHaveClass(styles.hide_tooltip);
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Tooltip />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

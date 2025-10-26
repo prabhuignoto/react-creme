@@ -119,4 +119,13 @@ describe('Menu Bar', () => {
       path: 'File/Open',
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<MenuBar />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

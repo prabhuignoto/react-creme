@@ -18,4 +18,13 @@ describe('Spinner', () => {
     const { getByRole } = render(<Spinner speed="fast" />);
     expect(getByRole('img')).toHaveStyle('--rc-spinner-speed: fast');
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Spinner />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

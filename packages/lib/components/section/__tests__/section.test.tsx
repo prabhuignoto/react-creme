@@ -25,4 +25,13 @@ describe('Section', () => {
     );
     expect(getByText('# test')).toBeInTheDocument();
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Section />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

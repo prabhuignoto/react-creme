@@ -118,4 +118,13 @@ describe('CarouselItems', () => {
       width: '100px',
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<CarouselItems />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

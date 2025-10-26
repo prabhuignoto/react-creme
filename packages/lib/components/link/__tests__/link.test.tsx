@@ -26,4 +26,13 @@ describe('Link', () => {
     );
     expect(getByText('Google')).toBeInTheDocument();
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Link />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

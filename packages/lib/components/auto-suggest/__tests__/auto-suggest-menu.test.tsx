@@ -170,4 +170,13 @@ describe('SuggestionsMenuOverlay', () => {
   // Verify onClose was called
   // expect(mockOnClose).toHaveBeenCalled();
   // });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<SuggestionsMenuOverlay />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

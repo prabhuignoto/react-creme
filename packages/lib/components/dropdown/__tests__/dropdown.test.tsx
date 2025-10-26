@@ -1,5 +1,6 @@
-import { fireEvent, render, waitFor } from '@testing-library/react';
-import { vi } from 'vitest';
+import { render, screen, waitFor } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import userEvent from '@testing-library/user-event';
 import { Dropdown } from '../dropdown';
 import styles from '../dropdown.module.scss';
 
@@ -19,231 +20,237 @@ const optionsSelected = [
   { name: 'sri lanka', selected: true, value: 'sri lanka' },
 ];
 
-const onSelected = vi.fn();
-
 describe('Dropdown', () => {
-  it('should handler be called', async () => {
-    const { getByTestId, getByText } = render(
-      <Dropdown
-        options={options}
-        placeholder="select a option"
-        onSelected={onSelected}
-      />
-    );
+  describe('Rendering', () => {
+    it('should render with placeholder', () => {
+      render(
+        <Dropdown options={options} placeholder="select a option" />
+      );
 
-    expect(getByText('select a option')).toBeInTheDocument();
-
-    fireEvent.click(getByText('select a option'));
-
-    await waitFor(async () => {
-      expect(getByTestId('rc-overlay')).toBeInTheDocument();
-      expect(
-        getByTestId('rc-overlay').querySelector('[role="listbox"]')
-      ).toBeInTheDocument();
-
-      expect(
-        getByTestId('rc-overlay').querySelectorAll('[role="option"]')
-      ).toHaveLength(5);
-
-      expect(getByText('germany')).toBeInTheDocument();
+      expect(screen.getByText('select a option')).toBeInTheDocument();
     });
 
-    fireEvent.click(
-      getByTestId('rc-overlay').querySelectorAll('[role="option"]')[2]
-    );
+    it('should render disabled dropdown', () => {
+      const { container } = render(
+        <Dropdown
+          options={options}
+          allowMultiSelection
+          placeholder="select a option"
+          disabled
+        />,
+        {
+          container: document.body,
+        }
+      );
 
-    await waitFor(() => {
-      expect(onSelected).toHaveBeenCalled();
-    });
-  });
-
-  it('should auto close menu', async () => {
-    const handler = vi.fn();
-    const { getByTestId, queryByTestId, getByText } = render(
-      <Dropdown
-        options={options}
-        placeholder="select a option"
-        onSelected={handler}
-      />,
-      {
-        container: document.body,
-      }
-    );
-
-    expect(getByText('select a option')).toBeInTheDocument();
-
-    fireEvent.click(getByText('select a option'));
-
-    await waitFor(() => {
-      expect(getByTestId('rc-overlay')).toBeInTheDocument();
-      expect(
-        getByTestId('rc-overlay').querySelector('[role="listbox"]')
-      ).toBeInTheDocument();
-
-      expect(
-        getByTestId('rc-overlay').querySelectorAll('[role="option"]')
-      ).toHaveLength(5);
+      expect(screen.getByText('select a option')).toBeInTheDocument();
+      expect(container?.firstChild).toHaveClass(styles.disabled);
+      expect(container?.firstChild?.firstChild).toHaveAttribute(
+        'aria-disabled',
+        'true'
+      );
+      expect(container?.firstChild?.firstChild).toHaveAttribute('tabindex', '-1');
     });
 
-    fireEvent.keyUp(
-      getByTestId('rc-overlay').querySelector(
-        '[role="listbox"]'
-      ) as HTMLElement,
-      {
-        key: 'Escape',
-      }
-    );
+    it('should render multi-selection mode', async () => {
+      const user = userEvent.setup();
 
-    await waitFor(() => {
-      expect(queryByTestId('rc-overlay')).not.toBeInTheDocument();
+      render(
+        <Dropdown
+          options={optionsSelected}
+          placeholder="select a option"
+          allowMultiSelection
+        />
+      );
+
+      await user.click(screen.getByText('india'));
+
+      await waitFor(() => {
+        expect(screen.getByTestId('rc-overlay')).toBeInTheDocument();
+        expect(
+          screen.getByTestId('rc-overlay').querySelector('[role="listbox"]')
+        ).toBeInTheDocument();
+        expect(screen.getAllByRole('option')).toHaveLength(5);
+      });
     });
   });
 
-  it('should render disabled', async () => {
-    const optionsDisabled = [
-      { name: 'usa', value: 'usa' },
-      { name: 'uk', value: 'uk' },
-      { name: 'germany', value: 'germany' },
-      { name: 'india', value: 'india' },
-      { name: 'sri lanka', value: 'sri lanka' },
-    ];
+  describe('User Interactions', () => {
+    it('should open dropdown and select option', async () => {
+      const user = userEvent.setup();
+      const onSelected = vi.fn();
 
-    const { getByText, container } = render(
-      <Dropdown
-        options={optionsDisabled}
-        allowMultiSelection
-        placeholder="select a option"
-        disabled
-      />,
-      {
-        container: document.body,
-      }
-    );
+      render(
+        <Dropdown
+          options={options}
+          placeholder="select a option"
+          onSelected={onSelected}
+        />
+      );
 
-    await waitFor(() => {
-      expect(getByText('select a option')).toBeInTheDocument();
+      await user.click(screen.getByText('select a option'));
+
+      await waitFor(() => {
+        expect(screen.getByTestId('rc-overlay')).toBeInTheDocument();
+        expect(
+          screen.getByTestId('rc-overlay').querySelector('[role="listbox"]')
+        ).toBeInTheDocument();
+        expect(screen.getAllByRole('option')).toHaveLength(5);
+        expect(screen.getByText('germany')).toBeInTheDocument();
+      });
+
+      const options_list = screen.getAllByRole('option');
+      await user.click(options_list[2]);
+
+      await waitFor(() => {
+        expect(onSelected).toHaveBeenCalled();
+      });
     });
-    expect(container?.firstChild).toHaveClass(styles.disabled);
-    expect(container?.firstChild?.firstChild).toHaveAttribute(
-      'aria-disabled',
-      'true'
-    );
-    expect(container?.firstChild?.firstChild).toHaveAttribute('tabindex', '-1');
+
+    it('should close menu on Escape key', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(
+        <Dropdown
+          options={options}
+          placeholder="select a option"
+          onSelected={handler}
+        />,
+        {
+          container: document.body,
+        }
+      );
+
+      await user.click(screen.getByText('select a option'));
+
+      await waitFor(() => {
+        expect(screen.getByTestId('rc-overlay')).toBeInTheDocument();
+        expect(screen.getAllByRole('option')).toHaveLength(5);
+      });
+
+      const listbox = screen.getByRole('listbox');
+      await user.keyboard('{Escape}');
+
+      await waitFor(() => {
+        expect(screen.queryByTestId('rc-overlay')).not.toBeInTheDocument();
+      });
+    });
+
+    it('should clear selection when clear button is clicked', async () => {
+      const user = userEvent.setup();
+
+      const { container } = render(
+        <Dropdown
+          options={options}
+          placeholder="select a option"
+          allowMultiSelection={true}
+        />
+      );
+
+      await user.click(screen.getByText('select a option'));
+
+      await waitFor(() => {
+        expect(screen.getByTestId('rc-overlay')).toBeInTheDocument();
+        expect(screen.getByText('india')).toBeInTheDocument();
+      });
+
+      const option_items = screen.getAllByRole('option');
+      await user.click(option_items[1]);
+
+      await waitFor(() => {
+        expect(container.querySelectorAll('.rc-tag').length).toBe(1);
+      });
+
+      await user.click(screen.getByTestId('clear-icon'));
+
+      await waitFor(() => {
+        expect(container.querySelectorAll('.rc-tag').length).toBe(0);
+      });
+    });
+
+    it('should navigate with keyboard (ArrowDown and ArrowUp)', async () => {
+      const user = userEvent.setup();
+
+      render(
+        <Dropdown
+          options={options}
+          placeholder="select a option"
+          allowMultiSelection={true}
+        />,
+        {
+          container: document.body,
+        }
+      );
+
+      await user.click(screen.getByText('select a option'));
+
+      await waitFor(() => {
+        expect(screen.getByRole('listbox')).toBeInTheDocument();
+        expect(screen.getAllByRole('option')).toHaveLength(5);
+      });
+
+      const listbox = screen.getByRole('listbox');
+      const allOptions = screen.getAllByRole('option');
+
+      // Navigate down
+      await user.keyboard('{ArrowDown}');
+
+      await waitFor(() => {
+        expect(allOptions[1]).toHaveFocus();
+      });
+
+      // Navigate up
+      await user.keyboard('{ArrowUp}');
+
+      await waitFor(() => {
+        expect(allOptions[0]).toHaveFocus();
+      });
+    });
   });
 
-  it('should render allowMultiSelection mode', async () => {
-    const { getByText, getByTestId } = render(
-      <Dropdown
-        options={optionsSelected}
-        placeholder="select a option"
-        allowMultiSelection
-      />
-    );
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(
+        <Dropdown options={options} placeholder="Select country" />
+      );
+      const results = await axe(container);
 
-    fireEvent.click(getByText('india'));
+      expect(results).toHaveNoViolations();
+    });
 
-    await waitFor(() => {
-      expect(getByTestId('rc-overlay')).toBeInTheDocument();
-      expect(
-        getByTestId('rc-overlay').querySelector('[role="listbox"]')
-      ).toBeInTheDocument();
+    it('should have proper ARIA roles when opened', async () => {
+      const user = userEvent.setup();
 
-      expect(
-        getByTestId('rc-overlay').querySelectorAll('[role="option"]')
-      ).toHaveLength(5);
+      const { container } = render(
+        <Dropdown options={options} placeholder="Select option" />,
+        {
+          container: document.body,
+        }
+      );
+
+      await user.click(screen.getByText('Select option'));
+
+      await waitFor(() => {
+        expect(screen.getByRole('listbox')).toBeInTheDocument();
+        expect(screen.getAllByRole('option')).toHaveLength(5);
+      });
+
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
+
+    it('should have proper ARIA attributes when disabled', async () => {
+      const { container } = render(
+        <Dropdown
+          options={options}
+          placeholder="Disabled dropdown"
+          disabled
+        />
+      );
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
     });
   });
-
-  it('should clear selection on pressing the clear button', async () => {
-    const { container, getByText, getByTestId } = render(
-      <Dropdown
-        options={options}
-        placeholder="select a option"
-        allowMultiSelection={true}
-      />
-    );
-
-    fireEvent.click(getByText('select a option'));
-
-    await waitFor(() => {
-      expect(getByTestId('rc-overlay')).toBeInTheDocument();
-      expect(getByText('india')).toBeInTheDocument();
-    });
-
-    fireEvent.click(
-      getByTestId('rc-overlay').querySelectorAll('[role="option"]')[1]
-    );
-
-    await waitFor(() => {
-      expect(container.querySelectorAll('.rc-tag').length).toBe(1);
-    });
-
-    fireEvent.click(getByTestId('clear-icon'));
-
-    await waitFor(() => {
-      expect(container.querySelectorAll('.rc-tag').length).toBe(0);
-    });
-  });
-
-  it('should first element have the focus', async () => {
-    const { getByText, getByRole, getAllByRole } = render(
-      <Dropdown
-        options={options}
-        placeholder="select a option"
-        allowMultiSelection={true}
-      />
-    );
-
-    fireEvent.click(getByText('select a option'));
-
-    await waitFor(
-      () => {
-        expect(getByRole('listbox')).toBeInTheDocument();
-        expect(getAllByRole('option')).toHaveLength(5);
-      },
-      { timeout: 2000 }
-    );
-  });
-
-  // it('should focus change on keyboard interaction', async () => {
-  //   const { getByText, getByRole, getAllByRole } = render(
-  //     <Dropdown
-  //       options={options}
-  //       placeholder="select a option"
-  //       allowMultiSelection={true}
-  //     />,
-  //     {
-  //       container: document.body,
-  //     }
-  //   );
-
-  //   expect(getByText('select a option')).toBeInTheDocument();
-
-  //   fireEvent.click(getByText('select a option'));
-
-  //   await waitFor(
-  //     () => {
-  //       expect(getByRole('listbox')).toBeInTheDocument();
-  //       expect(getAllByRole('option')).toHaveLength(5);
-  //       expect(getAllByRole('option')[0]).toHaveFocus();
-  //     },
-  //     { timeout: 2500 }
-  //   );
-
-  //   fireEvent.keyDown(getByRole('listbox'), {
-  //     key: 'ArrowDown',
-  //   });
-
-  //   await waitFor(() => {
-  //     expect(getAllByRole('option')[1]).toHaveFocus();
-  //   });
-
-  //   fireEvent.keyDown(getByRole('listbox'), {
-  //     key: 'ArrowUp',
-  //   });
-
-  //   await waitFor(() => {
-  //     expect(getAllByRole('option')[0]).toHaveFocus();
-  //   });
-  // });
 });

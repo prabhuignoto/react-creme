@@ -70,4 +70,13 @@ describe('Read More', () => {
       expect(container.firstChild).toHaveClass(styles.rtl);
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<ReadMore />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

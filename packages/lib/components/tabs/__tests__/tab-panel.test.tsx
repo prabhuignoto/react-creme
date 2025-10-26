@@ -33,4 +33,13 @@ describe('TabPanel', () => {
     const { getByRole } = render(<TabPanel {...defaultProps} disabled />);
     expect(getByRole('tabpanel')).toHaveClass(styles.disabled);
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<TabPanel />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

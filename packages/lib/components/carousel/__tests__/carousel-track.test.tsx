@@ -47,4 +47,13 @@ describe('CarouselTrack', () => {
     fireEvent.click(previousButton);
     expect(defaultProps.onPrevious).toHaveBeenCalled();
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<CarouselTrack />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

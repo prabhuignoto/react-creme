@@ -91,4 +91,13 @@ describe('Menu', () => {
       // expect(getByText('one')).toHaveFocus();
     });
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Menu />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

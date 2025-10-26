@@ -51,4 +51,13 @@ describe('Form Group', () => {
 
     expect(onCancel).toHaveBeenCalled();
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<FormField />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

@@ -45,4 +45,13 @@ describe('Progress', () => {
     expect(getByRole('progressbar')).toHaveAttribute('aria-valuemax', '200');
     expect(getByRole('progressbar')).toHaveAttribute('aria-valuenow', '120');
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Progress />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

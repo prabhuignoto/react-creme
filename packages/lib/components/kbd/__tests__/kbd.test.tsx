@@ -20,4 +20,13 @@ describe('Keyboard', () => {
 
     expect(getByText('Shift')).toHaveClass(styles.right_raised);
   });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Kbd />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });
