@@ -101,4 +101,91 @@ describe('Alert', () => {
 
     expect(getByRole('alert')).toHaveClass(styles.alert_rtl);
   });
+
+  it('should render sm size correctly', async () => {
+    const { getByRole } = render(<Alert message="test" state="info" size="sm" />);
+
+    expect(getByRole('alert')).toHaveClass(styles.alert_sm);
+  });
+
+  it('should render md size correctly', async () => {
+    const { getByRole } = render(<Alert message="test" state="info" size="md" />);
+
+    expect(getByRole('alert')).toHaveClass(styles.alert_md);
+  });
+
+  it('should render lg size correctly', async () => {
+    const { getByRole } = render(<Alert message="test" state="info" size="lg" />);
+
+    expect(getByRole('alert')).toHaveClass(styles.alert_lg);
+  });
+
+  it('should handle very long messages', async () => {
+    const longMessage =
+      'This is a very long alert message that should be displayed correctly without breaking the layout or causing any visual issues in the alert component. It should wrap properly and remain readable.';
+    const { getByText } = render(<Alert message={longMessage} state="info" />);
+
+    expect(getByText(longMessage)).toBeInTheDocument();
+  });
+
+  it('should handle HTML content in children', async () => {
+    const { getByText, getByRole } = render(
+      <Alert message="test" state="info">
+        <div>
+          <strong>Bold text</strong> and <em>italic text</em>
+        </div>
+      </Alert>
+    );
+
+    expect(getByText('Bold text')).toBeInTheDocument();
+    expect(getByText('italic text')).toBeInTheDocument();
+    expect(getByRole('alert')).toBeInTheDocument();
+  });
+
+  it('should respect focusable prop when false', async () => {
+    const { getByRole } = render(
+      <Alert message="test" state="info" focusable={false} />
+    );
+
+    const closeButton = getByRole('button');
+    expect(closeButton).toHaveAttribute('tabIndex', '-1');
+  });
+
+  it('should have correct aria attributes', async () => {
+    const { getByRole } = render(<Alert message="test" state="info" />);
+
+    const alert = getByRole('alert');
+    expect(alert).toHaveAttribute('aria-live', 'assertive');
+  });
+
+  it('should apply custom height', async () => {
+    const { getByRole } = render(
+      <Alert message="test" state="info" height={150} />
+    );
+
+    const alert = getByRole('alert');
+    expect(alert).toHaveStyle({ '--height': '150px' });
+  });
+
+  it('should render with default height', async () => {
+    const { getByRole } = render(<Alert message="test" state="info" />);
+
+    const alert = getByRole('alert');
+    expect(alert).toHaveStyle({ '--height': '100px' });
+  });
+
+  it('should have aria-labelledby pointing to content', async () => {
+    const { getByRole } = render(<Alert message="test content" state="info" />);
+
+    const alert = getByRole('alert');
+    const labelledBy = alert.getAttribute('aria-labelledby');
+
+    expect(labelledBy).toBeTruthy();
+    expect(labelledBy).toMatch(/^alert-content-/);
+
+    // Verify the content element has the matching ID
+    const contentElement = document.getElementById(labelledBy as string);
+    expect(contentElement).toBeInTheDocument();
+    expect(contentElement).toHaveTextContent('test content');
+  });
 });

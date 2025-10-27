@@ -1,5 +1,6 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/animate.scss';
 
 $sizes: (sm, md, lg);
@@ -108,7 +109,7 @@ $transition-time: 0.25s;
   @extend %border-radius;
   align-self: flex-start;
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin-top: tokens.$space-2;
 
   &:hover,
   &:focus {

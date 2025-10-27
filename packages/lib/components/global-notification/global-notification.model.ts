@@ -1,28 +1,64 @@
 export type GlobalNotificationState = 'success' | 'error' | 'warning' | 'info';
 
-/** ✨ Component props */
-
+/**
+ * GlobalNotification component props interface
+ */
 export interface GlobalNotificationProps {
+  /**
+   * Aria label for close button
+   * @default 'close notification'
+   */
+  ariaLabelClose?: string;
+
+  /**
+   * Time in milliseconds before auto-closing
+   * @default 3000
+   */
   closeAfter?: number;
+
+  /**
+   * Delay in milliseconds before showing
+   * @default 0
+   */
   delay?: number;
 
-  /**🔸makes the component focusable */
+  /**
+   * Makes the component focusable
+   * @default true
+   */
   focusable?: boolean;
 
-  /**🔸height of the notification */
+  /**
+   * Height of the notification in pixels
+   * @default 50
+   */
   height?: number;
 
-  /**🔸animation to use while hiding */
+  /**
+   * Animation to use while hiding
+   * @default 'hide'
+   */
   hideAnimationStyle?: 'hide' | 'shrink';
 
-  /**🔸message displayed in the notification */
+  /**
+   * Message displayed in the notification
+   */
   message: string;
 
-  /**🔸callback executed on close */
+  /**
+   * Callback executed on close
+   */
   onClose?: () => void;
 
+  /**
+   * Size of the notification
+   * @default 'md'
+   */
   size?: 'sm' | 'md' | 'lg';
 
-  /**🔸state of the notification */
+  /**
+   * State of the notification
+   * @default 'info'
+   */
   state?: GlobalNotificationState;
 }
