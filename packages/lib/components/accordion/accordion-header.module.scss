@@ -1,5 +1,6 @@
 @use '@design/theme.scss';
 @use '@design/core.scss';
+@use '@design/tokens.scss';
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -10,15 +11,28 @@ $header-heights: (
 );
 
 .header {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
   @extend %border-radius;
   align-items: center;
+  background: transparent;
+  border: none;
   color: theme.$primary;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
   height: var(--rc-accordion-header-height, 35px);
   justify-items: flex-start;
   outline: 0;
+  padding: 0;
   position: relative;
+  text-align: left;
   text-transform: capitalize;
   user-select: none;
+  width: 100%;
 
   &:not(.disable-icon) {
     @extend %left;
@@ -29,7 +43,7 @@ $header-heights: (
   }
 
   &.full_width {
-    width: calc(100% - 0.5rem);
+    width: calc(100% - tokens.$space-2); // 0.5rem
   }
 
   &.align-icon-rt {
@@ -47,6 +61,11 @@ $header-heights: (
     &:not(.dark) {
       background: rgba(theme.$secondary-rgb, 0.25);
     }
+  }
+
+  &:focus-visible {
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
   }
 }
 
@@ -66,7 +85,7 @@ $header-heights: (
   @extend %left;
   display: block;
   margin: auto 0;
-  padding: 0 0.25rem;
+  padding: 0 tokens.$space-1; // 0.25rem
   width: calc(100%);
 
   &:not(.title_bold) {
@@ -94,7 +113,7 @@ $header-heights: (
     @extend %icon-#{$size};
   }
 
-  .header {
+  .button {
     &.size {
       height: var(
         --rc-accordion-header-height,
@@ -118,6 +137,10 @@ $header-heights: (
 .icon {
   cursor: pointer;
   transition: transform 0.2s ease-in;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 
   &:not(.colorize) {
     color: var(--icon-color, theme.$primary);

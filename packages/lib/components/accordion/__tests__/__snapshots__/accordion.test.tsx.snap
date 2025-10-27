@@ -4,47 +4,52 @@ exports[`Accordion > should render snapshot 1`] = `
 <div
   class="_accordion_f93c7f _no-border_f93c7f"
 >
-  <div
-    aria-controls="accordion-body-XvmnJnjtgGGjzzOBwBOiL"
-    aria-expanded="false"
-    class="_header_c2ceb5 _focusable_c2ceb5 _size_c2ceb5"
-    id="accordion-uz0iYgGE231TN6Gj6iSlw"
-    role="heading"
-    style="--rc-accordion-header-height: 40px; outline: none; position: relative;"
-    tabindex="0"
+  <h3
+    class="_header_c2ceb5"
+    style="--rc-accordion-header-height: 40px;"
   >
-    <span
-      class="_icon_c2ceb5 _icon-chevron_c2ceb5 _icon-sm_c2ceb5"
-      role="img"
+    <button
+      aria-controls="accordion-body-HrRTsf8JWmiIV-2DDNW9h"
+      aria-expanded="false"
+      class="_button_c2ceb5 _focusable_c2ceb5 _size_c2ceb5"
+      id="accordion-opnKSEUZDPZHvf1z2Urw6"
+      style="outline: none; position: relative;"
+      tabindex="0"
+      type="button"
     >
-      <svg
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <span
+        aria-hidden="true"
+        class="_icon_c2ceb5 _icon-chevron_c2ceb5 _icon-sm_c2ceb5"
       >
-        <path
-          d="M9 18l6-6-6-6"
-        />
-      </svg>
-    </span>
-    <span
-      class="_title_c2ceb5 _title_sm_c2ceb5"
-    />
-    <span
-      class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-      style="width: 6px; height: 6px;"
-    />
-  </div>
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 18l6-6-6-6"
+          />
+        </svg>
+      </span>
+      <span
+        class="_title_c2ceb5 _title_sm_c2ceb5"
+      />
+      <span
+        class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
+        style="width: 6px; height: 6px;"
+      />
+    </button>
+  </h3>
   <div
-    aria-labelledby="accordion-uz0iYgGE231TN6Gj6iSlw"
+    aria-labelledby="accordion-opnKSEUZDPZHvf1z2Urw6"
     class="_body_f93c7f _animate_f93c7f _close_f93c7f"
-    id="accordion-body-XvmnJnjtgGGjzzOBwBOiL"
+    id="accordion-body-HrRTsf8JWmiIV-2DDNW9h"
     role="region"
-    style="--title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
+    style="--transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
   >
     <div
       style="height: 0px; visibility: hidden;"

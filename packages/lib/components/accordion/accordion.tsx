@@ -36,7 +36,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
   onRendered,
   selected = false,
   title,
-  titleColor = '#000',
+  titleColor,
   transition = 'cubic-bezier(0.19, 1, 0.22, 1)',
   disableARIA,
   size = 'sm',
@@ -80,7 +80,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
         [styles.close]: !open,
         [styles.open]: open && !isFirstRender.current,
       }),
-    [open, animate, isFirstRender]
+    [open, animate] // isFirstRender.current changes don't need re-computation
   );
 
   // Define the inline style for the accordion's body

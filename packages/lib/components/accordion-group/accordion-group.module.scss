@@ -1,5 +1,6 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 
 .group {
   @extend %col-left;
@@ -12,6 +13,6 @@
 
 .group_item {
   @extend %left;
-  margin-bottom: 0.5rem;
+  margin-bottom: tokens.$space-2; // 0.5rem
   width: 100%;
 }
