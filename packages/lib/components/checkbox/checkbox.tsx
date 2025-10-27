@@ -160,7 +160,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
       if (checked !== isChecked) {
         setChecked(isChecked);
       }
-    }, [isChecked, checked]);
+    }, [isChecked]);
 
     // Render checkbox component
     return (
