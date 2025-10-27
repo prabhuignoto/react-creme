@@ -2,6 +2,7 @@
 @use '@design/theme.scss';
 @use '@design/list.scss';
 @use '@design/animate.scss';
+@use '@design/tokens.scss';
 
 $sizes: (
   sm: 1rem,
@@ -24,7 +25,7 @@ $sizes: (
 .item {
   @include animate.set-settings();
   cursor: pointer;
-  margin: 0 0.5rem;
+  margin: 0 tokens.$space-2;
 
   &.disabled {
     @extend %disabled;

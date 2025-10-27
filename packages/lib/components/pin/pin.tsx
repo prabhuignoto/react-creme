@@ -20,6 +20,7 @@ import {
 } from 'react';
 import { InputNumber } from '..';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import styles from './pin.module.scss';
 import { PinProps } from './pin.model';
 
@@ -34,6 +35,7 @@ const Pin: FunctionComponent<PinProps> = ({
   const items = useRef(Array.from({ length }, () => ({ id: nanoid() })));
   const [pinVal, setPinVal] = useState<string | null>(null);
   const isFirstRender = useFirstRender();
+  const [focusedIndex, setFocusedIndex] = useState<number>(-1);
 
   // Define class for wrapper
   const wrapperClass = useMemo(
@@ -41,12 +43,28 @@ const Pin: FunctionComponent<PinProps> = ({
     [RTL]
   );
 
-  const wrapperRef = useRef<HTMLUListElement | null>(null);
+  const wrapperRef = useRef<HTMLElement>(null!);
 
   // Handle reference load
-  const onRefLoad = useCallback((node: HTMLUListElement) => {
+  const onRefLoad = useCallback((node: HTMLElement) => {
     if (node) wrapperRef.current = node;
   }, []);
+
+  // Keyboard navigation between PIN inputs
+  useKeyNavigation(wrapperRef, focusedIndex, length, {
+    orientation: 'horizontal',
+    rtl: RTL,
+    wrap: true,
+    onNavigate: (index: number) => {
+      setFocusedIndex(index);
+      // Auto-focus the input at the new index
+      setTimeout(() => {
+        wrapperRef.current
+          ?.querySelectorAll('li')
+          [index]?.querySelector('input')?.focus();
+      }, 0);
+    },
+  });
 
   // Handle input change
   const handleChange = useCallback(
@@ -55,7 +73,7 @@ const Pin: FunctionComponent<PinProps> = ({
         // Auto jump to next input
         if (index + 1 < length && wrapperRef.current && autoJump) {
           const ele = wrapperRef.current.querySelectorAll('li')[index + 1];
-          ele.querySelector('input')?.focus();
+          ele?.querySelector('input')?.focus();
         }
         setPinVal(prev => (prev || '') + val);
       }
@@ -70,7 +88,7 @@ const Pin: FunctionComponent<PinProps> = ({
       if (_val && _val.length < length && idx > 0 && autoJump) {
         wrapperRef.current
           ?.querySelectorAll('li')
-          [idx - 1].querySelector('input')
+          [idx - 1]?.querySelector('input')
           ?.focus();
       }
     },
@@ -91,7 +109,13 @@ const Pin: FunctionComponent<PinProps> = ({
   );
 
   return (
-    <ul className={wrapperClass} ref={onRefLoad}>
+    <ul
+      className={wrapperClass}
+      ref={onRefLoad as React.Ref<HTMLUListElement>}
+      role="group"
+      aria-label="PIN code input"
+      tabIndex={-1}
+    >
       {items.current.map(({ id }, index) => (
         <li key={id} className={styles.item}>
           <div className={inputWrapperClass}>

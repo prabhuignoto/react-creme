@@ -43,6 +43,7 @@ $start-left: 4px;
   transition: all 0.2s ease;
 
   // Focus indicator - WCAG 2.4.7 compliant
+  &:focus,
   &:focus-visible {
     outline: 2px solid theme.$primary;
     outline-offset: 2px;

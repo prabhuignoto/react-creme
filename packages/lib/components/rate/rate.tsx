@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { RateItem } from './rate-item';
 import { RateItemProps, RateProps } from './rate-model';
 import styles from './rate.module.scss';
@@ -91,6 +92,17 @@ const Rate: React.FunctionComponent<RateProps> = ({
     }
   }, 10);
 
+  // Keyboard navigation between rate items
+  const wrapperRef = useRef<HTMLElement>(null!);
+  useKeyNavigation(wrapperRef, selectedIndex >= 0 ? selectedIndex : -1, iconCount, {
+    orientation: 'horizontal',
+    rtl: RTL,
+    wrap: true,
+    onNavigate: (index: number) => {
+      handleSelection(index);
+    },
+  });
+
   // Effect to update the active state of rate items when the selected index changes
   useEffect(() => {
     setItems(prev =>
@@ -126,7 +138,10 @@ const Rate: React.FunctionComponent<RateProps> = ({
     <ul
       className={rateWrapperClass}
       role="radiogroup"
+      aria-label="rating"
       onMouseLeave={handleLeave}
+      ref={wrapperRef as React.RefObject<HTMLUListElement>}
+      tabIndex={-1}
     >
       {items.map(({ id, active, hovered }, index) => (
         <RateItem

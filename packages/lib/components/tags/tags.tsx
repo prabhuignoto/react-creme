@@ -3,10 +3,11 @@ import '@design/list.scss';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 import React from 'react';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AutoSuggest } from '../auto-suggest/auto-suggest';
 import { AutoSuggestOption } from '../auto-suggest/auto-suggest.model';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { RCInputElementProps } from '../input/input';
 import { TagItem } from './tag-item';
 import { TagItemProps, TagsProps } from './tags-model';
@@ -35,7 +36,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
     items
       .map(({ name, disabled }) => ({
         accent,
-        disabled: disabled,
+        disabled: disabled ?? false,
         id: nanoid(),
         markedForRemoval: false,
         name: name,
@@ -49,6 +50,8 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   const [inputValue, setInputValue] = useState('');
 
   const inputRef = React.useRef<RCInputElementProps | null>(null);
+  const wrapperRef = useRef<HTMLElement>(null!);
+  const [focusedTagIndex, setFocusedTagIndex] = useState<number>(-1);
 
   const canAdd = useMemo(
     () => tagItems.length + 1 <= maxTags && !readonly,
@@ -111,6 +114,21 @@ const Tags: React.FunctionComponent<TagsProps> = ({
     inputRef.current?.focus();
   }, []);
 
+  // Keyboard navigation between tags with Delete key support
+  useKeyNavigation(wrapperRef, focusedTagIndex, tagItems.length, {
+    orientation: 'horizontal',
+    rtl: RTL,
+    wrap: true,
+    onNavigate: (index: number) => {
+      setFocusedTagIndex(index);
+    },
+    onDelete: () => {
+      if (focusedTagIndex >= 0 && tagItems[focusedTagIndex]) {
+        handleRemove(tagItems[focusedTagIndex].id || '');
+      }
+    },
+  });
+
   // EFFECTS
   useEffect(() => {
     if (onChange && !isFirstRender.current) {
@@ -124,10 +142,10 @@ const Tags: React.FunctionComponent<TagsProps> = ({
         items
           .map(item => ({
             accent,
-            disabled: item.disabled,
+            disabled: item.disabled ?? false,
             id: nanoid(),
             name: item.name,
-            readonly: readonly,
+            readonly: readonly ?? false,
           }))
           .slice(0, maxTags)
       );
@@ -150,19 +168,23 @@ const Tags: React.FunctionComponent<TagsProps> = ({
             }
           : {}
       )}
+      ref={wrapperRef as React.RefObject<HTMLUListElement>}
+      role="group"
+      aria-label="tag list"
+      tabIndex={-1}
     >
       {tagItems.map(({ id, name, disabled, readonly, markedForRemoval }) => (
         <TagItem
-          id={id}
-          disabled={disabled}
-          readonly={readonly}
+          id={id ?? ''}
+          disabled={disabled ?? false}
+          readonly={readonly ?? false}
           handleRemove={handleRemove}
           key={id}
           name={name}
           tagWidth={tagWidth}
           tagStyle={tagStyle}
           size={size}
-          markedForRemoval={markedForRemoval}
+          markedForRemoval={markedForRemoval ?? false}
           focusable={focusable}
           accent={accent}
         />

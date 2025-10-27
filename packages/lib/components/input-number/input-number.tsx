@@ -28,17 +28,17 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
   maxLength = Number.MAX_VALUE,
   onDelete,
 }) => {
-  const [number, setNumber] = useState(
-    honorBoundaries
-      ? value
-        ? value > end
-          ? end
-          : value < start
-            ? start
-            : value
-        : start
-      : value
-  );
+  const isDarkMode = useMemo(() => isDark(), []);
+
+  const initialValue = useMemo(() => {
+    if (!honorBoundaries) return value;
+    if (!value) return start;
+    if (value > end) return end;
+    if (value < start) return start;
+    return value;
+  }, [value, honorBoundaries, start, end]);
+
+  const [number, setNumber] = useState(initialValue);
 
   const onIncrement = useCallback(
     (ev?: React.KeyboardEvent | React.MouseEvent) => {
@@ -52,7 +52,7 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         setNumber(end);
       }
     },
-    [number]
+    [number, end, onChange]
   );
 
   const onDecrement = useCallback(
@@ -66,10 +66,8 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         setNumber(start);
       }
     },
-    [number]
+    [number, start, onChange]
   );
-
-  const isDarkMode = useMemo(() => isDark(), []);
 
   const inputClass = useMemo(
     () =>
@@ -79,7 +77,7 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         [styles.rtl]: RTL,
         [styles.dark]: isDarkMode,
       }),
-    []
+    [size, border, RTL, isDarkMode]
   );
 
   const handleKeyUp = useCallback(
@@ -89,20 +87,41 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
         onDelete?.();
       }
     },
-    [number, onIncrement, onDecrement]
+    [onDelete]
   );
 
   const handleChange = useCallback(
     (val: string) => {
       const num = Number.parseInt(val);
-      setNumber(num);
-      onChange?.(num);
+      if (!Number.isNaN(num)) {
+        setNumber(num);
+        onChange?.(num);
+      }
     },
-    [number]
+    [onChange]
+  );
+
+  const handleKeyDown = useCallback(
+    (ev: React.KeyboardEvent) => {
+      if (ev.key === 'ArrowUp' || ev.key === 'ArrowDown') {
+        ev.preventDefault();
+        if (ev.key === 'ArrowUp') {
+          onIncrement(ev);
+        } else {
+          onDecrement(ev);
+        }
+      }
+    },
+    [onIncrement, onDecrement]
   );
 
   return (
-    <div className={inputClass}>
+    <div
+      className={inputClass}
+      role="spinbutton"
+      aria-label="number input"
+      onKeyDown={handleKeyDown}
+    >
       <Input
         controlled
         value={number + ''}
@@ -126,7 +145,8 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
             onClick={onIncrement}
             size={size}
             label="increment"
-            style={{ marginBottom: '0.25rem', transform: 'rotate(180deg)' }}
+            aria-label="increment value"
+            style={{ marginBottom: 'var(--rc-space-1)', transform: 'rotate(180deg)' }}
           >
             <ChevronDownIcon />
           </Button>
@@ -135,6 +155,7 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
             onClick={onDecrement}
             size={size}
             label="decrement"
+            aria-label="decrement value"
           >
             <ChevronDownIcon />
           </Button>

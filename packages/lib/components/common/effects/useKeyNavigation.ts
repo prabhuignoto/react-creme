@@ -11,18 +11,50 @@ export interface UseKeyNavigationOptions {
   rtl?: boolean;
   /** Callback when navigation occurs */
   onNavigate?: (index: number) => void;
+  /** Callback when Enter key is pressed */
+  onEnter?: () => void;
+  /** Callback when Space key is pressed */
+  onSpace?: () => void;
+  /** Callback when Delete key is pressed */
+  onDelete?: () => void;
+  /** Callback when Escape key is pressed */
+  onEscape?: () => void;
+  /** Callback when PageUp key is pressed */
+  onPageUp?: () => void;
+  /** Callback when PageDown key is pressed */
+  onPageDown?: () => void;
 }
 
 /**
- * Custom hook to handle keyboard navigation within a collection of items.
- * Supports both vertical (ArrowUp/Down) and horizontal (ArrowLeft/Right) navigation.
+ * Comprehensive keyboard navigation hook for list/collection components
+ * Handles arrow keys, Home/End, and additional keys (Enter, Space, Delete, Escape, PageUp/Down)
  *
- * @param {RefObject<HTMLElement>} ref - The reference to the DOM element that contains the collection.
- * @param {number} startIndex - The initial selection index.
- * @param {number} collectionLength - The total number of items in the collection.
- * @param {number | UseKeyNavigationOptions} scrollOffsetOrOptions - Scroll offset (for backward compat) or options object.
- * @param {boolean} focusable - A flag to enable or disable keyboard navigation.
- * @returns {Object} - The current selection index and a setter function to update it.
+ * **Features:**
+ * - Vertical (ArrowUp/Down) and horizontal (ArrowLeft/Right) navigation
+ * - Home/End key support for jump-to-start/end
+ * - Wrap-around or boundary clamping
+ * - RTL support for horizontal navigation
+ * - Additional key handlers: Enter, Space, Delete, Escape, PageUp/Down
+ * - Scroll offset for auto-scrolling during vertical navigation
+ *
+ * @param {RefObject<HTMLElement>} ref - Reference to the DOM element that contains the collection
+ * @param {number} startIndex - The initial selection index (default: -1)
+ * @param {number} collectionLength - The total number of items in the collection
+ * @param {number | UseKeyNavigationOptions} scrollOffsetOrOptions - Scroll offset (for backward compat) or options object
+ * @param {boolean} focusable - Enable/disable keyboard navigation (default: true)
+ * @returns {Object} - { selection: current index, setSelection: function to update index }
+ *
+ * @example
+ * ```tsx
+ * const ref = useRef<HTMLDivElement>(null);
+ * const { selection, setSelection } = useKeyNavigation(ref, 0, items.length, {
+ *   orientation: 'horizontal',
+ *   rtl: false,
+ *   onNavigate: (index) => setSelectedIndex(index),
+ *   onEnter: () => handleSelect(),
+ *   onDelete: () => handleRemove(),
+ * });
+ * ```
  */
 function useKeyNavigation(
   ref: RefObject<HTMLElement>,
@@ -37,7 +69,19 @@ function useKeyNavigation(
       ? { scrollOffset: scrollOffsetOrOptions, orientation: 'vertical' }
       : { orientation: 'vertical', wrap: true, scrollOffset: 50, ...scrollOffsetOrOptions };
 
-  const { orientation, wrap = true, scrollOffset = 50, rtl = false, onNavigate } = options;
+  const {
+    orientation,
+    wrap = true,
+    scrollOffset = 50,
+    rtl = false,
+    onNavigate,
+    onEnter,
+    onSpace,
+    onDelete,
+    onEscape,
+    onPageUp,
+    onPageDown,
+  } = options;
 
   const [selection, setSelection] = useState(startIndex);
   const listRef = useRef<HTMLElement | null>(null);
@@ -116,8 +160,43 @@ function useKeyNavigation(
         setSelection(lastIndex);
         onNavigate?.(lastIndex);
       }
+
+      // Additional keyboard handlers
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        onEnter?.();
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        onSpace?.();
+      } else if (e.key === 'Delete') {
+        e.preventDefault();
+        onDelete?.();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        onEscape?.();
+      } else if (e.key === 'PageUp') {
+        e.preventDefault();
+        onPageUp?.();
+      } else if (e.key === 'PageDown') {
+        e.preventDefault();
+        onPageDown?.();
+      }
     },
-    [focusable, collectionLength, orientation, wrap, scrollOffset, rtl, onNavigate]
+    [
+      focusable,
+      collectionLength,
+      orientation,
+      wrap,
+      scrollOffset,
+      rtl,
+      onNavigate,
+      onEnter,
+      onSpace,
+      onDelete,
+      onEscape,
+      onPageUp,
+      onPageDown,
+    ]
   );
 
   useEffect(() => {

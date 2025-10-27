@@ -3,15 +3,12 @@
 @use '@design/theme.scss';
 @use '@design/animate.scss';
 @use '@design/position.scss';
+@use '@design/tokens.scss';
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
 
-$padding-sizes: (
-  sm: 0.25rem,
-  md: 0.5rem,
-  lg: 0.75rem,
-);
+// Removed - use tokens.$space-* instead
 
 $tag-heights: (
   sm: 26px,
@@ -51,10 +48,10 @@ $tag-heights: (
 
   // CSS properties before animation mixins to comply with Sass mixed-decls
   justify-items: center;
-  margin: 0.5rem 0.25rem;
+  margin: tokens.$space-2 tokens.$space-1;
   max-width: calc(var(--width) + 1rem);
   min-width: 40px;
-  padding: 0.2rem 0.4rem;
+  padding: tokens.$space-1 tokens.$space-2;
   transform: scale(1);
   user-select: none;
   visibility: visible;
@@ -197,7 +194,7 @@ $tag-heights: (
 }
 
 .tags_input_wrapper {
-  margin-left: 0.25rem;
+  margin-left: tokens.$space-1;
   position: relative;
 }
 

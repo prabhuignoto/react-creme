@@ -34,16 +34,20 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   focusable = true,
   size = 'sm',
 }) => {
-  // State to manage the list of radio group items
-  const [_items, setItems] = useState<RadioGroupItemProps<string>[]>(
-    Array.isArray(items)
-      ? items.map(item => ({
-          id: nanoid(),
-          ...item,
-          disabled: typeof disabled !== 'undefined' ? disabled : item.disabled,
-        }))
-      : []
+  // State to manage the list of radio group items - derived from props
+  const _items = useMemo(
+    () =>
+      Array.isArray(items)
+        ? items.map(item => ({
+            id: nanoid(),
+            ...item,
+            disabled: typeof disabled !== 'undefined' ? disabled : item.disabled,
+          }))
+        : [],
+    [items, disabled]
   );
+
+  const [items_state, setItems] = useState<RadioGroupItemProps<string>[]>(_items);
 
   // State to track changes in the radio group items
   const [changeTracker, setChangeTracker] = useState<number>();
@@ -82,21 +86,26 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
     [layout]
   );
 
+  // Sync items_state with derived _items when props change
+  React.useEffect(() => {
+    setItems(_items);
+  }, [_items]);
+
   // useEffect to trigger onSelected when a radio item is changed (excluding the first render)
   useEffect(() => {
     if (!isFirstRender.current) {
-      const foundItem = _items.find(item => item.checked);
+      const foundItem = items_state.find(item => item.checked);
       const value = foundItem ? foundItem.value : undefined;
 
       if (value && onSelected) {
         onSelected(value);
       }
     }
-  }, [changeTracker, _items, onSelected]);
+  }, [changeTracker, items_state, onSelected]);
 
   return (
-    <ul className={radioGroupClass} role="radiogroup" style={style}>
-      {_items.map(({ id, disabled, label, checked }) => (
+    <ul className={radioGroupClass} role="radiogroup" aria-label="radio group options" style={style}>
+      {items_state.map(({ id, disabled, label, checked }) => (
         <Radio
           key={id}
           onChange={handleChange}

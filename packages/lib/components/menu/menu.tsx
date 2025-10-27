@@ -113,12 +113,16 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     }
 
     if (showMenu && wrapperRef.current) {
-      wrapperRef.current.focus();
+      // Only focus wrapper if focusable is enabled
+      // This prevents focus battles with parent components
+      if (focusable) {
+        wrapperRef.current.focus();
+      }
       if (onOpen) {
         onOpen(id);
       }
     }
-  }, [showMenu]);
+  }, [showMenu, focusable]);
 
   const onInitRef = useCallback((node: HTMLDivElement) => {
     if (node) {

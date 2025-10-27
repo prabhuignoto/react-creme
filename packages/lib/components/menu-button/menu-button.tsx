@@ -4,32 +4,54 @@ import { nanoid } from 'nanoid';
 import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
 import { isDark } from '../common/utils';
 import { Menu } from '../menu/menu';
-import { MenuItemProps } from '../menu/menu-model';
 import { MenuButtonProps } from './menu-button.model';
 import styles from './menu-button.module.scss';
 
 const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
   items = [],
   onSelected,
-  focusable = true,
   width = 150,
   disabled = false,
   RTL = false,
   iconColor,
   size = 'sm',
 }) => {
-  const menuItems = useRef<MenuItemProps[]>(
-    items.slice(1).map(item => ({
-      id: nanoid(),
-      name: item,
-    }))
+  const isDarkMode = useMemo(() => isDark(), []);
+  const buttonRef = useRef<HTMLDivElement>(null);
+
+  const menuItems = useMemo(
+    () =>
+      items.slice(1).map(item => ({
+        id: nanoid(),
+        name: item,
+      })),
+    [items]
   );
 
-  const isDarkMode = useMemo(() => isDark(), []);
+  const handleMenuSelection = useCallback(
+    (item: string) => {
+      onSelected?.(item);
+      // Return focus to button after selection
+      setTimeout(() => {
+        buttonRef.current?.focus();
+      }, 0);
+    },
+    [onSelected]
+  );
 
-  const handleChange = useCallback((item: string) => {
-    onSelected?.(item);
-  }, []);
+  const handleKeyUp = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      // Use keyup instead of keydown to naturally prevent repeated events
+      // keyup only fires once when the key is released
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        e.stopPropagation();
+        // Let the click event handle the toggle (via bubbling to Menu)
+        buttonRef.current?.click();
+      }
+    },
+    []
+  );
 
   const menuButtonClass = useMemo(
     () =>
@@ -39,56 +61,61 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
         [styles[size]]: true,
         [styles.dark]: isDarkMode,
       }),
-    [disabled]
+    [disabled, RTL, size, isDarkMode]
   );
 
   const menuPosition = useMemo(() => {
     return RTL ? 'left' : 'right';
-  }, []);
+  }, [RTL]);
 
   const menuStyle = useMemo(() => {
     return {
       '--icon-color': iconColor,
       '--max-width': `${width}px`,
     } as CSSProperties;
-  }, []);
+  }, [iconColor, width]);
 
   const iconClass = useMemo(
     () =>
       cx(styles.icon, {
         [styles.dark]: isDarkMode,
       }),
-    []
+    [isDarkMode]
   );
 
   const labelClass = useMemo(
     () => cx(styles.label, { [styles.dark]: isDarkMode }, styles[size]),
-    []
+    [isDarkMode, size]
   );
 
   return (
     <div className={menuButtonClass} style={menuStyle}>
-      <div
-        role="button"
-        aria-label={items[0]}
-        onClick={() => handleChange(items[0])}
-      >
-        <label className={labelClass}>{items[0]}</label>
-      </div>
-
       <Menu
-        items={menuItems.current}
-        focusable={focusable}
-        onSelected={handleChange}
+        items={menuItems}
+        focusable={false}
+        onSelected={handleMenuSelection}
         dockPosition={menuPosition}
         size={size}
         gutter={15}
         hideArrow
         leftOffset={10 * (RTL ? -1 : 1)}
+        disabled={disabled}
       >
-        <span className={iconClass} role="img">
-          <ChevronDownIcon />
-        </span>
+        <div
+          role="button"
+          ref={buttonRef}
+          className={styles.button}
+          aria-label={items[0]}
+          aria-haspopup="menu"
+          aria-disabled={disabled}
+          tabIndex={disabled ? -1 : 0}
+          onKeyUp={handleKeyUp}
+        >
+          <span className={labelClass}>{items[0]}</span>
+          <span className={iconClass} role="img" aria-hidden="true">
+            <ChevronDownIcon />
+          </span>
+        </div>
       </Menu>
     </div>
   );

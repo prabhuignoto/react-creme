@@ -1,5 +1,6 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
+@use '@design/tokens.scss';
 
 .radio_group {
   margin: 0;
@@ -23,7 +24,7 @@
 
 .radio_grp_item {
   @extend %list-item-left;
-  margin: 0.5rem;
+  margin: tokens.$space-2;
 
   &.disabled {
     @extend %disabled;
