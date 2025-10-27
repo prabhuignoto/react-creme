@@ -1,5 +1,6 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
+@use '@design/tokens.scss';
 
 .wrapper {
   @extend %col;
@@ -8,12 +9,12 @@
 
 .form_item {
   @extend %left;
-  margin: 0.5rem 0;
+  margin: tokens.$space-2 0;
   width: 100%;
 }
 
 .from_controls {
-  margin-top: 1rem;
+  margin-top: tokens.$space-4;
   width: 100%;
 
   &.left {
@@ -27,6 +28,6 @@
 
 .form_control_wrapper {
   &:first-child {
-    margin-right: 0.5rem;
+    margin-right: tokens.$space-2;
   }
 }

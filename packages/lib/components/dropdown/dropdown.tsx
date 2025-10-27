@@ -1,7 +1,7 @@
 import cls from 'classnames';
 import { nanoid } from 'nanoid';
 import React from 'react';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { withOverlay } from '../common/withOverlay';
 import { DropDownMenu } from './dropdown-menu';
 import { DropdownMenuProps, DropdownProps, Option } from './dropdown-model';
@@ -30,27 +30,47 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     size = 'sm',
   }: DropdownProps) => {
     /**
-     * The state of the dropdown.
+     * Create stable IDs for options (memoized to avoid regeneration)
      */
-    const [dropdownOptions, setDropdownOptions] = useState(
-      options.map(option => ({
-        id: nanoid(),
-        ...option,
-        visible: true,
-      }))
+    const optionsWithIds = useMemo(
+      () =>
+        options.map((option, index) => ({
+          ...option,
+          id: option.id || `dropdown-option-${index}-${option.value}`,
+        })),
+      [options]
     );
 
     /**
-     * State of the selected value
+     * Track selection state separately to avoid props-to-state anti-pattern
      */
-    const [value, setValue] = useState(
-      options.length
-        ? options
-            .filter(opt => opt.selected)
-            .map(t => t.name)
-            .join(',')
-        : ''
+    const [selectedIds, setSelectedIds] = useState<Set<string>>(() => {
+      const selected = optionsWithIds.filter(opt => opt.selected).map(opt => opt.id);
+      return new Set(selected);
+    });
+
+    /**
+     * Derive dropdown options from props (avoid props-to-state anti-pattern)
+     */
+    const dropdownOptions = useMemo(
+      () =>
+        optionsWithIds.map(option => ({
+          ...option,
+          visible: true,
+          selected: selectedIds.has(option.id),
+        })),
+      [optionsWithIds, selectedIds]
     );
+
+    /**
+     * Derive selected value from selectedIds
+     */
+    const value = useMemo(() => {
+      const selectedOptions = dropdownOptions.filter(opt => selectedIds.has(opt.id));
+      return selectedOptions.length
+        ? selectedOptions.map(t => t.name).join(',')
+        : '';
+    }, [dropdownOptions, selectedIds]);
 
     // state for showing and hiding the menu
     const [showMenu, setShowMenu] = useState(false);
@@ -73,39 +93,28 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     /**
      * Handles the selection of an option
      */
-    const handleSelection = useCallback((selected: Option[]) => {
-      let _value: string | string[] = '';
+    const handleSelection = useCallback(
+      (selected: Option[]) => {
+        let _value: string | string[] = '';
 
-      if (allowMultiSelection) {
-        _value = selected.map(opt => opt.value).join(',');
-        const selectedIds = selected.map(item => item.id);
-        setValue(_value);
-        setDropdownOptions(options =>
-          options.map(option => ({
-            ...option,
-            selected: selectedIds.indexOf(option.id) > -1,
-          }))
-        );
-      } else {
-        const { id, value } = selected[0];
-        _value = value || '';
-        setValue(_value);
-        setDropdownOptions(options =>
-          options.map(option => ({
-            ...option,
-            selected: option.id === id,
-          }))
-        );
-        setShowMenu(false);
-        setFocusManual(true);
-      }
+        if (allowMultiSelection) {
+          _value = selected.map(opt => opt.value).join(',');
+          const newSelectedIds = selected.map(item => item.id);
+          setSelectedIds(new Set(newSelectedIds));
+        } else {
+          const { id, value: optValue } = selected[0];
+          _value = optValue || '';
+          setSelectedIds(new Set([id]));
+          setShowMenu(false);
+          setFocusManual(true);
+        }
 
-      setFocusIndex(-1);
+        setFocusIndex(-1);
 
-      if (onSelected) {
-        onSelected(_value);
-      }
-    }, []);
+        onSelected?.(_value);
+      },
+      [allowMultiSelection, onSelected]
+    );
 
     // toggles the dropdown menu
     const handleToggleMenu = useCallback(() => setShowMenu(prev => !prev), []);
@@ -130,7 +139,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       setTimeout(() => {
         setFocusIndex(focusableIndex);
       }, 50);
-    }, []);
+    }, [dropdownOptions]);
 
     // handles the menu closing
     const handleMenuClosing = useCallback(() => {
@@ -150,25 +159,19 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
         };
       }
       return {};
-    }, [showMenu]);
+    }, [showMenu, maxMenuHeight]);
 
     /**
      * Clears the selection
      */
-    const handleClear = useCallback((ev: React.MouseEvent) => {
-      ev.preventDefault();
-      setValue('');
-      //red
-      setDropdownOptions(options =>
-        options.map(option => ({
-          ...option,
-          selected: false,
-        }))
-      );
-      if (onSelected) {
-        onSelected('');
-      }
-    }, []);
+    const handleClear = useCallback(
+      (ev: React.MouseEvent) => {
+        ev.preventDefault();
+        setSelectedIds(new Set());
+        onSelected?.('');
+      },
+      [onSelected]
+    );
 
     // memoize the selected value
     const selectedValue = useMemo(() => {
@@ -182,7 +185,17 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       } else {
         return value || placeholder;
       }
-    }, [value, allowMultiSelection]);
+    }, [value, allowMultiSelection, placeholder]);
+
+    // Sync selectedIds when options prop changes
+    useEffect(() => {
+      const initialSelected = optionsWithIds
+        .filter(opt => opt.selected)
+        .map(opt => opt.id);
+      if (initialSelected.length > 0) {
+        setSelectedIds(new Set(initialSelected));
+      }
+    }, [optionsWithIds]);
 
     // memoized classnames
     const rcDropdownClass = useMemo(

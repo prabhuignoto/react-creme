@@ -36,6 +36,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       focusable = true,
       id = '',
       isAutoComplete = false,
+      ariaExpanded = false,
       noUniqueId = false,
       onChange,
       onFocus,
@@ -170,10 +171,11 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
         isAutoComplete
           ? {
               'aria-controls': id,
+              'aria-expanded': ariaExpanded,
               role: 'combobox',
             }
           : null,
-      [isAutoComplete]
+      [isAutoComplete, id, ariaExpanded]
     );
 
     const focusProps = useMemo(() => {

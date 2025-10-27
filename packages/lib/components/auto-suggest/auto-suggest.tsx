@@ -200,6 +200,7 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
             noUniqueId
             id={id.current}
             isAutoComplete
+            ariaExpanded={matchFound}
             onKeyUp={handleKeyUp}
             onKeyDown={onKeyDown}
             focusable={focusable}

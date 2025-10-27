@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { useImperativeHandle, useRef, useCallback } from 'react';
+import { useImperativeHandle, useRef, useCallback, useMemo } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';
 import { Spinner } from '../spinner/spinner';
@@ -42,19 +42,23 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
     isBusy = false,
   } = props;
 
-  // check if the theme is dark mode
-  const isDarkMode = isDark();
+  // check if the theme is dark mode (memoized to avoid recalculation on every render)
+  const isDarkMode = useMemo(() => isDark(), []);
 
-  // setup classnames for the button
-  const buttonClass = classNames(
-    {
-      [styles['default']]: type === 'progress',
-      [styles.no_border]: !border,
-      [styles.disabled]: disabled || isBusy,
-      [styles.dark]: isDarkMode,
-      [styles[accent]]: true,
-    },
-    [styles[size], styles[type], styles.btn]
+  // setup classnames for the button (memoized for performance)
+  const buttonClass = useMemo(
+    () =>
+      classNames(
+        {
+          [styles['default']]: type === 'progress',
+          [styles.no_border]: !border,
+          [styles.disabled]: disabled || isBusy,
+          [styles.dark]: isDarkMode,
+          [styles[accent]]: true,
+        },
+        [styles[size], styles[type], styles.btn]
+      ),
+    [type, border, disabled, isBusy, isDarkMode, accent, size]
   );
 
   // setup for focus

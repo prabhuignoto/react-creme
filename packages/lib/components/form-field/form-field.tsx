@@ -24,20 +24,20 @@ const FormField: FunctionComponent<FormFieldProps> = ({
       [styles.rtl]: RTL,
       [styles.dark]: isDarkMode,
     });
-  }, []);
+  }, [size, border, disabled, RTL, isDarkMode]);
 
   const formLabelClass = useMemo(() => {
     return classNames(styles.label, {
       [styles[`label_${size}`]]: true,
       [styles.dark]: isDarkMode,
     });
-  }, []);
+  }, [size, isDarkMode]);
 
   const formIconClass = useMemo(() => {
     return classNames(styles.icon, {
       [styles[`rc_icon_${size}`]]: true,
     });
-  }, []);
+  }, [size]);
 
   return (
     <div className={formFieldClass}>

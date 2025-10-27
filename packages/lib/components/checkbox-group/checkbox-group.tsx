@@ -1,18 +1,48 @@
 // Import necessary libraries and components
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { CheckBox } from '../checkbox/checkbox';
 import { CheckboxProps } from '../checkbox/checkbox-model';
 import styles from './checkbox-group.module.scss';
 
+/**
+ * Props for the CheckboxGroup component
+ */
 export interface CheckboxGroupProps {
+  /** Enable right-to-left text direction */
   RTL?: boolean;
+
+  /** Add border around each checkbox */
   border?: boolean;
+
+  /**
+   * Visual style for all checkboxes in the group.
+   * @default 'square'
+   */
   checkboxStyle?: 'square' | 'round';
+
+  /** Disable all checkboxes in the group */
   disabled?: boolean;
+
+  /**
+   * Layout direction for the checkbox group.
+   * @default 'vertical'
+   */
   layout?: 'horizontal' | 'vertical';
+
+  /**
+   * When true, uses the `id` from each option directly.
+   * When false, generates unique IDs automatically.
+   * @default false
+   */
   noUniqueIds?: boolean;
+
+  /**
+   * Callback fired when any checkbox state changes.
+   * Returns array of all checkboxes with their current state.
+   * @param selected - Array of objects containing id, isChecked, and name for each checkbox
+   */
   onChange?: (
     selected: {
       id?: string;
@@ -20,7 +50,17 @@ export interface CheckboxGroupProps {
       name?: string;
     }[]
   ) => void;
+
+  /**
+   * Array of checkbox configurations.
+   * Each option should have a `label` (required) and can include:
+   * - `isChecked`: Initial checked state
+   * - `disabled`: Disable specific checkbox
+   * - `id`: Custom ID (used when noUniqueIds is true)
+   */
   options: CheckboxProps[];
+
+  /** Size variant for all checkboxes */
   size?: 'sm' | 'md' | 'lg';
 }
 
@@ -61,16 +101,46 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
         ? styles.checkbox_group_horizontal
         : styles.checkbox_group_vertical,
     ]);
-  }, [layout, disabled]);
+  }, [layout]);
 
-  // Initialize the state for the checkboxes in the group
-  const [items, setItems] = useState(
-    options.map(option => ({
-      ...(!noUniqueIds ? { id: nanoid() } : { id: option.id }),
-      ...option,
-      isChecked: option.isChecked || false,
-    }))
+  // Track checked state separately to avoid props-to-state anti-pattern
+  const [checkedState, setCheckedState] = useState<Record<string, boolean>>(() => {
+    const initialState: Record<string, boolean> = {};
+    options.forEach((option, index) => {
+      const id = noUniqueIds ? option.id : `checkbox-${index}`;
+      initialState[id || `checkbox-${index}`] = option.isChecked || false;
+    });
+    return initialState;
+  });
+
+  // Derive items from options prop (no props-to-state anti-pattern)
+  const items = useMemo(
+    () =>
+      options.map((option, index) => {
+        const id = noUniqueIds ? option.id : `checkbox-${index}`;
+        const itemId = id || `checkbox-${index}`;
+        return {
+          ...option,
+          id: itemId,
+          isChecked: checkedState[itemId] ?? option.isChecked ?? false,
+        };
+      }),
+    [options, noUniqueIds, checkedState]
   );
+
+  // Sync checkedState when options change
+  useEffect(() => {
+    setCheckedState(prevState => {
+      const newState: Record<string, boolean> = {};
+      options.forEach((option, index) => {
+        const id = noUniqueIds ? option.id : `checkbox-${index}`;
+        const itemId = id || `checkbox-${index}`;
+        // Preserve existing state or use option's isChecked
+        newState[itemId] = prevState[itemId] ?? option.isChecked ?? false;
+      });
+      return newState;
+    });
+  }, [options, noUniqueIds]);
 
   // Define the handler for checkbox state change
   const handleChange = useCallback(
@@ -79,24 +149,22 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
         return;
       }
 
-      setItems(prevItems => {
-        const updatedItems = prevItems.map(item => ({
-          ...item,
-          isChecked: item.id === id ? selected : !!item.isChecked,
-        }));
+      setCheckedState(prevState => {
+        const newState = { ...prevState, [id]: selected };
 
+        // Call onChange with updated items
         onChange?.(
-          updatedItems.map(item => ({
+          items.map(item => ({
             id: item.id,
-            isChecked: item.isChecked,
+            isChecked: item.id === id ? selected : newState[item.id] ?? false,
             name: item.label,
           }))
         );
 
-        return updatedItems;
+        return newState;
       });
     },
-    [onChange]
+    [onChange, items]
   );
 
   // Render the checkbox group

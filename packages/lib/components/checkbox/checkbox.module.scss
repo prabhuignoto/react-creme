@@ -1,6 +1,7 @@
 @use '@design/core.scss';
 @use '@design/animate.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -25,7 +26,7 @@ $heights: (
   display: grid;
   height: 100%;
   justify-items: center;
-  padding: 0.25rem 0.5rem;
+  padding: tokens.$space-1 tokens.$space-2;
   width: 100%;
 
   &.rtl {
@@ -141,7 +142,7 @@ $heights: (
   cursor: pointer;
   display: block;
   font-weight: 300;
-  padding-left: 0.5rem;
+  padding-left: tokens.$space-2;
   user-select: none;
 
   &.dark {
@@ -149,7 +150,7 @@ $heights: (
   }
 
   &.label_rtl {
-    padding-right: 0.5rem;
+    padding-right: tokens.$space-2;
   }
 
   @each $key in $sizes {

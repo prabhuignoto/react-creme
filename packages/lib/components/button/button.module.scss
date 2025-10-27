@@ -2,6 +2,7 @@
 @use '@design/theme.scss';
 @use '@design/button.scss';
 @use '@design/animate.scss';
+@use '@design/tokens.scss';
 @use 'sass:map';
 
 $types: (primary, default, danger);
@@ -147,10 +148,10 @@ $sizes: (sm, md, lg);
 
 // Styles for label when it follows an icon container
 .icon_container + .label {
-  margin-left: 0.25rem;
+  margin-left: tokens.$space-1;
 }
 
 // Styles for progress wrapper
 .progress_wrapper {
-  margin-right: 0.5rem;
+  margin-right: tokens.$space-2;
 }

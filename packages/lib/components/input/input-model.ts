@@ -54,6 +54,11 @@ export interface InputProps {
   isAutoComplete?: boolean;
 
   /**
+   * 🔴 ARIA expanded state for combobox (required when isAutoComplete is true)
+   */
+  ariaExpanded?: boolean;
+
+  /**
    * 🔴 maximum value when the type is number
    */
   max?: number;

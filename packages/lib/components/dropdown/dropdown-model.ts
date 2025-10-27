@@ -20,46 +20,75 @@ export interface Option<T = string> {
   value?: T;
 }
 
-/** ✨Component props */
+/**
+ * Props for the Dropdown component
+ */
 export type DropdownProps = {
-  /**🔷 Right to Left */
+  /** Enable right-to-left text direction */
   RTL?: boolean;
 
-  /**🔷 Allow multiple selection */
+  /**
+   * Allow selecting multiple options at once.
+   * When true, selected values are returned as comma-separated string.
+   * @default false
+   */
   allowMultiSelection?: boolean;
 
-  /**🔷 Color of the chevron color */
+  /** Custom color for the chevron icon */
   chevronIconColor?: string;
 
-  /**🔷 Disables the control */
+  /** Disable the dropdown (prevents opening and interaction) */
   disabled?: boolean;
 
-  /**🔷 Enable search */
+  /**
+   * Enable search/filter functionality within the dropdown menu.
+   * @default false
+   */
   enableSearch?: boolean;
 
-  /**🔷 enables the Focus outlines */
+  /** When false, dropdown cannot receive keyboard focus */
   focusable?: boolean;
 
+  /** Accessible label for the dropdown */
   label?: string;
 
-  /**🔷 The height of the dropdown menu */
+  /**
+   * Maximum height of the dropdown menu in pixels.
+   * Menu will scroll if content exceeds this height.
+   * @default 200
+   */
   maxMenuHeight?: number;
 
-  /**🔷 Callback executed on selection */
+  /**
+   * Callback fired when selection changes.
+   * @param value - Selected value(s) as string or comma-separated string
+   */
   onSelected?: (value: string | string[]) => void;
 
-  /**🔷 Options passed down to the dropdown */
+  /**
+   * Array of options to display in the dropdown.
+   * Each option should have at minimum a `name` and `value`.
+   * Options can be pre-selected with `selected: true`.
+   */
   options: Option[];
 
-  /**🔷 Placeholder for the dropdown */
+  /** Placeholder text shown when no option is selected */
   placeholder?: string;
 
-  /**🔷 Enables the clear button for clearing the selected option */
+  /**
+   * Show clear button to reset selection.
+   * @default true
+   */
   showClearBtn?: boolean;
 
+  /** Size variant for the dropdown */
   size?: 'sm' | 'md' | 'lg';
 
-  /**🔷 Virtualises the items displayed in the menu */
+  /**
+   * Enable virtualization for large option lists.
+   * Improves performance with 100+ options by only rendering visible items.
+   * @default false
+   */
   virtualize?: boolean;
 };
 

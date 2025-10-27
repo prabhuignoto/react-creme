@@ -1,15 +1,16 @@
 @use '@design/theme.scss';
 @use '@design/core.scss';
 @use '@design/font.scss';
+@use '@design/tokens.scss';
 
 $sizes: (sm, md, lg);
 
 .form_field {
   @extend %col;
   align-items: flex-start;
-  margin: 0.5rem 0;
-  padding: 1rem;
-  width: calc(100% - 2rem);
+  margin: tokens.$space-2 0;
+  padding: tokens.$space-4;
+  width: calc(100% - #{tokens.$space-4 * 2});
 
   &.rtl {
     direction: rtl;
@@ -22,7 +23,7 @@ $sizes: (sm, md, lg);
 
 .icon {
   color: theme.$primary;
-  margin: 0 0.5rem;
+  margin: 0 tokens.$space-2;
 }
 
 @each $size in $sizes {
@@ -41,7 +42,7 @@ $sizes: (sm, md, lg);
 
 .label_container {
   @extend %left;
-  margin-bottom: 1rem;
+  margin-bottom: tokens.$space-4;
 }
 
 .label {

@@ -143,21 +143,24 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
         ref: ref,
         tabIndex: disabled || !focusable ? -1 : 0,
       }),
-      [disabled]
+      [disabled, focusable]
     );
 
     const wrapperProps = useMemo(
       () => (!focusIcon && !disabled ? focusProps : null),
-      [disabled]
+      [focusIcon, disabled, focusProps]
     );
-    const iconProps = useMemo(() => (focusIcon ? focusProps : null), []);
+    const iconProps = useMemo(
+      () => (focusIcon ? focusProps : null),
+      [focusIcon, focusProps]
+    );
 
     // Effect to sync checked state with prop
     useEffect(() => {
       if (checked !== isChecked) {
         setChecked(isChecked);
       }
-    }, [isChecked]);
+    }, [isChecked, checked]);
 
     // Render checkbox component
     return (
