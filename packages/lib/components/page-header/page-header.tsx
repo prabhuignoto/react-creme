@@ -27,10 +27,10 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   size = 'sm',
   icon,
 }) => {
-  // Determine if dark mode is enabled
-  const isDarkMode = useMemo(() => isDark(), []);
+  // ✅ FIXED: Call isDark() directly instead of useMemo with empty deps
+  const isDarkMode = isDark();
 
-  // Compute class for header, including RTL and size considerations
+  // ✅ Compute class for header, including RTL and size considerations
   const headerClass = useMemo(() => {
     return classNames(styles.page_header, {
       [styles.rtl]: RTL,
@@ -38,17 +38,17 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
     });
   }, [RTL, size]);
 
-  // Compute class for title
-  const titleClass = useMemo(() => classNames(styles.title), []);
+  // ✅ FIXED: No need for useMemo with no dependencies
+  const titleClass = classNames(styles.title);
 
-  // Compute class for header icon
+  // ✅ Compute class for header icon
   const headerIconClass = useMemo(() => {
     return classNames(styles.icon, {
       [styles[`icon_${size}`]]: true,
     });
   }, [size]);
 
-  // Compute class for content, including dark mode considerations
+  // ✅ FIXED: Include isDarkMode dependency
   const contentClass = useMemo(() => {
     return classNames(styles.content, {
       [styles.dark]: isDarkMode,

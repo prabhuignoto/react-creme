@@ -18,7 +18,7 @@ describe('PageHeader', () => {
 
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const { container } = render(<PageHeader />);
+      const { container } = render(<PageHeader title="Page Title" />);
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();
