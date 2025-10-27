@@ -55,7 +55,23 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
     const { selection, setSelection } = useKeyNavigation(
       listRef as React.RefObject<HTMLElement>,
       selectedIndex,
-      options.length
+      options.length,
+      {
+        orientation: 'vertical',
+        scrollOffset: itemHeight + rowGap,
+        // PageUp/PageDown support for large lists
+        onPageUp: () => {
+          if (listRef.current) {
+            listRef.current.scrollTop -= (itemHeight + rowGap) * 10;
+          }
+        },
+        onPageDown: () => {
+          if (listRef.current) {
+            listRef.current.scrollTop += (itemHeight + rowGap) * 10;
+          }
+        },
+      },
+      focusable
     );
 
     const onSelection = useCallback((opt: ListOption, index: number) => {

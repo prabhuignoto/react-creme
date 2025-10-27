@@ -114,6 +114,7 @@ export type PickValueProps<T> = {
 export type DropdownMenuProps = PickMenuProps<DropdownProps> &
   OverlayModel<null> & {
     handleSelection: (selected: Option[]) => void;
+    menuId?: string;
     open: boolean;
     selectedIndex?: number;
     style: DropdownMenuStyleModel;
@@ -123,6 +124,7 @@ export type DropdownValueProps = PickValueProps<DropdownProps> & {
   containerRef?: React.RefObject<HTMLDivElement>;
   focus?: boolean;
   menuClosing?: boolean;
+  menuId?: string;
   onClear?: (ev: React.MouseEvent) => void;
   onToggle?: () => void;
   selectedValue?: string | { name: string }[] | ReactNode;

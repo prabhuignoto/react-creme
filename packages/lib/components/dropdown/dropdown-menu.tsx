@@ -11,23 +11,26 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   enableSearch,
   handleSelection,
   isClosing,
+  menuId,
   onClosing,
   open,
-  options,
-  style: { width, maxMenuHeight },
+  options = [],
+  style = {},
   virtualize,
   RTL,
   focusable,
   selectedIndex,
   onClose,
 }: DropdownMenuProps) => {
+  const { width, maxMenuHeight } = style;
+
   // STYLES
   const menuStyle = useMemo(() => {
     return {
       '--menu-max-height': `${maxMenuHeight || 0}px`,
       '--menu-width': `${width || 0}px`,
     } as CSSProperties;
-  }, [top, width]);
+  }, [width, maxMenuHeight]);
 
   const isDarkMode = useMemo(() => isDark(), []);
 
@@ -57,6 +60,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
   return (
     <div className={menuClass} style={menuStyle} ref={onRef}>
       <List
+        id={menuId}
         options={options}
         onSelection={handleSelection}
         allowMultiSelection={allowMultiSelection}

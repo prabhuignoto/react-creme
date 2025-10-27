@@ -172,7 +172,7 @@ function useKeyNavigation(
         e.preventDefault();
         onDelete?.();
       } else if (e.key === 'Escape') {
-        e.preventDefault();
+        // Don't preventDefault for Escape - allow it to bubble to overlay/modal handlers
         onEscape?.();
       } else if (e.key === 'PageUp') {
         e.preventDefault();

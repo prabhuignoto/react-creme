@@ -29,6 +29,20 @@ This document serves as the comprehensive guide to React Creme's design system. 
 
 ---
 
+## 📋 UX Review & Quality Assurance
+
+Before building or modifying components, consult these UX guidelines:
+
+- **[UX Review Checklist](./UX_REVIEW_CHECKLIST.md)** - Comprehensive checklist covering accessibility, spacing, keyboard navigation, visual design, and testing requirements. Use this for thorough component audits.
+
+- **[UX Quick Checklist](./UX_QUICK_CHECKLIST.md)** - Condensed version for rapid PR reviews and daily use. Covers critical accessibility, spacing, and design system integration.
+
+**When to use:**
+- **Quick Checklist:** PR reviews, minor updates, daily development
+- **Full Checklist:** New components, major refactoring, quarterly audits, accessibility reviews
+
+---
+
 ## Architecture Overview
 
 The design system is organized into modular SCSS files, each serving a specific purpose. All files follow modern Sass conventions and use the `@use` module system (not `@import`).

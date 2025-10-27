@@ -30,6 +30,11 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
     size = 'sm',
   }: DropdownProps) => {
     /**
+     * Generate stable menu ID for ARIA relationships
+     */
+    const menuId = useMemo(() => `dropdown-menu-${nanoid(6)}`, []);
+
+    /**
      * Create stable IDs for options (memoized to avoid regeneration)
      */
     const optionsWithIds = useMemo(
@@ -229,6 +234,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
           label={label}
           focus={focusManual}
           size={size}
+          menuId={menuId}
         />
 
         {showMenu && (
@@ -251,6 +257,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
             align="left"
             selectedIndex={focusIndex}
             size={size}
+            menuId={menuId}
           />
         )}
       </div>
