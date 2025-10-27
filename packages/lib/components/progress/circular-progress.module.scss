@@ -60,11 +60,11 @@ $sizes: (
   z-index: 2;
 
   &.dark {
-    background: #000;
+    background: theme.$black;
   }
 
   &:not(.dark) {
-    background: #fff;
+    background: theme.$white;
   }
 }
 
@@ -77,10 +77,10 @@ $sizes: (
   width: 50%;
 
   &.dark {
-    background: #000;
+    background: theme.$black;
   }
 
   &:not(.dark) {
-    background: #fff;
+    background: theme.$white;
   }
 }

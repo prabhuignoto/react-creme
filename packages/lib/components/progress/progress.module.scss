@@ -1,5 +1,6 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/animate.scss';
 @use '@design/position.scss';
 
@@ -87,16 +88,21 @@ $progress-fill-colors: (
 
 .progress_percent_value {
   @extend %right;
+  @extend %font-sm;
   color: theme.$white;
   height: 100%;
-  padding: 0 0.5rem;
+  padding: 0 tokens.$space-2;
 
-  &.progress_percent_value_large {
-    font-size: 1.2rem;
+  &.progress_percent_value_lg {
+    @extend %font-lg;
   }
 
-  &.progress_percent_value_small {
-    font-size: 0.8rem;
+  &.progress_percent_value_md {
+    @extend %font-md;
+  }
+
+  &.progress_percent_value_sm {
+    @extend %font-sm;
   }
 }
 

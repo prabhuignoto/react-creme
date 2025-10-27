@@ -2,18 +2,15 @@ import { SpinnerIcon } from '@icons';
 import classNames from 'classnames';
 import { CSSProperties, FunctionComponent, useMemo } from 'react';
 import { isDark } from '../common/utils';
+import { SpinnerProps } from './spinner-model';
 import styles from './spinner.module.scss';
-
-export interface SpinnerProps {
-  size?: 'sm' | 'md' | 'lg';
-  speed?: 'slow' | 'medium' | 'fast';
-}
 
 const Spinner: FunctionComponent<SpinnerProps> = ({
   size = 'sm',
   speed = 'slow',
+  label = 'Loading',
 }) => {
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark();
 
   const spinnerClass = useMemo(
     () =>
@@ -25,7 +22,7 @@ const Spinner: FunctionComponent<SpinnerProps> = ({
           [styles.dark]: isDarkMode,
         }
       ),
-    []
+    [isDarkMode, size, speed]
   );
 
   return (
@@ -33,6 +30,7 @@ const Spinner: FunctionComponent<SpinnerProps> = ({
       className={spinnerClass}
       style={{ '--rc-spinner-speed': speed } as CSSProperties}
       role="img"
+      aria-label={label}
     >
       <SpinnerIcon />
     </span>

@@ -10,7 +10,7 @@ const SkeletonRow: FunctionComponent<
     rowHeight?: number;
   }
 > = ({ id, width, animate, rowHeight, disableAnimation }) => {
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark();
   const skeletonRowClass = useMemo(
     () =>
       classNames(styles.row, 'rc-skeleton-row', {
@@ -18,7 +18,7 @@ const SkeletonRow: FunctionComponent<
         [styles.disable_animation]: disableAnimation,
         [styles.dark]: isDarkMode,
       }),
-    [disableAnimation, isDarkMode]
+    [animate, disableAnimation, isDarkMode]
   );
 
   const rowStyle = useMemo(

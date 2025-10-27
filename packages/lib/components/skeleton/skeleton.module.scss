@@ -1,5 +1,6 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/animate.scss';
 @use '@design/list.scss';
 @use '@design/position.scss';
@@ -34,8 +35,8 @@ $settings: (
   // CSS properties before animation mixins to comply with Sass mixed-decls
   display: block;
   height: var(--height);
-  margin: 0.5rem 0;
-  padding-left: 0.5rem;
+  margin: tokens.$space-2 0;
+  padding-left: tokens.$space-2;
   z-index: -1;
 
   // Animation mixins that generate @keyframes (nested rules) come after properties
@@ -82,11 +83,11 @@ $settings: (
 }
 
 .block:not(:first-child) {
-  margin: 2rem 0;
+  margin: calc(tokens.$space-4 * 2) 0;
 }
 
 .block {
-  padding: 1rem;
+  padding: tokens.$space-4;
   position: relative;
 
   &.block_rtl {
@@ -95,9 +96,11 @@ $settings: (
 }
 
 .circle {
+  $circle-size: 40px;
+
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: $circle-size;
+  width: $circle-size;
   z-index: 1;
 
   &.dark {

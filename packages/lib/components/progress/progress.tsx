@@ -39,7 +39,7 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
   // Calculate progress percentage
   const progressPercent = useMemo(
     () => currentValue / maxValue,
-    [currentValue]
+    [currentValue, maxValue]
   );
   const progressPercentValue = useMemo<string | number>(() => {
     const val = Math.round(progressPercent * 100);
@@ -53,7 +53,7 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
       progressPercentValue !== 0 &&
       type !== 'indeterminate' &&
       size !== 'sm',
-    [progressPercentValue, type, size]
+    [showProgressValue, progressPercentValue, type, size]
   );
 
   // Determine fill width

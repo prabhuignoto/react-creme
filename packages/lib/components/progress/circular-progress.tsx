@@ -5,6 +5,11 @@ import styles from './circular-progress.module.scss';
 
 export interface CircularProgressProps {
   _innerCircleColor?: string;
+  /**
+   * Accessibility label for the progress indicator
+   * @default 'Loading'
+   */
+  label?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg';
   style?: 'double-ring' | 'default';
   type?: 'infinite' | 'progressive';
@@ -13,8 +18,9 @@ export interface CircularProgressProps {
 const CircularProgress: React.FunctionComponent<CircularProgressProps> = ({
   size = 'sm',
   style = 'default',
+  label = 'Loading',
 }) => {
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark();
   const wrapperClass = useMemo(() => {
     return classNames(
       styles.circular_progress,
@@ -23,9 +29,9 @@ const CircularProgress: React.FunctionComponent<CircularProgressProps> = ({
         [styles.dark]: isDarkMode,
       }
     );
-  }, []);
+  }, [isDarkMode, size]);
   return (
-    <span className={wrapperClass}>
+    <span className={wrapperClass} role="progressbar" aria-label={label}>
       {/* {style === 'double-ring' && <span className={styles.inner}></span>} */}
       {style === 'default' && (
         <span
