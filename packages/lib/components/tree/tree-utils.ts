@@ -57,9 +57,12 @@ export function recursiveFind(
   } else if (node.nodes?.length) {
     let result;
     for (let i = 0; i < node.nodes.length; i++) {
-      result = recursiveFind(node.nodes[i], id);
-      if (result) {
-        return result;
+      const childNode = node.nodes[i];
+      if (childNode) {
+        result = recursiveFind(childNode, id);
+        if (result) {
+          return result;
+        }
       }
     }
 

@@ -64,7 +64,9 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     if (focusable && !disableCollapse) {
       return { tabIndex: 0 };
     }
-    return undefined;
+    // Explicitly make button non-focusable when focusable=false
+    // (buttons are focusable by default in HTML)
+    return { tabIndex: -1 };
   }, [focusable, disableCollapse]);
 
   // Handle keyboard events for accessibility
@@ -153,7 +155,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   }, [headerHeight]);
 
   return (
-    <h3 className={styles.header} style={headerStyle}>
+    <h3 className={`${styles.header} rc-accordion-header`} style={headerStyle}>
       <button
         id={accordionId}
         ref={ref as React.RefObject<HTMLButtonElement>}

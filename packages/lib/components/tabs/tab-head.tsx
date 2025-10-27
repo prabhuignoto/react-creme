@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useEffect, useRef } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';
@@ -20,21 +21,25 @@ import { TabHeadProps } from './tabs-model';
  * @returns {JSX.Element} The TabHead component.
  */
 
-const TabHead: React.FC<TabHeadProps> = React.memo(
-  ({
-    disabled,
-    focusable,
-    handleTabSelection,
-    id,
-    name,
-    selected,
-    tabStyle,
-    icon,
-    onFocus,
-    parentHasFocus,
-    size,
-  }: TabHeadProps) => {
-    const ref = useRef<HTMLDivElement>(null);
+const TabHead = React.forwardRef<HTMLButtonElement, TabHeadProps>(
+  (
+    {
+      disabled,
+      focusable,
+      handleTabSelection,
+      id,
+      name,
+      selected,
+      tabStyle,
+      icon,
+      onFocus,
+      parentHasFocus,
+      size,
+    }: TabHeadProps,
+    forwardedRef
+  ) => {
+    const internalRef = useRef<HTMLButtonElement>(null);
+    const ref = (forwardedRef as React.RefObject<HTMLButtonElement>) || internalRef;
 
     // Check if the current mode is dark
     const isDarkMode = isDark();
@@ -44,32 +49,40 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
       !disabled && focusable ? (ref as React.RefObject<HTMLElement>) : null
     );
 
-    // Class names for the tab head elements
-    const headerLabelClass = `${styles.tab_header_label} ${
-      styles[`tab_header_${tabStyle}`]
-    } ${icon ? styles.tab_header_label_icon : ''}`;
-    const tabHeadClass = `${styles.tab_head} ${
-      disabled ? styles.tab_head_disabled : ''
-    } ${selected ? styles.tab_head_selected : ''} ${
-      styles[`tab_head_${tabStyle}`]
-    } ${icon ? styles.tab_head_with_icon : ''} ${styles[`tab_head_${size}`]} ${
-      isDarkMode ? styles.dark : ''
-    }`;
-    const tabHeadIcon = `${styles.tab_head_icon} ${
-      selected ? styles.tab_head_selected : ''
-    }`;
+    // Class names using classNames utility
+    const headerLabelClass = classNames(styles.tab_header_label, {
+      [styles[`tab_header_${tabStyle}`]]: tabStyle,
+      [styles.tab_header_label_icon]: icon,
+    });
+
+    const tabHeadClass = classNames(
+      styles.tab_head,
+      {
+        [styles.tab_head_disabled]: disabled,
+        [styles.tab_head_selected]: selected,
+        [styles[`tab_head_${tabStyle}`]]: tabStyle,
+        [styles.tab_head_with_icon]: icon,
+        [styles[`tab_head_${size}`]]: size,
+        [styles.dark]: isDarkMode,
+      }
+    );
+
+    const tabHeadIconClass = classNames(styles.tab_head_icon, {
+      [styles.tab_head_selected]: selected,
+    });
 
     // When the selected state changes, focus the tab head if it is selected and the parent has focus
     useEffect(() => {
-      if (selected && parentHasFocus) {
-        ref.current?.focus();
+      if (selected && parentHasFocus && ref.current) {
+        ref.current.focus();
       }
-    }, [selected, parentHasFocus]);
+    }, [selected, parentHasFocus, ref]);
 
-    // Render the tab head
+    // Render the tab head as a button
     return (
-      <div
+      <button
         key={id}
+        type="button"
         className={tabHeadClass}
         onClick={() => !disabled && id && handleTabSelection(id)}
         role="tab"
@@ -79,21 +92,17 @@ const TabHead: React.FC<TabHeadProps> = React.memo(
         onFocus={!parentHasFocus ? onFocus : undefined}
         ref={ref}
         tabIndex={!disabled && focusable && selected ? 0 : -1}
+        disabled={disabled}
       >
         {icon && (
-          <span className={tabHeadIcon} role="img" aria-label="tab-icon">
+          <span className={tabHeadIconClass} aria-hidden="true">
             {icon}
           </span>
         )}
         <span className={headerLabelClass}>{name}</span>
-      </div>
+      </button>
     );
-  },
-  // Only re-render the component if the selected, disabled, or parentHasFocus properties have changed
-  (prev, next) =>
-    prev.selected === next.selected &&
-    prev.disabled === next.disabled &&
-    prev.parentHasFocus === next.parentHasFocus
+  }
 );
 
 TabHead.displayName = 'TabHead';

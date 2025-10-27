@@ -131,9 +131,12 @@ export function TableOfContents({
           // Exclude h3 headings that are rendered inside actual demo components
           // (not Section wrappers, but the actual component demos)
           const excludedParentSelectors = [
-            '.rc-accordion-body',      // Content inside accordions
+            '[role="region"]',         // Accordion bodies (CSS Modules compatible)
+            '.rc-accordion-header',    // Accordion headers (Tree uses Accordion)
+            '[role="tree"]',           // Tree components
             '.rc-demo-code-block',     // Code blocks
             '.sandpack-demo-container', // Sandpack demos
+            '.rc-demo-widgets',        // Demo widget containers
           ];
 
           for (const selector of excludedParentSelectors) {

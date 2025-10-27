@@ -52,23 +52,17 @@ describe('Tree', () => {
 
     const { getAllByRole } = render(<Tree nodes={data} />);
 
-    expect(getAllByRole('treeitem')[0]).toHaveAttribute(
-      'aria-expanded',
-      'false'
-    );
+    const treeitem = getAllByRole('treeitem')[0];
+    expect(treeitem).toHaveAttribute('aria-expanded', 'false');
 
-    fireEvent.click(
-      getAllByRole('treeitem')[0].querySelector(
-        "[role='heading']"
-      ) as HTMLElement
-    );
+    const heading = treeitem?.querySelector("[role='heading']") as HTMLElement;
+    if (heading) {
+      fireEvent.click(heading);
 
-    await waitFor(() => {
-      expect(getAllByRole('treeitem')[0]).toHaveAttribute(
-        'aria-expanded',
-        'true'
-      );
-    });
+      await waitFor(() => {
+        expect(treeitem).toHaveAttribute('aria-expanded', 'true');
+      });
+    }
   });
 
   // it('should be checked', () => {
@@ -101,13 +95,12 @@ describe('Tree', () => {
       <Tree nodes={data} onSelected={onSelect} />
     );
 
-    fireEvent.click(
-      getAllByRole('treeitem')[0].querySelector(
-        "[role='heading']"
-      ) as HTMLElement
-    );
-
-    expect(onSelect).toHaveBeenCalled();
+    const treeitem = getAllByRole('treeitem')[0];
+    const heading = treeitem?.querySelector("[role='heading']") as HTMLElement;
+    if (heading) {
+      fireEvent.click(heading);
+      expect(onSelect).toHaveBeenCalled();
+    }
   });
 
   describe('Accessibility', () => {

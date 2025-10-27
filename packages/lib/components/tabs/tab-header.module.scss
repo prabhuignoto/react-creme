@@ -3,6 +3,7 @@
 @use '@design/position.scss';
 @use '@design/list.scss';
 @use '@design/animate.scss';
+@use '@design/tokens.scss';
 
 $flat-tabs-height: 45px;
 $rounded-tabs-height: 45px;
@@ -78,6 +79,14 @@ $sizes: (sm, md, lg);
 .tab_header_btn {
   @extend %border-radius;
   @extend %icon-lg;
+
+  // Reset button styles
+  appearance: none;
+  background: none;
+  border: none;
+  font: inherit;
+  padding: 0;
+
   color: theme.$primary;
   cursor: pointer;
 
@@ -102,7 +111,16 @@ $sizes: (sm, md, lg);
 
 .tab_head {
   @extend %border-radius-top;
+
+  // Reset button styles
+  appearance: none;
+  background: none;
+  border: none;
+  font: inherit;
+  padding: 0;
+
   min-width: 120px;
+  min-height: tokens.$touch-target-min; // 44px minimum for WCAG 2.1 AA
   position: relative;
   user-select: none;
 
@@ -148,7 +166,7 @@ $sizes: (sm, md, lg);
   }
 
   &:not(:first-child) {
-    margin-left: 0.5rem;
+    margin-left: tokens.$space-2; // 0.5rem
   }
 
   &:not(.tab_head_with_icon) {
@@ -164,7 +182,7 @@ $sizes: (sm, md, lg);
       $ico-size: calc(var(--rc-icon-size-#{$size}) * 1.5);
 
       &.tab_head_#{$size} {
-        column-gap: 4px;
+        column-gap: tokens.$space-1; // 4px → 0.25rem
         grid-template-columns: $ico-size calc(100% - $ico-size);
       }
     }
@@ -201,6 +219,10 @@ $sizes: (sm, md, lg);
     display: block;
     transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
     width: 0;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   &.tab_header_selected::after {
@@ -273,5 +295,5 @@ $sizes: (sm, md, lg);
   display: flex;
   justify-content: center;
   justify-self: center;
-  padding-left: 0.2rem;
+  padding-left: tokens.$space-1; // 0.25rem
 }

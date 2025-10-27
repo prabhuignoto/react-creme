@@ -60,6 +60,7 @@ export type TabHeadersProps = Pick<
 export interface TabPanelProps {
   children?: React.ReactNode;
   disabled?: boolean;
+  hidden?: boolean;
   id?: string;
 }
 
