@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 import jsxToString from 'react-element-to-jsx-string';
 import { Section, Text } from '../../../lib/components';
 import { InlineCodeViewer } from '../../common/inline-code-viewer';

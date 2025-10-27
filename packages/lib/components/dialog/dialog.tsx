@@ -1,8 +1,7 @@
 import { CheckIcon, CloseIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React from 'react';
-import { useMemo, useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
 import { isDark } from '../common/utils';
@@ -19,31 +18,49 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   isClosing,
   onClose,
   onOpen,
-  onSuccess,
+  onPrimaryClick,
+  onSecondaryClick,
+  onSuccess, // deprecated but kept for backward compatibility
+  primaryButtonLabel = 'okay',
+  secondaryButtonLabel = 'cancel',
+  showCloseButton = true,
+  showFooter = true,
   size = 'sm',
   title,
+  titleLevel = 'h2',
   width = 300,
 }: DialogProps) => {
-  const buttonRef = useRef<HTMLDivElement | null>(null);
+  // Initialize ID once with lazy initialization
+  const id = useRef<string | undefined>(undefined);
+  if (!id.current) {
+    id.current = `rc-dialog-${nanoid()}`;
+  }
 
-  const focusProps = useRef({});
+  const bodyId = useRef<string | undefined>(undefined);
+  if (!bodyId.current) {
+    bodyId.current = `${id.current}-body`;
+  }
+
+  // Get dark mode once (doesn't change during component lifecycle)
+  const isDarkMode = isDark();
 
   const trapFocus = useTrapFocus<HTMLDivElement>(
     focusable ? 200 : null,
     focusable ? onOpen : null
   );
 
-  if (trapFocus) {
-    focusProps.current = {
-      onKeyDown: trapFocus.handleKeyDown,
-      ref: trapFocus.onInit,
-      tabIndex: 0,
-    };
-  } else {
-    focusProps.current = { tabIndex: 0 };
-  }
-
-  const isDarkMode = useMemo(() => isDark(), []);
+  // Memoize focus props instead of imperatively mutating ref
+  const focusProps = useMemo(
+    () =>
+      trapFocus
+        ? {
+            onKeyDown: trapFocus.handleKeyDown as unknown as React.KeyboardEventHandler<HTMLDivElement>,
+            ref: trapFocus.onInit,
+            tabIndex: 0,
+          }
+        : { tabIndex: 0 },
+    [trapFocus]
+  );
 
   const dialogClass = useMemo(
     () =>
@@ -59,9 +76,8 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
           [styles.dark]: isDarkMode,
         }
       ),
-    [isClosing, size]
+    [isClosing, animationType, size, isDarkMode]
   );
-  const id = useRef(`rc-dialog-${nanoid()}`);
 
   const style = useMemo(
     () => ({
@@ -70,17 +86,24 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
       '--rc-dialog-animation-duration': `${animationDuration}ms`,
       minHeight: height ? `${height}px` : 'auto',
     }),
-    [width, height]
+    [width, height, animationType, animationDuration]
   );
 
-  const handleSuccess = () => {
+  const handlePrimaryClick = useCallback(() => {
+    // Support both new onPrimaryClick and deprecated onSuccess
+    onPrimaryClick?.();
     onSuccess?.();
     onClose?.();
-  };
+  }, [onPrimaryClick, onSuccess, onClose]);
 
-  const handleClose = () => {
+  const handleSecondaryClick = useCallback(() => {
+    onSecondaryClick?.();
     onClose?.();
-  };
+  }, [onSecondaryClick, onClose]);
+
+  const handleClose = useCallback(() => {
+    onClose?.();
+  }, [onClose]);
 
   const titleClass = useMemo(
     () => classNames(styles.title, isDarkMode ? styles.dark : ''),
@@ -91,46 +114,55 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     <div
       className={dialogClass}
       role="dialog"
+      aria-modal="true"
       aria-labelledby={id.current}
+      aria-describedby={bodyId.current}
       style={style}
-      {...focusProps.current}
+      {...focusProps}
     >
       <header className={styles.header}>
-        <h2 className={titleClass} id={id.current}>
-          {title}
-        </h2>
-        <div className={styles.button_wrapper}>
+        {React.createElement(
+          titleLevel,
+          { className: titleClass, id: id.current },
+          title
+        )}
+        {showCloseButton && (
+          <div className={styles.button_wrapper}>
+            <Button
+              type="icon"
+              onClick={handleClose}
+              size={size}
+              focusable={focusable}
+            >
+              <CloseIcon />
+            </Button>
+          </div>
+        )}
+      </header>
+      <section className={styles.body} id={bodyId.current}>
+        {children}
+      </section>
+      {showFooter && (
+        <footer className={styles.footer}>
           <Button
-            type="icon"
-            onClick={handleClose}
-            size={size}
+            label={primaryButtonLabel}
+            type="primary"
+            onClick={handlePrimaryClick}
             focusable={focusable}
-            ref={buttonRef}
+            size={size}
+          >
+            <CheckIcon />
+          </Button>
+          <Button
+            label={secondaryButtonLabel}
+            onClick={handleSecondaryClick}
+            focusable={focusable}
+            size={size}
           >
             <CloseIcon />
           </Button>
-        </div>
-      </header>
-      <section className={styles.body}>{children}</section>
-      <footer className={styles.footer}>
-        <Button
-          label="okay"
-          type="primary"
-          onClick={handleSuccess}
-          focusable={focusable}
-          size={size}
-        >
-          <CheckIcon />
-        </Button>
-        <Button
-          label="cancel"
-          onClick={handleClose}
-          focusable={focusable}
-          size={size}
-        >
-          <CloseIcon />
-        </Button>
-      </footer>
+        </footer>
+      )}
     </div>
   );
 };

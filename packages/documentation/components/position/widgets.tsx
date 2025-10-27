@@ -3,6 +3,7 @@ import { Section, Tags, Text } from '../../../lib/components';
 import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   PositionLeft,
   PositionLeftBottom,
@@ -32,14 +33,6 @@ const positions: Position[] = [
   'right bottom',
   'right center',
 ];
-
-const jsxToStringOptions = {
-  maxInlineAttributesLineLength: 250,
-  showDefaultProps: true,
-  showFunctions: true,
-  sortProps: true,
-  tabStop: 4,
-};
 
 function Widgets() {
   return (

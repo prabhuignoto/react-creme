@@ -3,6 +3,7 @@
 @use '@design/button.scss';
 @use '@design/animate.scss';
 @use '@design/animations.scss';
+@use '@design/tokens.scss';
 
 .dialog {
   $animations: (pop, drop, rise, slide-left, slide-right);
@@ -41,36 +42,33 @@
 
 .header {
   @extend %left;
-  margin: 0.25rem 0;
+  margin: tokens.$space-1 0;
   width: 100%;
 }
 
 .body {
   @extend %center;
+  padding: tokens.$space-2;
   width: 100%;
 }
 
 .footer {
   @extend %right;
-  margin-bottom: 1rem;
-  margin-right: 2rem;
+  margin-bottom: tokens.$space-4;
+  margin-right: tokens.$space-6;
   margin-top: auto;
   width: 100%;
 
   [role='button']:first-of-type {
-    margin-right: 0.5rem;
+    margin-right: tokens.$space-2;
   }
-}
-
-.btn {
-  @extend %button-lg;
 }
 
 .title {
   @extend %center;
-  font-size: 1rem;
+  @extend %font-md;
   margin: 0;
-  padding-left: 1rem;
+  padding-left: tokens.$space-4;
 
   &.dark {
     color: theme.$white;
@@ -83,6 +81,6 @@
 
 .button_wrapper {
   margin-left: auto;
-  margin-right: 0.5rem;
-  margin-top: 0.25rem;
+  margin-right: tokens.$space-2;
+  margin-top: tokens.$space-1;
 }

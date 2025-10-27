@@ -5,17 +5,10 @@ import { Radio, Section } from '../../../lib/components';
 import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 
 const style: CSSProperties = {
   minWidth: '50px',
-};
-
-const jsxToStringOptions = {
-  maxInlineAttributesLineLength: 250,
-  showDefaultProps: true,
-  showFunctions: true,
-  sortProps: true,
-  tabStop: 4,
 };
 
 function widgets() {

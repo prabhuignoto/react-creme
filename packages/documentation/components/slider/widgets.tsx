@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { ReactElement, useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import jsxToString from 'react-element-to-jsx-string';
 import { Section, Text } from '../../../lib/components';

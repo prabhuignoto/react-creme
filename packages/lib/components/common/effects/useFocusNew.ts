@@ -33,15 +33,18 @@ export default function useFocusNew(
 
   const blurHandler = useCallback(() => {
     removeFocus();
-  }, []);
+  }, [removeFocus]);
 
-  const handleKeyUp = (ev: KeyboardEvent) => {
-    focusHandler();
+  const handleKeyUp = useCallback(
+    (ev: KeyboardEvent) => {
+      focusHandler();
 
-    if (ev.key === 'Enter' || ev.key === ' ') {
-      cb?.(ev);
-    }
-  };
+      if (ev.key === 'Enter' || ev.key === ' ') {
+        cb?.(ev);
+      }
+    },
+    [focusHandler, cb]
+  );
 
   useEffect(() => {
     const ele = ref?.current;
@@ -61,22 +64,18 @@ export default function useFocusNew(
       focusRing.classList.add(styles.focus_ring_inactive); // Add inactive class initially
       focusRing.style.cssText = `
         width: ${clientWidth + 6}px;
-        height: ${clientHeight + 6}px; 
+        height: ${clientHeight + 6}px;
       `;
       ele.appendChild(focusRing);
       ring.current = focusRing;
 
       ele.addEventListener('focusout', blurHandler);
       ele.addEventListener('keyup', handleKeyUp);
+
+      return () => {
+        ele.removeEventListener('focusout', blurHandler);
+        ele.removeEventListener('keyup', handleKeyUp);
+      };
     }
   }, [ref, isDarkMode, blurHandler, handleKeyUp]);
-
-  useEffect(() => {
-    return () => {
-      if (ref?.current) {
-        ref?.current.removeEventListener('focusout', blurHandler);
-        ref?.current.removeEventListener('keyup', handleKeyUp);
-      }
-    };
-  }, [ref, blurHandler, handleKeyUp]);
 }

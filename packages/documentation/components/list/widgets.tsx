@@ -5,20 +5,13 @@ import { Section, Text } from '../../../lib/components';
 import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   Default,
   MultiSelection,
   Search,
   Virtualized,
 } from './widget-variants';
-
-const jsxToStringOptions = {
-  maxInlineAttributesLineLength: 250,
-  showDefaultProps: true,
-  showFunctions: true,
-  sortProps: true,
-  tabStop: 4,
-};
 
 function Widgets() {
   const media = useAtomValue(responsiveState);

@@ -5,6 +5,7 @@ import { ScrollSpy, Section, Text } from '../../../lib/components';
 import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 
 const Para = () => {
   const theme = useAtomValue(themeState);
@@ -24,14 +25,6 @@ const Para = () => {
       porttitor quam porta in.
     </p>
   );
-};
-
-const jsxToStringOptions = {
-  maxInlineAttributesLineLength: 250,
-  showDefaultProps: true,
-  showFunctions: true,
-  sortProps: true,
-  tabStop: 4,
 };
 
 function Widgets() {

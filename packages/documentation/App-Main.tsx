@@ -36,13 +36,13 @@ const Main = React.forwardRef<
       className={classNames('app-main-section', isLanding ? 'is-landing' : '')}
       ref={sectionRef}
     >
-      {/* {canShowHeader && ( */}
-      <Header
-        isMobile={media && media.isMobile}
-        onOpen={toggleOpen}
-        onSearchSelection={path => navigate(path.value)}
-      />
-      {/* )} */}
+      {!isLanding && (
+        <Header
+          isMobile={media && media.isMobile}
+          onOpen={toggleOpen}
+          onSearchSelection={path => navigate(path.value)}
+        />
+      )}
       <AppRoutes />
       <Footer />
     </section>

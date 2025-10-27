@@ -4,6 +4,7 @@ import { Image, Reveal } from '../../../lib/components';
 import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { useAtomValue } from 'jotai';
 import { responsiveState } from '../../atoms/home';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 
 const blankStyle = {
   alignItems: 'flex-start',
@@ -19,14 +20,6 @@ const imageWrapStyle = {
   margin: '0 auto',
   width: '450px',
 } as CSSProperties;
-
-const jsxToStringOptions = {
-  maxInlineAttributesLineLength: 250,
-  showDefaultProps: true,
-  showFunctions: true,
-  sortProps: true,
-  tabStop: 4,
-};
 
 function widgets() {
   const ref = useRef<HTMLDivElement>(null);

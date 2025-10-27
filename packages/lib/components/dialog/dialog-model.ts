@@ -24,13 +24,34 @@ export interface DialogProps extends OverlayModel<null> {
   onOpen?: () => void;
 
   // callback executed on clicking the primary button
+  onPrimaryClick?: () => void;
+
+  // callback executed on clicking the secondary button
+  onSecondaryClick?: () => void;
+
+  // @deprecated Use onPrimaryClick instead
   onSuccess?: () => void;
+
+  // label for primary button
+  primaryButtonLabel?: string;
+
+  // label for secondary button
+  secondaryButtonLabel?: string;
+
+  // whether to show the close button in header
+  showCloseButton?: boolean;
+
+  // whether to show the footer with action buttons
+  showFooter?: boolean;
 
   // available sizes
   size?: 'sm' | 'md' | 'lg';
 
-  // dialog title
-  title?: string;
+  // dialog title (required for accessibility)
+  title: string;
+
+  // heading level for title (h1-h6)
+  titleLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
   // minimum width of the dialog
   width?: number;

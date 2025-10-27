@@ -9,14 +9,6 @@ import {
 import { GlobalNotificationState } from '../../../lib/components/global-notification/global-notification.model';
 import { DemoWidget } from '../../common/demo-widget';
 
-const jsxToStringOptions = {
-  maxInlineAttributesLineLength: 250,
-  showDefaultProps: true,
-  showFunctions: true,
-  sortProps: true,
-  tabStop: 4,
-};
-
 function widgets() {
   const [show, setShow] = useState(false);
 
