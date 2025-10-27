@@ -11,6 +11,7 @@ const speeds = {
 };
 
 const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
+  ariaLabel = 'Loading',
   count = 3,
   shape = 'square',
   rtl = false,
@@ -32,16 +33,14 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
         }
       });
     }, speeds[speed]);
-  }, []);
 
-  useEffect(() => {
     return () => clearInterval(timerRef.current);
-  }, []);
+  }, [count, speed]);
 
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark();
 
   const wrapperClass = useMemo(() => {
-    return cls(styles.wrapper, rtl ? styles.rtl : '');
+    return cls(styles.wrapper, { [styles.rtl]: rtl });
   }, [rtl]);
 
   const transition = useMemo(() => {
@@ -63,7 +62,13 @@ const LoadingIndicator: FunctionComponent<LoadingIndicatorProps> = ({
   }, [customSize, transition]);
 
   return (
-    <div className={wrapperClass} role="progressbar">
+    <div
+      className={wrapperClass}
+      role="progressbar"
+      aria-label={ariaLabel}
+      aria-live="polite"
+      aria-busy="true"
+    >
       {Array(count)
         .fill(0)
         .map((_, index) => (

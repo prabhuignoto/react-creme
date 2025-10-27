@@ -1,3 +1,7 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 // Removed unused React import
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';

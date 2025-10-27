@@ -1,3 +1,7 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { AccordionGroup } from '../accordion-group';
 import { describe, expect, it } from 'vitest';

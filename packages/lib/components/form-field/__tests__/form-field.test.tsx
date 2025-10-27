@@ -1,7 +1,12 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { describe, it } from 'vitest';
 import { Input } from '../../input/input';
 import { FormField } from '../form-field';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../form-field.module.scss';
 
 describe('Form Field', () => {

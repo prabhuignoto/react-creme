@@ -1,5 +1,10 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { Avatar } from '../avatar';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../avatar.module.scss';
 
 describe('Avatar', () => {

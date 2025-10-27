@@ -1,3 +1,7 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
 import { vi, beforeEach } from 'vitest';
 import { BlockQuote } from '../block-quote';

@@ -1,7 +1,12 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { Dropdown } from '../dropdown';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../dropdown.module.scss';
 
 const options = [

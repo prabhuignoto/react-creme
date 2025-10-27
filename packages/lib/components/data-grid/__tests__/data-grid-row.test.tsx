@@ -1,5 +1,10 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
 import { render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { DataGridRow } from '../data-grid-row';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../data-grid.module.scss';
 
 describe('DataGridRow', () => {
@@ -32,7 +37,12 @@ describe('DataGridRow', () => {
 
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const { container } = render(<DataGridRow />);
+      const { container } = render(
+        <DataGridRow
+          data={{ name: 'Test' }}
+          columnConfigs={[{ name: 'name', type: 'string' }]}
+        />
+      );
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();

@@ -1,7 +1,12 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { Tags } from '../tags';
 import { TagItemProps } from '../tags-model';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../tags.module.scss';
 
 const tags: TagItemProps[] = [

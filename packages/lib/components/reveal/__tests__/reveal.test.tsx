@@ -1,6 +1,9 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import React, { useRef } from 'react';
+import { axe } from 'jest-axe';
 import { Reveal } from '../reveal';
 
 // Mock IntersectionObserver

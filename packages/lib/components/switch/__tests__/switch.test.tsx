@@ -1,7 +1,12 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
 import { Switch } from '../switch';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../switch.module.scss';
 
 const handler = vi.fn();

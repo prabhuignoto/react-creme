@@ -1,5 +1,10 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { Kbd } from '../kbd';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../kbd.module.scss';
 
 describe('Keyboard', () => {

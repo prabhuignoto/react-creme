@@ -1,6 +1,10 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
 import { render } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { Skeleton } from '../skeleton';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../skeleton.module.scss';
 
 expect.extend(toHaveNoViolations);

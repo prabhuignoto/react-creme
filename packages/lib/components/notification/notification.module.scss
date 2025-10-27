@@ -4,6 +4,7 @@
 @use '@design/animate.scss';
 @use '@design/util.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 
 $sizes: (sm, md, lg);
 
@@ -27,7 +28,7 @@ $sizes: (sm, md, lg);
       opacity: 0,
     ),
     to: (
-      left: 1rem,
+      left: tokens.$space-4,
       opacity: 1,
     ),
   );
@@ -38,7 +39,7 @@ $sizes: (sm, md, lg);
       opacity: 0,
     ),
     to: (
-      right: 1rem,
+      right: tokens.$space-4,
       opacity: 1,
     ),
   );
@@ -49,7 +50,7 @@ $sizes: (sm, md, lg);
       opacity: 0,
     ),
     to: (
-      top: 1rem,
+      top: tokens.$space-4,
       opacity: 1,
     ),
   );
@@ -60,7 +61,7 @@ $sizes: (sm, md, lg);
       opacity: 0,
     ),
     to: (
-      bottom: 1rem,
+      bottom: tokens.$space-4,
       opacity: 1,
     ),
   );
@@ -112,7 +113,7 @@ $sizes: (sm, md, lg);
     &.#{$position}_enter {
       @include position.position-abs($position-val, true);
       animation-name: notification-slide-#{$position}-enter;
-      #{$new-position}: 1rem;
+      #{$new-position}: tokens.$space-4;
     }
 
     &.#{$position}_exit {
@@ -136,8 +137,10 @@ $sizes: (sm, md, lg);
 }
 
 .header {
+  $header-height: 2.5rem; // 40px
+
   @extend %left;
-  height: 40px;
+  height: $header-height;
   width: 100%;
 
   &.dark {
@@ -151,12 +154,12 @@ $sizes: (sm, md, lg);
 
 .title {
   margin-right: auto;
-  padding-left: 0.5rem;
+  padding-left: tokens.$space-2;
 }
 
 .close_btn {
-  padding-right: 0.5rem;
-  padding-top: 0.25rem;
+  padding-right: tokens.$space-2;
+  padding-top: tokens.$space-1;
 }
 
 .content {

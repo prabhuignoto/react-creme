@@ -1,3 +1,7 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 /**
  * @file This file defines the unit tests for the CarouselButton component.
  * @module CarouselButtonTest
@@ -6,6 +10,7 @@
 import { render, fireEvent } from '@testing-library/react';
 import { CarouselButton } from '../carousel-button';
 import { vi } from 'vitest';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../carousel.module.scss';
 
 describe('CarouselButton', () => {

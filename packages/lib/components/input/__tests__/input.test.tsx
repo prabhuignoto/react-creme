@@ -1,7 +1,12 @@
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { Input } from '../input';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../input.module.scss';
 
 describe('Input', () => {
