@@ -24,6 +24,9 @@ $space-4: 1rem;
 $space-5: 1.25rem;
 $space-6: 1.5rem;
 
+// Touch targets (WCAG 2.1 Level AA)
+$touch-target-min: 2.75rem; // 44px - minimum touch target size
+
 // Radius
 $radius-sm: 4px;
 $radius-md: 8px;

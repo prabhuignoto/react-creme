@@ -4,6 +4,7 @@ import React from 'react';
 import { CSSProperties, useCallback, useMemo, useRef, useState } from 'react';
 import { useDrag } from '../common/effects/useDrag';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { Image } from '../image/image';
 import { CircularProgress } from '../progress/circular-progress';
 import { ImageComparerProps } from './image-comparer.model';
@@ -13,9 +14,12 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   sourceOne,
   sourceTwo,
   direction = 'horizontal',
+  ariaLabel = 'Image comparison slider',
+  largeStep = 10,
 }) => {
   const panelRef = useRef<HTMLDivElement | null>(null);
   const dragRef = useRef<HTMLElement | null>(null);
+  const separatorRef = useRef<HTMLSpanElement | null>(null);
 
   // tracks if the fist image is loaded
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -31,8 +35,6 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
     height: number;
     width: number;
   }>({ height: 0, width: 0 });
-
-  // const isFirstRender = useRef(null);
 
   // checks if both the images are loaded
   const imagesLoaded = useMemo(
@@ -80,15 +82,56 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   }, []);
 
   // callback executed when the second image is loaded
-  const onImageLoad2 = () => setImageLoaded2(true);
+  const onImageLoad2 = useCallback(() => setImageLoaded2(true), []);
 
   // setup the drag effect
-  const [percent] = useDrag(panelRef as React.RefObject<HTMLElement>, dragRef, {
+  const [percent, setPercent] = useDrag(panelRef as React.RefObject<HTMLElement>, dragRef, {
     direction,
     observeContainer: true,
     onDragEnd: () => setDragged(false),
     onDragStart: () => setDragged(true),
     updatePosition: false,
+  });
+
+  // Keyboard navigation - following Slider pattern
+  // Normalize percent (0-1) to 0-100 range for useKeyNavigation
+  // Default to 50 if percent is NaN or undefined (but 0 is valid!)
+  const normalizedPercent = useMemo(() => {
+    const validPercent = (percent == null || isNaN(percent)) ? 0.5 : percent;
+    return Math.round(validPercent * 100);
+  }, [percent]);
+
+  // Setup keyboard navigation with useCallback to avoid stale closures
+  const handleNavigate = useCallback((index: number) => {
+    // Convert from 0-100 range back to 0-1 range
+    const newPercent = index / 100;
+    const clampedPercent = Math.max(0, Math.min(1, newPercent));
+    setPercent(clampedPercent);
+  }, [setPercent]);
+
+  const handlePageUp = useCallback(() => {
+    // Use functional update to avoid stale closure
+    setPercent((prevPercent) => {
+      const validPercent = (prevPercent == null || isNaN(prevPercent)) ? 0.5 : prevPercent;
+      return Math.min(1, validPercent + (largeStep / 100));
+    });
+  }, [largeStep, setPercent]);
+
+  const handlePageDown = useCallback(() => {
+    // Use functional update to avoid stale closure
+    setPercent((prevPercent) => {
+      const validPercent = (prevPercent == null || isNaN(prevPercent)) ? 0.5 : prevPercent;
+      return Math.max(0, validPercent - (largeStep / 100));
+    });
+  }, [largeStep, setPercent]);
+
+  // Setup keyboard navigation
+  useKeyNavigation(separatorRef as React.RefObject<HTMLElement>, normalizedPercent, 101, {
+    orientation: direction === 'horizontal' ? 'horizontal' : 'vertical',
+    wrap: false,
+    onNavigate: handleNavigate,
+    onPageUp: handlePageUp,
+    onPageDown: handlePageDown,
   });
 
   // tracks the first render of the component
@@ -109,13 +152,13 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
             : `polygon(0% 0%, 100% 0%, 100% ${percentToUse}%, 0% ${percentToUse}%)`,
       } as CSSProperties;
     }
-  }, [percent, direction]);
+  }, [percent, direction, isFirstRender]);
 
   const dragHandleStyle = useMemo(() => {
     return {
       [direction === 'horizontal' ? 'left' : 'top']: `${percent * 100}%`,
     };
-  }, [percent]);
+  }, [percent, direction]);
 
   return (
     <div className={wrapperClass} ref={panelRef} style={wrapperStyle}>
@@ -141,10 +184,17 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
         />
       </div>
       <span
+        ref={separatorRef}
         className={dragHandleClass}
         role="separator"
         tabIndex={0}
         style={dragHandleStyle}
+        aria-label={ariaLabel}
+        aria-valuenow={Math.round(((percent == null || isNaN(percent)) ? 0.5 : percent) * 100)}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuetext={`${Math.round(((percent == null || isNaN(percent)) ? 0.5 : percent) * 100)}% comparison`}
+        aria-orientation={direction}
       >
         <span className={styles.drag_handle_square} ref={dragRef}>
           <AlignJustify />
