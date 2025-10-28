@@ -117,7 +117,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
 
   return (
     <div className={styles.wrapper}>
-      <section className="transfer-column1">
+      <section aria-label="Available items to transfer">
         {leftList.length ? (
           <TransferList
             listId="list1"
@@ -137,7 +137,7 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
         disableTransferRight={!leftSelected.length}
         size={size}
       />
-      <section className="transfer-column2">
+      <section aria-label="Selected items">
         {rightList.length ? (
           <TransferList
             listId="list2"
@@ -150,6 +150,14 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
           />
         ) : null}
       </section>
+      {/* Live region for announcing transfers */}
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+        {leftSelected.length > 0 && rightSelected.length === 0
+          ? `${leftSelected.length} item${leftSelected.length !== 1 ? 's' : ''} ready to transfer right`
+          : rightSelected.length > 0 && leftSelected.length === 0
+            ? `${rightSelected.length} item${rightSelected.length !== 1 ? 's' : ''} ready to transfer left`
+            : ''}
+      </div>
     </div>
   );
 };

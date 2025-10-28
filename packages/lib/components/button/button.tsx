@@ -85,7 +85,17 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
     [disabled, onClick]
   );
 
-  // handle keyboard 'Enter' event
+  // handle keyboard 'Enter' event (on keyup) and 'Space' event (on keydown to prevent scroll)
+  const handleKeyDown = useCallback(
+    (ev: React.KeyboardEvent) => {
+      if (ev.key === ' ') {
+        ev.preventDefault();
+        handleClick();
+      }
+    },
+    [handleClick]
+  );
+
   const handleKeyUp = useCallback(
     (ev: React.KeyboardEvent) => ev.key === 'Enter' && handleClick(),
     [handleClick]
@@ -111,6 +121,7 @@ const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
     <div
       className={buttonClass}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
       onKeyUp={handleKeyUp}
       ref={buttonRef}
       role="button"

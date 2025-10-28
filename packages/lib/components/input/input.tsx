@@ -210,6 +210,16 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       return disabled;
     }, [disabled]);
 
+    const handleClearKeyDown = useCallback(
+      (ev: React.KeyboardEvent) => {
+        if (ev.key === ' ') {
+          ev.preventDefault();
+          handleClear(ev as any);
+        }
+      },
+      [handleClear]
+    );
+
     const clearProps = useMemo(
       () => ({
         'aria-hidden': !showSpinner && !inputValue,
@@ -253,8 +263,11 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
         {!showSpinner && (
           <span
             onMouseDown={handleClear}
+            onKeyDown={handleClearKeyDown}
+            onKeyUp={(ev) => ev.key === 'Enter' && handleClear(ev as any)}
             className={clearClass}
             role="button"
+            tabIndex={inputValue ? 0 : -1}
             data-testid="rc-clear-input"
             {...clearProps}
           >

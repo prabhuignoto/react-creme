@@ -30,6 +30,11 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   titleLevel = 'h2',
   width = 300,
 }: DialogProps) => {
+  // Store reference to element that triggered dialog for return focus (WCAG 2.4.3)
+  const triggerElementRef = useRef<HTMLElement | null>(
+    typeof document !== 'undefined' ? (document.activeElement as HTMLElement) : null
+  );
+
   // Initialize ID once with lazy initialization
   const id = useRef<string | undefined>(undefined);
   if (!id.current) {
@@ -102,6 +107,12 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   }, [onSecondaryClick, onClose]);
 
   const handleClose = useCallback(() => {
+    // Return focus to the element that triggered dialog (WCAG 2.4.3 Focus Order)
+    setTimeout(() => {
+      if (triggerElementRef.current && triggerElementRef.current.focus) {
+        triggerElementRef.current.focus();
+      }
+    }, 0);
     onClose?.();
   }, [onClose]);
 

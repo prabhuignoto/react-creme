@@ -179,6 +179,9 @@ const Menu: React.FunctionComponent<MenuProps> = ({
         className={menuContentWrapperClass}
         onClick={toggleMenu}
         ref={onInitRef}
+        role="menubutton"
+        aria-haspopup="menu"
+        aria-expanded={showMenu}
         {...focusProps}
       >
         {children}
