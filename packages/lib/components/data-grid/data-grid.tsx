@@ -1,9 +1,7 @@
 import { SearchIcon } from '@icons';
 import classNames from 'classnames';
-import { nanoid } from 'nanoid';
 import React, {
   useCallback,
-  useEffect,
   useMemo,
   useRef,
   useState,
@@ -12,12 +10,13 @@ import { useDebouncedCallback } from 'use-debounce';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { DataGridHeader } from './data-grid-header';
-import { DataGridProps, Record, SortDirection } from './data-grid-model';
+import { DataGridProps, SortDirection } from './data-grid-model';
 import { DataGridRow } from './data-grid-row';
 import styles from './data-grid.module.scss';
 import ResizeObserver from 'resize-observer-polyfill';
 
 const DataGrid: React.FunctionComponent<DataGridProps> = ({
+  ariaLabel = 'Data grid',
   border = false,
   columns = [],
   data,
@@ -25,38 +24,39 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   gridWidth = 0,
   layoutStyle = 'comfortable',
   rowHeight,
+  searchPlaceholder = 'Search...',
   zebra = false,
   size = 'sm',
 }: DataGridProps) => {
-  // Move these to useMemo to avoid recalculation on every render
+  // Memoize sortable columns to avoid recalculation on every render
   const sortableColumns = useMemo(() => {
-    return [...columns].filter(col => col.sortable);
+    return columns.filter(col => col.sortable);
   }, [columns]);
 
   const sortableColumnFirst = useMemo(() => {
-    return sortableColumns.length ? sortableColumns[0] : null;
+    return sortableColumns.length > 0 ? sortableColumns[0] : null;
   }, [sortableColumns]);
 
-  // Transform data once when component mounts or when data changes
-  const [rowData, setRowData] = useState<Record[]>([]);
-
-  useEffect(() => {
-    const newData = data.map(item => ({
-      id: nanoid(),
+  // Use useMemo instead of useState + useEffect to avoid props-to-state anti-pattern
+  // Transform data and add stable IDs
+  const rowData = useMemo(() => {
+    const newData = data.map((item, index) => ({
+      // Use index-based stable ID instead of random nanoid for better performance
+      id: `row-${index}`,
       ...item,
     }));
 
+    // Apply initial sort if first column is sortable
     if (sortableColumnFirst && sortableColumnFirst.name) {
       newData.sort((a, b) => {
         const name = sortableColumnFirst.name;
-        return (a[name as keyof typeof a] ?? '') <
-          (b[name as keyof typeof b] ?? '')
-          ? -1
-          : 1;
+        const aVal = a[name as keyof typeof a] ?? '';
+        const bVal = b[name as keyof typeof b] ?? '';
+        return aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
       });
     }
 
-    setRowData(newData);
+    return newData;
   }, [data, sortableColumnFirst]);
 
   const [width, setWidth] = useState(gridWidth);
@@ -67,14 +67,15 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   }>(
     sortableColumns.length > 0
       ? {
-          column: sortableColumns[0].name,
-          dir: 'asc',
+          column: sortableColumns[0]?.name,
+          dir: 'asc' as SortDirection,
         }
       : {}
   );
 
   const resizeObserver = useRef<ResizeObserver | null>(null);
-  const isDarkMode = useMemo(() => isDark(), []);
+  // Simple function call - no need for useMemo
+  const isDarkMode = isDark();
 
   const gridClass = useMemo(() => {
     return classNames(styles.data_grid, {
@@ -94,19 +95,18 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   }, []);
 
   const columnWidth = useMemo(() => {
-    if (width) {
-      const usedWidth = columns
-        .map(c => c.width || 0)
-        .reduce((a, b) => a + b, 0);
+    if (!width) return 100;
 
-      const remainingColumns = columns.filter(col => !col.width).length;
+    const usedWidth = columns
+      .map(c => c.width || 0)
+      .reduce((a, b) => a + b, 0);
 
-      // Avoid division by zero
-      if (remainingColumns === 0) return 100;
+    const remainingColumns = columns.filter(col => !col.width).length;
 
-      return Math.floor((width - usedWidth) / remainingColumns);
-    }
-    return 100; // Default width
+    // Avoid division by zero
+    if (remainingColumns === 0) return 100;
+
+    return Math.floor((width - usedWidth) / remainingColumns);
   }, [width, columns]);
 
   // Replace onRef with a callback ref that does not assign to .current
@@ -156,8 +156,8 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
       const { column, dir } = sortData;
       if (!column) return 0;
 
-      const aVal = a[column] ?? '';
-      const bVal = b[column] ?? '';
+      const aVal = (a as Record<string, string | number | undefined>)[column] ?? '';
+      const bVal = (b as Record<string, string | number | undefined>)[column] ?? '';
 
       const compareResult = aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
       return dir === 'asc' ? compareResult : -compareResult;
@@ -171,17 +171,22 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
     const searchRegExp = new RegExp(searchInput, 'ig');
 
     return sortedData.filter(dat => {
+      const record = dat as Record<string, string | number | undefined>;
       // Only search through searchable columns if specified
       if (searchableColumns.length > 0) {
-        return searchableColumns.some(
-          key => dat[key] && String(dat[key]).match(searchRegExp)
-        );
+        return searchableColumns.some(key => {
+          const value = record[key];
+          return value !== undefined && String(value).match(searchRegExp);
+        });
       }
 
       // Otherwise search through all columns
-      return Object.keys(dat)
+      return Object.keys(record)
         .filter(key => key !== 'id')
-        .some(key => dat[key] && String(dat[key]).match(searchRegExp));
+        .some(key => {
+          const value = record[key];
+          return value !== undefined && String(value).match(searchRegExp);
+        });
     });
   }, [sortedData, searchInput, searchableColumns]);
 
@@ -196,17 +201,35 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   );
 
   return (
-    <div className={gridClass} ref={handleGridRef} role="table">
+    <div
+      className={gridClass}
+      ref={handleGridRef}
+      role="table"
+      aria-label={ariaLabel}
+      aria-rowcount={filteredData.length + 1} // +1 for header row
+    >
       {searchable && (
         <div className={styles.data_grid_search_box_wrapper}>
           <Input
-            placeholder="Search..."
+            placeholder={searchPlaceholder}
             onChange={handleSearchInput}
             accent="rounded"
             size={size}
+            aria-label="Search data grid"
           >
             <SearchIcon />
           </Input>
+          {/* Live region for announcing search results */}
+          <div
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            className="sr-only"
+          >
+            {searchInput
+              ? `${filteredData.length} ${filteredData.length === 1 ? 'result' : 'results'} found`
+              : ''}
+          </div>
         </div>
       )}
       <DataGridHeader
@@ -217,22 +240,38 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
         border={border}
         size={size}
         searchable={searchable}
+        sortData={sortData}
       />
-      {filteredData.map((row, index) => (
-        <DataGridRow
-          data={row}
-          key={row.id}
-          columnWidth={columnWidth}
-          columnConfigs={columns}
-          style={style}
-          layoutStyle={layoutStyle}
-          border={border}
-          fixedHeight={fixedHeight}
-          zebra={zebra && index % 2 === 1}
-          rowHeight={rowHeight}
-          size={size}
-        />
-      ))}
+      {filteredData.length > 0 ? (
+        filteredData.map((row, index) => (
+          <DataGridRow
+            data={row}
+            key={row.id}
+            columnWidth={columnWidth}
+            columnConfigs={columns}
+            style={style}
+            layoutStyle={layoutStyle}
+            border={border}
+            fixedHeight={fixedHeight}
+            zebra={zebra && index % 2 === 1}
+            rowHeight={rowHeight}
+            size={size}
+            rowIndex={index + 2} // +1 for 1-based index, +1 for header row
+          />
+        ))
+      ) : (
+        <div
+          role="row"
+          className={styles.empty_state}
+          aria-rowindex={2}
+        >
+          <div role="cell" aria-colspan={columns.length}>
+            {searchInput
+              ? 'No results found'
+              : 'No data available'}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

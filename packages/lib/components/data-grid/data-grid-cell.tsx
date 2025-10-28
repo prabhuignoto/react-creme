@@ -7,7 +7,8 @@ import styles from './data-grid.module.scss';
 // Apply React.memo to prevent unnecessary re-renders
 const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
   ({ value, border, fixedHeight, formatter, isHeader, zebra }: CellModel) => {
-    const isDarkMode = useMemo(() => isDark(), []);
+    // Simple function call - no need for useMemo
+    const isDarkMode = isDark();
 
     const columnClass = useMemo(() => {
       return classNames(styles.cell, {
@@ -44,15 +45,12 @@ const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
         className={classNames(columnClass, {
           [styles.zebra]: zebra, // Ensure zebra class is applied here
         })}
-        role="cell"
       >
         <span className={wrapperClass}>
-          <span
-            className={cellClass}
-            dangerouslySetInnerHTML={{
-              __html: formattedValue as string,
-            }}
-          ></span>
+          <span className={cellClass}>
+            {/* Render ReactNode directly instead of using dangerouslySetInnerHTML for security */}
+            {formattedValue}
+          </span>
         </span>
       </div>
     );

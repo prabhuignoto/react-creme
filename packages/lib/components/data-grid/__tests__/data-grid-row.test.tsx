@@ -38,10 +38,12 @@ describe('DataGridRow', () => {
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
       const { container } = render(
-        <DataGridRow
-          data={{ name: 'Test' }}
-          columnConfigs={[{ name: 'name', type: 'string' }]}
-        />
+        <div role="table">
+          <DataGridRow
+            data={{ name: 'Test' }}
+            columnConfigs={[{ name: 'name', type: 'string' }]}
+          />
+        </div>
       );
       const results = await axe(container);
 

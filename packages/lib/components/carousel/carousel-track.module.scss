@@ -1,40 +1,90 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 
 .track {
   &.track_horizontal {
     @extend %center;
     @extend %list-horizontal;
+    gap: tokens.$space-2;
   }
 
   &.track_vertical {
     @extend %list;
+    gap: tokens.$space-2;
     width: 3rem;
   }
 }
 
 .track_item {
+  // Reset button styles
+  background: transparent;
+  border: 2px solid transparent;
   border-radius: 50%;
-  height: 10px;
-  margin: 4px;
-  width: 10px;
+  cursor: pointer;
 
-  &.dark:not(.track_item_selected) {
+  // WCAG 2.1 compliant touch targets (minimum 44×44px)
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
+
+  // Visual indicator (smaller circle inside the button)
+  position: relative;
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    transform 0.1s ease-in-out;
+
+  &::before {
+    background-color: theme.$alto;
+    border-radius: 50%;
+    content: '';
+    height: 12px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.2s ease-in-out;
+    width: 12px;
+  }
+
+  &.dark:not(.track_item_selected)::before {
     background-color: theme.$gunmetal-gray;
   }
 
-  &.track_item_selected {
+  &.track_item_selected::before {
     background-color: theme.$primary;
   }
 
-  &:not(.dark):not(.track_item_selected) {
-    background-color: theme.$alto;
-  }
-}
+  // Hover state
+  &:hover:not(:disabled) {
+    transform: scale(1.1);
 
-.track_item:hover {
-  cursor: pointer;
+    &::before {
+      background-color: theme.$primary;
+    }
+  }
+
+  // Focus state (keyboard navigation)
+  &:focus-visible {
+    border-color: theme.$primary;
+    outline: none;
+  }
+
+  // Active state
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &::before {
+      transition: none;
+    }
+  }
 }
 
 .icon {

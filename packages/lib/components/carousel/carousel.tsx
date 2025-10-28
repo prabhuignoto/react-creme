@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React from 'react';
-import {
+import React, {
   CSSProperties,
   useCallback,
   useEffect,
@@ -22,24 +21,22 @@ import styles from './carousel.module.scss';
 const Carousel: React.FunctionComponent<CarouselProps> = ({
   autoPlay = 0,
   children,
+  className,
+  ariaLabel = 'Image carousel',
   direction = 'horizontal',
   height = 400,
   transition = 'cubic-bezier(0.55, 0.08, 0.68, 0.53)',
   focusable = true,
   border = false,
   size = 'md',
+  onSlideChange,
+  enableSwipe = true,
 }) => {
-  // Carousel items state. Each item has an id, visibility status, and its dimensions.
-  const [carouselItems, setCarouselItems] = useState<CarouselItemProps[]>(
-    Array.isArray(children)
-      ? children.map(() => ({
-          height: 0,
-          id: nanoid(),
-          visible: false,
-          width: 0,
-        }))
-      : []
-  );
+  // Generate stable IDs for children (only regenerate when children count changes)
+  const childrenIds = useMemo(() => {
+    const childArray = Array.isArray(children) ? children : [];
+    return childArray.map(() => nanoid());
+  }, [Array.isArray(children) ? children.length : 0]);
 
   // Ref to store the count of the carousel items.
   const trackCount = useRef(Array.isArray(children) ? children.length : 0);
@@ -53,6 +50,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   const [slideHeight, setSlideHeight] = useState(0);
   // State to store the auto-playing status of the carousel.
   const [isAutoPlaying, setAutoPlaying] = useState(!!autoPlay);
+  // State to store whether autoPlay is paused
+  const [isPaused, setIsPaused] = useState(false);
 
   // Debounced versions of slide dimensions for performance optimization.
   const [debouncedSlideWidth] = useDebounce(slideWidth, 100);
@@ -63,21 +62,37 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Callback function to handle "Next" action in the carousel.
   const handleNext = useCallback(() => {
-    if (activePage < trackCount.current - 1) {
-      setActivePage(prev => prev + 1);
-    }
-  }, [activePage]);
+    setActivePage((prev) => {
+      if (prev < trackCount.current - 1) {
+        return prev + 1;
+      }
+      return prev;
+    });
+  }, []);
 
   // Callback function to handle "Previous" action in the carousel.
   const handlePrevious = useCallback(() => {
-    setActivePage(prev => prev - 1);
-  }, [activePage]);
+    setActivePage((prev) => {
+      if (prev > 0) {
+        return prev - 1;
+      }
+      return prev;
+    });
+  }, []);
 
   // Callback function to handle page activation in the carousel.
   const handleActivatePage = useCallback(
-    (pageIndex: number) => setActivePage(pageIndex),
-    []
+    (pageIndex: number) => {
+      setActivePage(pageIndex);
+      onSlideChange?.(pageIndex);
+    },
+    [onSlideChange]
   );
+
+  // Callback function to toggle pause state for autoPlay
+  const handleTogglePause = useCallback(() => {
+    setIsPaused((prev) => !prev);
+  }, []);
 
   // Callback function to handle the initial setup of the carousel.
   const onInitRef = useCallback((node: HTMLDivElement) => {
@@ -96,29 +111,33 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
     }
   }, []);
 
-  // Effect to update the carousel items whenever the dimensions change.
-  useLayoutEffect(() => {
-    if (resizeObserver.current) {
-      resizeObserver.current.disconnect();
+  // Derive carousel items from dimensions and children
+  const carouselItems = useMemo<CarouselItemProps[]>(() => {
+    if (!slideWidth || !slideHeight || !Array.isArray(children)) {
+      return [];
     }
 
-    if (slideWidth && slideHeight && Array.isArray(children)) {
-      const prop = direction === 'horizontal' ? 'left' : 'top';
-      setCarouselItems(
-        children.map((_, index) => ({
-          height: debouncedSlideHeight,
-          id: nanoid(),
-          [prop]: `${
-            direction === 'horizontal'
-              ? index * slideWidth
-              : index * slideHeight
-          }px`,
-          visible: false,
-          width: debouncedSlideWidth,
-        }))
-      );
-    }
-  }, [debouncedSlideWidth, debouncedSlideHeight, direction, children]);
+    const prop = direction === 'horizontal' ? 'left' : 'top';
+    return children.map((_, index) => ({
+      height: debouncedSlideHeight,
+      id: childrenIds[index] ?? nanoid(),
+      [prop]: `${
+        direction === 'horizontal'
+          ? index * slideWidth
+          : index * slideHeight
+      }px`,
+      visible: false,
+      width: debouncedSlideWidth,
+    }));
+  }, [
+    debouncedSlideWidth,
+    debouncedSlideHeight,
+    direction,
+    children,
+    childrenIds,
+    slideWidth,
+    slideHeight,
+  ]);
 
   // Memoized value to determine whether to hide the next button.
   const hideNextButton = useMemo(
@@ -128,25 +147,49 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Effect to handle auto-playing of the carousel.
   useLayoutEffect(() => {
+    // Clear existing interval if paused or conditions changed
+    if (autoPlayRef.current && (isPaused || !autoPlay)) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = undefined;
+      if (isPaused) {
+        setAutoPlaying(false);
+      }
+    }
+
+    // Start autoPlay if not paused and conditions met
     if (
       !autoPlayRef.current &&
       autoPlay &&
+      !isPaused &&
       activePage < carouselItems.length - 1
     ) {
       setAutoPlaying(true);
       autoPlayRef.current = window.setInterval(() => {
-        setActivePage(page => {
-          if (page === carouselItems.length - 1) {
-            clearInterval(autoPlayRef.current);
+        setActivePage((page) => {
+          const nextPage = page + 1;
+          if (nextPage >= carouselItems.length) {
+            if (autoPlayRef.current) {
+              clearInterval(autoPlayRef.current);
+              autoPlayRef.current = undefined;
+            }
             setAutoPlaying(false);
             return page;
           }
 
-          return page + 1;
+          onSlideChange?.(nextPage);
+          return nextPage;
         });
       }, autoPlay);
     }
-  }, [autoPlay, carouselItems.length]);
+
+    // Cleanup function to clear interval
+    return () => {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current);
+        autoPlayRef.current = undefined;
+      }
+    };
+  }, [autoPlay, carouselItems.length, activePage, isPaused, onSlideChange]);
 
   // Memoized value to determine whether to hide the previous button.
   const hidePreviousButton = useMemo(() => activePage === 0, [activePage]);
@@ -158,8 +201,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
         styles.track_wrapper,
         direction === 'horizontal' ? styles.track_wrapper_horizontal : '',
       ]),
-    [isAutoPlaying]
+    [direction]
   );
+
   const carouselContainerClass = useMemo(
     () =>
       classNames(
@@ -168,12 +212,13 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
           direction === 'horizontal'
             ? styles.container_horizontal
             : styles.container_vertical,
+          className,
         ],
         {
           'rc-carousel-border': border,
         }
       ),
-    []
+    [direction, border, className]
   );
 
   // Styles for the carousel wrapper.
@@ -183,7 +228,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
         '--min-height': `${height}px`,
         '--transition': transition,
       }) as CSSProperties,
-    []
+    [height, transition]
   );
 
   // Classname for the carousel wrapper.
@@ -195,7 +240,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
           ? styles.wrapper_horizontal
           : styles.wrapper_vertical,
       ]),
-    []
+    [direction]
   );
 
   // Swipe handler.
@@ -206,6 +251,10 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Effects to handle swipe gestures.
   useEffect(() => {
+    if (!enableSwipe) {
+      return;
+    }
+
     if (
       (dir === 'RIGHT' && direction === 'horizontal') ||
       (dir === 'BOTTOM' && direction === 'vertical')
@@ -217,7 +266,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
     ) {
       handleNext();
     }
-  }, [offset, dir]);
+  }, [offset, dir, direction, handleNext, handlePrevious, enableSwipe]);
 
   // Effect to clean up on unmount.
   useEffect(() => {
@@ -228,11 +277,19 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Render the Carousel component.
   return (
-    <div className={carouselContainerClass} ref={onInit}>
+    <section
+      className={carouselContainerClass}
+      ref={enableSwipe ? onInit : undefined}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={ariaLabel}
+    >
       <div
         className={wrapperClass}
         ref={onInitRef}
         style={carouselWrapperStyle}
+        aria-live="polite"
+        aria-atomic="false"
       >
         <CarouselItems
           carouselItems={carouselItems}
@@ -260,8 +317,19 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
             size={size}
           />
         )}
+        {autoPlay > 0 && isAutoPlaying && (
+          <button
+            type="button"
+            onClick={handleTogglePause}
+            className={styles.pause_button}
+            aria-label={isPaused ? 'Resume carousel' : 'Pause carousel'}
+            aria-pressed={isPaused}
+          >
+            {isPaused ? '▶' : '⏸'}
+          </button>
+        )}
       </div>
-    </div>
+    </section>
   );
 };
 

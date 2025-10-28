@@ -75,7 +75,16 @@ describe('DataGridHeader', () => {
 
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const { container } = render(<DataGridHeader />);
+      const { container } = render(
+        <div role="table">
+          <DataGridHeader
+            columns={[
+              { name: 'name', type: 'string' },
+              { name: 'age', type: 'number' },
+            ]}
+          />
+        </div>
+      );
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();

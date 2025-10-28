@@ -1,9 +1,11 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
 
+@use '@design/tokens.scss';
+
 .sort_icon_wrapper {
   margin-left: auto;
-  margin-right: 0.5rem;
+  margin-right: tokens.$space-2; // 8px
 }
 
 %sort-icon {
@@ -25,12 +27,12 @@
 
 .sort_icon_asc {
   @extend %sort-icon;
-  margin-bottom: 0.2rem;
+  margin-bottom: tokens.$space-1; // 4px
 }
 
 .sort_icon_desc {
   @extend %sort-icon;
-  margin-top: 0.2rem;
+  margin-top: tokens.$space-1; // 4px
   transform: rotate(180deg);
 }
 

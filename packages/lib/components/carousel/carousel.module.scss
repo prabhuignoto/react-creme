@@ -1,8 +1,9 @@
 @use '@design/button.scss';
-@use '@design/theme.scss';
-@use '@design/list.scss';
 @use '@design/core.scss';
+@use '@design/list.scss';
 @use '@design/position.scss';
+@use '@design/theme.scss';
+@use '@design/tokens.scss';
 
 .container {
   height: 100%;
@@ -32,14 +33,29 @@
 
   &.wrapper_horizontal {
     height: calc(100% - 4rem);
-    margin-top: 1rem;
+    margin-top: tokens.$space-4;
     width: 95%;
+
+    @media (max-width: 768px) {
+      height: calc(100% - 3rem);
+      width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      margin-top: tokens.$space-2;
+    }
   }
 
   &.wrapper_vertical {
     height: calc(100% - 3rem);
-    margin-left: 1rem;
+    margin-left: tokens.$space-4;
     width: calc(100% - 3rem);
+
+    @media (max-width: 768px) {
+      height: calc(100% - 2rem);
+      margin-left: tokens.$space-2;
+      width: calc(100% - 2rem);
+    }
   }
 }
 
@@ -49,10 +65,18 @@
   &.track_wrapper_horizontal {
     height: 3rem;
     width: 100%;
+
+    @media (max-width: 768px) {
+      height: 2rem;
+    }
   }
 
-  &.track_wrapper_horizontal {
+  &.track_wrapper_vertical {
     width: 3rem;
+
+    @media (max-width: 768px) {
+      width: 2rem;
+    }
   }
 }
 
@@ -65,6 +89,11 @@
   position: absolute;
   top: 0;
   transition: transform 0.5s var(--transition);
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .item {
@@ -89,17 +118,34 @@
 
 .btn {
   border-radius: 50%;
+  transition:
+    opacity 0.2s ease-in-out,
+    visibility 0.2s ease-in-out;
 
   &.btn_horizontal {
-    margin: 0 1rem;
+    margin: 0 tokens.$space-4;
+
+    @media (max-width: 768px) {
+      margin: 0 tokens.$space-2;
+    }
   }
 
   &.btn_vertical {
-    margin: 1rem 0;
+    margin: tokens.$space-4 0;
+
+    @media (max-width: 768px) {
+      margin: tokens.$space-2 0;
+    }
   }
 
   &.btn_hide {
+    opacity: 0;
     visibility: hidden;
+  }
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 }
 
@@ -113,4 +159,54 @@
 
 .btn_right:not(.btn_horizontal) {
   transform: rotate(90deg);
+}
+
+.pause_button {
+  // Reset button styles
+  @extend %center;
+  background: theme.$primary;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  color: theme.$white;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+
+  // WCAG 2.1 compliant touch target
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
+
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    transform 0.1s ease-in-out;
+
+  // Hover state
+  &:hover:not(:disabled) {
+    background: rgba(theme.$primary-rgb, 0.9);
+    transform: scale(1.05);
+  }
+
+  // Focus state
+  &:focus-visible {
+    border-color: theme.$white;
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
+  }
+
+  // Active state
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  // Pressed state (when paused)
+  &[aria-pressed='true'] {
+    background: rgba(theme.$primary-rgb, 0.8);
+  }
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }

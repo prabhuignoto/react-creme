@@ -2,7 +2,6 @@
 @use '@design/theme.scss';
 
 $sizes: (sm, md, lg);
-$dark-mode: theme.$dark_mode;
 
 .cell {
   @extend %left;
@@ -27,11 +26,11 @@ $dark-mode: theme.$dark_mode;
   }
 
   &:not(.searchable):first-child {
-    border-top-left-radius: 4px;
+    @extend %border-radius-left;
   }
 
   &:not(.searchable):last-child {
-    border-top-right-radius: 4px;
+    @extend %border-radius-right;
   }
 
   &:not(.border):first-child {

@@ -7,8 +7,14 @@ export type CarouselProps = {
   // Border defines whether or not to draw a border around the component.
   border?: boolean;
 
-  //Children are the React elements/components displayed inside the Carousel component.
+  // Children are the React elements/components displayed inside the Carousel component.
   children: React.ReactNode | React.ReactNode[];
+
+  // Custom class name for the carousel container
+  className?: string;
+
+  // Custom aria-label for the carousel region
+  ariaLabel?: string;
 
   // The direction determines if the items move horizontally or vertically in the carousel.
   direction?: 'horizontal' | 'vertical';
@@ -16,16 +22,19 @@ export type CarouselProps = {
   // enableSwipe enable swipe gestures for moving forward and backward. Defaults to true.
   enableSwipe?: boolean;
 
-  //focusable defines whether or not the node can be focused, false by default.
+  // focusable defines whether or not the node can be focused, false by default.
   focusable?: boolean;
 
-  //height sets the height of the element.
+  // height sets the height of the element.
   height?: number;
 
-  //size sets the size of the element.
+  // Callback fired when the active slide changes
+  onSlideChange?: (index: number) => void;
+
+  // size sets the size of the element.
   size?: 'sm' | 'md' | 'lg';
 
-  //transition configures the transition effect between slides.
+  // transition configures the transition effect between slides.
   transition?: string;
 };
 
