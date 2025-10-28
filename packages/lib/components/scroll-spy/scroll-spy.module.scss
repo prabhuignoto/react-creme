@@ -1,71 +1,184 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
 @use '@design/list.scss';
+@use '@design/tokens.scss';
 
 .wrapper {
   @extend %center;
   align-items: flex-start;
-  column-gap: 2%;
+  column-gap: tokens.$space-4;
   display: grid;
   height: 100%;
   justify-items: center;
   width: 100%;
+
+  // Size variants - navigation width
+  &.sm {
+    .wrapper_left,
+    &.wrapper_left {
+      grid-template-columns: 150px 1fr;
+    }
+
+    .wrapper_right,
+    &.wrapper_right {
+      grid-template-columns: 1fr 150px;
+    }
+  }
+
+  &.md {
+    .wrapper_left,
+    &.wrapper_left {
+      grid-template-columns: 200px 1fr;
+    }
+
+    .wrapper_right,
+    &.wrapper_right {
+      grid-template-columns: 1fr 200px;
+    }
+  }
+
+  &.lg {
+    .wrapper_left,
+    &.wrapper_left {
+      grid-template-columns: 250px 1fr;
+    }
+
+    .wrapper_right,
+    &.wrapper_right {
+      grid-template-columns: 1fr 250px;
+    }
+  }
 }
 
 .wrapper_left {
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 200px 1fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
 }
 
 .wrapper_right {
-  grid-template-columns: 1fr 150px;
+  grid-template-columns: 1fr 200px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
 
   .aside {
     order: 2;
+
+    @media (max-width: 768px) {
+      order: 1;
+    }
   }
 
   .content {
     order: 1;
+
+    @media (max-width: 768px) {
+      order: 2;
+    }
   }
 }
 
-.aside,
-.list {
+.aside {
   @extend %center;
   width: 100%;
 }
 
 .list {
+  display: flex;
   flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .list_item {
   @extend %border-radius;
   @extend %left;
-  cursor: pointer;
-  font-weight: 300;
-  height: 35px;
-  padding-left: 0.5rem;
-  width: calc(100% - 0.5rem);
+  @extend %font-md;
 
+  // Reset button styles
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  min-height: 44px;
+  padding: tokens.$space-2 tokens.$space-3;
+  text-align: left;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    transform 0.1s ease-in-out;
+  width: 100%;
+
+  // Light mode default
+  color: theme.$black;
+
+  // Dark mode
   &.dark {
     color: theme.$white;
   }
 
-  &:not(.dark) {
-    &.active {
-      color: theme.$white;
-    }
+  // Hover state
+  &:hover:not(:disabled):not(.active) {
+    background-color: rgba(theme.$primary-rgb, 0.1);
+  }
 
-    &:not(.active) {
-      color: theme.$black;
-    }
+  // Focus state (keyboard navigation)
+  &:focus-visible {
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
+    z-index: 1;
+  }
+
+  // Active (pressed) state
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  // Disabled state
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  // Size variants
+  .wrapper.sm & {
+    @extend %font-sm;
+    padding: tokens.$space-1 tokens.$space-2;
+  }
+
+  .wrapper.lg & {
+    @extend %font-lg;
+    padding: tokens.$space-3 tokens.$space-4;
   }
 }
 
 .active {
   background: rgba(theme.$primary-rgb, 1);
-  color: theme.$white;
-  font-weight: 400;
+  color: theme.$white !important;
+  font-weight: 500;
+
+  // Keep background on hover for active items
+  &:hover:not(:disabled) {
+    background: rgba(theme.$primary-rgb, 0.9);
+  }
 }
 
 .content {
@@ -73,14 +186,24 @@
   height: 100%;
   overflow: auto;
   scroll-behavior: smooth;
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
 }
 
 .content-item {
-  padding: 0.5rem 0;
+  padding: tokens.$space-4 0;
+
+  &:first-child {
+    padding-top: 0;
+  }
 }
 
 .header {
-  margin: 0;
+  @extend %font-lg;
+  margin: 0 0 tokens.$space-3 0;
 
   &.dark {
     color: theme.$primary;

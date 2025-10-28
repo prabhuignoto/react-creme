@@ -105,14 +105,13 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   // Collection of tab items
   const tabItems = useMemo(() => {
     return items
-      .filter(tab => !tab.disabled)
+      .filter(tab => !tab.disabled && tab.id === activeTabId)
       .map(
-        ({ id }) =>
-          id === activeTabId && (
-            <TabPanel key={id} id={id}>
-              {getTabContent}
-            </TabPanel>
-          )
+        ({ id }) => (
+          <TabPanel key={id} id={id}>
+            {getTabContent}
+          </TabPanel>
+        )
       );
   }, [items, activeTabId, getTabContent]);
 
@@ -173,7 +172,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         handleTabSelection={handleTabSelection}
         tabStyle={tabStyle}
         focusable={focusable}
-        icons={icons}
+        {...(icons && { icons })}
         activeTabId={activeTabId}
         size={size}
       />

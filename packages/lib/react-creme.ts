@@ -68,6 +68,13 @@ export type {
   MenuOption,
   Option,
 } from './components/dropdown/dropdown-model';
+export { FileUpload } from './components/file-upload/file-upload';
+export type {
+  FileItem,
+  FileUploadError,
+  FileUploadProps,
+  FileUploadRef,
+} from './components/file-upload/file-upload-model';
 export { Gallery } from './components/gallery/gallery';
 export type { GalleryProps } from './components/gallery/gallery.model';
 export { GlobalNotification } from './components/global-notification/global-notification';

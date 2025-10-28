@@ -1,0 +1,464 @@
+@use '@design/core.scss';
+@use '@design/theme.scss';
+@use '@design/tokens.scss';
+@use '@design/animate.scss';
+@use '@design/effects.scss';
+
+// Size variants
+$sizes: (sm, md, lg);
+
+// Drop zone heights
+$drop-zone-height-sm: 120px;
+$drop-zone-height-md: 180px;
+$drop-zone-height-lg: 240px;
+
+// File item dimensions
+$file-preview-sm: 60px;
+$file-preview-md: 80px;
+$file-preview-lg: 100px;
+
+// Animation for file items appearing
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Wrapper
+.wrapper {
+  // Variables
+  $transition-duration: 0.2s;
+
+  // Extends
+  @extend %col;
+
+  // Properties
+  position: relative;
+  width: 100%;
+
+  // Nested selectors
+  &.disabled {
+    @extend %disabled;
+
+    .dropZone {
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  &.rtl {
+    direction: rtl;
+  }
+
+  // Size variants
+  &.sm {
+    .dropZone {
+      min-height: $drop-zone-height-sm;
+    }
+
+    .filePreview {
+      height: $file-preview-sm;
+      width: $file-preview-sm;
+    }
+
+    .uploadIcon svg {
+      height: 32px;
+      width: 32px;
+    }
+
+    .dropZoneText {
+      @extend %text-sm;
+    }
+
+    .browseButton {
+      @extend %text-sm;
+      padding: tokens.$space-1 tokens.$space-3;
+    }
+  }
+
+  &.md {
+    .dropZone {
+      min-height: $drop-zone-height-md;
+    }
+
+    .filePreview {
+      height: $file-preview-md;
+      width: $file-preview-md;
+    }
+
+    .uploadIcon svg {
+      height: 48px;
+      width: 48px;
+    }
+
+    .dropZoneText {
+      @extend %text-md;
+    }
+
+    .browseButton {
+      @extend %text-md;
+      padding: tokens.$space-2 tokens.$space-4;
+    }
+  }
+
+  &.lg {
+    .dropZone {
+      min-height: $drop-zone-height-lg;
+    }
+
+    .filePreview {
+      height: $file-preview-lg;
+      width: $file-preview-lg;
+    }
+
+    .uploadIcon svg {
+      height: 64px;
+      width: 64px;
+    }
+
+    .dropZoneText {
+      @extend %text-lg;
+    }
+
+    .browseButton {
+      @extend %text-lg;
+      padding: tokens.$space-3 tokens.$space-5;
+    }
+  }
+}
+
+// Hidden file input
+.hiddenInput {
+  display: none;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+// Drop zone
+.dropZone {
+  // Extends
+  @extend %center;
+
+  // Properties
+  border: 2px dashed theme.$gray-400;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: tokens.$space-6;
+  position: relative;
+  transition: border-color 0.2s ease-in, background-color 0.2s ease-in;
+
+  // Nested selectors
+  &:hover:not(.disabled) {
+    background-color: rgba(theme.$primary-rgb, 0.02);
+    border-color: theme.$primary;
+  }
+
+  &:focus-visible {
+    border-color: theme.$primary;
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
+  }
+
+  &.dragging {
+    background-color: rgba(theme.$primary-rgb, 0.08);
+    border-color: theme.$primary;
+    border-style: solid;
+  }
+
+  &.hasFiles {
+    margin-bottom: tokens.$space-4;
+  }
+
+  // Dark mode
+  .wrapper.dark & {
+    background-color: theme.$dark-control-bg;
+    border-color: theme.$dark-control-border-hex;
+
+    &:hover:not(.disabled) {
+      background-color: rgba(theme.$primary-rgb, 0.1);
+      border-color: theme.$primary;
+    }
+
+    &.dragging {
+      background-color: rgba(theme.$primary-rgb, 0.15);
+    }
+  }
+}
+
+// Drop zone content
+.dropZoneContent {
+  // Extends
+  @extend %col;
+
+  // Properties
+  align-items: center;
+  gap: tokens.$space-3;
+  text-align: center;
+}
+
+// Upload icon
+.uploadIcon {
+  color: theme.$primary;
+  display: flex;
+
+  svg {
+    display: block;
+  }
+
+  .wrapper.dark & {
+    color: theme.$primary-light;
+  }
+}
+
+// Drop zone text
+.dropZoneText {
+  color: theme.$text-color;
+  font-weight: 500;
+
+  .wrapper.dark & {
+    color: theme.$dark-input-color;
+  }
+}
+
+// Browse button
+.browseButton {
+  // Properties
+  background-color: theme.$primary;
+  border-radius: 4px;
+  color: theme.$white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease-in, transform 0.1s ease-out;
+
+  // Nested selectors
+  &:hover {
+    background-color: rgba(theme.$primary-rgb, 0.9);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  .wrapper.dark & {
+    background-color: theme.$primary-light;
+    color: theme.$dark-control-bg;
+  }
+}
+
+// File list
+.fileList {
+  display: grid;
+  gap: tokens.$space-3;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  width: 100%;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Individual file item
+.fileItem {
+  // Extends
+  @extend %border;
+  @extend %shadow-small;
+
+  // Properties
+  animation: fadeInUp 0.3s ease-out;
+  border-radius: 4px;
+  background-color: theme.$white;
+  display: grid;
+  gap: tokens.$space-3;
+  grid-template-columns: auto 1fr auto;
+  padding: tokens.$space-3;
+  transition: box-shadow 0.2s ease-in, transform 0.1s ease-out;
+
+  // Nested selectors
+  &:hover {
+    @extend %shadow-medium;
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
+  }
+
+  .wrapper.dark & {
+    background-color: theme.$dark-control-bg;
+    border-color: theme.$dark-control-border-hex;
+  }
+}
+
+// File preview
+.filePreview {
+  // Properties
+  align-items: center;
+  border-radius: 4px;
+  background-color: theme.$gray-100;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+
+  .wrapper.dark & {
+    background-color: theme.$dark-hover;
+  }
+}
+
+// Thumbnail image
+.thumbnail {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+// File icon wrapper
+.fileIconWrapper {
+  align-items: center;
+  color: theme.$gray-500;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    display: block;
+  }
+
+  .wrapper.dark & {
+    color: theme.$gray-400;
+  }
+}
+
+// File info
+.fileInfo {
+  // Extends
+  @extend %col-left;
+
+  // Properties
+  gap: tokens.$space-1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+// File name
+.fileName {
+  // Extends
+  @extend %text-no-wrap;
+
+  // Properties
+  color: theme.$text-color;
+  font-weight: 500;
+
+  .wrapper.dark & {
+    color: theme.$dark-input-color;
+  }
+}
+
+// File size
+.fileSize {
+  color: theme.$gray-600;
+  font-size: 0.875rem;
+
+  .wrapper.dark & {
+    color: theme.$gray-400;
+  }
+}
+
+// Progress bar
+.progressBar {
+  // Properties
+  background-color: theme.$gray-200;
+  border-radius: 4px;
+  height: 4px;
+  margin-top: tokens.$space-1;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  .wrapper.dark & {
+    background-color: theme.$dark-hover;
+  }
+}
+
+// Progress fill
+.progressFill {
+  // Properties
+  background-color: theme.$primary;
+  border-radius: 4px;
+  height: 100%;
+  transition: width 0.3s ease-out;
+
+  .wrapper.dark & {
+    background-color: theme.$primary-light;
+  }
+}
+
+// Remove button
+.removeButton {
+  // Properties
+  align-items: center;
+  border-radius: 4px;
+  align-self: flex-start;
+  background-color: transparent;
+  border: none;
+  color: theme.$gray-500;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  justify-content: center;
+  padding: tokens.$space-2;
+  transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  width: 32px;
+
+  // Nested selectors
+  svg {
+    display: block;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: theme.$gray-200;
+    color: theme.$crimson;
+  }
+
+  &:focus-visible {
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .wrapper.dark & {
+    color: theme.$gray-400;
+
+    &:hover:not(:disabled) {
+      background-color: theme.$dark-hover;
+      color: theme.$crimson;
+    }
+  }
+}
+
+// Screen reader only
+.srOnly {
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

@@ -59,6 +59,7 @@ export default [
       { name: 'Checkbox Group' },
       { name: 'Checkbox' },
       { name: 'Dropdown' },
+      { name: 'File Upload' },
       { name: 'Form Field' },
       { name: 'Form Group' },
       { name: 'Input Number' },

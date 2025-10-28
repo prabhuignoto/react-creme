@@ -147,6 +147,11 @@ export const routes = [
     path: '/form-group',
   },
   {
+    component: lazy(() => import('../components/file-upload')),
+    key: 'file-upload',
+    path: '/file-upload',
+  },
+  {
     component: lazy(() => import('../components/password')),
     key: 'password',
     path: '/password',
