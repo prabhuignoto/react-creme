@@ -7,7 +7,6 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 import importPlugin from 'eslint-plugin-import';
 import jest from 'eslint-plugin-jest';
 import sortKeysFix from 'eslint-plugin-sort-keys-fix';
-import typescriptSortKeys from 'eslint-plugin-typescript-sort-keys';
 import prettier from 'eslint-config-prettier';
 import globals from 'globals';
 
@@ -63,7 +62,6 @@ export default [
       react: react,
       'react-hooks': reactHooks,
       'sort-keys-fix': sortKeysFix,
-      'typescript-sort-keys': typescriptSortKeys,
     },
     rules: {
       // Merge ESLint recommended, TypeScript, and custom rules
@@ -97,8 +95,6 @@ export default [
       'react/prop-types': 'off', // Using TypeScript for type checking
       'react/react-in-jsx-scope': 'off', // Not needed with new JSX transform
       'sort-keys-fix/sort-keys-fix': 'error',
-      'typescript-sort-keys/interface': 'error',
-      'typescript-sort-keys/string-enum': 'error',
     },
     settings: {
       'import/resolver': {

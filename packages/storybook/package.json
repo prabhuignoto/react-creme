@@ -45,18 +45,6 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
-  "pnpm": {
-    "overrides": {
-      "sass-loader": "10.1.1",
-      "css-loader": "5.2.6",
-      "style-loader": "2.0.0"
-    }
-  },
-  "resolutions": {
-    "glob-parent": "^5.1.2",
-    "trim": "^0.0.3",
-    "acorn": "8.7.0"
-  },
   "browserslist": [
     "last 3 versions",
     "not ie <= 11",

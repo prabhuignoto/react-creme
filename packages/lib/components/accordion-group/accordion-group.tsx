@@ -178,7 +178,9 @@ const AccordionGroup = ({
           className={styles.group_item}
           key={item.id}
           role={!disableARIA ? 'group' : undefined}
-          ref={el => (accordionRefs.current[index] = el)}
+          ref={el => {
+            if (el) accordionRefs.current[index] = el;
+          }}
         >
           <Accordion
             id={item.id}

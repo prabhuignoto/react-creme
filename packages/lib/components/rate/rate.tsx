@@ -66,7 +66,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
 
       if (!onChange) return;
 
-      if (ratingValues.length) {
+      if (ratingValues.length && ratingValues[idx] !== undefined) {
         onChange(ratingValues[idx]);
       } else {
         onChange(idx + 1);

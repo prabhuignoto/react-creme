@@ -52,14 +52,15 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
             ...item,
             items: item.items.map(item => ({
               ...item,
-              selected: item.id === option[0].id,
+              selected: item.id === option?.[0]?.id,
             })),
           }));
         });
         const grp = _groups.find(grp => grp.id === groupId);
+        const selectedOption = option?.[0];
 
-        if (grp) {
-          onSelect?.(grp, option[0]);
+        if (grp && selectedOption) {
+          onSelect?.(grp, selectedOption);
         }
       }
     },

@@ -147,13 +147,11 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Effect to handle auto-playing of the carousel.
   useLayoutEffect(() => {
-    // Clear existing interval if paused or conditions changed
+    // Clear existing interval if paused or autoPlay disabled
     if (autoPlayRef.current && (isPaused || !autoPlay)) {
       clearInterval(autoPlayRef.current);
       autoPlayRef.current = undefined;
-      if (isPaused) {
-        setAutoPlaying(false);
-      }
+      setAutoPlaying(false);
     }
 
     // Start autoPlay if not paused and conditions met
@@ -161,7 +159,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
       !autoPlayRef.current &&
       autoPlay &&
       !isPaused &&
-      activePage < carouselItems.length - 1
+      carouselItems.length > 0
     ) {
       setAutoPlaying(true);
       autoPlayRef.current = window.setInterval(() => {
@@ -189,7 +187,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
         autoPlayRef.current = undefined;
       }
     };
-  }, [autoPlay, carouselItems.length, activePage, isPaused, onSlideChange]);
+  }, [autoPlay, carouselItems.length, isPaused, onSlideChange]);
 
   // Memoized value to determine whether to hide the previous button.
   const hidePreviousButton = useMemo(() => activePage === 0, [activePage]);
@@ -303,20 +301,18 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
         </CarouselItems>
       </div>
       <div className={carouselTrackClass}>
-        {!isAutoPlaying && (
-          <CarouselTrack
-            activeIndex={activePage}
-            handleSelection={handleActivatePage}
-            length={trackCount.current}
-            direction={direction}
-            onNext={handleNext}
-            onPrevious={handlePrevious}
-            hideNext={hideNextButton}
-            hidePrevious={hidePreviousButton}
-            focusable={focusable}
-            size={size}
-          />
-        )}
+        <CarouselTrack
+          activeIndex={activePage}
+          handleSelection={handleActivatePage}
+          length={trackCount.current}
+          direction={direction}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+          hideNext={hideNextButton}
+          hidePrevious={hidePreviousButton}
+          focusable={focusable}
+          size={size}
+        />
         {autoPlay > 0 && isAutoPlaying && (
           <button
             type="button"

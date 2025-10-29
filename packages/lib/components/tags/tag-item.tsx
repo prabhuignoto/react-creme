@@ -88,7 +88,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     );
 
     return (
-      <li key={id} className={tagItemClass} style={style}>
+      <li key={id} className={tagItemClass} style={style} role="listitem">
         <span className={tagName} title={name}>
           {name}
         </span>

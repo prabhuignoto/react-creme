@@ -48,7 +48,7 @@ export const useFileDragDrop = (options: UseFileDragDropOptions) => {
   const { enabled = true, disabled = false, onDrop } = options;
 
   const [isDragging, setIsDragging] = useState(false);
-  const [dragCounter, setDragCounter] = useState(0);
+  const dragCounterRef = React.useRef(0);
 
   const handleDragOver = useCallback(
     (event: React.DragEvent<HTMLDivElement>) => {
@@ -67,7 +67,7 @@ export const useFileDragDrop = (options: UseFileDragDropOptions) => {
       event.preventDefault();
       event.stopPropagation();
 
-      setDragCounter((prev) => prev + 1);
+      dragCounterRef.current += 1;
       setIsDragging(true);
     },
     [enabled, disabled]
@@ -80,13 +80,10 @@ export const useFileDragDrop = (options: UseFileDragDropOptions) => {
       event.preventDefault();
       event.stopPropagation();
 
-      setDragCounter((prev) => {
-        const newCounter = prev - 1;
-        if (newCounter === 0) {
-          setIsDragging(false);
-        }
-        return newCounter;
-      });
+      dragCounterRef.current -= 1;
+      if (dragCounterRef.current === 0) {
+        setIsDragging(false);
+      }
     },
     [enabled, disabled]
   );
@@ -99,7 +96,7 @@ export const useFileDragDrop = (options: UseFileDragDropOptions) => {
       event.stopPropagation();
 
       setIsDragging(false);
-      setDragCounter(0);
+      dragCounterRef.current = 0;
 
       const files = Array.from(event.dataTransfer.files);
       if (files.length > 0) {

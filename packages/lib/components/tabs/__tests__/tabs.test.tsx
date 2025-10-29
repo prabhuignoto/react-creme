@@ -3,7 +3,8 @@
 import React from 'react';
 import { axe } from 'jest-axe';
 import { expect, describe, it } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Tabs } from '../tabs';
 
 describe('<Tabs />', () => {
@@ -30,11 +31,12 @@ describe('<Tabs />', () => {
     expect(screen.queryByText('Content 3')).toBeNull();
   });
 
-  it('handles tab selection', () => {
+  it('handles tab selection', async () => {
+    const user = userEvent.setup();
     render(<Tabs labels={labels} children={children} />);
 
     // Select the second tab
-    fireEvent.click(screen.getByText('Tab2'));
+    await user.click(screen.getByText('Tab2'));
 
     // Check if the second tab's content is rendered
     expect(screen.getByText('Content 2')).toBeVisible();
@@ -44,20 +46,28 @@ describe('<Tabs />', () => {
     expect(screen.queryByText('Content 3')).toBeNull();
   });
 
-  it('handles keyboard navigation', () => {
+  it('handles keyboard navigation', async () => {
+    const user = userEvent.setup();
     render(<Tabs labels={labels} children={children} />);
 
-    // Navigate to the second tab with the right arrow key
-    fireEvent.keyDown(screen.getByText('Tab1'), { key: 'ArrowRight' });
+    const tabs = screen.getAllByRole('tab');
 
-    // Check if the second tab's content is rendered
-    expect(screen.getByText('Content 2')).toBeVisible();
+    // Navigate to the second tab with the right arrow key
+    tabs[0].focus();
+    await user.keyboard('{ArrowRight}');
+
+    // Wait for the second tab's content to be rendered
+    await waitFor(() => {
+      expect(screen.getByText('Content 2')).toBeVisible();
+    });
 
     // Navigate back to the first tab with the left arrow key
-    fireEvent.keyDown(screen.getByText('Tab2'), { key: 'ArrowLeft' });
+    await user.keyboard('{ArrowLeft}');
 
-    // Check if the first tab's content is rendered
-    expect(screen.getByText('Content 1')).toBeVisible();
+    // Wait for the first tab's content to be rendered
+    await waitFor(() => {
+      expect(screen.getByText('Content 1')).toBeVisible();
+    });
   });
 
   describe('Accessibility', () => {
@@ -119,85 +129,104 @@ describe('<Tabs />', () => {
   });
 
   describe('Keyboard Navigation', () => {
-    it('should navigate to next tab with ArrowRight', () => {
+    it('should navigate to next tab with ArrowRight', async () => {
+      const user = userEvent.setup();
       render(<Tabs labels={labels} children={children} />);
 
       const tabs = screen.getAllByRole('tab');
 
       // Focus first tab and press ArrowRight
       tabs[0]?.focus();
-      fireEvent.keyDown(tabs[0]!, { key: 'ArrowRight' });
+      await user.keyboard('{ArrowRight}');
 
       // Second tab content should be visible
-      expect(screen.getByText('Content 2')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Content 2')).toBeVisible();
+      });
     });
 
-    it('should navigate to previous tab with ArrowLeft', () => {
+    it('should navigate to previous tab with ArrowLeft', async () => {
+      const user = userEvent.setup();
       render(<Tabs labels={labels} children={children} activeTab="Tab2" />);
 
       const tabs = screen.getAllByRole('tab');
 
       // Focus second tab and press ArrowLeft
       tabs[1]?.focus();
-      fireEvent.keyDown(tabs[1]!, { key: 'ArrowLeft' });
+      await user.keyboard('{ArrowLeft}');
 
       // First tab content should be visible
-      expect(screen.getByText('Content 1')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Content 1')).toBeVisible();
+      });
     });
 
-    it('should wrap from last to first tab with ArrowRight', () => {
+    it('should wrap from last to first tab with ArrowRight', async () => {
+      const user = userEvent.setup();
       render(<Tabs labels={labels} children={children} activeTab="Tab3" />);
 
       const tabs = screen.getAllByRole('tab');
 
       // Focus last tab and press ArrowRight
       tabs[2]?.focus();
-      fireEvent.keyDown(tabs[2]!, { key: 'ArrowRight' });
+      await user.keyboard('{ArrowRight}');
 
       // First tab content should be visible (wrapped)
-      expect(screen.getByText('Content 1')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Content 1')).toBeVisible();
+      });
     });
 
-    it('should wrap from first to last tab with ArrowLeft', () => {
+    it('should wrap from first to last tab with ArrowLeft', async () => {
+      const user = userEvent.setup();
       render(<Tabs labels={labels} children={children} />);
 
       const tabs = screen.getAllByRole('tab');
 
       // Focus first tab and press ArrowLeft
       tabs[0]?.focus();
-      fireEvent.keyDown(tabs[0]!, { key: 'ArrowLeft' });
+      await user.keyboard('{ArrowLeft}');
 
       // Last tab content should be visible (wrapped)
-      expect(screen.getByText('Content 3')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Content 3')).toBeVisible();
+      });
     });
 
-    it('should jump to first tab with Home key', () => {
+    it('should jump to first tab with Home key', async () => {
+      const user = userEvent.setup();
       render(<Tabs labels={labels} children={children} activeTab="Tab3" />);
 
       const tabs = screen.getAllByRole('tab');
 
       // Focus last tab and press Home
       tabs[2]?.focus();
-      fireEvent.keyDown(tabs[2]!, { key: 'Home' });
+      await user.keyboard('{Home}');
 
       // First tab content should be visible
-      expect(screen.getByText('Content 1')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Content 1')).toBeVisible();
+      });
     });
 
-    it('should jump to last tab with End key', () => {
+    it('should jump to last tab with End key', async () => {
+      const user = userEvent.setup();
       render(<Tabs labels={labels} children={children} />);
 
       const tabs = screen.getAllByRole('tab');
 
       // Focus first tab and press End
       tabs[0]?.focus();
-      fireEvent.keyDown(tabs[0]!, { key: 'End' });
+      await user.keyboard('{End}');
 
       // Last tab content should be visible
-      expect(screen.getByText('Content 3')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Content 3')).toBeVisible();
+      });
     });
 
-    it('should skip disabled tabs during navigation', () => {
+    it('should skip disabled tabs during navigation', async () => {
+      const user = userEvent.setup();
       render(
         <Tabs
           labels={labels}
@@ -210,10 +239,12 @@ describe('<Tabs />', () => {
 
       // Focus first tab and press ArrowRight
       tabs[0]?.focus();
-      fireEvent.keyDown(tabs[0]!, { key: 'ArrowRight' });
+      await user.keyboard('{ArrowRight}');
 
       // Should skip Tab2 and go to Tab3
-      expect(screen.getByText('Content 3')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Content 3')).toBeVisible();
+      });
     });
 
     it('should have only selected tab focusable (roving tabindex)', () => {

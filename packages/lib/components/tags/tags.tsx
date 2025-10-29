@@ -169,7 +169,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
           : {}
       )}
       ref={wrapperRef as React.RefObject<HTMLUListElement>}
-      role="group"
+      role="list"
       aria-label="tag list"
       tabIndex={-1}
     >

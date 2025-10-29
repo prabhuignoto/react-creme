@@ -41,7 +41,7 @@ const FormGroup: FunctionComponent<FormGroupProps> = ({
   );
 
   const handleSubmit = useCallback(
-    (ev?: React.MouseEvent) => {
+    (ev?: React.FormEvent<HTMLFormElement> | React.MouseEvent) => {
       ev?.preventDefault();
       onSubmit?.();
     },
@@ -52,6 +52,13 @@ const FormGroup: FunctionComponent<FormGroupProps> = ({
     onCancel?.();
   }, [onCancel]);
 
+  const handleFormSubmit = useCallback(
+    (ev: React.FormEvent<HTMLFormElement>) => {
+      handleSubmit(ev);
+    },
+    [handleSubmit]
+  );
+
   return (
     <form
       className={styles.wrapper}
@@ -59,7 +66,7 @@ const FormGroup: FunctionComponent<FormGroupProps> = ({
       method={method}
       encType={encType}
       noValidate={noValidate}
-      onSubmit={handleSubmit}
+      onSubmit={handleFormSubmit}
     >
       {elements.length &&
         elements.map((element, index) => (
@@ -70,7 +77,7 @@ const FormGroup: FunctionComponent<FormGroupProps> = ({
         ))}
       <div className={controlsClass}>
         <div className={styles.form_control_wrapper}>
-          <Button label={submitLabel} type="primary" onClick={handleSubmit} />
+          <Button label={submitLabel} type="primary" onClick={() => handleSubmit()} />
         </div>
         <div className={styles.form_control_wrapper} onClick={handleCancel}>
           <Button label={cancelLabel} />

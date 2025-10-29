@@ -17,7 +17,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with all props 1`] = `
         >
           <a
             class="_link_dd7717 _sm_dd7717"
-            style="outline: none; position: relative;"
             tabindex="0"
           >
             <span
@@ -25,10 +24,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with all props 1`] = `
             >
               Home
             </span>
-            <span
-              class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-              style="width: 6px; height: 6px;"
-            />
           </a>
         </span>
         <span
@@ -57,7 +52,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with all props 1`] = `
         >
           <a
             class="_link_dd7717 _sm_dd7717"
-            style="outline: none; position: relative;"
             tabindex="0"
           >
             <span
@@ -65,10 +59,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with all props 1`] = `
             >
               Products
             </span>
-            <span
-              class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-              style="width: 6px; height: 6px;"
-            />
           </a>
         </span>
         <span
@@ -98,7 +88,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with all props 1`] = `
         >
           <a
             class="_link_dd7717 _sm_dd7717"
-            style="outline: none; position: relative;"
             tabindex="0"
           >
             <span
@@ -106,10 +95,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with all props 1`] = `
             >
               Electronics
             </span>
-            <span
-              class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-              style="width: 6px; height: 6px;"
-            />
           </a>
         </span>
       </li>
@@ -135,7 +120,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with default props 1`] = 
         >
           <a
             class="_link_dd7717 _sm_dd7717"
-            style="outline: none; position: relative;"
             tabindex="0"
           >
             <span
@@ -143,10 +127,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with default props 1`] = 
             >
               Home
             </span>
-            <span
-              class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-              style="width: 6px; height: 6px;"
-            />
           </a>
         </span>
         <span
@@ -176,7 +156,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with default props 1`] = 
         >
           <a
             class="_link_dd7717 _sm_dd7717"
-            style="outline: none; position: relative;"
             tabindex="0"
           >
             <span
@@ -184,10 +163,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with default props 1`] = 
             >
               Products
             </span>
-            <span
-              class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-              style="width: 6px; height: 6px;"
-            />
           </a>
         </span>
         <span
@@ -218,7 +193,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with default props 1`] = 
         >
           <a
             class="_link_dd7717 _sm_dd7717"
-            style="outline: none; position: relative;"
             tabindex="0"
           >
             <span
@@ -226,10 +200,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with default props 1`] = 
             >
               Electronics
             </span>
-            <span
-              class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-              style="width: 6px; height: 6px;"
-            />
           </a>
         </span>
       </li>

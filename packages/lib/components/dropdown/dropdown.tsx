@@ -104,14 +104,17 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
 
         if (allowMultiSelection) {
           _value = selected.map(opt => opt.value).join(',');
-          const newSelectedIds = selected.map(item => item.id);
+          const newSelectedIds = selected.map(item => item.id).filter((id): id is string => id !== undefined);
           setSelectedIds(new Set(newSelectedIds));
         } else {
-          const { id, value: optValue } = selected[0];
-          _value = optValue || '';
-          setSelectedIds(new Set([id]));
-          setShowMenu(false);
-          setFocusManual(true);
+          const selectedOption = selected[0];
+          if (selectedOption) {
+            const { id, value: optValue } = selectedOption;
+            _value = optValue || '';
+            setSelectedIds(new Set([id].filter((id): id is string => id !== undefined)));
+            setShowMenu(false);
+            setFocusManual(true);
+          }
         }
 
         setFocusIndex(-1);

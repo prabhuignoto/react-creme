@@ -12,7 +12,6 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
       onSelect,
       enableCheckbox,
       size,
-      focusedId,
       expandedIds,
       onToggleExpand,
       level = 1,

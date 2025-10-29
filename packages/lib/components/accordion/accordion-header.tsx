@@ -158,7 +158,7 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     <h3 className={`${styles.header} rc-accordion-header`} style={headerStyle}>
       <button
         id={accordionId}
-        ref={ref as React.RefObject<HTMLButtonElement>}
+        ref={ref as unknown as React.RefObject<HTMLButtonElement>}
         type="button"
         {...focusProps}
         {...collapsibleProps}

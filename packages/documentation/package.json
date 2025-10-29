@@ -74,7 +74,6 @@
     "sass": "^1.90.0",
     "snyk": "^1.1177.0",
     "stylelint": "15.7.0",
-    "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-sass-guidelines": "^10.0.0",
     "stylelint-scss": "^5.0.1",
     "typescript": "^5.9.3",
@@ -88,10 +87,5 @@
     "not ie <= 11",
     "not dead",
     "> 5%"
-  ],
-  "resolutions": {
-    "nth-check": "^2.0.1",
-    "postcss": "^8.2.13",
-    "vite": "2.6.13"
-  }
+  ]
 }

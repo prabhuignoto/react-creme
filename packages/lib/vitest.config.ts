@@ -51,7 +51,7 @@ export default defineConfig({
     setupFiles: './test-setup.ts',
     silent: true,
     clearMocks: true, // Automatically clear mocks between tests
-    testTimeout: 30000, // Set a global timeout of 30 seconds for tests
+    testTimeout: 10000, // Set a global timeout of 10 seconds for tests (reduced from 30s)
     update: true,
     watch: false,
   },

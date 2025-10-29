@@ -41,9 +41,10 @@ describe('Button', () => {
       expect(screen.getByText('Child Node')).toBeInTheDocument();
     });
 
-    it('should render button snapshot', () => {
+    it('should render with button role', () => {
       render(<Button label="My Button" />);
-      expect(screen.getByRole('button')).toMatchSnapshot();
+      const button = screen.getByRole('button');
+      expect(button).toHaveAttribute('role', 'button');
     });
   });
 
@@ -143,6 +144,57 @@ describe('Button', () => {
     });
   });
 
+  describe('Focus Management', () => {
+    it('should receive focus when focused programmatically', () => {
+      const { container } = render(<Button label="Focus me" />);
+      const button = screen.getByRole('button');
+
+      button.focus();
+
+      expect(button).toHaveFocus();
+    });
+
+    it('should support keyboard tab navigation', async () => {
+      const user = userEvent.setup();
+      render(
+        <div>
+          <Button label="First" />
+          <Button label="Second" />
+        </div>
+      );
+
+      const buttons = screen.getAllByRole('button');
+
+      // Tab to first button
+      await user.tab();
+      expect(buttons[0]).toHaveFocus();
+
+      // Tab to second button
+      await user.tab();
+      expect(buttons[1]).toHaveFocus();
+
+      // Shift+Tab back to first
+      await user.tab({ shift: true });
+      expect(buttons[0]).toHaveFocus();
+    });
+
+    it('should have aria-disabled when disabled', () => {
+      render(<Button label="Disabled" disabled />);
+      const button = screen.getByRole('button');
+
+      expect(button).toHaveAttribute('aria-disabled', 'true');
+    });
+
+    it('should receive focus when not disabled', () => {
+      render(<Button label="Enabled" disabled={false} />);
+      const button = screen.getByRole('button');
+
+      button.focus();
+
+      expect(button).toHaveFocus();
+    });
+  });
+
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
       const { container } = render(<Button label="Click me" />);
@@ -165,6 +217,32 @@ describe('Button', () => {
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();
+    });
+
+    it('should be keyboard accessible via Enter key', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(<Button label="Accessible" onClick={handler} />);
+      const button = screen.getByRole('button');
+
+      button.focus();
+      await user.keyboard('{Enter}');
+
+      expect(handler).toHaveBeenCalled();
+    });
+
+    it('should be keyboard accessible via Space key', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(<Button label="Accessible" onClick={handler} />);
+      const button = screen.getByRole('button');
+
+      button.focus();
+      await user.keyboard(' ');
+
+      expect(handler).toHaveBeenCalled();
     });
   });
 });

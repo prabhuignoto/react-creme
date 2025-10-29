@@ -1,6 +1,5 @@
 // Import necessary libraries and components
 import classNames from 'classnames';
-import { nanoid } from 'nanoid';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { CheckBox } from '../checkbox/checkbox';
 import { CheckboxProps } from '../checkbox/checkbox-model';
