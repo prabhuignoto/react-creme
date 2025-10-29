@@ -36,7 +36,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
-    "fork-ts-checker-webpack-plugin": "^9.1.0",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.6",
@@ -49,19 +48,14 @@
     "pretty-quick": "^4.1.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "remove-files-webpack-plugin": "^1.5.0",
     "sass": "^1.93.2",
     "snyk": "^1.1300.2",
     "stylelint": "16.25.0",
     "stylelint-config-sass-guidelines": "^12.1.0",
     "stylelint-order": "^7.0.0",
     "stylelint-scss": "^6.12.0",
-    "thread-loader": "^4.0.2",
-    "ts-toolbelt": "^9.6.0",
     "turbo": "^2.5.8",
-    "typescript": "^5.9.3",
-    "webpack": "^5.102.1",
-    "webpack-stats-plugin": "^1.1.3"
+    "typescript": "^5.9.3"
   },
   "scripts": {
     "lint": "turbo run oxlint && turbo run lint",
@@ -107,18 +101,12 @@
     "pnpm": ">=10.14.0"
   },
   "pnpm": {
-    "overrides": {
-      "sass-loader": "10.1.1",
-      "css-loader": "5.2.6",
-      "style-loader": "2.0.0"
-    }
   },
   "resolutions": {
     "nth-check": "^2.0.1",
     "postcss": "^8.2.13",
     "glob-parent": "^5.1.2",
-    "trim": "^0.0.3",
-    "acorn": "8.7.0"
+    "trim": "^0.0.3"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
@@ -147,6 +135,7 @@
     "lightningcss": "^1.30.2",
     "oxlint": "^1.24.0",
     "postcss-scss": "^4.0.7",
+    "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-recommended": "^17.0.0",
     "stylelint-config-standard-scss": "^16.0.0",
     "vite-plugin-lightningcss": "^0.0.5",

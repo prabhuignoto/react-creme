@@ -2,17 +2,17 @@
 
 exports[`Section > should render Section correctly 1`] = `
 <div
-  class="_section_f5d1fc _border_f5d1fc"
+  class="_section_cd95a8 _border_cd95a8"
   style="min-height: 150px;"
 >
   <h3
-    class="_header_f5d1fc _header_sm_f5d1fc rc-component-widget-heading"
+    class="_header_cd95a8 _header_sm_cd95a8 rc-component-widget-heading"
     id="test"
   >
     test
   </h3>
   <div
-    class="_body_f5d1fc _row_f5d1fc _body_sm_f5d1fc"
+    class="_body_cd95a8 _row_cd95a8 _body_sm_cd95a8"
     style="align-items: stretch; flex-direction: column;"
   >
     <span />

@@ -58,7 +58,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
 
   // Warn in development if no accessible name is provided
   useEffect(() => {
-    if (process.env['NODE_ENV'] === 'development' && !label && !ariaLabel) {
+    if (import.meta.env.DEV && !label && !ariaLabel) {
       console.warn(
         'Switch: No accessible name provided. Please provide either "label" or "aria-label" prop for accessibility.'
       );

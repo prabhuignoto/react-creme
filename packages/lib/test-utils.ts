@@ -219,7 +219,7 @@ export const testRovingTabindex = (
 /**
  * Test for console warnings (useful for development warnings)
  */
-export const expectConsoleWarning = (message: string) => {
+export const expectConsoleWarning = (_message: string) => {
   const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
   return consoleWarnSpy;
 };

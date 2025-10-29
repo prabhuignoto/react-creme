@@ -181,7 +181,6 @@ export type {
 export { Transfer } from './components/transfer/transfer';
 export type {
   TransferList,
-  TransferListItemModel,
   TransferListProps,
   TransferProps,
 } from './components/transfer/transfer-model';

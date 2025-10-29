@@ -19,13 +19,6 @@ export interface TransferListInternalModel {
 }
 
 export type TransferList = 'list1' | 'list2';
-export interface TransferListItemModel {
-  handleSelection: (l: TransferList, id: string) => void;
-  id: string;
-  list: TransferList;
-  name: string;
-  selected?: boolean;
-}
 
 export type TransferListProps = Pick<
   TransferProps,
