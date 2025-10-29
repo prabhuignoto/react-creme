@@ -11,6 +11,13 @@ export interface DataGridColumn {
   formatter?: (value: string | number) => string | number | ReactNode;
   id?: string;
   name: string;
+  /**
+   * Allow rendering HTML content in cells for this column.
+   * ⚠️ **SECURITY WARNING**: Only enable for trusted content!
+   * HTML is sanitized with DOMPurify to prevent XSS attacks.
+   * @default false
+   */
+  parseHtml?: boolean;
   searchable?: boolean;
   sortDirection?: SortDirection;
   sortOrder?: string;
@@ -25,6 +32,12 @@ export interface DataGridCell {
   formatter?: (value: string | number) => string | number | ReactNode;
   isHeader?: boolean;
   name: string;
+  /**
+   * Allow rendering HTML content in this cell.
+   * ⚠️ **SECURITY WARNING**: Only enable for trusted content!
+   * HTML is sanitized with DOMPurify to prevent XSS attacks.
+   */
+  parseHtml?: boolean;
   value: string | number;
   zebra?: boolean;
 }

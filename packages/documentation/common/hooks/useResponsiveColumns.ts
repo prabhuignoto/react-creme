@@ -27,6 +27,7 @@ export function useResponsiveColumns(
           sortable: true,
           type: 'string',
           width: 150,
+          parseHtml: true,
         },
         { name: 'description', searchable: true, type: 'string' },
         {
@@ -34,6 +35,7 @@ export function useResponsiveColumns(
           name: 'default',
           type: 'string',
           width: 150,
+          parseHtml: true,
         },
         { name: 'optional', type: 'string' },
         { name: 'type', type: 'string' },
@@ -48,6 +50,7 @@ export function useResponsiveColumns(
           name: 'name',
           sortable: true,
           type: 'string',
+          parseHtml: true,
         },
         { name: 'description', type: 'string' },
       ];
@@ -69,6 +72,7 @@ export function useResponsiveColumns(
           sortable: true,
           type: 'string',
           width: widths.name,
+          parseHtml: true,
         },
         {
           name: 'description',
@@ -81,6 +85,7 @@ export function useResponsiveColumns(
           name: 'default',
           type: 'string',
           width: widths.default,
+          parseHtml: true,
         },
         { name: 'optional', type: 'string' },
         { name: 'type', type: 'string' },
@@ -96,6 +101,7 @@ export function useResponsiveColumns(
         sortable: true,
         type: 'string',
         width: 150,
+        parseHtml: true,
       },
       { name: 'description', searchable: true, type: 'string' },
       {
@@ -103,6 +109,7 @@ export function useResponsiveColumns(
         name: 'default',
         type: 'string',
         width: 150,
+        parseHtml: true,
       },
     ];
   }, [media, customWidths?.name, customWidths?.description, customWidths?.default]);

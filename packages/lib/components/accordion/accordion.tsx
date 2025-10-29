@@ -41,7 +41,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
   disableARIA,
   size = 'sm',
   animate = true,
-  fullWidth = false,
+  fullWidth = true,
   colorizeHeader = false,
   headerHeight = 40,
 }: AccordionProps) => {

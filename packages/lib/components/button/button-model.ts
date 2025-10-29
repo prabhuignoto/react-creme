@@ -1,47 +1,105 @@
 import React, { CSSProperties, KeyboardEvent, MouseEvent } from 'react';
 
 /**
- * @property {boolean} isBusy - Indicates if the button is in a loading state.
- * @property {boolean} focusable - Determines if the button can be focused.
- * @property {string} label - Text label for the button.
- * @property {function} onClick - Callback function for button click events.
+ * Props for the Button component.
+ *
+ * The Button component is a customizable, accessible button element that supports
+ * multiple visual styles, sizes, and states. It's built on the semantic HTML `<button>`
+ * element for full keyboard and screen reader accessibility.
+ *
+ * @example
+ * // Basic button with label
+ * <Button label="Click me" onClick={handleClick} />
+ *
+ * @example
+ * // Primary button with children
+ * <Button type="primary" size="lg" onClick={handleSubmit}>
+ *   <Icon name="plus" /> Add Item
+ * </Button>
+ *
+ * @example
+ * // Icon button (compact)
+ * <Button type="icon" size="md" aria-label="Settings">
+ *   <SettingsIcon />
+ * </Button>
  */
-
-// export interface ButtonProps defines the props that will be passed to a custom React Button component
 export interface ButtonProps {
-  // accent can take either the value 'flat' or 'rounded' (optional)
+  /**
+   * Visual accent style for the button borders.
+   * @default 'rounded'
+   */
   accent?: 'flat' | 'rounded';
 
-  // border turns on/off the button's border (optional)
+  /**
+   * Whether the button displays a visible border.
+   * @default true
+   */
   border?: boolean;
 
-  // children can contain any valid React components (optional)
+  /**
+   * Content inside the button (can be icons, text, or other React elements).
+   * If provided with `label`, both will be displayed.
+   */
   children?: React.ReactNode;
 
-  // disabled makes the button unclickable if set to true (optional)
+  /**
+   * Disables the button, preventing clicks and showing disabled styling.
+   * Disabled buttons remain focusable but cannot be activated.
+   * @default false
+   */
   disabled?: boolean;
 
-  // focusable allows for keyboard navigation and tab index (optional)
+  /**
+   * Whether the button can receive keyboard focus via Tab and arrow keys.
+   * @default true
+   */
   focusable?: boolean;
 
-  // isBusy changes the appearance of the button when its performing a role, like submitting data (optional)
+  /**
+   * Whether the button is in a loading/busy state.
+   * Shows a loading spinner and prevents interactions.
+   * @default false
+   */
   isBusy?: boolean;
 
-  // label gives the user information about the button when not using an icon (optional)
+  /**
+   * Text label displayed in the button.
+   * Used for accessibility if no aria-label is provided.
+   * @default ''
+   */
   label?: string;
 
-  // onClick triggers a function after being clicked (optional)
+  /**
+   * Callback function triggered when button is clicked or activated via keyboard.
+   * Not called if button is disabled or busy.
+   */
   onClick?: (ev?: MouseEvent | KeyboardEvent) => void;
 
-  // primary changes the color of the button to emphasize it being selected (optional)
+  /**
+   * @deprecated Use `type="primary"` instead.
+   * Sets the button to primary style.
+   */
   primary?: boolean;
 
-  // size sets the sizeof the button (optional)
+  /**
+   * Size of the button affecting padding and text size.
+   * @default 'sm'
+   */
   size?: 'sm' | 'md' | 'lg';
 
-  // style provides styling options at runtime (optional)
+  /**
+   * Inline CSS styles applied to the button element.
+   */
   style?: CSSProperties;
 
-  // type is related to the design theme of the buttons (primary, default, danger, icon, progress) (optional)
+  /**
+   * Visual style type of the button.
+   * - `primary`: Primary action style
+   * - `default`: Default style
+   * - `danger`: Danger/destructive action style
+   * - `icon`: Icon-only button (no text label)
+   * - `progress`: Button showing loading spinner
+   * @default 'default'
+   */
   type?: 'primary' | 'default' | 'danger' | 'icon' | 'progress';
 }

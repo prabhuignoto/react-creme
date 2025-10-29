@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import DOMPurify from 'dompurify';
 import React, { useMemo } from 'react';
 import { isDark } from '../common/utils';
 import { DataGridCell as CellModel } from './data-grid-model';
@@ -6,7 +7,7 @@ import styles from './data-grid.module.scss';
 
 // Apply React.memo to prevent unnecessary re-renders
 const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
-  ({ value, border, fixedHeight, formatter, isHeader, zebra }: CellModel) => {
+  ({ value, border, fixedHeight, formatter, isHeader, zebra, parseHtml }: CellModel) => {
     // Simple function call - no need for useMemo
     const isDarkMode = isDark();
 
@@ -48,8 +49,16 @@ const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
       >
         <span className={wrapperClass}>
           <span className={cellClass}>
-            {/* Render ReactNode directly instead of using dangerouslySetInnerHTML for security */}
-            {formattedValue}
+            {/* Render ReactNode directly or parse HTML if parseHtml is enabled */}
+            {parseHtml && typeof formattedValue === 'string' ? (
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(formattedValue),
+                }}
+              />
+            ) : (
+              formattedValue
+            )}
           </span>
         </span>
       </div>

@@ -68,6 +68,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
                   fixedHeight={fixedHeight}
                   formatter={formatter}
                   zebra={zebra}
+                  parseHtml={col.parseHtml}
                 />
               </div>
             );

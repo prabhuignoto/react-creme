@@ -203,13 +203,15 @@ function useKeyNavigation(
     // Attach the keydown event listener when the component is focusable
     if (ref.current && focusable) {
       listRef.current = ref.current;
-      listRef.current.addEventListener('keydown', handleKey);
+      // Use capture phase to ensure we catch events from child elements (e.g., tab buttons)
+      // This allows keyboard navigation to work even when child elements have focus
+      listRef.current.addEventListener('keydown', handleKey, { capture: true });
     }
 
     // Cleanup function to remove the event listener
     return () => {
       if (listRef.current && focusable) {
-        listRef.current.removeEventListener('keydown', handleKey);
+        listRef.current.removeEventListener('keydown', handleKey, { capture: true });
       }
     };
   }, [ref, focusable, handleKey]);

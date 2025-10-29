@@ -25,6 +25,7 @@
     "@typescript-eslint/parser": "^8.46.2",
     "autoprefixer": "^10.4.15",
     "cssnano": "^7.1.1",
+    "dompurify": "^3.3.0",
     "esbuild": "^0.25.11",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.5",
@@ -100,8 +101,7 @@
     "node": ">=20.18.1",
     "pnpm": ">=10.14.0"
   },
-  "pnpm": {
-  },
+  "pnpm": {},
   "resolutions": {
     "nth-check": "^2.0.1",
     "postcss": "^8.2.13",
@@ -128,6 +128,7 @@
   "devDependencies": {
     "@swc/plugin-emotion": "^11.5.0",
     "@testing-library/react-hooks": "^8.0.1",
+    "@types/dompurify": "^3.2.0",
     "@vitejs/plugin-react-swc": "^4.2.0",
     "@vitest/coverage-v8": "^3.2.4",
     "browserslist": "^4.24.2",

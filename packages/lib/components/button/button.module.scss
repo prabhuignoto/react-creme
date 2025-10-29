@@ -16,7 +16,7 @@ $sizes: (sm, md, lg);
   }
 
   &:not(.icon) {
-    min-width: 50px;
+    min-width: tokens.$space-6; // 24px minimum width
   }
 
   &:not(.flat):not(.dark) {
@@ -27,12 +27,23 @@ $sizes: (sm, md, lg);
     @extend %border-radius;
   }
 
+  // Active state with reduced-motion support
   &:not(:active) {
     transition: transform 100ms ease-in;
   }
 
   &:active:not(.disabled) {
     transform: scale(0.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &:not(:active) {
+      transition: none;
+    }
+
+    &:active:not(.disabled) {
+      transform: none;
+    }
   }
 }
 
@@ -151,7 +162,7 @@ $sizes: (sm, md, lg);
   margin-left: tokens.$space-1;
 }
 
-// Styles for progress wrapper
+// Styles for progress wrapper (spinner with margin)
 .progress_wrapper {
-  margin-right: tokens.$space-2;
+  margin-right: tokens.$space-2; // 8px spacing between spinner and content
 }
