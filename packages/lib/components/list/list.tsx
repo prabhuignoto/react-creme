@@ -9,8 +9,8 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useDebouncedCallback } from 'use-debounce';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { useVirtualization } from '../common/effects/useVirtualization';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { ListItems } from './list-items';
@@ -52,7 +52,6 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
 
     const listRef = useRef<HTMLDivElement | null>(null);
     const [selected, setSelected] = useState<ListOption[]>();
-    const [visibleRange, setVisibleRange] = useState<[number, number]>([0, 0]);
     const [resetState, setResetState] = useState(0);
 
     const isDarkMode = useMemo(() => isDark(), []);
@@ -143,25 +142,19 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
 
     const isFirstRender = useFirstRender();
 
-    const setRange = useCallback(() => {
-      if (listRef.current) {
-        const list = listRef.current;
-        const scrollTop = Math.round(list.scrollTop);
-        const height = Math.round(list.clientHeight);
-        setVisibleRange([scrollTop, scrollTop + height]);
-      }
-    }, []);
-
-    const handleScroll = useDebouncedCallback(setRange);
+    // Use the new virtualization hook
+    const virtualization = useVirtualization({
+      itemCount: visibleOptions.length,
+      itemHeight,
+      containerRef: listRef,
+      enabled: virtualized,
+      itemGap: rowGap,
+      overscan: 3,
+      scrollDebounce: 50,
+    });
 
     const onListRef = useCallback((el: HTMLDivElement | null) => {
-      if (el) {
-        listRef.current = el;
-
-        if (virtualized) {
-          setRange();
-        }
-      }
+      listRef.current = el;
     }, []);
 
     return (
@@ -193,7 +186,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
             </Input>
           </div>
         )}
-        <div className={styles.wrapper} ref={onListRef} onScroll={handleScroll}>
+        <div className={styles.wrapper} ref={onListRef}>
           <ListItems
             RTL={RTL}
             allowMultiSelection={allowMultiSelection}
@@ -205,7 +198,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
             showCheckIcon={showCheckIcon}
             textColor={textColor}
             textColorSelected={textColorSelected}
-            visibleRange={visibleRange}
+            visibleRange={virtualization.visibleRange}
             options={visibleOptions}
             itemHeight={itemHeight}
             label={label}

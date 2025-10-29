@@ -133,7 +133,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
       )}
 
       {/* Tab 3: Playground (only if properties also exist) */}
-      {hasProperties && renderPlayground()}
+      {/* {hasProperties && renderPlayground()} */}
     </Tabs>
   );
 };

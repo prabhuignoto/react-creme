@@ -56,7 +56,7 @@ const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
               Edit this Page
             </Link>
           )}
-          {stackBlitzCodes?.length && (
+          {/* {stackBlitzCodes?.length && (
             <Link
               target="_blank"
               accent="button"
@@ -65,7 +65,7 @@ const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
             >
               Open in StackBlitz
             </Link>
-          )}
+          )} */}
         </div>
       </PageHeader>
     );

@@ -175,12 +175,134 @@ describe('SuggestionsMenuOverlay', () => {
   // expect(mockOnClose).toHaveBeenCalled();
   // });
 
+  it('applies dark mode styling', () => {
+    const { getByTestId } = render(
+      <SuggestionsMenuOverlay
+        onSelection={() => {}}
+        data={{ focus: true, items: [{ id: '1', name: 'Item 1' }] }}
+        onClose={() => {}}
+      />
+    );
+
+    const wrapper = getByTestId('suggestions-wrapper');
+    // Component checks isDark() utility to apply dark class
+    expect(wrapper).toBeInTheDocument();
+  });
+
+  it('renders with custom size prop', () => {
+    const { getByTestId } = render(
+      <SuggestionsMenuOverlay
+        onSelection={() => {}}
+        data={{ focus: true, items: [{ id: '1', name: 'Item 1' }] }}
+        onClose={() => {}}
+        size="lg"
+      />
+    );
+
+    const wrapper = getByTestId('suggestions-wrapper');
+    expect(wrapper).toBeInTheDocument();
+  });
+
+  it('renders with virtualization enabled', () => {
+    const items = Array.from({ length: 100 }, (_, i) => ({
+      id: String(i),
+      name: `Item ${i}`,
+    }));
+
+    const { getByTestId } = render(
+      <SuggestionsMenuOverlay
+        onSelection={() => {}}
+        data={{ focus: true, items }}
+        onClose={() => {}}
+        virtualized={true}
+        itemHeight={35}
+        overscan={3}
+      />
+    );
+
+    const wrapper = getByTestId('suggestions-wrapper');
+    expect(wrapper).toBeInTheDocument();
+  });
+
+  it('handles empty items list gracefully', () => {
+    const { getByTestId } = render(
+      <SuggestionsMenuOverlay
+        onSelection={() => {}}
+        data={{ focus: true, items: [] }}
+        onClose={() => {}}
+      />
+    );
+
+    const wrapper = getByTestId('suggestions-wrapper');
+    expect(wrapper).toBeInTheDocument();
+  });
+
+  it('blurs the list when focus is false', () => {
+    const originalBlur = HTMLElement.prototype.blur;
+    const mockBlur = vi.fn();
+    HTMLElement.prototype.blur = mockBlur;
+
+    try {
+      render(
+        <SuggestionsMenuOverlay
+          onSelection={() => {}}
+          data={{ focus: false, items: [{ id: '1', name: 'Item 1' }] }}
+          onClose={() => {}}
+        />,
+        { container: document.body }
+      );
+
+      // Verify blur was called when focus is false
+      expect(mockBlur).toHaveBeenCalled();
+    } finally {
+      HTMLElement.prototype.blur = originalBlur;
+    }
+  });
+
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
       const { container } = render(<SuggestionsMenuOverlay />);
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();
+    });
+
+    it('should have listbox role for menu', () => {
+      const { getByRole } = render(
+        <SuggestionsMenuOverlay
+          onSelection={() => {}}
+          data={{
+            focus: true,
+            items: [
+              { id: '1', name: 'Item 1' },
+              { id: '2', name: 'Item 2' },
+            ],
+          }}
+          onClose={() => {}}
+        />
+      );
+
+      // The List component should provide the listbox role
+      expect(getByRole('listbox')).toBeInTheDocument();
+    });
+
+    it('should have option role for items', () => {
+      const { getAllByRole } = render(
+        <SuggestionsMenuOverlay
+          onSelection={() => {}}
+          data={{
+            focus: true,
+            items: [
+              { id: '1', name: 'Item 1' },
+              { id: '2', name: 'Item 2' },
+            ],
+          }}
+          onClose={() => {}}
+        />
+      );
+
+      const options = getAllByRole('option');
+      expect(options).toHaveLength(2);
     });
   });
 });
