@@ -1,6 +1,6 @@
 import { FunctionComponent, ReactNode, useState } from 'react';
 import classNames from 'classnames';
-import { Sun, Moon, Smartphone, Tablet, Monitor, Maximize2 } from 'react-feather';
+import { Smartphone, Tablet, Monitor } from 'react-feather';
 import type { ViewportSize, DemoControls } from '../types';
 import './demo-container.scss';
 
@@ -125,21 +125,6 @@ const DemoContainer: FunctionComponent<DemoContainerProps> = ({
           {/* Controls */}
           {hasControls && (
             <div className="demo-container__controls">
-              {/* Theme Toggle */}
-              {controls.theme && (
-                <button
-                  className={classNames('demo-container__control-btn', {
-                    'is-active': theme === 'dark',
-                  })}
-                  onClick={handleThemeToggle}
-                  aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
-                  title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
-                  type="button"
-                >
-                  {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
-                </button>
-              )}
-
               {/* Viewport Toggles */}
               {controls.viewport && (
                 <div className="demo-container__viewport-controls">
@@ -158,34 +143,6 @@ const DemoContainer: FunctionComponent<DemoContainerProps> = ({
                     </button>
                   ))}
                 </div>
-              )}
-
-              {/* Fullscreen Toggle */}
-              {controls.fullscreen && (
-                <button
-                  className={classNames('demo-container__control-btn', {
-                    'is-active': isFullscreen,
-                  })}
-                  onClick={handleFullscreenToggle}
-                  aria-label="Toggle fullscreen"
-                  title="Toggle fullscreen"
-                  type="button"
-                >
-                  <Maximize2 size={16} />
-                </button>
-              )}
-
-              {/* Reset Button */}
-              {controls.reset && onReset && (
-                <button
-                  className="demo-container__control-btn demo-container__control-btn--reset"
-                  onClick={onReset}
-                  aria-label="Reset demo"
-                  title="Reset demo"
-                  type="button"
-                >
-                  Reset
-                </button>
               )}
             </div>
           )}

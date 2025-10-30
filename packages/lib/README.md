@@ -31,7 +31,7 @@ Modern UI Toolkit for React
 
 - ♿ Accessible UI Components.
 
-- 🌈 45+ UI Components.
+- 🌈 55+ UI Components.
 
 - 🛠️ Customizable components.
 

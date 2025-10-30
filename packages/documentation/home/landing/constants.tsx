@@ -5,12 +5,12 @@ export const STATS_DATA = [
   {
     icon: <Package size={20} />,
     label: 'Bundle Size',
-    value: '~55kb',
+    value: '~118kb',
   },
   {
     icon: <Layers size={20} />,
     label: 'Components',
-    value: '45+',
+    value: '55+',
   },
   {
     icon: <Zap size={20} />,
@@ -29,8 +29,8 @@ export const USP_DATA = [
   {
     icon: <Zap size={32} />,
     title: '4x Lighter',
-    description: 'At just 55kb, React Creme is 4x smaller than Material-UI and Ant Design. Faster load times, better Core Web Vitals, happier users.',
-    highlight: '55kb vs 200kb+',
+    description: 'At just 118kb, React Creme is 2.8x smaller than Material-UI and Ant Design. Faster load times, better Core Web Vitals, happier users.',
+    highlight: '118kb vs 280kb+',
   },
   {
     icon: <Layers size={32} />,
@@ -61,7 +61,7 @@ export interface ComparisonRow {
 export const COMPARISON_DATA: ComparisonRow[] = [
   {
     feature: 'Bundle Size',
-    reactCreme: '~55kb',
+    reactCreme: '~118kb',
     mui: '~350kb',
     antDesign: '~280kb',
     chakra: '~200kb',
@@ -135,14 +135,12 @@ export const LIBRARY_NAMES = {
 
 // Gallery Images for Showcase
 export const SHOWCASE_GALLERY_IMAGES = [
-  'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=300&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=300&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=300&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=300&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1611095564945-db7f3cb7e02c?w=300&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1621609764180-2ca554a9d6f2?w=300&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1611095973763-414019e72400?w=300&h=300&fit=crop',
+  '/images/adrian.jpg',
+  '/images/blue.jpg',
+  '/images/gradient.jpg',
+  '/images/nicole.jpg',
+  '/images/pexels.jpeg',
+  '/images/blurry.jpg',
 ];
 
 // DataGrid Data for Showcase

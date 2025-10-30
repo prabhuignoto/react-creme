@@ -88,7 +88,7 @@ import { DataGrid } from 'react-creme';
           </h1>
 
           <p className={styles.hero_subtitle}>
-            45+ production-ready components at 55kb. Built for React 19 with CSS Modules.
+            55+ production-ready components at 118kb. Built for React 19 with CSS Modules.
             <span className={styles.subtitle_highlight}>
               {' '}No design language lock-in, no CSS-in-JS overhead.
             </span>

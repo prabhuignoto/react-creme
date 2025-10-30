@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-xl) 0;
   position: relative;
   background:
     radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 1.5px, transparent 1.5px),
@@ -23,12 +23,12 @@
   }
 
   @media (min-width: 768px) {
-    padding: var(--spacing-4xl) 0 var(--spacing-3xl) 0;
+    padding: var(--spacing-2xl) 0 var(--spacing-xl) 0;
   }
 }
 
 .hero_container {
-  max-width: 1400px;
+  max-width: 95vw;
   width: 100%;
   padding: 0 var(--spacing-md);
   display: flex;

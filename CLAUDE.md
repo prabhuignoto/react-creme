@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-React Creme is a modern UI toolkit for React featuring 45+ high-quality, accessible, and themeable components. The project is built as a Turborepo monorepo with pnpm workspaces, containing a component library, documentation site, and Storybook for component development.
+React Creme is a modern UI toolkit for React featuring 55+ high-quality, accessible, and themeable components. The project is built as a Turborepo monorepo with pnpm workspaces, containing a component library, documentation site, and Storybook for component development.
 
 ### Modern Tooling (2025)
 
@@ -501,8 +501,9 @@ See [Design System documentation](packages/lib/design/DESIGN_SYSTEM.md) for deta
 
 ## Performance Considerations
 
-- The library bundle target is ~55kb minified and gzipped
-- Tree-shaking is enabled (`sideEffects: false`)
-- CSS is bundled as a single file to reduce HTTP requests
+- **Bundle Size**: ~118KB gzipped (full library with all 58+ components and CSS). Individual components with tree-shaking: ~12-20KB gzipped
+- Tree-shaking is enabled (`sideEffects: false`) - import only what you need
+- CSS is bundled as a single file (~28KB gzipped) to reduce HTTP requests
 - Terser minification with console/debugger removal in production
 - Component lazy-loading is supported by consumers
+- Run `pnpm size` in `packages/lib/` to measure bundle size with size-limit

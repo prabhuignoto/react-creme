@@ -121,10 +121,10 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
         <Suspense fallback={<span>Loading Widgets...</span>}>
           <DemoContainer
             controls={{
-              theme: true,
+              theme: false,
               viewport: true,
-              reset: true,
-              fullscreen: true,
+              reset: false,
+              fullscreen: false,
             }}
             defaultViewport={viewportSize}
             defaultTheme={themeMode}

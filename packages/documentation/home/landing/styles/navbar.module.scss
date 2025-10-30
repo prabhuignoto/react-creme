@@ -21,7 +21,7 @@
 }
 
 .navbar_container {
-  max-width: 1400px;
+  max-width: 95vw;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
   display: flex;
@@ -102,9 +102,42 @@
 // Desktop Actions
 .navbar_actions {
   display: none;
+  gap: var(--spacing-md);
+  align-items: center;
 
   @media (min-width: 768px) {
     display: flex;
+  }
+}
+
+// Theme Toggle Button
+.theme_toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  .navbar.dark & {
+    color: theme.$gray-200;
+  }
+
+  &:hover {
+    background: var(--bg-secondary);
+
+    .navbar.dark & {
+      background: theme.$gunmetal-gray;
+    }
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
   }
 }
 

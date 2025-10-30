@@ -122,18 +122,6 @@
     outline: 2px solid var(--rc-primary-color-hex, #007bff);
     outline-offset: 2px;
   }
-
-  /* Reset button variant */
-  &.demo-container__control-btn--reset {
-    padding: 0 var(--spacing-md);
-    color: var(--text-primary);
-    font-weight: 600;
-
-    &:hover {
-      background: rgba(var(--rc-primary-color-rgb, 0, 123, 255), 0.1);
-      color: var(--rc-primary-color-hex, #007bff);
-    }
-  }
 }
 
 /* Demo Area */

@@ -100,8 +100,8 @@ const LiveShowcase: FunctionComponent = () => {
             </div>
             <div className={styles.card_content}>
               <ImageComparer
-                firstImage="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600&h=400&fit=crop&sat=-100"
-                secondImage="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600&h=400&fit=crop"
+                firstImage="/images/nicole.jpg"
+                secondImage="/images/adrian.jpg"
                 orientation="horizontal"
               />
             </div>

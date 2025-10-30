@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Full Bundle (ESM)",
+    "path": "dist/react-creme.mjs",
+    "import": "*",
+    "limit": "100 KB",
+    "gzip": true
+  },
+  {
+    "name": "Button Component (tree-shaken, includes deps)",
+    "path": "dist/react-creme.mjs",
+    "import": "{ Button }",
+    "limit": "50 KB",
+    "gzip": true
+  },
+  {
+    "name": "DataGrid Component (tree-shaken, includes deps)",
+    "path": "dist/react-creme.mjs",
+    "import": "{ DataGrid }",
+    "limit": "50 KB",
+    "gzip": true
+  }
+]

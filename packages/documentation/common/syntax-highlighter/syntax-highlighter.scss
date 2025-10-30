@@ -136,14 +136,14 @@
     border-radius: 0 !important;
     background: rgba(0, 0, 0, 0.02) !important;
     font-family: var(--font-mono) !important;
-    font-size: 8px !important;
+    font-size: 0.875rem !important;
     line-height: 1.6 !important;
     overflow-x: auto;
     counter-reset: line;
 
     code {
       font-family: var(--font-mono) !important;
-      font-size: 8px !important;
+      font-size: 0.875rem !important;
       font-weight: 400 !important;
       white-space: pre;
       word-wrap: normal;
@@ -247,11 +247,11 @@
 @media (max-width: 768px) {
   .rc-demo-code-content pre {
     padding: var(--spacing-lg) !important;
-    font-size: 7px !important;
+    font-size: 0.8125rem !important;
   }
 
   .rc-demo-code-content pre code {
-    font-size: 7px !important;
+    font-size: 0.8125rem !important;
   }
 
   .rc-demo-code-copy-btn {

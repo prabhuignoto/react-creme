@@ -69,7 +69,7 @@ const FinalCTA: FunctionComponent = () => {
             </div>
             <div className={styles.divider}></div>
             <div className={styles.feature}>
-              <span className={styles.feature_value}>45+</span>
+              <span className={styles.feature_value}>55+</span>
               <span className={styles.feature_label}>Components</span>
             </div>
             <div className={styles.divider}></div>
