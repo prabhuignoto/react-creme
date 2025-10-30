@@ -54,20 +54,19 @@ const HeaderComponent: React.FC<{
         <Logo isMobile={isMobile} onMenuClick={onOpen} />
       </div>
       <Badge label="beta" />
-      {!isMobile && (
-        <div
-          className={styles.algolia_container}
-          style={{ marginLeft: 'auto' }}
-        >
-          <DocSearch
-            apiKey={import.meta.env.VITE_APP_ALGOLIA_API_KEY as string}
-            appId={import.meta.env.VITE_APP_ALGOLIA_APP_ID as string}
-            indexName={import.meta.env.VITE_APP_ALGOLIA_INDEX_NAME as string}
-            hitComponent={AlgoliaHit}
-            disableUserPersonalization
-          />
-        </div>
-      )}
+      <div
+        className={styles.algolia_container}
+        style={{ marginLeft: 'auto' }}
+      >
+        <DocSearch
+          apiKey={import.meta.env.VITE_APP_ALGOLIA_API_KEY as string}
+          appId={import.meta.env.VITE_APP_ALGOLIA_APP_ID as string}
+          indexName={import.meta.env.VITE_APP_ALGOLIA_INDEX_NAME as string}
+          hitComponent={AlgoliaHit}
+          disableUserPersonalization
+          placeholder="Search components..."
+        />
+      </div>
       <AppSettings />
     </header>
   );

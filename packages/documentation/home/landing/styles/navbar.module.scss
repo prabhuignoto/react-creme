@@ -99,6 +99,50 @@
   }
 }
 
+// Search Container
+.search_container {
+  display: none;
+  flex: 0 1 auto;
+  max-width: 250px;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+
+  :global(.DocSearch-Button) {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px 12px;
+    height: 36px;
+    min-width: 180px;
+
+    .navbar.dark & {
+      background: theme.$gunmetal-gray;
+      border-color: theme.$jet-black;
+    }
+
+    &:hover {
+      background: var(--bg-tertiary);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+      .navbar.dark & {
+        background: theme.$jet-black;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  :global(.DocSearch-Button-Placeholder) {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  :global(.DocSearch-Button-Key) {
+    display: none;
+  }
+}
+
 // Desktop Actions
 .navbar_actions {
   display: none;
