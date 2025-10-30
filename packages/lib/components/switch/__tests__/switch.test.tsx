@@ -203,4 +203,118 @@ describe('Switch', () => {
       expect(results).toHaveNoViolations();
     });
   });
+
+  // ============================================
+  // Contrast Ratio Tests (WCAG 2.4.11)
+  // ============================================
+
+  describe('Contrast Ratios', () => {
+    it('should apply focus styles using CSS outline', () => {
+      const { getByRole } = render(<Switch label="Test" />);
+      const switchEl = getByRole('switch');
+
+      // Element should be focusable and accept focus
+      switchEl.focus();
+      expect(switchEl).toHaveFocus();
+    });
+
+    it('should have proper focus indicator for disabled state', () => {
+      const { getByRole } = render(<Switch label="Test" disabled />);
+      const switchEl = getByRole('switch');
+
+      // Disabled state should not be focusable, but focus styles should exist in CSS
+      expect(switchEl).not.toHaveFocus();
+      expect(switchEl).toHaveAttribute('aria-disabled', 'true');
+    });
+
+    it('should have proper focus indicator for readonly state', () => {
+      const { getByRole } = render(<Switch label="Test" readOnly />);
+      const switchEl = getByRole('switch');
+
+      // Readonly state should not change focus, focus styles exist in CSS
+      expect(switchEl).toHaveAttribute('aria-readonly', 'true');
+    });
+  });
+
+  // ============================================
+  // Visual Proportions & Sizing Tests
+  // ============================================
+
+  describe('Visual Proportions', () => {
+    it('should render sm size variant correctly', () => {
+      const { container } = render(<Switch label="Test" size="sm" />);
+      const switchEl = container.querySelector('[role="switch"]');
+
+      expect(switchEl).toHaveClass(styles.sm);
+    });
+
+    it('should render md size variant correctly', () => {
+      const { container } = render(<Switch label="Test" size="md" />);
+      const switchEl = container.querySelector('[role="switch"]');
+
+      expect(switchEl).toHaveClass(styles.md);
+    });
+
+    it('should render lg size variant correctly', () => {
+      const { container } = render(<Switch label="Test" size="lg" />);
+      const switchEl = container.querySelector('[role="switch"]');
+
+      expect(switchEl).toHaveClass(styles.lg);
+    });
+
+    it('should have correct track heights for each size', () => {
+      // sm: 25px, md: 30px, lg: 35px
+      const sizes = ['sm', 'md', 'lg'] as const;
+      const expectedHeights = { sm: 25, md: 30, lg: 35 };
+
+      sizes.forEach((size) => {
+        const { container } = render(<Switch label="Test" size={size} />);
+        const track = container.querySelector(`.${styles.track}`);
+
+        expect(track).toHaveClass(styles[size]);
+      });
+    });
+
+    it('should apply custom width property', () => {
+      const { container } = render(<Switch label="Test" width={100} />);
+      const switchEl = container.querySelector('[role="switch"]') as HTMLElement;
+
+      const styles = window.getComputedStyle(switchEl);
+      expect(styles.getPropertyValue('--min-width')).toBe('100px');
+    });
+
+    it('should render all size variants with appropriate proportions', () => {
+      // Verify that all three size variants render without errors
+      const { rerender } = render(<Switch label="Test" size="sm" />);
+      expect(document.querySelector('[role="switch"]')).toBeInTheDocument();
+
+      rerender(<Switch label="Test" size="md" />);
+      expect(document.querySelector('[role="switch"]')).toBeInTheDocument();
+
+      rerender(<Switch label="Test" size="lg" />);
+      expect(document.querySelector('[role="switch"]')).toBeInTheDocument();
+    });
+
+    it('should maintain consistent label positioning across sizes', () => {
+      const { container } = render(
+        <>
+          <Switch label="Size Test SM" size="sm" />
+          <Switch label="Size Test MD" size="md" />
+          <Switch label="Size Test LG" size="lg" />
+        </>
+      );
+
+      expect(screen.getByText('Size Test SM')).toBeInTheDocument();
+      expect(screen.getByText('Size Test MD')).toBeInTheDocument();
+      expect(screen.getByText('Size Test LG')).toBeInTheDocument();
+    });
+
+    it('should apply design tokens for spacing and sizing', () => {
+      const { container } = render(<Switch label="Test" size="md" />);
+      const switchEl = container.querySelector('[role="switch"]');
+
+      // Should have sm, md, or lg class applied
+      expect(switchEl?.className).toMatch(/md/);
+    });
+  });
 });

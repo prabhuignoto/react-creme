@@ -20,9 +20,6 @@ export interface SwitchProps {
   /**🔷 whether the switch is in focused state or not */
   focusable?: boolean;
 
-  /**🔷 if the label is separate from the switch */
-  labelOutside?: boolean;
-
   /**🔷 whether the switch is in loading state */
   loading?: boolean;
 

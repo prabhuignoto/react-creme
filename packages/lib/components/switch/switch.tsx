@@ -26,8 +26,8 @@ import styles from './switch.module.scss';
  * // Basic usage
  * <Switch label="Dark Mode" checked={isDark} onChange={setIsDark} />
  *
- * // With external label
- * <Switch label="Enable notifications" labelOutside checked />
+ * // With different sizes
+ * <Switch label="Enable notifications" size="md" checked />
  *
  * // Read-only state
  * <Switch label="Premium feature" checked readOnly />
@@ -40,7 +40,6 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
   disabled = false,
   focusable = true,
   label,
-  labelOutside = false,
   loading = false,
   onChange,
   readOnly = false,
@@ -105,16 +104,15 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
         [styles.disabled]: disabled,
         [styles.read_only]: readOnly,
         [styles[`${size}`]]: true,
-        [styles.label_outside]: labelOutside,
+        [styles.label_outside]: true,
         [styles.dark]: isDarkMode,
       }),
-    [size, labelOutside, disabled, readOnly, isDarkMode]
+    [size, disabled, readOnly, isDarkMode]
   );
 
   const switchTrackClass = useMemo(
     () =>
       classNames(styles.track, {
-        [styles.label_outside]: labelOutside,
         [styles.track_off]: !state,
         [styles.track_on]: state,
         [styles[`${size}`]]: true,
@@ -122,7 +120,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
         [styles.track_read_only]: readOnly,
         [styles.dark]: isDarkMode,
       }),
-    [state, size, disabled, readOnly, labelOutside, isDarkMode]
+    [state, size, disabled, readOnly, isDarkMode]
   );
 
   const switchLabelClass = useMemo(
@@ -131,9 +129,9 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
         [styles.label_off]: !state,
         [styles.label_on]: state,
         [styles[`label_${size}`]]: true,
-        [styles.label_outside]: labelOutside,
+        [styles.label_outside]: true,
       }),
-    [state, labelOutside, size]
+    [state, size]
   );
 
   const switchStyle = useMemo(
@@ -142,7 +140,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
         '--min-width': `${width}px`,
         ...style,
       }) as React.CSSProperties,
-    []
+    [width, style]
   );
 
   // Effects
@@ -190,13 +188,8 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
             </span>
           )}
         </span>
-        {label && !labelOutside && (
-          <span className={switchLabelClass} id={id.current}>
-            {label}
-          </span>
-        )}
       </span>
-      {labelOutside && label && (
+      {label && (
         <span className={switchLabelClass} id={id.current}>
           {label}
         </span>

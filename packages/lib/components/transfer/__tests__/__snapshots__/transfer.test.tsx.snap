@@ -191,14 +191,12 @@ exports[`Transfer > should render transfer snapshot 1`] = `
   <section
     class="_control_column_4931dd"
   >
-    <div
+    <button
       aria-busy="false"
-      aria-disabled="true"
-      aria-label=""
       class="_disabled_3e1769 _rounded_3e1769 _sm_3e1769 _icon_3e1769 _btn_3e1769"
-      role="button"
+      disabled=""
       style="outline: none; position: relative;"
-      tabindex="0"
+      type="button"
     >
       <span
         class="_icon_container_3e1769"
@@ -221,15 +219,13 @@ exports[`Transfer > should render transfer snapshot 1`] = `
         class="_focus_ring_dc5437 _focus_ring_inactive_dc5437"
         style="width: 6px; height: 6px;"
       />
-    </div>
-    <div
+    </button>
+    <button
       aria-busy="false"
-      aria-disabled="true"
-      aria-label=""
       class="_disabled_3e1769 _rounded_3e1769 _sm_3e1769 _icon_3e1769 _btn_3e1769"
-      role="button"
+      disabled=""
       style="transform: rotate(180deg); outline: none; position: relative;"
-      tabindex="0"
+      type="button"
     >
       <span
         class="_icon_container_3e1769"
@@ -252,7 +248,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
         class="_focus_ring_dc5437 _focus_ring_inactive_dc5437"
         style="width: 6px; height: 6px;"
       />
-    </div>
+    </button>
   </section>
   <section
     aria-label="Selected items"

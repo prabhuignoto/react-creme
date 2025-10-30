@@ -33,7 +33,7 @@ const SideBar: FunctionComponent<{
   ({ onSelect }) => {
     return (
       <Sidebar
-        enableSearch={true}
+        // enableSearch={true}
         onSelect={onSelect}
         searchPlaceholder="Search Components ..."
         sectionsCollapsible={false}

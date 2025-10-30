@@ -9,17 +9,6 @@ export const Default = (
   />
 );
 
-export const LabelOutside = (
-  <Switch
-    label="Enable Notifications"
-    labelOutside
-    focusable
-    checked
-    width={200}
-    onChange={val => console.log('Notifications:', val)}
-  />
-);
-
 export const CheckIcon = (
   <Switch
     label="Premium Features"
@@ -76,7 +65,6 @@ export const Large = (
   <Switch
     label="Marketing Communications"
     size="lg"
-    labelOutside
     checked
     onChange={val => console.log('Marketing:', val)}
   />

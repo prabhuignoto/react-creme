@@ -159,12 +159,12 @@ samp {
 }
 
 code {
-  font-size: var(--font-size-sm);
+  // font-size: var(--font-size-sm);
   font-weight: 500;
 
   span {
     font-family: var(--font-mono);
-    font-size: var(--font-size-sm);
+    // font-size: var(--font-size-sm);
     font-weight: 500;
   }
 }
