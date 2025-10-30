@@ -54,6 +54,12 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
         document.body.classList.remove('dark');
         document.body.style.backgroundColor = 'var(--bg-primary)';
       }
+
+      // Cleanup: Remove styles and class on unmount
+      return () => {
+        document.body.classList.remove('dark');
+        document.body.style.backgroundColor = '';
+      };
     }, [theme.darkMode]);
 
     // Handle aside state from Jotai

@@ -1,6 +1,64 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
 /**
+ * Storage quota monitoring utility
+ */
+const checkStorageQuota = async (): Promise<{ available: number; total: number } | null> => {
+  if (!navigator.storage?.estimate) {
+    return null;
+  }
+
+  try {
+    const estimate = await navigator.storage.estimate();
+    return {
+      available: Math.max(0, estimate.quota - estimate.usage),
+      total: estimate.quota || 0,
+    };
+  } catch {
+    return null;
+  }
+};
+
+/**
+ * Safe localStorage write with quota checking
+ */
+const safeStorageWrite = (key: string, value: string): boolean => {
+  try {
+    const currentItem = localStorage.getItem(key);
+    const newSize = new Blob([value]).size;
+    const oldSize = currentItem ? new Blob([currentItem]).size : 0;
+    const sizeDifference = newSize - oldSize;
+
+    // Attempt to write
+    localStorage.setItem(key, value);
+    return true;
+  } catch (error) {
+    if (error instanceof DOMException && error.code === 22) {
+      // QuotaExceededError - storage is full
+      console.warn(`localStorage quota exceeded for key "${key}". Clearing oldest demo preferences...`);
+      // Clear oldest preference to make space
+      const demoKeys = ['demo-code-panel-prefs', 'demo-viewport-pref', 'demo-theme-pref'];
+      for (const demoKey of demoKeys) {
+        if (demoKey !== key) {
+          try {
+            localStorage.removeItem(demoKey);
+            // Retry the write after clearing
+            localStorage.setItem(key, value);
+            return true;
+          } catch {
+            continue;
+          }
+        }
+      }
+      console.error(`Failed to save to localStorage: quota exceeded`);
+      return false;
+    }
+    console.error(`Failed to save state to localStorage (${key}):`, error);
+    return false;
+  }
+};
+
+/**
  * Configuration for demo state persistence
  */
 export interface DemoStateConfig<T> {
@@ -76,11 +134,8 @@ export const useDemoState = <T>({
   useEffect(() => {
     if (!persist || typeof window === 'undefined') return;
 
-    try {
-      localStorage.setItem(storageKey, serializeRef.current(state));
-    } catch (error) {
-      console.error(`Failed to save state to localStorage (${storageKey}):`, error);
-    }
+    const serialized = serializeRef.current(state);
+    safeStorageWrite(storageKey, serialized);
   }, [state, storageKey, persist]); // Removed serialize from dependencies
 
   // Listen for storage events (cross-tab synchronization)

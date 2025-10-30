@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import fastDeepEqual from 'fast-deep-equal';
 import React, { useImperativeHandle, useMemo, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import AppRoutes from './app-routes';
@@ -32,7 +33,7 @@ const Main = React.forwardRef<
   // );
 
   return (
-    <section
+    <main
       className={classNames('app-main-section', isLanding ? 'is-landing' : '')}
       ref={sectionRef}
     >
@@ -45,13 +46,13 @@ const Main = React.forwardRef<
       )}
       <AppRoutes />
       <Footer />
-    </section>
+    </main>
   );
 });
 
 const MainMemoized = React.memo(
   Main,
-  (prev, next) => JSON.stringify(prev.media) === JSON.stringify(next.media)
+  (prev, next) => fastDeepEqual(prev.media, next.media) && prev.toggleOpen === next.toggleOpen
 );
 
 Main.displayName = 'Main';

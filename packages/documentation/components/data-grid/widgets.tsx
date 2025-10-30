@@ -58,7 +58,7 @@ function widgets() {
           In Comfortable mode, the display density is set to high and is
           preferable for better readability.
         </Text>
-        <DemoWidget name="DataGrid" width={width} showCodeByDefault={true}>
+        <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="comfortable"
             border
@@ -74,7 +74,7 @@ function widgets() {
           for smaller viewport and when you want to cramp in more rows in the
           grid.
         </Text>
-        <DemoWidget name="DataGrid" width={width} showCodeByDefault={true}>
+        <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="compact"
             fixedHeight
@@ -86,7 +86,7 @@ function widgets() {
       </Section>
       <Section size="md" title="Sortable" border={false}>
         <Text>Individual columns can be configured to be sortable.</Text>
-        <DemoWidget name="DataGrid" width={width} showCodeByDefault={true}>
+        <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="comfortable"
             border
@@ -120,7 +120,7 @@ function widgets() {
           Use the <code>searchable</code> property to enable search
           functionality in the grid.
         </Text>
-        <DemoWidget name="DataGrid" width={width} showCodeByDefault={true}>
+        <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
             layoutStyle="comfortable"
             columns={columns.map(x => {

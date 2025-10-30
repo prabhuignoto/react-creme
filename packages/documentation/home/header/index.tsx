@@ -1,6 +1,6 @@
 //
 import { DocSearch } from '@docsearch/react';
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useMemo, memo } from 'react';
 
 import { isDark } from '@lib';
 import cx from 'classnames';
@@ -29,7 +29,7 @@ const AlgoliaHit = ({
 
 AlgoliaHit.displayName = 'AlgoliaHit';
 
-const Header: React.FC<{
+const HeaderComponent: React.FC<{
   isMobile?: boolean;
   onOpen?: () => void;
   onSearchSelection: (selected: AutoSuggestOption) => void;
@@ -72,5 +72,8 @@ const Header: React.FC<{
     </header>
   );
 };
+
+const Header = memo(HeaderComponent);
+HeaderComponent.displayName = 'Header';
 
 export { Header };

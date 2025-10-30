@@ -1,11 +1,11 @@
 import { isDark } from '@lib';
 import cx from 'classnames';
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import { ArrowUp } from 'react-feather';
 import { ReactComponent as GithubSVG } from '../../images/github.svg';
 import styles from './footer.module.scss';
 
-function Footer() {
+function FooterComponent() {
   const isDarkMode = useMemo(() => isDark(), []);
   const currentYear = new Date().getFullYear();
 
@@ -205,5 +205,8 @@ function Footer() {
     </div>
   );
 }
+
+const Footer = memo(FooterComponent);
+FooterComponent.displayName = 'Footer';
 
 export default Footer;

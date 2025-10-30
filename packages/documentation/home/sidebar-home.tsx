@@ -58,7 +58,7 @@ const SideBar: FunctionComponent<{
 
 SideBar.displayName = 'SideBar';
 
-const SidebarHome: React.FC<SideBarHomeProps> = ({
+const SidebarHomeComponent: React.FC<SideBarHomeProps> = ({
   onSelect,
 }: SideBarHomeProps) => {
   const navigate = useNavigate();
@@ -97,6 +97,7 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
   return <SideBar onSelect={handleSidebarSelect} theme={theme} />;
 };
 
-SidebarHome.displayName = 'SidebarHome';
+const SidebarHome = memo(SidebarHomeComponent);
+SidebarHomeComponent.displayName = 'SidebarHome';
 
 export default SidebarHome;

@@ -1,6 +1,6 @@
 import { faBook, faCode, faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FunctionComponent, Suspense, useMemo } from 'react';
+import { FunctionComponent, Suspense, useMemo, useCallback } from 'react';
 import { DemoPageRendererProps } from '.';
 import { Tabs } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
@@ -52,6 +52,15 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
   const hasProperties = useMemo(() => {
     return properties && properties.length > 0;
   }, [properties]);
+
+  // Wrapper handlers to match DemoContainer's expected signatures
+  const handleThemeChange = useCallback((theme: 'light' | 'dark') => {
+    actions.toggleTheme();
+  }, [actions]);
+
+  const handleViewportChange = useCallback((size: ViewportSize) => {
+    actions.setViewportSize(size);
+  }, [actions]);
 
   const hasStackBlitz = useMemo(() => {
     return showStackBlitzEmbed && stackBlitzCodes && stackBlitzCodes.length > 0;
@@ -111,10 +120,17 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
       <div className={styles.widgets_container}>
         <Suspense fallback={<span>Loading Widgets...</span>}>
           <DemoContainer
-            onThemeToggle={actions.toggleTheme}
-            onViewportChange={actions.setViewportSize}
+            controls={{
+              theme: true,
+              viewport: true,
+              reset: true,
+              fullscreen: true,
+            }}
+            defaultViewport={viewportSize}
+            defaultTheme={themeMode}
+            onViewportChange={handleViewportChange}
+            onThemeChange={handleThemeChange}
             onReset={actions.resetDemo}
-            onFullscreen={actions.toggleFullscreen}
           >
             {Demo}
           </DemoContainer>
