@@ -2,11 +2,29 @@
 
 exports[`Transfer > should render transfer snapshot 1`] = `
 <div
+  aria-describedby="transfer-announce-VmaZFyCIJfx0JxVYBZATO"
+  aria-label="Transfer widget"
   class="_wrapper_4931dd"
+  role="region"
 >
   <section
-    aria-label="Available items to transfer"
+    aria-label="Available items to transfer (4 items)"
+    id="transfer-list-left-HL88r3CQkGKSG6mBi34Md"
   >
+    <div
+      class="_list_header_4931dd"
+    >
+      <span
+        class="_list_title_4931dd"
+      >
+        Available
+      </span>
+      <span
+        class="_list_count_4931dd"
+      >
+        4
+      </span>
+    </div>
     <div
       class="_list_1dd828 _list_border_1dd828"
       style="--rc-list-bg-color: #fff; --rc-list-max-height: 350px; --rc-list-min-height: 100px;"
@@ -15,8 +33,9 @@ exports[`Transfer > should render transfer snapshot 1`] = `
         class="_wrapper_1dd828"
       >
         <ul
-          aria-label="rc-list-label-undefined"
+          aria-label="List of options"
           class="_list_options_1dd828"
+          id=""
           role="listbox"
           style="--rc-list-height: 185px;"
         >
@@ -189,10 +208,13 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     </div>
   </section>
   <section
+    aria-label="Transfer controls"
     class="_control_column_4931dd"
+    role="group"
   >
     <button
       aria-busy="false"
+      aria-label="Move selected to selected"
       class="_disabled_3e1769 _rounded_3e1769 _sm_3e1769 _icon_3e1769 _btn_3e1769"
       disabled=""
       style="outline: none; position: relative;"
@@ -222,6 +244,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     </button>
     <button
       aria-busy="false"
+      aria-label="Move selected to available"
       class="_disabled_3e1769 _rounded_3e1769 _sm_3e1769 _icon_3e1769 _btn_3e1769"
       disabled=""
       style="transform: rotate(180deg); outline: none; position: relative;"
@@ -251,8 +274,23 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     </button>
   </section>
   <section
-    aria-label="Selected items"
+    aria-label="Selected items (4 items)"
+    id="transfer-list-right-BK53U1Ud8nmXGUDwXnKGO"
   >
+    <div
+      class="_list_header_4931dd"
+    >
+      <span
+        class="_list_title_4931dd"
+      >
+        Selected
+      </span>
+      <span
+        class="_list_count_4931dd"
+      >
+        4
+      </span>
+    </div>
     <div
       class="_list_1dd828 _list_border_1dd828"
       style="--rc-list-bg-color: #fff; --rc-list-max-height: 350px; --rc-list-min-height: 100px;"
@@ -261,8 +299,9 @@ exports[`Transfer > should render transfer snapshot 1`] = `
         class="_wrapper_1dd828"
       >
         <ul
-          aria-label="rc-list-label-undefined"
+          aria-label="List of options"
           class="_list_options_1dd828"
+          id=""
           role="listbox"
           style="--rc-list-height: 185px;"
         >
@@ -438,6 +477,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     aria-atomic="true"
     aria-live="polite"
     class="sr-only"
+    id="transfer-announce-VmaZFyCIJfx0JxVYBZATO"
     role="status"
   />
 </div>

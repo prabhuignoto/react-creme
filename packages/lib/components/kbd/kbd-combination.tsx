@@ -1,41 +1,42 @@
 import { PlusIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import { Fragment, FunctionComponent, ReactNode, useMemo, useRef } from 'react';
+import { Fragment, FunctionComponent, ReactNode, useMemo } from 'react';
 import { isDark } from '../common/utils';
-import { KbdCombinationProps } from './kbd';
+import { KbdCombinationProps } from './kbd-model';
 import styles from './kbd.module.scss';
 
 const KbdCombination: FunctionComponent<KbdCombinationProps> = ({
   children,
   size = 'sm',
 }) => {
-  const items = useRef<{ child: ReactNode; id: string }[]>(
-    children
-      ? children.map(child => ({
-          child,
-          id: nanoid(),
-        }))
-      : []
-  );
+  const isDarkMode = isDark();
 
-  const combLen = useRef(items.current.length);
-  const isDarkMode = useMemo(() => isDark(), []);
+  const items = useMemo<{ child: ReactNode; id: string }[]>(
+    () =>
+      children
+        ? children.map(child => ({
+            child,
+            id: nanoid(),
+          }))
+        : [],
+    [children]
+  );
 
   const combinationClass = useMemo(
     () =>
       classNames(styles.combination, {
         [styles[`combination_${size}`]]: true,
       }),
-    []
+    [size]
   );
 
   return (
     <div className={combinationClass}>
-      {items.current.map((item, index) => (
+      {items.map((item, index) => (
         <Fragment key={item.id}>
           {item.child}
-          {index >= 0 && index < combLen.current - 1 && (
+          {index < items.length - 1 && (
             <span
               className={classNames(styles.plus, isDarkMode ? styles.dark : '')}
             >

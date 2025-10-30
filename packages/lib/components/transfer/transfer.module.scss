@@ -1,11 +1,15 @@
 @use '@design/core.scss';
 @use '@design/button.scss';
+@use '@design/tokens.scss';
+@use '@design/theme.scss';
 
 .wrapper {
   @extend %center;
   align-items: flex-start;
   display: grid;
-  grid-template-columns: 40% 20% 40%;
+  // Use flexible columns instead of fixed percentages
+  grid-template-columns: 1fr auto 1fr;
+  gap: tokens.$space-4;
 }
 
 .column1 {
@@ -23,10 +27,10 @@
 
 .btn {
   @extend %button-md;
-  padding: 0.25rem;
+  padding: tokens.$space-1;
 
   &.left {
-    margin-top: 1rem;
+    margin-top: tokens.$space-4;
     transform: rotate(-180deg);
   }
 
@@ -35,8 +39,47 @@
   }
 }
 
+// Move rotation from inline style to CSS class
+.rotate_button {
+  transform: rotate(180deg);
+}
+
 .search_input {
   margin-left: auto;
-  margin-right: 0.5rem;
+  margin-right: tokens.$space-2;
   width: 100%;
+}
+
+// Empty state styling
+.empty_state {
+  padding: tokens.$space-4;
+  text-align: center;
+  color: theme.$gray-600;
+  font-size: 0.875rem;
+}
+
+// List header with title and count
+.list_header {
+  @extend %left;
+  padding: tokens.$space-2 tokens.$space-3;
+  border-bottom: 1px solid theme.$gray-300;
+  gap: tokens.$space-2;
+}
+
+.list_title {
+  @extend %text-sm;
+  font-weight: 500;
+  color: theme.$text-color;
+  flex: 1;
+}
+
+.list_count {
+  @extend %text-sm;
+  background: theme.$gray-200;
+  color: theme.$gray-700;
+  padding: tokens.$space-1 tokens.$space-2;
+  border-radius: 4px;
+  font-weight: 600;
+  min-width: 2rem;
+  text-align: center;
 }

@@ -2,6 +2,7 @@
 @use '@design/core.scss';
 @use '@design/font.scss';
 @use '@design/icon.scss';
+@use '@design/tokens.scss';
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -23,7 +24,7 @@ $thickness: var(--rc-kbd-thickness);
 .wrapper {
   @extend %border-radius;
   display: inline-block;
-  padding: 0.2rem;
+  padding: tokens.$space-1;
   text-align: center;
 
   &.dark {
@@ -61,7 +62,7 @@ $thickness: var(--rc-kbd-thickness);
   .wrapper {
     &.#{$size} {
       @extend %font-#{$size};
-      height: #{map.get($heights, $size)};
+      min-height: #{map.get($heights, $size)};
       line-height: #{map.get($heights, $size)};
       min-width: map.get($widths, $size);
     }
@@ -77,7 +78,7 @@ $thickness: var(--rc-kbd-thickness);
 }
 
 .plus {
-  margin: 0 0.5rem;
+  margin: 0 tokens.$space-2;
 
   &.dark {
     color: theme.$white;
