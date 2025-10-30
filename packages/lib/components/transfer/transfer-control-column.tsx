@@ -13,7 +13,7 @@ interface TransferControlModel {
   /** ID of the target list (for aria-controls) */
   targetId?: string;
   /** Callback to transfer all items to the right */
-  onTransferAll?: (dir: string) => void;
+  onTransferAll?: ((dir: string) => void) | undefined;
   /** Whether transfer-all buttons should be hidden */
   hideTransferAll?: boolean;
 }

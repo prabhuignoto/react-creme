@@ -62,7 +62,7 @@
 .list_header {
   @extend %left;
   padding: tokens.$space-2 tokens.$space-3;
-  border-bottom: 1px solid theme.$gray-300;
+  // border-bottom: 1px solid theme.$gray-300;
   gap: tokens.$space-2;
 }
 
