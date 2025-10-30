@@ -150,6 +150,11 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
     }
   }, []);
 
+  // Sync internal state with external checked prop
+  useEffect(() => {
+    setState(checked);
+  }, [checked]);
+
   const switchTabIndex = useMemo(
     () => !disabled && !readOnly && focusable && { tabIndex: 0 },
     [disabled, readOnly, focusable]

@@ -213,8 +213,8 @@ $start-left: tokens.$space-1;
   svg {
     @include position.position-abs('center center');
     color: theme.$white;
-    height: 75%;
-    width: 75%;
+    height: 85%;
+    width: 85%;
   }
 
   @each $key, $val in $knob-sizes {
@@ -254,6 +254,11 @@ $start-left: tokens.$space-1;
         // Nested rules come after properties
         & {
           box-shadow: none;
+        }
+
+        // Check icon color - blue for visibility on white knob
+        svg {
+          color: theme.$primary;
         }
 
         // Animation mixins that generate @keyframes (nested rules) come last
