@@ -31,10 +31,10 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
           value,
         });
       }
-    }, []);
+    }, [onSelection, id, name, selected, value]);
 
     const ref = useRef<HTMLLIElement>(null);
-    const isDarkMode = useMemo(() => isDark(), []);
+    const isDarkMode = isDark();
 
     const listItemClass = useMemo(
       () =>
@@ -47,13 +47,13 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
             [styles.dark]: isDarkMode,
           },
         ]),
-      [selected, disabled, focus, isDarkMode]
+      [disabled, focus, focusable, highlightSelection, isDarkMode]
     );
 
     const handleMouseDown = useCallback((e: React.MouseEvent) => {
       e.preventDefault();
       handleSelection();
-    }, []);
+    }, [handleSelection]);
 
     const clickableProps = useMemo(() => {
       if (disabled) {
@@ -69,7 +69,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
         },
         tabIndex: 0,
       };
-    }, []);
+    }, [disabled, handleMouseDown, handleSelection]);
 
     const ariaProps = useMemo(
       () => ({
@@ -119,7 +119,14 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
       prevProps.disabled === nextProps.disabled &&
       prevProps.selected === nextProps.selected &&
       prevProps.style?.top === nextProps.style?.top &&
-      prevProps.focus === nextProps.focus
+      prevProps.focus === nextProps.focus &&
+      prevProps.name === nextProps.name &&
+      prevProps.textColor === nextProps.textColor &&
+      prevProps.textColorSelected === nextProps.textColorSelected &&
+      prevProps.highlightSelection === nextProps.highlightSelection &&
+      prevProps.showCheckIcon === nextProps.showCheckIcon &&
+      prevProps.size === nextProps.size &&
+      prevProps.RTL === nextProps.RTL
     );
   }
 );

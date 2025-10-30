@@ -125,4 +125,19 @@ export interface InputProps {
    * 🔴 value of the Input
    */
   value?: string;
+
+  /**
+   * 🔴 Accessible label for the input
+   */
+  'aria-label'?: string;
+
+  /**
+   * 🔴 ID of element that labels this input
+   */
+  'aria-labelledby'?: string;
+
+  /**
+   * 🔴 ID of element that describes this input
+   */
+  'aria-describedby'?: string;
 }

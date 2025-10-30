@@ -102,9 +102,16 @@ $heights: (
   background: transparent;
   border: 0;
   height: 100%;
-  outline: 0;
   padding: 0;
   width: 100%;
+
+  // Suppress native focus outline - use container's ::after pseudo-element instead
+  outline: 0;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
 
   &.input_dark {
     color: theme.$white;

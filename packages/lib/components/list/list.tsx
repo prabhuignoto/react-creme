@@ -5,6 +5,7 @@ import {
   CSSProperties,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -46,15 +47,32 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
     }: ListProps,
     ref
   ) => {
-    const [_listOptions, setListOptions] = useState<ListOption[]>(
-      ParseOptions(options, rowGap, itemHeight, noUniqueIds)
-    );
-
     const listRef = useRef<HTMLDivElement | null>(null);
-    const [selected, setSelected] = useState<ListOption[]>();
     const [resetState, setResetState] = useState(0);
 
-    const isDarkMode = useMemo(() => isDark(), []);
+    // Separate selection state from options data
+    const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+
+    // Store latest onSelection callback in a ref to prevent infinite loops
+    // from unstable callback references passed by parent components
+    const onSelectionRef = useRef(onSelection);
+    useLayoutEffect(() => {
+      onSelectionRef.current = onSelection;
+    });
+
+    // Track previous selection to prevent calling callback when selection hasn't changed
+    const prevSelectedIdsRef = useRef<Set<string>>(new Set());
+
+    // Derive options from props and merge with selection state
+    const _listOptions = useMemo(() => {
+      const parsed = ParseOptions(options, rowGap, itemHeight, noUniqueIds);
+      return parsed.map(opt => ({
+        ...opt,
+        selected: selectedIds.has(opt.id),
+      }));
+    }, [options, rowGap, itemHeight, noUniqueIds, selectedIds]);
+
+    const isDarkMode = isDark();
 
     const rcListClass = useMemo(
       () =>
@@ -64,7 +82,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
           [styles.dark]: isDarkMode,
           [styles.disable_bg_color]: disableBgColor,
         }),
-      []
+      [border, enableSearch, isDarkMode, disableBgColor]
     );
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -92,53 +110,67 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
       } else {
         return _listOptions;
       }
-    }, [
-      searchTerm,
-      _listOptions.length,
-      JSON.stringify(_listOptions.map((id, selected) => ({ id, selected }))),
-    ]);
+    }, [searchTerm, _listOptions, itemHeight, rowGap]);
 
-    const handleSelection = (opt: ListOption) => {
-      if (allowMultiSelection) {
-        setListOptions(prev => {
-          const updated = prev.map(option => ({
-            ...option,
-            selected: option.id === opt.id ? !option.selected : option.selected,
-          }));
-          setSelected(updated.filter(opt => opt.selected));
-          return updated;
-        });
-      } else {
-        setListOptions(prev => {
-          const updated = prev.map(option => ({
-            ...option,
-            selected: option.id === opt.id,
-          }));
-          setSelected(updated.filter(opt => opt.selected));
-          return updated;
-        });
-      }
-    };
+    const handleSelection = useCallback((opt: ListOption) => {
+      setSelectedIds(prev => {
+        const newSet = new Set(prev);
+        if (allowMultiSelection) {
+          if (newSet.has(opt.id)) {
+            newSet.delete(opt.id);
+          } else {
+            newSet.add(opt.id);
+          }
+        } else {
+          newSet.clear();
+          newSet.add(opt.id);
+        }
+        return newSet;
+      });
+    }, [allowMultiSelection]);
 
+    // Derive selected items from selectedIds
+    const selected = useMemo(
+      () => _listOptions.filter(opt => selectedIds.has(opt.id)),
+      [_listOptions, selectedIds]
+    );
+
+    // Sync selection from props on mount only
+    // NOTE: Only runs once on mount to prevent infinite loops caused by ParseOptions
+    // generating new IDs (nanoid) on every render
     useEffect(() => {
-      if (selected && onSelection) {
-        onSelection(
+      const initialSelected = options
+        .filter(opt => opt.selected)
+        .map(opt => opt.id)
+        .filter((id): id is string => id !== undefined);
+
+      if (initialSelected.length > 0) {
+        setSelectedIds(new Set(initialSelected));
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    // Notify parent of selection changes
+    useEffect(() => {
+      // Check if selection actually changed by comparing Set contents
+      const currentIds = selectedIds;
+      const prevIds = prevSelectedIdsRef.current;
+
+      const hasChanged =
+        currentIds.size !== prevIds.size ||
+        Array.from(currentIds).some(id => !prevIds.has(id));
+
+      if (hasChanged && selected.length > 0 && onSelectionRef.current) {
+        onSelectionRef.current(
           selected.map(({ name, value, id }) => ({
-            id,
+            id: id ?? '',
             name,
-            value,
+            value: value ?? '',
           }))
         );
+        prevSelectedIdsRef.current = new Set(currentIds);
       }
-    }, [selected]);
-
-    useEffect(() => {
-      if (!isFirstRender.current) {
-        setListOptions(ParseOptions(options, rowGap, itemHeight, noUniqueIds));
-      }
-    }, [
-      JSON.stringify(options.map(op => ({ id: op.id, selected: op.selected }))),
-    ]);
+    }, [selected, selectedIds]);
 
     const isFirstRender = useFirstRender();
 
@@ -146,12 +178,21 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
     const virtualization = useVirtualization({
       itemCount: visibleOptions.length,
       itemHeight,
-      containerRef: listRef,
+      containerRef: listRef as React.RefObject<HTMLElement>,
       enabled: virtualized,
       itemGap: rowGap,
       overscan: 3,
       scrollDebounce: 50,
     });
+
+    // visibleRange from useVirtualization is already in index format [startIndex, endIndex]
+    const visibleIndexRange = useMemo(() => {
+      if (!virtualized) {
+        return [0, visibleOptions.length];
+      }
+      // Use the indices directly - no conversion needed
+      return virtualization.visibleRange;
+    }, [virtualized, virtualization.visibleRange, visibleOptions.length]);
 
     const onListRef = useCallback((el: HTMLDivElement | null) => {
       listRef.current = el;
@@ -178,6 +219,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
               size={size}
               focusable={focusable}
               placeholder="Search ..."
+              aria-label="Search list items"
               onFocus={() => {
                 setResetState(new Date().getTime());
               }}
@@ -193,15 +235,15 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
             focusable={focusable}
             handleSelection={handleSelection}
             highlightSelection={highlightSelection}
-            id={id}
+            id={id ?? ''}
             rowGap={rowGap}
             showCheckIcon={showCheckIcon}
             textColor={textColor}
             textColorSelected={textColorSelected}
-            visibleRange={virtualization.visibleRange}
+            visibleRange={visibleIndexRange}
             options={visibleOptions}
             itemHeight={itemHeight}
-            label={label}
+            label={label ?? ''}
             selectedIndex={selectedIndex}
             virtualized={virtualized}
             resetState={resetState}

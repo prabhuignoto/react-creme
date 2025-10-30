@@ -51,7 +51,7 @@ function Widgets() {
         </Section>
         <Section size="md" title="Searchable list" border={false}>
           <Text>With searchable list items can be quickly searched.</Text>
-          <DemoWidget name="List" width={width} showCodeByDefault={true}>
+          <DemoWidget name="List" width={width} showCodeByDefault={false}>
             {Search}
           </DemoWidget>
         </Section>
@@ -60,7 +60,7 @@ function Widgets() {
             The virtualized list is a performance improvement over the default
             rendering. It renders only the visible items
           </Text>
-          <DemoWidget name="List" width={width} showCodeByDefault={true}>
+          <DemoWidget name="List" width={width} showCodeByDefault={false}>
             {Virtualized}
           </DemoWidget>
         </Section>

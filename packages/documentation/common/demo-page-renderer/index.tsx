@@ -4,8 +4,10 @@ import {
   memo,
   useLayoutEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
+import deepEqual from 'fast-deep-equal';
 import { Section } from '../../../lib/components';
 import useMedia from '../useMedia';
 import { useResponsiveColumns } from '../hooks/useResponsiveColumns';
@@ -78,8 +80,8 @@ const DemoPageContent: FunctionComponent<DemoPageRendererProps & {
 
   const codeSnippet = useMemo(() => ({
     code: demoCode,
-    language: 'tsx' as const,
     fileName: `${title || 'demo'}.tsx`,
+    language: 'tsx' as const,
   }), [demoCode, title]);
 
   // Quick action handlers
@@ -116,10 +118,10 @@ const DemoPageContent: FunctionComponent<DemoPageRendererProps & {
   useDemoShortcuts({
     handlers: {
       onCopyCode: handleCopyCode,
-      onToggleCode: handleToggleCodePanel,
+      onFullscreen: handleFullscreen,
       onOpenStackBlitz: handleOpenStackBlitz,
       onReset: handleReset,
-      onFullscreen: handleFullscreen,
+      onToggleCode: handleToggleCodePanel,
     },
   });
 
@@ -199,8 +201,18 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
   }: DemoPageRendererProps) => {
     const media = useMedia();
 
+    // Stabilize tabTitles reference to prevent infinite loops when navigating
+    // Only recreate reference when the array content actually changes
+    const tabTitlesRef = useRef(tabTitles);
+    const stableTabTitles = useMemo(() => {
+      if (!deepEqual(tabTitlesRef.current, tabTitles)) {
+        tabTitlesRef.current = tabTitles;
+      }
+      return tabTitlesRef.current;
+    }, [tabTitles]);
+
     // Determine responsive configuration based on media state
-    const [tabs, setTabs] = useState<string[]>(tabTitles);
+    const [tabs, setTabs] = useState<string[]>(stableTabTitles);
     const [showStackBlitzEmbed, setShowStackBlitzEmbed] = useState(true);
 
     // Synchronously update tabs and embed visibility based on media
@@ -208,24 +220,24 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
       if (!media) return;
 
       const isMobileOrTablet = media.isMobile || media.isTablet;
-      setTabs(isMobileOrTablet ? tabTitles.slice(0, -1) : tabTitles);
+      setTabs(isMobileOrTablet ? stableTabTitles.slice(0, -1) : stableTabTitles);
       setShowStackBlitzEmbed(!isMobileOrTablet);
-    }, [media, tabTitles]);
+    }, [media, stableTabTitles]);
 
     // Use custom hook for responsive columns with proper memoization
     const customWidths = useMemo(() => {
       if (!media) return undefined;
 
       if (media.isExtraLargeScreen) {
-        return { name: 200, description: 450, default: 200 };
+        return { default: 200, description: 450, name: 200 };
       } else if (media.isBigScreen) {
-        return { name: 150, description: 300, default: 150 };
+        return { default: 150, description: 300, name: 150 };
       } else if (media.isTablet) {
-        return { name: 120, description: 200, default: 120 };
+        return { default: 120, description: 200, name: 120 };
       } else if (media.isMobile) {
-        return { name: 120, description: 120, default: 120 };
+        return { default: 120, description: 120, name: 120 };
       }
-      return { name: 150, description: 250, default: 150 };
+      return { default: 150, description: 250, name: 150 };
     }, [media]);
 
     const columns = useResponsiveColumns(media, customWidths);
@@ -245,11 +257,11 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
         defaultViewport={initialViewport}
         defaultTheme="auto"
         initialCodePanel={{
-          isOpen: false,
-          width: 600,
-          minWidth: 300,
-          maxWidth: 1000,
           defaultTab: 'code',
+          isOpen: false,
+          maxWidth: 1000,
+          minWidth: 300,
+          width: 600,
         }}
       >
         <DemoPageContent

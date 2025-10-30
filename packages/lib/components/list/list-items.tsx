@@ -43,12 +43,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
       } as CSSProperties;
 
       return style;
-    }, [
-      JSON.stringify(
-        options.map(({ id, top, selected }) => ({ id, selected, top }))
-      ),
-      resetState,
-    ]);
+    }, [options, itemHeight, rowGap, resetState]);
 
     const listRef = useRef<HTMLUListElement | null>(null);
 
@@ -77,7 +72,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
     const onSelection = useCallback((opt: ListOption, index: number) => {
       setSelection(index);
       handleSelection(opt);
-    }, []);
+    }, [setSelection, handleSelection]);
 
     useEffect(() => {
       if (selectedIndex > -1) {
@@ -108,7 +103,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
       <ul
         className={styles.list_options}
         role="listbox"
-        aria-label={`rc-list-label-${label}`}
+        aria-label={label || 'List of options'}
         style={listStyle}
         id={id}
         ref={listRef}
@@ -119,7 +114,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
             ({ disabled, id, name, value = '', selected, top = 0 }, index) => {
               const canShow =
                 !virtualized ||
-                (top + itemHeight >= visibleRange[0] && top <= visibleRange[1]);
+                (index >= visibleRange[0] && index <= visibleRange[1]);
               return canShow ? (
                 <ListItem
                   allowMultiSelection={allowMultiSelection}

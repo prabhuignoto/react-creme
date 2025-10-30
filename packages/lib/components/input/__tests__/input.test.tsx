@@ -12,11 +12,11 @@ import styles from '../input.module.scss';
 describe('Input', () => {
   describe('Rendering', () => {
     it('should render default input', () => {
-      render(<Input />);
+      const { container } = render(<Input />);
       const input = screen.getAllByRole('textbox')[0];
 
       expect(input).toBeInTheDocument();
-      expect(input).toHaveClass(styles.default);
+      expect(container.firstChild).toHaveClass(styles.default);
     });
 
     it('should render with placeholder', () => {
@@ -54,8 +54,9 @@ describe('Input', () => {
     });
 
     it('should have aria-label from placeholder in error state', () => {
-      const { container } = render(<Input state="error" placeholder="error" />);
-      expect(container.firstChild).toHaveAttribute('aria-label', 'error');
+      render(<Input state="error" placeholder="error" />);
+      const input = screen.getByPlaceholderText('error');
+      expect(input).toHaveAttribute('aria-label', 'error');
     });
   });
 

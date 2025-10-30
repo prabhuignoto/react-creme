@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">4.94% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/263</span>
+                <span class='fraction'>13/263</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">4.94% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/263</span>
+                <span class='fraction'>13/263</span>
             </div>
         
             
@@ -411,28 +411,29 @@
 <a name='L346'></a><a href='#L346'>346</a>
 <a name='L347'></a><a href='#L347'>347</a>
 <a name='L348'></a><a href='#L348'>348</a>
-<a name='L349'></a><a href='#L349'>349</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L349'></a><a href='#L349'>349</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -456,7 +457,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -754,34 +754,34 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React, {<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {
   useCallback,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
 } from 'react';
-<span class="cstat-no" title="statement not covered" >import classNames from 'classnames';</span>
-<span class="cstat-no" title="statement not covered" >import { nanoid } from 'nanoid';</span>
+import classNames from 'classnames';
+import { nanoid } from 'nanoid';
 import type { FileUploadProps, FileUploadRef } from './file-upload-model';
-<span class="cstat-no" title="statement not covered" >import { isDark } from '../common/utils';</span>
-<span class="cstat-no" title="statement not covered" >import { useFileProcessing } from '../common/effects/useFileProcessing';</span>
-<span class="cstat-no" title="statement not covered" >import { useFileDragDrop } from '../common/effects/useFileDragDrop';</span>
-<span class="cstat-no" title="statement not covered" >import { UploadIcon, CloseIcon, FileIcon } from './icons';</span>
-<span class="cstat-no" title="statement not covered" >import { formatFileSize } from './utils';</span>
-<span class="cstat-no" title="statement not covered" >import styles from './file-upload.module.scss';</span>
+import { isDark } from '../common/utils';
+import { useFileProcessing } from '../common/effects/useFileProcessing';
+import { useFileDragDrop } from '../common/effects/useFileDragDrop';
+import { UploadIcon, CloseIcon, FileIcon } from './icons';
+import { formatFileSize } from './utils';
+import styles from './file-upload.module.scss';
 &nbsp;
 /**
  * FileUpload component - A comprehensive file upload component with drag &amp; drop,
  * paste support, validation, and image previews
  */
-<span class="cstat-no" title="statement not covered" >const FileUpload = React.forwardRef&lt;FileUploadRef, FileUploadProps&gt;(</span>
-<span class="cstat-no" title="statement not covered" >  (props, ref) =&gt; {</span>
+const FileUpload = React.forwardRef&lt;FileUploadRef, FileUploadProps&gt;(
+  (props, ref) =&gt; {
 <span class="cstat-no" title="statement not covered" >    const {</span>
 <span class="cstat-no" title="statement not covered" >      accept,</span>
 <span class="cstat-no" title="statement not covered" >      maxSize,</span>
@@ -1102,9 +1102,9 @@ import type { FileUploadProps, FileUploadRef } from './file-upload-model';
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
     );
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >);</span>
+);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >FileUpload.displayName = 'FileUpload';</span>
+FileUpload.displayName = 'FileUpload';
 &nbsp;
 export { FileUpload };
 &nbsp;</pre></td></tr></table></pre>
@@ -1114,7 +1114,7 @@ export { FileUpload };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-10-30T11:54:10.719Z
+                at 2025-10-30T12:34:51.270Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

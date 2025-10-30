@@ -107,7 +107,7 @@ describe('Input Number', () => {
 
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const { container } = render(<InputNumber />);
+      const { container } = render(<InputNumber placeholder="Enter number" />);
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();

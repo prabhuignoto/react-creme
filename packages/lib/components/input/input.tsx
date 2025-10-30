@@ -185,12 +185,11 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
             setHasFocus(false);
           },
           onFocus: (ev: React.FocusEvent) => {
-            // setHasFocus(true);
+            setHasFocus(true);
             onFocus?.(ev);
           },
         };
       } else {
-        // alert("kunj")
         return {};
       }
     }, [focusable, hasFocus]);
@@ -212,7 +211,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
 
     const handleClearKeyDown = useCallback(
       (ev: React.KeyboardEvent) => {
-        if (ev.key === ' ') {
+        if (ev.key === ' ' || ev.key === 'Enter') {
           ev.preventDefault();
           handleClear(ev as any);
         }
@@ -240,16 +239,18 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
     return (
       <div
         className={inputClass}
-        role="textbox"
         ref={containerRef}
         style={style}
-        aria-label={placeholder}
         {...autoCompleteProps}
       >
         {children && <span className={styles.icon}>{children}</span>}
         <input
           type={type}
           placeholder={placeholder}
+          {...(props['aria-label'] ? { 'aria-label': props['aria-label'] } : placeholder ? { 'aria-label': placeholder } : {})}
+          {...(props['aria-labelledby'] ? { 'aria-labelledby': props['aria-labelledby'] } : {})}
+          {...(props['aria-describedby'] ? { 'aria-describedby': props['aria-describedby'] } : {})}
+          aria-invalid={state === 'error'}
           {...focusProps}
           {...controlledProps}
           {...numProps}
@@ -264,7 +265,6 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           <span
             onMouseDown={handleClear}
             onKeyDown={handleClearKeyDown}
-            onKeyUp={(ev) => ev.key === 'Enter' && handleClear(ev as any)}
             className={clearClass}
             role="button"
             tabIndex={inputValue ? 0 : -1}
@@ -275,7 +275,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           </span>
         )}
         {showSpinner && (
-          <span role="img" data-testid="rc-input-spinner">
+          <span role="status" aria-label="Loading" data-testid="rc-input-spinner">
             <CircularProgress size="xs" />
           </span>
         )}
