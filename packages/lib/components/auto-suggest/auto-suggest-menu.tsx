@@ -59,10 +59,10 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
   }, [data?.focus]);
 
   // a custom hook to close the dropdown when clicking outside.
-  const { onRef } = useOnClickOutside(onClose);
+  const { ref: onRef } = useOnClickOutside(onClose);
 
   // Determine if the app is running in dark mode.
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark();
 
   // Calculate the classnames for the div wrapper.
   const suggestionsClass = useMemo(

@@ -32,7 +32,7 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
     } as CSSProperties;
   }, [width, maxMenuHeight]);
 
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark();
 
   const menuClass = useMemo(
     () =>
@@ -51,14 +51,14 @@ const DropDownMenu: React.FunctionComponent<DropdownMenuProps> = ({
     if (isClosing) {
       onClosing?.();
     }
-  }, [isClosing]);
+  }, [isClosing, onClosing]);
 
-  const handleClose = useCallback(() => open && onClose?.(), [open]);
+  const handleClose = useCallback(() => open && onClose?.(), [open, onClose]);
 
-  const { onRef } = useClickOutside(handleClose);
+  const { ref } = useClickOutside(handleClose);
 
   return (
-    <div className={menuClass} style={menuStyle} ref={onRef}>
+    <div className={menuClass} style={menuStyle} ref={ref}>
       <List
         id={menuId}
         options={options}

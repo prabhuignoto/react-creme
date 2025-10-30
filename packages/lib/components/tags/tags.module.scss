@@ -61,6 +61,10 @@ $tag-heights: (
   @include animate.set-keyframes('fade-in', $settings);
   @include animate.set-keyframes('fade-out', $settings, true);
 
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+
   &:not(.disabled):not(.readonly) {
     display: grid;
     grid-template-columns: calc(var(--width) - 1rem) 1rem;
@@ -119,6 +123,11 @@ $tag-heights: (
   max-width: var(--width);
   transform: scale(0.98);
   visibility: hidden;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 @each $size in $sizes {

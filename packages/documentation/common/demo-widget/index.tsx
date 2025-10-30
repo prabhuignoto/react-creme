@@ -49,6 +49,7 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
           style={{
             height: height ? `${height}px` : '100%',
             margin: '0.5rem 0',
+            padding: '1rem',
             width: Number.isInteger(width) ? `${width}px` : width,
           }}
         >

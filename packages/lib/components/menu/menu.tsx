@@ -172,12 +172,12 @@ const Menu: React.FunctionComponent<MenuProps> = ({
 
       return prev;
     });
-  }, []);
+  }, [onClose]);
 
-  const { onRef } = useOnClickOutside(handleClickOnOutside);
+  const { ref } = useOnClickOutside(handleClickOnOutside);
 
   return (
-    <div className={menuWrapperClass} style={style} ref={onRef}>
+    <div className={menuWrapperClass} style={style} ref={ref}>
       <div
         className={menuContentWrapperClass}
         onClick={toggleMenu}

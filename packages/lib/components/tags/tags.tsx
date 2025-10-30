@@ -30,7 +30,11 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   accent = 'flat',
   wrap = true,
   tagHeight = null,
+  allowDuplicates = false,
 }) => {
+  // Generate unique ID for aria-describedby
+  const descriptionId = React.useMemo(() => `rc-tags-description-${nanoid()}`, []);
+
   // STATES
   const [tagItems, setTagItems] = useState<TagItemProps[]>(
     items
@@ -52,10 +56,11 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   const inputRef = React.useRef<RCInputElementProps | null>(null);
   const wrapperRef = useRef<HTMLElement>(null!);
   const [focusedTagIndex, setFocusedTagIndex] = useState<number>(-1);
+  const [liveMessage, setLiveMessage] = useState<string>('');
 
   const canAdd = useMemo(
     () => tagItems.length + 1 <= maxTags && !readonly,
-    [tagItems.length, inputValue]
+    [tagItems.length, maxTags, readonly]
   );
 
   const tagSuggestions = useMemo(
@@ -64,7 +69,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
         name: suggestion,
         value: suggestion,
       })),
-    []
+    [suggestions]
   );
 
   // HANDLERS
@@ -79,7 +84,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
         }
       }
     },
-    [canAdd, inputValue]
+    [canAdd]
   );
 
   const handleChange = useCallback((val?: string) => {
@@ -92,6 +97,17 @@ const Tags: React.FunctionComponent<TagsProps> = ({
     (value: string | AutoSuggestOption) => {
       if (canAdd) {
         const _value = typeof value === 'string' ? value : value.name;
+
+        // Check for duplicates if not allowed
+        if (!allowDuplicates && tagItems.some(tag => tag.name === _value)) {
+          setLiveMessage(`Tag "${_value}" already exists`);
+          if (inputRef.current) {
+            inputRef.current.setValue('');
+            inputRef.current.focus();
+          }
+          return;
+        }
+
         setTagItems(prev =>
           prev.concat({
             accent,
@@ -99,17 +115,24 @@ const Tags: React.FunctionComponent<TagsProps> = ({
             name: _value,
           })
         );
+        setLiveMessage(`Tag "${_value}" added`);
         if (inputRef.current) {
           inputRef.current.setValue('');
           inputRef.current.focus();
         }
       }
     },
-    [canAdd]
+    [canAdd, accent, tagItems, allowDuplicates]
   );
 
   const handleRemove = useCallback((val: string) => {
-    setTagItems(tags => tags.filter(tag => tag.id !== val));
+    setTagItems(tags => {
+      const removedTag = tags.find(tag => tag.id === val);
+      if (removedTag) {
+        setLiveMessage(`Tag "${removedTag.name}" removed`);
+      }
+      return tags.filter(tag => tag.id !== val);
+    });
 
     inputRef.current?.focus();
   }, []);
@@ -134,45 +157,85 @@ const Tags: React.FunctionComponent<TagsProps> = ({
     if (onChange && !isFirstRender.current) {
       onChange(tagItems.map(tag => tag.name));
     }
-  }, [tagItems.length]);
+  }, [tagItems, onChange]);
 
   useEffect(() => {
     if (!isFirstRender.current) {
-      setTagItems(
+      setTagItems(prevItems =>
         items
-          .map(item => ({
+          .map((item, index) => ({
             accent,
             disabled: item.disabled ?? false,
-            id: nanoid(),
+            // Preserve ID if tag exists at same index, otherwise generate new one
+            id: prevItems[index]?.id ?? nanoid(),
             name: item.name,
             readonly: readonly ?? false,
           }))
           .slice(0, maxTags)
       );
     }
-  }, [items.length]);
+  }, [items, accent, readonly, maxTags]);
+
+  // Clear live message after announcement
+  useEffect(() => {
+    if (liveMessage) {
+      const timer = setTimeout(() => setLiveMessage(''), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [liveMessage]);
 
   return (
-    <ul
-      className={classNames(styles.tags_wrapper, {
-        [styles.tags_disabled]: disabled,
-        [styles.tags_rtl]: RTL,
-        [styles.tags_wrap]: wrap,
-      })}
-      style={Object.assign(
-        {},
-        style,
-        tagHeight
-          ? {
-              '--tag-height': `${tagHeight}px`,
-            }
-          : {}
-      )}
-      ref={wrapperRef as React.RefObject<HTMLUListElement>}
-      role="list"
-      aria-label="tag list"
-      tabIndex={-1}
-    >
+    <>
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        style={{
+          position: 'absolute',
+          left: '-10000px',
+          width: '1px',
+          height: '1px',
+          overflow: 'hidden',
+        }}
+      >
+        {liveMessage}
+      </div>
+      <div
+        id={descriptionId}
+        style={{
+          position: 'absolute',
+          left: '-10000px',
+          width: '1px',
+          height: '1px',
+          overflow: 'hidden',
+        }}
+      >
+        {tagItems.length === 0
+          ? 'No tags added yet. '
+          : `${tagItems.length} tag${tagItems.length !== 1 ? 's' : ''} added. `}
+        {maxTags !== Number.MAX_VALUE && `Maximum ${maxTags} tags allowed. `}
+        Press Enter to add a tag. Use arrow keys to navigate between tags. Press Delete to remove a focused tag.
+      </div>
+      <ul
+        className={classNames(styles.tags_wrapper, {
+          [styles.tags_disabled]: disabled,
+          [styles.tags_rtl]: RTL,
+          [styles.tags_wrap]: wrap,
+        })}
+        style={Object.assign(
+          {},
+          style,
+          tagHeight
+            ? {
+                '--tag-height': `${tagHeight}px`,
+              }
+            : {}
+        )}
+        ref={wrapperRef as React.RefObject<HTMLUListElement>}
+        role="list"
+        aria-label={`tag list${tagItems.length > 0 ? `, ${tagItems.length} tag${tagItems.length !== 1 ? 's' : ''}` : ''}`}
+        aria-describedby={descriptionId}
+        tabIndex={-1}
+      >
       {tagItems.map(({ id, name, disabled, readonly, markedForRemoval }) => (
         <TagItem
           id={id ?? ''}
@@ -207,6 +270,7 @@ const Tags: React.FunctionComponent<TagsProps> = ({
         </li>
       )}
     </ul>
+    </>
   );
 };
 

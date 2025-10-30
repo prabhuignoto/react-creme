@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/54</span>
+                <span class='fraction'>0/61</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/54</span>
+                <span class='fraction'>0/61</span>
             </div>
         
             
@@ -128,7 +128,15 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -154,9 +162,17 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -202,8 +218,8 @@ import { MenuBarItemViewProps } from './menu-bar.model';
 <span class="cstat-no" title="statement not covered" >import styles from './menu-bar.module.scss';</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >const MenuBarItem: FunctionComponent&lt;MenuBarItemViewProps&gt; = memo(</span>
-<span class="cstat-no" title="statement not covered" >  ({ active, showIcon, icon, size = 'sm', RTL = false, name, isMenuOpen }) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const isDarkMode = useMemo(() =&gt; isDark(), []);</span>
+<span class="cstat-no" title="statement not covered" >  ({ active, showIcon, icon, size = 'sm', RTL = false, name, isMenuOpen, id, 'aria-current': ariaCurrent, disabled = false }) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const isDarkMode = isDark();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    const isFirstRender = useFirstRender();</span>
 &nbsp;
@@ -214,16 +230,24 @@ import { MenuBarItemViewProps } from './menu-bar.model';
 <span class="cstat-no" title="statement not covered" >          isDarkMode &amp;&amp; styles.dark,</span>
 <span class="cstat-no" title="statement not covered" >          {</span>
 <span class="cstat-no" title="statement not covered" >            [styles.active]: active,</span>
+<span class="cstat-no" title="statement not covered" >            [styles.disabled]: disabled,</span>
 <span class="cstat-no" title="statement not covered" >          },</span>
 <span class="cstat-no" title="statement not covered" >          RTL ? styles.rtl : ''</span>
 <span class="cstat-no" title="statement not covered" >        ),</span>
-<span class="cstat-no" title="statement not covered" >      [RTL]</span>
+<span class="cstat-no" title="statement not covered" >      [RTL, isDarkMode, active, disabled]</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;li className={menuBarItemClass}&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;li</span>
+<span class="cstat-no" title="statement not covered" >        className={menuBarItemClass}</span>
+<span class="cstat-no" title="statement not covered" >        id={id}</span>
+<span class="cstat-no" title="statement not covered" >        role="menuitem"</span>
+<span class="cstat-no" title="statement not covered" >        aria-haspopup="true"</span>
+<span class="cstat-no" title="statement not covered" >        aria-expanded={isMenuOpen}</span>
+<span class="cstat-no" title="statement not covered" >        aria-current={ariaCurrent}</span>
+      &gt;
 <span class="cstat-no" title="statement not covered" >        {showIcon &amp;&amp; (</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span className={classNames(styles.icon, styles.size)}&gt;{icon}&lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;span className={classNames(styles.icon, styles[size])}&gt;{icon}&lt;/span&gt;</span>
         )}
 <span class="cstat-no" title="statement not covered" >        &lt;span</span>
 <span class="cstat-no" title="statement not covered" >          className={classNames(</span>
@@ -265,7 +289,7 @@ export { MenuBarItem };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-10-30T13:59:47.574Z
+                at 2025-10-30T16:52:13.623Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

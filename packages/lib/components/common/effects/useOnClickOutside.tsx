@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 export default function useOnClickOutside(cb?: () => void) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -7,17 +7,15 @@ export default function useOnClickOutside(cb?: () => void) {
     if (ref.current && !ref.current.contains(e.target as Node)) {
       cb?.();
     }
-  }, []);
+  }, [cb]);
 
-  const onRef = useCallback((node: HTMLElement | null) => {
-    if (node) {
-      ref.current = node as HTMLDivElement;
-      document.addEventListener('click', handleClick);
-      return () => {
-        document.removeEventListener('click', handleClick);
-      };
-    }
-  }, []);
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
 
-  return { onRef, ref };
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, [handleClick]);
+
+  return { ref };
 }

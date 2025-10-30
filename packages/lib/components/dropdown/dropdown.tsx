@@ -222,14 +222,14 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       >
         <DropdownValue
           RTL={RTL}
-          allowMultiSelection={allowMultiSelection}
+          allowMultiSelection={!!allowMultiSelection}
           placeholder={placeholder}
           showClearBtn={showClearBtn}
           onToggle={handleToggleMenu}
           onClear={handleClear}
           showMenu={showMenu}
           menuClosing={menuClosing}
-          chevronIconColor={chevronIconColor}
+          {...(chevronIconColor !== undefined ? { chevronIconColor } : {})}
           containerRef={containerRef}
           disabled={disabled}
           focusable={focusable}
@@ -246,7 +246,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
             handleSelection={handleSelection}
             options={dropdownOptions}
             open={showMenu}
-            allowMultiSelection={allowMultiSelection}
+            allowMultiSelection={!!allowMultiSelection}
             placementReference={dropdownRef as React.RefObject<HTMLElement>}
             placement="bottom"
             onClose={handleMenuClose}

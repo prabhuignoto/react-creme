@@ -1,11 +1,24 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/font.scss';
 @use '@design/icon.scss';
 @use '@design/animate.scss';
 
+// Configuration constants
 $sizes: (sm, md, lg);
+$min-item-width: 60px;
+$item-padding-vertical: tokens.$space-3;
+$item-padding-horizontal: tokens.$space-1;
+$icon-margin: tokens.$space-2;
+$divider-width: 1px;
+$divider-height: 75%;
+$border-radius-hover: 2px;
+$focus-outline-width: 2px;
+$focus-outline-offset: -2px;
+$disabled-opacity: 0.5;
+$animation-duration: 0.2s;
 
 .wrapper {
   @extend %border-radius;
@@ -28,9 +41,10 @@ $sizes: (sm, md, lg);
 .item {
   @extend %center;
   cursor: pointer;
-  min-width: 100px;
-  padding: 0.75rem 0.25rem;
+  min-width: $min-item-width;
+  padding: $item-padding-vertical $item-padding-horizontal;
   position: relative;
+  transition: background-color 0.15s ease, color 0.15s ease;
 
   &.dark {
     color: theme.$white;
@@ -40,16 +54,28 @@ $sizes: (sm, md, lg);
     color: theme.$black;
   }
 
+  // Divider between items
   &:not(:last-child)::after {
     content: '';
     display: block;
-    height: 75%;
+    height: $divider-height;
     position: absolute;
-    width: 1px;
+    width: $divider-width;
+  }
+
+  // Disabled state
+  &.disabled {
+    cursor: not-allowed;
+    opacity: $disabled-opacity;
+
+    &:hover {
+      background-color: transparent;
+    }
   }
 }
 
-.item.dark {
+// Dark mode item styling
+.item.dark:not(.disabled) {
   &:not(:last-child):not(.rtl)::after {
     background: theme.$dark-control-bg;
     right: -1px;
@@ -62,26 +88,28 @@ $sizes: (sm, md, lg);
 
   &:hover {
     background: theme.$primary;
-    border-radius: 2px;
+    border-radius: $border-radius-hover;
   }
 }
 
-.item:not(.dark) {
+// Light mode item styling
+.item:not(.dark):not(.disabled) {
   &:not(:last-child):not(.rtl) {
-    border-right: 1px solid rgba(theme.$secondary-rgb, 0.5);
+    border-right: $divider-width solid rgba(theme.$secondary-rgb, 0.5);
   }
 
   &:not(:last-child).rtl {
-    border-left: 1px solid rgba(theme.$secondary-rgb, 0.5);
+    border-left: $divider-width solid rgba(theme.$secondary-rgb, 0.5);
   }
 
   &:hover {
     background-color: theme.$secondary;
-    border-radius: 2px;
+    border-radius: $border-radius-hover;
   }
 }
 
-.item.active {
+// Active state
+.item.active:not(.disabled) {
   color: theme.$white;
 
   &.dark {
@@ -94,15 +122,30 @@ $sizes: (sm, md, lg);
   }
 }
 
+// Focus indicators for keyboard navigation
+.item:focus-visible:not(.disabled) {
+  outline: $focus-outline-width solid theme.$primary;
+  outline-offset: $focus-outline-offset;
+}
+
+// Respect user motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .chevron_icon.rotate,
+  .chevron_icon.rotate_reverse {
+    animation: none !important;
+  }
+}
+
+// Menu item name styling
 .name {
   @extend %center;
 
   &.rtl {
-    margin-right: 0.5rem;
+    margin-right: $icon-margin;
   }
 
   &:not(.rtl) {
-    margin-left: 0.5rem;
+    margin-left: $icon-margin;
   }
 
   @each $size in $sizes {
@@ -112,8 +155,9 @@ $sizes: (sm, md, lg);
   }
 }
 
+// Menu item icon styling
 .icon {
-  margin-left: 0.5rem;
+  margin-left: $icon-margin;
 
   @each $size in $sizes {
     &.#{$size} {
@@ -122,6 +166,7 @@ $sizes: (sm, md, lg);
   }
 }
 
+// Chevron icon for dropdown indicator
 .chevron_icon {
   $animation-settings: (
     from: (
@@ -141,7 +186,7 @@ $sizes: (sm, md, lg);
   }
 
   // Animation mixins that generate @keyframes (nested rules) come after properties
-  @include animate.set-settings(0.2s);
+  @include animate.set-settings($animation-duration);
   @include animate.set-keyframes(rotate, $animation-settings);
   @include animate.set-keyframes(rotate-reverse, $animation-settings, true);
 
