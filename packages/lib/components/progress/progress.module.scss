@@ -4,6 +4,15 @@
 @use '@design/animate.scss';
 @use '@design/position.scss';
 
+// Component-specific sizing (sm: compact, md: default, lg: prominent)
+// Note: These heights don't map to standard space tokens as they are
+// component-specific visual sizing, not generic spacing
+$progress-heights: (
+  sm: 10px,    // Compact size for minimal UI
+  md: 20px,    // Default - aligns with visual hierarchy
+  lg: 40px,    // Prominent size for accessibility/visibility
+);
+
 $progress-backgrounds: (
   default: rgba(theme.$secondary-rgb, 0.5),
   success: rgba(theme.$success-green, 0.25),
@@ -75,10 +84,21 @@ $progress-fill-colors: (
     // Animation mixins that generate @keyframes (nested rules) come after properties
     @include position.position-abs('top left');
     @include animate.set-settings(2s, linear, true);
+
+    // Respect user's motion preferences
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      left: -50%;
+    }
   }
 
   &.bob {
     animation-direction: alternate;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      left: -50%;
+    }
   }
 
   &.complete {
@@ -106,15 +126,8 @@ $progress-fill-colors: (
   }
 }
 
+// Keyframes for indeterminate progress animation (used for both 'disappear' and 'bob' styles)
 $indeterminate-anim-settings: (
-  from: (
-    left: -50%,
-  ),
-  to: (
-    left: 100%,
-  ),
-);
-$bob-anim-settings: (
   from: (
     left: -50%,
   ),
@@ -127,4 +140,3 @@ $bob-anim-settings: (
   indeterminate-progress,
   $indeterminate-anim-settings
 );
-@include animate.set-keyframes(indeterminate-bob, $bob-anim-settings);

@@ -5,34 +5,52 @@ import { ProgressProps } from './progress-model';
 import styles from './progress.module.scss';
 
 /**
- * Progress
- * @property {number} currentValue - The current value of the progress.
- * @property {string} indeterminateStyle - Style for indeterminate progress.
- * @property {number} maxValue - The maximum value for progress.
- * @property {boolean} showProgressValue - Whether to show progress percentage.
- * @property {string} size - The size of the progress bar.
- * @property {string} status - The status of the progress bar.
- * @property {string} type - Type of progress bar ('determinate' or 'indeterminate').
- * @property {number} width - The width of the progress bar.
- * @property {boolean} RTL - Right-to-left layout.
- * @property {string} statusText - Status text for accessibility.
- * @property {string} label - Label text for accessibility.
- * @returns {JSX.Element} The Progress component.
+ * Progress - A versatile progress indicator component supporting both determinate
+ * (actual progress) and indeterminate (loading) states.
+ *
+ * **Features:**
+ * - Determinate mode: Shows actual progress as a filled bar
+ * - Indeterminate mode: Animated loading indicator with customizable styles
+ * - Status variants: Default, success (green), and error (red) states
+ * - Multiple sizes: sm (10px), md (20px), lg (40px) heights
+ * - Accessibility: Full ARIA support with proper labels and status announcements
+ * - RTL support: Works correctly with right-to-left languages
+ * - Reduced motion: Respects prefers-reduced-motion for accessibility
+ *
+ * **Accessibility:**
+ * - Use `label` prop to describe what is being loaded/progressed
+ * - Use `statusText` for error messages or specific status information
+ * - Automatically includes ARIA progressbar role and required attributes
+ *
+ * **Props:**
+ * @property {boolean} [RTL] - Enable right-to-left direction
+ * @property {number} [currentValue] - Current progress value (0-maxValue)
+ * @property {string} [indeterminateStyle] - Animation style for indeterminate mode
+ * @property {string} [label] - Accessible name for the progress bar
+ * @property {number} [maxValue] - Maximum value for percentage calculation
+ * @property {boolean} [showProgressValue] - Display percentage text
+ * @property {string} [size] - Size variant: 'sm' | 'md' | 'lg'
+ * @property {string} [status] - Visual status: 'default' | 'success' | 'error'
+ * @property {string} [statusText] - Status text for screen readers
+ * @property {string} type - **REQUIRED** - 'determinate' or 'indeterminate'
+ * @property {number} [width] - Width in pixels
+ * @returns {JSX.Element} The Progress component
  */
 
-const Progress: React.FunctionComponent<ProgressProps> = ({
-  currentValue = 0,
-  indeterminateStyle = 'disappear',
-  maxValue = 100,
-  showProgressValue = false,
-  size = 'md',
-  status = 'default',
-  type = 'determinate',
-  width = 250,
-  RTL = false,
-  statusText = '',
-  label = 'progress bar',
-}) => {
+const Progress: React.FunctionComponent<ProgressProps> = React.memo(
+  ({
+    currentValue = 0,
+    indeterminateStyle = 'disappear',
+    maxValue = 100,
+    showProgressValue = false,
+    size = 'md',
+    status = 'default',
+    type = 'determinate',
+    width = 250,
+    RTL = false,
+    statusText = '',
+    label = 'progress bar',
+  }) => {
   const progressTrackRef = useRef<HTMLDivElement | null>(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -56,11 +74,12 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
     [showProgressValue, progressPercentValue, type, size]
   );
 
-  // Determine fill width
+  // Determine fill width based on track width and progress percentage
+  // Note: depends on progressPercent (not currentValue directly) to avoid redundant memoization
   const fillWidth = useMemo<number>(() => {
     const trackWidth = progressTrackRef.current?.clientWidth;
     return trackWidth ? Math.round(trackWidth * progressPercent) : 0;
-  }, [currentValue, progressPercent, loaded]);
+  }, [progressPercent, loaded]);
 
   // Styles for fill
   const fillStyle = useMemo(
@@ -90,6 +109,9 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
       ),
     [progressComplete, status, indeterminateStyle, type, RTL]
   );
+  // Compute CSS custom properties for sizing
+  // Heights: sm=10px (compact), md=20px (default), lg=40px (prominent)
+  // These are component-specific sizing values not mapped to design tokens
   const wrapperStyle = useMemo(
     () =>
       ({
@@ -147,26 +169,27 @@ const Progress: React.FunctionComponent<ProgressProps> = ({
     [maxValue, progressPercent, type]
   );
 
-  return (
-    <div
-      className={wrapperClass}
-      role="progressbar"
-      style={wrapperStyle}
-      {...ariaProps}
-      {...ariaDefaultProps}
-    >
-      <div className={progressTrackClass} ref={onRef}>
-        <span className={fillClass} style={fillStyle}>
-          {canShowProgressValue && (
-            <span className={progressPercentValClass}>
-              {progressPercentValue}
-            </span>
-          )}
-        </span>
+    return (
+      <div
+        className={wrapperClass}
+        role="progressbar"
+        style={wrapperStyle}
+        {...ariaProps}
+        {...ariaDefaultProps}
+      >
+        <div className={progressTrackClass} ref={onRef}>
+          <span className={fillClass} style={fillStyle}>
+            {canShowProgressValue && (
+              <span className={progressPercentValClass}>
+                {progressPercentValue}
+              </span>
+            )}
+          </span>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
 
 Progress.displayName = 'Progress';
 

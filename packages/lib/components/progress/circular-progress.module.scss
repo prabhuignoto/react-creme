@@ -1,11 +1,15 @@
 @use '@design/theme';
 @use '@design/position';
+@use '@design/tokens';
 
+// Component-specific circular progress sizes (xs to lg progression)
+// Note: These sizes don't map to standard space tokens as they are
+// component-specific visual dimensions for the spinner
 $sizes: (
-  xs: 16px,
-  sm: 32px,
-  md: 48px,
-  lg: 56px,
+  xs: 16px,   // Extra small - for compact spaces
+  sm: 32px,   // Small - default size
+  md: 48px,   // Medium - larger spinners
+  lg: 56px,   // Large - prominent/accessible size
 );
 
 @keyframes spin {
@@ -26,6 +30,11 @@ $sizes: (
   position: relative;
   transform-origin: 50% 50%;
   z-index: 0;
+
+  // Respect user's motion preferences
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 
   &.dark {
     background: linear-gradient(
@@ -75,12 +84,5 @@ $sizes: (
   display: block;
   height: 50%;
   width: 50%;
-
-  &.dark {
-    background: theme.$black;
-  }
-
-  &:not(.dark) {
-    background: theme.$white;
-  }
+  background: inherit;
 }
