@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { useAtom, useAtomValue } from 'jotai';
 import { Drawer } from '../lib/components';
 import '../lib/design/core.scss';
@@ -18,12 +18,14 @@ import '../lib/design/theme.scss';
 import { AppMain } from './App-Main';
 import './App.scss';
 import { asideState, MediaState, themeState } from './atoms/home';
+import { Header } from './home/header';
 import SidebarHome from './home/sidebar-home';
 import TableOfContents from './common/table-of-contents';
 
 const App: FunctionComponent<{ media: MediaState }> = memo(
   ({ media }: { media: MediaState }) => {
     const sectionRef = useRef(null);
+    const navigate = useNavigate();
     const [asideValue, setAsideValue] = useAtom(asideState);
     const [openAside, setOpenAside] = useState(false);
     const theme = useAtomValue(themeState);
@@ -85,6 +87,11 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
       setAsideValue({ isAnyOverlayOpen: false, isOpen: false });
     }, [setAsideValue]);
 
+    const onSearchSelection = useCallback(
+      (path: { value: string }) => navigate(path.value),
+      [navigate]
+    );
+
     const appClass = useMemo(
       () =>
         classNames(
@@ -114,6 +121,15 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
           <Drawer onClose={onClose} focusable={false}>
             <SidebarHome onSelect={onSelect} />
           </Drawer>
+        )}
+
+        {/* Header at grid level for non-landing pages */}
+        {!isLanding && (
+          <Header
+            isMobile={media && media.isMobile}
+            onOpen={toggleOpen}
+            onSearchSelection={onSearchSelection}
+          />
         )}
 
         {/* Main content area */}
