@@ -41,18 +41,30 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   const isFirstRender = useFirstRender();
   const menuRef = useRef(null);
   const [showMenu, setShowMenu] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
+
+  /**
+   * Handles exit animation then closes menu
+   */
+  const exitAndClose = useCallback(() => {
+    setIsExiting(true);
+    setTimeout(() => {
+      setShowMenu(false);
+      setIsExiting(false);
+      onClose?.();
+    }, 200);
+  }, [onClose]);
 
   /**
    * Handle the menu opening and closing
    */
   const toggleMenu = useCallback(() => {
-    setShowMenu(prev => {
-      if (prev) {
-        onClose?.();
-      }
-      return !prev;
-    });
-  }, []);
+    if (showMenu) {
+      exitAndClose();
+    } else {
+      setShowMenu(true);
+    }
+  }, [showMenu, exitAndClose]);
 
   /**
    * Handles the menu selection
@@ -61,18 +73,17 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     if (onSelected) {
       onSelected(name);
     }
-    setShowMenu(false);
-    onClose?.();
+    exitAndClose();
     wrapperRef.current?.focus();
-  }, []);
+  }, [onSelected, exitAndClose]);
 
   /**
    * Handles menu closure
    */
   const closeMenu = useCallback(() => {
-    setShowMenu(false);
+    exitAndClose();
     wrapperRef.current?.focus();
-  }, []);
+  }, [exitAndClose]);
 
   /**
    * Handler executed when the menu is rendered the first time
@@ -164,15 +175,10 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   );
 
   const handleClickOnOutside = useCallback(() => {
-    setShowMenu(prev => {
-      if (prev) {
-        onClose?.();
-        return !prev;
-      }
-
-      return prev;
-    });
-  }, [onClose]);
+    if (showMenu) {
+      exitAndClose();
+    }
+  }, [showMenu, exitAndClose]);
 
   const { ref } = useOnClickOutside(handleClickOnOutside);
 
@@ -207,6 +213,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
             hideArrow={hideArrow}
             leftOffset={leftOffset}
             RTL={RTL}
+            isExiting={isExiting}
           />
         </div>
       )}

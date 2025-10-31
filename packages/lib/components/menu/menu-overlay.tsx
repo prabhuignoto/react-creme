@@ -21,6 +21,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
       dockPosition = 'left',
       hideArrow,
       RTL = false,
+      isExiting = false,
     }: MenuOverlayModel,
     ref
   ) => {
@@ -45,8 +46,9 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
           [styles[dockPosition]]: true,
           [styles.dark]: isDarkMode,
           [styles.arrow]: !hideArrow,
+          [styles.exiting]: isExiting,
         }),
-      [isDarkMode]
+      [isDarkMode, isExiting]
     );
 
     /**

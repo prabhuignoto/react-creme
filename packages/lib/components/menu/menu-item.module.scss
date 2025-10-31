@@ -1,26 +1,33 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
 @use '@design/theme.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 
 .item {
-  height: 35px;
-  padding: 0 0.2rem;
-  width: calc(100% - 0.4rem);
+  padding: 0.5rem 0.7rem;
+  width: 100%;
+  position: relative;
+
+  @include hybrid.smooth-multi-transition(background, transform, box-shadow);
+
+  animation: hybrid-item-fade-in hybrid.$animation-duration-primary hybrid.$spring-easing backwards;
+  @include hybrid.stagger-children($max-items: 20, $delay-step: 0.04s);
 
   &:first-child {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-top-left-radius: hybrid.$radius-sm;
+    border-top-right-radius: hybrid.$radius-sm;
   }
 
   &:last-child {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: hybrid.$radius-sm;
+    border-bottom-right-radius: hybrid.$radius-sm;
   }
 
   &.disabled {
     @extend %disabled;
+    @include hybrid.state-disabled();
   }
 
   &.dark {
@@ -37,6 +44,34 @@ $sizes: (sm, md, lg);
 
   &:not(.rtl) {
     @extend %list-item-left;
+  }
+
+  @include hybrid.hover-feedback() {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: hybrid.$shadow-medium;
+
+    &.dark {
+      background: theme.$chinese-black;
+      color: theme.$white;
+    }
+
+    &:not(.dark) {
+      background: theme.$light-bg;
+      color: theme.$primary;
+    }
+  }
+
+  @include hybrid.touch-feedback() {
+    transform: scale(0.98);
+  }
+
+  &:active:not(.disabled) {
+    animation: hybrid-refined-ping hybrid.$animation-duration-secondary hybrid.$spring-easing;
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 }
 
