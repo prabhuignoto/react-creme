@@ -557,3 +557,5 @@ Shadows work universally, colors come from your theme:
 ---
 
 **For detailed documentation, see**: `@design/HYBRID_THEME.md`
+
+**Phase 3 Roadmap**: Enhanced keyboard navigation, animation harmony docs, micro-interactions playbook, advanced accessibility (see HYBRID_THEME.md for details)
