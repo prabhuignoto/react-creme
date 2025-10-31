@@ -55,4 +55,16 @@ export interface DialogProps extends OverlayModel<null> {
 
   // minimum width of the dialog
   width?: number;
+
+  // internal exit animation state
+  isExiting?: boolean;
+
+  // loading state - shows pulse animation
+  isLoading?: boolean;
+
+  // success state - shows bounce animation
+  isSuccess?: boolean;
+
+  // error state - shows shake animation
+  isError?: boolean;
 }

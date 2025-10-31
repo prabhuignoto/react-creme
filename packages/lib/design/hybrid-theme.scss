@@ -354,12 +354,12 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 @keyframes hybrid-slide-in-left {
   from {
     opacity: 0;
-    transform: translateX(-16px);
+    transform: translateX(-16px) translateY(-50%);
   }
 
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) translateY(-50%);
   }
 }
 
@@ -368,12 +368,12 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 @keyframes hybrid-slide-in-right {
   from {
     opacity: 0;
-    transform: translateX(16px);
+    transform: translateX(16px) translateY(-50%);
   }
 
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) translateY(-50%);
   }
 }
 
@@ -382,12 +382,12 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 @keyframes hybrid-slide-in-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(16px) translateX(-50%);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateX(-50%);
   }
 }
 
@@ -396,12 +396,12 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 @keyframes hybrid-slide-in-down {
   from {
     opacity: 0;
-    transform: translateY(-16px);
+    transform: translateY(-16px) translateX(-50%);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateX(-50%);
   }
 }
 
@@ -442,6 +442,34 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
   to {
     opacity: 0;
     transform: translateY(-16px);
+  }
+}
+
+/// Exit sliding left animation
+/// Element slides left with fade
+@keyframes hybrid-exit-slide-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+
+/// Exit sliding down animation
+/// Element slides down with fade
+@keyframes hybrid-exit-slide-down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(16px);
   }
 }
 
@@ -570,13 +598,13 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 /// Apply success state animation
 /// Celebratory bounce feedback for successful completion
 @mixin state-success() {
-  animation: hybrid-success-bounce hybrid.$animation-duration-elaborate hybrid.$spring-easing;
+  animation: hybrid-success-bounce $animation-duration-elaborate $spring-easing;
 }
 
 /// Apply error state animation
 /// Attention-getting shake for error feedback
 @mixin state-error() {
-  animation: hybrid-error-shake hybrid.$animation-duration-secondary hybrid.$spring-easing;
+  animation: hybrid-error-shake $animation-duration-secondary $spring-easing;
 }
 
 /// Apply disabled state styling
@@ -657,16 +685,20 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
   opacity: 0;
 
   @if $direction == left {
-    transform: translateX(-16px);
+    // Preserve vertical centering for left-docked elements
+    transform: translateX(-16px) translateY(-50%);
     animation: hybrid-slide-in-left $duration $spring-easing forwards;
   } @else if $direction == right {
-    transform: translateX(16px);
+    // Preserve vertical centering for right-docked elements
+    transform: translateX(16px) translateY(-50%);
     animation: hybrid-slide-in-right $duration $spring-easing forwards;
   } @else if $direction == up {
-    transform: translateY(16px);
+    // Preserve horizontal centering for bottom-docked elements
+    transform: translateY(16px) translateX(-50%);
     animation: hybrid-slide-in-up $duration $spring-easing forwards;
   } @else if $direction == down {
-    transform: translateY(-16px);
+    // Preserve horizontal centering for top-docked elements
+    transform: translateY(-16px) translateX(-50%);
     animation: hybrid-slide-in-down $duration $spring-easing forwards;
   }
 }
@@ -688,6 +720,18 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 /// Apply exit animation sliding up
 @mixin exit-slide-up($duration: $animation-duration-primary) {
   animation: hybrid-exit-slide-up $duration $spring-easing forwards;
+}
+
+/// Apply exit animation sliding left
+/// @param {time} $duration - Animation duration (default: primary)
+@mixin exit-slide-left($duration: $animation-duration-primary) {
+  animation: hybrid-exit-slide-left $duration $spring-easing forwards;
+}
+
+/// Apply exit animation sliding down
+/// @param {time} $duration - Animation duration (default: primary)
+@mixin exit-slide-down($duration: $animation-duration-primary) {
+  animation: hybrid-exit-slide-down $duration $spring-easing forwards;
 }
 
 // ============================================================================

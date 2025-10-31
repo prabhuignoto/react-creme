@@ -1,7 +1,7 @@
 import { CheckIcon, CloseIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
 import { isDark } from '../common/utils';
@@ -16,11 +16,15 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   focusable = true,
   height = 200,
   isClosing,
+  isExiting: isExitingProp,
+  isLoading,
+  isSuccess,
+  isError,
   onClose,
   onOpen,
   onPrimaryClick,
   onSecondaryClick,
-  onSuccess, // deprecated but kept for backward compatibility
+  onSuccess: onSuccessDeprecated, // deprecated but kept for backward compatibility
   primaryButtonLabel = 'okay',
   secondaryButtonLabel = 'cancel',
   showCloseButton = true,
@@ -49,9 +53,32 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   // Get dark mode once (doesn't change during component lifecycle)
   const isDarkMode = isDark();
 
+  // Ref for dialog container to focus it
+  const dialogRef = useRef<HTMLDivElement>(null);
+
   const trapFocus = useTrapFocus<HTMLDivElement>(
     focusable ? 200 : null,
     focusable ? onOpen : null
+  );
+
+  // Focus dialog container on mount for better accessibility (WCAG 2.4.3)
+  useEffect(() => {
+    if (focusable && dialogRef.current) {
+      setTimeout(() => {
+        dialogRef.current?.focus();
+      }, 200);
+    }
+  }, [focusable]);
+
+  // Combined ref callback for both trapFocus and our dialogRef
+  const refCallback = useCallback(
+    (node: HTMLDivElement) => {
+      dialogRef.current = node;
+      if (trapFocus) {
+        trapFocus.onInit(node);
+      }
+    },
+    [trapFocus]
   );
 
   // Memoize focus props instead of imperatively mutating ref
@@ -60,11 +87,14 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
       trapFocus
         ? {
             onKeyDown: trapFocus.handleKeyDown as unknown as React.KeyboardEventHandler<HTMLDivElement>,
-            ref: trapFocus.onInit,
+            ref: refCallback,
             tabIndex: 0,
           }
-        : { tabIndex: 0 },
-    [trapFocus]
+        : {
+            ref: refCallback,
+            tabIndex: 0
+          },
+    [trapFocus, refCallback]
   );
 
   const dialogClass = useMemo(
@@ -79,9 +109,13 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
         {
           [styles[`dialog-${size}`]]: true,
           [styles.dark]: isDarkMode,
+          [styles.exiting]: isExitingProp,
+          [styles.isLoading]: isLoading,
+          [styles.isSuccess]: isSuccess,
+          [styles.isError]: isError,
         }
       ),
-    [isClosing, animationType, size, isDarkMode]
+    [isClosing, animationType, size, isDarkMode, isExitingProp, isLoading, isSuccess, isError]
   );
 
   const style = useMemo(
@@ -97,9 +131,9 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   const handlePrimaryClick = useCallback(() => {
     // Support both new onPrimaryClick and deprecated onSuccess
     onPrimaryClick?.();
-    onSuccess?.();
+    onSuccessDeprecated?.();
     onClose?.();
-  }, [onPrimaryClick, onSuccess, onClose]);
+  }, [onPrimaryClick, onSuccessDeprecated, onClose]);
 
   const handleSecondaryClick = useCallback(() => {
     onSecondaryClick?.();
@@ -173,6 +207,11 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
             <CloseIcon />
           </Button>
         </footer>
+      )}
+      {isLoading && (
+        <span role="status" aria-live="polite" className={styles.srOnly}>
+          Loading...
+        </span>
       )}
     </div>
   );

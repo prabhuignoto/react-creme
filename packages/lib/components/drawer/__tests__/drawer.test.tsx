@@ -93,15 +93,16 @@ describe('Drawer', () => {
     );
   });
 
-  it('should close button has focus on load', async () => {
-    const { getAllByRole } = render(
+  it('should drawer container have focus on load for better accessibility', async () => {
+    const { getByRole } = render(
       <Drawer>
         <span>content</span>
       </Drawer>
     );
 
     await waitFor(() => {
-      expect(getAllByRole('button')[0]).toHaveFocus();
+      // Drawer container should have focus (WCAG 2.4.3 - prevents accidental close)
+      expect(getByRole('dialog')).toHaveFocus();
     });
   });
 

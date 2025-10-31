@@ -93,15 +93,16 @@ describe('Dialog', () => {
     expect(getByRole('dialog')).toHaveStyle('--rc-dialog-animation:pop');
   });
 
-  it('should close button have the focus on load', async () => {
-    const { getAllByRole } = render(
+  it('should dialog container have focus on load for better accessibility', async () => {
+    const { getByRole } = render(
       <Dialog title="test title" focusable>
         <span>dialog content</span>
       </Dialog>
     );
 
     await waitFor(() => {
-      expect(getAllByRole('button')[0]).toHaveFocus();
+      // Dialog container should have focus (WCAG 2.4.3 - prevents accidental close)
+      expect(getByRole('dialog')).toHaveFocus();
     });
   });
 
