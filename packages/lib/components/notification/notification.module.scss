@@ -5,6 +5,7 @@
 @use '@design/util.scss';
 @use '@design/theme.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 

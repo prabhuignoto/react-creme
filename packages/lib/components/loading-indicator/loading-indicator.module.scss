@@ -3,6 +3,7 @@
 @use '@design/theme.scss';
 @use '@design/icon.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 
@@ -17,13 +18,14 @@ $sizes: (sm, md, lg);
 .indicator {
   margin-right: tokens.$space-2;
   position: relative;
+  @include hybrid.smooth-transition(background);
 
   &:not(.square) {
     border-radius: 50%;
   }
 
   &.square {
-    border-radius: 1px;
+    border-radius: hybrid.$radius-xs;
   }
 
   &.dark {

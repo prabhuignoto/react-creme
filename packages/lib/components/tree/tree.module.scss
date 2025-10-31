@@ -1,9 +1,10 @@
 @use '@design/core.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .tree_root {
   // Root tree container
-  transition: max-height 0.5s ease-in;
+  @include hybrid.smooth-transition(max-height);
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;

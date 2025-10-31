@@ -3,6 +3,7 @@
 @use '@design/tokens.scss';
 @use '@design/animate.scss';
 @use '@design/position.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 // Component-specific sizing (sm: compact, md: default, lg: prominent)
 // Note: These heights don't map to standard space tokens as they are

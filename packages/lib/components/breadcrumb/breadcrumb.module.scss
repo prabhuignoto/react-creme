@@ -1,6 +1,7 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
 @use '@design/list.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 $spacing-xs: 0.25rem;
@@ -8,9 +9,9 @@ $spacing-sm: 0.5rem;
 
 .bread_crumbs_wrapper {
   @extend %list-horizontal-left-wrap;
-  border-radius: 4px;
+  border-radius: hybrid.$radius-sm;
   outline: none;
-  transition: box-shadow 0.2s ease;
+  @include hybrid.smooth-transition(box-shadow);
 
   // Visual focus indicator when container is focused (keyboard navigation)
   &:focus-visible {

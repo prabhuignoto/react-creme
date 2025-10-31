@@ -1,6 +1,7 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 // Define variables at the top for better maintainability
 // Use design system tokens for consistent spacing

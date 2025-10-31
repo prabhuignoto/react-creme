@@ -3,6 +3,7 @@
 @use '@design/font.scss';
 @use '@design/icon.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -26,6 +27,7 @@ $thickness: var(--rc-kbd-thickness);
   display: inline-block;
   padding: tokens.$space-1;
   text-align: center;
+  @include hybrid.smooth-transition(background-color, color);
 
   &.dark {
     background-color: rgba(theme.$charcoal-gray, 1);

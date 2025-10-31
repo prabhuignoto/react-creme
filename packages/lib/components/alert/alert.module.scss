@@ -2,6 +2,7 @@
 @use '@design/theme.scss';
 @use '@design/tokens.scss';
 @use '@design/animate.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 $transition-time: 0.25s;
@@ -21,7 +22,7 @@ $transition-time: 0.25s;
 
   // Animation variants
   &.shrink {
-    transition: height $transition-time ease-in-out;
+    @include hybrid.smooth-transition(height);
 
     &.alert_close {
       height: 0;
@@ -29,7 +30,7 @@ $transition-time: 0.25s;
   }
 
   &.fade {
-    transition: opacity $transition-time ease-in-out;
+    @include hybrid.smooth-transition(opacity);
 
     &.alert_close {
       opacity: 0;

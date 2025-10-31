@@ -4,6 +4,7 @@
 @use '@design/tokens.scss';
 @use '@design/list.scss';
 @use '@design/position.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .list {
   @extend %border-radius;

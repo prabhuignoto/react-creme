@@ -1,6 +1,7 @@
 @use '@design/icon.scss';
 @use '@design/animate.scss';
 @use '@design/theme.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 $speeds: (
