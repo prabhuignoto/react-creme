@@ -6,6 +6,7 @@
 @use '@design/list.scss';
 @use '@design/tokens.scss';
 @use '@design/theme.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 // Touch-friendly sizing with proper scaling
 // sm: 44px (minimum touch target)
@@ -40,8 +41,7 @@ $pin-spacing: tokens.$space-3;
 
   // Disabled state
   &.disabled {
-    opacity: 0.6;
-    pointer-events: none;
+    @include hybrid.state-disabled();
   }
 
   // Loading state

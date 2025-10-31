@@ -1,12 +1,15 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .checkbox_group_wrapper {
   &.checkbox_group_horizontal {
     @extend %left;
+    @include hybrid.stagger-children($max-items: 20, $delay-step: 0.04s);
   }
 
   &.checkbox_group_vertical {
     @extend %col;
+    @include hybrid.stagger-children($max-items: 20, $delay-step: 0.04s);
   }
 }

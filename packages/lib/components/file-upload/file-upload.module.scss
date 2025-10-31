@@ -3,6 +3,7 @@
 @use '@design/tokens.scss';
 @use '@design/animate.scss';
 @use '@design/effects.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 // Size variants
 $sizes: (sm, md, lg);
@@ -17,17 +18,7 @@ $file-preview-sm: 60px;
 $file-preview-md: 80px;
 $file-preview-lg: 100px;
 
-// Animation for file items appearing
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+// Use hybrid-fade-in-lift instead of local fadeInUp animation
 
 // Wrapper
 .wrapper {

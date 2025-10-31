@@ -2,6 +2,7 @@
 @use '@design/core.scss';
 @use '@design/icon.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -15,6 +16,7 @@ $heights: (
   @extend %left;
   padding: tokens.$space-1;
   user-select: none;
+  @include hybrid.smooth-transition(background, border-color);
 
   &.border {
     @extend %border;

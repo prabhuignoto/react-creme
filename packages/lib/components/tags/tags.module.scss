@@ -4,6 +4,7 @@
 @use '@design/animate.scss';
 @use '@design/position.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -22,7 +23,7 @@ $tag-heights: (
   }
 
   &.tags_disabled {
-    @extend %disabled;
+    @include hybrid.state-disabled();
   }
 
   &.tags_wrap {
@@ -35,17 +36,6 @@ $tag-heights: (
 }
 
 .tag {
-  $settings: (
-    from: (
-      visibility: hidden,
-      opacity: 0,
-    ),
-    to: (
-      visibility: visible,
-      opacity: 1,
-    ),
-  );
-
   // CSS properties before animation mixins to comply with Sass mixed-decls
   justify-items: center;
   margin: tokens.$space-2 tokens.$space-1;
@@ -55,11 +45,8 @@ $tag-heights: (
   transform: scale(1);
   user-select: none;
   visibility: visible;
-
-  // Animation mixins that generate @keyframes (nested rules) come after properties
-  @include animate.set-settings(0.1s, linear);
-  @include animate.set-keyframes('fade-in', $settings);
-  @include animate.set-keyframes('fade-out', $settings, true);
+  @include hybrid.smooth-transition(opacity, visibility);
+  @include hybrid.stagger-children($max-items: 20, $delay-step: 0.05s);
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;

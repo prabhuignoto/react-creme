@@ -1,6 +1,7 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .wrapper {
   @extend %col;
@@ -11,6 +12,7 @@
   @extend %left;
   margin: tokens.$space-2 0;
   width: 100%;
+  @include hybrid.stagger-children($max-items: 10, $delay-step: 0.04s);
 }
 
 .from_controls {

@@ -1,6 +1,7 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .radio_group {
   margin: 0;
@@ -25,8 +26,9 @@
 .radio_grp_item {
   @extend %list-item-left;
   margin: tokens.$space-2;
+  @include hybrid.stagger-children($max-items: 10, $delay-step: 0.04s);
 
   &.disabled {
-    @extend %disabled;
+    @include hybrid.state-disabled();
   }
 }

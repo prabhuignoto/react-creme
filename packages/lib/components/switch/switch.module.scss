@@ -4,6 +4,7 @@
 @use '@design/animate.scss';
 @use '@design/position.scss';
 @use '@design/font.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (
@@ -43,8 +44,8 @@ $start-left: tokens.$space-1;
   cursor: pointer;
   padding: tokens.$space-1;
   user-select: none;
-  border-radius: 24px;
-  transition: all 0.2s ease;
+  border-radius: hybrid.$radius-lg;
+  @include hybrid.smooth-transition(all);
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
@@ -74,7 +75,7 @@ $start-left: tokens.$space-1;
   }
 
   &.disabled {
-    @extend %disabled;
+    @include hybrid.state-disabled();
     cursor: not-allowed;
 
     &:focus-visible {

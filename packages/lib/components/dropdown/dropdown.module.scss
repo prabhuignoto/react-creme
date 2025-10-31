@@ -2,6 +2,7 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
 @use '@design/animate.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .dropdown {
   position: relative;
@@ -17,7 +18,7 @@
   display: flex;
   max-height: 400px;
   min-height: 35px;
-  transition: max-height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  @include hybrid.smooth-transition(max-height, hybrid.$animation-duration-elaborate);
 }
 
 .single {
@@ -45,17 +46,4 @@
   }
 }
 
-// Refined Snap/Ping effect keyframe for option selection (slate + rubber band blend)
-@keyframes snap-select {
-  0% {
-    transform: scale(1);
-  }
-
-  40% {
-    transform: scale(1.06);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
+// Use hybrid-snap-select from hybrid theme instead of local keyframe

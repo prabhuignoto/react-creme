@@ -3,6 +3,7 @@
 @use '@design/position.scss';
 @use '@design/animate.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 
@@ -24,25 +25,25 @@ $sizes: (sm, md, lg);
     @extend %disabled;
   }
 
-  &:not(:active) {
-    transition: transform 100ms ease-in;
-  }
+  @include hybrid.smooth-multi-transition(transform, background);
 
   &:active:not(.disabled) {
-    transform: scale(0.97);
+    animation: hybrid-refined-ping hybrid.$animation-duration-secondary hybrid.$spring-easing;
   }
 }
 
-.wrapper:hover {
-  background: theme.$primary;
-  color: theme.$white;
-
-  svg {
+.wrapper {
+  @include hybrid.hover-feedback() {
+    background: theme.$primary;
     color: theme.$white;
-  }
 
-  .label:not(.dark) {
-    color: theme.$white;
+    svg {
+      color: theme.$white;
+    }
+
+    .label:not(.dark) {
+      color: theme.$white;
+    }
   }
 }
 

@@ -2,6 +2,7 @@
 @use '@design/core.scss';
 @use '@design/font.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 
@@ -11,6 +12,7 @@ $sizes: (sm, md, lg);
   margin: tokens.$space-2 0;
   padding: tokens.$space-4;
   width: calc(100% - #{tokens.$space-4 * 2});
+  @include hybrid.smooth-transition(all);
 
   &.rtl {
     direction: rtl;

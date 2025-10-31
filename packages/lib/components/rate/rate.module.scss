@@ -3,6 +3,7 @@
 @use '@design/list.scss';
 @use '@design/animate.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (
   sm: 1rem,
@@ -26,9 +27,11 @@ $sizes: (
   @include animate.set-settings();
   cursor: pointer;
   margin: 0 tokens.$space-2;
+  @include hybrid.smooth-transition(transform, filter);
+  @include hybrid.stagger-children($max-items: 5, $delay-step: 0.05s);
 
   &.disabled {
-    @extend %disabled;
+    @include hybrid.state-disabled();
   }
 
   span {
