@@ -17,7 +17,7 @@
   display: flex;
   max-height: 400px;
   min-height: 35px;
-  transition: max-height 0.5s ease-in;
+  transition: max-height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .single {
@@ -42,5 +42,20 @@
 
   .tags_wrapper {
     order: 3;
+  }
+}
+
+// Refined Snap/Ping effect keyframe for option selection (slate + rubber band blend)
+@keyframes snap-select {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

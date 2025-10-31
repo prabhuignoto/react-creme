@@ -5,8 +5,7 @@
 
 .container {
   @extend %border-radius;
-  @extend %shadow-medium;
-  @include animate.set-settings(0.25s, cubic-bezier(0.17, 0.84, 0.44, 1));
+  @include animate.set-settings(0.4s, cubic-bezier(0.34, 1.56, 0.64, 1));
 
   left: 0;
   opacity: 0;
@@ -16,14 +15,38 @@
   visibility: hidden;
   width: var(--menu-width);
   z-index: 999;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(107, 114, 128, 0.1);
+  border: 1px solid rgba(107, 114, 128, 0.15);
 
   &.dark {
     @extend %shadow-medium-dark;
-    background: theme.$dark-control-bg;
+    background: linear-gradient(135deg, theme.$dark-control-bg 0%, rgba(31, 41, 55, 0.8) 100%);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+      0 10px 10px -5px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(75, 85, 99, 0.2);
+    border: 1px solid rgba(75, 85, 99, 0.25);
   }
 
   &:not(.dark) {
-    background: theme.$white;
+    background: linear-gradient(135deg, theme.$white 0%, rgba(249, 250, 251, 0.8) 100%);
+    position: relative;
+
+    // Polished glow effect for opening animation
+    &.open::before {
+      animation: polish-glow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      background: radial-gradient(circle, rgba(107, 114, 128, 0.12) 0%, transparent 70%);
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
   }
 
   * {
@@ -52,15 +75,25 @@
   max-height: var(--max-height);
   overflow-x: hidden;
   overflow-y: auto;
+  position: relative;
 }
 
 .dropdown_option {
   @extend %list-item-left;
   padding: 0.5rem 0;
   width: 100%;
+  animation: item-fade-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  transition: background-color 0.2s ease-in-out;
+
+  // Stagger effect for list items
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * 0.03}s;
+    }
+  }
 
   &:hover {
-    background: theme.$light-bg;
+    background: linear-gradient(90deg, rgba(107, 114, 128, 0.08) 0%, transparent 100%);
   }
 
   &.disabled {
@@ -98,3 +131,32 @@ $dropdown-anim-settings: (
 
 @include animate.set-keyframes(open, $dropdown-anim-settings);
 @include animate.set-keyframes(close, $dropdown_anim-settings, true);
+
+// Rubber band spring + slate polish animations
+@keyframes item-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes polish-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}

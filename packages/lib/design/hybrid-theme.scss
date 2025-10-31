@@ -1,0 +1,802 @@
+/// ============================================================================
+/// Rubber Band + Slate Hybrid Theme
+/// ============================================================================
+/// A sophisticated, production-ready theme blending playful spring physics
+/// (rubber band) with smooth, polished aesthetics (slate).
+///
+/// Features:
+/// - Spring physics animations with smooth easing
+/// - Glossy gradients and refined shadows
+/// - Slate accent colors for cohesion
+/// - Reusable animations and utilities
+/// - Full dark/light mode support
+///
+/// @author React Creme Design System
+/// @version 1.0.0
+/// ============================================================================
+
+@use 'sass:map';
+@use 'theme.scss';
+
+// ============================================================================
+// ANIMATION TIMING & PHYSICS
+// ============================================================================
+
+/// Spring physics easing curve
+/// Creates bouncy, playful animations with overshoot
+/// Cubic-bezier: (0.34, 1.56, 0.64, 1)
+/// - Controls point 1: 0.34 (faster initial acceleration)
+/// - Overshoot point: 1.56 (bounce/spring effect)
+/// - Control point 2: 0.64 (smooth deceleration)
+/// - End point: 1 (perfect landing)
+$spring-easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+/// Easing for smooth, refined transitions
+/// Balanced between spring physics and smoothness
+$ease-smooth: ease-in-out;
+
+// ============================================================================
+// SHAPE & RADIUS SYSTEM
+// ============================================================================
+
+/// Extra small radius (2px) - Minimal rounding
+$radius-xs: 2px;
+
+/// Small radius (4px) - Small components (buttons, badges, small inputs)
+$radius-sm: 4px;
+
+/// Medium radius (8px) - Standard components (cards, dropdowns, modals)
+$radius-md: 8px;
+
+/// Large radius (12px) - Large surfaces (dialogs, panels, major containers)
+$radius-lg: 12px;
+
+/// Extra large radius (16px) - Extra large surfaces (hero sections, featured panels)
+$radius-xl: 16px;
+
+// ============================================================================
+// SEMANTIC ANIMATION DURATIONS
+// ============================================================================
+// Organized by semantic meaning for clearer intent in component code
+
+/// Instant feedback (0.1s)
+/// Used for lightweight indicators, tooltip appears, micro-feedback
+$animation-duration-instant: 0.1s;
+
+/// Secondary action (0.2s)
+/// Used for quick interactions, minor state changes, subtle feedback
+$animation-duration-secondary: 0.2s;
+
+/// Primary action (0.3s)
+/// Used for main interactions, typical state transitions, color changes
+$animation-duration-primary: 0.3s;
+
+/// Critical action (0.4s)
+/// Used for important actions, destructive operations, deliberate feedback
+$animation-duration-critical: 0.4s;
+
+/// Elaborate/flourish (0.6s)
+/// Used for polish effects, entrance/exit animations, special moments
+$animation-duration-elaborate: 0.6s;
+
+// Backward compatibility aliases (deprecated - use semantic names above)
+$animation-duration-quick: $animation-duration-secondary;
+$animation-duration-smooth: $animation-duration-primary;
+$animation-duration-standard: $animation-duration-critical;
+$animation-duration-extended: $animation-duration-elaborate;
+
+// ============================================================================
+// SHADOW DEFINITIONS (Color-Agnostic Patterns)
+// ============================================================================
+// Shadows use standard black/dark with opacity for universal compatibility
+// Component colors are applied separately via theme/mode
+
+/// Soft shadow pattern (1px elevation)
+/// Used for standard UI elements
+$shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+/// Medium shadow pattern (4-6px elevation)
+/// Used for hover states and elevated content
+$shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+/// Strong shadow pattern (8-10px elevation)
+/// Used for modals, popovers, and prominent elements
+$shadow-strong: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+/// Drop shadow mixin for refined effects
+/// @param {string} $size - Shadow size: soft | medium | strong (default: soft)
+/// @param {color} $color - Shadow color (optional, uses black by default)
+@mixin drop-shadow-refined($size: soft, $color: rgba(0, 0, 0, 0.1)) {
+  @if $size == soft {
+    filter: drop-shadow(0 1px 2px $color);
+  } @else if $size == medium {
+    filter: drop-shadow(0 2px 4px $color);
+  } @else if $size == strong {
+    filter: drop-shadow(0 4px 8px $color);
+  }
+}
+
+// ============================================================================
+// GRADIENT DEFINITIONS (Color-Agnostic Patterns)
+// ============================================================================
+// Gradients define structure and direction; colors are provided by theme/components
+// Use mixins to apply theme colors to these patterns
+
+/// Shine effect gradient pattern (left to right)
+/// Used for glossy overlay animations
+$gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+
+/// Wrapper gradient mixin - creates background depth
+/// @param {color} $color-from - Starting color (top)
+/// @param {color} $color-to - Ending color (bottom)
+@mixin glossy-gradient-wrapper($color-from, $color-to) {
+  background: linear-gradient(180deg, $color-from 0%, $color-to 100%);
+}
+
+/// Hover gradient mixin - subtle interactive state
+/// @param {color} $color-from - Starting color (top)
+/// @param {color} $color-to - Ending color (bottom)
+@mixin glossy-gradient-hover($color-from, $color-to) {
+  background: linear-gradient(180deg, $color-from 0%, $color-to 100%);
+}
+
+/// Active/selected state gradient mixin
+/// @param {color} $color-from - Starting color (top)
+/// @param {color} $color-to - Ending color (bottom)
+@mixin glossy-gradient-active($color-from, $color-to) {
+  background: linear-gradient(180deg, $color-from 0%, $color-to 100%);
+}
+
+// ============================================================================
+// ANIMATION KEYFRAMES
+// ============================================================================
+
+/// Spring-based opacity and transform animation
+/// Used for menu items fading in with slight upward motion
+@keyframes hybrid-item-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/// Polished glow expansion animation
+/// Creates elegant activation effect with radial glow
+/// More refined than wave, suitable for professional interfaces
+@keyframes hybrid-polish-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+/// Subtle shine sweep animation
+/// Creates glossy polish effect sweeping across element
+/// Used on hover to indicate interactive polish
+@keyframes hybrid-subtle-shine {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/// Refined ping/snap animation
+/// Spring-based scale animation for delicate feedback
+/// Smaller overshoot (1.1) than pure rubber band for elegance
+@keyframes hybrid-refined-ping {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/// Bounce scale animation for selections
+/// Slight scale overshoot with spring physics
+@keyframes hybrid-snap-select {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/// Chevron rotation with subtle scale
+/// Combines rotation with scale for sophisticated open/close
+@keyframes hybrid-chevron-rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  100% {
+    transform: rotate(180deg) scale(1.05);
+  }
+}
+
+/// Chevron rotation reverse
+@keyframes hybrid-chevron-rotate-reverse {
+  0% {
+    transform: rotate(180deg) scale(1.05);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/// Item hover lift effect
+/// Subtle upward movement on hover for interactive feedback
+@keyframes hybrid-item-lift {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+/// Loading pulse animation
+/// Subtle breathing effect for loading states
+@keyframes hybrid-loading-pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/// Success bounce animation
+/// Celebratory bounce feedback for successful states
+@keyframes hybrid-success-bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/// Error shake animation
+/// Attention-getting horizontal shake for errors
+@keyframes hybrid-error-shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-4px);
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+
+  75% {
+    transform: translateX(-4px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/// Fade in with upward lift
+/// Combined opacity and transform for elegant entrance
+@keyframes hybrid-fade-in-lift {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/// Fade in with scale
+/// Combined opacity and scale for refined entrance
+@keyframes hybrid-fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/// Slide in from left
+/// Entrance animation sliding from left edge
+@keyframes hybrid-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/// Slide in from right
+/// Entrance animation sliding from right edge
+@keyframes hybrid-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/// Slide in from bottom
+/// Entrance animation sliding from bottom (up)
+@keyframes hybrid-slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/// Slide in from top
+/// Entrance animation sliding from top (down)
+@keyframes hybrid-slide-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/// Exit with fade
+/// Clean exit animation fading out
+@keyframes hybrid-exit-fade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/// Exit sliding right
+/// Exit animation sliding off to right
+@keyframes hybrid-exit-slide-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
+/// Exit sliding up
+/// Exit animation sliding off upward
+@keyframes hybrid-exit-slide-up {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+// ============================================================================
+// ANIMATION MIXINS
+// ============================================================================
+
+/// Applies spring-based animation with responsive duration
+/// Automatically adjusts animation duration for mobile devices
+/// @param {string} $animation-name - Name of keyframe animation
+/// @param {number} $duration - Animation duration (default: critical)
+/// @param {string} $easing - Easing function (default: spring)
+@mixin responsive-spring-animation($animation-name, $duration: $animation-duration-critical, $easing: $spring-easing) {
+  animation: $animation-name $duration $easing forwards;
+
+  // Mobile: 30% faster for perceived responsiveness
+  @media (max-width: 768px) {
+    animation-duration: $duration * 0.7;
+  }
+}
+
+/// Applies spring-based animation with optimal timing
+/// @param {string} $animation-name - Name of keyframe animation
+/// @param {number} $duration - Animation duration (default: critical)
+/// @param {string} $easing - Easing function (default: spring)
+@mixin spring-animation($animation-name, $duration: $animation-duration-critical, $easing: $spring-easing) {
+  animation: $animation-name $duration $easing forwards;
+}
+
+/// Stagger children elements with animation delay
+/// Creates cascading animation effect for lists and groups
+/// @param {string} $animation-name - Name of keyframe animation (optional, can use with transition)
+/// @param {number} $max-items - Maximum number of items to stagger (default: 20)
+/// @param {number} $delay-step - Delay between each item in ms (default: 0.04s)
+/// @param {boolean} $reverse - Reverse stagger direction (bottom-to-top) (default: false)
+@mixin stagger-children($max-items: 20, $delay-step: 0.04s, $reverse: false) {
+  @for $i from 1 through $max-items {
+    &:nth-child(#{$i}) {
+      @if $reverse {
+        animation-delay: ($max-items - $i) * $delay-step;
+      } @else {
+        animation-delay: ($i - 1) * $delay-step;
+      }
+    }
+  }
+}
+
+/// Applies smooth transition with refined easing
+/// @param {string} $properties - CSS properties to transition (e.g., 'color background')
+/// @param {number} $duration - Transition duration (default: smooth)
+@mixin smooth-transition($properties: all, $duration: $animation-duration-smooth) {
+  transition: $properties $duration $ease-smooth;
+}
+
+/// Combines multiple smooth transitions
+/// @param {string} $property1 - First property
+/// @param {string} $property2 - Second property
+/// @param {string} $property3 - Third property (optional)
+@mixin smooth-multi-transition($property1, $property2, $property3: null) {
+  @if $property3 {
+    transition: $property1 $animation-duration-smooth $ease-smooth,
+                $property2 $animation-duration-smooth $ease-smooth,
+                $property3 $animation-duration-smooth $ease-smooth;
+  } @else {
+    transition: $property1 $animation-duration-smooth $ease-smooth,
+                $property2 $animation-duration-smooth $ease-smooth;
+  }
+}
+
+/// Applies hover lift effect with transitions
+/// @param {number} $lift-distance - How far to lift (default: 2px)
+/// @param {boolean} $with-shadow - Include shadow on lift (default: true)
+@mixin hover-lift($lift-distance: 2px, $with-shadow: true) {
+  @if $with-shadow {
+    @include smooth-multi-transition(transform, box-shadow);
+
+    &:hover {
+      transform: translateY(-$lift-distance);
+      box-shadow: $shadow-medium;
+    }
+  } @else {
+    @include smooth-transition(transform);
+
+    &:hover {
+      transform: translateY(-$lift-distance);
+    }
+  }
+}
+
+/// Applies refined border with custom color
+/// @param {color} $color - Border color
+/// @param {string} $direction - top | bottom | left | right | all (default: all)
+@mixin refined-border($color, $direction: all) {
+  @if $direction == top {
+    border-top: 1px solid $color;
+  } @else if $direction == bottom {
+    border-bottom: 1px solid $color;
+  } @else if $direction == left {
+    border-left: 1px solid $color;
+  } @else if $direction == right {
+    border-right: 1px solid $color;
+  } @else {
+    border: 1px solid $color;
+  }
+}
+
+/// Applies refined focus outline
+/// @param {color} $color - Outline color
+/// @param {number} $width - Outline width (default: 2px)
+/// @param {number} $offset - Outline offset (default: -2px)
+@mixin focus-outline($color, $width: 2px, $offset: -2px) {
+  outline: $width solid $color;
+  outline-offset: $offset;
+}
+
+// ============================================================================
+// STATE MACHINE ANIMATION MIXINS
+// ============================================================================
+
+/// Apply loading state animation
+/// Shows subtle pulse to indicate loading in progress
+@mixin state-loading() {
+  animation: hybrid-loading-pulse 0.8s ease-in-out infinite;
+}
+
+/// Apply success state animation
+/// Celebratory bounce feedback for successful completion
+@mixin state-success() {
+  animation: hybrid-success-bounce hybrid.$animation-duration-elaborate hybrid.$spring-easing;
+}
+
+/// Apply error state animation
+/// Attention-getting shake for error feedback
+@mixin state-error() {
+  animation: hybrid-error-shake hybrid.$animation-duration-secondary hybrid.$spring-easing;
+}
+
+/// Apply disabled state styling
+/// Reduced opacity and no pointer events
+@mixin state-disabled() {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+// ============================================================================
+// TOUCH vs MOUSE INTERACTION MIXINS
+// ============================================================================
+
+/// Apply interaction on devices with hover capability (mouse/trackpad)
+/// @param {string} $effect - CSS to apply on hover
+@mixin hover-feedback() {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+/// Apply interaction on touch-only devices
+/// Uses active state instead of hover
+@mixin touch-feedback() {
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+/// Combined hover and touch feedback with different effects
+/// @param {string} $hover-effect - Hover behavior (mouse devices)
+/// @param {string} $touch-effect - Active behavior (touch devices)
+@mixin interactive-feedback($hover-effect: transform translateY(-2px), $touch-effect: scale(0.98)) {
+  @include smooth-transition(transform, box-shadow);
+
+  @media (hover: hover) {
+    &:hover {
+      transform: $hover-effect;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      transform: $touch-effect;
+    }
+  }
+}
+
+// ============================================================================
+// COMPOSITION/COMBINATION ANIMATION MIXINS
+// ============================================================================
+
+/// Apply fade-in with lift effect
+/// Combines opacity and transform for elegant entrance
+@mixin fade-in-lift($duration: $animation-duration-primary) {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: hybrid-fade-in-lift $duration $spring-easing forwards;
+}
+
+/// Apply fade-in with scale effect
+/// Combines opacity and scale for refined entrance
+@mixin fade-in-scale($duration: $animation-duration-primary) {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: hybrid-fade-in-scale $duration $spring-easing forwards;
+}
+
+/// Apply slide-in from specific direction
+/// @param {string} $direction - left | right | up | down
+/// @param {number} $duration - Animation duration
+@mixin slide-in($direction: left, $duration: $animation-duration-critical) {
+  opacity: 0;
+
+  @if $direction == left {
+    transform: translateX(-16px);
+    animation: hybrid-slide-in-left $duration $spring-easing forwards;
+  } @else if $direction == right {
+    transform: translateX(16px);
+    animation: hybrid-slide-in-right $duration $spring-easing forwards;
+  } @else if $direction == up {
+    transform: translateY(16px);
+    animation: hybrid-slide-in-up $duration $spring-easing forwards;
+  } @else if $direction == down {
+    transform: translateY(-16px);
+    animation: hybrid-slide-in-down $duration $spring-easing forwards;
+  }
+}
+
+// ============================================================================
+// EXIT ANIMATION MIXINS
+// ============================================================================
+
+/// Apply exit animation with fade
+@mixin exit-fade($duration: $animation-duration-primary) {
+  animation: hybrid-exit-fade $duration $ease-smooth forwards;
+}
+
+/// Apply exit animation sliding right
+@mixin exit-slide-right($duration: $animation-duration-primary) {
+  animation: hybrid-exit-slide-right $duration $spring-easing forwards;
+}
+
+/// Apply exit animation sliding up
+@mixin exit-slide-up($duration: $animation-duration-primary) {
+  animation: hybrid-exit-slide-up $duration $spring-easing forwards;
+}
+
+// ============================================================================
+// THEME CONFIGURATION MAP
+// ============================================================================
+
+/// Complete hybrid theme configuration
+/// Focuses on animation timing, easing, shapes, and shadow/pattern systems
+/// Colors are applied by components/themes
+$hybrid-theme-config: (
+  // Shape and radius system
+  shapes: (
+    radius-xs: $radius-xs,
+    radius-sm: $radius-sm,
+    radius-md: $radius-md,
+    radius-lg: $radius-lg,
+    radius-xl: $radius-xl,
+  ),
+
+  // Animation timing and physics (semantic)
+  animations: (
+    spring-easing: $spring-easing,
+    ease-smooth: $ease-smooth,
+    duration-instant: $animation-duration-instant,
+    duration-secondary: $animation-duration-secondary,
+    duration-primary: $animation-duration-primary,
+    duration-critical: $animation-duration-critical,
+    duration-elaborate: $animation-duration-elaborate,
+  ),
+
+  // Shadow patterns (color-agnostic)
+  shadows: (
+    soft: $shadow-soft,
+    medium: $shadow-medium,
+    strong: $shadow-strong,
+  ),
+
+  // Gradient patterns (colors applied by components)
+  gradients: (
+    shine-pattern: $gradient-shine-pattern,
+  ),
+
+  // Keyframe animations - Phase 1 (core)
+  keyframes-core: (
+    item-fade-in: hybrid-item-fade-in,
+    polish-glow: hybrid-polish-glow,
+    subtle-shine: hybrid-subtle-shine,
+    refined-ping: hybrid-refined-ping,
+    snap-select: hybrid-snap-select,
+    chevron-rotate: hybrid-chevron-rotate,
+    item-lift: hybrid-item-lift,
+  ),
+
+  // Keyframe animations - Phase 2 (state machines)
+  keyframes-state: (
+    loading-pulse: hybrid-loading-pulse,
+    success-bounce: hybrid-success-bounce,
+    error-shake: hybrid-error-shake,
+  ),
+
+  // Keyframe animations - Phase 2 (composition)
+  keyframes-composition: (
+    fade-in-lift: hybrid-fade-in-lift,
+    fade-in-scale: hybrid-fade-in-scale,
+    slide-in-left: hybrid-slide-in-left,
+    slide-in-right: hybrid-slide-in-right,
+    slide-in-up: hybrid-slide-in-up,
+    slide-in-down: hybrid-slide-in-down,
+  ),
+
+  // Keyframe animations - Phase 2 (exit)
+  keyframes-exit: (
+    exit-fade: hybrid-exit-fade,
+    exit-slide-right: hybrid-exit-slide-right,
+    exit-slide-up: hybrid-exit-slide-up,
+  ),
+);
+
+// ============================================================================
+// UTILITY CLASSES (Optional - can be included as CSS)
+// ============================================================================
+
+// Note: Uncomment to generate utility classes in your stylesheet
+// These classes can be applied directly to HTML elements
+
+// .hybrid-spring-animation {
+//   @include spring-animation(hybrid-item-fade-in);
+// }
+
+// .hybrid-smooth-transition {
+//   @include smooth-transition();
+// }
+
+// .hybrid-hover-lift {
+//   @include hover-lift();
+// }
+
+// .hybrid-slate-border {
+//   @include slate-border();
+// }
+
+// .hybrid-focus-outline {
+//   @include focus-outline-slate();
+// }
+
+// .hybrid-glossy-light {
+//   @include glossy-background(light);
+// }
+
+// .hybrid-glossy-dark {
+//   @include glossy-background(dark);
+// }
