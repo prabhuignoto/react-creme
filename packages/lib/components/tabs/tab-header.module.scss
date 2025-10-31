@@ -4,6 +4,7 @@
 @use '@design/list.scss';
 @use '@design/animate.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $flat-tabs-height: 45px;
 $rounded-tabs-height: 45px;
@@ -77,6 +78,8 @@ $sizes: (sm, md, lg);
 }
 
 .tab_header_btn {
+  $radius: hybrid.$radius-md;
+
   @extend %border-radius;
   @extend %icon-lg;
 
@@ -89,9 +92,19 @@ $sizes: (sm, md, lg);
 
   color: theme.$primary;
   cursor: pointer;
+  border-radius: $radius;
 
-  &:hover {
-    background: theme.$secondary;
+  // Use Hybrid Theme timing for smooth button feedback
+  @include hybrid.smooth-multi-transition(background-color, color);
+
+  &:not(.tab_header_btn_disabled) {
+    @include hybrid.hover-feedback() {
+      background: rgba(theme.$secondary-rgb, 0.2);
+    }
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 
   &.tab_header_btn_disabled {
@@ -100,7 +113,7 @@ $sizes: (sm, md, lg);
 }
 
 .tab_header_btn.dark {
-  &:hover {
+  &:not(.tab_header_btn_disabled):hover {
     color: theme.$white;
   }
 }
@@ -110,6 +123,8 @@ $sizes: (sm, md, lg);
 }
 
 .tab_head {
+  $radius: hybrid.$radius-md;
+
   @extend %border-radius-top;
 
   // Reset button styles
@@ -123,6 +138,10 @@ $sizes: (sm, md, lg);
   min-height: tokens.$touch-target-min; // 44px minimum for WCAG 2.1 AA
   position: relative;
   user-select: none;
+  border-radius: $radius;
+
+  // Use Hybrid Theme timing for smooth tab transitions
+  @include hybrid.smooth-multi-transition(background-color, color);
 
   &.dark {
     color: theme.$white;
@@ -132,9 +151,15 @@ $sizes: (sm, md, lg);
     color: theme.$black;
   }
 
-  &:hover {
-    background: rgba(theme.$secondary-rgb, 0.2);
-    color: theme.$primary;
+  &:not(.tab_head_disabled):not(.tab_head_selected) {
+    @include hybrid.hover-feedback() {
+      background: rgba(theme.$secondary-rgb, 0.2);
+      color: theme.$primary;
+    }
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 
   &.tab_head_rounded {
@@ -217,12 +242,11 @@ $sizes: (sm, md, lg);
     // background: rgba(theme.$primary-rgb, 70%);
     content: '';
     display: block;
-    transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
-    width: 0;
 
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
-    }
+    // Use Hybrid Theme primary timing for smooth indicator transitions
+    @include hybrid.smooth-transition(width, hybrid.$animation-duration-primary);
+
+    width: 0;
   }
 
   &.tab_header_selected::after {

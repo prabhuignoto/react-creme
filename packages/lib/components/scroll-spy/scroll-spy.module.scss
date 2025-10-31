@@ -2,6 +2,7 @@
 @use '@design/theme.scss';
 @use '@design/list.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .wrapper {
   @extend %center;
@@ -105,6 +106,8 @@
 }
 
 .list_item {
+  $radius: hybrid.$radius-sm; // Small radius for list items
+
   @extend %border-radius;
   @extend %left;
   @extend %font-md;
@@ -112,14 +115,11 @@
   // Reset button styles
   background: transparent;
   border: none;
+  border-radius: $radius;
   cursor: pointer;
   min-height: 44px;
   padding: tokens.$space-2 tokens.$space-3;
   text-align: left;
-  transition:
-    background-color 0.2s ease-in-out,
-    color 0.2s ease-in-out,
-    transform 0.1s ease-in-out;
   width: 100%;
 
   // Light mode default
@@ -130,27 +130,31 @@
     color: theme.$white;
   }
 
-  // Hover state
+  // Use Hybrid Theme timing for smooth, responsive feedback
+  @include hybrid.smooth-multi-transition(background-color, color, transform);
+
+  // Hover state with interactive feedback
   &:hover:not(:disabled):not(.active) {
-    background-color: rgba(theme.$primary-rgb, 0.1);
+    @include hybrid.hover-feedback() {
+      background-color: rgba(theme.$primary-rgb, 0.1);
+    }
   }
 
-  // Focus state (keyboard navigation)
+  // Focus state (keyboard navigation) with refined outline
   &:focus-visible {
-    outline: 2px solid theme.$primary;
-    outline-offset: 2px;
+    @include hybrid.focus-outline(theme.$primary);
     z-index: 1;
   }
 
-  // Active (pressed) state
+  // Active (pressed) state with quick scale feedback
   &:active:not(:disabled) {
     transform: scale(0.98);
+    transition: transform hybrid.$animation-duration-instant ease-in-out;
   }
 
   // Disabled state
   &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
+    @include hybrid.state-disabled();
   }
 
   // Respect reduced motion preference
@@ -171,13 +175,21 @@
 }
 
 .active {
+  $radius: hybrid.$radius-sm;
+
   background: rgba(theme.$primary-rgb, 1);
+  border-radius: $radius;
   color: theme.$white !important;
   font-weight: 500;
 
-  // Keep background on hover for active items
+  // Smooth transition for active state changes
+  @include hybrid.smooth-multi-transition(background-color, color);
+
+  // Keep background on hover for active items with interactive feedback
   &:hover:not(:disabled) {
-    background: rgba(theme.$primary-rgb, 0.9);
+    @include hybrid.hover-feedback() {
+      background: rgba(theme.$primary-rgb, 0.9);
+    }
   }
 }
 

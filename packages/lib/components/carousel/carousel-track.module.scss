@@ -2,6 +2,7 @@
 @use '@design/list.scss';
 @use '@design/theme.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .track {
   &.track_horizontal {
@@ -31,10 +32,9 @@
 
   // Visual indicator (smaller circle inside the button)
   position: relative;
-  transition:
-    background-color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out,
-    transform 0.1s ease-in-out;
+
+  // Use Hybrid Theme timing for smooth, responsive feedback
+  @include hybrid.smooth-multi-transition(background-color, border-color, transform);
 
   &::before {
     background-color: theme.$alto;
@@ -45,7 +45,10 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    transition: background-color 0.2s ease-in-out;
+
+    // Use Hybrid Theme secondary timing for indicator color transitions
+    @include hybrid.smooth-transition(background-color, hybrid.$animation-duration-secondary);
+
     width: 12px;
   }
 
@@ -57,22 +60,24 @@
     background-color: theme.$primary;
   }
 
-  // Hover state
+  // Hover state with interactive scale feedback
   &:hover:not(:disabled) {
-    transform: scale(1.1);
+    @include hybrid.hover-feedback() {
+      transform: scale(1.1);
 
-    &::before {
-      background-color: theme.$primary;
+      &::before {
+        background-color: theme.$primary;
+      }
     }
   }
 
-  // Focus state (keyboard navigation)
+  // Focus state (keyboard navigation) with refined outline
   &:focus-visible {
     border-color: theme.$primary;
-    outline: none;
+    @include hybrid.focus-outline(theme.$primary, 2px, 0);
   }
 
-  // Active state
+  // Active state with quick scale feedback
   &:active:not(:disabled) {
     transform: scale(0.95);
   }

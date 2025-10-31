@@ -1,6 +1,7 @@
 @use '@design/theme.scss';
 @use '@design/core.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -17,6 +18,8 @@ $header-heights: (
 }
 
 .button {
+  $base-radius: hybrid.$radius-md; // Medium radius for standard components
+
   @extend %border-radius;
   align-items: center;
   background: transparent;
@@ -35,6 +38,9 @@ $header-heights: (
   user-select: none;
   width: 100%;
 
+  // Smooth transitions for background and other properties
+  @include hybrid.smooth-multi-transition(background-color, box-shadow);
+
   &:not(.disable-icon) {
     @extend %left;
   }
@@ -51,27 +57,36 @@ $header-heights: (
     direction: rtl;
   }
 
-  &:not(.disable-collapse):hover {
-    @extend %border-radius;
-    cursor: pointer;
+  // Interactive feedback for non-disabled accordions
+  &:not(.disable-collapse) {
+    // Mouse/trackpad hover - desktop devices
+    @include hybrid.hover-feedback() {
+      background: rgba(theme.$secondary-rgb, 0.25);
+      border-radius: $base-radius;
 
-    &.dark {
-      background: theme.$dark-control-bg;
+      &.dark {
+        background: theme.$dark-control-bg;
+      }
     }
 
-    &:not(.dark) {
-      background: rgba(theme.$secondary-rgb, 0.25);
+    // Touch active state - mobile/tablet devices
+    @include hybrid.touch-feedback() {
+      transform: scale(0.98);
+      background: rgba(theme.$secondary-rgb, 0.2);
     }
   }
 
+  // Refined focus outline with Hybrid Theme
   &:focus-visible {
-    outline: 2px solid theme.$primary;
-    outline-offset: 2px;
+    @include hybrid.focus-outline(theme.$primary);
   }
 }
 
 .selected {
+  $selected-radius: hybrid.$radius-md;
+
   @extend %border-radius;
+  border-radius: $selected-radius;
 
   &.dark {
     background: theme.$dark-active-selection;
@@ -137,7 +152,10 @@ $header-heights: (
 
 .icon {
   cursor: pointer;
-  transition: transform 0.2s ease-in;
+
+  // Use semantic animation timing for icon rotation
+  // Secondary (0.2s) for quick, snappy icon transitions
+  @include hybrid.smooth-transition(transform, hybrid.$animation-duration-secondary);
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
@@ -151,8 +169,11 @@ $header-heights: (
     color: theme.$primary;
   }
 
+  // Icon rotation with subtle scale (Hybrid Theme pattern)
+  // Uses transform for persistent state (not animation which resets)
+  // Chevron rotates 90deg down when expanded, back to right when collapsed
   &.icon-open:not(.icon-plus):not(.custom-icon) {
-    transform: rotate(90deg);
+    transform: rotate(90deg) scale(1.05);
   }
 
   &.disable-icon {

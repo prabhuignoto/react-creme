@@ -1,6 +1,7 @@
 @use '@design/core.scss';
 @use '@design/position.scss';
 @use '@design/theme.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .wrapper {
   height: 450px;
@@ -29,7 +30,9 @@
 .control {
   background: rgba(theme.$primary-rgb, 0.75);
   position: relative;
-  transition: background 0.1s linear;
+
+  // Use Hybrid Theme instant timing for quick, responsive feedback
+  @include hybrid.smooth-transition(background-color, hybrid.$animation-duration-instant);
 
   &.control_dragged {
     background: rgba(theme.$primary-rgb, 1);
@@ -72,6 +75,21 @@
   border-radius: 50%;
   height: 24px;
   width: 24px;
+
+  // Use Hybrid Theme timing for smooth, responsive drag feedback
+  @include hybrid.smooth-transition(box-shadow, transform);
+
+  &:hover:not(:disabled) {
+    @include hybrid.hover-feedback() {
+      box-shadow: 0 0 20px 6px rgba(0, 0, 0, 0.1);
+      transform: scale(1.1);
+    }
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+    transition: transform hybrid.$animation-duration-instant ease-in-out;
+  }
 
   svg {
     color: theme.$primary;

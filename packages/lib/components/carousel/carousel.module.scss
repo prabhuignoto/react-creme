@@ -4,6 +4,7 @@
 @use '@design/position.scss';
 @use '@design/theme.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .container {
   height: 100%;
@@ -88,7 +89,10 @@
   padding: 0;
   position: absolute;
   top: 0;
-  transition: transform 0.5s var(--transition);
+
+  // Use Hybrid Theme primary animation timing (0.3s) for smooth slide transitions
+  // Fallback to Hybrid spring easing if custom transition not provided
+  transition: transform hybrid.$animation-duration-primary var(--transition, cubic-bezier(0.34, 1.56, 0.64, 1));
 
   // Respect reduced motion preference
   @media (prefers-reduced-motion: reduce) {
@@ -118,9 +122,9 @@
 
 .btn {
   border-radius: 50%;
-  transition:
-    opacity 0.2s ease-in-out,
-    visibility 0.2s ease-in-out;
+
+  // Use Hybrid Theme secondary timing (0.2s) for quick, snappy feedback
+  @include hybrid.smooth-multi-transition(opacity, visibility);
 
   &.btn_horizontal {
     margin: 0 tokens.$space-4;
@@ -177,27 +181,28 @@
   min-width: 44px;
   padding: 0;
 
-  transition:
-    background-color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out,
-    transform 0.1s ease-in-out;
+  // Use Hybrid Theme timing for smooth, responsive feedback
+  // Combines background and border transitions with quick scale feedback
+  @include hybrid.smooth-multi-transition(background-color, border-color);
 
-  // Hover state
+  // Hover state with interactive feedback
   &:hover:not(:disabled) {
-    background: rgba(theme.$primary-rgb, 0.9);
-    transform: scale(1.05);
+    @include hybrid.hover-feedback() {
+      background: rgba(theme.$primary-rgb, 0.9);
+      transform: scale(1.05);
+    }
   }
 
-  // Focus state
+  // Focus state with refined outline
   &:focus-visible {
     border-color: theme.$white;
-    outline: 2px solid theme.$primary;
-    outline-offset: 2px;
+    @include hybrid.focus-outline(theme.$primary);
   }
 
-  // Active state
+  // Active state with quick scale feedback
   &:active:not(:disabled) {
     transform: scale(0.95);
+    transition: transform hybrid.$animation-duration-instant ease-in-out;
   }
 
   // Pressed state (when paused)

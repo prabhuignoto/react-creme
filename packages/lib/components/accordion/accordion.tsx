@@ -84,11 +84,12 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
   );
 
   // Define the inline style for the accordion's body
+  // transition prop defaults to Hybrid Theme spring easing via CSS var
   const style = useMemo(
     () => ({
       '--icon-color': iconColor,
       '--title-color': titleColor,
-      '--transition': transition,
+      '--transition': transition || 'cubic-bezier(0.34, 1.56, 0.64, 1)', // Default to Hybrid Theme spring easing
     }),
     [iconColor, titleColor, transition]
   );
