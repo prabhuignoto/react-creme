@@ -34,8 +34,8 @@ const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
   disableTransferLeft,
   disableTransferRight,
   size,
-  sourceId,
-  targetId,
+  sourceId: _sourceId,
+  targetId: _targetId,
   onTransferAll,
   hideTransferAll,
 }: TransferControlModel) => {

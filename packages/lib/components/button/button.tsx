@@ -78,7 +78,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
   useFocusNew(focusable ? (buttonRef as React.RefObject<HTMLElement>) : null);
 
   // Expose focus method via imperative handle
-  useImperativeHandle(ref, () => buttonRef.current);
+  useImperativeHandle(ref, () => buttonRef.current!);
 
   // Handler for button click (prevents click when disabled or busy)
   const handleClick = useCallback(

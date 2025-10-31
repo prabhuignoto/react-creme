@@ -10,7 +10,6 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useFirstRender } from '../common/effects/useFirstRender';
 import { useVirtualization } from '../common/effects/useVirtualization';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';
@@ -68,7 +67,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
       const parsed = ParseOptions(options, rowGap, itemHeight, noUniqueIds);
       return parsed.map(opt => ({
         ...opt,
-        selected: selectedIds.has(opt.id),
+        selected: opt.id ? selectedIds.has(opt.id) : false,
       }));
     }, [options, rowGap, itemHeight, noUniqueIds, selectedIds]);
 
@@ -115,6 +114,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
     const handleSelection = useCallback((opt: ListOption) => {
       setSelectedIds(prev => {
         const newSet = new Set(prev);
+        if (!opt.id) return newSet; // Early return if no id
         if (allowMultiSelection) {
           if (newSet.has(opt.id)) {
             newSet.delete(opt.id);
@@ -131,7 +131,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
 
     // Derive selected items from selectedIds
     const selected = useMemo(
-      () => _listOptions.filter(opt => selectedIds.has(opt.id)),
+      () => _listOptions.filter(opt => opt.id && selectedIds.has(opt.id)),
       [_listOptions, selectedIds]
     );
 
@@ -172,8 +172,6 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
       }
     }, [selected, selectedIds]);
 
-    const isFirstRender = useFirstRender();
-
     // Use the new virtualization hook
     const virtualization = useVirtualization({
       itemCount: visibleOptions.length,
@@ -188,7 +186,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
     // visibleRange from useVirtualization is already in index format [startIndex, endIndex]
     const visibleIndexRange = useMemo(() => {
       if (!virtualized) {
-        return [0, visibleOptions.length];
+        return [0, visibleOptions.length] as [number, number];
       }
       // Use the indices directly - no conversion needed
       return virtualization.visibleRange;
