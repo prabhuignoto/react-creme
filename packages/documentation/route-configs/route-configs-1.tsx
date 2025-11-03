@@ -9,6 +9,11 @@ const routes = [
     path: '/home',
   },
   {
+    component: lazy(() => import('../home/showcase')),
+    key: 'showcase',
+    path: '/showcase',
+  },
+  {
     component: lazy(() => import('../home/landing/landing')),
     key: 'home',
     path: '/',

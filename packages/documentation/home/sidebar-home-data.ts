@@ -15,6 +15,9 @@ export default [
         name: 'Theme',
         value: 'home',
       },
+      {
+        name: 'Showcase',
+      },
       // {
       //   name: 'Dependencies',
       //   value: 'home',

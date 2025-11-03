@@ -36,7 +36,6 @@
     "normalize.css": "^8.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-element-to-jsx-string": "^15.0.0",
     "react-feather": "^2.0.10",
     "react-instantsearch": "^7.15.7",
     "react-responsive": "^9.0.2",
@@ -70,6 +69,7 @@
     "postcss-prefixer": "^3.0.0",
     "postcss-preset-env": "^8.4.2",
     "prettier": "^2.8.8",
+    "react-element-to-jsx-string": "^15.0.0",
     "rimraf": "^5.0.1",
     "sass": "^1.90.0",
     "snyk": "^1.1177.0",
@@ -79,7 +79,6 @@
     "typescript": "^5.9.3",
     "typescript-plugin-css-modules": "^5.0.1",
     "use-timer": "^2.0.1",
-    "vite-plugin-react-svg": "^0.2.0",
     "vite-plugin-svgr": "^3.2.0"
   },
   "browserslist": [
