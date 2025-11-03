@@ -10,8 +10,12 @@ import {
   Tabs,
   Text,
   Notification,
+  Accordion,
+  Progress,
+  Avatar,
+  Tooltip,
 } from '@lib';
-import { product, relatedProducts } from './showcase-data';
+import { product, relatedProducts, customerReviews, productFAQs } from './showcase-data';
 import styles from './ecommerce-demo.module.scss';
 
 interface CartItem {
@@ -56,14 +60,39 @@ export const EcommerceDemo: React.FC = () => {
   const discountedPrice = product.price;
   const savingsAmount = product.originalPrice - discountedPrice;
 
+  const getTrustBadge = (label: string, icon: string) => (
+    <div className={styles.trustBadgeItem}>
+      <span className={styles.trustIcon}>{icon}</span>
+      <Text size="xs" type="secondary">
+        {label}
+      </Text>
+    </div>
+  );
+
   return (
     <div className={styles.ecommerceContainer}>
       {/* Header with cart count */}
       <div className={styles.header}>
-        <h2>{product.name}</h2>
-        <div className={styles.cartBadge}>
-          🛒 {cartItems.length} {cartItems.length === 1 ? 'item' : 'items'} in cart
+        <div>
+          <Text size="sm" type="secondary" weight="600">
+            {product.brand}
+          </Text>
+          <h2>{product.name}</h2>
+          <Text size="xs" type="secondary">
+            SKU: {product.sku}
+          </Text>
         </div>
+        <div className={styles.cartBadge}>
+          🛒 {cartItems.length} {cartItems.length === 1 ? 'item' : 'items'}
+        </div>
+      </div>
+
+      {/* Trust Badges */}
+      <div className={styles.trustBadges}>
+        {getTrustBadge('Free Shipping', '🚚')}
+        {getTrustBadge('2-Year Warranty', '✓')}
+        {getTrustBadge('30-Day Returns', '↺')}
+        {getTrustBadge('Secure Payment', '🔒')}
       </div>
 
       {/* Product showcase */}
@@ -116,20 +145,41 @@ export const EcommerceDemo: React.FC = () => {
                 </Text>
               </div>
 
-              {/* Stock status */}
-              <div className={styles.stockStatus}>
-                <span
-                  style={{
-                    padding: '4px 12px',
-                    borderRadius: '4px',
-                    fontSize: '12px',
-                    fontWeight: 600,
-                    backgroundColor: product.inStock ? '#22c55e20' : '#ef444420',
-                    color: product.inStock ? '#22c55e' : '#ef4444',
-                  }}
-                >
-                  {product.inStock ? '✓ In Stock' : '✕ Out of Stock'}
-                </span>
+              {/* Stock status and delivery */}
+              <div className={styles.stockDeliverySection}>
+                <div className={styles.stockInfo}>
+                  <span
+                    style={{
+                      padding: '6px 14px',
+                      borderRadius: '6px',
+                      fontSize: '13px',
+                      fontWeight: 600,
+                      backgroundColor: product.inStock ? '#22c55e20' : '#ef444420',
+                      color: product.inStock ? '#22c55e' : '#ef4444',
+                    }}
+                  >
+                    {product.inStock ? `✓ ${product.stock} In Stock` : '✕ Out of Stock'}
+                  </span>
+                  {product.inStock && (
+                    <Text size="xs" type="secondary">
+                      Order within 3 hours for same-day dispatch
+                    </Text>
+                  )}
+                </div>
+                {product.inStock && (
+                  <div className={styles.deliveryEstimate}>
+                    <Text size="sm" weight="600">
+                      Estimated Delivery
+                    </Text>
+                    <Text size="xs" type="secondary">
+                      Jan 15-17, 2025
+                    </Text>
+                    <Progress value={75} />
+                    <Text size="xs" type="secondary">
+                      Order processing: 75% complete
+                    </Text>
+                  </div>
+                )}
               </div>
 
               {/* Color selection */}
@@ -179,55 +229,116 @@ export const EcommerceDemo: React.FC = () => {
 
       {/* Product info tabs */}
       <Card className={styles.infoCard}>
-        <Tabs labels={tabLabels} activeTab={activeTab}>
+        <Tabs labels={['Details', 'Specifications', 'Reviews', 'FAQ']} activeTab={activeTab}>
+          {/* Details Tab */}
           <div className={styles.tabContent}>
             <div className={styles.detailsList}>
-              <h3>Features</h3>
+              <h3>Product Features</h3>
               <ul>
                 {product.features.map((feature, index) => (
                   <li key={index}>{feature}</li>
                 ))}
               </ul>
+              <div className={styles.shippingSection}>
+                <h3>Shipping Options</h3>
+                <div className={styles.shippingOptions}>
+                  <CheckBox label="Standard Shipping (5-7 days) - Free" />
+                  <CheckBox label="Express Shipping (2-3 days) - $15.00" />
+                  <CheckBox label="Overnight Shipping (1 day) - $30.00" />
+                </div>
+              </div>
             </div>
           </div>
 
+          {/* Specifications Tab */}
+          <div className={styles.tabContent}>
+            <div className={styles.specificationsSection}>
+              <h3>Technical Specifications</h3>
+              <div className={styles.specsGrid}>
+                {Object.entries(product.specifications).map(([key, value]) => (
+                  <div key={key} className={styles.specItem}>
+                    <Text size="sm" type="secondary">
+                      {key}
+                    </Text>
+                    <Text size="sm" weight="600">
+                      {value}
+                    </Text>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Reviews Tab */}
           <div className={styles.tabContent}>
             <div className={styles.reviewsSection}>
-              <h3>Customer Reviews</h3>
-              <Text type="secondary" size="sm">
-                {product.reviewCount} verified customer reviews
-              </Text>
-              <div className={styles.reviewSummary}>
-                <div className={styles.reviewItem}>
-                  <Rate value={5} disabled iconCount={5} />
-                  <Text type="secondary" size="xs">
-                    5★ 145 reviews
-                  </Text>
+              <div className={styles.reviewsHeader}>
+                <div>
+                  <h3>Customer Reviews</h3>
+                  <div className={styles.ratingOverview}>
+                    <div className={styles.averageRating}>
+                      <span className={styles.ratingNumber}>{product.rating}</span>
+                      <Rate value={Math.floor(product.rating) as 1 | 2 | 3 | 4 | 5} disabled iconCount={5} />
+                      <Text type="secondary" size="sm">
+                        Based on {product.reviewCount} reviews
+                      </Text>
+                    </div>
+                  </div>
                 </div>
-                <div className={styles.reviewItem}>
-                  <Rate value={4} disabled iconCount={5} />
-                  <Text type="secondary" size="xs">
-                    4★ 142 reviews
-                  </Text>
-                </div>
-                <div className={styles.reviewItem}>
-                  <Rate value={3} disabled iconCount={5} />
-                  <Text type="secondary" size="xs">
-                    3★ 35 reviews
-                  </Text>
-                </div>
+                <Button label="Write a Review" type="default" size="sm" />
+              </div>
+
+              <div className={styles.reviewsList}>
+                {customerReviews.map((review) => (
+                  <Card key={review.id} className={styles.reviewCard}>
+                    <div className={styles.reviewHeader}>
+                      <div className={styles.reviewAuthor}>
+                        <Avatar name={review.author} size="sm" />
+                        <div>
+                          <Text size="sm" weight="600">
+                            {review.author}
+                          </Text>
+                          {review.verified && (
+                            <Text size="xs" type="secondary">
+                              ✓ Verified Purchase
+                            </Text>
+                          )}
+                        </div>
+                      </div>
+                      <Text size="xs" type="secondary">
+                        {new Date(review.date).toLocaleDateString()}
+                      </Text>
+                    </div>
+                    <div className={styles.reviewRating}>
+                      <Rate value={review.rating as 1 | 2 | 3 | 4 | 5} disabled iconCount={5} />
+                      <Text size="sm" weight="600">
+                        {review.title}
+                      </Text>
+                    </div>
+                    <Text size="sm">{review.content}</Text>
+                    <div className={styles.reviewFooter}>
+                      <Text size="xs" type="secondary">
+                        {review.helpful} people found this helpful
+                      </Text>
+                      <Button label="👍 Helpful" type="default" size="sm" />
+                    </div>
+                  </Card>
+                ))}
               </div>
             </div>
           </div>
 
+          {/* FAQ Tab */}
           <div className={styles.tabContent}>
-            <div className={styles.shippingSection}>
-              <h3>Shipping Information</h3>
-              <div className={styles.shippingOptions}>
-                <CheckBox label="Standard Shipping (5-7 days) - Free" />
-                <CheckBox label="Express Shipping (2-3 days) - $15" />
-                <CheckBox label="Overnight Shipping (1 day) - $30" />
-              </div>
+            <div className={styles.faqSection}>
+              <h3>Frequently Asked Questions</h3>
+              <Accordion
+                items={productFAQs.map((faq, index) => ({
+                  id: `faq-${index}`,
+                  header: faq.question,
+                  content: <Text size="sm">{faq.answer}</Text>,
+                }))}
+              />
             </div>
           </div>
         </Tabs>
@@ -235,27 +346,41 @@ export const EcommerceDemo: React.FC = () => {
 
       {/* Related products */}
       <div className={styles.relatedSection}>
-        <h3>Related Products</h3>
+        <div className={styles.relatedHeader}>
+          <h3>You May Also Like</h3>
+          <Text type="secondary" size="sm">
+            Customers also viewed these products
+          </Text>
+        </div>
         <Carousel autoPlay={0}>
           {relatedProducts.map((related) => (
             <div key={related.id} className={styles.relatedCard}>
               <Card>
                 <div className={styles.relatedImageWrapper}>
                   <img src={related.image} alt={related.name} />
+                  {related.originalPrice && related.price < related.originalPrice && (
+                    <span className={styles.relatedDiscount}>
+                      {Math.round(((related.originalPrice - related.price) / related.originalPrice) * 100)}% OFF
+                    </span>
+                  )}
                 </div>
                 <div className={styles.relatedContent}>
                   <Text size="sm" weight="600">
                     {related.name}
                   </Text>
                   <div className={styles.relatedMeta}>
-                    <Rate value={Math.floor(related.rating) as 1 | 2 | 3 | 4 | 5} disabled iconCount={5} />
+                    <Rate value={Math.floor(related.rating) as 1 | 2 | 3 | 4 | 5} disabled iconCount={5} size="sm" />
                     <Text type="secondary" size="xs">
-                      {related.rating}
+                      ({related.rating})
                     </Text>
                   </div>
-                  <div className={styles.relatedPrice}>
-                    ${related.price.toFixed(2)}
+                  <div className={styles.relatedPricing}>
+                    <span className={styles.relatedPrice}>${related.price.toFixed(2)}</span>
+                    {related.originalPrice && related.price < related.originalPrice && (
+                      <span className={styles.relatedOriginalPrice}>${related.originalPrice.toFixed(2)}</span>
+                    )}
                   </div>
+                  <Button label="Quick View" type="default" size="sm" style={{ width: '100%', marginTop: '8px' }} />
                 </div>
               </Card>
             </div>
