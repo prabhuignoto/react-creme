@@ -96,7 +96,11 @@ describe('Menu', () => {
 
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const { container } = render(<Menu />);
+      const { container } = render(
+        <Menu items={items}>
+          <span>Menu</span>
+        </Menu>
+      );
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();

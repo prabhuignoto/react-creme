@@ -62,7 +62,7 @@ describe('CarouselButton', () => {
 
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const { container } = render(<CarouselButton />);
+      const { container } = render(<CarouselButton label="Next" onClick={() => {}} />);
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();

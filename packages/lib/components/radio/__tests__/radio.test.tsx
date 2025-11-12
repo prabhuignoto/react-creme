@@ -26,7 +26,7 @@ describe('Radio', () => {
 
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const { container } = render(<Radio />);
+      const { container } = render(<Radio label="test-label" />);
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();
