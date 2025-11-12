@@ -85,11 +85,11 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
 
   // Keyboard navigation
   useMenuBarKeyboard({
+    RTL,
     enabled: focusable,
     getItemId: index => _items[index]?.id,
     itemCount: _items.length,
     onOpenMenu: handleOnOpen,
-    RTL,
     ref: menuBarRef,
   });
 

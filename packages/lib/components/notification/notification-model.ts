@@ -1,3 +1,4 @@
+import React from 'react';
 import { OverlayModel } from '../common/overlay-model';
 
 /** Notification position on screen */

@@ -1,8 +1,7 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import { Image } from '../../image/image';
 import { Gallery } from '../gallery';
 

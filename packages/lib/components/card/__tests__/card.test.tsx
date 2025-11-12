@@ -1,8 +1,7 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { Card } from '../card';
 
@@ -114,7 +113,7 @@ describe('Card', () => {
     });
 
     it('should align footer to the center', () => {
-      const { container, getByText } = render(
+      const { getByText } = render(
         <Card alignFooter="center" footer={<span>footer text</span>} />
       );
       const footerText = getByText('footer text');
@@ -124,7 +123,7 @@ describe('Card', () => {
     });
 
     it('should align footer to the right', () => {
-      const { container, getByText } = render(
+      const { getByText } = render(
         <Card alignFooter="right" footer={<span>footer text</span>} />
       );
       const footerText = getByText('footer text');
@@ -251,7 +250,7 @@ describe('Card', () => {
       const card = container.firstChild;
 
       expect(card).toBeInTheDocument();
-      expect(card).toBeEmptyDOMElement;
+      expect(card).toBeEmptyDOMElement();
     });
 
     it('should handle very large height values', () => {

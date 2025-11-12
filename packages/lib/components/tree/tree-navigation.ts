@@ -34,12 +34,12 @@ export function flattenTree(
     const isExpanded = expandedIds.has(id);
 
     result.push({
+      hasChildren,
       id,
+      isExpanded,
+      level,
       name: node.name || '',
       node,
-      level,
-      hasChildren,
-      isExpanded,
       parentId,
       posInSet: index + 1,
       setSize: nodes.length,
@@ -72,7 +72,7 @@ export function getNextIndex(
  */
 export function getPreviousIndex(
   currentIndex: number,
-  _flatItems: FlatTreeItem[]
+  _flatItems: FlatTreeItem[] // eslint-disable-line @typescript-eslint/no-unused-vars
 ): number {
   if (currentIndex <= 0) {
     return currentIndex; // Already at the start
@@ -83,7 +83,7 @@ export function getPreviousIndex(
 /**
  * Get the index of the first item
  */
-export function getFirstIndex(_flatItems: FlatTreeItem[]): number {
+export function getFirstIndex(_flatItems: FlatTreeItem[]): number { // eslint-disable-line @typescript-eslint/no-unused-vars
   return 0;
 }
 

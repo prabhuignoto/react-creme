@@ -11,17 +11,11 @@ export const ImageOnly = (
 );
 
 export const WithMaxSize = (
-  <FileUpload
-    maxSize={5 * 1024 * 1024}
-    dropZoneText="Max file size: 5MB"
-  />
+  <FileUpload maxSize={5 * 1024 * 1024} dropZoneText="Max file size: 5MB" />
 );
 
 export const WithMaxFiles = (
-  <FileUpload
-    maxFiles={3}
-    dropZoneText="Upload up to 3 files"
-  />
+  <FileUpload maxFiles={3} dropZoneText="Upload up to 3 files" />
 );
 
 export const Small = <FileUpload size="sm" />;
@@ -33,10 +27,7 @@ export const Large = <FileUpload size="lg" />;
 export const Disabled = <FileUpload disabled />;
 
 export const NoThumbnails = (
-  <FileUpload
-    showThumbnails={false}
-    dropZoneText="No preview thumbnails"
-  />
+  <FileUpload showThumbnails={false} dropZoneText="No preview thumbnails" />
 );
 
 export const NoProgress = (
@@ -48,9 +39,11 @@ export const NoProgress = (
 
 export const CustomContent = (
   <FileUpload>
-    <div style={{ textAlign: 'center', padding: '2rem' }}>
-      <h3 style={{ margin: 0, marginBottom: '0.5rem' }}>📁 Custom Upload Zone</h3>
-      <p style={{ margin: 0, color: '#666' }}>
+    <div style={{ padding: '2rem', textAlign: 'center' }}>
+      <h3 style={{ margin: 0, marginBottom: '0.5rem' }}>
+        📁 Custom Upload Zone
+      </h3>
+      <p style={{ color: '#666', margin: 0 }}>
         Drag files here or click to browse
       </p>
     </div>

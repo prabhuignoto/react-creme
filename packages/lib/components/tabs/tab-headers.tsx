@@ -70,9 +70,9 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
     activeIndex,
     enabledItems.length,
     {
+      onNavigate: handleNavigate,
       orientation: 'horizontal',
       wrap: true, // Wrap from last to first and vice versa
-      onNavigate: handleNavigate,
     },
     focusable
   );

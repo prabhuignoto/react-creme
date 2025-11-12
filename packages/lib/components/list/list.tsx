@@ -147,7 +147,7 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
       if (initialSelected.length > 0) {
         setSelectedIds(new Set(initialSelected));
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+       
     }, []);
 
     // Notify parent of selection changes
@@ -174,11 +174,11 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
 
     // Use the new virtualization hook
     const virtualization = useVirtualization({
-      itemCount: visibleOptions.length,
-      itemHeight,
       containerRef: listRef as React.RefObject<HTMLElement>,
       enabled: virtualized,
+      itemCount: visibleOptions.length,
       itemGap: rowGap,
+      itemHeight,
       overscan: 3,
       scrollDebounce: 50,
     });

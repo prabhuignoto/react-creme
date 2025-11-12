@@ -89,8 +89,8 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
 
         if (files.length > remainingSlots) {
           errors.push({
-            type: 'max-files',
             message: `Maximum ${maxFiles} files allowed. ${files.length - remainingSlots} file(s) were not added.`,
+            type: 'max-files',
           });
         }
 
@@ -99,9 +99,9 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
           // Check for duplicates first (both in prevFiles and in current batch)
           if (isDuplicateFile(file, prevFiles) || isDuplicateFile(file, validFiles)) {
             errors.push({
-              type: 'file-type',
-              message: `File "${file.name}" is already added.`,
               file,
+              message: `File "${file.name}" is already added.`,
+              type: 'file-type',
             });
             return;
           }
@@ -213,10 +213,10 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
   }, [selectedFiles]);
 
   return {
+    clearFiles,
     files: selectedFiles,
+    getFiles,
     processFiles,
     removeFile,
-    clearFiles,
-    getFiles,
   };
 };

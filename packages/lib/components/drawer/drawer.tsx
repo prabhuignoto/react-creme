@@ -99,11 +99,11 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
    */
   const focusProps = useMemo(() => {
     const base = {
-      role: 'dialog' as const,
-      'aria-modal': 'true' as const,
+      'aria-describedby': ariaDescribedby,
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledby,
-      'aria-describedby': ariaDescribedby,
+      'aria-modal': 'true' as const,
+      role: 'dialog' as const,
       tabIndex: 0,
     };
 

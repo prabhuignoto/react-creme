@@ -78,12 +78,11 @@ function Widgets() {
 
       <Section size="md" title="Custom Size - Large" border={false}>
         <Text>
-          The breadcrumb component supports three size variants:{' '}
-          <code>sm</code> (default), <code>md</code> (medium), and{' '}
-          <code>lg</code> (large). Larger sizes improve visibility and touch
-          targets on mobile devices or when breadcrumbs are a primary
-          navigation element. Choose the size that best fits your design system
-          and use case.
+          The breadcrumb component supports three size variants: <code>sm</code>{' '}
+          (default), <code>md</code> (medium), and <code>lg</code> (large).
+          Larger sizes improve visibility and touch targets on mobile devices or
+          when breadcrumbs are a primary navigation element. Choose the size
+          that best fits your design system and use case.
         </Text>
         <DemoWidget name="BreadCrumb" width={400}>
           {CustomSize}
@@ -99,9 +98,8 @@ function Widgets() {
           <code>RTL</code> is enabled, breadcrumbs automatically reverse their
           order and separator icons flip direction to match RTL reading
           patterns. Essential for applications supporting Arabic, Hebrew, and
-          other right-to-left languages. The component maintains proper
-          keyboard navigation (arrow keys work naturally) and accessibility in
-          RTL mode.
+          other right-to-left languages. The component maintains proper keyboard
+          navigation (arrow keys work naturally) and accessibility in RTL mode.
         </Text>
         <DemoWidget name="BreadCrumb" width={400}>
           {RTL}

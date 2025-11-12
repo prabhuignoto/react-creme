@@ -14,9 +14,9 @@ const Description = (
     </p>
     <p>
       The component includes built-in validation for file types, file sizes, and
-      maximum file counts. It also features automatic image thumbnail generation,
-      progress tracking, and full accessibility support including keyboard
-      navigation and screen reader compatibility.
+      maximum file counts. It also features automatic image thumbnail
+      generation, progress tracking, and full accessibility support including
+      keyboard navigation and screen reader compatibility.
     </p>
   </div>
 );
@@ -49,28 +49,32 @@ function index() {
       callbacks={[
         {
           default: '',
-          description: 'Callback executed when files are selected or changed. Receives an array of valid File objects.',
+          description:
+            'Callback executed when files are selected or changed. Receives an array of valid File objects.',
           name: 'onChange',
           optional: 'yes',
           type: '(files: File[]) => void',
         },
         {
           default: '',
-          description: 'Callback executed when a validation error occurs. Receives error details.',
+          description:
+            'Callback executed when a validation error occurs. Receives error details.',
           name: 'onError',
           optional: 'yes',
           type: '(error: FileUploadError) => void',
         },
         {
           default: '',
-          description: 'Callback executed when files are dropped. Called before onChange.',
+          description:
+            'Callback executed when files are dropped. Called before onChange.',
           name: 'onDrop',
           optional: 'yes',
           type: '(files: File[]) => void',
         },
         {
           default: '',
-          description: 'Callback executed when files are pasted from clipboard. Called before onChange.',
+          description:
+            'Callback executed when files are pasted from clipboard. Called before onChange.',
           name: 'onPaste',
           optional: 'yes',
           type: '(files: File[]) => void',
@@ -79,14 +83,16 @@ function index() {
       properties={[
         {
           default: "''",
-          description: 'Accepted file types (e.g., "image/*", ".pdf,.doc", "image/png,image/jpeg"). Follows HTML input accept attribute format.',
+          description:
+            'Accepted file types (e.g., "image/*", ".pdf,.doc", "image/png,image/jpeg"). Follows HTML input accept attribute format.',
           name: 'accept',
           optional: 'yes',
           type: 'String',
         },
         {
           default: '',
-          description: 'Maximum file size in bytes. Files larger than this will be rejected.',
+          description:
+            'Maximum file size in bytes. Files larger than this will be rejected.',
           name: 'maxSize',
           optional: 'yes',
           type: 'Number',
@@ -135,14 +141,16 @@ function index() {
         },
         {
           default: 'md',
-          description: 'Component size variant. Can be <em>sm</em>, <em>md</em>, or <em>lg</em>.',
+          description:
+            'Component size variant. Can be <em>sm</em>, <em>md</em>, or <em>lg</em>.',
           name: 'size',
           optional: 'yes',
           type: 'String',
         },
         {
           default: '',
-          description: 'Custom content to display in the drop zone. If not provided, default drop zone UI will be shown.',
+          description:
+            'Custom content to display in the drop zone. If not provided, default drop zone UI will be shown.',
           name: 'children',
           optional: 'yes',
           type: 'ReactNode',

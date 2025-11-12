@@ -1,12 +1,9 @@
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
-import jsxToString from 'react-element-to-jsx-string';
 import { DataGrid, Section, Text } from '../../../lib/components';
-import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import { columnsConfig, data } from './grids-data';
 
 function widgets() {

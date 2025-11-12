@@ -1,8 +1,7 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { Carousel } from '../carousel';
 
@@ -720,7 +719,6 @@ describe('Carousel', () => {
       await waitForCarousel();
       const trackButtons = container.querySelectorAll('[role="tab"]');
       const button = trackButtons[0] as HTMLElement;
-      const styles = window.getComputedStyle(button);
 
       // Check minHeight and minWidth are set
       expect(button).toBeInTheDocument();

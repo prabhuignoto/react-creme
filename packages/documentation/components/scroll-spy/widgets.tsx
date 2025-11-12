@@ -1,11 +1,8 @@
 import { useAtomValue } from 'jotai';
 import { useLayoutEffect, useState } from 'react';
-import jsxToString from 'react-element-to-jsx-string';
 import { ScrollSpy, Section, Text } from '../../../lib/components';
-import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 
 const Para = () => {
   const theme = useAtomValue(themeState);

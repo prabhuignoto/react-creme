@@ -1,9 +1,7 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import { vi } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { Tree } from '../tree';
 
 describe('Tree', () => {

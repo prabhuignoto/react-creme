@@ -52,19 +52,19 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
       selectedIndex,
       options.length,
       {
-        orientation: 'vertical',
-        scrollOffset: itemHeight + rowGap,
+        onPageDown: () => {
+          if (listRef.current) {
+            listRef.current.scrollTop += (itemHeight + rowGap) * 10;
+          }
+        },
         // PageUp/PageDown support for large lists
         onPageUp: () => {
           if (listRef.current) {
             listRef.current.scrollTop -= (itemHeight + rowGap) * 10;
           }
         },
-        onPageDown: () => {
-          if (listRef.current) {
-            listRef.current.scrollTop += (itemHeight + rowGap) * 10;
-          }
-        },
+        orientation: 'vertical',
+        scrollOffset: itemHeight + rowGap,
       },
       focusable
     );

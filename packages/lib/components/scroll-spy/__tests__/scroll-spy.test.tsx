@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
@@ -13,8 +11,10 @@ class MockIntersectionObserver implements IntersectionObserver {
   readonly rootMargin: string = '';
   readonly thresholds: ReadonlyArray<number> = [];
 
+  // eslint-disable-next-line no-undef
   constructor(
     public callback: IntersectionObserverCallback,
+    // eslint-disable-next-line no-undef
     public options?: IntersectionObserverInit
   ) {}
 
@@ -112,7 +112,7 @@ describe('ScrollSpy', () => {
 
       if (contentArea) {
         // Simulate scroll event
-        await user.pointer({ target: contentArea, keys: '[MouseLeft]' });
+        await user.pointer({ keys: '[MouseLeft]', target: contentArea });
       }
 
       expect(contentArea).toBeInTheDocument();

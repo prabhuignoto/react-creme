@@ -8,10 +8,10 @@ describe('useAutoSuggestState', () => {
       const { result } = renderHook(() => useAutoSuggestState());
 
       expect(result.current.state).toEqual({
+        activeDescendantId: undefined,
+        focusMenu: false,
         input: '',
         selected: false,
-        focusMenu: false,
-        activeDescendantId: undefined,
         selectedItems: [],
       });
     });
@@ -215,10 +215,10 @@ describe('useAutoSuggestState', () => {
       });
 
       expect(result.current.state).toEqual({
+        activeDescendantId: undefined,
+        focusMenu: false,
         input: '',
         selected: false,
-        focusMenu: false,
-        activeDescendantId: undefined,
         selectedItems: [],
       });
     });

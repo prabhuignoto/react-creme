@@ -77,22 +77,22 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   }, [sliderValue, start, end]);
 
   useKeyNavigation(controlRef, normalizedValue, 101, {
-    orientation: 'vertical',
-    wrap: false,
     onNavigate: (index: number) => {
       // Convert back from 0-100 range to actual value range
       const newValue = start + ((index / 100) * (end - start));
       const clampedValue = Math.max(start, Math.min(end, newValue));
       onChangeDebounced?.(Math.round(clampedValue));
     },
-    onPageUp: () => {
-      const newValue = Math.min(end, sliderValue + largeStepSize);
-      onChangeDebounced?.(Math.round(newValue));
-    },
     onPageDown: () => {
       const newValue = Math.max(start, sliderValue - largeStepSize);
       onChangeDebounced?.(Math.round(newValue));
     },
+    onPageUp: () => {
+      const newValue = Math.min(end, sliderValue + largeStepSize);
+      onChangeDebounced?.(Math.round(newValue));
+    },
+    orientation: 'vertical',
+    wrap: false,
   });
 
   const onControlInit = useCallback((node: HTMLSpanElement) => {

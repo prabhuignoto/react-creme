@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
@@ -117,10 +115,10 @@ describe('GlobalNotification', () => {
 
     // Test Enter key
     fireEvent.keyDown(closeButton, {
-      key: 'Enter',
-      code: 'Enter',
-      keyCode: 13,
       charCode: 13,
+      code: 'Enter',
+      key: 'Enter',
+      keyCode: 13,
     });
 
     await waitFor(() => {
@@ -150,10 +148,10 @@ describe('GlobalNotification', () => {
 
     // Test Space key
     fireEvent.keyDown(closeButton, {
-      key: ' ',
-      code: 'Space',
-      keyCode: 32,
       charCode: 32,
+      code: 'Space',
+      key: ' ',
+      keyCode: 32,
     });
 
     await waitFor(() => {

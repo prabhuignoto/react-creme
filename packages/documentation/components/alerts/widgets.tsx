@@ -1,10 +1,7 @@
 import { useLayoutEffect, useState } from 'react';
-import jsxToString from 'react-element-to-jsx-string';
 import { Section, Text } from '../../../lib/components';
-import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
-import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   Custom,
   Dismiss,

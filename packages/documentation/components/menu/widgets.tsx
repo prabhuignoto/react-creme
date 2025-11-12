@@ -1,8 +1,5 @@
-import jsxToString from 'react-element-to-jsx-string';
 import { Section, Text } from '../../../lib/components';
-import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
-import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   AttachedToButton,
   AttachedToIcon,
@@ -42,7 +39,11 @@ function Widgets() {
           {AttachedToIcon}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Menu attached to a native Element" border={false}>
+      <Section
+        size="md"
+        title="Menu attached to a native Element"
+        border={false}
+      >
         <Text>
           The example below shows a menu attached to a native element (button).
         </Text>

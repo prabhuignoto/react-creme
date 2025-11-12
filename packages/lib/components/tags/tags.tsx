@@ -139,17 +139,17 @@ const Tags: React.FunctionComponent<TagsProps> = ({
 
   // Keyboard navigation between tags with Delete key support
   useKeyNavigation(wrapperRef, focusedTagIndex, tagItems.length, {
-    orientation: 'horizontal',
-    rtl: RTL,
-    wrap: true,
-    onNavigate: (index: number) => {
-      setFocusedTagIndex(index);
-    },
     onDelete: () => {
       if (focusedTagIndex >= 0 && tagItems[focusedTagIndex]) {
         handleRemove(tagItems[focusedTagIndex].id || '');
       }
     },
+    onNavigate: (index: number) => {
+      setFocusedTagIndex(index);
+    },
+    orientation: 'horizontal',
+    rtl: RTL,
+    wrap: true,
   });
 
   // EFFECTS
@@ -190,11 +190,11 @@ const Tags: React.FunctionComponent<TagsProps> = ({
         aria-live="polite"
         aria-atomic="true"
         style={{
-          position: 'absolute',
-          left: '-10000px',
-          width: '1px',
           height: '1px',
+          left: '-10000px',
           overflow: 'hidden',
+          position: 'absolute',
+          width: '1px',
         }}
       >
         {liveMessage}
@@ -202,11 +202,11 @@ const Tags: React.FunctionComponent<TagsProps> = ({
       <div
         id={descriptionId}
         style={{
-          position: 'absolute',
-          left: '-10000px',
-          width: '1px',
           height: '1px',
+          left: '-10000px',
           overflow: 'hidden',
+          position: 'absolute',
+          width: '1px',
         }}
       >
         {tagItems.length === 0

@@ -1,7 +1,6 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
+import { describe, expect, it } from 'vitest';
 /**
  * @file This file defines the unit tests for the CarouselItems component.
  * @module CarouselItemsTest

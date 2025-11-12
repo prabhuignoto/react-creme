@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import React, { useRef } from 'react';
@@ -12,8 +10,10 @@ class MockIntersectionObserver implements IntersectionObserver {
   readonly rootMargin: string = '';
   readonly thresholds: ReadonlyArray<number> = [];
 
+  // eslint-disable-next-line no-undef
   constructor(
     public callback: IntersectionObserverCallback,
+    // eslint-disable-next-line no-undef
     public options?: IntersectionObserverInit
   ) {}
 

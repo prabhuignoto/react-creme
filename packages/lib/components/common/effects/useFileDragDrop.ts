@@ -107,12 +107,12 @@ export const useFileDragDrop = (options: UseFileDragDropOptions) => {
   );
 
   return {
-    isDragging,
     handlers: {
-      onDragOver: handleDragOver,
       onDragEnter: handleDragEnter,
       onDragLeave: handleDragLeave,
+      onDragOver: handleDragOver,
       onDrop: handleDrop,
     },
+    isDragging,
   };
 };

@@ -196,21 +196,23 @@ const Tree: React.FunctionComponent<TreeProps> = ({
       if (!currentItem) return;
 
       switch (e.key) {
-        case 'ArrowDown':
+        case 'ArrowDown': {
           e.preventDefault();
           const nextIndex = getNextIndex(currentIndex, flatTree);
           if (nextIndex !== currentIndex) {
             setFocusedId(flatTree[nextIndex]?.id || '');
           }
           break;
+        }
 
-        case 'ArrowUp':
+        case 'ArrowUp': {
           e.preventDefault();
           const prevIndex = getPreviousIndex(currentIndex, flatTree);
           if (prevIndex !== currentIndex) {
             setFocusedId(flatTree[prevIndex]?.id || '');
           }
           break;
+        }
 
         case 'ArrowRight':
           e.preventDefault();
@@ -242,17 +244,19 @@ const Tree: React.FunctionComponent<TreeProps> = ({
           }
           break;
 
-        case 'Home':
+        case 'Home': {
           e.preventDefault();
           const firstIdx = getFirstIndex(flatTree);
           setFocusedId(flatTree[firstIdx]?.id || '');
           break;
+        }
 
-        case 'End':
+        case 'End': {
           e.preventDefault();
           const lastIdx = getLastIndex(flatTree);
           setFocusedId(flatTree[lastIdx]?.id || '');
           break;
+        }
 
         case 'Enter':
           e.preventDefault();
@@ -279,7 +283,7 @@ const Tree: React.FunctionComponent<TreeProps> = ({
           }
           break;
 
-        case '*':
+        case '*': {
           // Expand all siblings at current level
           e.preventDefault();
           const siblingsToExpand = flatTree
@@ -291,6 +295,7 @@ const Tree: React.FunctionComponent<TreeProps> = ({
             return next;
           });
           break;
+        }
       }
     };
 

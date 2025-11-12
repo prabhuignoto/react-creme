@@ -86,15 +86,18 @@ function autoSuggestReducer(
     case 'SELECT_ITEM':
       return {
         ...state,
+        activeDescendantId: undefined,
+        focusMenu: false,
         input: action.payload.itemName,
         selected: true,
-        focusMenu: false,
-        activeDescendantId: undefined,
       };
 
     case 'ADD_SELECTED_ITEM':
       return {
         ...state,
+        activeDescendantId: undefined,
+        focusMenu: false,
+        input: '',
         selectedItems: [
           ...state.selectedItems,
           {
@@ -103,9 +106,6 @@ function autoSuggestReducer(
             value: action.payload.itemValue,
           },
         ],
-        input: '',
-        focusMenu: false,
-        activeDescendantId: undefined,
       };
 
     case 'REMOVE_SELECTED_ITEM':
@@ -131,17 +131,17 @@ function autoSuggestReducer(
     case 'CLOSE_MENU_CLEAR_SELECTION':
       return {
         ...state,
+        activeDescendantId: undefined,
         focusMenu: false,
         selected: false,
-        activeDescendantId: undefined,
       };
 
     case 'RESET':
       return {
+        activeDescendantId: undefined,
+        focusMenu: false,
         input: '',
         selected: false,
-        focusMenu: false,
-        activeDescendantId: undefined,
         selectedItems: [],
       };
 
@@ -167,29 +167,29 @@ function autoSuggestReducer(
  */
 export function useAutoSuggestState() {
   const [state, dispatch] = useReducer(autoSuggestReducer, {
+    activeDescendantId: undefined,
+    focusMenu: false,
     input: '',
     selected: false,
-    focusMenu: false,
-    activeDescendantId: undefined,
     selectedItems: [],
   });
 
   // Convenience functions for common operations
   const setInput = useCallback((input: string | undefined) => {
-    dispatch({ type: 'SET_INPUT', payload: input });
+    dispatch({ payload: input, type: 'SET_INPUT' });
   }, []);
 
   const setSelected = useCallback((selected: boolean) => {
-    dispatch({ type: 'SET_SELECTED', payload: selected });
+    dispatch({ payload: selected, type: 'SET_SELECTED' });
   }, []);
 
   const setFocusMenu = useCallback((focusMenu: boolean) => {
-    dispatch({ type: 'SET_FOCUS_MENU', payload: focusMenu });
+    dispatch({ payload: focusMenu, type: 'SET_FOCUS_MENU' });
   }, []);
 
   const setActiveDescendantId = useCallback(
     (id: string | undefined) => {
-      dispatch({ type: 'SET_ACTIVE_DESCENDANT', payload: id });
+      dispatch({ payload: id, type: 'SET_ACTIVE_DESCENDANT' });
     },
     []
   );
@@ -197,8 +197,8 @@ export function useAutoSuggestState() {
   const selectItem = useCallback(
     (itemId: string, itemName: string, itemValue: string) => {
       dispatch({
-        type: 'SELECT_ITEM',
         payload: { itemId, itemName, itemValue },
+        type: 'SELECT_ITEM',
       });
     },
     []
@@ -207,8 +207,8 @@ export function useAutoSuggestState() {
   const addSelectedItem = useCallback(
     (itemId: string, itemName: string, itemValue: string) => {
       dispatch({
-        type: 'ADD_SELECTED_ITEM',
         payload: { itemId, itemName, itemValue },
+        type: 'ADD_SELECTED_ITEM',
       });
     },
     []
@@ -216,8 +216,8 @@ export function useAutoSuggestState() {
 
   const removeSelectedItem = useCallback((itemId: string) => {
     dispatch({
-      type: 'REMOVE_SELECTED_ITEM',
       payload: itemId,
+      type: 'REMOVE_SELECTED_ITEM',
     });
   }, []);
 
@@ -238,17 +238,17 @@ export function useAutoSuggestState() {
   }, []);
 
   return {
-    state,
+    addSelectedItem,
+    clearSelectedItems,
+    clearSelection,
+    closeMenuClearSelection,
+    removeSelectedItem,
+    reset,
+    selectItem,
+    setActiveDescendantId,
+    setFocusMenu,
     setInput,
     setSelected,
-    setFocusMenu,
-    setActiveDescendantId,
-    selectItem,
-    addSelectedItem,
-    removeSelectedItem,
-    clearSelection,
-    clearSelectedItems,
-    closeMenuClearSelection,
-    reset,
+    state,
   };
 }

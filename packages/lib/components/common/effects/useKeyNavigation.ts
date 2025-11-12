@@ -66,8 +66,8 @@ function useKeyNavigation(
   // Parse options for backward compatibility
   const options: UseKeyNavigationOptions =
     typeof scrollOffsetOrOptions === 'number'
-      ? { scrollOffset: scrollOffsetOrOptions, orientation: 'vertical' }
-      : { orientation: 'vertical', wrap: true, scrollOffset: 50, ...scrollOffsetOrOptions };
+      ? { orientation: 'vertical', scrollOffset: scrollOffsetOrOptions }
+      : { orientation: 'vertical', scrollOffset: 50, wrap: true, ...scrollOffsetOrOptions };
 
   const {
     orientation,

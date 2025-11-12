@@ -1,7 +1,6 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { render } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { CircularProgress } from '../circular-progress';
 import { Progress } from '../progress';
@@ -490,7 +489,7 @@ describe('CircularProgress', () => {
 
   describe('Rendering', () => {
     it('should render with proper structure', () => {
-      const { container, getByRole } = render(
+      const { getByRole } = render(
         <CircularProgress label="Loading" />
       );
 

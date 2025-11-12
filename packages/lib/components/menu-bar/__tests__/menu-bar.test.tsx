@@ -336,8 +336,8 @@ describe('Menu Bar', () => {
       const singleItem = [
         {
           id: '1',
-          name: 'File',
           items: [{ name: 'Open' }],
+          name: 'File',
         },
       ];
 
@@ -348,8 +348,8 @@ describe('Menu Bar', () => {
     it('should handle many items', () => {
       const manyItems = Array.from({ length: 20 }, (_, i) => ({
         id: String(i),
-        name: `Menu ${i}`,
         items: [{ name: `Item ${i}` }],
+        name: `Menu ${i}`,
       }));
 
       const { getByText } = render(<MenuBar items={manyItems} />);
@@ -372,9 +372,13 @@ describe('Menu Bar', () => {
       const { container } = render(<MenuBar items={items} />);
       const results = await axe(container, {
         rules: {
-          'aria-roles': { enabled: false }, // Menu component uses invalid role
-          'aria-required-children': { enabled: false }, // Menu wraps menuitem in div
-          'aria-allowed-attr': { enabled: false }, // Menu component uses disallowed attributes
+          
+// Menu wraps menuitem in div
+'aria-allowed-attr': { enabled: false }, 
+          
+// Menu component uses invalid role
+'aria-required-children': { enabled: false }, 
+          'aria-roles': { enabled: false }, // Menu component uses disallowed attributes
         },
       });
 

@@ -127,11 +127,11 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
 
   // Setup keyboard navigation
   useKeyNavigation(separatorRef as React.RefObject<HTMLElement>, normalizedPercent, 101, {
+    onNavigate: handleNavigate,
+    onPageDown: handlePageDown,
+    onPageUp: handlePageUp,
     orientation: direction === 'horizontal' ? 'horizontal' : 'vertical',
     wrap: false,
-    onNavigate: handleNavigate,
-    onPageUp: handlePageUp,
-    onPageDown: handlePageDown,
   });
 
   // tracks the first render of the component

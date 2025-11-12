@@ -1,8 +1,7 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { Notification } from '../notification';
 

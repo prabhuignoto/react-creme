@@ -215,8 +215,8 @@ describe('Button', () => {
       button.focus();
 
       const event = new KeyboardEvent('keydown', {
-        key: ' ',
         bubbles: true,
+        key: ' ',
       });
       const preventDefaultSpy = vi.spyOn(event, 'preventDefault');
 

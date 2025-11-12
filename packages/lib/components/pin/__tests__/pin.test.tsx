@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React, { useRef } from 'react';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -235,7 +233,7 @@ describe('Pin Component', () => {
     it('should move to previous input on Backspace when empty', () => {
       const onChange = vi.fn();
       const { container } = render(<Pin onChange={onChange} />);
-      const inputs = container.querySelectorAll('input') as NodeListOf<HTMLInputElement>;
+      const inputs = container.querySelectorAll('input');
 
       fireEvent.change(inputs[0], { target: { value: '1' } });
       fireEvent.change(inputs[1], { target: { value: '2' } });
@@ -358,7 +356,7 @@ describe('Pin Component', () => {
 
     it('should support defaultValue in uncontrolled mode', async () => {
       const { container } = render(<Pin defaultValue="123" />);
-      const inputs = container.querySelectorAll('input') as NodeListOf<HTMLInputElement>;
+      const inputs = container.querySelectorAll('input');
 
       expect(inputs[0].value).toBe('1');
       expect(inputs[1].value).toBe('2');
@@ -587,12 +585,12 @@ describe('Pin Component', () => {
 
     it('should handle updateing defaultValue', () => {
       const { rerender, container } = render(<Pin defaultValue="123" />);
-      let inputs = container.querySelectorAll('input') as NodeListOf<HTMLInputElement>;
+      let inputs = container.querySelectorAll('input');
 
       expect(inputs[0].value).toBe('1');
 
       rerender(<Pin defaultValue="456" />);
-      inputs = container.querySelectorAll('input') as NodeListOf<HTMLInputElement>;
+      inputs = container.querySelectorAll('input');
 
       // Component should support dynamic updates
       expect(inputs.length).toBe(4);

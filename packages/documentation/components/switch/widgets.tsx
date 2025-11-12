@@ -1,12 +1,6 @@
 import { Section, Text } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
-import {
-  CheckIcon,
-  Default,
-  Disabled,
-  Large,
-  Medium,
-} from './widget-variants';
+import { CheckIcon, Default, Disabled, Large, Medium } from './widget-variants';
 
 function widgets() {
   return (

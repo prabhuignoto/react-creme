@@ -1,9 +1,6 @@
-import jsxToString from 'react-element-to-jsx-string';
 import { Section, Tags, Text } from '../../../lib/components';
-import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { Position } from '../../../lib/components/common/effects/use-position-model';
 import { DemoWidget } from '../../common/demo-widget';
-import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   PositionLeft,
   PositionLeftBottom,

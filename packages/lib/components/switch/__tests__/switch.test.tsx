@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
 import { render, waitFor, screen } from '@testing-library/react';
@@ -139,11 +137,10 @@ describe('Switch', () => {
     it('should not toggle on keyboard interaction when readOnly', async () => {
       const user = userEvent.setup();
       const handler = vi.fn();
-      const { getByRole } = render(
+      render(
         <Switch label="Test" readOnly onChange={handler} />
       );
 
-      const switchEl = getByRole('switch');
       await user.keyboard(' ');
 
       expect(handler).not.toHaveBeenCalled();
@@ -265,7 +262,6 @@ describe('Switch', () => {
     it('should have correct track heights for each size', () => {
       // sm: 25px, md: 30px, lg: 35px
       const sizes = ['sm', 'md', 'lg'] as const;
-      const expectedHeights = { sm: 25, md: 30, lg: 35 };
 
       sizes.forEach((size) => {
         const { container } = render(<Switch label="Test" size={size} />);
@@ -296,7 +292,7 @@ describe('Switch', () => {
     });
 
     it('should maintain consistent label positioning across sizes', () => {
-      const { container } = render(
+      render(
         <>
           <Switch label="Size Test SM" size="sm" />
           <Switch label="Size Test MD" size="md" />

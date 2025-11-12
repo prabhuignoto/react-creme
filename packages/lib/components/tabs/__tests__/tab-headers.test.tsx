@@ -1,10 +1,8 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
 import { fireEvent, render } from '@testing-library/react';
 import { TabHeaders } from '../tab-headers';
-import { vi, describe, expect, it } from 'vitest';
+import { vi, describe, expect, it, beforeEach, afterEach } from 'vitest';
 
 describe('TabHeaders', () => {
   let handleTabSelection = vi.fn();

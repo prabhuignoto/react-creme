@@ -1,11 +1,8 @@
 import { useLayoutEffect, useMemo, useState } from 'react';
 import { useAtomValue } from 'jotai';
-import jsxToString from 'react-element-to-jsx-string';
 import { Section, Splitter, Text } from '../../../lib/components';
-import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { responsiveState, themeState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 
 function widgets() {
   const media = useAtomValue(responsiveState);

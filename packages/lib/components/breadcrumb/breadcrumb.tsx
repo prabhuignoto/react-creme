@@ -114,10 +114,10 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = React.memo(
       currentIndex,
       items.length,
       {
+        onNavigate: handleNavigate,
         orientation: 'horizontal',
-        wrap: false,
         rtl: RTL,
-        onNavigate: handleNavigate
+        wrap: false
       },
       focusable
     );

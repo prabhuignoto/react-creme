@@ -46,7 +46,7 @@ const Pin = forwardRef<PinHandle, PinProps>(
     {
       length = 4,
       size = 'sm',
-      border: _border = false,
+      border: _border = false, // eslint-disable-line @typescript-eslint/no-unused-vars
       RTL = false,
       autoJump = true,
       disabled = false,
@@ -67,7 +67,7 @@ const Pin = forwardRef<PinHandle, PinProps>(
       defaultValue = '',
       onChange,
       onComplete,
-      onStatusChange: _onStatusChange,
+      onStatusChange: _onStatusChange, // eslint-disable-line @typescript-eslint/no-unused-vars
     },
     ref
   ) => {
@@ -80,9 +80,9 @@ const Pin = forwardRef<PinHandle, PinProps>(
     // State management
     const isFirstRender = useFirstRender();
     const [internalValue, setInternalValue] = useState(defaultValue);
-    const [_focusedIndex, setFocusedIndex] = useState<number>(-1);
+    const [_focusedIndex, setFocusedIndex] = useState<number>(-1); // eslint-disable-line @typescript-eslint/no-unused-vars
     const [visibleDigits, setVisibleDigits] = useState<Set<number>>(new Set());
-    const [maskTimeouts, setMaskTimeouts] = useState<Map<number, NodeJS.Timeout>>(
+    const [maskTimeouts, setMaskTimeouts] = useState<Map<number, ReturnType<typeof setTimeout>>>(
       new Map()
     );
 
@@ -105,6 +105,11 @@ const Pin = forwardRef<PinHandle, PinProps>(
     useImperativeHandle(
       ref,
       () => ({
+        focus: () => {
+          inputRefs.current[0]?.focus();
+        },
+        getValue: () => pinValue,
+        isComplete: () => pinValue.length === length,
         reset: () => {
           if (controlledValue === undefined) {
             setInternalValue('');
@@ -114,11 +119,6 @@ const Pin = forwardRef<PinHandle, PinProps>(
           });
           announceStatus('PIN cleared');
         },
-        focus: () => {
-          inputRefs.current[0]?.focus();
-        },
-        getValue: () => pinValue,
-        isComplete: () => pinValue.length === length,
       }),
       [controlledValue, pinValue, length, announceStatus]
     );

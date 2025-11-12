@@ -26,10 +26,10 @@ function Widgets() {
   };
 
   const handleError = (error: FileUploadError) => {
-    setErrors((prev) => [...prev, error.message]);
+    setErrors(prev => [...prev, error.message]);
     // Clear error after 5 seconds
     setTimeout(() => {
-      setErrors((prev) => prev.slice(1));
+      setErrors(prev => prev.slice(1));
     }, 5000);
   };
 
@@ -77,8 +77,8 @@ function Widgets() {
 
       <Section size="md" title="Size Variants" border={false}>
         <Text>
-          The file upload component supports three size variants: small,
-          medium, and large.
+          The file upload component supports three size variants: small, medium,
+          and large.
         </Text>
         <DemoWidget name="FileUpload" width={400}>
           {Small}
@@ -92,7 +92,9 @@ function Widgets() {
       </Section>
 
       <Section size="md" title="Disabled State" border={false}>
-        <Text>Disable the file upload component to prevent user interaction.</Text>
+        <Text>
+          Disable the file upload component to prevent user interaction.
+        </Text>
         <DemoWidget name="FileUpload" width={400}>
           {Disabled}
         </DemoWidget>
@@ -117,10 +119,14 @@ function Widgets() {
         </DemoWidget>
       </Section>
 
-      <Section size="md" title="Interactive Example with Validation" border={false}>
+      <Section
+        size="md"
+        title="Interactive Example with Validation"
+        border={false}
+      >
         <Text>
-          This example shows file upload with validation and error handling.
-          Try uploading files larger than 2MB or non-PDF files to see error
+          This example shows file upload with validation and error handling. Try
+          uploading files larger than 2MB or non-PDF files to see error
           messages.
         </Text>
         <DemoWidget name="FileUpload" width={500}>
@@ -148,15 +154,15 @@ function Widgets() {
             {errors.length > 0 && (
               <div
                 style={{
-                  marginTop: '1rem',
-                  padding: '0.75rem',
                   backgroundColor: '#fee',
                   borderLeft: '4px solid #e32636',
                   borderRadius: '4px',
+                  marginTop: '1rem',
+                  padding: '0.75rem',
                 }}
               >
                 <strong>Errors:</strong>
-                <ul style={{ marginTop: '0.5rem', marginBottom: 0 }}>
+                <ul style={{ marginBottom: 0, marginTop: '0.5rem' }}>
                   {errors.map((error, index) => (
                     <li key={index} style={{ color: '#e32636' }}>
                       {error}
@@ -171,8 +177,8 @@ function Widgets() {
 
       <Section size="md" title="RTL Support" border={false}>
         <Text>
-          The component supports right-to-left layouts using the <code>RTL</code>{' '}
-          prop.
+          The component supports right-to-left layouts using the{' '}
+          <code>RTL</code> prop.
         </Text>
         <DemoWidget name="FileUpload" width={400}>
           {RTL}

@@ -45,18 +45,18 @@ export const useFileValidation = (options: UseFileValidationOptions) => {
       // Check file type
       if (accept && !isFileTypeAccepted(file, accept)) {
         return {
-          type: 'file-type',
-          message: `File type "${file.type || 'unknown'}" is not accepted. Accepted types: ${accept}`,
           file,
+          message: `File type "${file.type || 'unknown'}" is not accepted. Accepted types: ${accept}`,
+          type: 'file-type',
         };
       }
 
       // Check file size
       if (maxSize && file.size > maxSize) {
         return {
-          type: 'file-size',
-          message: `File "${file.name}" is too large. Maximum size: ${formatFileSize(maxSize)}`,
           file,
+          message: `File "${file.name}" is too large. Maximum size: ${formatFileSize(maxSize)}`,
+          type: 'file-size',
         };
       }
 

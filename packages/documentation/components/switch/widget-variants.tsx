@@ -18,17 +18,11 @@ export const CheckIcon = (
   />
 );
 
-export const Disabled = (
-  <Switch label="Unavailable Setting" disabled checked />
-);
+export const Disabled = <Switch label="Unavailable Setting" disabled checked />;
 
-export const ReadOnly = (
-  <Switch label="Read-only Setting" readOnly checked />
-);
+export const ReadOnly = <Switch label="Read-only Setting" readOnly checked />;
 
-export const Loading = (
-  <Switch label="Saving preferences..." loading checked />
-);
+export const Loading = <Switch label="Saving preferences..." loading checked />;
 
 export const AriaLabel = (
   <Switch
@@ -46,7 +40,10 @@ export const WithDescription = (
       aria-describedby="autosave-desc"
       onChange={val => console.log('Auto-save:', val)}
     />
-    <p id="autosave-desc" style={{ fontSize: '0.875rem', color: '#666', marginTop: '0.5rem' }}>
+    <p
+      id="autosave-desc"
+      style={{ color: '#666', fontSize: '0.875rem', marginTop: '0.5rem' }}
+    >
       Automatically save your work every 5 minutes
     </p>
   </div>

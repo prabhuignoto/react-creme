@@ -11,18 +11,18 @@ import { AutoSuggestGroup } from '../auto-suggest.model';
 describe('groupedSuggestionsUtils', () => {
   const mockGroups: AutoSuggestGroup[] = [
     {
-      label: 'Fruits',
       items: [
         { name: 'Apple', value: 'apple' },
         { name: 'Banana', value: 'banana' },
       ],
+      label: 'Fruits',
     },
     {
-      label: 'Vegetables',
       items: [
         { name: 'Carrot', value: 'carrot' },
         { name: 'Broccoli', value: 'broccoli' },
       ],
+      label: 'Vegetables',
     },
   ];
 
@@ -58,7 +58,7 @@ describe('groupedSuggestionsUtils', () => {
 
     it('should handle empty groups', () => {
       const emptyGroups: AutoSuggestGroup[] = [
-        { label: 'Empty', items: [] },
+        { items: [], label: 'Empty' },
       ];
 
       const flat = flattenGroupedSuggestions(emptyGroups);
@@ -153,14 +153,14 @@ describe('groupedSuggestionsUtils', () => {
 
       expect(items).toHaveLength(4);
       expect(items[0]).toEqual({
+        groupLabel: 'Fruits',
         name: 'Apple',
         value: 'apple',
-        groupLabel: 'Fruits',
       });
       expect(items[2]).toEqual({
+        groupLabel: 'Vegetables',
         name: 'Carrot',
         value: 'carrot',
-        groupLabel: 'Vegetables',
       });
     });
 

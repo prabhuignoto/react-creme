@@ -37,19 +37,19 @@ const createMockFile = (
 // Helper function to create DataTransfer for drag and drop
 const createDataTransfer = (files: File[]): DataTransfer => {
   return {
-    files: files as unknown as FileList,
-    items: files.map((file) => ({
-      kind: 'file' as const,
-      type: file.type,
-      getAsFile: () => file,
-    })) as unknown as DataTransferItemList,
-    types: ['Files'],
+    clearData: vi.fn(),
     dropEffect: 'copy',
     effectAllowed: 'all',
-    clearData: vi.fn(),
+    files: files as unknown as FileList,
     getData: vi.fn(),
+    items: files.map((file) => ({
+      getAsFile: () => file,
+      kind: 'file' as const,
+      type: file.type,
+    })) as unknown as DataTransferItemList,
     setData: vi.fn(),
     setDragImage: vi.fn(),
+    types: ['Files'],
   } as DataTransfer;
 };
 
@@ -230,8 +230,8 @@ describe('FileUpload', () => {
       await waitFor(() => {
         expect(handleError).toHaveBeenCalledWith(
           expect.objectContaining({
-            type: 'file-size',
             file,
+            type: 'file-size',
           })
         );
         expect(handleChange).not.toHaveBeenCalled();

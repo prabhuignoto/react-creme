@@ -1,9 +1,7 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
 import { render, waitFor } from '@testing-library/react';
-import { vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { DropDownMenu } from '../dropdown-menu';
 import { MenuOption } from '../dropdown-model';
 import { DropdownMenuStyleModel } from './../dropdown-model';

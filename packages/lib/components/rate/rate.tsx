@@ -95,12 +95,12 @@ const Rate: React.FunctionComponent<RateProps> = ({
   // Keyboard navigation between rate items
   const wrapperRef = useRef<HTMLElement>(null!);
   useKeyNavigation(wrapperRef, selectedIndex >= 0 ? selectedIndex : -1, iconCount, {
-    orientation: 'horizontal',
-    rtl: RTL,
-    wrap: true,
     onNavigate: (index: number) => {
       handleSelection(index);
     },
+    orientation: 'horizontal',
+    rtl: RTL,
+    wrap: true,
   });
 
   // Effect to update the active state of rate items when the selected index changes

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
 /**
@@ -180,8 +180,8 @@ export function useVirtualization(
       const scrollTop = clampedIndex * itemHeightWithGap;
 
       containerRef.current.scrollTo({
-        top: scrollTop,
         behavior: smooth ? 'smooth' : 'auto',
+        top: scrollTop,
       });
     },
     [containerRef, itemCount, itemHeightWithGap]
@@ -199,13 +199,13 @@ export function useVirtualization(
   );
 
   return {
-    visibleRange,
-    startIndex,
     endIndex,
-    totalHeight,
     offsetTop,
-    visibleItems,
-    scrollToIndex,
     recalculate: calculateRange,
+    scrollToIndex,
+    startIndex,
+    totalHeight,
+    visibleItems,
+    visibleRange,
   };
 }

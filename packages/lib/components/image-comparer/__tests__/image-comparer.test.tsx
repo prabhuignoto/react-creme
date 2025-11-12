@@ -1,9 +1,7 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
-import { render, screen, waitFor } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { ImageComparer } from '../image-comparer';
 
@@ -63,8 +61,6 @@ describe('ImageComparer', () => {
     });
 
     it('should support keyboard interaction', async () => {
-      const user = userEvent.setup();
-
       render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );

@@ -1,3 +1,4 @@
+import React from 'react';
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useVirtualization } from '../useVirtualization';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
@@ -18,16 +19,16 @@ describe('useVirtualization', () => {
 
     // Mock scroll-related properties
     Object.defineProperty(container, 'scrollTop', {
-      writable: true,
       value: 0,
+      writable: true,
     });
     Object.defineProperty(container, 'clientHeight', {
-      writable: true,
       value: 600,
+      writable: true,
     });
     Object.defineProperty(container, 'scrollHeight', {
-      writable: true,
       value: 20000,
+      writable: true,
     });
 
     // Mock scrollTo method (not available in jsdom by default)
@@ -57,9 +58,9 @@ describe('useVirtualization', () => {
     it('should initialize with correct visible range', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 1000,
           itemHeight: 40,
-          containerRef,
         })
       );
 
@@ -70,10 +71,10 @@ describe('useVirtualization', () => {
     it('should return all items when disabled', () => {
       const { result } = renderHook(() =>
         useVirtualization({
-          itemCount: 100,
-          itemHeight: 40,
           containerRef,
           enabled: false,
+          itemCount: 100,
+          itemHeight: 40,
         })
       );
 
@@ -86,10 +87,10 @@ describe('useVirtualization', () => {
     it('should calculate correct total height', () => {
       const { result } = renderHook(() =>
         useVirtualization({
-          itemCount: 1000,
-          itemHeight: 40,
           containerRef,
+          itemCount: 1000,
           itemGap: 5,
+          itemHeight: 40,
         })
       );
 
@@ -100,11 +101,11 @@ describe('useVirtualization', () => {
 
   describe('scroll handling', () => {
     it('should update visible range on scroll', async () => {
-      const { result, rerender } = renderHook(() =>
+      const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 1000,
           itemHeight: 40,
-          containerRef,
         })
       );
 
@@ -127,9 +128,9 @@ describe('useVirtualization', () => {
     it('should respect overscan setting', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 1000,
           itemHeight: 40,
-          containerRef,
           overscan: 5,
         })
       );
@@ -144,9 +145,9 @@ describe('useVirtualization', () => {
     it('should not exceed bounds with overscan', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 100,
           itemHeight: 40,
-          containerRef,
           overscan: 50,
         })
       );
@@ -161,9 +162,9 @@ describe('useVirtualization', () => {
     it('should scroll to specified index', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 1000,
           itemHeight: 40,
-          containerRef,
         })
       );
 
@@ -172,17 +173,17 @@ describe('useVirtualization', () => {
       });
 
       expect(container.scrollTo).toHaveBeenCalledWith({
-        top: 100 * 40,
         behavior: 'auto',
+        top: 100 * 40,
       });
     });
 
     it('should clamp scroll index to bounds', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 100,
           itemHeight: 40,
-          containerRef,
         })
       );
 
@@ -192,17 +193,17 @@ describe('useVirtualization', () => {
 
       // Should scroll to last item (99)
       expect(container.scrollTo).toHaveBeenCalledWith({
-        top: 99 * 40,
         behavior: 'auto',
+        top: 99 * 40,
       });
     });
 
     it('should use smooth scrolling by default', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 1000,
           itemHeight: 40,
-          containerRef,
         })
       );
 
@@ -222,9 +223,9 @@ describe('useVirtualization', () => {
     it('should recalculate visible range on demand', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 1000,
           itemHeight: 40,
-          containerRef,
         })
       );
 
@@ -244,9 +245,9 @@ describe('useVirtualization', () => {
     it('should handle empty list', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 0,
           itemHeight: 40,
-          containerRef,
         })
       );
 
@@ -257,9 +258,9 @@ describe('useVirtualization', () => {
     it('should handle single item', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 1,
           itemHeight: 40,
-          containerRef,
         })
       );
 
@@ -272,9 +273,9 @@ describe('useVirtualization', () => {
 
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef: nullRef,
           itemCount: 1000,
           itemHeight: 40,
-          containerRef: nullRef,
         })
       );
 
@@ -289,10 +290,10 @@ describe('useVirtualization', () => {
     it('should handle with item gap', () => {
       const { result } = renderHook(() =>
         useVirtualization({
-          itemCount: 100,
-          itemHeight: 40,
           containerRef,
+          itemCount: 100,
           itemGap: 10,
+          itemHeight: 40,
         })
       );
 
@@ -303,12 +304,11 @@ describe('useVirtualization', () => {
 
   describe('performance', () => {
     it('should debounce scroll events', () => {
-      const calculateSpy = vi.fn();
-      const { result } = renderHook(() =>
+      renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 1000,
           itemHeight: 40,
-          containerRef,
           scrollDebounce: 100,
         })
       );
@@ -330,9 +330,9 @@ describe('useVirtualization', () => {
     it('should calculate correct offset top', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 1000,
           itemHeight: 40,
-          containerRef,
           overscan: 0,
         })
       );
@@ -346,9 +346,9 @@ describe('useVirtualization', () => {
     it('should calculate correct visible items array', () => {
       const { result } = renderHook(() =>
         useVirtualization({
+          containerRef,
           itemCount: 1000,
           itemHeight: 40,
-          containerRef,
         })
       );
 

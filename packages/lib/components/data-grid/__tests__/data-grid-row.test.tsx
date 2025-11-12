@@ -1,7 +1,6 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { render } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import { axe } from 'jest-axe';
 import { DataGridRow } from '../data-grid-row';
 // @ts-expect-error - SCSS module type declaration is available but not picked up by linter

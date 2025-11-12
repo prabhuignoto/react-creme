@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FunctionComponent, useCallback, useMemo } from 'react';
+import React, { FunctionComponent, useCallback, useMemo } from 'react';
 import { Button } from '..';
 import { FormGroupProps, FormItemProps } from './form-group.model';
 import styles from './form-group.module.scss';

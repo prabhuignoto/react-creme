@@ -37,20 +37,20 @@ export function flattenGroupedSuggestions(
   for (const group of groups) {
     // Add group header
     result.push({
+      groupLabel: group.label,
       id: `group-${group.label.toLowerCase().replace(/\s+/g, '-')}`,
+      isGroupHeader: true,
       name: group.label,
       value: '',
-      isGroupHeader: true,
-      groupLabel: group.label,
     });
 
     // Add group items
     for (const item of group.items) {
       result.push({
+        groupLabel: group.label,
         id: `${item.value}`,
         name: item.name,
         value: item.value,
-        groupLabel: group.label,
       });
     }
   }

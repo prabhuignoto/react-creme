@@ -61,17 +61,17 @@ const FileUpload = React.forwardRef<FileUploadRef, FileUploadProps>(
     const { files, processFiles, removeFile, clearFiles, getFiles } =
       useFileProcessing({
         accept,
-        maxSize,
         maxFiles,
-        showThumbnails,
+        maxSize,
         onChange,
         onError,
+        showThumbnails,
       });
 
     // Drag and drop hook
     const { isDragging, handlers: dragHandlers } = useFileDragDrop({
-      enabled: enableDragDrop,
       disabled,
+      enabled: enableDragDrop,
       onDrop: (droppedFiles) => {
         onDrop?.(droppedFiles);
         processFiles(droppedFiles);
@@ -181,17 +181,17 @@ const FileUpload = React.forwardRef<FileUploadRef, FileUploadProps>(
     useImperativeHandle(
       ref,
       () => ({
-        focus: () => {
-          dropZoneRef.current?.focus();
+        browse: () => {
+          handleBrowseClick();
         },
         clear: () => {
           clearFiles();
         },
+        focus: () => {
+          dropZoneRef.current?.focus();
+        },
         getFiles: () => {
           return getFiles();
-        },
-        browse: () => {
-          handleBrowseClick();
         },
       }),
       [clearFiles, getFiles, handleBrowseClick]

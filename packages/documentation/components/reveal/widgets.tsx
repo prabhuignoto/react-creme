@@ -1,10 +1,7 @@
 import { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
-import jsxToString from 'react-element-to-jsx-string';
 import { Image, Reveal } from '../../../lib/components';
-import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { useAtomValue } from 'jotai';
 import { responsiveState } from '../../atoms/home';
-import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 
 const blankStyle = {
   alignItems: 'flex-start',

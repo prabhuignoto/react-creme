@@ -1,9 +1,6 @@
-import jsxToString from 'react-element-to-jsx-string';
 import { Section } from '../../../lib/components';
-import { InlineCodeViewer } from '../../common/inline-code-viewer';
 import { MenuButton } from '../../../lib/components/menu-button/menu-button';
 import { DemoWidget } from '../../common/demo-widget';
-import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 
 function widgets() {
   return (

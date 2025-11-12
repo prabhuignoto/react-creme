@@ -61,10 +61,10 @@ export const isImageFile = (file: File): boolean => {
  */
 export const createFileItem = (file: File): FileItem => {
   return {
-    id: nanoid(),
     file,
-    previewUrl: undefined,
+    id: nanoid(),
     isImage: isImageFile(file),
+    previewUrl: undefined,
     progress: 0,
   };
 };

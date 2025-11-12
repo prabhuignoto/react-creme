@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
 import React from 'react';
 import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
@@ -314,18 +312,18 @@ describe('AutoSuggest', () => {
   describe('Grouped Suggestions', () => {
     const groupedSuggestions = [
       {
-        label: 'Fruits',
         items: [
           { name: 'Apple', value: 'apple' },
           { name: 'Banana', value: 'banana' },
         ],
+        label: 'Fruits',
       },
       {
-        label: 'Vegetables',
         items: [
           { name: 'Carrot', value: 'carrot' },
           { name: 'Broccoli', value: 'broccoli' },
         ],
+        label: 'Vegetables',
       },
     ];
 
@@ -572,7 +570,7 @@ describe('AutoSuggest', () => {
 
   describe('Display Name', () => {
     it('should have displayName set to AutoSuggest', () => {
-      // @ts-ignore - accessing component displayName
+      // @ts-expect-error - accessing component displayName
       expect(AutoSuggest.displayName).toBe('AutoSuggest');
     });
   });

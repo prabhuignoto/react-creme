@@ -61,8 +61,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
       () =>
         optionsWithIds.map(option => ({
           ...option,
-          visible: true,
           selected: selectedIds.has(option.id),
+          visible: true,
         })),
       [optionsWithIds, selectedIds]
     );
