@@ -72,7 +72,7 @@ export function getNextIndex(
  */
 export function getPreviousIndex(
   currentIndex: number,
-  _flatItems: FlatTreeItem[] // eslint-disable-line @typescript-eslint/no-unused-vars
+  // _flatItems: FlatTreeItem[] // eslint-disable-line @typescript-eslint/no-unused-vars
 ): number {
   if (currentIndex <= 0) {
     return currentIndex; // Already at the start
@@ -83,7 +83,8 @@ export function getPreviousIndex(
 /**
  * Get the index of the first item
  */
-export function getFirstIndex(_flatItems: FlatTreeItem[]): number { // eslint-disable-line @typescript-eslint/no-unused-vars
+export function getFirstIndex(): number {
+  // eslint-disable-line @typescript-eslint/no-unused-vars
   return 0;
 }
 

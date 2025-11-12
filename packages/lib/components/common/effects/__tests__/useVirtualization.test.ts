@@ -32,7 +32,7 @@ describe('useVirtualization', () => {
     });
 
     // Mock scrollTo method (not available in jsdom by default)
-    HTMLElement.prototype.scrollTo = vi.fn(function(
+    HTMLElement.prototype.scrollTo = vi.fn(function (
       this: HTMLElement,
       options?: ScrollToOptions | number,
       y?: number
@@ -357,7 +357,9 @@ describe('useVirtualization', () => {
 
       expect(result.current.visibleItems.length).toBe(expectedLength);
       expect(result.current.visibleItems[0]).toBe(start);
-      expect(result.current.visibleItems[result.current.visibleItems.length - 1]).toBe(end);
+      expect(
+        result.current.visibleItems[result.current.visibleItems.length - 1]
+      ).toBe(end);
     });
   });
 });

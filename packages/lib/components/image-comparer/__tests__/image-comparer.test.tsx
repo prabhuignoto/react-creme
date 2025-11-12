@@ -88,11 +88,15 @@ describe('ImageComparer', () => {
       const separator = screen.getByRole('separator', { hidden: true });
       separator.focus();
 
-      const initialValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const initialValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
 
       await user.keyboard('{ArrowRight}');
 
-      const newValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const newValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
       expect(newValue).toBeGreaterThan(initialValue);
     });
 
@@ -110,11 +114,15 @@ describe('ImageComparer', () => {
       const separator = screen.getByRole('separator', { hidden: true });
       separator.focus();
 
-      const initialValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const initialValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
 
       await user.keyboard('{ArrowLeft}');
 
-      const newValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const newValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
       expect(newValue).toBeLessThan(initialValue);
     });
 
@@ -132,11 +140,15 @@ describe('ImageComparer', () => {
       const separator = screen.getByRole('separator', { hidden: true });
       separator.focus();
 
-      const initialValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const initialValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
 
       await user.keyboard('{ArrowDown}');
 
-      const newValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const newValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
       expect(newValue).toBeGreaterThan(initialValue);
     });
 
@@ -154,11 +166,15 @@ describe('ImageComparer', () => {
       const separator = screen.getByRole('separator', { hidden: true });
       separator.focus();
 
-      const initialValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const initialValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
 
       await user.keyboard('{ArrowUp}');
 
-      const newValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const newValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
       expect(newValue).toBeLessThan(initialValue);
     });
 
@@ -208,11 +224,15 @@ describe('ImageComparer', () => {
       const separator = screen.getByRole('separator', { hidden: true });
       separator.focus();
 
-      const initialValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const initialValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
 
       await user.keyboard('{PageUp}');
 
-      const newValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const newValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
       // Should increase by approximately 20% (largeStep)
       expect(newValue).toBeGreaterThanOrEqual(initialValue + 15);
     });
@@ -231,11 +251,15 @@ describe('ImageComparer', () => {
       const separator = screen.getByRole('separator', { hidden: true });
       separator.focus();
 
-      const initialValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const initialValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
 
       await user.keyboard('{PageDown}');
 
-      const newValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const newValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
       // Should decrease by approximately 20% (largeStep)
       expect(newValue).toBeLessThanOrEqual(initialValue - 15);
     });
@@ -244,20 +268,21 @@ describe('ImageComparer', () => {
       const user = userEvent.setup();
 
       render(
-        <ImageComparer
-          sourceOne={mockImageSrc1}
-          sourceTwo={mockImageSrc2}
-        />
+        <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
       const separator = screen.getByRole('separator', { hidden: true });
       separator.focus();
 
-      const initialValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const initialValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
 
       await user.keyboard('{ArrowRight}');
 
-      const newValue = parseInt(separator.getAttribute('aria-valuenow') || '50');
+      const newValue = parseInt(
+        separator.getAttribute('aria-valuenow') || '50'
+      );
       // Arrow keys move by 1% per press
       expect(newValue).toBe(initialValue + 1);
     });

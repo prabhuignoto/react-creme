@@ -77,7 +77,9 @@ export interface PinProps {
   onComplete?: (value: string) => void;
 
   /** Called on validation/status change */
-  onStatusChange?: (status: 'default' | 'success' | 'error' | 'warning') => void;
+  onStatusChange?: (
+    status: 'default' | 'success' | 'error' | 'warning'
+  ) => void;
 }
 
 /**

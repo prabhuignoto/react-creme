@@ -42,9 +42,22 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
       }
     }, [id, handleRemove]);
 
+    const handleKeyDown = useCallback(
+      (event: React.KeyboardEvent) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          handleClick();
+        }
+      },
+      [handleClick]
+    );
+
     useKey(ref as React.RefObject<HTMLElement>, handleClick);
 
-    const editable = useMemo(() => !disabled && !readonly, [disabled, readonly]);
+    const editable = useMemo(
+      () => !disabled && !readonly,
+      [disabled, readonly]
+    );
 
     const isDarkMode = useMemo(() => isDark(), []);
 
@@ -95,6 +108,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
         <span
           className={tagIconClass}
           onClick={handleClick}
+          onKeyDown={handleKeyDown}
           ref={ref}
           role="button"
           aria-label="delete tag"

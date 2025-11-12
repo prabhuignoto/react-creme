@@ -70,51 +70,47 @@ const BreadCrumbItem = React.memo(
       }: BreadCrumbItemProps,
       ref
     ) => {
-    // Determine the icon CSS classes based on the provided props
-    const breadCrumbIcon = useMemo(() => {
-      return classNames(styles.bread_crumb_icon, RTL ? styles.rtl_icon : '', {
-        [styles[`bread_crumb_icon_${size}`]]: true,
-        [styles.slash]: icon === 'slash',
-      });
-    }, [RTL, size, icon]);
+      // Determine the icon CSS classes based on the provided props
+      const breadCrumbIcon = useMemo(() => {
+        return classNames(styles.bread_crumb_icon, RTL ? styles.rtl_icon : '', {
+          [styles[`bread_crumb_icon_${size}`]]: true,
+          [styles.slash]: icon === 'slash',
+        });
+      }, [RTL, size, icon]);
 
-    // Determine the node CSS classes based on the provided props
-    const breadCrumbNode = useMemo(() => {
-      return classNames(styles.bread_crumb_node, {
-        [styles[`bread_crumb_node_${size}`]]: true,
-        [styles.selected]: selected,
-      });
-    }, [size, selected]);
+      // Determine the node CSS classes based on the provided props
+      const breadCrumbNode = useMemo(() => {
+        return classNames(styles.bread_crumb_node, {
+          [styles[`bread_crumb_node_${size}`]]: true,
+          [styles.selected]: selected,
+        });
+      }, [size, selected]);
 
-    // Handle click events on the breadcrumb item
-    const handleClick = useCallback(() => {
-      onSelected?.(index, name);
-    }, [onSelected, index, name]);
+      // Handle click events on the breadcrumb item
+      const handleClick = useCallback(() => {
+        onSelected?.(index, name);
+      }, [onSelected, index, name]);
 
-    // Render the breadcrumb item component
-    return (
-      <li
-        className={styles.bread_crumb}
-        aria-current={isLast ? 'page' : undefined}
-      >
-        <span className={breadCrumbNode}>
-          <Link
-            onClick={handleClick}
-            focusable={focusable}
-            ref={ref}
-          >
-            {name}
-          </Link>
-        </span>
-        {showChevron && (
-          <span className={breadCrumbIcon} aria-hidden="true">
-            {icon === 'chevron' && <ChevronRightIcon />}
-            {icon === 'arrow' && <ArrowRightIcon />}
-            {icon === 'slash' && <MinusIcon />}
+      // Render the breadcrumb item component
+      return (
+        <li
+          className={styles.bread_crumb}
+          aria-current={isLast ? 'page' : undefined}
+        >
+          <span className={breadCrumbNode}>
+            <Link onClick={handleClick} focusable={focusable} ref={ref}>
+              {name}
+            </Link>
           </span>
-        )}
-      </li>
-    );
+          {showChevron && (
+            <span className={breadCrumbIcon} aria-hidden="true">
+              {icon === 'chevron' && <ChevronRightIcon />}
+              {icon === 'arrow' && <ArrowRightIcon />}
+              {icon === 'slash' && <MinusIcon />}
+            </span>
+          )}
+        </li>
+      );
     }
   )
 );

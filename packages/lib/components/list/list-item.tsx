@@ -50,10 +50,13 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
       [disabled, focus, focusable, highlightSelection, isDarkMode]
     );
 
-    const handleMouseDown = useCallback((e: React.MouseEvent) => {
-      e.preventDefault();
-      handleSelection();
-    }, [handleSelection]);
+    const handleMouseDown = useCallback(
+      (e: React.MouseEvent) => {
+        e.preventDefault();
+        handleSelection();
+      },
+      [handleSelection]
+    );
 
     const clickableProps = useMemo(() => {
       if (disabled) {

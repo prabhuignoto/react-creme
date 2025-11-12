@@ -122,7 +122,16 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
       aria-label={label}
     >
       {/* Hidden label for screen readers */}
-      <span id={labelId} style={{ height: '1px', left: '-10000px', overflow: 'hidden', position: 'absolute', width: '1px' }}>
+      <span
+        id={labelId}
+        style={{
+          height: '1px',
+          left: '-10000px',
+          overflow: 'hidden',
+          position: 'absolute',
+          width: '1px',
+        }}
+      >
         {label}
       </span>
       {allowMultiSelection ? (

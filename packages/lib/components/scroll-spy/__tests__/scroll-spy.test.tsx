@@ -50,7 +50,9 @@ describe('ScrollSpy', () => {
     });
 
     it('should render all links in sidebar', () => {
-      const { container } = render(<ScrollSpy links={mockLinks}>{mockChildren}</ScrollSpy>);
+      const { container } = render(
+        <ScrollSpy links={mockLinks}>{mockChildren}</ScrollSpy>
+      );
 
       const buttons = container.querySelectorAll('button');
       expect(buttons.length).toBe(mockLinks.length);
@@ -92,7 +94,9 @@ describe('ScrollSpy', () => {
   describe('User Interactions', () => {
     it('should scroll to section when link is clicked', async () => {
       const user = userEvent.setup();
-      const { container } = render(<ScrollSpy links={mockLinks}>{mockChildren}</ScrollSpy>);
+      const { container } = render(
+        <ScrollSpy links={mockLinks}>{mockChildren}</ScrollSpy>
+      );
 
       const buttons = container.querySelectorAll('button');
       const linkElement = buttons[1]; // Section 2
@@ -108,7 +112,8 @@ describe('ScrollSpy', () => {
 
       render(<ScrollSpy links={mockLinks}>{mockChildren}</ScrollSpy>);
 
-      const contentArea = screen.getByText('Content 1').parentElement?.parentElement;
+      const contentArea =
+        screen.getByText('Content 1').parentElement?.parentElement;
 
       if (contentArea) {
         // Simulate scroll event
@@ -145,7 +150,9 @@ describe('ScrollSpy', () => {
     it('should handle single child element', () => {
       const singleChild = <div>Single Content</div>;
 
-      const { container } = render(<ScrollSpy links={['Single Section']}>{singleChild}</ScrollSpy>);
+      const { container } = render(
+        <ScrollSpy links={['Single Section']}>{singleChild}</ScrollSpy>
+      );
 
       expect(screen.getByText('Single Content')).toBeInTheDocument();
 
@@ -157,7 +164,9 @@ describe('ScrollSpy', () => {
 
   describe('Intersection Observer', () => {
     it('should create IntersectionObserver for content tracking', () => {
-      const { container } = render(<ScrollSpy links={mockLinks}>{mockChildren}</ScrollSpy>);
+      const { container } = render(
+        <ScrollSpy links={mockLinks}>{mockChildren}</ScrollSpy>
+      );
 
       // Check that IntersectionObserver was instantiated
       // We can verify this indirectly by checking that section headers have IDs
@@ -166,14 +175,16 @@ describe('ScrollSpy', () => {
     });
 
     it('should observe section headers', () => {
-      const { container } = render(<ScrollSpy links={mockLinks}>{mockChildren}</ScrollSpy>);
+      const { container } = render(
+        <ScrollSpy links={mockLinks}>{mockChildren}</ScrollSpy>
+      );
 
       // Verify that headers exist and can be observed
       const headers = container.querySelectorAll('h4[id]');
       expect(headers.length).toBe(mockLinks.length);
 
       // Each header should have a valid ID
-      headers.forEach((header) => {
+      headers.forEach(header => {
         expect(header.id).toMatch(/^spy-/);
       });
     });
@@ -222,7 +233,7 @@ describe('ScrollSpy', () => {
       );
 
       const buttons = container.querySelectorAll('button');
-      buttons.forEach((button) => {
+      buttons.forEach(button => {
         expect(button).toHaveAttribute('type', 'button');
         expect(button).toHaveAttribute('aria-label');
         expect(button).toHaveAttribute('tabIndex', '0');
@@ -236,7 +247,7 @@ describe('ScrollSpy', () => {
 
       // Initially, no link should be active
       const buttons = container.querySelectorAll('button');
-      buttons.forEach((button) => {
+      buttons.forEach(button => {
         expect(button).not.toHaveAttribute('aria-current', 'true');
       });
     });
@@ -420,7 +431,7 @@ describe('ScrollSpy', () => {
       );
 
       const buttons = container.querySelectorAll('button');
-      buttons.forEach((button) => {
+      buttons.forEach(button => {
         expect(button).toHaveAttribute('tabIndex', '0');
       });
     });
@@ -454,7 +465,7 @@ describe('ScrollSpy', () => {
       // Headers should be visible
       let headers = container.querySelectorAll('h4');
       expect(headers.length).toBe(3);
-      headers.forEach((header) => {
+      headers.forEach(header => {
         expect(header).toBeVisible();
       });
 
@@ -526,9 +537,7 @@ describe('ScrollSpy', () => {
 
   describe('Edge Cases', () => {
     it('should handle empty links array', () => {
-      const { container } = render(
-        <ScrollSpy links={[]}>{[]}</ScrollSpy>
-      );
+      const { container } = render(<ScrollSpy links={[]}>{[]}</ScrollSpy>);
 
       expect(container.firstChild).toBeInTheDocument();
       const buttons = container.querySelectorAll('button');
@@ -550,7 +559,8 @@ describe('ScrollSpy', () => {
     });
 
     it('should handle very long link names', () => {
-      const longLink = 'This is a very long link name that might cause overflow issues if not handled properly';
+      const longLink =
+        'This is a very long link name that might cause overflow issues if not handled properly';
       const { container } = render(
         <ScrollSpy links={[longLink]}>
           <div>Content</div>
@@ -562,7 +572,11 @@ describe('ScrollSpy', () => {
     });
 
     it('should handle special characters in link names', () => {
-      const specialLinks = ['Link & Special', 'Link < > Special', 'Link "quotes"'];
+      const specialLinks = [
+        'Link & Special',
+        'Link < > Special',
+        'Link "quotes"',
+      ];
       const { container } = render(
         <ScrollSpy links={specialLinks}>
           {specialLinks.map((link, i) => (

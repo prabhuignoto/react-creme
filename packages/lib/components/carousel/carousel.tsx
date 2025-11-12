@@ -62,7 +62,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Callback function to handle "Next" action in the carousel.
   const handleNext = useCallback(() => {
-    setActivePage((prev) => {
+    setActivePage(prev => {
       if (prev < trackCount.current - 1) {
         return prev + 1;
       }
@@ -72,7 +72,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Callback function to handle "Previous" action in the carousel.
   const handlePrevious = useCallback(() => {
-    setActivePage((prev) => {
+    setActivePage(prev => {
       if (prev > 0) {
         return prev - 1;
       }
@@ -91,7 +91,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Callback function to toggle pause state for autoPlay
   const handleTogglePause = useCallback(() => {
-    setIsPaused((prev) => !prev);
+    setIsPaused(prev => !prev);
   }, []);
 
   // Callback function to handle the initial setup of the carousel.
@@ -122,9 +122,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
       height: debouncedSlideHeight,
       id: childrenIds[index] ?? nanoid(),
       [prop]: `${
-        direction === 'horizontal'
-          ? index * slideWidth
-          : index * slideHeight
+        direction === 'horizontal' ? index * slideWidth : index * slideHeight
       }px`,
       visible: false,
       width: debouncedSlideWidth,
@@ -163,7 +161,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
     ) {
       setAutoPlaying(true);
       autoPlayRef.current = window.setInterval(() => {
-        setActivePage((page) => {
+        setActivePage(page => {
           const nextPage = page + 1;
           if (nextPage >= carouselItems.length) {
             if (autoPlayRef.current) {

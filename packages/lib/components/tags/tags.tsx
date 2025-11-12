@@ -33,7 +33,10 @@ const Tags: React.FunctionComponent<TagsProps> = ({
   allowDuplicates = false,
 }) => {
   // Generate unique ID for aria-describedby
-  const descriptionId = React.useMemo(() => `rc-tags-description-${nanoid()}`, []);
+  const descriptionId = React.useMemo(
+    () => `rc-tags-description-${nanoid()}`,
+    []
+  );
 
   // STATES
   const [tagItems, setTagItems] = useState<TagItemProps[]>(
@@ -213,7 +216,8 @@ const Tags: React.FunctionComponent<TagsProps> = ({
           ? 'No tags added yet. '
           : `${tagItems.length} tag${tagItems.length !== 1 ? 's' : ''} added. `}
         {maxTags !== Number.MAX_VALUE && `Maximum ${maxTags} tags allowed. `}
-        Press Enter to add a tag. Use arrow keys to navigate between tags. Press Delete to remove a focused tag.
+        Press Enter to add a tag. Use arrow keys to navigate between tags. Press
+        Delete to remove a focused tag.
       </div>
       <ul
         className={classNames(styles.tags_wrapper, {
@@ -235,40 +239,40 @@ const Tags: React.FunctionComponent<TagsProps> = ({
         aria-describedby={descriptionId}
         tabIndex={-1}
       >
-      {tagItems.map(({ id, name, disabled, readonly, markedForRemoval }) => (
-        <TagItem
-          id={id ?? ''}
-          disabled={disabled ?? false}
-          readonly={readonly ?? false}
-          handleRemove={handleRemove}
-          key={id}
-          name={name}
-          tagWidth={tagWidth}
-          tagStyle={tagStyle}
-          size={size}
-          markedForRemoval={markedForRemoval ?? false}
-          focusable={focusable}
-          accent={accent}
-        />
-      ))}
-      {canAdd && (
-        <li className={styles.tags_input_wrapper}>
-          <AutoSuggest
-            suggestions={tagSuggestions}
-            onChange={handleChange}
-            onSelection={handleAdd}
-            onKeyUp={handleKeyUp}
-            value={inputValue}
-            placeholder={placeholder}
+        {tagItems.map(({ id, name, disabled, readonly, markedForRemoval }) => (
+          <TagItem
+            id={id ?? ''}
+            disabled={disabled ?? false}
+            readonly={readonly ?? false}
+            handleRemove={handleRemove}
+            key={id}
+            name={name}
+            tagWidth={tagWidth}
+            tagStyle={tagStyle}
+            size={size}
+            markedForRemoval={markedForRemoval ?? false}
             focusable={focusable}
             accent={accent}
-            ref={inputRef}
-            size={size}
-            disableIcon={!suggestions.length}
           />
-        </li>
-      )}
-    </ul>
+        ))}
+        {canAdd && (
+          <li className={styles.tags_input_wrapper}>
+            <AutoSuggest
+              suggestions={tagSuggestions}
+              onChange={handleChange}
+              onSelection={handleAdd}
+              onKeyUp={handleKeyUp}
+              value={inputValue}
+              placeholder={placeholder}
+              focusable={focusable}
+              accent={accent}
+              ref={inputRef}
+              size={size}
+              disableIcon={!suggestions.length}
+            />
+          </li>
+        )}
+      </ul>
     </>
   );
 };

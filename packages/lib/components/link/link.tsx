@@ -30,7 +30,8 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     forwardedRef
   ) => {
     const internalRef = useRef<HTMLAnchorElement>(null);
-    const ref = (forwardedRef || internalRef) as React.RefObject<HTMLAnchorElement>;
+    const ref = (forwardedRef ||
+      internalRef) as React.RefObject<HTMLAnchorElement>;
     let focusProps = null;
 
     useFocusNew(focusable ? (ref as React.RefObject<HTMLElement>) : null);

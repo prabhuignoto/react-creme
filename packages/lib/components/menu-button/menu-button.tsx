@@ -39,19 +39,16 @@ const MenuButton: React.FunctionComponent<MenuButtonProps> = ({
     [onSelected]
   );
 
-  const handleKeyUp = useCallback(
-    (e: React.KeyboardEvent<HTMLDivElement>) => {
-      // Use keyup instead of keydown to naturally prevent repeated events
-      // keyup only fires once when the key is released
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        e.stopPropagation();
-        // Let the click event handle the toggle (via bubbling to Menu)
-        buttonRef.current?.click();
-      }
-    },
-    []
-  );
+  const handleKeyUp = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+    // Use keyup instead of keydown to naturally prevent repeated events
+    // keyup only fires once when the key is released
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      // Let the click event handle the toggle (via bubbling to Menu)
+      buttonRef.current?.click();
+    }
+  }, []);
 
   const menuButtonClass = useMemo(
     () =>

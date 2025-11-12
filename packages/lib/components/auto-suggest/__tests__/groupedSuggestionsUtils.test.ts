@@ -57,9 +57,7 @@ describe('groupedSuggestionsUtils', () => {
     });
 
     it('should handle empty groups', () => {
-      const emptyGroups: AutoSuggestGroup[] = [
-        { items: [], label: 'Empty' },
-      ];
+      const emptyGroups: AutoSuggestGroup[] = [{ items: [], label: 'Empty' }];
 
       const flat = flattenGroupedSuggestions(emptyGroups);
 

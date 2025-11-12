@@ -128,10 +128,7 @@ describe('Avatar', () => {
     it('should use custom alt when provided', () => {
       const { getByRole } = render(<Avatar alt="Profile picture" />);
 
-      expect(getByRole('img')).toHaveAttribute(
-        'aria-label',
-        'Profile picture'
-      );
+      expect(getByRole('img')).toHaveAttribute('aria-label', 'Profile picture');
     });
 
     it('should have role="img"', () => {
@@ -142,9 +139,7 @@ describe('Avatar', () => {
 
     it('should hide content container from screen readers', () => {
       const { container } = render(<Avatar letter="A" />);
-      const iconContainer = container.querySelector(
-        '[aria-hidden="true"]'
-      );
+      const iconContainer = container.querySelector('[aria-hidden="true"]');
 
       expect(iconContainer).toBeInTheDocument();
     });

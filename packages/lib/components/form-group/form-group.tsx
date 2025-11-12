@@ -77,7 +77,11 @@ const FormGroup: FunctionComponent<FormGroupProps> = ({
         ))}
       <div className={controlsClass}>
         <div className={styles.form_control_wrapper}>
-          <Button label={submitLabel} type="primary" onClick={() => handleSubmit()} />
+          <Button
+            label={submitLabel}
+            type="primary"
+            onClick={() => handleSubmit()}
+          />
         </div>
         <div className={styles.form_control_wrapper} onClick={handleCancel}>
           <Button label={cancelLabel} />

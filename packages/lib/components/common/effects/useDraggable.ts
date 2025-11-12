@@ -63,7 +63,12 @@ const useDraggable: UseDraggable = (
 
       const rect = target.getBoundingClientRect();
 
-      const event = ev instanceof MouseEvent ? ev : (ev.touches.length > 0 ? ev.touches[0]! : null);
+      const event =
+        ev instanceof MouseEvent
+          ? ev
+          : ev.touches.length > 0
+            ? ev.touches[0]!
+            : null;
 
       if (event) {
         start.current = {

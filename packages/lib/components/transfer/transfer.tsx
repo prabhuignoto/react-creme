@@ -1,5 +1,11 @@
 import { nanoid } from 'nanoid';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { ListOption } from '../list/list-model';
 import { TransferControlColumn } from './transfer-control-column';
@@ -311,7 +317,10 @@ const Transfer: React.FunctionComponent<TransferProps> = ({
         sourceId={leftListId.current}
         targetId={rightListId.current}
       />
-      <section aria-label={`Selected items (${rightList.length} items)`} id={rightListId.current}>
+      <section
+        aria-label={`Selected items (${rightList.length} items)`}
+        id={rightListId.current}
+      >
         <div className={styles.list_header}>
           <span className={styles.list_title}>Selected</span>
           <span className={styles.list_count}>{rightList.length}</span>

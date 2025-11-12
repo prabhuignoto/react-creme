@@ -69,13 +69,16 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   /**
    * Handles the menu selection
    */
-  const handleSelection = useCallback((name: string) => {
-    if (onSelected) {
-      onSelected(name);
-    }
-    exitAndClose();
-    wrapperRef.current?.focus();
-  }, [onSelected, exitAndClose]);
+  const handleSelection = useCallback(
+    (name: string) => {
+      if (onSelected) {
+        onSelected(name);
+      }
+      exitAndClose();
+      wrapperRef.current?.focus();
+    },
+    [onSelected, exitAndClose]
+  );
 
   /**
    * Handles menu closure
@@ -165,13 +168,23 @@ const Menu: React.FunctionComponent<MenuProps> = ({
    * setup the focus props
    */
   const focusProps = useMemo(
-    () =>
-      focusable
-        ? {
-            tabIndex: 0,
-          }
-        : null,
+    () => ({
+      tabIndex: focusable ? 0 : -1,
+    }),
     [focusable]
+  );
+
+  /**
+   * Handle keyboard events for menu button
+   */
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleMenu();
+      }
+    },
+    [toggleMenu]
   );
 
   const handleClickOnOutside = useCallback(() => {
@@ -187,6 +200,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       <div
         className={menuContentWrapperClass}
         onClick={toggleMenu}
+        onKeyDown={handleKeyDown}
         ref={onInitRef}
         role="button"
         aria-haspopup="menu"

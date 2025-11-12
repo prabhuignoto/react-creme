@@ -7,7 +7,18 @@ import { MenuBarItemViewProps } from './menu-bar.model';
 import styles from './menu-bar.module.scss';
 
 const MenuBarItem: FunctionComponent<MenuBarItemViewProps> = memo(
-  ({ active, showIcon, icon, size = 'sm', RTL = false, name, isMenuOpen, id, 'aria-current': ariaCurrent, disabled = false }) => {
+  ({
+    active,
+    showIcon,
+    icon,
+    size = 'sm',
+    RTL = false,
+    name,
+    isMenuOpen,
+    id,
+    'aria-current': ariaCurrent,
+    disabled = false,
+  }) => {
     const isDarkMode = isDark();
 
     const isFirstRender = useFirstRender();

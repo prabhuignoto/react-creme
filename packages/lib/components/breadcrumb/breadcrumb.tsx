@@ -1,6 +1,12 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { BreadCrumbItem } from './breadcrumb-item';
 import { BreadCrumbProps } from './breadcrumb-model';
@@ -117,7 +123,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = React.memo(
         onNavigate: handleNavigate,
         orientation: 'horizontal',
         rtl: RTL,
-        wrap: false
+        wrap: false,
       },
       focusable
     );
@@ -184,7 +190,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = React.memo(
               name={name}
               RTL={RTL}
               isLast={index === items.length - 1}
-              ref={(el) => {
+              ref={el => {
                 itemRefs.current[index] = el;
               }}
             />

@@ -112,7 +112,9 @@ describe('Kbd', () => {
       const positions = ['left', 'right'] as const;
 
       positions.forEach(position => {
-        const { container } = render(<Kbd buttonRaised={position}>{position}</Kbd>);
+        const { container } = render(
+          <Kbd buttonRaised={position}>{position}</Kbd>
+        );
         const kbdElement = container.querySelector('kbd');
 
         expect(kbdElement).toHaveClass(styles[`${position}_raised`]);
@@ -135,14 +137,18 @@ describe('Kbd', () => {
       const { container } = render(<Kbd thickness={4}>Key</Kbd>);
       const kbdElement = container.querySelector('kbd') as HTMLElement;
 
-      expect(kbdElement.style.getPropertyValue('--rc-kbd-thickness')).toBe('4px');
+      expect(kbdElement.style.getPropertyValue('--rc-kbd-thickness')).toBe(
+        '4px'
+      );
     });
 
     it('should use default thickness value', () => {
       const { container } = render(<Kbd>Key</Kbd>);
       const kbdElement = container.querySelector('kbd') as HTMLElement;
 
-      expect(kbdElement.style.getPropertyValue('--rc-kbd-thickness')).toBe('2px');
+      expect(kbdElement.style.getPropertyValue('--rc-kbd-thickness')).toBe(
+        '2px'
+      );
     });
 
     it('should apply dark mode class when isDark returns true', () => {
@@ -229,11 +235,7 @@ describe('KbdCombination', () => {
     });
 
     it('should handle single key', () => {
-      render(
-        <KbdCombination>
-          {[<Kbd key="1">Shift</Kbd>]}
-        </KbdCombination>
-      );
+      render(<KbdCombination>{[<Kbd key="1">Shift</Kbd>]}</KbdCombination>);
 
       expect(screen.getByText('Shift')).toBeInTheDocument();
     });
@@ -241,7 +243,11 @@ describe('KbdCombination', () => {
     it('should render multiple key combinations', () => {
       const { container } = render(
         <KbdCombination>
-          {[<Kbd key="1">Ctrl</Kbd>, <Kbd key="2">Shift</Kbd>, <Kbd key="3">S</Kbd>]}
+          {[
+            <Kbd key="1">Ctrl</Kbd>,
+            <Kbd key="2">Shift</Kbd>,
+            <Kbd key="3">S</Kbd>,
+          ]}
         </KbdCombination>
       );
 
@@ -326,7 +332,11 @@ describe('KbdCombination', () => {
     it('should have no violations with multiple keys', async () => {
       const { container } = render(
         <KbdCombination>
-          {[<Kbd key="1">Ctrl</Kbd>, <Kbd key="2">Shift</Kbd>, <Kbd key="3">N</Kbd>]}
+          {[
+            <Kbd key="1">Ctrl</Kbd>,
+            <Kbd key="2">Shift</Kbd>,
+            <Kbd key="3">N</Kbd>,
+          ]}
         </KbdCombination>
       );
 
@@ -350,7 +360,12 @@ describe('KbdCombination', () => {
     it('should handle many keys in combination', () => {
       render(
         <KbdCombination>
-          {[<Kbd key="1">Ctrl</Kbd>, <Kbd key="2">Alt</Kbd>, <Kbd key="3">Shift</Kbd>, <Kbd key="4">Delete</Kbd>]}
+          {[
+            <Kbd key="1">Ctrl</Kbd>,
+            <Kbd key="2">Alt</Kbd>,
+            <Kbd key="3">Shift</Kbd>,
+            <Kbd key="4">Delete</Kbd>,
+          ]}
         </KbdCombination>
       );
 

@@ -213,7 +213,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       (ev: React.KeyboardEvent) => {
         if (ev.key === ' ' || ev.key === 'Enter') {
           ev.preventDefault();
-          handleClear(ev as any);
+          handleClear(ev as unknown as React.MouseEvent);
         }
       },
       [handleClear]
@@ -247,9 +247,17 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
         <input
           type={type}
           placeholder={placeholder}
-          {...(props['aria-label'] ? { 'aria-label': props['aria-label'] } : placeholder ? { 'aria-label': placeholder } : {})}
-          {...(props['aria-labelledby'] ? { 'aria-labelledby': props['aria-labelledby'] } : {})}
-          {...(props['aria-describedby'] ? { 'aria-describedby': props['aria-describedby'] } : {})}
+          {...(props['aria-label']
+            ? { 'aria-label': props['aria-label'] }
+            : placeholder
+              ? { 'aria-label': placeholder }
+              : {})}
+          {...(props['aria-labelledby']
+            ? { 'aria-labelledby': props['aria-labelledby'] }
+            : {})}
+          {...(props['aria-describedby']
+            ? { 'aria-describedby': props['aria-describedby'] }
+            : {})}
           aria-invalid={state === 'error'}
           {...focusProps}
           {...controlledProps}
@@ -275,7 +283,11 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           </span>
         )}
         {showSpinner && (
-          <span role="status" aria-label="Loading" data-testid="rc-input-spinner">
+          <span
+            role="status"
+            aria-label="Loading"
+            data-testid="rc-input-spinner"
+          >
             <CircularProgress size="xs" />
           </span>
         )}

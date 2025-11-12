@@ -105,7 +105,8 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
     }, debounce);
 
     // Handle grouped suggestions filtering with React 19 useTransition
-    const [filteredGroups, setFilteredGroups] = React.useState<AutoSuggestGroup[]>(groups);
+    const [filteredGroups, setFilteredGroups] =
+      React.useState<AutoSuggestGroup[]>(groups);
 
     useEffect(() => {
       startTransition(() => {
@@ -160,7 +161,14 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
         return suggestionItems.some(item => regexTester.test(item.name));
       }
       return false;
-    }, [regexTester, selected, apiBacked, suggestionItems, grouped, filteredGroups]);
+    }, [
+      regexTester,
+      selected,
+      apiBacked,
+      suggestionItems,
+      grouped,
+      filteredGroups,
+    ]);
 
     // React 19: useTransition for non-blocking list filtering
     const [listItems, setListItems] = React.useState<Option[]>([]);
@@ -306,7 +314,14 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
       }
 
       return { focus: focusMenu, items };
-    }, [focusMenu, listItems, suggestionItems, apiBacked, grouped, flattenedFromGroups]);
+    }, [
+      focusMenu,
+      listItems,
+      suggestionItems,
+      apiBacked,
+      grouped,
+      flattenedFromGroups,
+    ]);
 
     const iconToRender = useMemo(() => {
       if (!disableIcon) {
@@ -333,7 +348,9 @@ const AutoSuggest = React.forwardRef<RCInputElementProps, AutoSuggestProps>(
             isAutoComplete
             ariaExpanded={matchFound}
             aria-autocomplete="list"
-            aria-activedescendant={focusMenu && activeDescendantId ? activeDescendantId : undefined}
+            aria-activedescendant={
+              focusMenu && activeDescendantId ? activeDescendantId : undefined
+            }
             aria-label={ariaLabel}
             aria-labelledby={ariaLabelledby}
             aria-describedby={ariaDescribedby}

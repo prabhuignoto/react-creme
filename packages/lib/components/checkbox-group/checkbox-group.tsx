@@ -103,14 +103,16 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   }, [layout]);
 
   // Track checked state separately to avoid props-to-state anti-pattern
-  const [checkedState, setCheckedState] = useState<Record<string, boolean>>(() => {
-    const initialState: Record<string, boolean> = {};
-    options.forEach((option, index) => {
-      const id = noUniqueIds ? option.id : `checkbox-${index}`;
-      initialState[id || `checkbox-${index}`] = option.isChecked || false;
-    });
-    return initialState;
-  });
+  const [checkedState, setCheckedState] = useState<Record<string, boolean>>(
+    () => {
+      const initialState: Record<string, boolean> = {};
+      options.forEach((option, index) => {
+        const id = noUniqueIds ? option.id : `checkbox-${index}`;
+        initialState[id || `checkbox-${index}`] = option.isChecked || false;
+      });
+      return initialState;
+    }
+  );
 
   // Derive items from options prop (no props-to-state anti-pattern)
   const items = useMemo(
@@ -155,7 +157,7 @@ const CheckBoxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
         onChange?.(
           items.map(item => ({
             id: item.id,
-            isChecked: item.id === id ? selected : newState[item.id] ?? false,
+            isChecked: item.id === id ? selected : (newState[item.id] ?? false),
             name: item.label,
           }))
         );

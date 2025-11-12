@@ -1,7 +1,14 @@
 import { CloseIcon } from '@icons';
 import classNames from 'classnames';
 import React from 'react';
-import { CSSProperties, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  CSSProperties,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
 import { isDark } from '../common/utils';
@@ -36,7 +43,9 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
    * Store reference to element that triggered drawer for return focus (WCAG 2.4.3)
    */
   const triggerElementRef = useRef<HTMLElement | null>(
-    typeof document !== 'undefined' ? (document.activeElement as HTMLElement) : null
+    typeof document !== 'undefined'
+      ? (document.activeElement as HTMLElement)
+      : null
   );
 
   /**
@@ -110,7 +119,8 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
     if (trapFocus) {
       return {
         ...base,
-        onKeyDown: trapFocus.handleKeyDown as unknown as React.KeyboardEventHandler<HTMLDivElement>,
+        onKeyDown:
+          trapFocus.handleKeyDown as unknown as React.KeyboardEventHandler<HTMLDivElement>,
         ref: refCallback,
       };
     }
@@ -147,7 +157,8 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   const drawerClass = useMemo(
     () =>
       classNames([styles.drawer, styles[`${position}`]], {
-        [styles[`slide_${position}_enter`]]: activate && !isClosing && !isExiting,
+        [styles[`slide_${position}_enter`]]:
+          activate && !isClosing && !isExiting,
         [styles[`slide_${position}_exit`]]: isClosing || isExiting,
         [styles.visible]: activate,
         [styles[`${size}`]]: size,
@@ -156,7 +167,17 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
         [styles.isLoading]: isLoading,
         [styles.isError]: isError,
       }),
-    [activate, isClosing, isExiting, isExitingProp, position, size, isDarkMode, isLoading, isError]
+    [
+      activate,
+      isClosing,
+      isExiting,
+      isExitingProp,
+      position,
+      size,
+      isDarkMode,
+      isLoading,
+      isError,
+    ]
   );
 
   /**
@@ -167,11 +188,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   }, []);
 
   return (
-    <div
-      className={drawerClass}
-      style={style}
-      {...focusProps}
-    >
+    <div className={drawerClass} style={style} {...focusProps}>
       <div className={styles['close-btn-wrapper']}>
         <Button
           type="icon"

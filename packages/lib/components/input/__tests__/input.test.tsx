@@ -111,7 +111,9 @@ describe('Input', () => {
       const user = userEvent.setup();
 
       render(<Input maxLength={3} placeholder="Max 3 chars" />);
-      const input = screen.getByPlaceholderText('Max 3 chars') as HTMLInputElement;
+      const input = screen.getByPlaceholderText(
+        'Max 3 chars'
+      ) as HTMLInputElement;
 
       await user.type(input, 'test');
 

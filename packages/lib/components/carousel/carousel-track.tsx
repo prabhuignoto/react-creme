@@ -72,7 +72,8 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
         case 'ArrowRight':
         case 'ArrowDown':
           ev.preventDefault();
-          newIndex = currentIndex < length - 1 ? currentIndex + 1 : currentIndex;
+          newIndex =
+            currentIndex < length - 1 ? currentIndex + 1 : currentIndex;
           break;
         case 'ArrowLeft':
         case 'ArrowUp':
@@ -113,7 +114,11 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
         label="Previous"
         size={size}
       />
-      <div className={carouselTrackClass} role="tablist" aria-label="Carousel slides">
+      <div
+        className={carouselTrackClass}
+        role="tablist"
+        aria-label="Carousel slides"
+      >
         {Array.from({ length }).map((_, index) => (
           <button
             key={index}
@@ -129,7 +134,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
               isDarkMode ? styles.dark : '',
             ])}
             onClick={() => handleItemSelection(index)}
-            onKeyDown={(ev) => handleKeyDown(ev, index)}
+            onKeyDown={ev => handleKeyDown(ev, index)}
           />
         ))}
       </div>

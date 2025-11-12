@@ -223,12 +223,9 @@ describe('GlobalNotification', () => {
   it('should handle long messages correctly', async () => {
     const longMessage =
       'This is a very long notification message that should be displayed correctly without breaking the layout or causing any visual issues in the component.';
-    const { getByText } = render(
-      <GlobalNotification message={longMessage} />,
-      {
-        container: document.body,
-      }
-    );
+    const { getByText } = render(<GlobalNotification message={longMessage} />, {
+      container: document.body,
+    });
 
     await waitFor(() => {
       expect(getByText(longMessage)).toBeInTheDocument();

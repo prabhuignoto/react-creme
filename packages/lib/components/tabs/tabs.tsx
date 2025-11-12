@@ -106,13 +106,11 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   const tabItems = useMemo(() => {
     return items
       .filter(tab => !tab.disabled && tab.id === activeTabId)
-      .map(
-        ({ id }) => (
-          <TabPanel key={id} id={id}>
-            {getTabContent}
-          </TabPanel>
-        )
-      );
+      .map(({ id }) => (
+        <TabPanel key={id} id={id}>
+          {getTabContent}
+        </TabPanel>
+      ));
   }, [items, activeTabId, getTabContent]);
 
   // Visible tabs

@@ -44,11 +44,8 @@ export interface CircularProgressProps {
   size?: 'xs' | 'sm' | 'md' | 'lg';
 }
 
-const CircularProgress: React.FunctionComponent<CircularProgressProps> = React.memo(
-  ({
-    size = 'sm',
-    label = 'Loading',
-  }) => {
+const CircularProgress: React.FunctionComponent<CircularProgressProps> =
+  React.memo(({ size = 'sm', label = 'Loading' }) => {
     const isDarkMode = isDark();
     const wrapperClass = useMemo(() => {
       return classNames(
@@ -68,8 +65,7 @@ const CircularProgress: React.FunctionComponent<CircularProgressProps> = React.m
         ></span>
       </span>
     );
-  }
-);
+  });
 
 CircularProgress.displayName = 'CircularProgress';
 

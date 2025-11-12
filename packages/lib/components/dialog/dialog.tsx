@@ -36,7 +36,9 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
 }: DialogProps) => {
   // Store reference to element that triggered dialog for return focus (WCAG 2.4.3)
   const triggerElementRef = useRef<HTMLElement | null>(
-    typeof document !== 'undefined' ? (document.activeElement as HTMLElement) : null
+    typeof document !== 'undefined'
+      ? (document.activeElement as HTMLElement)
+      : null
   );
 
   // Initialize ID once with lazy initialization
@@ -86,13 +88,14 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     () =>
       trapFocus
         ? {
-            onKeyDown: trapFocus.handleKeyDown as unknown as React.KeyboardEventHandler<HTMLDivElement>,
+            onKeyDown:
+              trapFocus.handleKeyDown as unknown as React.KeyboardEventHandler<HTMLDivElement>,
             ref: refCallback,
             tabIndex: 0,
           }
         : {
             ref: refCallback,
-            tabIndex: 0
+            tabIndex: 0,
           },
     [trapFocus, refCallback]
   );
@@ -115,7 +118,16 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
           [styles.isError]: isError,
         }
       ),
-    [isClosing, animationType, size, isDarkMode, isExitingProp, isLoading, isSuccess, isError]
+    [
+      isClosing,
+      animationType,
+      size,
+      isDarkMode,
+      isExitingProp,
+      isLoading,
+      isSuccess,
+      isError,
+    ]
   );
 
   const style = useMemo(

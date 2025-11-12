@@ -26,9 +26,7 @@ const optionsSelected = [
 describe('Dropdown', () => {
   describe('Rendering', () => {
     it('should render with placeholder', () => {
-      render(
-        <Dropdown options={options} placeholder="select a option" />
-      );
+      render(<Dropdown options={options} placeholder="select a option" />);
 
       expect(screen.getByText('select a option')).toBeInTheDocument();
     });
@@ -52,7 +50,10 @@ describe('Dropdown', () => {
         'aria-disabled',
         'true'
       );
-      expect(container?.firstChild?.firstChild).toHaveAttribute('tabindex', '-1');
+      expect(container?.firstChild?.firstChild).toHaveAttribute(
+        'tabindex',
+        '-1'
+      );
     });
 
     it('should render multi-selection mode', async () => {
@@ -258,11 +259,7 @@ describe('Dropdown', () => {
 
     it('should have proper ARIA attributes when disabled', async () => {
       const { container } = render(
-        <Dropdown
-          options={options}
-          placeholder="Disabled dropdown"
-          disabled
-        />
+        <Dropdown options={options} placeholder="Disabled dropdown" disabled />
       );
       const results = await axe(container);
 

@@ -69,10 +69,13 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
       focusable
     );
 
-    const onSelection = useCallback((opt: ListOption, index: number) => {
-      setSelection(index);
-      handleSelection(opt);
-    }, [setSelection, handleSelection]);
+    const onSelection = useCallback(
+      (opt: ListOption, index: number) => {
+        setSelection(index);
+        handleSelection(opt);
+      },
+      [setSelection, handleSelection]
+    );
 
     useEffect(() => {
       if (selectedIndex > -1) {

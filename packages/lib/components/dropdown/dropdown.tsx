@@ -50,7 +50,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
      * Track selection state separately to avoid props-to-state anti-pattern
      */
     const [selectedIds, setSelectedIds] = useState<Set<string>>(() => {
-      const selected = optionsWithIds.filter(opt => opt.selected).map(opt => opt.id);
+      const selected = optionsWithIds
+        .filter(opt => opt.selected)
+        .map(opt => opt.id);
       return new Set(selected);
     });
 
@@ -71,7 +73,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
      * Derive selected value from selectedIds
      */
     const value = useMemo(() => {
-      const selectedOptions = dropdownOptions.filter(opt => selectedIds.has(opt.id));
+      const selectedOptions = dropdownOptions.filter(opt =>
+        selectedIds.has(opt.id)
+      );
       return selectedOptions.length
         ? selectedOptions.map(t => t.name).join(',')
         : '';
@@ -104,14 +108,18 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.memo(
 
         if (allowMultiSelection) {
           _value = selected.map(opt => opt.value).join(',');
-          const newSelectedIds = selected.map(item => item.id).filter((id): id is string => id !== undefined);
+          const newSelectedIds = selected
+            .map(item => item.id)
+            .filter((id): id is string => id !== undefined);
           setSelectedIds(new Set(newSelectedIds));
         } else {
           const selectedOption = selected[0];
           if (selectedOption) {
             const { id, value: optValue } = selectedOption;
             _value = optValue || '';
-            setSelectedIds(new Set([id].filter((id): id is string => id !== undefined)));
+            setSelectedIds(
+              new Set([id].filter((id): id is string => id !== undefined))
+            );
             setShowMenu(false);
             setFocusManual(true);
           }

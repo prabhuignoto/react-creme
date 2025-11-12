@@ -1,11 +1,6 @@
 import { SearchIcon } from '@icons';
 import classNames from 'classnames';
-import React, {
-  useCallback,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { isDark } from '../common/utils';
 import { Input } from '../input/input';
@@ -97,9 +92,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   const columnWidth = useMemo(() => {
     if (!width) return 100;
 
-    const usedWidth = columns
-      .map(c => c.width || 0)
-      .reduce((a, b) => a + b, 0);
+    const usedWidth = columns.map(c => c.width || 0).reduce((a, b) => a + b, 0);
 
     const remainingColumns = columns.filter(col => !col.width).length;
 
@@ -156,8 +149,10 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
       const { column, dir } = sortData;
       if (!column) return 0;
 
-      const aVal = (a as Record<string, string | number | undefined>)[column] ?? '';
-      const bVal = (b as Record<string, string | number | undefined>)[column] ?? '';
+      const aVal =
+        (a as Record<string, string | number | undefined>)[column] ?? '';
+      const bVal =
+        (b as Record<string, string | number | undefined>)[column] ?? '';
 
       const compareResult = aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
       return dir === 'asc' ? compareResult : -compareResult;
@@ -260,15 +255,9 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
           />
         ))
       ) : (
-        <div
-          role="row"
-          className={styles.empty_state}
-          aria-rowindex={2}
-        >
+        <div role="row" className={styles.empty_state} aria-rowindex={2}>
           <div role="cell" aria-colspan={columns.length}>
-            {searchInput
-              ? 'No results found'
-              : 'No data available'}
+            {searchInput ? 'No results found' : 'No data available'}
           </div>
         </div>
       )}

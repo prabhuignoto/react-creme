@@ -4,7 +4,10 @@ import type {
   FileUploadError,
 } from '../../file-upload/file-upload-model';
 import { createFileItem, isDuplicateFile } from '../../file-upload/utils';
-import { useFileValidation, UseFileValidationOptions } from './useFileValidation';
+import {
+  useFileValidation,
+  UseFileValidationOptions,
+} from './useFileValidation';
 import { useFilePreview, UseFilePreviewOptions } from './useFilePreview';
 
 export interface UseFileProcessingOptions
@@ -79,7 +82,7 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
       let validFilesForPreviews: FileItem[] = [];
 
       // Add files to state synchronously first
-      setSelectedFiles((prevFiles) => {
+      setSelectedFiles(prevFiles => {
         // Reset for this render (important for React Strict Mode)
         const validFiles: FileItem[] = [];
 
@@ -95,9 +98,12 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
         }
 
         // Validate files, check for duplicates, and collect valid ones
-        filesToProcess.forEach((file) => {
+        filesToProcess.forEach(file => {
           // Check for duplicates first (both in prevFiles and in current batch)
-          if (isDuplicateFile(file, prevFiles) || isDuplicateFile(file, validFiles)) {
+          if (
+            isDuplicateFile(file, prevFiles) ||
+            isDuplicateFile(file, validFiles)
+          ) {
             errors.push({
               file,
               message: `File "${file.name}" is already added.`,
@@ -119,7 +125,7 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
 
         // Report errors
         if (errors.length > 0 && onError) {
-          errors.forEach((error) => onError(error));
+          errors.forEach(error => onError(error));
         }
 
         // If no valid files, return early
@@ -130,10 +136,10 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
         const newFiles = [...prevFiles, ...validFiles];
 
         // Call onChange with new file list
-        onChange?.(newFiles.map((item) => item.file));
+        onChange?.(newFiles.map(item => item.file));
 
         // Store for preview generation (outside setState)
-        addedFileIds = validFiles.map((f) => f.id);
+        addedFileIds = validFiles.map(f => f.id);
         validFilesForPreviews = validFiles;
 
         return newFiles;
@@ -143,10 +149,10 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
       if (addedFileIds.length === 0 || !showThumbnails) return;
 
       // Generate previews for all image files in parallel
-      const imagesToPreview = validFilesForPreviews.filter((f) => f.isImage);
+      const imagesToPreview = validFilesForPreviews.filter(f => f.isImage);
       if (imagesToPreview.length === 0) return;
 
-      const previewPromises = imagesToPreview.map(async (fileItem) => {
+      const previewPromises = imagesToPreview.map(async fileItem => {
         const previewUrl = await generatePreview(fileItem.file);
         return { id: fileItem.id, previewUrl };
       });
@@ -154,9 +160,9 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
       const previews = await Promise.all(previewPromises);
 
       // Single batch update for all previews at once
-      setSelectedFiles((current) =>
-        current.map((item) => {
-          const preview = previews.find((p) => p.id === item.id);
+      setSelectedFiles(current =>
+        current.map(item => {
+          const preview = previews.find(p => p.id === item.id);
           return preview?.previewUrl
             ? { ...item, previewUrl: preview.previewUrl }
             : item;
@@ -171,17 +177,17 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
    */
   const removeFile = useCallback(
     (fileId: string) => {
-      setSelectedFiles((prev) => {
-        const newFiles = prev.filter((item) => item.id !== fileId);
+      setSelectedFiles(prev => {
+        const newFiles = prev.filter(item => item.id !== fileId);
 
         // Revoke blob URLs to free memory
-        const removedFile = prev.find((item) => item.id === fileId);
+        const removedFile = prev.find(item => item.id === fileId);
         if (removedFile?.previewUrl?.startsWith('blob:')) {
           URL.revokeObjectURL(removedFile.previewUrl);
         }
 
         // Call onChange with updated files
-        onChange?.(newFiles.map((item) => item.file));
+        onChange?.(newFiles.map(item => item.file));
 
         return newFiles;
       });
@@ -193,9 +199,9 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
    * Clear all files
    */
   const clearFiles = useCallback(() => {
-    setSelectedFiles((prev) => {
+    setSelectedFiles(prev => {
       // Revoke all blob URLs
-      prev.forEach((item) => {
+      prev.forEach(item => {
         if (item.previewUrl?.startsWith('blob:')) {
           URL.revokeObjectURL(item.previewUrl);
         }
@@ -209,7 +215,7 @@ export const useFileProcessing = (options: UseFileProcessingOptions) => {
    * Get current files as File array
    */
   const getFiles = useCallback(() => {
-    return selectedFiles.map((item) => item.file);
+    return selectedFiles.map(item => item.file);
   }, [selectedFiles]);
 
   return {

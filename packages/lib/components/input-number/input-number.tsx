@@ -121,6 +121,7 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
       role="spinbutton"
       aria-label="number input"
       onKeyDown={handleKeyDown}
+      tabIndex={0}
     >
       <Input
         controlled
@@ -146,7 +147,10 @@ const InputNumber: FunctionComponent<InputNumberProps> = ({
             size={size}
             label="increment"
             aria-label="increment value"
-            style={{ marginBottom: 'var(--rc-space-1)', transform: 'rotate(180deg)' }}
+            style={{
+              marginBottom: 'var(--rc-space-1)',
+              transform: 'rotate(180deg)',
+            }}
           >
             <ChevronDownIcon />
           </Button>

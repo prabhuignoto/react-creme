@@ -98,7 +98,10 @@ describe('Skeleton', () => {
 
     it('should have default aria-label', () => {
       const { getByTestId } = render(<Skeleton />);
-      expect(getByTestId('rc-skeleton')).toHaveAttribute('aria-label', 'Loading...');
+      expect(getByTestId('rc-skeleton')).toHaveAttribute(
+        'aria-label',
+        'Loading...'
+      );
     });
 
     it('should have custom aria-label', () => {

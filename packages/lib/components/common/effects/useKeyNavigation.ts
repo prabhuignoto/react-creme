@@ -67,7 +67,12 @@ function useKeyNavigation(
   const options: UseKeyNavigationOptions =
     typeof scrollOffsetOrOptions === 'number'
       ? { orientation: 'vertical', scrollOffset: scrollOffsetOrOptions }
-      : { orientation: 'vertical', scrollOffset: 50, wrap: true, ...scrollOffsetOrOptions };
+      : {
+          orientation: 'vertical',
+          scrollOffset: 50,
+          wrap: true,
+          ...scrollOffsetOrOptions,
+        };
 
   const {
     orientation,
@@ -211,7 +216,9 @@ function useKeyNavigation(
     // Cleanup function to remove the event listener
     return () => {
       if (listRef.current && focusable) {
-        listRef.current.removeEventListener('keydown', handleKey, { capture: true });
+        listRef.current.removeEventListener('keydown', handleKey, {
+          capture: true,
+        });
       }
     };
   }, [ref, focusable, handleKey]);

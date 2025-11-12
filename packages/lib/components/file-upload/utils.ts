@@ -10,9 +10,9 @@ import type { FileItem } from './file-upload-model';
 export const isFileTypeAccepted = (file: File, accept?: string): boolean => {
   if (!accept) return true;
 
-  const acceptTypes = accept.split(',').map((type) => type.trim());
+  const acceptTypes = accept.split(',').map(type => type.trim());
 
-  return acceptTypes.some((acceptType) => {
+  return acceptTypes.some(acceptType => {
     // Handle wildcards like "image/*"
     if (acceptType.includes('*')) {
       const baseType = acceptType.split('/')[0];
@@ -81,7 +81,7 @@ export const isDuplicateFile = (
   existingFiles: FileItem[]
 ): boolean => {
   return existingFiles.some(
-    (item) =>
+    item =>
       item.file.name === file.name &&
       item.file.size === file.size &&
       item.file.lastModified === file.lastModified

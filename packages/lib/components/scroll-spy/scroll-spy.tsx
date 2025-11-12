@@ -53,7 +53,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
   // Generate stable IDs for links (derived from props)
   const scrollSpyLinks = useMemo<ScrollSpyLinkInternal[]>(
     () =>
-      links.map((link) => ({
+      links.map(link => ({
         active: false,
         id: `spy-${nanoid()}`,
         name: link,
@@ -81,10 +81,10 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
     if (node) {
       scrollSpyContentRef.current = node;
       spy.current = new IntersectionObserver(
-        (entries) => {
-          setActiveSections((prev) => {
+        entries => {
+          setActiveSections(prev => {
             const newMap = new Map(prev);
-            entries.forEach((entry) => {
+            entries.forEach(entry => {
               const id = entry.target.id;
               if (entry.isIntersecting) {
                 // Section is visible, add/update timestamp
@@ -107,7 +107,7 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
       );
 
       if (items) {
-        items.forEach((item) => {
+        items.forEach(item => {
           spy.current?.observe(item);
         });
       }
@@ -117,14 +117,14 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
   // Derive the currently active link based on visible sections
   const activeId = useMemo(() => {
     const activeSectionsArray = contents
-      .filter((c) => c.active)
+      .filter(c => c.active)
       .sort((a, b) =>
         scrollDirection.current === 'up' ? b.hash - a.hash : a.hash - b.hash
       );
 
     const found = activeSectionsArray[0];
     if (found) {
-      lastSelectedIndex.current = contents.findIndex((x) => x.id === found.id);
+      lastSelectedIndex.current = contents.findIndex(x => x.id === found.id);
       return found.id;
     }
     return null;
@@ -233,11 +233,11 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
                     isActive ? styles.active : '',
                     isDarkMode ? styles.dark : ''
                   )}
-                  onClick={(ev) => {
+                  onClick={ev => {
                     ev.preventDefault();
                     handleScrollTo(link.id, index);
                   }}
-                  onKeyDown={(ev) => handleKeyDown(ev, index)}
+                  onKeyDown={ev => handleKeyDown(ev, index)}
                   aria-current={isActive ? 'true' : undefined}
                   aria-label={`Navigate to ${link.name}`}
                   tabIndex={0}

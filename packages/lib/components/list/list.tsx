@@ -111,23 +111,26 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
       }
     }, [searchTerm, _listOptions, itemHeight, rowGap]);
 
-    const handleSelection = useCallback((opt: ListOption) => {
-      setSelectedIds(prev => {
-        const newSet = new Set(prev);
-        if (!opt.id) return newSet; // Early return if no id
-        if (allowMultiSelection) {
-          if (newSet.has(opt.id)) {
-            newSet.delete(opt.id);
+    const handleSelection = useCallback(
+      (opt: ListOption) => {
+        setSelectedIds(prev => {
+          const newSet = new Set(prev);
+          if (!opt.id) return newSet; // Early return if no id
+          if (allowMultiSelection) {
+            if (newSet.has(opt.id)) {
+              newSet.delete(opt.id);
+            } else {
+              newSet.add(opt.id);
+            }
           } else {
+            newSet.clear();
             newSet.add(opt.id);
           }
-        } else {
-          newSet.clear();
-          newSet.add(opt.id);
-        }
-        return newSet;
-      });
-    }, [allowMultiSelection]);
+          return newSet;
+        });
+      },
+      [allowMultiSelection]
+    );
 
     // Derive selected items from selectedIds
     const selected = useMemo(
@@ -147,7 +150,6 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
       if (initialSelected.length > 0) {
         setSelectedIds(new Set(initialSelected));
       }
-       
     }, []);
 
     // Notify parent of selection changes

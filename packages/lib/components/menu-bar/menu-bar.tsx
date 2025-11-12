@@ -1,5 +1,11 @@
 import classNames from 'classnames';
-import { FunctionComponent, useCallback, useMemo, useRef, useState } from 'react';
+import {
+  FunctionComponent,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Menu } from '..';
 import useOnClickOutside from '../common/effects/useOnClickOutside';
 import { isDark } from '../common/utils';
@@ -28,14 +34,19 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
   );
 
   const menuBarRef = useRef<HTMLUListElement | null>(null);
-  const [menuStates, setMenuStates] = useState<Map<string, { active: boolean; isMenuOpen: boolean }>>(
-    new Map()
-  );
+  const [menuStates, setMenuStates] = useState<
+    Map<string, { active: boolean; isMenuOpen: boolean }>
+  >(new Map());
 
   const _items = useMemo(() => {
     return items.map((item, index) => {
-      const itemId = noUniqueId ? (item.id || `menu-bar-item-${index}`) : `menu-bar-item-${index}`;
-      const state = menuStates.get(itemId) || { active: false, isMenuOpen: false };
+      const itemId = noUniqueId
+        ? item.id || `menu-bar-item-${index}`
+        : `menu-bar-item-${index}`;
+      const state = menuStates.get(itemId) || {
+        active: false,
+        isMenuOpen: false,
+      };
 
       return {
         active: state.active,
@@ -106,7 +117,10 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
   const handleOnClose = useCallback((id?: string) => {
     setMenuStates(prev => {
       const updated = new Map(prev);
-      const currentState = updated.get(id || '') || { active: false, isMenuOpen: false };
+      const currentState = updated.get(id || '') || {
+        active: false,
+        isMenuOpen: false,
+      };
       updated.set(id || '', { ...currentState, isMenuOpen: false });
       return updated;
     });

@@ -196,7 +196,9 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
-      const buttons = container.querySelectorAll('button[aria-label*="Next"], button[aria-label*="Previous"]');
+      const buttons = container.querySelectorAll(
+        'button[aria-label*="Next"], button[aria-label*="Previous"]'
+      );
       expect(buttons.length).toBeGreaterThanOrEqual(2);
     });
 
@@ -209,7 +211,9 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
-      const prevButton = container.querySelector('button[aria-label*="Previous"]');
+      const prevButton = container.querySelector(
+        'button[aria-label*="Previous"]'
+      );
       expect(prevButton).toHaveClass('btn_hide');
     });
 
@@ -268,7 +272,9 @@ describe('Carousel', () => {
       onSlideChange.mockClear();
 
       // Then click previous
-      const prevButton = container.querySelector('button[aria-label*="Previous"]');
+      const prevButton = container.querySelector(
+        'button[aria-label*="Previous"]'
+      );
       await user.click(prevButton as HTMLElement);
 
       await waitForCarousel();
@@ -465,7 +471,9 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
-      const pauseButton = container.querySelector('button[aria-label*="Pause"]');
+      const pauseButton = container.querySelector(
+        'button[aria-label*="Pause"]'
+      );
       expect(pauseButton).toBeInTheDocument();
     });
 
@@ -480,7 +488,9 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
-      const pauseButton = container.querySelector('button[aria-label*="Pause"]');
+      const pauseButton = container.querySelector(
+        'button[aria-label*="Pause"]'
+      );
       await user.click(pauseButton as HTMLElement);
 
       vi.advanceTimersByTime(1000);
@@ -500,14 +510,18 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
-      const pauseButton = container.querySelector('button[aria-label*="Pause"]');
+      const pauseButton = container.querySelector(
+        'button[aria-label*="Pause"]'
+      );
 
       // Pause
       await user.click(pauseButton as HTMLElement);
       await waitForCarousel();
 
       // Resume
-      const resumeButton = container.querySelector('button[aria-label*="Resume"]');
+      const resumeButton = container.querySelector(
+        'button[aria-label*="Resume"]'
+      );
       await user.click(resumeButton as HTMLElement);
 
       vi.advanceTimersByTime(1000);
@@ -526,13 +540,17 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
-      const pauseButton = container.querySelector('button[aria-label*="Pause"]');
+      const pauseButton = container.querySelector(
+        'button[aria-label*="Pause"]'
+      );
       expect(pauseButton).toHaveAttribute('aria-pressed', 'false');
 
       await user.click(pauseButton as HTMLElement);
       await waitForCarousel();
 
-      const resumeButton = container.querySelector('button[aria-label*="Resume"]');
+      const resumeButton = container.querySelector(
+        'button[aria-label*="Resume"]'
+      );
       expect(resumeButton).toHaveAttribute('aria-pressed', 'true');
     });
 
@@ -735,8 +753,14 @@ describe('Carousel', () => {
 
       await waitForCarousel();
       const trackButtons = container.querySelectorAll('[role="tab"]');
-      expect(trackButtons[0]).toHaveAttribute('aria-controls', 'carousel-slide-0');
-      expect(trackButtons[1]).toHaveAttribute('aria-controls', 'carousel-slide-1');
+      expect(trackButtons[0]).toHaveAttribute(
+        'aria-controls',
+        'carousel-slide-0'
+      );
+      expect(trackButtons[1]).toHaveAttribute(
+        'aria-controls',
+        'carousel-slide-1'
+      );
     });
 
     it('should have tablist role for track dots container', async () => {

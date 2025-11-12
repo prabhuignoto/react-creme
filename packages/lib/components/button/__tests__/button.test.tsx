@@ -44,16 +44,14 @@ describe('Button', () => {
     });
 
     it('should render all button type variants', () => {
-      const types: Array<'primary' | 'default' | 'danger' | 'icon' | 'progress'> = [
-        'primary',
-        'default',
-        'danger',
-        'icon',
-        'progress',
-      ];
+      const types: Array<
+        'primary' | 'default' | 'danger' | 'icon' | 'progress'
+      > = ['primary', 'default', 'danger', 'icon', 'progress'];
 
-      types.forEach((type) => {
-        const { rerender, container } = render(<Button type={type} label={`${type} button`} />);
+      types.forEach(type => {
+        const { rerender, container } = render(
+          <Button type={type} label={`${type} button`} />
+        );
         const button = container.querySelector('button');
         expect(button).toHaveClass(styles[type]);
         rerender(<Button />); // Reset
@@ -125,7 +123,9 @@ describe('Button', () => {
       const user = userEvent.setup();
       const handler = vi.fn();
 
-      const { rerender } = render(<Button label="Loading" isBusy={false} onClick={handler} />);
+      const { rerender } = render(
+        <Button label="Loading" isBusy={false} onClick={handler} />
+      );
 
       const button = screen.getByRole('button');
       await user.click(button);
@@ -156,12 +156,16 @@ describe('Button', () => {
       const button = screen.getByRole('button');
 
       expect(button).toHaveClass(styles.progress);
-      expect(container.querySelector(`.${styles.progress_wrapper}`)).toBeInTheDocument();
+      expect(
+        container.querySelector(`.${styles.progress_wrapper}`)
+      ).toBeInTheDocument();
     });
 
     it('should hide spinner when button is disabled', () => {
       const { container } = render(<Button type="progress" disabled />);
-      expect(container.querySelector(`.${styles.progress_wrapper}`)).not.toBeInTheDocument();
+      expect(
+        container.querySelector(`.${styles.progress_wrapper}`)
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -410,16 +414,14 @@ describe('Button', () => {
     });
 
     it('should support all button type variants accessibly', async () => {
-      const types: Array<'primary' | 'default' | 'danger' | 'icon' | 'progress'> = [
-        'primary',
-        'default',
-        'danger',
-        'icon',
-        'progress',
-      ];
+      const types: Array<
+        'primary' | 'default' | 'danger' | 'icon' | 'progress'
+      > = ['primary', 'default', 'danger', 'icon', 'progress'];
 
       for (const type of types) {
-        const { container, unmount } = render(<Button type={type} label={`${type} button`} />);
+        const { container, unmount } = render(
+          <Button type={type} label={`${type} button`} />
+        );
         const results = await axe(container);
         expect(results).toHaveNoViolations();
         unmount();
@@ -430,7 +432,9 @@ describe('Button', () => {
       const sizes: Array<'sm' | 'md' | 'lg'> = ['sm', 'md', 'lg'];
 
       for (const size of sizes) {
-        const { container, unmount } = render(<Button size={size} label={`${size} button`} />);
+        const { container, unmount } = render(
+          <Button size={size} label={`${size} button`} />
+        );
         const results = await axe(container);
         expect(results).toHaveNoViolations();
         unmount();

@@ -1,7 +1,14 @@
 import { SearchIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { CSSProperties, useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  CSSProperties,
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { isArray, isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { ListOption } from '../list/list-model';

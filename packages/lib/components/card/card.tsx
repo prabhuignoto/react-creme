@@ -94,8 +94,7 @@ const Card: React.FunctionComponent<CardProps> = ({
   // ✅ FIXED: Include footer and cardFooterClass in dependencies
   // Using div instead of footer to avoid landmark nesting issues when card has role="region"
   const renderFooter = useMemo(
-    () =>
-      footer ? <div className={cardFooterClass}>{footer}</div> : null,
+    () => (footer ? <div className={cardFooterClass}>{footer}</div> : null),
     [footer, cardFooterClass]
   );
 

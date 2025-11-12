@@ -72,7 +72,7 @@ const FileUpload = React.forwardRef<FileUploadRef, FileUploadProps>(
     const { isDragging, handlers: dragHandlers } = useFileDragDrop({
       disabled,
       enabled: enableDragDrop,
-      onDrop: (droppedFiles) => {
+      onDrop: droppedFiles => {
         onDrop?.(droppedFiles);
         processFiles(droppedFiles);
       },
@@ -273,13 +273,13 @@ const FileUpload = React.forwardRef<FileUploadRef, FileUploadProps>(
         {/* File list */}
         {files.length > 0 && (
           <div className={styles.fileList} role="list">
-            {files.map((fileItem) => (
+            {files.map(fileItem => (
               <div
                 key={fileItem.id}
                 className={styles.fileItem}
                 role="listitem"
                 tabIndex={0}
-                onKeyDown={(e) => handleFileKeyDown(e, fileItem.id)}
+                onKeyDown={e => handleFileKeyDown(e, fileItem.id)}
                 aria-label={`${fileItem.file.name}, ${formatFileSize(fileItem.file.size)}`}
               >
                 {/* Preview or file icon */}
@@ -325,7 +325,7 @@ const FileUpload = React.forwardRef<FileUploadRef, FileUploadProps>(
                 <button
                   type="button"
                   className={styles.removeButton}
-                  onClick={(e) => {
+                  onClick={e => {
                     e.stopPropagation();
                     removeFile(fileItem.id);
                   }}

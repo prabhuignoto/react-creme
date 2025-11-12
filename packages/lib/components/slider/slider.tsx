@@ -79,7 +79,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   useKeyNavigation(controlRef, normalizedValue, 101, {
     onNavigate: (index: number) => {
       // Convert back from 0-100 range to actual value range
-      const newValue = start + ((index / 100) * (end - start));
+      const newValue = start + (index / 100) * (end - start);
       const clampedValue = Math.max(start, Math.min(end, newValue));
       onChangeDebounced?.(Math.round(clampedValue));
     },

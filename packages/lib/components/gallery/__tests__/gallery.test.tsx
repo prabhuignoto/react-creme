@@ -115,9 +115,7 @@ describe('Gallery', () => {
     });
 
     it('should render with custom aria label', () => {
-      const { container } = render(
-        <Gallery ariaLabel="My custom gallery" />
-      );
+      const { container } = render(<Gallery ariaLabel="My custom gallery" />);
 
       expect(container.firstChild).toHaveAttribute(
         'aria-label',
@@ -173,9 +171,7 @@ describe('Gallery', () => {
       const { container } = render(<Gallery />);
 
       expect(container.firstChild).toBeInTheDocument();
-      expect(
-        (container.firstChild as HTMLElement).children.length
-      ).toBe(0);
+      expect((container.firstChild as HTMLElement).children.length).toBe(0);
     });
 
     it('should handle missing alt text with fallback', () => {
@@ -194,17 +190,13 @@ describe('Gallery', () => {
     it('should handle empty imagesURL array', () => {
       const { container } = render(<Gallery imagesURL={[]} />);
 
-      expect(
-        (container.firstChild as HTMLElement).children.length
-      ).toBe(0);
+      expect((container.firstChild as HTMLElement).children.length).toBe(0);
     });
 
     it('should handle empty children array', () => {
       const { container } = render(<Gallery children={[]} />);
 
-      expect(
-        (container.firstChild as HTMLElement).children.length
-      ).toBe(0);
+      expect((container.firstChild as HTMLElement).children.length).toBe(0);
     });
 
     it('should handle undefined gap (use default)', () => {
@@ -250,9 +242,7 @@ describe('Gallery', () => {
     });
 
     it('should have proper ARIA label', () => {
-      const { container } = render(
-        <Gallery ariaLabel="Photo gallery" />
-      );
+      const { container } = render(<Gallery ariaLabel="Photo gallery" />);
 
       expect(container.firstChild).toHaveAttribute(
         'aria-label',

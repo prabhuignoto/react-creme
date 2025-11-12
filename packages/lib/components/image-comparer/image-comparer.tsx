@@ -85,54 +85,68 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
   const onImageLoad2 = useCallback(() => setImageLoaded2(true), []);
 
   // setup the drag effect
-  const [percent, setPercent] = useDrag(panelRef as React.RefObject<HTMLElement>, dragRef, {
-    direction,
-    observeContainer: true,
-    onDragEnd: () => setDragged(false),
-    onDragStart: () => setDragged(true),
-    updatePosition: false,
-  });
+  const [percent, setPercent] = useDrag(
+    panelRef as React.RefObject<HTMLElement>,
+    dragRef,
+    {
+      direction,
+      observeContainer: true,
+      onDragEnd: () => setDragged(false),
+      onDragStart: () => setDragged(true),
+      updatePosition: false,
+    }
+  );
 
   // Keyboard navigation - following Slider pattern
   // Normalize percent (0-1) to 0-100 range for useKeyNavigation
   // Default to 50 if percent is NaN or undefined (but 0 is valid!)
   const normalizedPercent = useMemo(() => {
-    const validPercent = (percent == null || isNaN(percent)) ? 0.5 : percent;
+    const validPercent = percent == null || isNaN(percent) ? 0.5 : percent;
     return Math.round(validPercent * 100);
   }, [percent]);
 
   // Setup keyboard navigation with useCallback to avoid stale closures
-  const handleNavigate = useCallback((index: number) => {
-    // Convert from 0-100 range back to 0-1 range
-    const newPercent = index / 100;
-    const clampedPercent = Math.max(0, Math.min(1, newPercent));
-    setPercent(clampedPercent);
-  }, [setPercent]);
+  const handleNavigate = useCallback(
+    (index: number) => {
+      // Convert from 0-100 range back to 0-1 range
+      const newPercent = index / 100;
+      const clampedPercent = Math.max(0, Math.min(1, newPercent));
+      setPercent(clampedPercent);
+    },
+    [setPercent]
+  );
 
   const handlePageUp = useCallback(() => {
     // Use functional update to avoid stale closure
-    setPercent((prevPercent) => {
-      const validPercent = (prevPercent == null || isNaN(prevPercent)) ? 0.5 : prevPercent;
-      return Math.min(1, validPercent + (largeStep / 100));
+    setPercent(prevPercent => {
+      const validPercent =
+        prevPercent == null || isNaN(prevPercent) ? 0.5 : prevPercent;
+      return Math.min(1, validPercent + largeStep / 100);
     });
   }, [largeStep, setPercent]);
 
   const handlePageDown = useCallback(() => {
     // Use functional update to avoid stale closure
-    setPercent((prevPercent) => {
-      const validPercent = (prevPercent == null || isNaN(prevPercent)) ? 0.5 : prevPercent;
-      return Math.max(0, validPercent - (largeStep / 100));
+    setPercent(prevPercent => {
+      const validPercent =
+        prevPercent == null || isNaN(prevPercent) ? 0.5 : prevPercent;
+      return Math.max(0, validPercent - largeStep / 100);
     });
   }, [largeStep, setPercent]);
 
   // Setup keyboard navigation
-  useKeyNavigation(separatorRef as React.RefObject<HTMLElement>, normalizedPercent, 101, {
-    onNavigate: handleNavigate,
-    onPageDown: handlePageDown,
-    onPageUp: handlePageUp,
-    orientation: direction === 'horizontal' ? 'horizontal' : 'vertical',
-    wrap: false,
-  });
+  useKeyNavigation(
+    separatorRef as React.RefObject<HTMLElement>,
+    normalizedPercent,
+    101,
+    {
+      onNavigate: handleNavigate,
+      onPageDown: handlePageDown,
+      onPageUp: handlePageUp,
+      orientation: direction === 'horizontal' ? 'horizontal' : 'vertical',
+      wrap: false,
+    }
+  );
 
   // tracks the first render of the component
   const isFirstRender = useFirstRender();
@@ -190,10 +204,12 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
         tabIndex={0}
         style={dragHandleStyle}
         aria-label={ariaLabel}
-        aria-valuenow={Math.round(((percent == null || isNaN(percent)) ? 0.5 : percent) * 100)}
+        aria-valuenow={Math.round(
+          (percent == null || isNaN(percent) ? 0.5 : percent) * 100
+        )}
         aria-valuemin={0}
         aria-valuemax={100}
-        aria-valuetext={`${Math.round(((percent == null || isNaN(percent)) ? 0.5 : percent) * 100)}% comparison`}
+        aria-valuetext={`${Math.round((percent == null || isNaN(percent) ? 0.5 : percent) * 100)}% comparison`}
         aria-orientation={direction}
       >
         <span className={styles.drag_handle_square} ref={dragRef}>

@@ -41,13 +41,15 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
         ? items.map(item => ({
             id: nanoid(),
             ...item,
-            disabled: typeof disabled !== 'undefined' ? disabled : item.disabled,
+            disabled:
+              typeof disabled !== 'undefined' ? disabled : item.disabled,
           }))
         : [],
     [items, disabled]
   );
 
-  const [items_state, setItems] = useState<RadioGroupItemProps<string>[]>(_items);
+  const [items_state, setItems] =
+    useState<RadioGroupItemProps<string>[]>(_items);
 
   // State to track changes in the radio group items
   const [changeTracker, setChangeTracker] = useState<number>();
@@ -104,7 +106,12 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   }, [changeTracker, items_state, onSelected]);
 
   return (
-    <ul className={radioGroupClass} role="radiogroup" aria-label="radio group options" style={style}>
+    <ul
+      className={radioGroupClass}
+      role="radiogroup"
+      aria-label="radio group options"
+      style={style}
+    >
       {items_state.map(({ id, disabled, label, checked }) => (
         <Radio
           key={id}

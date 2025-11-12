@@ -25,11 +25,7 @@ class MockFileReader {
 global.FileReader = MockFileReader as unknown as typeof FileReader;
 
 // Helper function to create mock files
-const createMockFile = (
-  name: string,
-  size: number,
-  type: string
-): File => {
+const createMockFile = (name: string, size: number, type: string): File => {
   const file = new File(['a'.repeat(size)], name, { type });
   return file;
 };
@@ -42,7 +38,7 @@ const createDataTransfer = (files: File[]): DataTransfer => {
     effectAllowed: 'all',
     files: files as unknown as FileList,
     getData: vi.fn(),
-    items: files.map((file) => ({
+    items: files.map(file => ({
       getAsFile: () => file,
       kind: 'file' as const,
       type: file.type,
@@ -58,7 +54,9 @@ describe('FileUpload', () => {
     it('should render with default props', () => {
       render(<FileUpload />);
 
-      expect(screen.getByRole('button', { name: /upload files/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: /upload files/i })
+      ).toBeInTheDocument();
       expect(screen.getByText(/drag and drop files here/i)).toBeInTheDocument();
     });
 
@@ -102,7 +100,10 @@ describe('FileUpload', () => {
 
     it('should apply custom id', () => {
       render(<FileUpload id="test-upload" />);
-      expect(screen.getByRole('button')).toHaveAttribute('id', 'test-upload-dropzone');
+      expect(screen.getByRole('button')).toHaveAttribute(
+        'id',
+        'test-upload-dropzone'
+      );
     });
   });
 
@@ -114,7 +115,9 @@ describe('FileUpload', () => {
       render(<FileUpload onChange={handleChange} />);
 
       const file = createMockFile('test.pdf', 1024, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
@@ -134,7 +137,9 @@ describe('FileUpload', () => {
         createMockFile('file2.pdf', 2048, 'application/pdf'),
       ];
 
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
       await user.upload(input, files);
 
       await waitFor(() => {
@@ -148,7 +153,9 @@ describe('FileUpload', () => {
       render(<FileUpload />);
 
       const file = createMockFile('document.pdf', 1024, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
@@ -164,14 +171,19 @@ describe('FileUpload', () => {
       render(<FileUpload showThumbnails />);
 
       const file = createMockFile('image.png', 2048, 'image/png');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
       await waitFor(() => {
         const img = screen.getByAltText('image.png');
         expect(img).toBeInTheDocument();
-        expect(img).toHaveAttribute('src', expect.stringContaining('data:image'));
+        expect(img).toHaveAttribute(
+          'src',
+          expect.stringContaining('data:image')
+        );
       });
     });
   });
@@ -180,16 +192,13 @@ describe('FileUpload', () => {
     it('should validate file type', async () => {
       const handleError = vi.fn();
 
-      render(
-        <FileUpload
-          accept="image/*"
-          onError={handleError}
-        />
-      );
+      render(<FileUpload accept="image/*" onError={handleError} />);
 
       // Directly test the validation logic by simulating file selection
       const file = createMockFile('document.pdf', 1024, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       // Manually set files and trigger change
       Object.defineProperty(input, 'files', {
@@ -223,7 +232,9 @@ describe('FileUpload', () => {
       );
 
       const file = createMockFile('large.pdf', 2000, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
@@ -257,7 +268,9 @@ describe('FileUpload', () => {
         createMockFile('file3.pdf', 1024, 'application/pdf'),
       ];
 
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
       await user.upload(input, files);
 
       await waitFor(() => {
@@ -286,7 +299,9 @@ describe('FileUpload', () => {
       );
 
       const file = createMockFile('image.png', 2048, 'image/png');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
@@ -389,7 +404,9 @@ describe('FileUpload', () => {
       render(<FileUpload onChange={handleChange} />);
 
       const file = createMockFile('test.pdf', 1024, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
@@ -397,7 +414,9 @@ describe('FileUpload', () => {
         expect(screen.getByText('test.pdf')).toBeInTheDocument();
       });
 
-      const removeButton = screen.getByRole('button', { name: /remove test\.pdf/i });
+      const removeButton = screen.getByRole('button', {
+        name: /remove test\.pdf/i,
+      });
       await user.click(removeButton);
 
       await waitFor(() => {
@@ -411,7 +430,9 @@ describe('FileUpload', () => {
 
       render(<FileUpload />);
 
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
       const clickSpy = vi.spyOn(input, 'click');
 
       const dropZone = screen.getByRole('button', { name: /upload files/i });
@@ -425,7 +446,9 @@ describe('FileUpload', () => {
 
       render(<FileUpload />);
 
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
       const clickSpy = vi.spyOn(input, 'click');
 
       const dropZone = screen.getByRole('button', { name: /upload files/i });
@@ -440,7 +463,9 @@ describe('FileUpload', () => {
 
       render(<FileUpload />);
 
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
       const clickSpy = vi.spyOn(input, 'click');
 
       const dropZone = screen.getByRole('button', { name: /upload files/i });
@@ -460,7 +485,9 @@ describe('FileUpload', () => {
       expect(ref.current?.focus).toBeDefined();
       ref.current?.focus();
 
-      expect(document.activeElement).toBe(screen.getByRole('button', { name: /upload files/i }));
+      expect(document.activeElement).toBe(
+        screen.getByRole('button', { name: /upload files/i })
+      );
     });
 
     it('should expose clear method', async () => {
@@ -471,7 +498,9 @@ describe('FileUpload', () => {
       render(<FileUpload ref={ref} onChange={handleChange} />);
 
       const file = createMockFile('test.pdf', 1024, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
@@ -494,7 +523,9 @@ describe('FileUpload', () => {
       render(<FileUpload ref={ref} />);
 
       const file = createMockFile('test.pdf', 1024, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
@@ -510,7 +541,9 @@ describe('FileUpload', () => {
 
       render(<FileUpload ref={ref} />);
 
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
       const clickSpy = vi.spyOn(input, 'click');
 
       ref.current?.browse();
@@ -537,7 +570,9 @@ describe('FileUpload', () => {
       const dropZone = screen.getByRole('button', { name: /upload files/i });
       await user.click(dropZone);
 
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
       expect(input).toBeDisabled();
     });
   });
@@ -552,7 +587,9 @@ describe('FileUpload', () => {
     it('should have proper ARIA attributes', () => {
       render(<FileUpload ariaLabel="Upload documents" />);
 
-      const dropZone = screen.getByRole('button', { name: /upload documents/i });
+      const dropZone = screen.getByRole('button', {
+        name: /upload documents/i,
+      });
       expect(dropZone).toHaveAttribute('aria-label', 'Upload documents');
       expect(dropZone).toHaveAttribute('aria-describedby');
     });
@@ -563,7 +600,9 @@ describe('FileUpload', () => {
       render(<FileUpload />);
 
       const file = createMockFile('test.pdf', 1024, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
@@ -572,7 +611,10 @@ describe('FileUpload', () => {
         expect(fileList).toBeInTheDocument();
 
         const fileItem = screen.getByRole('listitem');
-        expect(fileItem).toHaveAttribute('aria-label', expect.stringContaining('test.pdf'));
+        expect(fileItem).toHaveAttribute(
+          'aria-label',
+          expect.stringContaining('test.pdf')
+        );
       });
     });
 
@@ -582,12 +624,16 @@ describe('FileUpload', () => {
       render(<FileUpload />);
 
       const file = createMockFile('test.pdf', 1024, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
       await waitFor(() => {
-        const removeButton = screen.getByRole('button', { name: /remove test\.pdf/i });
+        const removeButton = screen.getByRole('button', {
+          name: /remove test\.pdf/i,
+        });
         expect(removeButton).toBeInTheDocument();
       });
     });
@@ -605,8 +651,14 @@ describe('FileUpload', () => {
 
       render(<FileUpload />);
 
-      const file = createMockFile('large.pdf', 1024 * 1024 * 2.5, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const file = createMockFile(
+        'large.pdf',
+        1024 * 1024 * 2.5,
+        'application/pdf'
+      );
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
@@ -627,7 +679,9 @@ describe('FileUpload', () => {
       render(<FileUpload showThumbnails={false} />);
 
       const file = createMockFile('image.png', 2048, 'image/png');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 
@@ -642,7 +696,9 @@ describe('FileUpload', () => {
       render(<FileUpload showProgress={false} />);
 
       const file = createMockFile('test.pdf', 1024, 'application/pdf');
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement;
 
       await user.upload(input, file);
 

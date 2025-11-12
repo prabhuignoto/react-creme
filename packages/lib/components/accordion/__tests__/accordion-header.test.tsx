@@ -36,16 +36,15 @@ describe('AccordionHeader', () => {
   it('has aria-expanded=true when open', () => {
     render(<AccordionHeader open title="Test" />);
 
-    expect(screen.getByRole('button')).toHaveAttribute(
-      'aria-expanded',
-      'true'
-    );
+    expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
   });
 
   it('does not call onToggle when disableCollapse is true', async () => {
     const onToggle = vi.fn();
 
-    render(<AccordionHeader onToggle={onToggle} disableCollapse title="Test" />);
+    render(
+      <AccordionHeader onToggle={onToggle} disableCollapse title="Test" />
+    );
 
     await userEvent.click(screen.getByRole('button'));
 
@@ -122,7 +121,9 @@ describe('AccordionHeader', () => {
     });
 
     it('should update aria-expanded when open', () => {
-      const { rerender } = render(<AccordionHeader title="Test" open={false} />);
+      const { rerender } = render(
+        <AccordionHeader title="Test" open={false} />
+      );
 
       let button = screen.getByRole('button');
       expect(button).toHaveAttribute('aria-expanded', 'false');

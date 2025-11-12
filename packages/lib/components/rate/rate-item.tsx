@@ -80,6 +80,7 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = ({
       key={id}
       className={rateItemClass}
       onMouseOver={() => onMouseOver(index)}
+      onFocus={() => onMouseOver(index)}
       aria-checked={active}
       role="radio"
       {...focusableProps}

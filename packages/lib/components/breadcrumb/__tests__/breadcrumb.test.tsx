@@ -116,7 +116,11 @@ describe('BreadCrumb', () => {
     it('should navigate with ArrowRight key', () => {
       const handler = vi.fn();
       const { container } = render(
-        <BreadCrumb links={defaultLinks} onSelected={handler} focusable={true} />
+        <BreadCrumb
+          links={defaultLinks}
+          onSelected={handler}
+          focusable={true}
+        />
       );
       const nav = container.querySelector('ul');
 
@@ -165,7 +169,11 @@ describe('BreadCrumb', () => {
     it('should navigate to last item with End key', () => {
       const handler = vi.fn();
       const { container } = render(
-        <BreadCrumb links={defaultLinks} onSelected={handler} focusable={true} />
+        <BreadCrumb
+          links={defaultLinks}
+          onSelected={handler}
+          focusable={true}
+        />
       );
       const nav = container.querySelector('ul');
 
@@ -178,7 +186,11 @@ describe('BreadCrumb', () => {
     it('should not navigate when focusable is false', () => {
       const handler = vi.fn();
       const { container } = render(
-        <BreadCrumb links={defaultLinks} onSelected={handler} focusable={false} />
+        <BreadCrumb
+          links={defaultLinks}
+          onSelected={handler}
+          focusable={false}
+        />
       );
       const nav = container.querySelector('ul');
 
@@ -210,13 +222,17 @@ describe('BreadCrumb', () => {
 
   describe('RTL Support', () => {
     it('should apply RTL class when RTL prop is true', () => {
-      const { container } = render(<BreadCrumb links={defaultLinks} RTL={true} />);
+      const { container } = render(
+        <BreadCrumb links={defaultLinks} RTL={true} />
+      );
       const wrapper = container.querySelector('ul');
       expect(wrapper?.className).toContain('rtl');
     });
 
     it('should not apply RTL class when RTL prop is false', () => {
-      const { container } = render(<BreadCrumb links={defaultLinks} RTL={false} />);
+      const { container } = render(
+        <BreadCrumb links={defaultLinks} RTL={false} />
+      );
       const wrapper = container.querySelector('ul');
       expect(wrapper?.className).not.toContain('rtl');
     });
@@ -253,7 +269,9 @@ describe('BreadCrumb', () => {
     });
 
     it('should have proper semantic structure', () => {
-      const { getByRole, getAllByRole } = render(<BreadCrumb links={defaultLinks} />);
+      const { getByRole, getAllByRole } = render(
+        <BreadCrumb links={defaultLinks} />
+      );
 
       // Should have navigation landmark
       const nav = getByRole('navigation');

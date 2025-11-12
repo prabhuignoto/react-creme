@@ -187,12 +187,9 @@ export function useAutoSuggestState() {
     dispatch({ payload: focusMenu, type: 'SET_FOCUS_MENU' });
   }, []);
 
-  const setActiveDescendantId = useCallback(
-    (id: string | undefined) => {
-      dispatch({ payload: id, type: 'SET_ACTIVE_DESCENDANT' });
-    },
-    []
-  );
+  const setActiveDescendantId = useCallback((id: string | undefined) => {
+    dispatch({ payload: id, type: 'SET_ACTIVE_DESCENDANT' });
+  }, []);
 
   const selectItem = useCallback(
     (itemId: string, itemName: string, itemValue: string) => {

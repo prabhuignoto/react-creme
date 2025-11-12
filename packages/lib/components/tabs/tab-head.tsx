@@ -39,7 +39,8 @@ const TabHead = React.forwardRef<HTMLButtonElement, TabHeadProps>(
     forwardedRef
   ) => {
     const internalRef = useRef<HTMLButtonElement>(null);
-    const ref = (forwardedRef as React.RefObject<HTMLButtonElement>) || internalRef;
+    const ref =
+      (forwardedRef as React.RefObject<HTMLButtonElement>) || internalRef;
 
     // Check if the current mode is dark
     const isDarkMode = isDark();
@@ -55,17 +56,14 @@ const TabHead = React.forwardRef<HTMLButtonElement, TabHeadProps>(
       [styles.tab_header_label_icon]: icon,
     });
 
-    const tabHeadClass = classNames(
-      styles.tab_head,
-      {
-        [styles.tab_head_disabled]: disabled,
-        [styles.tab_head_selected]: selected,
-        [styles[`tab_head_${tabStyle}`]]: tabStyle,
-        [styles.tab_head_with_icon]: icon,
-        [styles[`tab_head_${size}`]]: size,
-        [styles.dark]: isDarkMode,
-      }
-    );
+    const tabHeadClass = classNames(styles.tab_head, {
+      [styles.tab_head_disabled]: disabled,
+      [styles.tab_head_selected]: selected,
+      [styles[`tab_head_${tabStyle}`]]: tabStyle,
+      [styles.tab_head_with_icon]: icon,
+      [styles[`tab_head_${size}`]]: size,
+      [styles.dark]: isDarkMode,
+    });
 
     const tabHeadIconClass = classNames(styles.tab_head_icon, {
       [styles.tab_head_selected]: selected,

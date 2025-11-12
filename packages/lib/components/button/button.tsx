@@ -38,92 +38,97 @@ import styles from './button.module.scss';
  * @returns {React.ReactElement} The rendered button element.
  */
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  const {
-    border = true,
-    children,
-    disabled = false,
-    focusable = true,
-    type = 'default',
-    label = '',
-    onClick,
-    size = 'sm',
-    style = {},
-    accent = 'rounded',
-    isBusy = false,
-  } = props;
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => {
+    const {
+      border = true,
+      children,
+      disabled = false,
+      focusable = true,
+      type = 'default',
+      label = '',
+      onClick,
+      size = 'sm',
+      style = {},
+      accent = 'rounded',
+      isBusy = false,
+    } = props;
 
-  // Check if the theme is dark mode (called once)
-  const isDarkMode = isDark();
+    // Check if the theme is dark mode (called once)
+    const isDarkMode = isDark();
 
-  // setup classnames for the button (memoized for performance)
-  const buttonClass = useMemo(
-    () =>
-      classNames(
-        {
-          [styles['default']]: type === 'progress',
-          [styles.no_border]: !border,
-          [styles.disabled]: disabled || isBusy,
-          [styles.dark]: isDarkMode,
-          [styles[accent]]: true,
-        },
-        [styles[size], styles[type], styles.btn]
-      ),
-    [type, border, disabled, isBusy, isDarkMode, accent, size]
-  );
+    // setup classnames for the button (memoized for performance)
+    const buttonClass = useMemo(
+      () =>
+        classNames(
+          {
+            [styles['default']]: type === 'progress',
+            [styles.no_border]: !border,
+            [styles.disabled]: disabled || isBusy,
+            [styles.dark]: isDarkMode,
+            [styles[accent]]: true,
+          },
+          [styles[size], styles[type], styles.btn]
+        ),
+      [type, border, disabled, isBusy, isDarkMode, accent, size]
+    );
 
-  // Setup for focus management with useFocusNew hook
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
+    // Setup for focus management with useFocusNew hook
+    const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  useFocusNew(focusable ? (buttonRef as React.RefObject<HTMLElement>) : null);
+    useFocusNew(focusable ? (buttonRef as React.RefObject<HTMLElement>) : null);
 
-  // Expose focus method via imperative handle
-  useImperativeHandle(ref, () => buttonRef.current!);
+    // Expose focus method via imperative handle
+    useImperativeHandle(ref, () => buttonRef.current!);
 
-  // Handler for button click (prevents click when disabled or busy)
-  const handleClick = useCallback(
-    () => !disabled && !isBusy && onClick?.(),
-    [disabled, isBusy, onClick]
-  );
+    // Handler for button click (prevents click when disabled or busy)
+    const handleClick = useCallback(
+      () => !disabled && !isBusy && onClick?.(),
+      [disabled, isBusy, onClick]
+    );
 
-  // Handle keyboard 'Space' event (on keydown to prevent scroll)
-  // Note: native button handles 'Enter' automatically
-  const handleKeyDown = useCallback(
-    (ev: React.KeyboardEvent) => {
-      if (ev.key === ' ' && !disabled && !isBusy) {
-        ev.preventDefault();
-        handleClick();
-      }
-    },
-    [handleClick, disabled, isBusy]
-  );
+    // Handle keyboard 'Space' event (on keydown to prevent scroll)
+    // Note: native button handles 'Enter' automatically
+    const handleKeyDown = useCallback(
+      (ev: React.KeyboardEvent) => {
+        if (ev.key === ' ' && !disabled && !isBusy) {
+          ev.preventDefault();
+          handleClick();
+        }
+      },
+      [handleClick, disabled, isBusy]
+    );
 
-  // Determine accessible label: use label prop if provided, otherwise children text
-  const accessibleLabel = label || (typeof children === 'string' ? children : undefined);
+    // Determine accessible label: use label prop if provided, otherwise children text
+    const accessibleLabel =
+      label || (typeof children === 'string' ? children : undefined);
 
-  return (
-    <button
-      className={buttonClass}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      ref={buttonRef}
-      disabled={disabled || isBusy}
-      style={style}
-      aria-label={accessibleLabel}
-      aria-busy={isBusy}
-      type="button"
-      tabIndex={focusable ? undefined : -1}
-    >
-      {type === 'progress' && !disabled && (
-        <span className={styles.progress_wrapper}>
-          <Spinner />
-        </span>
-      )}
-      {children && <span className={styles.icon_container}>{children}</span>}
-      {label && type !== 'icon' && <span className={styles.label}>{label}</span>}
-    </button>
-  );
-});
+    return (
+      <button
+        className={buttonClass}
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
+        ref={buttonRef}
+        disabled={disabled || isBusy}
+        style={style}
+        aria-label={accessibleLabel}
+        aria-busy={isBusy}
+        type="button"
+        tabIndex={focusable ? undefined : -1}
+      >
+        {type === 'progress' && !disabled && (
+          <span className={styles.progress_wrapper}>
+            <Spinner />
+          </span>
+        )}
+        {children && <span className={styles.icon_container}>{children}</span>}
+        {label && type !== 'icon' && (
+          <span className={styles.label}>{label}</span>
+        )}
+      </button>
+    );
+  }
+);
 
 Button.displayName = 'Button';
 

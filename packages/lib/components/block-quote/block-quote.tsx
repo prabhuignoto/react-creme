@@ -3,7 +3,8 @@ import React, { useMemo } from 'react';
 import { isDark } from '../common/utils';
 import styles from './block-quote.module.scss';
 
-export interface BlockQuoteProps extends React.BlockquoteHTMLAttributes<HTMLBlockquoteElement> {
+export interface BlockQuoteProps
+  extends React.HTMLAttributes<HTMLQuoteElement> {
   /**
    * Alignment of the blockquote
    * @default 'left'

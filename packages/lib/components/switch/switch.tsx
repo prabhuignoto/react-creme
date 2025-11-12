@@ -156,7 +156,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
   }, [checked]);
 
   const switchTabIndex = useMemo(
-    () => !disabled && !readOnly && focusable && { tabIndex: 0 },
+    () => ({ tabIndex: !disabled && !readOnly && focusable ? 0 : -1 }),
     [disabled, readOnly, focusable]
   );
 

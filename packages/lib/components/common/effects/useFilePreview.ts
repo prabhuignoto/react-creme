@@ -31,14 +31,14 @@ export const useFilePreview = (options: UseFilePreviewOptions = {}) => {
 
   const generatePreview = useCallback(
     (file: File): Promise<string | undefined> => {
-      return new Promise((resolve) => {
+      return new Promise(resolve => {
         if (!showThumbnails || !isImageFile(file)) {
           resolve(undefined);
           return;
         }
 
         const reader = new FileReader();
-        reader.onload = (e) => {
+        reader.onload = e => {
           resolve(e.target?.result as string);
         };
         reader.onerror = () => {

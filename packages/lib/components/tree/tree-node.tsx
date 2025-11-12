@@ -82,7 +82,9 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
                       name={node.name}
                       isChild
                       id={node.id}
-                      onSelect={x => onSelect?.(node.id + '/' + x, node.selected)}
+                      onSelect={x =>
+                        onSelect?.(node.id + '/' + x, node.selected)
+                      }
                       selected={node.selected}
                       enableCheckbox={enableCheckbox}
                       size={size}

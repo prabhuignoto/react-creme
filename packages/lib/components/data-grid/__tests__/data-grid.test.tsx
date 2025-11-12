@@ -75,12 +75,7 @@ describe('DataGrid', () => {
   });
 
   it('should handle empty data state', () => {
-    render(
-      <DataGrid
-        columns={mockColumns}
-        data={[]}
-      />
-    );
+    render(<DataGrid columns={mockColumns} data={[]} />);
 
     expect(screen.queryByText('John')).not.toBeInTheDocument();
     expect(screen.queryByText('Jane')).not.toBeInTheDocument();
@@ -97,7 +92,9 @@ describe('DataGrid', () => {
 
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const { container } = render(<DataGrid columns={mockColumns} data={mockData} />);
+      const { container } = render(
+        <DataGrid columns={mockColumns} data={mockData} />
+      );
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();

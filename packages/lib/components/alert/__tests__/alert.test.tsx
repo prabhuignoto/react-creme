@@ -105,19 +105,25 @@ describe('Alert', () => {
   });
 
   it('should render sm size correctly', async () => {
-    const { getByRole } = render(<Alert message="test" state="info" size="sm" />);
+    const { getByRole } = render(
+      <Alert message="test" state="info" size="sm" />
+    );
 
     expect(getByRole('alert')).toHaveClass(styles.alert_sm);
   });
 
   it('should render md size correctly', async () => {
-    const { getByRole } = render(<Alert message="test" state="info" size="md" />);
+    const { getByRole } = render(
+      <Alert message="test" state="info" size="md" />
+    );
 
     expect(getByRole('alert')).toHaveClass(styles.alert_md);
   });
 
   it('should render lg size correctly', async () => {
-    const { getByRole } = render(<Alert message="test" state="info" size="lg" />);
+    const { getByRole } = render(
+      <Alert message="test" state="info" size="lg" />
+    );
 
     expect(getByRole('alert')).toHaveClass(styles.alert_lg);
   });

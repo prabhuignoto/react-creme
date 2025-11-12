@@ -1,5 +1,11 @@
 import { nanoid } from 'nanoid';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { TreeNodeProps, TreeProps } from './tree-model';
 import { TreeNode } from './tree-node';
 import {
@@ -35,25 +41,26 @@ const Tree: React.FunctionComponent<TreeProps> = ({
   }, []);
 
   // Parse nodes with stable IDs
-  const parser: (n: TreeNodeProps[], parentPath?: string) => TreeNodeProps[] = useCallback(
-    (_nodes, parentPath = '') => {
-      return _nodes.map((n: TreeNodeProps) => {
-        const nodeName = n.name || '';
-        const stableId = getStableId(nodeName, parentPath);
+  const parser: (n: TreeNodeProps[], parentPath?: string) => TreeNodeProps[] =
+    useCallback(
+      (_nodes, parentPath = '') => {
+        return _nodes.map((n: TreeNodeProps) => {
+          const nodeName = n.name || '';
+          const stableId = getStableId(nodeName, parentPath);
 
-        if (n.nodes?.length) {
-          return {
-            ...n,
-            id: stableId,
-            nodes: parser(n.nodes, `${parentPath}/${nodeName}`),
-            selected: false,
-          };
-        }
-        return { ...n, id: stableId };
-      });
-    },
-    [getStableId]
-  );
+          if (n.nodes?.length) {
+            return {
+              ...n,
+              id: stableId,
+              nodes: parser(n.nodes, `${parentPath}/${nodeName}`),
+              selected: false,
+            };
+          }
+          return { ...n, id: stableId };
+        });
+      },
+      [getStableId]
+    );
 
   const [selectedId, setSelectedId] = useState<{
     id: string;
@@ -128,7 +135,10 @@ const Tree: React.FunctionComponent<TreeProps> = ({
       const nodeToUpdate = JSON.parse(JSON.stringify(lookupNode));
 
       if (selectable) {
-        const nodeUpdated = recursiveUpdateMultiSelection(nodeToUpdate, idToFind);
+        const nodeUpdated = recursiveUpdateMultiSelection(
+          nodeToUpdate,
+          idToFind
+        );
         return prev.map(x => {
           if (x.id === lookupNodeId) {
             return { ...nodeUpdated };
@@ -144,7 +154,13 @@ const Tree: React.FunctionComponent<TreeProps> = ({
     if (selectedNodeInfo) {
       onSelectedRef.current?.(selectedNodeInfo);
     }
-  }, [selectedId?.id, selectedId?.lookupNodeId, selectedId?.selected, selectedId?.stamp, selectable]);
+  }, [
+    selectedId?.id,
+    selectedId?.lookupNodeId,
+    selectedId?.selected,
+    selectedId?.stamp,
+    selectable,
+  ]);
 
   const handleSelection = useCallback((id?: string, open?: boolean) => {
     if (!id) {
@@ -185,7 +201,16 @@ const Tree: React.FunctionComponent<TreeProps> = ({
       const currentIndex = flatTree.findIndex(item => item.id === focusedId);
       if (currentIndex === -1) {
         // If nothing focused, focus first item on any arrow key
-        if (['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) {
+        if (
+          [
+            'ArrowDown',
+            'ArrowUp',
+            'ArrowLeft',
+            'ArrowRight',
+            'Home',
+            'End',
+          ].includes(e.key)
+        ) {
           e.preventDefault();
           setFocusedId(flatTree[0]?.id || '');
         }
@@ -287,7 +312,9 @@ const Tree: React.FunctionComponent<TreeProps> = ({
           // Expand all siblings at current level
           e.preventDefault();
           const siblingsToExpand = flatTree
-            .filter(item => item.level === currentItem.level && item.hasChildren)
+            .filter(
+              item => item.level === currentItem.level && item.hasChildren
+            )
             .map(item => item.id);
           setExpandedIds(prev => {
             const next = new Set(prev);
@@ -319,11 +346,7 @@ const Tree: React.FunctionComponent<TreeProps> = ({
   }, [focusedId]);
 
   return (
-    <div
-      role="tree"
-      ref={treeRef}
-      aria-label="Tree navigation"
-    >
+    <div role="tree" ref={treeRef} aria-label="Tree navigation">
       <TreeNode
         nodes={treeNodes}
         isChild={false}

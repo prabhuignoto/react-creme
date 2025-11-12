@@ -70,7 +70,7 @@ describe('<Tabs />', () => {
 
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const { container} = render(
+      const { container } = render(
         <Tabs labels={labels} children={children} />
       );
       const results = await axe(container);
@@ -226,11 +226,7 @@ describe('<Tabs />', () => {
     it('should skip disabled tabs during navigation', async () => {
       const user = userEvent.setup();
       render(
-        <Tabs
-          labels={labels}
-          children={children}
-          disabledTabs={['Tab2']}
-        />
+        <Tabs labels={labels} children={children} disabledTabs={['Tab2']} />
       );
 
       const tabs = screen.getAllByRole('tab');
@@ -258,7 +254,9 @@ describe('<Tabs />', () => {
 
   describe('Touch Targets', () => {
     it('should have minimum 44px height for tabs', () => {
-      const { container } = render(<Tabs labels={labels} children={children} />);
+      const { container } = render(
+        <Tabs labels={labels} children={children} />
+      );
 
       const tabs = container.querySelectorAll('button[role="tab"]');
       tabs.forEach(tab => {

@@ -52,7 +52,9 @@ describe('Switch', () => {
     });
 
     it('should have accessible name from aria-label prop', () => {
-      const { getByRole } = render(<Switch aria-label="Enable notifications" />);
+      const { getByRole } = render(
+        <Switch aria-label="Enable notifications" />
+      );
       expect(getByRole('switch')).toHaveAccessibleName('Enable notifications');
     });
 
@@ -112,7 +114,10 @@ describe('Switch', () => {
         </>
       );
 
-      expect(getByRole('switch')).toHaveAttribute('aria-describedby', 'desc-id');
+      expect(getByRole('switch')).toHaveAttribute(
+        'aria-describedby',
+        'desc-id'
+      );
     });
   });
 
@@ -137,9 +142,7 @@ describe('Switch', () => {
     it('should not toggle on keyboard interaction when readOnly', async () => {
       const user = userEvent.setup();
       const handler = vi.fn();
-      render(
-        <Switch label="Test" readOnly onChange={handler} />
-      );
+      render(<Switch label="Test" readOnly onChange={handler} />);
 
       await user.keyboard(' ');
 
@@ -263,7 +266,7 @@ describe('Switch', () => {
       // sm: 25px, md: 30px, lg: 35px
       const sizes = ['sm', 'md', 'lg'] as const;
 
-      sizes.forEach((size) => {
+      sizes.forEach(size => {
         const { container } = render(<Switch label="Test" size={size} />);
         const track = container.querySelector(`.${styles.track}`);
 
@@ -273,7 +276,9 @@ describe('Switch', () => {
 
     it('should apply custom width property', () => {
       const { container } = render(<Switch label="Test" width={100} />);
-      const switchEl = container.querySelector('[role="switch"]') as HTMLElement;
+      const switchEl = container.querySelector(
+        '[role="switch"]'
+      ) as HTMLElement;
 
       const styles = window.getComputedStyle(switchEl);
       expect(styles.getPropertyValue('--min-width')).toBe('100px');

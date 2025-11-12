@@ -103,9 +103,7 @@ export function findGroupByItemValue(
   groups: AutoSuggestGroup[],
   value: string
 ): AutoSuggestGroup | undefined {
-  return groups.find(group =>
-    group.items.some(item => item.value === value)
-  );
+  return groups.find(group => group.items.some(item => item.value === value));
 }
 
 /**
@@ -114,7 +112,9 @@ export function findGroupByItemValue(
  * @param groups - Array of suggestion groups
  * @returns Flat array of options
  */
-export function flatGroupsToOptions(groups: AutoSuggestGroup[]): AutoSuggestOption[] {
+export function flatGroupsToOptions(
+  groups: AutoSuggestGroup[]
+): AutoSuggestOption[] {
   return groups.flatMap(group => group.items);
 }
 

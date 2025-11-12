@@ -129,7 +129,8 @@ describe('Reveal', () => {
       render(<TestComponent />);
 
       // The observe method should be called
-      const mockInstance = vi.mocked(MockIntersectionObserver).mock.results[0]?.value;
+      const mockInstance = vi.mocked(MockIntersectionObserver).mock.results[0]
+        ?.value;
       if (mockInstance) {
         expect(mockInstance.observe).toHaveBeenCalled();
       }
@@ -156,7 +157,8 @@ describe('Reveal', () => {
       unmount();
 
       // Disconnect should be called on cleanup
-      const mockInstance = vi.mocked(MockIntersectionObserver).mock.results[0]?.value;
+      const mockInstance = vi.mocked(MockIntersectionObserver).mock.results[0]
+        ?.value;
       if (mockInstance) {
         expect(mockInstance.disconnect).toHaveBeenCalled();
       }

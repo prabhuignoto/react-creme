@@ -480,7 +480,9 @@ describe('Pin Component', () => {
         return (
           <>
             <Pin ref={ref} length={4} value="1234" onChange={() => {}} />
-            <button onClick={() => setIsComplete(ref.current?.isComplete() || false)}>
+            <button
+              onClick={() => setIsComplete(ref.current?.isComplete() || false)}
+            >
               Check
             </button>
             <div>{isComplete ? 'Complete' : 'Incomplete'}</div>
@@ -512,9 +514,7 @@ describe('Pin Component', () => {
     });
 
     it('should support custom aria-label', () => {
-      const { container } = render(
-        <Pin aria-label="Custom PIN input" />
-      );
+      const { container } = render(<Pin aria-label="Custom PIN input" />);
       const wrapper = container.querySelector('ul');
 
       expect(wrapper).toHaveAttribute('aria-label', 'Custom PIN input');

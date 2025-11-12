@@ -85,7 +85,10 @@ const useSwipe: SwipeFunc = (strength = 'medium') => {
   const handleMouseDown = useCallback(
     (ev: MouseEvent | TouchEvent) => {
       ev.preventDefault();
-      const touch = 'touches' in ev && ev.touches.length > 0 ? ev.touches[0]! : (ev as MouseEvent);
+      const touch =
+        'touches' in ev && ev.touches.length > 0
+          ? ev.touches[0]!
+          : (ev as MouseEvent);
       const { clientX, clientY } = touch;
       handleSwipeStart(clientX, clientY);
     },
@@ -101,7 +104,10 @@ const useSwipe: SwipeFunc = (strength = 'medium') => {
   const handleMouseMove = useCallback(
     (ev: MouseEvent | TouchEvent) => {
       ev.preventDefault();
-      const touch = 'touches' in ev && ev.touches.length > 0 ? ev.touches[0]! : (ev as MouseEvent);
+      const touch =
+        'touches' in ev && ev.touches.length > 0
+          ? ev.touches[0]!
+          : (ev as MouseEvent);
       const { clientX, clientY } = touch;
       if (swipeStarted.current) {
         handleSwipeMove(clientX, clientY);

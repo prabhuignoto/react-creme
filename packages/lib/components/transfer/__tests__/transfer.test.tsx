@@ -182,7 +182,11 @@ describe('Transfer', () => {
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
       const { container } = render(
-        <Transfer list1={['Item 1', 'Item 2']} list2={['Item 3']} onChange={handler} />
+        <Transfer
+          list1={['Item 1', 'Item 2']}
+          list2={['Item 3']}
+          onChange={handler}
+        />
       );
       const results = await axe(container);
 

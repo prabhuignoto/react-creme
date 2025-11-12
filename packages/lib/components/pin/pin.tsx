@@ -82,12 +82,13 @@ const Pin = forwardRef<PinHandle, PinProps>(
     const [internalValue, setInternalValue] = useState(defaultValue);
     const [_focusedIndex, setFocusedIndex] = useState<number>(-1); // eslint-disable-line @typescript-eslint/no-unused-vars
     const [visibleDigits, setVisibleDigits] = useState<Set<number>>(new Set());
-    const [maskTimeouts, setMaskTimeouts] = useState<Map<number, ReturnType<typeof setTimeout>>>(
-      new Map()
-    );
+    const [maskTimeouts, setMaskTimeouts] = useState<
+      Map<number, ReturnType<typeof setTimeout>>
+    >(new Map());
 
     // Use controlled value if provided, otherwise use internal
-    const pinValue = controlledValue !== undefined ? controlledValue : internalValue;
+    const pinValue =
+      controlledValue !== undefined ? controlledValue : internalValue;
 
     // Create refs for each input dynamically
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -319,12 +320,9 @@ const Pin = forwardRef<PinHandle, PinProps>(
     );
 
     // Handle focus
-    const handleFocus = useCallback(
-      (index: number) => {
-        setFocusedIndex(index);
-      },
-      []
-    );
+    const handleFocus = useCallback((index: number) => {
+      setFocusedIndex(index);
+    }, []);
 
     // Auto-focus first input on mount
     useEffect(() => {
@@ -402,7 +400,9 @@ const Pin = forwardRef<PinHandle, PinProps>(
                   size={1}
                   disabled={disabled || loading}
                   readOnly={readOnly}
-                  onChange={e => handleInputChange(e.currentTarget.value, index)}
+                  onChange={e =>
+                    handleInputChange(e.currentTarget.value, index)
+                  }
                   onKeyDown={e => handleKeyDown(e, index)}
                   onPaste={e => handlePaste(e, index)}
                   onFocus={() => handleFocus(index)}

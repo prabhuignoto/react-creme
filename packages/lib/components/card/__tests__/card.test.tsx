@@ -176,9 +176,7 @@ describe('Card', () => {
   describe('Interactive Cards', () => {
     it('should be clickable when interactive=true', async () => {
       const handleClick = vi.fn();
-      const { container } = render(
-        <Card interactive onClick={handleClick} />
-      );
+      const { container } = render(<Card interactive onClick={handleClick} />);
       const card = container.firstChild as HTMLElement;
 
       expect(card.className).toContain('interactive');
@@ -190,9 +188,7 @@ describe('Card', () => {
 
     it('should be keyboard accessible with Enter key', async () => {
       const handleClick = vi.fn();
-      const { container } = render(
-        <Card interactive onClick={handleClick} />
-      );
+      const { container } = render(<Card interactive onClick={handleClick} />);
       const card = container.firstChild as HTMLElement;
 
       card.focus();
@@ -203,9 +199,7 @@ describe('Card', () => {
 
     it('should be keyboard accessible with Space key', async () => {
       const handleClick = vi.fn();
-      const { container } = render(
-        <Card interactive onClick={handleClick} />
-      );
+      const { container } = render(<Card interactive onClick={handleClick} />);
       const card = container.firstChild as HTMLElement;
 
       card.focus();

@@ -1,9 +1,6 @@
 import { useCallback } from 'react';
 import type { FileUploadError } from '../../file-upload/file-upload-model';
-import {
-  isFileTypeAccepted,
-  formatFileSize,
-} from '../../file-upload/utils';
+import { isFileTypeAccepted, formatFileSize } from '../../file-upload/utils';
 
 export interface UseFileValidationOptions {
   /**

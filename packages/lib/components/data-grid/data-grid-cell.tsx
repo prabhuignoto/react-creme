@@ -7,7 +7,15 @@ import styles from './data-grid.module.scss';
 
 // Apply React.memo to prevent unnecessary re-renders
 const DataGridCell: React.FunctionComponent<CellModel> = React.memo(
-  ({ value, border, fixedHeight, formatter, isHeader, zebra, parseHtml }: CellModel) => {
+  ({
+    value,
+    border,
+    fixedHeight,
+    formatter,
+    isHeader,
+    zebra,
+    parseHtml,
+  }: CellModel) => {
     // Simple function call - no need for useMemo
     const isDarkMode = isDark();
 

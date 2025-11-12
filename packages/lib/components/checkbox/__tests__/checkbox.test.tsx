@@ -34,12 +34,18 @@ describe('Checkbox', () => {
   describe('States', () => {
     it('should be checked when isChecked prop is true', () => {
       render(<CheckBox label="My Checkbox" isChecked />);
-      expect(screen.getByRole('checkbox')).toHaveAttribute('aria-checked', 'true');
+      expect(screen.getByRole('checkbox')).toHaveAttribute(
+        'aria-checked',
+        'true'
+      );
     });
 
     it('should be unchecked by default', () => {
       render(<CheckBox label="My Checkbox" />);
-      expect(screen.getByRole('checkbox')).toHaveAttribute('aria-checked', 'false');
+      expect(screen.getByRole('checkbox')).toHaveAttribute(
+        'aria-checked',
+        'false'
+      );
     });
 
     it('should be focusable when focusable prop is true', () => {
@@ -59,7 +65,12 @@ describe('Checkbox', () => {
       const handler = vi.fn();
 
       render(
-        <CheckBox label="My Checkbox" onChange={handler} noUniqueId id="12445" />
+        <CheckBox
+          label="My Checkbox"
+          onChange={handler}
+          noUniqueId
+          id="12445"
+        />
       );
 
       await user.click(screen.getByRole('checkbox'));
@@ -72,9 +83,7 @@ describe('Checkbox', () => {
       const user = userEvent.setup();
       const callback = vi.fn();
 
-      render(
-        <CheckBox label="My Checkbox" onChange={callback} disabled />
-      );
+      render(<CheckBox label="My Checkbox" onChange={callback} disabled />);
 
       await user.click(screen.getByRole('checkbox'));
 
@@ -85,7 +94,9 @@ describe('Checkbox', () => {
       const user = userEvent.setup();
       const handler = vi.fn();
 
-      render(<CheckBox label="Toggle me" onChange={handler} noUniqueId id="toggle" />);
+      render(
+        <CheckBox label="Toggle me" onChange={handler} noUniqueId id="toggle" />
+      );
 
       const checkbox = screen.getByRole('checkbox');
 
@@ -122,14 +133,18 @@ describe('Checkbox', () => {
     });
 
     it('should have no accessibility violations when checked', async () => {
-      const { container } = render(<CheckBox label="Checked checkbox" isChecked />);
+      const { container } = render(
+        <CheckBox label="Checked checkbox" isChecked />
+      );
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();
     });
 
     it('should have no accessibility violations when disabled', async () => {
-      const { container } = render(<CheckBox label="Disabled checkbox" disabled />);
+      const { container } = render(
+        <CheckBox label="Disabled checkbox" disabled />
+      );
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();

@@ -26,7 +26,12 @@ const Section: React.FC<SectionProps> = ({
   );
 
   const sectionClass = useMemo(
-    () => classNames(styles.section, border ? styles.border : '', background ? styles.background : ''),
+    () =>
+      classNames(
+        styles.section,
+        border ? styles.border : '',
+        background ? styles.background : ''
+      ),
     [border, background]
   );
 
@@ -89,11 +94,7 @@ const Section: React.FC<SectionProps> = ({
       <div style={bodyStyle} className={bodyClass}>
         {children}
       </div>
-      {footer && (
-        <div className={styles.footer}>
-          {footer}
-        </div>
-      )}
+      {footer && <div className={styles.footer}>{footer}</div>}
     </div>
   );
 };

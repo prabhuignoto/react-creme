@@ -54,7 +54,12 @@ describe('Progress', () => {
 
   it('should render in success status', () => {
     const { getByRole } = render(
-      <Progress type="determinate" currentValue={100} maxValue={100} status="success" />
+      <Progress
+        type="determinate"
+        currentValue={100}
+        maxValue={100}
+        status="success"
+      />
     );
 
     expect(getByRole('progressbar')).toBeInTheDocument();
@@ -62,7 +67,12 @@ describe('Progress', () => {
 
   it('should render in error status', () => {
     const { getByRole } = render(
-      <Progress type="determinate" currentValue={50} maxValue={100} status="error" />
+      <Progress
+        type="determinate"
+        currentValue={50}
+        maxValue={100}
+        status="error"
+      />
     );
 
     expect(getByRole('progressbar')).toBeInTheDocument();
@@ -116,7 +126,12 @@ describe('Progress', () => {
 
   it('should apply custom width', () => {
     const { getByRole } = render(
-      <Progress type="determinate" currentValue={50} maxValue={100} width={400} />
+      <Progress
+        type="determinate"
+        currentValue={50}
+        maxValue={100}
+        width={400}
+      />
     );
 
     const progressbar = getByRole('progressbar');
@@ -219,11 +234,7 @@ describe('Progress', () => {
   describe('Edge Cases', () => {
     it('should handle zero progress', () => {
       const { getByRole } = render(
-        <Progress
-          type="determinate"
-          currentValue={0}
-          maxValue={100}
-        />
+        <Progress type="determinate" currentValue={0} maxValue={100} />
       );
 
       expect(getByRole('progressbar')).toHaveAttribute('aria-valuenow', '0');
@@ -231,11 +242,7 @@ describe('Progress', () => {
 
     it('should handle 100% progress', () => {
       const { getByRole } = render(
-        <Progress
-          type="determinate"
-          currentValue={100}
-          maxValue={100}
-        />
+        <Progress type="determinate" currentValue={100} maxValue={100} />
       );
 
       expect(getByRole('progressbar')).toHaveAttribute('aria-valuenow', '100');
@@ -243,11 +250,7 @@ describe('Progress', () => {
 
     it('should handle very large maxValue', () => {
       const { getByRole } = render(
-        <Progress
-          type="determinate"
-          currentValue={5000}
-          maxValue={10000}
-        />
+        <Progress type="determinate" currentValue={5000} maxValue={10000} />
       );
 
       expect(getByRole('progressbar')).toHaveAttribute('aria-valuenow', '5000');
@@ -255,11 +258,7 @@ describe('Progress', () => {
 
     it('should handle non-integer progress values', () => {
       const { getByRole } = render(
-        <Progress
-          type="determinate"
-          currentValue={33.33}
-          maxValue={100}
-        />
+        <Progress type="determinate" currentValue={33.33} maxValue={100} />
       );
 
       expect(getByRole('progressbar')).toHaveAttribute('aria-valuenow', '33');
@@ -269,11 +268,7 @@ describe('Progress', () => {
   describe('Indeterminate Mode ARIA', () => {
     it('should not have aria-valuemin/max/now in indeterminate mode', () => {
       const { getByRole } = render(
-        <Progress
-          type="indeterminate"
-          currentValue={50}
-          maxValue={100}
-        />
+        <Progress type="indeterminate" currentValue={50} maxValue={100} />
       );
 
       const progressbar = getByRole('progressbar');
@@ -294,9 +289,7 @@ describe('Progress', () => {
     });
 
     it('should have no violations in indeterminate mode', async () => {
-      const { container } = render(
-        <Progress type="indeterminate" />
-      );
+      const { container } = render(<Progress type="indeterminate" />);
       const results = await axe(container);
 
       expect(results).toHaveNoViolations();
@@ -312,7 +305,10 @@ describe('Progress', () => {
         />
       );
 
-      expect(getByRole('progressbar')).toHaveAttribute('aria-label', 'Upload progress');
+      expect(getByRole('progressbar')).toHaveAttribute(
+        'aria-label',
+        'Upload progress'
+      );
     });
 
     it('should have aria-valuetext when provided', () => {
@@ -359,7 +355,11 @@ describe('Progress', () => {
     });
 
     it('should have proper ARIA for all status variants', async () => {
-      const statuses: Array<'default' | 'success' | 'error'> = ['default', 'success', 'error'];
+      const statuses: Array<'default' | 'success' | 'error'> = [
+        'default',
+        'success',
+        'error',
+      ];
 
       for (const status of statuses) {
         const { container, getByRole, unmount } = render(
@@ -425,8 +425,13 @@ describe('CircularProgress', () => {
 
   describe('Accessibility Labels', () => {
     it('should have custom aria-label', () => {
-      const { getByRole } = render(<CircularProgress label="Processing data" />);
-      expect(getByRole('progressbar')).toHaveAttribute('aria-label', 'Processing data');
+      const { getByRole } = render(
+        <CircularProgress label="Processing data" />
+      );
+      expect(getByRole('progressbar')).toHaveAttribute(
+        'aria-label',
+        'Processing data'
+      );
     });
 
     it('should have default aria-label', () => {
@@ -461,9 +466,7 @@ describe('CircularProgress', () => {
     });
 
     it('should have proper role and ARIA attributes', () => {
-      const { getByRole } = render(
-        <CircularProgress label="Processing" />
-      );
+      const { getByRole } = render(<CircularProgress label="Processing" />);
 
       const progressbar = getByRole('progressbar');
       expect(progressbar).toHaveAttribute('aria-label', 'Processing');
@@ -473,7 +476,7 @@ describe('CircularProgress', () => {
     it('should have proper ARIA for all sizes', () => {
       const sizes: Array<'xs' | 'sm' | 'md' | 'lg'> = ['xs', 'sm', 'md', 'lg'];
 
-      sizes.forEach((size) => {
+      sizes.forEach(size => {
         const { getByRole, unmount } = render(
           <CircularProgress size={size} label={`Loading ${size}`} />
         );
@@ -489,9 +492,7 @@ describe('CircularProgress', () => {
 
   describe('Rendering', () => {
     it('should render with proper structure', () => {
-      const { getByRole } = render(
-        <CircularProgress label="Loading" />
-      );
+      const { getByRole } = render(<CircularProgress label="Loading" />);
 
       const progressbar = getByRole('progressbar');
       expect(progressbar).toBeInTheDocument();
@@ -499,9 +500,7 @@ describe('CircularProgress', () => {
     });
 
     it('should have inner circle element', () => {
-      const { container } = render(
-        <CircularProgress label="Loading" />
-      );
+      const { container } = render(<CircularProgress label="Loading" />);
 
       const spans = container.querySelectorAll('span');
       // Should have at least 2 spans: wrapper and inner circle

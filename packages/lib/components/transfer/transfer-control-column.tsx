@@ -40,7 +40,11 @@ const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
   hideTransferAll,
 }: TransferControlModel) => {
   return (
-    <section className={styles.control_column} role="group" aria-label="Transfer controls">
+    <section
+      className={styles.control_column}
+      role="group"
+      aria-label="Transfer controls"
+    >
       {!hideTransferAll && onTransferAll && (
         <Button
           type="icon"

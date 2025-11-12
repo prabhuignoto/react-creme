@@ -228,9 +228,7 @@ describe('Menu Bar', () => {
     });
 
     it('should enable keyboard navigation when focusable prop is true', () => {
-      const { container } = render(
-        <MenuBar items={items} focusable />
-      );
+      const { container } = render(<MenuBar items={items} focusable />);
 
       const menuItems = container.querySelectorAll('li');
       // First item should be focusable
@@ -240,9 +238,7 @@ describe('Menu Bar', () => {
     });
 
     it('should not enable keyboard navigation when focusable is false', () => {
-      const { container } = render(
-        <MenuBar items={items} focusable={false} />
-      );
+      const { container } = render(<MenuBar items={items} focusable={false} />);
 
       const menuItems = container.querySelectorAll('li');
       // No items should have tabindex 0 when not focusable
@@ -293,10 +289,12 @@ describe('Menu Bar', () => {
     });
 
     it('should render icons when provided', () => {
-      const icons = [<span key="1">📁</span>, <span key="2">✏️</span>, <span key="3">❓</span>];
-      const { container } = render(
-        <MenuBar items={items} icons={icons} />
-      );
+      const icons = [
+        <span key="1">📁</span>,
+        <span key="2">✏️</span>,
+        <span key="3">❓</span>,
+      ];
+      const { container } = render(<MenuBar items={items} icons={icons} />);
 
       const wrapper = container.querySelector('[role="menubar"]');
       expect(wrapper).toBeInTheDocument();
@@ -316,7 +314,9 @@ describe('Menu Bar', () => {
 
       const { getByText } = render(<MenuBar items={longItems} />);
       expect(
-        getByText('This is a very long menu item name that might overflow the container')
+        getByText(
+          'This is a very long menu item name that might overflow the container'
+        )
       ).toBeInTheDocument();
     });
 
@@ -372,12 +372,11 @@ describe('Menu Bar', () => {
       const { container } = render(<MenuBar items={items} />);
       const results = await axe(container, {
         rules: {
-          
-// Menu wraps menuitem in div
-'aria-allowed-attr': { enabled: false }, 
-          
-// Menu component uses invalid role
-'aria-required-children': { enabled: false }, 
+          // Menu wraps menuitem in div
+          'aria-allowed-attr': { enabled: false },
+
+          // Menu component uses invalid role
+          'aria-required-children': { enabled: false },
           'aria-roles': { enabled: false }, // Menu component uses disallowed attributes
         },
       });

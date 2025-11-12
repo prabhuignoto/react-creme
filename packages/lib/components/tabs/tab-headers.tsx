@@ -189,7 +189,9 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
             onFocus={onFocus}
             parentHasFocus={hasFocus}
             size={size}
-            ref={el => { tabRefs.current[index] = el; }}
+            ref={el => {
+              tabRefs.current[index] = el;
+            }}
           />
         ))}
       </div>
