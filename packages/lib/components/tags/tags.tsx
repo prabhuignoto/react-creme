@@ -231,7 +231,6 @@ const Tags: React.FunctionComponent<TagsProps> = ({
             : {}
         )}
         ref={wrapperRef as React.RefObject<HTMLUListElement>}
-        role="list"
         aria-label={`tag list${tagItems.length > 0 ? `, ${tagItems.length} tag${tagItems.length !== 1 ? 's' : ''}` : ''}`}
         aria-describedby={descriptionId}
         tabIndex={-1}

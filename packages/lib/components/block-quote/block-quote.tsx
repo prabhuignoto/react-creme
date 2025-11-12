@@ -3,12 +3,7 @@ import React, { useMemo } from 'react';
 import { isDark } from '../common/utils';
 import styles from './block-quote.module.scss';
 
-export interface BlockQuoteProps {
-  /**
-   * Additional props to be spread to the blockquote element
-   */
-  [key: string]: any;
-
+export interface BlockQuoteProps extends React.BlockquoteHTMLAttributes<HTMLBlockquoteElement> {
   /**
    * Alignment of the blockquote
    * @default 'left'
@@ -16,19 +11,9 @@ export interface BlockQuoteProps {
   align?: 'left' | 'right' | 'center';
 
   /**
-   * Content to be rendered inside the blockquote
-   */
-  children: React.ReactNode;
-
-  /**
    * Citation text to be displayed
    */
   cite?: string;
-
-  /**
-   * Additional class name for the blockquote
-   */
-  className?: string;
 
   /**
    * Style of the blockquote

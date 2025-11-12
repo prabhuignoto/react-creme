@@ -1,10 +1,8 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
-
 import React from 'react';
 import { render, RenderOptions } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe } from 'jest-axe';
+import 'jest-axe/extend-expect';
+import '@testing-library/jest-dom';
 import { expect, vi } from 'vitest';
 
 /**
@@ -84,7 +82,7 @@ export const createMockFile = (
   size: number,
   type: string
 ): File => {
-  const fileContent = new Array(size).fill('a').join('');
+  const fileContent = Array.from({ length: size }).fill('a').join('');
   return new File([fileContent], name, { type });
 };
 

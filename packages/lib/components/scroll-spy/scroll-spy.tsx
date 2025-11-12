@@ -221,11 +221,11 @@ const ScrollSpy: React.FC<ScrollSpyProps> = ({
   return (
     <div className={spyWrapperClass}>
       <nav className={styles.aside} aria-label={ariaLabel}>
-        <ul className={styles.list} role="list">
+        <ul className={styles.list}>
           {scrollSpyLinks.map((link, index) => {
             const isActive = activeId === link.id;
             return (
-              <li key={link.id} role="listitem">
+              <li key={link.id}>
                 <button
                   type="button"
                   className={classNames(

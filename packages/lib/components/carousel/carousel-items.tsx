@@ -29,7 +29,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
 
   // Render the CarouselItems component.
   return (
-    <ul className={styles.carousel} style={carouselStyle} role="list">
+    <ul className={styles.carousel} style={carouselStyle}>
       {carouselItems.map((item, index) => (
         <li
           key={item.id}

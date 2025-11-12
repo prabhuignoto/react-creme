@@ -2,7 +2,6 @@ import React from 'react';
 import { axe } from 'jest-axe';
 import { render, waitFor } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import userEvent from '@testing-library/user-event';
 import { Notification } from '../notification';
 
 describe('Notification', () => {
