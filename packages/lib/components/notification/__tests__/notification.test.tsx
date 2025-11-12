@@ -142,7 +142,10 @@ describe('Notification', () => {
 
       await waitFor(() => {
         const closeBtn = getByLabelText('Close notification');
-        expect(closeBtn).toHaveAttribute('role', 'button');
+        // Close button should be a button element or have button role
+        const isButtonElement = closeBtn.tagName === 'BUTTON';
+        const hasButtonRole = closeBtn.getAttribute('role') === 'button';
+        expect(isButtonElement || hasButtonRole).toBe(true);
       });
     });
   });

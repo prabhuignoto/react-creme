@@ -64,7 +64,7 @@ describe('ImageComparer', () => {
     });
 
     it('should support keyboard interaction', async () => {
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
@@ -80,7 +80,7 @@ describe('ImageComparer', () => {
     it('should handle Arrow Right key in horizontal mode', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer
           sourceOne={mockImageSrc1}
           sourceTwo={mockImageSrc2}
@@ -106,7 +106,7 @@ describe('ImageComparer', () => {
     it('should handle Arrow Left key in horizontal mode', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer
           sourceOne={mockImageSrc1}
           sourceTwo={mockImageSrc2}
@@ -132,7 +132,7 @@ describe('ImageComparer', () => {
     it('should handle Arrow Down key in vertical mode', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer
           sourceOne={mockImageSrc1}
           sourceTwo={mockImageSrc2}
@@ -158,7 +158,7 @@ describe('ImageComparer', () => {
     it('should handle Arrow Up key in vertical mode', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer
           sourceOne={mockImageSrc1}
           sourceTwo={mockImageSrc2}
@@ -184,7 +184,7 @@ describe('ImageComparer', () => {
     it('should handle Home key to jump to 0%', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
@@ -200,7 +200,7 @@ describe('ImageComparer', () => {
     it('should handle End key to jump to 100%', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
@@ -216,7 +216,7 @@ describe('ImageComparer', () => {
     it('should handle PageUp key for large increment', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer
           sourceOne={mockImageSrc1}
           sourceTwo={mockImageSrc2}
@@ -243,7 +243,7 @@ describe('ImageComparer', () => {
     it('should handle PageDown key for large decrement', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer
           sourceOne={mockImageSrc1}
           sourceTwo={mockImageSrc2}
@@ -270,7 +270,7 @@ describe('ImageComparer', () => {
     it('should move by 1% increment with arrow keys', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
@@ -293,7 +293,7 @@ describe('ImageComparer', () => {
     it('should not exceed 100% with keyboard navigation', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
@@ -314,7 +314,7 @@ describe('ImageComparer', () => {
     it('should not go below 0% with keyboard navigation', async () => {
       const user = userEvent.setup();
 
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
@@ -365,7 +365,7 @@ describe('ImageComparer', () => {
     });
 
     it('should have proper ARIA role for slider', () => {
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
@@ -374,7 +374,7 @@ describe('ImageComparer', () => {
     });
 
     it('should be keyboard accessible', () => {
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
@@ -383,7 +383,7 @@ describe('ImageComparer', () => {
     });
 
     it('should have complete ARIA attributes', () => {
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
@@ -397,7 +397,7 @@ describe('ImageComparer', () => {
     });
 
     it('should have horizontal orientation by default', () => {
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
@@ -406,7 +406,7 @@ describe('ImageComparer', () => {
     });
 
     it('should have vertical orientation when specified', () => {
-      const { container } = render(
+      render(
         <ImageComparer
           sourceOne={mockImageSrc1}
           sourceTwo={mockImageSrc2}
@@ -420,7 +420,7 @@ describe('ImageComparer', () => {
 
     it('should use custom aria-label when provided', () => {
       const customLabel = 'Custom image comparison';
-      const { container } = render(
+      render(
         <ImageComparer
           sourceOne={mockImageSrc1}
           sourceTwo={mockImageSrc2}
@@ -433,7 +433,7 @@ describe('ImageComparer', () => {
     });
 
     it('should update aria-valuetext to reflect current position', () => {
-      const { container } = render(
+      render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
