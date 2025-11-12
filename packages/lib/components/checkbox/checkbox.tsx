@@ -154,10 +154,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
     );
 
     const wrapperProps = useMemo(
-      () =>
-        !focusIcon && !disabled
-          ? { ref: ref }
-          : { ref: ref },
+      () => (!focusIcon && !disabled ? { ref: ref } : { ref: ref }),
       [focusIcon, disabled]
     );
     const iconProps = useMemo(

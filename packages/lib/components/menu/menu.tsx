@@ -164,7 +164,6 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     });
   }, []);
 
-
   /**
    * Handle keyboard events for menu button
    */
