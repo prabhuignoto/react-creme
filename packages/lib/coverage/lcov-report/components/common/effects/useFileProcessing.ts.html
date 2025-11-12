@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">4.23% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/115</span>
+                <span class='fraction'>5/118</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">4.23% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/115</span>
+                <span class='fraction'>5/118</span>
             </div>
         
             
@@ -285,17 +285,23 @@
 <a name='L220'></a><a href='#L220'>220</a>
 <a name='L221'></a><a href='#L221'>221</a>
 <a name='L222'></a><a href='#L222'>222</a>
-<a name='L223'></a><a href='#L223'>223</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -341,7 +347,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -384,6 +393,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -507,14 +519,17 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { useCallback, useState } from 'react';<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useCallback, useState } from 'react';
 import type {
   FileItem,
   FileUploadError,
 } from '../../file-upload/file-upload-model';
-<span class="cstat-no" title="statement not covered" >import { createFileItem, isDuplicateFile } from '../../file-upload/utils';</span>
-<span class="cstat-no" title="statement not covered" >import { useFileValidation, UseFileValidationOptions } from './useFileValidation';</span>
-<span class="cstat-no" title="statement not covered" >import { useFilePreview, UseFilePreviewOptions } from './useFilePreview';</span>
+import { createFileItem, isDuplicateFile } from '../../file-upload/utils';
+import {
+  useFileValidation,
+  UseFileValidationOptions,
+} from './useFileValidation';
+import { useFilePreview, UseFilePreviewOptions } from './useFilePreview';
 &nbsp;
 export interface UseFileProcessingOptions
   extends UseFileValidationOptions,
@@ -563,7 +578,7 @@ export interface UseFileProcessingOptions
  * clearFiles();
  * ```
  */
-<span class="cstat-no" title="statement not covered" >export const useFileProcessing = (options: UseFileProcessingOptions) =&gt; {</span>
+export const useFileProcessing = <span class="fstat-no" title="function not covered" >(options: UseFileProcessingOptions) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const {</span>
 <span class="cstat-no" title="statement not covered" >    maxFiles = Infinity,</span>
 <span class="cstat-no" title="statement not covered" >    onChange,</span>
@@ -588,7 +603,7 @@ export interface UseFileProcessingOptions
 <span class="cstat-no" title="statement not covered" >      let validFilesForPreviews: FileItem[] = [];</span>
 &nbsp;
       // Add files to state synchronously first
-<span class="cstat-no" title="statement not covered" >      setSelectedFiles((prevFiles) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      setSelectedFiles(prevFiles =&gt; {</span>
         // Reset for this render (important for React Strict Mode)
 <span class="cstat-no" title="statement not covered" >        const validFiles: FileItem[] = [];</span>
 &nbsp;
@@ -598,19 +613,22 @@ export interface UseFileProcessingOptions
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        if (files.length &gt; remainingSlots) {</span>
 <span class="cstat-no" title="statement not covered" >          errors.push({</span>
-<span class="cstat-no" title="statement not covered" >            type: 'max-files',</span>
 <span class="cstat-no" title="statement not covered" >            message: `Maximum ${maxFiles} files allowed. ${files.length - remainingSlots} file(s) were not added.`,</span>
+<span class="cstat-no" title="statement not covered" >            type: 'max-files',</span>
 <span class="cstat-no" title="statement not covered" >          });</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 &nbsp;
         // Validate files, check for duplicates, and collect valid ones
-<span class="cstat-no" title="statement not covered" >        filesToProcess.forEach((file) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        filesToProcess.forEach(file =&gt; {</span>
           // Check for duplicates first (both in prevFiles and in current batch)
-<span class="cstat-no" title="statement not covered" >          if (isDuplicateFile(file, prevFiles) || isDuplicateFile(file, validFiles)) {</span>
+<span class="cstat-no" title="statement not covered" >          if (</span>
+<span class="cstat-no" title="statement not covered" >            isDuplicateFile(file, prevFiles) ||</span>
+<span class="cstat-no" title="statement not covered" >            isDuplicateFile(file, validFiles)</span>
+<span class="cstat-no" title="statement not covered" >          ) {</span>
 <span class="cstat-no" title="statement not covered" >            errors.push({</span>
-<span class="cstat-no" title="statement not covered" >              type: 'file-type',</span>
-<span class="cstat-no" title="statement not covered" >              message: `File "${file.name}" is already added.`,</span>
 <span class="cstat-no" title="statement not covered" >              file,</span>
+<span class="cstat-no" title="statement not covered" >              message: `File "${file.name}" is already added.`,</span>
+<span class="cstat-no" title="statement not covered" >              type: 'file-type',</span>
 <span class="cstat-no" title="statement not covered" >            });</span>
 <span class="cstat-no" title="statement not covered" >            return;</span>
 <span class="cstat-no" title="statement not covered" >          }</span>
@@ -628,7 +646,7 @@ export interface UseFileProcessingOptions
 &nbsp;
         // Report errors
 <span class="cstat-no" title="statement not covered" >        if (errors.length &gt; 0 &amp;&amp; onError) {</span>
-<span class="cstat-no" title="statement not covered" >          errors.forEach((error) =&gt; onError(error));</span>
+<span class="cstat-no" title="statement not covered" >          errors.forEach(error =&gt; onError(error));</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 &nbsp;
         // If no valid files, return early
@@ -639,10 +657,10 @@ export interface UseFileProcessingOptions
 <span class="cstat-no" title="statement not covered" >        const newFiles = [...prevFiles, ...validFiles];</span>
 &nbsp;
         // Call onChange with new file list
-<span class="cstat-no" title="statement not covered" >        onChange?.(newFiles.map((item) =&gt; item.file));</span>
+<span class="cstat-no" title="statement not covered" >        onChange?.(newFiles.map(item =&gt; item.file));</span>
 &nbsp;
         // Store for preview generation (outside setState)
-<span class="cstat-no" title="statement not covered" >        addedFileIds = validFiles.map((f) =&gt; f.id);</span>
+<span class="cstat-no" title="statement not covered" >        addedFileIds = validFiles.map(f =&gt; f.id);</span>
 <span class="cstat-no" title="statement not covered" >        validFilesForPreviews = validFiles;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        return newFiles;</span>
@@ -652,10 +670,10 @@ export interface UseFileProcessingOptions
 <span class="cstat-no" title="statement not covered" >      if (addedFileIds.length === 0 || !showThumbnails) return;</span>
 &nbsp;
       // Generate previews for all image files in parallel
-<span class="cstat-no" title="statement not covered" >      const imagesToPreview = validFilesForPreviews.filter((f) =&gt; f.isImage);</span>
+<span class="cstat-no" title="statement not covered" >      const imagesToPreview = validFilesForPreviews.filter(f =&gt; f.isImage);</span>
 <span class="cstat-no" title="statement not covered" >      if (imagesToPreview.length === 0) return;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      const previewPromises = imagesToPreview.map(async (fileItem) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      const previewPromises = imagesToPreview.map(async fileItem =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        const previewUrl = await generatePreview(fileItem.file);</span>
 <span class="cstat-no" title="statement not covered" >        return { id: fileItem.id, previewUrl };</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
@@ -663,9 +681,9 @@ export interface UseFileProcessingOptions
 <span class="cstat-no" title="statement not covered" >      const previews = await Promise.all(previewPromises);</span>
 &nbsp;
       // Single batch update for all previews at once
-<span class="cstat-no" title="statement not covered" >      setSelectedFiles((current) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >        current.map((item) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          const preview = previews.find((p) =&gt; p.id === item.id);</span>
+<span class="cstat-no" title="statement not covered" >      setSelectedFiles(current =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        current.map(item =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          const preview = previews.find(p =&gt; p.id === item.id);</span>
 <span class="cstat-no" title="statement not covered" >          return preview?.previewUrl</span>
 <span class="cstat-no" title="statement not covered" >            ? { ...item, previewUrl: preview.previewUrl }</span>
 <span class="cstat-no" title="statement not covered" >            : item;</span>
@@ -680,17 +698,17 @@ export interface UseFileProcessingOptions
    */
 <span class="cstat-no" title="statement not covered" >  const removeFile = useCallback(</span>
 <span class="cstat-no" title="statement not covered" >    (fileId: string) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      setSelectedFiles((prev) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        const newFiles = prev.filter((item) =&gt; item.id !== fileId);</span>
+<span class="cstat-no" title="statement not covered" >      setSelectedFiles(prev =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        const newFiles = prev.filter(item =&gt; item.id !== fileId);</span>
 &nbsp;
         // Revoke blob URLs to free memory
-<span class="cstat-no" title="statement not covered" >        const removedFile = prev.find((item) =&gt; item.id === fileId);</span>
+<span class="cstat-no" title="statement not covered" >        const removedFile = prev.find(item =&gt; item.id === fileId);</span>
 <span class="cstat-no" title="statement not covered" >        if (removedFile?.previewUrl?.startsWith('blob:')) {</span>
 <span class="cstat-no" title="statement not covered" >          URL.revokeObjectURL(removedFile.previewUrl);</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 &nbsp;
         // Call onChange with updated files
-<span class="cstat-no" title="statement not covered" >        onChange?.(newFiles.map((item) =&gt; item.file));</span>
+<span class="cstat-no" title="statement not covered" >        onChange?.(newFiles.map(item =&gt; item.file));</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        return newFiles;</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
@@ -702,9 +720,9 @@ export interface UseFileProcessingOptions
    * Clear all files
    */
 <span class="cstat-no" title="statement not covered" >  const clearFiles = useCallback(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setSelectedFiles((prev) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setSelectedFiles(prev =&gt; {</span>
       // Revoke all blob URLs
-<span class="cstat-no" title="statement not covered" >      prev.forEach((item) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      prev.forEach(item =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        if (item.previewUrl?.startsWith('blob:')) {</span>
 <span class="cstat-no" title="statement not covered" >          URL.revokeObjectURL(item.previewUrl);</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
@@ -718,15 +736,15 @@ export interface UseFileProcessingOptions
    * Get current files as File array
    */
 <span class="cstat-no" title="statement not covered" >  const getFiles = useCallback(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return selectedFiles.map((item) =&gt; item.file);</span>
+<span class="cstat-no" title="statement not covered" >    return selectedFiles.map(item =&gt; item.file);</span>
 <span class="cstat-no" title="statement not covered" >  }, [selectedFiles]);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return {</span>
+<span class="cstat-no" title="statement not covered" >    clearFiles,</span>
 <span class="cstat-no" title="statement not covered" >    files: selectedFiles,</span>
+<span class="cstat-no" title="statement not covered" >    getFiles,</span>
 <span class="cstat-no" title="statement not covered" >    processFiles,</span>
 <span class="cstat-no" title="statement not covered" >    removeFile,</span>
-<span class="cstat-no" title="statement not covered" >    clearFiles,</span>
-<span class="cstat-no" title="statement not covered" >    getFiles,</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
@@ -736,7 +754,7 @@ export interface UseFileProcessingOptions
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-03T14:12:21.348Z
+                at 2025-11-12T14:02:49.268Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

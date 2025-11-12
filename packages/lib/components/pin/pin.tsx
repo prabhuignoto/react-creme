@@ -385,6 +385,7 @@ const Pin = forwardRef<PinHandle, PinProps>(
           aria-describedby={
             ariaDescribedBy || (error ? `${pinValue}-error` : undefined)
           }
+          aria-invalid={!!error}
         >
           {itemsRef.current.map((item, index) => (
             <li key={item.id} className={styles.item}>

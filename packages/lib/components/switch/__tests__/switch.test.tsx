@@ -77,13 +77,13 @@ describe('Switch', () => {
     it('should not be focusable when disabled', () => {
       const { getByRole } = render(<Switch label="Test" disabled />);
       const switchEl = getByRole('switch');
-      expect(switchEl).not.toHaveAttribute('tabindex');
+      expect(switchEl).toHaveAttribute('tabindex', '-1');
     });
 
     it('should not be focusable when readOnly', () => {
       const { getByRole } = render(<Switch label="Test" readOnly />);
       const switchEl = getByRole('switch');
-      expect(switchEl).not.toHaveAttribute('tabindex');
+      expect(switchEl).toHaveAttribute('tabindex', '-1');
     });
 
     it('should be focusable by default', () => {

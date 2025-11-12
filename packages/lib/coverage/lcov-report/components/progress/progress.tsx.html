@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">5.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/136</span>
+                <span class='fraction'>8/136</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">5.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/136</span>
+                <span class='fraction'>8/136</span>
             </div>
         
             
@@ -259,13 +259,11 @@
 <a name='L194'></a><a href='#L194'>194</a>
 <a name='L195'></a><a href='#L195'>195</a>
 <a name='L196'></a><a href='#L196'>196</a>
-<a name='L197'></a><a href='#L197'>197</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L197'></a><a href='#L197'>197</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -298,8 +296,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -450,16 +450,16 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import classNames from 'classnames';<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
-<span class="cstat-no" title="statement not covered" >import React from 'react';</span>
-<span class="cstat-no" title="statement not covered" >import { CSSProperties, useCallback, useMemo, useRef, useState } from 'react';</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from 'classnames';
+import React from 'react';
+import { CSSProperties, useCallback, useMemo, useRef, useState } from 'react';
 import { ProgressProps } from './progress-model';
-<span class="cstat-no" title="statement not covered" >import styles from './progress.module.scss';</span>
+import styles from './progress.module.scss';
 &nbsp;
 /**
  * Progress - A versatile progress indicator component supporting both determinate
@@ -494,8 +494,8 @@ import { ProgressProps } from './progress-model';
  * @returns {JSX.Element} The Progress component
  */
 &nbsp;
-<span class="cstat-no" title="statement not covered" >const Progress: React.FunctionComponent&lt;ProgressProps&gt; = React.memo(</span>
-<span class="cstat-no" title="statement not covered" >  ({</span>
+const Progress: React.FunctionComponent&lt;ProgressProps&gt; = React.memo(
+  ({
 <span class="cstat-no" title="statement not covered" >    currentValue = 0,</span>
 <span class="cstat-no" title="statement not covered" >    indeterminateStyle = 'disappear',</span>
 <span class="cstat-no" title="statement not covered" >    maxValue = 100,</span>
@@ -508,123 +508,123 @@ import { ProgressProps } from './progress-model';
 <span class="cstat-no" title="statement not covered" >    statusText = '',</span>
 <span class="cstat-no" title="statement not covered" >    label = 'progress bar',</span>
 <span class="cstat-no" title="statement not covered" >  }) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const progressTrackRef = useRef&lt;HTMLDivElement | null&gt;(null);</span>
-<span class="cstat-no" title="statement not covered" >  const [loaded, setLoaded] = useState(false);</span>
+<span class="cstat-no" title="statement not covered" >    const progressTrackRef = useRef&lt;HTMLDivElement | null&gt;(null);</span>
+<span class="cstat-no" title="statement not covered" >    const [loaded, setLoaded] = useState(false);</span>
 &nbsp;
-  // Calculate progress percentage
-<span class="cstat-no" title="statement not covered" >  const progressPercent = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt; currentValue / maxValue,</span>
-<span class="cstat-no" title="statement not covered" >    [currentValue, maxValue]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >  const progressPercentValue = useMemo&lt;string | number&gt;(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const val = Math.round(progressPercent * 100);</span>
-<span class="cstat-no" title="statement not covered" >    return val &gt; 5 ? `${val}%` : 0;</span>
-<span class="cstat-no" title="statement not covered" >  }, [progressPercent]);</span>
+    // Calculate progress percentage
+<span class="cstat-no" title="statement not covered" >    const progressPercent = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt; currentValue / maxValue,</span>
+<span class="cstat-no" title="statement not covered" >      [currentValue, maxValue]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >    const progressPercentValue = useMemo&lt;string | number&gt;(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      const val = Math.round(progressPercent * 100);</span>
+<span class="cstat-no" title="statement not covered" >      return val &gt; 5 ? `${val}%` : 0;</span>
+<span class="cstat-no" title="statement not covered" >    }, [progressPercent]);</span>
 &nbsp;
-  // Determine if progress value can be shown
-<span class="cstat-no" title="statement not covered" >  const canShowProgressValue = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt;</span>
-<span class="cstat-no" title="statement not covered" >      showProgressValue &amp;&amp;</span>
-<span class="cstat-no" title="statement not covered" >      progressPercentValue !== 0 &amp;&amp;</span>
-<span class="cstat-no" title="statement not covered" >      type !== 'indeterminate' &amp;&amp;</span>
-<span class="cstat-no" title="statement not covered" >      size !== 'sm',</span>
-<span class="cstat-no" title="statement not covered" >    [showProgressValue, progressPercentValue, type, size]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
+    // Determine if progress value can be shown
+<span class="cstat-no" title="statement not covered" >    const canShowProgressValue = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        showProgressValue &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered" >        progressPercentValue !== 0 &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered" >        type !== 'indeterminate' &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered" >        size !== 'sm',</span>
+<span class="cstat-no" title="statement not covered" >      [showProgressValue, progressPercentValue, type, size]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
 &nbsp;
-  // Determine fill width based on track width and progress percentage
-  // Note: depends on progressPercent (not currentValue directly) to avoid redundant memoization
-<span class="cstat-no" title="statement not covered" >  const fillWidth = useMemo&lt;number&gt;(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const trackWidth = progressTrackRef.current?.clientWidth;</span>
-<span class="cstat-no" title="statement not covered" >    return trackWidth ? Math.round(trackWidth * progressPercent) : 0;</span>
-<span class="cstat-no" title="statement not covered" >  }, [progressPercent, loaded]);</span>
+    // Determine fill width based on track width and progress percentage
+    // Note: depends on progressPercent (not currentValue directly) to avoid redundant memoization
+<span class="cstat-no" title="statement not covered" >    const fillWidth = useMemo&lt;number&gt;(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      const trackWidth = progressTrackRef.current?.clientWidth;</span>
+<span class="cstat-no" title="statement not covered" >      return trackWidth ? Math.round(trackWidth * progressPercent) : 0;</span>
+<span class="cstat-no" title="statement not covered" >    }, [progressPercent, loaded]);</span>
 &nbsp;
-  // Styles for fill
-<span class="cstat-no" title="statement not covered" >  const fillStyle = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt;</span>
-<span class="cstat-no" title="statement not covered" >      ({</span>
-<span class="cstat-no" title="statement not covered" >        '--width': type === 'determinate' ? `${fillWidth}px` : '50%',</span>
-<span class="cstat-no" title="statement not covered" >      }) as CSSProperties,</span>
-<span class="cstat-no" title="statement not covered" >    [fillWidth, type]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >  const progressComplete = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt; fillWidth === progressTrackRef.current?.clientWidth,</span>
-<span class="cstat-no" title="statement not covered" >    [fillWidth]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
+    // Styles for fill
+<span class="cstat-no" title="statement not covered" >    const fillStyle = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        ({</span>
+<span class="cstat-no" title="statement not covered" >          '--width': type === 'determinate' ? `${fillWidth}px` : '50%',</span>
+<span class="cstat-no" title="statement not covered" >        }) as CSSProperties,</span>
+<span class="cstat-no" title="statement not covered" >      [fillWidth, type]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >    const progressComplete = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt; fillWidth === progressTrackRef.current?.clientWidth,</span>
+<span class="cstat-no" title="statement not covered" >      [fillWidth]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
 &nbsp;
-  // Class names for different parts
-<span class="cstat-no" title="statement not covered" >  const fillClass = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt;</span>
-<span class="cstat-no" title="statement not covered" >      classNames(</span>
-<span class="cstat-no" title="statement not covered" >        [</span>
-<span class="cstat-no" title="statement not covered" >          styles.progress_fill,</span>
-<span class="cstat-no" title="statement not covered" >          styles[type],</span>
-<span class="cstat-no" title="statement not covered" >          styles[indeterminateStyle],</span>
-<span class="cstat-no" title="statement not covered" >          progressComplete ? styles.complete : styles.progressive,</span>
-<span class="cstat-no" title="statement not covered" >          RTL ? styles.rtl : '',</span>
-<span class="cstat-no" title="statement not covered" >        ],</span>
-<span class="cstat-no" title="statement not covered" >        { [styles[`progress_fill_${status}`]]: true }</span>
-<span class="cstat-no" title="statement not covered" >      ),</span>
-<span class="cstat-no" title="statement not covered" >    [progressComplete, status, indeterminateStyle, type, RTL]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-  // Compute CSS custom properties for sizing
-  // Heights: sm=10px (compact), md=20px (default), lg=40px (prominent)
-  // These are component-specific sizing values not mapped to design tokens
-<span class="cstat-no" title="statement not covered" >  const wrapperStyle = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt;</span>
-<span class="cstat-no" title="statement not covered" >      ({</span>
-<span class="cstat-no" title="statement not covered" >        '--height': size === 'lg' ? '40px' : size === 'md' ? '20px' : '10px',</span>
-<span class="cstat-no" title="statement not covered" >        '--width': `${width}px`,</span>
-<span class="cstat-no" title="statement not covered" >      }) as CSSProperties,</span>
-<span class="cstat-no" title="statement not covered" >    [size, width]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >  const wrapperClass = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt;</span>
-<span class="cstat-no" title="statement not covered" >      classNames(styles.progress_wrapper, {</span>
-<span class="cstat-no" title="statement not covered" >        [styles[`progress_${status}`]]: true,</span>
+    // Class names for different parts
+<span class="cstat-no" title="statement not covered" >    const fillClass = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        classNames(</span>
+<span class="cstat-no" title="statement not covered" >          [</span>
+<span class="cstat-no" title="statement not covered" >            styles.progress_fill,</span>
+<span class="cstat-no" title="statement not covered" >            styles[type],</span>
+<span class="cstat-no" title="statement not covered" >            styles[indeterminateStyle],</span>
+<span class="cstat-no" title="statement not covered" >            progressComplete ? styles.complete : styles.progressive,</span>
+<span class="cstat-no" title="statement not covered" >            RTL ? styles.rtl : '',</span>
+<span class="cstat-no" title="statement not covered" >          ],</span>
+<span class="cstat-no" title="statement not covered" >          { [styles[`progress_fill_${status}`]]: true }</span>
+<span class="cstat-no" title="statement not covered" >        ),</span>
+<span class="cstat-no" title="statement not covered" >      [progressComplete, status, indeterminateStyle, type, RTL]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+    // Compute CSS custom properties for sizing
+    // Heights: sm=10px (compact), md=20px (default), lg=40px (prominent)
+    // These are component-specific sizing values not mapped to design tokens
+<span class="cstat-no" title="statement not covered" >    const wrapperStyle = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        ({</span>
+<span class="cstat-no" title="statement not covered" >          '--height': size === 'lg' ? '40px' : size === 'md' ? '20px' : '10px',</span>
+<span class="cstat-no" title="statement not covered" >          '--width': `${width}px`,</span>
+<span class="cstat-no" title="statement not covered" >        }) as CSSProperties,</span>
+<span class="cstat-no" title="statement not covered" >      [size, width]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >    const wrapperClass = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        classNames(styles.progress_wrapper, {</span>
+<span class="cstat-no" title="statement not covered" >          [styles[`progress_${status}`]]: true,</span>
+<span class="cstat-no" title="statement not covered" >        }),</span>
+<span class="cstat-no" title="statement not covered" >      [status]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >    const progressTrackClass = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        classNames(styles.progress_track, {</span>
+<span class="cstat-no" title="statement not covered" >          [styles[`progress_track_${status}`]]: true,</span>
+<span class="cstat-no" title="statement not covered" >          [styles.progress_track_rtl]: RTL,</span>
+<span class="cstat-no" title="statement not covered" >        }),</span>
+<span class="cstat-no" title="statement not covered" >      [status, RTL]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >    const progressPercentValClass = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        classNames(styles.progress_percent_value, {</span>
+<span class="cstat-no" title="statement not covered" >          [styles[`progress_percent_value_${size}`]]: true,</span>
+<span class="cstat-no" title="statement not covered" >        }),</span>
+<span class="cstat-no" title="statement not covered" >      [size]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+&nbsp;
+    // Handle ref load
+<span class="cstat-no" title="statement not covered" >    const onRef = useCallback((ref: HTMLDivElement | null) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      progressTrackRef.current = ref;</span>
+<span class="cstat-no" title="statement not covered" >      setLoaded(true);</span>
+<span class="cstat-no" title="statement not covered" >    }, []);</span>
+&nbsp;
+    // Accessibility properties
+<span class="cstat-no" title="statement not covered" >    const ariaDefaultProps = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt; ({</span>
+<span class="cstat-no" title="statement not covered" >        ...(label &amp;&amp; { 'aria-label': label }),</span>
+<span class="cstat-no" title="statement not covered" >        ...(statusText &amp;&amp; { 'aria-valuetext': statusText }),</span>
 <span class="cstat-no" title="statement not covered" >      }),</span>
-<span class="cstat-no" title="statement not covered" >    [status]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >  const progressTrackClass = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt;</span>
-<span class="cstat-no" title="statement not covered" >      classNames(styles.progress_track, {</span>
-<span class="cstat-no" title="statement not covered" >        [styles[`progress_track_${status}`]]: true,</span>
-<span class="cstat-no" title="statement not covered" >        [styles.progress_track_rtl]: RTL,</span>
-<span class="cstat-no" title="statement not covered" >      }),</span>
-<span class="cstat-no" title="statement not covered" >    [status, RTL]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >  const progressPercentValClass = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt;</span>
-<span class="cstat-no" title="statement not covered" >      classNames(styles.progress_percent_value, {</span>
-<span class="cstat-no" title="statement not covered" >        [styles[`progress_percent_value_${size}`]]: true,</span>
-<span class="cstat-no" title="statement not covered" >      }),</span>
-<span class="cstat-no" title="statement not covered" >    [size]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-&nbsp;
-  // Handle ref load
-<span class="cstat-no" title="statement not covered" >  const onRef = useCallback((ref: HTMLDivElement | null) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    progressTrackRef.current = ref;</span>
-<span class="cstat-no" title="statement not covered" >    setLoaded(true);</span>
-<span class="cstat-no" title="statement not covered" >  }, []);</span>
-&nbsp;
-  // Accessibility properties
-<span class="cstat-no" title="statement not covered" >  const ariaDefaultProps = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt; ({</span>
-<span class="cstat-no" title="statement not covered" >      ...(label &amp;&amp; { 'aria-label': label }),</span>
-<span class="cstat-no" title="statement not covered" >      ...(statusText &amp;&amp; { 'aria-valuetext': statusText }),</span>
-<span class="cstat-no" title="statement not covered" >    }),</span>
-<span class="cstat-no" title="statement not covered" >    [label, statusText]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >  const ariaProps = useMemo(</span>
-<span class="cstat-no" title="statement not covered" >    () =&gt;</span>
-<span class="cstat-no" title="statement not covered" >      type === 'determinate'</span>
-<span class="cstat-no" title="statement not covered" >        ? {</span>
-<span class="cstat-no" title="statement not covered" >            'aria-valuemax': maxValue,</span>
-<span class="cstat-no" title="statement not covered" >            'aria-valuemin': 0,</span>
-<span class="cstat-no" title="statement not covered" >            'aria-valuenow': Math.round(progressPercent * maxValue),</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
-<span class="cstat-no" title="statement not covered" >        : {},</span>
-<span class="cstat-no" title="statement not covered" >    [maxValue, progressPercent, type]</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" >      [label, statusText]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >    const ariaProps = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >      () =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        type === 'determinate'</span>
+<span class="cstat-no" title="statement not covered" >          ? {</span>
+<span class="cstat-no" title="statement not covered" >              'aria-valuemax': maxValue,</span>
+<span class="cstat-no" title="statement not covered" >              'aria-valuemin': 0,</span>
+<span class="cstat-no" title="statement not covered" >              'aria-valuenow': Math.round(progressPercent * maxValue),</span>
+<span class="cstat-no" title="statement not covered" >            }</span>
+<span class="cstat-no" title="statement not covered" >          : {},</span>
+<span class="cstat-no" title="statement not covered" >      [maxValue, progressPercent, type]</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return (</span>
 <span class="cstat-no" title="statement not covered" >      &lt;div</span>
@@ -646,9 +646,9 @@ import { ProgressProps } from './progress-model';
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
     );
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >);</span>
+);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >Progress.displayName = 'Progress';</span>
+Progress.displayName = 'Progress';
 &nbsp;
 export { Progress };
 &nbsp;</pre></td></tr></table></pre>
@@ -658,7 +658,7 @@ export { Progress };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-03T14:12:21.348Z
+                at 2025-11-12T14:02:49.268Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

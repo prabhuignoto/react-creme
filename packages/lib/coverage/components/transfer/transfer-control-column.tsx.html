@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">8.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/54</span>
+                <span class='fraction'>5/57</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">8.77% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/54</span>
+                <span class='fraction'>5/57</span>
             </div>
         
             
@@ -155,16 +155,14 @@
 <a name='L90'></a><a href='#L90'>90</a>
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,6 +184,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -198,6 +203,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -244,13 +252,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { ChevronRightIcon } from '@icons';<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ChevronRightIcon } from '@icons';
 import React from 'react';
-<span class="cstat-no" title="statement not covered" >import { Button } from '../button/button';</span>
-<span class="cstat-no" title="statement not covered" >import styles from './transfer.module.scss';</span>
+import { Button } from '../button/button';
+import styles from './transfer.module.scss';
 &nbsp;
 interface TransferControlModel {
   disableTransferLeft?: boolean;
@@ -278,18 +286,22 @@ interface TransferControlModel {
  * @param {string} [sourceId] - ID of the source list for aria-controls
  * @param {string} [targetId] - ID of the target list for aria-controls
  */
-<span class="cstat-no" title="statement not covered" >const TransferControlColumn: React.FunctionComponent&lt;TransferControlModel&gt; = ({</span>
+const TransferControlColumn: React.FunctionComponent&lt;TransferControlModel&gt; = <span class="fstat-no" title="function not covered" >({</span>
 <span class="cstat-no" title="statement not covered" >  onTransfer,</span>
 <span class="cstat-no" title="statement not covered" >  disableTransferLeft,</span>
 <span class="cstat-no" title="statement not covered" >  disableTransferRight,</span>
 <span class="cstat-no" title="statement not covered" >  size,</span>
-<span class="cstat-no" title="statement not covered" >  sourceId: _sourceId,</span>
-<span class="cstat-no" title="statement not covered" >  targetId: _targetId,</span>
+<span class="cstat-no" title="statement not covered" >  sourceId: _sourceId, // eslint-disable-line @typescript-eslint/no-unused-vars</span>
+<span class="cstat-no" title="statement not covered" >  targetId: _targetId, // eslint-disable-line @typescript-eslint/no-unused-vars</span>
 <span class="cstat-no" title="statement not covered" >  onTransferAll,</span>
 <span class="cstat-no" title="statement not covered" >  hideTransferAll,</span>
 <span class="cstat-no" title="statement not covered" >}: TransferControlModel) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;section className={styles.control_column} role="group" aria-label="Transfer controls"&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;section</span>
+<span class="cstat-no" title="statement not covered" >      className={styles.control_column}</span>
+<span class="cstat-no" title="statement not covered" >      role="group"</span>
+<span class="cstat-no" title="statement not covered" >      aria-label="Transfer controls"</span>
+    &gt;
 <span class="cstat-no" title="statement not covered" >      {!hideTransferAll &amp;&amp; onTransferAll &amp;&amp; (</span>
 <span class="cstat-no" title="statement not covered" >        &lt;Button</span>
 <span class="cstat-no" title="statement not covered" >          type="icon"</span>
@@ -336,7 +348,7 @@ interface TransferControlModel {
   );
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >TransferControlColumn.displayName = 'TransferControlColumn';</span>
+TransferControlColumn.displayName = 'TransferControlColumn';
 &nbsp;
 export { TransferControlColumn };
 &nbsp;</pre></td></tr></table></pre>
@@ -346,7 +358,7 @@ export { TransferControlColumn };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-03T14:12:21.274Z
+                at 2025-11-12T14:02:49.214Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

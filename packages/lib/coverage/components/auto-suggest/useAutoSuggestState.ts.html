@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">1.27% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/160</span>
+                <span class='fraction'>2/157</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">1.27% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/160</span>
+                <span class='fraction'>2/157</span>
             </div>
         
             
@@ -314,10 +314,7 @@
 <a name='L249'></a><a href='#L249'>249</a>
 <a name='L250'></a><a href='#L250'>250</a>
 <a name='L251'></a><a href='#L251'>251</a>
-<a name='L252'></a><a href='#L252'>252</a>
-<a name='L253'></a><a href='#L253'>253</a>
-<a name='L254'></a><a href='#L254'>254</a>
-<a name='L255'></a><a href='#L255'>255</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L252'></a><a href='#L252'>252</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -484,6 +481,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -491,7 +489,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -506,9 +503,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -571,7 +565,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { useCallback, useReducer } from 'react';<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useCallback, useReducer } from 'react';
 &nbsp;
 /**
  * Represents a selected item in the state
@@ -626,7 +620,7 @@ export type AutoSuggestAction =
 /**
  * Reducer function for AutoSuggest state management
  */
-<span class="cstat-no" title="statement not covered" >function autoSuggestReducer(</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function autoSuggestReducer(</span></span>
 <span class="cstat-no" title="statement not covered" >  state: AutoSuggestState,</span>
 <span class="cstat-no" title="statement not covered" >  action: AutoSuggestAction</span>
 <span class="cstat-no" title="statement not covered" >): AutoSuggestState {</span>
@@ -659,15 +653,18 @@ export type AutoSuggestAction =
 <span class="cstat-no" title="statement not covered" >    case 'SELECT_ITEM':</span>
 <span class="cstat-no" title="statement not covered" >      return {</span>
 <span class="cstat-no" title="statement not covered" >        ...state,</span>
+<span class="cstat-no" title="statement not covered" >        activeDescendantId: undefined,</span>
+<span class="cstat-no" title="statement not covered" >        focusMenu: false,</span>
 <span class="cstat-no" title="statement not covered" >        input: action.payload.itemName,</span>
 <span class="cstat-no" title="statement not covered" >        selected: true,</span>
-<span class="cstat-no" title="statement not covered" >        focusMenu: false,</span>
-<span class="cstat-no" title="statement not covered" >        activeDescendantId: undefined,</span>
 <span class="cstat-no" title="statement not covered" >      };</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    case 'ADD_SELECTED_ITEM':</span>
 <span class="cstat-no" title="statement not covered" >      return {</span>
 <span class="cstat-no" title="statement not covered" >        ...state,</span>
+<span class="cstat-no" title="statement not covered" >        activeDescendantId: undefined,</span>
+<span class="cstat-no" title="statement not covered" >        focusMenu: false,</span>
+<span class="cstat-no" title="statement not covered" >        input: '',</span>
 <span class="cstat-no" title="statement not covered" >        selectedItems: [</span>
 <span class="cstat-no" title="statement not covered" >          ...state.selectedItems,</span>
 <span class="cstat-no" title="statement not covered" >          {</span>
@@ -676,9 +673,6 @@ export type AutoSuggestAction =
 <span class="cstat-no" title="statement not covered" >            value: action.payload.itemValue,</span>
 <span class="cstat-no" title="statement not covered" >          },</span>
 <span class="cstat-no" title="statement not covered" >        ],</span>
-<span class="cstat-no" title="statement not covered" >        input: '',</span>
-<span class="cstat-no" title="statement not covered" >        focusMenu: false,</span>
-<span class="cstat-no" title="statement not covered" >        activeDescendantId: undefined,</span>
 <span class="cstat-no" title="statement not covered" >      };</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    case 'REMOVE_SELECTED_ITEM':</span>
@@ -704,17 +698,17 @@ export type AutoSuggestAction =
 <span class="cstat-no" title="statement not covered" >    case 'CLOSE_MENU_CLEAR_SELECTION':</span>
 <span class="cstat-no" title="statement not covered" >      return {</span>
 <span class="cstat-no" title="statement not covered" >        ...state,</span>
+<span class="cstat-no" title="statement not covered" >        activeDescendantId: undefined,</span>
 <span class="cstat-no" title="statement not covered" >        focusMenu: false,</span>
 <span class="cstat-no" title="statement not covered" >        selected: false,</span>
-<span class="cstat-no" title="statement not covered" >        activeDescendantId: undefined,</span>
 <span class="cstat-no" title="statement not covered" >      };</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    case 'RESET':</span>
 <span class="cstat-no" title="statement not covered" >      return {</span>
+<span class="cstat-no" title="statement not covered" >        activeDescendantId: undefined,</span>
+<span class="cstat-no" title="statement not covered" >        focusMenu: false,</span>
 <span class="cstat-no" title="statement not covered" >        input: '',</span>
 <span class="cstat-no" title="statement not covered" >        selected: false,</span>
-<span class="cstat-no" title="statement not covered" >        focusMenu: false,</span>
-<span class="cstat-no" title="statement not covered" >        activeDescendantId: undefined,</span>
 <span class="cstat-no" title="statement not covered" >        selectedItems: [],</span>
 <span class="cstat-no" title="statement not covered" >      };</span>
 &nbsp;
@@ -738,40 +732,37 @@ export type AutoSuggestAction =
  * autoSuggestState.selectItem('suggestion', 'value');
  * ```
  */
-<span class="cstat-no" title="statement not covered" >export function useAutoSuggestState() {</span>
+export <span class="fstat-no" title="function not covered" >function useAutoSuggestState() {</span>
 <span class="cstat-no" title="statement not covered" >  const [state, dispatch] = useReducer(autoSuggestReducer, {</span>
+<span class="cstat-no" title="statement not covered" >    activeDescendantId: undefined,</span>
+<span class="cstat-no" title="statement not covered" >    focusMenu: false,</span>
 <span class="cstat-no" title="statement not covered" >    input: '',</span>
 <span class="cstat-no" title="statement not covered" >    selected: false,</span>
-<span class="cstat-no" title="statement not covered" >    focusMenu: false,</span>
-<span class="cstat-no" title="statement not covered" >    activeDescendantId: undefined,</span>
 <span class="cstat-no" title="statement not covered" >    selectedItems: [],</span>
 <span class="cstat-no" title="statement not covered" >  });</span>
 &nbsp;
   // Convenience functions for common operations
 <span class="cstat-no" title="statement not covered" >  const setInput = useCallback((input: string | undefined) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    dispatch({ type: 'SET_INPUT', payload: input });</span>
+<span class="cstat-no" title="statement not covered" >    dispatch({ payload: input, type: 'SET_INPUT' });</span>
 <span class="cstat-no" title="statement not covered" >  }, []);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  const setSelected = useCallback((selected: boolean) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    dispatch({ type: 'SET_SELECTED', payload: selected });</span>
+<span class="cstat-no" title="statement not covered" >    dispatch({ payload: selected, type: 'SET_SELECTED' });</span>
 <span class="cstat-no" title="statement not covered" >  }, []);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  const setFocusMenu = useCallback((focusMenu: boolean) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    dispatch({ type: 'SET_FOCUS_MENU', payload: focusMenu });</span>
+<span class="cstat-no" title="statement not covered" >    dispatch({ payload: focusMenu, type: 'SET_FOCUS_MENU' });</span>
 <span class="cstat-no" title="statement not covered" >  }, []);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  const setActiveDescendantId = useCallback(</span>
-<span class="cstat-no" title="statement not covered" >    (id: string | undefined) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      dispatch({ type: 'SET_ACTIVE_DESCENDANT', payload: id });</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    []</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" >  const setActiveDescendantId = useCallback((id: string | undefined) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    dispatch({ payload: id, type: 'SET_ACTIVE_DESCENDANT' });</span>
+<span class="cstat-no" title="statement not covered" >  }, []);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  const selectItem = useCallback(</span>
 <span class="cstat-no" title="statement not covered" >    (itemId: string, itemName: string, itemValue: string) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      dispatch({</span>
-<span class="cstat-no" title="statement not covered" >        type: 'SELECT_ITEM',</span>
 <span class="cstat-no" title="statement not covered" >        payload: { itemId, itemName, itemValue },</span>
+<span class="cstat-no" title="statement not covered" >        type: 'SELECT_ITEM',</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
 <span class="cstat-no" title="statement not covered" >    []</span>
@@ -780,8 +771,8 @@ export type AutoSuggestAction =
 <span class="cstat-no" title="statement not covered" >  const addSelectedItem = useCallback(</span>
 <span class="cstat-no" title="statement not covered" >    (itemId: string, itemName: string, itemValue: string) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      dispatch({</span>
-<span class="cstat-no" title="statement not covered" >        type: 'ADD_SELECTED_ITEM',</span>
 <span class="cstat-no" title="statement not covered" >        payload: { itemId, itemName, itemValue },</span>
+<span class="cstat-no" title="statement not covered" >        type: 'ADD_SELECTED_ITEM',</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
 <span class="cstat-no" title="statement not covered" >    []</span>
@@ -789,8 +780,8 @@ export type AutoSuggestAction =
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  const removeSelectedItem = useCallback((itemId: string) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    dispatch({</span>
-<span class="cstat-no" title="statement not covered" >      type: 'REMOVE_SELECTED_ITEM',</span>
 <span class="cstat-no" title="statement not covered" >      payload: itemId,</span>
+<span class="cstat-no" title="statement not covered" >      type: 'REMOVE_SELECTED_ITEM',</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  }, []);</span>
 &nbsp;
@@ -811,18 +802,18 @@ export type AutoSuggestAction =
 <span class="cstat-no" title="statement not covered" >  }, []);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return {</span>
-<span class="cstat-no" title="statement not covered" >    state,</span>
+<span class="cstat-no" title="statement not covered" >    addSelectedItem,</span>
+<span class="cstat-no" title="statement not covered" >    clearSelectedItems,</span>
+<span class="cstat-no" title="statement not covered" >    clearSelection,</span>
+<span class="cstat-no" title="statement not covered" >    closeMenuClearSelection,</span>
+<span class="cstat-no" title="statement not covered" >    removeSelectedItem,</span>
+<span class="cstat-no" title="statement not covered" >    reset,</span>
+<span class="cstat-no" title="statement not covered" >    selectItem,</span>
+<span class="cstat-no" title="statement not covered" >    setActiveDescendantId,</span>
+<span class="cstat-no" title="statement not covered" >    setFocusMenu,</span>
 <span class="cstat-no" title="statement not covered" >    setInput,</span>
 <span class="cstat-no" title="statement not covered" >    setSelected,</span>
-<span class="cstat-no" title="statement not covered" >    setFocusMenu,</span>
-<span class="cstat-no" title="statement not covered" >    setActiveDescendantId,</span>
-<span class="cstat-no" title="statement not covered" >    selectItem,</span>
-<span class="cstat-no" title="statement not covered" >    addSelectedItem,</span>
-<span class="cstat-no" title="statement not covered" >    removeSelectedItem,</span>
-<span class="cstat-no" title="statement not covered" >    clearSelection,</span>
-<span class="cstat-no" title="statement not covered" >    clearSelectedItems,</span>
-<span class="cstat-no" title="statement not covered" >    closeMenuClearSelection,</span>
-<span class="cstat-no" title="statement not covered" >    reset,</span>
+<span class="cstat-no" title="statement not covered" >    state,</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;</pre></td></tr></table></pre>
@@ -832,7 +823,7 @@ export type AutoSuggestAction =
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-03T14:12:21.274Z
+                at 2025-11-12T14:02:49.214Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

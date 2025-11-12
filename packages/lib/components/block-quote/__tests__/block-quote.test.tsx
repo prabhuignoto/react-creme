@@ -87,7 +87,7 @@ describe('BlockQuote', () => {
 
   it('renders with specified style', () => {
     const { container, rerender } = render(
-      <BlockQuote style="simple">
+      <BlockQuote blockquoteStyle="simple">
         <p>Test quote content</p>
       </BlockQuote>
     );
@@ -95,7 +95,7 @@ describe('BlockQuote', () => {
     expect(blockquote).toHaveClass('quote_simple');
 
     rerender(
-      <BlockQuote style="fancy">
+      <BlockQuote blockquoteStyle="fancy">
         <p>Test quote content</p>
       </BlockQuote>
     );

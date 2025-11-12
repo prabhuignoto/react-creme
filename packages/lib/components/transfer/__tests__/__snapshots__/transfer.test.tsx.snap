@@ -2,14 +2,14 @@
 
 exports[`Transfer > should render transfer snapshot 1`] = `
 <div
-  aria-describedby="transfer-announce-aME9KKTBMEwL-3oA0zLUE"
+  aria-describedby="transfer-announce-L4kn3eYNT-jB3UxutewGK"
   aria-label="Transfer widget"
   class="_wrapper_4931dd"
   role="region"
 >
   <section
     aria-label="Available items to transfer (4 items)"
-    id="transfer-list-left-6Goo1B0Ij8W1F_iDeUw-F"
+    id="transfer-list-left-4fD5Ayl3q6AZbb04XOsaS"
   >
     <div
       class="_list_header_4931dd"
@@ -41,6 +41,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
         >
           <li
             aria-checked="false"
+            aria-selected="false"
             class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 5px;"
@@ -82,6 +83,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
+            aria-selected="false"
             class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 50px;"
@@ -123,6 +125,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
+            aria-selected="false"
             class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 95px;"
@@ -164,6 +167,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
+            aria-selected="false"
             class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 140px;"
@@ -275,7 +279,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
   </section>
   <section
     aria-label="Selected items (4 items)"
-    id="transfer-list-right-ZuFQ6_smwPP-GfWjHGRLe"
+    id="transfer-list-right-nUrfAX-iqoJ7UG7bd1nxK"
   >
     <div
       class="_list_header_4931dd"
@@ -307,6 +311,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
         >
           <li
             aria-checked="false"
+            aria-selected="false"
             class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 5px;"
@@ -348,6 +353,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
+            aria-selected="false"
             class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 50px;"
@@ -389,6 +395,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
+            aria-selected="false"
             class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 95px;"
@@ -430,6 +437,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
+            aria-selected="false"
             class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 140px;"
@@ -477,7 +485,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     aria-atomic="true"
     aria-live="polite"
     class="sr-only"
-    id="transfer-announce-aME9KKTBMEwL-3oA0zLUE"
+    id="transfer-announce-L4kn3eYNT-jB3UxutewGK"
     role="status"
   />
 </div>

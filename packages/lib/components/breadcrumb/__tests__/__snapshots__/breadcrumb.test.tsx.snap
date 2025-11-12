@@ -7,7 +7,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with all props 1`] = `
   >
     <ul
       class="_bread_crumbs_wrapper_977bb6 _rtl_977bb6"
-      tabindex="0"
     >
       <li
         class="_bread_crumb_977bb6"
@@ -110,7 +109,6 @@ exports[`BreadCrumb > Snapshot > should match snapshot with default props 1`] = 
   >
     <ul
       class="_bread_crumbs_wrapper_977bb6"
-      tabindex="0"
     >
       <li
         class="_bread_crumb_977bb6"

@@ -241,10 +241,12 @@ describe('Card', () => {
 
     it('should render card with no content', () => {
       const { container } = render(<Card />);
-      const card = container.firstChild;
+      const card = container.firstChild as HTMLElement;
+      const body = card?.querySelector('div[class*="body"]');
 
       expect(card).toBeInTheDocument();
-      expect(card).toBeEmptyDOMElement();
+      expect(body).toBeInTheDocument();
+      expect(body).toBeEmptyDOMElement();
     });
 
     it('should handle very large height values', () => {

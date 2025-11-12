@@ -5,6 +5,9 @@ import { describe, it, expect } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { ImageComparer } from '../image-comparer';
 
+// Note: The ImageComparer uses 'slider' role (ARIA pattern for sliders) rather than 'separator'
+// This is semantically more correct for an interactive comparison handle
+
 const mockImageSrc1 = 'https://example.com/image1.jpg';
 const mockImageSrc2 = 'https://example.com/image2.jpg';
 
@@ -23,7 +26,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       expect(separator).toBeInTheDocument();
     });
 
@@ -36,7 +39,7 @@ describe('ImageComparer', () => {
         />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       expect(separator).toBeInTheDocument();
     });
 
@@ -56,7 +59,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       expect(separator).toHaveAttribute('tabIndex', '0');
     });
 
@@ -65,7 +68,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       // Test that separator can receive focus
@@ -85,7 +88,7 @@ describe('ImageComparer', () => {
         />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       const initialValue = parseInt(
@@ -111,7 +114,7 @@ describe('ImageComparer', () => {
         />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       const initialValue = parseInt(
@@ -137,7 +140,7 @@ describe('ImageComparer', () => {
         />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       const initialValue = parseInt(
@@ -163,7 +166,7 @@ describe('ImageComparer', () => {
         />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       const initialValue = parseInt(
@@ -185,7 +188,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       await user.keyboard('{Home}');
@@ -201,7 +204,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       await user.keyboard('{End}');
@@ -221,7 +224,7 @@ describe('ImageComparer', () => {
         />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       const initialValue = parseInt(
@@ -248,7 +251,7 @@ describe('ImageComparer', () => {
         />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       const initialValue = parseInt(
@@ -271,7 +274,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       const initialValue = parseInt(
@@ -294,7 +297,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       // Jump to end
@@ -315,7 +318,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       separator.focus();
 
       // Jump to start
@@ -361,12 +364,12 @@ describe('ImageComparer', () => {
       expect(results).toHaveNoViolations();
     });
 
-    it('should have proper ARIA role for separator', () => {
+    it('should have proper ARIA role for slider', () => {
       render(
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       expect(separator).toBeInTheDocument();
     });
 
@@ -375,7 +378,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       expect(separator).toHaveAttribute('tabIndex', '0');
     });
 
@@ -384,7 +387,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       expect(separator).toHaveAttribute('aria-label');
       expect(separator).toHaveAttribute('aria-valuenow');
       expect(separator).toHaveAttribute('aria-valuemin', '0');
@@ -398,7 +401,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       expect(separator).toHaveAttribute('aria-orientation', 'horizontal');
     });
 
@@ -411,7 +414,7 @@ describe('ImageComparer', () => {
         />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       expect(separator).toHaveAttribute('aria-orientation', 'vertical');
     });
 
@@ -425,7 +428,7 @@ describe('ImageComparer', () => {
         />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       expect(separator).toHaveAttribute('aria-label', customLabel);
     });
 
@@ -434,7 +437,7 @@ describe('ImageComparer', () => {
         <ImageComparer sourceOne={mockImageSrc1} sourceTwo={mockImageSrc2} />
       );
 
-      const separator = screen.getByRole('separator', { hidden: true });
+      const separator = screen.getByRole('slider');
       const valueText = separator.getAttribute('aria-valuetext');
       expect(valueText).toMatch(/\d+% comparison/);
     });

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/74</span>
+                <span class='fraction'>9/72</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/74</span>
+                <span class='fraction'>9/72</span>
             </div>
         
             
@@ -171,13 +171,11 @@
 <a name='L106'></a><a href='#L106'>106</a>
 <a name='L107'></a><a href='#L107'>107</a>
 <a name='L108'></a><a href='#L108'>108</a>
-<a name='L109'></a><a href='#L109'>109</a>
-<a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L109'></a><a href='#L109'>109</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,7 +194,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -230,9 +229,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -278,16 +274,16 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import classNames from 'classnames';<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
-<span class="cstat-no" title="statement not covered" >import React, { useEffect, useRef } from 'react';</span>
-<span class="cstat-no" title="statement not covered" >import useFocusNew from '../common/effects/useFocusNew';</span>
-<span class="cstat-no" title="statement not covered" >import { isDark } from '../common/utils';</span>
-<span class="cstat-no" title="statement not covered" >import styles from './tab-header.module.scss';</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import classNames from 'classnames';
+import React, { useEffect, useRef } from 'react';
+import useFocusNew from '../common/effects/useFocusNew';
+import { isDark } from '../common/utils';
+import styles from './tab-header.module.scss';
 import { TabHeadProps } from './tabs-model';
 &nbsp;
 /**
@@ -306,8 +302,8 @@ import { TabHeadProps } from './tabs-model';
  * @returns {JSX.Element} The TabHead component.
  */
 &nbsp;
-<span class="cstat-no" title="statement not covered" >const TabHead = React.forwardRef&lt;HTMLButtonElement, TabHeadProps&gt;(</span>
-<span class="cstat-no" title="statement not covered" >  (</span>
+const TabHead = React.forwardRef&lt;HTMLButtonElement, TabHeadProps&gt;(
+  (
 <span class="cstat-no" title="statement not covered" >    {</span>
 <span class="cstat-no" title="statement not covered" >      disabled,</span>
 <span class="cstat-no" title="statement not covered" >      focusable,</span>
@@ -324,7 +320,8 @@ import { TabHeadProps } from './tabs-model';
 <span class="cstat-no" title="statement not covered" >    forwardedRef</span>
 <span class="cstat-no" title="statement not covered" >  ) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    const internalRef = useRef&lt;HTMLButtonElement&gt;(null);</span>
-<span class="cstat-no" title="statement not covered" >    const ref = (forwardedRef as React.RefObject&lt;HTMLButtonElement&gt;) || internalRef;</span>
+<span class="cstat-no" title="statement not covered" >    const ref =</span>
+<span class="cstat-no" title="statement not covered" >      (forwardedRef as React.RefObject&lt;HTMLButtonElement&gt;) || internalRef;</span>
 &nbsp;
     // Check if the current mode is dark
 <span class="cstat-no" title="statement not covered" >    const isDarkMode = isDark();</span>
@@ -340,17 +337,14 @@ import { TabHeadProps } from './tabs-model';
 <span class="cstat-no" title="statement not covered" >      [styles.tab_header_label_icon]: icon,</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    const tabHeadClass = classNames(</span>
-<span class="cstat-no" title="statement not covered" >      styles.tab_head,</span>
-<span class="cstat-no" title="statement not covered" >      {</span>
-<span class="cstat-no" title="statement not covered" >        [styles.tab_head_disabled]: disabled,</span>
-<span class="cstat-no" title="statement not covered" >        [styles.tab_head_selected]: selected,</span>
-<span class="cstat-no" title="statement not covered" >        [styles[`tab_head_${tabStyle}`]]: tabStyle,</span>
-<span class="cstat-no" title="statement not covered" >        [styles.tab_head_with_icon]: icon,</span>
-<span class="cstat-no" title="statement not covered" >        [styles[`tab_head_${size}`]]: size,</span>
-<span class="cstat-no" title="statement not covered" >        [styles.dark]: isDarkMode,</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >    const tabHeadClass = classNames(styles.tab_head, {</span>
+<span class="cstat-no" title="statement not covered" >      [styles.tab_head_disabled]: disabled,</span>
+<span class="cstat-no" title="statement not covered" >      [styles.tab_head_selected]: selected,</span>
+<span class="cstat-no" title="statement not covered" >      [styles[`tab_head_${tabStyle}`]]: tabStyle,</span>
+<span class="cstat-no" title="statement not covered" >      [styles.tab_head_with_icon]: icon,</span>
+<span class="cstat-no" title="statement not covered" >      [styles[`tab_head_${size}`]]: size,</span>
+<span class="cstat-no" title="statement not covered" >      [styles.dark]: isDarkMode,</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    const tabHeadIconClass = classNames(styles.tab_head_icon, {</span>
 <span class="cstat-no" title="statement not covered" >      [styles.tab_head_selected]: selected,</span>
@@ -388,9 +382,9 @@ import { TabHeadProps } from './tabs-model';
 <span class="cstat-no" title="statement not covered" >      &lt;/button&gt;</span>
     );
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >);</span>
+);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >TabHead.displayName = 'TabHead';</span>
+TabHead.displayName = 'TabHead';
 &nbsp;
 export { TabHead };
 &nbsp;</pre></td></tr></table></pre>
@@ -400,7 +394,7 @@ export { TabHead };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-03T14:12:21.274Z
+                at 2025-11-12T14:02:49.214Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
