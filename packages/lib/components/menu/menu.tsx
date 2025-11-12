@@ -164,15 +164,6 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     });
   }, []);
 
-  /**
-   * setup the focus props
-   */
-  const focusProps = useMemo(
-    () => ({
-      tabIndex: 0,
-    }),
-    []
-  );
 
   /**
    * Handle keyboard events for menu button
@@ -206,7 +197,6 @@ const Menu: React.FunctionComponent<MenuProps> = ({
         aria-haspopup="menu"
         aria-expanded={showMenu}
         tabIndex={0}
-        {...focusProps}
       >
         {children}
       </div>

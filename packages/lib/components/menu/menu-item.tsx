@@ -26,13 +26,16 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
       [focus]
     );
 
-    const handleClick = useCallback((ev: React.MouseEvent) => {
-      ev.preventDefault();
-      ev.stopPropagation();
-      if (!disabled && name) {
-        handleSelection?.(name);
-      }
-    }, []);
+    const handleClick = useCallback(
+      (ev?: React.MouseEvent) => {
+        ev?.preventDefault();
+        ev?.stopPropagation();
+        if (!disabled && name) {
+          handleSelection?.(name);
+        }
+      },
+      [disabled, name, handleSelection]
+    );
 
     const menuItemClass = useMemo(
       () =>

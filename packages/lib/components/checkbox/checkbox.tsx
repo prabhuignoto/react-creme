@@ -61,7 +61,7 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
 
     // Function to toggle checkbox state
     const toggleCheck = (
-      ev: PointerEvent | KeyboardEvent | React.MouseEvent
+      ev: PointerEvent | KeyboardEvent | React.MouseEvent | React.KeyboardEvent
     ) => {
       ev.preventDefault();
       ev.stopPropagation();
@@ -156,9 +156,9 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
     const wrapperProps = useMemo(
       () =>
         !focusIcon && !disabled
-          ? focusProps
-          : { tabIndex: disabled || !focusable ? -1 : 0 },
-      [focusIcon, disabled, focusProps, focusable]
+          ? { ref: ref }
+          : { ref: ref },
+      [focusIcon, disabled]
     );
     const iconProps = useMemo(
       () => (focusIcon ? focusProps : null),

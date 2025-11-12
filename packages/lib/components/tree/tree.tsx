@@ -232,7 +232,7 @@ const Tree: React.FunctionComponent<TreeProps> = ({
 
         case 'ArrowUp': {
           e.preventDefault();
-          const prevIndex = getPreviousIndex(currentIndex, flatTree);
+          const prevIndex = getPreviousIndex(currentIndex);
           if (prevIndex !== currentIndex) {
             setFocusedId(flatTree[prevIndex]?.id || '');
           }
@@ -271,7 +271,7 @@ const Tree: React.FunctionComponent<TreeProps> = ({
 
         case 'Home': {
           e.preventDefault();
-          const firstIdx = getFirstIndex(flatTree);
+          const firstIdx = getFirstIndex();
           setFocusedId(flatTree[firstIdx]?.id || '');
           break;
         }

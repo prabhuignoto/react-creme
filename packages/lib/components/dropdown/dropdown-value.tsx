@@ -116,7 +116,7 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
       onKeyDown={e => {
         if ((e.key === 'Enter' || e.key === ' ') && !disabled) {
           e.preventDefault();
-          onToggle(e);
+          onToggle?.();
         }
       }}
       tabIndex={!disabled && focusable ? 0 : -1}

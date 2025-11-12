@@ -20,7 +20,7 @@ export interface BlockQuoteProps
    * Style of the blockquote
    * @default 'default'
    */
-  style?: 'default' | 'simple' | 'fancy';
+  blockquoteStyle?: 'default' | 'simple' | 'fancy';
 }
 
 /**
@@ -30,7 +30,7 @@ export const BlockQuote: React.FC<BlockQuoteProps> = ({
   children,
   cite,
   align = 'left',
-  style = 'default',
+  blockquoteStyle = 'default',
   className,
   ...rest
 }) => {
@@ -41,13 +41,13 @@ export const BlockQuote: React.FC<BlockQuoteProps> = ({
       classNames(
         styles.quote,
         styles[`quote_${align}`],
-        styles[`quote_${style}`],
+        styles[`quote_${blockquoteStyle}`],
         {
           [styles.dark]: isDarkMode,
         },
         className
       ),
-    [align, style, isDarkMode, className]
+    [align, blockquoteStyle, isDarkMode, className]
   );
 
   return (
