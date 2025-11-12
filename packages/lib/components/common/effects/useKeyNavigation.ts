@@ -91,6 +91,11 @@ function useKeyNavigation(
   const [selection, setSelection] = useState(startIndex);
   const listRef = useRef<HTMLElement | null>(null);
 
+  // Sync selection state when startIndex changes (e.g., when active tab changes externally)
+  useEffect(() => {
+    setSelection(startIndex);
+  }, [startIndex]);
+
   const handleKey = useCallback(
     (e: KeyboardEvent) => {
       if (!focusable) return;

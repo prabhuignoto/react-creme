@@ -2,14 +2,14 @@
 
 exports[`Transfer > should render transfer snapshot 1`] = `
 <div
-  aria-describedby="transfer-announce-bgxL1bM4AM5KBWP7Bp7T6"
+  aria-describedby="transfer-announce-mFiNtUnhTUcpNcv7tY3NJ"
   aria-label="Transfer widget"
   class="_wrapper_4931dd"
   role="region"
 >
   <section
     aria-label="Available items to transfer (4 items)"
-    id="transfer-list-left-pM5TmYBmNhYdiPJIbHwVc"
+    id="transfer-list-left-VSDH8E5llfqrK_60HvCj8"
   >
     <div
       class="_list_header_4931dd"
@@ -279,7 +279,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
   </section>
   <section
     aria-label="Selected items (4 items)"
-    id="transfer-list-right-ZtXqfpqHxcckL7nJuPAvT"
+    id="transfer-list-right-t6GHwjdkE7CbrtsnBjU74"
   >
     <div
       class="_list_header_4931dd"
@@ -485,7 +485,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     aria-atomic="true"
     aria-live="polite"
     class="sr-only"
-    id="transfer-announce-bgxL1bM4AM5KBWP7Bp7T6"
+    id="transfer-announce-mFiNtUnhTUcpNcv7tY3NJ"
     role="status"
   />
 </div>
