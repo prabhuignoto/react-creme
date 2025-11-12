@@ -155,11 +155,6 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
     setState(checked);
   }, [checked]);
 
-  const switchTabIndex = useMemo(
-    () => ({ tabIndex: !disabled && !readOnly && focusable ? 0 : -1 }),
-    [disabled, readOnly, focusable]
-  );
-
   // Determine which accessible name to use
   const accessibleNameProps = useMemo(() => {
     if (label) {
@@ -170,10 +165,19 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
     return {};
   }, [label, ariaLabel]);
 
+  // Handle keyboard events for switch toggle
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if ((e.key === ' ' || e.key === 'Enter') && !disabled && !readOnly) {
+      e.preventDefault();
+      handleToggle();
+    }
+  };
+
   return (
     <div
       className={switchClass}
       onClick={handleToggle}
+      onKeyDown={handleKeyDown}
       role="switch"
       aria-checked={state}
       aria-disabled={disabled || undefined}
@@ -182,7 +186,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
       {...accessibleNameProps}
       style={switchStyle}
       ref={ref}
-      {...switchTabIndex}
+      tabIndex={!disabled && !readOnly && focusable ? 0 : -1}
     >
       <span className={switchTrackClass}>
         <span className={switchKnobClass}>

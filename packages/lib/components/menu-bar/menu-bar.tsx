@@ -132,7 +132,7 @@ const MenuBar: FunctionComponent<MenuBarProps> = ({
     <ul
       className={menuBarClass}
       ref={setMergedRef}
-      role="menubar"
+      role="menubar" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
       aria-label="Navigation menu"
     >
       {_items.map((item, index) => (

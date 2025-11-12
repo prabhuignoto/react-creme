@@ -73,7 +73,14 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
     }, []);
 
     return (
-      <ul className={menuClass} role="menu" ref={listRef} tabIndex={0}>
+      <ul
+        className={menuClass}
+        role="menu"
+        ref={listRef}
+        tabIndex={
+          0
+        } /* eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role */
+      >
         {items.map(({ name, id, disabled }, index) => (
           <MenuItem
             name={name}

@@ -41,10 +41,11 @@ const MenuBarItem: FunctionComponent<MenuBarItemViewProps> = memo(
       <li
         className={menuBarItemClass}
         id={id}
-        role="menuitem"
+        role="menuitem" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
         aria-haspopup="true"
         aria-expanded={isMenuOpen}
         aria-current={ariaCurrent}
+        tabIndex={-1}
       >
         {showIcon && (
           <span className={classNames(styles.icon, styles[size])}>{icon}</span>

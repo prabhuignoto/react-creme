@@ -92,9 +92,10 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
       <li
         className={listItemClass}
         key={id}
-        role="option"
+        role="option" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
         style={style}
         ref={ref}
+        aria-selected={selected || false}
         {...clickableProps}
         {...ariaProps}
       >

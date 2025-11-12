@@ -76,6 +76,13 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
       }
     };
 
+    // Handle keyboard events for checkbox (Space and Enter keys)
+    const handleCheckboxKeyDown = (ev: React.KeyboardEvent) => {
+      if ((ev.key === ' ' || ev.key === 'Enter') && !disabled) {
+        toggleCheck(ev);
+      }
+    };
+
     // Custom hook for focus management
     useFocusNew(focusable ? (ref as React.RefObject<HTMLElement>) : null, ev =>
       toggleCheck(ev)
@@ -172,9 +179,11 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
         aria-labelledby={checkBoxId.current}
         className={wrapperClass}
         onClick={toggleCheck}
+        onKeyDown={handleCheckboxKeyDown}
         role="checkbox"
         style={style}
         aria-disabled={disabled}
+        tabIndex={disabled || !focusable ? -1 : 0}
         {...wrapperProps}
       >
         <div className={checkBoxClass} {...iconProps}>

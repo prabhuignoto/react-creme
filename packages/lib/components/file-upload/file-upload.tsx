@@ -274,11 +274,12 @@ const FileUpload = React.forwardRef<FileUploadRef, FileUploadProps>(
         {files.length > 0 && (
           <div className={styles.fileList} role="list">
             {files.map(fileItem => (
+              // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
               <div
                 key={fileItem.id}
                 className={styles.fileItem}
                 role="listitem"
-                tabIndex={0}
+                tabIndex={0} // eslint-disable-line jsx-a11y/no-noninteractive-tabindex
                 onKeyDown={e => handleFileKeyDown(e, fileItem.id)}
                 aria-label={`${fileItem.file.name}, ${formatFileSize(fileItem.file.size)}`}
               >

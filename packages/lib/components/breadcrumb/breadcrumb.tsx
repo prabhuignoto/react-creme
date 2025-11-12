@@ -171,11 +171,7 @@ const BreadCrumb: React.FunctionComponent<BreadCrumbProps> = React.memo(
 
     return (
       <nav aria-label="Breadcrumb">
-        <ul
-          className={wrapperClass}
-          ref={breadcrumbRef}
-          tabIndex={focusable ? 0 : -1}
-        >
+        <ul className={wrapperClass} ref={breadcrumbRef}>
           {items.map(({ id, selected, name }, index) => (
             <BreadCrumbItem
               id={id}

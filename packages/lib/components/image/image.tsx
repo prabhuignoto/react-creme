@@ -161,13 +161,13 @@ const Image: React.FunctionComponent<ImageProps> = ({
       {...focusProps}
       {...imageProps}
     >
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <img
         src={src}
         onLoad={handleLoad}
         onError={handleLoad}
         className={ImageClass}
         alt={alt}
-        {...imageProps}
         loading={loading}
         ref={onImageRef}
         style={imageStyle}

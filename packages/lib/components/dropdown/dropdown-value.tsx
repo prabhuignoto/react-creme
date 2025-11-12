@@ -113,6 +113,12 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
       className={rcDropdownValueClass}
       ref={containerRef}
       onClick={onToggle}
+      onKeyDown={e => {
+        if ((e.key === 'Enter' || e.key === ' ') && !disabled) {
+          e.preventDefault();
+          onToggle(e);
+        }
+      }}
       tabIndex={!disabled && focusable ? 0 : -1}
       role="combobox"
       aria-disabled={disabled}

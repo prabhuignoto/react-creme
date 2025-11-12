@@ -105,7 +105,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
     return (
       <ul
         className={styles.list_options}
-        role="listbox"
+        role="listbox" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
         aria-label={label || 'List of options'}
         style={listStyle}
         id={id}

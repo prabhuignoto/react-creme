@@ -140,12 +140,12 @@ const Rate: React.FunctionComponent<RateProps> = ({
   }, [disabled, RTL]);
 
   return (
-    <ul
+    <div
       className={rateWrapperClass}
       role="radiogroup"
       aria-label="rating"
       onMouseLeave={handleLeave}
-      ref={wrapperRef as React.RefObject<HTMLUListElement>}
+      ref={wrapperRef as React.RefObject<HTMLDivElement>}
       tabIndex={-1}
     >
       {items.map(({ id, active, hovered }, index) => (
@@ -163,7 +163,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
           disabled={disabled}
         />
       ))}
-    </ul>
+    </div>
   );
 };
 

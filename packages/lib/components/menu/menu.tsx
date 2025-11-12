@@ -169,9 +169,9 @@ const Menu: React.FunctionComponent<MenuProps> = ({
    */
   const focusProps = useMemo(
     () => ({
-      tabIndex: focusable ? 0 : -1,
+      tabIndex: 0,
     }),
-    [focusable]
+    []
   );
 
   /**
@@ -205,6 +205,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
         role="button"
         aria-haspopup="menu"
         aria-expanded={showMenu}
+        tabIndex={0}
         {...focusProps}
       >
         {children}

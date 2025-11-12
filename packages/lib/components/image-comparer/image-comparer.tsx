@@ -200,7 +200,7 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
       <span
         ref={separatorRef}
         className={dragHandleClass}
-        role="separator"
+        role="slider"
         tabIndex={0}
         style={dragHandleStyle}
         aria-label={ariaLabel}

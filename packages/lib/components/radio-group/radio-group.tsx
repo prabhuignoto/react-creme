@@ -106,7 +106,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   }, [changeTracker, items_state, onSelected]);
 
   return (
-    <ul
+    <div
       className={radioGroupClass}
       role="radiogroup"
       aria-label="radio group options"
@@ -128,7 +128,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
           focusable={focusable}
         />
       ))}
-    </ul>
+    </div>
   );
 };
 

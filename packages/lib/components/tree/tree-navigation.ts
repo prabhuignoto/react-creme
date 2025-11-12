@@ -71,7 +71,7 @@ export function getNextIndex(
  * Get the index of the previous focusable item
  */
 export function getPreviousIndex(
-  currentIndex: number,
+  currentIndex: number
   // _flatItems: FlatTreeItem[] // eslint-disable-line @typescript-eslint/no-unused-vars
 ): number {
   if (currentIndex <= 0) {
@@ -84,7 +84,6 @@ export function getPreviousIndex(
  * Get the index of the first item
  */
 export function getFirstIndex(): number {
-  // eslint-disable-line @typescript-eslint/no-unused-vars
   return 0;
 }
 

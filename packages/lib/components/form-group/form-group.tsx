@@ -83,7 +83,19 @@ const FormGroup: FunctionComponent<FormGroupProps> = ({
             onClick={() => handleSubmit()}
           />
         </div>
-        <div className={styles.form_control_wrapper} onClick={handleCancel}>
+        <div
+          className={styles.form_control_wrapper}
+          onClick={handleCancel}
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleCancel();
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Cancel"
+        >
           <Button label={cancelLabel} />
         </div>
       </div>

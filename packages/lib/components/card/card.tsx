@@ -115,14 +115,15 @@ const Card: React.FunctionComponent<CardProps> = ({
   );
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       className={cardWrapperClass}
       style={style}
-      role={ariaLabel ? 'region' : undefined}
+      role={interactive ? 'button' : ariaLabel ? 'region' : undefined}
       aria-label={ariaLabel}
       onClick={interactive ? handleClick : undefined}
       onKeyDown={interactive ? handleKeyDown : undefined}
-      tabIndex={interactive ? 0 : undefined}
+      {...(interactive && { tabIndex: 0 })}
     >
       {renderHeader}
       {renderBody}
