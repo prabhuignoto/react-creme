@@ -57,7 +57,7 @@ describe('CarouselItems', () => {
       </CarouselItems>
     );
 
-    const items = container.querySelectorAll('li');
+    const items = container.querySelectorAll('[role="tabpanel"]');
 
     expect(items[1]).toHaveStyle({
       left: '100px',
@@ -101,9 +101,7 @@ describe('CarouselItems', () => {
       </CarouselItems>
     );
 
-    const items = container.querySelectorAll('li');
-
-    console.log(items.length);
+    const items = container.querySelectorAll('[role="tabpanel"]');
 
     expect(items[0]).toHaveStyle({
       left: '0px',
@@ -124,9 +122,8 @@ describe('CarouselItems', () => {
 
   describe('Accessibility', () => {
     it.skip('should have no accessibility violations', async () => {
-      // Note: CarouselItems renders role="tabpanel" on <li> elements, which is only valid
-      // when part of a tablist structure. This component is designed to be used within
-      // the parent Carousel component, which provides proper semantic context.
+      // Note: CarouselItems is designed to be used within the parent Carousel component,
+      // which provides proper semantic context and ARIA structure.
       // Accessibility testing should be done at the Carousel integration level.
       const { container } = render(
         <CarouselItems
