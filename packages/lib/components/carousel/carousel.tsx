@@ -32,14 +32,24 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   onSlideChange,
   enableSwipe = true,
 }) => {
+  // Convert children to array for consistent handling
+  const childrenArray = useMemo(
+    () => (Array.isArray(children) ? children : children ? [children] : []),
+    [children]
+  );
+
   // Generate stable IDs for children (only regenerate when children count changes)
   const childrenIds = useMemo(() => {
-    const childArray = Array.isArray(children) ? children : [];
-    return childArray.map(() => nanoid());
-  }, [Array.isArray(children) ? children.length : 0]);
+    return childrenArray.map(() => nanoid());
+  }, [childrenArray.length]);
 
   // Ref to store the count of the carousel items.
-  const trackCount = useRef(Array.isArray(children) ? children.length : 0);
+  const trackCount = useRef(childrenArray.length);
+  // Update trackCount when children change
+  useEffect(() => {
+    trackCount.current = childrenArray.length;
+  }, [childrenArray.length]);
+
   // Ref to store the autoPlay interval id.
   const autoPlayRef = useRef<number | undefined>(undefined);
 
@@ -64,21 +74,25 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   const handleNext = useCallback(() => {
     setActivePage(prev => {
       if (prev < trackCount.current - 1) {
-        return prev + 1;
+        const nextPage = prev + 1;
+        onSlideChange?.(nextPage);
+        return nextPage;
       }
       return prev;
     });
-  }, []);
+  }, [onSlideChange]);
 
   // Callback function to handle "Previous" action in the carousel.
   const handlePrevious = useCallback(() => {
     setActivePage(prev => {
       if (prev > 0) {
-        return prev - 1;
+        const prevPage = prev - 1;
+        onSlideChange?.(prevPage);
+        return prevPage;
       }
       return prev;
     });
-  }, []);
+  }, [onSlideChange]);
 
   // Callback function to handle page activation in the carousel.
   const handleActivatePage = useCallback(
@@ -113,12 +127,12 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
 
   // Derive carousel items from dimensions and children
   const carouselItems = useMemo<CarouselItemProps[]>(() => {
-    if (!slideWidth || !slideHeight || !Array.isArray(children)) {
+    if (!slideWidth || !slideHeight || childrenArray.length === 0) {
       return [];
     }
 
     const prop = direction === 'horizontal' ? 'left' : 'top';
-    return children.map((_, index) => ({
+    return childrenArray.map((_, index) => ({
       height: debouncedSlideHeight,
       id: childrenIds[index] ?? nanoid(),
       [prop]: `${
@@ -131,7 +145,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
     debouncedSlideWidth,
     debouncedSlideHeight,
     direction,
-    children,
+    childrenArray,
     childrenIds,
     slideWidth,
     slideHeight,
@@ -276,6 +290,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
     <section
       className={carouselContainerClass}
       ref={enableSwipe ? onInit : undefined}
+      role="region"
       aria-roledescription="carousel"
       aria-label={ariaLabel}
     >
@@ -294,7 +309,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
           height={slideHeight}
           width={slideWidth}
         >
-          {children}
+          {childrenArray}
         </CarouselItems>
       </div>
       <div className={carouselTrackClass}>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.92% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/26</span>
+                <span class='fraction'>0/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.92% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/26</span>
+                <span class='fraction'>0/26</span>
             </div>
         
             
@@ -163,10 +163,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -180,9 +181,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -201,10 +199,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
@@ -235,10 +235,10 @@
  * &lt;CircularProgress label="Processing file upload" size="lg" /&gt;
  */
 &nbsp;
-import classNames from 'classnames';
-import React, { useMemo } from 'react';
-import { isDark } from '../common/utils';
-import styles from './circular-progress.module.scss';
+<span class="cstat-no" title="statement not covered" >import classNames from 'classnames';</span>
+<span class="cstat-no" title="statement not covered" >import React, { useMemo } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import { isDark } from '../common/utils';</span>
+<span class="cstat-no" title="statement not covered" >import styles from './circular-progress.module.scss';</span>
 &nbsp;
 export interface CircularProgressProps {
   /**
@@ -253,8 +253,8 @@ export interface CircularProgressProps {
   size?: 'xs' | 'sm' | 'md' | 'lg';
 }
 &nbsp;
-const CircularProgress: React.FunctionComponent&lt;CircularProgressProps&gt; =
-  React.memo(({ size = 'sm', label = 'Loading' }) =&gt; {
+<span class="cstat-no" title="statement not covered" >const CircularProgress: React.FunctionComponent&lt;CircularProgressProps&gt; =</span>
+<span class="cstat-no" title="statement not covered" >  React.memo(({ size = 'sm', label = 'Loading' }) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    const isDarkMode = isDark();</span>
 <span class="cstat-no" title="statement not covered" >    const wrapperClass = useMemo(() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      return classNames(</span>
@@ -276,7 +276,7 @@ const CircularProgress: React.FunctionComponent&lt;CircularProgressProps&gt; =
     );
 <span class="cstat-no" title="statement not covered" >  });</span>
 &nbsp;
-CircularProgress.displayName = 'CircularProgress';
+<span class="cstat-no" title="statement not covered" >CircularProgress.displayName = 'CircularProgress';</span>
 &nbsp;
 export { CircularProgress };
 &nbsp;</pre></td></tr></table></pre>
@@ -286,7 +286,7 @@ export { CircularProgress };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-12T14:29:01.056Z
+                at 2025-11-14T05:15:14.149Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

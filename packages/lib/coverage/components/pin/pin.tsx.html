@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.86% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/314</span>
+                <span class='fraction'>0/314</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.86% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/314</span>
+                <span class='fraction'>0/314</span>
             </div>
         
             
@@ -531,9 +531,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -543,12 +543,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -568,6 +567,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -939,9 +939,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -972,9 +972,9 @@
  * pinRef.current?.reset();
  */
 &nbsp;
-import classNames from 'classnames';
-import { nanoid } from 'nanoid';
-import {
+<span class="cstat-no" title="statement not covered" >import classNames from 'classnames';</span>
+<span class="cstat-no" title="statement not covered" >import { nanoid } from 'nanoid';</span>
+<span class="cstat-no" title="statement not covered" >import {</span>
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -984,12 +984,12 @@ import {
   ClipboardEvent,
   KeyboardEvent,
 } from 'react';
-import { useFirstRender } from '../common/effects/useFirstRender';
-import styles from './pin.module.scss';
+<span class="cstat-no" title="statement not covered" >import { useFirstRender } from '../common/effects/useFirstRender';</span>
+<span class="cstat-no" title="statement not covered" >import styles from './pin.module.scss';</span>
 import { PinProps, PinHandle } from './pin.model';
 &nbsp;
-const Pin = forwardRef&lt;PinHandle, PinProps&gt;(
-  (
+<span class="cstat-no" title="statement not covered" >const Pin = forwardRef&lt;PinHandle, PinProps&gt;(</span>
+<span class="cstat-no" title="statement not covered" >  (</span>
 <span class="cstat-no" title="statement not covered" >    {</span>
 <span class="cstat-no" title="statement not covered" >      length = 4,</span>
 <span class="cstat-no" title="statement not covered" >      size = 'sm',</span>
@@ -1380,9 +1380,9 @@ const Pin = forwardRef&lt;PinHandle, PinProps&gt;(
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
     );
 <span class="cstat-no" title="statement not covered" >  }</span>
-);
+<span class="cstat-no" title="statement not covered" >);</span>
 &nbsp;
-Pin.displayName = 'Pin';
+<span class="cstat-no" title="statement not covered" >Pin.displayName = 'Pin';</span>
 &nbsp;
 export { Pin, type PinHandle };
 export type { PinProps } from './pin.model';
@@ -1393,7 +1393,7 @@ export type { PinProps } from './pin.model';
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-12T14:29:01.056Z
+                at 2025-11-14T05:15:14.149Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -29,9 +29,9 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
 
   // Render the CarouselItems component.
   return (
-    <ul className={styles.carousel} style={carouselStyle}>
+    <div className={styles.carousel} style={carouselStyle}>
       {carouselItems.map((item, index) => (
-        <li
+        <div
           key={item.id}
           id={`carousel-slide-${index}`}
           className={styles.item}
@@ -50,9 +50,9 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
           <div className={styles.item_container}>
             {(children as ReactNode[])[index]}
           </div>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 
