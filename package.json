@@ -39,7 +39,7 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.6",
+    "lint-staged": "^16.2.7",
     "postcss": "^8.4.28",
     "postcss-bem-linter": "^4.0.1",
     "postcss-import": "^16.1.0",
