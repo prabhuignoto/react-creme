@@ -17,8 +17,10 @@ const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
     fixedHeight,
     zebra,
     size,
+    rowIndex,
   }: DataRow) => {
-    const isDarkMode = useMemo(() => isDark(), []);
+    // Simple function call - no need for useMemo
+    const isDarkMode = isDark();
 
     // Process cell data once and memoize it
     const cellsData = useMemo(
@@ -45,23 +47,30 @@ const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
     }, [layoutStyle, border, fixedHeight, zebra, size, isDarkMode]);
 
     return (
-      <div className={rowClass} style={style} role="row">
-        {columnConfigs?.map(col => {
+      <div
+        className={rowClass}
+        style={style}
+        role="row"
+        aria-rowindex={rowIndex}
+      >
+        {columnConfigs?.map((col, colIndex) => {
           const cellData = cellsData.find(cell => cell.name === col.name);
 
           if (cellData) {
             const { value, id, name } = cellData;
             const formatter = col.formatter;
             return (
-              <DataGridCell
-                value={value ?? ''}
-                key={id}
-                name={name}
-                border={border}
-                fixedHeight={fixedHeight}
-                formatter={formatter}
-                zebra={zebra}
-              />
+              <div key={id} role="cell" aria-colindex={colIndex + 1}>
+                <DataGridCell
+                  value={value ?? ''}
+                  name={name}
+                  border={border}
+                  fixedHeight={fixedHeight}
+                  formatter={formatter}
+                  zebra={zebra}
+                  parseHtml={col.parseHtml}
+                />
+              </div>
             );
           }
           return null;

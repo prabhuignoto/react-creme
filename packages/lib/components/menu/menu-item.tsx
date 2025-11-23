@@ -26,13 +26,16 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
       [focus]
     );
 
-    const handleClick = useCallback((ev: React.MouseEvent) => {
-      ev.preventDefault();
-      ev.stopPropagation();
-      if (!disabled && name) {
-        handleSelection?.(name);
-      }
-    }, []);
+    const handleClick = useCallback(
+      (ev?: React.MouseEvent) => {
+        ev?.preventDefault();
+        ev?.stopPropagation();
+        if (!disabled && name) {
+          handleSelection?.(name);
+        }
+      },
+      [disabled, name, handleSelection]
+    );
 
     const menuItemClass = useMemo(
       () =>
@@ -58,8 +61,14 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = React.memo(
       <li
         className={menuItemClass}
         onClick={handleClick}
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleClick();
+          }
+        }}
         ref={onRef}
-        role="menuitem"
+        role="menuitem" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
         tabIndex={0}
       >
         {!isDivider && <span className={styles.name}>{name}</span>}

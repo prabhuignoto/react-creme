@@ -3,17 +3,8 @@ import React, { useMemo } from 'react';
 import { isDark } from '../common/utils';
 import styles from './block-quote.module.scss';
 
-export interface BlockQuoteProps {
-  /**
-   * Content to be rendered inside the blockquote
-   */
-  children: React.ReactNode;
-
-  /**
-   * Citation text to be displayed
-   */
-  cite?: string;
-
+export interface BlockQuoteProps
+  extends React.HTMLAttributes<HTMLQuoteElement> {
   /**
    * Alignment of the blockquote
    * @default 'left'
@@ -21,20 +12,15 @@ export interface BlockQuoteProps {
   align?: 'left' | 'right' | 'center';
 
   /**
+   * Citation text to be displayed
+   */
+  cite?: string;
+
+  /**
    * Style of the blockquote
    * @default 'default'
    */
-  style?: 'default' | 'simple' | 'fancy';
-
-  /**
-   * Additional class name for the blockquote
-   */
-  className?: string;
-
-  /**
-   * Additional props to be spread to the blockquote element
-   */
-  [key: string]: any;
+  blockquoteStyle?: 'default' | 'simple' | 'fancy';
 }
 
 /**
@@ -44,7 +30,7 @@ export const BlockQuote: React.FC<BlockQuoteProps> = ({
   children,
   cite,
   align = 'left',
-  style = 'default',
+  blockquoteStyle = 'default',
   className,
   ...rest
 }) => {
@@ -55,13 +41,13 @@ export const BlockQuote: React.FC<BlockQuoteProps> = ({
       classNames(
         styles.quote,
         styles[`quote_${align}`],
-        styles[`quote_${style}`],
+        styles[`quote_${blockquoteStyle}`],
         {
           [styles.dark]: isDarkMode,
         },
         className
       ),
-    [align, style, isDarkMode, className]
+    [align, blockquoteStyle, isDarkMode, className]
   );
 
   return (

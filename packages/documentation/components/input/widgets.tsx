@@ -14,24 +14,24 @@ import {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget name="Input" width={200}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Input with a custom Icon">
+      <Section size="md" title="Input with a custom Icon" border={false}>
         <Text>Use a custom icon inside the input.</Text>
         <DemoWidget name="Input" width={200}>
           {WithIcon}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Input with border">
+      <Section size="md" title="Input with border" border={false}>
         <Text>Use a custom icon inside the input.</Text>
         <DemoWidget name="Input" width={200}>
           {WithBorder}
         </DemoWidget>
       </Section>
-      <Section size="md" title="States">
+      <Section size="md" title="States" border={false}>
         <Text>
           Inputs can be configured to have different states. The example below
           shows input in error and success state
@@ -43,12 +43,12 @@ function Widgets() {
           {Success}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
+      <Section size="md" title="RTL" border={false}>
         <DemoWidget name="Input" width={200}>
           {RTL}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Accent">
+      <Section size="md" title="Accent" border={false}>
         <Text>
           Inputs can be configured to have different accents. The example below
           shows input in rounded accent.
@@ -57,7 +57,7 @@ function Widgets() {
           {Accent}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Max length">
+      <Section size="md" title="Max length" border={false}>
         <Text>Inputs can be configured to have a maximum length.</Text>
         <DemoWidget name="Input" width={200}>
           {MaxLength}

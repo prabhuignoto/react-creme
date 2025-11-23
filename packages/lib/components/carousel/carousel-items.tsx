@@ -25,16 +25,19 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = ({
           : `translateY(-${height * activePage}px)`,
       width: `${width * totalItems}px`,
     } as CSSProperties;
-  }, [width, height, activePage]);
+  }, [width, height, activePage, direction, totalItems]);
 
   // Render the CarouselItems component.
   return (
-    <ul className={styles.carousel} style={carouselStyle} role="list">
+    <ul className={styles.carousel} style={carouselStyle}>
       {carouselItems.map((item, index) => (
         <li
           key={item.id}
+          id={`carousel-slide-${index}`}
           className={styles.item}
-          role="listitem"
+          role="tabpanel"
+          aria-roledescription="slide"
+          aria-label={`Slide ${index + 1} of ${carouselItems.length}`}
           data-visible={activePage === index}
           aria-hidden={activePage !== index}
           style={{

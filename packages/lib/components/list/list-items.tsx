@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, {
   CSSProperties,
   useCallback,
@@ -44,25 +43,39 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
       } as CSSProperties;
 
       return style;
-    }, [
-      JSON.stringify(
-        options.map(({ id, top, selected }) => ({ id, selected, top }))
-      ),
-      resetState,
-    ]);
+    }, [options, itemHeight, rowGap, resetState]);
 
     const listRef = useRef<HTMLUListElement | null>(null);
 
     const { selection, setSelection } = useKeyNavigation(
       listRef as React.RefObject<HTMLElement>,
       selectedIndex,
-      options.length
+      options.length,
+      {
+        onPageDown: () => {
+          if (listRef.current) {
+            listRef.current.scrollTop += (itemHeight + rowGap) * 10;
+          }
+        },
+        // PageUp/PageDown support for large lists
+        onPageUp: () => {
+          if (listRef.current) {
+            listRef.current.scrollTop -= (itemHeight + rowGap) * 10;
+          }
+        },
+        orientation: 'vertical',
+        scrollOffset: itemHeight + rowGap,
+      },
+      focusable
     );
 
-    const onSelection = useCallback((opt: ListOption, index: number) => {
-      setSelection(index);
-      handleSelection(opt);
-    }, []);
+    const onSelection = useCallback(
+      (opt: ListOption, index: number) => {
+        setSelection(index);
+        handleSelection(opt);
+      },
+      [setSelection, handleSelection]
+    );
 
     useEffect(() => {
       if (selectedIndex > -1) {
@@ -92,8 +105,8 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
     return (
       <ul
         className={styles.list_options}
-        role="listbox"
-        aria-label={`rc-list-label-${label}`}
+        role="listbox" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
+        aria-label={label || 'List of options'}
         style={listStyle}
         id={id}
         ref={listRef}
@@ -104,7 +117,7 @@ const ListItems = React.forwardRef<Partial<HTMLUListElement>, ListItemsProps>(
             ({ disabled, id, name, value = '', selected, top = 0 }, index) => {
               const canShow =
                 !virtualized ||
-                (top + itemHeight >= visibleRange[0] && top <= visibleRange[1]);
+                (index >= visibleRange[0] && index <= visibleRange[1]);
               return canShow ? (
                 <ListItem
                   allowMultiSelection={allowMultiSelection}

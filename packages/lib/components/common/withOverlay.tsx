@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Overlay } from './overlay';
@@ -94,11 +93,15 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
       if (!disableAnimation) {
         setTimeout(() => {
           setPortalWrapperCreated(false);
-          onClose && onClose();
+          if (onClose) {
+            onClose();
+          }
         }, 250);
       } else {
         setPortalWrapperCreated(false);
-        onClose && onClose();
+        if (onClose) {
+          onClose();
+        }
       }
     }, []);
 

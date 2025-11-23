@@ -1,120 +1,157 @@
-import { fireEvent, render, waitFor } from '@testing-library/react';
-import { vi } from 'vitest';
+import React from 'react';
+import { axe } from 'jest-axe';
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import userEvent from '@testing-library/user-event';
 import { Input } from '../input';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../input.module.scss';
 
-const handler = vi.fn();
-
 describe('Input', () => {
-  it('should render default', () => {
-    const { getAllByRole } = render(<Input />);
+  describe('Rendering', () => {
+    it('should render default input', () => {
+      const { container } = render(<Input />);
+      const input = screen.getAllByRole('textbox')[0];
 
-    expect(getAllByRole('textbox')[0]).toBeInTheDocument();
-    expect(getAllByRole('textbox')[0]).toHaveClass(styles.default);
-  });
-
-  it('should have the aria label', () => {
-    const { container } = render(<Input state="error" placeholder="error" />);
-
-    expect(container.firstChild).toHaveAttribute('aria-label', 'error');
-  });
-
-  it('should call onchange', async () => {
-    const { getByPlaceholderText } = render(<Input onChange={handler} />);
-    const input = getByPlaceholderText('Please enter a value ...');
-
-    fireEvent.change(input, {
-      target: {
-        value: 'test',
-      },
+      expect(input).toBeInTheDocument();
+      expect(container.firstChild).toHaveClass(styles.default);
     });
 
-    fireEvent.keyUp(input, {
-      key: 'E',
+    it('should render with placeholder', () => {
+      render(<Input placeholder="Enter name" />);
+      expect(screen.getByPlaceholderText('Enter name')).toBeInTheDocument();
     });
 
-    await waitFor(() => expect(handler).toBeCalled());
-  });
-
-  it('should clear work', async () => {
-    const handler = vi.fn();
-    const { getByTestId, getByPlaceholderText } = render(
-      <Input
-        onChange={handler}
-        enableClear
-        placeholder="enter"
-        showSpinner={false}
-      />
-    );
-
-    fireEvent.keyUp(getByPlaceholderText('enter'), {
-      key: 'E',
+    it('should render the spinner when showSpinner is true', () => {
+      render(<Input showSpinner />);
+      expect(screen.getByTestId('rc-input-spinner')).toBeInTheDocument();
     });
 
-    await waitFor(() => {
-      expect(getByTestId('rc-clear-input')).toBeInTheDocument();
+    it('should render as autocomplete with combobox role', () => {
+      const { container } = render(<Input isAutoComplete />);
+      expect(container.firstChild).toHaveAttribute('role', 'combobox');
+    });
+  });
+
+  describe('States', () => {
+    it('should be disabled', () => {
+      render(<Input disabled placeholder="Enter value" />);
+      const input = screen.getByPlaceholderText('Enter value');
+
+      expect(input).toBeDisabled();
     });
 
-    fireEvent.mouseDown(getByTestId('rc-clear-input'));
-
-    await waitFor(async () => expect(handler).toBeCalledWith(''));
-  });
-
-  it('should call onFocus', () => {
-    const { getByPlaceholderText } = render(<Input onFocus={handler} />);
-    const input = getByPlaceholderText('Please enter a value ...');
-
-    fireEvent.focus(input);
-
-    expect(handler).toBeCalled();
-  });
-
-  it('should be disabled', () => {
-    const { getByPlaceholderText } = render(<Input disabled />);
-    const input = getByPlaceholderText('Please enter a value ...');
-
-    expect(input).toBeDisabled();
-  });
-
-  it('should be in success state', () => {
-    const { container } = render(<Input state="success" />);
-
-    expect(container.firstChild).toHaveClass(styles.success);
-  });
-
-  it('should be in error state', () => {
-    const { container } = render(<Input state="error" />);
-
-    expect(container.firstChild).toHaveClass(styles.error);
-  });
-
-  it('should render the spinner', () => {
-    const { getByTestId } = render(<Input showSpinner />);
-
-    expect(getByTestId('rc-input-spinner')).toBeInTheDocument();
-  });
-
-  it('should render as autocomplete', () => {
-    const { container } = render(<Input isAutoComplete />);
-
-    expect(container.firstChild).toHaveAttribute('role', 'combobox');
-  });
-
-  it('should honour the max length property', async () => {
-    const { getByPlaceholderText } = render(
-      <Input maxLength={3} placeholder="Please enter a value ..." />
-    );
-
-    const input = getByPlaceholderText('Please enter a value ...');
-
-    expect(input).toBeInTheDocument();
-
-    fireEvent.change(input, {
-      target: {
-        value: 'test',
-      },
+    it('should be in success state', () => {
+      const { container } = render(<Input state="success" />);
+      expect(container.firstChild).toHaveClass(styles.success);
     });
 
-    await waitFor(() => expect((input as HTMLInputElement).value).toBe('tes'));
+    it('should be in error state', () => {
+      const { container } = render(<Input state="error" />);
+      expect(container.firstChild).toHaveClass(styles.error);
+    });
+
+    it('should have aria-label from placeholder in error state', () => {
+      render(<Input state="error" placeholder="error" />);
+      const input = screen.getByPlaceholderText('error');
+      expect(input).toHaveAttribute('aria-label', 'error');
+    });
+  });
+
+  describe('User Interactions', () => {
+    it('should call onChange handler when typing', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(<Input onChange={handler} placeholder="Type here" />);
+      const input = screen.getByPlaceholderText('Type here');
+
+      await user.type(input, 'test');
+
+      expect(handler).toHaveBeenCalled();
+    });
+
+    it('should call onFocus handler when focused', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(<Input onFocus={handler} placeholder="Focus test" />);
+      const input = screen.getByPlaceholderText('Focus test');
+
+      await user.click(input);
+
+      expect(handler).toHaveBeenCalled();
+    });
+
+    it('should clear input when clear button is clicked', async () => {
+      const user = userEvent.setup();
+      const handler = vi.fn();
+
+      render(
+        <Input
+          onChange={handler}
+          enableClear
+          placeholder="enter"
+          showSpinner={false}
+        />
+      );
+
+      const input = screen.getByPlaceholderText('enter');
+      await user.type(input, 'text');
+
+      const clearButton = screen.getByTestId('rc-clear-input');
+      expect(clearButton).toBeInTheDocument();
+
+      await user.click(clearButton);
+
+      expect(handler).toHaveBeenCalledWith('');
+    });
+
+    it('should honour maxLength property', async () => {
+      const user = userEvent.setup();
+
+      render(<Input maxLength={3} placeholder="Max 3 chars" />);
+      const input = screen.getByPlaceholderText(
+        'Max 3 chars'
+      ) as HTMLInputElement;
+
+      await user.type(input, 'test');
+
+      expect(input.value).toBe('tes');
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Input placeholder="Enter text" />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+
+    it('should have no accessibility violations in error state', async () => {
+      const { container } = render(
+        <Input state="error" placeholder="Error input" />
+      );
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+
+    it('should have no accessibility violations in success state', async () => {
+      const { container } = render(
+        <Input state="success" placeholder="Success input" />
+      );
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+
+    it('should have no accessibility violations when disabled', async () => {
+      const { container } = render(<Input disabled placeholder="Disabled" />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

@@ -15,6 +15,9 @@ export default [
         name: 'Theme',
         value: 'home',
       },
+      {
+        name: 'Showcase',
+      },
       // {
       //   name: 'Dependencies',
       //   value: 'home',
@@ -59,6 +62,7 @@ export default [
       { name: 'Checkbox Group' },
       { name: 'Checkbox' },
       { name: 'Dropdown' },
+      { name: 'File Upload' },
       { name: 'Form Field' },
       { name: 'Form Group' },
       { name: 'Input Number' },

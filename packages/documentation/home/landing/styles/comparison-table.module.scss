@@ -1,0 +1,352 @@
+@use '@design/theme.scss';
+
+.comparison_section {
+  width: 100%;
+  padding: var(--spacing-3xl) 0;
+  background: var(--bg-secondary);
+
+  &.dark {
+    background: theme.$raisin-black;
+  }
+
+  @media (min-width: 768px) {
+    padding: var(--spacing-4xl) 0;
+  }
+}
+
+.comparison_container {
+  max-width: 95vw;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xl);
+
+  @media (min-width: 768px) {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+.section_header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section_title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-md) 0;
+
+  .comparison_section.dark & {
+    color: theme.$white;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+}
+
+.section_subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+
+  .comparison_section.dark & {
+    color: theme.$gray-400;
+  }
+
+  @media (min-width: 768px) {
+    font-size: var(--font-size-xl);
+  }
+}
+
+.table_wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+
+  .comparison_section.dark & {
+    background: theme.$chinese-black;
+    border-color: theme.$jet-black;
+  }
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.comparison_table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+
+  thead tr {
+    background: var(--bg-tertiary);
+    border-bottom: 2px solid var(--border-color);
+
+    .comparison_section.dark & {
+      background: theme.$gunmetal-gray;
+      border-color: theme.$jet-black;
+    }
+  }
+
+  th, td {
+    padding: var(--spacing-lg);
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+
+    .comparison_section.dark & {
+      border-color: theme.$jet-black;
+    }
+
+    @media (max-width: 1023px) {
+      padding: var(--spacing-md);
+    }
+  }
+
+  tbody tr {
+    transition: background var(--transition-fast);
+
+    &:hover {
+      background: var(--bg-secondary);
+
+      .comparison_section.dark & {
+        background: theme.$gunmetal-gray;
+      }
+    }
+
+    &:last-child td {
+      border-bottom: none;
+    }
+  }
+}
+
+.feature_header {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+
+  .comparison_section.dark & {
+    color: theme.$white;
+  }
+}
+
+.library_header {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+
+  .comparison_section.dark & {
+    color: theme.$gray-300;
+  }
+}
+
+.library_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.badge {
+  font-size: 1rem;
+}
+
+.highlight_column {
+  background: linear-gradient(135deg, rgba(theme.$blue, 0.08) 0%, rgba(theme.$primary, 0.08) 100%);
+  border-left: 3px solid theme.$blue;
+  border-right: 3px solid theme.$blue;
+
+  .comparison_section.dark & {
+    background: linear-gradient(135deg, rgba(theme.$blue, 0.15) 0%, rgba(theme.$primary, 0.15) 100%);
+  }
+
+  &.library_header {
+    color: theme.$blue;
+    font-weight: 700;
+
+    .comparison_section.dark & {
+      color: theme.$blue;
+    }
+  }
+}
+
+.feature_cell {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--text-primary);
+
+  .comparison_section.dark & {
+    color: theme.$gray-200;
+  }
+}
+
+.value_cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.icon {
+  display: inline-block;
+
+  &.check {
+    color: theme.$success-green;
+
+    &.highlight {
+      color: theme.$blue;
+      font-weight: 700;
+    }
+  }
+}
+
+.icon_no {
+  display: inline-block;
+  color: theme.$crimson;
+}
+
+.icon_partial {
+  display: inline-block;
+  color: theme.$amber;
+}
+
+.text_value {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+
+  .comparison_section.dark & {
+    color: theme.$gray-400;
+  }
+
+  &.highlight_text {
+    color: theme.$blue;
+    font-weight: 700;
+    font-size: var(--font-size-base);
+
+    .comparison_section.dark & {
+      color: theme.$blue;
+    }
+  }
+}
+
+.table_legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2xl);
+  flex-wrap: wrap;
+  padding: var(--spacing-md);
+}
+
+.legend_item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+
+  .comparison_section.dark & {
+    color: theme.$gray-400;
+  }
+}
+
+// Mobile Card View
+.mobile_comparison {
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+
+  @media (max-width: 1023px) {
+    display: flex;
+  }
+}
+
+.comparison_card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+
+  .comparison_section.dark & {
+    background: theme.$chinese-black;
+    border-color: theme.$jet-black;
+  }
+}
+
+.card_feature {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-light);
+
+  .comparison_section.dark & {
+    color: theme.$white;
+    border-color: theme.$jet-black;
+  }
+}
+
+.card_libraries {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.library_comparison {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+
+  .comparison_section.dark & {
+    background: theme.$raisin-black;
+  }
+
+  &.highlight {
+    background: linear-gradient(135deg, rgba(theme.$blue, 0.1) 0%, rgba(theme.$primary, 0.1) 100%);
+    border: 1px solid theme.$blue;
+
+    .comparison_section.dark & {
+      background: linear-gradient(135deg, rgba(theme.$blue, 0.2) 0%, rgba(theme.$primary, 0.2) 100%);
+    }
+  }
+}
+
+.library_name_mobile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+
+  .comparison_section.dark & {
+    color: theme.$gray-200;
+  }
+
+  .library_comparison.highlight & {
+    color: theme.$blue;
+    font-weight: 600;
+  }
+
+  .badge {
+    font-size: 0.9rem;
+  }
+}
+
+.library_value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}

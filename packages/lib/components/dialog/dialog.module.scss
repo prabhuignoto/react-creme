@@ -1,77 +1,163 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
 @use '@design/button.scss';
-@use '@design/animate.scss';
-@use '@design/animations.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
+
+// ============================================================================
+// DIALOG COMPONENT
+// ============================================================================
 
 .dialog {
-  $animations: (pop, drop, rise, slide-left, slide-right);
+  // 1. Variables (must come first for Sass 1.92.0+)
+  $min-width-default: 300px;
+  $min-height-default: 300px;
+
+  // 2. Extends
   @extend %col;
-  @include animate.set-settings(var(--rc-dialog-animation-duration));
 
-  min-height: 300px;
-  min-width: var(--min-width, 300px);
+  // 3. Properties (before nested rules)
+  border-radius: hybrid.$radius-lg;
+  box-shadow: hybrid.$shadow-strong;
+  min-height: $min-height-default;
+  min-width: var(--min-width, $min-width-default);
+  outline: none;
+  position: relative;
 
+  // 4. Entrance animation
+  @include hybrid.fade-in-scale(hybrid.$animation-duration-primary);
+
+  // 5. Nested selectors
   &.dark {
-    @extend %border-radius;
     background-color: theme.$dark-control-bg;
+    box-shadow: hybrid.$shadow-strong;
   }
 
   &:not(.dark) {
-    @extend %shadow-inset;
-    @extend %border;
     background-color: theme.$white;
   }
 
-  @each $animation in $animations {
-    @include animations.set-animation($animation, from);
-    @include animations.set-animation($animation, to);
+  &.exiting {
+    @include hybrid.exit-fade(hybrid.$animation-duration-secondary);
   }
 
-  @each $animation in $animations {
-    &.#{$animation}_enter {
-      animation-name: rc-animation-#{$animation}-enter;
-    }
+  &.isLoading {
+    @include hybrid.state-loading();
+  }
 
-    &.#{$animation}_leave {
-      animation-name: rc-animation-#{$animation}-leave;
-    }
+  &.isSuccess {
+    @include hybrid.state-success();
+  }
+
+  &.isError {
+    @include hybrid.state-error();
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
+  }
+
+  // Legacy animation support (backward compatibility)
+  &.pop_enter,
+  &.fade-in-scale {
+    @include hybrid.fade-in-scale(hybrid.$animation-duration-primary);
+  }
+
+  &.drop_enter {
+    @include hybrid.slide-in(down, hybrid.$animation-duration-primary);
+  }
+
+  &.rise_enter {
+    @include hybrid.slide-in(up, hybrid.$animation-duration-primary);
+  }
+
+  &.slide-left_enter {
+    @include hybrid.slide-in(left, hybrid.$animation-duration-primary);
+  }
+
+  &.slide-right_enter {
+    @include hybrid.slide-in(right, hybrid.$animation-duration-primary);
+  }
+
+  // Legacy exit animations
+  &.pop_leave,
+  &.drop_leave,
+  &.rise_leave,
+  &.slide-left_leave,
+  &.slide-right_leave {
+    @include hybrid.exit-fade(hybrid.$animation-duration-secondary);
   }
 }
+
+// ============================================================================
+// HEADER
+// ============================================================================
 
 .header {
+  // 2. Extends
   @extend %left;
-  margin: 0.25rem 0;
+
+  // 3. Properties
+  margin: tokens.$space-1 0;
   width: 100%;
+
+  // 4. Smooth transitions
+  @include hybrid.smooth-transition(all);
 }
+
+// ============================================================================
+// BODY
+// ============================================================================
 
 .body {
+  // 2. Extends
   @extend %center;
+
+  // 3. Properties
+  padding: tokens.$space-2;
   width: 100%;
+
+  // 4. Smooth transitions
+  @include hybrid.smooth-transition(all);
 }
 
+// ============================================================================
+// FOOTER
+// ============================================================================
+
 .footer {
+  // 2. Extends
   @extend %right;
-  margin-bottom: 1rem;
-  margin-right: 2rem;
+
+  // 3. Properties
+  margin-bottom: tokens.$space-4;
+  margin-right: tokens.$space-6;
   margin-top: auto;
   width: 100%;
 
+  // 4. Smooth transitions
+  @include hybrid.smooth-transition(all);
+
+  // 5. Nested selectors
   [role='button']:first-of-type {
-    margin-right: 0.5rem;
+    margin-right: tokens.$space-2;
   }
 }
 
-.btn {
-  @extend %button-lg;
-}
+// ============================================================================
+// TITLE
+// ============================================================================
 
 .title {
+  // 2. Extends
   @extend %center;
-  font-size: 1rem;
-  margin: 0;
-  padding-left: 1rem;
+  @extend %font-md;
 
+  // 3. Properties
+  margin: 0;
+  padding-left: tokens.$space-4;
+
+  // 4. Nested selectors
   &.dark {
     color: theme.$white;
   }
@@ -81,8 +167,38 @@
   }
 }
 
+// ============================================================================
+// BUTTON WRAPPER
+// ============================================================================
+
 .button_wrapper {
   margin-left: auto;
-  margin-right: 0.5rem;
-  margin-top: 0.25rem;
+  margin-right: tokens.$space-2;
+  margin-top: tokens.$space-1;
+}
+
+// ============================================================================
+// SCREEN READER ONLY
+// ============================================================================
+
+.srOnly {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+// ============================================================================
+// ACCESSIBILITY: REDUCED MOTION
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog {
+    animation: none !important;
+  }
 }

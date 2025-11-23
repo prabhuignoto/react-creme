@@ -10,7 +10,7 @@ function index() {
       demoWidget={<Widgets />}
       title="Section"
       description="Section is a container for other components. It can be used to group components together."
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-2fdwsf']}
       pageIcon={<FontAwesomeIcon icon={faSquare} size="2x" />}
       sourceId="section/section.tsx"

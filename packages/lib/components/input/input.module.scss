@@ -3,6 +3,7 @@
 @use '@design/button.scss';
 @use '@design/animate.scss';
 @use '@design/position.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -39,11 +40,11 @@ $heights: (
   &::after {
     @include position.position-abs('center center');
     border: 2px solid transparent;
-    border-radius: 4px;
+    border-radius: hybrid.$radius-sm;
     content: '';
     display: block;
     height: 98%;
-    transition: border 0.1s ease-in, box-shadow 0.1s ease-in;
+    @include hybrid.smooth-multi-transition(border, box-shadow);
     width: 98%;
     z-index: -1;
   }
@@ -102,9 +103,16 @@ $heights: (
   background: transparent;
   border: 0;
   height: 100%;
-  outline: 0;
   padding: 0;
   width: 100%;
+
+  // Suppress native focus outline - use container's ::after pseudo-element instead
+  outline: 0;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
 
   &.input_dark {
     color: theme.$white;
@@ -132,6 +140,8 @@ $heights: (
 }
 
 .input:not(.border).default:not(.transparent_bg_color) {
+  @include hybrid.smooth-transition(background, box-shadow);
+
   &.input_dark {
     background: theme.$dark-input-bg;
   }

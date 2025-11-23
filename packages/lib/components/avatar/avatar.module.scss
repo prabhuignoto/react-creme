@@ -1,30 +1,54 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 
 $size: (sm, md, lg);
 
 .avatar {
+  // Extends
   @extend %center;
-  background: theme.$primary;
+
+  // Properties
+  background: var(--avatar-bg-color, theme.$primary);
   border-radius: 50%;
   height: var(--rc-icon-size-sm);
+  overflow: hidden;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   width: var(--rc-icon-size-sm);
 
+  // Size variants
   @each $size in $size {
     &.#{$size} {
       height: var(--rc-icon-size-#{$size});
       width: var(--rc-icon-size-#{$size});
     }
   }
+
+  // Interactive hover effect
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .icon_container {
+  // Extends
   @extend %center;
-  color: theme.$white;
-  height: 70%;
-  width: 70%;
 
+  // Properties
+  color: var(--avatar-color, theme.$white);
+  font-size: 0.8em;
+  font-weight: 600;
+  height: 100%;
+  text-transform: uppercase;
+  user-select: none;
+  width: 100%;
+
+  // Icon support
   svg {
     fill: currentColor;
+    height: 70%;
+    width: 70%;
   }
 }

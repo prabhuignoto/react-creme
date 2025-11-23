@@ -34,22 +34,22 @@ function Widgets() {
 
   return width > 0 ? (
     <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget width={width} name="Avatar" showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom icon">
+      <Section size="md" title="Custom icon" border={false}>
         <DemoWidget width={width} name="Avatar" showCodeByDefault>
           {CustomIcon}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Using letter instead of a Icon">
+      <Section size="md" title="Using letter instead of a Icon" border={false}>
         <DemoWidget width={width} name="Avatar" showCodeByDefault>
           {Letter}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom sizes">
+      <Section size="md" title="Custom sizes" border={false}>
         <DemoWidget width={width} name="Avatar" showCodeByDefault>
           {MediumSized}
         </DemoWidget>

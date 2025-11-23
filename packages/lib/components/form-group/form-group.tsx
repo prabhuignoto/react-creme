@@ -1,6 +1,5 @@
 import classNames from 'classnames';
-import { nanoid } from 'nanoid';
-import { FunctionComponent, useCallback, useMemo, useRef } from 'react';
+import React, { FunctionComponent, useCallback, useMemo } from 'react';
 import { Button } from '..';
 import { FormGroupProps, FormItemProps } from './form-group.model';
 import styles from './form-group.module.scss';
@@ -18,34 +17,47 @@ const FormGroup: FunctionComponent<FormGroupProps> = ({
   onSubmit,
   onCancel,
   RTL = false,
+  submitLabel = 'Submit',
+  cancelLabel = 'Cancel',
 }) => {
-  const elements = useRef<FormItemProps[]>(
-    Array.isArray(children)
-      ? children.map(() => ({
-          id: nanoid(),
-        }))
-      : [
-          {
-            id: nanoid(),
-          },
-        ]
+  // Derive elements from children prop (avoid props-to-state anti-pattern)
+  const elements = useMemo<FormItemProps[]>(
+    () =>
+      Array.isArray(children)
+        ? children.map((_, index) => ({
+            id: `form-item-${index}`,
+          }))
+        : [
+            {
+              id: 'form-item-0',
+            },
+          ],
+    [children]
   );
-
-  const formRef = useRef<HTMLFormElement>(null);
 
   const controlsClass = useMemo(
     () => classNames(styles.from_controls, RTL ? styles.left : styles.right),
-    []
+    [RTL]
   );
 
-  const handleSubmit = useCallback(() => {
-    formRef.current?.submit();
-    onSubmit?.();
-  }, []);
+  const handleSubmit = useCallback(
+    (ev?: React.FormEvent<HTMLFormElement> | React.MouseEvent) => {
+      ev?.preventDefault();
+      onSubmit?.();
+    },
+    [onSubmit]
+  );
 
   const handleCancel = useCallback(() => {
     onCancel?.();
-  }, []);
+  }, [onCancel]);
+
+  const handleFormSubmit = useCallback(
+    (ev: React.FormEvent<HTMLFormElement>) => {
+      handleSubmit(ev);
+    },
+    [handleSubmit]
+  );
 
   return (
     <form
@@ -53,11 +65,11 @@ const FormGroup: FunctionComponent<FormGroupProps> = ({
       action={action}
       method={method}
       encType={encType}
-      ref={formRef}
       noValidate={noValidate}
+      onSubmit={handleFormSubmit}
     >
-      {elements.current.length &&
-        elements.current.map((element, index) => (
+      {elements.length &&
+        elements.map((element, index) => (
           <FormItem
             key={element.id}
             child={(children as []).length ? (children as [])[index] : children}
@@ -65,10 +77,26 @@ const FormGroup: FunctionComponent<FormGroupProps> = ({
         ))}
       <div className={controlsClass}>
         <div className={styles.form_control_wrapper}>
-          <Button label={'Submit'} type="primary" onClick={handleSubmit} />
+          <Button
+            label={submitLabel}
+            type="primary"
+            onClick={() => handleSubmit()}
+          />
         </div>
-        <div className={styles.form_control_wrapper} onClick={handleCancel}>
-          <Button label={'Cancel'} />
+        <div
+          className={styles.form_control_wrapper}
+          onClick={handleCancel}
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleCancel();
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Cancel"
+        >
+          <Button label={cancelLabel} />
         </div>
       </div>
     </form>

@@ -1,3 +1,5 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import { vi, beforeEach } from 'vitest';
 import { Splitter } from '../splitter';
@@ -5,18 +7,18 @@ import { Splitter } from '../splitter';
 // Mock the CSS module
 vi.mock('../splitter.module.scss', () => ({
   default: {
-    wrapper: 'wrapper',
-    wrapper_horizontal: 'wrapper_horizontal',
-    wrapper_vertical: 'wrapper_vertical',
-    wrapper_border: 'wrapper_border',
     control: 'control',
+    control_dragged: 'control_dragged',
     control_horizontal: 'control_horizontal',
     control_vertical: 'control_vertical',
-    control_dragged: 'control_dragged',
+    dark: 'dark',
+    disable: 'disable',
     drag_square: 'drag_square',
     partition: 'partition',
-    disable: 'disable',
-    dark: 'dark',
+    wrapper: 'wrapper',
+    wrapper_border: 'wrapper_border',
+    wrapper_horizontal: 'wrapper_horizontal',
+    wrapper_vertical: 'wrapper_vertical',
   },
 }));
 
@@ -180,5 +182,14 @@ describe('Splitter', () => {
 
     // Check the inline style has width property
     expect(control?.getAttribute('style')).toContain('width: 10px');
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Splitter />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

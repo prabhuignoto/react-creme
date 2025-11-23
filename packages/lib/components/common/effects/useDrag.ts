@@ -52,7 +52,9 @@ const useDrag: useDragFunctionType = (
         // detect if the user intended a drag operation
         dragStartTimer.current = window.setTimeout(() => {
           dragStarted.current = true;
-          onDragStart && onDragStart();
+          if (onDragStart) {
+            onDragStart();
+          }
         }, 30);
 
         // get the bounding client rect
@@ -121,9 +123,9 @@ const useDrag: useDragFunctionType = (
       if (ev instanceof MouseEvent) {
         clientX = ev.clientX;
         clientY = ev.clientY;
-      } else if (ev instanceof TouchEvent) {
-        clientX = ev.touches[0].clientX;
-        clientY = ev.touches[0].clientY;
+      } else if (ev instanceof TouchEvent && ev.touches.length > 0) {
+        clientX = ev.touches[0]!.clientX;
+        clientY = ev.touches[0]!.clientY;
       }
 
       // calculate the target's position for both horizontal and vertical mode.
@@ -161,9 +163,9 @@ const useDrag: useDragFunctionType = (
     if (ev instanceof MouseEvent) {
       clientX = ev.clientX;
       clientY = ev.clientY;
-    } else if (ev instanceof TouchEvent) {
-      clientX = ev.touches[0].clientX;
-      clientY = ev.touches[0].clientY;
+    } else if (ev instanceof TouchEvent && ev.touches.length > 0) {
+      clientX = ev.touches[0]!.clientX;
+      clientY = ev.touches[0]!.clientY;
     }
 
     if (container.current) {
@@ -213,7 +215,9 @@ const useDrag: useDragFunctionType = (
       window.clearTimeout(dragStartTimer.current);
     }
     dragStarted.current = false;
-    onDragEnd && onDragEnd();
+    if (onDragEnd) {
+      onDragEnd();
+    }
   }, []);
 
   /**
@@ -222,7 +226,7 @@ const useDrag: useDragFunctionType = (
   useEffect(() => {
     if (observeContainer) {
       resizeObserver.current = new ResizeObserver(observer => {
-        const { width, height } = observer[0].contentRect;
+        const { width, height } = observer[0]!.contentRect;
 
         if (direction === 'horizontal') {
           maxXValue.current = maxX || width;
@@ -231,7 +235,9 @@ const useDrag: useDragFunctionType = (
         }
       });
 
-      container.current && resizeObserver.current.observe(container.current);
+      if (container.current) {
+        resizeObserver.current.observe(container.current);
+      }
     }
 
     /**

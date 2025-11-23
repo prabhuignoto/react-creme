@@ -1,113 +1,207 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Breadcrumb > should render snapshot 1`] = `
-<ul
-  aria-label="breadcrumbs"
-  class="_bread_crumbs_wrapper_6647d9"
-  role="navigation"
->
-  <li
-    class="_bread_crumb_6647d9"
+exports[`BreadCrumb > Snapshot > should match snapshot with all props 1`] = `
+<div>
+  <nav
+    aria-label="Breadcrumb"
   >
-    <span
-      class="_bread_crumb_node_6647d9 _bread_crumb_node_sm_6647d9"
+    <ul
+      class="_bread_crumbs_wrapper_977bb6 _rtl_977bb6"
     >
-      <a
-        class="_link_dd7717 _sm_dd7717 _highlight_dd7717"
-        style="outline: none; position: relative;"
-        tabindex="0"
+      <li
+        class="_bread_crumb_977bb6"
       >
         <span
-          class="_text_dd7717"
+          class="_bread_crumb_node_977bb6 _bread_crumb_node_lg_977bb6"
         >
-          google
+          <a
+            class="_link_c2b21b _sm_c2b21b"
+            tabindex="0"
+          >
+            <span
+              class="_text_c2b21b"
+            >
+              Home
+            </span>
+          </a>
         </span>
         <span
-          class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-          style="width: 6px; height: 6px;"
-        />
-      </a>
-    </span>
-    <span
-      class="_bread_crumb_icon_6647d9 _bread_crumb_icon_sm_6647d9"
-    >
-      <svg
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M9 18l6-6-6-6"
-        />
-      </svg>
-    </span>
-  </li>
-  <li
-    class="_bread_crumb_6647d9"
-  >
-    <span
-      class="_bread_crumb_node_6647d9 _bread_crumb_node_sm_6647d9"
-    >
-      <a
-        class="_link_dd7717 _sm_dd7717"
-        style="outline: none; position: relative;"
-        tabindex="0"
+          aria-hidden="true"
+          class="_bread_crumb_icon_977bb6 _rtl_icon_977bb6 _bread_crumb_icon_lg_977bb6"
+        >
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5 12h14M12 5l7 7-7 7"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="_bread_crumb_977bb6"
       >
         <span
-          class="_text_dd7717"
+          class="_bread_crumb_node_977bb6 _bread_crumb_node_lg_977bb6 _selected_977bb6"
         >
-          yahoo
+          <a
+            class="_link_c2b21b _sm_c2b21b"
+            tabindex="0"
+          >
+            <span
+              class="_text_c2b21b"
+            >
+              Products
+            </span>
+          </a>
         </span>
         <span
-          class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-          style="width: 6px; height: 6px;"
-        />
-      </a>
-    </span>
-    <span
-      class="_bread_crumb_icon_6647d9 _bread_crumb_icon_sm_6647d9"
-    >
-      <svg
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M9 18l6-6-6-6"
-        />
-      </svg>
-    </span>
-  </li>
-  <li
-    class="_bread_crumb_6647d9"
-  >
-    <span
-      class="_bread_crumb_node_6647d9 _bread_crumb_node_sm_6647d9"
-    >
-      <a
-        class="_link_dd7717 _sm_dd7717"
-        style="outline: none; position: relative;"
-        tabindex="0"
+          aria-hidden="true"
+          class="_bread_crumb_icon_977bb6 _rtl_icon_977bb6 _bread_crumb_icon_lg_977bb6"
+        >
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5 12h14M12 5l7 7-7 7"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        aria-current="page"
+        class="_bread_crumb_977bb6"
       >
         <span
-          class="_text_dd7717"
+          class="_bread_crumb_node_977bb6 _bread_crumb_node_lg_977bb6"
         >
-          amazon
+          <a
+            class="_link_c2b21b _sm_c2b21b"
+            tabindex="0"
+          >
+            <span
+              class="_text_c2b21b"
+            >
+              Electronics
+            </span>
+          </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`BreadCrumb > Snapshot > should match snapshot with default props 1`] = `
+<div>
+  <nav
+    aria-label="Breadcrumb"
+  >
+    <ul
+      class="_bread_crumbs_wrapper_977bb6"
+    >
+      <li
+        class="_bread_crumb_977bb6"
+      >
+        <span
+          class="_bread_crumb_node_977bb6 _bread_crumb_node_sm_977bb6 _selected_977bb6"
+        >
+          <a
+            class="_link_c2b21b _sm_c2b21b"
+            tabindex="0"
+          >
+            <span
+              class="_text_c2b21b"
+            >
+              Home
+            </span>
+          </a>
         </span>
         <span
-          class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-          style="width: 6px; height: 6px;"
-        />
-      </a>
-    </span>
-  </li>
-</ul>
+          aria-hidden="true"
+          class="_bread_crumb_icon_977bb6 _bread_crumb_icon_sm_977bb6"
+        >
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 18l6-6-6-6"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="_bread_crumb_977bb6"
+      >
+        <span
+          class="_bread_crumb_node_977bb6 _bread_crumb_node_sm_977bb6"
+        >
+          <a
+            class="_link_c2b21b _sm_c2b21b"
+            tabindex="0"
+          >
+            <span
+              class="_text_c2b21b"
+            >
+              Products
+            </span>
+          </a>
+        </span>
+        <span
+          aria-hidden="true"
+          class="_bread_crumb_icon_977bb6 _bread_crumb_icon_sm_977bb6"
+        >
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 18l6-6-6-6"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        aria-current="page"
+        class="_bread_crumb_977bb6"
+      >
+        <span
+          class="_bread_crumb_node_977bb6 _bread_crumb_node_sm_977bb6"
+        >
+          <a
+            class="_link_c2b21b _sm_c2b21b"
+            tabindex="0"
+          >
+            <span
+              class="_text_c2b21b"
+            >
+              Electronics
+            </span>
+          </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;

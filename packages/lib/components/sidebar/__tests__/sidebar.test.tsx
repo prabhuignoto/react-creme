@@ -1,3 +1,5 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { Sidebar } from '../sidebar';
@@ -53,6 +55,15 @@ describe('Sidebar', () => {
 
     await waitFor(() => {
       expect(handler).toBeCalled();
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Sidebar />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

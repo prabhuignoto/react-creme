@@ -2,6 +2,7 @@
 @use '@design/core.scss';
 @use '@design/animate.scss';
 @use '@design/theme.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .wrapper {
   @extend %center;
@@ -17,13 +18,15 @@
 
 .menu {
   @extend %list;
-  @extend %border-radius;
   @extend %col;
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+  border-radius: hybrid.$radius-md;
+  box-shadow: hybrid.$shadow-strong;
   min-width: 150px;
   outline: none;
   padding: 0.25rem;
   position: relative;
+
+  @include hybrid.fade-in-scale(hybrid.$animation-duration-primary);
 
   &.dark {
     background: theme.$dark-control-bg;
@@ -35,10 +38,20 @@
 
   &.dark::after {
     border-bottom: 10px solid theme.$gunmetal-gray;
+    opacity: 0;
+    animation: hybrid-item-fade-in hybrid.$animation-duration-primary hybrid.$spring-easing backwards;
+    animation-delay: 0.1s;
   }
 
   &:not(.dark)::after {
     border-bottom: 10px solid theme.$white;
+    opacity: 0;
+    animation: hybrid-item-fade-in hybrid.$animation-duration-primary hybrid.$spring-easing backwards;
+    animation-delay: 0.1s;
+  }
+
+  &.exiting {
+    @include hybrid.exit-fade(hybrid.$animation-duration-secondary);
   }
 }
 

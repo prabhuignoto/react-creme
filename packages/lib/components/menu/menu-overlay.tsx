@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import classNames from 'classnames';
 import React, { useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { useKeyNavigation } from '../common/effects/useKeyNavigation';
@@ -22,6 +21,7 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
       dockPosition = 'left',
       hideArrow,
       RTL = false,
+      isExiting = false,
     }: MenuOverlayModel,
     ref
   ) => {
@@ -46,8 +46,9 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
           [styles[dockPosition]]: true,
           [styles.dark]: isDarkMode,
           [styles.arrow]: !hideArrow,
+          [styles.exiting]: isExiting,
         }),
-      [isDarkMode]
+      [isDarkMode, isExiting]
     );
 
     /**
@@ -72,7 +73,12 @@ const MenuContainer = React.forwardRef<MenuOverlayProps, MenuOverlayModel>(
     }, []);
 
     return (
-      <ul className={menuClass} role="menu" ref={listRef} tabIndex={0}>
+      <ul
+        className={menuClass}
+        role="menu" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
+        ref={listRef}
+        tabIndex={0}
+      >
         {items.map(({ name, id, disabled }, index) => (
           <MenuItem
             name={name}

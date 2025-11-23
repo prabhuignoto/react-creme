@@ -1,15 +1,19 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
+// Use semantic animation timing for smooth content expansion/collapse
+// Primary (0.3s) is used for main interactions like accordion opening
 $transition:
-  max-height 0.5s var(--transition),
-  opacity 0.5s var(--transition);
+  max-height hybrid.$animation-duration-primary var(--transition),
+  opacity hybrid.$animation-duration-primary var(--transition);
 
 .accordion {
   @extend %col-left;
   align-items: flex-start;
-  height: calc(100% - 0.5rem);
-  padding: 0.25rem;
+  height: calc(100% - tokens.$space-2); // 0.5rem
+  padding: tokens.$space-1; // 0.25rem
   width: 100%;
 
   &:not(.no-border) {
@@ -18,22 +22,29 @@ $transition:
 }
 
 .body {
-  height: calc(100% - 0.5rem);
+  height: calc(100% - tokens.$space-2); // 0.5rem
   margin: 0 auto;
-  overflow: hidden;
-  width: calc(100% - 0.5rem);
+  width: 100%;
 
   &.animate {
+    // Use smooth easing for content transitions
+    // max-height and opacity transition with spring-based easing for polished feel
     transition: $transition;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   &.open {
     max-height: var(--max-height, 100%);
     opacity: 1;
+    overflow: visible;
   }
 
   &.close {
     max-height: 0;
     opacity: 0;
+    overflow: hidden;
   }
 }

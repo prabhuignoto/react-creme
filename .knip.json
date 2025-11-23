@@ -1,0 +1,75 @@
+{
+  "$schema": "https://unpkg.com/knip@latest/schema.json",
+  "workspaces": {
+    ".": {
+      "entry": [
+        "packages/*/react-creme.ts"
+      ],
+      "project": [
+        "**/*.{js,jsx,ts,tsx,mjs,cjs}"
+      ],
+      "ignore": [
+        "**/*.test.{ts,tsx}",
+        "**/*.stories.{ts,tsx}",
+        "**/__tests__/**",
+        "**/dist/**",
+        "**/coverage/**",
+        "**/.turbo/**"
+      ],
+      "ignoreDependencies": [
+        "husky",
+        "@relative-ci/agent",
+        "snyk",
+        "pretty-quick",
+        "webpack",
+        "webpack-cli",
+        "webpack-bundle-analyzer",
+        "webpack-node-externals"
+      ]
+    },
+    "packages/lib": {
+      "entry": [
+        "react-creme.ts",
+        "components/**/index.ts"
+      ],
+      "project": [
+        "components/**/*.{ts,tsx}",
+        "design/**/*.ts",
+        "icons/**/*.{ts,tsx}"
+      ]
+    },
+    "packages/documentation": {
+      "entry": [
+        "index.html",
+        "src/main.tsx"
+      ],
+      "project": [
+        "src/**/*.{ts,tsx}",
+        "components/**/*.{ts,tsx}"
+      ]
+    },
+    "packages/storybook": {
+      "entry": [
+        ".storybook/**/*.{ts,tsx}",
+        "stories/**/*.stories.{ts,tsx}"
+      ],
+      "project": [
+        ".storybook/**/*.{ts,tsx}",
+        "stories/**/*.{ts,tsx}"
+      ]
+    }
+  },
+  "ignore": [
+    "**/*.d.ts",
+    "**/*.config.{js,ts,mjs,cjs}",
+    "**/vite.config.ts",
+    "**/vitest.config.ts",
+    "**/webpack.config.mjs",
+    "**/turbo.json",
+    "**/.storybook/**"
+  ],
+  "ignoreDependencies": [
+    "@types/*"
+  ],
+  "ignoreExportsUsedInFile": true
+}

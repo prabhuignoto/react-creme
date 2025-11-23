@@ -1,5 +1,6 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -11,14 +12,20 @@ $header-heights: (
 );
 
 .wrapper {
+  // Extends
   @extend %col;
 
+  // Properties
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
   min-height: var(--height, 300px);
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   width: 100%;
 
+  // Dark mode support
   &.dark {
     background: theme.$dark-control-bg;
   }
@@ -27,10 +34,12 @@ $header-heights: (
     background: theme.$white;
   }
 
+  // Border variants
   &:not(.border_less) {
     @extend %border;
   }
 
+  // Shadow and border radius
   &.shadow {
     @extend %shadow-medium;
     @extend %border-radius;
@@ -39,14 +48,82 @@ $header-heights: (
   &:not(.shadow) {
     @extend %border;
   }
+
+  // Interactive state
+  &.interactive {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus-visible {
+      outline: 2px solid theme.$primary;
+      outline-offset: 2px;
+    }
+  }
+
+  // Responsive
+  @media (max-width: 640px) {
+    min-height: auto;
+  }
+}
+
+// Size variants
+.sm {
+  .header,
+  .footer {
+    padding: tokens.$space-2 tokens.$space-3;
+
+    @extend %text-sm;
+  }
+
+  .body {
+    padding: tokens.$space-3;
+  }
+}
+
+.md {
+  .header,
+  .footer {
+    padding: tokens.$space-3 tokens.$space-4;
+
+    @extend %text-md;
+  }
+
+  .body {
+    padding: tokens.$space-4;
+  }
+}
+
+.lg {
+  .header,
+  .footer {
+    padding: tokens.$space-4 tokens.$space-5;
+
+    @extend %text-lg;
+  }
+
+  .body {
+    padding: tokens.$space-5;
+  }
 }
 
 .header {
+  // Extends
   @extend %left;
+
+  // Properties
   border-bottom: 1px solid rgba(theme.$secondary-rgb, 0.5);
   height: 100%;
-  width: 95%;
+  width: 100%;
 
+  // Alignment variants
   &.align_right {
     @extend %right;
   }
@@ -57,19 +134,25 @@ $header-heights: (
 }
 
 .body {
+  // Extends
   @extend %center;
-  height: calc(100% - 2rem);
-  padding: 1rem;
-  width: calc(100% - 2rem);
+
+  // Properties
+  height: 100%;
+  width: 100%;
 }
 
 .footer {
+  // Extends
   @extend %left;
+
+  // Properties
   border-top: 1px solid rgba(theme.$secondary-rgb, 0.5);
   height: 100%;
   margin-top: auto;
-  width: 95%;
+  width: 100%;
 
+  // Alignment variants
   &.align_right {
     @extend %right;
   }

@@ -5,7 +5,7 @@ import { DemoWidget } from '../../common/demo-widget';
 function widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget
           name="MenuButton"
           width={100}
@@ -18,7 +18,7 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Right to Left">
+      <Section size="md" title="Right to Left" border={false}>
         <DemoWidget name="MenuButton" style={{ marginLeft: '10px' }}>
           <MenuButton
             items={['save', 'save as new', 'discard']}
@@ -27,7 +27,7 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom sizes">
+      <Section size="md" title="Custom sizes" border={false}>
         <DemoWidget name="MenuButton" style={{ marginLeft: '10px' }}>
           <MenuButton
             size="md"

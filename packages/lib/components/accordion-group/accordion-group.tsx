@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Accordion } from '../accordion/accordion';
 import { AccordionGroupProps } from '../accordion/accordion-model';
 import styles from './accordion-group.module.scss';
@@ -36,7 +36,7 @@ const AccordionGroup = ({
   expanded = false,
   iconColor,
   iconType = 'chevron',
-  titleColor = '#000',
+  titleColor,
   titles = [],
   isTitleBold = false,
   disableCollapse = false,
@@ -49,6 +49,9 @@ const AccordionGroup = ({
   colorizeHeader = false,
   headerHeight = 40,
 }: AccordionGroupProps) => {
+  const groupRef = useRef<HTMLDivElement>(null);
+  const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const [items, setItems] = useState(() =>
     titles.map(() => ({ expanded, id: nanoid() }))
   );
@@ -82,22 +85,102 @@ const AccordionGroup = ({
     [border]
   );
 
+  // Fix ID regeneration - only regenerate if length changes
   useEffect(() => {
-    setItems(() =>
-      titles.map(() => ({
+    setItems(prev => {
+      // If length changed, regenerate all
+      if (prev.length !== titles.length) {
+        return titles.map(() => ({
+          expanded,
+          id: nanoid(),
+        }));
+      }
+      // Otherwise, keep existing IDs but update expanded state
+      return prev.map(item => ({
+        ...item,
         expanded,
-        id: nanoid(),
-      }))
-    );
-  }, [titles, expanded]);
+      }));
+    });
+  }, [titles.length, expanded]);
+
+  // Keyboard navigation between accordions
+  useEffect(() => {
+    const currentGroup = groupRef.current;
+    if (!currentGroup) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+
+      // Only handle if a button inside our group is focused
+      if (!target.matches('button') || !currentGroup.contains(target)) {
+        return;
+      }
+
+      // Find current focused accordion index
+      const buttons = Array.from(
+        currentGroup.querySelectorAll('button')
+      ) as HTMLButtonElement[];
+      const currentIndex = buttons.indexOf(target as HTMLButtonElement);
+
+      if (currentIndex === -1) return;
+
+      let nextIndex = currentIndex;
+
+      switch (e.key) {
+        case 'ArrowDown':
+        case 'ArrowRight':
+          e.preventDefault();
+          nextIndex = currentIndex + 1;
+          if (nextIndex >= buttons.length) {
+            nextIndex = 0; // Wrap to first
+          }
+          break;
+
+        case 'ArrowUp':
+        case 'ArrowLeft':
+          e.preventDefault();
+          nextIndex = currentIndex - 1;
+          if (nextIndex < 0) {
+            nextIndex = buttons.length - 1; // Wrap to last
+          }
+          break;
+
+        case 'Home':
+          e.preventDefault();
+          nextIndex = 0;
+          break;
+
+        case 'End':
+          e.preventDefault();
+          nextIndex = buttons.length - 1;
+          break;
+
+        default:
+          return;
+      }
+
+      if (nextIndex !== currentIndex && buttons[nextIndex]) {
+        buttons[nextIndex]?.focus();
+      }
+    };
+
+    currentGroup.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      currentGroup.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [titles.length]); // Re-attach when number of accordions changes
 
   return (
-    <div className={groupClass}>
+    <div className={groupClass} ref={groupRef}>
       {items.map((item, index) => (
         <div
           className={styles.group_item}
           key={item.id}
           role={!disableARIA ? 'group' : undefined}
+          ref={el => {
+            if (el) accordionRefs.current[index] = el;
+          }}
         >
           <Accordion
             id={item.id}

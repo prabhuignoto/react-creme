@@ -1,5 +1,7 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import { describe, it, vi } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { Transfer } from '../transfer';
 
 const handler = vi.fn();
@@ -176,4 +178,19 @@ describe('Transfer', () => {
   //     }
   //   }
   // });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(
+        <Transfer
+          list1={['Item 1', 'Item 2']}
+          list2={['Item 3']}
+          onChange={handler}
+        />
+      );
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
 });

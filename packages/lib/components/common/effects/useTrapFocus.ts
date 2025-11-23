@@ -47,11 +47,11 @@ export default function useTrapFocus<T extends HTMLElement>(
 
         // We cycle the focus if it reaches the boundaries
         if (nextIndex >= 0 && nextIndex < targets.length) {
-          nextElement = targets[nextIndex];
+          nextElement = targets[nextIndex] || null;
         } else if (nextIndex < 0) {
-          nextElement = targets[targets.length - 1];
+          nextElement = targets[targets.length - 1] || null;
         } else if (nextIndex >= targets.length) {
-          nextElement = targets[0];
+          nextElement = targets[0] || null;
         }
 
         event.preventDefault();

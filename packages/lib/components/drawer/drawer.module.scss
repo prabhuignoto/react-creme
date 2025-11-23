@@ -1,67 +1,35 @@
 @use '@design/core.scss';
 @use '@design/button.scss';
 @use '@design/theme.scss';
-@use '@design/animate.scss';
 @use '@design/position.scss';
-@use '@design/util.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
+
+// ============================================================================
+// DRAWER COMPONENT
+// ============================================================================
 
 .drawer {
-  $min-width: var(--min-width);
-  $min-height: var(--min-height);
+  // 1. Variables (must come first for Sass 1.92.0+)
+  $min-width: var(--min-width, 300px);
+  $min-height: var(--min-height, 50vh);
 
-  $positions: (
-    left: 'center left',
-    right: 'center right',
-    top: 'top center',
-    bottom: 'bottom center',
-  );
+  // 2. Extends
+  @extend %col;
 
-  $slide-left-settings: (
-    from: (
-      left: util.negative($min-width),
-    ),
-    to: (
-      left: 0,
-    ),
-  );
-  $slide-top-settings: (
-    from: (
-      top: util.negative($min-height),
-    ),
-    to: (
-      top: 0,
-    ),
-  );
-  $slide-bottom-settings: (
-    from: (
-      bottom: util.negative($min-height),
-    ),
-    to: (
-      bottom: 0,
-    ),
-  );
-  $slide-right-settings: (
-    (
-      from: (
-        right: util.negative($min-width),
-      ),
-      to: (
-        right: 0,
-      ),
-    )
-  );
-
-  @extend %shadow-small;
-  @extend %top-center;
-  @include animate.set-settings(0.25s, var(--transition));
-  height: var(--min-height);
+  // 3. Properties (before nested rules)
+  box-shadow: hybrid.$shadow-strong;
+  height: $min-height;
   min-width: $min-width;
+  opacity: 0; // GPU-optimized (was visibility: hidden)
   outline: 0;
-  position: relative;
-  visibility: hidden;
+  overflow-y: auto;
+  position: absolute;
 
+  // 4. Nested selectors
   &.dark {
     background-color: theme.$dark-control-bg;
+    box-shadow: hybrid.$shadow-strong;
   }
 
   &:not(.dark) {
@@ -69,57 +37,123 @@
   }
 
   &.visible {
-    visibility: visible;
+    opacity: 1; // GPU-optimized
   }
 
-  @each $position, $val in $positions {
-    $slide-settings: ();
-
-    @if $position == top {
-      $slide-settings: $slide-top-settings;
-    } @else if $position == bottom {
-      $slide-settings: $slide-bottom-settings;
-    } @else if $position == left {
-      $slide-settings: $slide-left-settings;
-    } @else if $position == right {
-      $slide-settings: $slide-right-settings;
+  &.exiting {
+    &.left {
+      @include hybrid.exit-slide-left(hybrid.$animation-duration-secondary);
     }
 
-    @include animate.set-keyframes(slide_#{$position}_enter, $slide-settings);
-
-    @include animate.set-keyframes(
-      slide_#{$position}_exit,
-      $slide-settings,
-      true
-    );
-
-    &.#{$position} {
-      @include position.position-abs($val);
-
-      @if $position == top or $position == bottom {
-        min-width: 100%;
-      }
+    &.right {
+      @include hybrid.exit-slide-right(hybrid.$animation-duration-secondary);
     }
 
-    &.slide_#{$position}_enter {
-      animation-name: slide_#{$position}_enter;
-      #{$position}: 0;
+    &.top {
+      @include hybrid.exit-slide-up(hybrid.$animation-duration-secondary);
     }
 
-    &.slide_#{$position}_exit {
-      animation-name: slide_#{$position}_exit;
+    &.bottom {
+      @include hybrid.exit-slide-down(hybrid.$animation-duration-secondary);
+    }
+  }
 
-      @if $position == left or $position == right {
-        #{$position}: util.negative($min-width);
-      } @else {
-        #{$position}: util.negative($min-height);
-      }
+  &.isLoading {
+    @include hybrid.state-loading();
+  }
+
+  &.isError {
+    @include hybrid.state-error();
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
+  }
+
+  // Position-specific styles
+  &.left {
+    @include position.position-abs('center left');
+    border-top-right-radius: hybrid.$radius-md;
+    border-bottom-right-radius: hybrid.$radius-md;
+  }
+
+  &.right {
+    @include position.position-abs('center right');
+    border-top-left-radius: hybrid.$radius-md;
+    border-bottom-left-radius: hybrid.$radius-md;
+  }
+
+  &.top {
+    @include position.position-abs('top center');
+    border-bottom-left-radius: hybrid.$radius-md;
+    border-bottom-right-radius: hybrid.$radius-md;
+    min-width: 100%;
+  }
+
+  &.bottom {
+    @include position.position-abs('bottom center');
+    border-top-left-radius: hybrid.$radius-md;
+    border-top-right-radius: hybrid.$radius-md;
+    min-width: 100%;
+  }
+
+  // Entrance animations
+  &.slide_left_enter {
+    @include hybrid.slide-in(left, hybrid.$animation-duration-critical);
+  }
+
+  &.slide_right_enter {
+    @include hybrid.slide-in(right, hybrid.$animation-duration-critical);
+  }
+
+  &.slide_top_enter {
+    @include hybrid.slide-in(down, hybrid.$animation-duration-critical);
+  }
+
+  &.slide_bottom_enter {
+    @include hybrid.slide-in(up, hybrid.$animation-duration-critical);
+  }
+
+  // Exit animations (legacy support)
+  &.slide_left_exit,
+  &.slide_right_exit,
+  &.slide_top_exit,
+  &.slide_bottom_exit {
+    // Use .exiting class instead for Hybrid Theme exit animations
+    opacity: 0;
+  }
+}
+
+// ============================================================================
+// CLOSE BUTTON WRAPPER
+// ============================================================================
+
+.close-btn-wrapper {
+  @include position.position-abs('top right');
+  right: tokens.$space-2;
+  top: tokens.$space-2;
+
+  // Close button feedback
+  button {
+    @include hybrid.smooth-transition(transform, box-shadow);
+
+    @include hybrid.hover-feedback() {
+      transform: rotate(90deg);
+      box-shadow: hybrid.$shadow-medium;
+    }
+
+    @include hybrid.touch-feedback() {
+      transform: scale(0.95);
     }
   }
 }
 
-.close-btn-wrapper {
-  @include position.position-abs('top right');
-  right: 0.5rem;
-  top: 0.5rem;
+// ============================================================================
+// ACCESSIBILITY: REDUCED MOTION
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer {
+    animation: none !important;
+  }
 }

@@ -1,7 +1,10 @@
 import { BreadCrumb } from '../../../lib/components';
 
 export const Default = (
-  <BreadCrumb links={['Home', 'Features', 'Bread Crumb']}></BreadCrumb>
+  <BreadCrumb
+    links={['Home', 'Features', 'Bread Crumb']}
+    onSelected={item => console.log('Breadcrumb selected:', item)}
+  ></BreadCrumb>
 );
 
 export const Slash = (
@@ -9,6 +12,7 @@ export const Slash = (
     icon="slash"
     selectedCrumbIndex={1}
     links={['Home', 'Features', 'Bread Crumb']}
+    onSelected={item => console.log('Breadcrumb selected:', item)}
   ></BreadCrumb>
 );
 
@@ -16,6 +20,7 @@ export const CustomIcon = (
   <BreadCrumb
     icon="arrow"
     links={['Home', 'Features', 'Bread Crumb']}
+    onSelected={item => console.log('Breadcrumb selected:', item)}
   ></BreadCrumb>
 );
 
@@ -25,6 +30,7 @@ export const SelectedIndex = (
     size="md"
     selectedCrumbIndex={2}
     links={['Home', 'Features', 'Bread Crumb']}
+    onSelected={item => console.log('Breadcrumb selected:', item)}
   ></BreadCrumb>
 );
 
@@ -33,9 +39,14 @@ export const CustomSize = (
     icon="arrow"
     size="lg"
     links={['Home', 'Features', 'Bread Crumb']}
+    onSelected={item => console.log('Breadcrumb selected:', item)}
   ></BreadCrumb>
 );
 
 export const RTL = (
-  <BreadCrumb links={['Home', 'Features', 'Bread Crumb']} RTL></BreadCrumb>
+  <BreadCrumb
+    links={['Home', 'Features', 'Bread Crumb']}
+    RTL
+    onSelected={item => console.log('Breadcrumb selected:', item)}
+  ></BreadCrumb>
 );

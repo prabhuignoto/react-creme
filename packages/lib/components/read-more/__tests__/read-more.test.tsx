@@ -1,5 +1,9 @@
+import React from 'react';
+import { axe } from 'jest-axe';
+import { describe, expect, it } from 'vitest';
 import { render, waitFor } from '@testing-library/react';
 import { ReadMore } from '../read-more';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../read-more.module.scss';
 
 const LoremIpsumText = () => (
@@ -68,6 +72,15 @@ describe('Read More', () => {
 
     await waitFor(() => {
       expect(container.firstChild).toHaveClass(styles.rtl);
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<ReadMore />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

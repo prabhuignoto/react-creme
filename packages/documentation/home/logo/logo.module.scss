@@ -1,63 +1,103 @@
 @use '@design/theme.scss';
 
+/* ============================================
+   Modern Logo Styles
+   ============================================ */
+
 .logo {
   background-image: url('../../images/cafe.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
-  height: 20px;
-  margin-right: 0.5rem;
-  width: 20px;
+  height: 24px;
+  width: 24px;
+  margin-right: var(--spacing-sm);
+  transition: transform var(--transition-fast);
 }
 
 .container {
-  align-items: center;
-  border-radius: 4px;
-  cursor: pointer;
   display: flex;
-  padding: 0.5rem;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
 .app_logo {
-  align-items: center;
   display: flex;
-  justify-content: center;
-  justify-self: flex-start;
+  align-items: center;
+  gap: var(--spacing-xs);
+  user-select: none;
 }
 
 .menu_icon {
-  align-items: center;
   display: flex;
-  height: 1.5rem;
+  align-items: center;
   justify-content: center;
-  margin-right: 1rem;
-  width: 1.5rem;
+  width: 24px;
+  height: 24px;
+  padding: var(--spacing-xs);
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+  cursor: pointer;
 
   &.dark {
-    color: theme.$primary;
+    color: var(--text-primary);
   }
 
   &:not(.dark) {
-    color: #000;
+    color: var(--text-primary);
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 
   svg {
-    height: 100%;
-    width: 100%;
+    width: 20px;
+    height: 20px;
   }
 }
 
 .logo_text {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.125rem;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: -0.02em;
+  background-clip: text;
+  transition: all var(--transition-fast);
 
   &:not(.dark) {
-    color: #fff;
+    background: linear-gradient(135deg, #18181b 0%, #3f3f46 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   &.dark {
-    color: #fff;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 1rem;
   }
 }

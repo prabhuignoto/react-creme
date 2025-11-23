@@ -18,16 +18,22 @@
   justify-content: center;
   margin-right: 1rem;
   width: 1.5rem;
+  transition: all var(--transition-fast);
 
   svg {
     height: 100%;
+    transition: transform var(--transition-fast);
+  }
+
+  &:hover svg {
+    transform: scale(1.1);
   }
 
   &.dark {
-    color: #fff;
+    color: #fafafa;
   }
 
   &:not(.dark) {
-    color: #fff;
+    color: #18181b;
   }
 }

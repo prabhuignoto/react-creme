@@ -61,7 +61,7 @@ function Pin() {
           type: 'boolean',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       demoWidget={<Widgets />}
       stackBlitzCodes={['react-ts-un6jde']}
       sourceId="pin/pin.tsx"

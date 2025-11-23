@@ -1,0 +1,41 @@
+version: 2
+updates:
+  # Automatically check for GitHub Actions updates
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '02:00'
+    open-pull-requests-limit: 5
+    reviewers:
+      - 'prabhuignoto'
+    labels:
+      - 'dependencies'
+      - 'github-actions'
+    commit-message:
+      prefix: 'chore(deps):'
+      include: 'scope'
+
+  # Automatically check for npm/pnpm dependency updates
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '03:00'
+    open-pull-requests-limit: 10
+    reviewers:
+      - 'prabhuignoto'
+    labels:
+      - 'dependencies'
+    commit-message:
+      prefix: 'chore(deps):'
+      include: 'scope'
+    # Group minor and patch updates
+    groups:
+      minor-patch:
+        dependency-type: 'development'
+        update-types:
+          - 'minor'
+          - 'patch'

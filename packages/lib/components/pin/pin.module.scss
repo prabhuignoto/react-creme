@@ -1,52 +1,230 @@
+@use 'sass:map';
 @use '@design/border.scss';
 @use '@design/core.scss';
+@use '@design/effects.scss';
 @use '@design/font.scss';
 @use '@design/list.scss';
+@use '@design/tokens.scss';
+@use '@design/theme.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
-$pin-item-margin: 1rem;
+// Touch-friendly sizing with proper scaling
+// sm: 44px (minimum touch target)
+// md: 56px (comfortable touch target)
+// lg: 72px (spacious touch target)
 $sizes: (
-  sm: 2.5rem,
-  md: 3rem,
-  lg: 5rem,
+  sm: tokens.$touch-target-min,
+  md: 3.5rem,
+  lg: 4.5rem,
 );
+
+$pin-spacing: tokens.$space-3;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-2;
+}
 
 .wrapper {
   @extend %list-horizontal-left-wrap;
+  gap: $pin-spacing;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
-  li {
-    margin: 0 0.5rem;
-  }
-
+  // RTL support
   &.RTL {
     direction: rtl;
+  }
 
-    li:not(:first-child) {
-      margin-right: $pin-item-margin;
+  // Disabled state
+  &.disabled {
+    @include hybrid.state-disabled();
+  }
+
+  // Loading state
+  &.loading {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(theme.$white, 0.5);
+      border-radius: tokens.$radius-sm;
+      pointer-events: none;
     }
   }
 
-  &:not(.RTL) {
-    li:not(:first-child) {
-      margin-left: $pin-item-margin;
+  // Error state
+  &.error {
+    .item input {
+      border-color: theme.$crimson;
+      box-shadow: inset 0 0 0 1px theme.$crimson;
+    }
+  }
+
+  // Status states
+  &.status-success {
+    .item input {
+      border-color: theme.$success-green;
+      box-shadow: inset 0 0 0 1px theme.$success-green;
+    }
+  }
+
+  &.status-warning {
+    .item input {
+      border-color: theme.$amber;
+      box-shadow: inset 0 0 0 1px theme.$amber;
+    }
+  }
+
+  &.status-error {
+    .item input {
+      border-color: theme.$crimson;
+      box-shadow: inset 0 0 0 1px theme.$crimson;
     }
   }
 }
 
 .item {
-  @extend %center;
-}
-
-.input {
-  @extend %border;
-  height: 100%;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .input_wrapper {
-  @each $key, $val in $sizes {
-    &.#{$key} {
-      height: $val;
-      width: $val;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @each $size, $dimension in $sizes {
+    &.#{$size} {
+      width: $dimension;
+      height: $dimension;
+
+      .input {
+        @if $size == 'sm' {
+          font-size: 0.875rem;
+          line-height: 1.25;
+        } @else if $size == 'md' {
+          font-size: 1rem;
+          line-height: 1.5;
+        } @else if $size == 'lg' {
+          font-size: 1.125rem;
+          line-height: 1.75;
+        }
+      }
     }
   }
+}
+
+.input {
+  // Core styles
+  @extend %border;
+  @extend %border-radius !optional;
+  width: 100%;
+  height: 100%;
+  padding: tokens.$space-1;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: tokens.$space-1;
+
+  // Colors
+  color: theme.$text-color;
+  background-color: theme.$white;
+  border-color: theme.$gray-300;
+
+  // Dark mode
+  @media (prefers-color-scheme: dark) {
+    color: theme.$white;
+    background-color: theme.$dark-input-bg;
+    border-color: theme.$gray-700;
+  }
+
+  // States
+  &:hover:not(:disabled):not([readonly]) {
+    border-color: theme.$primary;
+  }
+
+  &:focus-visible {
+    @include effects.halo();
+  }
+
+  &:disabled {
+    background-color: theme.$gray-100;
+    color: theme.$gray-500;
+    cursor: not-allowed;
+  }
+
+  &[readonly] {
+    background-color: theme.$gray-100;
+    cursor: default;
+  }
+
+  // Transitions
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  // Remove spinner arrows for number inputs
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  // Password masking appearance
+  &[type='password'] {
+    letter-spacing: 0.5em;
+    font-size: 1.5em;
+
+    &::placeholder {
+      letter-spacing: normal;
+    }
+  }
+}
+
+.helperText {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  color: theme.$gray-600;
+  margin-top: tokens.$space-1;
+  padding: 0 tokens.$space-1;
+
+  @media (prefers-color-scheme: dark) {
+    color: theme.$gray-400;
+  }
+}
+
+.errorMessage {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  color: theme.$crimson;
+  margin-top: tokens.$space-1;
+  padding: 0 tokens.$space-1;
+  font-weight: 500;
+
+  @media (prefers-color-scheme: dark) {
+    color: theme.$crimson;
+  }
+}
+
+// Screen reader only - for live announcements
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

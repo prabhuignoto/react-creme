@@ -1,3 +1,5 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { Menu } from '../menu';
@@ -89,6 +91,19 @@ describe('Menu', () => {
     await waitFor(() => {
       expect(getByRole('menu')).toBeInTheDocument();
       // expect(getByText('one')).toHaveFocus();
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(
+        <Menu items={items}>
+          <span>Menu</span>
+        </Menu>
+      );
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

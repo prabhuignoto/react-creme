@@ -7,7 +7,7 @@ import Widgets from './widgets';
 function tabs() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-w7jhzj']}
       title="Tabs"
       description="Tabs are used to group and organize content. They can be used to switch between views or to navigate between pages in a document."

@@ -23,6 +23,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
   hideAnimationStyle = 'hide',
   focusable = true,
   size = 'md',
+  ariaLabelClose = 'close notification',
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -35,7 +36,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
 
   useEffect(() => {
     setTimeout(() => setOpen(true), delay);
-  }, []);
+  }, [delay]);
 
   useEffect(() => {
     if (open) {
@@ -44,7 +45,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
         setTimeout(() => onClose?.(), 250);
       }, closeAfter);
     }
-  }, [open]);
+  }, [open, closeAfter, onClose]);
 
   const globalNotificationClass = useMemo(
     () =>
@@ -55,7 +56,7 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
         [styles[`animation_${hideAnimationStyle}`]]: true,
         [styles[size]]: true,
       }),
-    [open, state, hideAnimationStyle]
+    [open, state, hideAnimationStyle, size]
   );
 
   const style = useMemo(
@@ -63,23 +64,35 @@ const GlobalNotification: React.FunctionComponent<GlobalNotificationProps> = ({
       ({
         '--height': `${height}px`,
       }) as CSSProperties,
-    []
+    [height]
   );
 
   const handleClose = useCallback(() => {
     setOpen(false);
     onClose?.();
-  }, []);
+  }, [onClose]);
 
   return (
-    <div className={globalNotificationClass} style={style} role="alert">
+    <div
+      className={globalNotificationClass}
+      style={style}
+      role="alert"
+      aria-live="polite"
+    >
       <span className={styles.message}>{open && message}</span>
       <span
         className={styles.close_btn}
         onClick={handleClose}
         role="button"
+        aria-label={ariaLabelClose}
         ref={btnCloseRef}
         tabIndex={focusable ? 0 : -1}
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleClose();
+          }
+        }}
       >
         {open && <CloseIcon />}
       </span>

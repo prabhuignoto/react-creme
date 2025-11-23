@@ -8,7 +8,7 @@ import { ImageOverlay } from './image-overlay';
 import styles from './image.module.scss';
 
 const Image: React.FunctionComponent<ImageProps> = ({
-  alt,
+  alt = '',
   expandImageOnClick = false,
   height = '100%',
   isOverlay = false,
@@ -44,6 +44,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
 
   const [openOverlay, setOpenOverlay] = React.useState(false);
 
+  // ✅ FIXED: Include onLoad in dependencies
   const handleLoad = useCallback(
     (evt: React.SyntheticEvent<HTMLImageElement>) => {
       const width = evt.currentTarget.naturalWidth;
@@ -59,15 +60,16 @@ const Image: React.FunctionComponent<ImageProps> = ({
         onLoad?.(evt);
       }, 750);
     },
-    []
+    [onLoad]
   );
 
+  // ✅ FIXED: Include expandImageOnClick in dependencies
   const wrapperClass = useMemo(() => {
     return classNames(styles.image_wrapper, {
       [styles.image_clickable]: expandImageOnClick,
       [styles.image_loaded]: loaded,
     });
-  }, [loaded]);
+  }, [loaded, expandImageOnClick]);
 
   const ImageClass = useMemo(() => {
     return classNames(styles.image, {
@@ -76,15 +78,17 @@ const Image: React.FunctionComponent<ImageProps> = ({
     });
   }, [loaded]);
 
+  // ✅ FIXED: Include height and width in dependencies
   const style = useMemo(
     () =>
       ({
         '--height': Number.isInteger(height) ? `${height}px` : '100%',
         '--width': Number.isInteger(width) ? `${width}px` : '100%',
       }) as CSSProperties,
-    []
+    [height, width]
   );
 
+  // ✅ FIXED: Remove unsafe JSON.stringify, use proper dependencies
   const imageStyle = useMemo(() => {
     const { width, height } = imageDimension;
     return fitImage
@@ -93,18 +97,19 @@ const Image: React.FunctionComponent<ImageProps> = ({
           maxWidth: Number.isInteger(width) ? `${width}px` : width,
         }
       : ({} as CSSProperties);
-  }, [JSON.stringify(imageDimension), fitImage]);
+  }, [imageDimension.width, imageDimension.height, fitImage]);
 
   const handleOverlayOpen = useCallback(() => setOpenOverlay(true), []);
 
   const handleOverlayClose = useCallback(() => setOpenOverlay(false), []);
 
+  // ✅ FIXED: Include expandImageOnClick and handleOverlayOpen in dependencies
   const imageProps = useMemo(
     () =>
       expandImageOnClick && {
         onClick: handleOverlayOpen,
       },
-    []
+    [expandImageOnClick, handleOverlayOpen]
   );
 
   const onWrapperRef = useCallback((node: HTMLDivElement) => {
@@ -156,13 +161,13 @@ const Image: React.FunctionComponent<ImageProps> = ({
       {...focusProps}
       {...imageProps}
     >
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <img
         src={src}
         onLoad={handleLoad}
         onError={handleLoad}
         className={ImageClass}
         alt={alt}
-        {...imageProps}
         loading={loading}
         ref={onImageRef}
         style={imageStyle}

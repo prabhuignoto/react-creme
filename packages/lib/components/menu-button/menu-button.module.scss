@@ -2,16 +2,13 @@
 @use '@design/theme.scss';
 @use '@design/position.scss';
 @use '@design/animate.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 
 .wrapper {
-  align-items: center;
-  column-gap: 0.25rem;
-  cursor: pointer;
-  display: grid;
   max-width: var(--max-width);
-  min-height: 35px;
   min-width: 100px;
 
   &.dark {
@@ -28,36 +25,60 @@ $sizes: (sm, md, lg);
     @extend %disabled;
   }
 
-  &:not(:active) {
-    transition: transform 100ms ease-in;
-  }
+  @include hybrid.smooth-multi-transition(transform, background);
 
   &:active:not(.disabled) {
-    transform: scale(0.97);
+    animation: hybrid-refined-ping hybrid.$animation-duration-secondary hybrid.$spring-easing;
   }
 }
 
-.wrapper:hover {
-  background: theme.$primary;
-  color: theme.$white;
-
-  svg {
+.wrapper {
+  @include hybrid.hover-feedback() {
+    background: theme.$primary;
     color: theme.$white;
-  }
 
-  .label:not(.dark) {
-    color: theme.$white;
+    svg {
+      color: theme.$white;
+    }
+
+    .label:not(.dark) {
+      color: theme.$white;
+    }
   }
 }
 
-.rtl {
+.button {
+  align-items: center;
+  background: inherit;
+  border: none;
+  column-gap: tokens.$space-1;
+  cursor: pointer;
+  display: grid;
+  min-height: 35px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  &:disabled {
+    @extend %disabled;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
+  }
+}
+
+.rtl .button {
   > :first-child {
     order: 1;
+    padding-left: tokens.$space-2;
   }
 
   > :last-child {
     order: 0;
-    padding-left: 0.5rem;
+    margin-left: tokens.$space-2;
   }
 }
 
@@ -65,11 +86,11 @@ $sizes: (sm, md, lg);
   $ico-size: var(--rc-icon-size-#{$size});
 
   .wrapper {
-    &:not(.rtl) {
+    &:not(.rtl) .button {
       grid-template-columns: calc(100% - $ico-size) $ico-size;
     }
 
-    &.rtl {
+    &.rtl .button {
       grid-template-columns: $ico-size calc(100% - $ico-size);
     }
   }
@@ -106,4 +127,8 @@ $sizes: (sm, md, lg);
   &:not(.dark):hover {
     color: theme.$white;
   }
+}
+
+.wrapper:not(.rtl) .label {
+  padding-right: tokens.$space-2;
 }

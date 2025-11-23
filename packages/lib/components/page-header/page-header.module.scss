@@ -13,19 +13,21 @@ $heights: (
 
 // Base styles for page header
 .page_header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem; // Reduced from 1rem
   width: 100%;
 
   h2 {
     @extend %left;
-    margin: 0.5rem 0;
+    margin: 0.25rem 0 0.5rem; // Reduced top margin from 0.5rem to 0.25rem
     width: 100%;
-    text-align: left; // Default text alignment
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   &.rtl {
     h2 {
-      text-align: right; // RTL text alignment
+      text-align: right;
     }
   }
 }
@@ -33,8 +35,11 @@ $heights: (
 // Styles for header icon
 .icon {
   @extend %icon;
-  color: theme.$primary;
+  color: var(--rc-primary-color-hex, #007bff);
   margin-right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   @each $size in $sizes {
     &.icon_#{$size} {
@@ -46,20 +51,21 @@ $heights: (
 // Styles for title container
 .title_container {
   @extend %left;
-  border-bottom: 1px solid theme.$dark-control-bg;
+  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
   width: 100%;
+  padding-bottom: 0.5rem;
 }
 
 // Styles for content
 .content {
-  padding-top: 1rem;
+  padding-top: 0.75rem; // Reduced from 1rem
 
   &.dark {
-    color: theme.$white;
+    color: var(--text-primary, theme.$white);
   }
 
   &:not(.dark) {
-    color: theme.$black;
+    color: var(--text-primary, theme.$black);
   }
 }
 
@@ -69,6 +75,15 @@ $heights: (
     .title {
       @extend %text-#{$size};
       height: map.get($heights, $size);
+
+      // Ensure proper contrast in both light and dark modes
+      color: var(--text-primary, theme.$black);
+
+      // Dark mode support via CSS variable or parent class
+      .dark &,
+      :global(.dark) & {
+        color: var(--text-primary, theme.$white);
+      }
     }
   }
 }

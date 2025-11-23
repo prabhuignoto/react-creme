@@ -1,6 +1,8 @@
 @use '@design/theme.scss';
 @use '@design/core.scss';
 @use '@design/icon.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -12,8 +14,9 @@ $heights: (
 
 .input_number {
   @extend %left;
-  padding: 0.2rem;
+  padding: tokens.$space-1;
   user-select: none;
+  @include hybrid.smooth-transition(background, border-color);
 
   &.border {
     @extend %border;
@@ -72,7 +75,7 @@ $heights: (
   }
 
   &.increment {
-    margin-bottom: 0.2rem;
+    margin-bottom: tokens.$space-1;
     transform: rotate(180deg);
   }
 

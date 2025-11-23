@@ -1,6 +1,6 @@
 import { Eye, EyeOff } from '@icons';
 import classNames from 'classnames';
-import {
+import React, {
   FunctionComponent,
   useCallback,
   useEffect,

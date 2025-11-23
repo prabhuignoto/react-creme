@@ -1,8 +1,10 @@
 @use '@design/button.scss';
-@use '@design/theme.scss';
-@use '@design/list.scss';
 @use '@design/core.scss';
+@use '@design/list.scss';
 @use '@design/position.scss';
+@use '@design/theme.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .container {
   height: 100%;
@@ -32,14 +34,29 @@
 
   &.wrapper_horizontal {
     height: calc(100% - 4rem);
-    margin-top: 1rem;
+    margin-top: tokens.$space-4;
     width: 95%;
+
+    @media (max-width: 768px) {
+      height: calc(100% - 3rem);
+      width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      margin-top: tokens.$space-2;
+    }
   }
 
   &.wrapper_vertical {
     height: calc(100% - 3rem);
-    margin-left: 1rem;
+    margin-left: tokens.$space-4;
     width: calc(100% - 3rem);
+
+    @media (max-width: 768px) {
+      height: calc(100% - 2rem);
+      margin-left: tokens.$space-2;
+      width: calc(100% - 2rem);
+    }
   }
 }
 
@@ -49,10 +66,18 @@
   &.track_wrapper_horizontal {
     height: 3rem;
     width: 100%;
+
+    @media (max-width: 768px) {
+      height: 2rem;
+    }
   }
 
-  &.track_wrapper_horizontal {
+  &.track_wrapper_vertical {
     width: 3rem;
+
+    @media (max-width: 768px) {
+      width: 2rem;
+    }
   }
 }
 
@@ -64,7 +89,15 @@
   padding: 0;
   position: absolute;
   top: 0;
-  transition: transform 0.5s var(--transition);
+
+  // Use Hybrid Theme primary animation timing (0.3s) for smooth slide transitions
+  // Fallback to Hybrid spring easing if custom transition not provided
+  transition: transform hybrid.$animation-duration-primary var(--transition, cubic-bezier(0.34, 1.56, 0.64, 1));
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .item {
@@ -90,16 +123,33 @@
 .btn {
   border-radius: 50%;
 
+  // Use Hybrid Theme secondary timing (0.2s) for quick, snappy feedback
+  @include hybrid.smooth-multi-transition(opacity, visibility);
+
   &.btn_horizontal {
-    margin: 0 1rem;
+    margin: 0 tokens.$space-4;
+
+    @media (max-width: 768px) {
+      margin: 0 tokens.$space-2;
+    }
   }
 
   &.btn_vertical {
-    margin: 1rem 0;
+    margin: tokens.$space-4 0;
+
+    @media (max-width: 768px) {
+      margin: tokens.$space-2 0;
+    }
   }
 
   &.btn_hide {
+    opacity: 0;
     visibility: hidden;
+  }
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 }
 
@@ -113,4 +163,55 @@
 
 .btn_right:not(.btn_horizontal) {
   transform: rotate(90deg);
+}
+
+.pause_button {
+  // Reset button styles
+  @extend %center;
+  background: theme.$primary;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  color: theme.$white;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+
+  // WCAG 2.1 compliant touch target
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
+
+  // Use Hybrid Theme timing for smooth, responsive feedback
+  // Combines background and border transitions with quick scale feedback
+  @include hybrid.smooth-multi-transition(background-color, border-color);
+
+  // Hover state with interactive feedback
+  &:hover:not(:disabled) {
+    @include hybrid.hover-feedback() {
+      background: rgba(theme.$primary-rgb, 0.9);
+      transform: scale(1.05);
+    }
+  }
+
+  // Focus state with refined outline
+  &:focus-visible {
+    border-color: theme.$white;
+    @include hybrid.focus-outline(theme.$primary);
+  }
+
+  // Active state with quick scale feedback
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+    transition: transform hybrid.$animation-duration-instant ease-in-out;
+  }
+
+  // Pressed state (when paused)
+  &[aria-pressed='true'] {
+    background: rgba(theme.$primary-rgb, 0.8);
+  }
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }

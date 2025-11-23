@@ -110,7 +110,7 @@ function tooltip() {
           type: 'String',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-pwaial']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

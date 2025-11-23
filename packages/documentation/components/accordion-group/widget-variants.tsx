@@ -13,7 +13,7 @@ const Para: FunctionComponent<{ rtl?: boolean }> = ({ rtl }) => {
       ({
         color: isDark ? '#fff' : '#000',
         direction: rtl ? 'rtl' : 'ltr',
-      }) as CSSProperties,
+      } as CSSProperties),
     [isDark, rtl]
   );
   return (

@@ -9,7 +9,7 @@ import {
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Menu attached to a Button">
+      <Section size="md" title="Menu attached to a Button" border={false}>
         <Text>
           Menus can be attached to <code>react-creme</code> components or even
           native elements. Simply wrap the Menu control in the target component
@@ -24,7 +24,7 @@ function Widgets() {
           {AttachedToButton}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Docking positions">
+      <Section size="md" title="Docking positions" border={false}>
         <Text>
           Menus can be docked to three positions: <code>left</code>,{' '}
           <code>right</code> or <code>center</code>. The example below shows a
@@ -39,7 +39,11 @@ function Widgets() {
           {AttachedToIcon}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Menu attached to a native Element">
+      <Section
+        size="md"
+        title="Menu attached to a native Element"
+        border={false}
+      >
         <Text>
           The example below shows a menu attached to a native element (button).
         </Text>

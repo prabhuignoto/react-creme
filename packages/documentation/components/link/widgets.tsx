@@ -5,12 +5,12 @@ import { DemoWidget } from '../../common/demo-widget';
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget name="Link" width={100}>
           <Link href="http://www.google.com">google.com</Link>
         </DemoWidget>
       </Section>
-      <Section size="md" title="Link with Icon">
+      <Section size="md" title="Link with Icon" border={false}>
         <DemoWidget name="Link" width={100}>
           <Link href="http://www.google.com" icon={<LinkIcon />}>
             Test Link

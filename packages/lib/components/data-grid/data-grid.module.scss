@@ -1,12 +1,13 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 // Define variables at the top for better maintainability
+// Use design system tokens for consistent spacing
 $compact-row-height: 35px;
 $comfortable-row-height: 50px;
 $sizes: (sm, md, lg);
-$cell-padding: 0.25rem 0.5rem;
-$border-radius: 4px;
 
 // Mixins for common styles
 @mixin dark-border {
@@ -121,7 +122,7 @@ $border-radius: 4px;
 .cell_val {
   display: block;
   line-height: 25px;
-  padding: $cell-padding;
+  padding: tokens.$space-1 tokens.$space-2; // 4px 8px
   text-align: left;
   width: calc(100% - 1rem);
 
@@ -156,8 +157,8 @@ $border-radius: 4px;
     color: theme.$primary;
     font-style: normal;
     font-weight: 400;
-    margin: 0 0.25rem;
-    padding: 0.25rem 0.35rem;
+    margin: 0 tokens.$space-1; // 0 4px
+    padding: tokens.$space-1 tokens.$space-2; // 4px 8px
     white-space: nowrap;
   }
 
@@ -184,9 +185,9 @@ $border-radius: 4px;
 // Search box styles
 .data_grid_search_box_wrapper {
   @extend %left;
-  margin: 0.5rem 0 1.5rem;
+  margin: tokens.$space-2 0 tokens.$space-6; // 8px 0 24px
   min-width: 300px;
-  padding-left: 0.5rem;
+  padding-left: tokens.$space-2; // 8px
 }
 
 // Cell wrapper styles
@@ -205,4 +206,15 @@ $border-radius: 4px;
   &:not(.dark) {
     background-color: rgba(theme.$light-bg, 0.75);
   }
+}
+
+// Empty state styles
+.empty_state {
+  @extend %center;
+  color: theme.$gray-500;
+  font-style: italic;
+  min-height: 100px;
+  padding: tokens.$space-6;
+  text-align: center;
+  width: 100%;
 }

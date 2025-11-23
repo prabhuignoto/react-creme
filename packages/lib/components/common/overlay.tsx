@@ -229,6 +229,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         zIndex: `var(--rc-zIndex-${name})`,
       }}
       onKeyUp={handleClose}
+      role="presentation"
     >
       <div
         style={customPlacementStyle}
@@ -238,18 +239,32 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         {children}
       </div>
       {showCloseButton && (
-        <span className={`rc-overlay-close-btn`} onClick={onClose}>
+        <span
+          className={`rc-overlay-close-btn`}
+          onClick={onClose}
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              onClose?.();
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Close overlay"
+        >
           <CloseIcon />
         </span>
       )}
     </div>
   ) : (
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <div
       style={customPlacementStyle}
       data-testid="rc-overlay"
       className="rc-overlay-content-wrapper"
       onKeyUp={handleClose}
       ref={onOverlayRef}
+      role="dialog"
     >
       {children}
     </div>

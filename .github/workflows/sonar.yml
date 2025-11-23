@@ -5,34 +5,61 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-name: Sonar Workflow
+name: SonarQube Code Quality Analysis
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   sonarqube:
-    name: SonarQube
+    name: SonarQube Analysis
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.14.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build project
+        run: pnpm build
+
+      - name: Run tests with coverage
+        run: pnpm run test:ci
+
       - name: Cache SonarCloud dependencies
         uses: actions/cache@v4
         with:
           path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
+          key: ${{ runner.os }}-sonar-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-sonar-
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@v6
         with:
-          projectBaseDir: packages/lib/
           args: >
             -Dsonar.organization=prabhuignoto
             -Dsonar.projectKey=prabhuignoto_react-creme
-            -Dsonar.exclusions=coverage/**
-            -Dsonar.test.exclusions=tests/**
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.sources=packages
+            -Dsonar.exclusions=**/node_modules/**,**/dist/**,**/*.test.ts,**/*.test.tsx
+            -Dsonar.test.inclusions=**/__tests__/**,**/*.test.ts,**/*.test.tsx
+            -Dsonar.javascript.lcov.reportPaths=packages/lib/coverage/lcov.info
             -Dsonar.verbose=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

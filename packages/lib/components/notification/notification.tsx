@@ -1,6 +1,13 @@
 import { CloseIcon } from '@icons';
 import classNames from 'classnames';
-import React, { CSSProperties, useEffect, useMemo, useRef } from 'react';
+import { nanoid } from 'nanoid';
+import React, {
+  CSSProperties,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react';
 import { Button } from '../button/button';
 import { useCloseOnEscape } from '../common/effects/useCloseOnEsc';
 import useSwipe from '../common/effects/useSwipe';
@@ -22,23 +29,33 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
   disableHeader = false,
   size = 'md',
 }) => {
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark();
 
-  const wrapperClass = classNames([
-    styles.wrapper,
-    {
-      [styles[`${position}_enter`]]: !isClosing,
-      [styles[`${position}_exit`]]: isClosing,
-      [styles[`${size}`]]: true,
-      [styles.dark]: isDarkMode,
-    },
-  ]);
+  // Generate stable IDs for accessibility
+  const titleId = useRef(`notification-title-${nanoid()}`);
+  const contentId = useRef(`notification-content-${nanoid()}`);
+
+  const wrapperClass = useMemo(
+    () =>
+      classNames([
+        styles.wrapper,
+        {
+          [styles[`${position}_enter`]]: !isClosing,
+          [styles[`${position}_exit`]]: isClosing,
+          [styles[`${size}`]]: true,
+          [styles.dark]: isDarkMode,
+        },
+      ]),
+    [position, isClosing, size, isDarkMode]
+  );
 
   const ref = useRef<HTMLDivElement>(null);
 
-  useCloseOnEscape(() => {
-    onClose && onClose();
-  }, ref as React.RefObject<HTMLDivElement>);
+  const handleClose = useCallback(() => {
+    onClose?.();
+  }, [onClose]);
+
+  useCloseOnEscape(handleClose, ref as React.RefObject<HTMLDivElement>);
 
   const wrapperStyle = useMemo(
     () =>
@@ -46,59 +63,74 @@ const NotificationComponent: React.FunctionComponent<NotificationProps> = ({
         '--min-height': `${height}px`,
         '--min-width': `${width}px`,
       }) as CSSProperties,
-    []
+    [height, width]
   );
 
   useEffect(() => {
     if (autoClose) {
-      setTimeout(() => onClose && onClose(), autoClose);
+      const timer = setTimeout(() => {
+        handleClose();
+      }, autoClose);
+      return () => clearTimeout(timer);
     }
-  }, []);
+  }, [autoClose, handleClose]);
 
   const canSwipeToClose = useMemo(() => {
     const xPosition = position?.split('-')[1] || '';
     const leftORight = xPosition === 'left' || xPosition === 'right';
     return swipeToClose && !autoClose && leftORight;
-  }, [position, swipeToClose]);
+  }, [position, swipeToClose, autoClose]);
 
   const { swipeState: state, onInit } = useSwipe('medium');
 
   useEffect(() => {
-    if (state) {
+    if (state && canSwipeToClose) {
       const xPosition = position?.split('-')[1] || '';
       if (state.offset > 0 && state.dir.toLowerCase() === xPosition) {
-        onClose && onClose();
+        handleClose();
       }
     }
-  }, [state, canSwipeToClose, position]);
+  }, [state, canSwipeToClose, position, handleClose]);
 
   const headerClass = useMemo(
     () =>
       classNames(styles.header, {
         [styles.dark]: isDarkMode,
       }),
-    []
+    [isDarkMode]
   );
 
   return (
     <div
       className={wrapperClass}
       style={wrapperStyle}
-      role="alert"
+      role="alertdialog"
       aria-modal="true"
+      aria-labelledby={!disableHeader && title ? titleId.current : undefined}
+      aria-describedby={contentId.current}
+      aria-live="assertive"
       ref={onInit}
     >
-      {!disableHeader && (
+      {!disableHeader && title && (
         <header className={headerClass}>
-          <span className={styles.title}>{title}</span>
+          <span id={titleId.current} className={styles.title}>
+            {title}
+          </span>
           <span className={styles.close_btn}>
-            <Button type="icon" size={size} onClick={onClose}>
+            <Button
+              type="icon"
+              size={size}
+              onClick={handleClose}
+              label="Close notification"
+            >
               <CloseIcon />
             </Button>
           </span>
         </header>
       )}
-      <section className={styles.content}>{children}</section>
+      <section id={contentId.current} className={styles.content}>
+        {children}
+      </section>
     </div>
   );
 };

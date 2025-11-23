@@ -1,11 +1,66 @@
+@use '@design/core.scss';
+@use '@design/theme.scss';
+@use '@design/tokens.scss';
+
 $grid-dimension-cols: var(--rc-gallery-grid-dimension-cols);
 $grid-dimension-rows: var(--rc-gallery-grid-dimension-rows);
 $image-dimension: var(--rc-gallery-image-dimension);
-$gap: var(--rc-gallery-gap);
+$gap: var(--rc-gallery-gap, #{tokens.$space-4});
 
 .gallery {
+  // Extends
+  @extend %border-radius;
+
+  // Properties
   display: grid;
-  gap: var(--rc-gallery-gap);
+  gap: $gap;
   grid-template-columns: repeat($grid-dimension-cols, $image-dimension);
   grid-template-rows: repeat($grid-dimension-rows, $image-dimension);
+  width: 100%;
+
+  // Responsive: switch to auto-fit on small screens
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-rows: auto;
+  }
+
+  // Responsive: medium screens
+  @media (min-width: 641px) and (max-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: auto;
+  }
+}
+
+// Size variants with consistent scaling
+.sm {
+  gap: tokens.$space-2;
+
+  .item {
+    @extend %text-sm;
+  }
+}
+
+.md {
+  gap: tokens.$space-4;
+
+  .item {
+    @extend %text-md;
+  }
+}
+
+.lg {
+  gap: tokens.$space-6;
+
+  .item {
+    @extend %text-lg;
+  }
+}
+
+// Item wrapper for consistent spacing and alignment
+.item {
+  // Properties
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }

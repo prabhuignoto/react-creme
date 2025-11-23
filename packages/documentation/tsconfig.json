@@ -1,17 +1,15 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ES2020"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
     "useDefineForClassFields": true,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": false,
+    "strict": true,
+    "exactOptionalPropertyTypes": false,
+    "noUncheckedIndexedAccess": false,
     "forceConsistentCasingInFileNames": true,
     "module": "ES2020",
     "moduleResolution": "Node",
@@ -22,22 +20,11 @@
     "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "types": [
-      "react",
-      "react-dom",
-      "vite/client",
-      "node"
-    ],
+    "types": ["react", "react-dom", "vite/client", "node"],
     "paths": {
-      "@icons": [
-        "../lib/icons/index.ts"
-      ],
-      "@lib": [
-        "../lib/components/index.ts"
-      ],
-      "@design": [
-        "../lib/design/"
-      ],
+      "@icons": ["../lib/icons/index.ts"],
+      "@lib": ["../lib/components/index.ts"],
+      "@design": ["../lib/design/"]
     }
   },
   "include": [
@@ -51,8 +38,5 @@
     "App.tsx",
     "main.tsx"
   ],
-  "exclude": [
-    "node_modules",
-    "expo_dist"
-  ]
+  "exclude": ["node_modules", "expo_dist"]
 }

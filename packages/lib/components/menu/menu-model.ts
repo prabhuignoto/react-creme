@@ -40,6 +40,7 @@ export type MenuOverlayModel = Pick<
   | 'leftOffset'
   | 'RTL'
 > & {
+  isExiting?: boolean;
   onSelection?: (val: string) => void;
   ref?: RefObject<HTMLUListElement | null>;
 } & OverlayModel<null>;

@@ -7,8 +7,19 @@ import { MenuBarItemViewProps } from './menu-bar.model';
 import styles from './menu-bar.module.scss';
 
 const MenuBarItem: FunctionComponent<MenuBarItemViewProps> = memo(
-  ({ active, showIcon, icon, size = 'sm', RTL = false, name, isMenuOpen }) => {
-    const isDarkMode = useMemo(() => isDark(), []);
+  ({
+    active,
+    showIcon,
+    icon,
+    size = 'sm',
+    RTL = false,
+    name,
+    isMenuOpen,
+    id,
+    'aria-current': ariaCurrent,
+    disabled = false,
+  }) => {
+    const isDarkMode = isDark();
 
     const isFirstRender = useFirstRender();
 
@@ -19,16 +30,25 @@ const MenuBarItem: FunctionComponent<MenuBarItemViewProps> = memo(
           isDarkMode && styles.dark,
           {
             [styles.active]: active,
+            [styles.disabled]: disabled,
           },
           RTL ? styles.rtl : ''
         ),
-      [RTL]
+      [RTL, isDarkMode, active, disabled]
     );
 
     return (
-      <li className={menuBarItemClass}>
+      <li
+        className={menuBarItemClass}
+        id={id}
+        role="menuitem" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
+        aria-haspopup="true"
+        aria-expanded={isMenuOpen}
+        aria-current={ariaCurrent}
+        tabIndex={-1}
+      >
         {showIcon && (
-          <span className={classNames(styles.icon, styles.size)}>{icon}</span>
+          <span className={classNames(styles.icon, styles[size])}>{icon}</span>
         )}
         <span
           className={classNames(

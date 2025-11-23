@@ -1,6 +1,7 @@
 @use '@design/core.scss';
 @use '@design/position.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 
 .wrapper {
   position: relative;
@@ -19,6 +20,7 @@
 .drag_handle {
   background: rgba(theme.$primary-rgb, 0.95);
   position: absolute;
+  transition: background 0.2s ease-in-out;
   z-index: 2;
 
   &.handle_dragged {
@@ -31,6 +33,16 @@
 
   &.handle_hidden {
     visibility: hidden;
+  }
+
+  // Focus visible styles for keyboard navigation
+  &:focus-visible {
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 }
 
@@ -53,12 +65,12 @@
 .handle_horizontal {
   @include position.position-abs('center center');
   height: 100%;
-  width: 6px;
+  width: tokens.$space-2; // 8px separator bar
 
   .drag_handle_square {
     cursor: ew-resize;
-    height: 24px;
-    width: 24px;
+    height: tokens.$touch-target-min; // 44px - WCAG AA compliant
+    width: tokens.$touch-target-min;
   }
 
   svg {
@@ -68,20 +80,14 @@
 
 .handle_vertical {
   @include position.position-abs('center center');
-  height: 6px;
+  height: tokens.$space-2; // 8px separator bar
   width: 100%;
 
   .drag_handle_square {
     cursor: ns-resize;
-    height: 24px;
-    width: 24px;
+    height: tokens.$touch-target-min; // 44px - WCAG AA compliant
+    width: tokens.$touch-target-min;
   }
-}
-
-.drag_handle_horizontal {
-  cursor: ns-resize;
-  height: 6px;
-  width: 100%;
 }
 
 .panel {
@@ -106,6 +112,6 @@
 
 .circular_loader_wrapper {
   @include position.position-abs('center center');
-  height: 30px;
-  width: 30px;
+  height: 2rem; // ~32px - slightly larger than original for better visibility
+  width: 2rem;
 }

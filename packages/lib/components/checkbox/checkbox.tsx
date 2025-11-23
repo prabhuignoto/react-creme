@@ -61,16 +61,25 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
 
     // Function to toggle checkbox state
     const toggleCheck = (
-      ev: PointerEvent | KeyboardEvent | React.MouseEvent
+      ev: PointerEvent | KeyboardEvent | React.MouseEvent | React.KeyboardEvent
     ) => {
       ev.preventDefault();
       ev.stopPropagation();
 
       if (!disabled) {
         setChecked(val => {
-          onChange && onChange(checkBoxId.current, !val);
+          if (onChange) {
+            onChange(checkBoxId.current, !val);
+          }
           return !val;
         });
+      }
+    };
+
+    // Handle keyboard events for checkbox (Space and Enter keys)
+    const handleCheckboxKeyDown = (ev: React.KeyboardEvent) => {
+      if ((ev.key === ' ' || ev.key === 'Enter') && !disabled) {
+        toggleCheck(ev);
       }
     };
 
@@ -141,14 +150,17 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
         ref: ref,
         tabIndex: disabled || !focusable ? -1 : 0,
       }),
-      [disabled]
+      [disabled, focusable]
     );
 
     const wrapperProps = useMemo(
-      () => (!focusIcon && !disabled ? focusProps : null),
-      [disabled]
+      () => (!focusIcon && !disabled ? { ref: ref } : { ref: ref }),
+      [focusIcon, disabled]
     );
-    const iconProps = useMemo(() => (focusIcon ? focusProps : null), []);
+    const iconProps = useMemo(
+      () => (focusIcon ? focusProps : null),
+      [focusIcon, focusProps]
+    );
 
     // Effect to sync checked state with prop
     useEffect(() => {
@@ -164,9 +176,11 @@ const CheckBox: React.FunctionComponent<CheckboxProps> = React.memo(
         aria-labelledby={checkBoxId.current}
         className={wrapperClass}
         onClick={toggleCheck}
+        onKeyDown={handleCheckboxKeyDown}
         role="checkbox"
         style={style}
         aria-disabled={disabled}
+        tabIndex={disabled || !focusable ? -1 : 0}
         {...wrapperProps}
       >
         <div className={checkBoxClass} {...iconProps}>

@@ -32,10 +32,10 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   const isDarkMode = useMemo(() => isDark(), []);
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // classnames for the accordion header
-  const accordionHeaderClass = useMemo(() => {
+  // classnames for the accordion button
+  const accordionButtonClass = useMemo(() => {
     const classes = [
-      styles.header,
+      styles.button,
       alignIconRight && styles['align-icon-rt'],
       disableCollapse && styles['disable-collapse'],
       disableIcon && styles['disable-icon'],
@@ -64,13 +64,15 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     if (focusable && !disableCollapse) {
       return { tabIndex: 0 };
     }
-    return undefined;
+    // Explicitly make button non-focusable when focusable=false
+    // (buttons are focusable by default in HTML)
+    return { tabIndex: -1 };
   }, [focusable, disableCollapse]);
 
   // Handle keyboard events for accessibility
   const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLDivElement>) => {
-      if (e.key === ' ') {
+    (e: React.KeyboardEvent<HTMLButtonElement>) => {
+      if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
         e.stopPropagation();
         onToggle?.();
@@ -142,11 +144,8 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
     return _icons[iconType] || null;
   }, [customIcon, iconType, open]);
 
-  // hook to focus the accordion header
-  useFocusNew(
-    focusable ? (ref as React.RefObject<HTMLElement>) : null,
-    onToggle
-  );
+  // hook to focus the accordion header (visual ring only, no callback)
+  useFocusNew(focusable ? (ref as React.RefObject<HTMLElement>) : null);
 
   // Calculate the style object with header height
   const headerStyle = useMemo(() => {
@@ -156,24 +155,25 @@ const AccordionHeader: React.FunctionComponent<AccordionHeaderProps> = ({
   }, [headerHeight]);
 
   return (
-    <div
-      className={accordionHeaderClass}
-      id={accordionId}
-      ref={ref}
-      role="heading"
-      {...focusProps}
-      {...collapsibleProps}
-      style={headerStyle}
-    >
-      <span className={iconClass} role="img">
-        {icon}
-      </span>
-      {customContent ? (
-        customContent
-      ) : (
-        <span className={titleClass}>{title}</span>
-      )}
-    </div>
+    <h3 className={`${styles.header} rc-accordion-header`} style={headerStyle}>
+      <button
+        id={accordionId}
+        ref={ref as unknown as React.RefObject<HTMLButtonElement>}
+        type="button"
+        {...focusProps}
+        {...collapsibleProps}
+        className={accordionButtonClass}
+      >
+        <span className={iconClass} aria-hidden="true">
+          {icon}
+        </span>
+        {customContent ? (
+          customContent
+        ) : (
+          <span className={titleClass}>{title}</span>
+        )}
+      </button>
+    </h3>
   );
 };
 

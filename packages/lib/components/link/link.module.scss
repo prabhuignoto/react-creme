@@ -1,5 +1,6 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 
@@ -12,16 +13,19 @@ $sizes: (sm, md, lg);
   padding: 0.5rem;
   text-decoration: none;
   white-space: nowrap;
+  @include hybrid.smooth-multi-transition(background, box-shadow, color);
 
-  &.btn:hover {
-    background: rgba(theme.$primary-rgb, 1);
-    box-shadow: none;
-    color: theme.$white;
-  }
+  @include hybrid.hover-feedback() {
+    &.btn {
+      background: rgba(theme.$primary-rgb, 1);
+      box-shadow: none;
+      color: theme.$white;
+    }
 
-  &:hover {
-    background-color: rgba(theme.$secondary-rgb, 0.5);
-    text-decoration: underline;
+    &:not(.btn) {
+      background-color: rgba(theme.$secondary-rgb, 0.5);
+      text-decoration: underline;
+    }
   }
 
   &.highlight {

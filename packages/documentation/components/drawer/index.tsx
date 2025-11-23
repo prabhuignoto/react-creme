@@ -23,7 +23,7 @@ const Description = (
 function drawer() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-jngeyv']}
       pageIcon={<Sidebar />}
       title="Drawer"

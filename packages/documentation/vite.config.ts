@@ -12,8 +12,7 @@ import svgr from 'vite-plugin-svgr';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const generateHash = () => Math.floor(Math.random() * 90000) + 10000;
-const hash = generateHash();
+// Deterministic chunk names for stable caching across builds
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,15 +21,27 @@ export default defineConfig({
     reportCompressedSize: true,
     rollupOptions: {
       output: {
-        chunkFileNames: `[name]${hash}.js`,
+        assetFileNames: `assets/[name]-[hash][extname]`,
+        chunkFileNames: `assets/[name]-[hash].js`,
+        entryFileNames: `assets/[name]-[hash].js`,
       },
     },
     sourcemap: true,
   },
   css: {
+    modules: {
+      exportGlobals: true,
+      generateScopedName: '[name]__[local]___[hash:base64:5]',
+      localsConvention: 'camelCase',
+    },
     postcss: {
       parser: PostSCSS,
       plugins: [PostCSSImport(), PostCSSPresetEnv(), PostCSSReporter()],
+    },
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      },
     },
   },
   esbuild: {

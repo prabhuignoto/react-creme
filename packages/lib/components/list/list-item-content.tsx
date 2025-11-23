@@ -16,8 +16,6 @@ const ListItemContent: React.FunctionComponent<ListItemContentProps> =
       highlightSelection,
       size = 'sm',
     }: ListItemContentProps) => {
-      const ref = React.useRef<HTMLDivElement>(null);
-
       const listOptionClass = cls(
         [styles.value_wrapper],
         {
@@ -35,10 +33,10 @@ const ListItemContent: React.FunctionComponent<ListItemContentProps> =
           '--text-color': textColor,
           '--text-color-selected': textColorSelected,
         } as CSSProperties;
-      }, []);
+      }, [textColor, textColorSelected]);
 
       return (
-        <div className={listOptionClass} ref={ref} style={style}>
+        <div className={listOptionClass} style={style}>
           {showCheck && (
             <span
               className={cls(styles.icon, {

@@ -2,6 +2,7 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
 @use '@design/animate.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .dropdown {
   position: relative;
@@ -17,7 +18,7 @@
   display: flex;
   max-height: 400px;
   min-height: 35px;
-  transition: max-height 0.5s ease-in;
+  @include hybrid.smooth-transition(max-height, hybrid.$animation-duration-elaborate);
 }
 
 .single {
@@ -44,3 +45,5 @@
     order: 3;
   }
 }
+
+// Use hybrid-snap-select from hybrid theme instead of local keyframe

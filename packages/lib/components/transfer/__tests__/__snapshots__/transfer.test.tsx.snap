@@ -2,41 +2,61 @@
 
 exports[`Transfer > should render transfer snapshot 1`] = `
 <div
-  class="_wrapper_ce9ebc"
+  aria-describedby="transfer-announce-mFiNtUnhTUcpNcv7tY3NJ"
+  aria-label="Transfer widget"
+  class="_wrapper_4931dd"
+  role="region"
 >
   <section
-    class="transfer-column1"
+    aria-label="Available items to transfer (4 items)"
+    id="transfer-list-left-VSDH8E5llfqrK_60HvCj8"
   >
     <div
-      class="_list_a434d8 _list_border_a434d8"
+      class="_list_header_4931dd"
+    >
+      <span
+        class="_list_title_4931dd"
+      >
+        Available
+      </span>
+      <span
+        class="_list_count_4931dd"
+      >
+        4
+      </span>
+    </div>
+    <div
+      class="_list_1dd828 _list_border_1dd828"
       style="--rc-list-bg-color: #fff; --rc-list-max-height: 350px; --rc-list-min-height: 100px;"
     >
       <div
-        class="_wrapper_a434d8"
+        class="_wrapper_1dd828"
       >
         <ul
-          aria-label="rc-list-label-undefined"
-          class="_list_options_a434d8"
+          aria-label="List of options"
+          class="_list_options_1dd828"
+          id=""
           role="listbox"
           style="--rc-list-height: 185px;"
         >
           <li
             aria-checked="false"
-            class="_list_option_59faf9"
+            aria-selected="false"
+            class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 5px;"
             tabindex="0"
           >
             <div
-              class="_list_item_wrapper_59faf9"
+              class="_list_item_wrapper_6d18db"
               style="height: 100%; width: 100%;"
             >
               <div
-                class="_value_wrapper_59faf9 _sm_59faf9"
+                class="_value_wrapper_6d18db _sm_6d18db"
                 style="--text-color: #000;"
               >
                 <span
-                  class="_icon_59faf9"
+                  class="_icon_6d18db"
                 >
                   <svg
                     class="prefix__feather prefix__feather-check"
@@ -54,7 +74,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="_value_59faf9"
+                  class="_value_6d18db"
                 >
                   five
                 </span>
@@ -63,21 +83,22 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
-            class="_list_option_59faf9"
+            aria-selected="false"
+            class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 50px;"
             tabindex="0"
           >
             <div
-              class="_list_item_wrapper_59faf9"
+              class="_list_item_wrapper_6d18db"
               style="height: 100%; width: 100%;"
             >
               <div
-                class="_value_wrapper_59faf9 _sm_59faf9"
+                class="_value_wrapper_6d18db _sm_6d18db"
                 style="--text-color: #000;"
               >
                 <span
-                  class="_icon_59faf9"
+                  class="_icon_6d18db"
                 >
                   <svg
                     class="prefix__feather prefix__feather-check"
@@ -95,7 +116,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="_value_59faf9"
+                  class="_value_6d18db"
                 >
                   one
                 </span>
@@ -104,21 +125,22 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
-            class="_list_option_59faf9"
+            aria-selected="false"
+            class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 95px;"
             tabindex="0"
           >
             <div
-              class="_list_item_wrapper_59faf9"
+              class="_list_item_wrapper_6d18db"
               style="height: 100%; width: 100%;"
             >
               <div
-                class="_value_wrapper_59faf9 _sm_59faf9"
+                class="_value_wrapper_6d18db _sm_6d18db"
                 style="--text-color: #000;"
               >
                 <span
-                  class="_icon_59faf9"
+                  class="_icon_6d18db"
                 >
                   <svg
                     class="prefix__feather prefix__feather-check"
@@ -136,7 +158,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="_value_59faf9"
+                  class="_value_6d18db"
                 >
                   six
                 </span>
@@ -145,21 +167,22 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
-            class="_list_option_59faf9"
+            aria-selected="false"
+            class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 140px;"
             tabindex="0"
           >
             <div
-              class="_list_item_wrapper_59faf9"
+              class="_list_item_wrapper_6d18db"
               style="height: 100%; width: 100%;"
             >
               <div
-                class="_value_wrapper_59faf9 _sm_59faf9"
+                class="_value_wrapper_6d18db _sm_6d18db"
                 style="--text-color: #000;"
               >
                 <span
-                  class="_icon_59faf9"
+                  class="_icon_6d18db"
                 >
                   <svg
                     class="prefix__feather prefix__feather-check"
@@ -177,7 +200,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="_value_59faf9"
+                  class="_value_6d18db"
                 >
                   two
                 </span>
@@ -189,19 +212,20 @@ exports[`Transfer > should render transfer snapshot 1`] = `
     </div>
   </section>
   <section
-    class="_control_column_ce9ebc"
+    aria-label="Transfer controls"
+    class="_control_column_4931dd"
+    role="group"
   >
-    <div
+    <button
       aria-busy="false"
-      aria-disabled="true"
-      aria-label=""
-      class="_disabled_155e98 _rounded_155e98 _sm_155e98 _icon_155e98 _btn_155e98"
-      role="button"
+      aria-label="Move selected to selected"
+      class="_disabled_3e1769 _rounded_3e1769 _sm_3e1769 _icon_3e1769 _btn_3e1769"
+      disabled=""
       style="outline: none; position: relative;"
-      tabindex="0"
+      type="button"
     >
       <span
-        class="_icon_container_155e98"
+        class="_icon_container_3e1769"
       >
         <svg
           fill="none"
@@ -218,21 +242,20 @@ exports[`Transfer > should render transfer snapshot 1`] = `
         </svg>
       </span>
       <span
-        class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
+        class="_focus_ring_dc5437 _focus_ring_inactive_dc5437"
         style="width: 6px; height: 6px;"
       />
-    </div>
-    <div
+    </button>
+    <button
       aria-busy="false"
-      aria-disabled="true"
-      aria-label=""
-      class="_disabled_155e98 _rounded_155e98 _sm_155e98 _icon_155e98 _btn_155e98"
-      role="button"
+      aria-label="Move selected to available"
+      class="_disabled_3e1769 _rounded_3e1769 _sm_3e1769 _icon_3e1769 _btn_3e1769"
+      disabled=""
       style="transform: rotate(180deg); outline: none; position: relative;"
-      tabindex="0"
+      type="button"
     >
       <span
-        class="_icon_container_155e98"
+        class="_icon_container_3e1769"
       >
         <svg
           fill="none"
@@ -249,44 +272,61 @@ exports[`Transfer > should render transfer snapshot 1`] = `
         </svg>
       </span>
       <span
-        class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
+        class="_focus_ring_dc5437 _focus_ring_inactive_dc5437"
         style="width: 6px; height: 6px;"
       />
-    </div>
+    </button>
   </section>
   <section
-    class="transfer-column2"
+    aria-label="Selected items (4 items)"
+    id="transfer-list-right-t6GHwjdkE7CbrtsnBjU74"
   >
     <div
-      class="_list_a434d8 _list_border_a434d8"
+      class="_list_header_4931dd"
+    >
+      <span
+        class="_list_title_4931dd"
+      >
+        Selected
+      </span>
+      <span
+        class="_list_count_4931dd"
+      >
+        4
+      </span>
+    </div>
+    <div
+      class="_list_1dd828 _list_border_1dd828"
       style="--rc-list-bg-color: #fff; --rc-list-max-height: 350px; --rc-list-min-height: 100px;"
     >
       <div
-        class="_wrapper_a434d8"
+        class="_wrapper_1dd828"
       >
         <ul
-          aria-label="rc-list-label-undefined"
-          class="_list_options_a434d8"
+          aria-label="List of options"
+          class="_list_options_1dd828"
+          id=""
           role="listbox"
           style="--rc-list-height: 185px;"
         >
           <li
             aria-checked="false"
-            class="_list_option_59faf9"
+            aria-selected="false"
+            class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 5px;"
             tabindex="0"
           >
             <div
-              class="_list_item_wrapper_59faf9"
+              class="_list_item_wrapper_6d18db"
               style="height: 100%; width: 100%;"
             >
               <div
-                class="_value_wrapper_59faf9 _sm_59faf9"
+                class="_value_wrapper_6d18db _sm_6d18db"
                 style="--text-color: #000;"
               >
                 <span
-                  class="_icon_59faf9"
+                  class="_icon_6d18db"
                 >
                   <svg
                     class="prefix__feather prefix__feather-check"
@@ -304,7 +344,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="_value_59faf9"
+                  class="_value_6d18db"
                 >
                   eight
                 </span>
@@ -313,21 +353,22 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
-            class="_list_option_59faf9"
+            aria-selected="false"
+            class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 50px;"
             tabindex="0"
           >
             <div
-              class="_list_item_wrapper_59faf9"
+              class="_list_item_wrapper_6d18db"
               style="height: 100%; width: 100%;"
             >
               <div
-                class="_value_wrapper_59faf9 _sm_59faf9"
+                class="_value_wrapper_6d18db _sm_6d18db"
                 style="--text-color: #000;"
               >
                 <span
-                  class="_icon_59faf9"
+                  class="_icon_6d18db"
                 >
                   <svg
                     class="prefix__feather prefix__feather-check"
@@ -345,7 +386,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="_value_59faf9"
+                  class="_value_6d18db"
                 >
                   four
                 </span>
@@ -354,21 +395,22 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
-            class="_list_option_59faf9"
+            aria-selected="false"
+            class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 95px;"
             tabindex="0"
           >
             <div
-              class="_list_item_wrapper_59faf9"
+              class="_list_item_wrapper_6d18db"
               style="height: 100%; width: 100%;"
             >
               <div
-                class="_value_wrapper_59faf9 _sm_59faf9"
+                class="_value_wrapper_6d18db _sm_6d18db"
                 style="--text-color: #000;"
               >
                 <span
-                  class="_icon_59faf9"
+                  class="_icon_6d18db"
                 >
                   <svg
                     class="prefix__feather prefix__feather-check"
@@ -386,7 +428,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="_value_59faf9"
+                  class="_value_6d18db"
                 >
                   seven
                 </span>
@@ -395,21 +437,22 @@ exports[`Transfer > should render transfer snapshot 1`] = `
           </li>
           <li
             aria-checked="false"
-            class="_list_option_59faf9"
+            aria-selected="false"
+            class="_list_option_6d18db"
             role="option"
             style="height: 40px; top: 140px;"
             tabindex="0"
           >
             <div
-              class="_list_item_wrapper_59faf9"
+              class="_list_item_wrapper_6d18db"
               style="height: 100%; width: 100%;"
             >
               <div
-                class="_value_wrapper_59faf9 _sm_59faf9"
+                class="_value_wrapper_6d18db _sm_6d18db"
                 style="--text-color: #000;"
               >
                 <span
-                  class="_icon_59faf9"
+                  class="_icon_6d18db"
                 >
                   <svg
                     class="prefix__feather prefix__feather-check"
@@ -427,7 +470,7 @@ exports[`Transfer > should render transfer snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="_value_59faf9"
+                  class="_value_6d18db"
                 >
                   three
                 </span>
@@ -438,5 +481,12 @@ exports[`Transfer > should render transfer snapshot 1`] = `
       </div>
     </div>
   </section>
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    class="sr-only"
+    id="transfer-announce-mFiNtUnhTUcpNcv7tY3NJ"
+    role="status"
+  />
 </div>
 `;

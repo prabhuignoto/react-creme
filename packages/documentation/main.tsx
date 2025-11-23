@@ -17,17 +17,27 @@ import { BrowserRouter } from 'react-router-dom';
 
 const Root = ReactDOM.createRoot(document.getElementById('root'));
 
+// Enable axe-core accessibility checks in development
+if (import.meta.env.DEV) {
+  (async () => {
+    const { default: axe } = await import('@axe-core/react');
+    const ReactDOMLegacy = await import('react-dom');
+    // 1000ms debounce to avoid flooding the console during rapid updates
+    axe(React, ReactDOMLegacy as unknown as typeof import('react-dom'), 1000);
+  })();
+}
+
 if (process.env.NODE_ENV === 'production') {
   Sentry.init({
     dsn: 'https://f95fae83de7c42e48df3691166d06de0@o1116896.ingest.sentry.io/6150784',
 
     integrations: [
       Sentry.reactRouterV7BrowserTracingIntegration({
+        createRoutesFromChildren,
+        matchRoutes,
         useEffect: React.useEffect,
         useLocation,
         useNavigationType,
-        createRoutesFromChildren,
-        matchRoutes,
       }),
     ],
     // Alternatively, use `process.env.npm_package_version` for a dynamic release version

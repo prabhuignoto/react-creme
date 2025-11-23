@@ -1,12 +1,22 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/list.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
 
 .bread_crumbs_wrapper {
-  @extend %left;
-  margin: 0;
-  padding: 0;
+  @extend %list-horizontal-left-wrap;
+  border-radius: hybrid.$radius-sm;
+  outline: none;
+  @include hybrid.smooth-transition(box-shadow);
+
+  // Visual focus indicator when container is focused (keyboard navigation)
+  &:focus-visible {
+    box-shadow: 0 0 0 2px rgba(theme.$primary-rgb, 0.3);
+  }
 
   &.rtl {
     direction: rtl;
@@ -14,12 +24,27 @@ $sizes: (sm, md, lg);
 }
 
 .bread_crumb {
-  @extend %list-item !optional;
+  align-items: center;
   cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  gap: $spacing-xs;
+
+  &:not(:first-child) {
+    margin-left: $spacing-sm;
+  }
+
+  // Mobile: Allow wrapping if needed
+  @media (max-width: 640px) {
+    max-width: 200px;
+  }
 }
 
 .bread_crumb_icon {
-  margin-inline: 0.5rem;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
 
   &.rtl_icon {
     transform: rotate(-180deg);
@@ -37,15 +62,37 @@ $sizes: (sm, md, lg);
 }
 
 .bread_crumb_node {
-  @extend %center;
   @extend %border-radius;
-  padding: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &.selected {
+    background-color: rgba(theme.$primary-rgb, 0.1);
+    color: theme.$primary;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
 
   @each $size in $sizes {
     &.bread_crumb_node_#{$size} {
       > * {
         @extend %font-#{$size};
       }
+    }
+  }
+
+  // Mobile: Ensure text truncates gracefully
+  @media (max-width: 640px) {
+    max-width: 150px;
+
+    > * {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }

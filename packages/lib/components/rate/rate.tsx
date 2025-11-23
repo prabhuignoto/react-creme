@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useFirstRender } from '../common/effects/useFirstRender';
+import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { RateItem } from './rate-item';
 import { RateItemProps, RateProps } from './rate-model';
 import styles from './rate.module.scss';
@@ -65,7 +66,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
 
       if (!onChange) return;
 
-      if (ratingValues.length) {
+      if (ratingValues.length && ratingValues[idx] !== undefined) {
         onChange(ratingValues[idx]);
       } else {
         onChange(idx + 1);
@@ -90,6 +91,22 @@ const Rate: React.FunctionComponent<RateProps> = ({
       lastHoverIndex.current = -1;
     }
   }, 10);
+
+  // Keyboard navigation between rate items
+  const wrapperRef = useRef<HTMLElement>(null!);
+  useKeyNavigation(
+    wrapperRef,
+    selectedIndex >= 0 ? selectedIndex : -1,
+    iconCount,
+    {
+      onNavigate: (index: number) => {
+        handleSelection(index);
+      },
+      orientation: 'horizontal',
+      rtl: RTL,
+      wrap: true,
+    }
+  );
 
   // Effect to update the active state of rate items when the selected index changes
   useEffect(() => {
@@ -123,10 +140,13 @@ const Rate: React.FunctionComponent<RateProps> = ({
   }, [disabled, RTL]);
 
   return (
-    <ul
+    <div
       className={rateWrapperClass}
       role="radiogroup"
+      aria-label="rating"
       onMouseLeave={handleLeave}
+      ref={wrapperRef as React.RefObject<HTMLDivElement>}
+      tabIndex={-1}
     >
       {items.map(({ id, active, hovered }, index) => (
         <RateItem
@@ -143,7 +163,7 @@ const Rate: React.FunctionComponent<RateProps> = ({
           disabled={disabled}
         />
       ))}
-    </ul>
+    </div>
   );
 };
 

@@ -1,55 +1,267 @@
+/* ============================================
+   Shiki Syntax Highlighter - Modern Styling
+   ============================================ */
+
 .rc-demo-code-block {
-  align-items: center;
-  border-radius: 4px;
-  display: flex;
-  font-size: 0.9rem;
-  justify-content: flex-start;
-  margin: 0.5rem 0;
-  min-height: 50px;
-  overflow-y: auto;
   position: relative;
   width: 100%;
+  margin: var(--spacing-lg) 0;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
 
-  pre {
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--rc-primary-color-hex, #007bff);
   }
 
-  .rc-accordion-icon {
-    color: #0074b7;
-  }
-
-  .rc-accordion-title {
-    color: #0074b7;
+  /* Adjust padding when file name is present */
+  &.has-file-name {
+    padding-top: 2.5rem;
   }
 }
 
-.rc-demo-code-copy-btn {
-  align-items: center;
-  background-color: var(--rc-tertiary-color-hex);
-  border-radius: 4px;
-  color: var(--rc-primary-color-hex);
-  cursor: pointer;
-  display: flex;
-  height: 2rem;
-  justify-content: center;
+/* File Name Tab */
+.rc-demo-code-file-name {
   position: absolute;
-  right: 1rem;
-  top: 1rem;
-  width: 2rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--bg-tertiary, #f5f5f5);
+  border-bottom: 1px solid var(--border-color);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  z-index: 1;
 
-  &:hover {
-    background-color: var(--rc-primary-color-hex);
-    color: #fff;
-    // background-color: rgba($color: #000, $alpha: 0.85);
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::before {
+      content: '📄';
+      font-size: 0.875rem;
+    }
   }
+}
+
+/* Copy Button */
+.rc-demo-code-copy-btn {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  opacity: 0;
+  transform: translateY(-4px);
 
   svg {
-    height: 50%;
-    width: 50%;
+    width: 18px;
+    height: 18px;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  &:hover {
+    background: var(--rc-primary-color-hex, #007bff);
+    border-color: var(--rc-primary-color-hex, #007bff);
+    transform: translateY(0);
+    box-shadow: var(--shadow-md);
+
+    svg {
+      color: #fff;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--rc-primary-color-hex, #007bff);
+    outline-offset: 2px;
+  }
+}
+
+.rc-demo-code-block:hover .rc-demo-code-copy-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Code Content */
+.rc-demo-code-content {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+
+    &:hover {
+      background: var(--text-secondary);
+    }
+  }
+
+  /* Shiki generated pre/code */
+  pre {
+    margin: 0 !important;
+    padding: var(--spacing-xl) !important;
+    border-radius: 0 !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.75rem !important;
+    line-height: 1.6 !important;
+    overflow-x: auto;
+    counter-reset: line;
+
+    code {
+      font-family: var(--font-mono) !important;
+      font-size: 0.75rem !important;
+      font-weight: 400 !important;
+      white-space: pre;
+      word-wrap: normal;
+      word-break: normal;
+      tab-size: 2;
+      display: block;
+    }
+  }
+
+  /* Line numbers support */
+  &.has-line-numbers pre code {
+    .line {
+      display: inline-block;
+      width: 100%;
+      padding-left: 3.5rem;
+      position: relative;
+
+      &::before {
+        counter-increment: line;
+        content: counter(line);
+        position: absolute;
+        left: 0;
+        width: 3rem;
+        text-align: right;
+        padding-right: 1rem;
+        color: var(--text-tertiary, #999);
+        font-size: 0.875em;
+        user-select: none;
+      }
+
+      /* Highlighted line */
+      &.line-highlight {
+        background: rgba(var(--rc-primary-color-rgb, 0, 123, 255), 0.1);
+        border-left: 3px solid var(--rc-primary-color-hex, #007bff);
+        margin-left: -0.5rem;
+        padding-left: calc(3.5rem - 3px);
+
+        &::before {
+          color: var(--rc-primary-color-hex, #007bff);
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  /* With line numbers - adjust code padding */
+  .rc-demo-code-content.with-line-numbers pre {
+    padding-left: 0.5rem !important;
+  }
+}
+
+/* Loading State */
+.rc-demo-code-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-2xl);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.rc-demo-code-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--rc-primary-color-hex, #007bff);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dark mode adjustments */
+.dark .rc-demo-code-block {
+  background: #1e1e1e;
+  border-color: #333;
+
+  .rc-demo-code-file-name {
+    background: #2d2d2d;
+    border-bottom-color: #444;
+    color: #aaa;
+  }
+
+  .rc-demo-code-copy-btn {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+
+  .rc-demo-code-content pre {
+    background: rgba(255, 255, 255, 0.03) !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rc-demo-code-content pre {
+    padding: var(--spacing-lg) !important;
+    font-size: 0.7 !important;
+  }
+
+  .rc-demo-code-content pre code {
+    font-size: 0.7 !important;
+  }
+
+  .rc-demo-code-copy-btn {
+    opacity: 1;
+    width: 32px;
+    height: 32px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
   }
 }

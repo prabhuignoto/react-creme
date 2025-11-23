@@ -30,8 +30,8 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
   focusable,
   size,
 }: CarouselTrackProps) => {
-  // Determine if the dark mode is enabled.
-  const isDarkMode = useMemo(() => isDark(), []);
+  // Determine if the dark mode is enabled (no need for useMemo).
+  const isDarkMode = isDark();
 
   // Compute the classnames for the carousel track.
   const carouselTrackClass = useMemo(
@@ -42,7 +42,7 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
           ? styles.track_horizontal
           : styles.track_vertical,
       ]),
-    []
+    [direction]
   );
 
   // Compute the classnames for the carousel container.
@@ -63,6 +63,45 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
     [handleSelection]
   );
 
+  // Keyboard navigation handler for track dots
+  const handleKeyDown = useCallback(
+    (ev: React.KeyboardEvent, currentIndex: number) => {
+      let newIndex: number | null = null;
+
+      switch (ev.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+          ev.preventDefault();
+          newIndex =
+            currentIndex < length - 1 ? currentIndex + 1 : currentIndex;
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          ev.preventDefault();
+          newIndex = currentIndex > 0 ? currentIndex - 1 : currentIndex;
+          break;
+        case 'Home':
+          ev.preventDefault();
+          newIndex = 0;
+          break;
+        case 'End':
+          ev.preventDefault();
+          newIndex = length - 1;
+          break;
+        default:
+          return;
+      }
+
+      if (newIndex !== null && newIndex !== currentIndex) {
+        handleItemSelection(newIndex);
+        // Focus the new button
+        const buttons = document.querySelectorAll('[role="tab"]');
+        (buttons[newIndex] as HTMLButtonElement)?.focus();
+      }
+    },
+    [length, handleItemSelection]
+  );
+
   // Render the CarouselTrack component.
   return (
     <div className={carouselContainerClass}>
@@ -75,20 +114,30 @@ const CarouselTrack: React.FunctionComponent<CarouselTrackProps> = ({
         label="Previous"
         size={size}
       />
-      <ul className={carouselTrackClass} role="list">
+      <div
+        className={carouselTrackClass}
+        role="tablist"
+        aria-label="Carousel slides"
+      >
         {Array.from({ length }).map((_, index) => (
-          <li
+          <button
             key={index}
-            role="listitem"
+            type="button"
+            role="tab"
+            aria-selected={index === activeIndex}
+            aria-label={`Go to slide ${index + 1}`}
+            aria-controls={`carousel-slide-${index}`}
+            tabIndex={index === activeIndex ? 0 : -1}
             className={classNames([
               styles.track_item,
               index === activeIndex ? styles.track_item_selected : '',
               isDarkMode ? styles.dark : '',
             ])}
             onClick={() => handleItemSelection(index)}
-          ></li>
+            onKeyDown={ev => handleKeyDown(ev, index)}
+          />
         ))}
-      </ul>
+      </div>
       <CarouselButton
         onClick={onNext}
         position="right"

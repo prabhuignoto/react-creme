@@ -36,12 +36,12 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
   onRendered,
   selected = false,
   title,
-  titleColor = '#000',
+  titleColor,
   transition = 'cubic-bezier(0.19, 1, 0.22, 1)',
   disableARIA,
   size = 'sm',
   animate = true,
-  fullWidth = false,
+  fullWidth = true,
   colorizeHeader = false,
   headerHeight = 40,
 }: AccordionProps) => {
@@ -80,15 +80,16 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
         [styles.close]: !open,
         [styles.open]: open && !isFirstRender.current,
       }),
-    [open, animate, isFirstRender]
+    [open, animate] // isFirstRender.current changes don't need re-computation
   );
 
   // Define the inline style for the accordion's body
+  // transition prop defaults to Hybrid Theme spring easing via CSS var
   const style = useMemo(
     () => ({
       '--icon-color': iconColor,
       '--title-color': titleColor,
-      '--transition': transition,
+      '--transition': transition || 'cubic-bezier(0.34, 1.56, 0.64, 1)', // Default to Hybrid Theme spring easing
     }),
     [iconColor, titleColor, transition]
   );
@@ -133,9 +134,13 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
     }
 
     if (open) {
-      onExpanded && onExpanded(accordionID.current);
+      if (onExpanded) {
+        onExpanded(accordionID.current);
+      }
     } else {
-      onCollapsed && onCollapsed(accordionID.current);
+      if (onCollapsed) {
+        onCollapsed(accordionID.current);
+      }
     }
   }, [open, onExpanded, onCollapsed, isFirstRender]);
 

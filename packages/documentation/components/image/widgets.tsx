@@ -5,10 +5,10 @@ import { Default, Expand } from './widget-variants';
 function widgets() {
   return (
     <div className={'rc-demo-widgets'}>
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget name="Image">{Default}</DemoWidget>
       </Section>
-      <Section size="md" title="Expandable Image">
+      <Section size="md" title="Expandable Image" border={false}>
         <Text>
           use <code>expandImageOnClick</code> to make image expandable on click.
         </Text>

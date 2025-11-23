@@ -108,7 +108,7 @@ function slider() {
           type: 'boolean',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-acenzu']}
       demoWidget={<Widgets />}
       title="Slider"

@@ -140,7 +140,7 @@ function index() {
           type: 'String',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>
   );

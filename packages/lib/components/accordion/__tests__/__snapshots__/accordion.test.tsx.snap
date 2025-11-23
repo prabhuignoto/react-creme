@@ -2,49 +2,54 @@
 
 exports[`Accordion > should render snapshot 1`] = `
 <div
-  class="_accordion_f93c7f _no-border_f93c7f"
+  class="_accordion_11ec01 _no-border_11ec01"
 >
-  <div
-    aria-controls="accordion-body-YkuBLKr4k998FurHMOqUk"
-    aria-expanded="false"
-    class="_header_c2ceb5 _focusable_c2ceb5 _size_c2ceb5"
-    id="accordion-8a-wHoskZsg5j1Ov9lMsU"
-    role="heading"
-    style="--rc-accordion-header-height: 40px; outline: none; position: relative;"
-    tabindex="0"
+  <h3
+    class="_header_993be4 rc-accordion-header"
+    style="--rc-accordion-header-height: 40px;"
   >
-    <span
-      class="_icon_c2ceb5 _icon-chevron_c2ceb5 _icon-sm_c2ceb5"
-      role="img"
+    <button
+      aria-controls="accordion-body-hGgzhT30pmrCh3Dl5SDkG"
+      aria-expanded="false"
+      class="_button_993be4 _focusable_993be4 _full_width_993be4 _size_993be4"
+      id="accordion-8UXql_50wQ47G3vuVnxqs"
+      style="outline: none; position: relative;"
+      tabindex="0"
+      type="button"
     >
-      <svg
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <span
+        aria-hidden="true"
+        class="_icon_993be4 _icon-chevron_993be4 _icon-sm_993be4"
       >
-        <path
-          d="M9 18l6-6-6-6"
-        />
-      </svg>
-    </span>
-    <span
-      class="_title_c2ceb5 _title_sm_c2ceb5"
-    />
-    <span
-      class="_focus_ring_4c7b07 _focus_ring_inactive_4c7b07"
-      style="width: 6px; height: 6px;"
-    />
-  </div>
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 18l6-6-6-6"
+          />
+        </svg>
+      </span>
+      <span
+        class="_title_993be4 _title_sm_993be4"
+      />
+      <span
+        class="_focus_ring_dc5437 _focus_ring_inactive_dc5437"
+        style="width: 6px; height: 6px;"
+      />
+    </button>
+  </h3>
   <div
-    aria-labelledby="accordion-8a-wHoskZsg5j1Ov9lMsU"
-    class="_body_f93c7f _animate_f93c7f _close_f93c7f"
-    id="accordion-body-YkuBLKr4k998FurHMOqUk"
+    aria-labelledby="accordion-8UXql_50wQ47G3vuVnxqs"
+    class="_body_11ec01 _animate_11ec01 _close_11ec01"
+    id="accordion-body-hGgzhT30pmrCh3Dl5SDkG"
     role="region"
-    style="--title-color: #000; --transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
+    style="--transition: cubic-bezier(0.19, 1, 0.22, 1); --max-height: 0px;"
   >
     <div
       style="height: 0px; visibility: hidden;"

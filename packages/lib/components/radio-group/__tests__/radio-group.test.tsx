@@ -1,3 +1,5 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { RadioGroup } from '../radio-group';
@@ -25,6 +27,15 @@ describe('Radio Group', () => {
 
     await waitFor(async () => {
       expect(handler).toBeCalledWith('one');
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<RadioGroup />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

@@ -17,6 +17,22 @@ export { DataGrid } from './data-grid/data-grid';
 export { Dialog } from './dialog/dialog';
 export { Drawer } from './drawer/drawer';
 export { Dropdown } from './dropdown/dropdown';
+export { FileUpload } from './file-upload/file-upload';
+export type {
+  FileItem,
+  FileUploadError,
+  FileUploadErrorType,
+  FileUploadProps,
+  FileUploadRef,
+} from './file-upload/file-upload-model';
+export { useFileValidation } from './common/effects/useFileValidation';
+export type { UseFileValidationOptions } from './common/effects/useFileValidation';
+export { useFilePreview } from './common/effects/useFilePreview';
+export type { UseFilePreviewOptions } from './common/effects/useFilePreview';
+export { useFileDragDrop } from './common/effects/useFileDragDrop';
+export type { UseFileDragDropOptions } from './common/effects/useFileDragDrop';
+export { useFileProcessing } from './common/effects/useFileProcessing';
+export type { UseFileProcessingOptions } from './common/effects/useFileProcessing';
 export { FormField } from './form-field/form-field';
 export { FormGroup } from './form-group/form-group';
 export { Gallery } from './gallery/gallery';

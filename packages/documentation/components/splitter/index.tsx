@@ -7,7 +7,7 @@ import Widgets from './widgets';
 function splitter() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-blpdcl']}
       description="Splitter is a component that can be used to split the screen into two parts. It can be used to create a left and right panel."
       title="Splitter"

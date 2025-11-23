@@ -1,3 +1,5 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { describe, it, vi } from 'vitest';
 import { InputNumber } from '../input-number';
@@ -99,5 +101,14 @@ describe('Input Number', () => {
     });
 
     await waitFor(() => expect((input as HTMLInputElement).value).toBe('123'));
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<InputNumber placeholder="Enter number" />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

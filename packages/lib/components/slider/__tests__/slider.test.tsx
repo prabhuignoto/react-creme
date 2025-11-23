@@ -1,3 +1,5 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 // Removed unused React import
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
@@ -125,5 +127,14 @@ describe('Slider Component', () => {
       `slider value is ${value}`
     );
     expect(slider.getAttribute('aria-label')).toBe('slider');
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Slider />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

@@ -41,38 +41,52 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   const isFirstRender = useFirstRender();
   const menuRef = useRef(null);
   const [showMenu, setShowMenu] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
+
+  /**
+   * Handles exit animation then closes menu
+   */
+  const exitAndClose = useCallback(() => {
+    setIsExiting(true);
+    setTimeout(() => {
+      setShowMenu(false);
+      setIsExiting(false);
+      onClose?.();
+    }, 200);
+  }, [onClose]);
 
   /**
    * Handle the menu opening and closing
    */
   const toggleMenu = useCallback(() => {
-    setShowMenu(prev => {
-      if (prev) {
-        onClose?.();
-      }
-      return !prev;
-    });
-  }, []);
+    if (showMenu) {
+      exitAndClose();
+    } else {
+      setShowMenu(true);
+    }
+  }, [showMenu, exitAndClose]);
 
   /**
    * Handles the menu selection
    */
-  const handleSelection = useCallback((name: string) => {
-    if (onSelected) {
-      onSelected(name);
-    }
-    setShowMenu(false);
-    onClose?.();
-    wrapperRef.current?.focus();
-  }, []);
+  const handleSelection = useCallback(
+    (name: string) => {
+      if (onSelected) {
+        onSelected(name);
+      }
+      exitAndClose();
+      wrapperRef.current?.focus();
+    },
+    [onSelected, exitAndClose]
+  );
 
   /**
    * Handles menu closure
    */
   const closeMenu = useCallback(() => {
-    setShowMenu(false);
+    exitAndClose();
     wrapperRef.current?.focus();
-  }, []);
+  }, [exitAndClose]);
 
   /**
    * Handler executed when the menu is rendered the first time
@@ -81,8 +95,11 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     const menu = menuRef.current as unknown as MenuOverlayProps;
 
     setTimeout(() => {
-      if (menu.element) {
-        menu.element.querySelectorAll('li')[0].focus();
+      if (menu && menu.element) {
+        const firstLi = menu.element.querySelectorAll('li')[0];
+        if (firstLi instanceof HTMLElement) {
+          firstLi.focus();
+        }
       }
     }, 10);
   }, []);
@@ -113,10 +130,16 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     }
 
     if (showMenu && wrapperRef.current) {
-      wrapperRef.current.focus();
-      onOpen && onOpen(id);
+      // Only focus wrapper if focusable is enabled
+      // This prevents focus battles with parent components
+      if (focusable) {
+        wrapperRef.current.focus();
+      }
+      if (onOpen) {
+        onOpen(id);
+      }
     }
-  }, [showMenu]);
+  }, [showMenu, focusable]);
 
   const onInitRef = useCallback((node: HTMLDivElement) => {
     if (node) {
@@ -142,38 +165,37 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   }, []);
 
   /**
-   * setup the focus props
+   * Handle keyboard events for menu button
    */
-  const focusProps = useMemo(
-    () =>
-      focusable
-        ? {
-            tabIndex: 0,
-          }
-        : null,
-    [focusable]
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleMenu();
+      }
+    },
+    [toggleMenu]
   );
 
   const handleClickOnOutside = useCallback(() => {
-    setShowMenu(prev => {
-      if (prev) {
-        onClose?.();
-        return !prev;
-      }
+    if (showMenu) {
+      exitAndClose();
+    }
+  }, [showMenu, exitAndClose]);
 
-      return prev;
-    });
-  }, []);
-
-  const { onRef } = useOnClickOutside(handleClickOnOutside);
+  const { ref } = useOnClickOutside(handleClickOnOutside);
 
   return (
-    <div className={menuWrapperClass} style={style} ref={onRef}>
+    <div className={menuWrapperClass} style={style} ref={ref}>
       <div
         className={menuContentWrapperClass}
         onClick={toggleMenu}
+        onKeyDown={handleKeyDown}
         ref={onInitRef}
-        {...focusProps}
+        role="button"
+        aria-haspopup="menu"
+        aria-expanded={showMenu}
+        tabIndex={0}
       >
         {children}
       </div>
@@ -195,6 +217,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
             hideArrow={hideArrow}
             leftOffset={leftOffset}
             RTL={RTL}
+            isExiting={isExiting}
           />
         </div>
       )}

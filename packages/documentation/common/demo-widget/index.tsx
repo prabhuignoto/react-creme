@@ -1,6 +1,7 @@
-import React, { CSSProperties, FunctionComponent, memo } from 'react';
-import { Accordion } from '../../../lib/components/accordion/accordion';
-// import { CodeIcon } from '../../../lib/icons';
+import React, { CSSProperties, FunctionComponent, memo, useState } from 'react';
+import { ChevronDown } from 'react-feather';
+import { CodeIcon } from '../../../lib/icons';
+import './demo-widget.scss';
 
 interface WidgetProps {
   children?: React.ReactNode;
@@ -30,8 +31,10 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
     component,
     codeString,
     name,
-    disableCode,
+    disableCode = false,
   }: WidgetProps) => {
+    const [isCodeExpanded, setIsCodeExpanded] = useState(showCodeByDefault);
+
     return (
       <div
         className="rc-demo-widget"
@@ -45,38 +48,43 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
         <div
           style={{
             height: height ? `${height}px` : '100%',
-            margin: '1rem 0',
+            margin: '0.5rem 0',
+            padding: '1rem',
             width: Number.isInteger(width) ? `${width}px` : width,
           }}
         >
           {children}
         </div>
-        <div style={{ width: '100%' }}>
-          {!showCodeByDefault && !disableCode ? (
-            <Accordion
-              title={customTitle}
-              border={false}
-              focusable={false}
-              expanded={showCodeByDefault}
-              disableCollapse={showCodeByDefault}
-              disableIcon={showCodeByDefault}
-              // customIcon={<CodeIcon />}
-              size="sm"
+        {!disableCode && (
+          <div className="demo-widget__code-section">
+            <button
+              className="demo-widget__code-toggle"
+              onClick={() => setIsCodeExpanded(!isCodeExpanded)}
+              type="button"
+              aria-expanded={isCodeExpanded}
+              aria-label={isCodeExpanded ? 'Hide code' : 'Show code'}
             >
-              <React.Suspense fallback={<span>loading ...</span>}>
+              <CodeIcon width={11} height={11} />
+              <span>{isCodeExpanded ? 'Hide Code' : customTitle}</span>
+              <ChevronDown
+                size={11}
+                className={isCodeExpanded ? 'rotated' : ''}
+              />
+            </button>
+
+            <div
+              className={`demo-widget__code-content ${
+                isCodeExpanded ? 'expanded' : 'collapsed'
+              }`}
+            >
+              <React.Suspense fallback={<span>loading...</span>}>
                 <CodeString name={name} code={codeString} component={component}>
                   {children}
                 </CodeString>
               </React.Suspense>
-            </Accordion>
-          ) : (
-            <React.Suspense fallback={<span>loading ...</span>}>
-              <CodeString name={name} code={codeString} component={component}>
-                {children}
-              </CodeString>
-            </React.Suspense>
-          )}
-        </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

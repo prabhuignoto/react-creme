@@ -1,0 +1,25 @@
+@use '@design/core.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
+
+.tree_root {
+  // Root tree container
+  @include hybrid.smooth-transition(max-height);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.tree_node {
+  // Nested tree node
+  padding-left: tokens.$space-6; // 1.5rem = 24px
+}
+
+.tree_item {
+  margin-bottom: tokens.$space-1; // 0.25rem = 4px
+}
+
+.tree_children {
+  margin: tokens.$space-2 0; // 0.5rem = 8px vertical
+}

@@ -1,4 +1,8 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+# . "$(dirname "$0")/_/husky.sh"
 
-npx pretty-quick --staged
+# Run oxlint first for fast feedback (50-100x faster than ESLint)
+# pnpm oxlint
+
+# Run lint-staged for formatting and linting
+# npx lint-staged

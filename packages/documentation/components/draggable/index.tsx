@@ -34,7 +34,7 @@ function Draggable() {
       ]}
       properties={[]}
       description={Description}
-      tabTitles={['Examples', 'Stackblitz']}
+      tabTitles={['Examples', 'Playground']}
       stackBlitzCodes={['react-ts-re75pw']}
       sourceId="common/effects/useDraggable.ts"
       editId="draggable"

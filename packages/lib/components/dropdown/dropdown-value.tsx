@@ -1,5 +1,6 @@
 import { ChevronDownIcon, CloseIcon } from '@icons';
 import cls from 'classnames';
+import { nanoid } from 'nanoid';
 import React, { CSSProperties, useEffect, useMemo } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';
@@ -23,8 +24,14 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
   containerRef,
   focus,
   size = 'sm',
+  label = 'dropdown',
 }: DropdownValueProps) => {
   const isDarkMode = useMemo(() => isDark(), []);
+
+  // Generate stable IDs for ARIA relationships
+  const dropdownId = useMemo(() => `dropdown-${nanoid(6)}`, []);
+  const menuId = useMemo(() => `${dropdownId}-menu`, [dropdownId]);
+  const labelId = useMemo(() => `${dropdownId}-label`, [dropdownId]);
 
   const rcDropdownValueClass = useMemo(
     () =>
@@ -91,27 +98,72 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
     }
   }, [focus]);
 
+  // Handle clear button keyboard interaction
+  const handleClearKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      onClear?.(e as unknown as React.MouseEvent);
+    }
+  };
+
   return (
     <div
+      id={dropdownId}
       className={rcDropdownValueClass}
       ref={containerRef}
       onClick={onToggle}
+      onKeyDown={e => {
+        if ((e.key === 'Enter' || e.key === ' ') && !disabled) {
+          e.preventDefault();
+          onToggle?.();
+        }
+      }}
       tabIndex={!disabled && focusable ? 0 : -1}
+      role="combobox"
       aria-disabled={disabled}
+      aria-expanded={showMenu}
+      aria-haspopup="listbox"
+      aria-controls={showMenu ? menuId : undefined}
+      aria-label={label}
     >
+      {/* Hidden label for screen readers */}
+      <span
+        id={labelId}
+        style={{
+          height: '1px',
+          left: '-10000px',
+          overflow: 'hidden',
+          position: 'absolute',
+          width: '1px',
+        }}
+      >
+        {label}
+      </span>
       {allowMultiSelection ? (
         Array.isArray(selectedValue) ? (
           <div className={styles.tags_wrapper}>
-            <Tags
-              items={selectedValue}
-              readonly
-              size={size}
-              tagStyle="fill"
-              tagWidth={60}
-              RTL={RTL}
-              wrap={false}
-              tagHeight={18}
-            />
+            {selectedValue.length > 0 ? (
+              <>
+                <Tags
+                  items={selectedValue.slice(0, 3)}
+                  readonly
+                  size={size}
+                  tagStyle="fill"
+                  tagWidth={80}
+                  RTL={RTL}
+                  wrap={false}
+                  tagHeight={20}
+                />
+                {selectedValue.length > 3 && (
+                  <span className={styles.tag_count}>
+                    +{selectedValue.length - 3} more
+                  </span>
+                )}
+              </>
+            ) : (
+              <span className={valueClass}>{placeholder}</span>
+            )}
           </div>
         ) : (
           <span className={valueClass}>{selectedValue}</span>
@@ -124,9 +176,11 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
           className={rcDropdownClearClass}
           role="button"
           data-testid="clear-icon"
-          aria-label="clear selection"
+          aria-label="Clear selection"
+          tabIndex={!disabled && !canHideClearButton && focusable ? 0 : -1}
           style={iconStyle}
           onClick={onClear}
+          onKeyDown={handleClearKeyDown}
         >
           <CloseIcon />
         </span>
@@ -134,7 +188,8 @@ const DropdownValue: React.FunctionComponent<DropdownValueProps> = ({
       <span
         className={rcDropdownIconClass}
         role="img"
-        aria-label="clear selection"
+        aria-label={showMenu ? 'Collapse dropdown' : 'Expand dropdown'}
+        aria-hidden="true"
         data-testid="chevron-icon"
         style={iconStyle}
       >

@@ -79,7 +79,7 @@ function rate() {
           type: 'Boolean',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-lqtbt6']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

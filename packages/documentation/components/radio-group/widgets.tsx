@@ -28,12 +28,12 @@ function Widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget name="RadioGroup" width={width}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom layout">
+      <Section size="md" title="Custom layout" border={false}>
         <Text>
           The Layout of the RadioGroup can be customized to be either{' '}
           <code>row</code> or <code>column</code>.
@@ -42,7 +42,7 @@ function Widgets() {
           {CustomLayout}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Disabled option">
+      <Section size="md" title="Disabled option" border={false}>
         <Text>
           Disable a specific option by setting the disabled property to true.
         </Text>
@@ -50,7 +50,7 @@ function Widgets() {
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
+      <Section size="md" title="RTL" border={false}>
         <DemoWidget name="RadioGroup" width={width}>
           {RTL}
         </DemoWidget>

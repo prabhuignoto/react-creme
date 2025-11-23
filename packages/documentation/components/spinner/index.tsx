@@ -42,7 +42,7 @@ function spinner() {
           type: 'string',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-acenzu']}
       demoWidget={<Widgets />}
       title="Spinner"

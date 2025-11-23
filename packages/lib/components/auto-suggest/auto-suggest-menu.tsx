@@ -17,19 +17,27 @@ type SuggestMenuData = {
 // Extend the OverlayModel to include specific props for SuggestionsOverlay
 interface SuggestionsOverlayModel extends OverlayModel<SuggestMenuData> {
   id?: string;
+  menuId?: string;
   onSelection: (option: ListOption[]) => void;
+  onActiveDescendantChange?: (id: string | undefined) => void;
   size?: 'sm' | 'md' | 'lg';
   width?: number;
+  virtualized?: boolean;
+  itemHeight?: number;
+  overscan?: number;
 }
 
 // Define the SuggestionsMenu component.
 const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
   onSelection,
   id,
+  menuId,
   width,
   data,
   size,
   onClose,
+  virtualized = false,
+  itemHeight = 35,
 }) => {
   // Define styles dynamically based on width prop.
   const style = useMemo<CSSProperties | undefined>(() => {
@@ -51,10 +59,10 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
   }, [data?.focus]);
 
   // a custom hook to close the dropdown when clicking outside.
-  const { onRef } = useOnClickOutside(onClose);
+  const { ref: onRef } = useOnClickOutside(onClose);
 
   // Determine if the app is running in dark mode.
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark();
 
   // Calculate the classnames for the div wrapper.
   const suggestionsClass = useMemo(
@@ -66,22 +74,28 @@ const SuggestionsMenu: React.FunctionComponent<SuggestionsOverlayModel> = ({
   );
 
   // Render the List inside a div wrapper.
+  // Note: role="listbox" is applied to the List component's <ul>,
+  // not to the wrapper, to maintain proper ARIA hierarchy
   return (
     <div
       className={suggestionsClass}
       style={style}
       ref={onRef}
       data-testid="suggestions-wrapper"
+      id={menuId}
     >
       <List
         options={data?.items || []}
         onSelection={onSelection}
         showCheckIcon={false}
-        itemHeight={35}
+        itemHeight={itemHeight}
         id={id}
         border={false}
         ref={ref}
         size={size}
+        virtualized={virtualized}
+        maxHeight={300}
+        minHeight={100}
       />
     </div>
   );

@@ -1,70 +1,51 @@
-import { faAccessibleIcon } from '@fortawesome/free-brands-svg-icons';
-import {
-  faBolt,
-  faCog,
-  faCubes,
-  faDumbbell,
-  faPalette,
-  faSun,
-  faWrench,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Hero } from './hero';
 import { NavBar } from './navbar';
-import { ProductFeatureProps, ProductFeatures } from './product-feature';
+import { HeroV2 } from './sections/hero-v2';
+import { StatsBar } from './sections/stats-bar';
+import { WhyReactCreme } from './sections/why-react-creme';
+import { Features } from './sections/features';
+import { LiveShowcase } from './sections/live-showcase';
+import { DeveloperExperience } from './sections/developer-experience';
+import { ComparisonTable } from './sections/comparison-table';
+import { FAQ } from './sections/faq';
+import { FinalCTA } from './sections/final-cta';
+import { ScrollToTop } from './components/scroll-to-top';
 import styles from './styles/landing.module.scss';
-
-const features: ProductFeatureProps[] = [
-  {
-    description: `Build enterprise grade beautiful and robust React applications with confidence and ease`,
-    icon: <FontAwesomeIcon icon={faBolt} key="feather" size="2x" />,
-    title: 'Robust UI components',
-  },
-  {
-    description: `Fully customizable UI elements with fine grained control over the look and feel.`,
-    icon: <FontAwesomeIcon icon={faWrench} key="wrench" size="2x" />,
-    title: 'Customizable UI elements',
-  },
-  {
-    description: `Ready to use high-quality UI components for common scenarios and use cases`,
-    icon: <FontAwesomeIcon icon={faCubes} key="feather2" size="2x" />,
-    title: '45+ UI Components',
-  },
-  {
-    description: `Fully accessible UI components with support for keyboard navigation and screen readers`,
-    icon: <FontAwesomeIcon icon={faAccessibleIcon} key="feather" size="2x" />,
-    title: 'Best in class Accessibility',
-  },
-  {
-    description: `Customize the colors of the components to match your brand identity`,
-    icon: <FontAwesomeIcon icon={faPalette} key="feather2" size="2x" />,
-    title: 'Solid support for color schemes',
-  },
-  {
-    description: `Brings in the power of Typescript to build robust and type safe applications`,
-    icon: <FontAwesomeIcon icon={faDumbbell} key="feather2" size="2x" />,
-    title: 'Built with Typescript',
-  },
-  {
-    description: 'Support for light and dark themes. Dark mode out of the box',
-    icon: <FontAwesomeIcon icon={faSun} key="feather" size="2x" />,
-    title: 'Light and Dark themes',
-  },
-  {
-    description: 'Easily configurable components with sensible defaults',
-    icon: <FontAwesomeIcon icon={faCog} key="feather" size="2x" />,
-    title: 'Configurable components',
-  },
-];
 
 const LandingPage = () => {
   return (
     <div className={styles.landing}>
+      {/* Navigation Bar */}
       <NavBar />
-      <Hero />
-      <div className={styles.features_wrapper}>
-        <ProductFeatures items={features} />
-      </div>
+
+      {/* Hero Section with new design */}
+      <HeroV2 />
+
+      {/* Stats Bar */}
+      <StatsBar />
+
+      {/* Why React Creme USP Section */}
+      <WhyReactCreme />
+
+      {/* Features Section - Accessibility, Testing, Docs */}
+      <Features />
+
+      {/* Live Components Showcase */}
+      <LiveShowcase />
+
+      {/* Developer Experience */}
+      <DeveloperExperience />
+
+      {/* Comparison Table */}
+      <ComparisonTable />
+
+      {/* FAQ Section */}
+      <FAQ />
+
+      {/* Final CTA */}
+      <FinalCTA />
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 };

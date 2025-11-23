@@ -1,3 +1,6 @@
+import React from 'react';
+import { axe } from 'jest-axe';
+import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { Section } from '../section';
 
@@ -24,5 +27,14 @@ describe('Section', () => {
       </Section>
     );
     expect(getByText('# test')).toBeInTheDocument();
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Section />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

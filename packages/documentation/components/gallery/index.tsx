@@ -78,7 +78,7 @@ function formGroup() {
           type: 'Array',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

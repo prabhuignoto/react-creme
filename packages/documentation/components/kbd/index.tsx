@@ -15,7 +15,7 @@ const Description = (
 function menu() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={[]}
       title="Kbd"
       description={Description}

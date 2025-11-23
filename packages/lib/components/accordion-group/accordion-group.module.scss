@@ -1,5 +1,7 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .group {
   @extend %col-left;
@@ -11,7 +13,20 @@
 }
 
 .group_item {
+  $entrance-duration: hybrid.$animation-duration-primary;
+
   @extend %left;
-  margin-bottom: 0.5rem;
+  margin-bottom: tokens.$space-2; // 0.5rem
   width: 100%;
+
+  // Stagger accordion items for elegant entrance animation
+  // Uses Hybrid Theme's semantic timing and spring physics
+  @include hybrid.stagger-children(
+    $max-items: 20,
+    $delay-step: 0.04s
+  );
+
+  // Optional: Add fade-in-lift animation for entrance
+  // Uncomment to enable animated entrance of accordion group items
+  // animation: hybrid-fade-in-lift $entrance-duration hybrid.$spring-easing backwards;
 }

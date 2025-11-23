@@ -1,0 +1,178 @@
+/* ============================================
+   Table of Contents Component Styles
+   ============================================ */
+
+.toc {
+  position: sticky;
+  top: calc(var(--header-height) + var(--spacing-lg));
+  max-height: calc(100vh - var(--header-height) - var(--spacing-2xl));
+  overflow-y: auto;
+  padding: 0;
+
+  /* Smooth scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+  }
+}
+
+.toc_title {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-lg);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.toc_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.toc_item {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  transition: all var(--transition-fast);
+
+  /* Indentation levels */
+  &.indent_1 {
+    padding-left: var(--spacing-md);
+  }
+
+  &.indent_2 {
+    padding-left: var(--spacing-xl);
+  }
+
+  &.indent_3 {
+    padding-left: calc(var(--spacing-xl) + var(--spacing-sm));
+  }
+
+  /* Active indicator bar */
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: transparent;
+    transition: all var(--transition-base);
+  }
+
+  &.active {
+    &::before {
+      background: var(--accent-primary);
+    }
+  }
+}
+
+.toc_link {
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  /* Subtle hover background */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent-primary);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    z-index: -1;
+    border-radius: var(--radius-sm);
+  }
+
+  &:hover {
+    color: var(--accent-primary);
+
+    &::after {
+      opacity: 0.08;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  /* Active state */
+  .active > & {
+    color: var(--accent-primary);
+    font-weight: 600;
+
+    &::after {
+      opacity: 0.1;
+    }
+  }
+
+  /* Truncate long text */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow: hidden;
+}
+
+/* Empty state */
+.toc_empty {
+  padding: var(--spacing-md);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .toc {
+    display: none;
+  }
+}
+
+/* Animation on mount */
+.toc_item {
+  animation: fadeInSlide 0.3s ease-out backwards;
+}
+
+@for $i from 1 through 20 {
+  .toc_item:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.03}s;
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

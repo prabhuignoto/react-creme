@@ -1,3 +1,5 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { DataGridHeader } from '../data-grid-header';
@@ -67,5 +69,23 @@ describe('DataGridHeader', () => {
 
     await userEvent.click(sortButtons[1]); // Descending sort
     expect(mockOnSort).toHaveBeenCalledWith('property', 'desc');
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(
+        <div role="table">
+          <DataGridHeader
+            columns={[
+              { name: 'name', type: 'string' },
+              { name: 'age', type: 'number' },
+            ]}
+          />
+        </div>
+      );
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

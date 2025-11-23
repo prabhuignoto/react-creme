@@ -1,25 +1,30 @@
+import React from 'react';
+import { axe } from 'jest-axe';
+import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { DataGridCell } from '../data-grid-cell';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../data-grid.module.scss';
 
 describe('DataGridCell', () => {
   it('should render the data grid cell', async () => {
-    const { getByText, getByRole } = render(
+    const { getByText, container } = render(
       <DataGridCell name="name" value="john" />
     );
 
     expect(getByText('john')).toBeInTheDocument();
 
-    expect(getByRole('cell')).toBeInTheDocument();
-    expect(getByRole('cell')).toHaveClass(styles.cell);
+    const cellDiv = container.querySelector(`.${styles.cell}`);
+    expect(cellDiv).toBeInTheDocument();
   });
 
   it('should render with border', async () => {
-    const { getByRole } = render(
+    const { container } = render(
       <DataGridCell name="name" value="john" border />
     );
 
-    expect(getByRole('cell')).toHaveClass(styles.cell_border);
+    const cellDiv = container.querySelector(`.${styles.cell_border}`);
+    expect(cellDiv).toBeInTheDocument();
   });
 
   it('should render formatted value when formatter is provided', async () => {
@@ -32,10 +37,29 @@ describe('DataGridCell', () => {
   });
 
   it('should apply zebra styling', async () => {
-    const { getByRole } = render(
+    const { container } = render(
       <DataGridCell name="name" value="john" zebra />
     );
 
-    expect(getByRole('cell')).toHaveClass(styles.zebra);
+    const zebraDiv = container.querySelector(`.${styles.zebra}`);
+    expect(zebraDiv).toBeInTheDocument();
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      // Render with proper table structure for accessibility
+      const { container } = render(
+        <div role="table">
+          <div role="row">
+            <div role="cell">
+              <DataGridCell name="name" value="john" />
+            </div>
+          </div>
+        </div>
+      );
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

@@ -1,5 +1,7 @@
 @use '@design/theme.scss';
 @use '@design/core.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -10,15 +12,34 @@ $header-heights: (
 );
 
 .header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.button {
+  $base-radius: hybrid.$radius-md; // Medium radius for standard components
+
   @extend %border-radius;
   align-items: center;
+  background: transparent;
+  border: none;
   color: theme.$primary;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
   height: var(--rc-accordion-header-height, 35px);
   justify-items: flex-start;
   outline: 0;
+  padding: 0;
   position: relative;
+  text-align: left;
   text-transform: capitalize;
   user-select: none;
+  width: 100%;
+
+  // Smooth transitions for background and other properties
+  @include hybrid.smooth-multi-transition(background-color, box-shadow);
 
   &:not(.disable-icon) {
     @extend %left;
@@ -29,29 +50,43 @@ $header-heights: (
   }
 
   &.full_width {
-    width: calc(100% - 0.5rem);
+    width: calc(100% - tokens.$space-2); // 0.5rem
   }
 
   &.align-icon-rt {
     direction: rtl;
   }
 
-  &:not(.disable-collapse):hover {
-    @extend %border-radius;
-    cursor: pointer;
-
-    &.dark {
-      background: theme.$dark-control-bg;
-    }
-
-    &:not(.dark) {
+  // Interactive feedback for non-disabled accordions
+  &:not(.disable-collapse) {
+    // Mouse/trackpad hover - desktop devices
+    @include hybrid.hover-feedback() {
       background: rgba(theme.$secondary-rgb, 0.25);
+      border-radius: $base-radius;
+
+      &.dark {
+        background: theme.$dark-control-bg;
+      }
     }
+
+    // Touch active state - mobile/tablet devices
+    @include hybrid.touch-feedback() {
+      transform: scale(0.98);
+      background: rgba(theme.$secondary-rgb, 0.2);
+    }
+  }
+
+  // Refined focus outline with Hybrid Theme
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 }
 
 .selected {
+  $selected-radius: hybrid.$radius-md;
+
   @extend %border-radius;
+  border-radius: $selected-radius;
 
   &.dark {
     background: theme.$dark-active-selection;
@@ -66,7 +101,7 @@ $header-heights: (
   @extend %left;
   display: block;
   margin: auto 0;
-  padding: 0 0.25rem;
+  padding: 0 tokens.$space-1; // 0.25rem
   width: calc(100%);
 
   &:not(.title_bold) {
@@ -94,7 +129,7 @@ $header-heights: (
     @extend %icon-#{$size};
   }
 
-  .header {
+  .button {
     &.size {
       height: var(
         --rc-accordion-header-height,
@@ -117,7 +152,14 @@ $header-heights: (
 
 .icon {
   cursor: pointer;
-  transition: transform 0.2s ease-in;
+
+  // Use semantic animation timing for icon rotation
+  // Secondary (0.2s) for quick, snappy icon transitions
+  @include hybrid.smooth-transition(transform, hybrid.$animation-duration-secondary);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 
   &:not(.colorize) {
     color: var(--icon-color, theme.$primary);
@@ -127,8 +169,11 @@ $header-heights: (
     color: theme.$primary;
   }
 
+  // Icon rotation with subtle scale (Hybrid Theme pattern)
+  // Uses transform for persistent state (not animation which resets)
+  // Chevron rotates 90deg down when expanded, back to right when collapsed
   &.icon-open:not(.icon-plus):not(.custom-icon) {
-    transform: rotate(90deg);
+    transform: rotate(90deg) scale(1.05);
   }
 
   &.disable-icon {

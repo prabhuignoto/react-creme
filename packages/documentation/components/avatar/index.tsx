@@ -17,7 +17,7 @@ const Accordion = () => {
     <DemoPageRenderer
       description={Description}
       title="Avatar"
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-s9qxmk']}
       sourceId="avatar/avatar.tsx"
       editId="avatar"

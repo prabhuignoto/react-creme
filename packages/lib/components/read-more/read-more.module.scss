@@ -1,6 +1,7 @@
 @use '@design/core.scss';
 @use '@design/position.scss';
 @use '@design/theme.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 
@@ -45,10 +46,25 @@ $sizes: (sm, md, lg);
   margin-top: 0.25rem;
   padding: 0;
 
+  // Use Hybrid Theme timing for smooth color transitions
+  @include hybrid.smooth-transition(color);
+
   @each $size in $sizes {
     &.#{$size} {
       @extend %text-#{$size};
       color: theme.$primary;
     }
+  }
+
+  // Hover feedback with interactive color change
+  &:hover {
+    @include hybrid.hover-feedback() {
+      color: rgba(theme.$primary-rgb, 0.8);
+    }
+  }
+
+  // Focus state with refined outline
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 }

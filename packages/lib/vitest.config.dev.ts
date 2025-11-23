@@ -27,5 +27,15 @@ export default defineConfig({
     silent: true,
     clearMocks: true,
     update: true,
+    // Development config - same exclusions as CI for consistency
+    coverage: {
+      exclude: [
+        '**/node_modules/**',
+        '**/dist/**',
+        '**/__tests__/**',
+        '**/*.test.{ts,tsx}',
+        '**/*-model.ts',
+      ],
+    },
   },
 });

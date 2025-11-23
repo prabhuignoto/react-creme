@@ -1,6 +1,7 @@
+import React from 'react';
 import { OverlayModel } from '../common/overlay-model';
 
-/** ✨positions */
+/** Notification position on screen */
 export type NotificationPosition =
   | 'top-left'
   | 'top-right'
@@ -9,31 +10,32 @@ export type NotificationPosition =
   | 'bottom-center'
   | 'top-center';
 
-/** ✨ Component props */
+/** Notification component props */
 export interface NotificationProps extends OverlayModel<null> {
-  /**🔷 auto closes the tooltip after the duration in Milliseconds */
+  /** Auto-close the notification after duration in milliseconds */
   autoClose?: number;
 
-  /**🔷 children elements to be rendered inside the tooltip *
+  /** Content to be rendered inside the notification */
   children: React.ReactNode[] | React.ReactNode;
 
-  /**🔷 disable the header */
+  /** Disable the header (not recommended for accessibility) */
   disableHeader?: boolean;
 
-  /**🔷 minimum height of the tooltip */
+  /** Minimum height of the notification in pixels */
   height?: number | string;
 
-  /**🔷 prop to set the position of the tooltip */
+  /** Position of the notification on screen */
   position?: NotificationPosition;
 
+  /** Size variant for text and close button */
   size?: 'sm' | 'md' | 'lg';
 
-  /**🔷 swipe gesture to close the notification */
+  /** Enable swipe gesture to close (only works for left/right positions) */
   swipeToClose?: boolean;
 
-  /**🔷 title for the notification */
+  /** Title for the notification (recommended for accessibility) */
   title?: string;
 
-  /**🔷 minimum width of the notification */
+  /** Minimum width of the notification in pixels */
   width?: number | string;
 }

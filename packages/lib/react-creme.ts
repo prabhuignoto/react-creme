@@ -68,6 +68,13 @@ export type {
   MenuOption,
   Option,
 } from './components/dropdown/dropdown-model';
+export { FileUpload } from './components/file-upload/file-upload';
+export type {
+  FileItem,
+  FileUploadError,
+  FileUploadProps,
+  FileUploadRef,
+} from './components/file-upload/file-upload-model';
 export { Gallery } from './components/gallery/gallery';
 export type { GalleryProps } from './components/gallery/gallery.model';
 export { GlobalNotification } from './components/global-notification/global-notification';
@@ -81,7 +88,7 @@ export type { InputNumberProps } from './components/input-number/input-number.mo
 export { Input } from './components/input/input';
 export type { InputProps } from './components/input/input-model';
 export { Kbd } from './components/kbd/kbd';
-export type { KbdCombinationProps, KbdProps } from './components/kbd/kbd';
+export type { KbdProps, KbdCombinationProps } from './components/kbd/kbd-model';
 export { KbdCombination } from './components/kbd/kbd-combination';
 export { Link } from './components/link/link';
 export type { LinkProps } from './components/link/link';
@@ -174,7 +181,6 @@ export type {
 export { Transfer } from './components/transfer/transfer';
 export type {
   TransferList,
-  TransferListItemModel,
   TransferListProps,
   TransferProps,
 } from './components/transfer/transfer-model';

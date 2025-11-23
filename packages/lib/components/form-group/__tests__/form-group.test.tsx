@@ -1,3 +1,5 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, it, vi } from 'vitest';
 import { FormField } from '../../form-field/form-field';
@@ -50,5 +52,14 @@ describe('Form Group', () => {
     fireEvent.click(getByText('Cancel'));
 
     expect(onCancel).toHaveBeenCalled();
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<FormField />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

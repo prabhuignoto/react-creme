@@ -81,7 +81,7 @@ function skeleton() {
           type: 'Boolean',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-1jank5']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

@@ -1,6 +1,8 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/animate.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 
@@ -11,8 +13,7 @@ $sizes: (sm, md, lg);
   overflow: hidden;
   position: absolute;
   top: 0;
-  transition: height 0.2s cubic-bezier(0.075, 0.82, 0.165, 1),
-    top 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  @include hybrid.smooth-multi-transition(height, top);
   width: 100%;
 
   &.success {
@@ -70,7 +71,7 @@ $sizes: (sm, md, lg);
 
 .warning {
   .close_btn {
-    color: #000;
+    color: theme.$black;
   }
 }
 
@@ -80,7 +81,7 @@ $sizes: (sm, md, lg);
   cursor: pointer;
   display: block;
   margin-left: auto;
-  margin-right: 0.5rem;
+  margin-right: tokens.$space-2;
 }
 
 .message {

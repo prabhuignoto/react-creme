@@ -1,28 +1,74 @@
 import { ReactNode } from 'react';
 
-// CardProps interface
+/**
+ * Card component props
+ */
 export interface CardProps {
-  // alignFooter sets the alignment of the footer element
+  /**
+   * Horizontal alignment of the footer content
+   * @default 'left'
+   */
   alignFooter?: 'left' | 'center' | 'right';
 
-  // alignHeader sets the alignment of the header element
+  /**
+   * Horizontal alignment of the header content
+   * @default 'left'
+   */
   alignHeader?: 'left' | 'center' | 'right';
 
-  // border determines whether or not to show a border
+  /**
+   * Whether to show a border around the card
+   * @default false
+   */
   border?: boolean;
 
-  // children can be either a single ReactNode or an array of ReactNode elements
+  /**
+   * Main content of the card
+   */
   children?: ReactNode | ReactNode[];
 
-  // footer allows adding optional footer into the card
+  /**
+   * Optional footer content
+   */
   footer?: ReactNode;
 
-  // header allows adding a header into the card
+  /**
+   * Optional header content
+   */
   header?: ReactNode;
 
-  // height defines the height of the card (default is auto)
+  /**
+   * Minimum height of the card in pixels
+   * @default 200
+   */
   height?: number;
 
-  // shadow sets a drop shadow on the card
+  /**
+   * Whether to show a drop shadow
+   * @default true
+   */
   shadow?: boolean;
+
+  /**
+   * Size variant for consistent styling
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg';
+
+  /**
+   * Custom aria-label for the card region
+   * @default undefined
+   */
+  ariaLabel?: string;
+
+  /**
+   * Whether the card is interactive/clickable
+   * @default false
+   */
+  interactive?: boolean;
+
+  /**
+   * Click handler for interactive cards
+   */
+  onClick?: () => void;
 }

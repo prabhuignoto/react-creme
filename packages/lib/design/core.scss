@@ -3,6 +3,7 @@
 @use 'shadow';
 @use 'font';
 @use 'icon';
+@use 'theme';
 
 %flex {
   align-items: center;
@@ -89,4 +90,44 @@
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+// WCAG 2.2 2.4.7 Focus Visible - Global styles for keyboard accessibility
+// Provides visible focus indicators for all interactive elements
+:focus-visible {
+  outline: 2px solid theme.$primary;
+  outline-offset: 2px;
+}
+
+// Remove focus styles from disabled elements (WCAG compliance)
+:disabled:focus-visible,
+[aria-disabled='true']:focus-visible,
+[disabled]:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+// Enhanced focus styles for custom interactive elements
+[role='button']:focus-visible,
+[role='tab']:focus-visible,
+[role='menuitem']:focus-visible,
+[role='option']:focus-visible,
+[role='checkbox']:focus-visible,
+[role='radio']:focus-visible,
+[role='switch']:focus-visible {
+  outline: 2px solid theme.$primary;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(theme.$primary-rgb, 0.15);
+}
+
+// Screen reader only class for live regions and status messages
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }

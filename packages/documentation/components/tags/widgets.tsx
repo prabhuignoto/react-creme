@@ -37,7 +37,7 @@ function widgets() {
 
   return width ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Tags - default">
+      <Section size="md" title="Tags - default" border={false}>
         <Text>
           New tags can be added to the list by typing in the input field and
           pressing enter.Tags can be easily removed by clicking on the close
@@ -47,7 +47,7 @@ function widgets() {
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Tags - Filled style">
+      <Section size="md" title="Tags - Filled style" border={false}>
         <Text>
           Tags can be disabled by setting the <code>disabled</code>property to
           true.
@@ -56,7 +56,7 @@ function widgets() {
           {Disabled}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Tags - Readonly">
+      <Section size="md" title="Tags - Readonly" border={false}>
         <Text>
           In readonly mode we can display a list of non editable tags.
         </Text>
@@ -64,7 +64,7 @@ function widgets() {
           {ReadOnly}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Max Tags">
+      <Section size="md" title="Max Tags" border={false}>
         <Text>
           Use the <code>maxTags</code> prop to limit the number of tags.
         </Text>
@@ -72,7 +72,7 @@ function widgets() {
           {MaxTags}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Tags - AutoSuggest">
+      <Section size="md" title="Tags - AutoSuggest" border={false}>
         <Text>
           Tags can also be configured to use with the AutoSuggest control.
         </Text>
@@ -80,7 +80,7 @@ function widgets() {
           {AutoComplete}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Tags - Accent">
+      <Section size="md" title="Tags - Accent" border={false}>
         <Text>
           Use the <code>accent</code> property to change the outlook of the
           tags. Can be one of the following: <code>flat</code>,{' '}
@@ -90,7 +90,7 @@ function widgets() {
           {Accent}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Tags - Custom Size">
+      <Section size="md" title="Tags - Custom Size" border={false}>
         <DemoWidget name="Tags" width={width}>
           {LargeSize}
         </DemoWidget>

@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 import classNames from 'classnames';
 import React from 'react';
-import { useImperativeHandle, useRef, useCallback } from 'react';
+import { useImperativeHandle, useRef, useCallback, useMemo } from 'react';
 import useFocusNew from '../common/effects/useFocusNew';
 import { isDark } from '../common/utils';
 import { Spinner } from '../spinner/spinner';
@@ -9,120 +8,127 @@ import { ButtonProps } from './button-model';
 import styles from './button.module.scss';
 
 /**
- * Button Component - A customizable button component.
+ * Button Component - A customizable, accessible button component.
  *
  * @component
  *
- * @param {boolean} props.border - Determines whether the button has a border. Default is true.
- * @param {ReactNode} props.children - The content inside the button. Can be text or an element.
- * @param {boolean} props.disabled - Determines whether the button is disabled. Default is false.
- * @param {boolean} props.focusable - Determines whether the button can be focused. Default is true.
- * @param {'default'|'progress'} props.type - The type of the button. Default is 'default'.
- * @param {string} props.label - The label of the button. Default is ''.
- * @param {function} props.onClick - The function to call when the button is clicked.
- * @param {'sm'|'md'|'lg'} props.size - The size of the button. Default is 'sm'.
- * @param {object} props.style - The style to apply to the button. Default is {}.
- * @param {'rounded'|'otherAccent'} props.accent - The accent of the button. Default is 'rounded'.
- * @param {boolean} props.isBusy - Determines whether the button is in a "busy" state (e.g., waiting for a response). Default is false.
+ * @example
+ * // Basic button with label
+ * <Button label="Click me" onClick={handleClick} />
  *
- * @returns {ReactNode} React component
+ * @example
+ * // Primary button with children
+ * <Button type="primary" size="lg">
+ *   <Icon name="plus" /> Add Item
+ * </Button>
+ *
+ * @param {string} [props.label=''] - The text label for the button. Used for accessibility when no children.
+ * @param {React.ReactNode} [props.children] - The content inside the button (can override or supplement label).
+ * @param {boolean} [props.disabled=false] - Disables the button, preventing clicks and visual changes.
+ * @param {boolean} [props.focusable=true] - Whether the button can receive keyboard focus.
+ * @param {'default' | 'primary' | 'danger' | 'icon' | 'progress'} [props.type='default'] - The visual style type of the button.
+ * @param {'sm' | 'md' | 'lg'} [props.size='sm'] - The size of the button.
+ * @param {'rounded' | 'flat'} [props.accent='rounded'] - The border style accent.
+ * @param {boolean} [props.border=true] - Whether the button shows a border.
+ * @param {boolean} [props.primary=false] - Whether to render as a primary button (deprecated, use type="primary").
+ * @param {boolean} [props.isBusy=false] - Whether the button is in a loading state (shows spinner, disables clicks).
+ * @param {(event?: React.MouseEvent | React.KeyboardEvent) => void} [props.onClick] - Callback when button is clicked or activated via keyboard.
+ * @param {React.CSSProperties} [props.style={}] - Inline styles to apply to the button.
+ *
+ * @returns {React.ReactElement} The rendered button element.
  */
 
-const Button = React.forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
-  const {
-    border = true,
-    children,
-    disabled = false,
-    focusable = true,
-    type = 'default',
-    label = '',
-    onClick,
-    size = 'sm',
-    style = {},
-    accent = 'rounded',
-    isBusy = false,
-  } = props;
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => {
+    const {
+      border = true,
+      children,
+      disabled = false,
+      focusable = true,
+      type = 'default',
+      label = '',
+      onClick,
+      size = 'sm',
+      style = {},
+      accent = 'rounded',
+      isBusy = false,
+    } = props;
 
-  // check if the theme is dark mode
-  const isDarkMode = isDark();
+    // Check if the theme is dark mode (called once)
+    const isDarkMode = isDark();
 
-  // setup classnames for the button
-  const buttonClass = classNames(
-    {
-      [styles['default']]: type === 'progress',
-      [styles.no_border]: !border,
-      [styles.disabled]: disabled || isBusy,
-      [styles.dark]: isDarkMode,
-      [styles[accent]]: true,
-    },
-    [styles[size], styles[type], styles.btn]
-  );
+    // setup classnames for the button (memoized for performance)
+    const buttonClass = useMemo(
+      () =>
+        classNames(
+          {
+            [styles['default']]: type === 'progress',
+            [styles.no_border]: !border,
+            [styles.disabled]: disabled || isBusy,
+            [styles.dark]: isDarkMode,
+            [styles[accent]]: true,
+          },
+          [styles[size], styles[type], styles.btn]
+        ),
+      [type, border, disabled, isBusy, isDarkMode, accent, size]
+    );
 
-  // setup for focus
-  const buttonRef = useRef<HTMLDivElement | null>(null);
+    // Setup for focus management with useFocusNew hook
+    const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  useImperativeHandle(
-    ref,
-    () =>
-      ({
-        focus: () => {
-          buttonRef.current?.focus();
-        },
-      }) as HTMLDivElement
-  );
+    useFocusNew(focusable ? (buttonRef as React.RefObject<HTMLElement>) : null);
 
-  useFocusNew(focusable ? (buttonRef as React.RefObject<HTMLElement>) : null);
+    // Expose focus method via imperative handle
+    useImperativeHandle(ref, () => buttonRef.current!);
 
-  // determine if the button can be focused
-  const tabIndex = focusable ? 0 : -1;
+    // Handler for button click (prevents click when disabled or busy)
+    const handleClick = useCallback(
+      () => !disabled && !isBusy && onClick?.(),
+      [disabled, isBusy, onClick]
+    );
 
-  // handler for button click
-  const handleClick = useCallback(
-    () => !disabled && onClick?.(),
-    [disabled, onClick]
-  );
+    // Handle keyboard 'Space' event (on keydown to prevent scroll)
+    // Note: native button handles 'Enter' automatically
+    const handleKeyDown = useCallback(
+      (ev: React.KeyboardEvent) => {
+        if (ev.key === ' ' && !disabled && !isBusy) {
+          ev.preventDefault();
+          handleClick();
+        }
+      },
+      [handleClick, disabled, isBusy]
+    );
 
-  // handle keyboard 'Enter' event
-  const handleKeyUp = useCallback(
-    (ev: React.KeyboardEvent) => ev.key === 'Enter' && handleClick(),
-    [handleClick]
-  );
+    // Determine accessible label: use label prop if provided, otherwise children text
+    const accessibleLabel =
+      label || (typeof children === 'string' ? children : undefined);
 
-  // render the spinner
-  const renderSpinner = () => (
-    <span className={styles.progress_wrapper}>
-      {/* <CircularProgress size={'xs'} /> */}
-      <Spinner />
-    </span>
-  );
-
-  // render the children
-  const renderChildren = () => (
-    <span className={styles.icon_container}>{children}</span>
-  );
-
-  // render the label
-  const renderLabel = () => <span className={styles.label}>{label}</span>;
-
-  return (
-    <div
-      className={buttonClass}
-      onClick={handleClick}
-      onKeyUp={handleKeyUp}
-      ref={buttonRef}
-      role="button"
-      style={style}
-      tabIndex={tabIndex}
-      aria-label={label}
-      aria-disabled={disabled}
-      aria-busy={isBusy}
-    >
-      {type === 'progress' && !disabled && renderSpinner()}
-      {children && renderChildren()}
-      {label && type !== 'icon' && renderLabel()}
-    </div>
-  );
-});
+    return (
+      <button
+        className={buttonClass}
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
+        ref={buttonRef}
+        disabled={disabled || isBusy}
+        style={style}
+        aria-label={accessibleLabel}
+        aria-busy={isBusy}
+        type="button"
+        tabIndex={focusable ? undefined : -1}
+      >
+        {type === 'progress' && !disabled && (
+          <span className={styles.progress_wrapper}>
+            <Spinner />
+          </span>
+        )}
+        {children && <span className={styles.icon_container}>{children}</span>}
+        {label && type !== 'icon' && (
+          <span className={styles.label}>{label}</span>
+        )}
+      </button>
+    );
+  }
+);
 
 Button.displayName = 'Button';
 

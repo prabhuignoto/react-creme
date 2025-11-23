@@ -15,7 +15,7 @@ function switchComponent() {
       editId="switch"
       features={[
         'Custom sizes',
-        'Place the label outside or inside the switch',
+        'Accessible labels with aria-label support',
         'Disabled state',
       ]}
       callbacks={[
@@ -34,13 +34,6 @@ function switchComponent() {
           name: 'label',
           optional: 'Yes',
           type: 'String',
-        },
-        {
-          default: `False`,
-          description: `places the label outside the switch container`,
-          name: 'labelOutside',
-          optional: 'Yes',
-          type: 'Boolean',
         },
         {
           default: 'False',
@@ -78,7 +71,7 @@ function switchComponent() {
           type: 'Object',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-p8rf9h']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

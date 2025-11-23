@@ -49,7 +49,7 @@ function comparer() {
           type: 'string',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-4ogs2d']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

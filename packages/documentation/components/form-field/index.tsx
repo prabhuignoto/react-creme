@@ -91,7 +91,7 @@ function formField() {
           type: 'Function',
         },
       ]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-b9syfa']}
       demoWidget={<Widgets />}
     ></DemoPageRenderer>

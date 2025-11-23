@@ -3,6 +3,8 @@
 @use '@design/position.scss';
 @use '@design/list.scss';
 @use '@design/animate.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $flat-tabs-height: 45px;
 $rounded-tabs-height: 45px;
@@ -76,13 +78,33 @@ $sizes: (sm, md, lg);
 }
 
 .tab_header_btn {
+  $radius: hybrid.$radius-md;
+
   @extend %border-radius;
   @extend %icon-lg;
+
+  // Reset button styles
+  appearance: none;
+  background: none;
+  border: none;
+  font: inherit;
+  padding: 0;
+
   color: theme.$primary;
   cursor: pointer;
+  border-radius: $radius;
 
-  &:hover {
-    background: theme.$secondary;
+  // Use Hybrid Theme timing for smooth button feedback
+  @include hybrid.smooth-multi-transition(background-color, color);
+
+  &:not(.tab_header_btn_disabled) {
+    @include hybrid.hover-feedback() {
+      background: rgba(theme.$secondary-rgb, 0.2);
+    }
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 
   &.tab_header_btn_disabled {
@@ -91,7 +113,7 @@ $sizes: (sm, md, lg);
 }
 
 .tab_header_btn.dark {
-  &:hover {
+  &:not(.tab_header_btn_disabled):hover {
     color: theme.$white;
   }
 }
@@ -101,10 +123,25 @@ $sizes: (sm, md, lg);
 }
 
 .tab_head {
+  $radius: hybrid.$radius-md;
+
   @extend %border-radius-top;
+
+  // Reset button styles
+  appearance: none;
+  background: none;
+  border: none;
+  font: inherit;
+  padding: 0;
+
   min-width: 120px;
+  min-height: tokens.$touch-target-min; // 44px minimum for WCAG 2.1 AA
   position: relative;
   user-select: none;
+  border-radius: $radius;
+
+  // Use Hybrid Theme timing for smooth tab transitions
+  @include hybrid.smooth-multi-transition(background-color, color);
 
   &.dark {
     color: theme.$white;
@@ -114,9 +151,15 @@ $sizes: (sm, md, lg);
     color: theme.$black;
   }
 
-  &:hover {
-    background: rgba(theme.$secondary-rgb, 0.2);
-    color: theme.$primary;
+  &:not(.tab_head_disabled):not(.tab_head_selected) {
+    @include hybrid.hover-feedback() {
+      background: rgba(theme.$secondary-rgb, 0.2);
+      color: theme.$primary;
+    }
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 
   &.tab_head_rounded {
@@ -148,7 +191,7 @@ $sizes: (sm, md, lg);
   }
 
   &:not(:first-child) {
-    margin-left: 0.5rem;
+    margin-left: tokens.$space-2; // 0.5rem
   }
 
   &:not(.tab_head_with_icon) {
@@ -164,7 +207,7 @@ $sizes: (sm, md, lg);
       $ico-size: calc(var(--rc-icon-size-#{$size}) * 1.5);
 
       &.tab_head_#{$size} {
-        column-gap: 4px;
+        column-gap: tokens.$space-1; // 4px → 0.25rem
         grid-template-columns: $ico-size calc(100% - $ico-size);
       }
     }
@@ -199,7 +242,10 @@ $sizes: (sm, md, lg);
     // background: rgba(theme.$primary-rgb, 70%);
     content: '';
     display: block;
-    transition: width 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    // Use Hybrid Theme primary timing for smooth indicator transitions
+    @include hybrid.smooth-transition(width, hybrid.$animation-duration-primary);
+
     width: 0;
   }
 
@@ -273,5 +319,5 @@ $sizes: (sm, md, lg);
   display: flex;
   justify-content: center;
   justify-self: center;
-  padding-left: 0.2rem;
+  padding-left: tokens.$space-1; // 0.25rem
 }

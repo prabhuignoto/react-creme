@@ -1,8 +1,10 @@
 @use '@design/core.scss';
 @use '@design/animate.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/list.scss';
 @use '@design/position.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .list {
   @extend %border-radius;
@@ -30,7 +32,7 @@
 
 .list_search_input {
   @extend %center;
-  margin: 0.5rem 0;
+  margin: tokens.$space-2 0;
   width: 95%;
 }
 

@@ -6,6 +6,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FunctionComponent, memo, ReactNode } from 'react';
 import { Link, PageHeader } from '../../../lib/components';
+import { getSourceUrl, getEditUrl, getStackBlitzUrl } from './utils';
 import styles from './demo-page-renderer.module.scss';
 
 type DemoHeaderProps = {
@@ -17,6 +18,14 @@ type DemoHeaderProps = {
   title: string;
 };
 
+/**
+ * DemoPageHeader - Enhanced header with type-safe URL generation
+ *
+ * Changes from previous version:
+ * - Uses URL builder utilities (no more hardcoded URLs)
+ * - Type-safe URL generation
+ * - Easier to update repository structure
+ */
 const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
   ({ title, editId, sourceId, stackBlitzCodes, description, pageIcon }) => {
     return (
@@ -32,7 +41,7 @@ const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
               target="_blank"
               accent="button"
               icon={<FontAwesomeIcon icon={faCode} />}
-              href={`https://github.com/prabhuignoto/react-creme/tree/master/packages/lib/components/${sourceId}`}
+              href={getSourceUrl(sourceId)}
             >
               View Source
             </Link>
@@ -42,21 +51,21 @@ const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
               target="_blank"
               accent="button"
               icon={<FontAwesomeIcon icon={faEdit} />}
-              href={`https://github.com/prabhuignoto/react-creme/tree/master/packages/documentation/components/${editId}/index.tsx`}
+              href={getEditUrl(editId)}
             >
               Edit this Page
             </Link>
           )}
-          {stackBlitzCodes?.length && (
+          {/* {stackBlitzCodes?.length && (
             <Link
               target="_blank"
               accent="button"
               icon={<FontAwesomeIcon icon={faExternalLink} />}
-              href={`https://stackblitz.com/edit/${stackBlitzCodes[0]}`}
+              href={getStackBlitzUrl(stackBlitzCodes[0]!)}
             >
               Open in StackBlitz
             </Link>
-          )}
+          )} */}
         </div>
       </PageHeader>
     );

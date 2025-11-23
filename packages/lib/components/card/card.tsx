@@ -1,26 +1,18 @@
 import classNames from 'classnames';
-import React from 'react';
-import { useRef } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { isDark } from '../common/utils';
 import { CardProps } from './card-model';
 import styles from './card.module.scss';
-import { useMemo } from 'react';
 
 /**
- * Card Component - A flexible card component that can include a header, body, and footer.
+ * Card Component - A flexible container component with optional header, body, and footer sections
  *
- * @component
- *
- * @param {'left'|'right'|'center'} props.alignFooter - The alignment of the footer. Default is 'left'.
- * @param {'left'|'right'|'center'} props.alignHeader - The alignment of the header. Default is 'left'.
- * @param {boolean} props.border - Determines whether the card has a border. Default is false.
- * @param {ReactNode} props.children - The content to be rendered inside the card's body.
- * @param {ReactNode} props.footer - The content to be rendered inside the card's footer.
- * @param {ReactNode} props.header - The content to be rendered inside the card's header.
- * @param {number} props.height - The height of the card. Default is 200.
- * @param {boolean} props.shadow - Determines whether the card has a shadow. Default is true.
- *
- * @returns {ReactNode} React component
+ * Features:
+ * - Configurable header and footer with alignment options
+ * - Optional border and shadow styling
+ * - Responsive sizing with size variants
+ * - Dark mode support
+ * - Accessible with proper ARIA attributes and semantic HTML
  */
 const Card: React.FunctionComponent<CardProps> = ({
   alignFooter = 'left',
@@ -31,72 +23,111 @@ const Card: React.FunctionComponent<CardProps> = ({
   header,
   height = 200,
   shadow = true,
+  size = 'md',
+  ariaLabel,
+  interactive = false,
+  onClick,
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  // check if the theme is dark mode
+  // ✅ FIXED: Call isDark() directly instead of useMemo with empty deps
   const isDarkMode = isDark();
 
-  // setup style for the card
-  const style = {
-    '--height': `${height}px`,
-    gridTemplateRows: `${header ? '50px' : ''} 1fr ${
-      footer ? '50px' : ''
-    }`.trim(),
-  };
+  // ✅ FIXED: Include all used variables in dependencies
+  const style = useMemo(
+    () => ({
+      '--height': `${height}px`,
+      gridTemplateRows: `${header ? '50px' : ''} 1fr ${
+        footer ? '50px' : ''
+      }`.trim(),
+    }),
+    [height, header, footer]
+  );
 
-  // setup classnames for the card wrapper
-  const cardWrapperClass = classNames(styles.wrapper, {
-    [styles.border_less]: !border,
-    [styles.shadow]: shadow,
-    [styles.dark]: isDarkMode,
-  });
+  // ✅ FIXED: Include all used variables in dependencies
+  const cardWrapperClass = useMemo(
+    () =>
+      classNames(styles.wrapper, {
+        [styles.border_less]: !border,
+        [styles.shadow]: shadow,
+        [styles.dark]: isDarkMode,
+        [styles[size]]: size,
+        [styles.interactive]: interactive,
+      }),
+    [border, shadow, isDarkMode, size, interactive]
+  );
 
-  // setup classnames for the card header
-  const cardHeaderClass = classNames(styles.header, {
-    [styles[`align_${alignHeader}`]]: true,
-  });
+  // ✅ FIXED: Include alignHeader in dependencies
+  const cardHeaderClass = useMemo(
+    () =>
+      classNames(styles.header, {
+        [styles[`align_${alignHeader}`]]: true,
+      }),
+    [alignHeader]
+  );
 
-  // setup classnames for the card footer
-  const cardFooterClass = classNames(styles.footer, {
-    [styles[`align_${alignFooter}`]]: true,
-  });
+  // ✅ FIXED: Include alignFooter in dependencies
+  const cardFooterClass = useMemo(
+    () =>
+      classNames(styles.footer, {
+        [styles[`align_${alignFooter}`]]: true,
+      }),
+    [alignFooter]
+  );
 
-  // render the header
+  // ✅ FIXED: Include header and cardHeaderClass in dependencies
+  // Using div instead of header to avoid landmark nesting issues when card has role="region"
   const renderHeader = useMemo(
-    () => (
-      <header className={cardHeaderClass} aria-label="Card Header">
-        {header}
-      </header>
-    ),
-    []
+    () =>
+      header ? (
+        <div className={cardHeaderClass} role="heading" aria-level={2}>
+          {header}
+        </div>
+      ) : null,
+    [header, cardHeaderClass]
   );
 
-  // render the body
+  // ✅ FIXED: Include children in dependencies
   const renderBody = useMemo(
-    () => (
-      <section className={styles.body} aria-label="Card Body">
-        {children}
-      </section>
-    ),
-    []
+    () => <div className={styles.body}>{children}</div>,
+    [children]
   );
 
-  // render the footer
+  // ✅ FIXED: Include footer and cardFooterClass in dependencies
+  // Using div instead of footer to avoid landmark nesting issues when card has role="region"
   const renderFooter = useMemo(
-    () => (
-      <footer className={cardFooterClass} aria-label="Card Footer">
-        {footer}
-      </footer>
-    ),
-    []
+    () => (footer ? <div className={cardFooterClass}>{footer}</div> : null),
+    [footer, cardFooterClass]
+  );
+
+  const handleClick = useCallback(() => {
+    if (interactive && onClick) {
+      onClick();
+    }
+  }, [interactive, onClick]);
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (interactive && onClick && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        onClick();
+      }
+    },
+    [interactive, onClick]
   );
 
   return (
-    <div className={cardWrapperClass} style={style} ref={ref}>
-      {header && renderHeader}
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+    <div
+      className={cardWrapperClass}
+      style={style}
+      role={interactive ? 'button' : ariaLabel ? 'region' : undefined}
+      aria-label={ariaLabel}
+      onClick={interactive ? handleClick : undefined}
+      onKeyDown={interactive ? handleKeyDown : undefined}
+      {...(interactive && { tabIndex: 0 })}
+    >
+      {renderHeader}
       {renderBody}
-      {footer && renderFooter}
+      {renderFooter}
     </div>
   );
 };

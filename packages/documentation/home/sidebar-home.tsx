@@ -32,27 +32,25 @@ const SideBar: FunctionComponent<{
 }> = memo(
   ({ onSelect }) => {
     return (
-      <div style={{ height: 'calc(100vh - 50px)', width: '100%' }}>
-        <Sidebar
-          enableSearch={false}
-          onSelect={onSelect}
-          searchPlaceholder="Search Components ..."
-          sectionsCollapsible={false}
-          groups={data}
-          focusable={false}
-          icons={[
-            <FontAwesomeIcon size="2x" icon={faRocket} key="home" />,
-            <FontAwesomeIcon size="2x" icon={faBorderAll} key="layout" />,
-            <FontAwesomeIcon size="2x" icon={faTasksAlt} key="content" />,
-            <FontAwesomeIcon size="2x" icon={faKeyboard} key="input" />,
-            <FontAwesomeIcon size="2x" icon={faBell} key="notification" />,
-            <FontAwesomeIcon size="2x" icon={faDatabase} key="data" />,
-            <FontAwesomeIcon size="2x" icon={faLink} key="link" />,
-            <FontAwesomeIcon size="2x" icon={faWindowMaximize} key="overlay" />,
-            <FontAwesomeIcon size="2x" icon={faHammer} key="utilities" />,
-          ]}
-        />
-      </div>
+      <Sidebar
+        // enableSearch={true}
+        onSelect={onSelect}
+        searchPlaceholder="Search Components ..."
+        sectionsCollapsible={false}
+        groups={data}
+        focusable={false}
+        icons={[
+          <FontAwesomeIcon size="2x" icon={faRocket} key="home" />,
+          <FontAwesomeIcon size="2x" icon={faBorderAll} key="layout" />,
+          <FontAwesomeIcon size="2x" icon={faTasksAlt} key="content" />,
+          <FontAwesomeIcon size="2x" icon={faKeyboard} key="input" />,
+          <FontAwesomeIcon size="2x" icon={faBell} key="notification" />,
+          <FontAwesomeIcon size="2x" icon={faDatabase} key="data" />,
+          <FontAwesomeIcon size="2x" icon={faLink} key="link" />,
+          <FontAwesomeIcon size="2x" icon={faWindowMaximize} key="overlay" />,
+          <FontAwesomeIcon size="2x" icon={faHammer} key="utilities" />,
+        ]}
+      />
     );
   },
   (prev, next) => prev.theme.darkMode === next.theme.darkMode
@@ -60,7 +58,7 @@ const SideBar: FunctionComponent<{
 
 SideBar.displayName = 'SideBar';
 
-const SidebarHome: React.FC<SideBarHomeProps> = ({
+const SidebarHomeComponent: React.FC<SideBarHomeProps> = ({
   onSelect,
 }: SideBarHomeProps) => {
   const navigate = useNavigate();
@@ -96,13 +94,10 @@ const SidebarHome: React.FC<SideBarHomeProps> = ({
     }
   }, [location.pathname, location.hash]);
 
-  return (
-    <div style={{ width: '100%' }}>
-      <SideBar onSelect={handleSidebarSelect} theme={theme} />
-    </div>
-  );
+  return <SideBar onSelect={handleSidebarSelect} theme={theme} />;
 };
 
-SidebarHome.displayName = 'SidebarHome';
+const SidebarHome = memo(SidebarHomeComponent);
+SidebarHomeComponent.displayName = 'SidebarHome';
 
 export default SidebarHome;

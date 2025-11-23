@@ -11,7 +11,7 @@ function reveal() {
       description="Reveals content when a user scrolls to it."
       demoWidget={<Widgets />}
       properties={[]}
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       pageIcon={<FontAwesomeIcon icon={faEye} size="2x" />}
       sourceId="reveal/reveal.tsx"
       editId="reveal"

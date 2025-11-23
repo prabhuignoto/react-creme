@@ -1,12 +1,16 @@
+import React from 'react';
 import { render } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+import { axe } from 'jest-axe';
 import { DataGridRow } from '../data-grid-row';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../data-grid.module.scss';
 
 describe('DataGridRow', () => {
   it('should render the row with correct data', async () => {
     const { getByText } = render(
       <DataGridRow
-        data={{ name: 'John', age: 30 }}
+        data={{ age: 30, name: 'John' }}
         columnConfigs={[
           { name: 'name', type: 'string' },
           { name: 'age', type: 'number' },
@@ -28,5 +32,21 @@ describe('DataGridRow', () => {
     );
 
     expect(container.firstChild).toHaveClass(styles.zebra);
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(
+        <div role="table">
+          <DataGridRow
+            data={{ name: 'Test' }}
+            columnConfigs={[{ name: 'name', type: 'string' }]}
+          />
+        </div>
+      );
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

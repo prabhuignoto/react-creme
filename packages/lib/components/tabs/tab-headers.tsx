@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { isDark } from '../common/utils';
 import { TabHead } from './tab-head';
 import styles from './tab-header.module.scss';
@@ -22,6 +23,7 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
   size,
 }: TabHeadersProps) => {
   const tabHeadersRef = useRef<HTMLDivElement | null>(null);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [hasFocus, setHasFocus] = useState(false);
 
   const [disableScrollRight, setDisableScrollRight] = useState(false);
@@ -36,11 +38,49 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
 
   const isDarkMode = useMemo(() => isDark(), []);
 
+  // Filter out disabled tabs for keyboard navigation
+  const enabledItems = useMemo(
+    () => items.filter(item => !item.disabled),
+    [items]
+  );
+
+  // Find current active index in enabled items
+  const activeIndex = useMemo(
+    () => enabledItems.findIndex(item => item.id === activeTabId),
+    [enabledItems, activeTabId]
+  );
+
+  // Keyboard navigation callback
+  const handleNavigate = useCallback(
+    (index: number) => {
+      const selectedTab = enabledItems[index];
+      if (selectedTab) {
+        handleTabSelection(selectedTab.id);
+        // Focus the tab button programmatically
+        const tabIndex = items.findIndex(item => item.id === selectedTab.id);
+        tabRefs.current[tabIndex]?.focus();
+      }
+    },
+    [enabledItems, items, handleTabSelection]
+  );
+
+  // Keyboard navigation using existing hook (follows Breadcrumb pattern)
+  useKeyNavigation(
+    tabHeadersRef as React.RefObject<HTMLElement>,
+    activeIndex,
+    enabledItems.length,
+    {
+      onNavigate: handleNavigate,
+      orientation: 'horizontal',
+      wrap: true, // Wrap from last to first and vice versa
+    },
+    focusable
+  );
+
   // show or hide scroll buttons
   const canShowControls = useMemo(() => {
     if (tabHeadersRef.current) {
-      const { clientWidth, scrollWidth } =
-        tabHeadersRef?.current as HTMLElement;
+      const { clientWidth, scrollWidth } = tabHeadersRef.current;
 
       return clientWidth < scrollWidth;
     }
@@ -132,7 +172,8 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
         className={tabHeadersClass}
         ref={onHeadersRef}
         role="tablist"
-        // onKeyDown={handleKeyUp}
+        aria-orientation="horizontal"
+        tabIndex={-1}
       >
         {items.map(({ id, name, disabled }, index) => (
           <TabHead
@@ -148,12 +189,16 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
             onFocus={onFocus}
             parentHasFocus={hasFocus}
             size={size}
+            ref={el => {
+              tabRefs.current[index] = el;
+            }}
           />
         ))}
       </div>
       {canShowControls ? (
         <div className={tabHeaderControl}>
-          <span
+          <button
+            type="button"
             className={classNames(
               styles.tab_header_btn,
               styles.tab_header_btn_left,
@@ -162,25 +207,24 @@ const TabHeaders: React.FunctionComponent<TabHeadersProps> = ({
                 [styles.dark]: isDarkMode,
               }
             )}
-            role="button"
             aria-label="scroll left"
             onClick={scrollLeft}
-            aria-disabled={disableScrollLeft}
+            disabled={disableScrollLeft}
           >
             <ChevronRightIcon />
-          </span>
-          <span
+          </button>
+          <button
+            type="button"
             className={classNames(styles.tab_header_btn, {
               [styles.tab_header_btn_disabled]: disableScrollRight,
               [styles.dark]: isDarkMode,
             })}
-            role="button"
             aria-label="scroll right"
             onClick={scrollRight}
-            aria-disabled={disableScrollRight}
+            disabled={disableScrollRight}
           >
             <ChevronRightIcon />
-          </span>
+          </button>
         </div>
       ) : null}
     </header>

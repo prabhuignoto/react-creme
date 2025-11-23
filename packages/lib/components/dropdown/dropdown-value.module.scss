@@ -1,4 +1,5 @@
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/core.scss';
 @use '@design/animate.scss';
 @use '@design/position.scss';
@@ -9,12 +10,20 @@
 $sizes: (sm, md, lg);
 
 .container {
+  @extend %border-radius;
   align-items: center;
   cursor: pointer;
   font-size: 14px;
-  height: 100%;
-  padding: 0.1rem 0;
+  min-height: 40px;
+  padding: tokens.$space-2 tokens.$space-1;
+  transition: border-color 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.4s ease-in-out;
   width: 100%;
+  transform: scaleY(1);
+  position: relative;
+  overflow: hidden;
 
   &:not(.dark):not(.open) {
     @extend %shadow-inset-small;
@@ -22,17 +31,39 @@ $sizes: (sm, md, lg);
 
   &.dark {
     @extend %shadow-inset;
-    @extend %border-radius;
-    background-color: theme.$chinese-black;
+    background: linear-gradient(135deg, theme.$chinese-black 0%, rgba(17, 24, 39, 0.9) 100%);
     color: theme.$white;
   }
 
   &:not(.dark) {
     @extend %border;
+    background: linear-gradient(135deg, theme.$white 0%, rgba(249, 250, 251, 0.6) 100%);
+    border-color: rgba(107, 114, 128, 0.15);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    // Add hover state with stretch + shine effect
+    &:not(.disabled):hover {
+      border-color: rgba(107, 114, 128, 0.25);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      transform: scaleY(1.05);
+      animation: subtle-shine 0.6s ease-in-out;
+    }
+
+    // Enhanced focus-visible for modern browsers
+    &:focus-visible {
+      outline: 2px solid rgba(107, 114, 128, 0.5);
+      outline-offset: 2px;
+    }
   }
 
   &.open {
-    box-shadow: none;
+    border-color: rgba(theme.$primary-rgb, 0.6);
+    box-shadow: 0 0 0 3px rgba(theme.$primary-rgb, 0.15),
+                0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(107, 114, 128, 0.1);
+    background: linear-gradient(135deg, theme.$white 0%, rgba(243, 244, 246, 0.8) 100%);
   }
 
   &.disabled {
@@ -41,7 +72,7 @@ $sizes: (sm, md, lg);
 
   &:not(.multi) {
     @extend %center;
-    height: 35px;
+    min-height: 40px;
   }
 
   &.rtl {
@@ -50,39 +81,44 @@ $sizes: (sm, md, lg);
 
   &:not(.with_clear) {
     display: grid;
-    grid-template-columns: calc(100% - 2rem) 2rem;
+    gap: tokens.$space-2;
+    grid-template-columns: 1fr auto;
   }
 
   &.with_clear {
     display: grid;
-    grid-template-columns: calc(100% - 4rem) 2rem 2rem;
+    gap: tokens.$space-2;
+    grid-template-columns: 1fr auto auto;
   }
 }
 
 .multi {
-  height: 40px;
+  align-items: flex-start;
+  min-height: 48px;
+  padding: tokens.$space-2;
 }
 
 .container:not(.rtl) {
   .value {
-    padding-left: 1rem;
+    padding-left: tokens.$space-3;
   }
 }
 
 .container.rtl {
   .value {
-    padding-right: 1rem;
+    padding-right: tokens.$space-3;
   }
 
   .chevron_icon {
-    margin-left: 4px;
+    margin-left: tokens.$space-1;
   }
 }
 
 .value {
   @extend %text-no-wrap;
-  height: 20px;
-  line-height: 20px;
+  align-self: center;
+  line-height: 1.5;
+  padding: tokens.$space-1 0;
 
   &.rtl {
     text-align: right;
@@ -91,41 +127,83 @@ $sizes: (sm, md, lg);
 
 .chevron_icon {
   @include effects.halo();
+  align-self: center;
   color: var(--chevron-icon-color, theme.$primary);
+  flex-shrink: 0;
   justify-self: center;
   order: 4;
   position: relative;
-  transition: transform 0.2s ease-in;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s ease-in-out,
+    filter 0.3s ease-in-out;
+  transform-origin: center;
   z-index: 1;
+  filter: drop-shadow(0 2px 4px rgba(107, 114, 128, 0.1));
 }
 
 .clear_icon {
   @include effects.halo();
+  align-self: center;
   color: theme.$primary;
+  cursor: pointer;
+  flex-shrink: 0;
   justify-self: center;
   position: relative;
+  transition: color 0.3s ease-in-out,
+    opacity 0.2s ease-in,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.3s ease-in-out;
+  transform: scale(1);
+  transform-origin: center;
   z-index: 1;
+  filter: drop-shadow(0 2px 4px rgba(107, 114, 128, 0.05));
 
   &.clear_icon_hidden {
+    opacity: 0;
     pointer-events: none;
     visibility: hidden;
   }
-}
 
-.clear_icon:hover {
-  &:not(.dark) {
-    color: var(--clear-icon-color, theme.$primary);
+  // Enhanced hover and focus states with refined snap/ping effect
+  &:hover:not(.dark):not(.clear_icon_hidden) {
+    animation: refined-ping 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    color: theme.$crimson;
+    filter: drop-shadow(0 4px 8px rgba(220, 38, 38, 0.2));
+  }
+
+  &:active:not(.clear_icon_hidden) {
+    transform: scale(0.92);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(107, 114, 128, 0.5);
+    outline-offset: 2px;
   }
 }
 
 .chevron_icon_rotate {
   transform: rotate(180deg);
-  transition: transform 0.2s ease-in;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .tags_wrapper {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  flex: 1;
+  gap: tokens.$space-2;
+  min-width: 0;
   overflow: hidden;
-  padding-left: 0.25rem;
+  padding: tokens.$space-1 0 tokens.$space-1 tokens.$space-2;
+}
+
+.tag_count {
+  color: theme.$gray-600;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: tokens.$space-1 tokens.$space-2;
+  white-space: nowrap;
 }
 
 @each $size in $sizes {
@@ -145,6 +223,32 @@ $sizes: (sm, md, lg);
 }
 
 .not_selected {
-  color: theme.$chinese-gray;
-  font-style: italic;
+  color: theme.$gray-500;
+  font-style: normal;
+  opacity: 0.7;
+}
+
+// Rubber band spring + slate polish animations
+@keyframes refined-ping {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes subtle-shine {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
 }

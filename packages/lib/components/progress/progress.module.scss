@@ -1,7 +1,18 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/animate.scss';
 @use '@design/position.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
+
+// Component-specific sizing (sm: compact, md: default, lg: prominent)
+// Note: These heights don't map to standard space tokens as they are
+// component-specific visual sizing, not generic spacing
+$progress-heights: (
+  sm: 10px,    // Compact size for minimal UI
+  md: 20px,    // Default - aligns with visual hierarchy
+  lg: 40px,    // Prominent size for accessibility/visibility
+);
 
 $progress-backgrounds: (
   default: rgba(theme.$secondary-rgb, 0.5),
@@ -67,15 +78,28 @@ $progress-fill-colors: (
 
   &.indeterminate {
     @extend %border-radius;
-    @include position.position-abs('top left');
-    @include animate.set-settings(2s, linear, true);
+    // CSS properties before animation mixins to comply with Sass mixed-decls
     animation-name: indeterminate-progress;
     border: 1px solid theme.$primary;
     height: calc(var(--height) - 2px);
+    // Animation mixins that generate @keyframes (nested rules) come after properties
+    @include position.position-abs('top left');
+    @include animate.set-settings(2s, linear, true);
+
+    // Respect user's motion preferences
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      left: -50%;
+    }
   }
 
   &.bob {
     animation-direction: alternate;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      left: -50%;
+    }
   }
 
   &.complete {
@@ -85,28 +109,26 @@ $progress-fill-colors: (
 
 .progress_percent_value {
   @extend %right;
+  @extend %font-sm;
   color: theme.$white;
   height: 100%;
-  padding: 0 0.5rem;
+  padding: 0 tokens.$space-2;
 
-  &.progress_percent_value_large {
-    font-size: 1.2rem;
+  &.progress_percent_value_lg {
+    @extend %font-lg;
   }
 
-  &.progress_percent_value_small {
-    font-size: 0.8rem;
+  &.progress_percent_value_md {
+    @extend %font-md;
+  }
+
+  &.progress_percent_value_sm {
+    @extend %font-sm;
   }
 }
 
+// Keyframes for indeterminate progress animation (used for both 'disappear' and 'bob' styles)
 $indeterminate-anim-settings: (
-  from: (
-    left: -50%,
-  ),
-  to: (
-    left: 100%,
-  ),
-);
-$bob-anim-settings: (
   from: (
     left: -50%,
   ),
@@ -119,4 +141,3 @@ $bob-anim-settings: (
   indeterminate-progress,
   $indeterminate-anim-settings
 );
-@include animate.set-keyframes(indeterminate-bob, $bob-anim-settings);

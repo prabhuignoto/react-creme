@@ -7,7 +7,7 @@ import Widgets from './widgets';
 function card() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       demoWidget={<Widgets />}
       title="Card"
       stackBlitzCodes={['react-ts-3qkmbh']}

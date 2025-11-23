@@ -75,18 +75,29 @@ const RateItem: React.FunctionComponent<RateItemViewProps> = ({
     [disabled]
   );
 
+  // Handle keyboard events for selecting rate items
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if ((e.key === 'Enter' || e.key === ' ') && !disabled) {
+      e.preventDefault();
+      onSelect(index);
+    }
+  };
+
   return (
     <li
       key={id}
       className={rateItemClass}
       onMouseOver={() => onMouseOver(index)}
+      onFocus={() => onMouseOver(index)}
+      onClick={() => onSelect(index)}
+      onKeyDown={handleKeyDown}
       aria-checked={active}
-      role="radio"
+      role="radio" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
       {...focusableProps}
       {...disabledProps}
     >
       {/* The icon representing the rate item */}
-      <span role="img" onClick={() => onSelect(index)} aria-label="star">
+      <span role="img" aria-label="star">
         {icon || <RateIcon />}
       </span>
     </li>

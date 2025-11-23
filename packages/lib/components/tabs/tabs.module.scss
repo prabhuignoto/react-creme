@@ -3,6 +3,7 @@
 @use '@design/list.scss';
 @use '@design/position.scss';
 @use '@design/animate.scss';
+@use '@design/tokens.scss';
 
 .tab_panel {
   @extend %center;
@@ -12,7 +13,7 @@
 
 .tabs {
   @extend %col;
-  padding: 0.2rem;
+  padding: tokens.$space-1; // 0.25rem
   position: relative;
   width: var(--rc-tabs-min-width);
 }
@@ -20,12 +21,12 @@
 .tab_panels {
   @extend %list;
   min-height: 245px;
-  padding-top: 0.5rem;
+  padding-top: tokens.$space-2; // 0.5rem
   width: 100%;
   z-index: 0;
 
   &.rounded {
-    margin-top: 42px;
+    margin-top: calc(tokens.$space-1 * 10.5); // 2.625rem = 42px
   }
 }
 
@@ -34,7 +35,7 @@
   border-top: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  margin-left: 0.1rem;
+  margin-left: calc(tokens.$space-1 * 0.4); // 0.1rem
 
   &.dark {
     border: 1px solid theme.$dark-control-bg;

@@ -13,6 +13,7 @@ import styles from './tabs.module.scss';
 const TabPanel: React.FunctionComponent<TabPanelProps> = ({
   children,
   disabled,
+  hidden = false,
   id,
 }: TabPanelProps) => {
   // Define the class for the tab panel, adding the 'disabled' class if necessary
@@ -29,6 +30,7 @@ const TabPanel: React.FunctionComponent<TabPanelProps> = ({
       role="tabpanel"
       id={`rc-tab-panel-${id}`}
       aria-labelledby={`rc-tab-${id}`}
+      aria-hidden={hidden}
     >
       {children}
     </div>

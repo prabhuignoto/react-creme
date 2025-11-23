@@ -1,6 +1,7 @@
 @use '@design/icon.scss';
 @use '@design/animate.scss';
 @use '@design/theme.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 $speeds: (
@@ -19,10 +20,13 @@ $anime-settings: (
 );
 
 .spinner {
-  @include animate.set-keyframes(spin, $anime-settings);
+  // CSS properties before animation mixins to comply with Sass mixed-decls
   animation-name: spin;
   color: theme.$primary;
   padding: 0;
+
+  // Animation mixin that generates @keyframes (nested rule) comes after properties
+  @include animate.set-keyframes(spin, $anime-settings);
 }
 
 @each $size in $sizes {

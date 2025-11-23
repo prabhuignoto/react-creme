@@ -2,6 +2,7 @@
 @use '@design/theme.scss';
 @use '@design/position.scss';
 @use '@design/animate.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .image_wrapper {
   @extend %center;
@@ -14,6 +15,9 @@
 .image_clickable {
   cursor: pointer;
 
+  // Use Hybrid Theme timing for smooth brightness feedback
+  @include hybrid.smooth-transition(filter);
+
   &:hover {
     filter: brightness(1.1);
   }
@@ -21,7 +25,9 @@
 
 .image {
   @extend %border-radius;
-  transition: opacity 0.3s ease-in-out;
+
+  // Use Hybrid Theme primary timing for smooth opacity transitions during load/unload
+  @include hybrid.smooth-transition(opacity, hybrid.$animation-duration-primary);
 
   &.image_loaded {
     opacity: 1;
@@ -48,13 +54,16 @@
       opacity: 1,
     ),
   );
+
+  // CSS properties before animation mixins to comply with Sass mixed-decls
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: 50% 50%;
+
+  // Animation mixins that generate @keyframes (nested rules) come after properties
   @include animate.set-settings(0.25s);
   @include animate.set-keyframes(open_image_overlay, $settings);
   @include animate.set-keyframes(close_image_overlay, $settings, true);
-  opacity: 0;
-
-  transform: scale(0);
-  transform-origin: 50% 50%;
 
   &.image_overlay_open {
     animation-name: open_image_overlay;

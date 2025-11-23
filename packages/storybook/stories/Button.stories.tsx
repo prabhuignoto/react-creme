@@ -1,4 +1,4 @@
-import { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import React from 'react';
 import {
   Default,
@@ -10,7 +10,7 @@ import {
 } from '../../documentation/components/buttons/widget-variants';
 import { Button } from '../../lib/components';
 
-export default {
+const meta: Meta<typeof Button> = {
   component: Button,
   decorators: [
     (Story: () => JSX.Element) => (
@@ -20,7 +20,10 @@ export default {
     ),
   ],
   title: 'Button',
-} as ComponentMeta<typeof Button>;
+  tags: ['autodocs'],
+};
+
+export default meta;
 
 export const DefaultRender = () => <>{Default}</>;
 export const DisabledState = () => <>{Disabled}</>;

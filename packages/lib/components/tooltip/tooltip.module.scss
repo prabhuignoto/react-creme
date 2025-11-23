@@ -39,16 +39,19 @@ $arrow-dim-lg: 20px;
   @extend %center;
   @extend %border-radius;
   @extend %shadow-medium;
-  @include animate.set-settings(0.25s);
 
-  @include animate.set-keyframes(animate_show, $animation);
-  @include animate.set-keyframes(animate_close, $animation, true);
+  // CSS properties before animation mixins to comply with Sass mixed-decls
   background-color: var(-bg-color, theme.$white);
   max-width: var(--max-width);
   min-width: var(--min-width);
   position: absolute;
   visibility: hidden;
   z-index: 99999;
+
+  // Animation mixins that generate @keyframes (nested rules) come after properties
+  @include animate.set-settings(0.25s);
+  @include animate.set-keyframes(animate_show, $animation);
+  @include animate.set-keyframes(animate_close, $animation, true);
 
   &.dark::after {
     background: theme.$dark-control-bg;

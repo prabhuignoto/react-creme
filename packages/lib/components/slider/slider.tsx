@@ -4,7 +4,7 @@ import { CSSProperties, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useDrag } from '../common/effects/useDrag';
 import { isDark } from '../common/utils';
-// import useFocus from '../common/effects/useFocusNew';
+import { useKeyNavigation } from '../common/effects/useKeyNavigation';
 import { Tooltip } from '../tooltip/tooltip';
 import { SliderProps } from './slider-model';
 import styles from './slider.module.scss';
@@ -29,7 +29,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   // state to toggle the tooltip
   const [hideTooltip, setHideTooltip] = React.useState(showTooltipOnHover);
 
-  const controlRef = useRef<HTMLElement | null>(null);
+  const controlRef = useRef<HTMLElement>(null!);
   const placerRef = useRef<HTMLElement | null>(null);
   const sliderFillRef = useRef(null);
   const trackerRef = useRef<HTMLElement | null>(null);
@@ -37,6 +37,10 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   const onChangeDebounced = onChange
     ? useDebouncedCallback(onChange, 100)
     : null;
+
+  const largeStepSize = useMemo(() => {
+    return (end - start) / 5; // 20% increment per page key
+  }, [start, end]);
 
   // callbacks for drag start and end operation
   const onDragStart = useCallback(() => setDragging(true), []);
@@ -65,6 +69,31 @@ const Slider: React.FunctionComponent<SliderProps> = ({
       trackerRef.current = node;
     }
   }, []);
+
+  // Keyboard navigation for Slider - using useKeyNavigation for consistency
+  // Map to a position range (0-100) for useKeyNavigation, then convert back to actual value
+  const normalizedValue = useMemo(() => {
+    return Math.round(((sliderValue - start) / (end - start)) * 100);
+  }, [sliderValue, start, end]);
+
+  useKeyNavigation(controlRef, normalizedValue, 101, {
+    onNavigate: (index: number) => {
+      // Convert back from 0-100 range to actual value range
+      const newValue = start + (index / 100) * (end - start);
+      const clampedValue = Math.max(start, Math.min(end, newValue));
+      onChangeDebounced?.(Math.round(clampedValue));
+    },
+    onPageDown: () => {
+      const newValue = Math.max(start, sliderValue - largeStepSize);
+      onChangeDebounced?.(Math.round(newValue));
+    },
+    onPageUp: () => {
+      const newValue = Math.min(end, sliderValue + largeStepSize);
+      onChangeDebounced?.(Math.round(newValue));
+    },
+    orientation: 'vertical',
+    wrap: false,
+  });
 
   const onControlInit = useCallback((node: HTMLSpanElement) => {
     if (node) {

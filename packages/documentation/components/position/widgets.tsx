@@ -34,7 +34,7 @@ const positions: Position[] = [
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" noPadding>
+      <Section size="md" noPadding border={false}>
         <Text>
           The below examples show how to use the <code>usePosition</code> hook
           to position an element relative to a container element. The hook
@@ -48,27 +48,27 @@ function Widgets() {
           />
         </div>
       </Section>
-      <Section size="md" title="Positioned Left center">
+      <Section size="md" title="Positioned Left center" border={false}>
         <DemoWidget name="usePosition" codeString={PositionLeftCode}>
           <PositionLeft />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Positioned Right Bottom">
+      <Section size="md" title="Positioned Right Bottom" border={false}>
         <DemoWidget name="usePosition" codeString={PositionRightCode}>
           <PositionRightBottom />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Positioned Left Top">
+      <Section size="md" title="Positioned Left Top" border={false}>
         <DemoWidget name="usePosition" codeString={PositionTopCode}>
           <PositionLeftTop />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Positioned Right Top">
+      <Section size="md" title="Positioned Right Top" border={false}>
         <DemoWidget name="usePosition" codeString={PositionRightTopCode}>
           <PositionRightTop />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Positioned Left Bottom">
+      <Section size="md" title="Positioned Left Bottom" border={false}>
         <DemoWidget name="usePosition" codeString={PositionLeftBottomCode}>
           <PositionLeftBottom />
         </DemoWidget>

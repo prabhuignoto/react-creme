@@ -7,7 +7,7 @@ import Widgets from './widgets';
 function sidebar() {
   return (
     <DemoPageRenderer
-      tabTitles={['Examples', 'Properties', 'Stackblitz']}
+      tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-xhgzf5']}
       demoWidget={<Widgets />}
       title="Sidebar"

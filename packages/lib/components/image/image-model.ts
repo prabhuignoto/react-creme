@@ -9,6 +9,10 @@ export interface ImageOverlayProps extends OverlayModel<null> {
 }
 
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  /**
+   * Alternative text for the image (required for accessibility)
+   * @default ''
+   */
   alt?: string;
   expandImageOnClick?: boolean;
   fitImage?: boolean;

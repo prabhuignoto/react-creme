@@ -1,8 +1,10 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/animate.scss';
 @use '@design/position.scss';
 @use '@design/font.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (
@@ -32,33 +34,62 @@ $switch-width: (
   lg: calc(map.get($knob-sizes, lg) * 3),
 );
 
-$start-left: 4px;
+// Knob offset from track edge (provides visual spacing)
+$start-left: tokens.$space-1;
 
 .switch {
-  cursor: pointer;
-
-  min-width: var(--min-width);
-  padding: 0.1rem;
-  user-select: none;
-  // width: 100%;
-
-  &.disabled {
-    @extend %disabled;
-  }
-}
-
-.label_outside {
+  // Grid layout for switch + label (always external)
   align-items: center;
   display: grid;
+  cursor: pointer;
+  padding: tokens.$space-1;
+  user-select: none;
+  border-radius: hybrid.$radius-lg;
+  @include hybrid.smooth-transition(all);
 
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  // Grid columns for each size (track + label)
+  // Use 1fr for label column to automatically expand to available space
   @each $key, $value in $switch-width {
     &.#{$key} {
-      grid-template-columns: $value calc(100% - $value);
+      grid-template-columns: $value 1fr;
     }
   }
 
+  // Add gap between track and label columns
+  gap: tokens.$space-2;
+
+  // Dark mode text color
   &.dark {
     color: theme.$white;
+  }
+
+  // Focus indicator - WCAG 2.4.7 compliant
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
+  }
+
+  &.disabled {
+    @include hybrid.state-disabled();
+    cursor: not-allowed;
+
+    &:focus-visible {
+      outline-color: theme.$gray-600;
+    }
+  }
+
+  &.read_only {
+    cursor: default;
+    opacity: 0.8;
+
+    &:focus-visible {
+      outline-color: theme.$primary;
+    }
   }
 }
 
@@ -66,7 +97,30 @@ $start-left: 4px;
   .knob {
     & {
       box-shadow: none;
+      background-color: theme.$gray-300;
+
+      &.dark {
+        background-color: theme.$steel-gray;
+      }
     }
+  }
+}
+
+// Loading state
+.loading_spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
@@ -82,33 +136,60 @@ $start-left: 4px;
       @each $attr, $value in $val {
         #{$attr}: #{$value};
       }
-
-      .label_on {
-        margin-right: map.get($knob-sizes, $key);
-      }
-
-      .label_off {
-        margin-left: map.get($knob-sizes, $key);
-      }
     }
   }
 }
 
 .track_on {
+  // Improved visual clarity - clear blue for ON state
+  background: theme.$primary;
+  border: 1px solid theme.$primary;
+  transition: all 0.2s ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
   &.dark {
-    background: theme.$dark-control-bg;
-    border: 1px solid theme.$dark-control-bg;
+    background: theme.$primary;
+    border: 1px solid theme.$primary;
   }
 
   &:not(.dark) {
-    @extend %shadow-inset-xs;
-    @extend %border;
+    background: theme.$primary;
+    border: 1px solid theme.$primary;
   }
 }
 
 .track_off {
-  background-color: theme.$chinese-gray;
-  border: 1px solid transparent;
+  // Clear gray for OFF state - better contrast
+  background-color: theme.$gray-200;
+  border: 1px solid theme.$gray-300;
+  transition: all 0.2s ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &.dark {
+    background-color: theme.$cod-gray;
+    border: 1px solid theme.$chinese-gray;
+  }
+}
+
+.track_disabled {
+  background: theme.$gray-100;
+  border: 1px solid theme.$gray-300;
+  filter: grayscale(100%);
+
+  &.dark {
+    background: theme.$cod-gray;
+    border: 1px solid theme.$steel-gray;
+  }
+}
+
+.track_read_only {
+  opacity: 0.8;
 }
 
 .knob:not(.on):not(.on-load) {
@@ -120,41 +201,43 @@ $start-left: 4px;
 }
 
 .knob {
-  @include animate.set-settings(0.2s);
-  @include position.position-abs('center left');
+  // CSS properties before animation mixins to comply with Sass mixed-decls
   border-radius: 50%;
   display: block;
   left: $start-left;
   transition: background-color 0.1s ease;
-  z-index: -1;
+  z-index: 1;
+  // Animation mixins that generate @keyframes (nested rules) come after properties
+  @include animate.set-settings(0.2s);
+  @include position.position-abs('center left');
 
   svg {
     @include position.position-abs('center center');
     color: theme.$white;
-    height: 75%;
-    width: 75%;
+    height: 85%;
+    width: 85%;
   }
 
   @each $key, $val in $knob-sizes {
     &.knob_#{$key} {
       $settings: (
         from: (
-          left: $start-left,
-        ),
+            left: $start-left,
+          ),
         to: (
-          left: calc(100% - $val - 4px),
-        ),
+            left: calc(100% - $val - $start-left),
+          ),
       );
       background-color: theme.$white;
       height: $val;
       width: $val;
 
       &.on_load {
-        background-color: theme.$primary;
-        left: calc(100% - $val - 4px);
+        // Knob stays white for visibility on blue ON state (visual affordance)
+        left: calc(100% - $val - $start-left);
 
         svg {
-          color: theme.$white;
+          color: theme.$primary;
         }
       }
 
@@ -164,19 +247,32 @@ $start-left: 4px;
 
       &.on {
         @extend %shadow-medium;
-        @include animate.set-keyframes(slide-right-#{$key}, $settings);
+        // CSS properties before nested rules to comply with Sass mixed-decls
         animation-name: slide-right-#{$key};
-        background-color: theme.$primary;
+        // Knob stays white for visibility on blue ON state (visual affordance)
+        left: calc(100% - $val - $start-left);
+
+        // Nested rules come after properties
         & {
           box-shadow: none;
         }
-        left: calc(100% - $val - 4px);
+
+        // Check icon color - blue for visibility on white knob
+        svg {
+          color: theme.$primary;
+        }
+
+        // Animation mixins that generate @keyframes (nested rules) come last
+        @include animate.set-keyframes(slide-right-#{$key}, $settings);
       }
 
       &.off {
-        @include animate.set-keyframes(slide-left-#{$key}, $settings, true);
+        // CSS properties before animation mixins to comply with Sass mixed-decls
         animation-name: slide-left-#{$key};
-        right: calc(100% - $val - 4px);
+        right: calc(100% - $val - $start-left);
+        left: unset;
+        // Animation mixins that generate @keyframes (nested rules) come after properties
+        @include animate.set-keyframes(slide-left-#{$key}, $settings, true);
       }
     }
   }
@@ -184,6 +280,8 @@ $start-left: 4px;
 
 .label {
   @extend %text-no-wrap;
+  // Allow label to shrink if needed, but maintain min-width for readability
+  min-width: 0;
 
   &.label_on {
     color: theme.$primary;
@@ -195,12 +293,6 @@ $start-left: 4px;
     }
   }
 
-  &:not(.label_outside) {
-    @extend %center;
-  }
-
-  &.label_outside {
-    @extend %left;
-    margin-left: 0.5rem;
-  }
+  // Label always outside (external)
+  @extend %left;
 }

@@ -1,29 +1,90 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
 @use '@design/position.scss';
+@use '@design/tokens.scss';
+@use '@design/effects.scss';
+@use '@design/shadow.scss';
 
+// Design tokens for AutoSuggest component
+$suggestions-min-width: 250px;
+$suggestions-max-height: 300px;
+$suggestions-min-height: 100px;
+$suggestions-border-width: 1px;
+$suggestions-animation-duration: 0.15s;
+$suggestions-animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Spacing tokens
+$input-padding: tokens.$space-3 tokens.$space-4;
+$menu-item-padding: tokens.$space-2 tokens.$space-3;
+
+// Input wrapper - primary container
 .input_wrapper {
   @extend %center;
   height: 35px;
+
+  // Smooth transitions for interactive states
+  @include effects.include-transition(box-shadow, $suggestions-animation-duration, $suggestions-animation-timing);
+
+  // Disable Input component's pseudo-element focus ring to avoid double outlines
+  // Use only the global :focus-visible outline for a single, clean focus indicator
+  // Target the Input component's wrapper div directly
+  > div::after {
+    display: none !important;
+  }
 }
 
+// Suggestions wrapper - overlay container
 .suggestions_wrapper {
-  @extend %shadow-small;
+  // Base styling with design tokens
+  @extend %shadow-medium;
   @extend %border-radius;
-  width: var(--suggestions-width, 200px);
+
+  // Width constraint using design token
+  width: var(--suggestions-width, $suggestions-min-width);
+  max-height: $suggestions-max-height;
+  min-height: $suggestions-min-height;
   z-index: 999;
 
-  &.dark {
-    background: theme.$charcoal-gray;
-  }
+  // Smooth appearance animation with non-blocking transitions
+  @include effects.include-transition(
+    all,
+    $suggestions-animation-duration,
+    $suggestions-animation-timing
+  );
 
+  // Transform animation for smooth reveal
+  transform: translateY(0);
+  opacity: 1;
+
+  // Light mode styling with theme tokens
   &:not(.dark) {
     background: theme.$white;
+    border: $suggestions-border-width solid theme.$gray-200;
+    color: theme.$text-color;
+  }
+
+  // Dark mode styling with theme tokens
+  &.dark {
+    background: theme.$charcoal-gray;
+    border: $suggestions-border-width solid theme.$gunmetal-gray;
+    color: #e5e7eb; // light gray text in dark mode
+  }
+
+  // Enhanced accessibility: Focus styling for menu interactions
+  &:focus-visible {
+    outline: 2px solid theme.$primary;
+    outline-offset: -2px;
   }
 }
 
+// RTL support for international audiences
 .auto_suggest {
   &.rtl {
     direction: rtl;
+
+    // Mirror the animation direction for RTL
+    .suggestions_wrapper {
+      transform: translateY(0);
+    }
   }
 }

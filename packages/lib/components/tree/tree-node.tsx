@@ -1,105 +1,103 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import classNames from 'classnames';
+import React, { useCallback } from 'react';
 import { Accordion, CheckBox } from '..';
 import { TreeNodeProps } from './tree-model';
+import styles from './tree.module.scss';
 
 const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
   (props: TreeNodeProps) => {
     const {
       nodes = [],
       isChild,
-      selected,
       onSelect,
-      id,
       enableCheckbox,
       size,
+      expandedIds,
+      onToggleExpand,
+      level = 1,
     } = props;
 
-    const style = useMemo(() => {
-      if (isChild) {
-        return {
-          paddingLeft: '1.5rem',
-        };
-      } else {
-        return {
-          transition: 'max-height 0.5s ease-in',
-        };
-      }
-    }, [isChild, selected]);
+    const containerClass = classNames({
+      [styles.tree_root]: !isChild,
+      [styles.tree_node]: isChild,
+    });
 
-    const [expanded, setExpanded] = useState(false);
+    const handleChange = useCallback(
+      (open?: boolean, nodeId?: string) => {
+        onSelect?.(nodeId, open);
 
-    const handleChange = useCallback((open?: boolean, nodeId?: string) => {
-      onSelect?.(nodeId, open);
-
-      if (open) {
-        setExpanded(open);
-      }
-    }, []);
+        // Toggle expansion via parent's state
+        if (nodeId && onToggleExpand) {
+          onToggleExpand(nodeId);
+        }
+      },
+      [onSelect, onToggleExpand]
+    );
 
     return (
-      <div
-        style={style}
-        id={id}
-        role="treeitem"
-        aria-expanded={expanded}
-        aria-checked={enableCheckbox && selected}
-      >
-        {nodes.map((node, index) => (
-          <div key={index} style={{ marginBottom: '0.25rem' }}>
-            <Accordion
-              title={node.name}
-              disableIcon={!node.nodes?.length}
-              autoSetBodyHeight={false}
-              disableARIA
-              size={size}
-              onChange={open => {
-                if (!enableCheckbox) {
-                  handleChange(open, node.id);
+      <div className={containerClass}>
+        {nodes.map((node, index) => {
+          const nodeId = node.id || '';
+          const isExpanded = expandedIds?.has(nodeId) || false;
+
+          return (
+            <div key={nodeId || index} className={styles.tree_item}>
+              <Accordion
+                id={nodeId}
+                title={node.name}
+                disableIcon={!node.nodes?.length}
+                autoSetBodyHeight={false}
+                disableARIA={false}
+                size={size}
+                expanded={isExpanded}
+                onChange={open => {
+                  if (!enableCheckbox) {
+                    handleChange(open, node.id);
+                  }
+                }}
+                animate={false}
+                customContent={
+                  enableCheckbox ? (
+                    <CheckBox
+                      label={node.name || ''}
+                      noUniqueId
+                      id={node.id}
+                      focusable={false}
+                      onChange={(_, nodeSelected) =>
+                        handleChange(nodeSelected, node.id)
+                      }
+                      isChecked={node.selected}
+                      noHoverStyle
+                      autoHeight
+                      size={size}
+                    />
+                  ) : null
                 }
-              }}
-              selected={!enableCheckbox && node.selected}
-              animate={false}
-              customContent={
-                enableCheckbox ? (
-                  <CheckBox
-                    label={node.name || ''}
-                    noUniqueId
-                    id={node.id}
-                    focusable={false}
-                    onChange={(_, nodeSelected) =>
-                      handleChange(nodeSelected, node.id)
-                    }
-                    isChecked={node.selected}
-                    noHoverStyle
-                    autoHeight
-                    size={size}
-                  />
-                ) : null
-              }
-            >
-              {Boolean(node.nodes?.length) && (
-                <div
-                  style={{
-                    margin: '0.5rem 0',
-                  }}
-                  role="tree"
-                >
-                  <TreeNode
-                    key={node.id}
-                    nodes={node.nodes || []}
-                    name={node.name}
-                    isChild
-                    id={node.id}
-                    onSelect={x => onSelect?.(node.id + '/' + x, node.selected)}
-                    selected={node.selected}
-                    enableCheckbox={enableCheckbox}
-                    size={size}
-                  />
-                </div>
-              )}
-            </Accordion>
-          </div>
-        ))}
+              >
+                {Boolean(node.nodes?.length) && (
+                  <div className={styles.tree_children}>
+                    <TreeNode
+                      key={node.id}
+                      nodes={node.nodes || []}
+                      name={node.name}
+                      isChild
+                      id={node.id}
+                      onSelect={x =>
+                        onSelect?.(node.id + '/' + x, node.selected)
+                      }
+                      selected={node.selected}
+                      enableCheckbox={enableCheckbox}
+                      size={size}
+                      expandedIds={expandedIds}
+                      onToggleExpand={onToggleExpand}
+                      level={level + 1}
+                    />
+                  </div>
+                )}
+              </Accordion>
+            </div>
+          );
+        })}
       </div>
     );
   }

@@ -23,17 +23,18 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
     size,
   }: ListItemProps) => {
     const handleSelection = useCallback(() => {
-      onSelection &&
+      if (onSelection) {
         onSelection({
           id,
           name,
           selected: !selected,
           value,
         });
-    }, []);
+      }
+    }, [onSelection, id, name, selected, value]);
 
     const ref = useRef<HTMLLIElement>(null);
-    const isDarkMode = useMemo(() => isDark(), []);
+    const isDarkMode = isDark();
 
     const listItemClass = useMemo(
       () =>
@@ -46,13 +47,16 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
             [styles.dark]: isDarkMode,
           },
         ]),
-      [selected, disabled, focus, isDarkMode]
+      [disabled, focus, focusable, highlightSelection, isDarkMode]
     );
 
-    const handleMouseDown = useCallback((e: React.MouseEvent) => {
-      e.preventDefault();
-      handleSelection();
-    }, []);
+    const handleMouseDown = useCallback(
+      (e: React.MouseEvent) => {
+        e.preventDefault();
+        handleSelection();
+      },
+      [handleSelection]
+    );
 
     const clickableProps = useMemo(() => {
       if (disabled) {
@@ -68,7 +72,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
         },
         tabIndex: 0,
       };
-    }, []);
+    }, [disabled, handleMouseDown, handleSelection]);
 
     const ariaProps = useMemo(
       () => ({
@@ -88,9 +92,10 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
       <li
         className={listItemClass}
         key={id}
-        role="option"
+        role="option" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
         style={style}
         ref={ref}
+        aria-selected={selected || false}
         {...clickableProps}
         {...ariaProps}
       >
@@ -118,7 +123,14 @@ const ListItem: React.FunctionComponent<ListItemProps> = React.memo(
       prevProps.disabled === nextProps.disabled &&
       prevProps.selected === nextProps.selected &&
       prevProps.style?.top === nextProps.style?.top &&
-      prevProps.focus === nextProps.focus
+      prevProps.focus === nextProps.focus &&
+      prevProps.name === nextProps.name &&
+      prevProps.textColor === nextProps.textColor &&
+      prevProps.textColorSelected === nextProps.textColorSelected &&
+      prevProps.highlightSelection === nextProps.highlightSelection &&
+      prevProps.showCheckIcon === nextProps.showCheckIcon &&
+      prevProps.size === nextProps.size &&
+      prevProps.RTL === nextProps.RTL
     );
   }
 );

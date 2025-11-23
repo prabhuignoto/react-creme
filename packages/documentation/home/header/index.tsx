@@ -1,6 +1,6 @@
 //
 import { DocSearch } from '@docsearch/react';
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useMemo, memo } from 'react';
 
 import { isDark } from '@lib';
 import cx from 'classnames';
@@ -29,7 +29,7 @@ const AlgoliaHit = ({
 
 AlgoliaHit.displayName = 'AlgoliaHit';
 
-const Header: React.FC<{
+const HeaderComponent: React.FC<{
   isMobile?: boolean;
   onOpen?: () => void;
   onSearchSelection: (selected: AutoSuggestOption) => void;
@@ -54,23 +54,25 @@ const Header: React.FC<{
         <Logo isMobile={isMobile} onMenuClick={onOpen} />
       </div>
       <Badge label="beta" />
-      {!isMobile && (
-        <div
-          className={styles.algolia_container}
-          style={{ marginLeft: 'auto' }}
-        >
-          <DocSearch
-            apiKey={import.meta.env.VITE_APP_ALGOLIA_API_KEY as string}
-            appId={import.meta.env.VITE_APP_ALGOLIA_APP_ID as string}
-            indexName={import.meta.env.VITE_APP_ALGOLIA_INDEX_NAME as string}
-            hitComponent={AlgoliaHit}
-            disableUserPersonalization
-          />
-        </div>
-      )}
+      <div
+        className={styles.algolia_container}
+        style={{ marginLeft: 'auto' }}
+      >
+        <DocSearch
+          apiKey={import.meta.env.VITE_APP_ALGOLIA_API_KEY as string}
+          appId={import.meta.env.VITE_APP_ALGOLIA_APP_ID as string}
+          indexName={import.meta.env.VITE_APP_ALGOLIA_INDEX_NAME as string}
+          hitComponent={AlgoliaHit}
+          disableUserPersonalization
+          placeholder="Search components..."
+        />
+      </div>
       <AppSettings />
     </header>
   );
 };
+
+const Header = memo(HeaderComponent);
+HeaderComponent.displayName = 'Header';
 
 export { Header };

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { CloseIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
@@ -37,6 +36,7 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
       focusable = true,
       id = '',
       isAutoComplete = false,
+      ariaExpanded = false,
       noUniqueId = false,
       onChange,
       onFocus,
@@ -171,10 +171,11 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
         isAutoComplete
           ? {
               'aria-controls': id,
+              'aria-expanded': ariaExpanded,
               role: 'combobox',
             }
           : null,
-      [isAutoComplete]
+      [isAutoComplete, id, ariaExpanded]
     );
 
     const focusProps = useMemo(() => {
@@ -184,12 +185,11 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
             setHasFocus(false);
           },
           onFocus: (ev: React.FocusEvent) => {
-            // setHasFocus(true);
+            setHasFocus(true);
             onFocus?.(ev);
           },
         };
       } else {
-        // alert("kunj")
         return {};
       }
     }, [focusable, hasFocus]);
@@ -208,6 +208,16 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
     const inputDisabled = useMemo(() => {
       return disabled;
     }, [disabled]);
+
+    const handleClearKeyDown = useCallback(
+      (ev: React.KeyboardEvent) => {
+        if (ev.key === ' ' || ev.key === 'Enter') {
+          ev.preventDefault();
+          handleClear(ev as unknown as React.MouseEvent);
+        }
+      },
+      [handleClear]
+    );
 
     const clearProps = useMemo(
       () => ({
@@ -229,16 +239,26 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
     return (
       <div
         className={inputClass}
-        role="textbox"
         ref={containerRef}
         style={style}
-        aria-label={placeholder}
         {...autoCompleteProps}
       >
         {children && <span className={styles.icon}>{children}</span>}
         <input
           type={type}
           placeholder={placeholder}
+          {...(props['aria-label']
+            ? { 'aria-label': props['aria-label'] }
+            : placeholder
+              ? { 'aria-label': placeholder }
+              : {})}
+          {...(props['aria-labelledby']
+            ? { 'aria-labelledby': props['aria-labelledby'] }
+            : {})}
+          {...(props['aria-describedby']
+            ? { 'aria-describedby': props['aria-describedby'] }
+            : {})}
+          aria-invalid={state === 'error'}
           {...focusProps}
           {...controlledProps}
           {...numProps}
@@ -252,8 +272,10 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
         {!showSpinner && (
           <span
             onMouseDown={handleClear}
+            onKeyDown={handleClearKeyDown}
             className={clearClass}
             role="button"
+            tabIndex={inputValue ? 0 : -1}
             data-testid="rc-clear-input"
             {...clearProps}
           >
@@ -261,7 +283,11 @@ const Input = React.forwardRef<RCInputElementProps, InputProps>(
           </span>
         )}
         {showSpinner && (
-          <span role="img" data-testid="rc-input-spinner">
+          <span
+            role="status"
+            aria-label="Loading"
+            data-testid="rc-input-spinner"
+          >
             <CircularProgress size="xs" />
           </span>
         )}

@@ -5,22 +5,22 @@ import { Accent, Default, Large, Medium, RTL } from './widget-variants';
 function Widgets() {
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default">
+      <Section size="md" title="Default" border={false}>
         <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={false}>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Rounded Accent">
+      <Section size="md" title="Rounded Accent" border={false}>
         <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={false}>
           {Accent}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
+      <Section size="md" title="RTL" border={false}>
         <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={false}>
           {RTL}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom sizes">
+      <Section size="md" title="Custom sizes" border={false}>
         <DemoWidget name="AutoSuggest" width={300} showCodeByDefault={false}>
           {Medium}
         </DemoWidget>

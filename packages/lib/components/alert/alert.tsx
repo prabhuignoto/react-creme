@@ -1,6 +1,7 @@
 // Import necessary modules and icons
 import { CheckIcon, CloseIcon, ErrorIcon, InfoIcon, WarningIcon } from '@icons';
 import classNames from 'classnames';
+import { nanoid } from 'nanoid';
 import React, {
   CSSProperties,
   useCallback,
@@ -40,6 +41,9 @@ const Alert: React.FunctionComponent<AlertProps> = ({
 
   // Create a ref to the close button
   const btnCloseRef = useRef<HTMLSpanElement>(null);
+
+  // Generate unique ID for accessibility
+  const contentId = useRef(`alert-content-${nanoid()}`).current;
 
   // Only apply focus effect if focusable is true
   useFocus(
@@ -82,6 +86,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
       style={style}
       role="alert"
       aria-live="assertive"
+      aria-labelledby={contentId}
     >
       <div className={styles.alert_icon_wrapper}>
         <span
@@ -92,7 +97,9 @@ const Alert: React.FunctionComponent<AlertProps> = ({
           {icon}
         </span>
       </div>
-      <span className={styles.alert_content}>{children || message}</span>
+      <span id={contentId} className={styles.alert_content}>
+        {children || message}
+      </span>
       {canDismiss && (
         <span
           className={styles.alert_close_btn}

@@ -50,7 +50,7 @@ function widgets() {
 
   return width ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Comfortable View">
+      <Section size="md" title="Comfortable View" border={false}>
         <Text>
           In Comfortable mode, the display density is set to high and is
           preferable for better readability.
@@ -65,7 +65,7 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Compact View">
+      <Section size="md" title="Compact View" border={false}>
         <Text>
           In Compact mode, the display density is set to low and is preferred
           for smaller viewport and when you want to cramp in more rows in the
@@ -81,7 +81,7 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Sortable">
+      <Section size="md" title="Sortable" border={false}>
         <Text>Individual columns can be configured to be sortable.</Text>
         <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
           <DataGrid
@@ -98,12 +98,12 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom Table outlook">
+      <Section size="md" title="Custom Table outlook" border={false}>
         <Text>
           Use the <code>zebra</code> property to alternate the background color
           of the rows.
         </Text>
-        <DemoWidget name="DataGrid" width={width} showCodeByDefault={false}>
+        <DemoWidget name="DataGrid" width={width} showCodeByDefault={true}>
           <DataGrid
             layoutStyle="comfortable"
             zebra
@@ -112,7 +112,7 @@ function widgets() {
           />
         </DemoWidget>
       </Section>
-      <Section size="md" title="Searchable Grid">
+      <Section size="md" title="Searchable Grid" border={false}>
         <Text>
           Use the <code>searchable</code> property to enable search
           functionality in the grid.

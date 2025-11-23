@@ -1,3 +1,5 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { Password } from '../password';
@@ -63,6 +65,15 @@ describe('Password', () => {
 
     await waitFor(() => {
       expect(input).toHaveValue('');
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Password />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

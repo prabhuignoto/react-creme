@@ -4,6 +4,7 @@
 @use '@design/theme.scss';
 @use '@design/animate.scss';
 @use '@design/font.scss';
+@use '@design/tokens.scss';
 
 $height: 40px;
 
@@ -56,7 +57,7 @@ $sizes: (sm, md, lg);
     transform: translate(-50%, -50%);
     transition: border 0.1s ease-in;
     width: 100%;
-    z-index: -1;
+    z-index: 1;
   }
 }
 
@@ -72,16 +73,16 @@ $sizes: (sm, md, lg);
   height: 100%;
   justify-items: center;
   pointer-events: none;
-  width: calc(100% - 0.5rem);
+  width: calc(100% - #{tokens.$space-2});
 
   &:not(.rtl) {
     @extend %left;
-    padding-left: 0.5rem;
+    padding-left: tokens.$space-2;
   }
 
   &.rtl {
     @extend %right;
-    padding-right: 0.5rem;
+    padding-right: tokens.$space-2;
   }
 
   &:not(.no_icon):not(.rtl) {
@@ -110,7 +111,7 @@ $sizes: (sm, md, lg);
 
   .value {
     order: 0;
-    padding-right: 0.5rem;
+    padding-right: tokens.$space-2;
   }
 
   .icon {
@@ -124,7 +125,7 @@ $sizes: (sm, md, lg);
 
 .value_wrapper:not(.rtl) {
   .value {
-    padding-left: 0.5rem;
+    padding-left: tokens.$space-2;
   }
 }
 

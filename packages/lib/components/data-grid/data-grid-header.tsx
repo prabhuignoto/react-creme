@@ -15,8 +15,10 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
   border,
   size,
   searchable,
+  sortData,
 }: DataGridHeaderProps) => {
-  const isDarkMode = useMemo(() => isDark(), []);
+  // Simple function call - no need for useMemo
+  const isDarkMode = isDark();
   const [headerColumns, setHeaderColumns] = useState(() =>
     columns.map(col => ({
       ...col,
@@ -70,7 +72,11 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
 
   // Memoize the sort icon rendering for better performance
   const renderSortIcons = useCallback(
-    (column: { sortable: any; sortDirection: string; name: string }) => {
+    (column: {
+      name: string;
+      sortDirection: string;
+      sortable: boolean | undefined;
+    }) => {
       if (!column.sortable) return null;
 
       return (
@@ -105,10 +111,31 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
     [handleSort, handleKeyDown]
   );
 
+  // Get ARIA sort value for a column
+  const getAriaSort = useCallback(
+    (columnName: string): 'ascending' | 'descending' | 'none' => {
+      if (sortData?.column === columnName) {
+        return sortData.dir === 'asc'
+          ? 'ascending'
+          : sortData.dir === 'desc'
+            ? 'descending'
+            : 'none';
+      }
+      return 'none';
+    },
+    [sortData]
+  );
+
   return (
-    <div className={headerClass} style={style} role="row">
-      {headerColumns.map(column => (
-        <div className={headerCellClass} key={column.name}>
+    <div className={headerClass} style={style} role="row" aria-rowindex={1}>
+      {headerColumns.map((column, index) => (
+        <div
+          className={headerCellClass}
+          key={column.name}
+          role="columnheader"
+          aria-sort={column.sortable ? getAriaSort(column.name) : undefined}
+          aria-colindex={index + 1}
+        >
           <DataGridCell
             name={column.name}
             value={column.name}

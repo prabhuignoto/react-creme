@@ -1,0 +1,19 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1,
+    "workspacePrefix": "/Users/giaia/code/react-creme"
+  },
+  "1 info pnpm:global": "Removed all cached metadata files",
+  "2 error pnpm": {
+    "errno": -2,
+    "code": "ENOENT",
+    "syscall": "scandir",
+    "path": "/Users/giaia/.pnpm-store/v3/files",
+    "err": {
+      "name": "pnpm",
+      "message": "ENOENT: no such file or directory, scandir '/Users/giaia/.pnpm-store/v3/files'",
+      "code": "ENOENT",
+      "stack": "pnpm: ENOENT: no such file or directory, scandir '/Users/giaia/.pnpm-store/v3/files'\n    at async Object.readdir (node:internal/fs/promises:955:18)\n    at async prune (/Users/giaia/Library/pnpm/.tools/pnpm/6.27.1/node_modules/pnpm/dist/pnpm.cjs:73828:21)\n    at async default_1 (/Users/giaia/Library/pnpm/.tools/pnpm/6.27.1/node_modules/pnpm/dist/pnpm.cjs:177517:7)\n    at async /Users/giaia/Library/pnpm/.tools/pnpm/6.27.1/node_modules/pnpm/dist/pnpm.cjs:180328:21\n    at async run (/Users/giaia/Library/pnpm/.tools/pnpm/6.27.1/node_modules/pnpm/dist/pnpm.cjs:180302:34)\n    at async runPnpm (/Users/giaia/Library/pnpm/.tools/pnpm/6.27.1/node_modules/pnpm/dist/pnpm.cjs:180513:5)\n    at async /Users/giaia/Library/pnpm/.tools/pnpm/6.27.1/node_modules/pnpm/dist/pnpm.cjs:180505:7"
+    }
+  }
+}

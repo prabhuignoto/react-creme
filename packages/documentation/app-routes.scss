@@ -1,10 +1,88 @@
+/* ============================================
+   Modern Page Transition Animations
+   ============================================ */
+
+/* Fade-in animation for page content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-in to section content on mount */
+.section-content {
+  animation: fadeIn 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: opacity, transform;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* ============================================
+   Loading Placeholder - Prevents Footer Mid-Page
+   ============================================ */
+.route-loading-placeholder {
+  /* Match section-content minimum height to prevent footer from appearing mid-page */
+  min-height: calc(100vh - var(--header-height) - var(--spacing-xl) - var(--spacing-3xl));
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-3xl); /* Match section-content padding */
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    min-height: calc(100vh - var(--header-height) - var(--spacing-lg) - var(--spacing-xl));
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+  }
+}
+
+.loading-skeleton {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-header {
+  width: 300px;
+  height: 48px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.skeleton-content {
+  width: 100%;
+  height: 400px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Legacy CSSTransition classes (kept for compatibility) */
 .fade-enter {
   opacity: 0;
 }
 
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 200ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-exit {
@@ -13,5 +91,5 @@
 
 .fade-exit-active {
   opacity: 0;
-  transition: opacity 200ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }

@@ -1,6 +1,9 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { Rate } from '../rate';
+// @ts-expect-error - SCSS module type declaration is available but not picked up by linter
 import styles from '../rate.module.scss';
 
 describe('Rate', () => {
@@ -63,6 +66,15 @@ describe('Rate', () => {
 
     getAllByRole('radio').forEach(radio => {
       expect(radio).toHaveAttribute('aria-disabled', 'true');
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Rate />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

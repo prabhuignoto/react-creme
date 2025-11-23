@@ -1,5 +1,7 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render, waitFor } from '@testing-library/react';
-import { vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { DropDownMenu } from '../dropdown-menu';
 import { MenuOption } from '../dropdown-model';
 import { DropdownMenuStyleModel } from './../dropdown-model';
@@ -30,6 +32,15 @@ describe('DropdownMenu', () => {
 
     await waitFor(() => {
       expect(getByRole('listbox')).toBeInTheDocument();
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<DropDownMenu />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

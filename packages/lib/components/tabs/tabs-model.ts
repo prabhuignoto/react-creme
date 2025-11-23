@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement, ReactNode } from 'react';
+import React, { CSSProperties, ReactElement, ReactNode } from 'react';
 
 // ⚙️ Internal props
 
@@ -60,6 +60,7 @@ export type TabHeadersProps = Pick<
 export interface TabPanelProps {
   children?: React.ReactNode;
   disabled?: boolean;
+  hidden?: boolean;
   id?: string;
 }
 

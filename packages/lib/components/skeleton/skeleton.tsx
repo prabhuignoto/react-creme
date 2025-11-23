@@ -14,6 +14,7 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
   animate = false,
   style,
   RTL = false,
+  label = 'Loading...',
 }) => {
   const [skeletonBlocks, setSkeletonBlocks] = useState<SkeletonBlockProps[]>(
     Array.from({ length: blocks }).map(() => ({
@@ -47,7 +48,7 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
     }
   }, []);
 
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark();
 
   const wrapperClass = useMemo(
     () => classNames(styles.wrapper, { [styles.dark]: isDarkMode }),
@@ -60,6 +61,9 @@ const Skeleton: FunctionComponent<SkeletonProps> = ({
       ref={onInit}
       data-testid="rc-skeleton"
       style={style}
+      role="status"
+      aria-label={label}
+      aria-busy="true"
     >
       {skeletonBlocks.map(({ id, rows }) => (
         <div

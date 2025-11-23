@@ -1,20 +1,22 @@
+import React from 'react';
+import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
-import { vi, beforeEach } from 'vitest';
+import { describe, expect, it, vi, beforeEach } from 'vitest';
 import { BlockQuote } from '../block-quote';
 
 // Mock the CSS module
 vi.mock('../block-quote.module.scss', () => ({
   default: {
+    cite: 'cite',
+    content: 'content',
+    dark: 'dark',
     quote: 'quote',
-    quote_left: 'quote_left',
-    quote_right: 'quote_right',
     quote_center: 'quote_center',
     quote_default: 'quote_default',
-    quote_simple: 'quote_simple',
     quote_fancy: 'quote_fancy',
-    content: 'content',
-    cite: 'cite',
-    dark: 'dark',
+    quote_left: 'quote_left',
+    quote_right: 'quote_right',
+    quote_simple: 'quote_simple',
   },
 }));
 
@@ -85,7 +87,7 @@ describe('BlockQuote', () => {
 
   it('renders with specified style', () => {
     const { container, rerender } = render(
-      <BlockQuote style="simple">
+      <BlockQuote blockquoteStyle="simple">
         <p>Test quote content</p>
       </BlockQuote>
     );
@@ -93,7 +95,7 @@ describe('BlockQuote', () => {
     expect(blockquote).toHaveClass('quote_simple');
 
     rerender(
-      <BlockQuote style="fancy">
+      <BlockQuote blockquoteStyle="fancy">
         <p>Test quote content</p>
       </BlockQuote>
     );
@@ -131,5 +133,14 @@ describe('BlockQuote', () => {
       </BlockQuote>
     );
     expect(screen.getByTestId('custom-testid')).toBeInTheDocument();
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<BlockQuote />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

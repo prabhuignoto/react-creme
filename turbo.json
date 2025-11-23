@@ -8,17 +8,28 @@
       "dependsOn": ["^build"],
       "outputs": []
     },
+    "oxlint": {
+      "cache": true,
+      "outputs": []
+    },
+    "knip": {
+      "cache": false,
+      "outputs": []
+    },
     "build:lib": {
       "dependsOn": ["^build:lib"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "cache": true
     },
     "build:doc": {
       "dependsOn": ["build:lib"],
-      "outputs": ["dist/**"]
+      "outputs": ["expo_dist/**"]
     },
     "build:story": {
       "dependsOn": ["build:lib"],
-      "outputs": ["storybook-static/**"]
+      "outputs": ["storybook-static/**"],
+      "cache": true,
+      "env": ["STORYBOOK"]
     },
     "percy": {
       "dependsOn": ["build:story"],
@@ -26,7 +37,9 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "dts/**", "typings/**", "expo_dist"]
+      "outputs": ["dist/**", "dts/**", "typings/**", "expo_dist"],
+      "env": ["NODE_ENV"],
+      "cache": true
     },
     "test": {
       "dependsOn": ["build"],
@@ -38,7 +51,8 @@
     },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "env": ["NODE_ENV"]
     },
     "ci": {
       "dependsOn": ["^build", "test:ci"],

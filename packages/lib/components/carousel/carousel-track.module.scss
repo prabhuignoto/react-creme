@@ -1,40 +1,95 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .track {
   &.track_horizontal {
     @extend %center;
     @extend %list-horizontal;
+    gap: tokens.$space-2;
   }
 
   &.track_vertical {
     @extend %list;
+    gap: tokens.$space-2;
     width: 3rem;
   }
 }
 
 .track_item {
+  // Reset button styles
+  background: transparent;
+  border: 2px solid transparent;
   border-radius: 50%;
-  height: 10px;
-  margin: 4px;
-  width: 10px;
+  cursor: pointer;
 
-  &.dark:not(.track_item_selected) {
+  // WCAG 2.1 compliant touch targets (minimum 44×44px)
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
+
+  // Visual indicator (smaller circle inside the button)
+  position: relative;
+
+  // Use Hybrid Theme timing for smooth, responsive feedback
+  @include hybrid.smooth-multi-transition(background-color, border-color, transform);
+
+  &::before {
+    background-color: theme.$alto;
+    border-radius: 50%;
+    content: '';
+    height: 12px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    // Use Hybrid Theme secondary timing for indicator color transitions
+    @include hybrid.smooth-transition(background-color, hybrid.$animation-duration-secondary);
+
+    width: 12px;
+  }
+
+  &.dark:not(.track_item_selected)::before {
     background-color: theme.$gunmetal-gray;
   }
 
-  &.track_item_selected {
+  &.track_item_selected::before {
     background-color: theme.$primary;
   }
 
-  &:not(.dark):not(.track_item_selected) {
-    background-color: theme.$alto;
-  }
-}
+  // Hover state with interactive scale feedback
+  &:hover:not(:disabled) {
+    @include hybrid.hover-feedback() {
+      transform: scale(1.1);
 
-.track_item:hover {
-  cursor: pointer;
+      &::before {
+        background-color: theme.$primary;
+      }
+    }
+  }
+
+  // Focus state (keyboard navigation) with refined outline
+  &:focus-visible {
+    border-color: theme.$primary;
+    @include hybrid.focus-outline(theme.$primary, 2px, 0);
+  }
+
+  // Active state with quick scale feedback
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  // Respect reduced motion preference
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &::before {
+      transition: none;
+    }
+  }
 }
 
 .icon {

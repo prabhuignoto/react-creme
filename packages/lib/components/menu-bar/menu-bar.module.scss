@@ -1,23 +1,42 @@
 @use '@design/core.scss';
 @use '@design/list.scss';
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/font.scss';
 @use '@design/icon.scss';
 @use '@design/animate.scss';
 
+// Configuration constants
 $sizes: (sm, md, lg);
+$min-item-width: 60px;
+$item-padding-vertical: tokens.$space-3;
+$item-padding-horizontal: tokens.$space-1;
+$icon-margin: tokens.$space-2;
+$divider-width: 1px;
+$divider-height: 75%;
+$border-radius-hover: 2px;
+$focus-outline-width: 2px;
+$focus-outline-offset: -2px;
+$disabled-opacity: 0.5;
+$animation-duration: 0.4s;
+$animation-easing: cubic-bezier(0.34, 1.56, 0.64, 1);
 
 .wrapper {
   @extend %border-radius;
   @extend %list-horizontal-left;
   width: 100%;
+  border: 1px solid rgba(107, 114, 128, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 
   &.dark {
-    background: theme.$chinese-black;
+    background: linear-gradient(180deg, theme.$chinese-black 0%, rgba(17, 24, 39, 0.9) 100%);
+    border-color: rgba(75, 85, 99, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   }
 
   &:not(.dark) {
-    background: rgba(theme.$secondary-rgb, 0.25);
+    background: linear-gradient(180deg, rgba(249, 250, 251, 0.5) 0%, rgba(241, 245, 249, 0.8) 100%);
+    border-color: rgba(107, 114, 128, 0.12);
   }
 
   &.right_aligned {
@@ -28,9 +47,15 @@ $sizes: (sm, md, lg);
 .item {
   @extend %center;
   cursor: pointer;
-  min-width: 100px;
-  padding: 0.75rem 0.25rem;
+  min-width: $min-item-width;
+  padding: $item-padding-vertical $item-padding-horizontal;
   position: relative;
+  transition: background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out,
+    transform 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out;
+  transform: translateY(0);
+  filter: drop-shadow(0 1px 2px rgba(107, 114, 128, 0.05));
 
   &.dark {
     color: theme.$white;
@@ -40,69 +65,112 @@ $sizes: (sm, md, lg);
     color: theme.$black;
   }
 
+  // Divider between items
   &:not(:last-child)::after {
     content: '';
     display: block;
-    height: 75%;
+    height: $divider-height;
     position: absolute;
-    width: 1px;
+    width: $divider-width;
+    transition: background-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  }
+
+  // Disabled state
+  &.disabled {
+    cursor: not-allowed;
+    opacity: $disabled-opacity;
+    filter: none;
+
+    &:hover {
+      background-color: transparent;
+      transform: translateY(0);
+    }
   }
 }
 
-.item.dark {
+// Dark mode item styling
+.item.dark:not(.disabled) {
   &:not(:last-child):not(.rtl)::after {
-    background: theme.$dark-control-bg;
+    background: rgba(75, 85, 99, 0.2);
     right: -1px;
   }
 
   &:not(:last-child).rtl::after {
-    background: theme.$dark-control-bg;
+    background: rgba(75, 85, 99, 0.2);
     left: -1px;
   }
 
   &:hover {
-    background: theme.$primary;
-    border-radius: 2px;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.8) 100%);
+    border-radius: $border-radius-hover;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+    filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.2));
   }
 }
 
-.item:not(.dark) {
+// Light mode item styling
+.item:not(.dark):not(.disabled) {
   &:not(:last-child):not(.rtl) {
-    border-right: 1px solid rgba(theme.$secondary-rgb, 0.5);
+    border-right: $divider-width solid rgba(107, 114, 128, 0.12);
   }
 
   &:not(:last-child).rtl {
-    border-left: 1px solid rgba(theme.$secondary-rgb, 0.5);
+    border-left: $divider-width solid rgba(107, 114, 128, 0.12);
   }
 
   &:hover {
-    background-color: theme.$secondary;
-    border-radius: 2px;
+    background: linear-gradient(180deg, rgba(107, 114, 128, 0.08) 0%, rgba(107, 114, 128, 0.03) 100%);
+    border-radius: $border-radius-hover;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    filter: drop-shadow(0 2px 4px rgba(107, 114, 128, 0.1));
   }
 }
 
-.item.active {
+// Active state
+.item.active:not(.disabled) {
   color: theme.$white;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
   &.dark {
-    background-color: theme.$primary;
+    background: linear-gradient(180deg, theme.$primary 0%, rgba(37, 99, 235, 0.9) 100%);
+    box-shadow: 0 4px 12px -2px rgba(59, 130, 246, 0.3);
+    filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.2));
   }
 
   &:not(.dark) {
-    background-color: theme.$primary;
+    background: linear-gradient(180deg, theme.$primary 0%, rgba(37, 99, 235, 0.95) 100%);
     color: theme.$white;
+    box-shadow: 0 2px 8px -1px rgba(59, 130, 246, 0.2);
+    filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.15));
   }
 }
 
+// Focus indicators for keyboard navigation
+.item:focus-visible:not(.disabled) {
+  outline: $focus-outline-width solid rgba(107, 114, 128, 0.5);
+  outline-offset: $focus-outline-offset;
+}
+
+// Respect user motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .chevron_icon.rotate,
+  .chevron_icon.rotate_reverse {
+    animation: none !important;
+  }
+}
+
+// Menu item name styling
 .name {
   @extend %center;
 
   &.rtl {
-    margin-right: 0.5rem;
+    margin-right: $icon-margin;
   }
 
   &:not(.rtl) {
-    margin-left: 0.5rem;
+    margin-left: $icon-margin;
   }
 
   @each $size in $sizes {
@@ -112,8 +180,9 @@ $sizes: (sm, md, lg);
   }
 }
 
+// Menu item icon styling
 .icon {
-  margin-left: 0.5rem;
+  margin-left: $icon-margin;
 
   @each $size in $sizes {
     &.#{$size} {
@@ -122,18 +191,16 @@ $sizes: (sm, md, lg);
   }
 }
 
+// Chevron icon for dropdown indicator (rubber band spring physics)
 .chevron_icon {
   $animation-settings: (
     from: (
-      transform: rotate(0deg),
+      transform: rotate(0deg) scale(1),
     ),
     to: (
-      transform: rotate(180deg),
+      transform: rotate(180deg) scale(1.05),
     ),
   );
-  @include animate.set-settings(0.2s);
-  @include animate.set-keyframes(rotate, $animation-settings);
-  @include animate.set-keyframes(rotate-reverse, $animation-settings, true);
 
   &.rtl {
     margin-right: auto;
@@ -143,6 +210,16 @@ $sizes: (sm, md, lg);
     margin-left: auto;
   }
 
+  // Base styles
+  transition: color 0.3s ease-in-out, filter 0.3s ease-in-out;
+  transform-origin: center;
+  filter: drop-shadow(0 1px 2px rgba(107, 114, 128, 0.08));
+
+  // Animation mixins that generate @keyframes (nested rules) come after properties
+  @include animate.set-settings($animation-duration, $animation-easing);
+  @include animate.set-keyframes(rotate, $animation-settings);
+  @include animate.set-keyframes(rotate-reverse, $animation-settings, true);
+
   @each $size in $sizes {
     &.#{$size} {
       @extend %icon-#{$size};
@@ -151,11 +228,13 @@ $sizes: (sm, md, lg);
 
   &.rotate {
     animation-name: rotate;
-    transform: rotate(180deg);
+    transform: rotate(180deg) scale(1.05);
+    filter: drop-shadow(0 2px 4px rgba(107, 114, 128, 0.12));
   }
 
   &.rotate_reverse {
     animation-name: rotate-reverse;
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 1px 2px rgba(107, 114, 128, 0.08));
   }
 }

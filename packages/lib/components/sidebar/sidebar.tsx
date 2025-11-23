@@ -1,7 +1,14 @@
 import { SearchIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React, { CSSProperties, useCallback, useMemo, useRef } from 'react';
+import React, {
+  CSSProperties,
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { isArray, isDark } from '../common/utils';
 import { Input } from '../input/input';
 import { ListOption } from '../list/list-model';
@@ -23,7 +30,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
   sectionsCollapsible = true,
   icons,
 }) => {
-  const [_groups, setGroups] = React.useState<SidebarGroupModel[]>(
+  const [_groups, setGroups] = useState<SidebarGroupModel[]>(
     isArray(groups)
       ? groups.map(item => ({
           ...item,
@@ -38,28 +45,41 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
       : []
   );
 
-  const [sidebarHeight, setSidebarHeight] = React.useState(0);
+  const [sidebarHeight, setSidebarHeight] = useState(0);
 
   const ref = useRef<HTMLDivElement | null>(null);
+
+  // Stabilize onSelect callback to prevent infinite loops
+  const onSelectRef = useRef(onSelect);
+  useLayoutEffect(() => {
+    onSelectRef.current = onSelect;
+  });
 
   const isDarkMode = useMemo(() => isDark(), []);
 
   const handleSelection = useCallback(
     (option: ListOption[], groupId?: string) => {
       if (option && groupId) {
+        let updatedGroup: SidebarGroupModel | undefined;
+
         setGroups(prev => {
-          return prev.map(item => ({
+          const updated = prev.map(item => ({
             ...item,
             items: item.items.map(item => ({
               ...item,
-              selected: item.id === option[0].id,
+              selected: item.id === option?.[0]?.id,
             })),
           }));
-        });
-        const grp = _groups.find(grp => grp.id === groupId);
 
-        if (grp) {
-          onSelect?.(grp, option[0]);
+          // Find group from the updated state, not stale _groups
+          updatedGroup = updated.find(grp => grp.id === groupId);
+          return updated;
+        });
+
+        const selectedOption = option?.[0];
+
+        if (updatedGroup && selectedOption) {
+          onSelectRef.current?.(updatedGroup, selectedOption);
         }
       }
     },
@@ -85,7 +105,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
         })
       );
     },
-    [groups.length]
+    [groups?.length]
   );
 
   const sideBarClass = useMemo(

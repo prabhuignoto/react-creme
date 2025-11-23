@@ -12,7 +12,7 @@ import React, {
 import { isDark } from '../common/utils';
 import { TabHeaders } from './tab-headers';
 import { TabPanel } from './TabPanel';
-import { TabItemProps, TabsProps } from './tabs-model';
+import { TabsProps } from './tabs-model';
 import styles from './tabs.module.scss';
 
 /**
@@ -47,70 +47,76 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   size = 'sm',
   minHeight = 200,
 }) => {
-  // useRef hook to store the index of the selected tab
-  const selectionStart = useRef<number>(-1);
   // useState hook to store the ID of the active tab
   const [activeTabId, setActiveTabId] = useState<string>('');
 
-  // Prepare the data for the tabs
-  const items = useRef<TabItemProps[]>(
-    Array.isArray(children)
-      ? children.map((_, index) => {
-          // Check if the tab is disabled
-          const disabled = disabledTabs.includes(labels[index]);
-          // Check if the tab can be selected on load
-          const selected = activeTab
-            ? activeTab === labels[index]
-            : index === 0 && !disabled;
-          const _id = nanoid();
+  // Maintain stable IDs for tabs across renders using a ref
+  const idMapRef = useRef<Map<string, string>>(new Map());
 
-          if (selected) {
-            selectionStart.current = index;
-          }
-
-          return {
-            content: children[index],
-            disabled: disabled,
-            id: _id,
-            name: labels[index],
-            selected,
-          };
-        })
-      : []
-  );
-
-  // If no tab is selected, select the first available tab
-  if (!items.current.some(item => item.selected)) {
-    const availItems = items.current.filter(item => !item.disabled);
-    if (availItems.length > 0) {
-      availItems[0].selected = true;
+  // Get or create a stable ID for a given label
+  const getStableId = useCallback((label: string) => {
+    if (!idMapRef.current.has(label)) {
+      idMapRef.current.set(label, nanoid());
     }
-  }
+    return idMapRef.current.get(label)!;
+  }, []);
+
+  // Prepare the data for the tabs (using useMemo to avoid props-to-state anti-pattern)
+  const items = useMemo(() => {
+    if (!Array.isArray(children)) {
+      return [];
+    }
+
+    const generatedItems = children.map((_, index) => {
+      // Check if the tab is disabled
+      const label = labels[index] || '';
+      const disabled = disabledTabs.includes(label);
+      // Check if the tab can be selected on load
+      const selected = activeTab
+        ? activeTab === label
+        : index === 0 && !disabled;
+
+      return {
+        content: children[index],
+        disabled,
+        id: getStableId(label),
+        name: label,
+        selected,
+      };
+    });
+
+    // If no tab is selected, select the first available tab
+    if (!generatedItems.some(item => item.selected)) {
+      const availItems = generatedItems.filter(item => !item.disabled);
+      if (availItems.length > 0 && availItems[0]) {
+        availItems[0].selected = true;
+      }
+    }
+
+    return generatedItems;
+  }, [children, labels, disabledTabs, activeTab, getStableId]);
 
   // Gets the tab content based on the active selection
   const getTabContent = useMemo(() => {
-    const activeTab = items.current.find(item => item.id === activeTabId);
+    const activeTab = items.find(item => item.id === activeTabId);
     return activeTab ? activeTab.content : null;
-  }, [activeTabId]);
+  }, [items, activeTabId]);
 
   // Collection of tab items
   const tabItems = useMemo(() => {
-    return items.current
-      .filter(tab => !tab.disabled)
-      .map(
-        ({ id }) =>
-          id === activeTabId && (
-            <TabPanel key={id} id={id}>
-              {getTabContent}
-            </TabPanel>
-          )
-      );
-  }, [activeTabId, getTabContent]);
+    return items
+      .filter(tab => !tab.disabled && tab.id === activeTabId)
+      .map(({ id }) => (
+        <TabPanel key={id} id={id}>
+          {getTabContent}
+        </TabPanel>
+      ));
+  }, [items, activeTabId, getTabContent]);
 
   // Visible tabs
   const visibleTabs = useMemo(() => {
-    return items.current.filter(item => labels.includes(item.name));
-  }, [labels]);
+    return items.filter(item => labels.includes(item.name));
+  }, [items, labels]);
 
   // Handles the tab selection
   const handleTabSelection = useCallback((id: string) => {
@@ -133,7 +139,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     () => classNames(styles.tabs, { [styles.tab_border]: border }),
     [border]
   );
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark(); // Called once per render, doesn't change
   const rcPanelsClass = useMemo(
     () =>
       classNames(styles.tab_panels, {
@@ -144,46 +150,27 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     [tabStyle, isDarkMode]
   );
 
-  // Set the active tab ID on initial render
+  // Set the active tab ID on initial render only
+  const hasInitialized = useRef(false);
   useEffect(() => {
-    const selected = items.current.find(item => item.selected);
-    if (selected) {
-      setActiveTabId(selected.id);
-    }
-  }, []);
-
-  // Handle keyboard navigation
-  const handleKeyDown = useCallback(
-    (ev: React.KeyboardEvent) => {
-      const key = ev.key;
-      if (key === 'ArrowLeft' || key === 'ArrowRight') {
-        ev.stopPropagation();
-        ev.preventDefault();
-
-        const _items = items.current;
-        const activeTabIndex = _items.findIndex(
-          item => item.id === activeTabId
-        );
-
-        if (key === 'ArrowLeft' && activeTabIndex > 0) {
-          handleTabSelection(_items[activeTabIndex - 1].id);
-        } else if (key === 'ArrowRight' && activeTabIndex < _items.length - 1) {
-          handleTabSelection(_items[activeTabIndex + 1].id);
-        }
+    if (!hasInitialized.current) {
+      const selected = items.find(item => item.selected);
+      if (selected) {
+        setActiveTabId(selected.id);
+        hasInitialized.current = true;
       }
-    },
-    [activeTabId, handleTabSelection]
-  );
+    }
+  }, [items]);
 
   // Render the Tabs component
   return (
-    <div className={rcTabsClass} style={tabsStyle} onKeyDown={handleKeyDown}>
+    <div className={rcTabsClass} style={tabsStyle}>
       <TabHeaders
         items={visibleTabs}
         handleTabSelection={handleTabSelection}
         tabStyle={tabStyle}
         focusable={focusable}
-        icons={icons}
+        {...(icons && { icons })}
         activeTabId={activeTabId}
         size={size}
       />

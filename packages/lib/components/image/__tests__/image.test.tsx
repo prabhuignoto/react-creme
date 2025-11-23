@@ -1,3 +1,6 @@
+import React from 'react';
+import { axe } from 'jest-axe';
+import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { Image } from '../image';
 
@@ -15,5 +18,14 @@ describe('Image', () => {
     if (container.firstChild) {
       expect(container.firstChild as HTMLElement).toHaveStyle('--width: 100%');
     }
+  });
+
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(<Image />);
+      const results = await axe(container);
+
+      expect(results).toHaveNoViolations();
+    });
   });
 });

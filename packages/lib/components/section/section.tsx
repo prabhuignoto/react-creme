@@ -5,6 +5,7 @@ import { SectionProps } from './section-model';
 import styles from './section.module.scss';
 
 const Section: React.FC<SectionProps> = ({
+  background = false,
   children,
   title,
   height = 150,
@@ -14,6 +15,7 @@ const Section: React.FC<SectionProps> = ({
   noPadding = false,
   useHash = false,
   border = true,
+  footer,
 }) => {
   const sectionStyle = useMemo(
     () =>
@@ -24,8 +26,13 @@ const Section: React.FC<SectionProps> = ({
   );
 
   const sectionClass = useMemo(
-    () => classNames(styles.section, border ? styles.border : ''),
-    []
+    () =>
+      classNames(
+        styles.section,
+        border ? styles.border : '',
+        background ? styles.background : ''
+      ),
+    [border, background]
   );
 
   const bodyStyle = useMemo(
@@ -80,13 +87,14 @@ const Section: React.FC<SectionProps> = ({
   return (
     <div style={sectionStyle} className={sectionClass}>
       {getTitle && (
-        <div className={headerClass} id={getId} role="heading" aria-level={3}>
+        <h3 className={headerClass} id={getId}>
           {getTitle}
-        </div>
+        </h3>
       )}
       <div style={bodyStyle} className={bodyClass}>
         {children}
       </div>
+      {footer && <div className={styles.footer}>{footer}</div>}
     </div>
   );
 };

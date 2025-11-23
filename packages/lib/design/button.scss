@@ -1,9 +1,12 @@
 @use 'theme.scss';
 @use 'core.scss';
+@use 'tokens.scss';
 
-$btn-sm-height: 20px;
-$btn-md-height: 24px;
-$btn-lg-height: 28px;
+// Button heights meet WCAG 2.1 Level AA minimum touch target (44px)
+// Padding includes space for icons and text
+$btn-sm-height: 2.75rem; // 44px - minimum for touch accessibility
+$btn-md-height: 3rem;    // 48px - recommended for better usability
+$btn-lg-height: 3.25rem; // 52px - comfortable for large buttons
 
 %button {
   @extend %center;
@@ -12,12 +15,23 @@ $btn-lg-height: 28px;
   transition: background 0.2s ease-in;
   white-space: nowrap;
 
+  // Respect prefers-reduced-motion for accessibility
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
   svg {
     color: theme.$primary;
   }
 
   &:hover svg {
     color: theme.$white;
+  }
+
+  // Focus styles for keyboard navigation
+  &:focus-visible {
+    outline: 2px solid theme.$primary;
+    outline-offset: 2px;
   }
 }
 
@@ -99,13 +113,16 @@ $btn-lg-height: 28px;
   &:not(.icon) {
     @if $size == small {
       height: $btn-sm-height;
-      padding: calc($btn-sm-height * 0.3) calc($btn-sm-height * 0.3);
-    } @else if $size == large {
-      height: $btn-md-height;
-      padding: calc($btn-md-height * 0.3) calc($btn-md-height * 0.4);
+      // Vertical padding: 0.5rem (8px), Horizontal: 1rem (16px)
+      padding: tokens.$space-2 tokens.$space-4;
     } @else if $size == medium {
+      height: $btn-md-height;
+      // Vertical padding: 0.75rem (12px), Horizontal: 1.25rem (20px)
+      padding: tokens.$space-3 tokens.$space-5;
+    } @else if $size == large {
       height: $btn-lg-height;
-      padding: calc($btn-lg-height * 0.25) calc($btn-lg-height * 0.3);
+      // Vertical padding: 1rem (16px), Horizontal: 1.5rem (24px)
+      padding: tokens.$space-4 tokens.$space-6;
     }
   }
 

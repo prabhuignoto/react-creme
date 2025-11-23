@@ -1,0 +1,130 @@
+/* ============================================
+   Inline Code Viewer - Section Footer Accordion
+   ============================================ */
+
+.inline-code-viewer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Toggle Button (bottom-center of section) - Subtle style */
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 0.375rem 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-weight: 400;k
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--text-primary);
+
+      .inline-code-viewer__icon,
+      .inline-code-viewer__label {
+        color: var(--rc-primary-color-hex, #007bff);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--rc-primary-color-hex, #007bff);
+      outline-offset: 2px;
+    }
+
+    &.is-expanded {
+      background: rgba(0, 0, 0, 0.03);
+      color: var(--text-primary);
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    color: var(--text-tertiary);
+    transition: color var(--transition-fast);
+  }
+
+  &__label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  &__chevron {
+    flex-shrink: 0;
+    color: var(--text-tertiary);
+    transition: transform var(--transition-fast), color var(--transition-fast);
+
+    &.is-expanded {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* Expandable Content */
+  &__content {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base) ease-in-out;
+    background: transparent;
+
+    &.is-expanded {
+      max-height: 2000px;
+      overflow: auto;
+    }
+  }
+
+  &__content-inner {
+    padding: var(--spacing-sm) 0;
+
+    /* Override SyntaxHighlighter styles to remove extra borders/padding */
+    :global(.rc-demo-code-block) {
+      margin: 0;
+      border: none;
+      border-radius: 6px;
+      box-shadow: none;
+
+      &:hover {
+        box-shadow: none;
+        border-color: transparent;
+      }
+    }
+  }
+}
+
+/* Dark mode */
+.dark .inline-code-viewer {
+  &__toggle {
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    &.is-expanded {
+      background: rgba(255, 255, 255, 0.03);
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .inline-code-viewer {
+    &__toggle {
+      padding: var(--spacing-xs) var(--spacing-md);
+      font-size: 0.8125rem;
+      gap: var(--spacing-xs);
+    }
+
+    &__icon,
+    &__chevron {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

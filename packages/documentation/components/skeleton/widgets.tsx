@@ -35,18 +35,18 @@ function widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default rendering">
+      <Section size="md" title="Default rendering" border={false}>
         <DemoWidget name="Skeleton" width={width} showCodeByDefault>
           {Default}
         </DemoWidget>
       </Section>
-      <Section size="md" title="With Circle">
+      <Section size="md" title="With Circle" border={false}>
         <Text>Optional Circle figure can be added to the skeleton</Text>
         <DemoWidget name="Skeleton" width={width} showCodeByDefault>
           {Circle}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom row count and height">
+      <Section size="md" title="Custom row count and height" border={false}>
         <Text>
           The height of each row and the height of it can be customized.
         </Text>
@@ -54,7 +54,7 @@ function widgets() {
           {CustomRowAndHeight}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Animated rows">
+      <Section size="md" title="Animated rows" border={false}>
         <Text>
           Use the <code>animate</code> prop to animate the skeleton.
         </Text>
@@ -62,7 +62,7 @@ function widgets() {
           {Animate}
         </DemoWidget>
       </Section>
-      <Section size="md" title="Custom block count">
+      <Section size="md" title="Custom block count" border={false}>
         <Text>
           A collection of Skeleton is a block. with the <code>blocks</code> prop
           we can also customize the number of blocks we want to be displayed.
@@ -72,7 +72,7 @@ function widgets() {
           {CustomBlockCount}
         </DemoWidget>
       </Section>
-      <Section size="md" title="RTL">
+      <Section size="md" title="RTL" border={false}>
         <DemoWidget name="Skeleton" width={width} showCodeByDefault>
           {RTL}
         </DemoWidget>

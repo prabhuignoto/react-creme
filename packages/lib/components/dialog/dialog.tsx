@@ -1,8 +1,7 @@
 import { CheckIcon, CloseIcon } from '@icons';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import React from 'react';
-import { useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { Button } from '../button/button';
 import useTrapFocus from '../common/effects/useTrapFocus';
 import { isDark } from '../common/utils';
@@ -17,33 +16,89 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   focusable = true,
   height = 200,
   isClosing,
+  isExiting: isExitingProp,
+  isLoading,
+  isSuccess,
+  isError,
   onClose,
   onOpen,
-  onSuccess,
+  onPrimaryClick,
+  onSecondaryClick,
+  onSuccess: onSuccessDeprecated, // deprecated but kept for backward compatibility
+  primaryButtonLabel = 'okay',
+  secondaryButtonLabel = 'cancel',
+  showCloseButton = true,
+  showFooter = true,
   size = 'sm',
   title,
+  titleLevel = 'h2',
   width = 300,
 }: DialogProps) => {
-  const buttonRef = useRef<HTMLDivElement | null>(null);
+  // Store reference to element that triggered dialog for return focus (WCAG 2.4.3)
+  const triggerElementRef = useRef<HTMLElement | null>(
+    typeof document !== 'undefined'
+      ? (document.activeElement as HTMLElement)
+      : null
+  );
 
-  const focusProps = useRef({});
+  // Initialize ID once with lazy initialization
+  const id = useRef<string | undefined>(undefined);
+  if (!id.current) {
+    id.current = `rc-dialog-${nanoid()}`;
+  }
+
+  const bodyId = useRef<string | undefined>(undefined);
+  if (!bodyId.current) {
+    bodyId.current = `${id.current}-body`;
+  }
+
+  // Get dark mode once (doesn't change during component lifecycle)
+  const isDarkMode = isDark();
+
+  // Ref for dialog container to focus it
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const trapFocus = useTrapFocus<HTMLDivElement>(
     focusable ? 200 : null,
     focusable ? onOpen : null
   );
 
-  if (trapFocus) {
-    focusProps.current = {
-      onKeyDown: trapFocus.handleKeyDown,
-      ref: trapFocus.onInit,
-      tabIndex: 0,
-    };
-  } else {
-    focusProps.current = { tabIndex: 0 };
-  }
+  // Focus dialog container on mount for better accessibility (WCAG 2.4.3)
+  useEffect(() => {
+    if (focusable && dialogRef.current) {
+      setTimeout(() => {
+        dialogRef.current?.focus();
+      }, 200);
+    }
+  }, [focusable]);
 
-  const isDarkMode = useMemo(() => isDark(), []);
+  // Combined ref callback for both trapFocus and our dialogRef
+  const refCallback = useCallback(
+    (node: HTMLDivElement) => {
+      dialogRef.current = node;
+      if (trapFocus) {
+        trapFocus.onInit(node);
+      }
+    },
+    [trapFocus]
+  );
+
+  // Memoize focus props instead of imperatively mutating ref
+  const focusProps = useMemo(
+    () =>
+      trapFocus
+        ? {
+            onKeyDown:
+              trapFocus.handleKeyDown as unknown as React.KeyboardEventHandler<HTMLDivElement>,
+            ref: refCallback,
+            tabIndex: 0,
+          }
+        : {
+            ref: refCallback,
+            tabIndex: 0,
+          },
+    [trapFocus, refCallback]
+  );
 
   const dialogClass = useMemo(
     () =>
@@ -57,11 +112,23 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
         {
           [styles[`dialog-${size}`]]: true,
           [styles.dark]: isDarkMode,
+          [styles.exiting]: isExitingProp,
+          [styles.isLoading]: isLoading,
+          [styles.isSuccess]: isSuccess,
+          [styles.isError]: isError,
         }
       ),
-    [isClosing, size]
+    [
+      isClosing,
+      animationType,
+      size,
+      isDarkMode,
+      isExitingProp,
+      isLoading,
+      isSuccess,
+      isError,
+    ]
   );
-  const id = useRef(`rc-dialog-${nanoid()}`);
 
   const style = useMemo(
     () => ({
@@ -70,17 +137,30 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
       '--rc-dialog-animation-duration': `${animationDuration}ms`,
       minHeight: height ? `${height}px` : 'auto',
     }),
-    [width, height]
+    [width, height, animationType, animationDuration]
   );
 
-  const handleSuccess = () => {
-    onSuccess?.();
+  const handlePrimaryClick = useCallback(() => {
+    // Support both new onPrimaryClick and deprecated onSuccess
+    onPrimaryClick?.();
+    onSuccessDeprecated?.();
     onClose?.();
-  };
+  }, [onPrimaryClick, onSuccessDeprecated, onClose]);
 
-  const handleClose = () => {
+  const handleSecondaryClick = useCallback(() => {
+    onSecondaryClick?.();
     onClose?.();
-  };
+  }, [onSecondaryClick, onClose]);
+
+  const handleClose = useCallback(() => {
+    // Return focus to the element that triggered dialog (WCAG 2.4.3 Focus Order)
+    setTimeout(() => {
+      if (triggerElementRef.current && triggerElementRef.current.focus) {
+        triggerElementRef.current.focus();
+      }
+    }, 0);
+    onClose?.();
+  }, [onClose]);
 
   const titleClass = useMemo(
     () => classNames(styles.title, isDarkMode ? styles.dark : ''),
@@ -91,46 +171,60 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     <div
       className={dialogClass}
       role="dialog"
+      aria-modal="true"
       aria-labelledby={id.current}
+      aria-describedby={bodyId.current}
       style={style}
-      {...focusProps.current}
+      {...focusProps}
     >
       <header className={styles.header}>
-        <h2 className={titleClass} id={id.current}>
-          {title}
-        </h2>
-        <div className={styles.button_wrapper}>
+        {React.createElement(
+          titleLevel,
+          { className: titleClass, id: id.current },
+          title
+        )}
+        {showCloseButton && (
+          <div className={styles.button_wrapper}>
+            <Button
+              type="icon"
+              onClick={handleClose}
+              size={size}
+              focusable={focusable}
+            >
+              <CloseIcon />
+            </Button>
+          </div>
+        )}
+      </header>
+      <section className={styles.body} id={bodyId.current}>
+        {children}
+      </section>
+      {showFooter && (
+        <footer className={styles.footer}>
           <Button
-            type="icon"
-            onClick={handleClose}
-            size={size}
+            label={primaryButtonLabel}
+            type="primary"
+            onClick={handlePrimaryClick}
             focusable={focusable}
-            ref={buttonRef}
+            size={size}
+          >
+            <CheckIcon />
+          </Button>
+          <Button
+            label={secondaryButtonLabel}
+            onClick={handleSecondaryClick}
+            focusable={focusable}
+            size={size}
           >
             <CloseIcon />
           </Button>
-        </div>
-      </header>
-      <section className={styles.body}>{children}</section>
-      <footer className={styles.footer}>
-        <Button
-          label="okay"
-          type="primary"
-          onClick={handleSuccess}
-          focusable={focusable}
-          size={size}
-        >
-          <CheckIcon />
-        </Button>
-        <Button
-          label="cancel"
-          onClick={handleClose}
-          focusable={focusable}
-          size={size}
-        >
-          <CloseIcon />
-        </Button>
-      </footer>
+        </footer>
+      )}
+      {isLoading && (
+        <span role="status" aria-live="polite" className={styles.srOnly}>
+          Loading...
+        </span>
+      )}
     </div>
   );
 };

@@ -37,12 +37,27 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     const isFirstRender = useFirstRender();
 
     const handleClick = useCallback(() => {
-      id && handleRemove(id);
-    }, []);
+      if (id) {
+        handleRemove(id);
+      }
+    }, [id, handleRemove]);
+
+    const handleKeyDown = useCallback(
+      (event: React.KeyboardEvent) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          handleClick();
+        }
+      },
+      [handleClick]
+    );
 
     useKey(ref as React.RefObject<HTMLElement>, handleClick);
 
-    const editable = useMemo(() => !disabled && !readonly, []);
+    const editable = useMemo(
+      () => !disabled && !readonly,
+      [disabled, readonly]
+    );
 
     const isDarkMode = useMemo(() => isDark(), []);
 
@@ -58,7 +73,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
           [styles[`accent_${accent}`]]: true,
           [styles.dark]: isDarkMode,
         }),
-      [markedForRemoval]
+      [disabled, markedForRemoval, tagStyle, size, readonly, accent, isDarkMode]
     );
 
     const tagIconClass = useMemo(
@@ -77,7 +92,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
         ({
           '--width': `${tagWidth}px`,
         }) as CSSProperties,
-      []
+      [tagWidth]
     );
 
     useFocusNew(
@@ -93,6 +108,7 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
         <span
           className={tagIconClass}
           onClick={handleClick}
+          onKeyDown={handleKeyDown}
           ref={ref}
           role="button"
           aria-label="delete tag"
@@ -104,9 +120,18 @@ const TagItem: FunctionComponent<TagItemViewProps> = React.memo(
     );
   },
   (prevProps, nextProps) => {
+    // Skip re-render if all visual/behavioral props are the same
     return (
+      prevProps.id === nextProps.id &&
+      prevProps.name === nextProps.name &&
       prevProps.disabled === nextProps.disabled &&
-      prevProps.markedForRemoval === nextProps.markedForRemoval
+      prevProps.readonly === nextProps.readonly &&
+      prevProps.markedForRemoval === nextProps.markedForRemoval &&
+      prevProps.tagWidth === nextProps.tagWidth &&
+      prevProps.tagStyle === nextProps.tagStyle &&
+      prevProps.size === nextProps.size &&
+      prevProps.focusable === nextProps.focusable &&
+      prevProps.accent === nextProps.accent
     );
   }
 );
