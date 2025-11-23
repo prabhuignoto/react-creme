@@ -55,7 +55,7 @@
     "stylelint-config-sass-guidelines": "^12.1.0",
     "stylelint-order": "^7.0.0",
     "stylelint-scss": "^6.12.0",
-    "turbo": "^2.6.0",
+    "turbo": "^2.6.1",
     "typescript": "^5.9.3"
   },
   "scripts": {
