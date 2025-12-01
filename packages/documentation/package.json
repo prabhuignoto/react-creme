@@ -55,7 +55,7 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-react": "^7.22.5",
     "@csstools/postcss-sass": "^5.0.1",
-    "@playwright/test": "^1.35.0",
+    "@playwright/test": "^1.57.0",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "@types/react-instantsearch-dom": "^6.12.3",
