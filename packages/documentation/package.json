@@ -40,7 +40,7 @@
     "react-instantsearch": "^7.15.7",
     "react-responsive": "^9.0.2",
     "react-router": "^6.12.1",
-    "react-router-dom": "^6.12.1",
+    "react-router-dom": "^7.10.0",
     "react-transition-group": "^4.4.5",
     "resize-observer-polyfill": "^1.5.1",
     "shiki": "^3.13.0",
