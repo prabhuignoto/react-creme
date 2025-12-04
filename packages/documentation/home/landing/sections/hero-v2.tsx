@@ -2,7 +2,7 @@ import { Button, isDark } from '@lib';
 import cx from 'classnames';
 import { FunctionComponent, useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { GitHub, ArrowRight, Star, Download, Package } from 'react-feather';
+import { GitHub, ArrowRight, Package } from 'react-feather';
 import styles from '../styles/hero-v2.module.scss';
 
 const HeroV2: FunctionComponent = () => {
@@ -53,8 +53,9 @@ import { DataGrid } from 'react-creme';
   }, []);
 
   const socialProof = [
-    { icon: <Star size={16} />, label: 'GitHub Stars', value: '2.5k+' },
-    { icon: <Download size={16} />, label: 'Weekly Downloads', value: '10k+' },
+    // Temporarily disabled - stats need verification
+    // { icon: <Star size={16} />, label: 'GitHub Stars', value: '2.5k+' },
+    // { icon: <Download size={16} />, label: 'Weekly Downloads', value: '10k+' },
     { icon: <Package size={16} />, label: 'Version', value: 'v0.26.0' },
   ];
 
