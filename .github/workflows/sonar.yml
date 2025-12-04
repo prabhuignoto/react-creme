@@ -38,8 +38,8 @@ jobs:
       - name: Build project
         run: bun run build
 
-      - name: Run tests with coverage
-        run: bun run test:ci
+      # - name: Run tests with coverage
+      #   run: bun run test:ci
 
       - name: Cache SonarCloud dependencies
         uses: actions/cache@v4

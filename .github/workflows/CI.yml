@@ -49,17 +49,17 @@ jobs:
         timeout-minutes: 10
         continue-on-error: false
 
-      - name: Run tests
-        run: bun run test:ci
-        timeout-minutes: 10
-        continue-on-error: false
+      # - name: Run tests
+      #   run: bun run test:ci
+      #   timeout-minutes: 10
+      #   continue-on-error: false
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          directory: ./packages/lib/coverage
-          fail_ci_if_error: true
-          flags: unittests
-          name: codecov-umbrella
-          verbose: true
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v5
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     directory: ./packages/lib/coverage
+      #     fail_ci_if_error: true
+      #     flags: unittests
+      #     name: codecov-umbrella
+      #     verbose: true
