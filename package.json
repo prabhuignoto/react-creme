@@ -68,7 +68,7 @@
     "story": "bunx turbo run dev --filter=*story*",
     "test": "bunx turbo run test",
     "test:ci": "bunx turbo run test:ci",
-    "all": "bunx turbo run format lint test build",
+    "all": "bunx turbo run format lint build && pnpm test:ci",
     "build:lib": "bunx turbo run build:lib",
     "build:doc": "bunx turbo run build:doc",
     "ci": "bunx turbo run ci",
