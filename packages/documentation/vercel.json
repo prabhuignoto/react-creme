@@ -1,4 +1,8 @@
 {
+  "buildCommand": "bun run build:doc",
+  "outputDirectory": "expo_dist",
+  "installCommand": "bun install",
+  "framework": null,
   "rewrites": [
     {
       "source": "/(.*)",
