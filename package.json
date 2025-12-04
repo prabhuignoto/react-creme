@@ -59,26 +59,26 @@
     "typescript": "^5.9.3"
   },
   "scripts": {
-    "lint": "turbo run oxlint && turbo run lint",
-    "oxlint": "oxlint . --deny-warnings",
-    "format": "turbo run format",
-    "build": "turbo run build",
+    "lint": "bunx turbo run oxlint && bunx turbo run lint",
+    "oxlint": "bunx oxlint . --deny-warnings",
+    "format": "bunx turbo run format",
+    "build": "bunx turbo run build",
     "prepare": "husky install",
-    "dev": "turbo run dev --filter=*docu*",
-    "story": "turbo run dev --filter=*story*",
-    "test": "turbo run test",
-    "test:ci": "turbo run test:ci",
-    "all": "turbo run format lint test build",
-    "build:lib": "turbo run build:lib",
-    "build:doc": "turbo run build:doc",
-    "ci": "turbo run ci",
-    "snyk": "turbo run snyk",
-    "fix-css": "turbo run fix-css",
-    "fix-js": "turbo run fix-js",
-    "fix-all": "npx concurrently \"pnpm fix-css\" \"pnpm fix-js\"",
-    "clean": "pnpm fix-all & pnpm format & pnpm lint",
-    "percy": "turbo run percy",
-    "build-story": "turbo run build-story",
+    "dev": "bunx turbo run dev --filter=*docu*",
+    "story": "bunx turbo run dev --filter=*story*",
+    "test": "bunx turbo run test",
+    "test:ci": "bunx turbo run test:ci",
+    "all": "bunx turbo run format lint build && pnpm test:ci",
+    "build:lib": "bunx turbo run build:lib",
+    "build:doc": "bunx turbo run build:doc",
+    "ci": "bunx turbo run ci",
+    "snyk": "bunx turbo run snyk",
+    "fix-css": "bunx turbo run fix-css",
+    "fix-js": "bunx turbo run fix-js",
+    "fix-all": "bunx concurrently \"bun fix-css\" \"bun fix-js\"",
+    "clean": "bun fix-all && bun format && bun lint",
+    "percy": "bunx turbo run percy",
+    "build-story": "bunx turbo run build-story",
     "relative-ci": "relative-ci",
     "knip": "knip",
     "knip:production": "knip --production"
@@ -94,14 +94,14 @@
   },
   "homepage": "https://github.com/prabhuignoto/react-creme#readme",
   "workspaces": [
-    "packages/*"
+    "packages/**",
+    "!**/test/**"
   ],
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "bun@1.1.0",
   "engines": {
     "node": ">=20.18.1",
-    "pnpm": ">=10.14.0"
+    "bun": ">=1.1.0"
   },
-  "pnpm": {},
   "resolutions": {
     "nth-check": "^2.0.1",
     "postcss": "^8.2.13",
@@ -111,15 +111,15 @@
   "lint-staged": {
     "**/*.{ts,tsx}": [
       "prettier --write",
-      "eslint --fix"
+      "bunx eslint --fix"
     ],
     "**/*.{js,jsx,mjs,cjs}": [
       "prettier --write",
-      "eslint --fix"
+      "bunx eslint --fix"
     ],
     "**/*.{scss,css}": [
       "prettier --write",
-      "stylelint --fix"
+      "bunx stylelint --fix"
     ],
     "**/*.{json,md,yml,yaml}": [
       "prettier --write"

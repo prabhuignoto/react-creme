@@ -71,9 +71,13 @@ describe('Menu Button', () => {
     });
 
     // Find and click the 'save' menu item (the second instance since button label is first)
-    const menuItems = Array.from(document.querySelectorAll('[role="menuitem"]'));
-    const saveMenuItem = menuItems.find(item =>
-      item.textContent?.trim() === 'save' && item.getAttribute('role') === 'menuitem'
+    const menuItems = Array.from(
+      document.querySelectorAll('[role="menuitem"]')
+    );
+    const saveMenuItem = menuItems.find(
+      item =>
+        item.textContent?.trim() === 'save' &&
+        item.getAttribute('role') === 'menuitem'
     );
 
     if (saveMenuItem) {

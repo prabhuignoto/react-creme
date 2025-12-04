@@ -1,4 +1,4 @@
-import { ReactNode, ReactElement } from 'react';
+import { ReactNode } from 'react';
 import jsxToString from 'react-element-to-jsx-string';
 
 /**
@@ -24,7 +24,7 @@ export interface JsxToStringOptions {
   /** Use fragments for single children */
   useFragmentWithSingleChildren?: boolean;
   /** Filter props (return false to hide prop) */
-  filterProps?: (prop: string, value: any) => boolean;
+  filterProps?: (prop: string, value: unknown) => boolean;
 }
 
 /**
@@ -32,17 +32,20 @@ export interface JsxToStringOptions {
  * Matches legacy behavior from syntax.tsx for compatibility
  */
 const DEFAULT_OPTIONS: JsxToStringOptions = {
-  maxInlineAttributesLineLength: 250, // Increased from 80 to prevent truncation of complex props
-  showDefaultProps: true, // Show default props for better code examples
-  showFunctions: true,
-  sortProps: true,
-  tabStop: 4, // Match legacy tabStop from syntax.tsx
-  useFragmentWithSingleChildren: true,
   filterProps: (prop: string) => {
     // Filter out internal props
     const internalProps = ['key', 'ref', '__source', '__self'];
     return !internalProps.includes(prop);
-  },
+  }, 
+  maxInlineAttributesLineLength: 250, 
+  // Increased from 80 to prevent truncation of complex props
+showDefaultProps: true,
+  // Show default props for better code examples
+showFunctions: true,
+  sortProps: true, 
+  tabStop: 4,
+  // Match legacy tabStop from syntax.tsx
+useFragmentWithSingleChildren: true,
 };
 
 /**
@@ -109,7 +112,7 @@ export const formatCode = (code: string, indentSize: number = 2): string => {
   const indent = ' '.repeat(indentSize);
 
   return lines
-    .map((line) => {
+    .map(line => {
       const trimmed = line.trim();
 
       // Decrease indent for closing tags
@@ -121,7 +124,9 @@ export const formatCode = (code: string, indentSize: number = 2): string => {
 
       // Increase indent for opening tags
       if (
-        (trimmed.startsWith('<') && !trimmed.startsWith('</') && !trimmed.endsWith('/>')) ||
+        (trimmed.startsWith('<') &&
+          !trimmed.startsWith('</') &&
+          !trimmed.endsWith('/>')) ||
         trimmed.endsWith('{')
       ) {
         indentLevel++;
@@ -151,7 +156,9 @@ export const addLineNumbers = (code: string, startLine: number = 1): string => {
 
   return lines
     .map((line, index) => {
-      const lineNumber = (startLine + index).toString().padStart(maxLineNumberWidth, ' ');
+      const lineNumber = (startLine + index)
+        .toString()
+        .padStart(maxLineNumberWidth, ' ');
       return `${lineNumber} | ${line}`;
     })
     .join('\n');
@@ -234,7 +241,15 @@ export const minifyCode = (code: string): string => {
  */
 export const getLanguageFromFileName = (
   fileName: string
-): 'tsx' | 'jsx' | 'typescript' | 'javascript' | 'css' | 'scss' | 'json' | 'html' => {
+):
+  | 'tsx'
+  | 'jsx'
+  | 'typescript'
+  | 'javascript'
+  | 'css'
+  | 'scss'
+  | 'json'
+  | 'html' => {
   const ext = fileName.split('.').pop()?.toLowerCase();
 
   switch (ext) {
@@ -285,8 +300,8 @@ export const variantToCodeSnippet = (
 
   return {
     code: codeWithImport,
-    language: 'tsx' as const,
     fileName: `${componentName}-${variant.id}.tsx`,
     label: variant.title,
+    language: 'tsx' as const,
   };
 };

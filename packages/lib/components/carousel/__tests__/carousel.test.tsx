@@ -1,6 +1,6 @@
 import React from 'react';
 import { axe } from 'jest-axe';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { Carousel } from '../carousel';
@@ -8,7 +8,8 @@ import { Carousel } from '../carousel';
 describe('Carousel', () => {
   // Helper to wait for layout effects
   const waitForCarousel = async () => {
-    await waitFor(() => {}, { timeout: 500 });
+    // Use flushSync or wait for next tick to ensure layout effects complete
+    await new Promise(resolve => setTimeout(resolve, 0));
   };
 
   describe('Basic Rendering & Props', () => {
@@ -214,7 +215,8 @@ describe('Carousel', () => {
       const prevButton = container.querySelector(
         'button[aria-label*="Previous"]'
       );
-      expect(prevButton).toHaveClass('btn_hide');
+      const prevButtonWrapper = prevButton?.parentElement;
+      expect(prevButtonWrapper?.className).toContain('btn_hide');
     });
 
     it('should hide next button on last slide', async () => {
@@ -232,7 +234,8 @@ describe('Carousel', () => {
 
       await waitForCarousel();
       const nextButton = container.querySelector('button[aria-label*="Next"]');
-      expect(nextButton).toHaveClass('btn_hide');
+      const nextButtonWrapper = nextButton?.parentElement;
+      expect(nextButtonWrapper?.className).toContain('btn_hide');
     });
 
     it('should navigate to next slide when clicking next button', async () => {
@@ -432,11 +435,13 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
-      vi.advanceTimersByTime(1000);
+      // Wait for carousel items to be ready
+      await vi.runOnlyPendingTimersAsync();
 
-      await waitFor(() => {
-        expect(onSlideChange).toHaveBeenCalledWith(1);
-      });
+      // Advance timers to trigger autoPlay
+      await vi.advanceTimersByTimeAsync(1000);
+
+      expect(onSlideChange).toHaveBeenCalledWith(1);
     });
 
     it('should stop autoPlay at last slide', async () => {
@@ -449,16 +454,17 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
-      vi.advanceTimersByTime(500); // Go to slide 2
+      // Wait for carousel items to be ready
+      await vi.runOnlyPendingTimersAsync();
 
-      await waitFor(() => {
-        expect(onSlideChange).toHaveBeenCalledWith(1);
-      });
+      // Advance timers to trigger autoPlay to slide 2
+      await vi.advanceTimersByTimeAsync(500);
+
+      expect(onSlideChange).toHaveBeenCalledWith(1);
 
       onSlideChange.mockClear();
-      vi.advanceTimersByTime(500); // Should not advance further
-
-      await waitForCarousel();
+      // Advance timers more - should not advance further
+      await vi.advanceTimersByTimeAsync(500);
       expect(onSlideChange).not.toHaveBeenCalled();
     });
 
@@ -471,6 +477,12 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
+      // Wait for carousel items to be ready
+      await vi.runOnlyPendingTimersAsync();
+
+      // Advance timers a bit to ensure autoPlay starts
+      await vi.advanceTimersByTimeAsync(100);
+
       const pauseButton = container.querySelector(
         'button[aria-label*="Pause"]'
       );
@@ -488,14 +500,22 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
+      // Wait for carousel items to be ready
+      await vi.runOnlyPendingTimersAsync();
+
+      // Advance timers a bit to ensure autoPlay starts
+      await vi.advanceTimersByTimeAsync(100);
+
       const pauseButton = container.querySelector(
         'button[aria-label*="Pause"]'
       );
+      expect(pauseButton).toBeInTheDocument();
+
       await user.click(pauseButton as HTMLElement);
+      onSlideChange.mockClear();
 
-      vi.advanceTimersByTime(1000);
-      await waitForCarousel();
-
+      // Advance timers - autoPlay should be paused
+      await vi.advanceTimersByTimeAsync(1100);
       expect(onSlideChange).not.toHaveBeenCalled();
     });
 
@@ -510,9 +530,16 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
+      // Wait for carousel items to be ready
+      await vi.runOnlyPendingTimersAsync();
+
+      // Advance timers a bit to ensure autoPlay starts
+      await vi.advanceTimersByTimeAsync(100);
+
       const pauseButton = container.querySelector(
         'button[aria-label*="Pause"]'
       );
+      expect(pauseButton).toBeInTheDocument();
 
       // Pause
       await user.click(pauseButton as HTMLElement);
@@ -522,12 +549,14 @@ describe('Carousel', () => {
       const resumeButton = container.querySelector(
         'button[aria-label*="Resume"]'
       );
+      expect(resumeButton).toBeInTheDocument();
+
+      onSlideChange.mockClear();
       await user.click(resumeButton as HTMLElement);
 
-      vi.advanceTimersByTime(1000);
-      await waitFor(() => {
-        expect(onSlideChange).toHaveBeenCalledWith(1);
-      });
+      // Advance timers to trigger autoPlay
+      await vi.advanceTimersByTimeAsync(1000);
+      expect(onSlideChange).toHaveBeenCalledWith(1);
     });
 
     it('should toggle pause button aria-pressed state', async () => {
@@ -540,9 +569,16 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
+      // Wait for carousel items to be ready
+      await vi.runOnlyPendingTimersAsync();
+
+      // Advance timers a bit to ensure autoPlay starts
+      await vi.advanceTimersByTimeAsync(100);
+
       const pauseButton = container.querySelector(
         'button[aria-label*="Pause"]'
       );
+      expect(pauseButton).toBeInTheDocument();
       expect(pauseButton).toHaveAttribute('aria-pressed', 'false');
 
       await user.click(pauseButton as HTMLElement);
@@ -551,6 +587,7 @@ describe('Carousel', () => {
       const resumeButton = container.querySelector(
         'button[aria-label*="Resume"]'
       );
+      expect(resumeButton).toBeInTheDocument();
       expect(resumeButton).toHaveAttribute('aria-pressed', 'true');
     });
 
@@ -563,10 +600,16 @@ describe('Carousel', () => {
       );
 
       await waitForCarousel();
+      // Wait for carousel items to be ready
+      await vi.runOnlyPendingTimersAsync();
+
+      // Advance timers a bit to ensure autoPlay starts
+      await vi.advanceTimersByTimeAsync(100);
       unmount();
 
-      // Should not throw errors
-      vi.advanceTimersByTime(1000);
+      // Advance timers more - should not throw errors
+      await vi.advanceTimersByTimeAsync(1100);
+      expect(true).toBe(true);
     });
   });
 

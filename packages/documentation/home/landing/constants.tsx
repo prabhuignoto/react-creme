@@ -1,4 +1,4 @@
-import { Package, Layers, Zap, Code, Check, X, AlertCircle } from 'react-feather';
+import { Package, Layers, Zap, Code } from 'react-feather';
 
 // Stats Bar Data
 export const STATS_DATA = [
@@ -27,22 +27,25 @@ export const STATS_DATA = [
 // Why React Creme USPs
 export const USP_DATA = [
   {
+    description:
+      'At just 118kb, React Creme is 2.8x smaller than Material-UI and Ant Design. Faster load times, better Core Web Vitals, happier users.',
+    highlight: '118kb vs 280kb+',
     icon: <Zap size={32} />,
     title: '4x Lighter',
-    description: 'At just 118kb, React Creme is 2.8x smaller than Material-UI and Ant Design. Faster load times, better Core Web Vitals, happier users.',
-    highlight: '118kb vs 280kb+',
   },
   {
+    description:
+      'Built with React 19, TypeScript 5.9 strict mode, and CSS Modules. No CSS-in-JS runtime overhead. No utility class verbosity.',
+    highlight: 'React 19, Vite 6, TS 5.9',
     icon: <Layers size={32} />,
     title: 'Modern Stack',
-    description: 'Built with React 19, TypeScript 5.9 strict mode, and CSS Modules. No CSS-in-JS runtime overhead. No utility class verbosity.',
-    highlight: 'React 19, Vite 6, TS 5.9',
   },
   {
+    description:
+      'Unlike Material-UI or Ant Design, React Creme has no opinionated design language. Your brand, your colors, your identity.',
+    highlight: 'Your brand, not ours',
     icon: <Code size={32} />,
     title: 'No Lock-in',
-    description: 'Unlike Material-UI or Ant Design, React Creme has no opinionated design language. Your brand, your colors, your identity.',
-    highlight: 'Your brand, not ours',
   },
 ];
 
@@ -60,76 +63,76 @@ export interface ComparisonRow {
 
 export const COMPARISON_DATA: ComparisonRow[] = [
   {
-    feature: 'Bundle Size',
-    reactCreme: '~118kb',
-    mui: '~350kb',
     antDesign: '~280kb',
     chakra: '~200kb',
+    feature: 'Bundle Size',
+    mui: '~350kb',
+    reactCreme: '~118kb',
     shadcn: 'Minimal',
   },
   {
-    feature: 'React 19 Support',
-    reactCreme: 'yes',
-    mui: 'no',
     antDesign: 'no',
     chakra: 'no',
+    feature: 'React 19 Support',
+    mui: 'no',
+    reactCreme: 'yes',
     shadcn: 'yes',
   },
   {
-    feature: 'CSS Approach',
-    reactCreme: 'Modules',
-    mui: 'CSS-in-JS',
     antDesign: 'CSS-in-JS',
     chakra: 'CSS-in-JS',
+    feature: 'CSS Approach',
+    mui: 'CSS-in-JS',
+    reactCreme: 'Modules',
     shadcn: 'Tailwind',
   },
   {
-    feature: 'TypeScript Strict',
-    reactCreme: 'yes',
-    mui: 'partial',
     antDesign: 'partial',
     chakra: 'partial',
+    feature: 'TypeScript Strict',
+    mui: 'partial',
+    reactCreme: 'yes',
     shadcn: 'yes',
   },
   {
-    feature: 'Design Opinion',
-    reactCreme: 'Neutral',
-    mui: 'Material',
     antDesign: 'Ant',
     chakra: 'Mild',
+    feature: 'Design Opinion',
+    mui: 'Material',
+    reactCreme: 'Neutral',
     shadcn: 'None',
   },
   {
-    feature: 'npm Install',
-    reactCreme: 'yes',
-    mui: 'yes',
     antDesign: 'yes',
     chakra: 'yes',
+    feature: 'npm Install',
+    mui: 'yes',
+    reactCreme: 'yes',
     shadcn: 'no',
   },
   {
-    feature: 'Dark Mode',
-    reactCreme: 'yes',
-    mui: 'yes',
     antDesign: 'yes',
     chakra: 'yes',
+    feature: 'Dark Mode',
+    mui: 'yes',
+    reactCreme: 'yes',
     shadcn: 'yes',
   },
   {
-    feature: 'Tree-Shakeable',
-    reactCreme: 'yes',
-    mui: 'partial',
     antDesign: 'partial',
     chakra: 'partial',
+    feature: 'Tree-Shakeable',
+    mui: 'partial',
+    reactCreme: 'yes',
     shadcn: 'yes',
   },
 ];
 
 export const LIBRARY_NAMES = {
-  reactCreme: 'React Creme',
-  mui: 'Material-UI',
   antDesign: 'Ant Design',
   chakra: 'Chakra UI',
+  mui: 'Material-UI',
+  reactCreme: 'React Creme',
   shadcn: 'shadcn/ui',
 } as const;
 
@@ -145,18 +148,22 @@ export const SHOWCASE_GALLERY_IMAGES = [
 
 // DataGrid Data for Showcase
 export const SHOWCASE_GRID_DATA = [
-  { Component: 'Button', 'Bundle Impact': '~2kb', Status: '✓ Ready' },
-  { Component: 'DataGrid', 'Bundle Impact': '~8kb', Status: '✓ Ready' },
-  { Component: 'Gallery', 'Bundle Impact': '~5kb', Status: '✓ Ready' },
-  { Component: 'Switch', 'Bundle Impact': '~1.5kb', Status: '✓ Ready' },
-  { Component: 'Rate', 'Bundle Impact': '~3kb', Status: '✓ Ready' },
+  { 'Bundle Impact': '~2kb', Component: 'Button', Status: '✓ Ready' },
+  { 'Bundle Impact': '~8kb', Component: 'DataGrid', Status: '✓ Ready' },
+  { 'Bundle Impact': '~5kb', Component: 'Gallery', Status: '✓ Ready' },
+  { 'Bundle Impact': '~1.5kb', Component: 'Switch', Status: '✓ Ready' },
+  { 'Bundle Impact': '~3kb', Component: 'Rate', Status: '✓ Ready' },
 ];
 
 // Navigation Links
 export const NAV_LINKS = [
-  { label: 'Components', path: '/buttons', external: false },
-  { label: 'Documentation', path: '/home', external: false },
-  { label: 'GitHub', path: 'https://github.com/prabhuignoto/react-creme', external: true },
+  { external: false, label: 'Components', path: '/buttons' },
+  { external: false, label: 'Documentation', path: '/home' },
+  {
+    external: true,
+    label: 'GitHub',
+    path: 'https://github.com/prabhuignoto/react-creme',
+  },
 ];
 
 // Hero Feature Items

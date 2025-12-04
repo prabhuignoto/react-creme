@@ -9,7 +9,7 @@ import Footer from './home/footer/footer';
 const Main = React.forwardRef<
   { getBoundingClientRect: () => DOMRect | undefined },
   { media: MediaState; toggleOpen: () => void }
->(({ media, toggleOpen }, ref) => {
+>(({ media: _media, toggleOpen: _toggleOpen }, ref) => {
   const sectionRef = useRef<HTMLElement>(null);
 
   const location = useLocation();
@@ -36,9 +36,8 @@ const Main = React.forwardRef<
   );
 });
 
-const MainMemoized = React.memo(
-  Main,
-  (prev, next) => fastDeepEqual(prev.media, next.media)
+const MainMemoized = React.memo(Main, (prev, next) =>
+  fastDeepEqual(prev.media, next.media)
 );
 
 Main.displayName = 'Main';

@@ -75,10 +75,7 @@ describe('TabHeaders', () => {
       // When tested in isolation, these referenced elements don't exist, causing violations.
       // Full accessibility testing should be done with the parent Tabs component.
       const { container } = render(
-        <TabHeaders
-          {...defaultProps}
-          handleTabSelection={handleTabSelection}
-        />
+        <TabHeaders {...defaultProps} handleTabSelection={handleTabSelection} />
       );
       const results = await axe(container);
 

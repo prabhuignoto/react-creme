@@ -1,0 +1,19 @@
+[install]
+# Use workspaces like pnpm
+workspaces = true
+
+# Auto-install peer dependencies
+auto = true
+
+# Production-only installs
+production = false
+
+# Lockfile
+lockfile = true
+
+# Cache configuration
+cache = true
+
+# Hoisting strategy (similar to pnpm)
+hoist = true
+

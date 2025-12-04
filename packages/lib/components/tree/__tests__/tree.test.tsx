@@ -93,9 +93,7 @@ describe('Tree', () => {
 
     const onSelect = vi.fn();
 
-    const { container } = render(
-      <Tree nodes={data} onSelected={onSelect} />
-    );
+    const { container } = render(<Tree nodes={data} onSelected={onSelect} />);
 
     // Tree uses Accordion internally, get the first accordion button
     const buttons = container.querySelectorAll('button[aria-expanded]');

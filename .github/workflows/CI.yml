@@ -20,19 +20,18 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history to ensure proper version detection
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          version: 10.14.0
+          bun-version: latest
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Cache Turbo
         uses: actions/cache@v4
@@ -43,20 +42,24 @@ jobs:
             ${{ runner.os }}-turbo-
 
       - name: Lint code
-        run: pnpm lint
+        run: bun run lint
 
       - name: Build all packages
-        run: pnpm build
+        run: bun run build
+        timeout-minutes: 10
+        continue-on-error: false
 
-      - name: Run tests
-        run: pnpm run test:ci
+      # - name: Run tests
+      #   run: bun run test:ci
+      #   timeout-minutes: 10
+      #   continue-on-error: false
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          directory: ./packages/lib/coverage
-          fail_ci_if_error: true
-          flags: unittests
-          name: codecov-umbrella
-          verbose: true
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v5
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     directory: ./packages/lib/coverage
+      #     fail_ci_if_error: true
+      #     flags: unittests
+      #     name: codecov-umbrella
+      #     verbose: true

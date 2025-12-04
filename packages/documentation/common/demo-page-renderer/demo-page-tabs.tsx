@@ -4,20 +4,23 @@ import { FunctionComponent, Suspense, useMemo, useCallback } from 'react';
 import { DemoPageRendererProps } from '.';
 import { Tabs } from '../../../lib/components';
 import { DataGridColumn } from '../../../lib/components/data-grid/data-grid-model';
-import { SandpackInteractive } from '../code-viewer/sandpack-interactive';
 import { StaticPlayground } from '../static-playground';
-import { getStackBlitzUrl } from './utils/url-builder';
-import { demoWidgetToSandpackFiles, customCodeToSandpackFiles, getSandpackDependencies } from './utils/sandpack-converter';
 import { useDemoActions, useThemeMode, useViewport } from './demo-context';
 import { MediaState } from '../useMedia';
 import { PropertyTable } from './components/property-table';
 import { DemoContainer } from './components/demo-container';
-import WidgetsWrapper from './widgets-wrapper';
+import type { ViewportSize } from './types';
 import styles from './demo-page-renderer.module.scss';
 
 export type DemoPageTabsProps = Pick<
   DemoPageRendererProps,
-  'tabTitles' | 'properties' | 'callbacks' | 'stackBlitzCodes' | 'demoWidget' | 'title' | 'playgroundCode'
+  | 'tabTitles'
+  | 'properties'
+  | 'callbacks'
+  | 'stackBlitzCodes'
+  | 'demoWidget'
+  | 'title'
+  | 'playgroundCode'
 > & {
   columns: DataGridColumn[];
   media: MediaState | null;
@@ -37,7 +40,7 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
   tabTitles,
   callbacks,
   stackBlitzCodes,
-  media,
+  media: _media,
   demoWidget,
   columns,
   properties,
@@ -54,13 +57,19 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
   }, [properties]);
 
   // Wrapper handlers to match DemoContainer's expected signatures
-  const handleThemeChange = useCallback((theme: 'light' | 'dark') => {
-    actions.toggleTheme();
-  }, [actions]);
+  const handleThemeChange = useCallback(
+    (_theme: 'light' | 'dark') => {
+      actions.toggleTheme();
+    },
+    [actions]
+  );
 
-  const handleViewportChange = useCallback((size: ViewportSize) => {
-    actions.setViewportSize(size);
-  }, [actions]);
+  const handleViewportChange = useCallback(
+    (size: ViewportSize) => {
+      actions.setViewportSize(size);
+    },
+    [actions]
+  );
 
   const hasStackBlitz = useMemo(() => {
     return showStackBlitzEmbed && stackBlitzCodes && stackBlitzCodes.length > 0;
@@ -121,10 +130,10 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
         <Suspense fallback={<span>Loading Widgets...</span>}>
           <DemoContainer
             controls={{
+              fullscreen: false,
+              reset: false,
               theme: false,
               viewport: true,
-              reset: false,
-              fullscreen: false,
             }}
             defaultViewport={viewportSize}
             defaultTheme={themeMode}
@@ -141,7 +150,11 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
       {hasProperties ? (
         <div className="rc-demo-prop-section">
           <Suspense fallback={<div></div>}>
-            <PropertyTable properties={properties} callbacks={callbacks} columns={columns} />
+            <PropertyTable
+              properties={properties}
+              callbacks={callbacks}
+              columns={columns}
+            />
           </Suspense>
         </div>
       ) : (

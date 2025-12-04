@@ -72,43 +72,40 @@ const DemoContainer: FunctionComponent<DemoContainerProps> = ({
   defaultViewport = 'desktop',
   defaultTheme = 'light',
   onViewportChange,
-  onThemeChange,
-  onReset,
+  onThemeChange: _onThemeChange,
+  onReset: _onReset,
   className,
 }) => {
   const [viewport, setViewport] = useState<ViewportSize>(defaultViewport);
-  const [theme, setTheme] = useState<'light' | 'dark'>(defaultTheme);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [theme] = useState<'light' | 'dark'>(defaultTheme);
+  const [isFullscreen] = useState(false);
 
   const handleViewportChange = (newViewport: ViewportSize) => {
     setViewport(newViewport);
     onViewportChange?.(newViewport);
   };
 
-  const handleThemeToggle = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    onThemeChange?.(newTheme);
-  };
-
-  const handleFullscreenToggle = () => {
-    setIsFullscreen(!isFullscreen);
-  };
-
-  const viewportSizes: { size: ViewportSize; icon: ReactNode; label: string }[] = [
-    { size: 'mobile', icon: <Smartphone size={16} />, label: 'Mobile' },
-    { size: 'tablet', icon: <Tablet size={16} />, label: 'Tablet' },
-    { size: 'desktop', icon: <Monitor size={16} />, label: 'Desktop' },
+  const viewportSizes: {
+    size: ViewportSize;
+    icon: ReactNode;
+    label: string;
+  }[] = [
+    { icon: <Smartphone size={16} />, label: 'Mobile', size: 'mobile' },
+    { icon: <Tablet size={16} />, label: 'Tablet', size: 'tablet' },
+    { icon: <Monitor size={16} />, label: 'Desktop', size: 'desktop' },
   ];
 
   const hasControls =
-    controls.theme || controls.viewport || controls.reset || controls.fullscreen;
+    controls.theme ||
+    controls.viewport ||
+    controls.reset ||
+    controls.fullscreen;
 
   return (
     <div
       className={classNames('demo-container', className, {
-        'demo-container--fullscreen': isFullscreen,
         'demo-container--dark': theme === 'dark',
+        'demo-container--fullscreen': isFullscreen,
         [`demo-container--${viewport}`]: viewport !== 'desktop',
       })}
     >

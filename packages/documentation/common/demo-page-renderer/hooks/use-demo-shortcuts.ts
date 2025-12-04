@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useRef } from 'react';
-import type { QuickAction, KeyboardShortcut } from '../types';
+import type { KeyboardShortcut } from '../types';
 
 /**
  * Default keyboard shortcuts configuration
@@ -7,33 +7,33 @@ import type { QuickAction, KeyboardShortcut } from '../types';
 export const DEFAULT_SHORTCUTS: KeyboardShortcut[] = [
   {
     action: 'copy-code',
+    description: 'Copy the current code snippet to clipboard',
     key: 'mod+c',
     label: 'Copy Code',
-    description: 'Copy the current code snippet to clipboard',
   },
   {
     action: 'toggle-code-panel',
+    description: 'Show or hide the floating code panel',
     key: 'mod+k',
     label: 'Toggle Code Panel',
-    description: 'Show or hide the floating code panel',
   },
   {
     action: 'open-stackblitz',
+    description: 'Open the demo in StackBlitz',
     key: 'mod+o',
     label: 'Open in StackBlitz',
-    description: 'Open the demo in StackBlitz',
   },
   {
     action: 'reset-demo',
+    description: 'Reset the demo to its initial state',
     key: 'mod+r',
     label: 'Reset Demo',
-    description: 'Reset the demo to its initial state',
   },
   {
     action: 'fullscreen',
+    description: 'Toggle fullscreen mode',
     key: 'mod+f',
     label: 'Fullscreen',
-    description: 'Toggle fullscreen mode',
   },
 ];
 
@@ -70,7 +70,9 @@ const matchesShortcut = (event: KeyboardEvent, shortcut: string): boolean => {
 
   // Check modifiers
   const hasCtrl = modifiers.includes('ctrl') || modifiers.includes('mod');
-  const hasMeta = modifiers.includes('meta') || (modifiers.includes('mod') && navigator.platform.includes('Mac'));
+  const hasMeta =
+    modifiers.includes('meta') ||
+    (modifiers.includes('mod') && navigator.platform.includes('Mac'));
   const hasShift = modifiers.includes('shift');
   const hasAlt = modifiers.includes('alt');
 
@@ -186,6 +188,6 @@ export const getShortcutLabel = (shortcut: string): string => {
     .replace('shift', '⇧')
     .replace('alt', isMac ? '⌥' : 'Alt')
     .split('+')
-    .map((key) => key.charAt(0).toUpperCase() + key.slice(1))
+    .map(key => key.charAt(0).toUpperCase() + key.slice(1))
     .join(isMac ? '' : '+');
 };

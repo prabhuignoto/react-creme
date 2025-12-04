@@ -75,7 +75,9 @@ function addFooterProps(filePath, dirName) {
     writeFileSync(filePath, content, 'utf8');
     console.log(`✅ ${dirName} - Added ${addedCount} footer prop(s)`);
   } else {
-    console.log(`  ℹ️  ${dirName} - No Sections found or all already have footers`);
+    console.log(
+      `  ℹ️  ${dirName} - No Sections found or all already have footers`
+    );
   }
 }
 
@@ -88,7 +90,6 @@ const componentDirs = readdirSync(componentsDir).filter(name => {
 console.log(`\nAdding footer props to ${componentDirs.length} components...\n`);
 
 let successCount = 0;
-let skipCount = 0;
 let errorCount = 0;
 
 for (const dir of componentDirs) {

@@ -41,11 +41,11 @@ const App: FunctionComponent<{ media: MediaState }> = memo(
     }, [media]);
 
     // Sidebar visibility class for mobile drawer
-    const sidebarClass = useMemo(() => {
-      return classNames('app-aside', {
-        'app-aside-visible': openAside && isMobileOrTablet,
-      });
-    }, [openAside, isMobileOrTablet]);
+    // const sidebarClass = useMemo(() => {
+    //   return classNames('app-aside', {
+    //     'app-aside-visible': openAside && isMobileOrTablet,
+    //   });
+    // }, [openAside, isMobileOrTablet]);
 
     // Dark mode body background
     useEffect(() => {

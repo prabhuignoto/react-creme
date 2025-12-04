@@ -64,21 +64,25 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   const handleNext = useCallback(() => {
     setActivePage(prev => {
       if (prev < trackCount.current - 1) {
-        return prev + 1;
+        const nextPage = prev + 1;
+        onSlideChange?.(nextPage);
+        return nextPage;
       }
       return prev;
     });
-  }, []);
+  }, [onSlideChange]);
 
   // Callback function to handle "Previous" action in the carousel.
   const handlePrevious = useCallback(() => {
     setActivePage(prev => {
       if (prev > 0) {
-        return prev - 1;
+        const prevPage = prev - 1;
+        onSlideChange?.(prevPage);
+        return prevPage;
       }
       return prev;
     });
-  }, []);
+  }, [onSlideChange]);
 
   // Callback function to handle page activation in the carousel.
   const handleActivatePage = useCallback(
@@ -95,21 +99,31 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
   }, []);
 
   // Callback function to handle the initial setup of the carousel.
-  const onInitRef = useCallback((node: HTMLDivElement) => {
-    if (node) {
-      const { clientHeight, clientWidth } = node;
-      setSlideWidth(clientWidth);
-      setSlideHeight(clientHeight);
+  const onInitRef = useCallback(
+    (node: HTMLDivElement) => {
+      if (node) {
+        const { clientHeight, clientWidth } = node;
+        // Use default dimensions if client dimensions are 0 (e.g., in test environments)
+        const defaultWidth = 800;
+        const defaultHeight = height || 400;
+        const width = clientWidth || defaultWidth;
+        const initialHeight = clientHeight || defaultHeight;
+        setSlideWidth(width);
+        setSlideHeight(initialHeight);
 
-      resizeObserver.current = new ResizeObserver(() => {
-        const { clientHeight, clientWidth } = node as HTMLElement;
-        setSlideWidth(clientWidth);
-        setSlideHeight(clientHeight);
-      });
+        resizeObserver.current = new ResizeObserver(() => {
+          const { clientHeight, clientWidth } = node as HTMLElement;
+          const newWidth = clientWidth || width;
+          const newHeight = clientHeight || initialHeight;
+          setSlideWidth(newWidth);
+          setSlideHeight(newHeight);
+        });
 
-      resizeObserver.current.observe(node);
-    }
-  }, []);
+        resizeObserver.current.observe(node);
+      }
+    },
+    [height]
+  );
 
   // Derive carousel items from dimensions and children
   const carouselItems = useMemo<CarouselItemProps[]>(() => {
@@ -276,6 +290,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
     <section
       className={carouselContainerClass}
       ref={enableSwipe ? onInit : undefined}
+      role="region"
       aria-roledescription="carousel"
       aria-label={ariaLabel}
     >
