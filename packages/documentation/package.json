@@ -69,7 +69,7 @@
     "postcss-prefixer": "^3.0.0",
     "postcss-preset-env": "^8.4.2",
     "prettier": "^2.8.8",
-    "react-element-to-jsx-string": "^15.0.0",
+    "react-element-to-jsx-string": "^17.0.1",
     "rimraf": "^5.0.1",
     "sass": "^1.90.0",
     "snyk": "^1.1177.0",
