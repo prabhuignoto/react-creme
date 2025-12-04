@@ -12,7 +12,6 @@ const HeroV2: FunctionComponent = () => {
 
   const codeExamples = [
     {
-      title: 'Import & Use',
       code: `import { Button, Card } from 'react-creme';
 import 'react-creme/css';
 
@@ -21,9 +20,9 @@ import 'react-creme/css';
     Get Started
   </Button>
 </Card>`,
+      title: 'Import & Use',
     },
     {
-      title: 'With Theme',
       code: `import { ThemeProvider } from 'react-creme';
 
 <ThemeProvider
@@ -34,20 +33,21 @@ import 'react-creme/css';
 >
   <App />
 </ThemeProvider>`,
+      title: 'With Theme',
     },
     {
-      title: 'Tree-Shakeable',
       code: `// Only imports what you use
 import { DataGrid } from 'react-creme';
 
 // Final bundle: ~8kb
 // Not 350kb like Material-UI!`,
+      title: 'Tree-Shakeable',
     },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentCodeExample((prev) => (prev + 1) % codeExamples.length);
+      setCurrentCodeExample(prev => (prev + 1) % codeExamples.length);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
@@ -64,7 +64,7 @@ import { DataGrid } from 'react-creme';
   };
 
   const handleViewComponents = () => {
-    nav('/buttons');
+    nav('/accordion');
   };
 
   const handleGitHub = () => {
@@ -84,14 +84,17 @@ import { DataGrid } from 'react-creme';
           <h1 className={styles.hero_title}>
             <span className={styles.title_main}>React Creme</span>
             <span className={styles.title_tagline}>
-              Lightweight. Modern. <span className={styles.highlight}>Yours.</span>
+              Lightweight. Modern.{' '}
+              <span className={styles.highlight}>Yours.</span>
             </span>
           </h1>
 
           <p className={styles.hero_subtitle}>
-            55+ production-ready components at 118kb. Built for React 19 with CSS Modules.
+            55+ production-ready components at 118kb. Built for React 19 with
+            CSS Modules.
             <span className={styles.subtitle_highlight}>
-              {' '}No design language lock-in, no CSS-in-JS overhead.
+              {' '}
+              No design language lock-in, no CSS-in-JS overhead.
             </span>
           </p>
 
@@ -136,20 +139,44 @@ import { DataGrid } from 'react-creme';
 
           <div className={styles.hero_features}>
             <div className={styles.feature_item}>
-              <svg className={styles.feature_icon} viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              <svg
+                className={styles.feature_icon}
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
               </svg>
               <span>TypeScript Strict Mode</span>
             </div>
             <div className={styles.feature_item}>
-              <svg className={styles.feature_icon} viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              <svg
+                className={styles.feature_icon}
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
               </svg>
               <span>Zero Runtime CSS</span>
             </div>
             <div className={styles.feature_item}>
-              <svg className={styles.feature_icon} viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              <svg
+                className={styles.feature_icon}
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
               </svg>
               <span>Tree-Shakeable</span>
             </div>
