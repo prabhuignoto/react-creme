@@ -1,0 +1,53 @@
+@use '@design/theme.scss';
+
+.package_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-family: var(--font-mono, 'Monaco', 'Courier New', monospace);
+  transition: all var(--transition-fast);
+
+  // Size variants
+  &.sm {
+    font-size: var(--font-size-xs);
+    padding: 2px 6px;
+    min-width: 32px;
+  }
+
+  &.md {
+    font-size: var(--font-size-xs);
+    padding: 4px 8px;
+    min-width: 40px;
+  }
+
+  &.lg {
+    font-size: var(--font-size-sm);
+    padding: 6px 12px;
+    min-width: 48px;
+  }
+
+  // Package manager specific colors
+  &[data-package-manager='npm'] {
+    background: #cb3837;
+    color: #fff;
+  }
+
+  &[data-package-manager='yarn'] {
+    background: #2c8ebb;
+    color: #fff;
+  }
+
+  &[data-package-manager='pnpm'] {
+    background: #f69220;
+    color: #fff;
+  }
+
+  &[data-package-manager='bun'] {
+    background: #fbf0df;
+    color: #000;
+  }
+}

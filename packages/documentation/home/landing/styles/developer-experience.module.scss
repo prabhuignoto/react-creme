@@ -213,15 +213,15 @@
     border-color: theme.$blue;
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
+  }
 
-    .dx_section.dark & {
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-    }
+  .dx_section.dark &:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  }
 
-    .feature_icon {
-      background: linear-gradient(135deg, theme.$blue 0%, theme.$primary 100%);
-      color: white;
-    }
+  &:hover .feature_icon {
+    background: linear-gradient(135deg, theme.$blue 0%, theme.$primary 100%);
+    color: #fff;
   }
 }
 
@@ -308,54 +308,20 @@
 }
 
 .install_commands {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 
   @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-.install_command {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  transition: all var(--transition-fast);
-
-  .dx_section.dark & {
-    background: theme.$chinese-black;
-    border-color: theme.$jet-black;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
   }
 
-  &:hover {
-    border-color: theme.$blue;
-    box-shadow: var(--shadow-md);
-  }
-}
-
-.command_label {
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  color: theme.$blue;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  min-width: 40px;
-}
-
-.command_text {
-  font-family: var(--font-mono, 'Monaco', 'Courier New', monospace);
-  font-size: var(--font-size-sm);
-  color: var(--text-primary);
-
-  .dx_section.dark & {
-    color: theme.$gray-200;
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
   }
 }

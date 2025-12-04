@@ -136,14 +136,18 @@ export const LIBRARY_NAMES = {
   shadcn: 'shadcn/ui',
 } as const;
 
-// Gallery Images for Showcase
+// Gallery Images for Showcase - Nature backgrounds
 export const SHOWCASE_GALLERY_IMAGES = [
-  '/images/adrian.jpg',
-  '/images/blue.jpg',
-  '/images/gradient.jpg',
-  '/images/nicole.jpg',
-  '/images/pexels.jpeg',
-  '/images/blurry.jpg',
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&h=400&fit=crop',
 ];
 
 // DataGrid Data for Showcase
@@ -157,7 +161,7 @@ export const SHOWCASE_GRID_DATA = [
 
 // Navigation Links
 export const NAV_LINKS = [
-  { external: false, label: 'Components', path: '/buttons' },
+  { external: false, label: 'Components', path: '/accordion' },
   { external: false, label: 'Documentation', path: '/home' },
   {
     external: true,

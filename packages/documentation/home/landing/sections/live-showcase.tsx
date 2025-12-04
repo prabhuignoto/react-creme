@@ -17,7 +17,9 @@ const LiveShowcase: FunctionComponent = () => {
   const isDarkMode = useMemo(() => isDark(), []);
 
   return (
-    <section className={cx(styles.showcase_section, isDarkMode ? styles.dark : '')}>
+    <section
+      className={cx(styles.showcase_section, isDarkMode ? styles.dark : '')}
+    >
       <div className={styles.showcase_container}>
         {/* Section Header */}
         <div className={styles.section_header}>
@@ -62,6 +64,55 @@ const LiveShowcase: FunctionComponent = () => {
             </div>
           </div>
 
+          {/* Row 2: Media Components - Gallery and Image Comparer side by side */}
+          <div
+            className={cx(
+              styles.component_card_wide,
+              styles.component_card_gallery
+            )}
+          >
+            <div className={styles.card_header}>
+              <h3 className={styles.card_title}>Gallery Component</h3>
+              <span className={styles.card_badge}>Media</span>
+            </div>
+            <div className={styles.card_content}>
+              <Gallery
+                imagesURL={SHOWCASE_GALLERY_IMAGES}
+                imagesALT={[
+                  'Mountain landscape with lake',
+                  'Forest path in nature',
+                  'Mountain range at sunset',
+                  'Ocean waves on beach',
+                  'Mountain peak with clouds',
+                  'Sunset over mountains',
+                  'Forest with sunlight filtering through trees',
+                  'Mountain lake reflection',
+                  'Tropical beach with palm trees',
+                  'Dense forest canopy',
+                ]}
+                gridDimension={[5, 2]}
+                gap={10}
+                imageDimension={140}
+              />
+            </div>
+          </div>
+
+          <div className={styles.component_card_wide}>
+            <div className={styles.card_header}>
+              <h3 className={styles.card_title}>Image Comparer</h3>
+              <span className={styles.card_badge}>Unique</span>
+            </div>
+            <div className={styles.card_content}>
+              <ImageComparer
+                sourceOne="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
+                sourceTwo="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
+                direction="horizontal"
+                ariaLabel="Nature landscape comparison"
+              />
+            </div>
+          </div>
+
+          {/* Row 3: Interactive Controls */}
           <div className={styles.component_card}>
             <div className={styles.card_header}>
               <h3 className={styles.card_title}>CheckBox States</h3>
@@ -77,37 +128,6 @@ const LiveShowcase: FunctionComponent = () => {
             </div>
           </div>
 
-          {/* Row 2: Media Components */}
-          <div className={styles.component_card_wide}>
-            <div className={styles.card_header}>
-              <h3 className={styles.card_title}>Gallery Component</h3>
-              <span className={styles.card_badge}>Media</span>
-            </div>
-            <div className={styles.card_content}>
-              <Gallery
-                imagesURL={SHOWCASE_GALLERY_IMAGES}
-                gridDimension={[4, 2]}
-                gap={10}
-                imageDimension={140}
-              />
-            </div>
-          </div>
-
-          <div className={styles.component_card_wide}>
-            <div className={styles.card_header}>
-              <h3 className={styles.card_title}>Image Comparer</h3>
-              <span className={styles.card_badge}>Unique</span>
-            </div>
-            <div className={styles.card_content}>
-              <ImageComparer
-                firstImage="/images/nicole.jpg"
-                secondImage="/images/adrian.jpg"
-                orientation="horizontal"
-              />
-            </div>
-          </div>
-
-          {/* Row 3: Interactive Controls */}
           <div className={styles.component_card}>
             <div className={styles.card_header}>
               <h3 className={styles.card_title}>Switch Control</h3>
@@ -127,7 +147,7 @@ const LiveShowcase: FunctionComponent = () => {
               <span className={styles.card_badge}>Interactive</span>
             </div>
             <div className={styles.card_content_centered}>
-              <div style={{ width: '100%', maxWidth: '400px' }}>
+              <div style={{ maxWidth: '400px', width: '100%' }}>
                 <Slider
                   knobShape="circle"
                   start={0}
@@ -146,7 +166,8 @@ const LiveShowcase: FunctionComponent = () => {
         {/* Bottom CTA */}
         <div className={styles.showcase_cta}>
           <p className={styles.cta_text}>
-            All components are production-ready, fully accessible, and optimized for performance.
+            All components are production-ready, fully accessible, and optimized
+            for performance.
           </p>
         </div>
       </div>

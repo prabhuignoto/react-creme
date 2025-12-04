@@ -1,11 +1,13 @@
 import { isDark } from '@lib';
 import cx from 'classnames';
-import { FunctionComponent, useMemo } from 'react';
+import { FunctionComponent, useMemo, type ReactNode } from 'react';
 import { Code, Zap, Package, Terminal } from 'react-feather';
+import { InstallCommandCard } from '../components/InstallCommandCard';
+import { PACKAGE_MANAGERS } from '../data/installCommands';
 import styles from '../styles/developer-experience.module.scss';
 
 interface DXFeature {
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   items: string[];
 }
@@ -16,43 +18,43 @@ const DeveloperExperience: FunctionComponent = () => {
   const dxFeatures: DXFeature[] = [
     {
       icon: <Code size={32} />,
-      title: 'TypeScript First',
       items: [
         'Strict mode enabled (TS 5.9)',
         'Full IntelliSense support',
         'Exported types for all props',
         'Zero any types in codebase',
       ],
+      title: 'TypeScript First',
     },
     {
       icon: <Zap size={32} />,
-      title: 'Modern Tooling',
       items: [
         'Vite 6 for lightning-fast builds',
         'Turborepo for monorepo management',
         'Oxlint for 50-100x faster linting',
         'Vitest for fast unit testing',
       ],
+      title: 'Modern Tooling',
     },
     {
       icon: <Package size={32} />,
-      title: 'Great DX',
       items: [
         'Single npm install command',
         'Auto-imported CSS modules',
         'Tree-shakeable exports',
         'ESM & CJS support',
       ],
+      title: 'Great DX',
     },
     {
       icon: <Terminal size={32} />,
-      title: 'Developer Tools',
       items: [
         'Storybook for development',
         'Hot module replacement',
         'Source maps included',
         'Active GitHub community',
       ],
+      title: 'Developer Tools',
     },
   ];
 
@@ -79,7 +81,8 @@ function App() {
         <div className={styles.section_header}>
           <h2 className={styles.section_title}>Developer Experience</h2>
           <p className={styles.section_subtitle}>
-            Built by developers, for developers. Everything you need for a smooth development workflow.
+            Built by developers, for developers. Everything you need for a
+            smooth development workflow.
           </p>
         </div>
 
@@ -113,8 +116,16 @@ function App() {
                 <ul className={styles.feature_list}>
                   {feature.items.map((item, i) => (
                     <li key={i} className={styles.feature_item}>
-                      <svg className={styles.check_icon} viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      <svg
+                        className={styles.check_icon}
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>{item}</span>
                     </li>
@@ -129,18 +140,13 @@ function App() {
         <div className={styles.installation}>
           <h3 className={styles.installation_title}>Get started in seconds</h3>
           <div className={styles.install_commands}>
-            <div className={styles.install_command}>
-              <span className={styles.command_label}>npm</span>
-              <code className={styles.command_text}>npm install react-creme</code>
-            </div>
-            <div className={styles.install_command}>
-              <span className={styles.command_label}>yarn</span>
-              <code className={styles.command_text}>yarn add react-creme</code>
-            </div>
-            <div className={styles.install_command}>
-              <span className={styles.command_label}>pnpm</span>
-              <code className={styles.command_text}>pnpm add react-creme</code>
-            </div>
+            {PACKAGE_MANAGERS.map(config => (
+              <InstallCommandCard
+                key={config.id}
+                config={config}
+                isDarkMode={isDarkMode}
+              />
+            ))}
           </div>
         </div>
       </div>

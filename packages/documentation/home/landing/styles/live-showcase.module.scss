@@ -98,11 +98,13 @@
   &:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
-
-    .showcase_section.dark & {
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-    }
   }
+}
+
+.showcase_section.dark .component_card:hover,
+.showcase_section.dark .component_card_large:hover,
+.showcase_section.dark .component_card_wide:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
 }
 
 .component_card {
@@ -130,6 +132,13 @@
 
   @media (min-width: 1024px) {
     grid-column: span 1;
+  }
+}
+
+// Gallery takes 2 columns, Image Comparer takes 1 column on desktop
+.component_card_wide.component_card_gallery {
+  @media (min-width: 1024px) {
+    grid-column: span 2;
   }
 }
 
@@ -257,6 +266,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

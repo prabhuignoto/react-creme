@@ -1,0 +1,126 @@
+@use '@design/theme.scss';
+
+.install_card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all var(--transition-base);
+  position: relative;
+
+  &.dark {
+    background: theme.$chinese-black;
+    border-color: theme.$jet-black;
+  }
+
+  &:hover {
+    border-color: theme.$blue;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  &:hover.dark {
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.card_content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex: 1;
+}
+
+.package_icon {
+  flex-shrink: 0;
+}
+
+.command_text {
+  font-family: var(--font-mono, 'Monaco', 'Courier New', monospace);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  flex: 1;
+  word-break: break-all;
+
+  .install_card.dark & {
+    color: theme.$gray-200;
+  }
+}
+
+.copy_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  align-self: flex-start;
+
+  .install_card.dark & {
+    background: theme.$gunmetal-gray;
+    border-color: theme.$jet-black;
+    color: theme.$gray-400;
+  }
+
+  &:hover {
+    background: theme.$blue;
+    border-color: theme.$blue;
+    color: #fff;
+    transform: scale(1.02);
+  }
+
+  &:focus {
+    outline: 2px solid theme.$blue;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &.copied {
+    background: theme.$success-green;
+    border-color: theme.$success-green;
+    color: #fff;
+  }
+
+  &.copied:hover {
+    background: theme.$success-green;
+    border-color: theme.$success-green;
+  }
+
+  &.error {
+    background: theme.$crimson;
+    border-color: theme.$crimson;
+    color: #fff;
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+}
+
+.copy_feedback {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.error_message {
+  position: absolute;
+  bottom: -20px;
+  left: var(--spacing-lg);
+  font-size: var(--font-size-xs);
+  color: theme.$crimson;
+}
