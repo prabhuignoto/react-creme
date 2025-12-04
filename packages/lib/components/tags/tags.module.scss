@@ -4,17 +4,45 @@
 @use '@design/animate.scss';
 @use '@design/position.scss';
 @use '@design/tokens.scss';
+@use '@design/border.scss';
 @use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
 
-// Removed - use tokens.$space-* instead
-
+// Heights in rem to match rem-based padding and ensure proper scaling
+// Calculated to accommodate: vertical padding + line-height + icon
 $tag-heights: (
-  sm: 26px,
-  md: 30px,
-  lg: 34px,
+  sm: 1.625rem,
+  // ~26px at 16px base, accommodates 0.25rem padding + text + icon
+  md: 1.875rem,
+  // ~30px at 16px base, accommodates 0.5rem padding + text + icon
+  lg: 2.125rem, // ~34px at 16px base, accommodates 0.75rem padding + text + icon
+);
+
+// Size-specific spacing maps for consistent scaling
+$tag-padding-vertical: (
+  sm: tokens.$space-1,
+  md: tokens.$space-2,
+  lg: tokens.$space-3,
+);
+
+$tag-padding-horizontal: (
+  sm: tokens.$space-2,
+  md: tokens.$space-3,
+  lg: tokens.$space-4,
+);
+
+$tag-margin: (
+  sm: tokens.$space-1,
+  md: tokens.$space-2,
+  lg: tokens.$space-3,
+);
+
+$tag-icon-gap: (
+  sm: tokens.$space-1,
+  md: tokens.$space-1,
+  lg: tokens.$space-2,
 );
 
 .tags_wrapper {
@@ -38,10 +66,8 @@ $tag-heights: (
 .tag {
   // CSS properties before animation mixins to comply with Sass mixed-decls
   justify-items: center;
-  margin: tokens.$space-2 tokens.$space-1;
   max-width: calc(var(--width) + 1rem);
   min-width: 40px;
-  padding: tokens.$space-1 tokens.$space-2;
   transform: scale(1);
   user-select: none;
   visibility: visible;
@@ -54,7 +80,6 @@ $tag-heights: (
 
   &:not(.disabled):not(.readonly) {
     display: grid;
-    grid-template-columns: calc(var(--width) - 1rem) 1rem;
   }
 
   &.disabled,
@@ -96,7 +121,7 @@ $tag-heights: (
 }
 
 .accent_rounded {
-  border-radius: 40px;
+  @extend %border-radius-high;
 }
 
 .readonly {
@@ -120,14 +145,23 @@ $tag-heights: (
 @each $size in $sizes {
   .tag {
     $ico-size: var(--rc-icon-size-#{$size});
+    $icon-gap: map.get($tag-icon-gap, $size);
+    $padding-vertical: map.get($tag-padding-vertical, $size);
+    $padding-horizontal: map.get($tag-padding-horizontal, $size);
+    $margin: map.get($tag-margin, $size);
+
     align-items: center;
-    column-gap: 2px;
     display: grid;
     justify-items: center;
 
     &.#{$size} {
-      grid-template-columns: calc(var(--width) - $ico-size - 2px) $ico-size;
-      height: var(--tag-height, map.get($tag-heights, $size));
+      column-gap: $icon-gap;
+      grid-template-columns: calc(var(--width) - $ico-size - $icon-gap) $ico-size;
+      // Use min-height instead of height to allow content to determine size
+      // Custom tag-height prop can override with pixel value if needed
+      min-height: var(--tag-height, map.get($tag-heights, $size));
+      margin: $margin;
+      padding: $padding-vertical $padding-horizontal;
     }
   }
 
@@ -190,7 +224,8 @@ $tag-heights: (
 }
 
 .tags_input_wrapper {
-  margin-left: tokens.$space-1;
+  // Margin scales with size variants - default to sm spacing
+  margin-left: tokens.$space-2;
   position: relative;
 }
 

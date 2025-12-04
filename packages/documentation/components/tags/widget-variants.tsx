@@ -69,7 +69,7 @@ export const LargeSize = (
     placeholder="Choose a language..."
     items={items}
     onChange={val => console.log(val)}
-    tagWidth={100}
+    tagWidth={150}
     size="lg"
   />
 );
