@@ -1,8 +1,12 @@
 #!/bin/sh
-# . "$(dirname "$0")/_/husky.sh"
+
+# Add common bun installation paths to PATH
+export PATH="$HOME/.bun/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 # Run oxlint first for fast feedback (50-100x faster than ESLint)
-# pnpm oxlint
+bunx oxlint
 
 # Run lint-staged for formatting and linting
-# npx lint-staged
+bunx lint-staged

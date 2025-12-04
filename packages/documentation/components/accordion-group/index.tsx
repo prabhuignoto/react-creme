@@ -13,10 +13,11 @@ const Description = (
       collapsible panels, each with its own heading element.
     </p>
     <p>
-      When a panel is expanded, the content within it becomes visible, while the
-      content in other panels is hidden. Accordion groups are often used to
-      organize and present large amounts of information in a compact,
-      easy-to-navigate format.
+      When a panel is expanded, the content within it becomes visible. By
+      default, multiple panels can be open simultaneously, but you can configure
+      the group to automatically close other panels when one is opened.
+      Accordion groups are often used to organize and present large amounts of
+      information in a compact, easy-to-navigate format.
     </p>
   </div>
 );
@@ -44,52 +45,134 @@ function accordionGroup() {
         },
         {
           default: 'False',
-          description: 'Prop to set the border.',
-          name: 'border',
-          optional: 'Yes',
-          type: 'Boolean',
-        },
-        {
-          default: '[]',
-          description: 'Title for each accordion group.',
-          name: 'titles',
-          optional: 'Yes',
-          type: 'Array',
-        },
-        {
-          default: 'close',
-          description: `initial state of all the accordion groups. <br> <em>"close"</em> | <em>"open"</em>`,
-          name: 'initialState',
-          optional: 'Yes',
-          type: 'String',
-        },
-        {
-          default: 'False',
-          description: `Auto closes other groups when a group is open`,
+          description:
+            'Whether to automatically close other accordions when one is expanded.',
           name: 'autoClose',
           optional: 'Yes',
           type: 'Boolean',
         },
         {
-          default: '#000',
-          description: 'Title color',
-          name: 'titleColor',
+          default: 'False',
+          description: 'Whether to show a border around the group.',
+          name: 'border',
           optional: 'Yes',
-          type: 'String',
+          type: 'Boolean',
         },
         {
-          default: '#000',
-          description: 'Icon color.',
+          default: 'undefined',
+          description:
+            'The content of the AccordionGroup component. Can be a single ReactNode or an array of ReactNodes (one per accordion).',
+          name: 'children',
+          optional: 'Yes',
+          type: 'ReactNode | ReactNode[]',
+        },
+        {
+          default: 'False',
+          description: 'Whether to colorize the header or not.',
+          name: 'colorizeHeader',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'False',
+          description: 'Whether to disable collapsing of the accordion.',
+          name: 'disableCollapse',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'False',
+          description: 'Whether to disable the icon or not.',
+          name: 'disableIcon',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'False',
+          description: 'Whether to disable ARIA attributes or not.',
+          name: 'disableARIA',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'False',
+          description: 'Whether to expand all accordions by default.',
+          name: 'expanded',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'True',
+          description: 'Whether the accordion is focusable or not.',
+          name: 'focusable',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'False',
+          description: 'Whether to make the accordion full width or not.',
+          name: 'fullWidth',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: '40',
+          description: 'Height of the header in px.',
+          name: 'headerHeight',
+          optional: 'Yes',
+          type: 'Number',
+        },
+        {
+          default: 'undefined',
+          description: 'The color of the icon.',
           name: 'iconColor',
           optional: 'Yes',
           type: 'String',
         },
         {
-          default: '40',
-          description: 'Height of the header in px',
-          name: 'headerHeight',
+          default: 'undefined',
+          description:
+            'The custom icons for the accordions. Array of ReactNode elements.',
+          name: 'icons',
           optional: 'Yes',
-          type: 'Number',
+          type: 'ReactNode[]',
+        },
+        {
+          default: "'chevron'",
+          description:
+            "The type of the icon. Can be <code>'chevron'</code> or <code>'plus'</code>.",
+          name: 'iconType',
+          optional: 'Yes',
+          type: 'String',
+        },
+        {
+          default: 'False',
+          description: 'Whether to make the title bold or not.',
+          name: 'isTitleBold',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: "'sm'",
+          description:
+            "The size of the accordion. Can be <code>'sm'</code>, <code>'md'</code> or <code>'lg'</code>.",
+          name: 'size',
+          optional: 'Yes',
+          type: 'String',
+        },
+        {
+          default: 'undefined',
+          description: 'The color of the title.',
+          name: 'titleColor',
+          optional: 'Yes',
+          type: 'String',
+        },
+        {
+          default: '[]',
+          description: 'The titles of the accordions. Array of strings.',
+          name: 'titles',
+          optional: 'Yes',
+          type: 'String[]',
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Playground']}

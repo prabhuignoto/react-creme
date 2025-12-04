@@ -21,7 +21,7 @@ export const AutoClosing = `const App = () => {
       ${text.repeat(3)}
     </AccordionGroup>
   );
-`;
+};`;
 
 export const CustomIconCode = `const App = () => {
    return (
@@ -33,7 +33,7 @@ export const CustomIconCode = `const App = () => {
         ${text.repeat(4)}
     </AccordionGroup>
   );
-`;
+};`;
 
 export const RTLCode = `const App = () => {
   return (
@@ -44,8 +44,8 @@ export const RTLCode = `const App = () => {
     >
       ${text.repeat(4)}
     </AccordionGroup>
-  )
-}`;
+  );
+};`;
 
 export const MediumSizedCode = `const App = () => {
   return (
@@ -56,8 +56,8 @@ export const MediumSizedCode = `const App = () => {
     >
       ${text.repeat(4)}
     </AccordionGroup>
-  )
-}`;
+  );
+};`;
 
 export const LargeSizedCode = `const App = () => {
   return (
@@ -68,8 +68,8 @@ export const LargeSizedCode = `const App = () => {
     >
       ${text.repeat(4)}
     </AccordionGroup>
-  )
-}`;
+  );
+};`;
 
 export const DefaultCode = `const App = () => {
   return (

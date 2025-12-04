@@ -1,12 +1,8 @@
-import {
-  faCode,
-  faEdit,
-  faExternalLink,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCode, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FunctionComponent, memo, ReactNode } from 'react';
+import React, { FunctionComponent, memo, ReactNode } from 'react';
 import { Link, PageHeader } from '../../../lib/components';
-import { getSourceUrl, getEditUrl, getStackBlitzUrl } from './utils';
+import { getSourceUrl, getEditUrl } from './utils';
 import styles from './demo-page-renderer.module.scss';
 
 type DemoHeaderProps = {
@@ -27,7 +23,14 @@ type DemoHeaderProps = {
  * - Easier to update repository structure
  */
 const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
-  ({ title, editId, sourceId, stackBlitzCodes, description, pageIcon }) => {
+  ({
+    title,
+    editId,
+    sourceId,
+    stackBlitzCodes: _stackBlitzCodes,
+    description,
+    pageIcon,
+  }) => {
     return (
       <PageHeader title={title} icon={pageIcon} size="lg">
         {typeof description !== 'string' ? (

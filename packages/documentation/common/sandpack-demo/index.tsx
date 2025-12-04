@@ -1,12 +1,5 @@
 import { FunctionComponent, useMemo } from 'react';
-import {
-  Sandpack,
-  SandpackProvider,
-  SandpackLayout,
-  SandpackCodeEditor,
-  SandpackPreview,
-  SandpackFiles,
-} from '@codesandbox/sandpack-react';
+import { Sandpack, SandpackFiles } from '@codesandbox/sandpack-react';
 import { useAtomValue } from 'jotai';
 import { themeState } from '../../atoms/home';
 import './sandpack-demo.scss';
@@ -90,15 +83,15 @@ const SandpackDemo: FunctionComponent<SandpackDemoProps> = ({
           files={files}
           theme={sandpackTheme}
           options={{
-            showNavigator,
-            showTabs,
-            showLineNumbers,
+            classes: {
+              'sp-layout': 'sandpack-layout',
+              'sp-wrapper': 'sandpack-wrapper',
+            },
             editorHeight,
             readOnly,
-            classes: {
-              'sp-wrapper': 'sandpack-wrapper',
-              'sp-layout': 'sandpack-layout',
-            },
+            showLineNumbers,
+            showNavigator,
+            showTabs,
           }}
           customSetup={{
             dependencies: {
@@ -127,15 +120,22 @@ const SandpackDemo: FunctionComponent<SandpackDemoProps> = ({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              style={{ opacity: 0.5, marginBottom: '1rem' }}
+              style={{ marginBottom: '1rem', opacity: 0.5 }}
             >
               <polyline points="16 18 22 12 16 6"></polyline>
               <polyline points="8 6 2 12 8 18"></polyline>
             </svg>
             <h3>Interactive Playground</h3>
             <p>Interactive playgrounds will be available soon.</p>
-            <p style={{ fontSize: '0.875rem', opacity: 0.7, marginTop: '0.5rem' }}>
-              For now, use the "Show Code" button in each example section to view the source code.
+            <p
+              style={{
+                fontSize: '0.875rem',
+                marginTop: '0.5rem',
+                opacity: 0.7,
+              }}
+            >
+              For now, use the &quot;Show Code&quot; button in each example
+              section to view the source code.
             </p>
           </div>
         </div>

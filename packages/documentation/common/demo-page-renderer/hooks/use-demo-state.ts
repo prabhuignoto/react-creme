@@ -3,31 +3,31 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 /**
  * Storage quota monitoring utility
  */
-const checkStorageQuota = async (): Promise<{ available: number; total: number } | null> => {
-  if (!navigator.storage?.estimate) {
-    return null;
-  }
+// const checkStorageQuota = async (): Promise<{ available: number; total: number } | null> => {
+//   if (!navigator.storage?.estimate) {
+//     return null;
+//   }
 
-  try {
-    const estimate = await navigator.storage.estimate();
-    return {
-      available: Math.max(0, estimate.quota - estimate.usage),
-      total: estimate.quota || 0,
-    };
-  } catch {
-    return null;
-  }
-};
+//   try {
+//     const estimate = await navigator.storage.estimate();
+//     return {
+//       available: Math.max(0, estimate.quota - estimate.usage),
+//       total: estimate.quota || 0,
+//     };
+//   } catch {
+//     return null;
+//   }
+// };
 
 /**
  * Safe localStorage write with quota checking
  */
 const safeStorageWrite = (key: string, value: string): boolean => {
   try {
-    const currentItem = localStorage.getItem(key);
-    const newSize = new Blob([value]).size;
-    const oldSize = currentItem ? new Blob([currentItem]).size : 0;
-    const sizeDifference = newSize - oldSize;
+    // const currentItem = localStorage.getItem(key);
+    // const newSize = new Blob([value]).size;
+    // const oldSize = currentItem ? new Blob([currentItem]).size : 0;
+    // const sizeDifference = newSize - oldSize;
 
     // Attempt to write
     localStorage.setItem(key, value);
@@ -35,9 +35,15 @@ const safeStorageWrite = (key: string, value: string): boolean => {
   } catch (error) {
     if (error instanceof DOMException && error.code === 22) {
       // QuotaExceededError - storage is full
-      console.warn(`localStorage quota exceeded for key "${key}". Clearing oldest demo preferences...`);
+      console.warn(
+        `localStorage quota exceeded for key "${key}". Clearing oldest demo preferences...`
+      );
       // Clear oldest preference to make space
-      const demoKeys = ['demo-code-panel-prefs', 'demo-viewport-pref', 'demo-theme-pref'];
+      const demoKeys = [
+        'demo-code-panel-prefs',
+        'demo-viewport-pref',
+        'demo-theme-pref',
+      ];
       for (const demoKey of demoKeys) {
         if (demoKey !== key) {
           try {
@@ -101,7 +107,11 @@ export const useDemoState = <T>({
   persist = true,
   serialize = JSON.stringify,
   deserialize = JSON.parse,
-}: DemoStateConfig<T>): [T, (value: T | ((prev: T) => T)) => void, () => void] => {
+}: DemoStateConfig<T>): [
+  T,
+  (value: T | ((prev: T) => T)) => void,
+  () => void,
+] => {
   // Store serialize/deserialize in refs to avoid re-render triggers
   const serializeRef = useRef(serialize);
   const deserializeRef = useRef(deserialize);
@@ -124,7 +134,10 @@ export const useDemoState = <T>({
         return deserializeRef.current(stored);
       }
     } catch (error) {
-      console.error(`Failed to load state from localStorage (${storageKey}):`, error);
+      console.error(
+        `Failed to load state from localStorage (${storageKey}):`,
+        error
+      );
     }
 
     return initialState;
@@ -147,7 +160,10 @@ export const useDemoState = <T>({
         try {
           setState(deserializeRef.current(e.newValue));
         } catch (error) {
-          console.error(`Failed to sync state from storage event (${storageKey}):`, error);
+          console.error(
+            `Failed to sync state from storage event (${storageKey}):`,
+            error
+          );
         }
       }
     };
@@ -167,7 +183,10 @@ export const useDemoState = <T>({
       try {
         localStorage.removeItem(storageKey);
       } catch (error) {
-        console.error(`Failed to remove state from localStorage (${storageKey}):`, error);
+        console.error(
+          `Failed to remove state from localStorage (${storageKey}):`,
+          error
+        );
       }
     }
   }, [initialState, persist, storageKey]);
@@ -180,14 +199,14 @@ export const useDemoState = <T>({
  */
 export const useCodePanelPreferences = () => {
   return useDemoState({
-    storageKey: 'demo-code-panel-prefs',
     initialState: {
-      isOpen: false,
-      width: 600,
       defaultTab: 'code' as 'code' | 'playground',
+      isOpen: false,
       showLineNumbers: true,
+      width: 600,
     },
     persist: true,
+    storageKey: 'demo-code-panel-prefs',
   });
 };
 
@@ -196,9 +215,9 @@ export const useCodePanelPreferences = () => {
  */
 export const useViewportPreference = () => {
   return useDemoState({
-    storageKey: 'demo-viewport-pref',
     initialState: 'desktop' as 'mobile' | 'tablet' | 'desktop' | 'fullscreen',
     persist: true,
+    storageKey: 'demo-viewport-pref',
   });
 };
 
@@ -207,9 +226,9 @@ export const useViewportPreference = () => {
  */
 export const useThemePreference = () => {
   return useDemoState({
-    storageKey: 'demo-theme-pref',
     initialState: 'auto' as 'light' | 'dark' | 'auto',
     persist: true,
+    storageKey: 'demo-theme-pref',
   });
 };
 
@@ -225,7 +244,7 @@ export const clearAllDemoPreferences = () => {
     'demo-theme-pref',
   ];
 
-  demoKeys.forEach((key) => {
+  demoKeys.forEach(key => {
     try {
       localStorage.removeItem(key);
     } catch (error) {

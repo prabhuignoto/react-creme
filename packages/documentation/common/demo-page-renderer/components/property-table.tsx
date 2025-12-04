@@ -50,7 +50,7 @@ const PropertyTable: FunctionComponent<PropertyTableProps> = ({
   properties,
   callbacks,
   columns,
-  searchable = false,
+  searchable: _searchable = false,
   className,
 }) => {
   const hasProperties = properties && properties.length > 0;
@@ -64,7 +64,11 @@ const PropertyTable: FunctionComponent<PropertyTableProps> = ({
     <div className={classNames('property-table', className)}>
       {/* Properties Section */}
       {hasProperties && (
-        <Section title="Properties" size="md" className="property-table__section">
+        <Section
+          title="Properties"
+          size="md"
+          className="property-table__section"
+        >
           <DataGrid
             layoutStyle="comfortable"
             columns={columns}
@@ -78,7 +82,11 @@ const PropertyTable: FunctionComponent<PropertyTableProps> = ({
 
       {/* Callbacks Section */}
       {hasCallbacks && (
-        <Section title="Callbacks" size="md" className="property-table__section">
+        <Section
+          title="Callbacks"
+          size="md"
+          className="property-table__section"
+        >
           <DataGrid
             layoutStyle="comfortable"
             columns={columns}

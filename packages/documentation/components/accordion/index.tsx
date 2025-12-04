@@ -13,12 +13,13 @@ const Description = (
       display content in a compact and organized way.
     </p>
     <p>
-      The accordion component provides a header with a title and an expand/collapse
-      icon, and a body that can contain any React content. When expanded, the body
-      content becomes visible with smooth animations. The component supports
-      controlled and uncontrolled modes, allowing you to manage the expanded state
-      programmatically or let users control it through interactions.
-</p>
+      The accordion component provides a header with a title and an
+      expand/collapse icon, and a body that can contain any React content. When
+      expanded, the body content becomes visible with smooth animations. The
+      component supports controlled and uncontrolled modes, allowing you to
+      manage the expanded state programmatically or let users control it through
+      interactions.
+    </p>
   </div>
 );
 
@@ -138,7 +139,8 @@ const Accordion = () => {
         },
         {
           default: 'null',
-          description: 'Controls the expanded state of the accordion. Can be true (expanded), false (collapsed), or null (uncontrolled)',
+          description:
+            'Controls the expanded state of the accordion. Can be true (expanded), false (collapsed), or null (uncontrolled)',
           name: 'expanded',
           optional: 'Yes',
           type: 'Boolean | null',
@@ -181,7 +183,8 @@ const Accordion = () => {
         },
         {
           default: 'null',
-          description: 'Custom icon element to replace the default expand/collapse icon',
+          description:
+            'Custom icon element to replace the default expand/collapse icon',
           name: 'customIcon',
           optional: 'Yes',
           type: 'ReactNode',
@@ -230,7 +233,8 @@ const Accordion = () => {
         },
         {
           default: 'undefined',
-          description: 'Custom content to render in the header instead of the title',
+          description:
+            'Custom content to render in the header instead of the title',
           name: 'customContent',
           optional: 'Yes',
           type: 'ReactNode',

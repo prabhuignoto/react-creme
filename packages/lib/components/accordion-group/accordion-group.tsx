@@ -14,7 +14,7 @@ import styles from './accordion-group.module.scss';
  * @param {boolean} expanded - Whether to expand the accordion by default. Default is false.
  * @param {string} iconColor - The color of the icon. Default is undefined.
  * @param {string} iconType - The type of the icon. Default is 'chevron'.
- * @param {string} titleColor - The color of the title. Default is '#000'.
+ * @param {string} titleColor - The color of the title. Default is undefined.
  * @param {string[]} titles - The titles of the accordions.
  * @param {boolean} isTitleBold - Whether to make the title bold or not. Default is false.
  * @param {boolean} disableCollapse - Whether to disable collapsing of the accordion. Default is false.

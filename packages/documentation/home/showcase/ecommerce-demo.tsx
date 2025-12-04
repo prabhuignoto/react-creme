@@ -13,9 +13,13 @@ import {
   Accordion,
   Progress,
   Avatar,
-  Tooltip,
 } from '@lib';
-import { product, relatedProducts, customerReviews, productFAQs } from './showcase-data';
+import {
+  product,
+  relatedProducts,
+  customerReviews,
+  productFAQs,
+} from './showcase-data';
 import styles from './ecommerce-demo.module.scss';
 
 interface CartItem {
@@ -33,7 +37,7 @@ export const EcommerceDemo: React.FC = () => {
   const activeTab = 'Details'; // Default active tab
 
   const handleAddToCart = () => {
-    setCartItems((prev) => [
+    setCartItems(prev => [
       ...prev,
       {
         id: product.id,
@@ -45,16 +49,16 @@ export const EcommerceDemo: React.FC = () => {
     setTimeout(() => setShowNotification(false), 3000);
   };
 
-  const tabLabels = useMemo(() => ['Details', 'Reviews', 'Shipping'], []);
+  // const tabLabels = useMemo(() => ['Details', 'Reviews', 'Shipping'], []);
 
   const colorOptions = useMemo(
     () =>
-      product.colors.map((color) => ({
+      product.colors.map(color => ({
+        checked: color.name === selectedColor,
         label: color.name,
         value: color.name,
-        checked: color.name === selectedColor,
       })),
-    [selectedColor],
+    [selectedColor]
   );
 
   const discountedPrice = product.price;
@@ -115,7 +119,11 @@ export const EcommerceDemo: React.FC = () => {
               {/* Rating and reviews */}
               <div className={styles.ratingSection}>
                 <div className={styles.ratingRow}>
-                  <Rate value={Math.floor(product.rating) as 1 | 2 | 3 | 4 | 5} disabled iconCount={5} />
+                  <Rate
+                    value={Math.floor(product.rating) as 1 | 2 | 3 | 4 | 5}
+                    disabled
+                    iconCount={5}
+                  />
                   <Text type="secondary" size="sm">
                     {product.rating} ({product.reviewCount} reviews)
                   </Text>
@@ -125,16 +133,20 @@ export const EcommerceDemo: React.FC = () => {
               {/* Price section */}
               <div className={styles.priceSection}>
                 <div className={styles.prices}>
-                  <span className={styles.currentPrice}>${discountedPrice.toFixed(2)}</span>
-                  <span className={styles.originalPrice}>${product.originalPrice.toFixed(2)}</span>
+                  <span className={styles.currentPrice}>
+                    ${discountedPrice.toFixed(2)}
+                  </span>
+                  <span className={styles.originalPrice}>
+                    ${product.originalPrice.toFixed(2)}
+                  </span>
                   <span
                     style={{
-                      padding: '4px 12px',
+                      backgroundColor: '#fbbf2420',
                       borderRadius: '4px',
+                      color: '#f59e0b',
                       fontSize: '12px',
                       fontWeight: 600,
-                      backgroundColor: '#fbbf2420',
-                      color: '#f59e0b',
+                      padding: '4px 12px',
                     }}
                   >
                     {product.discount}% OFF
@@ -150,15 +162,19 @@ export const EcommerceDemo: React.FC = () => {
                 <div className={styles.stockInfo}>
                   <span
                     style={{
-                      padding: '6px 14px',
+                      backgroundColor: product.inStock
+                        ? '#22c55e20'
+                        : '#ef444420',
                       borderRadius: '6px',
+                      color: product.inStock ? '#22c55e' : '#ef4444',
                       fontSize: '13px',
                       fontWeight: 600,
-                      backgroundColor: product.inStock ? '#22c55e20' : '#ef444420',
-                      color: product.inStock ? '#22c55e' : '#ef4444',
+                      padding: '6px 14px',
                     }}
                   >
-                    {product.inStock ? `✓ ${product.stock} In Stock` : '✕ Out of Stock'}
+                    {product.inStock
+                      ? `✓ ${product.stock} In Stock`
+                      : '✕ Out of Stock'}
                   </span>
                   {product.inStock && (
                     <Text size="xs" type="secondary">
@@ -184,18 +200,20 @@ export const EcommerceDemo: React.FC = () => {
 
               {/* Color selection */}
               <div className={styles.optionSection}>
-                <label>Color</label>
-                <RadioGroup
-                  items={colorOptions}
-                  onSelected={setSelectedColor}
-                />
+                <label htmlFor="product-color-selector">Color</label>
+                <div id="product-color-selector">
+                  <RadioGroup
+                    items={colorOptions}
+                    onSelected={setSelectedColor}
+                  />
+                </div>
               </div>
 
               {/* Size selection */}
               <div className={styles.optionSection}>
-                <label>Size</label>
-                <div className={styles.sizeOptions}>
-                  {product.sizes.map((size) => (
+                <label htmlFor="product-size-selector">Size</label>
+                <div id="product-size-selector" className={styles.sizeOptions}>
+                  {product.sizes.map(size => (
                     <Button key={size} label={size} type="default" />
                   ))}
                 </div>
@@ -203,8 +221,16 @@ export const EcommerceDemo: React.FC = () => {
 
               {/* Quantity */}
               <div className={styles.optionSection}>
-                <label>Quantity</label>
-                <InputNumber start={1} end={99} value={quantity} onChange={setQuantity} />
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                <label id="product-quantity-label">Quantity</label>
+                <div aria-labelledby="product-quantity-label">
+                  <InputNumber
+                    start={1}
+                    end={99}
+                    value={quantity}
+                    onChange={setQuantity}
+                  />
+                </div>
               </div>
 
               {/* Action buttons */}
@@ -229,7 +255,10 @@ export const EcommerceDemo: React.FC = () => {
 
       {/* Product info tabs */}
       <Card className={styles.infoCard}>
-        <Tabs labels={['Details', 'Specifications', 'Reviews', 'FAQ']} activeTab={activeTab}>
+        <Tabs
+          labels={['Details', 'Specifications', 'Reviews', 'FAQ']}
+          activeTab={activeTab}
+        >
           {/* Details Tab */}
           <div className={styles.tabContent}>
             <div className={styles.detailsList}>
@@ -277,8 +306,14 @@ export const EcommerceDemo: React.FC = () => {
                   <h3>Customer Reviews</h3>
                   <div className={styles.ratingOverview}>
                     <div className={styles.averageRating}>
-                      <span className={styles.ratingNumber}>{product.rating}</span>
-                      <Rate value={Math.floor(product.rating) as 1 | 2 | 3 | 4 | 5} disabled iconCount={5} />
+                      <span className={styles.ratingNumber}>
+                        {product.rating}
+                      </span>
+                      <Rate
+                        value={Math.floor(product.rating) as 1 | 2 | 3 | 4 | 5}
+                        disabled
+                        iconCount={5}
+                      />
                       <Text type="secondary" size="sm">
                         Based on {product.reviewCount} reviews
                       </Text>
@@ -289,7 +324,7 @@ export const EcommerceDemo: React.FC = () => {
               </div>
 
               <div className={styles.reviewsList}>
-                {customerReviews.map((review) => (
+                {customerReviews.map(review => (
                   <Card key={review.id} className={styles.reviewCard}>
                     <div className={styles.reviewHeader}>
                       <div className={styles.reviewAuthor}>
@@ -310,7 +345,11 @@ export const EcommerceDemo: React.FC = () => {
                       </Text>
                     </div>
                     <div className={styles.reviewRating}>
-                      <Rate value={review.rating as 1 | 2 | 3 | 4 | 5} disabled iconCount={5} />
+                      <Rate
+                        value={review.rating as 1 | 2 | 3 | 4 | 5}
+                        disabled
+                        iconCount={5}
+                      />
                       <Text size="sm" weight="600">
                         {review.title}
                       </Text>
@@ -334,9 +373,9 @@ export const EcommerceDemo: React.FC = () => {
               <h3>Frequently Asked Questions</h3>
               <Accordion
                 items={productFAQs.map((faq, index) => ({
-                  id: `faq-${index}`,
-                  header: faq.question,
                   content: <Text size="sm">{faq.answer}</Text>,
+                  header: faq.question,
+                  id: `faq-${index}`,
                 }))}
               />
             </div>
@@ -353,34 +392,55 @@ export const EcommerceDemo: React.FC = () => {
           </Text>
         </div>
         <Carousel autoPlay={0}>
-          {relatedProducts.map((related) => (
+          {relatedProducts.map(related => (
             <div key={related.id} className={styles.relatedCard}>
               <Card>
                 <div className={styles.relatedImageWrapper}>
                   <img src={related.image} alt={related.name} />
-                  {related.originalPrice && related.price < related.originalPrice && (
-                    <span className={styles.relatedDiscount}>
-                      {Math.round(((related.originalPrice - related.price) / related.originalPrice) * 100)}% OFF
-                    </span>
-                  )}
+                  {related.originalPrice &&
+                    related.price < related.originalPrice && (
+                      <span className={styles.relatedDiscount}>
+                        {Math.round(
+                          ((related.originalPrice - related.price) /
+                            related.originalPrice) *
+                            100
+                        )}
+                        % OFF
+                      </span>
+                    )}
                 </div>
                 <div className={styles.relatedContent}>
                   <Text size="sm" weight="600">
                     {related.name}
                   </Text>
                   <div className={styles.relatedMeta}>
-                    <Rate value={Math.floor(related.rating) as 1 | 2 | 3 | 4 | 5} disabled iconCount={5} size="sm" />
+                    <Rate
+                      value={Math.floor(related.rating) as 1 | 2 | 3 | 4 | 5}
+                      disabled
+                      iconCount={5}
+                      size="sm"
+                    />
                     <Text type="secondary" size="xs">
                       ({related.rating})
                     </Text>
                   </div>
                   <div className={styles.relatedPricing}>
-                    <span className={styles.relatedPrice}>${related.price.toFixed(2)}</span>
-                    {related.originalPrice && related.price < related.originalPrice && (
-                      <span className={styles.relatedOriginalPrice}>${related.originalPrice.toFixed(2)}</span>
-                    )}
+                    <span className={styles.relatedPrice}>
+                      ${related.price.toFixed(2)}
+                    </span>
+                    {related.originalPrice &&
+                      related.price < related.originalPrice && (
+                        <span className={styles.relatedOriginalPrice}>
+                          ${related.originalPrice.toFixed(2)}
+                        </span>
+                      )}
                   </div>
-                  <Button label="Quick View" type="default" size="sm" style={{ width: '100%', marginTop: '8px' }} />
+                  <Button
+                    label="Quick View"
+                    type="default"
+                    size="sm"
+                    style={{ marginTop: '8px', width: '100%' }}
+                  />
                 </div>
               </Card>
             </div>

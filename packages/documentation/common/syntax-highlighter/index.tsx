@@ -90,7 +90,10 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
   );
 
   // Memoize highlightLines to prevent array reference changes causing re-renders
-  const memoizedHighlightLines = useMemo(() => highlightLines, [JSON.stringify(highlightLines)]);
+  const memoizedHighlightLines = useMemo(
+    () => highlightLines,
+    [JSON.stringify(highlightLines)]
+  );
 
   // Highlight code with Shiki
   useEffect(() => {
@@ -101,30 +104,32 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
         // Check if language is supported
         const supportedLang = language in bundledLanguages ? language : 'tsx';
 
+        const transformers = showLineNumbers
+          ? [
+              {
+                line(
+                  node: { properties: Record<string, unknown> },
+                  line: number
+                ) {
+                  node.properties['data-line'] = line;
+
+                  // Highlight specified lines
+                  if (memoizedHighlightLines.includes(line)) {
+                    node.properties.class = classNames(
+                      node.properties.class,
+                      'line-highlight'
+                    );
+                  }
+                },
+                name: 'line-numbers',
+              },
+            ]
+          : [];
+
         const html = await codeToHtml(codeString, {
           lang: supportedLang,
           theme: shikiTheme,
-          transformers: [
-            // Add line numbers if requested
-            ...(showLineNumbers
-              ? [
-                  {
-                    name: 'line-numbers',
-                    line(node: any, line: number) {
-                      node.properties['data-line'] = line;
-
-                      // Highlight specified lines
-                      if (memoizedHighlightLines.includes(line)) {
-                        node.properties.class = classNames(
-                          node.properties.class,
-                          'line-highlight'
-                        );
-                      }
-                    },
-                  },
-                ]
-              : []),
-          ],
+          transformers,
         });
 
         setHighlightedHTML(html);
@@ -140,7 +145,13 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
     if (codeString) {
       highlightCode();
     }
-  }, [codeString, language, shikiTheme, showLineNumbers, memoizedHighlightLines]);
+  }, [
+    codeString,
+    language,
+    shikiTheme,
+    showLineNumbers,
+    memoizedHighlightLines,
+  ]);
 
   const handleCopy = async () => {
     try {
@@ -154,8 +165,8 @@ const SyntaxHighLighter: FunctionComponent<CodeModel> = ({
   return (
     <div
       className={classNames('rc-demo-code-block', className, {
-        'has-line-numbers': showLineNumbers,
         'has-file-name': !!fileName,
+        'has-line-numbers': showLineNumbers,
       })}
       ref={ref}
     >

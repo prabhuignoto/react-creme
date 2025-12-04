@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
+import React, {
   FunctionComponent,
   memo,
   useLayoutEffect,
@@ -13,9 +13,7 @@ import useMedia from '../useMedia';
 import { useResponsiveColumns } from '../hooks/useResponsiveColumns';
 import DemoPageFeatures from './demo-page-features';
 import { DemoPageHeader } from './demo-page-header';
-import { DemoContextProvider, useCodePanelState, useDemoActions } from './demo-context';
-import { FloatingCodePanel } from './components/floating-code-panel';
-import { QuickActionsToolbar } from './components/quick-actions-toolbar';
+import { DemoContextProvider, useDemoActions } from './demo-context';
 import { useDemoShortcuts } from './hooks/use-demo-shortcuts';
 import { extractCodeFromElement, wrapWithImport } from './utils/code-extractor';
 import { getStackBlitzUrl } from './utils/url-builder';
@@ -41,12 +39,14 @@ export interface DemoPageRendererProps {
 /**
  * Inner component that has access to DemoContext
  */
-const DemoPageContent: FunctionComponent<DemoPageRendererProps & {
-  tabs: string[];
-  showStackBlitzEmbed: boolean;
-  columns: any;
-  media: any;
-}> = ({
+const DemoPageContent: FunctionComponent<
+  DemoPageRendererProps & {
+    tabs: string[];
+    showStackBlitzEmbed: boolean;
+    columns: any;
+    media: any;
+  }
+> = ({
   title,
   description,
   pageIcon,
@@ -63,7 +63,6 @@ const DemoPageContent: FunctionComponent<DemoPageRendererProps & {
   showStackBlitzEmbed,
   playgroundCode,
 }) => {
-  const codePanel = useCodePanelState();
   const actions = useDemoActions();
 
   // Extract code from demo widget for display in code panel
@@ -77,12 +76,6 @@ const DemoPageContent: FunctionComponent<DemoPageRendererProps & {
       return '// Code extraction failed';
     }
   }, [demoWidget, title]);
-
-  const codeSnippet = useMemo(() => ({
-    code: demoCode,
-    fileName: `${title || 'demo'}.tsx`,
-    language: 'tsx' as const,
-  }), [demoCode, title]);
 
   // Quick action handlers
   const handleCopyCode = () => {
@@ -220,7 +213,9 @@ const DemoPageRenderer: FunctionComponent<DemoPageRendererProps> = memo(
       if (!media) return;
 
       const isMobileOrTablet = media.isMobile || media.isTablet;
-      setTabs(isMobileOrTablet ? stableTabTitles.slice(0, -1) : stableTabTitles);
+      setTabs(
+        isMobileOrTablet ? stableTabTitles.slice(0, -1) : stableTabTitles
+      );
       setShowStackBlitzEmbed(!isMobileOrTablet);
     }, [media, stableTabTitles]);
 

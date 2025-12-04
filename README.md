@@ -94,26 +94,26 @@ For more thorough examples and the API details visit the [main site](https://rea
 To build everything
 
 ```sh
-pnpm build
+bun build
 ```
 
 To build the library
 
 ```sh
-pnpm build:lib
+bun build:lib
 ```
 
 To build and run the documentation
 
 ```sh
-pnpm build:doc
-cd ./packages/documentation/expo_dist && npx serve .
+bun build:doc
+cd ./packages/documentation/expo_dist && bunx serve .
 ```
 
 To run the Unit tests
 
 ```sh
-pnpm test
+bun test
 ```
 
 ## 🤝Contributing

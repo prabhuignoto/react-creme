@@ -1,5 +1,10 @@
-import { Component, FunctionComponent, ReactNode, Suspense, lazy } from 'react';
-import { ExternalLink } from 'react-feather';
+import React, {
+  Component,
+  FunctionComponent,
+  ReactNode,
+  Suspense,
+  lazy,
+} from 'react';
 import type { InteractiveDemo } from '../demo-page-renderer/types';
 import './code-viewer.scss';
 
@@ -29,19 +34,19 @@ class SandpackErrorBoundary extends Component<
 > {
   constructor(props: { children: ReactNode; onRetry?: () => void }) {
     super(props);
-    this.state = { hasError: false, error: null };
+    this.state = { error: null, hasError: false };
   }
 
   static getDerivedStateFromError(error: Error) {
-    return { hasError: true, error };
+    return { error, hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: any) {
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.error('Sandpack Error:', error, errorInfo);
   }
 
   handleRetry = () => {
-    this.setState({ hasError: false, error: null });
+    this.setState({ error: null, hasError: false });
     this.props.onRetry?.();
   };
 
@@ -70,7 +75,9 @@ class SandpackErrorBoundary extends Component<
 /**
  * Loading fallback for Sandpack
  */
-const SandpackLoading: FunctionComponent<{ height?: number }> = ({ height }) => (
+const SandpackLoading: FunctionComponent<{ height?: number }> = ({
+  height,
+}) => (
   <div
     className="sandpack-loading"
     style={{ minHeight: height ? `${height}px` : '400px' }}
@@ -108,16 +115,16 @@ const SandpackInteractive: FunctionComponent<SandpackInteractiveProps> = ({
   demo,
   height = 500,
   className,
-  showStackBlitzLink = true,
+  showStackBlitzLink: _showStackBlitzLink = true,
 }) => {
-  const stackBlitzUrl = demo.stackBlitzId
-    ? `https://stackblitz.com/edit/${demo.stackBlitzId}`
-    : null;
+  // const stackBlitzUrl = demo.stackBlitzId
+  //   ? `https://stackblitz.com/edit/${demo.stackBlitzId}`
+  //   : null;
 
   return (
     <div className={`sandpack-interactive ${className || ''}`}>
       {/* Toolbar - Hidden for now */}
-      {false && showStackBlitzLink && stackBlitzUrl && (
+      {/* {showStackBlitzLink && stackBlitzUrl && (
         <div className="sandpack-toolbar">
           <a
             href={stackBlitzUrl}
@@ -129,7 +136,7 @@ const SandpackInteractive: FunctionComponent<SandpackInteractiveProps> = ({
             <span>Open in External Editor</span>
           </a>
         </div>
-      )}
+      )} */}
 
       {/* Sandpack Content */}
       <SandpackErrorBoundary>
@@ -140,11 +147,11 @@ const SandpackInteractive: FunctionComponent<SandpackInteractiveProps> = ({
             template={demo.template}
             dependencies={demo.dependencies}
             options={{
-              showNavigator: false,
-              showTabs: true,
-              showLineNumbers: true,
               editorHeight: height,
               readOnly: false,
+              showLineNumbers: true,
+              showNavigator: false,
+              showTabs: true,
             }}
           />
         </Suspense>

@@ -72,7 +72,14 @@ export default [
 
       // Custom rules (alphabetically sorted)
       '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
       'import/default': 'off',
       'import/named': 'off',
       'import/namespace': 'off',
