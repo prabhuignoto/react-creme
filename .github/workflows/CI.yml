@@ -42,10 +42,10 @@ jobs:
             ${{ runner.os }}-turbo-
 
       - name: Lint code
-        run: bun lint
+        run: bun run lint
 
       - name: Build all packages
-        run: bun build
+        run: bun run build
 
       - name: Run tests
         run: bun run test:ci
