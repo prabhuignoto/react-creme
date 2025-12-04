@@ -25,7 +25,7 @@ try {
 console.log(
   '📦 Using Vite for documentation build (HTML entry points, SVGR, CSS processing)'
 );
-const result = await $`bunx vite build`.cwd(__dirname).quiet();
+const result = await $`bunx vite build`.cwd(__dirname);
 
 if (result.exitCode !== 0) {
   console.error('❌ Documentation build failed');

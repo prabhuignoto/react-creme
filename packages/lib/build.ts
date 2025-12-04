@@ -49,7 +49,7 @@ if (!cjsResult.success) {
 // Generate TypeScript declarations
 console.log('📝 Generating TypeScript declarations...');
 const tscPath = resolve(__dirname, 'tsconfig.emit.json');
-const tscResult = await $`bunx tsc -p ${tscPath} --emitDeclarationOnly`.quiet();
+const tscResult = await $`bunx tsc -p ${tscPath} --emitDeclarationOnly`;
 if (tscResult.exitCode !== 0) {
   console.error('❌ TypeScript declaration generation failed');
   process.exit(1);
@@ -60,7 +60,7 @@ if (tscResult.exitCode !== 0) {
 // Note: This runs vite build which will also rebuild JS, but it's needed for CSS extraction
 // In the future, we can optimize this to only extract CSS
 console.log('🎨 Bundling CSS with Vite...');
-const viteResult = await $`bunx vite build`.cwd(__dirname).quiet();
+const viteResult = await $`bunx vite build`.cwd(__dirname);
 if (viteResult.exitCode !== 0) {
   console.error('❌ CSS bundling failed');
   process.exit(1);

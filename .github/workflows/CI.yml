@@ -46,9 +46,13 @@ jobs:
 
       - name: Build all packages
         run: bun run build
+        timeout-minutes: 10
+        continue-on-error: false
 
       - name: Run tests
         run: bun run test:ci
+        timeout-minutes: 10
+        continue-on-error: false
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
