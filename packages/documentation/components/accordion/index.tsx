@@ -7,20 +7,18 @@ import { Widgets } from './widgets';
 const Description = (
   <div>
     <p className="rc-component-description">
-      An accordion UI element is a type of graphical user interface element that
-      allows users to expand and collapse sections of content within a webpage
-      or application. It is often used to display a large amount of content in a
-      more organized and manageable way.
+      An accordion is a UI component that allows users to expand and collapse a
+      section of content. It consists of a header and a body, where clicking the
+      header toggles the visibility of the body content. It is commonly used to
+      display content in a compact and organized way.
     </p>
     <p>
-      The accordion UI element consists of a series of vertically stacked
-      sections, each with a header and a corresponding body of content. When a
-      user clicks on the header of a section, the body of content for that
-      section expands and becomes visible, while the bodies of content for the
-      other sections are collapsed and hidden. The accordion UI element is
-      commonly used in web and mobile design to present a large amount of
-      information in a compact and organized way.
-    </p>
+      The accordion component provides a header with a title and an expand/collapse
+      icon, and a body that can contain any React content. When expanded, the body
+      content becomes visible with smooth animations. The component supports
+      controlled and uncontrolled modes, allowing you to manage the expanded state
+      programmatically or let users control it through interactions.
+</p>
   </div>
 );
 
@@ -118,35 +116,35 @@ const Accordion = () => {
           type: 'String',
         },
         {
-          default: 'false',
+          default: 'true',
           description: 'Enables focus outline',
           name: 'focusable',
           optional: 'Yes',
           type: 'Boolean',
         },
         {
-          default: '#000',
+          default: 'undefined',
           description: 'Color of the title',
           name: 'titleColor',
           optional: 'Yes',
           type: 'String',
         },
         {
-          default: '#000',
+          default: 'undefined',
           description: 'Color of the icons',
           name: 'iconColor',
           optional: 'Yes',
           type: 'String',
         },
         {
-          default: 'false',
-          description: 'Expands the accordion on load',
+          default: 'null',
+          description: 'Controls the expanded state of the accordion. Can be true (expanded), false (collapsed), or null (uncontrolled)',
           name: 'expanded',
           optional: 'Yes',
-          type: 'Boolean',
+          type: 'Boolean | null',
         },
         {
-          default: 'md',
+          default: 'sm',
           description:
             'Size of the accordion. Can be <code>sm</code>, <code>md</code> or <code>lg</code>. Controls the size of the Fonts and Icons',
           name: 'size',
@@ -159,6 +157,90 @@ const Accordion = () => {
           name: 'headerHeight',
           optional: 'Yes',
           type: 'Number',
+        },
+        {
+          default: 'true',
+          description: 'Automatically sets the body height based on content',
+          name: 'autoSetBodyHeight',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'false',
+          description: 'Disables the collapse/expand functionality',
+          name: 'disableCollapse',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'false',
+          description: 'Hides the expand/collapse icon',
+          name: 'disableIcon',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'null',
+          description: 'Custom icon element to replace the default expand/collapse icon',
+          name: 'customIcon',
+          optional: 'Yes',
+          type: 'ReactNode',
+        },
+        {
+          default: 'false',
+          description: 'Makes the title text bold',
+          name: 'isTitleBold',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'false',
+          description: 'Highlights the accordion header when selected',
+          name: 'selected',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'undefined',
+          description: 'Disables ARIA attributes for accessibility',
+          name: 'disableARIA',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'true',
+          description: 'Enables animation when expanding/collapsing',
+          name: 'animate',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'true',
+          description: 'Makes the accordion take full width of its container',
+          name: 'fullWidth',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'false',
+          description: 'Applies color styling to the header',
+          name: 'colorizeHeader',
+          optional: 'Yes',
+          type: 'Boolean',
+        },
+        {
+          default: 'undefined',
+          description: 'Custom content to render in the header instead of the title',
+          name: 'customContent',
+          optional: 'Yes',
+          type: 'ReactNode',
+        },
+        {
+          default: 'undefined',
+          description: 'Content to display in the accordion body',
+          name: 'children',
+          optional: 'Yes',
+          type: 'ReactNode',
         },
       ]}
       demoWidget={<Widgets />}
