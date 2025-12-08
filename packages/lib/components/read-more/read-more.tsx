@@ -1,4 +1,6 @@
 import cx from 'classnames';
+import { nanoid } from 'nanoid';
+import type React from 'react';
 import {
   CSSProperties,
   FunctionComponent,
@@ -33,6 +35,12 @@ const ReadMore: FunctionComponent<ReadMoreProps> = ({
 }) => {
   const ref = useRef<HTMLParagraphElement | null>(null);
 
+  // Generate unique ID for content paragraph (lazy initialization)
+  const contentId = useRef<string | undefined>(undefined);
+  if (!contentId.current) {
+    contentId.current = `rc-read-more-content-${nanoid()}`;
+  }
+
   // State to store the line height and total height of the content
   const [lineHeight, setLineHeight] = useState(0);
   const [totalHeight, setTotalHeight] = useState(0);
@@ -41,7 +49,7 @@ const ReadMore: FunctionComponent<ReadMoreProps> = ({
   const [showMore, setShowMore] = useState(false);
 
   // Check if the dark mode is enabled
-  const isDarkMode = useMemo(() => isDark(), []);
+  const isDarkMode = isDark();
 
   // Calculate the class for the container based on RTL and position settings
   const containerClass = useMemo(
@@ -109,12 +117,34 @@ const ReadMore: FunctionComponent<ReadMoreProps> = ({
     setShowMore(!showMore);
   }, [showMore]);
 
+  // Handle keyboard events for accessibility
+  const handleKeyDown = useCallback(
+    (ev: React.KeyboardEvent<HTMLButtonElement>) => {
+      if (ev.key === ' ' || ev.key === 'Enter') {
+        ev.preventDefault();
+        toggleShowMore();
+      }
+    },
+    [toggleShowMore]
+  );
+
   return (
     <div className={containerClass}>
-      <p ref={onRef} className={readMoreClass} style={style as CSSProperties}>
+      <p
+        ref={onRef}
+        id={contentId.current}
+        className={readMoreClass}
+        style={style as CSSProperties}
+      >
         {children}
       </p>
-      <button onClick={toggleShowMore} className={buttonClass}>
+      <button
+        onClick={toggleShowMore}
+        onKeyDown={handleKeyDown}
+        className={buttonClass}
+        aria-expanded={showMore}
+        aria-controls={contentId.current}
+      >
         {showMore ? showLessText : readMoreText}
       </button>
     </div>
