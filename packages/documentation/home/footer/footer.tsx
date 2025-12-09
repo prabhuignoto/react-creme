@@ -25,7 +25,7 @@ function FooterComponent() {
           <div className={styles.footer_column}>
             <h3 className={styles.column_title}>React Creme</h3>
             <p className={styles.column_description}>
-              A modern UI toolkit for React featuring 55+ high-quality,
+              A modern UI toolkit for React featuring 57 high-quality,
               accessible, and themeable components.
             </p>
             <div className={styles.social_links}>

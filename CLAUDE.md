@@ -501,7 +501,7 @@ See [Design System documentation](packages/lib/design/DESIGN_SYSTEM.md) for deta
 
 ## Performance Considerations
 
-- **Bundle Size**: ~118KB gzipped (full library with all 58+ components and CSS). Individual components with tree-shaking: ~12-20KB gzipped
+- **Bundle Size**: ~115KB gzipped (full library with all 57 components and CSS). Individual components with tree-shaking: ~12-20KB gzipped
 - Tree-shaking is enabled (`sideEffects: false`) - import only what you need
 - CSS is bundled as a single file (~28KB gzipped) to reduce HTTP requests
 - Terser minification with console/debugger removal in production

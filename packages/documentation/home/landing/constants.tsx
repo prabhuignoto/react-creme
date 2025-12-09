@@ -5,12 +5,12 @@ export const STATS_DATA = [
   {
     icon: <Package size={20} />,
     label: 'Bundle Size',
-    value: '~118kb',
+    value: '~115kb',
   },
   {
     icon: <Layers size={20} />,
     label: 'Components',
-    value: '55+',
+    value: '57',
   },
   {
     icon: <Zap size={20} />,
@@ -28,8 +28,8 @@ export const STATS_DATA = [
 export const USP_DATA = [
   {
     description:
-      'At just 118kb, React Creme is 2.8x smaller than Material-UI and Ant Design. Faster load times, better Core Web Vitals, happier users.',
-    highlight: '118kb vs 280kb+',
+      'At just 115kb, React Creme is 2.8x smaller than Material-UI and Ant Design. Faster load times, better Core Web Vitals, happier users.',
+    highlight: '115kb vs 280kb+',
     icon: <Zap size={32} />,
     title: '4x Lighter',
   },
@@ -67,7 +67,7 @@ export const COMPARISON_DATA: ComparisonRow[] = [
     chakra: '~200kb',
     feature: 'Bundle Size',
     mui: '~350kb',
-    reactCreme: '~118kb',
+    reactCreme: '~115kb',
     shadcn: 'Minimal',
   },
   {
