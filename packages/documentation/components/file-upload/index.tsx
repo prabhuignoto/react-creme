@@ -1,5 +1,4 @@
-import { faUpload } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Upload } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -26,7 +25,7 @@ function index() {
     <DemoPageRenderer
       title="File Upload"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faUpload} size="2x" />}
+      pageIcon={<Upload size={32} />}
       sourceId="file-upload/file-upload.tsx"
       editId="file-upload"
       tabTitles={['Examples', 'Properties', 'Playground']}

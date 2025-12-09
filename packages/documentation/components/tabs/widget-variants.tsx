@@ -1,27 +1,27 @@
-import { faGithub, faHackerNews } from '@fortawesome/free-brands-svg-icons';
 import {
-  faAddressBook,
-  faHouse,
-  faLaptop,
-  faPaintbrush,
-  faSailboat,
-  faSearch,
-  faWrench,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+  BookOpen,
+  Search,
+  Wrench,
+  Home,
+  Paintbrush,
+  Laptop,
+  Sailboat,
+  Github,
+  Code,
+} from 'lucide-react';
 
 import { Tabs } from '../../../lib/components';
 
 const icons = [
-  <FontAwesomeIcon icon={faAddressBook} key="1" />,
-  <FontAwesomeIcon icon={faSearch} key="2" />,
-  <FontAwesomeIcon icon={faWrench} key="3" />,
-  <FontAwesomeIcon icon={faHouse} key="4" />,
-  <FontAwesomeIcon icon={faPaintbrush} key="5" />,
-  <FontAwesomeIcon icon={faLaptop} key="6" />,
-  <FontAwesomeIcon icon={faSailboat} key="7" />,
-  <FontAwesomeIcon icon={faGithub} key="8" />,
-  <FontAwesomeIcon icon={faHackerNews} key="9" />,
+  <BookOpen size={24} key="1" />,
+  <Search size={24} key="2" />,
+  <Wrench size={24} key="3" />,
+  <Home size={24} key="4" />,
+  <Paintbrush size={24} key="5" />,
+  <Laptop size={24} key="6" />,
+  <Sailboat size={24} key="7" />,
+  <Github size={24} key="8" />,
+  <Code size={24} key="9" />,
 ];
 
 export const Default = (
@@ -134,15 +134,15 @@ export const IconsCode = `
     disabledTabs={['two', 'one']}
     icons={
       [
-        <FontAwesomeIcon icon={faAddressBook} key="1" />,
-        <FontAwesomeIcon icon={faSearch} key="2" />,
-        <FontAwesomeIcon icon={faWrench} key="3" />,
-        <FontAwesomeIcon icon={faHouse} key="4" />,
-        <FontAwesomeIcon icon={faPaintbrush} key="5" />,
-        <FontAwesomeIcon icon={faLaptop} key="6" />,
-        <FontAwesomeIcon icon={faSailboat} key="7" />,
-        <FontAwesomeIcon icon={faGithub} key="8" />,
-        <FontAwesomeIcon icon={faHackerNews} key="9" />
+        <BookOpen size={24} key="1" />,
+        <Search size={24} key="2" />,
+        <Wrench size={24} key="3" />,
+        <Home size={24} key="4" />,
+        <Paintbrush size={24} key="5" />,
+        <Laptop size={24} key="6" />,
+        <Sailboat size={24} key="7" />,
+        <Github size={24} key="8" />,
+        <Code size={24} key="9" />
       ]
     }
   >

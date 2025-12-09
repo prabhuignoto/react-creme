@@ -1,5 +1,4 @@
-import { faThList } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { List } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -26,7 +25,7 @@ function formGroup() {
     <DemoPageRenderer
       title="Form Group"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
+      pageIcon={<List size={32} />}
       sourceId="form-group/form-group.tsx"
       editId="form-group"
       features={['RTL Support']}

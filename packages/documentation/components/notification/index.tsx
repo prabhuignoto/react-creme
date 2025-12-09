@@ -1,5 +1,4 @@
-import { faBell } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Bell } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './notification-widgets';
@@ -22,7 +21,7 @@ function notification() {
     <DemoPageRenderer
       title="Notification"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faBell} size="2x" />}
+      pageIcon={<Bell size={32} />}
       sourceId="notification/notification.tsx"
       editId="notification"
       features={[

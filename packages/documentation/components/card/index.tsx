@@ -1,5 +1,4 @@
-import { faSquareFull } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Square } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -12,7 +11,7 @@ function card() {
       title="Card"
       stackBlitzCodes={['react-ts-3qkmbh']}
       description="Card is a container for displaying content."
-      pageIcon={<FontAwesomeIcon icon={faSquareFull} size="2x" />}
+      pageIcon={<Square size={32} />}
       sourceId="card/card.tsx"
       editId="card"
       features={[

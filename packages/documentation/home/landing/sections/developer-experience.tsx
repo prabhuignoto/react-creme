@@ -1,7 +1,7 @@
 import { isDark } from '@lib';
 import cx from 'classnames';
 import { FunctionComponent, useMemo, type ReactNode } from 'react';
-import { Code, Zap, Package, Terminal } from 'react-feather';
+import { Code, Zap, Package, Terminal } from 'lucide-react';
 import { InstallCommandCard } from '../components/InstallCommandCard';
 import { PACKAGE_MANAGERS } from '../data/installCommands';
 import styles from '../styles/developer-experience.module.scss';

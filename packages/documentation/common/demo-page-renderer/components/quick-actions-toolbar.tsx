@@ -1,12 +1,6 @@
 import { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import {
-  Copy,
-  Code,
-  ExternalLink,
-  RotateCcw,
-  Maximize2,
-} from 'react-feather';
+import { Copy, Code, ExternalLink, RotateCcw, Maximize2 } from 'lucide-react';
 import type { QuickAction } from '../types';
 import './quick-actions-toolbar.scss';
 
@@ -91,61 +85,62 @@ const QuickActionsToolbar: FunctionComponent<QuickActionsToolbarProps> = ({
   const actions: ActionButton[] = [
     {
       action: 'copy-code',
+      disabled: disabledActions.includes('copy-code'),
       icon: <Copy size={18} />,
       label: 'Copy Code',
-      shortcut: showShortcuts ? '⌘C' : undefined,
       onClick: onCopyCode,
-      disabled: disabledActions.includes('copy-code'),
+      shortcut: showShortcuts ? '⌘C' : undefined,
     },
     {
       action: 'toggle-code-panel',
+      disabled: disabledActions.includes('toggle-code-panel'),
       icon: <Code size={18} />,
       label: isCodePanelOpen ? 'Hide Code' : 'Show Code',
-      shortcut: showShortcuts ? '⌘K' : undefined,
       onClick: onToggleCode,
-      disabled: disabledActions.includes('toggle-code-panel'),
+      shortcut: showShortcuts ? '⌘K' : undefined,
     },
     {
       action: 'open-stackblitz',
+      disabled: disabledActions.includes('open-stackblitz') || !hasInteractive,
       icon: <ExternalLink size={18} />,
       label: 'Open in StackBlitz',
-      shortcut: showShortcuts ? '⌘O' : undefined,
       onClick: onOpenStackBlitz,
-      disabled: disabledActions.includes('open-stackblitz') || !hasInteractive,
       requiresInteractive: true,
+      shortcut: showShortcuts ? '⌘O' : undefined,
     },
     {
       action: 'reset-demo',
+      disabled: disabledActions.includes('reset-demo'),
       icon: <RotateCcw size={18} />,
       label: 'Reset Demo',
-      shortcut: showShortcuts ? '⌘R' : undefined,
       onClick: onReset,
-      disabled: disabledActions.includes('reset-demo'),
+      shortcut: showShortcuts ? '⌘R' : undefined,
     },
     {
       action: 'fullscreen',
+      disabled: disabledActions.includes('fullscreen'),
       icon: <Maximize2 size={18} />,
       label: 'Fullscreen',
-      shortcut: showShortcuts ? '⌘F' : undefined,
       onClick: onFullscreen,
-      disabled: disabledActions.includes('fullscreen'),
+      shortcut: showShortcuts ? '⌘F' : undefined,
     },
   ];
 
   // Filter out actions that require interactive but it's not available
   const visibleActions = actions.filter(
-    (action) => !action.requiresInteractive || hasInteractive
+    action => !action.requiresInteractive || hasInteractive
   );
 
   return (
     <div className={classNames('quick-actions-toolbar', className)}>
       <div className="quick-actions-toolbar__actions">
-        {visibleActions.map((action) => (
+        {visibleActions.map(action => (
           <button
             key={action.action}
             className={classNames('quick-actions-toolbar__button', {
+              'is-active':
+                action.action === 'toggle-code-panel' && isCodePanelOpen,
               'is-disabled': action.disabled,
-              'is-active': action.action === 'toggle-code-panel' && isCodePanelOpen,
             })}
             onClick={action.onClick}
             disabled={action.disabled}

@@ -1,5 +1,4 @@
-import { faColumns } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Columns } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -13,7 +12,7 @@ function splitter() {
       title="Splitter"
       sourceId="splitter/splitter.tsx"
       editId="splitter"
-      pageIcon={<FontAwesomeIcon icon={faColumns} size="2x" />}
+      pageIcon={<Columns size={32} />}
       features={['Horizontal or vertical splitting']}
       properties={[
         {

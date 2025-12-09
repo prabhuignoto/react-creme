@@ -1,5 +1,4 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Github } from 'lucide-react';
 import classNames from 'classnames';
 import { useMemo } from 'react';
 
@@ -19,7 +18,7 @@ const GithubLink = () => {
         rel="noreferrer"
         aria-label="Github"
       >
-        <FontAwesomeIcon icon={faGithub} size="2x" />
+        <Github size={32} />
       </a>
     </div>
   );

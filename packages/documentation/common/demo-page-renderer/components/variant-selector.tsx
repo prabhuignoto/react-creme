@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import { Check } from 'react-feather';
+import { Check } from 'lucide-react';
 import type { ComponentVariant, VariantLayout } from '../types';
 import './variant-selector.scss';
 
@@ -99,14 +99,16 @@ const VariantSelector: FunctionComponent<VariantSelectorProps> = ({
               'is-active': isActive,
             })}
             onClick={() => onChange(variant.id)}
-            onKeyDown={(e) => handleKeyDown(e, index)}
+            onKeyDown={e => handleKeyDown(e, index)}
             type="button"
             title={variant.description}
           >
             {isActive && (
               <Check size={16} className="variant-selector__item-check" />
             )}
-            <span className="variant-selector__item-title">{variant.title}</span>
+            <span className="variant-selector__item-title">
+              {variant.title}
+            </span>
             {variant.description && layout !== 'tabs' && (
               <span className="variant-selector__item-description">
                 {variant.description}

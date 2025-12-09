@@ -1,5 +1,4 @@
-import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Eye } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -12,7 +11,7 @@ function reveal() {
       demoWidget={<Widgets />}
       properties={[]}
       tabTitles={['Examples', 'Properties', 'Playground']}
-      pageIcon={<FontAwesomeIcon icon={faEye} size="2x" />}
+      pageIcon={<Eye size={32} />}
       sourceId="reveal/reveal.tsx"
       editId="reveal"
     ></DemoPageRenderer>

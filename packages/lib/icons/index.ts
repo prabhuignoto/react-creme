@@ -1,26 +1,31 @@
-export { default as AlignCenter } from './align-center';
-export { default as AlignJustify } from './align-justify';
-export { default as ArrowRightIcon } from './arrow-right';
-export { default as AvatarIcon } from './avatar';
-export { default as CheckIcon } from './check';
-export { default as CheckCircleIcon } from './check-circle';
-export { default as ChevronDownIcon } from './chev-down';
-export { default as ChevronRightIcon } from './chev-right';
-export { default as CircleIcon } from './circle';
-export { default as CloseIcon } from './close';
-export { default as CodeIcon } from './code';
-export { default as CopyIcon } from './copy';
-export { default as ErrorIcon } from './error';
-export { default as Eye } from './eye';
-export { default as EyeOff } from './eye-off';
-export { default as InfoIcon } from './info';
-export { default as MinusIcon } from './minus';
-export { default as MoreHorizontalIcon } from './more-horizontal';
-export { default as MoreVerticalIcon } from './more-vertical';
-export { default as PlusIcon } from './plus';
-export { default as SearchIcon } from './search';
-export { default as SpinnerIcon } from './spinner';
-export { default as RateIcon } from './star';
-export { default as TriangleIcon } from './triangle';
-export { default as UserIcon } from './user';
-export { default as WarningIcon } from './warning';
+export {
+  Check as CheckIcon,
+  X as CloseIcon,
+  AlertCircle as ErrorIcon,
+  Info as InfoIcon,
+  AlertTriangle as WarningIcon,
+  User as UserIcon,
+  Search as SearchIcon,
+  Eye,
+  EyeOff,
+  ChevronDown as ChevronDownIcon,
+  ChevronRight as ChevronRightIcon,
+  Plus as PlusIcon,
+  Minus as MinusIcon,
+  MoreHorizontal as MoreHorizontalIcon,
+  MoreVertical as MoreVerticalIcon,
+  Copy as CopyIcon,
+  Code as CodeIcon,
+  Loader2 as SpinnerIcon,
+  Star as RateIcon,
+  Circle as CircleIcon,
+  CheckCircle as CheckCircleIcon,
+  Triangle as TriangleIcon,
+  AlignCenter,
+  AlignJustify,
+  ArrowRight as ArrowRightIcon,
+} from 'lucide-react';
+
+export { User as AvatarIcon } from 'lucide-react';
+
+export type { LucideIcon } from 'lucide-react';

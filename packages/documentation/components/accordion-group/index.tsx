@@ -1,5 +1,4 @@
-import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { MinusSquare } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -29,7 +28,7 @@ function accordionGroup() {
       description={Description}
       sourceId="accordion-group/accordion-group.tsx"
       editId="accordion-group"
-      pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}
+      pageIcon={<MinusSquare size={32} />}
       features={[
         'Auto closing accordion sections',
         'Customizable accordion icons',

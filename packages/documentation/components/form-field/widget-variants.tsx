@@ -1,5 +1,4 @@
-import { faFlag, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Flag, User } from 'lucide-react';
 
 import { FormField, Input } from '../../../lib/components';
 import { Dropdown } from '../../../lib/components/dropdown/dropdown';
@@ -23,26 +22,20 @@ export const RTL = (
 );
 
 export const Icon = (
-  <FormField
-    label="Please enter the name"
-    icon={<FontAwesomeIcon icon={faUser} />}
-  >
+  <FormField label="Please enter the name" icon={<User size={24} />}>
     <Input id="name" placeholder="Name" enableClear />
   </FormField>
 );
 
 export const IconCode = `<FormField
     label="Please enter the name"
-    icon={<FontAwesomeIcon icon={faUser} />}
+    icon={<User size={24} />}
 >
   <Input id="name" placeholder="Name" enableClear />
 </FormField>`;
 
 export const DropdownField = (
-  <FormField
-    label="Please select a Country"
-    icon={<FontAwesomeIcon icon={faFlag} />}
-  >
+  <FormField label="Please select a Country" icon={<Flag size={24} />}>
     <Dropdown
       placeholder=""
       maxMenuHeight={280}
@@ -69,7 +62,7 @@ export const DropdownField = (
 
 export const DropdownFieldCode = `<FormField
     label="Please select a Country"
-    icon={<FontAwesomeIcon icon={faFlag} />}
+    icon={<Flag size={24} />}
 >
   <Dropdown
     placeholder=""

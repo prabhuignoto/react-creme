@@ -1,5 +1,4 @@
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CheckCircle } from 'lucide-react';
 import { FunctionComponent } from 'react';
 import styles from './demo-page-renderer.module.scss';
 
@@ -15,7 +14,7 @@ const DemoPageFeatures: FunctionComponent<DemoPageFeatureProps> = ({
       {features.map((feature, index) => (
         <li key={index} className={styles.feature}>
           <span className={styles.feature_icon}>
-            <FontAwesomeIcon icon={faCircleCheck} />
+            <CheckCircle size={24} />
           </span>
           <span className={styles.feature_name}>{feature}</span>
         </li>

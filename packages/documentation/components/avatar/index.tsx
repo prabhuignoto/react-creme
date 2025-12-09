@@ -1,5 +1,4 @@
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { User } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import { Widgets } from './widgets';
@@ -22,7 +21,7 @@ const Accordion = () => {
       sourceId="avatar/avatar.tsx"
       editId="avatar"
       features={['Custom Avatar sizes', 'Support for rendering custom icon']}
-      pageIcon={<FontAwesomeIcon icon={faUser} size="2x" />}
+      pageIcon={<User size={32} />}
       properties={[
         {
           default: '',

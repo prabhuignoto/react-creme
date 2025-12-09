@@ -1,5 +1,5 @@
 import React, { CSSProperties, FunctionComponent, memo, useState } from 'react';
-import { ChevronDown } from 'react-feather';
+import { ChevronDown } from 'lucide-react';
 import { CodeIcon } from '../../../lib/icons';
 import './demo-widget.scss';
 

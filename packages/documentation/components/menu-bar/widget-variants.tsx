@@ -1,14 +1,12 @@
-import { faHackerNews } from '@fortawesome/free-brands-svg-icons';
-import { faFile, faSearch, faWrench } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { File, Search, Wrench, Code } from 'lucide-react';
 
 import { MenuBar } from '../../../lib/components';
 
 const icons = [
-  <FontAwesomeIcon icon={faFile} key="1" />,
-  <FontAwesomeIcon icon={faSearch} key="2" />,
-  <FontAwesomeIcon icon={faWrench} key="3" />,
-  <FontAwesomeIcon icon={faHackerNews} key="9" />,
+  <File size={24} key="1" />,
+  <Search size={24} key="2" />,
+  <Wrench size={24} key="3" />,
+  <Code size={24} key="9" />,
 ];
 
 const items = [
@@ -67,8 +65,8 @@ export const Medium = <MenuBar items={items} size="md" />;
 export const Large = <MenuBar items={items} size="lg" />;
 
 export const IconsCode = `<MenuBar items={items} icons={[
-  <FontAwesomeIcon icon={faFile} key="1" />,
-  <FontAwesomeIcon icon={faSearch} key="2" />,
-  <FontAwesomeIcon icon={faWrench} key="3" />,
-  <FontAwesomeIcon icon={faHackerNews} key="9" />,
+  <File size={24} key="1" />,
+  <Search size={24} key="2" />,
+  <Wrench size={24} key="3" />,
+  <Code size={24} key="9" />,
 ]} />`;

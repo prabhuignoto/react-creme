@@ -1,5 +1,4 @@
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Loader2 } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -21,7 +20,7 @@ function skeleton() {
     <DemoPageRenderer
       title="Skeleton"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faSpinner} size="2x" />}
+      pageIcon={<Loader2 size={32} />}
       sourceId="skeleton/skeleton.tsx"
       editId="skeleton"
       features={[

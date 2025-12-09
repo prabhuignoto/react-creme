@@ -1,5 +1,4 @@
-import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Megaphone } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -26,7 +25,7 @@ function index() {
     <DemoPageRenderer
       title="Global notification"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faBullhorn} size="2x" />}
+      pageIcon={<Megaphone size={32} />}
       sourceId="global-notification/global-notification.tsx"
       editId="global-notification"
       features={[

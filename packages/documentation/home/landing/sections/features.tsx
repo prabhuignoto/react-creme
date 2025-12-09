@@ -1,7 +1,14 @@
 import { isDark } from '@lib';
 import cx from 'classnames';
 import { FunctionComponent, useMemo } from 'react';
-import { Shield, Activity, FileText, Smartphone, Maximize, MousePointer } from 'react-feather';
+import {
+  Shield,
+  Activity,
+  FileText,
+  Smartphone,
+  Maximize2,
+  MousePointer,
+} from 'lucide-react';
 import styles from '../styles/features.module.scss';
 
 interface FeatureItem {
@@ -16,50 +23,59 @@ const Features: FunctionComponent = () => {
 
   const features: FeatureItem[] = [
     {
+      badge: 'WCAG AA',
+      description:
+        'WCAG AA compliant components with full keyboard navigation, screen reader support, and proper ARIA attributes.',
       icon: <Shield size={28} />,
       title: 'Accessibility First',
-      description: 'WCAG AA compliant components with full keyboard navigation, screen reader support, and proper ARIA attributes.',
-      badge: 'WCAG AA',
     },
     {
+      badge: '95%+ Coverage',
+      description:
+        'Comprehensive test coverage with Vitest and Testing Library. Every component is battle-tested for reliability.',
       icon: <Activity size={28} />,
       title: 'Fully Tested',
-      description: 'Comprehensive test coverage with Vitest and Testing Library. Every component is battle-tested for reliability.',
-      badge: '95%+ Coverage',
     },
     {
+      badge: 'Interactive',
+      description:
+        'Detailed documentation with live examples, code snippets, and API references for every component.',
       icon: <FileText size={28} />,
       title: 'Excellent Docs',
-      description: 'Detailed documentation with live examples, code snippets, and API references for every component.',
-      badge: 'Interactive',
     },
     {
+      badge: 'Touch Ready',
+      description:
+        'Touch-friendly interactions and responsive layouts. Works seamlessly across all devices and screen sizes.',
       icon: <Smartphone size={28} />,
       title: 'Mobile Optimized',
-      description: 'Touch-friendly interactions and responsive layouts. Works seamlessly across all devices and screen sizes.',
-      badge: 'Touch Ready',
     },
     {
-      icon: <Maximize size={28} />,
-      title: 'Highly Customizable',
-      description: 'Theme system with CSS variables, props-based styling, and full control over component appearance.',
       badge: 'CSS Modules',
+      description:
+        'Theme system with CSS variables, props-based styling, and full control over component appearance.',
+      icon: <Maximize2 size={28} />,
+      title: 'Highly Customizable',
     },
     {
+      badge: 'Polished',
+      description:
+        'Smooth animations, intuitive interactions, and thoughtful micro-interactions for delightful user experiences.',
       icon: <MousePointer size={28} />,
       title: 'Great UX',
-      description: 'Smooth animations, intuitive interactions, and thoughtful micro-interactions for delightful user experiences.',
-      badge: 'Polished',
     },
   ];
 
   return (
-    <section className={cx(styles.features_section, isDarkMode ? styles.dark : '')}>
+    <section
+      className={cx(styles.features_section, isDarkMode ? styles.dark : '')}
+    >
       <div className={styles.features_container}>
         <div className={styles.section_header}>
           <h2 className={styles.section_title}>Built for Production</h2>
           <p className={styles.section_subtitle}>
-            Not just another component library. React Creme is designed with modern standards and best practices.
+            Not just another component library. React Creme is designed with
+            modern standards and best practices.
           </p>
         </div>
 
@@ -73,7 +89,9 @@ const Features: FunctionComponent = () => {
                 )}
               </div>
               <h3 className={styles.feature_title}>{feature.title}</h3>
-              <p className={styles.feature_description}>{feature.description}</p>
+              <p className={styles.feature_description}>
+                {feature.description}
+              </p>
             </div>
           ))}
         </div>

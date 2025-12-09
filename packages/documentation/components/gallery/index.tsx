@@ -1,5 +1,4 @@
-import { faImages } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Images } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -25,7 +24,7 @@ function formGroup() {
     <DemoPageRenderer
       title="Gallery"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faImages} size="2x" />}
+      pageIcon={<Images size={32} />}
       sourceId="gallery/gallery.tsx"
       editId="gallery"
       features={[

@@ -1,5 +1,4 @@
-import { faComment } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { MessageCircle } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './tooltip-widgets';
@@ -9,7 +8,7 @@ function tooltip() {
     <DemoPageRenderer
       title="Tooltip"
       description={`A tooltip is a brief, informative message that appears when a user interacts with an element in a graphical user interface.`}
-      pageIcon={<FontAwesomeIcon icon={faComment} />}
+      pageIcon={<MessageCircle size={32} />}
       sourceId="tooltip/tooltip.tsx"
       editId="tooltip"
       features={[

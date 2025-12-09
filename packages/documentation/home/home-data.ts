@@ -1,81 +1,78 @@
 import {
-  faAccessibleIcon,
-  faChrome,
-  faEdge,
-  faFirefoxBrowser,
-  faReact,
-  faSafari,
-} from '@fortawesome/free-brands-svg-icons';
-import {
-  faBolt,
-  faFeather,
-  faFistRaised,
-  faGlobe,
-  faPalette,
-  faTree,
-} from '@fortawesome/free-solid-svg-icons';
+  Atom,
+  Zap,
+  Feather,
+  Code,
+  TreePine,
+  Palette,
+  Accessibility,
+  Globe,
+  Chrome,
+  Firefox,
+  Safari,
+} from 'lucide-react';
 
 export const Features = [
   {
     color: '#0074E4',
-    icon: faReact,
+    icon: Atom,
     title: 'Comprehensive UI Toolkit for React',
   },
   {
     color: '#0074E4',
-    icon: faBolt,
+    icon: Zap,
     title: 'Robust & Performant components',
   },
   {
     color: '#0074E4',
-    icon: faFeather,
+    icon: Feather,
     title: 'Light weight & Modular',
   },
   {
     color: '#0074E4',
-    icon: faFistRaised,
+    icon: Code,
     title: 'Built with TypeScript',
   },
   {
     color: '#0074E4',
-    icon: faTree,
+    icon: TreePine,
     title: 'Tree Shakeable Library',
   },
   {
     color: '#0074E4',
-    icon: faPalette,
+    icon: Palette,
     title: 'Themeable and Responsive',
   },
   {
     color: '#0074E4',
-    icon: faAccessibleIcon,
+    icon: Accessibility,
     title: 'Accessible UI Components',
   },
   {
     color: '#0074E4',
-    icon: faGlobe,
+    icon: Globe,
     title: 'Built for Modern Web Browsers',
   },
 ];
 
 export const supportedBrowsers = [
   {
-    icon: faChrome,
+    icon: Chrome,
     image: 'chrome',
     title: 'Chrome',
   },
   {
-    icon: faFirefoxBrowser,
+    icon: Firefox,
     image: 'firefox',
     title: 'Firefox',
   },
   {
-    icon: faSafari,
+    icon: Safari,
     image: 'safari',
     title: 'Safari',
   },
   {
-    icon: faEdge,
+    icon: Chrome,
     image: 'edge',
     title: 'Edge',
   },

@@ -1,5 +1,4 @@
-import { faCode, faEdit } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Code, Edit } from 'lucide-react';
 import React, { FunctionComponent, memo, ReactNode } from 'react';
 import { Link, PageHeader } from '../../../lib/components';
 import { getSourceUrl, getEditUrl } from './utils';
@@ -43,7 +42,7 @@ const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
             <Link
               target="_blank"
               accent="button"
-              icon={<FontAwesomeIcon icon={faCode} />}
+              icon={<Code size={24} />}
               href={getSourceUrl(sourceId)}
             >
               View Source
@@ -53,7 +52,7 @@ const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
             <Link
               target="_blank"
               accent="button"
-              icon={<FontAwesomeIcon icon={faEdit} />}
+              icon={<Edit size={24} />}
               href={getEditUrl(editId)}
             >
               Edit this Page
@@ -63,7 +62,7 @@ const DemoPageHeader: FunctionComponent<DemoHeaderProps> = memo(
             <Link
               target="_blank"
               accent="button"
-              icon={<FontAwesomeIcon icon={faExternalLink} />}
+              icon={<ExternalLink size={24} />}
               href={getStackBlitzUrl(stackBlitzCodes[0]!)}
             >
               Open in StackBlitz

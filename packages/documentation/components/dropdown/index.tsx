@@ -1,5 +1,4 @@
-import { faThList } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { List } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -23,7 +22,7 @@ function dropdown() {
     <DemoPageRenderer
       title="Dropdown"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faThList} size="2x" />}
+      pageIcon={<List size={32} />}
       sourceId="dropdown/dropdown.tsx"
       editId="dropdown"
       features={[

@@ -1,6 +1,4 @@
-// import { faGithub, faGithubAlt } from '@fortawesome/free-brands-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Menu } from 'lucide-react';
 import classNames from 'classnames';
 import { useCallback } from 'react';
 import { useAtomValue, useSetAtom } from 'jotai';
@@ -34,7 +32,7 @@ function HeroSection() {
 
         {/* FEATURES SECTION */}
         {/* <ul className="rc-doc-app-features">
-          {Features.map(({ icon, title }, index) => (
+          {Features.map(({ icon: Icon, title }, index) => (
             <li
               key={index}
               className={classNames('rc-doc-app-feature', {
@@ -42,7 +40,7 @@ function HeroSection() {
               })}
             >
               <span className="rc-doc-app-feature-icon">
-                <FontAwesomeIcon icon={icon} size="2x" />
+                <Icon size={32} />
               </span>
               <span
                 className={classNames('rc-doc-app-feature-name', {
@@ -57,7 +55,7 @@ function HeroSection() {
         {media.isMobile && (
           <div className="home-menu">
             <HomeButton onClick={handleOpenSidebar} size="md">
-              <FontAwesomeIcon icon={faBars} size="2x" />
+              <Menu size={32} />
             </HomeButton>
           </div>
         )}
@@ -67,7 +65,7 @@ function HeroSection() {
             size="md"
             link="https://github.com/prabhuignoto/react-creme"
           >
-            <FontAwesomeIcon icon={faGithub} />
+            <Github size={24} />
           </HomeButton>
         </div> */}
         {/* <div className="rc-home-buttons">
@@ -78,7 +76,7 @@ function HeroSection() {
             fillStyle="solid"
             link="https://61f8f3a47390f6003aed34df-shwfuqunrb.chromatic.com/"
           >
-            <FontAwesomeIcon icon={faBookOpen} />
+            <BookOpen size={24} />
           </HomeButton>
           <HomeButton
             label="Star this Project"
@@ -87,7 +85,7 @@ function HeroSection() {
             fillStyle="solid"
             link="https://github.com/prabhuignoto/react-creme/stargazers"
           >
-            <FontAwesomeIcon icon={faGithubAlt} />
+            <Github size={24} />
           </HomeButton>
         </div> */}
       </section>

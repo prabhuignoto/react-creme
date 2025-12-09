@@ -1,5 +1,4 @@
-import { faKeyboard } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Keyboard } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -20,7 +19,7 @@ function index() {
     <DemoPageRenderer
       title="Inputs"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faKeyboard} size="2x" />}
+      pageIcon={<Keyboard size={32} />}
       sourceId="input/input.tsx"
       editId="input"
       features={[

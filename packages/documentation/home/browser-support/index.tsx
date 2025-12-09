@@ -25,8 +25,8 @@ function BrowserSupport() {
                 [styles.dark]: isDarkMode,
               })}
             >
-              {/* <FontAwesomeIcon icon={browser.icon} size="4x" /> */}
-              <img src={`${browser.image}.svg`} />
+              {/* <browser.icon size={64} /> */}
+              <img src={`${browser.image}.svg`} alt={browser.title} />
             </span>
             <span
               className={classNames(styles.name, {

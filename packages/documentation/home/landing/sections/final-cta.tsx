@@ -2,7 +2,7 @@ import { Button, isDark } from '@lib';
 import cx from 'classnames';
 import { FunctionComponent, useMemo } from 'react';
 import { useNavigate } from 'react-router';
-import { ArrowRight, Book, GitHub } from 'react-feather';
+import { ArrowRight, Book, Github } from 'lucide-react';
 import styles from '../styles/final-cta.module.scss';
 
 const FinalCTA: FunctionComponent = () => {
@@ -57,7 +57,7 @@ const FinalCTA: FunctionComponent = () => {
               onClick={handleGitHub}
               aria-label="Star on GitHub"
             >
-              <GitHub size={20} />
+              <Github size={20} />
               <span>Star on GitHub</span>
             </button>
           </div>

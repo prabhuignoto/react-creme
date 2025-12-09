@@ -1,4 +1,4 @@
-import { Package, Layers, Zap, Code } from 'react-feather';
+import { Package, Layers, Zap, Code } from 'lucide-react';
 
 // Stats Bar Data
 export const STATS_DATA = [

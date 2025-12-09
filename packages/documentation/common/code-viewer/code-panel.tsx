@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from 'react';
 import classNames from 'classnames';
-import { Code, Play } from 'react-feather';
+import { Code, Play } from 'lucide-react';
 import { ShikiCodeViewer } from './shiki-code-viewer';
 import { SandpackInteractive } from './sandpack-interactive';
 import type { CodeSnippet, InteractiveDemo } from '../demo-page-renderer/types';
@@ -78,7 +78,9 @@ const CodePanel: FunctionComponent<CodePanelProps> = ({
   // If no interactive demo, just show code viewer
   if (!hasInteractive) {
     return (
-      <div className={classNames('code-panel', 'code-panel--code-only', className)}>
+      <div
+        className={classNames('code-panel', 'code-panel--code-only', className)}
+      >
         <ShikiCodeViewer
           snippet={snippet}
           defaultExpanded={true}

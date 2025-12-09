@@ -1,6 +1,6 @@
 import { FunctionComponent, ReactNode, useState } from 'react';
 import classNames from 'classnames';
-import { Smartphone, Tablet, Monitor } from 'react-feather';
+import { Smartphone, Tablet, Monitor } from 'lucide-react';
 import type { ViewportSize, DemoControls } from '../types';
 import './demo-container.scss';
 

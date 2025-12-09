@@ -1,5 +1,4 @@
-import { faHeading } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Heading } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -39,7 +38,7 @@ function PageHeader() {
       stackBlitzCodes={['react-ts-wo1xvm']}
       sourceId="page-header/index.tsx"
       editId="page-header"
-      pageIcon={<FontAwesomeIcon icon={faHeading} size="2x" />}
+      pageIcon={<Heading size={32} />}
     />
   );
 }

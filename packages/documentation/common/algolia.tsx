@@ -1,5 +1,5 @@
-import { faAlgolia } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FunctionComponent } from 'react';
+import { Search } from 'lucide-react';
 import { algoliasearch } from 'algoliasearch';
 import {
   InstantSearch,
@@ -17,10 +17,24 @@ const searchClient = algoliasearch(
 
 // Custom hit component to display search results
 const Hit = ({ hit, onSelection }) => {
+  const handleClick = () => {
+    onSelection({ name: hit.key, value: hit.path });
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
     <div
       className="hit-item"
-      onClick={() => onSelection({ name: hit.key, value: hit.path })}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
     >
       <div className="hit-name">{hit.key}</div>
       <div className="hit-path">{hit.path}</div>
@@ -39,7 +53,7 @@ const EmptyQueryBoundary = ({ children }) => {
   return children;
 };
 
-const AlgoliaSearch: React.FC<{
+const AlgoliaSearch: FunctionComponent<{
   onSelection: ({ name, value }: AutoSuggestOption) => void;
 }> = ({ onSelection }) => {
   return (
@@ -47,9 +61,7 @@ const AlgoliaSearch: React.FC<{
       <div className="search-container">
         <SearchBox
           placeholder="Search with Algolia..."
-          submitIconComponent={() => (
-            <FontAwesomeIcon icon={faAlgolia} size="2x" />
-          )}
+          submitIconComponent={() => <Search size={32} />}
           className="algolia-searchbox"
         />
         <Configure hitsPerPage={10} />

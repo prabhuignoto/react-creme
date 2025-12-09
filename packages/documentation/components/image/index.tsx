@@ -1,5 +1,4 @@
-import { faImage } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Image } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -22,7 +21,7 @@ function image() {
       description={Description}
       tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-fujyxg']}
-      pageIcon={<FontAwesomeIcon icon={faImage} size="2x" />}
+      pageIcon={<Image size={32} />}
       sourceId="image/image.tsx"
       editId="image"
       features={['Expandable Image', 'Loading indicator', 'Responsive']}

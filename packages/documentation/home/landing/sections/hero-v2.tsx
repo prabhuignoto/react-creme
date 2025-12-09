@@ -2,7 +2,7 @@ import { Button, isDark } from '@lib';
 import cx from 'classnames';
 import { FunctionComponent, useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { GitHub, ArrowRight, Package } from 'react-feather';
+import { Github, ArrowRight, Package } from 'lucide-react';
 import styles from '../styles/hero-v2.module.scss';
 
 const HeroV2: FunctionComponent = () => {
@@ -132,7 +132,7 @@ import { DataGrid } from 'react-creme';
               onClick={handleGitHub}
               aria-label="View on GitHub"
             >
-              <GitHub size={20} />
+              <Github size={20} />
               <span>GitHub</span>
             </button>
           </div>

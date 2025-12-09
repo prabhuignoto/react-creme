@@ -1,5 +1,4 @@
-import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { MoreHorizontal } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import { Widgets } from './widgets';
@@ -26,7 +25,7 @@ const ReadMore = () => {
         'Configure the number of lines to be shown',
         'Supports RTL',
       ]}
-      pageIcon={<FontAwesomeIcon icon={faEllipsis} size="2x" />}
+      pageIcon={<MoreHorizontal size={32} />}
       properties={[
         {
           default: '',

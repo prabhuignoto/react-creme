@@ -1,5 +1,4 @@
-import { faList } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { List } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -11,7 +10,7 @@ function list() {
       title="List"
       description={`The List component can be used to display a list of items.
       The component comes with an option to quickly search through the items. With virtualization, the list only renders the items that are in the visible region.`}
-      pageIcon={<FontAwesomeIcon icon={faList} size="2x" />}
+      pageIcon={<List size={32} />}
       sourceId="list/list.tsx"
       editId="list"
       features={[

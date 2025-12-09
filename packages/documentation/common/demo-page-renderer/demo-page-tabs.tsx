@@ -1,5 +1,4 @@
-import { faBook, faCode, faSlidersH } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Book, Code, Sliders } from 'lucide-react';
 import { FunctionComponent, Suspense, useMemo, useCallback } from 'react';
 import { DemoPageRendererProps } from '.';
 import { Tabs } from '../../../lib/components';
@@ -79,14 +78,14 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
 
   // Generate tab icons dynamically based on what's being shown
   const tabIcons = useMemo(() => {
-    const icons = [<FontAwesomeIcon icon={faBook} key="book-open" />];
+    const icons = [<Book size={24} key="book-open" />];
 
     if (hasProperties) {
-      icons.push(<FontAwesomeIcon icon={faSlidersH} key="sliders" />);
+      icons.push(<Sliders size={24} key="sliders" />);
     }
 
     if (hasStackBlitz) {
-      icons.push(<FontAwesomeIcon icon={faCode} key="code" />);
+      icons.push(<Code size={24} key="code" />);
     }
 
     return icons;

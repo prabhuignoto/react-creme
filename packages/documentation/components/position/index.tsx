@@ -1,5 +1,4 @@
-import { faArrows } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Move } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -19,7 +18,7 @@ function Position() {
       stackBlitzCodes={['react-ts-un6jde']}
       sourceId="common/effects/usePosition.ts"
       editId="position"
-      pageIcon={<FontAwesomeIcon icon={faArrows} />}
+      pageIcon={<Move size={32} />}
     ></DemoPageRenderer>
   );
 }

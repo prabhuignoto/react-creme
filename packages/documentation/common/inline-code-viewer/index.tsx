@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from 'react';
 import classNames from 'classnames';
-import { Code, ChevronDown } from 'react-feather';
+import { Code, ChevronDown } from 'lucide-react';
 import { SyntaxHighLighter } from '../syntax-highlighter';
 import './inline-code-viewer.scss';
 
@@ -81,7 +81,8 @@ const InlineCodeViewer: FunctionComponent<InlineCodeViewerProps> = ({
     : code;
 
   const toggleLabel = label || (isExpanded ? 'Hide Code' : 'Show Code');
-  const displayFileName = fileName || (componentName ? `${componentName}.tsx` : undefined);
+  const displayFileName =
+    fileName || (componentName ? `${componentName}.tsx` : undefined);
 
   return (
     <div className={classNames('inline-code-viewer', className)}>

@@ -1,15 +1,14 @@
 import {
-  faBell,
-  faBorderAll,
-  faDatabase,
-  faHammer,
-  faKeyboard,
-  faLink,
-  faRocket,
-  faTasksAlt,
-  faWindowMaximize,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+  Bell,
+  LayoutGrid,
+  Database,
+  Wrench,
+  Keyboard,
+  Link,
+  Rocket,
+  ListTodo,
+  Maximize,
+} from 'lucide-react';
 import { FunctionComponent, memo, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAtomValue } from 'jotai';
@@ -40,15 +39,15 @@ const SideBar: FunctionComponent<{
         groups={data}
         focusable={false}
         icons={[
-          <FontAwesomeIcon size="2x" icon={faRocket} key="home" />,
-          <FontAwesomeIcon size="2x" icon={faBorderAll} key="layout" />,
-          <FontAwesomeIcon size="2x" icon={faTasksAlt} key="content" />,
-          <FontAwesomeIcon size="2x" icon={faKeyboard} key="input" />,
-          <FontAwesomeIcon size="2x" icon={faBell} key="notification" />,
-          <FontAwesomeIcon size="2x" icon={faDatabase} key="data" />,
-          <FontAwesomeIcon size="2x" icon={faLink} key="link" />,
-          <FontAwesomeIcon size="2x" icon={faWindowMaximize} key="overlay" />,
-          <FontAwesomeIcon size="2x" icon={faHammer} key="utilities" />,
+          <Rocket size={32} key="home" />,
+          <LayoutGrid size={32} key="layout" />,
+          <ListTodo size={32} key="content" />,
+          <Keyboard size={32} key="input" />,
+          <Bell size={32} key="notification" />,
+          <Database size={32} key="data" />,
+          <Link size={32} key="link" />,
+          <Maximize size={32} key="overlay" />,
+          <Wrench size={32} key="utilities" />,
         ]}
       />
     );
@@ -58,7 +57,7 @@ const SideBar: FunctionComponent<{
 
 SideBar.displayName = 'SideBar';
 
-const SidebarHomeComponent: React.FC<SideBarHomeProps> = ({
+const SidebarHomeComponent: FunctionComponent<SideBarHomeProps> = ({
   onSelect,
 }: SideBarHomeProps) => {
   const navigate = useNavigate();

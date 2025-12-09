@@ -1,5 +1,4 @@
-import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Sliders } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -20,7 +19,7 @@ function spinner() {
   return (
     <DemoPageRenderer
       callbacks={[]}
-      pageIcon={<FontAwesomeIcon icon={faSlidersH} size="2x" />}
+      pageIcon={<Sliders size={32} />}
       sourceId="spinner/spinner.tsx"
       editId="spinner"
       features={['Custom sizes', 'Adjustable spinning speed']}

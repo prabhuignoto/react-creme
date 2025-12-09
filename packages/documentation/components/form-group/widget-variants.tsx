@@ -1,18 +1,14 @@
-import { faFlag, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Flag, User } from 'lucide-react';
 
 import { FormField, FormGroup, Input } from '../../../lib/components';
 import { Dropdown } from '../../../lib/components/dropdown/dropdown';
 
 export const Default = (
   <FormGroup>
-    <FormField label="First Name" icon={<FontAwesomeIcon icon={faUser} />}>
+    <FormField label="First Name" icon={<User size={24} />}>
       <Input id="name" placeholder="Name" enableClear />
     </FormField>
-    <FormField
-      label="Select your Country"
-      icon={<FontAwesomeIcon icon={faFlag} />}
-    >
+    <FormField label="Select your Country" icon={<Flag size={24} />}>
       <Dropdown
         placeholder=""
         maxMenuHeight={280}
@@ -41,13 +37,13 @@ export const Default = (
 export const DefaultCode = `<FormGroup>
   <FormField
     label="Please enter the name"
-    icon={<FontAwesomeIcon icon={faUser} />}
+    icon={<User size={24} />}
   >
     <Input id="name" placeholder="Name" enableClear />
   </FormField>
   <FormField
     label="Please select a Country"
-    icon={<FontAwesomeIcon icon={faFlag} />}
+    icon={<Flag size={24} />}
   >
     <Dropdown
       placeholder=""
@@ -75,18 +71,10 @@ export const DefaultCode = `<FormGroup>
 
 export const RTL = (
   <FormGroup RTL>
-    <FormField
-      label="Please enter the name"
-      RTL
-      icon={<FontAwesomeIcon icon={faUser} />}
-    >
+    <FormField label="Please enter the name" RTL icon={<User size={24} />}>
       <Input id="name" placeholder="Name" enableClear RTL />
     </FormField>
-    <FormField
-      label="Please select a Country"
-      icon={<FontAwesomeIcon icon={faFlag} />}
-      RTL
-    >
+    <FormField label="Please select a Country" icon={<Flag size={24} />} RTL>
       <Dropdown
         placeholder=""
         maxMenuHeight={280}
@@ -116,13 +104,13 @@ export const RTLCode = `<FormGroup RTL>
   <FormField
     label="Please enter the name"
     RTL
-    icon={<FontAwesomeIcon icon={faUser} />}
+    icon={<User size={24} />}
   >
     <Input id="name" placeholder="Name" enableClear RTL />
   </FormField>
   <FormField
     label="Please select a Country"
-    icon={<FontAwesomeIcon icon={faFlag} />}
+    icon={<Flag size={24} />}
     RTL
   >
     <Dropdown

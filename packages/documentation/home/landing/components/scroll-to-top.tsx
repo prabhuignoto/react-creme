@@ -1,7 +1,7 @@
 import { isDark } from '@lib';
 import cx from 'classnames';
 import { FunctionComponent, useMemo, useState, useEffect } from 'react';
-import { ArrowUp } from 'react-feather';
+import { ArrowUp } from 'lucide-react';
 import styles from '../styles/scroll-to-top.module.scss';
 
 const ScrollToTop: FunctionComponent = () => {
@@ -28,12 +28,12 @@ const ScrollToTop: FunctionComponent = () => {
 
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
       behavior: 'smooth',
+      top: 0,
     });
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       scrollToTop();

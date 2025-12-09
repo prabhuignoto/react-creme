@@ -1,5 +1,4 @@
-import { faTags } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Tags } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -24,7 +23,7 @@ function tags() {
       stackBlitzCodes={['react-ts-hppcze']}
       title="Tags"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faTags} size="2x" />}
+      pageIcon={<Tags size={32} />}
       sourceId="tags/tags.tsx"
       editId="tags"
       features={[

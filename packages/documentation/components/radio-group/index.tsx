@@ -1,5 +1,4 @@
-import { faTasks } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ListTodo } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -27,7 +26,7 @@ function radioGroup() {
       description={Description}
       tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-m9yskx']}
-      pageIcon={<FontAwesomeIcon icon={faTasks} size="2x" />}
+      pageIcon={<ListTodo size={32} />}
       sourceId="radio-group/radio-group.tsx"
       editId="radio-group"
       features={[

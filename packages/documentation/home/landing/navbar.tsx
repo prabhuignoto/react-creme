@@ -3,7 +3,7 @@ import { DocSearch } from '@docsearch/react';
 import cx from 'classnames';
 import { FunctionComponent, useMemo, useState, ReactNode } from 'react';
 import { useNavigate } from 'react-router';
-import { GitHub, Menu, X, Moon, Sun } from 'react-feather';
+import { Github, Menu, X, Moon, Sun } from 'lucide-react';
 import { useAtom } from 'jotai';
 import { Link } from 'react-router-dom';
 import { themeState } from '../../atoms/home';
@@ -50,7 +50,7 @@ const NavBar: FunctionComponent = () => {
   };
 
   const handleThemeToggle = () => {
-    setTheme((prevTheme) => ({
+    setTheme(prevTheme => ({
       ...prevTheme,
       colors: prevTheme.darkMode ? { ...Blueberry } : { ...Dark },
       darkMode: !prevTheme.darkMode,
@@ -62,9 +62,14 @@ const NavBar: FunctionComponent = () => {
     <nav className={cx(styles.navbar, isDarkMode ? styles.dark : '')}>
       <div className={styles.navbar_container}>
         {/* Logo */}
-        <div className={styles.navbar_logo} onClick={() => handleNavigation('/')}>
+        <button
+          type="button"
+          className={styles.navbar_logo}
+          onClick={() => handleNavigation('/')}
+          aria-label="Navigate to home"
+        >
           <span className={styles.logo_text}>React Creme</span>
-        </div>
+        </button>
 
         {/* Desktop Navigation */}
         <div className={styles.navbar_links}>
@@ -74,7 +79,7 @@ const NavBar: FunctionComponent = () => {
               className={styles.nav_link}
               onClick={() => handleNavigation(link.path, link.external)}
             >
-              {link.external && <GitHub size={16} />}
+              {link.external && <Github size={16} />}
               <span>{link.label}</span>
             </button>
           ))}
@@ -130,7 +135,7 @@ const NavBar: FunctionComponent = () => {
                 className={styles.mobile_nav_link}
                 onClick={() => handleNavigation(link.path, link.external)}
               >
-                {link.external && <GitHub size={18} />}
+                {link.external && <Github size={18} />}
                 <span>{link.label}</span>
               </button>
             ))}

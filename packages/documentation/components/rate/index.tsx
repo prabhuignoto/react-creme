@@ -1,5 +1,4 @@
-import { faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { StarHalf } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -9,7 +8,7 @@ function rate() {
     <DemoPageRenderer
       title="Rate"
       description="Rate component allows users to rate an item. It can be used to rate a product, a service, or any other item."
-      pageIcon={<FontAwesomeIcon icon={faStarHalfAlt} size="2x" />}
+      pageIcon={<StarHalf size={32} />}
       sourceId="rate/rate.tsx"
       editId="rate"
       features={[

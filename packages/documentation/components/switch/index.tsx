@@ -1,5 +1,4 @@
-import { faToggleOn } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ToggleRight } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -8,7 +7,7 @@ function switchComponent() {
   return (
     <DemoPageRenderer
       title="Switch"
-      pageIcon={<FontAwesomeIcon icon={faToggleOn} size="2x" />}
+      pageIcon={<ToggleRight size={32} />}
       description={`Toggle switch (known as “toggles”) is a UI control that has two mutually-exclusive states, such as ON and OFF.
       The design and functionality of this control is based on a physical switch that allows users to turn things ON or OFF`}
       sourceId="switch/switch.tsx"

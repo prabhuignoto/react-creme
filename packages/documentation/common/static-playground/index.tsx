@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from 'react';
-import { Copy, Check } from 'react-feather';
+import { Copy, Check } from 'lucide-react';
 import { SyntaxHighLighter } from '../syntax-highlighter';
 import './static-playground.scss';
 
@@ -78,9 +78,13 @@ const StaticPlayground: FunctionComponent<StaticPlaygroundProps> = ({
             💡 To run this example:
           </p>
           <ol className="static-playground__instructions-list">
-            <li>Install React Creme: <code>npm install react-creme</code></li>
+            <li>
+              Install React Creme: <code>npm install react-creme</code>
+            </li>
             <li>Copy the code above into your project</li>
-            <li>Import the CSS: <code>import 'react-creme/css'</code></li>
+            <li>
+              Import the CSS: <code>import &apos;react-creme/css&apos;</code>
+            </li>
           </ol>
         </div>
       </div>

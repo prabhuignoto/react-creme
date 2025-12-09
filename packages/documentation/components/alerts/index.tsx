@@ -1,5 +1,4 @@
-import { faExclamation } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { AlertCircle } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -11,7 +10,7 @@ function index() {
       description="Alerts are used to notify the user of an important event."
       sourceId="alert/alert.tsx"
       editId="alerts"
-      pageIcon={<FontAwesomeIcon icon={faExclamation} size="2x" />}
+      pageIcon={<AlertCircle size={32} />}
       features={[
         'Custom sizes',
         'RTL Support',

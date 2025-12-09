@@ -1,5 +1,4 @@
-import { faKeyboard } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Keyboard } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -66,7 +65,7 @@ function Pin() {
       stackBlitzCodes={['react-ts-un6jde']}
       sourceId="pin/pin.tsx"
       editId="pin"
-      pageIcon={<FontAwesomeIcon icon={faKeyboard} />}
+      pageIcon={<Keyboard size={32} />}
     ></DemoPageRenderer>
   );
 }

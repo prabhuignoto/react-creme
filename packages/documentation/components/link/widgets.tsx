@@ -1,4 +1,4 @@
-import { Link as LinkIcon } from 'react-feather';
+import { Link as LinkIcon } from 'lucide-react';
 import { Link, Section } from '../../../lib/components';
 import { DemoWidget } from '../../common/demo-widget';
 

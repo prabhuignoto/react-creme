@@ -1,5 +1,4 @@
-import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CheckSquare } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -21,7 +20,7 @@ function checkbox() {
     <DemoPageRenderer
       title="Checkbox"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faCheckSquare} size="2x" />}
+      pageIcon={<CheckSquare size={32} />}
       editId="checkbox"
       sourceId="checkbox/checkbox.tsx"
       features={[

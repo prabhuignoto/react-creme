@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sidebar } from 'react-feather';
+import { PanelLeft } from 'lucide-react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
 const Widgets = React.lazy(() => import('./drawer-widgets'));
@@ -25,7 +25,7 @@ function drawer() {
     <DemoPageRenderer
       tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-jngeyv']}
-      pageIcon={<Sidebar />}
+      pageIcon={<PanelLeft />}
       title="Drawer"
       description={Description}
       editId="drawer"

@@ -1,5 +1,4 @@
-import { faSquare } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Square } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -12,7 +11,7 @@ function index() {
       description="Section is a container for other components. It can be used to group components together."
       tabTitles={['Examples', 'Properties', 'Playground']}
       stackBlitzCodes={['react-ts-2fdwsf']}
-      pageIcon={<FontAwesomeIcon icon={faSquare} size="2x" />}
+      pageIcon={<Square size={32} />}
       sourceId="section/section.tsx"
       editId="section"
       features={['RTL Support', 'Custom Sizes']}

@@ -1,5 +1,5 @@
-import { faCog, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FunctionComponent } from 'react';
+import { Settings, Moon, Sun } from 'lucide-react';
 import classNames from 'classnames';
 import { useCallback, useEffect, useState } from 'react';
 import { useAtom, useAtomValue } from 'jotai';
@@ -30,7 +30,7 @@ const themes: RadioGroupItemProps<ThemeType>[] = [
   },
 ];
 
-const AppSettings: React.FunctionComponent = () => {
+const AppSettings: FunctionComponent = () => {
   const [showSettings, setShowSettings] = useState(false);
   const [width, setWidth] = useState(0);
   const { isMobile } = useAtomValue(responsiveState);
@@ -88,27 +88,26 @@ const AppSettings: React.FunctionComponent = () => {
 
   return width > 0 ? (
     <div className={classNames(styles.wrapper)}>
-      <span
+      <button
+        type="button"
         className={classNames(styles.icon, {
           [styles.dark]: appTheme.darkMode,
         })}
-        role="button"
         onClick={handleDarkModeSwitch}
+        aria-label="Toggle dark mode"
       >
-        {darkMode ? (
-          <FontAwesomeIcon icon={faSun} size="2x" />
-        ) : (
-          <FontAwesomeIcon icon={faMoon} size="2x" />
-        )}
-      </span>
-      <span
+        {darkMode ? <Sun size={32} /> : <Moon size={32} />}
+      </button>
+      <button
+        type="button"
         className={classNames(styles.icon, {
           [styles.dark]: appTheme.darkMode,
         })}
         onClick={() => setShowSettings(prev => !prev)}
+        aria-label="Open settings"
       >
-        <FontAwesomeIcon icon={faCog} size="2x" />
-      </span>
+        <Settings size={32} />
+      </button>
       <GithubLink />
       {showSettings && (
         <Dialog

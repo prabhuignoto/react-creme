@@ -1,5 +1,4 @@
-import { faTable } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Table } from 'lucide-react';
 import React from 'react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
@@ -26,7 +25,7 @@ const DataGridDemo: React.FunctionComponent = () => {
       demoWidget={<Widgets />}
       title="Data Grid"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faTable} size="2x" />}
+      pageIcon={<Table size={32} />}
       editId="data-grid"
       sourceId="data-grid/data-grid.tsx"
       features={[

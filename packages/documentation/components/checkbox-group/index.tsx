@@ -1,5 +1,4 @@
-import { faTasks } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ListTodo } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -11,7 +10,7 @@ function index() {
       description={`Checkboxes are used when there is a list of options and the user may select any number of choices, including zero.
       Each checkbox is independent of all other checkboxes in the list, and checking one box doesn’t uncheck the others.`}
       demoWidget={<Widgets />}
-      pageIcon={<FontAwesomeIcon icon={faTasks} size="2x" />}
+      pageIcon={<ListTodo size={32} />}
       editId="checkbox-group"
       sourceId="checkbox-group/checkbox-group.tsx"
       features={[

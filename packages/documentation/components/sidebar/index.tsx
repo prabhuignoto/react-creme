@@ -1,5 +1,4 @@
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ArrowLeft } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -14,7 +13,7 @@ function sidebar() {
       description="Sidebar is a container for sidebar items. It can be used to display a list of items in a collapsible sidebar."
       sourceId="sidebar/sidebar.tsx"
       editId="sidebar"
-      pageIcon={<FontAwesomeIcon icon={faArrowLeft} size="2x" />}
+      pageIcon={<ArrowLeft size={32} />}
       features={['Collapsible sections', 'Searchable']}
       callbacks={[
         {

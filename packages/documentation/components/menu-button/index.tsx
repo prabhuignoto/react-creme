@@ -1,5 +1,4 @@
-import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Hand } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -9,7 +8,7 @@ function menuButton() {
     <DemoPageRenderer
       title="Menu Button"
       description="MenuButton allows to choose an action from a list of actions"
-      pageIcon={<FontAwesomeIcon icon={faHandPointUp} size="2x" />}
+      pageIcon={<Hand size={32} />}
       sourceId="menu-button/menu-button.tsx"
       editId="menu-button"
       features={['Custom sizes', 'RTL Support']}

@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { X } from 'react-feather';
+import { X } from 'lucide-react';
 import { CodePanel } from '../../code-viewer';
 import type { CodeSnippet, InteractiveDemo } from '../types';
 import './floating-code-panel.scss';
@@ -95,8 +95,8 @@ const FloatingCodePanel: FunctionComponent<FloatingCodePanelProps> = ({
 
         setCurrentCode({
           code: codeWithImport,
-          language: 'tsx',
           fileName: storedComponent ? `${storedComponent}.tsx` : 'example.tsx',
+          language: 'tsx',
         });
       } else {
         // Fallback to prop-based snippet
@@ -189,6 +189,12 @@ const FloatingCodePanel: FunctionComponent<FloatingCodePanelProps> = ({
           role="separator"
           aria-label="Resize panel"
           aria-orientation="vertical"
+          tabIndex={0}
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+            }
+          }}
         >
           <div className="floating-code-panel__resize-handle-bar" />
         </div>

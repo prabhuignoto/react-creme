@@ -1,5 +1,4 @@
-import { faFilm } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Film } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import Widgets from './widgets';
@@ -26,7 +25,7 @@ function carousel() {
       stackBlitzCodes={['react-ts-kgea3r']}
       title="Carousel"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faFilm} size="2x" />}
+      pageIcon={<Film size={32} />}
       editId="carousel"
       features={[
         'Vertical or Horizontal layout',

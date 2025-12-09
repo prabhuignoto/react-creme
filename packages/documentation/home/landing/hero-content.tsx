@@ -1,5 +1,4 @@
-// import { faGithub } from '@fortawesome/free-brands-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { Github } from 'lucide-react';
 import { Button, isDark } from '@lib';
 import cx from 'classnames';
 import { useMemo } from 'react';
@@ -46,7 +45,7 @@ const HeroContent = () => {
             style={{ width: '100px' }}
             onClick={openGithubLinkOnNewTab}
           >
-            <FontAwesomeIcon icon={faGithub} size="1x" />
+            <Github size={16} />
           </Button> */}
         </div>
         {/* <Badges /> */}

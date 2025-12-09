@@ -1,5 +1,4 @@
-import { faBarsProgress } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Loader2 } from 'lucide-react';
 import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
 
@@ -25,7 +24,7 @@ function menu() {
       description={Description}
       sourceId="loading-indicator/loading-indicator.tsx"
       editId="loading-indicator"
-      pageIcon={<FontAwesomeIcon icon={faBarsProgress} size="2x" />}
+      pageIcon={<Loader2 size={32} />}
       features={[
         'Customizable shape,speed and size',
         'Customizable number of items',

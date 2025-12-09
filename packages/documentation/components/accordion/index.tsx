@@ -1,5 +1,4 @@
-import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { MinusSquare } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import { Widgets } from './widgets';
@@ -38,7 +37,7 @@ const Accordion = () => {
         'RTL Support',
         'Support for custom sizes: small, medium and large',
       ]}
-      pageIcon={<FontAwesomeIcon icon={faMinusSquare} size="2x" />}
+      pageIcon={<MinusSquare size={32} />}
       callbacks={[
         {
           default: '',

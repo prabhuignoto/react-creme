@@ -1,5 +1,4 @@
-import { faHandPointer } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Hand } from 'lucide-react';
 
 import DemoPageRenderer from '../../common/demo-page-renderer';
 import './draggable.scss';
@@ -38,7 +37,7 @@ function Draggable() {
       stackBlitzCodes={['react-ts-re75pw']}
       sourceId="common/effects/useDraggable.ts"
       editId="draggable"
-      pageIcon={<FontAwesomeIcon icon={faHandPointer} size="2x" />}
+      pageIcon={<Hand size={32} />}
     ></DemoPageRenderer>
   );
 }

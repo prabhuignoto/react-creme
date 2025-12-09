@@ -1,7 +1,7 @@
 import { isDark } from '@lib';
 import cx from 'classnames';
 import { useMemo, memo } from 'react';
-import { ArrowUp } from 'react-feather';
+import { ArrowUp } from 'lucide-react';
 import { ReactComponent as GithubSVG } from '../../images/github.svg';
 import styles from './footer.module.scss';
 

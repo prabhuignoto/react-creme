@@ -1,5 +1,4 @@
-import { faWindowMaximize } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Maximize } from 'lucide-react';
 
 import React from 'react';
 import DemoPageRenderer from '../../common/demo-page-renderer';
@@ -23,7 +22,7 @@ function dialog() {
     <DemoPageRenderer
       title="Dialog"
       description={Description}
-      pageIcon={<FontAwesomeIcon icon={faWindowMaximize} size="2x" />}
+      pageIcon={<Maximize size={32} />}
       sourceId="dialog/dialog.tsx"
       editId="dialog"
       callbacks={[

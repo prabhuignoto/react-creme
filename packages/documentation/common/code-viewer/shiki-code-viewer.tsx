@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from 'react';
 import classNames from 'classnames';
-import { ChevronDown } from 'react-feather';
+import { ChevronDown } from 'lucide-react';
 import { SyntaxHighLighter } from '../syntax-highlighter';
 import type { CodeSnippet } from '../demo-page-renderer/types';
 import './code-viewer.scss';
