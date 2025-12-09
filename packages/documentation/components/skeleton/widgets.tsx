@@ -39,8 +39,12 @@ function widgets() {
   return width > 0 ? (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default rendering" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default rendering"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -54,8 +58,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="With Circle" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="With Circle"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>Optional Circle figure can be added to the skeleton</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(Circle, jsxToStringOptions)}
@@ -70,8 +78,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom row count and height" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom row count and height"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The height of each row and the height of it can be customized.
           </Text>
@@ -88,8 +100,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Animated rows" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Animated rows"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Use the <code>animate</code> prop to animate the skeleton.
           </Text>
@@ -106,8 +122,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom block count" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom block count"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             A collection of Skeleton is a block. with the <code>blocks</code>{' '}
             prop we can also customize the number of blocks we want to be
@@ -127,8 +147,13 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="RTL" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="RTL"
+          RTL
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(RTL, jsxToStringOptions)}
             language="jsx"

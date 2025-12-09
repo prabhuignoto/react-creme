@@ -37,8 +37,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Horizontal Comparison" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Horizontal Comparison"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Compare two images side by side horizontally. The drag handle guides
             the user to the correct position.
@@ -56,8 +60,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Vertical comparison" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Vertical comparison"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Compare two images side by side vertically. The drag handle guides
             the user to the correct position.

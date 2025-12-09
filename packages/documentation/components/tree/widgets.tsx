@@ -9,8 +9,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -24,8 +28,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Selection Mode" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Selection Mode"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             In selection mode, individual nodes with its children can be
             selected through the checkbox

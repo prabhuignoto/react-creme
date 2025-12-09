@@ -45,8 +45,12 @@ function widgets() {
   return width ? (
     <div className="rc-demo-widgets" style={{ minHeight: '1000px' }}>
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Horizontal layout" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Horizontal layout"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Renders the items in a horizontal layout with navigation controls
             displayed at the bottom
@@ -64,8 +68,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Vertical layout" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Vertical layout"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Renders the items in a vertical layout with navigation controls
             displayed to the left
@@ -83,8 +91,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Swipable" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Swipable"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The carousel can be swipable. Swipe left or right to navigate.
           </Text>

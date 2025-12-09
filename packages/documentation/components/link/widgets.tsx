@@ -16,8 +16,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(defaultLink, jsxToStringOptions)}
             language="jsx"
@@ -31,8 +35,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Link with Icon" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Link with Icon"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(linkWithIcon, jsxToStringOptions)}
             language="jsx"

@@ -16,8 +16,12 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -31,8 +35,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Icon" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Icon"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>Insert a custom icon to the button.</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(Icon, jsxToStringOptions)}
@@ -47,8 +55,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Loading state" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Loading state"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Use the <code>type</code> property to change the button to a loading
             state.
@@ -66,8 +78,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Disabled" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Disabled"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>Buttons can be disabled</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(Disabled, jsxToStringOptions)}
@@ -82,8 +98,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Medium sized button" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Medium sized button"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Customize the size of the button by using the <code>size</code> prop
           </Text>
@@ -104,8 +124,8 @@ function widgets() {
           size="md"
           title="Button with State (Extra large)"
           border={false}
+          headerActions={<HeaderCodeToggle.Button />}
         >
-          <HeaderCodeToggle.Button />
           <Text>
             Buttons can be in different states. Example shows button in{' '}
             <code>danger</code> state

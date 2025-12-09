@@ -41,8 +41,12 @@ function widgets() {
   return width ? (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Tags - default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Tags - default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             New tags can be added to the list by typing in the input field and
             pressing enter.Tags can be easily removed by clicking on the close
@@ -61,8 +65,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Tags - Filled style" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Tags - Filled style"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Tags can be disabled by setting the <code>disabled</code>property to
             true.
@@ -80,8 +88,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Tags - Readonly" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Tags - Readonly"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             In readonly mode we can display a list of non editable tags.
           </Text>
@@ -98,8 +110,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Max Tags" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Max Tags"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Use the <code>maxTags</code> prop to limit the number of tags.
           </Text>
@@ -116,8 +132,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Tags - AutoSuggest" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Tags - AutoSuggest"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Tags can also be configured to use with the AutoSuggest control.
           </Text>
@@ -134,8 +154,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Tags - Accent" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Tags - Accent"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Use the <code>accent</code> property to change the outlook of the
             tags. Can be one of the following: <code>flat</code>,{' '}
@@ -154,8 +178,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Tags - Custom Size" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Tags - Custom Size"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(LargeSize, jsxToStringOptions)}
             language="jsx"

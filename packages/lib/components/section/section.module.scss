@@ -50,6 +50,10 @@ $heights: (
   text-decoration: none;
   flex: 1;
   min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 
   &.header_rtl {
     @extend %right;
@@ -82,11 +86,17 @@ $heights: (
   }
 }
 
+.header_title {
+  flex: 1;
+  min-width: 0;
+}
+
 .header_actions {
   display: flex;
   align-items: center;
   flex-shrink: 0;
   gap: 0.5rem;
+  margin-left: auto;
 }
 
 .body {

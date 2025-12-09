@@ -38,8 +38,12 @@ function Widgets() {
   return width ? (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Single selection" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Single selection"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(SingleSelection, jsxToStringOptions)}
             language="jsx"
@@ -53,8 +57,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Multi selection" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Multi selection"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>With multi selection, you can select multiple options.</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(MultiSelection, jsxToStringOptions)}
@@ -69,8 +77,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Search" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Search"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Available options can be filtered by typing in the search box.
           </Text>
@@ -87,8 +99,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Virtualized" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Virtualized"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             With virtualized, the options are rendered only when they are in the
             viewport of the menu.
@@ -106,8 +122,13 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="RTL" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="RTL"
+          RTL
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             With virtualized, the options are rendered only when they are in the
             viewport of the menu.

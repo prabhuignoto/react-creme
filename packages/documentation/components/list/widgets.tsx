@@ -39,8 +39,12 @@ function Widgets() {
     width > 0 && (
       <div className="rc-demo-widgets">
         <HeaderCodeToggle.Provider>
-          <Section size="md" title="Default" border={false}>
-            <HeaderCodeToggle.Button />
+          <Section
+            size="md"
+            title="Default"
+            border={false}
+            headerActions={<HeaderCodeToggle.Button />}
+          >
             <HeaderCodeToggle.Content
               code={jsxToString(Default, jsxToStringOptions)}
               language="jsx"
@@ -54,8 +58,12 @@ function Widgets() {
         </HeaderCodeToggle.Provider>
 
         <HeaderCodeToggle.Provider>
-          <Section size="md" title="Multi selection mode" border={false}>
-            <HeaderCodeToggle.Button />
+          <Section
+            size="md"
+            title="Multi selection mode"
+            border={false}
+            headerActions={<HeaderCodeToggle.Button />}
+          >
             <Text>In Multi selection mode you can select multiple items.</Text>
             <HeaderCodeToggle.Content
               code={jsxToString(MultiSelection, jsxToStringOptions)}
@@ -70,8 +78,12 @@ function Widgets() {
         </HeaderCodeToggle.Provider>
 
         <HeaderCodeToggle.Provider>
-          <Section size="md" title="Searchable list" border={false}>
-            <HeaderCodeToggle.Button />
+          <Section
+            size="md"
+            title="Searchable list"
+            border={false}
+            headerActions={<HeaderCodeToggle.Button />}
+          >
             <Text>With searchable list items can be quickly searched.</Text>
             <HeaderCodeToggle.Content
               code={jsxToString(Search, jsxToStringOptions)}
@@ -86,8 +98,12 @@ function Widgets() {
         </HeaderCodeToggle.Provider>
 
         <HeaderCodeToggle.Provider>
-          <Section size="md" title="Virtualized" border={false}>
-            <HeaderCodeToggle.Button />
+          <Section
+            size="md"
+            title="Virtualized"
+            border={false}
+            headerActions={<HeaderCodeToggle.Button />}
+          >
             <Text>
               The virtualized list is a performance improvement over the default
               rendering. It renders only the visible items

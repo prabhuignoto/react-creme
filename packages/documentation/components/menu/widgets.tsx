@@ -13,8 +13,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Menu attached to a Button" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Menu attached to a Button"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Menus can be attached to <code>react-creme</code> components or even
             native elements. Simply wrap the Menu control in the target
@@ -34,8 +38,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Docking positions" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Docking positions"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Menus can be docked to three positions: <code>left</code>,{' '}
             <code>right</code> or <code>center</code>. The example below shows a
@@ -58,8 +66,8 @@ function Widgets() {
           size="md"
           title="Menu attached to a native Element"
           border={false}
+          headerActions={<HeaderCodeToggle.Button />}
         >
-          <HeaderCodeToggle.Button />
           <Text>
             The example below shows a menu attached to a native element
             (button).

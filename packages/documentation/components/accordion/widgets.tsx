@@ -45,8 +45,12 @@ function Widgets() {
   return width > 0 ? (
     <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={DefaultCodeString}
             language="jsx"
@@ -60,8 +64,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="RTL" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="RTL"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={RTLCodeString}
             language="jsx"
@@ -75,8 +83,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Accordion expanded by default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Accordion expanded by default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Accordions can be expanded or collapsed by default. The example
             shows a accordion expanded by default.
@@ -94,8 +106,7 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section border={false}>
-          <HeaderCodeToggle.Button />
+        <Section border={false} headerActions={<HeaderCodeToggle.Button />}>
           <HeaderCodeToggle.Content
             code={CustomIconCodeString}
             language="jsx"
@@ -109,8 +120,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom sizes" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom sizes"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={MediumSizedCodeString}
             language="jsx"
@@ -124,8 +139,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Large Size" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Large Size"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={LargeSizedCodeString}
             language="jsx"

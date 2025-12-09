@@ -68,8 +68,12 @@ function widgets() {
   return +width > 0 || width ? (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Flat tabs" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Flat tabs"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             In flat mode, the tabs are rendered as a horizontal list of tabs
             with a flat accent.
@@ -87,8 +91,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Rounded tabs" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Rounded tabs"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             In rounded mode, the tabs are rendered as a horizontal list of tabs
             with rounded borders.
@@ -106,8 +114,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Rounded tabs with scroll" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Rounded tabs with scroll"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             When the tabs are too long to fit in the available space, they can
             be scrolled with the help of the buttons to the right.
@@ -125,8 +137,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Flat tabs (Disabled)" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Flat tabs (Disabled)"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Specific tabs can be disabled by passing an array of tab labels to
             the <em>disabledTabs</em> array
@@ -144,8 +160,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Tabs with Icons" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Tabs with Icons"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Specific tabs can be disabled by passing an array of tab labels to
             the <em>disabledTabs</em> array

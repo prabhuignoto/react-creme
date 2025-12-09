@@ -40,8 +40,12 @@ function Widgets() {
   return width ? (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -55,8 +59,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom Icon" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom Icon"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Use the <code>icon</code> prop to add an icon to the form field.
           </Text>
@@ -73,8 +81,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Field with state" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Field with state"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(State, jsxToStringOptions)}
             language="jsx"
@@ -88,8 +100,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Dropdown Field" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Dropdown Field"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={DropdownFieldCode}
             language="jsx"
@@ -103,8 +119,13 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="RTL Render" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="RTL Render"
+          RTL
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(RTL, jsxToStringOptions)}
             language="jsx"

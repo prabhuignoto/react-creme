@@ -39,8 +39,12 @@ function Widgets() {
   return width > 0 ? (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Informational Text" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Informational Text"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Alerts can be closed or dismissed by default. Use the{' '}
             <code>canDismiss</code> prop to change this behavior.
@@ -58,8 +62,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Dismissible Alert" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Dismissible Alert"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Dismiss, jsxToStringOptions)}
             language="jsx"
@@ -73,8 +81,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Success Message" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Success Message"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Success, jsxToStringOptions)}
             language="jsx"
@@ -88,8 +100,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Warning Message" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Warning Message"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Warning, jsxToStringOptions)}
             language="jsx"
@@ -103,8 +119,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Error Message" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Error Message"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Error, jsxToStringOptions)}
             language="jsx"
@@ -118,8 +138,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Render Custom content" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Render Custom content"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Custom, jsxToStringOptions)}
             language="jsx"

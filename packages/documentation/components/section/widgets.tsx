@@ -19,8 +19,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default rendering" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default rendering"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(defaultSection, jsxToStringOptions)}
             language="jsx"
@@ -34,8 +38,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Right to Left" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Right to Left"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(rtlSection, jsxToStringOptions)}
             language="jsx"

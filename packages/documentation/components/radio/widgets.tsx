@@ -51,8 +51,12 @@ function widgets() {
   return width > 0 ? (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(defaultRadio, jsxToStringOptions)}
             language="jsx"
@@ -64,8 +68,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Checkbox disabled" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Checkbox disabled"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(disabledRadio, jsxToStringOptions)}
             language="jsx"
@@ -77,8 +85,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom Size" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom Size"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(customSizeRadio, jsxToStringOptions)}
             language="jsx"

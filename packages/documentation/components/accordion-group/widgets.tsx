@@ -46,8 +46,12 @@ function Widgets() {
   return width > 0 ? (
     <div className="rc-demo-widgets" style={{ minHeight: '1200px' }}>
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={DefaultCode}
             language="jsx"
@@ -61,8 +65,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Initial state" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Initial state"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Set a default state for the AccordionGroup on load. This is useful
             if you want to keep the accordions closed or open on load. The
@@ -81,8 +89,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Auto Closing Sections" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Auto Closing Sections"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The AccordionGroup can be configured to close all other sections
             when one is open.
@@ -100,8 +112,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom Icon" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom Icon"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The AccordionGroup can be configured to use custom icons and the
             alignment of the icon can be changed.
@@ -119,8 +135,13 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="RTL" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="RTL"
+          RTL
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={RTLCode}
             language="jsx"
@@ -134,8 +155,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom Sizes" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom Sizes"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={MediumSizedCode}
             language="jsx"

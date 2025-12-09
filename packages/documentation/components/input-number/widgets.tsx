@@ -33,8 +33,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -48,8 +52,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Border" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Border"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The outlook of the Input Number component can be changed via the{' '}
             <code>border</code> prop.
@@ -67,8 +75,13 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="RTL" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="RTL"
+          RTL
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             with the <code>RTL</code> prop, the Input Number component will be
             rendered in RTL mode.
@@ -86,8 +99,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Sizes" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Sizes"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The component supports 3 different sizes: <code>sm</code>,{' '}
             <code>md</code> and <code>lg</code>. Use the theme provider to

@@ -38,8 +38,12 @@ function Widgets() {
   return width > 0 ? (
     <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -53,8 +57,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom icon" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom icon"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(CustomIcon, jsxToStringOptions)}
             language="jsx"
@@ -72,8 +80,8 @@ function Widgets() {
           size="md"
           title="Using letter instead of a Icon"
           border={false}
+          headerActions={<HeaderCodeToggle.Button />}
         >
-          <HeaderCodeToggle.Button />
           <HeaderCodeToggle.Content
             code={jsxToString(Letter, jsxToStringOptions)}
             language="jsx"
@@ -87,8 +95,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom sizes" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom sizes"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(MediumSized, jsxToStringOptions)}
             language="jsx"
@@ -102,8 +114,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Large Size" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Large Size"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(LargeSized, jsxToStringOptions)}
             language="jsx"

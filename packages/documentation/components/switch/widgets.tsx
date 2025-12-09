@@ -12,8 +12,12 @@ function widgets() {
       className="rc-demo-widgets"
     >
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Switch - default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Switch - default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -27,8 +31,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Switch with Check status" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Switch with Check status"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Use <code>showCheckIcon</code> property to display a check icon
             inside the toggle control.
@@ -46,8 +54,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Disabled" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Disabled"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>Use the disabled property to disable the switch.</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(Disabled, jsxToStringOptions)}
@@ -62,8 +74,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Medium" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Medium"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Switch comes in three sizes: small, medium, and large. This example
             shows a large size switch.
@@ -81,8 +97,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Large" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Large"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Large, jsxToStringOptions)}
             language="jsx"

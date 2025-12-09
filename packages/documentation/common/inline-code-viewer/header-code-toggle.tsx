@@ -82,7 +82,7 @@ const HeaderCodeToggleButton: FunctionComponent<
 
   const switchLabel = useMemo(() => {
     if (label) return label;
-    return isCodeView ? 'Code' : 'Component';
+    return isCodeView ? 'Show Preview' : 'Show Code';
   }, [isCodeView, label]);
 
   const handleChange = useCallback(
@@ -102,7 +102,8 @@ const HeaderCodeToggleButton: FunctionComponent<
         onChange={handleChange}
         label={switchLabel}
         size={size}
-        aria-label={isCodeView ? 'Show component view' : 'Show code view'}
+        aria-label={isCodeView ? 'Show preview' : 'Show code'}
+        style={{ transform: 'scale(0.9)', transformOrigin: 'right center' }}
       />
     </div>
   );

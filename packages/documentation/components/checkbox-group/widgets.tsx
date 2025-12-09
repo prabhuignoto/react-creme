@@ -15,8 +15,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -30,8 +34,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Preselected Option" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Preselected Option"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(PreSelected, jsxToStringOptions)}
             language="jsx"
@@ -45,8 +53,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Disabled Option" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Disabled Option"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Disabled, jsxToStringOptions)}
             language="jsx"
@@ -60,8 +72,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Checkbox Group - Round style" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Checkbox Group - Round style"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(CustomStyle, jsxToStringOptions)}
             language="jsx"
@@ -75,8 +91,13 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Checkbox Group - RTL" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Checkbox Group - RTL"
+          RTL
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(RTL, jsxToStringOptions)}
             language="jsx"

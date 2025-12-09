@@ -17,8 +17,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -36,8 +40,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Shape" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Shape"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The shape of the loading indicator can be changed to circle by
             passing the
@@ -61,8 +69,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Speed" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Speed"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The speed of the loading indicator can be changed by passing the
             <code>speed</code> prop with value <code>slow</code>,{' '}
@@ -86,8 +98,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom length" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom length"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The number of items in the loading indicator can be changed by
             passing the <code>count</code> prop with a number value. The default
@@ -110,8 +126,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Right to Left" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Right to Left"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The loading indicator can be displayed from right to left by passing
             the <code>rtl</code>. The default direction is left to right.
@@ -133,8 +153,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Size" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Size"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Customize the size of the loading indicator by passing the{' '}
             <code>size</code> prop with value <code>sm</code>, <code>md</code>{' '}
@@ -161,8 +185,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom size" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom size"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             If you want to take complete control over the size of the loading
             indicator, you can pass the <code>customSize</code> prop with a

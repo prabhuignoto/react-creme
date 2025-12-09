@@ -18,8 +18,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -33,8 +37,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Input with a custom Icon" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Input with a custom Icon"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>Use a custom icon inside the input.</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(WithIcon, jsxToStringOptions)}
@@ -49,8 +57,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Input with border" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Input with border"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>Use a custom icon inside the input.</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(WithBorder, jsxToStringOptions)}
@@ -65,8 +77,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="States" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="States"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Inputs can be configured to have different states. The example below
             shows input in error and success state
@@ -87,8 +103,13 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="RTL" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="RTL"
+          RTL
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(RTL, jsxToStringOptions)}
             language="jsx"
@@ -102,8 +123,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Accent" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Accent"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Inputs can be configured to have different accents. The example
             below shows input in rounded accent.
@@ -121,8 +146,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Max length" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Max length"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>Inputs can be configured to have a maximum length.</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(MaxLength, jsxToStringOptions)}

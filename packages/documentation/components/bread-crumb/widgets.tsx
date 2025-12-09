@@ -16,8 +16,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Basic breadcrumb navigation with default chevron separators and
             small size. The breadcrumb trail shows the hierarchical path from
@@ -37,8 +41,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom Icon - Slash" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom Icon - Slash"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The separator icon can be customized by setting the{' '}
             <code>icon</code> property to <code>slash</code>, <code>arrow</code>
@@ -59,8 +67,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom Icon - Arrow" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom Icon - Arrow"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The arrow icon provides a clear directional indicator showing
             navigation flow. This style is particularly effective for step-based
@@ -80,8 +92,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Selected Index" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Selected Index"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Use <code>selectedCrumbIndex</code> to highlight a specific position
             in the breadcrumb trail. This is useful for indicating the current
@@ -101,8 +117,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom Size - Large" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom Size - Large"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The breadcrumb component supports three size variants:{' '}
             <code>sm</code> (default), <code>md</code> (medium), and{' '}
@@ -124,8 +144,13 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Right-to-Left (RTL) Support" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Right-to-Left (RTL) Support"
+          RTL
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Full RTL layout support for internationalization. When{' '}
             <code>RTL</code> is enabled, breadcrumbs automatically reverse their

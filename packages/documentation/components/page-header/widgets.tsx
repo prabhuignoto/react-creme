@@ -15,8 +15,11 @@ function widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(defaultPageHeader, jsxToStringOptions)}
             language="jsx"
@@ -30,8 +33,11 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             use the <code>RTL</code> prop to support right to left languages.
           </Text>

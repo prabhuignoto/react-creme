@@ -90,11 +90,11 @@ const Section: React.FC<SectionProps> = ({
       {getTitle && (
         <div className={styles.header_wrapper}>
           <h3 className={headerClass} id={getId}>
-            {getTitle}
+            <span className={styles.header_title}>{getTitle}</span>
+            {headerActions && (
+              <span className={styles.header_actions}>{headerActions}</span>
+            )}
           </h3>
-          {headerActions && (
-            <div className={styles.header_actions}>{headerActions}</div>
-          )}
         </div>
       )}
       <div style={bodyStyle} className={bodyClass}>

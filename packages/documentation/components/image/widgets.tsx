@@ -9,8 +9,12 @@ function widgets() {
   return (
     <div className={'rc-demo-widgets'}>
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -22,8 +26,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Expandable Image" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Expandable Image"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             use <code>expandImageOnClick</code> to make image expandable on
             click.

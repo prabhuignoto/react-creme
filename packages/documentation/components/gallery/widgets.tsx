@@ -32,8 +32,12 @@ function Widgets() {
   return width ? (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Here we have created a 3 x 3 grid using the inbuilt Image component.
           </Text>
@@ -50,8 +54,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="From Image URL's" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="From Image URL's"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>{`Gallery can be created using just the Image URL's.`}</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(WithImages, jsxToStringOptions)}

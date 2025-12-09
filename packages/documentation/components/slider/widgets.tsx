@@ -40,8 +40,12 @@ const Widgets = () => {
   return width > 0 ? (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -55,8 +59,12 @@ const Widgets = () => {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Positioning the Tooltip" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Positioning the Tooltip"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The tooltip can be positioned to either <code>top</code> or{' '}
             <code>bottom</code>. The Example here shows the tooltip positioned
@@ -75,8 +83,12 @@ const Widgets = () => {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Preselected Value" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Preselected Value"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(PreSelected, jsxToStringOptions)}
             language="jsx"
@@ -90,8 +102,12 @@ const Widgets = () => {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Show Tooltip on Hover" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Show Tooltip on Hover"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             With the <code>showTooltipOnHover</code>, the tooltip will be
             displayed only when the user hovers over the slider control.
@@ -109,8 +125,12 @@ const Widgets = () => {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Formatted value" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Formatted value"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>The slider can also display the value in a formatted way.</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(TooltipFormatted, jsxToStringOptions)}
@@ -125,8 +145,12 @@ const Widgets = () => {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Disabled state" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Disabled state"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The slide can be disabled via the <code>disabled</code> prop.
           </Text>

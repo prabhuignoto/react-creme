@@ -17,8 +17,12 @@ function Widgets() {
   return (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Default rendering" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Default rendering"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -30,8 +34,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Keyboard combinations" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Keyboard combinations"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Keyboard combinations allows you to render a combination of keys.
           </Text>
@@ -46,8 +54,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Custom sizes" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Custom sizes"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Three sizes are available: <code>sm</code>, <code>md</code>, and{' '}
             <code>lg</code>
@@ -65,8 +77,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Button raised direction" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Button raised direction"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The element is raised to the right by default. This can be changed
             via the <code>buttonRaised</code> prop.
@@ -82,8 +98,12 @@ function Widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Keyboard Thickness" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Keyboard Thickness"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             Customize the thickness of the keyboard with the{' '}
             <code>thickness</code> prop.

@@ -36,8 +36,12 @@ function widgets() {
   return width > 0 ? (
     <div className="rc-demo-widgets">
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Card shadowed" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Card shadowed"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>
             The <code>header</code> and <code>footer</code> props allows to
             render custom contents in the card header and footer.
@@ -55,8 +59,12 @@ function widgets() {
       </HeaderCodeToggle.Provider>
 
       <HeaderCodeToggle.Provider>
-        <Section size="md" title="Card without shadow" border={false}>
-          <HeaderCodeToggle.Button />
+        <Section
+          size="md"
+          title="Card without shadow"
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
           <Text>Card with no shadow but with a border.</Text>
           <HeaderCodeToggle.Content
             code={CustomImageCode}
