@@ -1,5 +1,8 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import { CheckIcon, Default, Disabled, Large, Medium } from './widget-variants';
 
 function widgets() {
@@ -8,40 +11,89 @@ function widgets() {
       style={{ display: 'flex', flexDirection: 'column' }}
       className="rc-demo-widgets"
     >
-      <Section size="md" title="Switch - default" border={false}>
-        <DemoWidget name="Switch" width={200}>
-          {Default}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Switch with Check status" border={false}>
-        <Text>
-          Use <code>showCheckIcon</code> property to display a check icon inside
-          the toggle control.
-        </Text>
-        <DemoWidget name="Switch" width={200}>
-          {CheckIcon}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Disabled" border={false}>
-        <Text>Use the disabled property to disable the switch.</Text>
-        <DemoWidget name="Switch" width={200}>
-          {Disabled}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Medium" border={false}>
-        <Text>
-          Switch comes in three sizes: small, medium, and large. This example
-          shows a large size switch.
-        </Text>
-        <DemoWidget name="Switch" width={250}>
-          {Medium}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Large" border={false}>
-        <DemoWidget name="Switch" width={300}>
-          {Large}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Switch - default" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Default, jsxToStringOptions)}
+            language="jsx"
+            componentName="Switch"
+          >
+            <DemoWidget name="Switch" width={200}>
+              {Default}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Switch with Check status" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Use <code>showCheckIcon</code> property to display a check icon
+            inside the toggle control.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(CheckIcon, jsxToStringOptions)}
+            language="jsx"
+            componentName="Switch"
+          >
+            <DemoWidget name="Switch" width={200}>
+              {CheckIcon}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Disabled" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>Use the disabled property to disable the switch.</Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(Disabled, jsxToStringOptions)}
+            language="jsx"
+            componentName="Switch"
+          >
+            <DemoWidget name="Switch" width={200}>
+              {Disabled}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Medium" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Switch comes in three sizes: small, medium, and large. This example
+            shows a large size switch.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(Medium, jsxToStringOptions)}
+            language="jsx"
+            componentName="Switch"
+          >
+            <DemoWidget name="Switch" width={250}>
+              {Medium}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Large" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Large, jsxToStringOptions)}
+            language="jsx"
+            componentName="Switch"
+          >
+            <DemoWidget name="Switch" width={300}>
+              {Large}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   );
 }

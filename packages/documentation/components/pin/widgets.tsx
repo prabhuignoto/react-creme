@@ -1,8 +1,11 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   CustomLength,
   Default,
@@ -36,41 +39,80 @@ function widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default" border={false}>
-        <DemoWidget name="Pin" width={width} showCodeByDefault>
-          {Default}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Custom length" border={false}>
-        <Text>
-          Customize the number of pins via the <code>length</code> property
-        </Text>
-        <DemoWidget name="Pin" width={width} showCodeByDefault>
-          {CustomLength}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="RTL" border={false}>
-        <Text>
-          Use the <code>RTL</code> prop to render the pin in RTL mode.
-        </Text>
-        <DemoWidget name="Pin" width={width} showCodeByDefault>
-          {RTL}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Custom Sizes" border={false}>
-        <Text>
-          Customize the pin size with the <code>size</code> prop
-        </Text>
-        <DemoWidget name="Pin" width={width} showCodeByDefault>
-          {SmallSized}
-        </DemoWidget>
-        <DemoWidget name="Pin" width={width} showCodeByDefault>
-          {MediumSized}
-        </DemoWidget>
-        <DemoWidget name="Pin" width={width} showCodeByDefault>
-          {LargeSized}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Default" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Default, jsxToStringOptions)}
+            language="jsx"
+            componentName="Pin"
+          >
+            <DemoWidget name="Pin" width={width}>
+              {Default}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Custom length" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Customize the number of pins via the <code>length</code> property
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(CustomLength, jsxToStringOptions)}
+            language="jsx"
+            componentName="Pin"
+          >
+            <DemoWidget name="Pin" width={width}>
+              {CustomLength}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="RTL" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Use the <code>RTL</code> prop to render the pin in RTL mode.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(RTL, jsxToStringOptions)}
+            language="jsx"
+            componentName="Pin"
+          >
+            <DemoWidget name="Pin" width={width}>
+              {RTL}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Custom Sizes" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Customize the pin size with the <code>size</code> prop
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(SmallSized, jsxToStringOptions)}
+            language="jsx"
+            componentName="Pin"
+          >
+            <DemoWidget name="Pin" width={width}>
+              {SmallSized}
+            </DemoWidget>
+            <DemoWidget name="Pin" width={width}>
+              {MediumSized}
+            </DemoWidget>
+            <DemoWidget name="Pin" width={width}>
+              {LargeSized}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   );
 }

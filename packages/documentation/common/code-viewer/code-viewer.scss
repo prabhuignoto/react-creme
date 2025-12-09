@@ -291,11 +291,9 @@
   transition: all var(--transition-fast);
 
   &:hover {
-    background: color-mix(
-      in srgb,
-      var(--rc-primary-color-hex, #007bff) 90%,
-      black
-    );
+    background: color-mix(in srgb,
+    var(--rc-primary-color-hex, #007bff) 90%,
+    black);
     transform: translateY(-1px);
     box-shadow: var(--shadow-sm);
   }

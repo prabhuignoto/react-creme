@@ -1,8 +1,11 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { CSSProperties, useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Radio, Section } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 
 const style: CSSProperties = {
   minWidth: '50px',
@@ -29,29 +32,62 @@ function widgets() {
     }
   }, [media]);
 
+  const defaultRadio = (
+    <div style={{ ...style, width: `${width}px` }}>
+      <Radio label="Radio option one" />
+    </div>
+  );
+  const disabledRadio = (
+    <div style={{ ...style, width: `${width}px` }}>
+      <Radio label="Radio option two" size="md" disabled />
+    </div>
+  );
+  const customSizeRadio = (
+    <div style={{ ...style, width: `${width}px` }}>
+      <Radio label="Radio option three" size="lg" />
+    </div>
+  );
+
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default" border={false}>
-        <DemoWidget name="Radio">
-          <div style={{ ...style, width: `${width}px` }}>
-            <Radio label="Radio option one" />
-          </div>
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Checkbox disabled" border={false}>
-        <DemoWidget name="Radio">
-          <div style={{ ...style, width: `${width}px` }}>
-            <Radio label="Radio option two" size="md" disabled />
-          </div>
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Custom Size" border={false}>
-        <DemoWidget name="Radio">
-          <div style={{ ...style, width: `${width}px` }}>
-            <Radio label="Radio option three" size="lg" />
-          </div>
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Default" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(defaultRadio, jsxToStringOptions)}
+            language="jsx"
+            componentName="Radio"
+          >
+            <DemoWidget name="Radio">{defaultRadio}</DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Checkbox disabled" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(disabledRadio, jsxToStringOptions)}
+            language="jsx"
+            componentName="Radio"
+          >
+            <DemoWidget name="Radio">{disabledRadio}</DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Custom Size" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(customSizeRadio, jsxToStringOptions)}
+            language="jsx"
+            componentName="Radio"
+          >
+            <DemoWidget name="Radio">{customSizeRadio}</DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   ) : null;
 }

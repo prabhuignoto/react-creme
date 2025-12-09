@@ -290,7 +290,6 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
     <section
       className={carouselContainerClass}
       ref={enableSwipe ? onInit : undefined}
-      role="region"
       aria-roledescription="carousel"
       aria-label={ariaLabel}
     >

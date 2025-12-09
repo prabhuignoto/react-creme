@@ -1,8 +1,11 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import { Default, WithImages } from './widget-variants';
 
 function Widgets() {
@@ -28,20 +31,39 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default" border={false}>
-        <Text>
-          Here we have created a 3 x 3 grid using the inbuilt Image component.
-        </Text>
-        <DemoWidget name="Gallery" width={width} showCodeByDefault>
-          {Default}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="From Image URL's" border={false}>
-        <Text>{`Gallery can be created using just the Image URL's.`}</Text>
-        <DemoWidget name="Gallery" width={width} showCodeByDefault>
-          {WithImages}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Default" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Here we have created a 3 x 3 grid using the inbuilt Image component.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(Default, jsxToStringOptions)}
+            language="jsx"
+            componentName="Gallery"
+          >
+            <DemoWidget name="Gallery" width={width}>
+              {Default}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="From Image URL's" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>{`Gallery can be created using just the Image URL's.`}</Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(WithImages, jsxToStringOptions)}
+            language="jsx"
+            componentName="Gallery"
+          >
+            <DemoWidget name="Gallery" width={width}>
+              {WithImages}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   ) : null;
 }

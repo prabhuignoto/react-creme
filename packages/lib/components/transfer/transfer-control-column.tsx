@@ -34,8 +34,8 @@ const TransferControlColumn: React.FunctionComponent<TransferControlModel> = ({
   disableTransferLeft,
   disableTransferRight,
   size,
-  sourceId: _sourceId, // eslint-disable-line @typescript-eslint/no-unused-vars
-  targetId: _targetId, // eslint-disable-line @typescript-eslint/no-unused-vars
+  sourceId: _sourceId,
+  targetId: _targetId,
   onTransferAll,
   hideTransferAll,
 }: TransferControlModel) => {

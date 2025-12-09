@@ -14,4 +14,6 @@ export interface SectionProps {
   useHash?: boolean;
   /** Optional footer element to display at the bottom (e.g., Show Code toggle) */
   footer?: React.ReactNode;
+  /** Optional header actions to display next to the title (e.g., code toggle button) */
+  headerActions?: React.ReactNode;
 }

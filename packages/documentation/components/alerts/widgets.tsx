@@ -1,7 +1,10 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useLayoutEffect, useState } from 'react';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   Custom,
   Dismiss,
@@ -35,38 +38,99 @@ function Widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Informational Text" border={false}>
-        <Text>
-          Alerts can be closed or dismissed by default. Use the{' '}
-          <code>canDismiss</code> prop to change this behavior.
-        </Text>
-        <DemoWidget name="Alert" width={width} showCodeByDefault>
-          {Information}
-        </DemoWidget>
-        <DemoWidget name="Alert" width={width} showCodeByDefault>
-          {Dismiss}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Success Message" border={false}>
-        <DemoWidget name="Alert" width={width} showCodeByDefault>
-          {Success}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Warning Message" border={false}>
-        <DemoWidget name="Alert" width={width} showCodeByDefault>
-          {Warning}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Error Message" border={false}>
-        <DemoWidget name="Alert" width={width} showCodeByDefault>
-          {Error}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Render Custom content" border={false}>
-        <DemoWidget name="Alert" width={width} showCodeByDefault>
-          {Custom}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Informational Text" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Alerts can be closed or dismissed by default. Use the{' '}
+            <code>canDismiss</code> prop to change this behavior.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(Information, jsxToStringOptions)}
+            language="jsx"
+            componentName="Alert"
+          >
+            <DemoWidget name="Alert" width={width}>
+              {Information}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Dismissible Alert" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Dismiss, jsxToStringOptions)}
+            language="jsx"
+            componentName="Alert"
+          >
+            <DemoWidget name="Alert" width={width}>
+              {Dismiss}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Success Message" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Success, jsxToStringOptions)}
+            language="jsx"
+            componentName="Alert"
+          >
+            <DemoWidget name="Alert" width={width}>
+              {Success}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Warning Message" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Warning, jsxToStringOptions)}
+            language="jsx"
+            componentName="Alert"
+          >
+            <DemoWidget name="Alert" width={width}>
+              {Warning}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Error Message" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Error, jsxToStringOptions)}
+            language="jsx"
+            componentName="Alert"
+          >
+            <DemoWidget name="Alert" width={width}>
+              {Error}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Render Custom content" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Custom, jsxToStringOptions)}
+            language="jsx"
+            componentName="Alert"
+          >
+            <DemoWidget name="Alert" width={width}>
+              {Custom}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   ) : null;
 }

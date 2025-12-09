@@ -117,7 +117,7 @@
       "prettier --write",
       "bunx eslint --fix"
     ],
-    "**/*.{scss,css}": [
+    "packages/lib/**/*.{scss,css}": [
       "prettier --write",
       "bunx stylelint --fix"
     ],

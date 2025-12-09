@@ -1,8 +1,11 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   Default,
   MultiSelection,
@@ -35,32 +38,71 @@ function Widgets() {
   return (
     width > 0 && (
       <div className="rc-demo-widgets">
-        <Section size="md" title="Default" border={false}>
-          <DemoWidget name="List" width={width}>
-            {Default}
-          </DemoWidget>
-        </Section>
-        <Section size="md" title="Multi selection mode" border={false}>
-          <Text>In Multi selection mode you can select multiple items.</Text>
-          <DemoWidget name="List" width={width}>
-            {MultiSelection}
-          </DemoWidget>
-        </Section>
-        <Section size="md" title="Searchable list" border={false}>
-          <Text>With searchable list items can be quickly searched.</Text>
-          <DemoWidget name="List" width={width} showCodeByDefault={false}>
-            {Search}
-          </DemoWidget>
-        </Section>
-        <Section size="md" title="Virtualized" border={false}>
-          <Text>
-            The virtualized list is a performance improvement over the default
-            rendering. It renders only the visible items
-          </Text>
-          <DemoWidget name="List" width={width} showCodeByDefault={false}>
-            {Virtualized}
-          </DemoWidget>
-        </Section>
+        <HeaderCodeToggle.Provider>
+          <Section size="md" title="Default" border={false}>
+            <HeaderCodeToggle.Button />
+            <HeaderCodeToggle.Content
+              code={jsxToString(Default, jsxToStringOptions)}
+              language="jsx"
+              componentName="List"
+            >
+              <DemoWidget name="List" width={width}>
+                {Default}
+              </DemoWidget>
+            </HeaderCodeToggle.Content>
+          </Section>
+        </HeaderCodeToggle.Provider>
+
+        <HeaderCodeToggle.Provider>
+          <Section size="md" title="Multi selection mode" border={false}>
+            <HeaderCodeToggle.Button />
+            <Text>In Multi selection mode you can select multiple items.</Text>
+            <HeaderCodeToggle.Content
+              code={jsxToString(MultiSelection, jsxToStringOptions)}
+              language="jsx"
+              componentName="List"
+            >
+              <DemoWidget name="List" width={width}>
+                {MultiSelection}
+              </DemoWidget>
+            </HeaderCodeToggle.Content>
+          </Section>
+        </HeaderCodeToggle.Provider>
+
+        <HeaderCodeToggle.Provider>
+          <Section size="md" title="Searchable list" border={false}>
+            <HeaderCodeToggle.Button />
+            <Text>With searchable list items can be quickly searched.</Text>
+            <HeaderCodeToggle.Content
+              code={jsxToString(Search, jsxToStringOptions)}
+              language="jsx"
+              componentName="List"
+            >
+              <DemoWidget name="List" width={width}>
+                {Search}
+              </DemoWidget>
+            </HeaderCodeToggle.Content>
+          </Section>
+        </HeaderCodeToggle.Provider>
+
+        <HeaderCodeToggle.Provider>
+          <Section size="md" title="Virtualized" border={false}>
+            <HeaderCodeToggle.Button />
+            <Text>
+              The virtualized list is a performance improvement over the default
+              rendering. It renders only the visible items
+            </Text>
+            <HeaderCodeToggle.Content
+              code={jsxToString(Virtualized, jsxToStringOptions)}
+              language="jsx"
+              componentName="List"
+            >
+              <DemoWidget name="List" width={width}>
+                {Virtualized}
+              </DemoWidget>
+            </HeaderCodeToggle.Content>
+          </Section>
+        </HeaderCodeToggle.Provider>
       </div>
     )
   );

@@ -65,21 +65,17 @@ $settings: (
   background-size: 200% 200%;
 
   &.dark {
-    background-image: linear-gradient(
-      90deg,
-      theme.$charcoal-gray 0%,
-      theme.$gunmetal-gray 35%,
-      theme.$charcoal-gray 100%
-    );
+    background-image: linear-gradient(90deg,
+    theme.$charcoal-gray 0%,
+    theme.$gunmetal-gray 35%,
+    theme.$charcoal-gray 100%);
   }
 
   &:not(.dark) {
-    background-image: linear-gradient(
-      90deg,
-      theme.$mercury 0%,
-      theme.$chinese-gray 35%,
-      theme.$mercury 100%
-    );
+    background-image: linear-gradient(90deg,
+    theme.$mercury 0%,
+    theme.$chinese-gray 35%,
+    theme.$mercury 100%);
   }
 }
 

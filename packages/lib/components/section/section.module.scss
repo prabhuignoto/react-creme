@@ -17,7 +17,7 @@ $heights: (
 
 .section {
   @extend %col;
-  margin: 0.75rem 0;
+  margin: 0.5rem 0;
   padding: 0 0.5rem;
   width: calc(100% - 1rem);
   transition: background-color 0.2s ease;
@@ -37,10 +37,19 @@ $heights: (
   }
 }
 
+.header_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
 .header {
   font-weight: 400;
   text-decoration: none;
-  width: 100%;
+  flex: 1;
+  min-width: 0;
 
   &.header_rtl {
     @extend %right;
@@ -71,6 +80,13 @@ $heights: (
       height: map.get($heights, $key);
     }
   }
+}
+
+.header_actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.5rem;
 }
 
 .body {

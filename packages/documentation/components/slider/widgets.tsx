@@ -1,8 +1,11 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   CustomTooltipPosition,
   Default,
@@ -36,49 +39,108 @@ const Widgets = () => {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="" border={false}>
-        <DemoWidget name="Slider" width={width}>
-          {Default}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Positioning the Tooltip" border={false}>
-        <Text>
-          The tooltip can be positioned to either <code>top</code> or{' '}
-          <code>bottom</code>. The Example here shows the tooltip positioned to
-          the bottom of the slider.
-        </Text>
-        <DemoWidget name="Slider" width={width}>
-          {CustomTooltipPosition}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Preselected Value" border={false}>
-        <DemoWidget name="Slider" width={width}>
-          {PreSelected}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Show Tooltip on Hover" border={false}>
-        <Text>
-          With the <code>showTooltipOnHover</code>, the tooltip will be
-          displayed only when the user hovers over the slider control.
-        </Text>
-        <DemoWidget name="Slider" width={width}>
-          {TooltipOnHover}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Formatted value" border={false}>
-        <Text>The slider can also display the value in a formatted way.</Text>
-        <DemoWidget name="Slider" width={width}>
-          {TooltipFormatted}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Disabled state" border={false}>
-        <Text>
-          The slide can be disabled via the <code>disabled</code> prop.
-        </Text>
-        <DemoWidget name="Slider" width={width}>
-          {Disabled}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Default" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Default, jsxToStringOptions)}
+            language="jsx"
+            componentName="Slider"
+          >
+            <DemoWidget name="Slider" width={width}>
+              {Default}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Positioning the Tooltip" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            The tooltip can be positioned to either <code>top</code> or{' '}
+            <code>bottom</code>. The Example here shows the tooltip positioned
+            to the bottom of the slider.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(CustomTooltipPosition, jsxToStringOptions)}
+            language="jsx"
+            componentName="Slider"
+          >
+            <DemoWidget name="Slider" width={width}>
+              {CustomTooltipPosition}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Preselected Value" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(PreSelected, jsxToStringOptions)}
+            language="jsx"
+            componentName="Slider"
+          >
+            <DemoWidget name="Slider" width={width}>
+              {PreSelected}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Show Tooltip on Hover" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            With the <code>showTooltipOnHover</code>, the tooltip will be
+            displayed only when the user hovers over the slider control.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(TooltipOnHover, jsxToStringOptions)}
+            language="jsx"
+            componentName="Slider"
+          >
+            <DemoWidget name="Slider" width={width}>
+              {TooltipOnHover}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Formatted value" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>The slider can also display the value in a formatted way.</Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(TooltipFormatted, jsxToStringOptions)}
+            language="jsx"
+            componentName="Slider"
+          >
+            <DemoWidget name="Slider" width={width}>
+              {TooltipFormatted}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Disabled state" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            The slide can be disabled via the <code>disabled</code> prop.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(Disabled, jsxToStringOptions)}
+            language="jsx"
+            componentName="Slider"
+          >
+            <DemoWidget name="Slider" width={width}>
+              {Disabled}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   ) : null;
 };

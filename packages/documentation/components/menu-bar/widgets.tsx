@@ -1,8 +1,11 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   Default,
   Icons,
@@ -35,44 +38,98 @@ function Widgets() {
 
   return (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default" border={false}>
-        <DemoWidget name="MenuBar" width={width} style={{ marginLeft: '2rem' }}>
-          {Default}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="RTL" border={false}>
-        <Text>
-          Use the <code>RTL</code> prop for right to left alignment
-        </Text>
-        <DemoWidget name="MenuBar" width={width} style={{ marginLeft: '2rem' }}>
-          {RTL}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Icons" border={false}>
-        <Text>
-          The <code>icons</code> prop can be used to add a custom icon for each
-          top level menu bar item
-        </Text>
-        <DemoWidget
-          name="MenuBar"
-          width={width}
-          style={{ marginLeft: '2rem' }}
-          codeString={IconsCode}
-        >
-          {Icons}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Custom Sizes" border={false}>
-        <Text>
-          With the <code>size</code> prop customize the size of the menu bar.
-        </Text>
-        <DemoWidget name="MenuBar" width={width} style={{ marginLeft: '2rem' }}>
-          {Medium}
-        </DemoWidget>
-        <DemoWidget name="MenuBar" width={width} style={{ marginLeft: '2rem' }}>
-          {Large}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Default" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Default, jsxToStringOptions)}
+            language="jsx"
+            componentName="MenuBar"
+          >
+            <DemoWidget
+              name="MenuBar"
+              width={width}
+              style={{ marginLeft: '2rem' }}
+            >
+              {Default}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="RTL" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Use the <code>RTL</code> prop for right to left alignment
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(RTL, jsxToStringOptions)}
+            language="jsx"
+            componentName="MenuBar"
+          >
+            <DemoWidget
+              name="MenuBar"
+              width={width}
+              style={{ marginLeft: '2rem' }}
+            >
+              {RTL}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Icons" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            The <code>icons</code> prop can be used to add a custom icon for
+            each top level menu bar item
+          </Text>
+          <HeaderCodeToggle.Content
+            code={IconsCode}
+            language="jsx"
+            componentName="MenuBar"
+          >
+            <DemoWidget
+              name="MenuBar"
+              width={width}
+              style={{ marginLeft: '2rem' }}
+            >
+              {Icons}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Custom Sizes" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            With the <code>size</code> prop customize the size of the menu bar.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(Medium, jsxToStringOptions)}
+            language="jsx"
+            componentName="MenuBar"
+          >
+            <DemoWidget
+              name="MenuBar"
+              width={width}
+              style={{ marginLeft: '2rem' }}
+            >
+              {Medium}
+            </DemoWidget>
+            <DemoWidget
+              name="MenuBar"
+              width={width}
+              style={{ marginLeft: '2rem' }}
+            >
+              {Large}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   );
 }

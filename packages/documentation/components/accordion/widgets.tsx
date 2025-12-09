@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
 import {
@@ -43,59 +44,99 @@ function Widgets() {
 
   return width > 0 ? (
     <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
-      <Section size="md" title="Default" border={false}>
-        <DemoWidget
-          width={width}
-          name="Accordion"
-          codeString={DefaultCodeString}
-        >
-          {Default}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="RTL" border={false}>
-        {/* <Text>The icon can be aligned to the right</Text> */}
-        <DemoWidget width={width} name="Accordion" codeString={RTLCodeString}>
-          {RTL}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Accordion expanded by default" border={false}>
-        <Text>
-          Accordions can be expanded or collapsed by default. The example shows
-          a accordion expanded by default.
-        </Text>
-        <DemoWidget
-          width={width}
-          name="Accordion"
-          codeString={ExpandedCodeString}
-        >
-          {Expanded}
-        </DemoWidget>
-      </Section>
-      <Section border={false}>
-        <DemoWidget
-          width={width}
-          name="Accordion"
-          codeString={CustomIconCodeString}
-        >
-          {CustomIcon}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Custom sizes" border={false}>
-        <DemoWidget
-          width={width}
-          name="Accordion"
-          codeString={MediumSizedCodeString}
-        >
-          {MediumSized}
-        </DemoWidget>
-        <DemoWidget
-          width={width}
-          name="Accordion"
-          codeString={LargeSizedCodeString}
-        >
-          {LargeSized}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Default" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={DefaultCodeString}
+            language="jsx"
+            componentName="Accordion"
+          >
+            <DemoWidget width={width} name="Accordion">
+              {Default}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="RTL" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={RTLCodeString}
+            language="jsx"
+            componentName="Accordion"
+          >
+            <DemoWidget width={width} name="Accordion">
+              {RTL}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Accordion expanded by default" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Accordions can be expanded or collapsed by default. The example
+            shows a accordion expanded by default.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={ExpandedCodeString}
+            language="jsx"
+            componentName="Accordion"
+          >
+            <DemoWidget width={width} name="Accordion">
+              {Expanded}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={CustomIconCodeString}
+            language="jsx"
+            componentName="Accordion"
+          >
+            <DemoWidget width={width} name="Accordion">
+              {CustomIcon}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Custom sizes" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={MediumSizedCodeString}
+            language="jsx"
+            componentName="Accordion"
+          >
+            <DemoWidget width={width} name="Accordion">
+              {MediumSized}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Large Size" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={LargeSizedCodeString}
+            language="jsx"
+            componentName="Accordion"
+          >
+            <DemoWidget width={width} name="Accordion">
+              {LargeSized}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   ) : null;
 }

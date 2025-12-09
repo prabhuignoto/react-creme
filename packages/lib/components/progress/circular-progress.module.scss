@@ -6,10 +6,13 @@
 // Note: These sizes don't map to standard space tokens as they are
 // component-specific visual dimensions for the spinner
 $sizes: (
-  xs: 16px,   // Extra small - for compact spaces
-  sm: 32px,   // Small - default size
-  md: 48px,   // Medium - larger spinners
-  lg: 56px,   // Large - prominent/accessible size
+  xs: 16px,
+  // Extra small - for compact spaces
+  sm: 32px,
+  // Small - default size
+  md: 48px,
+  // Medium - larger spinners
+  lg: 56px, // Large - prominent/accessible size
 );
 
 @keyframes spin {
@@ -37,19 +40,15 @@ $sizes: (
   }
 
   &.dark {
-    background: linear-gradient(
-      to right,
-      theme.$primary 50%,
-      theme.$black 50% 100%
-    );
+    background: linear-gradient(to right,
+    theme.$primary 50%,
+    theme.$black 50% 100%);
   }
 
   &:not(.dark) {
-    background: linear-gradient(
-      to right,
-      theme.$primary 50%,
-      theme.$secondary 50% 100%
-    );
+    background: linear-gradient(to right,
+    theme.$primary 50%,
+    theme.$secondary 50% 100%);
   }
 
   @each $key, $val in $sizes {

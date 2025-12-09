@@ -83,19 +83,22 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
 
   const isDarkMode = useMemo(() => isDark(), []);
 
+  // Track first render state for class calculation
+  const [isFirstRenderState, setIsFirstRenderState] = useState(true);
+
   // CSS
   const switchKnobClass = useMemo(
     () =>
       classNames([styles.knob], {
         [styles.disabled]: disabled,
         [styles.loading]: loading,
-        [styles.off]: !state && !isFirstRender.current,
+        [styles.off]: !state && !isFirstRenderState,
         [styles[`knob_${size}`]]: true,
-        [styles.on]: state && !isFirstRender.current,
-        [styles.on_load]: state && isFirstRender.current,
+        [styles.on]: state && !isFirstRenderState,
+        [styles.on_load]: state && isFirstRenderState,
         [styles.dark]: isDarkMode,
       }),
-    [state, size, disabled, loading, isDarkMode]
+    [state, size, disabled, loading, isDarkMode, isFirstRenderState]
   );
 
   const switchClass = useMemo(
@@ -147,6 +150,8 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
+      // Update state to trigger class recalculation
+      setIsFirstRenderState(false);
     }
   }, []);
 

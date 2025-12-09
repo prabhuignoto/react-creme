@@ -46,7 +46,7 @@ const Pin = forwardRef<PinHandle, PinProps>(
     {
       length = 4,
       size = 'sm',
-      border: _border = false, // eslint-disable-line @typescript-eslint/no-unused-vars
+      border: _border = false,
       RTL = false,
       autoJump = true,
       disabled = false,
@@ -67,7 +67,7 @@ const Pin = forwardRef<PinHandle, PinProps>(
       defaultValue = '',
       onChange,
       onComplete,
-      onStatusChange: _onStatusChange, // eslint-disable-line @typescript-eslint/no-unused-vars
+      onStatusChange: _onStatusChange,
     },
     ref
   ) => {
@@ -80,7 +80,7 @@ const Pin = forwardRef<PinHandle, PinProps>(
     // State management
     const isFirstRender = useFirstRender();
     const [internalValue, setInternalValue] = useState(defaultValue);
-    const [_focusedIndex, setFocusedIndex] = useState<number>(-1); // eslint-disable-line @typescript-eslint/no-unused-vars
+    const [_focusedIndex, setFocusedIndex] = useState<number>(-1);
     const [visibleDigits, setVisibleDigits] = useState<Set<number>>(new Set());
     const [maskTimeouts, setMaskTimeouts] = useState<
       Map<number, ReturnType<typeof setTimeout>>
@@ -385,7 +385,6 @@ const Pin = forwardRef<PinHandle, PinProps>(
           aria-describedby={
             ariaDescribedBy || (error ? `${pinValue}-error` : undefined)
           }
-          aria-invalid={!!error}
         >
           {itemsRef.current.map((item, index) => (
             <li key={item.id} className={styles.item}>
@@ -410,6 +409,7 @@ const Pin = forwardRef<PinHandle, PinProps>(
                   aria-describedby={
                     helperText ? `${pinValue}-helper` : undefined
                   }
+                  aria-invalid={!!error}
                   className={styles.input}
                   value={getDisplayValue(pinValue[index] || '', index)}
                 />

@@ -1,4 +1,4 @@
-@mixin position-abs($position: "center center", $add-space: false) {
+@mixin position-abs($position: 'center center', $add-space: false) {
   $space: 0%;
 
   @if $add-space {
@@ -7,36 +7,36 @@
 
   position: absolute;
 
-  @if $position == "top left" {
+  @if $position == 'top left' {
     left: calc(0% + $space);
     top: calc(0% + $space);
-  } @else if $position == "top right" {
+  } @else if $position == 'top right' {
     right: calc(0% + $space);
     top: calc(0% + $space);
-  } @else if $position == "bottom left" {
+  } @else if $position == 'bottom left' {
     bottom: calc(0% + $space);
     left: calc(0% + $space);
-  } @else if $position == "bottom right" {
+  } @else if $position == 'bottom right' {
     bottom: calc(0% + $space);
     right: calc(0% + $space);
-  } @else if $position == "center left" {
+  } @else if $position == 'center left' {
     left: calc(0% + $space);
     top: 50%;
     transform: translateY(-50%);
-  } @else if $position == "center center" {
+  } @else if $position == 'center center' {
     left: 50%;
     // right: calc(0% + $space);
     top: 50%;
     transform: translateY(-50%) translateX(-50%);
-  } @else if $position == "center right" {
+  } @else if $position == 'center right' {
     right: calc(0% + $space);
     top: 50%;
     transform: translateY(-50%);
-  } @else if $position == "top center" {
+  } @else if $position == 'top center' {
     left: 50%;
     top: calc(0% + $space);
     transform: translateX(-50%);
-  } @else if $position == "bottom center" {
+  } @else if $position == 'bottom center' {
     bottom: calc(0% + $space);
     left: 50%;
     transform: translateX(-50%);

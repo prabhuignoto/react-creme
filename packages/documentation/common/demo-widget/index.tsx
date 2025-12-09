@@ -31,7 +31,7 @@ const DemoWidget: FunctionComponent<WidgetProps> = memo(
     component,
     codeString,
     name,
-    disableCode = false,
+    disableCode = true, // Default to true - code is now shown via HeaderCodeToggle
   }: WidgetProps) => {
     const [isCodeExpanded, setIsCodeExpanded] = useState(showCodeByDefault);
 

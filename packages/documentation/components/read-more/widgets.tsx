@@ -1,7 +1,10 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useEffect, useState } from 'react';
 import { Section } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import { Default, LargeSized, MediumSized, RTL } from './widgets-variants';
 
 function Widgets() {
@@ -28,24 +31,53 @@ function Widgets() {
 
   return width > 0 ? (
     <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
-      <Section size="md" title="Default" border={false}>
-        <DemoWidget width={width} name="Read More" showCodeByDefault>
-          {Default}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="RTL" border={false}>
-        <DemoWidget width={width} name="Read More" showCodeByDefault>
-          {RTL}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Custom sizes" border={false}>
-        <DemoWidget width={width} name="Read More" showCodeByDefault>
-          {MediumSized}
-        </DemoWidget>
-        <DemoWidget width={width} name="Read More" showCodeByDefault>
-          {LargeSized}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Default" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Default, jsxToStringOptions)}
+            language="jsx"
+            componentName="Read More"
+          >
+            <DemoWidget width={width} name="Read More">
+              {Default}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="RTL" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(RTL, jsxToStringOptions)}
+            language="jsx"
+            componentName="Read More"
+          >
+            <DemoWidget width={width} name="Read More">
+              {RTL}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Custom sizes" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(MediumSized, jsxToStringOptions)}
+            language="jsx"
+            componentName="Read More"
+          >
+            <DemoWidget width={width} name="Read More">
+              {MediumSized}
+            </DemoWidget>
+            <DemoWidget width={width} name="Read More">
+              {LargeSized}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   ) : null;
 }

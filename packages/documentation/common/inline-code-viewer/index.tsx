@@ -132,3 +132,7 @@ InlineCodeViewer.displayName = 'InlineCodeViewer';
 
 export { InlineCodeViewer };
 export default InlineCodeViewer;
+
+// Export new HeaderCodeToggle component
+export { HeaderCodeToggle } from './header-code-toggle';
+export type { HeaderCodeToggleProps } from './header-code-toggle';

@@ -5,8 +5,7 @@
 
 // Use semantic animation timing for smooth content expansion/collapse
 // Primary (0.3s) is used for main interactions like accordion opening
-$transition:
-  max-height hybrid.$animation-duration-primary var(--transition),
+$transition: max-height hybrid.$animation-duration-primary var(--transition),
   opacity hybrid.$animation-duration-primary var(--transition);
 
 .accordion {

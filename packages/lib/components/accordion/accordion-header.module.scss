@@ -23,7 +23,7 @@ $header-heights: (
   @extend %border-radius;
   align-items: center;
   background: transparent;
-  border: none;
+  border: 0;
   color: theme.$primary;
   cursor: pointer;
   display: flex;
@@ -131,14 +131,10 @@ $header-heights: (
 
   .button {
     &.size {
-      height: var(
-        --rc-accordion-header-height,
-        map.get($header-heights, $size)
-      );
-      line-height: var(
-        --rc-accordion-header-height,
-        map.get($header-heights, $size)
-      );
+      height: var(--rc-accordion-header-height,
+      map.get($header-heights, $size));
+      line-height: var(--rc-accordion-header-height,
+      map.get($header-heights, $size));
     }
 
     &.#{size}:not(.disable-icon) {
@@ -155,7 +151,10 @@ $header-heights: (
 
   // Use semantic animation timing for icon rotation
   // Secondary (0.2s) for quick, snappy icon transitions
-  @include hybrid.smooth-transition(transform, hybrid.$animation-duration-secondary);
+  @include hybrid.smooth-transition(
+    transform,
+    hybrid.$animation-duration-secondary
+  );
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;

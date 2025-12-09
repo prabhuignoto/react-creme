@@ -1,7 +1,10 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useEffect, useState } from 'react';
 import { Section } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
 import useMedia from '../../common/useMedia';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   CustomIcon,
   Default,
@@ -34,29 +37,84 @@ function Widgets() {
 
   return width > 0 ? (
     <div style={{ minHeight: '1200px' }} className="rc-demo-widgets">
-      <Section size="md" title="Default" border={false}>
-        <DemoWidget width={width} name="Avatar" showCodeByDefault>
-          {Default}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Custom icon" border={false}>
-        <DemoWidget width={width} name="Avatar" showCodeByDefault>
-          {CustomIcon}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Using letter instead of a Icon" border={false}>
-        <DemoWidget width={width} name="Avatar" showCodeByDefault>
-          {Letter}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Custom sizes" border={false}>
-        <DemoWidget width={width} name="Avatar" showCodeByDefault>
-          {MediumSized}
-        </DemoWidget>
-        <DemoWidget width={width} name="Avatar" showCodeByDefault>
-          {LargeSized}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Default" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Default, jsxToStringOptions)}
+            language="jsx"
+            componentName="Avatar"
+          >
+            <DemoWidget width={width} name="Avatar">
+              {Default}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Custom icon" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(CustomIcon, jsxToStringOptions)}
+            language="jsx"
+            componentName="Avatar"
+          >
+            <DemoWidget width={width} name="Avatar">
+              {CustomIcon}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section
+          size="md"
+          title="Using letter instead of a Icon"
+          border={false}
+        >
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Letter, jsxToStringOptions)}
+            language="jsx"
+            componentName="Avatar"
+          >
+            <DemoWidget width={width} name="Avatar">
+              {Letter}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Custom sizes" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(MediumSized, jsxToStringOptions)}
+            language="jsx"
+            componentName="Avatar"
+          >
+            <DemoWidget width={width} name="Avatar">
+              {MediumSized}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Large Size" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(LargeSized, jsxToStringOptions)}
+            language="jsx"
+            componentName="Avatar"
+          >
+            <DemoWidget width={width} name="Avatar">
+              {LargeSized}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   ) : null;
 }

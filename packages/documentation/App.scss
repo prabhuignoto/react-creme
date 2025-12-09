@@ -39,10 +39,10 @@
   --line-height-relaxed: 1.75;
 
   /* Colors (Light mode - Modern palette) */
-  --bg-primary: #ffffff;
+  --bg-primary: #fff;
   --bg-secondary: #fafafa;
   --bg-tertiary: #f5f5f5;
-  --bg-elevated: #ffffff;
+  --bg-elevated: #fff;
   --text-primary: #18181b;
   --text-secondary: #71717a;
   --text-tertiary: #a1a1aa;
@@ -183,8 +183,8 @@ pre {
   grid-template-columns: var(--aside-width) 1fr var(--toc-width);
   grid-template-rows: var(--header-height) 1fr;
   grid-template-areas:
-    "sidebar header header"
-    "sidebar main toc";
+    'sidebar header header'
+    'sidebar main toc';
   min-height: 100vh;
   background: var(--bg-primary);
   margin: 0;
@@ -197,8 +197,8 @@ pre {
     grid-template-columns: 1fr;
     grid-template-rows: var(--header-height) 1fr;
     grid-template-areas:
-      "header"
-      "main";
+      'header'
+      'main';
     margin: 0;
     padding: 0;
   }
@@ -271,7 +271,7 @@ pre {
   padding: 0 var(--spacing-lg);
   margin: 0;
   backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
   border-bottom: 1px solid var(--glass-border);
   transition: all var(--transition-base);
 
@@ -528,8 +528,8 @@ pre {
   .app:not(.is-landing) {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "header"
-      "main";
+      'header'
+      'main';
   }
 
   .app-aside {

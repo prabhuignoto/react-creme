@@ -1,8 +1,11 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   MultiSelection,
   RTL,
@@ -34,43 +37,92 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Single selection" border={false}>
-        <DemoWidget name="Dropdown" width={width}>
-          {SingleSelection}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Multi selection" border={false}>
-        <Text>With multi selection, you can select multiple options.</Text>
-        <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
-          {MultiSelection}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Search" border={false}>
-        <Text>
-          Available options can be filtered by typing in the search box.
-        </Text>
-        <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
-          {Searchable}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Virtualized" border={false}>
-        <Text>
-          With virtualized, the options are rendered only when they are in the
-          viewport of the menu.
-        </Text>
-        <DemoWidget name="Dropdown" width={width} showCodeByDefault={false}>
-          {Virtualized}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="RTL" border={false}>
-        <Text>
-          With virtualized, the options are rendered only when they are in the
-          viewport of the menu.
-        </Text>
-        <DemoWidget name="Dropdown" width={width}>
-          {RTL}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Single selection" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(SingleSelection, jsxToStringOptions)}
+            language="jsx"
+            componentName="Dropdown"
+          >
+            <DemoWidget name="Dropdown" width={width}>
+              {SingleSelection}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Multi selection" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>With multi selection, you can select multiple options.</Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(MultiSelection, jsxToStringOptions)}
+            language="jsx"
+            componentName="Dropdown"
+          >
+            <DemoWidget name="Dropdown" width={width}>
+              {MultiSelection}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Search" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Available options can be filtered by typing in the search box.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(Searchable, jsxToStringOptions)}
+            language="jsx"
+            componentName="Dropdown"
+          >
+            <DemoWidget name="Dropdown" width={width}>
+              {Searchable}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Virtualized" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            With virtualized, the options are rendered only when they are in the
+            viewport of the menu.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(Virtualized, jsxToStringOptions)}
+            language="jsx"
+            componentName="Dropdown"
+          >
+            <DemoWidget name="Dropdown" width={width}>
+              {Virtualized}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="RTL" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            With virtualized, the options are rendered only when they are in the
+            viewport of the menu.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(RTL, jsxToStringOptions)}
+            language="jsx"
+            componentName="Dropdown"
+          >
+            <DemoWidget name="Dropdown" width={width}>
+              {RTL}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   ) : null;
 }

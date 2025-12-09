@@ -1,8 +1,11 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import { CustomImage, CustomImageCode, Default } from './widget-variants';
 
 function widgets() {
@@ -32,21 +35,40 @@ function widgets() {
 
   return width > 0 ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Card shadowed" border={false}>
-        <Text>
-          The <code>header</code> and <code>footer</code> props allows to render
-          custom contents in the card header and footer.
-        </Text>
-        <DemoWidget name="Card" width={width}>
-          {Default}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Card without shadow" border={false}>
-        <Text>Card with no shadow but with a border.</Text>
-        <DemoWidget name="Card" width={width} codeString={CustomImageCode}>
-          {CustomImage}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Card shadowed" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            The <code>header</code> and <code>footer</code> props allows to
+            render custom contents in the card header and footer.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(Default, jsxToStringOptions)}
+            language="jsx"
+            componentName="Card"
+          >
+            <DemoWidget name="Card" width={width}>
+              {Default}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Card without shadow" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>Card with no shadow but with a border.</Text>
+          <HeaderCodeToggle.Content
+            code={CustomImageCode}
+            language="jsx"
+            componentName="Card"
+          >
+            <DemoWidget name="Card" width={width}>
+              {CustomImage}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   ) : null;
 }

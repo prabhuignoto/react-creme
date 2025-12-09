@@ -16,6 +16,7 @@
 /// ============================================================================
 
 @use 'sass:map';
+@use 'sass:list';
 @use 'theme.scss';
 
 // ============================================================================
@@ -97,11 +98,13 @@ $shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05);
 
 /// Medium shadow pattern (4-6px elevation)
 /// Used for hover states and elevated content
-$shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
 /// Strong shadow pattern (8-10px elevation)
 /// Used for modals, popovers, and prominent elements
-$shadow-strong: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-strong: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
 /// Drop shadow mixin for refined effects
 /// @param {string} $size - Shadow size: soft | medium | strong (default: soft)
@@ -124,7 +127,10 @@ $shadow-strong: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0
 
 /// Shine effect gradient pattern (left to right)
 /// Used for glossy overlay animations
-$gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+$gradient-shine-pattern: linear-gradient(90deg,
+transparent 0%,
+rgba(255, 255, 255, 0.2) 50%,
+transparent 100%);
 
 /// Wrapper gradient mixin - creates background depth
 /// @param {color} $color-from - Starting color (top)
@@ -482,7 +488,11 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 /// @param {string} $animation-name - Name of keyframe animation
 /// @param {number} $duration - Animation duration (default: critical)
 /// @param {string} $easing - Easing function (default: spring)
-@mixin responsive-spring-animation($animation-name, $duration: $animation-duration-critical, $easing: $spring-easing) {
+@mixin responsive-spring-animation(
+  $animation-name,
+  $duration: $animation-duration-critical,
+  $easing: $spring-easing
+) {
   animation: $animation-name $duration $easing forwards;
 
   // Mobile: 30% faster for perceived responsiveness
@@ -495,7 +505,11 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 /// @param {string} $animation-name - Name of keyframe animation
 /// @param {number} $duration - Animation duration (default: critical)
 /// @param {string} $easing - Easing function (default: spring)
-@mixin spring-animation($animation-name, $duration: $animation-duration-critical, $easing: $spring-easing) {
+@mixin spring-animation(
+  $animation-name,
+  $duration: $animation-duration-critical,
+  $easing: $spring-easing
+) {
   animation: $animation-name $duration $easing forwards;
 }
 
@@ -505,6 +519,7 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 /// @param {number} $max-items - Maximum number of items to stagger (default: 20)
 /// @param {number} $delay-step - Delay between each item in ms (default: 0.04s)
 /// @param {boolean} $reverse - Reverse stagger direction (bottom-to-top) (default: false)
+/* stylelint-disable max-nesting-depth */
 @mixin stagger-children($max-items: 20, $delay-step: 0.04s, $reverse: false) {
   @for $i from 1 through $max-items {
     &:nth-child(#{$i}) {
@@ -516,28 +531,35 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
     }
   }
 }
+/* stylelint-enable max-nesting-depth */
 
 /// Applies smooth transition with refined easing
 /// @param {string} $properties - CSS properties to transition (e.g., 'color background')
 /// @param {number} $duration - Transition duration (default: smooth)
-@mixin smooth-transition($properties: all, $duration: $animation-duration-smooth) {
+@mixin smooth-transition(
+  $properties: all,
+  $duration: $animation-duration-smooth
+) {
   transition: $properties $duration $ease-smooth;
 }
 
 /// Combines multiple smooth transitions
+/* stylelint-disable max-nesting-depth */
 /// @param {string} $property1 - First property
 /// @param {string} $property2 - Second property
 /// @param {string} $property3 - Third property (optional)
 @mixin smooth-multi-transition($property1, $property2, $property3: null) {
-  @if $property3 {
-    transition: $property1 $animation-duration-smooth $ease-smooth,
-                $property2 $animation-duration-smooth $ease-smooth,
-                $property3 $animation-duration-smooth $ease-smooth;
-  } @else {
-    transition: $property1 $animation-duration-smooth $ease-smooth,
-                $property2 $animation-duration-smooth $ease-smooth;
-  }
+  $transition-1: $property1 $animation-duration-smooth $ease-smooth;
+  $transition-2: $property2 $animation-duration-smooth $ease-smooth;
+  $transition-3: if($property3,
+  $property3 $animation-duration-smooth $ease-smooth,
+  null);
+  $transition-list: if($property3,
+  ($transition-1, $transition-2, $transition-3),
+  ($transition-1, $transition-2));
+  transition: list.join($transition-list, (), comma);
 }
+/* stylelint-enable max-nesting-depth */
 
 /// Applies hover lift effect with transitions
 /// @param {number} $lift-distance - How far to lift (default: 2px)
@@ -642,7 +664,10 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 /// Combined hover and touch feedback with different effects
 /// @param {string} $hover-effect - Hover behavior (mouse devices)
 /// @param {string} $touch-effect - Active behavior (touch devices)
-@mixin interactive-feedback($hover-effect: transform translateY(-2px), $touch-effect: scale(0.98)) {
+@mixin interactive-feedback(
+  $hover-effect: transform translateY(-2px),
+  $touch-effect: scale(0.98)
+) {
   @include smooth-transition(transform, box-shadow);
 
   @media (hover: hover) {
@@ -742,73 +767,61 @@ $gradient-shine-pattern: linear-gradient(90deg, transparent 0%, rgba(255, 255, 2
 /// Focuses on animation timing, easing, shapes, and shadow/pattern systems
 /// Colors are applied by components/themes
 $hybrid-theme-config: (
-  // Shape and radius system
+  
   shapes: (
-    radius-xs: $radius-xs,
-    radius-sm: $radius-sm,
-    radius-md: $radius-md,
-    radius-lg: $radius-lg,
-    radius-xl: $radius-xl,
-  ),
+      radius-xs: $radius-xs,     radius-sm: $radius-sm,     radius-md: $radius-md,     radius-lg: $radius-lg,     radius-xl: $radius-xl,    ,
 
-  // Animation timing and physics (semantic)
+  
   animations: (
     spring-easing: $spring-easing,
-    ease-smooth: $ease-smooth,
-    duration-instant: $animation-duration-instant,
-    duration-secondary: $animation-duration-secondary,
-    duration-primary: $animation-duration-primary,
-    duration-critical: $animation-duration-critical,
-    duration-elaborate: $animation-duration-elaborate,
-  ),
+      ease-smooth: $ease-smooth,
+      ration-instant: $animation-dura    nstant,
+      duration-seco     $animation-duration-secondary,
+      duration-    y: $animation-duration-primary,
+      duration-crit    $animation-duration-critical,
+      duration-el    e: $animation-duration-elaborate,
+    ),
 
-  // Shadow patterns (color-agnostic)
-  shadows: (
-    soft: $shadow-soft,
-    medium: $shadow-medium,
-    strong: $shadow-strong,
-  ),
+  
+  sh     (
+      soft: $shadow-soft,
+      medium: $shadow-  um,
+      strong: $shadow-strong,
+    ),
 
-  // Gradient patterns (colors applied by components)
-  gradients: (
-    shine-pattern: $gradient-shine-pattern,
-  ),
-
-  // Keyframe animations - Phase 1 (core)
-  keyframes-core: (
-    item-fade-in: hybrid-item-fade-in,
-    polish-glow: hybrid-polish-glow,
-    subtle-shine: hybrid-subtle-shine,
-    refined-ping: hybrid-refined-ping,
-    snap-select: hybrid-snap-select,
-    chevron-rotate: hybrid-chevron-rotate,
-    item-lift: hybrid-item-lift,
-  ),
-
-  // Keyframe animations - Phase 2 (state machines)
+  
+  gradients:       shine-pattern: $g    t-shine-pattern,
+    ),
+    keyframes-core: (
+        -fade-in: hybrid-item-fade-in,
+      polish-glow: hybrid-polish-glow,
+         e-shine: hybrid-subtle-shine,
+      refi  ping: hybrid-refined-ping,
+      snap-select: hybrid-snap-select,
+      evron-rotate: hybrid-chevron-rotate      item-lift: hybrid-item-lift,
+        
   keyframes-state: (
-    loading-pulse: hybrid-loading-pulse,
-    success-bounce: hybrid-success-bounce,
-    error-shake: hybrid-error-shake,
-  ),
+      loadi    se: hybrid-loading-pulse,
+      suc    ounce: hybrid-success-bounce,
+       or-shake: hybrid-error-shake,
+    ),
 
-  // Keyframe animations - Phase 2 (composition)
-  keyframes-composition: (
-    fade-in-lift: hybrid-fade-in-lift,
-    fade-in-scale: hybrid-fade-in-scale,
-    slide-in-left: hybrid-slide-in-left,
-    slide-in-right: hybrid-slide-in-right,
-    slide-in-up: hybrid-slide-in-up,
-    slide-in-down: hybrid-slide-in-down,
-  ),
+     yframes-composition: (
+        -in-lift: hybrid-fade-in-lift,
+      fade-in-scale: hybrid-fade-in-scale,
+         -in-left: hybrid-slide-in-left,
+         -in-right: hybrid-slide-in-right,
+         -in-up: hybrid-slide-in-up,
+       de-in-down: hybrid-slide-in-down,
+    ),
 
-  // Keyframe animations - Phase 2 (exit)
+  
   keyframes-exit: (
-    exit-fade: hybrid-exit-fade,
-    exit-slide-right: hybrid-exit-slide-right,
-    exit-slide-up: hybrid-exit-slide-up,
-  ),
-);
+      exit-fade:     -exit-fade,
+      exit-slide-right:    d-exit-slide-right,
+      exit-slide-    brid-exit-slide-up,
+    )
+)                      ;
 
 // ============================================================================
 // UTILITY CLASSES (Optional - can be included as CSS)

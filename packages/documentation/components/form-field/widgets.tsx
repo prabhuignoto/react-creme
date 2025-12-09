@@ -1,8 +1,11 @@
+import jsxToString from 'react-element-to-jsx-string';
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Section, Text } from '../../../lib/components';
+import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
+import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
 import {
   Default,
   DropdownField,
@@ -36,38 +39,83 @@ function Widgets() {
   }, [media]);
   return width ? (
     <div className="rc-demo-widgets">
-      <Section size="md" title="Default" border={false}>
-        <DemoWidget name="FormField" width={width}>
-          {Default}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Custom Icon" border={false}>
-        <Text>
-          Use the <code>icon</code> prop to add an icon to the form field.
-        </Text>
-        <DemoWidget name="FormField" width={width} codeString={IconCode}>
-          {Icon}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Field with state" border={false}>
-        <DemoWidget name="FormField" width={width}>
-          {State}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="Dropdown Field" border={false}>
-        <DemoWidget
-          name="FormField"
-          width={width}
-          codeString={DropdownFieldCode}
-        >
-          {DropdownField}
-        </DemoWidget>
-      </Section>
-      <Section size="md" title="RTL Render" border={false}>
-        <DemoWidget name="FormField" width={width}>
-          {RTL}
-        </DemoWidget>
-      </Section>
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Default" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(Default, jsxToStringOptions)}
+            language="jsx"
+            componentName="FormField"
+          >
+            <DemoWidget name="FormField" width={width}>
+              {Default}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Custom Icon" border={false}>
+          <HeaderCodeToggle.Button />
+          <Text>
+            Use the <code>icon</code> prop to add an icon to the form field.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={IconCode}
+            language="jsx"
+            componentName="FormField"
+          >
+            <DemoWidget name="FormField" width={width}>
+              {Icon}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Field with state" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(State, jsxToStringOptions)}
+            language="jsx"
+            componentName="FormField"
+          >
+            <DemoWidget name="FormField" width={width}>
+              {State}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="Dropdown Field" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={DropdownFieldCode}
+            language="jsx"
+            componentName="FormField"
+          >
+            <DemoWidget name="FormField" width={width}>
+              {DropdownField}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section size="md" title="RTL Render" border={false}>
+          <HeaderCodeToggle.Button />
+          <HeaderCodeToggle.Content
+            code={jsxToString(RTL, jsxToStringOptions)}
+            language="jsx"
+            componentName="FormField"
+          >
+            <DemoWidget name="FormField" width={width}>
+              {RTL}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
     </div>
   ) : null;
 }

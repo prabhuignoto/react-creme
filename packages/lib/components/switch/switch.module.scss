@@ -77,33 +77,29 @@ $start-left: tokens.$space-1;
   &.disabled {
     @include hybrid.state-disabled();
     cursor: not-allowed;
+  }
 
-    &:focus-visible {
-      outline-color: theme.$gray-600;
-    }
+  &.disabled:focus-visible {
+    outline-color: theme.$gray-600;
   }
 
   &.read_only {
     cursor: default;
     opacity: 0.8;
+  }
 
-    &:focus-visible {
-      outline-color: theme.$primary;
-    }
+  &.read_only:focus-visible {
+    outline-color: theme.$primary;
   }
 }
 
-.disabled {
-  .knob {
-    & {
-      box-shadow: none;
-      background-color: theme.$gray-300;
+.disabled .knob {
+  box-shadow: none;
+  background-color: theme.$gray-300;
+}
 
-      &.dark {
-        background-color: theme.$steel-gray;
-      }
-    }
-  }
+.disabled .knob.dark {
+  background-color: theme.$steel-gray;
 }
 
 // Loading state
@@ -116,9 +112,11 @@ $start-left: tokens.$space-1;
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.5;
   }
+
   50% {
     opacity: 1;
   }
@@ -192,7 +190,7 @@ $start-left: tokens.$space-1;
   opacity: 0.8;
 }
 
-.knob:not(.on):not(.on-load) {
+.knob:not(.on):not(.on_load) {
   @extend %shadow-small;
 
   svg {
@@ -222,11 +220,11 @@ $start-left: tokens.$space-1;
     &.knob_#{$key} {
       $settings: (
         from: (
-            left: $start-left,
-          ),
+          left: $start-left,
+        ),
         to: (
-            left: calc(100% - $val - $start-left),
-          ),
+          left: calc(100% - $val - $start-left),
+        ),
       );
       background-color: theme.$white;
       height: $val;
@@ -234,7 +232,10 @@ $start-left: tokens.$space-1;
 
       &.on_load {
         // Knob stays white for visibility on blue ON state (visual affordance)
-        left: calc(100% - $val - $start-left);
+        // Position immediately without animation on first render
+        left: calc(100% - $val - $start-left) !important;
+        right: unset;
+        transition: none;
 
         svg {
           color: theme.$primary;

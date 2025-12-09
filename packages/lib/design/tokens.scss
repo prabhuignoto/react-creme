@@ -3,14 +3,13 @@
 
 // Colors
 $color-primary: #4f46e5; // indigo-600
-$color-primary-contrast: #ffffff;
-$color-surface: #ffffff;
+$color-primary-contrast: #fff;
+$color-surface: #fff;
 $color-surface-contrast: #111827; // gray-900
 $color-border: #e5e7eb; // gray-200
 
 // Typography
-$font-family-base:
-  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
   'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 $font-size-base: 16px;
 $line-height-base: 1.5;

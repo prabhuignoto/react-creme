@@ -90,11 +90,9 @@
   }
 
   &:not(.dark)::after {
-    background: linear-gradient(
-      to top right,
-      var(--rc-primary-color-hex),
-      var(--rc-secondary-color-hex)
-    );
+    background: linear-gradient(to top right,
+    var(--rc-primary-color-hex),
+    var(--rc-secondary-color-hex));
   }
 
   &.dark::after {

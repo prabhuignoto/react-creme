@@ -47,45 +47,37 @@ $pin-spacing: tokens.$space-3;
   // Loading state
   &.loading {
     position: relative;
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(theme.$white, 0.5);
-      border-radius: tokens.$radius-sm;
-      pointer-events: none;
-    }
+  &.loading::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(theme.$white, 0.5);
+    border-radius: tokens.$radius-sm;
+    pointer-events: none;
   }
 
   // Error state
-  &.error {
-    .item input {
-      border-color: theme.$crimson;
-      box-shadow: inset 0 0 0 1px theme.$crimson;
-    }
+  &.error .item input {
+    border-color: theme.$crimson;
+    box-shadow: inset 0 0 0 1px theme.$crimson;
   }
 
   // Status states
-  &.status-success {
-    .item input {
-      border-color: theme.$success-green;
-      box-shadow: inset 0 0 0 1px theme.$success-green;
-    }
+  &.status-success .item input {
+    border-color: theme.$success-green;
+    box-shadow: inset 0 0 0 1px theme.$success-green;
   }
 
-  &.status-warning {
-    .item input {
-      border-color: theme.$amber;
-      box-shadow: inset 0 0 0 1px theme.$amber;
-    }
+  &.status-warning .item input {
+    border-color: theme.$amber;
+    box-shadow: inset 0 0 0 1px theme.$amber;
   }
 
-  &.status-error {
-    .item input {
-      border-color: theme.$crimson;
-      box-shadow: inset 0 0 0 1px theme.$crimson;
-    }
+  &.status-error .item input {
+    border-color: theme.$crimson;
+    box-shadow: inset 0 0 0 1px theme.$crimson;
   }
 }
 
@@ -167,7 +159,9 @@ $pin-spacing: tokens.$space-3;
   }
 
   // Transitions
-  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
     background-color 0.2s ease;
 
   // Remove spinner arrows for number inputs
@@ -177,17 +171,17 @@ $pin-spacing: tokens.$space-3;
   }
 
   &[type='number'] {
-    -moz-appearance: textfield;
+    appearance: textfield;
   }
 
   // Password masking appearance
   &[type='password'] {
     letter-spacing: 0.5em;
     font-size: 1.5em;
+  }
 
-    &::placeholder {
-      letter-spacing: normal;
-    }
+  &[type='password']::placeholder {
+    letter-spacing: normal;
   }
 }
 

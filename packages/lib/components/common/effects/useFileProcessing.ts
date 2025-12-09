@@ -11,8 +11,7 @@ import {
 import { useFilePreview, UseFilePreviewOptions } from './useFilePreview';
 
 export interface UseFileProcessingOptions
-  extends UseFileValidationOptions,
-    UseFilePreviewOptions {
+  extends UseFileValidationOptions, UseFilePreviewOptions {
   /**
    * Maximum number of files allowed
    * @default Infinity

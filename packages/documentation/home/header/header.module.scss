@@ -15,7 +15,8 @@
   /* Ensure logo/text is visible in both modes */
   color: var(--text-primary);
 
-  a, svg {
+  a,
+ svg {
     color: var(--text-primary);
   }
 }
