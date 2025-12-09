@@ -29,11 +29,7 @@ function accordionGroup() {
       sourceId="accordion-group/accordion-group.tsx"
       editId="accordion-group"
       pageIcon={<MinusSquare size={32} />}
-      features={[
-        'Auto closing accordion sections',
-        'Customizable accordion icons',
-        'Support for custom sizes: small, medium and large',
-      ]}
+      features={['Auto-close sections', 'Custom icons', 'Custom sizes']}
       properties={[
         {
           default: 'False',

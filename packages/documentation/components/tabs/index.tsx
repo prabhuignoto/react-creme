@@ -16,9 +16,9 @@ function tabs() {
       features={[
         'Custom sizes',
         'Responsive',
-        'Scrollable Tab heads',
-        'Ready to use Tab styles (Flat or Rounded)',
-        'Support for disabled tabs',
+        'Scrollable tabs',
+        'Flat or rounded',
+        'Disabled tabs',
       ]}
       properties={[
         {

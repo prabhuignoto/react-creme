@@ -27,11 +27,7 @@ function Password() {
       pageIcon={<Eye size={32} />}
       sourceId="password/password.tsx"
       editId="password"
-      features={[
-        'UI Control for showing and hiding password',
-        'Customizable size',
-        'RTL Support',
-      ]}
+      features={['Show/hide toggle', 'Custom sizes', 'RTL support']}
       properties={[
         {
           default: 'false',

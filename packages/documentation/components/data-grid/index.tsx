@@ -29,11 +29,11 @@ const DataGridDemo: React.FunctionComponent = () => {
       editId="data-grid"
       sourceId="data-grid/data-grid.tsx"
       features={[
-        'Supports two layouts. Comfortable or Compact',
+        'Comfortable/compact layouts',
         'Sortable',
-        'Quick Search',
-        'Two different outlooks for the table via the border property',
-        'Zebra rendering',
+        'Quick search',
+        'Border styles',
+        'Zebra striping',
       ]}
       properties={[
         {

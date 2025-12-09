@@ -1,7 +1,6 @@
 import { TriangleIcon } from '@icons';
 import classNames from 'classnames';
 import React, { useMemo, useState, useCallback } from 'react';
-import { isDark } from '../common/utils';
 import { DataGridCell } from './data-grid-cell';
 import styles from './data-grid-header.module.scss';
 import iconStyles from './data-grid-icons.module.scss';
@@ -14,11 +13,9 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
   layoutStyle,
   border,
   size,
-  searchable,
+  searchable: _searchable,
   sortData,
 }: DataGridHeaderProps) => {
-  // Simple function call - no need for useMemo
-  const isDarkMode = isDark();
   const [headerColumns, setHeaderColumns] = useState(() =>
     columns.map(col => ({
       ...col,
@@ -61,14 +58,6 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
       [styles[`${size}`]]: true,
     });
   }, [layoutStyle, size]);
-
-  const headerCellClass = useMemo(() => {
-    return classNames(styles.cell, {
-      [styles.border]: border,
-      [styles.dark]: isDarkMode,
-      [styles.searchable]: searchable,
-    });
-  }, [border, isDarkMode, searchable]);
 
   // Memoize the sort icon rendering for better performance
   const renderSortIcons = useCallback(
@@ -130,16 +119,20 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
     <div className={headerClass} style={style} role="row" aria-rowindex={1}>
       {headerColumns.map((column, index) => (
         <div
-          className={headerCellClass}
           key={column.name}
           role="columnheader"
           aria-sort={column.sortable ? getAriaSort(column.name) : undefined}
           aria-colindex={index + 1}
+          style={{
+            alignItems: 'center',
+            display: 'flex',
+            justifyContent: 'flex-start',
+          }}
         >
           <DataGridCell
             name={column.name}
             value={column.name}
-            border={false}
+            border={border}
             isHeader
           />
           {renderSortIcons(column)}

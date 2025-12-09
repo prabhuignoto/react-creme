@@ -12,10 +12,10 @@ function tooltip() {
       sourceId="tooltip/tooltip.tsx"
       editId="tooltip"
       features={[
-        '12 docking positions',
+        '12 positions',
         'Custom sizes',
-        'Activate only on click',
-        'Always visible tooltip',
+        'Click activation',
+        'Always visible',
       ]}
       callbacks={[
         {

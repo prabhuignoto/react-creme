@@ -20,11 +20,7 @@ const ReadMore = () => {
       stackBlitzCodes={['react-ts-s9qxmk']}
       sourceId="read-more/read-more.tsx"
       editId="read-more"
-      features={[
-        'Custom sizes',
-        'Configure the number of lines to be shown',
-        'Supports RTL',
-      ]}
+      features={['Custom sizes', 'Configurable lines', 'RTL support']}
       pageIcon={<MoreHorizontal size={32} />}
       properties={[
         {

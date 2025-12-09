@@ -27,9 +27,9 @@ function Draggable() {
       demoWidget={<Widgets />}
       title="useDraggable"
       features={[
-        'Restrict dragging to the containing element',
-        'Restrict drag to either Horizontal or Vertical axis',
-        'Enable dragging on multiple targets',
+        'Container-bound dragging',
+        'Axis restriction',
+        'Multiple targets',
       ]}
       properties={[]}
       description={Description}

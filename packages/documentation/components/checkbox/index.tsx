@@ -23,11 +23,7 @@ function checkbox() {
       pageIcon={<CheckSquare size={32} />}
       editId="checkbox"
       sourceId="checkbox/checkbox.tsx"
-      features={[
-        'Custom sizes',
-        'Disabled state',
-        'Custom outlook (square or rounded)',
-      ]}
+      features={['Custom sizes', 'Disabled state', 'Square or rounded']}
       callbacks={[
         {
           default: '',

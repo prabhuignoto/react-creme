@@ -31,9 +31,9 @@ function drawer() {
       editId="drawer"
       sourceId="drawer/drawer.tsx"
       features={[
-        'Four docking positions',
-        'Adjustable width and height',
-        'Support for Custom transition',
+        'Four positions',
+        'Adjustable dimensions',
+        'Custom transitions',
       ]}
       properties={[
         {

@@ -17,11 +17,7 @@ function Link() {
       title="Link"
       description={Description}
       tabTitles={['examples', 'properties', 'stackblitz']}
-      features={[
-        'Custom sizes',
-        'Support for custom icon',
-        'Accent. default or button',
-      ]}
+      features={['Custom sizes', 'Custom icons', 'Multiple accents']}
       properties={[
         {
           default: '',

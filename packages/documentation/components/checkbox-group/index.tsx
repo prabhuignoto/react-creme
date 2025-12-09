@@ -15,9 +15,9 @@ function index() {
       sourceId="checkbox-group/checkbox-group.tsx"
       features={[
         'Custom sizes',
-        'Option to disable checkboxes',
-        'RTL Support',
-        'Custom checkbox outlook (square or rounded)',
+        'Disable options',
+        'RTL support',
+        'Square or rounded',
       ]}
       callbacks={[
         {

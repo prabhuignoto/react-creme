@@ -19,12 +19,12 @@ function slider() {
       sourceId="slider/slider.tsx"
       editId="slider"
       features={[
-        'Customizable knob size',
-        'Knob shapes: round, square',
-        'Option to change the tooltip position (top or bottom)',
-        'Show tooltip only on Hover action',
+        'Custom knob size',
+        'Round/square knob',
+        'Tooltip positioning',
+        'Hover tooltip',
         'Disabled state',
-        "Format the tooltip's message",
+        'Custom tooltip format',
       ]}
       properties={[
         {

@@ -10,7 +10,7 @@ function index() {
       pageIcon={<List size={32} />}
       sourceId="scroll-spy/scroll-spy.tsx"
       editId="scroll-spy"
-      features={['Smart and intuitive', 'Supports RTL rendering']}
+      features={['Smart tracking', 'RTL support']}
       properties={[
         {
           default: '[]',

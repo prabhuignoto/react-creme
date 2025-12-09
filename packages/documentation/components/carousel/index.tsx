@@ -28,9 +28,9 @@ function carousel() {
       pageIcon={<Film size={32} />}
       editId="carousel"
       features={[
-        'Vertical or Horizontal layout',
-        'Custom Transitions',
-        'Auto play',
+        'Vertical/horizontal layout',
+        'Custom transitions',
+        'Auto-play',
       ]}
       sourceId="carousel/carousel.tsx"
       properties={[

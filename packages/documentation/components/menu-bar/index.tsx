@@ -14,7 +14,7 @@ function menu() {
         application-specific menus which provide access to such functions as opening files, interacting with an application, or displaying help documentation or manuals`}
       sourceId="menu/menu.tsx"
       editId="menu"
-      features={['Custom sizes', 'Support for custom icons', 'RTL rendering']}
+      features={['Custom sizes', 'Custom icons', 'RTL support']}
       callbacks={[
         {
           default: '',

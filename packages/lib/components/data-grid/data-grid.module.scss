@@ -54,19 +54,17 @@ $sizes: (sm, md, lg);
   }
 
   // Apply zebra striping
-  &.zebra {
-    &.dark {
-      background-color: rgba(theme.$gunmetal-gray, 0.25);
-    }
+  &.zebra.dark {
+    background-color: rgba(theme.$gunmetal-gray, 0.25);
+  }
 
-    &:not(.dark) {
-      background-color: rgba(theme.$light-bg, 0.75);
-    }
+  &.zebra:not(.dark) {
+    background-color: rgba(theme.$light-bg, 0.75);
   }
 }
 
 // Cell border styles
-.cell_border:not(:last-child) {
+.cell_border {
   &.dark {
     @include dark-border;
   }
@@ -115,7 +113,10 @@ $sizes: (sm, md, lg);
 // Cell styles
 .cell {
   @extend %left;
-  width: calc(100% - 1px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
 }
 
 // Cell content styles
@@ -124,7 +125,8 @@ $sizes: (sm, md, lg);
   line-height: 25px;
   padding: tokens.$space-1 tokens.$space-2; // 4px 8px
   text-align: left;
-  width: calc(100% - 1rem);
+  width: 100%;
+  box-sizing: border-box;
 
   &.header {
     font-weight: 500;
@@ -195,6 +197,9 @@ $sizes: (sm, md, lg);
   @extend %left;
   height: 100%;
   width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
 }
 
 // Zebra stripe styles

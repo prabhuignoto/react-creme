@@ -21,7 +21,7 @@ function menu() {
       description={Description}
       sourceId="menu/menu.tsx"
       editId="menu"
-      features={['Keyboard combinations', 'Custom thickness', 'Custom sizes']}
+      features={['Key combinations', 'Custom thickness', 'Custom sizes']}
       properties={[
         {
           default: 'sm',

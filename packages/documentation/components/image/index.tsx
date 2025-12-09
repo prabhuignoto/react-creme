@@ -24,7 +24,7 @@ function image() {
       pageIcon={<Image size={32} />}
       sourceId="image/image.tsx"
       editId="image"
-      features={['Expandable Image', 'Loading indicator', 'Responsive']}
+      features={['Expandable', 'Loading indicator', 'Responsive']}
       callbacks={[
         {
           default: '',

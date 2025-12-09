@@ -26,8 +26,8 @@ function menu() {
       editId="loading-indicator"
       pageIcon={<Loader2 size={32} />}
       features={[
-        'Customizable shape,speed and size',
-        'Customizable number of items',
+        'Custom shape, speed, size',
+        'Custom item count',
         'RTL support',
       ]}
       properties={[

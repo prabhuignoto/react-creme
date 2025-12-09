@@ -8,14 +8,10 @@ $sizes: (sm, md, lg);
   color: theme.$black;
   height: 100%;
   text-transform: capitalize;
-
-  &.cell_border {
-    width: calc(100% - 1px);
-  }
-
-  &:not(.cell_border) {
-    width: 100%;
-  }
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
 
   &.dark {
     background: rgba(theme.$charcoal-gray, 0.5);
@@ -44,10 +40,12 @@ $sizes: (sm, md, lg);
   .cell_val {
     font-weight: 500;
     width: 100%;
+    box-sizing: border-box;
+    text-align: left;
   }
 }
 
-.border:not(:last-child) {
+.border {
   &.dark {
     border-right: 1px solid theme.$charcoal-gray;
   }
@@ -58,7 +56,6 @@ $sizes: (sm, md, lg);
 }
 
 .header {
-  justify-items: center;
   width: 100%;
 
   &.compact {

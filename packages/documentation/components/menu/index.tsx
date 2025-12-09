@@ -25,11 +25,7 @@ function menu() {
       description={Description}
       sourceId="menu/menu.tsx"
       editId="menu"
-      features={[
-        'Custom sizes',
-        '3 unique docking positions',
-        'Attach menu to any type of target element',
-      ]}
+      features={['Custom sizes', 'Three positions', 'Any target element']}
       callbacks={[
         {
           default: '',

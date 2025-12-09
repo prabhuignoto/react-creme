@@ -12,9 +12,9 @@ function buttons() {
       stackBlitzCodes={['react-ts-uy6jjh']}
       features={[
         'Custom sizes',
-        'Button Types',
-        'Button with loading state',
-        'Support for custom Icon',
+        'Multiple types',
+        'Loading state',
+        'Custom icons',
         'Disabled state',
       ]}
       callbacks={[

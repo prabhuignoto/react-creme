@@ -13,10 +13,10 @@ function index() {
       pageIcon={<AlertCircle size={32} />}
       features={[
         'Custom sizes',
-        'RTL Support',
-        'Render custom content',
-        'Dismissable alert boxes',
-        'Stateful alerts. Supports success, info, warning and error',
+        'RTL support',
+        'Custom content',
+        'Dismissible',
+        'Multiple states',
       ]}
       callbacks={[
         {

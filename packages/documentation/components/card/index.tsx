@@ -15,10 +15,10 @@ function card() {
       sourceId="card/card.tsx"
       editId="card"
       features={[
-        'Customize Header and Footer content',
-        'RTL Support',
+        'Custom header/footer',
+        'RTL support',
         'Adjustable height',
-        'Bordered or Shadowed outlook',
+        'Border or shadow',
       ]}
       properties={[
         {

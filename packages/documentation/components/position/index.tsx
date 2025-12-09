@@ -8,10 +8,7 @@ function Position() {
     <DemoPageRenderer
       title="usePosition"
       description="A hook to position a target element relative to a container element."
-      features={[
-        'Position the target element with ease',
-        'Supports 12 positions',
-      ]}
+      features={['12 positions', 'Easy positioning']}
       properties={[]}
       tabTitles={['Examples', 'Playground']}
       demoWidget={<Widgets />}

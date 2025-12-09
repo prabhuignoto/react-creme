@@ -25,9 +25,9 @@ function progress() {
       sourceId="progress/progress.tsx"
       features={[
         'Custom sizes',
-        'Indeterminate or determinate progress',
-        'Circular progress - Indeterminate',
-        'Stateful progress bars. Success, Error',
+        'Determinate/indeterminate',
+        'Circular variant',
+        'Multiple states',
       ]}
       properties={[
         {

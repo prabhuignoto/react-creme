@@ -32,10 +32,10 @@ const Accordion = () => {
       sourceId="accordion/accordion.tsx"
       editId="accordion"
       features={[
-        'Set the accordion to expanded or collapsed on load',
-        'Customizable accordion icons',
-        'RTL Support',
-        'Support for custom sizes: small, medium and large',
+        'Expand/collapse on load',
+        'Custom icons',
+        'RTL support',
+        'Custom sizes',
       ]}
       pageIcon={<MinusSquare size={32} />}
       callbacks={[

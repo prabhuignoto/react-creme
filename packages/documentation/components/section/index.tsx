@@ -14,7 +14,7 @@ function index() {
       pageIcon={<Square size={32} />}
       sourceId="section/section.tsx"
       editId="section"
-      features={['RTL Support', 'Custom Sizes']}
+      features={['RTL support', 'Custom sizes']}
       properties={[
         {
           default: '',

@@ -28,11 +28,7 @@ function index() {
       pageIcon={<Megaphone size={32} />}
       sourceId="global-notification/global-notification.tsx"
       editId="global-notification"
-      features={[
-        'Custom sizes',
-        'Stateful notifications. Supports success, info, warning and error',
-        'Custom animations',
-      ]}
+      features={['Custom sizes', 'Multiple states', 'Custom animations']}
       callbacks={[
         {
           default: '',

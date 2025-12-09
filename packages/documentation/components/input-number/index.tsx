@@ -22,7 +22,7 @@ function InputNumber() {
       title="Input Number"
       description={Description}
       tabTitles={['examples', 'properties', 'stackblitz']}
-      features={['RTL Support', 'Custom sizes']}
+      features={['RTL support', 'Custom sizes']}
       properties={[
         {
           default: '1',

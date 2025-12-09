@@ -30,20 +30,15 @@ function index() {
       editId="file-upload"
       tabTitles={['Examples', 'Properties', 'Playground']}
       features={[
-        'Multiple file selection',
-        'Drag and drop support',
-        'Paste from clipboard',
-        'File type validation (accept prop)',
-        'File size validation (maxSize prop)',
-        'Maximum files limit (maxFiles prop)',
-        'Image thumbnail previews',
-        'Upload progress tracking',
-        'Custom drop zone content',
-        'Size variants (sm, md, lg)',
-        'Dark mode support',
+        'Multiple files',
+        'Drag & drop',
+        'Paste support',
+        'File validation',
+        'Thumbnail previews',
+        'Progress tracking',
+        'Custom sizes',
         'RTL support',
-        'Full keyboard accessibility',
-        'WCAG 2.1 AA compliant',
+        'WCAG AA compliant',
       ]}
       callbacks={[
         {

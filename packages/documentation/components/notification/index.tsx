@@ -24,11 +24,7 @@ function notification() {
       pageIcon={<Bell size={32} />}
       sourceId="notification/notification.tsx"
       editId="notification"
-      features={[
-        'Easy docking to 6 different positions',
-        'Auto closing notifications',
-        'Contained notifications',
-      ]}
+      features={['Six positions', 'Auto-close', 'Contained']}
       callbacks={[
         {
           default: '',

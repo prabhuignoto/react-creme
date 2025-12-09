@@ -64,14 +64,12 @@ function BreadCrumb() {
       ]}
       tabTitles={['Examples', 'Properties', 'StackBlitz', 'RTL Support']}
       features={[
-        'Full keyboard navigation (Arrow keys, Home, End)',
-        'Three size variants (sm, md, lg)',
-        'Customizable separator icons (chevron, arrow, slash)',
-        'Right-to-left (RTL) layout support for international applications',
-        'WCAG 2.1 AA compliant with semantic HTML and ARIA attributes',
-        'Automatic focus management and visual indicators',
-        'Click and keyboard selection callbacks',
-        'Lightweight and performant with React.memo optimization',
+        'Keyboard navigation',
+        'Size variants',
+        'Custom separators',
+        'RTL support',
+        'WCAG AA compliant',
+        'Focus management',
       ]}
       demoWidget={<Widgets />}
       title="Bread Crumb"

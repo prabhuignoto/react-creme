@@ -29,9 +29,9 @@ function index() {
       editId="auto-suggest"
       features={[
         'Custom sizes',
-        'API backed suggestions or local',
-        'RTL Support',
-        'Adjustable list width',
+        'API or local suggestions',
+        'RTL support',
+        'Adjustable width',
       ]}
       callbacks={[
         {

@@ -24,10 +24,10 @@ function index() {
       editId="input"
       features={[
         'Custom sizes',
-        'RTL Support',
-        "Support for adding icons to the input's leading side",
-        'Input with states (error, success etc.)',
-        'Input accents flat or rounded',
+        'RTL support',
+        'Leading icons',
+        'Multiple states',
+        'Flat or rounded',
       ]}
       callbacks={[
         {

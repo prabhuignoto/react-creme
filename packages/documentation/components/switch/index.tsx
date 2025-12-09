@@ -12,11 +12,7 @@ function switchComponent() {
       The design and functionality of this control is based on a physical switch that allows users to turn things ON or OFF`}
       sourceId="switch/switch.tsx"
       editId="switch"
-      features={[
-        'Custom sizes',
-        'Accessible labels with aria-label support',
-        'Disabled state',
-      ]}
+      features={['Custom sizes', 'ARIA labels', 'Disabled state']}
       callbacks={[
         {
           default: ``,

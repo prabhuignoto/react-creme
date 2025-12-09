@@ -28,7 +28,7 @@ function formGroup() {
       pageIcon={<List size={32} />}
       sourceId="form-group/form-group.tsx"
       editId="form-group"
-      features={['RTL Support']}
+      features={['RTL support']}
       properties={[
         {
           default: 'false',

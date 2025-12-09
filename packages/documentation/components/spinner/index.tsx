@@ -22,7 +22,7 @@ function spinner() {
       pageIcon={<Sliders size={32} />}
       sourceId="spinner/spinner.tsx"
       editId="spinner"
-      features={['Custom sizes', 'Adjustable spinning speed']}
+      features={['Custom sizes', 'Adjustable speed']}
       properties={[
         {
           default: 'sm',

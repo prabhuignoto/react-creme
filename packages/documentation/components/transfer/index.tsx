@@ -12,7 +12,7 @@ function transfer() {
       pageIcon={<ArrowLeftRight size={32} />}
       sourceId="transfer/transfer.tsx"
       editId="transfer"
-      features={['Searchable', 'RTL Support']}
+      features={['Searchable', 'RTL support']}
       callbacks={[
         {
           default: '',

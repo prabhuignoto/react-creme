@@ -23,7 +23,7 @@ function comparer() {
       description={Description}
       pageIcon={<Images size={32} />}
       editId="comparer"
-      features={['Horizontal or Vertical layout']}
+      features={['Horizontal/vertical layout']}
       sourceId="image-comparer/image-comparer.tsx"
       properties={[
         {

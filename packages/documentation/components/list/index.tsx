@@ -14,9 +14,9 @@ function list() {
       sourceId="list/list.tsx"
       editId="list"
       features={[
-        'Single or Multiple selection',
-        'Searchable list',
-        'Virtualized list for improved performance',
+        'Single/multiple selection',
+        'Searchable',
+        'Virtualized',
         'Custom sizes',
       ]}
       callbacks={[

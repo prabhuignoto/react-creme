@@ -31,9 +31,9 @@ function radioGroup() {
       editId="radio-group"
       features={[
         'Custom sizes',
-        'RTL Support',
-        'Option to disable radio buttons',
-        'Vertical or Horizontal layout',
+        'RTL support',
+        'Disable options',
+        'Vertical/horizontal layout',
       ]}
       callbacks={[
         {

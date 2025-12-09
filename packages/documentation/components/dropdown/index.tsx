@@ -26,11 +26,11 @@ function dropdown() {
       sourceId="dropdown/dropdown.tsx"
       editId="dropdown"
       features={[
-        'Supports both Single and Multiple selection',
-        'RTL Support',
+        'Single/multiple selection',
+        'RTL support',
         'Custom sizes',
-        'Searchable list to filter options',
-        'Virtualized list for improved performance',
+        'Searchable',
+        'Virtualized',
       ]}
       properties={[
         {

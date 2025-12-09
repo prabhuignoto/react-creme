@@ -13,9 +13,9 @@ function rate() {
       editId="rate"
       features={[
         'Custom sizes',
-        'RTL Support',
+        'RTL support',
         'Disabled state',
-        'Supports custom icon and icon count',
+        'Custom icons & count',
       ]}
       callbacks={[
         {

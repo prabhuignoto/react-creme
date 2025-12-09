@@ -60,7 +60,12 @@ const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
             const { value, id, name } = cellData;
             const formatter = col.formatter;
             return (
-              <div key={id} role="cell" aria-colindex={colIndex + 1}>
+              <div
+                key={id}
+                role="cell"
+                aria-colindex={colIndex + 1}
+                style={{ alignItems: 'center', display: 'flex' }}
+              >
                 <DataGridCell
                   value={value ?? ''}
                   name={name}

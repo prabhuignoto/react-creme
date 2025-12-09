@@ -28,10 +28,10 @@ function formGroup() {
       sourceId="gallery/gallery.tsx"
       editId="gallery"
       features={[
-        'Expandable Images',
-        'Build gallery grid of any dimension',
-        'Create gallery quickly with Image urls',
-        'Adjust the image dimension as well as the gap between the images',
+        'Expandable images',
+        'Flexible grid',
+        'URL-based setup',
+        'Custom dimensions & spacing',
       ]}
       properties={[
         {

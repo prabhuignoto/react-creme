@@ -13,7 +13,7 @@ function splitter() {
       sourceId="splitter/splitter.tsx"
       editId="splitter"
       pageIcon={<Columns size={32} />}
-      features={['Horizontal or vertical splitting']}
+      features={['Horizontal/vertical split']}
       properties={[
         {
           default: 'horizontal',

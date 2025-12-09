@@ -11,7 +11,7 @@ function menuButton() {
       pageIcon={<Hand size={32} />}
       sourceId="menu-button/menu-button.tsx"
       editId="menu-button"
-      features={['Custom sizes', 'RTL Support']}
+      features={['Custom sizes', 'RTL support']}
       callbacks={[
         {
           default: '',

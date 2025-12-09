@@ -27,14 +27,13 @@ function tags() {
       sourceId="tags/tags.tsx"
       editId="tags"
       features={[
-        'Editable tags',
-        'Readonly tags for display only purposes',
+        'Editable/readonly',
         'Custom sizes',
-        'AutoComplete inputs',
+        'Autocomplete',
         'Disabled state',
-        'Custom outlook. filled or default',
-        'Restrict the number of tags with maxTags',
-        'Change the accent. flat or rounded',
+        'Filled/default style',
+        'Max tags limit',
+        'Flat or rounded',
       ]}
       callbacks={[
         {

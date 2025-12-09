@@ -19,7 +19,7 @@ function Pin() {
     <DemoPageRenderer
       title="Pin"
       description={Description}
-      features={['Auto focusing input', 'RTL support', 'Custom pin length']}
+      features={['Auto-focus', 'RTL support', 'Custom length']}
       callbacks={[
         {
           default: '',

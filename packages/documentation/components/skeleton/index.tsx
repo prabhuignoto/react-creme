@@ -24,10 +24,10 @@ function skeleton() {
       sourceId="skeleton/skeleton.tsx"
       editId="skeleton"
       features={[
-        'Custom row count and height',
-        'Easily animate rows',
-        'Option to add multiple skeleton blocks',
-        'RTL Support',
+        'Custom rows & height',
+        'Animated rows',
+        'Multiple blocks',
+        'RTL support',
       ]}
       properties={[
         {

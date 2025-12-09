@@ -31,8 +31,8 @@ function formField() {
       editId="dropdown"
       features={[
         'Custom sizes',
-        'RTL Support',
-        'Custom icon for labels',
+        'RTL support',
+        'Label icons',
         'Disabled state',
       ]}
       properties={[
