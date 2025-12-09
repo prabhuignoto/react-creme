@@ -767,61 +767,64 @@ transparent 100%);
 /// Focuses on animation timing, easing, shapes, and shadow/pattern systems
 /// Colors are applied by components/themes
 $hybrid-theme-config: (
-  
   shapes: (
-      radius-xs: $radius-xs,     radius-sm: $radius-sm,     radius-md: $radius-md,     radius-lg: $radius-lg,     radius-xl: $radius-xl,    ,
+    radius-xs: $radius-xs,
+    radius-sm: $radius-sm,
+    radius-md: $radius-md,
+    radius-lg: $radius-lg,
+    radius-xl: $radius-xl,
+  ),
 
-  
   animations: (
     spring-easing: $spring-easing,
-      ease-smooth: $ease-smooth,
-      ration-instant: $animation-dura    nstant,
-      duration-seco     $animation-duration-secondary,
-      duration-    y: $animation-duration-primary,
-      duration-crit    $animation-duration-critical,
-      duration-el    e: $animation-duration-elaborate,
-    ),
+    ease-smooth: $ease-smooth,
+    duration-instant: $animation-duration-instant,
+    duration-secondary: $animation-duration-secondary,
+    duration-primary: $animation-duration-primary,
+    duration-critical: $animation-duration-critical,
+    duration-elaborate: $animation-duration-elaborate,
+  ),
 
-  
-  sh     (
-      soft: $shadow-soft,
-      medium: $shadow-  um,
-      strong: $shadow-strong,
-    ),
+  shadows: (
+    soft: $shadow-soft,
+    medium: $shadow-medium,
+    strong: $shadow-strong,
+  ),
 
-  
-  gradients:       shine-pattern: $g    t-shine-pattern,
-    ),
-    keyframes-core: (
-        -fade-in: hybrid-item-fade-in,
-      polish-glow: hybrid-polish-glow,
-         e-shine: hybrid-subtle-shine,
-      refi  ping: hybrid-refined-ping,
-      snap-select: hybrid-snap-select,
-      evron-rotate: hybrid-chevron-rotate      item-lift: hybrid-item-lift,
-        
+  gradients: (
+    shine-pattern: $gradient-shine-pattern,
+  ),
+  keyframes-core: (
+    fade-in: hybrid-item-fade-in,
+    polish-glow: hybrid-polish-glow,
+    subtle-shine: hybrid-subtle-shine,
+    refined-ping: hybrid-refined-ping,
+    snap-select: hybrid-snap-select,
+    chevron-rotate: hybrid-chevron-rotate,
+    item-lift: hybrid-item-lift,
+  ),
+
   keyframes-state: (
-      loadi    se: hybrid-loading-pulse,
-      suc    ounce: hybrid-success-bounce,
-       or-shake: hybrid-error-shake,
-    ),
+    loading-pulse: hybrid-loading-pulse,
+    success-bounce: hybrid-success-bounce,
+    error-shake: hybrid-error-shake,
+  ),
 
-     yframes-composition: (
-        -in-lift: hybrid-fade-in-lift,
-      fade-in-scale: hybrid-fade-in-scale,
-         -in-left: hybrid-slide-in-left,
-         -in-right: hybrid-slide-in-right,
-         -in-up: hybrid-slide-in-up,
-       de-in-down: hybrid-slide-in-down,
-    ),
+  keyframes-composition: (
+    fade-in-lift: hybrid-fade-in-lift,
+    fade-in-scale: hybrid-fade-in-scale,
+    slide-in-left: hybrid-slide-in-left,
+    slide-in-right: hybrid-slide-in-right,
+    slide-in-up: hybrid-slide-in-up,
+    slide-in-down: hybrid-slide-in-down,
+  ),
 
-  
   keyframes-exit: (
-      exit-fade:     -exit-fade,
-      exit-slide-right:    d-exit-slide-right,
-      exit-slide-    brid-exit-slide-up,
-    )
-)                      ;
+    exit-fade: hybrid-exit-fade,
+    exit-slide-right: hybrid-exit-slide-right,
+    exit-slide-up: hybrid-exit-slide-up,
+  ),
+);
 
 // ============================================================================
 // UTILITY CLASSES (Optional - can be included as CSS)
