@@ -1,4 +1,5 @@
 @use '@design/theme.scss';
+@use '@design/tokens.scss';
 @use '@design/core.scss';
 @use '@design/list.scss';
 @use '@design/animate.scss';
@@ -24,7 +25,7 @@
 .single {
   .chevron_icon {
     margin-left: auto;
-    margin-right: 8px;
+    margin-right: tokens.$space-2;
   }
 }
 

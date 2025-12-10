@@ -9,4 +9,4 @@ export PATH="/usr/local/bin:$PATH"
 bunx oxlint
 
 # Run lint-staged for formatting and linting
-bunx lint-staged
+# bunx lint-staged

@@ -62,6 +62,12 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
     // Track previous selection to prevent calling callback when selection hasn't changed
     const prevSelectedIdsRef = useRef<Set<string>>(new Set());
 
+    // Track previous selected IDs from props to sync with parent-controlled selection
+    const prevPropsSelectedIdsRef = useRef<Set<string>>(new Set());
+
+    // Flag to prevent notifying parent when syncing from props
+    const isSyncingFromPropsRef = useRef(false);
+
     // Derive options from props and merge with selection state
     const _listOptions = useMemo(() => {
       const parsed = ParseOptions(options, rowGap, itemHeight, noUniqueIds);
@@ -138,22 +144,43 @@ const List = React.forwardRef<Partial<HTMLUListElement>, ListProps>(
       [_listOptions, selectedIds]
     );
 
-    // Sync selection from props on mount only
-    // NOTE: Only runs once on mount to prevent infinite loops caused by ParseOptions
-    // generating new IDs (nanoid) on every render
+    // Sync selection from props when options change
+    // Track selected state from parent-controlled options
     useEffect(() => {
-      const initialSelected = options
+      const selectedFromProps = options
         .filter(opt => opt.selected)
         .map(opt => opt.id)
         .filter((id): id is string => id !== undefined);
 
-      if (initialSelected.length > 0) {
-        setSelectedIds(new Set(initialSelected));
+      const currentSelectedSet = new Set(selectedFromProps);
+      const prevPropsSelected = prevPropsSelectedIdsRef.current;
+
+      // Only update if the selection from props actually changed
+      const propsSelectionChanged =
+        currentSelectedSet.size !== prevPropsSelected.size ||
+        Array.from(currentSelectedSet).some(id => !prevPropsSelected.has(id)) ||
+        Array.from(prevPropsSelected).some(id => !currentSelectedSet.has(id));
+
+      if (propsSelectionChanged) {
+        isSyncingFromPropsRef.current = true;
+        // Update prevSelectedIdsRef synchronously to prevent notification
+        prevSelectedIdsRef.current = new Set(currentSelectedSet);
+        setSelectedIds(currentSelectedSet);
+        prevPropsSelectedIdsRef.current = new Set(currentSelectedSet);
+        // Reset flag in next tick
+        queueMicrotask(() => {
+          isSyncingFromPropsRef.current = false;
+        });
       }
-    }, []);
+    }, [options]);
 
     // Notify parent of selection changes
     useEffect(() => {
+      // Don't notify parent when syncing from props
+      if (isSyncingFromPropsRef.current) {
+        return;
+      }
+
       // Check if selection actually changed by comparing Set contents
       const currentIds = selectedIds;
       const prevIds = prevSelectedIdsRef.current;
