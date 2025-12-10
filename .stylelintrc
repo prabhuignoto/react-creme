@@ -1,8 +1,0 @@
-{
-  "extends": ["stylelint-config-sass-guidelines"],
-  "plugins": ["stylelint-scss"],
-  "rules": {
-    "selector-pseudo-element-no-unknown": null,
-    "selector-class-pattern": null
-  }
-}
