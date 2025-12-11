@@ -6,9 +6,9 @@
   position: relative;
   width: 100%;
   margin: var(--spacing-lg) 0;
-  background: var(--bg-secondary);
+  background: var(--code-bg, var(--bg-secondary));
   border-radius: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--code-border, var(--border-color));
   overflow: hidden;
   box-shadow: var(--shadow-md);
   transition: all var(--transition-base);
@@ -136,7 +136,7 @@
     margin: 0 !important;
     padding: var(--spacing-xl) !important;
     border-radius: 0 !important;
-    background: rgba(0, 0, 0, 0.02) !important;
+    background: var(--code-bg, rgba(0, 0, 0, 0.02)) !important;
     font-family: var(--font-mono) !important;
     font-size: 0.75rem !important;
     line-height: 1.6 !important;
@@ -228,8 +228,8 @@
 
 /* Dark mode adjustments */
 .dark .rc-demo-code-block {
-  background: #1e1e1e;
-  border-color: #333;
+  background: var(--code-bg-dark, #0f1117);
+  border-color: var(--code-border, #333);
 
   .rc-demo-code-file-name {
     background: #2d2d2d;
@@ -243,7 +243,7 @@
   }
 
   .rc-demo-code-content pre {
-    background: rgba(255, 255, 255, 0.03) !important;
+    background: var(--code-bg-dark, #0f1117) !important;
   }
 }
 

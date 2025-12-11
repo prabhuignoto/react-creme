@@ -22,9 +22,9 @@ const DeveloperExperience: FunctionComponent = () => {
         'Strict mode enabled (TS 5.9)',
         'Full IntelliSense support',
         'Exported types for all props',
-        'Zero any types in codebase',
+        'Minimized use of any types',
         'Single npm install command',
-        'Auto-imported CSS modules',
+        'CSS Modules by default',
         'Tree-shakeable exports',
         'ESM & CJS support',
       ],
@@ -35,7 +35,7 @@ const DeveloperExperience: FunctionComponent = () => {
       items: [
         'Vite 6 for lightning-fast builds',
         'Turborepo for monorepo management',
-        'Oxlint for 50-100x faster linting',
+        'Oxlint for fast linting',
         'Vitest for fast unit testing',
         'Storybook for development',
         'Hot module replacement',
@@ -46,7 +46,8 @@ const DeveloperExperience: FunctionComponent = () => {
     },
   ];
 
-  const codeExample = `import { Button, Card, DataGrid } from 'react-creme';
+  const codeExample = `import { Button } from 'react-creme/core';
+import { Card, DataGrid } from 'react-creme/data-display';
 import 'react-creme/css';
 
 function App() {

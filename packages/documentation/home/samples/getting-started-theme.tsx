@@ -1,7 +1,8 @@
-export default `import { Input, Theme, ThemeProvider } from 'react-creme';
-import 'react-creme/dist/react-creme.css';
+export default `import { Input } from 'react-creme/forms';
+import { Theme, ThemeProvider } from 'react-creme/core';
+import 'react-creme/css';
 
-const AppTheme = {
+const AppTheme: Theme = {
   colors: {
     primary: '#0074B7',
     secondary: '#BFD7ED',

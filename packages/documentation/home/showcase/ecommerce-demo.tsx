@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Card,
   Carousel,
@@ -7,12 +7,14 @@ import {
   CheckBox,
   InputNumber,
   Button,
+  Image,
   Tabs,
   Text,
   Notification,
   Accordion,
   Progress,
   Avatar,
+  Tags,
 } from '@lib';
 import {
   product,
@@ -26,27 +28,63 @@ interface CartItem {
   id: string;
   quantity: number;
   selectedColor: string;
+  selectedSize: string;
 }
 
 export const EcommerceDemo: React.FC = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [selectedColor, setSelectedColor] = useState(product.colors[0].name);
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [quantity, setQuantity] = useState(1);
+  const [selectedShipping, setSelectedShipping] = useState('standard');
+  const [protectionPlan, setProtectionPlan] = useState(false);
+  const [giftWrap, setGiftWrap] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const notificationTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const activeTab = 'Details'; // Default active tab
 
+  const shippingOptions = useMemo(
+    () => [
+      { id: 'standard', label: 'Standard Shipping', price: 0, eta: '5-7 days' },
+      { id: 'express', label: 'Express Shipping', price: 15, eta: '2-3 days' },
+      { id: 'overnight', label: 'Overnight Shipping', price: 30, eta: '1 day' },
+    ],
+    []
+  );
+
   const handleAddToCart = () => {
-    setCartItems(prev => [
-      ...prev,
-      {
-        id: product.id,
-        quantity,
-        selectedColor,
-      },
-    ]);
+    setCartItems(prev => {
+      const existingIndex = prev.findIndex(
+        item =>
+          item.id === product.id &&
+          item.selectedColor === selectedColor &&
+          item.selectedSize === selectedSize
+      );
+
+      if (existingIndex !== -1) {
+        return prev.map((item, index) =>
+          index === existingIndex
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+      }
+
+      return [
+        ...prev,
+        {
+          id: product.id,
+          quantity,
+          selectedColor,
+          selectedSize,
+        },
+      ];
+    });
     setShowNotification(true);
-    setTimeout(() => setShowNotification(false), 3000);
+    if (notificationTimer.current) {
+      clearTimeout(notificationTimer.current);
+    }
+    notificationTimer.current = setTimeout(() => setShowNotification(false), 3000);
   };
 
   // const tabLabels = useMemo(() => ['Details', 'Reviews', 'Shipping'], []);
@@ -60,9 +98,49 @@ export const EcommerceDemo: React.FC = () => {
       })),
     [selectedColor]
   );
+  const featureTags = useMemo(
+    () =>
+      product.features.slice(0, 6).map(name => ({
+        name,
+        readonly: true,
+        tagStyle: 'fill' as const,
+      })),
+    []
+  );
 
   const discountedPrice = product.price;
   const savingsAmount = product.originalPrice - discountedPrice;
+  const shippingCost = useMemo(
+    () =>
+      shippingOptions.find(option => option.id === selectedShipping)?.price ?? 0,
+    [shippingOptions, selectedShipping]
+  );
+  const selectedShippingLabel = useMemo(
+    () =>
+      shippingOptions.find(option => option.id === selectedShipping)?.label ?? '',
+    [shippingOptions, selectedShipping]
+  );
+  const addOnsTotal = useMemo(
+    () => (protectionPlan ? 19.99 : 0) + (giftWrap ? 4.5 : 0),
+    [giftWrap, protectionPlan]
+  );
+  const subtotal = useMemo(
+    () => quantity * discountedPrice,
+    [discountedPrice, quantity]
+  );
+  const orderTotal = useMemo(
+    () => subtotal + shippingCost + addOnsTotal,
+    [addOnsTotal, shippingCost, subtotal]
+  );
+
+  useEffect(
+    () => () => {
+      if (notificationTimer.current) {
+        clearTimeout(notificationTimer.current);
+      }
+    },
+    []
+  );
 
   const getTrustBadge = (label: string, icon: string) => (
     <div className={styles.trustBadgeItem}>
@@ -106,7 +184,14 @@ export const EcommerceDemo: React.FC = () => {
           <Carousel autoPlay={0}>
             {product.images.map((image, index) => (
               <div key={index} className={styles.carouselImage}>
-                <img src={image} alt={`${product.name} - ${index + 1}`} />
+                <Image
+                  src={image}
+                  alt={`${product.name} - ${index + 1}`}
+                  height={400}
+                  expandImageOnClick
+                  loaderSize="md"
+                  showLoader
+                />
               </div>
             ))}
           </Carousel>
@@ -214,7 +299,12 @@ export const EcommerceDemo: React.FC = () => {
                 <label htmlFor="product-size-selector">Size</label>
                 <div id="product-size-selector" className={styles.sizeOptions}>
                   {product.sizes.map(size => (
-                    <Button key={size} label={size} type="default" />
+                    <Button
+                      key={size}
+                      label={size}
+                      type={size === selectedSize ? 'primary' : 'default'}
+                      onClick={() => setSelectedSize(size)}
+                    />
                   ))}
                 </div>
               </div>
@@ -233,6 +323,57 @@ export const EcommerceDemo: React.FC = () => {
                 </div>
               </div>
 
+              <div className={styles.optionSection}>
+                <label>Add-ons</label>
+                <div className={styles.addOnOptions}>
+                  <CheckBox
+                    label="2-year protection plan (+$19.99)"
+                    isChecked={protectionPlan}
+                    onChange={(_, selected) => setProtectionPlan(Boolean(selected))}
+                  />
+                  <CheckBox
+                    label="Gift wrap (+$4.50)"
+                    isChecked={giftWrap}
+                    onChange={(_, selected) => setGiftWrap(Boolean(selected))}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.summarySection}>
+                <div className={styles.summaryRow}>
+                  <Text size="sm" type="secondary">
+                    Subtotal
+                  </Text>
+                  <Text size="sm" weight="600">
+                    ${subtotal.toFixed(2)}
+                  </Text>
+                </div>
+                <div className={styles.summaryRow}>
+                  <Text size="sm" type="secondary">
+                    {selectedShippingLabel || 'Shipping'}
+                  </Text>
+                  <Text size="sm" weight="600">
+                    {shippingCost === 0 ? 'Free' : `$${shippingCost.toFixed(2)}`}
+                  </Text>
+                </div>
+                <div className={styles.summaryRow}>
+                  <Text size="sm" type="secondary">
+                    Add-ons
+                  </Text>
+                  <Text size="sm" weight="600">
+                    {addOnsTotal === 0 ? 'None' : `$${addOnsTotal.toFixed(2)}`}
+                  </Text>
+                </div>
+                <div className={styles.summaryRowTotal}>
+                  <Text size="sm" weight="600">
+                    Order total
+                  </Text>
+                  <Text size="md" weight="700">
+                    ${orderTotal.toFixed(2)}
+                  </Text>
+                </div>
+              </div>
+
               {/* Action buttons */}
               <div className={styles.actionButtons}>
                 <Button
@@ -247,6 +388,9 @@ export const EcommerceDemo: React.FC = () => {
               {/* Description */}
               <div className={styles.descriptionSection}>
                 <Text size="sm">{product.description}</Text>
+              </div>
+              <div className={styles.featureTags}>
+                <Tags items={featureTags} readonly wrap tagStyle="fill" accent="rounded" />
               </div>
             </div>
           </Card>
@@ -271,9 +415,19 @@ export const EcommerceDemo: React.FC = () => {
               <div className={styles.shippingSection}>
                 <h3>Shipping Options</h3>
                 <div className={styles.shippingOptions}>
-                  <CheckBox label="Standard Shipping (5-7 days) - Free" />
-                  <CheckBox label="Express Shipping (2-3 days) - $15.00" />
-                  <CheckBox label="Overnight Shipping (1 day) - $30.00" />
+                  <RadioGroup
+                    layout="column"
+                    items={shippingOptions.map(option => ({
+                      checked: option.id === selectedShipping,
+                      label: `${option.label} (${option.eta}) ${
+                        option.price === 0
+                          ? '- Free'
+                          : `- $${option.price.toFixed(2)}`
+                      }`,
+                      value: option.id,
+                    }))}
+                    onSelected={value => setSelectedShipping(value as string)}
+                  />
                 </div>
               </div>
             </div>
@@ -396,7 +550,13 @@ export const EcommerceDemo: React.FC = () => {
             <div key={related.id} className={styles.relatedCard}>
               <Card>
                 <div className={styles.relatedImageWrapper}>
-                  <img src={related.image} alt={related.name} />
+                  <Image
+                    src={related.image}
+                    alt={related.name}
+                    height={220}
+                    loaderSize="sm"
+                    showLoader
+                  />
                   {related.originalPrice &&
                     related.price < related.originalPrice && (
                       <span className={styles.relatedDiscount}>

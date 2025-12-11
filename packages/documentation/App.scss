@@ -27,7 +27,7 @@
 
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', 'SF Mono', 'Menlo', 'Consolas', 'ui-monospace', 'Monaco', 'Courier New', monospace;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -37,6 +37,11 @@
   --line-height-normal: 1.6;
   --line-height-tight: 1.4;
   --line-height-relaxed: 1.75;
+
+  /* Code tokens */
+  --code-bg: #f7f8fb;
+  --code-bg-dark: #0f1117;
+  --code-border: #e5e7eb;
 
   /* Colors (Light mode - Modern palette) */
   --bg-primary: #fff;
@@ -102,6 +107,8 @@
   --glass-border: rgba(255, 255, 255, 0.08);
   --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 2px 4px rgba(0, 0, 0, 0.3);
   --shadow-card-hover: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 4px 8px rgba(0, 0, 0, 0.5);
+  --code-bg: var(--code-bg-dark);
+  --code-border: #2d2f36;
 }
 
 /* ============================================

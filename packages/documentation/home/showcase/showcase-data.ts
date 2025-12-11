@@ -103,7 +103,7 @@ export const product = {
     { name: 'Silver Gray', code: '#C0C0C0' },
     { name: 'Navy Blue', code: '#1e3a8a' },
   ],
-  sizes: ['One Size'],
+  sizes: ['Standard', 'Travel', 'Studio'],
   features: [
     'Active Noise Cancellation (ANC) - Industry-leading technology',
     '30-hour battery life with quick charge (10 min = 3 hours)',

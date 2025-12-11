@@ -107,10 +107,9 @@
   border-radius: var(--border-radius-md);
   overflow: hidden;
 
-  img {
-    width: 100%;
+  :global(.image_wrapper) {
     height: 100%;
-    object-fit: cover;
+    width: 100%;
   }
 
   @media (max-width: 768px) {
@@ -227,10 +226,44 @@
   }
 }
 
+.addOnOptions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.summarySection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--color-background);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summaryRowTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
 .descriptionSection {
   padding-top: var(--spacing-md);
   border-top: 1px solid var(--color-border);
   color: var(--color-text-secondary);
+}
+
+.featureTags {
+  margin-top: var(--spacing-md);
 }
 
 .infoCard {
@@ -331,15 +364,9 @@
   border-radius: var(--border-radius-sm);
   margin-bottom: var(--spacing-md);
 
-  img {
-    width: 100%;
+  :global(.image_wrapper) {
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+    width: 100%;
   }
 }
 

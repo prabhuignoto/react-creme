@@ -52,31 +52,50 @@ Modern UI Toolkit for React
 
 ## 🚀 Getting Started
 
-Install the package using npm or yarn
+### Install
+Use your preferred package manager:
 
 ```sh
-yarn add react-creme
-
-or
-
 npm install react-creme
-
+yarn add react-creme
+pnpm add react-creme
+bun add react-creme
 ```
+
+### Import styles
+```ts
+import 'react-creme/css';
+```
+
+### Namespaced entry points (recommended)
+Use namespaced imports for better tree-shaking:
+- `react-creme/core` — buttons, ThemeProvider, utilities
+- `react-creme/forms` — inputs, sliders, switches, file upload
+- `react-creme/feedback` — notifications, loaders, progress
+- `react-creme/data-display` — tables, tags, timelines
+- `react-creme/navigation` — tabs, breadcrumbs, menus
+- `react-creme/overlay` — dialogs, drawers, tooltips
+- `react-creme/layout` — layout primitives
+- `react-creme/disclosure` — accordion and collapsible surfaces
+- `react-creme/media` — media helpers
+
+The legacy root import `react-creme` remains available for compatibility.
 
 ## ☕ Usage
 
-```sh
-  import { Button } from "react-creme";
+```tsx
+import { Button, ThemeProvider } from "react-creme/core";
+import "react-creme/css";
 
-  const App = () => {
-    return (
-      <div>
-        <Button>Welcome to react-creme</Button>
-      </div>
-    );
-  };
+function App() {
+  return (
+    <ThemeProvider>
+      <Button>Welcome to react-creme</Button>
+    </ThemeProvider>
+  );
+}
 
-  export default App;
+export default App;
 ```
 
 ## 🌍 Browser Support

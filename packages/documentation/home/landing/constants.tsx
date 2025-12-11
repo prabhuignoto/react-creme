@@ -4,23 +4,23 @@ import { Package, Layers, Zap, Code } from 'lucide-react';
 export const STATS_DATA = [
   {
     icon: <Package size={20} />,
-    label: 'Bundle Size',
-    value: '~115kb',
+    label: 'Full bundle (gzip)',
+    value: '~119 KB',
+  },
+  {
+    icon: <Zap size={20} />,
+    label: 'CSS bundle (gzip)',
+    value: '~47 KB',
+  },
+  {
+    icon: <Code size={20} />,
+    label: 'Namespaces',
+    value: '9 entry points',
   },
   {
     icon: <Layers size={20} />,
     label: 'Components',
     value: '57',
-  },
-  {
-    icon: <Zap size={20} />,
-    label: 'React Version',
-    value: '19',
-  },
-  {
-    icon: <Code size={20} />,
-    label: 'CSS Approach',
-    value: 'Modules',
   },
 ];
 
@@ -28,22 +28,22 @@ export const STATS_DATA = [
 export const USP_DATA = [
   {
     description:
-      'At just 115kb, React Creme is 2.8x smaller than Material-UI and Ant Design. Faster load times, better Core Web Vitals, happier users.',
-    highlight: '115kb vs 280kb+',
+      'Full library ships at ~119 KB gzipped (ESM) with namespaced entry points to keep individual bundles lean and a ~47 KB gzipped CSS bundle.',
+    highlight: '~119 KB gzip (full ESM)',
     icon: <Zap size={32} />,
-    title: '4x Lighter',
+    title: 'Lightweight',
   },
   {
     description:
-      'Built with React 19, TypeScript 5.9 strict mode, and CSS Modules. No CSS-in-JS runtime overhead. No utility class verbosity.',
+      'Built for React 19 with TypeScript 5.9 strict mode and CSS Modules. No CSS-in-JS runtime overhead.',
     highlight: 'React 19, Vite 6, TS 5.9',
     icon: <Layers size={32} />,
     title: 'Modern Stack',
   },
   {
     description:
-      'Unlike Material-UI or Ant Design, React Creme has no opinionated design language. Your brand, your colors, your identity.',
-    highlight: 'Your brand, not ours',
+      'Neutral design defaults so you can apply your own brand tokens without fighting preset themes.',
+    highlight: 'Your brand, your colors',
     icon: <Code size={32} />,
     title: 'No Lock-in',
   },
@@ -63,23 +63,23 @@ export interface ComparisonRow {
 
 export const COMPARISON_DATA: ComparisonRow[] = [
   {
-    antDesign: '~280kb',
-    chakra: '~200kb',
+    antDesign: 'Varies',
+    chakra: 'Varies',
     feature: 'Bundle Size',
-    mui: '~350kb',
-    reactCreme: '~115kb',
-    shadcn: 'Minimal',
+    mui: 'Varies',
+    reactCreme: '~119kb (full ESM, gzip)',
+    shadcn: 'Varies',
   },
   {
-    antDesign: 'no',
-    chakra: 'no',
+    antDesign: 'Check docs',
+    chakra: 'Check docs',
     feature: 'React 19 Support',
-    mui: 'no',
+    mui: 'Check docs',
     reactCreme: 'yes',
     shadcn: 'yes',
   },
   {
-    antDesign: 'CSS-in-JS',
+    antDesign: 'Compiled CSS',
     chakra: 'CSS-in-JS',
     feature: 'CSS Approach',
     mui: 'CSS-in-JS',
@@ -87,10 +87,10 @@ export const COMPARISON_DATA: ComparisonRow[] = [
     shadcn: 'Tailwind',
   },
   {
-    antDesign: 'partial',
-    chakra: 'partial',
+    antDesign: 'Check docs',
+    chakra: 'Check docs',
     feature: 'TypeScript Strict',
-    mui: 'partial',
+    mui: 'Check docs',
     reactCreme: 'yes',
     shadcn: 'yes',
   },
@@ -152,11 +152,11 @@ export const SHOWCASE_GALLERY_IMAGES = [
 
 // DataGrid Data for Showcase
 export const SHOWCASE_GRID_DATA = [
-  { 'Bundle Impact': '~2kb', Component: 'Button', Status: '✓ Ready' },
-  { 'Bundle Impact': '~8kb', Component: 'DataGrid', Status: '✓ Ready' },
-  { 'Bundle Impact': '~5kb', Component: 'Gallery', Status: '✓ Ready' },
-  { 'Bundle Impact': '~1.5kb', Component: 'Switch', Status: '✓ Ready' },
-  { 'Bundle Impact': '~3kb', Component: 'Rate', Status: '✓ Ready' },
+  { 'Bundle Impact': 'Low', Component: 'Button', Status: '✓ Ready' },
+  { 'Bundle Impact': 'Low', Component: 'DataGrid', Status: '✓ Ready' },
+  { 'Bundle Impact': 'Low', Component: 'Gallery', Status: '✓ Ready' },
+  { 'Bundle Impact': 'Low', Component: 'Switch', Status: '✓ Ready' },
+  { 'Bundle Impact': 'Low', Component: 'Rate', Status: '✓ Ready' },
 ];
 
 // Navigation Links

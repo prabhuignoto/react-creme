@@ -23,16 +23,14 @@ const Features: FunctionComponent = () => {
 
   const features: FeatureItem[] = [
     {
-      badge: 'WCAG AA',
       description:
-        'WCAG AA compliant components with full keyboard navigation, screen reader support, and proper ARIA attributes.',
+        'Accessible patterns with keyboard navigation, screen reader support, and thoughtful ARIA defaults.',
       icon: <Shield size={28} />,
       title: 'Accessibility First',
     },
     {
-      badge: '95%+ Coverage',
       description:
-        'Comprehensive test coverage with Vitest and Testing Library. Every component is battle-tested for reliability.',
+        'Extensive automated tests with Vitest and Testing Library for dependable releases.',
       icon: <Activity size={28} />,
       title: 'Fully Tested',
     },

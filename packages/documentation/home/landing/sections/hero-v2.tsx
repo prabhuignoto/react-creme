@@ -12,35 +12,37 @@ const HeroV2: FunctionComponent = () => {
 
   const codeExamples = [
     {
-      code: `import { Button, Card } from 'react-creme';
+      code: `import { Button } from 'react-creme/core';
 import 'react-creme/css';
 
-<Card>
-  <Button type="primary">
-    Get Started
-  </Button>
-</Card>`,
+export function App() {
+  return <Button type="primary">Get Started</Button>;
+}`,
       title: 'Import & Use',
     },
     {
-      code: `import { ThemeProvider } from 'react-creme';
+      code: `import { ThemeProvider, Theme } from 'react-creme/core';
+import { Input } from 'react-creme/forms';
+import 'react-creme/css';
 
-<ThemeProvider
-  theme={{
-    primaryColor: '#007bff',
-    darkMode: true
-  }}
->
-  <App />
-</ThemeProvider>`,
+const theme: Theme = {
+  colors: { primary: '#007bff' },
+};
+
+export function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <Input placeholder="Search" />
+    </ThemeProvider>
+  );
+}`,
       title: 'With Theme',
     },
     {
-      code: `// Only imports what you use
-import { DataGrid } from 'react-creme';
+      code: `// Only ships what you import
+import { DataGrid } from 'react-creme/data-display';
 
-// Final bundle: ~8kb
-// Not 350kb like Material-UI!`,
+// Use namespaced entry points for tree-shaking`,
       title: 'Tree-Shakeable',
     },
   ];
@@ -90,8 +92,8 @@ import { DataGrid } from 'react-creme';
           </h1>
 
           <p className={styles.hero_subtitle}>
-            57 production-ready components at 115kb. Built for React 19 with CSS
-            Modules.
+            57 production-ready components; full ESM bundle ~119 KB gzipped with
+            namespaced entry points. Built for React 19 with CSS Modules.
             <span className={styles.subtitle_highlight}>
               {' '}
               No design language lock-in, no CSS-in-JS overhead.
