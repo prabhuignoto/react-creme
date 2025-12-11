@@ -11,6 +11,10 @@
   width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 .tabs {
   @extend %col;
   padding: tokens.$space-1; // 0.25rem

@@ -10,6 +10,8 @@ import { DataGridRow } from './data-grid-row';
 import styles from './data-grid.module.scss';
 import ResizeObserver from 'resize-observer-polyfill';
 
+const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 const DataGrid: React.FunctionComponent<DataGridProps> = ({
   ariaLabel = 'Data grid',
   border = false,
@@ -163,7 +165,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
   const filteredData = useMemo(() => {
     if (!searchInput) return sortedData;
 
-    const searchRegExp = new RegExp(searchInput, 'ig');
+    const searchRegExp = new RegExp(escapeRegExp(searchInput), 'ig');
 
     return sortedData.filter(dat => {
       const record = dat as Record<string, string | number | undefined>;

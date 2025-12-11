@@ -1,5 +1,5 @@
 import jsxToString from 'react-element-to-jsx-string';
-import { Section } from '../../../lib/components';
+import { Section, Text } from '../../../lib/components';
 import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
 import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
@@ -15,6 +15,7 @@ function widgets() {
           border={false}
           headerActions={<HeaderCodeToggle.Button />}
         >
+          <Text>Standard password field with show and hide toggle.</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(Default, jsxToStringOptions)}
             language="jsx"
@@ -35,6 +36,7 @@ function widgets() {
           border={false}
           headerActions={<HeaderCodeToggle.Button />}
         >
+          <Text>Password input aligned for right-to-left layouts.</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(RTL, jsxToStringOptions)}
             language="jsx"
@@ -54,6 +56,7 @@ function widgets() {
           border={false}
           headerActions={<HeaderCodeToggle.Button />}
         >
+          <Text>Passwords rendered with medium and large input heights.</Text>
           <HeaderCodeToggle.Content
             code={jsxToString(Medium, jsxToStringOptions)}
             language="jsx"

@@ -124,40 +124,42 @@ const DemoPageTabs: FunctionComponent<DemoPageTabsProps> = ({
 
   return (
     <Tabs labels={tabTitles} icons={tabIcons} focusable={false} size="sm">
-      {/* Tab 1: Demo - Always shown with enhanced controls */}
-      <div className={styles.widgets_container}>
-        <Suspense fallback={<span>Loading Widgets...</span>}>
-          <DemoContainer
-            controls={{
-              fullscreen: false,
-              reset: false,
-              theme: false,
-              viewport: true,
-            }}
-            defaultViewport={viewportSize}
-            defaultTheme={themeMode}
-            onViewportChange={handleViewportChange}
-            onThemeChange={handleThemeChange}
-            onReset={actions.resetDemo}
-          >
-            {Demo}
-          </DemoContainer>
-        </Suspense>
-      </div>
-
-      {/* Tab 2: Properties (if exist) OR Playground (if no properties) */}
-      {hasProperties ? (
-        <div className="rc-demo-prop-section">
-          <Suspense fallback={<div></div>}>
-            <PropertyTable
-              properties={properties}
-              callbacks={callbacks}
-              columns={columns}
-            />
+      <div className={styles.tab_transition}>
+        <div className={styles.widgets_container}>
+          <Suspense fallback={<span>Loading Widgets...</span>}>
+            <DemoContainer
+              controls={{
+                fullscreen: false,
+                reset: false,
+                theme: false,
+                viewport: true,
+              }}
+              defaultViewport={viewportSize}
+              defaultTheme={themeMode}
+              onViewportChange={handleViewportChange}
+              onThemeChange={handleThemeChange}
+              onReset={actions.resetDemo}
+            >
+              {Demo}
+            </DemoContainer>
           </Suspense>
         </div>
+      </div>
+
+      {hasProperties ? (
+        <div className={styles.tab_transition}>
+          <div className="rc-demo-prop-section">
+            <Suspense fallback={<div></div>}>
+              <PropertyTable
+                properties={properties}
+                callbacks={callbacks}
+                columns={columns}
+              />
+            </Suspense>
+          </div>
+        </div>
       ) : (
-        renderPlayground()
+        <div className={styles.tab_transition}>{renderPlayground()}</div>
       )}
 
       {/* Tab 3: Playground (only if properties also exist) */}

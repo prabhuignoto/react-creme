@@ -130,13 +130,39 @@ const HeaderCodeToggleContent: FunctionComponent<
 }) => {
   const { view, isCodeView } = useHeaderCodeToggle();
 
+  const escapeRegex = useCallback((value: string) => {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }, []);
+
   const fullCode = useMemo(() => {
     const codeString = typeof code === 'string' ? code : String(code);
-    if (componentName) {
-      return `import { ${componentName} } from "react-creme";\n\n${codeString}`;
-    }
-    return codeString;
-  }, [code, componentName]);
+    if (!componentName) return codeString;
+
+    const escapedName = escapeRegex(componentName);
+    const importRegex = new RegExp(
+      `import\\s+\\{?\\s*${escapedName}\\s*\\}?\\s+from\\s+["']react-creme["']`
+    );
+
+    const hasImport = importRegex.test(codeString);
+    const importLine = hasImport
+      ? ''
+      : `import { ${componentName} } from "react-creme";\n\n`;
+
+    const hasWrapper =
+      /(export\s+default\s+function\s+\w+\s*\(|function\s+\w+\s*\(|const\s+\w+\s*=\s*\(|let\s+\w+\s*=\s*\(|class\s+\w+\s+)/.test(
+        codeString
+      );
+
+    if (hasWrapper) return `${importLine}${codeString}`.trim();
+
+    const wrapped = `${importLine}const App = () => (
+  ${codeString}
+);
+
+export default App;`;
+
+    return wrapped.trim();
+  }, [code, componentName, escapeRegex]);
 
   return (
     <div

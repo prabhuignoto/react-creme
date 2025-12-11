@@ -20,8 +20,9 @@ const TabPanel: React.FunctionComponent<TabPanelProps> = ({
   const tabPanelClass = useMemo(() => {
     return classNames(styles.tab_panel, {
       [styles.disabled]: disabled,
+      [styles.hidden]: hidden,
     });
-  }, [disabled]);
+  }, [disabled, hidden]);
 
   // Render the tab panel with the appropriate ARIA roles and properties
   return (

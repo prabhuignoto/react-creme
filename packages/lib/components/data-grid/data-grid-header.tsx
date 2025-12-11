@@ -126,7 +126,9 @@ const DataGridHeader: React.FunctionComponent<DataGridHeaderProps> = ({
           style={{
             alignItems: 'center',
             display: 'flex',
+            gap: '6px',
             justifyContent: 'flex-start',
+            minWidth: 0,
           }}
         >
           <DataGridCell

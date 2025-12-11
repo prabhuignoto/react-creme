@@ -4,8 +4,12 @@
 @use '@design/tokens.scss';
 
 .sort_icon_wrapper {
-  margin-left: auto;
-  margin-right: tokens.$space-2; // 8px
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: tokens.$space-1;
+  flex-shrink: 0;
 }
 
 %sort-icon {

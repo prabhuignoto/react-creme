@@ -1,11 +1,10 @@
-import jsxToString from 'react-element-to-jsx-string';
 import { useLayoutEffect, useState } from 'react';
 import { useAtomValue } from 'jotai';
 import { Section, Text } from '../../../lib/components';
 import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { responsiveState } from '../../atoms/home';
 import { DemoWidget } from '../../common/demo-widget';
-import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
+import { DefaultCodeString, SearchableCodeString } from './code-strings';
 import { Default, Searchable } from './widget-variants';
 
 function widgets() {
@@ -40,8 +39,8 @@ function widgets() {
         >
           <Text>Sections are collapsible by default.</Text>
           <HeaderCodeToggle.Content
-            code={jsxToString(Default, jsxToStringOptions)}
-            language="jsx"
+            code={DefaultCodeString}
+            language="tsx"
             componentName="Sidebar"
           >
             <DemoWidget name="Sidebar" width={width} height={400}>
@@ -62,8 +61,8 @@ function widgets() {
             Can optionally include a search bar for filtering the sidebar.
           </Text>
           <HeaderCodeToggle.Content
-            code={jsxToString(Searchable, jsxToStringOptions)}
-            language="jsx"
+            code={SearchableCodeString}
+            language="tsx"
             componentName="Sidebar"
           >
             <DemoWidget name="Sidebar" width={width} height={400}>

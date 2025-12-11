@@ -64,7 +64,7 @@ const DataGridRow: React.FunctionComponent<DataRow> = React.memo(
                 key={id}
                 role="cell"
                 aria-colindex={colIndex + 1}
-                style={{ alignItems: 'center', display: 'flex' }}
+                style={{ alignItems: 'center', display: 'flex', minWidth: 0 }}
               >
                 <DataGridCell
                   value={value ?? ''}

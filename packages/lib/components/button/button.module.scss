@@ -28,10 +28,9 @@ $sizes: (sm, md, lg);
     @extend %border-radius;
   }
 
-  // Interactive feedback with spring physics
-  @include hybrid.smooth-multi-transition(transform, box-shadow);
+  transition: transform hybrid.$animation-duration-critical hybrid.$ease-smooth,
+    box-shadow hybrid.$animation-duration-critical hybrid.$ease-smooth;
 
-  // Active state with spring animation
   &:active:not(.disabled) {
     animation: hybrid-refined-ping hybrid.$animation-duration-critical hybrid.$spring-easing;
   }
