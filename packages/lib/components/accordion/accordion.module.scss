@@ -34,8 +34,6 @@ $transition: max-height hybrid.$animation-duration-primary var(--transition),
   width: 100%;
 
   &.animate {
-    // Use smooth easing for content transitions
-    // max-height and opacity transition with spring-based easing for polished feel
     transition: $transition;
 
     @media (prefers-reduced-motion: reduce) {

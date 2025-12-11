@@ -63,8 +63,8 @@ $header-heights: (
     // Vertical extension - extend to fill accordion's vertical padding area
     margin-top: calc(-1 * tokens.$space-1); // -0.25rem to extend to top edge
     margin-bottom: calc(-1 * tokens.$space-1); // -0.25rem to extend to bottom edge
-    padding-top: tokens.$space-1; // 0.25rem to maintain content spacing
-    padding-bottom: tokens.$space-1; // 0.25rem to maintain content spacing
+    // padding-top: tokens.$space-1; // 0.25rem to maintain content spacing
+    // padding-bottom: tokens.$space-1; // 0.25rem to maintain content spacing
     height: calc(var(--rc-accordion-header-height, 35px) + tokens.$space-2); // height + 0.5rem
   }
 
