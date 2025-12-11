@@ -12,7 +12,7 @@ function switchComponent() {
       The design and functionality of this control is based on a physical switch that allows users to turn things ON or OFF`}
       sourceId="switch/switch.tsx"
       editId="switch"
-      features={['Custom sizes', 'ARIA labels', 'Disabled state']}
+      features={['Custom sizes', 'ARIA labels', 'Disabled state', 'RTL support']}
       callbacks={[
         {
           default: ``,
@@ -64,6 +64,13 @@ function switchComponent() {
           name: 'style',
           optional: 'Yes',
           type: 'Object',
+        },
+        {
+          default: 'False',
+          description: `enables right-to-left layout mode for internationalization`,
+          name: 'RTL',
+          optional: 'Yes',
+          type: 'Boolean',
         },
       ]}
       tabTitles={['Examples', 'Properties', 'Playground']}

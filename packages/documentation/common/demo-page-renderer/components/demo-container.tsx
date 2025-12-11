@@ -2,6 +2,7 @@ import { FunctionComponent, ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import { Smartphone, Tablet, Monitor } from 'lucide-react';
 import type { ViewportSize, DemoControls } from '../types';
+import { addRTLToElement } from '../utils/rtl-wrapper';
 import './demo-container.scss';
 
 export interface DemoContainerProps {
@@ -154,7 +155,7 @@ const DemoContainer: FunctionComponent<DemoContainerProps> = ({
             'demo-container__demo-inner--tablet': viewport === 'tablet',
           })}
         >
-          {children}
+          {addRTLToElement(children)}
         </div>
       </div>
     </div>

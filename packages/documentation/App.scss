@@ -412,7 +412,9 @@ pre {
     width: 100% !important;
     box-shadow: var(--shadow-card) !important;
     transition: all var(--transition-base) !important;
-    overflow: hidden !important;
+    /* Allow tooltips to overflow and be visible */
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
 
     &:hover {
       box-shadow: var(--shadow-card-hover) !important;
@@ -443,6 +445,8 @@ pre {
   align-items: flex-start;
   width: 100%;
   overflow-x: auto;
+  /* Allow tooltips to overflow vertically */
+  overflow-y: visible;
 }
 
 .rc-demo-widgets-wrapper {

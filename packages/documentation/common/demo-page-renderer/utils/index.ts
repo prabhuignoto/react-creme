@@ -30,3 +30,6 @@ export {
   variantToCodeSnippet,
 } from './code-extractor';
 export type { JsxToStringOptions } from './code-extractor';
+
+// RTL wrapper
+export { addRTLToElement, RTLWrapper } from './rtl-wrapper';

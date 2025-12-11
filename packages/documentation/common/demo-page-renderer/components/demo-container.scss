@@ -9,7 +9,9 @@
   border: 1px solid var(--border-color);
   border-radius: 12px;
   box-shadow: var(--shadow-md);
-  overflow: hidden;
+  /* Use overflow-x: hidden to maintain rounded corners, but allow overflow-y for tooltips */
+  overflow-x: hidden;
+  overflow-y: visible;
   transition: all var(--transition-base);
 
   &:hover {
@@ -133,6 +135,8 @@
   align-items: center;
   justify-content: center;
   transition: background var(--transition-base);
+  /* Allow tooltips to overflow and be visible */
+  overflow: visible;
 }
 
 .demo-container__demo-inner {

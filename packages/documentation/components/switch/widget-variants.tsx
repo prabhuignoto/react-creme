@@ -66,3 +66,13 @@ export const Large = (
     onChange={val => console.log('Marketing:', val)}
   />
 );
+
+export const RTL = (
+  <Switch
+    label="وضع الظلام"
+    checked
+    onChange={val => console.log('Dark mode:', val)}
+    size="sm"
+    RTL
+  />
+);

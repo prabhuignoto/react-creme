@@ -3,7 +3,7 @@ import { Section, Text } from '../../../lib/components';
 import { HeaderCodeToggle } from '../../common/inline-code-viewer';
 import { DemoWidget } from '../../common/demo-widget';
 import { jsxToStringOptions } from '../../common/syntax-highlighter/syntax';
-import { CheckIcon, Default, Disabled, Large, Medium } from './widget-variants';
+import { CheckIcon, Default, Disabled, Large, Medium, RTL } from './widget-variants';
 
 function widgets() {
   return (
@@ -46,7 +46,7 @@ function widgets() {
             language="jsx"
             componentName="Switch"
           >
-            <DemoWidget name="Switch" width={200}>
+            <DemoWidget name="Switch" width={300}>
               {CheckIcon}
             </DemoWidget>
           </HeaderCodeToggle.Content>
@@ -66,7 +66,7 @@ function widgets() {
             language="jsx"
             componentName="Switch"
           >
-            <DemoWidget name="Switch" width={200}>
+            <DemoWidget name="Switch" width={300}>
               {Disabled}
             </DemoWidget>
           </HeaderCodeToggle.Content>
@@ -110,6 +110,34 @@ function widgets() {
           >
             <DemoWidget name="Switch" width={300}>
               {Large}
+            </DemoWidget>
+          </HeaderCodeToggle.Content>
+        </Section>
+      </HeaderCodeToggle.Provider>
+
+      <HeaderCodeToggle.Provider>
+        <Section
+          size="md"
+          title="Right-to-Left (RTL) Support"
+          RTL
+          border={false}
+          headerActions={<HeaderCodeToggle.Button />}
+        >
+          <Text>
+            Full RTL layout support for internationalization. When{' '}
+            <code>RTL</code> is enabled, the switch label is positioned on the
+            left side (visually right in RTL languages) and the track on the
+            right. Essential for applications supporting Arabic, Hebrew, and
+            other right-to-left languages. The component maintains proper
+            keyboard navigation and accessibility in RTL mode.
+          </Text>
+          <HeaderCodeToggle.Content
+            code={jsxToString(RTL, jsxToStringOptions)}
+            language="jsx"
+            componentName="Switch"
+          >
+            <DemoWidget name="Switch" width={200}>
+              {RTL}
             </DemoWidget>
           </HeaderCodeToggle.Content>
         </Section>

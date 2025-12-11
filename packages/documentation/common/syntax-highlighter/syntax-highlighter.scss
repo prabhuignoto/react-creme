@@ -111,6 +111,8 @@
   overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--border-color) transparent;
+  direction: ltr; /* Code should always be left-to-right */
+  text-align: left; /* Ensure code text aligns left */
 
   &::-webkit-scrollbar {
     height: 8px;
@@ -140,6 +142,8 @@
     line-height: 1.6 !important;
     overflow-x: auto;
     counter-reset: line;
+    direction: ltr !important; /* Code should always be left-to-right */
+    text-align: left !important; /* Ensure code text aligns left */
 
     code {
       font-family: var(--font-mono) !important;

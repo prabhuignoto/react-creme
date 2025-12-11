@@ -59,6 +59,15 @@ $start-left: tokens.$space-1;
     }
   }
 
+  // RTL support: flip grid order (label first, then track)
+  &.rtl {
+    @each $key, $value in $switch-width {
+      &.#{$key} {
+        grid-template-columns: 1fr $value;
+      }
+    }
+  }
+
   // Add gap between track and label columns
   gap: tokens.$space-2;
 
@@ -296,4 +305,9 @@ $start-left: tokens.$space-1;
 
   // Label always outside (external)
   @extend %left;
+}
+
+// RTL support: align label to the right in RTL mode
+.switch.rtl .label {
+  @extend %right;
 }

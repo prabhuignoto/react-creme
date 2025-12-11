@@ -40,4 +40,7 @@ export interface SwitchProps {
 
   /**🔷 width of the switch */
   width?: number;
+
+  /**🔷 Right-to-left layout mode */
+  RTL?: boolean;
 }

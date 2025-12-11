@@ -103,7 +103,7 @@ const HeaderCodeToggleButton: FunctionComponent<
         label={switchLabel}
         size={size}
         aria-label={isCodeView ? 'Show preview' : 'Show code'}
-        style={{ transform: 'scale(0.9)', transformOrigin: 'right center' }}
+        width={60}
       />
     </div>
   );

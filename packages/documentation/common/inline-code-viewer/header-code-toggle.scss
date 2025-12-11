@@ -14,7 +14,7 @@
   align-items: center;
   flex-shrink: 0;
   justify-content: flex-end;
-  width: auto;
+  width: 180px;
   margin-bottom: 0;
   margin-left: auto;
 }
@@ -52,6 +52,8 @@
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.3s ease, transform 0.3s ease;
+  direction: ltr; /* Code should always be left-to-right */
+  text-align: left; /* Ensure code text aligns left */
 }
 
 .header-code-toggle__content.is-component-view .header-code-toggle__code-view {

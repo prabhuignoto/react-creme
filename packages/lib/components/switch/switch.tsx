@@ -47,6 +47,7 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
   style,
   width = 50,
   showCheckIcon = false,
+  RTL = false,
 }) => {
   const [state, setState] = useState(checked);
   const ref = useRef<HTMLDivElement>(null);
@@ -109,8 +110,9 @@ const Switch: React.FunctionComponent<SwitchProps> = ({
         [styles[`${size}`]]: true,
         [styles.label_outside]: true,
         [styles.dark]: isDarkMode,
+        [styles.rtl]: RTL,
       }),
-    [size, disabled, readOnly, isDarkMode]
+    [size, disabled, readOnly, isDarkMode, RTL]
   );
 
   const switchTrackClass = useMemo(
