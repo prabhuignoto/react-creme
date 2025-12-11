@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { nanoid } from 'nanoid';
 import React, {
   useCallback,
   useEffect,
@@ -12,17 +11,28 @@ import { Radio } from '../radio/radio';
 import { RadioGroupItemProps, RadioGroupProps } from './radio-group-model';
 import styles from './radio-group.module.scss';
 
+const buildItems = (
+  items: RadioGroupItemProps<string>[],
+  disabled?: boolean
+) =>
+  Array.isArray(items)
+    ? items.map((item, index) => {
+        const derivedId =
+          item.id ||
+          (typeof item.value !== 'undefined'
+            ? String(item.value)
+            : `${item.label}-${index}`);
+
+        return {
+          id: derivedId,
+          ...item,
+          disabled: typeof disabled !== 'undefined' ? disabled : item.disabled,
+        };
+      })
+    : [];
+
 /**
  * RadioGroup Component
- *    @property {Array} items - An array of objects containing radio item properties.
- *    @property {boolean} disabled - Whether the entire group is disabled (default: false).
- *    @property {Function} onSelected - Callback function called when the selection changes.
- *    @property {Object} style - Additional style to be applied to the radio group element.
- *    @property {string} layout - The layout direction of the radio group ('column' or 'row', default: 'column').
- *    @property {boolean} RTL - Whether the layout is right-to-left (default: false).
- *    @property {boolean} focusable - Whether the radio group is focusable (default: true).
- *    @property {string} size - The size of the radio buttons in the group (default: 'sm').
- * @returns {JSX.Element} The RadioGroup component.
  */
 const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   items,
@@ -34,22 +44,9 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
   focusable = true,
   size = 'sm',
 }) => {
-  // State to manage the list of radio group items - derived from props
-  const _items = useMemo(
-    () =>
-      Array.isArray(items)
-        ? items.map(item => ({
-            id: nanoid(),
-            ...item,
-            disabled:
-              typeof disabled !== 'undefined' ? disabled : item.disabled,
-          }))
-        : [],
-    [items, disabled]
-  );
-
-  const [items_state, setItems] =
-    useState<RadioGroupItemProps<string>[]>(_items);
+  const [items_state, setItems] = useState<
+    Array<RadioGroupItemProps<string> & { isChecked?: boolean }>
+  >(() => buildItems(items, disabled));
 
   // State to track changes in the radio group items
   const [changeTracker, setChangeTracker] = useState<number>();
@@ -88,10 +85,33 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
     [layout]
   );
 
-  // Sync items_state with derived _items when props change
+  // Sync items_state with derived items when props change
   React.useEffect(() => {
-    setItems(_items);
-  }, [_items]);
+    setItems(prev => {
+      const nextItems = buildItems(items, disabled);
+
+      const merged = nextItems.map(item => {
+        const previous =
+          prev.find(prevItem => prevItem.id === item.id) ??
+          prev.find(prevItem => prevItem.value === item.value);
+
+        if (previous) {
+          return {
+            ...item,
+            checked: previous.checked ?? item.checked ?? null,
+            isChecked: previous.isChecked ?? item.isChecked,
+          };
+        }
+
+        return item;
+      });
+
+      const foundActive = merged.find(item => item.checked)?.id ?? null;
+      active.current = foundActive;
+
+      return merged;
+    });
+  }, [items, disabled]);
 
   // useEffect to trigger onSelected when a radio item is changed (excluding the first render)
   useEffect(() => {

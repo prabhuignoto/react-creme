@@ -6,6 +6,58 @@
 @use '@design/hybrid-theme.scss' as hybrid;
 
 // ============================================================================
+// DRAWER ANIMATIONS
+// ============================================================================
+
+@keyframes drawer-width-expand {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: var(--min-width, 300px);
+    opacity: 1;
+  }
+}
+
+@keyframes drawer-width-collapse {
+  from {
+    width: var(--min-width, 300px);
+    opacity: 1;
+  }
+
+  to {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes drawer-height-expand {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+
+  to {
+    height: var(--min-height, 50vh);
+    opacity: 1;
+  }
+}
+
+@keyframes drawer-height-collapse {
+  from {
+    height: var(--min-height, 50vh);
+    opacity: 1;
+  }
+
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+// ============================================================================
 // DRAWER COMPONENT
 // ============================================================================
 
@@ -19,11 +71,9 @@
 
   // 3. Properties (before nested rules)
   box-shadow: hybrid.$shadow-strong;
-  height: $min-height;
-  min-width: $min-width;
-  opacity: 0; // GPU-optimized (was visibility: hidden)
+  opacity: 0;
   outline: 0;
-  overflow-y: auto;
+  overflow: hidden;
   position: absolute;
 
   // 4. Nested selectors
@@ -37,24 +87,18 @@
   }
 
   &.visible {
-    opacity: 1; // GPU-optimized
+    opacity: 1;
   }
 
   &.exiting {
-    &.left {
-      @include hybrid.exit-slide-left(hybrid.$animation-duration-secondary);
-    }
-
+    &.left,
     &.right {
-      @include hybrid.exit-slide-right(hybrid.$animation-duration-secondary);
+      animation: drawer-width-collapse hybrid.$animation-duration-primary hybrid.$ease-smooth forwards;
     }
 
-    &.top {
-      @include hybrid.exit-slide-up(hybrid.$animation-duration-secondary);
-    }
-
+    &.top,
     &.bottom {
-      @include hybrid.exit-slide-down(hybrid.$animation-duration-secondary);
+      animation: drawer-height-collapse hybrid.$animation-duration-primary hybrid.$ease-smooth forwards;
     }
   }
 
@@ -75,43 +119,57 @@
     @include position.position-abs('center left');
     border-top-right-radius: hybrid.$radius-md;
     border-bottom-right-radius: hybrid.$radius-md;
+    width: 0;
+    height: $min-height;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   &.right {
     @include position.position-abs('center right');
     border-top-left-radius: hybrid.$radius-md;
     border-bottom-left-radius: hybrid.$radius-md;
+    width: 0;
+    height: $min-height;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   &.top {
     @include position.position-abs('top center');
     border-bottom-left-radius: hybrid.$radius-md;
     border-bottom-right-radius: hybrid.$radius-md;
-    min-width: 100%;
+    width: 100%;
+    height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   &.bottom {
     @include position.position-abs('bottom center');
     border-top-left-radius: hybrid.$radius-md;
     border-top-right-radius: hybrid.$radius-md;
-    min-width: 100%;
+    width: 100%;
+    height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   // Entrance animations
   &.slide_left_enter {
-    @include hybrid.slide-in(left, hybrid.$animation-duration-critical);
+    animation: drawer-width-expand hybrid.$animation-duration-critical hybrid.$spring-easing forwards;
   }
 
   &.slide_right_enter {
-    @include hybrid.slide-in(right, hybrid.$animation-duration-critical);
+    animation: drawer-width-expand hybrid.$animation-duration-critical hybrid.$spring-easing forwards;
   }
 
   &.slide_top_enter {
-    @include hybrid.slide-in(down, hybrid.$animation-duration-critical);
+    animation: drawer-height-expand hybrid.$animation-duration-critical hybrid.$spring-easing forwards;
   }
 
   &.slide_bottom_enter {
-    @include hybrid.slide-in(up, hybrid.$animation-duration-critical);
+    animation: drawer-height-expand hybrid.$animation-duration-critical hybrid.$spring-easing forwards;
   }
 
   // Exit animations (legacy support)

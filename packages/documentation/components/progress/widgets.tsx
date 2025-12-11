@@ -18,16 +18,10 @@ const Widgets: React.FunctionComponent = () => {
   return (
     <div className="rc-demo-widgets">
       <Section size="md" title="Default rendering" border={false}>
-        <div className="rc-demo-widget" style={{ marginBottom: '1rem' }}>
-          <div style={{ margin: '0 1rem' }}>
-            <Button onClick={start} label="Start"></Button>
-          </div>
-          <div style={{ margin: '0 1rem' }}>
-            <Button onClick={pause} label="Pause"></Button>
-          </div>
-          <div style={{ margin: '0 1rem' }}>
-            <Button onClick={reset} label="Reset"></Button>
-          </div>
+        <div className="rc-demo-widget" style={{ marginBottom: '1rem', display: 'flex', flexDirection: 'row', gap: '0.5rem', padding: '0 1rem' }}>
+          <Button onClick={start} label="Start"></Button>
+          <Button onClick={pause} label="Pause"></Button>
+          <Button onClick={reset} label="Reset"></Button>
         </div>
         <DemoWidget name="Progress" showCodeByDefault>
           <Progress

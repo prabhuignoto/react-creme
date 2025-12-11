@@ -83,22 +83,34 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     [trapFocus]
   );
 
+  const handleClose = useCallback(() => {
+    setTimeout(() => {
+      if (triggerElementRef.current && triggerElementRef.current.focus) {
+        triggerElementRef.current.focus();
+      }
+    }, 0);
+    onClose?.();
+  }, [onClose]);
+
   // Memoize focus props instead of imperatively mutating ref
-  const focusProps = useMemo(
-    () =>
-      trapFocus
-        ? {
-            onKeyDown:
-              trapFocus.handleKeyDown as unknown as React.KeyboardEventHandler<HTMLDivElement>,
-            ref: refCallback,
-            tabIndex: 0,
-          }
-        : {
-            ref: refCallback,
-            tabIndex: 0,
-          },
-    [trapFocus, refCallback]
-  );
+  const focusProps = useMemo(() => {
+    const onKeyDown = (ev: React.KeyboardEvent<HTMLDivElement>) => {
+      if (ev.key === 'Escape') {
+        ev.stopPropagation();
+        handleClose();
+        return;
+      }
+      if (trapFocus?.handleKeyDown) {
+        (trapFocus.handleKeyDown as unknown as React.KeyboardEventHandler<HTMLDivElement>)(ev);
+      }
+    };
+
+    return {
+      onKeyDown,
+      ref: refCallback,
+      tabIndex: 0,
+    };
+  }, [handleClose, trapFocus, refCallback]);
 
   const dialogClass = useMemo(
     () =>
@@ -141,7 +153,6 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
   );
 
   const handlePrimaryClick = useCallback(() => {
-    // Support both new onPrimaryClick and deprecated onSuccess
     onPrimaryClick?.();
     onSuccessDeprecated?.();
     onClose?.();
@@ -151,16 +162,6 @@ const DialogComponent: React.FunctionComponent<DialogProps> = ({
     onSecondaryClick?.();
     onClose?.();
   }, [onSecondaryClick, onClose]);
-
-  const handleClose = useCallback(() => {
-    // Return focus to the element that triggered dialog (WCAG 2.4.3 Focus Order)
-    setTimeout(() => {
-      if (triggerElementRef.current && triggerElementRef.current.focus) {
-        triggerElementRef.current.focus();
-      }
-    }, 0);
-    onClose?.();
-  }, [onClose]);
 
   const titleClass = useMemo(
     () => classNames(styles.title, isDarkMode ? styles.dark : ''),

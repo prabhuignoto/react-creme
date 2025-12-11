@@ -5,6 +5,34 @@
 @use '@design/hybrid-theme.scss' as hybrid;
 
 // ============================================================================
+// LOCAL KEYFRAMES
+// ============================================================================
+
+@keyframes dialog-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialog-rise-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+// ============================================================================
 // DIALOG COMPONENT
 // ============================================================================
 
@@ -17,15 +45,22 @@
   @extend %col;
 
   // 3. Properties (before nested rules)
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: auto;
   border-radius: hybrid.$radius-lg;
   box-shadow: hybrid.$shadow-strong;
   min-height: $min-height-default;
   min-width: var(--min-width, $min-width-default);
+  max-height: calc(100vh - #{tokens.$space-6});
+  max-width: calc(100vw - #{tokens.$space-6});
+  overflow: hidden;
   outline: none;
   position: relative;
 
   // 4. Entrance animation
-  @include hybrid.fade-in-scale(hybrid.$animation-duration-primary);
+  animation: hybrid-fade-in-scale var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
 
   // 5. Nested selectors
   &.dark {
@@ -38,7 +73,7 @@
   }
 
   &.exiting {
-    @include hybrid.exit-fade(hybrid.$animation-duration-secondary);
+    animation: hybrid-exit-fade var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
   }
 
   &.isLoading {
@@ -60,32 +95,35 @@
   // Legacy animation support (backward compatibility)
   &.pop_enter,
   &.fade-in-scale {
-    @include hybrid.fade-in-scale(hybrid.$animation-duration-primary);
+    animation: hybrid-fade-in-scale var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
   }
 
   &.drop_enter {
-    @include hybrid.slide-in(down, hybrid.$animation-duration-primary);
+    animation: hybrid-slide-in-down var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
   }
 
   &.rise_enter {
-    @include hybrid.slide-in(up, hybrid.$animation-duration-primary);
+    animation: dialog-rise-in var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
   }
 
   &.slide-left_enter {
-    @include hybrid.slide-in(left, hybrid.$animation-duration-primary);
+    animation: hybrid-slide-in-left var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
   }
 
   &.slide-right_enter {
-    @include hybrid.slide-in(right, hybrid.$animation-duration-primary);
+    animation: hybrid-slide-in-right var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
   }
 
   // Legacy exit animations
   &.pop_leave,
   &.drop_leave,
-  &.rise_leave,
   &.slide-left_leave,
   &.slide-right_leave {
-    @include hybrid.exit-fade(hybrid.$animation-duration-secondary);
+    animation: hybrid-exit-fade var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
+  }
+
+  &.rise_leave {
+    animation: dialog-rise-out var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
   }
 }
 
@@ -114,8 +152,10 @@
   @extend %center;
 
   // 3. Properties
+  flex: 1;
   padding: tokens.$space-2;
   width: 100%;
+  overflow-y: auto;
 
   // 4. Smooth transitions
   @include hybrid.smooth-transition(all);
@@ -130,18 +170,17 @@
   @extend %right;
 
   // 3. Properties
-  margin-bottom: tokens.$space-4;
-  margin-right: tokens.$space-6;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: tokens.$space-2;
+  padding: tokens.$space-3 tokens.$space-4 tokens.$space-4;
+  margin: 0;
   margin-top: auto;
   width: 100%;
 
   // 4. Smooth transitions
   @include hybrid.smooth-transition(all);
-
-  // 5. Nested selectors
-  [role='button']:first-of-type {
-    margin-right: tokens.$space-2;
-  }
 }
 
 // ============================================================================

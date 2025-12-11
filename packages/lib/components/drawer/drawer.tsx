@@ -37,7 +37,6 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
    * State for activating the drawer
    */
   const [activate, setActivate] = useState(false);
-  const [isExiting, setIsExiting] = useState(false);
 
   /**
    * Store reference to element that triggered drawer for return focus (WCAG 2.4.3)
@@ -75,19 +74,13 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
   }, [focusable]);
 
   /**
-   * Exit animation handler with focus return
+   * Handle close button click - uses same approach as outside click
    */
-  const exitAndClose = useCallback(() => {
-    setIsExiting(true);
-    setTimeout(() => {
-      setActivate(false);
-      setIsExiting(false);
-      // Return focus to trigger element (WCAG 2.4.3)
-      if (triggerElementRef.current?.focus) {
-        triggerElementRef.current.focus();
-      }
-      onClose?.();
-    }, 200);
+  const handleCloseClick = useCallback(() => {
+    if (triggerElementRef.current?.focus) {
+      triggerElementRef.current.focus();
+    }
+    onClose?.();
   }, [onClose]);
 
   /**
@@ -158,19 +151,18 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
     () =>
       classNames([styles.drawer, styles[`${position}`]], {
         [styles[`slide_${position}_enter`]]:
-          activate && !isClosing && !isExiting,
-        [styles[`slide_${position}_exit`]]: isClosing || isExiting,
+          activate && !isClosing,
+        [styles[`slide_${position}_exit`]]: isClosing,
         [styles.visible]: activate,
         [styles[`${size}`]]: size,
         [styles.dark]: isDarkMode,
-        [styles.exiting]: isExiting || isExitingProp,
+        [styles.exiting]: isClosing || isExitingProp,
         [styles.isLoading]: isLoading,
         [styles.isError]: isError,
       }),
     [
       activate,
       isClosing,
-      isExiting,
       isExitingProp,
       position,
       size,
@@ -193,7 +185,7 @@ const DrawerComponent: React.FunctionComponent<DrawerProps> = ({
         <Button
           type="icon"
           size={size}
-          onClick={exitAndClose}
+          onClick={handleCloseClick}
           focusable={focusable}
           ref={buttonRef}
         >

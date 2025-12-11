@@ -151,15 +151,21 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
   /**
    * Synchronizes the position of the overlay content with the scroll position
+   * (do not auto-close overlays on scroll).
    */
-  // const handleWindowScroll = useDebouncedCallback(
-  //   () => setRetriggerStyleCal(new Date().getTime()),
-  //   10
-  // );
-  const handleWindowScroll = useCallback(() => closeProcess(), []);
+  const handleWindowScroll = useDebouncedCallback(
+    () => setRetriggerStyleCal(new Date().getTime()),
+    10
+  );
 
   // onMount process
   useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+
+    if (hideDocumentOverflow) {
+      document.body.style.overflow = 'hidden';
+    }
+
     document.addEventListener('scroll', handleWindowScroll);
 
     if (overlayAnimation) {
@@ -168,10 +174,13 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
     // cleanup
     return () => {
-      // document.removeEventListener('scroll', handleWindowScroll);
+      document.removeEventListener('scroll', handleWindowScroll);
+      if (hideDocumentOverflow) {
+        document.body.style.overflow = originalOverflow;
+      }
       // observer.current?.disconnect();
     };
-  }, []);
+  }, [hideDocumentOverflow, handleWindowScroll, overlayAnimation]);
 
   const onRef = useCallback((node: HTMLDivElement) => {
     const ele = node as HTMLDivElement;
