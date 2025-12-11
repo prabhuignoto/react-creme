@@ -96,6 +96,39 @@ export function TableOfContents({
       const headingSelector = headingLevels.join(', ');
       const headingElements = container.querySelectorAll<HTMLHeadingElement>(headingSelector);
 
+      // Helper function to extract text excluding headerActions
+      const getHeadingText = (heading: HTMLHeadingElement): string => {
+        // Clone the heading to avoid modifying the original
+        const clone = heading.cloneNode(true) as HTMLHeadingElement;
+        
+        // Remove all interactive elements first (buttons, switches, etc.)
+        const interactiveElements = clone.querySelectorAll('button, [role="switch"], [role="button"], input[type="checkbox"]');
+        interactiveElements.forEach((el) => el.remove());
+        
+        // Remove any elements that contain "Show Code" or "Show Preview" text
+        // Process from deepest to shallowest to handle nested structures correctly
+        const allElements = Array.from(clone.querySelectorAll('*')).reverse();
+        allElements.forEach((el) => {
+          const text = el.textContent?.trim() || '';
+          // Check if element's text matches button labels exactly or starts with them
+          // This avoids false positives from headings that might contain words like "Code"
+          if (text === 'Show Code' || text === 'Show Preview' || 
+              text === 'Hide Code' || text === 'Hide Preview' ||
+              text.startsWith('Show Code') || text.startsWith('Show Preview') ||
+              text.startsWith('Hide Code') || text.startsWith('Hide Preview')) {
+            // Remove this element and check if parent should also be removed
+            const parent = el.parentElement;
+            el.remove();
+            // If parent is now empty or only contains whitespace, remove it too
+            if (parent && parent.textContent?.trim() === '') {
+              parent.remove();
+            }
+          }
+        });
+        
+        return clone.textContent?.trim() || '';
+      };
+
       const extractedHeadings: Heading[] = Array.from(headingElements)
         .filter(heading => {
           // Only include actual h2/h3 HTML elements (not divs with role="heading")
@@ -105,7 +138,8 @@ export function TableOfContents({
           }
 
           // Filter out empty headings or headings with only whitespace
-          const text = heading.textContent?.trim();
+          // Use getHeadingText to exclude headerActions
+          const text = getHeadingText(heading);
           if (!text || text.length === 0) {
             return false;
           }
@@ -149,10 +183,12 @@ export function TableOfContents({
           return true;
         })
         .map((heading, index) => {
+          // Extract text excluding headerActions using the helper function
+          const headingText = getHeadingText(heading);
+
           // Generate ID if it doesn't exist
           if (!heading.id) {
-            const text = heading.textContent || '';
-            const id = text
+            const id = headingText
               .toLowerCase()
               .replace(/[^a-z0-9]+/g, '-')
               .replace(/^-|-$/g, '');
@@ -161,7 +197,7 @@ export function TableOfContents({
 
           return {
             id: heading.id,
-            text: heading.textContent?.trim() || '',
+            text: headingText,
             level: parseInt(heading.tagName[1] || '2', 10),
           };
         });
