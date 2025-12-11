@@ -26,7 +26,7 @@ function Widgets() {
             language="jsx"
             componentName="CheckBoxGroup"
           >
-            <DemoWidget name="CheckBoxGroup" width={100}>
+            <DemoWidget name="CheckBoxGroup" width={300}>
               {Default}
             </DemoWidget>
           </HeaderCodeToggle.Content>
@@ -45,7 +45,7 @@ function Widgets() {
             language="jsx"
             componentName="CheckBoxGroup"
           >
-            <DemoWidget name="CheckBoxGroup" width={200}>
+            <DemoWidget name="CheckBoxGroup" width={350}>
               {PreSelected}
             </DemoWidget>
           </HeaderCodeToggle.Content>
@@ -64,7 +64,7 @@ function Widgets() {
             language="jsx"
             componentName="CheckBoxGroup"
           >
-            <DemoWidget name="CheckBoxGroup" width={200}>
+            <DemoWidget name="CheckBoxGroup" width={400}>
               {Disabled}
             </DemoWidget>
           </HeaderCodeToggle.Content>
@@ -83,7 +83,7 @@ function Widgets() {
             language="jsx"
             componentName="CheckBoxGroup"
           >
-            <DemoWidget name="CheckBoxGroup" width={150}>
+            <DemoWidget name="CheckBoxGroup" width={300}>
               {CustomStyle}
             </DemoWidget>
           </HeaderCodeToggle.Content>
@@ -103,7 +103,7 @@ function Widgets() {
             language="jsx"
             componentName="CheckBoxGroup"
           >
-            <DemoWidget name="CheckBoxGroup" width={150}>
+            <DemoWidget name="CheckBoxGroup" width={300}>
               {RTL}
             </DemoWidget>
           </HeaderCodeToggle.Content>

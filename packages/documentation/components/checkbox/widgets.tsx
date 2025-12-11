@@ -27,7 +27,7 @@ function widgets() {
             language="jsx"
             componentName="CheckBox"
           >
-            <DemoWidget name="CheckBox" width={220}>
+            <DemoWidget name="CheckBox" width={300}>
               {Default}
             </DemoWidget>
           </HeaderCodeToggle.Content>
@@ -49,7 +49,7 @@ function widgets() {
             language="jsx"
             componentName="CheckBox"
           >
-            <DemoWidget name="CheckBox" width={200}>
+            <DemoWidget name="CheckBox" width={300}>
               {Disabled}
             </DemoWidget>
           </HeaderCodeToggle.Content>
@@ -72,7 +72,7 @@ function widgets() {
             language="jsx"
             componentName="CheckBox"
           >
-            <DemoWidget name="CheckBox" width={200}>
+            <DemoWidget name="CheckBox" width={300}>
               {Large}
             </DemoWidget>
           </HeaderCodeToggle.Content>
@@ -95,7 +95,7 @@ function widgets() {
             language="jsx"
             componentName="CheckBox"
           >
-            <DemoWidget name="CheckBox" width={150}>
+            <DemoWidget name="CheckBox" width={300}>
               {CustomStyle}
             </DemoWidget>
           </HeaderCodeToggle.Content>
@@ -114,13 +114,13 @@ function widgets() {
             language="jsx"
             componentName="CheckBox"
           >
-            <DemoWidget name="CheckBox" width={200}>
+            <DemoWidget name="CheckBox" width={300}>
               {CustomStyle}
             </DemoWidget>
-            <DemoWidget name="CheckBox" width={200}>
+            <DemoWidget name="CheckBox" width={300}>
               {Medium}
             </DemoWidget>
-            <DemoWidget name="CheckBox" width={200}>
+            <DemoWidget name="CheckBox" width={300}>
               {LargeRounded}
             </DemoWidget>
           </HeaderCodeToggle.Content>

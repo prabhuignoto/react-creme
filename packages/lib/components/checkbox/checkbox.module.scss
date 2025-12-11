@@ -55,8 +55,14 @@ $heights: (
 
 // Border styles
 @mixin borderStyles {
+  border-radius: hybrid.$radius-xs;
+
   &:not(.dark) {
-    @extend %border;
+    border: 1px solid rgba(theme.$secondary-rgb, 0.75);
+  }
+
+  &.dark {
+    border: 1px solid rgba(theme.$dark-control-border-rgb, 1);
   }
 }
 
@@ -66,7 +72,7 @@ $heights: (
 
 // Hover styles with interactive feedback
 @mixin hoverStyles {
-  @extend %border-radius;
+  border-radius: hybrid.$radius-xs;
 
   @include hybrid.hover-feedback() {
     &.dark {
@@ -116,7 +122,11 @@ $heights: (
   }
 
   &.round {
-    border-radius: hybrid.$radius-sm;
+    border-radius: hybrid.$radius-xs;
+  }
+
+  &.square {
+    border-radius: hybrid.$radius-xs;
   }
 
   svg {
