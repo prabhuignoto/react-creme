@@ -55,8 +55,28 @@
     "./icons/**/*.tsx",
     "./icons/**/*.ts",
     "Globals.d.ts",
-    "react-creme.ts"
+    "react-creme.ts",
+    "forms.ts",
+    "feedback.ts",
+    "data-display.ts",
+    "navigation.ts",
+    "overlay.ts",
+    "layout.ts",
+    "disclosure.ts",
+    "media.ts",
+    "core.ts"
   ],
   "exclude": ["node_modules", "dist", "**/*.test.tsx", "**/*.test.ts"],
-  "files": ["react-creme.ts"]
+  "files": [
+    "react-creme.ts",
+    "forms.ts",
+    "feedback.ts",
+    "data-display.ts",
+    "navigation.ts",
+    "overlay.ts",
+    "layout.ts",
+    "disclosure.ts",
+    "media.ts",
+    "core.ts"
+  ]
 }

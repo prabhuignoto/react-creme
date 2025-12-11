@@ -1,7 +1,7 @@
 import { isDark } from '@lib';
 import cx from 'classnames';
 import { FunctionComponent, useMemo, type ReactNode } from 'react';
-import { Code, Zap, Package, Terminal } from 'lucide-react';
+import { Code, Zap } from 'lucide-react';
 import { InstallCommandCard } from '../components/InstallCommandCard';
 import { PACKAGE_MANAGERS } from '../data/installCommands';
 import styles from '../styles/developer-experience.module.scss';
@@ -23,8 +23,12 @@ const DeveloperExperience: FunctionComponent = () => {
         'Full IntelliSense support',
         'Exported types for all props',
         'Zero any types in codebase',
+        'Single npm install command',
+        'Auto-imported CSS modules',
+        'Tree-shakeable exports',
+        'ESM & CJS support',
       ],
-      title: 'TypeScript First',
+      title: 'TypeScript & Developer Experience',
     },
     {
       icon: <Zap size={32} />,
@@ -33,28 +37,12 @@ const DeveloperExperience: FunctionComponent = () => {
         'Turborepo for monorepo management',
         'Oxlint for 50-100x faster linting',
         'Vitest for fast unit testing',
-      ],
-      title: 'Modern Tooling',
-    },
-    {
-      icon: <Package size={32} />,
-      items: [
-        'Single npm install command',
-        'Auto-imported CSS modules',
-        'Tree-shakeable exports',
-        'ESM & CJS support',
-      ],
-      title: 'Great DX',
-    },
-    {
-      icon: <Terminal size={32} />,
-      items: [
         'Storybook for development',
         'Hot module replacement',
         'Source maps included',
         'Active GitHub community',
       ],
-      title: 'Developer Tools',
+      title: 'Modern Tooling & Dev Tools',
     },
   ];
 

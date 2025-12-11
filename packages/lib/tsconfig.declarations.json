@@ -1,0 +1,31 @@
+{
+  "extends": "./tsconfig.emit.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "moduleResolution": "node",
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": false,
+    "outDir": "./dist",
+    "declarationDir": "./dist",
+    "skipLibCheck": true,
+    "noEmit": false,
+    "isolatedModules": false
+  },
+  "files": [
+    "forms.ts",
+    "feedback.ts",
+    "data-display.ts",
+    "navigation.ts",
+    "overlay.ts",
+    "layout.ts",
+    "disclosure.ts",
+    "media.ts",
+    "core.ts",
+    "react-creme.ts"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.test.tsx", "**/*.test.ts"]
+}
+
+

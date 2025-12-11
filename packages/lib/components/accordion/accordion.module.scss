@@ -14,9 +14,17 @@ $transition: max-height hybrid.$animation-duration-primary var(--transition),
   height: calc(100% - tokens.$space-2); // 0.5rem
   padding: tokens.$space-1; // 0.25rem
   width: 100%;
+  // Contain overflow to prevent content from extending beyond boundaries
+  overflow: hidden;
 
   &:not(.no-border) {
     @extend %border;
+  }
+
+  // When fullWidth is true, remove horizontal padding so button can fill full width
+  &.full-width {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -46,4 +54,9 @@ $transition: max-height hybrid.$animation-duration-primary var(--transition),
     opacity: 0;
     overflow: hidden;
   }
+}
+
+.content {
+  padding-top: tokens.$space-2; // 0.5rem - adds spacing between header and content
+  width: 100%;
 }

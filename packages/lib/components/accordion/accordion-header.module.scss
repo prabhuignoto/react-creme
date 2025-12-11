@@ -50,11 +50,27 @@ $header-heights: (
   }
 
   &.full_width {
-    width: calc(100% - tokens.$space-2); // 0.5rem
+    // When fullWidth is true, the button should span the full width of the accordion container
+    // The accordion's horizontal padding is removed when fullWidth is true, so we just need
+    // to ensure the button fills the header width (which is 100% of accordion content area)
+    // Horizontal: button fills full width, with padding for content spacing
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: tokens.$space-1; // 0.25rem to maintain content spacing
+    padding-right: tokens.$space-1; // 0.25rem to maintain content spacing
+    width: 100%; // Fill full header width
+    box-sizing: border-box; // Include padding in width calculation
+    // Vertical extension - extend to fill accordion's vertical padding area
+    margin-top: calc(-1 * tokens.$space-1); // -0.25rem to extend to top edge
+    margin-bottom: calc(-1 * tokens.$space-1); // -0.25rem to extend to bottom edge
+    padding-top: tokens.$space-1; // 0.25rem to maintain content spacing
+    padding-bottom: tokens.$space-1; // 0.25rem to maintain content spacing
+    height: calc(var(--rc-accordion-header-height, 35px) + tokens.$space-2); // height + 0.5rem
   }
 
   &.align-icon-rt {
     direction: rtl;
+    text-align: right;
   }
 
   // Interactive feedback for non-disabled accordions
@@ -103,6 +119,7 @@ $header-heights: (
   margin: auto 0;
   padding: 0 tokens.$space-1; // 0.25rem
   width: calc(100%);
+  text-align: left;
 
   &:not(.title_bold) {
     font-weight: 400;
@@ -115,6 +132,10 @@ $header-heights: (
   &.colorize {
     color: theme.$primary;
   }
+}
+
+.align-icon-rt .title {
+  text-align: right;
 }
 
 @each $size in $sizes {
@@ -177,5 +198,15 @@ $header-heights: (
 
   &.disable-icon {
     display: none;
+  }
+}
+
+.align-icon-rt .icon {
+  &:not(.icon-plus):not(.custom-icon) {
+    transform: scaleX(-1);
+  }
+
+  &.icon-open:not(.icon-plus):not(.custom-icon) {
+    transform: scaleX(-1) rotate(90deg) scale(1.05);
   }
 }

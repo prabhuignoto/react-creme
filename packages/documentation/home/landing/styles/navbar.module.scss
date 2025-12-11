@@ -40,9 +40,16 @@
   align-items: center;
   cursor: pointer;
   transition: transform var(--transition-fast);
+  background: transparent;
+  border: none;
+  padding: 0;
 
   &:hover {
     transform: scale(1.02);
+  }
+
+  .navbar.dark & {
+    background: transparent;
   }
 }
 
@@ -51,9 +58,11 @@
   font-weight: 700;
   color: theme.$primary;
   letter-spacing: -0.02em;
+  background: transparent;
 
   .navbar.dark & {
     color: theme.$white;
+    background: transparent;
   }
 }
 

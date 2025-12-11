@@ -172,6 +172,26 @@ $sizes: (sm, md, lg);
 
   &.tab_head_disabled {
     @extend %disabled;
+    // Enhanced disabled state for absolute clarity
+    opacity: 0.5;
+    filter: grayscale(100%);
+    cursor: not-allowed;
+    pointer-events: none;
+    
+    // Ensure disabled state is clear in both themes
+    &.dark {
+      color: rgba(theme.$white, 0.4);
+    }
+    
+    &:not(.dark) {
+      color: rgba(theme.$black, 0.4);
+    }
+    
+    // Disable hover effects on disabled tabs
+    &:hover {
+      background: none;
+      color: inherit;
+    }
   }
 
   &.tab_head_selected {
@@ -271,6 +291,13 @@ $sizes: (sm, md, lg);
     @extend %center;
     width: 100%;
   }
+  
+  // Ensure proper vertical alignment when used with icons
+  &.tab_header_label_icon {
+    align-items: center;
+    display: flex;
+    height: 100%; // Use full height to align with icon
+  }
 }
 
 .tab_head_rounded {
@@ -319,5 +346,6 @@ $sizes: (sm, md, lg);
   display: flex;
   justify-content: center;
   justify-self: center;
+  align-self: center;
   padding-left: tokens.$space-1; // 0.25rem
 }

@@ -116,8 +116,9 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
       cls(styles.accordion, {
         [styles['no-border']]: !border,
         [styles['open']]: open,
+        [styles['full-width']]: fullWidth,
       }),
-    [border, open]
+    [border, open, fullWidth]
   );
 
   // Define a callback function to set the ref to the accordion's div element
@@ -210,7 +211,7 @@ const Accordion: React.FunctionComponent<AccordionProps> = ({
         role="region"
       >
         {open ? (
-          children
+          <div className={styles.content}>{children}</div>
         ) : (
           <div
             style={{ height: `${bodyHeight}px`, visibility: 'hidden' }}

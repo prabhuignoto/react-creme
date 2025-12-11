@@ -5,6 +5,8 @@
 
 .wrapper {
   position: relative;
+  max-width: 100%;
+  max-height: 100%;
 
   &:not(.image_comparer_loaded) {
     height: 100%;
@@ -14,6 +16,8 @@
   &.image_comparer_loaded {
     height: var(--height);
     width: var(--width);
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
@@ -99,6 +103,9 @@
   img {
     max-height: var(--height);
     max-width: var(--width);
+    width: var(--width);
+    height: var(--height);
+    object-fit: contain;
   }
 }
 

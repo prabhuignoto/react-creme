@@ -60,8 +60,10 @@ export default defineConfig({
       },
     },
     cssCodeSplit: false,
-    sourcemap: true,
-    minify: 'esbuild',
+    sourcemap: false, // Disable sourcemaps for Vite build since Bun handles them
+    minify: false, // Don't minify JS in Vite - Bun handles it
+    // Only build CSS, JS is handled by Bun
+    emptyOutDir: false, // Don't empty dist - preserve namespace files built by Bun
   },
   resolve: {
     alias: {

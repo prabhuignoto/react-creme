@@ -1,7 +1,7 @@
 import { AlignJustify } from '@icons';
 import classNames from 'classnames';
 import React from 'react';
-import { CSSProperties, useCallback, useMemo, useRef, useState } from 'react';
+import { CSSProperties, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useDrag } from '../common/effects/useDrag';
 import { useFirstRender } from '../common/effects/useFirstRender';
 import { useKeyNavigation } from '../common/effects/useKeyNavigation';
@@ -36,6 +36,12 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
     width: number;
   }>({ height: 0, width: 0 });
 
+  // tracks the natural dimensions of the image
+  const [imageNaturalDimensions, setImageNaturalDimensions] = useState<{
+    height: number;
+    width: number;
+  }>({ height: 0, width: 0 });
+
   // checks if both the images are loaded
   const imagesLoaded = useMemo(
     () => imageLoaded && imageLoaded2,
@@ -60,22 +66,110 @@ const ImageComparer: React.FunctionComponent<ImageComparerProps> = ({
     });
   }, [imagesLoaded]);
 
+  // Calculate responsive dimensions based on container and natural image size
+  const calculateResponsiveDimensions = useCallback(() => {
+    if (!imagesLoaded || !panelRef.current) {
+      return;
+    }
+
+    const container = panelRef.current.parentElement;
+    if (!container) {
+      return;
+    }
+
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight || window.innerHeight;
+    const { width: naturalWidth, height: naturalHeight } = imageNaturalDimensions;
+
+    if (naturalWidth === 0 || naturalHeight === 0 || containerWidth === 0) {
+      return;
+    }
+
+    // Calculate aspect ratio
+    const aspectRatio = naturalWidth / naturalHeight;
+
+    // Calculate dimensions that fit within container while maintaining aspect ratio
+    let calculatedWidth = naturalWidth;
+    let calculatedHeight = naturalHeight;
+
+    // If image is wider than container, scale down width
+    if (naturalWidth > containerWidth) {
+      calculatedWidth = containerWidth;
+      calculatedHeight = containerWidth / aspectRatio;
+    }
+
+    // If calculated height is still too tall and container has a height constraint, scale down height
+    if (containerHeight > 0 && calculatedHeight > containerHeight) {
+      calculatedHeight = containerHeight;
+      calculatedWidth = containerHeight * aspectRatio;
+      
+      // Re-check width constraint after height adjustment
+      if (calculatedWidth > containerWidth) {
+        calculatedWidth = containerWidth;
+        calculatedHeight = containerWidth / aspectRatio;
+      }
+    }
+
+    setWrapperDimensions({
+      width: calculatedWidth,
+      height: calculatedHeight,
+    });
+  }, [imagesLoaded, imageNaturalDimensions]);
+
+  // Calculate dimensions on mount and when dependencies change
+  useEffect(() => {
+    calculateResponsiveDimensions();
+  }, [calculateResponsiveDimensions]);
+
+  // Handle container and window resize
+  useEffect(() => {
+    if (!imagesLoaded || !panelRef.current) {
+      return;
+    }
+
+    const container = panelRef.current.parentElement;
+    if (!container) {
+      return;
+    }
+
+    const handleResize = () => {
+      // Use requestAnimationFrame to ensure DOM has updated
+      requestAnimationFrame(() => {
+        calculateResponsiveDimensions();
+      });
+    };
+
+    // Use ResizeObserver for container size changes
+    const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(container);
+
+    // Also listen to window resize as fallback
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [imagesLoaded, calculateResponsiveDimensions]);
+
   const wrapperStyle = useMemo(() => {
     const { width, height } = wrapperDimensions;
     return {
-      '--height': height ? `${height}px` : '95%',
-      '--width': width ? `${width}px` : '95%',
+      '--height': height ? `${height}px` : 'auto',
+      '--width': width ? `${width}px` : '100%',
       visibility: imagesLoaded ? 'visible' : 'hidden',
     } as CSSProperties;
   }, [wrapperDimensions.height, wrapperDimensions.width, imagesLoaded]);
 
   // callback executed on first image load
   const onImageLoad = useCallback((ev: React.SyntheticEvent) => {
-    const { width, height } = ev.target as HTMLImageElement;
+    const img = ev.target as HTMLImageElement;
+    const { naturalWidth, naturalHeight } = img;
 
-    setWrapperDimensions({
-      height: height,
-      width: width,
+    // Store natural dimensions for aspect ratio calculation
+    setImageNaturalDimensions({
+      width: naturalWidth,
+      height: naturalHeight,
     });
 
     setImageLoaded(true);

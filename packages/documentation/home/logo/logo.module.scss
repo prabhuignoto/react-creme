@@ -24,6 +24,7 @@
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: 8px;
   transition: all var(--transition-fast);
+  background: transparent;
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -39,6 +40,9 @@
   align-items: center;
   gap: var(--spacing-xs);
   user-select: none;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .menu_icon {
@@ -80,21 +84,19 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  background-clip: text;
   transition: all var(--transition-fast);
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: inline-block;
+  color: var(--text-primary);
 
   &:not(.dark) {
-    background: linear-gradient(135deg, #18181b 0%, #3f3f46 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #18181b;
   }
 
   &.dark {
-    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #fff;
   }
 
   @media (max-width: 640px) {

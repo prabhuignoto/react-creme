@@ -38,17 +38,6 @@ function FooterComponent() {
               >
                 <GithubSVG />
               </a>
-              <a
-                href="https://www.twitter.com/prabhumurthy2"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter Profile"
-                className={styles.social_link}
-              >
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
             </div>
           </div>
 
@@ -138,39 +127,6 @@ function FooterComponent() {
             </ul>
           </div>
 
-          {/* Column 4: About Author */}
-          <div className={styles.footer_column}>
-            <h3 className={styles.column_title}>Author</h3>
-            <ul className={styles.footer_links}>
-              <li>
-                <a
-                  href="https://www.prabhumurthy.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/prabhuignoto"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub Profile
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.twitter.com/prabhumurthy2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Twitter
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
         {/* Bottom bar */}
@@ -180,14 +136,7 @@ function FooterComponent() {
               &copy; {currentYear} PrabhuMurthy.com. All rights reserved.
             </p>
             <p className={styles.made_with}>
-              Made with ❤️ by{' '}
-              <a
-                href="https://www.twitter.com/prabhumurthy2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @prabhuignoto
-              </a>
+              Made with ❤️ by @prabhuignoto
             </p>
           </div>
 

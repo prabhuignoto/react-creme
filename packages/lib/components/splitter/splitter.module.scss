@@ -75,6 +75,8 @@
   border-radius: 50%;
   height: 24px;
   width: 24px;
+  transform-origin: center center;
+  will-change: transform;
 
   // Use Hybrid Theme timing for smooth, responsive drag feedback
   @include hybrid.smooth-transition(box-shadow, transform);
@@ -82,12 +84,12 @@
   &:hover:not(:disabled) {
     @include hybrid.hover-feedback() {
       box-shadow: 0 0 20px 6px rgba(0, 0, 0, 0.1);
-      transform: scale(1.1);
+      transform: translate(-50%, -50%) scale(1.1);
     }
   }
 
   &:active:not(:disabled) {
-    transform: scale(0.95);
+    transform: translate(-50%, -50%) scale(0.95);
     transition: transform hybrid.$animation-duration-instant ease-in-out;
   }
 

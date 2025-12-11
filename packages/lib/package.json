@@ -107,6 +107,60 @@
       "require": "./dist/react-creme.cjs",
       "default": "./dist/react-creme.mjs"
     },
+    "./forms": {
+      "types": "./dist/forms.d.ts",
+      "import": "./dist/forms.mjs",
+      "require": "./dist/forms.cjs",
+      "default": "./dist/forms.mjs"
+    },
+    "./feedback": {
+      "types": "./dist/feedback.d.ts",
+      "import": "./dist/feedback.mjs",
+      "require": "./dist/feedback.cjs",
+      "default": "./dist/feedback.mjs"
+    },
+    "./data-display": {
+      "types": "./dist/data-display.d.ts",
+      "import": "./dist/data-display.mjs",
+      "require": "./dist/data-display.cjs",
+      "default": "./dist/data-display.mjs"
+    },
+    "./navigation": {
+      "types": "./dist/navigation.d.ts",
+      "import": "./dist/navigation.mjs",
+      "require": "./dist/navigation.cjs",
+      "default": "./dist/navigation.mjs"
+    },
+    "./overlay": {
+      "types": "./dist/overlay.d.ts",
+      "import": "./dist/overlay.mjs",
+      "require": "./dist/overlay.cjs",
+      "default": "./dist/overlay.mjs"
+    },
+    "./layout": {
+      "types": "./dist/layout.d.ts",
+      "import": "./dist/layout.mjs",
+      "require": "./dist/layout.cjs",
+      "default": "./dist/layout.mjs"
+    },
+    "./disclosure": {
+      "types": "./dist/disclosure.d.ts",
+      "import": "./dist/disclosure.mjs",
+      "require": "./dist/disclosure.cjs",
+      "default": "./dist/disclosure.mjs"
+    },
+    "./media": {
+      "types": "./dist/media.d.ts",
+      "import": "./dist/media.mjs",
+      "require": "./dist/media.cjs",
+      "default": "./dist/media.mjs"
+    },
+    "./core": {
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.mjs",
+      "require": "./dist/core.cjs",
+      "default": "./dist/core.mjs"
+    },
     "./package.json": "./package.json",
     "./css": "./dist/react-creme.css"
   },

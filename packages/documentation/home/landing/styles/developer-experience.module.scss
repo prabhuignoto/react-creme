@@ -185,12 +185,9 @@
   grid-template-columns: 1fr;
   gap: var(--spacing-xl);
 
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2xl);
   }
 }
 
@@ -207,6 +204,10 @@
   .dx_section.dark & {
     background: theme.$raisin-black;
     border-color: theme.$jet-black;
+  }
+
+  @media (min-width: 768px) {
+    padding: var(--spacing-2xl);
   }
 
   &:hover {
