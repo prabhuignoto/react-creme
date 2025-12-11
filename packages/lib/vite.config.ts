@@ -9,6 +9,16 @@ import { fileURLToPath } from 'url';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
+const dropJsOutput = {
+  name: 'drop-js-output',
+  generateBundle(_, bundle) {
+    for (const key of Object.keys(bundle)) {
+      if (bundle[key].type === 'chunk') {
+        delete bundle[key];
+      }
+    }
+  },
+};
 
 export default defineConfig({
   plugins: [
@@ -19,6 +29,7 @@ export default defineConfig({
       brotliSize: true,
       template: 'treemap',
     }),
+    dropJsOutput,
   ],
   css: {
     preprocessorOptions: {

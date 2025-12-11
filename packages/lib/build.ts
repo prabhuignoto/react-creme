@@ -6,7 +6,6 @@ import { $ } from 'bun';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distDir = resolve(__dirname, 'dist');
 
-// Define all namespace entry points
 const namespaces = [
   'forms',
   'feedback',
@@ -21,76 +20,10 @@ const namespaces = [
 
 console.log('🔨 Building library with Bun...');
 
-// Build function for a single namespace
-async function buildNamespace(namespace: string) {
-  const entryPoint = resolve(__dirname, `${namespace}.ts`);
-  
-  // Build ES module
-  const esmResult = await build({
-    entrypoints: [entryPoint],
-    external: ['react', 'react-dom', 'react/jsx-runtime'],
-    format: 'esm',
-    minify: true,
-    naming: {
-      entry: '[name].mjs',
-    },
-    outdir: distDir,
-    sourcemap: 'external',
-    target: 'browser',
-    root: __dirname,
-  });
-
-  if (!esmResult.success) {
-    console.error(`❌ ES module build failed for ${namespace}`);
-    if (esmResult.logs) {
-      console.error(esmResult.logs);
-    }
-    return false;
-  }
-
-  // Verify output was created
-  const esmOutputPath = resolve(distDir, `${namespace}.mjs`);
-  if (!esmResult.outputs || esmResult.outputs.length === 0) {
-    console.error(`❌ No output files created for ${namespace} ESM`);
-    return false;
-  }
-  
-  // Build CommonJS module
-  const cjsResult = await build({
-    entrypoints: [entryPoint],
-    external: ['react', 'react-dom', 'react/jsx-runtime'],
-    format: 'cjs',
-    minify: true,
-    naming: {
-      entry: '[name].cjs',
-    },
-    outdir: distDir,
-    sourcemap: 'external',
-    target: 'browser',
-    root: __dirname,
-  });
-
-  if (!cjsResult.success) {
-    console.error(`❌ CommonJS module build failed for ${namespace}`);
-    if (cjsResult.logs) {
-      console.error(cjsResult.logs);
-    }
-    return false;
-  }
-
-  // Verify output was created
-  if (!cjsResult.outputs || cjsResult.outputs.length === 0) {
-    console.error(`❌ No output files created for ${namespace} CJS`);
-    return false;
-  }
-
-  return true;
-}
-
 // Build all namespaces
 console.log('📦 Building namespace entry points...');
 for (const namespace of namespaces) {
-  console.log(`  Building @react-creme/${namespace}...`);
+  console.log(`  Building react-creme/${namespace}...`);
   const entryPoint = resolve(__dirname, `${namespace}.ts`);
   
   // Build ES module

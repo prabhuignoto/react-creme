@@ -99,7 +99,6 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = ({
           return {
             ...item,
             checked: previous.checked ?? item.checked ?? null,
-            isChecked: previous.isChecked ?? item.isChecked,
           };
         }
 
