@@ -45,10 +45,20 @@ $start-left: tokens.$space-1;
   padding: tokens.$space-1;
   user-select: none;
   border-radius: hybrid.$radius-lg;
-  @include hybrid.smooth-transition(all);
+  @include hybrid.smooth-multi-transition(background-color, color, box-shadow, transform);
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
+  }
+
+  &:not(.disabled) {
+    @include hybrid.hover-feedback() {
+      @include hybrid.hover-lift();
+    }
+
+    @include hybrid.touch-feedback() {
+      transform: scale(0.98);
+    }
   }
 
   // Grid columns for each size (track + label)
@@ -77,10 +87,8 @@ $start-left: tokens.$space-1;
   }
 
   // Focus indicator - WCAG 2.4.7 compliant
-  &:focus,
   &:focus-visible {
-    outline: 2px solid theme.$primary;
-    outline-offset: 2px;
+    @include hybrid.focus-outline(theme.$primary);
   }
 
   &.disabled {
@@ -151,7 +159,7 @@ $start-left: tokens.$space-1;
   // Improved visual clarity - clear blue for ON state
   background: theme.$primary;
   border: 1px solid theme.$primary;
-  transition: all 0.2s ease;
+  @include hybrid.smooth-transition(all);
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
@@ -172,7 +180,7 @@ $start-left: tokens.$space-1;
   // Clear gray for OFF state - better contrast
   background-color: theme.$gray-200;
   border: 1px solid theme.$gray-300;
-  transition: all 0.2s ease;
+  @include hybrid.smooth-transition(all);
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
@@ -212,7 +220,7 @@ $start-left: tokens.$space-1;
   border-radius: 50%;
   display: block;
   left: $start-left;
-  transition: background-color 0.1s ease;
+  @include hybrid.smooth-multi-transition(background-color, box-shadow, transform);
   z-index: 1;
   // Animation mixins that generate @keyframes (nested rules) come after properties
   @include animate.set-settings(0.2s);

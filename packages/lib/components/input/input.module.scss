@@ -19,6 +19,7 @@ $heights: (
   position: relative;
   width: 100%;
   z-index: 2;
+  @include hybrid.smooth-multi-transition(background-color, box-shadow, transform);
 
   &:not(.no_clear):not(.no_icon) {
     display: grid;
@@ -90,6 +91,11 @@ $heights: (
 
   &.disabled {
     @extend %disabled;
+    @include hybrid.state-disabled();
+  }
+
+  &:focus-within {
+    @include hybrid.focus-outline(theme.$primary);
   }
 
   input::-webkit-outer-spin-button,

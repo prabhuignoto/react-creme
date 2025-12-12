@@ -2,7 +2,6 @@ import { CloseIcon } from '@icons';
 import classNames from 'classnames';
 import React from 'react';
 import {
-  CSSProperties,
   useCallback,
   useEffect,
   useMemo,
@@ -10,11 +9,120 @@ import {
   useState,
 } from 'react';
 import { Button } from '..';
+import { withOverlay } from '../common/withOverlay';
+import { OverlayModel } from '../common/overlay-model';
 import { useFirstRender } from '../common/effects/useFirstRender';
-import { usePosition } from '../common/effects/usePosition';
 import { isDark } from '../common/utils';
-import { TooltipProps } from './tooltip-model';
+import { TooltipProps, ToolTipPosition } from './tooltip-model';
 import styles from './tooltip.module.scss';
+
+const mapTooltipPositionToOverlay = (
+  position: ToolTipPosition
+): { placement: 'top' | 'bottom' | 'left' | 'right'; align: 'left' | 'right' | 'center' } => {
+  const [primary, secondary] = position.split(' ');
+  
+  if (primary === 'top' || primary === 'bottom') {
+    return {
+      placement: primary,
+      align: (secondary === 'left' ? 'left' : secondary === 'right' ? 'right' : 'center') as 'left' | 'right' | 'center',
+    };
+  } else if (primary === 'left' || primary === 'right') {
+    // For left/right placements, secondary (top/center/bottom) maps to vertical align
+    // 'top' -> 'left' (top edge), 'bottom' -> 'right' (bottom edge), 'center' -> 'center'
+    return {
+      placement: primary,
+      align: (secondary === 'top' ? 'left' : secondary === 'bottom' ? 'right' : 'center') as 'left' | 'right' | 'center',
+    };
+  }
+  
+  return { placement: 'bottom', align: 'center' };
+};
+
+interface TooltipContentProps extends OverlayModel<null> {
+  message: string;
+  size: 'sm' | 'md' | 'lg';
+  minWidth: number;
+  maxWidth: number;
+  bgColor: string;
+  foreColor: string;
+  enablePadding: boolean;
+  position: ToolTipPosition;
+  openOnClick: boolean;
+  onClose: () => void;
+  isClosing?: boolean;
+}
+
+const TooltipContent: React.FunctionComponent<TooltipContentProps> = ({
+  message,
+  size,
+  minWidth,
+  maxWidth,
+  bgColor,
+  foreColor,
+  enablePadding,
+  position,
+  openOnClick,
+  onClose,
+  isClosing,
+}) => {
+  const isDarkMode = useMemo(() => isDark(), []);
+  const isFirstRender = useFirstRender();
+
+  const toolTipMessageClass = useMemo(
+    () =>
+      classNames([
+        styles.message,
+        {
+          [styles.hide_tooltip]: !isFirstRender.current && isClosing,
+          [styles.with_padding]: enablePadding,
+          [styles[`message_${size}`]]: size,
+          [styles.show_tooltip]: !isClosing,
+          [styles[`${position.split(' ')[0]}_${position.split(' ')[1]}`]]: true,
+          [styles.dark]: isDarkMode,
+        },
+      ]),
+    [isClosing, position, size, enablePadding, isDarkMode, isFirstRender]
+  );
+
+  const tooltipMessageStyle = useMemo(
+    () =>
+      ({
+        '--max-width': `${maxWidth}px`,
+        '--min-width': `${minWidth}px`,
+        '--bg-color': bgColor,
+        '--fore-color': foreColor,
+      }) as React.CSSProperties,
+    [maxWidth, minWidth, bgColor, foreColor]
+  );
+
+  return (
+    <div
+      className={toolTipMessageClass}
+      style={tooltipMessageStyle}
+      role="tooltip"
+      aria-label="tooltip"
+    >
+      {openOnClick && (
+        <div className={styles.close_btn_wrapper}>
+          <Button type="icon" onClick={onClose} size={size}>
+            <CloseIcon />
+          </Button>
+        </div>
+      )}
+      {message}
+    </div>
+  );
+};
+
+const TooltipOverlay = withOverlay<TooltipContentProps, null>(
+  TooltipContent,
+  {
+    backdropColor: 'transparent',
+    disableBackdrop: true,
+    disableAnimation: false,
+  }
+);
+
 
 const Tooltip: React.FunctionComponent<TooltipProps> = ({
   children,
@@ -32,23 +140,13 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   enablePadding = true,
 }: TooltipProps) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const tooltipRef = useRef<HTMLDivElement | null>(null);
-
-  // flag to check if the component is rendering for the first time
-  const isFirstRender = useFirstRender();
 
   // state to show/hide the tooltip
   const [showTooltip, setShowTooltip] = useState(isStatic);
 
-  // helper to position the tooltip
-  const { position: cssPosition, onInit } = usePosition(
-    wrapperRef as React.RefObject<HTMLDivElement>,
-    tooltipRef as React.RefObject<HTMLDivElement>,
-    position,
-    {
-      alignToEdge: true,
-      spacing: 15,
-    }
+  const overlayPosition = useMemo(
+    () => mapTooltipPositionToOverlay(position),
+    [position]
   );
 
   // handlers for showing/hiding tooltip
@@ -61,24 +159,6 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
     [isStatic]
   );
 
-  const isDarkMode = useMemo(() => isDark(), []);
-
-  // CSS
-  const toolTipMessageClass = useMemo(
-    () =>
-      classNames([
-        styles.message,
-        {
-          [styles.hide_tooltip]: !isFirstRender.current && !showTooltip,
-          [styles.with_padding]: enablePadding,
-          [styles[`message_${size}`]]: size,
-          [styles.show_tooltip]: showTooltip,
-          [styles[`${position.split(' ')[0]}_${position.split(' ')[1]}`]]: true,
-          [styles.dark]: isDarkMode,
-        },
-      ]),
-    [showTooltip, position]
-  );
 
   const tooltipWrapperClass = useMemo(
     () =>
@@ -89,45 +169,9 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
           [styles.static]: isStatic,
         },
       ]),
-    [fixedAtCenter]
+    [fixedAtCenter, isStatic]
   );
 
-  const tooltipMessageStyle = useMemo(() => {
-    if (cssPosition) {
-      return {
-        ...cssPosition,
-        '--max-width': `${maxWidth}px`,
-        '--min-width': `${minWidth}px`,
-      };
-    } else {
-      return {
-        '--max-width': `${maxWidth}px`,
-        '--min-width': `${minWidth}px`,
-      };
-    }
-  }, [cssPosition]);
-
-  const onRef = useCallback((node: HTMLDivElement) => {
-    if (node) {
-      wrapperRef.current = node;
-      onInit();
-    }
-  }, []);
-
-  useEffect(() => {
-    if (cssPosition) {
-      onTooltipRendered?.();
-    }
-  }, [cssPosition]);
-
-  const style = useMemo(
-    () =>
-      ({
-        '--bg-color': bgColor,
-        '--fore-color': foreColor,
-      }) as CSSProperties,
-    []
-  );
 
   const eventProps = useMemo(
     () =>
@@ -139,39 +183,49 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
             onMouseEnter: onShow,
             onMouseLeave: onHide,
           },
-    []
+    [onShow, onHide]
   );
 
   const handleClose = useCallback(() => {
     setShowTooltip(false);
   }, []);
 
+  useEffect(() => {
+    if (showTooltip || isStatic) {
+      onTooltipRendered?.();
+    }
+  }, [showTooltip, isStatic, onTooltipRendered]);
+
   return (
-    <div
-      className={tooltipWrapperClass}
-      ref={onRef}
-      role="tooltip"
-      style={style}
-      aria-label="tooltip"
-    >
+    <>
       <div
-        className={toolTipMessageClass}
-        style={tooltipMessageStyle}
-        ref={tooltipRef}
+        className={tooltipWrapperClass}
+        ref={wrapperRef}
+        aria-label="tooltip"
       >
-        {openOnClick && (
-          <div className={styles.close_btn_wrapper}>
-            <Button type="icon" onClick={handleClose} size={size}>
-              <CloseIcon />
-            </Button>
-          </div>
-        )}
-        {message}
+        <section className={styles.host_content} {...eventProps}>
+          {children}
+        </section>
       </div>
-      <section className={styles.host_content} {...eventProps}>
-        {children}
-      </section>
-    </div>
+      {(showTooltip || isStatic) && (
+        <TooltipOverlay
+          placement={overlayPosition.placement}
+          align={overlayPosition.align}
+          placementReference={wrapperRef as React.RefObject<HTMLElement>}
+          placementOffset={15}
+          message={message}
+          size={size}
+          minWidth={minWidth}
+          maxWidth={maxWidth}
+          bgColor={bgColor}
+          foreColor={foreColor}
+          enablePadding={enablePadding}
+          position={position}
+          openOnClick={openOnClick}
+          onClose={handleClose}
+        />
+      )}
+    </>
   );
 };
 

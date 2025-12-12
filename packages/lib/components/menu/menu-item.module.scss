@@ -48,7 +48,6 @@ $sizes: (sm, md, lg);
 
   @include hybrid.hover-feedback() {
     cursor: pointer;
-    transform: translateY(-2px);
     box-shadow: hybrid.$shadow-medium;
 
     &.dark {
@@ -72,20 +71,6 @@ $sizes: (sm, md, lg);
 
   &:focus-visible {
     @include hybrid.focus-outline(theme.$primary);
-  }
-}
-
-.item:hover {
-  cursor: pointer;
-
-  &.dark {
-    background: theme.$chinese-black;
-    color: theme.$white;
-  }
-
-  &:not(.dark) {
-    background: theme.$light-bg;
-    color: theme.$primary;
   }
 }
 

@@ -20,6 +20,11 @@
   margin-bottom: tokens.$space-1; // 0.25rem = 4px
 }
 
+.tree_item :global(.rc-accordion-header button) {
+  column-gap: tokens.$space-2;
+  justify-items: start;
+}
+
 .tree_children {
   margin: tokens.$space-2 0; // 0.5rem = 8px vertical
 }

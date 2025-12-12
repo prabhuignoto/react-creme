@@ -137,7 +137,9 @@ const Tree: React.FunctionComponent<TreeProps> = ({
       if (selectable) {
         const nodeUpdated = recursiveUpdateMultiSelection(
           nodeToUpdate,
-          idToFind
+          idToFind,
+          true,
+          selectedId?.selected
         );
         return prev.map(x => {
           if (x.id === lookupNodeId) {

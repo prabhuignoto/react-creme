@@ -77,29 +77,64 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
 
     if (placementRef && placement && overlayDimensions && overlayRef) {
       const child = placementRef.firstChild as HTMLElement;
-      const { top, left, right, height, width } = child.getBoundingClientRect();
-      const positionRight = right - overlayDimensions.width + leftOffset;
+      const { top, left, right, bottom, height, width } = child.getBoundingClientRect();
       const overlayChild = overlayRef.firstChild as HTMLElement;
+      const overlayWidth = overlayDimensions.width;
+      const overlayHeight = overlayDimensions.height;
 
-      return {
-        [placement === 'top' ? 'bottom' : 'top']: `${
-          top + height + placementOffset
-        }px`,
-        left: `${
-          context?.align === 'left'
-            ? left + leftOffset
-            : context.align === 'center'
-              ? left +
-                Math.round(width / 2) -
-                Math.round(overlayChild.clientWidth / 2) +
-                leftOffset
-              : positionRight
-        }px`,
-        pointerEvents: 'all',
-        position: 'fixed',
-      } as CSSProperties;
+      // Handle vertical placements (top/bottom)
+      if (placement === 'top' || placement === 'bottom') {
+        const positionRight = right - overlayWidth + leftOffset;
+        const verticalProp = placement === 'top' ? 'bottom' : 'top';
+        const verticalValue = placement === 'top' 
+          ? window.innerHeight - top + placementOffset
+          : top + height + placementOffset;
+
+        return {
+          [verticalProp]: `${verticalValue}px`,
+          left: `${
+            context?.align === 'left'
+              ? left + leftOffset
+              : context.align === 'center'
+                ? left +
+                  Math.round(width / 2) -
+                  Math.round(overlayChild.clientWidth / 2) +
+                  leftOffset
+                : positionRight
+          }px`,
+          pointerEvents: 'all',
+          position: 'fixed',
+        } as CSSProperties;
+      }
+
+      // Handle horizontal placements (left/right)
+      if (placement === 'left' || placement === 'right') {
+        const horizontalProp = placement === 'left' ? 'right' : 'left';
+        const horizontalValue = placement === 'left'
+          ? window.innerWidth - left + placementOffset
+          : right + placementOffset;
+        const positionBottom = bottom - overlayHeight;
+        const verticalCenter = top + Math.round(height / 2) - Math.round(overlayHeight / 2);
+
+        // For left/right placements, align maps to vertical alignment
+        // 'left' = top, 'right' = bottom, 'center' = center
+        return {
+          [horizontalProp]: `${horizontalValue}px`,
+          top: `${
+            context?.align === 'left'
+              ? top + leftOffset
+              : context.align === 'right'
+                ? positionBottom
+                : verticalCenter
+          }px`,
+          pointerEvents: 'all',
+          position: 'fixed',
+        } as CSSProperties;
+      }
     }
-  }, [placementReference, retriggerStyleCal, overlayDimensions?.width]);
+    
+    return {} as CSSProperties;
+  }, [placementReference, retriggerStyleCal, overlayDimensions, placement, context, leftOffset, placementOffset]);
 
   // event handlers
 

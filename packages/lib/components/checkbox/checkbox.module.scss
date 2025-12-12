@@ -29,6 +29,7 @@ $heights: (
   justify-items: center;
   padding: tokens.$space-1 tokens.$space-2;
   width: 100%;
+  @include hybrid.smooth-multi-transition(background-color, color, transform);
 
   &.rtl {
     direction: rtl;
@@ -36,6 +37,7 @@ $heights: (
 
   &.disabled {
     @extend %disabled;
+    @include hybrid.state-disabled();
   }
 
   @each $key, $val in $grid {
@@ -46,6 +48,14 @@ $heights: (
         min-height: map.get($heights, $key);
       }
     }
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
+  }
+
+  @include hybrid.touch-feedback() {
+    transform: scale(0.98);
   }
 }
 

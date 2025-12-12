@@ -8,7 +8,7 @@ interface OverlayCommon {
   onClose?: () => void;
   onClosing?: () => void;
   onOpen?: () => void;
-  placement?: 'top' | 'bottom';
+  placement?: 'top' | 'bottom' | 'left' | 'right';
   placementOffset?: number;
   placementReference?: RefObject<HTMLElement>;
 }
@@ -20,7 +20,7 @@ export interface OverlayModel<T> extends OverlayCommon {
   data?: T;
   isClosing?: boolean;
   overlayAnimation?: boolean;
-  placement?: 'top' | 'bottom';
+  placement?: 'top' | 'bottom' | 'left' | 'right';
   ref?: RefObject<HTMLElement | null>;
   showClose?: boolean;
 }
@@ -38,7 +38,7 @@ export interface OverlayProps {
   onClosing?: () => void;
   onOpen?: () => void;
   overlayAnimation?: boolean;
-  placement?: 'top' | 'bottom';
+  placement?: 'top' | 'bottom' | 'left' | 'right';
   placementOffset?: number;
   placementReference?: RefObject<HTMLElement>;
   showCloseButton?: boolean;

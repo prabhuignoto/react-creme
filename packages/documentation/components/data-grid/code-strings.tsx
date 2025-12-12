@@ -75,3 +75,4 @@ const App = () => (
     data={data}
   />
 );`;
+

@@ -9,6 +9,94 @@
 
 $sizes: (sm, md, lg);
 
+@keyframes notification-slide-left-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes notification-slide-left-exit {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+
+@keyframes notification-slide-right-enter {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes notification-slide-right-exit {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
+@keyframes notification-slide-up-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notification-slide-up-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes notification-slide-down-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notification-slide-down-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
 .wrapper {
   $min-width: var(--min-width);
   $min-height: var(--min-height);
@@ -23,58 +111,14 @@ $sizes: (sm, md, lg);
   $slide-pos-horizontal: util.negative($min-width);
   $slide-pos-vertical: util.negative($min-height);
 
-  $slide-left-settings: (
-    from: (
-      left: $slide-pos-horizontal,
-      opacity: 0,
-    ),
-    to: (
-      left: tokens.$space-4,
-      opacity: 1,
-    ),
-  );
-
-  $slide-right-settings: (
-    from: (
-      right: $slide-pos-horizontal,
-      opacity: 0,
-    ),
-    to: (
-      right: tokens.$space-4,
-      opacity: 1,
-    ),
-  );
-
-  $slide-top-settings: (
-    from: (
-      top: $slide-pos-vertical,
-      opacity: 0,
-    ),
-    to: (
-      top: tokens.$space-4,
-      opacity: 1,
-    ),
-  );
-
-  $slide-bottom-settings: (
-    from: (
-      bottom: $slide-pos-vertical,
-      opacity: 0,
-    ),
-    to: (
-      bottom: tokens.$space-4,
-      opacity: 1,
-    ),
-  );
-
   @extend %shadow-medium;
   @extend %border-radius;
   @extend %col;
-  // CSS properties before animation mixins to comply with Sass mixed-decls
+  box-shadow: hybrid.$shadow-medium;
+  border-radius: hybrid.$radius-md;
   min-height: $min-height;
   min-width: $min-width;
-  // Animation mixins that generate @keyframes (nested rules) come after properties
-  @include animate.set-settings(0.25s);
+  @include hybrid.smooth-transition(all);
 
   &.dark {
     background: theme.$raisin-black;
@@ -86,41 +130,36 @@ $sizes: (sm, md, lg);
 
   @each $position, $position-val in $positions {
     $new-position: left;
-    $slide-settings: ();
+    $enter-animation: notification-slide-left-enter;
+    $exit-animation: notification-slide-left-exit;
 
     @if $position == 'top-left' or $position == 'bottom-left' {
-      $slide-settings: $slide-left-settings;
+      $enter-animation: notification-slide-left-enter;
+      $exit-animation: notification-slide-left-exit;
     } @else if $position == 'top-right' or $position == 'bottom-right' {
-      $slide-settings: $slide-right-settings;
       $new-position: right;
+      $enter-animation: notification-slide-right-enter;
+      $exit-animation: notification-slide-right-exit;
     } @else if $position == 'top-center' {
-      $slide-settings: $slide-top-settings;
       $new-position: top;
+      $enter-animation: notification-slide-down-enter;
+      $exit-animation: notification-slide-up-exit;
     } @else if $position == 'bottom-center' {
-      $slide-settings: $slide-bottom-settings;
       $new-position: bottom;
+      $enter-animation: notification-slide-up-enter;
+      $exit-animation: notification-slide-down-exit;
     }
-
-    @include animate.set-keyframes(
-      notification-slide-#{$position}-enter,
-      $slide-settings
-    );
-    @include animate.set-keyframes(
-      notification-slide-#{$position}-exit,
-      $slide-settings,
-      true
-    );
 
     &.#{$position}_enter {
       @include position.position-abs($position-val, true);
-      animation-name: notification-slide-#{$position}-enter;
       #{$new-position}: tokens.$space-4;
+      animation: $enter-animation hybrid.$animation-duration-primary hybrid.$spring-easing forwards;
     }
 
     &.#{$position}_exit {
       @include position.position-abs($position-val, true);
-      animation-name: notification-slide-#{$position}-exit;
       #{$new-position}: $slide-pos-horizontal;
+      animation: $exit-animation hybrid.$animation-duration-primary hybrid.$spring-easing forwards;
     }
   }
 }
@@ -161,8 +200,19 @@ $sizes: (sm, md, lg);
 .close_btn {
   padding-right: tokens.$space-2;
   padding-top: tokens.$space-1;
+  @include hybrid.interactive-feedback(
+    $hover-effect: scale(1.1),
+    $touch-effect: scale(0.95)
+  );
 }
 
 .content {
   @extend %center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrapper {
+    animation: none !important;
+    transition: none !important;
+  }
 }

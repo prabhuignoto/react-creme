@@ -12,9 +12,10 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
       onSelect,
       enableCheckbox,
       size,
-      expandedIds,
+      expandedIds = new Set<string>(),
       onToggleExpand,
       level = 1,
+      parentPath = '',
     } = props;
 
     const containerClass = classNames({
@@ -22,76 +23,79 @@ const TreeNode: React.FunctionComponent<TreeNodeProps> = React.memo(
       [styles.tree_node]: isChild,
     });
 
-    const handleChange = useCallback(
-      (open?: boolean, nodeId?: string) => {
-        onSelect?.(nodeId, open);
+    const checkboxEnabled = !!enableCheckbox;
+    const controlSize = size ?? 'sm';
 
-        // Toggle expansion via parent's state
-        if (nodeId && onToggleExpand) {
-          onToggleExpand(nodeId);
+    const handleSelect = useCallback(
+      (nodePath?: string, selected?: boolean) => {
+        if (!nodePath) {
+          return;
         }
+        onSelect?.(nodePath, selected);
       },
-      [onSelect, onToggleExpand]
+      [onSelect]
     );
 
     return (
       <div className={containerClass}>
         {nodes.map((node, index) => {
           const nodeId = node.id || '';
+          const nodePath = parentPath ? `${parentPath}/${nodeId}` : nodeId;
           const isExpanded = expandedIds?.has(nodeId) || false;
+          const childProps = {
+            key: node.id,
+            nodes: node.nodes || [],
+            isChild: true,
+            id: nodeId,
+            selected: Boolean(node.selected),
+            enableCheckbox: checkboxEnabled,
+            size: controlSize,
+            expandedIds,
+            ...(onToggleExpand ? { onToggleExpand } : {}),
+            level: level + 1,
+            parentPath: nodePath,
+            ...(onSelect ? { onSelect } : {}),
+          };
 
           return (
             <div key={nodeId || index} className={styles.tree_item}>
               <Accordion
                 id={nodeId}
-                title={node.name}
+                title={node.name || ''}
                 disableIcon={!node.nodes?.length}
                 autoSetBodyHeight={false}
                 disableARIA={false}
-                size={size}
+                size={controlSize}
                 expanded={isExpanded}
                 onChange={open => {
-                  if (!enableCheckbox) {
-                    handleChange(open, node.id);
+                  onToggleExpand?.(nodeId);
+                  if (!checkboxEnabled) {
+                    handleSelect(nodePath, open);
                   }
                 }}
                 animate={false}
                 customContent={
-                  enableCheckbox ? (
+                  checkboxEnabled ? (
                     <CheckBox
                       label={node.name || ''}
                       noUniqueId
-                      id={node.id}
+                      id={nodeId}
                       focusable={false}
                       onChange={(_, nodeSelected) =>
-                        handleChange(nodeSelected, node.id)
+                        handleSelect(nodePath, nodeSelected)
                       }
-                      isChecked={node.selected}
+                      isChecked={Boolean(node.selected)}
                       noHoverStyle
                       autoHeight
-                      size={size}
+                      size={controlSize}
+                      disabled={Boolean(node.disabled)}
                     />
                   ) : null
                 }
               >
                 {Boolean(node.nodes?.length) && (
                   <div className={styles.tree_children}>
-                    <TreeNode
-                      key={node.id}
-                      nodes={node.nodes || []}
-                      name={node.name}
-                      isChild
-                      id={node.id}
-                      onSelect={x =>
-                        onSelect?.(node.id + '/' + x, node.selected)
-                      }
-                      selected={node.selected}
-                      enableCheckbox={enableCheckbox}
-                      size={size}
-                      expandedIds={expandedIds}
-                      onToggleExpand={onToggleExpand}
-                      level={level + 1}
-                    />
+                    <TreeNode {...childProps} />
                   </div>
                 )}
               </Accordion>

@@ -23,6 +23,8 @@ $sizes: (sm, md, lg);
   padding: 0;
   position: relative;
   color: theme.$black;
+  @include hybrid.smooth-multi-transition(height, opacity);
+  transition-timing-function: hybrid.$spring-easing;
 
   &.rtl {
     text-align: right;
@@ -36,6 +38,10 @@ $sizes: (sm, md, lg);
     &.#{$size} {
       @extend %text-#{$size};
     }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 }
 
@@ -57,10 +63,8 @@ $sizes: (sm, md, lg);
   }
 
   // Hover feedback with interactive color change
-  &:hover {
-    @include hybrid.hover-feedback() {
-      color: rgba(theme.$primary-rgb, 0.8);
-    }
+  @include hybrid.hover-feedback() {
+    color: rgba(theme.$primary-rgb, 0.8);
   }
 
   // Focus state with refined outline

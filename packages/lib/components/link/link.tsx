@@ -32,15 +32,15 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     const internalRef = useRef<HTMLAnchorElement>(null);
     const ref = (forwardedRef ||
       internalRef) as React.RefObject<HTMLAnchorElement>;
-    let focusProps = null;
+    const isButtonLike = !href;
 
     useFocusNew(focusable ? (ref as React.RefObject<HTMLElement>) : null);
 
-    if (focusable) {
-      focusProps = {
-        tabIndex: 0,
-      };
-    }
+    const tabIndex = useMemo(() => {
+      if (!focusable) return -1;
+      if (isButtonLike) return 0;
+      return undefined;
+    }, [focusable, isButtonLike]);
 
     const isDarkMode = useMemo(() => isDark(), []);
 
@@ -58,11 +58,20 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
         className={linkClass}
         target={target}
         href={href}
-        {...focusProps}
+        tabIndex={tabIndex}
+        role={isButtonLike ? 'button' : undefined}
         ref={ref as React.Ref<HTMLAnchorElement>}
         onClick={onClick}
+        onKeyDown={e => {
+          if (!isButtonLike) return;
+          if (e.key === ' ') {
+            e.preventDefault();
+          }
+        }}
         onKeyUp={e => {
-          if (e.key === 'Enter') {
+          if (!isButtonLike) return;
+          if (e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
             onClick?.(e);
           }
         }}

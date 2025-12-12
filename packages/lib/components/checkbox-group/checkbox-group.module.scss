@@ -6,10 +6,12 @@
   &.checkbox_group_horizontal {
     @extend %left;
     @include hybrid.stagger-children($max-items: 20, $delay-step: 0.04s);
+    @include hybrid.smooth-transition(transform);
   }
 
   &.checkbox_group_vertical {
     @extend %col;
     @include hybrid.stagger-children($max-items: 20, $delay-step: 0.04s);
+    @include hybrid.smooth-transition(transform);
   }
 }

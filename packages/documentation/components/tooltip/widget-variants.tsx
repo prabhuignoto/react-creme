@@ -25,7 +25,7 @@ export const BottomLeft = () => (
     minWidth={160}
   >
     <div style={{ width: `100%` }}>
-      <Card height={100}>
+      <Card height={100} width={100}>
         Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean molestie
         velit quis volutpat vestibulum. Donec facilisis est ac condimentum
         aliquet. Nam semper dui eget sagittis sagittis. Aenean sodales vulputate

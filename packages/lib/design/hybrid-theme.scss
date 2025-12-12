@@ -30,7 +30,7 @@
 /// - Overshoot point: 1.56 (bounce/spring effect)
 /// - Control point 2: 0.64 (smooth deceleration)
 /// - End point: 1 (perfect landing)
-$spring-easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+$spring-easing: cubic-bezier(0.54, 1.26, 0.84, 1);
 
 /// Easing for smooth, refined transitions
 /// Balanced between spring physics and smoothness
@@ -545,39 +545,36 @@ transparent 100%);
 
 /// Combines multiple smooth transitions
 /* stylelint-disable max-nesting-depth */
-/// @param {string} $property1 - First property
-/// @param {string} $property2 - Second property
-/// @param {string} $property3 - Third property (optional)
-@mixin smooth-multi-transition($property1, $property2, $property3: null) {
-  $transition-1: $property1 $animation-duration-smooth $ease-smooth;
-  $transition-2: $property2 $animation-duration-smooth $ease-smooth;
-  $transition-3: if($property3,
-  $property3 $animation-duration-smooth $ease-smooth,
-  null);
-  $transition-list: if($property3,
-  ($transition-1, $transition-2, $transition-3),
-  ($transition-1, $transition-2));
-  transition: list.join($transition-list, (), comma);
+/// @param {arglist} $properties - One or more properties to transition
+@mixin smooth-multi-transition($properties...) {
+  $transitions: ();
+
+  @each $property in $properties {
+    @if $property != null {
+      $transitions: list.append(
+        $transitions,
+        $property $animation-duration-smooth $ease-smooth,
+        comma
+      );
+    }
+  }
+
+  transition: $transitions;
 }
 /* stylelint-enable max-nesting-depth */
 
-/// Applies hover lift effect with transitions
-/// @param {number} $lift-distance - How far to lift (default: 2px)
-/// @param {boolean} $with-shadow - Include shadow on lift (default: true)
-@mixin hover-lift($lift-distance: 2px, $with-shadow: true) {
+/// Applies hover emphasis without vertical lift
+/// Uses shadow-only emphasis to avoid positional jump
+/// @param {boolean} $with-shadow - Include shadow on hover (default: true)
+@mixin hover-lift($with-shadow: true) {
   @if $with-shadow {
-    @include smooth-multi-transition(transform, box-shadow);
+    @include smooth-transition(box-shadow);
 
     &:hover {
-      transform: translateY(-$lift-distance);
       box-shadow: $shadow-medium;
     }
   } @else {
-    @include smooth-transition(transform);
-
-    &:hover {
-      transform: translateY(-$lift-distance);
-    }
+    // No-op when shadow is disabled
   }
 }
 
@@ -665,14 +662,16 @@ transparent 100%);
 /// @param {string} $hover-effect - Hover behavior (mouse devices)
 /// @param {string} $touch-effect - Active behavior (touch devices)
 @mixin interactive-feedback(
-  $hover-effect: transform translateY(-2px),
+  $hover-effect: none,
   $touch-effect: scale(0.98)
 ) {
   @include smooth-transition(transform, box-shadow);
 
   @media (hover: hover) {
     &:hover {
-      transform: $hover-effect;
+      @if $hover-effect != none {
+        transform: $hover-effect;
+      }
     }
   }
 

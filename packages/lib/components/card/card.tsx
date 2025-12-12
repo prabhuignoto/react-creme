@@ -22,6 +22,7 @@ const Card: React.FunctionComponent<CardProps> = ({
   footer,
   header,
   height = 200,
+  width,
   shadow = true,
   size = 'md',
   ariaLabel,
@@ -35,11 +36,12 @@ const Card: React.FunctionComponent<CardProps> = ({
   const style = useMemo(
     () => ({
       '--height': `${height}px`,
+      ...(width && { '--width': `${width}px` }),
       gridTemplateRows: `${header ? '50px' : ''} 1fr ${
         footer ? '50px' : ''
       }`.trim(),
     }),
-    [height, header, footer]
+    [height, width, header, footer]
   );
 
   // ✅ FIXED: Include all used variables in dependencies

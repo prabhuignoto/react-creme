@@ -1,6 +1,7 @@
 @use '@design/core.scss';
 @use '@design/theme.scss';
 @use '@design/tokens.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -20,10 +21,9 @@ $header-heights: (
   grid-template-columns: 1fr;
   justify-items: center;
   min-height: var(--height, 300px);
-  transition:
-    transform 0.2s ease-in-out,
-    box-shadow 0.2s ease-in-out;
-  width: 100%;
+  border-radius: hybrid.$radius-lg;
+  @include hybrid.smooth-multi-transition(transform, box-shadow);
+  width: var(--width, 100%);
 
   // Dark mode support
   &.dark {
@@ -41,8 +41,8 @@ $header-heights: (
 
   // Shadow and border radius
   &.shadow {
-    @extend %shadow-medium;
-    @extend %border-radius;
+    box-shadow: hybrid.$shadow-medium;
+    border-radius: hybrid.$radius-lg;
   }
 
   &:not(.shadow) {
@@ -53,18 +53,12 @@ $header-heights: (
   &.interactive {
     cursor: pointer;
 
-    &:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-      transform: translateY(-2px);
-    }
-
-    &:active {
-      transform: translateY(0);
+    @include hybrid.hover-feedback() {
+      box-shadow: hybrid.$shadow-medium;
     }
 
     &:focus-visible {
-      outline: 2px solid theme.$primary;
-      outline-offset: 2px;
+      @include hybrid.focus-outline(theme.$primary);
     }
   }
 

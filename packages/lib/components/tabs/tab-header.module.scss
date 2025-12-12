@@ -113,8 +113,10 @@ $sizes: (sm, md, lg);
 }
 
 .tab_header_btn.dark {
-  &:not(.tab_header_btn_disabled):hover {
-    color: theme.$white;
+  &:not(.tab_header_btn_disabled) {
+    @include hybrid.hover-feedback() {
+      color: theme.$white;
+    }
   }
 }
 
@@ -141,7 +143,7 @@ $sizes: (sm, md, lg);
   border-radius: $radius;
 
   // Use Hybrid Theme timing for smooth tab transitions
-  @include hybrid.smooth-multi-transition(background-color, color);
+  @include hybrid.smooth-multi-transition(background-color, color, transform, box-shadow);
 
   &.dark {
     color: theme.$white;
@@ -153,6 +155,7 @@ $sizes: (sm, md, lg);
 
   &:not(.tab_head_disabled):not(.tab_head_selected) {
     @include hybrid.hover-feedback() {
+      @include hybrid.hover-lift();
       background: rgba(theme.$secondary-rgb, 0.2);
       color: theme.$primary;
     }
@@ -188,7 +191,7 @@ $sizes: (sm, md, lg);
     }
     
     // Disable hover effects on disabled tabs
-    &:hover {
+    @include hybrid.hover-feedback() {
       background: none;
       color: inherit;
     }
@@ -196,6 +199,7 @@ $sizes: (sm, md, lg);
 
   &.tab_head_selected {
     color: theme.$primary;
+    @include hybrid.drop-shadow-refined($size: soft);
   }
 
   &.tab_head_selected.dark {

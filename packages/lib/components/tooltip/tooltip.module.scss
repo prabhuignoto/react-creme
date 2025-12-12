@@ -2,6 +2,7 @@
 @use '@design/theme.scss';
 @use '@design/animate.scss';
 @use '@design/position.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 $sizes: (sm, md, lg);
 $arrow-dim-sm: 12px;
@@ -25,20 +26,10 @@ $arrow-dim-lg: 20px;
 }
 
 .message {
-  $animation: (
-    from: (
-      opacity: 0,
-      visibility: hidden,
-    ),
-    to: (
-      opacity: 1,
-      visibility: visible,
-    ),
-  );
-
   @extend %center;
   @extend %border-radius;
   @extend %shadow-medium;
+  border-radius: hybrid.$radius-md;
 
   // CSS properties before animation mixins to comply with Sass mixed-decls
   background-color: var(-bg-color, theme.$white);
@@ -47,12 +38,6 @@ $arrow-dim-lg: 20px;
   position: absolute;
   visibility: hidden;
   z-index: 99999;
-
-  // Animation mixins that generate @keyframes (nested rules) come after properties
-  @include animate.set-settings(0.25s);
-  @include animate.set-keyframes(animate_show, $animation);
-  @include animate.set-keyframes(animate_close, $animation, true);
-
   &.dark::after {
     background: theme.$dark-control-bg;
   }
@@ -71,16 +56,25 @@ $arrow-dim-lg: 20px;
     color: var(--fore-color, theme.$primary);
   }
 
+  @include hybrid.smooth-multi-transition(opacity, visibility);
+  transition-timing-function: hybrid.$spring-easing;
+
   &.show_tooltip {
-    animation-name: animate_show;
     opacity: 1;
     visibility: visible;
   }
 
   &.hide_tooltip {
-    animation-name: animate_close;
     opacity: 0;
     visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &.show_tooltip,
+    &.hide_tooltip {
+      animation: none;
+      transition: none;
+    }
   }
 
   &.top_left::after,

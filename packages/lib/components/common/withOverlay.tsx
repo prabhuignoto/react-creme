@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Overlay } from './overlay';
 import { OverlayModel } from './overlay-model';
+import { omitUndefined } from './utils';
 import './overlay.scss';
 
 type Settings = {
@@ -74,6 +75,7 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
         portalContainer.current = containedToParent.current;
         portalContainer.current.style.position = 'relative';
         setPortalWrapperCreated(true);
+        return undefined;
       } else {
         overlayRef.current = document.createElement('div');
         overlayRef.current.className = `${classPrefix.current}-portal-wrapper`;
@@ -108,28 +110,30 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
     const handleChildClose = useCallback(() => setChildInvokedClose(true), []);
 
     return portalWrapperCreated
-      ? ReactDOM.createPortal(
+        ? ReactDOM.createPortal(
           <OverlayContext.Provider
-            value={{
+            value={omitUndefined({
               align,
               childClosing: childInvokedClose,
               data,
-            }}
+            })}
           >
             <Overlay
-              showCloseButton={showClose}
+              {...omitUndefined({
+                showCloseButton: showClose,
+                onOpen,
+                placement,
+                placementReference,
+                backdropColor,
+                overlayAnimation,
+                disableBackdrop,
+                hideDocumentOverflow,
+                placementOffset,
+                leftOffset,
+                name,
+              })}
               onClose={handleClose}
-              onOpen={onOpen}
-              placement={placement}
-              placementReference={placementReference}
-              backdropColor={backdropColor}
               containedToParent={!!containedToParent}
-              overlayAnimation={overlayAnimation}
-              disableBackdrop={disableBackdrop}
-              hideDocumentOverflow={hideDocumentOverflow}
-              placementOffset={placementOffset}
-              leftOffset={leftOffset}
-              name={name}
             >
               <Node
                 {...(props as T)}

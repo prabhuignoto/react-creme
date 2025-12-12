@@ -231,11 +231,6 @@ $file-preview-lg: 100px;
   // Nested selectors
   &:hover {
     background-color: rgba(theme.$primary-rgb, 0.9);
-    transform: translateY(-1px);
-  }
-
-  &:active {
-    transform: translateY(0);
   }
 
   .wrapper.dark & {
@@ -275,7 +270,6 @@ $file-preview-lg: 100px;
   // Nested selectors
   &:hover {
     @extend %shadow-medium;
-    transform: translateY(-2px);
   }
 
   &:focus-visible {

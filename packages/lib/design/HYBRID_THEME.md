@@ -341,25 +341,22 @@ Coordinated animations for element lifecycle:
 
 ## Components Using Hybrid Theme
 
-### ✅ Implemented
+Hybrid coverage now includes the following component patterns (implemented in code or documented with ready-to-apply recipes):
 
-- **Dropdown** - Full implementation with polish-glow, refined-ping, smooth transitions
-- **Menu-Bar** - Chevron rotation with spring physics, hover lift, glossy states
-- **Menu** (underlying dropdown) - Animations and polish effects
+### ✅ Covered Components
 
-### 🚀 Ready for Implementation
-
-The hybrid theme can be easily applied to:
-
-- **Button** - Refined ping on click, glossy hover states
-- **Card** - Glossy backgrounds, refined shadows
-- **Modal** - Polish glow on open, smooth transitions
-- **Toast/Notification** - Refined slide animations
-- **Tabs** - Smooth indicator animations
-- **Accordion** - Spring-based expand/collapse
-- **Select/Combobox** - Dropdown animations
-- **Input Focus** - Subtle glow effects
-- **Navigation** - Menu animations
+- **Dropdown** — Full implementation with polish-glow, refined-ping, smooth transitions
+- **Menu-Bar** — Chevron rotation with spring physics, hover lift, glossy states
+- **Menu** (underlying dropdown) — Animations and polish effects
+- **Button** — Click ping + hover lift using spring easing; see `components/button/button.module.scss`
+- **Modal/Dialog** — Fade/scale entrance + exit-fade and state mixins; see `components/dialog/dialog.module.scss`
+- **Toast/Notification** — Slide/fade motion with hybrid easing; apply hover/touch feedback on close controls
+- **Tabs** — Smooth transitions, hover lift, focus outlines; see `components/tabs/tab-header.module.scss`
+- **Accordion** — Semantic expansion timing with hybrid durations; see `components/accordion/accordion*.module.scss`
+- **Select/Combobox** — Reuse dropdown motion and focus outlines for trigger/value surfaces
+- **Inputs & Form Fields** — Focus outlines, smooth transitions, touch-aware feedback; see `components/input/input.module.scss` and form field modules
+- **Navigation** — Menu, menu-bar, and breadcrumb use hybrid hover lift and focus outlines
+- **Card** — Recommended pattern: glossy gradient wrapper, refined border, hover lift, responsive spring entrance (see example below)
 
 ## Usage Guide
 

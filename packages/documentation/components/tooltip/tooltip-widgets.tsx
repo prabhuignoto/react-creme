@@ -74,12 +74,12 @@ const Widgets = () => {
           ></Dropdown>
         </div>
       </Section>
-      <Section size="md" title="On Hover">
+      <Section size="md" title="On Hover" height={450}>
         <Text>
           The Tooltip is activated by hovering over the target element and is
           auto closed the moment the mouse moves out of the target element.
         </Text>
-        <DemoWidget name="Tooltip" width={width}>
+        <DemoWidget name="Tooltip" width={width} height={350}>
           <Tooltip
             message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
             position={position}
@@ -88,25 +88,23 @@ const Widgets = () => {
             foreColor="#FF0000"
             size="sm"
           >
-            <Card height={200}>
+            <Card height={100} width={300}>
               <p style={{ color: isDark ? '#fff' : '#000' }}>
                 Fusce eu magna nec arcu ultrices ultricies in nec ex. Aenean
                 molestie velit quis volutpat vestibulum. Donec facilisis est ac
                 condimentum aliquet. Nam semper dui eget sagittis sagittis.
-                Aenean sodales vulputate magna vitae sodales. Phasellus
-                dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam
-                diam, at pulvinar
+                Aenean sodales vulputate magna vitae sodales.
               </p>
             </Card>
           </Tooltip>
         </DemoWidget>
       </Section>
-      <Section size="md" title="Static Tooltip">
+      <Section size="md" title="Static Tooltip" height={450}>
         <Text>
           Sometimes it can be useful to have the Tooltip visible all the time.
           use the <code>isStatic</code> prop to achieve this.
         </Text>
-        <DemoWidget name="Tooltip" width={width}>
+        <DemoWidget name="Tooltip" width={width} height={250}>
           <Tooltip
             message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
             position={position}
@@ -114,20 +112,20 @@ const Widgets = () => {
             isStatic
           >
             <div style={{ width: `${width}px` }}>
-              <Card height={300}>
-                <Image height={280} src="https://bit.ly/37wPJb5" />
+              <Card height={100}>
+                <Image height={80} src="https://bit.ly/37wPJb5" />
               </Card>
             </div>
           </Tooltip>
         </DemoWidget>
       </Section>
-      <Section size="md" title="Activate Tooltip on click">
+      <Section size="md" title="Activate Tooltip on click" height={500}>
         <Text>
           Tooltip can be also activated by clicking on the target element via
           the <code>openOnClick</code> prop. In this mode a close button will be
           additionally rendered to close the tooltip.
         </Text>
-        <DemoWidget name="Tooltip" width={width}>
+        <DemoWidget name="Tooltip" width={width} height={350}>
           <Tooltip
             message="Phasellus dignissim, diam id ullamcorper imperdiet, lacus nibh aliquam diam, at pulvinar"
             position={position}

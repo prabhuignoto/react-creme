@@ -419,9 +419,8 @@ pre {
     width: 100% !important;
     box-shadow: var(--shadow-card) !important;
     transition: all var(--transition-base) !important;
-    /* Allow tooltips to overflow and be visible */
-    overflow-x: hidden !important;
-    overflow-y: visible !important;
+    /* Allow tooltips to overflow and be visible - no scrollbars */
+    overflow: visible;
 
     &:hover {
       box-shadow: var(--shadow-card-hover) !important;
@@ -442,6 +441,7 @@ pre {
     /* Section body */
     .rc-section-body {
       padding: var(--spacing-xl) !important;
+      overflow: visible;
     }
   }
 }
@@ -451,7 +451,7 @@ pre {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   /* Allow tooltips to overflow vertically */
   overflow-y: visible;
 }
@@ -490,7 +490,7 @@ pre {
 
   /* Ensure Section body doesn't constrain content */
   .rc-section-body {
-    overflow: visible !important;
+    overflow: visible;
     max-width: none !important;
     width: 100% !important;
   }

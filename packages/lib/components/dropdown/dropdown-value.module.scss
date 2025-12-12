@@ -5,6 +5,7 @@
 @use '@design/position.scss';
 @use '@design/font.scss';
 @use '@design/effects.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (sm, md, lg);
@@ -16,11 +17,8 @@ $sizes: (sm, md, lg);
   font-size: 14px;
   min-height: 40px;
   padding: tokens.$space-2 tokens.$space-1;
-  transition:
-    border-color 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background 0.4s ease-in-out;
+  border-radius: hybrid.$radius-md;
+  @include hybrid.smooth-multi-transition(border-color, box-shadow, transform, background);
   width: 100%;
   transform: scaleY(1);
   position: relative;
@@ -50,20 +48,20 @@ $sizes: (sm, md, lg);
   }
 
   // Add hover state with stretch + shine effect
-  &:not(.dark):not(.disabled):hover {
-    border-color: rgba(107, 114, 128, 0.25);
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    transform: scaleY(1.05);
-    animation: subtle-shine 0.6s ease-in-out;
+  &:not(.dark):not(.disabled) {
+    @include hybrid.hover-feedback() {
+      border-color: rgba(107, 114, 128, 0.25);
+      box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      animation: subtle-shine hybrid.$animation-duration-elaborate hybrid.$ease-smooth;
+    }
   }
 
   // Enhanced focus-visible for modern browsers
   &:not(.dark):focus-visible {
-    outline: 2px solid rgba(107, 114, 128, 0.5);
-    outline-offset: 2px;
+    @include hybrid.focus-outline(theme.$primary);
   }
 
   &.open {
@@ -162,6 +160,7 @@ $sizes: (sm, md, lg);
   transform-origin: center;
   z-index: 1;
   filter: drop-shadow(0 2px 4px rgba(107, 114, 128, 0.1));
+  margin-right: tokens.$space-2;
 }
 
 .container.dark .chevron_icon {
@@ -194,10 +193,12 @@ $sizes: (sm, md, lg);
   }
 
   // Enhanced hover and focus states with refined snap/ping effect
-  &:hover:not(.clear_icon_hidden) {
-    animation: refined-ping 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    color: theme.$crimson;
-    filter: drop-shadow(0 4px 8px rgba(220, 38, 38, 0.2));
+  @include hybrid.hover-feedback() {
+    &:not(.clear_icon_hidden) {
+      animation: refined-ping 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      color: theme.$crimson;
+      filter: drop-shadow(0 4px 8px rgba(220, 38, 38, 0.2));
+    }
   }
 
   &:active:not(.clear_icon_hidden) {
@@ -214,8 +215,10 @@ $sizes: (sm, md, lg);
   color: theme.$primary;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 
-  &:hover:not(.clear_icon_hidden) {
-    filter: drop-shadow(0 4px 8px rgba(220, 38, 38, 0.4));
+  @include hybrid.hover-feedback() {
+    &:not(.clear_icon_hidden) {
+      filter: drop-shadow(0 4px 8px rgba(220, 38, 38, 0.4));
+    }
   }
 
   &:focus-visible {

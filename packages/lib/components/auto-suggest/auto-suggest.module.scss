@@ -4,14 +4,15 @@
 @use '@design/tokens.scss';
 @use '@design/effects.scss';
 @use '@design/shadow.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 // Design tokens for AutoSuggest component
 $suggestions-min-width: 250px;
 $suggestions-max-height: 300px;
 $suggestions-min-height: 100px;
 $suggestions-border-width: 1px;
-$suggestions-animation-duration: 0.15s;
-$suggestions-animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
+$suggestions-animation-duration: hybrid.$animation-duration-primary;
+$suggestions-animation-timing: hybrid.$ease-smooth;
 
 // Spacing tokens
 $input-padding: tokens.$space-3 tokens.$space-4;
@@ -23,7 +24,7 @@ $menu-item-padding: tokens.$space-2 tokens.$space-3;
   height: 35px;
 
   // Smooth transitions for interactive states
-  @include effects.include-transition(box-shadow, $suggestions-animation-duration, $suggestions-animation-timing);
+  @include hybrid.smooth-transition(box-shadow);
 
   // Disable Input component's pseudo-element focus ring to avoid double outlines
   // Use only the global :focus-visible outline for a single, clean focus indicator
@@ -46,11 +47,7 @@ $menu-item-padding: tokens.$space-2 tokens.$space-3;
   z-index: 999;
 
   // Smooth appearance animation with non-blocking transitions
-  @include effects.include-transition(
-    all,
-    $suggestions-animation-duration,
-    $suggestions-animation-timing
-  );
+  @include hybrid.smooth-multi-transition(transform, opacity, box-shadow, background-color, border-color);
 
   // Transform animation for smooth reveal
   transform: translateY(0);
@@ -72,8 +69,7 @@ $menu-item-padding: tokens.$space-2 tokens.$space-3;
 
   // Enhanced accessibility: Focus styling for menu interactions
   &:focus-visible {
-    outline: 2px solid theme.$primary;
-    outline-offset: -2px;
+    @include hybrid.focus-outline(theme.$primary);
   }
 }
 

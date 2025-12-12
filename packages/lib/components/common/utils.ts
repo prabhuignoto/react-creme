@@ -36,3 +36,9 @@ export function isDark(): boolean {
     document.documentElement.style.getPropertyValue('--rc-dark-mode') === 'true'
   );
 }
+
+export function omitUndefined<T extends Record<string, any>>(obj: T): Partial<T> {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([_, value]) => value !== undefined)
+  ) as Partial<T>;
+}

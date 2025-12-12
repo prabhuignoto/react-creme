@@ -7,6 +7,8 @@ export type TreeNodeProps = {
   level?: number;
   name?: string;
   nodes?: TreeNodeProps[];
+  parentPath?: string;
+  disabled?: boolean;
   onSelect?: (id?: string, open?: boolean) => void;
   onToggleExpand?: (id: string) => void;
   posInSet?: number;

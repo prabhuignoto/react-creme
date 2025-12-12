@@ -134,7 +134,7 @@
   @include hybrid.smooth-multi-transition(background-color, color, transform);
 
   // Hover state with interactive feedback
-  &:hover:not(:disabled):not(.active) {
+  &:not(:disabled):not(.active) {
     @include hybrid.hover-feedback() {
       background-color: rgba(theme.$primary-rgb, 0.1);
     }
@@ -186,7 +186,7 @@
   @include hybrid.smooth-multi-transition(background-color, color);
 
   // Keep background on hover for active items with interactive feedback
-  &:hover:not(:disabled) {
+  &:not(:disabled) {
     @include hybrid.hover-feedback() {
       background: rgba(theme.$primary-rgb, 0.9);
     }

@@ -3,6 +3,7 @@
 @use '@design/theme.scss';
 @use '@design/core.scss';
 @use '@design/position.scss';
+@use '@design/hybrid-theme.scss' as hybrid;
 
 .rc-overlay-wrapper {
   @extend %center;
@@ -13,7 +14,7 @@
   overflow: hidden;
   position: fixed;
   top: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity hybrid.$animation-duration-primary hybrid.$ease-smooth;
   z-index: 9999;
 
   &.rc-overlay-contained {

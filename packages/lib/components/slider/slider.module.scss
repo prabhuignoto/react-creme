@@ -21,7 +21,7 @@
   height: var(--size);
   outline: 0;
   position: absolute;
-  @include hybrid.smooth-transition(box-shadow);
+  @include hybrid.smooth-multi-transition(box-shadow, transform);
   width: var(--size);
   z-index: 10;
 
@@ -38,6 +38,16 @@
     @include hybrid.drop-shadow-refined(medium);
   }
 
+  &:not(.control_dragging) {
+    @include hybrid.hover-feedback() {
+      @include hybrid.drop-shadow-refined(soft);
+    }
+
+    @include hybrid.touch-feedback() {
+      transform: scale(0.98);
+    }
+  }
+
   &.control_dragging,
   &:focus {
     box-shadow: 0 0 1px calc(var(--size) / 2) rgba(theme.$primary-rgb, 0.25);
@@ -45,6 +55,10 @@
 
   &:not(.control_dragging):not(:focus) {
     box-shadow: none;
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 }
 

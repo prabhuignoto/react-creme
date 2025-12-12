@@ -108,10 +108,6 @@ $sizes: (sm, md, lg);
   cursor: pointer;
   display: block;
   position: relative;
-
-  &:hover {
-    // background: theme.$primary;
-  }
 }
 
 .label {
@@ -124,8 +120,10 @@ $sizes: (sm, md, lg);
     }
   }
 
-  &:not(.dark):hover {
-    color: theme.$white;
+  &:not(.dark) {
+    @include hybrid.hover-feedback() {
+      color: theme.$white;
+    }
   }
 }
 

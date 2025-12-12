@@ -30,9 +30,20 @@ $spacing-sm: 0.5rem;
   flex-shrink: 0;
   flex-wrap: nowrap;
   gap: $spacing-xs;
+  @include hybrid.smooth-multi-transition(color, background-color, transform);
 
   &:not(:first-child) {
     margin-left: $spacing-sm;
+  }
+
+  // Device-aware feedback
+  @include hybrid.hover-feedback() {
+    background: rgba(theme.$secondary-rgb, 0.15);
+    border-radius: hybrid.$radius-sm;
+  }
+
+  @include hybrid.touch-feedback() {
+    transform: scale(0.98);
   }
 
   // Mobile: Allow wrapping if needed
@@ -66,7 +77,7 @@ $spacing-sm: 0.5rem;
   display: inline-flex;
   align-items: center;
   padding: $spacing-xs;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  @include hybrid.smooth-multi-transition(background-color, color, transform);
 
   &.selected {
     background-color: rgba(theme.$primary-rgb, 0.1);
@@ -75,6 +86,10 @@ $spacing-sm: 0.5rem;
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 
   @each $size in $sizes {

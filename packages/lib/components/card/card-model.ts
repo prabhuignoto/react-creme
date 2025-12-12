@@ -44,6 +44,12 @@ export interface CardProps {
   height?: number;
 
   /**
+   * Width of the card in pixels
+   * @default undefined
+   */
+  width?: number;
+
+  /**
    * Whether to show a drop shadow
    * @default true
    */

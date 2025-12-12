@@ -13,7 +13,10 @@ $sizes: (sm, md, lg);
   overflow: hidden;
   position: absolute;
   top: 0;
-  @include hybrid.smooth-multi-transition(height, top);
+  border-radius: 0 0 hybrid.$radius-md hybrid.$radius-md;
+  transition: height hybrid.$animation-duration-primary hybrid.$spring-easing,
+    top hybrid.$animation-duration-primary hybrid.$spring-easing,
+    opacity hybrid.$animation-duration-primary hybrid.$spring-easing;
   width: 100%;
 
   &.success {
@@ -50,10 +53,12 @@ $sizes: (sm, md, lg);
 .animation_shrink {
   &.open {
     height: var(--height);
+    opacity: 1;
   }
 
   &.close {
     height: 0;
+    opacity: 0;
   }
 }
 
@@ -62,10 +67,12 @@ $sizes: (sm, md, lg);
 
   &.open {
     top: 0;
+    opacity: 1;
   }
 
   &.close {
     top: calc(var(--height) * -1);
+    opacity: 0;
   }
 }
 
@@ -82,10 +89,20 @@ $sizes: (sm, md, lg);
   display: block;
   margin-left: auto;
   margin-right: tokens.$space-2;
+  @include hybrid.interactive-feedback(
+    $hover-effect: scale(1.1),
+    $touch-effect: scale(0.95)
+  );
 }
 
 .message {
   @extend %left;
   font-weight: 300;
   margin-left: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .global_notification {
+    transition: none !important;
+  }
 }

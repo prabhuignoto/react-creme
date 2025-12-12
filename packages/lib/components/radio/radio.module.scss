@@ -4,6 +4,8 @@
 @use '@design/animate.scss';
 @use '@design/animations.scss';
 @use '@design/effects.scss';
+@use '@design/shadow.scss' as shadow;
+@use '@design/hybrid-theme.scss' as hybrid;
 @use 'sass:map';
 
 $sizes: (
@@ -29,6 +31,7 @@ $heights: (
   padding: 0.25rem 0;
   padding-left: 0.5rem;
   direction: ltr;
+  @include hybrid.smooth-multi-transition(background-color, color, transform);
 
   &.rtl {
     direction: rtl;
@@ -43,6 +46,13 @@ $heights: (
   &.disabled {
     @extend %disabled;
     cursor: not-allowed;
+    @include hybrid.state-disabled();
+  }
+
+  @include hybrid.touch-feedback() {
+    &:not(.disabled) {
+      transform: scale(0.98);
+    }
   }
 
   @each $key, $val in $heights {
@@ -53,16 +63,16 @@ $heights: (
   }
 }
 
-.wrapper:hover:not(.disabled) {
+.wrapper:not(.disabled) {
   @extend %border-radius;
-  @include effects.include-transition(background);
+  @include hybrid.hover-feedback() {
+    &.dark {
+      background: theme.$gunmetal-gray;
+    }
 
-  &.dark {
-    background: theme.$gunmetal-gray;
-  }
-
-  &:not(.dark) {
-    background: rgba(theme.$secondary-rgb, 0.25);
+    &:not(.dark) {
+      background: rgba(theme.$secondary-rgb, 0.25);
+    }
   }
 }
 
@@ -71,9 +81,10 @@ $heights: (
   height: 100%;
   position: relative;
   user-select: none;
+  @include hybrid.smooth-transition(transform);
 
-  &:focus {
-    outline: 0;
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 
   @each $key, $val in $sizes {
@@ -107,9 +118,12 @@ $heights: (
   border-radius: 50%;
   display: block;
   position: relative;
+  @include hybrid.smooth-transition(border, box-shadow);
 
-  &:hover:not(.disabled) {
-    @extend %shadow-inset;
+  &:not(.disabled) {
+    @include hybrid.hover-feedback() {
+      @include shadow.shadow-inset;
+    }
   }
 
   &.ico_checked {

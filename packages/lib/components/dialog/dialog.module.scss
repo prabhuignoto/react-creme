@@ -32,6 +32,78 @@
   }
 }
 
+@keyframes dialog-drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialog-drop-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes dialog-slide-left-in {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dialog-slide-left-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+
+@keyframes dialog-slide-right-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dialog-slide-right-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
 // ============================================================================
 // DIALOG COMPONENT
 // ============================================================================
@@ -60,7 +132,7 @@
   position: relative;
 
   // 4. Entrance animation
-  animation: hybrid-fade-in-scale var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
+  animation: hybrid-fade-in-scale var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$spring-easing forwards;
 
   // 5. Nested selectors
   &.dark {
@@ -95,35 +167,44 @@
   // Legacy animation support (backward compatibility)
   &.pop_enter,
   &.fade-in-scale {
-    animation: hybrid-fade-in-scale var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
+    animation: hybrid-fade-in-scale var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$spring-easing forwards;
   }
 
   &.drop_enter {
-    animation: hybrid-slide-in-down var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
+    animation: dialog-drop-in var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$spring-easing forwards;
   }
 
   &.rise_enter {
-    animation: dialog-rise-in var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
+    animation: dialog-rise-in var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$spring-easing forwards;
   }
 
   &.slide-left_enter {
-    animation: hybrid-slide-in-left var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
+    animation: dialog-slide-left-in var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$spring-easing forwards;
   }
 
   &.slide-right_enter {
-    animation: hybrid-slide-in-right var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
+    animation: dialog-slide-right-in var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$spring-easing forwards;
   }
 
-  // Legacy exit animations
-  &.pop_leave,
-  &.drop_leave,
-  &.slide-left_leave,
-  &.slide-right_leave {
+  // Exit animations
+  &.pop_leave {
     animation: hybrid-exit-fade var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
+  }
+
+  &.drop_leave {
+    animation: dialog-drop-out var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
   }
 
   &.rise_leave {
     animation: dialog-rise-out var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
+  }
+
+  &.slide-left_leave {
+    animation: dialog-slide-left-out var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
+  }
+
+  &.slide-right_leave {
+    animation: dialog-slide-right-out var(--rc-dialog-animation-duration, hybrid.$animation-duration-primary) hybrid.$ease-smooth forwards;
   }
 }
 

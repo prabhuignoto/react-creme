@@ -31,8 +31,18 @@ $sizes: (sm, md, lg);
   transition: transform hybrid.$animation-duration-critical hybrid.$ease-smooth,
     box-shadow hybrid.$animation-duration-critical hybrid.$ease-smooth;
 
+  &:not(.disabled) {
+    @include hybrid.hover-feedback() {
+      @include hybrid.hover-lift();
+    }
+  }
+
   &:active:not(.disabled) {
     animation: hybrid-refined-ping hybrid.$animation-duration-critical hybrid.$spring-easing;
+  }
+
+  &:focus-visible {
+    @include hybrid.focus-outline(theme.$primary);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -136,7 +146,7 @@ $sizes: (sm, md, lg);
     }
 
     &:not(.dark):not(.disabled) {
-      @include hybrid.hover-lift(2px, true);
+      @include hybrid.hover-lift();
       background: theme.$primary;
       color: theme.$white;
     }
