@@ -45,16 +45,6 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
       : []
   );
 
-  const [sidebarHeight, setSidebarHeight] = useState(0);
-
-  const ref = useRef<HTMLDivElement | null>(null);
-
-  // Stabilize onSelect callback to prevent infinite loops
-  const onSelectRef = useRef(onSelect);
-  useLayoutEffect(() => {
-    onSelectRef.current = onSelect;
-  });
-
   const isDarkMode = useMemo(() => isDark(), []);
 
   const handleSelection = useCallback(
@@ -71,7 +61,6 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
             })),
           }));
 
-          // Find group from the updated state, not stale _groups
           updatedGroup = updated.find(grp => grp.id === groupId);
           return updated;
         });
@@ -120,7 +109,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
     return {
       '--sidebar-height': Number.isInteger(height) ? `${height}px` : height,
     } as CSSProperties;
-  }, []);
+  }, [height]);
 
   const contentWrapper = useMemo(() => {
     return classNames(styles.content_wrapper, {
@@ -128,17 +117,13 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
     });
   }, [border]);
 
-  const onRef = useCallback((node: HTMLDivElement) => {
-    if (node) {
-      ref.current = node;
-      setSidebarHeight(
-        node.clientHeight ? node.clientHeight : window.innerHeight
-      );
-    }
-  }, []);
+  const onSelectRef = useRef(onSelect);
+  useLayoutEffect(() => {
+    onSelectRef.current = onSelect;
+  });
 
   return (
-    <div className={sideBarClass} style={style} ref={onRef}>
+    <div className={sideBarClass} style={style}>
       <div className={contentWrapper}>
         {enableSearch && (
           <div className={styles.search_wrapper}>
@@ -160,7 +145,6 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
           onSelection={handleSelection}
           groupIconColor={groupIconColor}
           groupTitleColor={groupTitleColor}
-          sideBarHeight={sidebarHeight}
           listMaxHeight={listMaxHeight}
           sectionsCollapsible={sectionsCollapsible}
           icons={icons}

@@ -36,3 +36,4 @@ export default function App() {
   return <Sidebar enableSearch focusable groups={groups} />;
 }`;
 
+

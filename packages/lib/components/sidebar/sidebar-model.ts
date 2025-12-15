@@ -44,5 +44,4 @@ export type SidebarGroupsModel = Pick<
 > & {
   groups: SidebarGroupModel[];
   onSelection: (option: ListOption[], id?: string) => void;
-  sideBarHeight?: number;
 };

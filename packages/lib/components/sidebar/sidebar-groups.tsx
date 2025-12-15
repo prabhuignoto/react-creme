@@ -1,4 +1,4 @@
-import React, { CSSProperties, useMemo } from 'react';
+import React from 'react';
 import { AccordionGroup } from '../accordion-group/accordion-group';
 import { List } from '../list/list';
 import { SidebarGroupsModel } from './sidebar-model';
@@ -11,19 +11,12 @@ const SidebarGroups: React.FunctionComponent<SidebarGroupsModel> = ({
   listMaxHeight,
   focusable,
   onSelection,
-  sideBarHeight,
   sectionsCollapsible,
   icons,
   enableSearch,
 }) => {
-  const groupsWrapperStyle = useMemo(() => {
-    return {
-      height: `${sideBarHeight}px`,
-    } as CSSProperties;
-  }, [sideBarHeight]);
-
   return (
-    <div className={styles.groups_wrapper} style={groupsWrapperStyle}>
+    <div className={styles.groups_wrapper}>
       <AccordionGroup
         titles={groups.filter(grp => grp.visible).map(grp => grp.title)}
         expanded

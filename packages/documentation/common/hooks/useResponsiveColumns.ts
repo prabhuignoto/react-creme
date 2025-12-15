@@ -37,8 +37,6 @@ export function useResponsiveColumns(
           width: 150,
           parseHtml: true,
         },
-        { name: 'optional', type: 'string' },
-        { name: 'type', type: 'string' },
       ];
     }
 
@@ -87,8 +85,6 @@ export function useResponsiveColumns(
           width: widths.default,
           parseHtml: true,
         },
-        { name: 'optional', type: 'string' },
-        { name: 'type', type: 'string' },
       ];
     }
 
