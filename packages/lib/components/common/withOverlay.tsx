@@ -73,9 +73,15 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
     useEffect(() => {
       if (containedToParent?.current) {
         portalContainer.current = containedToParent.current;
+        const originalPosition = portalContainer.current.style.position;
         portalContainer.current.style.position = 'relative';
         setPortalWrapperCreated(true);
-        return undefined;
+        
+        return () => {
+          if (portalContainer.current) {
+            portalContainer.current.style.position = originalPosition || '';
+          }
+        };
       } else {
         overlayRef.current = document.createElement('div');
         overlayRef.current.className = `${classPrefix.current}-portal-wrapper`;
@@ -84,10 +90,13 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
         setPortalWrapperCreated(true);
 
         return () => {
-          document.body.removeChild(overlayRef.current as HTMLElement);
+          if (overlayRef.current && document.body.contains(overlayRef.current)) {
+            document.body.removeChild(overlayRef.current);
+          }
+          overlayRef.current = null;
         };
       }
-    }, []);
+    }, [containedToParent]);
 
     const handleClose = useCallback(() => {
       setIsClosing(true);
@@ -95,17 +104,13 @@ const withOverlay = function <T extends OverlayModel<U>, U>(
       if (!disableAnimation) {
         setTimeout(() => {
           setPortalWrapperCreated(false);
-          if (onClose) {
-            onClose();
-          }
+          onClose?.();
         }, 250);
       } else {
         setPortalWrapperCreated(false);
-        if (onClose) {
-          onClose();
-        }
+        onClose?.();
       }
-    }, []);
+    }, [disableAnimation, onClose]);
 
     const handleChildClose = useCallback(() => setChildInvokedClose(true), []);
 

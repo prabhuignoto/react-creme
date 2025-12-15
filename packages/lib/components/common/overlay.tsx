@@ -10,7 +10,6 @@ import React, {
   useState,
 } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
-import { useDebouncedCallback } from 'use-debounce';
 import { OverlayProps } from './overlay-model';
 import './overlay.scss';
 import { OverlayContext, OverlayContextModel } from './withOverlay';
@@ -45,6 +44,8 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const overlayContentRef = useRef<HTMLDivElement | null>(null);
   const observer = useRef<ResizeObserver | null>(null);
+  const rafIdRef = useRef<number | null>(null);
+  const scrollListenersRef = useRef<Set<HTMLElement | Document>>(new Set());
   const [retriggerStyleCal, setRetriggerStyleCal] = useState<number>(0);
 
   /**
@@ -55,9 +56,15 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     width: number;
   } | null>(null);
 
-  const retrigger = useDebouncedCallback(() => {
-    setRetriggerStyleCal(new Date().getTime());
-  }, 5);
+  const retrigger = useCallback(() => {
+    if (rafIdRef.current !== null) {
+      cancelAnimationFrame(rafIdRef.current);
+    }
+    rafIdRef.current = requestAnimationFrame(() => {
+      setRetriggerStyleCal(prev => prev + 1);
+      rafIdRef.current = null;
+    });
+  }, []);
 
   const overlayWrapperClass = useMemo(() => {
     return classNames(['rc-overlay-wrapper'], {
@@ -136,10 +143,57 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     return {} as CSSProperties;
   }, [placementReference, retriggerStyleCal, overlayDimensions, placement, context, leftOffset, placementOffset]);
 
-  // event handlers
+  /**
+   * Finds all scrollable parent elements of the placement reference
+   */
+  const getScrollableParents = useCallback((element: HTMLElement | null): (HTMLElement | Document)[] => {
+    const scrollableParents: (HTMLElement | Document)[] = [document];
+    
+    if (!element) return scrollableParents;
+
+    let current: HTMLElement | null = element;
+    while (current && current !== document.body && current !== document.documentElement) {
+      const style = window.getComputedStyle(current);
+      const overflowY = style.overflowY;
+      const overflowX = style.overflowX;
+      const isScrollable = 
+        (overflowY === 'auto' || overflowY === 'scroll') ||
+        (overflowX === 'auto' || overflowX === 'scroll');
+      
+      if (isScrollable && current.scrollHeight > current.clientHeight) {
+        scrollableParents.push(current);
+      }
+      
+      current = current.parentElement;
+    }
+    
+    return scrollableParents;
+  }, []);
+
+  /**
+   * Synchronizes the position of the overlay content with the scroll position
+   * Uses requestAnimationFrame for smooth, performant updates
+   */
+  const handleScroll = useCallback(() => {
+    retrigger();
+  }, [retrigger]);
 
   const closeProcess = useCallback(() => {
-    document.removeEventListener('scroll', handleWindowScroll);
+    if (rafIdRef.current !== null) {
+      cancelAnimationFrame(rafIdRef.current);
+      rafIdRef.current = null;
+    }
+    
+    const eventOptions = { capture: true, passive: true } as AddEventListenerOptions;
+    scrollListenersRef.current.forEach(listener => {
+      if (listener === document) {
+        document.removeEventListener('scroll', handleScroll, eventOptions);
+      } else {
+        (listener as HTMLElement).removeEventListener('scroll', handleScroll, eventOptions);
+      }
+    });
+    scrollListenersRef.current.clear();
+    
     observer.current?.disconnect();
     onClose?.();
     setHideOverlay(true);
@@ -147,7 +201,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     if (hideDocumentOverflow) {
       // document.body.style.overflow = 'auto';
     }
-  }, []);
+  }, [handleScroll, onClose, hideDocumentOverflow]);
 
   /**
    *
@@ -166,7 +220,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
     if (context?.childClosing) {
       closeProcess();
     }
-  }, [context?.childClosing]);
+  }, [context?.childClosing, closeProcess]);
 
   /**
    * Closes the overlay when click outside of the overlay content
@@ -181,16 +235,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
         closeProcess();
       }
     },
-    [overlayContentRef]
-  );
-
-  /**
-   * Synchronizes the position of the overlay content with the scroll position
-   * (do not auto-close overlays on scroll).
-   */
-  const handleWindowScroll = useDebouncedCallback(
-    () => setRetriggerStyleCal(new Date().getTime()),
-    10
+    [closeProcess]
   );
 
   // onMount process
@@ -201,36 +246,58 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
       document.body.style.overflow = 'hidden';
     }
 
-    document.addEventListener('scroll', handleWindowScroll);
+    const scrollableParents = getScrollableParents(placementReference?.current || null);
+    const eventOptions = { capture: true, passive: true } as AddEventListenerOptions;
+
+    scrollableParents.forEach(parent => {
+      if (parent === document) {
+        document.addEventListener('scroll', handleScroll, eventOptions);
+      } else {
+        (parent as HTMLElement).addEventListener('scroll', handleScroll, eventOptions);
+      }
+      scrollListenersRef.current.add(parent);
+    });
 
     if (overlayAnimation) {
       setHideOverlay(false);
     }
 
-    // cleanup
     return () => {
-      document.removeEventListener('scroll', handleWindowScroll);
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = null;
+      }
+      
+      scrollListenersRef.current.forEach(listener => {
+        if (listener === document) {
+          document.removeEventListener('scroll', handleScroll, eventOptions);
+        } else {
+          (listener as HTMLElement).removeEventListener('scroll', handleScroll, eventOptions);
+        }
+      });
+      scrollListenersRef.current.clear();
+      
       if (hideDocumentOverflow) {
         document.body.style.overflow = originalOverflow;
       }
-      // observer.current?.disconnect();
     };
-  }, [hideDocumentOverflow, handleWindowScroll, overlayAnimation]);
+  }, [hideDocumentOverflow, handleScroll, overlayAnimation, placementReference, getScrollableParents]);
 
   const onRef = useCallback((node: HTMLDivElement) => {
     const ele = node as HTMLDivElement;
     if (ele) {
       overlayRef.current = ele;
 
+      if (observer.current) {
+        observer.current.disconnect();
+      }
+      
       observer.current = new ResizeObserver(retrigger);
-
       observer.current.observe(ele);
 
       onOpen?.();
-      // setTimeout(() => {
-      // }, 50);
     }
-  }, []);
+  }, [retrigger, onOpen]);
 
   const onOverlayRef = useCallback((node: HTMLDivElement) => {
     const ele = node as HTMLDivElement;
@@ -249,18 +316,18 @@ const Overlay: React.FunctionComponent<OverlayProps> = ({
    * we would want to hide the overlay content until the overlay is positioned correctly.
    */
   const customPlacementStyle = useMemo<CSSProperties>(() => {
-    if (placement && placementStyle) {
+    if (placement && placementStyle && Object.keys(placementStyle).length > 0) {
       return placementStyle;
     }
 
-    if (placement && !placementStyle) {
+    if (placement && (!placementStyle || Object.keys(placementStyle).length === 0)) {
       return {
         visibility: 'hidden',
       };
     }
 
     return {};
-  }, [JSON.stringify(placementStyle), placement]);
+  }, [placementStyle, placement]);
 
   return !disableBackdrop ? (
     <div

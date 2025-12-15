@@ -24,7 +24,7 @@
 
   &.dark {
     @extend %shadow-medium-dark;
-    background: linear-gradient(135deg, theme.$dark-control-bg 0%, rgba(31, 41, 55, 0.8) 100%);
+    background: theme.$dark-control-bg;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
       0 10px 10px -5px rgba(0, 0, 0, 0.2),
       0 0 0 1px rgba(75, 85, 99, 0.2);
@@ -32,7 +32,7 @@
   }
 
   &:not(.dark) {
-    background: linear-gradient(135deg, theme.$white 0%, rgba(249, 250, 251, 0.8) 100%);
+    background: theme.$white;
     position: relative;
 
     // Polished glow effect for opening animation
