@@ -171,3 +171,4 @@ Most components import both files:
 - `packages/lib/design/hybrid-theme.scss` - Hybrid theme system
 - `packages/lib/design/shadow.scss` - Shadow utilities
 - `packages/lib/design/DESIGN_SYSTEM.md` - Design system documentation
+
