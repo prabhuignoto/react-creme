@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.20.0",
-    "@docsearch/react": "^3.5.0",
+    "@docsearch/react": "^4.4.0",
     "@stackblitz/sdk": "^1.9.0",
     "algoliasearch": "^5.25.0",
     "classnames": "^2.3.2",
