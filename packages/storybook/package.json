@@ -34,7 +34,7 @@
     "@types/node": "^20.3.0",
     "acorn": "^8.8.2",
     "babel-loader": "^9.1.2",
-    "chromatic": "^6.18.2",
+    "chromatic": "^13.3.4",
     "sass": "^1.90.0",
     "typescript": "^5.9.3"
   },
